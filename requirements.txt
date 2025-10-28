@@ -1,0 +1,21 @@
+# --- Core scraping / parsing ---
+playwright>=1.47.0        # for dynamic HTML rendering
+beautifulsoup4>=4.12.2    # for HTML parsing
+lxml>=4.9.3               # faster parser backend for BeautifulSoup
+nest_asyncio>=1.6.0       # allows asyncio in notebooks (e.g., Jupyter/VSC)
+
+# --- Data handling ---
+pandas>=2.1.0             # for DataFrame manipulation and CSV handling
+
+# --- Database (MySQL + ORM) ---
+SQLAlchemy>=2.0.0         # modern ORM for database schema and queries
+pymysql>=1.1.0            # MySQL connector for SQLAlchemy
+python-dotenv>=1.0.0      # load DATABASE_URL and config from .env
+
+# --- Optional developer tools ---
+requests>=2.31.0          # for simple HTTP fetches (fallback if needed)
+tqdm>=4.66.0              # progress bars during scraping/loading
+alembic>=1.13.0           # optional, for schema migrations
+
+# --- (Optional for Jupyter / notebooks) ---
+ipykernel>=6.25.0         # if running inside Jupyter/VSC notebooks

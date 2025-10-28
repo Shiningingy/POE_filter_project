@@ -1,0 +1,19 @@
+# Python
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
+# Virtual env
+.venv/
+
+# Environment variables
+.env
+
+# Data (cache, output, logs)
+# data/cache/
+# data/out/*.csv
+**/*.log
+
+# Jupyter
+**/.ipynb_checkpoints/
