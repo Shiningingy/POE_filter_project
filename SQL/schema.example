@@ -1,0 +1,6 @@
+#mysql -u root -p
+
+CREATE DATABASE poe_filter CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'poe_user'@'localhost' IDENTIFIED BY 'strong_password_here';
+GRANT ALL PRIVILEGES ON poe_filter.* TO 'poe_user'@'localhost';
+FLUSH PRIVILEGES;
