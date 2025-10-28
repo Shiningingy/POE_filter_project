@@ -8,7 +8,7 @@
 .venv/
 
 # Environment variables
-.env
+**/.env
 
 # Data (cache, output, logs)
 # data/cache/
