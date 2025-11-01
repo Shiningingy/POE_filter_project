@@ -1,0 +1,386 @@
+[
+  {
+    "_rid": 0,
+    "Id": "Flask",
+    "Text": "藥劑",
+    "Unknown3": null
+  },
+  {
+    "_rid": 1,
+    "Id": "One Hand Mace",
+    "Text": "單手錘",
+    "Unknown3": null
+  },
+  {
+    "_rid": 2,
+    "Id": "One Hand Sword",
+    "Text": "單手劍",
+    "Unknown3": null
+  },
+  {
+    "_rid": 3,
+    "Id": "Dagger",
+    "Text": "匕首",
+    "Unknown3": null
+  },
+  {
+    "_rid": 4,
+    "Id": "Staff",
+    "Text": "長杖",
+    "Unknown3": null
+  },
+  {
+    "_rid": 5,
+    "Id": "Currency",
+    "Text": "通貨",
+    "Unknown3": null
+  },
+  {
+    "_rid": 6,
+    "Id": "Amulet",
+    "Text": "項鍊",
+    "Unknown3": null
+  },
+  {
+    "_rid": 7,
+    "Id": "Ring",
+    "Text": "戒指",
+    "Unknown3": null
+  },
+  {
+    "_rid": 8,
+    "Id": "Claw",
+    "Text": "爪",
+    "Unknown3": null
+  },
+  {
+    "_rid": 9,
+    "Id": "Wand",
+    "Text": "法杖",
+    "Unknown3": null
+  },
+  {
+    "_rid": 10,
+    "Id": "One Hand Axe",
+    "Text": "單手斧",
+    "Unknown3": null
+  },
+  {
+    "_rid": 11,
+    "Id": "Bow",
+    "Text": "弓",
+    "Unknown3": null
+  },
+  {
+    "_rid": 12,
+    "Id": "Two Hand Sword",
+    "Text": "雙手劍",
+    "Unknown3": null
+  },
+  {
+    "_rid": 13,
+    "Id": "Two Hand Axe",
+    "Text": "雙手斧",
+    "Unknown3": null
+  },
+  {
+    "_rid": 14,
+    "Id": "Two Hand Mace",
+    "Text": "雙手錘",
+    "Unknown3": null
+  },
+  {
+    "_rid": 15,
+    "Id": "Active Skill Gem",
+    "Text": "技能寶石",
+    "Unknown3": null
+  },
+  {
+    "_rid": 16,
+    "Id": "Support Skill Gem",
+    "Text": "輔助寶石",
+    "Unknown3": null
+  },
+  {
+    "_rid": 17,
+    "Id": "Quiver",
+    "Text": "箭袋",
+    "Unknown3": null
+  },
+  {
+    "_rid": 18,
+    "Id": "Belt",
+    "Text": "腰帶",
+    "Unknown3": null
+  },
+  {
+    "_rid": 19,
+    "Id": "Gloves",
+    "Text": "手套",
+    "Unknown3": null
+  },
+  {
+    "_rid": 20,
+    "Id": "Boots",
+    "Text": "鞋子",
+    "Unknown3": null
+  },
+  {
+    "_rid": 21,
+    "Id": "Body Armour",
+    "Text": "胸甲",
+    "Unknown3": null
+  },
+  {
+    "_rid": 22,
+    "Id": "Helmet",
+    "Text": "頭盔",
+    "Unknown3": null
+  },
+  {
+    "_rid": 23,
+    "Id": "Shield",
+    "Text": "盾牌",
+    "Unknown3": null
+  },
+  {
+    "_rid": 24,
+    "Id": "QuestItem",
+    "Text": "任務道具",
+    "Unknown3": null
+  },
+  {
+    "_rid": 25,
+    "Id": "Map",
+    "Text": "地圖",
+    "Unknown3": null
+  },
+  {
+    "_rid": 26,
+    "Id": "FishingRod",
+    "Text": "釣竿",
+    "Unknown3": null
+  },
+  {
+    "_rid": 27,
+    "Id": "MapFragment",
+    "Text": "地圖碎片",
+    "Unknown3": null
+  },
+  {
+    "_rid": 28,
+    "Id": "Jewel",
+    "Text": "珠寶",
+    "Unknown3": null
+  },
+  {
+    "_rid": 29,
+    "Id": "DivinationCard",
+    "Text": "命運卡",
+    "Unknown3": null
+  },
+  {
+    "_rid": 30,
+    "Id": "LabyrinthItem",
+    "Text": "帝王迷宮鑰匙",
+    "Unknown3": null
+  },
+  {
+    "_rid": 31,
+    "Id": "LabyrinthTrinket",
+    "Text": "帝王迷宮飾品",
+    "Unknown3": null
+  },
+  {
+    "_rid": 32,
+    "Id": "MiscMapItem",
+    "Text": "一般地圖物品",
+    "Unknown3": null
+  },
+  {
+    "_rid": 33,
+    "Id": "Leaguestone",
+    "Text": "聯盟石",
+    "Unknown3": null
+  },
+  {
+    "_rid": 34,
+    "Id": "PantheonSoul",
+    "Text": "奪取之魂",
+    "Unknown3": null
+  },
+  {
+    "_rid": 35,
+    "Id": "UniqueFragment",
+    "Text": "傳奇碎片",
+    "Unknown3": null
+  },
+  {
+    "_rid": 36,
+    "Id": "AbyssJewel",
+    "Text": "深淵珠寶",
+    "Unknown3": null
+  },
+  {
+    "_rid": 37,
+    "Id": "IncursionItem",
+    "Text": "穿越物品",
+    "Unknown3": null
+  },
+  {
+    "_rid": 38,
+    "Id": "DelveSocketableCurrency",
+    "Text": "鑄新儀",
+    "Unknown3": null
+  },
+  {
+    "_rid": 39,
+    "Id": "Incubator",
+    "Text": "培育器",
+    "Unknown3": null
+  },
+  {
+    "_rid": 40,
+    "Id": "AtlasUpgradeItem",
+    "Text": "守望石",
+    "Unknown3": null
+  },
+  {
+    "_rid": 41,
+    "Id": "MetamorphosisDNA",
+    "Text": "鍊魔樣本",
+    "Unknown3": null
+  },
+  {
+    "_rid": 42,
+    "Id": "HeistContract",
+    "Text": "契約書",
+    "Unknown3": null
+  },
+  {
+    "_rid": 43,
+    "Id": "HeistEquipmentWeapon",
+    "Text": "劫盜裝備",
+    "Unknown3": null
+  },
+  {
+    "_rid": 44,
+    "Id": "HeistEquipmentTool",
+    "Text": "劫盜工具",
+    "Unknown3": null
+  },
+  {
+    "_rid": 45,
+    "Id": "HeistEquipmentUtility",
+    "Text": "劫盜披風",
+    "Unknown3": null
+  },
+  {
+    "_rid": 46,
+    "Id": "HeistEquipmentReward",
+    "Text": "劫盜胸針",
+    "Unknown3": null
+  },
+  {
+    "_rid": 47,
+    "Id": "HeistBlueprint",
+    "Text": "藍圖",
+    "Unknown3": null
+  },
+  {
+    "_rid": 48,
+    "Id": "Trinket",
+    "Text": "飾品",
+    "Unknown3": null
+  },
+  {
+    "_rid": 49,
+    "Id": "HeistObjective",
+    "Text": "劫盜目標",
+    "Unknown3": null
+  },
+  {
+    "_rid": 50,
+    "Id": "ExpeditionLogbook",
+    "Text": "探險日誌",
+    "Unknown3": null
+  },
+  {
+    "_rid": 51,
+    "Id": "InstanceLocalItem",
+    "Text": "地區物品",
+    "Unknown3": null
+  },
+  {
+    "_rid": 52,
+    "Id": "SentinelDrone",
+    "Text": "守望無人機",
+    "Unknown3": null
+  },
+  {
+    "_rid": 53,
+    "Id": "Relic",
+    "Text": "聖物",
+    "Unknown3": null
+  },
+  {
+    "_rid": 54,
+    "Id": "MemoryLine",
+    "Text": "記憶",
+    "Unknown3": null
+  },
+  {
+    "_rid": 55,
+    "Id": "Breachstone",
+    "Text": "裂痕石",
+    "Unknown3": null
+  },
+  {
+    "_rid": 56,
+    "Id": "VaultKey",
+    "Text": "遺鑰",
+    "Unknown3": null
+  },
+  {
+    "_rid": 57,
+    "Id": "Tincture",
+    "Text": "萃取物",
+    "Unknown3": null
+  },
+  {
+    "_rid": 58,
+    "Id": "Charm",
+    "Text": "咒語",
+    "Unknown3": null
+  },
+  {
+    "_rid": 59,
+    "Id": "Corpse",
+    "Text": "屍體",
+    "Unknown3": null
+  },
+  {
+    "_rid": 60,
+    "Id": "NecropolisPack",
+    "Text": "不滅之火餘燼",
+    "Unknown3": null
+  },
+  {
+    "_rid": 61,
+    "Id": "AtlasRelics",
+    "Text": "魔偶",
+    "Unknown3": null
+  },
+  {
+    "_rid": 62,
+    "Id": "BrequelGraft",
+    "Text": "接肢",
+    "Unknown3": null
+  },
+  {
+    "_rid": 63,
+    "Id": "BrequelFruit",
+    "Text": "胎贈",
+    "Unknown3": null
+  }
+]

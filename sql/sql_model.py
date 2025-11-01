@@ -17,48 +17,45 @@ class Base(DeclarativeBase): pass
 
 class ItemClass(Base):
     __tablename__ = "item_classes"
-    id: Mapped[int] = mapped_column(INTEGER(unsigned=True), primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(INTEGER(unsigned=True), primary_key=True,autoincrement=False)
     name: Mapped[str] = mapped_column(String(128), unique=True, nullable=False)
 
     base_types: Mapped[list["BaseType"]] = relationship(back_populates="item_class")
 
 class BaseType(Base):
     __tablename__ = "base_types"
-    id: Mapped[int] = mapped_column(INTEGER(unsigned=True), primary_key=True, autoincrement=True)
+    id: Mapped[int] = mapped_column(INTEGER(unsigned=True), primary_key=True,autoincrement=False)
     item_class_id: Mapped[int] = mapped_column(ForeignKey("item_classes.id"), nullable=False)
     name: Mapped[str] = mapped_column(String(128), nullable=False)
-    href: Mapped[Optional[str]] = mapped_column(String(255))
+    text: Mapped[str] = mapped_column(String(128), nullable=False)
+    #need to add value for filter generation 
+    #value : .....
 
     item_class: Mapped["ItemClass"] = relationship(back_populates="base_types")
-    items: Mapped[list["Item"]] = relationship(back_populates="base_type")
+    unique_items: Mapped[list["UniqueItem"]] = relationship(back_populates="base_type")
 
-    __table_args__ = (UniqueConstraint("item_class_id", "name", name="uniq_base"),)
+    # __table_args__ = (UniqueConstraint("item_class_id", "name", name="uniq_base"),)
 
-class Item(Base):
-    __tablename__ = "items"
-    id: Mapped[int] = mapped_column(BIGINT(unsigned=True), primary_key=True, autoincrement=True)
+class UniqueItem(Base):
+    __tablename__ = "unique_items"
+    id: Mapped[int] = mapped_column(BIGINT(unsigned=True), primary_key=True,autoincrement=False)
     base_type_id: Mapped[int] = mapped_column(ForeignKey("base_types.id"), nullable=False)
-    rarity: Mapped[str] = mapped_column(
-        Enum("Normal","Magic","Rare","Unique","Gem","Currency","Other", name="rarity_enum"),
-        nullable=False
-    )
+
     unique_name: Mapped[Optional[str]] = mapped_column(String(255))
-    source: Mapped[Optional[str]] = mapped_column(String(255))
-    page_type: Mapped[Optional[str]] = mapped_column(String(64))
 
-    base_type: Mapped["BaseType"] = relationship(back_populates="items")
-    stats: Mapped[list["ItemStat"]] = relationship(back_populates="item", cascade="all, delete-orphan")
+    base_type: Mapped["BaseType"] = relationship(back_populates="unique_items")
+    # stats: Mapped[list["ItemStat"]] = relationship(back_populates="item", cascade="all, delete-orphan")
 
-    __table_args__ = (UniqueConstraint("base_type_id", "rarity", "unique_name", name="uniq_item"),)
+    __table_args__ = (UniqueConstraint("base_type_id", "unique_name", name="uniq_item"),)
 
-class ItemStat(Base):
-    __tablename__ = "item_stats"
-    id: Mapped[int] = mapped_column(BIGINT(unsigned=True), primary_key=True, autoincrement=True)
-    item_id: Mapped[int] = mapped_column(ForeignKey("items.id"), nullable=False)
-    stat_key: Mapped[str] = mapped_column(String(64), nullable=False)
-    stat_value: Mapped[str] = mapped_column(String(255), nullable=False)
+# class ItemStat(Base):
+#     __tablename__ = "item_stats"
+#     id: Mapped[int] = mapped_column(BIGINT(unsigned=True), primary_key=True, autoincrement=True)
+#     item_id: Mapped[int] = mapped_column(ForeignKey("items.id"), nullable=False)
+#     stat_key: Mapped[str] = mapped_column(String(64), nullable=False)
+#     stat_value: Mapped[str] = mapped_column(String(255), nullable=False)
 
-    item: Mapped["Item"] = relationship(back_populates="stats")
+#     item: Mapped["Item"] = relationship(back_populates="stats")
 
 def init_db():
     Base.metadata.create_all(ENGINE)
