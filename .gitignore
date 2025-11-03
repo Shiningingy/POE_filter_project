@@ -3,7 +3,11 @@
 **/*.pyc
 **/*.pyo
 **/*.pyd
-
+**/*log.txt
+#test files
+test/
+data/*.filter
+data/*.ruthlessfilter
 # Virtual env
 .venv/
 
