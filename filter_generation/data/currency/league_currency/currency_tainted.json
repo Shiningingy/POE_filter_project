@@ -1,0 +1,79 @@
+{
+    "Tainted Currency": {
+        "_meta": {
+            "theme_category": "currency_tainted",
+            "localization": {
+                "en": "Tainted Currency",
+                "zh": "污秽通货"
+            },
+            "description": "All tainted currency divided by tier.",
+            "tier_order": [
+                "Tier 0 Tainted Currency",
+                "Tier 1 Tainted Currency",
+                "Tier 2 Tainted Currency",
+                "Tier 3 Tainted Currency",
+                "Tier 4 Tainted Currency"
+            ]
+        },
+        "Tier 0 Tainted Currency": {
+            "hideable": false,
+            "min_value": 10,
+            "default_sound_id": 6,
+            "theme": {
+                "Tier": 0
+            },
+            "localization": {
+                "en": "Tier 0 Tainted Currency",
+                "zh": "T0 污秽通货"
+            }
+        },
+        "Tier 1 Tainted Currency": {
+            "hideable": false,
+            "min_value": 6,
+            "default_sound_id": 2,
+            "theme": {
+                "Tier": 2
+            },
+            "localization": {
+                "en": "Tier 1 Tainted Currency",
+                "zh": "T1 污秽通货"
+            }
+        },
+        "Tier 2 Tainted Currency": {
+            "hideable": false,
+            "min_value": 4,
+            "default_sound_id": -1,
+            "theme": {
+                "Tier": 3
+            },
+            "localization": {
+                "en": "Tier 2 Tainted Currency",
+                "zh": "T2 污秽通货"
+            }
+        },
+        "Tier 3 Tainted Currency": {
+            "hideable": true,
+            "min_value": 2,
+            "default_sound_id": -1,
+            "theme": {
+                "Tier": 4
+            },
+            "localization": {
+                "en": "Tier 3 Tainted Currency",
+                "zh": "T3 污秽通货"
+            }
+        },
+        "Tier 4 Tainted Currency": {
+            "hideable": true,
+            "min_value": 2,
+            "default_sound_id": -1,
+            "theme": {
+                "Tier": 6
+            },
+            "localization": {
+                "en": "Tier 4 Tainted Currency",
+                "zh": "T4 污秽通货"
+            }
+        }
+    }
+}

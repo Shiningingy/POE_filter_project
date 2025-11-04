@@ -1,0 +1,118 @@
+{
+  "//comment1": "Item_class then tiers within that class tier0 is highest",
+  "Normal Currency": {
+    "_meta": {
+      "theme_category": "currency",
+      "localization": {
+        "en": "Normal Currency",
+        "zh": "通货"
+      },
+      "description": "All stackable currencies drop from normal content",
+      "tier_order": [
+        "Tier 0 Currency",
+        "Tier 1 Currency",
+        "Tier 2 Currency",
+        "Tier 3 Currency",
+        "Tier 4 Currency",
+        "Tier 5 Currency",
+        "Tier 6 Currency"
+      ]
+    },
+    "Tier 0 Currency": {
+      "hideable": false,
+      "min_value": 10,
+      "default_sound_id": 6,
+      "theme": {
+        "Tier": 0
+      },
+      "localization": {
+        "en": "Tier 0 Currency",
+        "zh": "T0 通货"
+      }
+    },
+    "Tier 1 Currency": {
+      "hideable": false,
+      "min_value": 8,
+      "default_sound_id": 1,
+      "theme": {
+        "Tier": 1
+      },
+      "localization": {
+        "en": "Tier 1 Currency",
+        "zh": "T1 通货"
+      }
+    },
+    "Tier 2 Currency": {
+      "hideable": false,
+      "min_value": 6,
+      "default_sound_id": 2,
+      "theme": {
+        "Tier": 2
+      },
+      "localization": {
+        "en": "Tier 2 Currency",
+        "zh": "T2 通货"
+      }
+    },
+    "Tier 3 Currency": {
+      "hideable": false,
+      "min_value": 4,
+      "default_sound_id": -1,
+      "theme": {
+        "Tier": 3
+      },
+      "localization": {
+        "en": "Tier 3 Currency",
+        "zh": "T3 通货"
+      }
+    },
+    "Tier 4 Currency": {
+      "name_ch": "T4 通货",
+      "hideable": true,
+      "min_value": 2,
+      "default_sound_id": -1,
+      "theme": {
+        "Tier": 4
+      },
+      "localization": {
+        "en": "Tier 4 Currency",
+        "zh": "T4 通货"
+      }
+    },
+    "Tier 5 Currency": {
+      "hideable": true,
+      "min_value": 2,
+      "default_sound_id": -1,
+      "theme": {
+        "Tier": 5
+      },
+      "localization": {
+        "en": "Portal Scroll",
+        "zh": "传送卷轴"
+      }
+    },
+    "Tier 6 Currency": {
+      "hideable": true,
+      "min_value": 2,
+      "default_sound_id": -1,
+      "theme": {
+        "Tier": 6
+      },
+      "localization": {
+        "en": "Wisdom Scroll",
+        "zh": "智慧卷轴"
+      }
+    }
+  },
+  "League Currency": {
+    "_meta": {
+      "theme_category": "currency",
+      "localization": {
+        "en": "League Currency",
+        "zh": "赛季通货"
+      },
+      "description": "All stackable currencies drop from league content",
+      "tier_order": []
+    }
+  }
+}

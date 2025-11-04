@@ -1,0 +1,282 @@
+item_class,base_type,inferred_value,soft,regular,semi_strict,strict,very_strict,uber_strict,uber_plus
+Unknown,Apex Cleaver,10.0,True,True,True,True,True,True,True
+Unknown,Gold,10.0,True,True,True,True,True,True,True
+Maps,Gold,7.1,True,True,True,True,True,False,False
+Unknown,Apothecary's Gloves,8.6,True,True,True,True,True,True,False
+Unknown,Agate Amulet,10.0,True,True,True,True,True,True,True
+Unknown,Opal Ring,7.1,True,True,True,True,True,False,False
+Unknown,Spiked Gloves,7.1,True,True,True,True,True,False,False
+Unknown,Dusk Ring,10.0,True,True,True,True,True,True,True
+Unknown,Fugitive Boots,7.1,True,True,True,True,True,False,False
+Unknown,Nameless Ring,10.0,True,True,True,True,True,True,True
+Unknown,Ambusher,10.0,True,True,True,True,True,True,True
+Unknown,Ambush Boots,7.1,True,True,True,True,True,False,False
+Unknown,Accumulator Wand,10.0,True,True,True,True,True,True,True
+Unknown,Aetherwind Gloves,10.0,True,True,True,True,True,True,True
+Unknown,Iron Flask,8.6,True,True,True,True,True,True,False
+Unknown,Greatwolf Talisman,10.0,True,True,True,True,True,True,True
+Unknown,Grasping Mail,10.0,True,True,True,True,True,True,True
+Unknown,Stygian Vise,10.0,True,True,True,True,True,True,True
+Unknown,Sacrificial Garb,8.6,True,True,True,True,True,True,False
+Unknown,Calling Wand,8.6,True,True,True,True,True,True,False
+Rings,Bone Ring,8.6,True,True,True,True,True,True,False
+Abyss Jewels,Cobalt Jewel,10.0,True,True,True,True,True,True,True
+Abyss Jewels,Murderous Eye Jewel,10.0,True,True,True,True,True,True,True
+Abyss Jewels,Hypnotic Eye Jewel,10.0,True,True,True,True,True,True,True
+Abyss Jewels,Ghastly Eye Jewel,10.0,True,True,True,True,True,True,True
+Unknown,Riveted Boots,10.0,True,True,True,True,True,True,True
+Body Armours,Archon Kite Shield,10.0,True,True,True,True,True,True,True
+Unknown,Behemoth Mace,10.0,True,True,True,True,True,True,True
+Amulets,Archon Kite Shield,5.7,True,True,True,True,False,False,False
+Unknown,Amber Amulet,8.6,True,True,True,True,True,True,False
+Unknown,Ceremonial Voidstone,10.0,True,True,True,True,True,True,True
+Pieces,Vaal Aspect,10.0,True,True,True,True,True,True,True
+Quest Items,Contract:,10.0,True,True,True,True,True,True,True
+Unknown,Incandescent Invitation,10.0,True,True,True,True,True,True,True
+Unknown,Polaric Invitation,10.0,True,True,True,True,True,True,True
+Relics,Candlestick Relic,10.0,True,True,True,True,True,True,True
+Relics,Aegis Tulgraft,10.0,True,True,True,True,True,True,True
+Grafts,Aegis Tulgraft,10.0,True,True,True,True,True,True,True
+Unknown,Alder Spiked Shield,7.1,True,True,True,True,True,False,False
+Unknown,Abyssal Sceptre,5.7,True,True,True,True,False,False,False
+Rings,Breach Ring,10.0,True,True,True,True,True,True,True
+Amulets,Ashscale Talisman,8.6,True,True,True,True,True,True,False
+Amulets,Avian Twins Talisman,7.1,True,True,True,True,True,False,False
+Amulets,Talisman,2.9,True,True,False,False,False,False,False
+Amulets,Agate Amulet,10.0,True,True,True,True,True,True,True
+Amulets,Amber Amulet,5.7,True,True,True,True,False,False,False
+Amulets,Coral Amulet,4.3,True,True,True,False,False,False,False
+Belts,Stygian Vise,7.1,True,True,True,True,True,False,False
+Belts,Crystal Belt,5.7,True,True,True,True,False,False,False
+Belts,Chain Belt,4.3,True,True,True,False,False,False,False
+Unknown,Conquest Lamellar,8.6,True,True,True,True,True,True,False
+Unknown,Archon Kite Shield,7.1,True,True,True,True,True,False,False
+Unknown,Champion Kite Shield,5.7,True,True,True,True,False,False,False
+Unknown,Divine Crown,7.1,True,True,True,True,True,False,False
+Unknown,Iolite Ring,7.1,True,True,True,True,True,False,False
+Unknown,Amethyst Ring,10.0,True,True,True,True,True,True,True
+Unknown,Convening Wand,4.3,True,True,True,False,False,False,False
+Unknown,Heavy Belt,10.0,True,True,True,True,True,True,True
+Utility Flasks,Amethyst Flask,10.0,True,True,True,True,True,True,True
+Unknown,Divine Life Flask,8.6,True,True,True,True,True,True,False
+Life Flasks,Divine Life Flask,5.7,True,True,True,True,False,False,False
+Unknown,Cobalt Jewel,10.0,True,True,True,True,True,True,True
+Unknown,Ghastly Eye Jewel,5.7,True,True,True,True,False,False,False
+Unknown,Large Cluster Jewel,8.6,True,True,True,True,True,True,False
+Unknown,Medium Cluster Jewel,7.1,True,True,True,True,True,False,False
+Unknown,Small Cluster Jewel,7.1,True,True,True,True,True,False,False
+Heist Cloaks,Whisper-woven Cloak,10.0,True,True,True,True,True,True,True
+Heist Cloaks,Hooded Cloak,7.1,True,True,True,True,True,False,False
+Heist Brooches,Foliate Brooch,10.0,True,True,True,True,True,True,True
+Heist Brooches,Enamel Brooch,7.1,True,True,True,True,True,False,False
+Heist Gear,Burst Band,10.0,True,True,True,True,True,True,True
+Heist Gear,Aggregator Charm,7.1,True,True,True,True,True,False,False
+Heist Tools,Grandmaster Keyring,10.0,True,True,True,True,True,True,True
+Heist Tools,Azurite Flashpowder,7.1,True,True,True,True,True,False,False
+Skill Gems,Awakened Ancestral Call Support,10.0,True,True,True,True,True,True,True
+Skill Gems,Awakened,10.0,True,True,True,True,True,True,True
+Skill Gems,Ambush,10.0,True,True,True,True,True,True,True
+Skill Gems,Added Chaos Damage Support,10.0,True,True,True,True,True,True,True
+Skill Gems,Cast when Stunned Support,10.0,True,True,True,True,True,True,True
+Skill Gems,Block Chance Reduction Support,10.0,True,True,True,True,True,True,True
+Skill Gems,Vaal Breach,10.0,True,True,True,True,True,True,True
+Skill Gems,Empower Support,10.0,True,True,True,True,True,True,True
+Skill Gems,Enlighten Support,10.0,True,True,True,True,True,True,True
+Skill Gems,Blood and Sand,10.0,True,True,True,True,True,True,True
+Skill Gems,Portal,10.0,True,True,True,True,True,True,True
+Skill Gems,Added Cold Damage Support,10.0,True,True,True,True,True,True,True
+Skill Gems,Vaal,10.0,True,True,True,True,True,True,True
+Skill Gems,Arcane Surge Support,10.0,True,True,True,True,True,True,True
+Unknown,Blood Raiment,10.0,True,True,True,True,True,True,True
+Unknown,Assassin's Boots,10.0,True,True,True,True,True,True,True
+Unknown,Arcanist Gloves,10.0,True,True,True,True,True,True,True
+Maps,Harbinger Map,10.0,True,True,True,True,True,True,True
+Maps,Museum Map,10.0,True,True,True,True,True,True,True
+Maps,Courtyard Map,10.0,True,True,True,True,True,True,True
+Maps,Atoll Map,8.6,True,True,True,True,True,True,False
+Maps,Abomination Map,10.0,True,True,True,True,True,True,True
+Maps,Vaal Temple Map,10.0,True,True,True,True,True,True,True
+Unknown,Expedition Logbook,10.0,True,True,True,True,True,True,True
+Contracts,Contract: Bunker,8.6,True,True,True,True,True,True,False
+Blueprints,Blueprint: Bunker,10.0,True,True,True,True,True,True,True
+Breachstones,Allflame Ember of the Ethereal,10.0,True,True,True,True,True,True,True
+Breachstones,Allflame Ember of Kulemak,10.0,True,True,True,True,True,True,True
+Breachstones,Abyss Scarab,10.0,True,True,True,True,True,True,True
+Breachstones,Allflame Ember of Flesh,10.0,True,True,True,True,True,True,True
+Breachstones,Betrayal Scarab of the Allflame,8.6,True,True,True,True,True,True,False
+Breachstones,Scarab,10.0,True,True,True,True,True,True,True
+Breachstones,Sacrifice at Dawn,7.1,True,True,True,True,True,False,False
+Breachstones,An Audience With The King,10.0,True,True,True,True,True,True,True
+Breachstones,Al-Hezmin's Crest,10.0,True,True,True,True,True,True,True
+Breachstones,Blood-filled Vessel,10.0,True,True,True,True,True,True,True
+Stackable Currency,Primal Crystallised Lifeforce,10.0,True,True,True,True,True,True,True
+Stackable Currency,Orb of Chance,7.1,True,True,True,True,True,False,False
+Stackable Currency,Orb of Alteration,7.1,True,True,True,True,True,False,False
+Stackable Currency,Armourer's Scrap,8.6,True,True,True,True,True,True,False
+Stackable Currency,Orb of Augmentation,8.6,True,True,True,True,True,True,False
+Stackable Currency,Portal Scroll,8.6,True,True,True,True,True,True,False
+Stackable Currency,Scroll of Wisdom,8.6,True,True,True,True,True,True,False
+Stackable Currency,Muttering Essence of,8.6,True,True,True,True,True,True,False
+Stackable Currency,Orb of Binding,8.6,True,True,True,True,True,True,False
+Stackable Currency,Orb of Transmutation,8.6,True,True,True,True,True,True,False
+Stackable Currency,Fracturing Shard,10.0,True,True,True,True,True,True,True
+Stackable Currency,Abrasive Catalyst,10.0,True,True,True,True,True,True,True
+Stackable Currency,Ancient Shard,10.0,True,True,True,True,True,True,True
+Stackable Currency,Blacksmith's Whetstone,10.0,True,True,True,True,True,True,True
+Stackable Currency,Chromatic Orb,7.1,True,True,True,True,True,False,False
+Stackable Currency,Alchemy Shard,5.7,True,True,True,True,False,False,False
+Stackable Currency,Ancient Orb,10.0,True,True,True,True,True,True,True
+Stackable Currency,Rogue's Marker,8.6,True,True,True,True,True,True,False
+Stackable Currency,Albino Rhoa Feather,10.0,True,True,True,True,True,True,True
+Stackable Currency,Blessing of Esh,10.0,True,True,True,True,True,True,True
+Stackable Currency,Engineer's Shard,2.9,True,True,False,False,False,False,False
+Stackable Currency,Vial of Summoning,10.0,True,True,True,True,True,True,True
+Stackable Currency,Vial of Sacrifice,10.0,True,True,True,True,True,True,True
+Stackable Currency,Vial of Awakening,8.6,True,True,True,True,True,True,False
+Stackable Currency,Vial of,10.0,True,True,True,True,True,True,True
+Stackable Currency,Abyssal Delirium Orb,10.0,True,True,True,True,True,True,True
+Stackable Currency,Delirium Orb,10.0,True,True,True,True,True,True,True
+Delve Stackable Socketable Currency,Prime Chaotic Resonator,10.0,True,True,True,True,True,True,True
+Delve Stackable Socketable Currency,Potent Chaotic Resonator,8.6,True,True,True,True,True,True,False
+Stackable Currency,Faceted Fossil,10.0,True,True,True,True,True,True,True
+Stackable Currency,Sanctified Fossil,10.0,True,True,True,True,True,True,True
+Stackable Currency,Aberrant Fossil,10.0,True,True,True,True,True,True,True
+Stackable Currency,Aetheric Fossil,8.6,True,True,True,True,True,True,False
+Stackable Currency,Dense Fossil,7.1,True,True,True,True,True,False,False
+Stackable Currency,Fossil,10.0,True,True,True,True,True,True,True
+Stackable Currency,Golden Oil,10.0,True,True,True,True,True,True,True
+Stackable Currency,Opalescent Oil,10.0,True,True,True,True,True,True,True
+Stackable Currency,Black Oil,10.0,True,True,True,True,True,True,True
+Stackable Currency,Amber Oil,8.6,True,True,True,True,True,True,False
+Stackable Currency,Clear Oil,7.1,True,True,True,True,True,False,False
+Stackable Currency,Oil,10.0,True,True,True,True,True,True,True
+Stackable Currency,Runegraft of Gemcraft,10.0,True,True,True,True,True,True,True
+Stackable Currency,Runegraft of Loyalty,10.0,True,True,True,True,True,True,True
+Stackable Currency,Runegraft of Restitching,10.0,True,True,True,True,True,True,True
+Stackable Currency,Runegraft of Bellows,10.0,True,True,True,True,True,True,True
+Stackable Currency,Runegraft,10.0,True,True,True,True,True,True,True
+Corpses,Perfect Forest Tiger,10.0,True,True,True,True,True,True,True
+Corpses,Perfect Blasphemer,10.0,True,True,True,True,True,True,True
+Corpses,Blasphemer,10.0,True,True,True,True,True,True,True
+Corpses,Imperfect Blasphemer,10.0,True,True,True,True,True,True,True
+Stackable Currency,Deafening Essence of,10.0,True,True,True,True,True,True,True
+Stackable Currency,Remnant of Corruption,10.0,True,True,True,True,True,True,True
+Stackable Currency,Screaming Essence of,8.6,True,True,True,True,True,True,False
+Stackable Currency,Wailing Essence of,5.7,True,True,True,True,False,False,False
+Stackable Currency,Weeping Essence of,4.3,True,True,True,False,False,False,False
+Stackable Currency,Essence of,0.0,False,False,False,False,False,False,False
+Stackable Currency,Omen of Connections,10.0,True,True,True,True,True,True,True
+Stackable Currency,Omen of Amelioration,10.0,True,True,True,True,True,True,True
+Stackable Currency,Omen of Brilliance,8.6,True,True,True,True,True,True,False
+Stackable Currency,Omen of Adrenaline,7.1,True,True,True,True,True,False,False
+Stackable Currency,Omen of,10.0,True,True,True,True,True,True,True
+Stackable Currency,Journey Tattoo of the Body,10.0,True,True,True,True,True,True,True
+Stackable Currency,Tattoo of the Arohongui Shaman,10.0,True,True,True,True,True,True,True
+Stackable Currency,Tattoo of the Arohongui Moonwarden,10.0,True,True,True,True,True,True,True
+Stackable Currency,Tattoo of the Arohongui Scout,10.0,True,True,True,True,True,True,True
+Stackable Currency,Tattoo of,10.0,True,True,True,True,True,True,True
+Stackable Currency,Deregulation Scroll,10.0,True,True,True,True,True,True,True
+Stackable Currency,Imprint,10.0,True,True,True,True,True,True,True
+Wombgifts,Mysterious Wombgift,10.0,True,True,True,True,True,True,True
+Wombgifts,Ancient Wombgift,10.0,True,True,True,True,True,True,True
+Incubators,Fragmented Incubator,8.6,True,True,True,True,True,True,False
+Incubators,Fine Incubator,8.6,True,True,True,True,True,True,False
+Incubators,Geomancer's Incubator,10.0,True,True,True,True,True,True,True
+Incubators,Blighted Incubator,10.0,True,True,True,True,True,True,True
+Incubators,Abyssal Incubator,8.6,True,True,True,True,True,True,False
+Stackable Currency,Splinter of Chayula,10.0,True,True,True,True,True,True,True
+Stackable Currency,Splinter of Esh,10.0,True,True,True,True,True,True,True
+Stackable Currency,Simulacrum Splinter,10.0,True,True,True,True,True,True,True
+Divination Cards,The Fortunate,10.0,True,True,True,True,True,True,True
+Divination Cards,Broken Promises,10.0,True,True,True,True,True,True,True
+Divination Cards,A Familiar Call,10.0,True,True,True,True,True,True,True
+Divination Cards,A Note in the Wind,10.0,True,True,True,True,True,True,True
+Divination Cards,One Last Score,10.0,True,True,True,True,True,True,True
+Divination Cards,A Sea of Blue,8.6,True,True,True,True,True,True,False
+Divination Cards,Buried Treasure,5.7,True,True,True,True,False,False,False
+Divination Cards,A Chilling Wind,7.1,True,True,True,True,True,False,False
+Divination Cards,A Mother's Parting Gift,1.4,True,False,False,False,False,False,False
+Stackable Currency,Scroll Fragment,0.0,False,False,False,False,False,False,False
+Unknown,Minor Idol,10.0,True,True,True,True,True,True,True
+Unknown,Kamasan Idol,10.0,True,True,True,True,True,True,True
+Unknown,Totemic Idol,10.0,True,True,True,True,True,True,True
+Unknown,Noble Idol,10.0,True,True,True,True,True,True,True
+Unknown,Burial Idol,10.0,True,True,True,True,True,True,True
+Unknown,Conqueror Idol,10.0,True,True,True,True,True,True,True
+Unknown,Onyx Amulet,10.0,True,True,True,True,True,True,True
+Unknown,Glorious Plate,10.0,True,True,True,True,True,True,True
+Unknown,Elegant Round Shield,10.0,True,True,True,True,True,True,True
+Unknown,Simple Robe,10.0,True,True,True,True,True,True,True
+Unknown,Mesh Gloves,10.0,True,True,True,True,True,True,True
+Unknown,Infernal Sword,10.0,True,True,True,True,True,True,True
+Unknown,Bone Circlet,10.0,True,True,True,True,True,True,True
+Unknown,Carnal Armour,10.0,True,True,True,True,True,True,True
+Unknown,Cabalist Regalia,10.0,True,True,True,True,True,True,True
+Unknown,Amethyst Flask,10.0,True,True,True,True,True,True,True
+Unknown,Great Crown,10.0,True,True,True,True,True,True,True
+Rings,Aventail Helmet,8.6,True,True,True,True,True,True,False
+Unknown,Abyssal Axe,8.6,True,True,True,True,True,True,False
+Unknown,Arcanist Slippers,7.1,True,True,True,True,True,False,False
+Unknown,Despot Axe,5.7,True,True,True,True,False,False,False
+Unknown,Ancient Greaves,5.7,True,True,True,True,False,False,False
+Unknown,Ancient Reliquary Key,10.0,True,True,True,True,True,True,True
+Unknown,Chronicle of Atzoatl,10.0,True,True,True,True,True,True,True
+Unknown,Inscribed Ultimatum,10.0,True,True,True,True,True,True,True
+Unknown,Maven's,10.0,True,True,True,True,True,True,True
+Life Flasks,Large,10.0,True,True,True,True,True,True,True
+Life Flasks,Grand,10.0,True,True,True,True,True,True,True
+Life Flasks,Colossal,10.0,True,True,True,True,True,True,True
+Life Flasks,Hallowed,10.0,True,True,True,True,True,True,True
+Unknown,Quicksilver Flask,10.0,True,True,True,True,True,True,True
+Hybrid Flasks,Small,4.3,True,True,True,False,False,False,False
+Hybrid Flasks,Medium,4.3,True,True,True,False,False,False,False
+Hybrid Flasks,Large,4.3,True,True,True,False,False,False,False
+Hybrid Flasks,Colossal,4.3,True,True,True,False,False,False,False
+Hybrid Flasks,Sacred,4.3,True,True,True,False,False,False,False
+Hybrid Flasks,Hallowed,4.3,True,True,True,False,False,False,False
+Life Flasks,Small,10.0,True,True,True,True,True,True,True
+Life Flasks,Medium,10.0,True,True,True,True,True,True,True
+Life Flasks,Greater,10.0,True,True,True,True,True,True,True
+Life Flasks,Giant,10.0,True,True,True,True,True,True,True
+Life Flasks,Sacred,10.0,True,True,True,True,True,True,True
+Life Flasks,Sanctified,10.0,True,True,True,True,True,True,True
+Life Flasks,Divine,10.0,True,True,True,True,True,True,True
+Life Flasks,Eternal,10.0,True,True,True,True,True,True,True
+Mana Flasks,Small,10.0,True,True,True,True,True,True,True
+Mana Flasks,Medium,10.0,True,True,True,True,True,True,True
+Mana Flasks,Large,10.0,True,True,True,True,True,True,True
+Mana Flasks,Greater,10.0,True,True,True,True,True,True,True
+Mana Flasks,Grand,10.0,True,True,True,True,True,True,True
+Mana Flasks,Giant,10.0,True,True,True,True,True,True,True
+Mana Flasks,Colossal,10.0,True,True,True,True,True,True,True
+Mana Flasks,Sacred,10.0,True,True,True,True,True,True,True
+Mana Flasks,Hallowed,10.0,True,True,True,True,True,True,True
+Mana Flasks,Sanctified,10.0,True,True,True,True,True,True,True
+Mana Flasks,Divine,10.0,True,True,True,True,True,True,True
+Mana Flasks,Eternal,10.0,True,True,True,True,True,True,True
+Unknown,Bone Ring,8.6,True,True,True,True,True,True,False
+Unknown,Iron Ring,7.1,True,True,True,True,True,False,False
+Unknown,Rustic Sash,5.7,True,True,True,True,False,False,False
+Unknown,Broadhead Arrow Quiver,4.3,True,True,True,False,False,False,False
+Unknown,Ruby Ring,4.3,True,True,True,False,False,False,False
+Unknown,Leather Belt,4.3,True,True,True,False,False,False,False
+Wands,Somatic Wand,4.3,True,True,True,False,False,False,False
+Wands,Blasting Wand,4.3,True,True,True,False,False,False,False
+Wands,Kinetic Wand,4.3,True,True,True,False,False,False,False
+Amulets,Ambusher,5.7,False,True,True,True,True,False,False
+Body Armours,Abyssal Sceptre,1.4,False,False,True,False,False,False,False
+Body Armours,Ambush Boots,1.4,False,False,False,True,False,False,False
+Utility Flasks,Divine Life Flask,4.3,False,False,False,True,True,False,True
+Amulets,Behemoth Mace,4.3,False,False,False,False,True,True,True
+Amulets,Iron Ring,2.9,False,False,False,False,True,True,False
+Daggers,Ambusher,1.4,False,False,False,False,False,True,False
+Gloves,Agate Amulet,1.4,False,False,False,False,False,True,False
+Body Armours,Agate Amulet,0.0,False,False,False,False,False,False,False
+Body Armours,Conquest Lamellar,0.0,False,False,False,False,False,False,False
+Tinctures,Amethyst Flask,2.9,False,False,False,False,False,True,True
+Amulets,Cobalt Jewel,1.4,False,False,False,False,False,False,True
+Amulets,Apothecary's Gloves,1.4,False,False,False,False,False,False,True
+Bows,Sacrificial Garb,1.4,False,False,False,False,False,False,True
+Staves,Calling Wand,1.4,False,False,False,False,False,False,True
+Gloves,Amber Amulet,1.4,False,False,False,False,False,False,True
+Amulets,Bone Ring,1.4,False,False,False,False,False,False,True

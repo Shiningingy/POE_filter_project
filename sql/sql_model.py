@@ -17,17 +17,21 @@ class Base(DeclarativeBase): pass
 
 class ItemClass(Base):
     __tablename__ = "item_classes"
-    id: Mapped[int] = mapped_column(INTEGER(unsigned=True), primary_key=True,autoincrement=False)
-    name: Mapped[str] = mapped_column(String(128), unique=True, nullable=False)
+    _rid: Mapped[int] = mapped_column(INTEGER(unsigned=True), primary_key=True,autoincrement=False)
+
+    text: Mapped[str] = mapped_column(String(128), unique=True, nullable=False)
+    text_ch:Mapped[str] = mapped_column(String(128), unique=True, nullable=True)
 
     base_types: Mapped[list["BaseType"]] = relationship(back_populates="item_class")
 
 class BaseType(Base):
     __tablename__ = "base_types"
-    id: Mapped[int] = mapped_column(INTEGER(unsigned=True), primary_key=True,autoincrement=False)
-    item_class_id: Mapped[int] = mapped_column(ForeignKey("item_classes.id"), nullable=False)
-    name: Mapped[str] = mapped_column(String(128), nullable=False)
+    _rid: Mapped[int] = mapped_column(INTEGER(unsigned=True), primary_key=True,autoincrement=False)
+    item_class_rid: Mapped[int] = mapped_column(ForeignKey("item_classes._rid"), nullable=False)
+    id = Mapped[str] = mapped_column(String(128), nullable=False)
+
     text: Mapped[str] = mapped_column(String(128), nullable=False)
+    text_ch: Mapped[str] = mapped_column(String(128), nullable=True)
     #need to add value for filter generation 
     #value : .....
 
@@ -38,10 +42,11 @@ class BaseType(Base):
 
 class UniqueItem(Base):
     __tablename__ = "unique_items"
-    id: Mapped[int] = mapped_column(BIGINT(unsigned=True), primary_key=True,autoincrement=False)
+    _rid: Mapped[int] = mapped_column(BIGINT(unsigned=True), primary_key=True,autoincrement=False)
     base_type_id: Mapped[int] = mapped_column(ForeignKey("base_types.id"), nullable=False)
 
-    unique_name: Mapped[Optional[str]] = mapped_column(String(255))
+    unique_name: Mapped[str] = mapped_column(String(128), nullable=False)
+    unique_name_ch:Mapped[str] = mapped_column(String(128), nullable=True)
 
     base_type: Mapped["BaseType"] = relationship(back_populates="unique_items")
     # stats: Mapped[list["ItemStat"]] = relationship(back_populates="item", cascade="all, delete-orphan")

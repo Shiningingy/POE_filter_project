@@ -1,0 +1,53 @@
+{
+    "Incursion Vials": {
+        "_meta": {
+            "theme_category": "currency_incursion",
+            "localization": {
+                "en": "Incursion Vials",
+                "zh": "魔瓶"
+            },
+            "description": "All incursion vials divided by tier.",
+            "tier_order": [
+                "Tier 0 Incursion Vial",
+                "Tier 1 Incursion Vial",
+                "Tier 2 Incursion Vial"
+            ]
+        },
+        "Tier 0 Incursion Vial": {
+            "hideable": false,
+            "min_value": 10,
+            "default_sound_id": 6,
+            "theme": {
+                "Tier": 0
+            },
+            "localization": {
+                "en": "Tier 0 Incursion Vial",
+                "zh": "T0 魔瓶"
+            }
+        },
+        "Tier 1 Incursion Vial": {
+            "hideable": false,
+            "min_value": 4,
+            "default_sound_id": -1,
+            "theme": {
+                "Tier": 3
+            },
+            "localization": {
+                "en": "Tier 1 Incursion Vial",
+                "zh": "T1 魔瓶"
+            }
+        },
+        "Tier 2 Incursion Vial": {
+            "hideable": true,
+            "min_value": 2,
+            "default_sound_id": -1,
+            "theme": {
+                "Tier": 6
+            },
+            "localization": {
+                "en": "Tier 2 Incursion Vial",
+                "zh": "T2 魔瓶"
+            }
+        }
+    }
+}
