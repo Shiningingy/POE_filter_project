@@ -17,7 +17,10 @@
     "Tier 0 Wombgifts": {
       "hideable": false,
       "min_value": 10,
-      "default_sound_id": 6,
+      "sound":{
+        "default_sound_id": 6,
+        "sharket_sound_file": null
+      },
       "theme": {
         "Tier": 0
       },
@@ -29,7 +32,10 @@
     "Tier 1 Grafts": {
       "hideable": false,
       "min_value": 8,
-      "default_sound_id": 1,
+      "sound":{
+        "default_sound_id": 1,
+        "sharket_sound_id": null
+      },
       "theme": {
         "Tier": 1
       },
@@ -41,7 +47,10 @@
     "Tier 2 Grafts": {
       "hideable": false,
       "min_value": 6,
-      "default_sound_id": 2,
+      "sound":{
+        "default_sound_id": 2,
+        "sharket_sound_file": null
+      },
       "theme": {
         "Tier": 2
       },
