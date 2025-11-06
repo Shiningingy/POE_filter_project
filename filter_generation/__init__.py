@@ -103,7 +103,7 @@ def show_block(cat_zh, tier_short, item_class, basetypes,
     ]
     if sound_line:  lines.append(f"  {sound_line}")
     if play_effect: lines.append(f"  PlayEffect {play_effect}")
-    if minimap_icon: lines.append(f"  MinimapIcon {minimap_icon}")
+    if minimap_icon: lines.append(f"  MinimapIcon {minimap_icon[0]} {minimap_icon[1]} {minimap_icon[2]}")
     return "\n".join(lines) + "\n"
 
 def apply_rules(mapping_data):
@@ -185,6 +185,8 @@ def main():
             base_border_col= parse_rgba(ttheme.get("BorderColor", "rgba(255,255,255,255)"))
             play_eff       = ttheme.get("PlayEffect")
             mini_icon      = ttheme.get("MinimapIcon")
+            print(ttheme)
+            print(mini_icon)
 
             entries_sorted = sorted(grouped[t_lbl], key=lambda x: 0 if x[1] else 1)
             # ---- NEW GROUPING ----

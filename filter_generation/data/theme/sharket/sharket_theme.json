@@ -1,5 +1,4 @@
 {
-    "//comments1":"have 3 tiers by default",
     "currency":{
         "Tier 0":{
             "FontSize":45,
@@ -7,7 +6,7 @@
             "BorderColor":"#ff0000ff",
             "BackGroundColor":"#ffffffff",
             "PlayEffect":"Red",
-            "MiniMapIcon":[0,"Red","Circle"]
+            "MinimapIcon":[0,"Red","Circle"]
         },        
         "Tier 1":{
             "FontSize":45,
@@ -15,7 +14,7 @@
             "BorderColor":"#00ff00ff",
             "BackGroundColor":"#d20000ff",
             "PlayEffect":"Green",
-            "MiniMapIcon":[1,"Green","Circle"]
+            "MinimapIcon":[1,"Green","Circle"]
         },
         "Tier 2":{
             "FontSize":40,
@@ -23,7 +22,7 @@
             "BorderColor":"#00ff00ff",
             "BackGroundColor":"#d20000ff",
             "PlayEffect":"Green",
-            "MiniMapIcon":[1,"Green","Circle"]
+            "MinimapIcon":[1,"Green","Circle"]
         },
         "Tier 3":{
             "FontSize":40,
@@ -31,7 +30,7 @@
             "BorderColor":"#000000ff",
             "BackGroundColor":"#ffaa00ff",
             "PlayEffect":null,
-            "MiniMapIcon":null
+            "MinimapIcon":null
         },
         "Tier 4":{
             "FontSize":36,
@@ -39,7 +38,7 @@
             "BorderColor":"#000000ff",
             "BackGroundColor":"#ffaa00ff",
             "PlayEffect":null,
-            "MiniMapIcon":null
+            "MinimapIcon":null
         },
         "Tier 5":{
             "FontSize":36,
@@ -47,7 +46,7 @@
             "BorderColor":"#000000ff",
             "BackGroundColor":"#aa9e82ff",
             "PlayEffect":null,
-            "MiniMapIcon":null
+            "MinimapIcon":null
         },
         "Tier 6":{
             "FontSize":32,
@@ -55,7 +54,7 @@
             "BorderColor":"#000000ff",
             "BackGroundColor":"#aa9e82ff",
             "PlayEffect":null,
-            "MiniMapIcon":null
+            "MinimapIcon":null
         }
     },
     "temporary league item" : {
@@ -65,7 +64,7 @@
             "BorderColor":"#78c8a0ff",
             "BackGroundColor":"#ffffffff",
             "PlayEffect":"Red",
-            "MiniMapIcon":[0,"Red","Star"]
+            "MinimapIcon":[0,"Red","Star"]
         },
         "Tier 1":{
             "FontSize":40,
@@ -73,7 +72,7 @@
             "BorderColor":"#ffffffff",
             "BackGroundColor":"#78c8a0ff",
             "PlayEffect":null,
-            "MiniMapIcon":[1,"Red","Moon"]
+            "MinimapIcon":[1,"Red","Moon"]
         },
         "Tier 2":{
             "FontSize":36,
@@ -81,7 +80,7 @@
             "BorderColor":"#000000ff",
             "BackGroundColor":"#78c8a0ff",
             "PlayEffect":null,
-            "MiniMapIcon":[2,"Yellow","Moon"]
+            "MinimapIcon":[2,"Yellow","Moon"]
         }
     }
 }

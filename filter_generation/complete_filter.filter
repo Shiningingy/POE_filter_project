@@ -20,6 +20,7 @@ Show #孕育赠礼-T0孕育赠礼
   SetBorderColor 120 200 160 255
   PlayAlertSound 6 300
   PlayEffect Red
+  MinimapIcon 0 Red Star
 
 #==[10200]-Tier 1 Wombgifts 孕育赠礼==
 Show #孕育赠礼-T1孕育赠礼
@@ -29,6 +30,7 @@ Show #孕育赠礼-T1孕育赠礼
   SetTextColor 255 255 255 255
   SetBorderColor 255 255 255 255
   PlayAlertSound 1 300
+  MinimapIcon 1 Red Moon
 
 #==[10300]-Tier 2 Wombgifts 孕育赠礼==
 #Minimal #隐藏-孕育赠礼-T2 孕育赠礼
@@ -42,4 +44,5 @@ Show #孕育赠礼-T2孕育赠礼
   SetTextColor 0 0 0 255
   SetBorderColor 0 0 0 255
   PlayAlertSound 2 300
+  MinimapIcon 2 Yellow Moon
 
