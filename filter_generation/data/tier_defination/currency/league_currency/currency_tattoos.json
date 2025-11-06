@@ -1,19 +1,19 @@
 {
-    "Heist Currency": {
+    "Tattoos": {
         "_meta": {
-            "theme_category": "currency_heist",
+            "theme_category": "currency_tattoos",
             "localization": {
-                "en": "Heist Currency",
-                "zh": "赏金印记"
+                "en": "Tattoos",
+                "zh": "纹身"
             },
-            "description": "All heist currency divided by tier.",
+            "description": "All tattoos divided by tier.",
             "tier_order": [
-                "Tier 0 Heist Currency",
-                "Tier 1 Heist Currency",
-                "Tier 2 Heist Currency"
+                "Tier 0 Tattoo",
+                "Tier 1 Tattoo",
+                "Tier 2 Tattoo"
             ]
         },
-        "Tier 0 Heist Currency": {
+        "Tier 0 Tattoo": {
             "hideable": false,
             "min_value": 10,
             "default_sound_id": 6,
@@ -21,11 +21,11 @@
                 "Tier": 0
             },
             "localization": {
-                "en": "Tier 0 Heist Currency",
-                "zh": "T0 赏金印记"
+                "en": "Tier 0 Tattoo",
+                "zh": "T0 纹身"
             }
         },
-        "Tier 1 Heist Currency": {
+        "Tier 1 Tattoo": {
             "hideable": false,
             "min_value": 4,
             "default_sound_id": -1,
@@ -33,11 +33,11 @@
                 "Tier": 3
             },
             "localization": {
-                "en": "Tier 1 Heist Currency",
-                "zh": "T1 赏金印记"
+                "en": "Tier 1 Tattoo",
+                "zh": "T1 纹身"
             }
         },
-        "Tier 2 Heist Currency": {
+        "Tier 2 Tattoo": {
             "hideable": true,
             "min_value": 2,
             "default_sound_id": -1,
@@ -45,8 +45,8 @@
                 "Tier": 6
             },
             "localization": {
-                "en": "Tier 2 Heist Currency",
-                "zh": "T2 赏金印记"
+                "en": "Tier 2 Tattoo",
+                "zh": "T2 纹身"
             }
         }
     }

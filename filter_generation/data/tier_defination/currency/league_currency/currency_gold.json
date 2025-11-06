@@ -1,19 +1,19 @@
 {
-    "Omens": {
+    "Gold": {
         "_meta": {
-            "theme_category": "currency_omen",
+            "theme_category": "currency_gold",
             "localization": {
-                "en": "Omens",
-                "zh": "预兆"
+                "en": "Gold",
+                "zh": "金币"
             },
-            "description": "All omens divided by tier.",
+            "description": "All gold divided by tier.",
             "tier_order": [
-                "Tier 0 Omen",
-                "Tier 1 Omen",
-                "Tier 2 Omen"
+                "Tier 0 Gold",
+                "Tier 1 Gold",
+                "Tier 2 Gold"
             ]
         },
-        "Tier 0 Omen": {
+        "Tier 0 Gold": {
             "hideable": false,
             "min_value": 10,
             "default_sound_id": 6,
@@ -21,23 +21,23 @@
                 "Tier": 0
             },
             "localization": {
-                "en": "Tier 0 Omen",
-                "zh": "T0 预兆"
+                "en": "Tier 0 Gold",
+                "zh": "T0 金币"
             }
         },
-        "Tier 1 Omen": {
+        "Tier 1 Gold": {
             "hideable": false,
             "min_value": 4,
-            "default_sound_id": -1,
+            "default_sound_id": 2,
             "theme": {
                 "Tier": 3
             },
             "localization": {
-                "en": "Tier 1 Omen",
-                "zh": "T1 预兆"
+                "en": "Tier 1 Gold",
+                "zh": "T1 金币"
             }
         },
-        "Tier 2 Omen": {
+        "Tier 2 Gold": {
             "hideable": true,
             "min_value": 2,
             "default_sound_id": -1,
@@ -45,8 +45,8 @@
                 "Tier": 6
             },
             "localization": {
-                "en": "Tier 2 Omen",
-                "zh": "T2 预兆"
+                "en": "Tier 2 Gold",
+                "zh": "T2 金币"
             }
         }
     }

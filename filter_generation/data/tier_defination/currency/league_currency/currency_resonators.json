@@ -1,0 +1,53 @@
+{
+    "Resonators": {
+        "_meta": {
+            "theme_category": "currency_resonators",
+            "localization": {
+                "en": "Resonators",
+                "zh": "共振器"
+            },
+            "description": "All resonators divided by tier.",
+            "tier_order": [
+                "Tier 0 Resonator",
+                "Tier 1 Resonator",
+                "Tier 2 Resonator"
+            ]
+        },
+        "Tier 0 Resonator": {
+            "hideable": false,
+            "min_value": 10,
+            "default_sound_id": 6,
+            "theme": {
+                "Tier": 0
+            },
+            "localization": {
+                "en": "Tier 0 Resonator",
+                "zh": "T0 共振器"
+            }
+        },
+        "Tier 1 Resonator": {
+            "hideable": false,
+            "min_value": 4,
+            "default_sound_id": 2,
+            "theme": {
+                "Tier": 3
+            },
+            "localization": {
+                "en": "Tier 1 Resonator",
+                "zh": "T1 共振器"
+            }
+        },
+        "Tier 2 Resonator": {
+            "hideable": true,
+            "min_value": 2,
+            "default_sound_id": 2,
+            "theme": {
+                "Tier": 6
+            },
+            "localization": {
+                "en": "Tier 2 Resonator",
+                "zh": "T2 共振器"
+            }
+        }
+    }
+}

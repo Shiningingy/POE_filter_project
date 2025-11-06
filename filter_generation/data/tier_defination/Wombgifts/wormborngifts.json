@@ -1,0 +1,54 @@
+{
+  "//comment1": "Item_class then tiers within that class tier0 is highest",
+  "Wombgifts": {
+    "_meta": {
+      "theme_category": "temporary league item",
+      "localization": {
+        "en": "Wombgifts",
+        "zh": "孕育赠礼"
+      },
+      "description": "Wombgifts introduced at keeprs league",
+      "tier_order": [
+        "Tier 0 Wombgifts",
+        "Tier 1 Wombgifts",
+        "Tier 2 Wombgifts"
+      ]
+    },
+    "Tier 0 Wombgifts": {
+      "hideable": false,
+      "min_value": 10,
+      "default_sound_id": 6,
+      "theme": {
+        "Tier": 0
+      },
+      "localization": {
+        "en": "Tier 0 Wombgifts",
+        "zh": "T0 孕育赠礼"
+      }
+    },
+    "Tier 1 Grafts": {
+      "hideable": false,
+      "min_value": 8,
+      "default_sound_id": 1,
+      "theme": {
+        "Tier": 1
+      },
+      "localization": {
+        "en": "Tier 1 Wombgifts",
+        "zh": "T1 孕育赠礼"
+      }
+    },
+    "Tier 2 Grafts": {
+      "hideable": false,
+      "min_value": 6,
+      "default_sound_id": 2,
+      "theme": {
+        "Tier": 2
+      },
+      "localization": {
+        "en": "Tier 2 Wombgifts",
+        "zh": "T2 孕育赠礼"
+      }
+    }
+    }
+}
