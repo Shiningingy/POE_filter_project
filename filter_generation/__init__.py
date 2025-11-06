@@ -22,6 +22,7 @@ BUILD_ORDER = [
     # "currency_essence",
     # "currency_oil",
     # "wormborngifts",
+    "grafts",
     "wormborngifts"
 ]
 
@@ -57,14 +58,16 @@ def parse_rgba(value,default="255 255 255 255"):
 def resolve_sound(tier_entry, custom_sound=None):
     """Priority: explicit custom → sharket → default"""
     if custom_sound:
+        if "default_sound_id" in custom_sound:
+            return f'PlayAlertSound {custom_sound["default_sound_id"]} 300'
         if "custom_path" in custom_sound:
-            return f'PlayAlertSound "{custom_sound["custom_path"]}" 300'
+            return f'CustomAlertSound "{custom_sound["custom_path"]}" 300'
         if "sharket_sound_id" in custom_sound:
-            sid = custom_sound["sharket_sound_id"]
-            return f'PlayAlertSound "{SOUND_FILE_PATH}sharket_{sid}.wav" 300'
+            return f'CustomAlertSound "{SOUND_FILE_PATH / custom_sound["sharket_sound_id"]}.mp3" 300'
+        return None
     sb = tier_entry.get("sound", {}) or {}
     if sb.get("sharket_sound_id") is not None:
-        return f'PlayAlertSound "{SOUND_FILE_PATH}sharket_{sb["sharket_sound_id"]}.wav" 300'
+        return f'CustomAlertSound "{SOUND_FILE_PATH / sb["sharket_sound_id"]}.mp3" 300'
     if sb.get("default_sound_id") is not None:
         return f'PlayAlertSound {sb["default_sound_id"]} 300'
     return None
@@ -185,8 +188,6 @@ def main():
             base_border_col= parse_rgba(ttheme.get("BorderColor", "rgba(255,255,255,255)"))
             play_eff       = ttheme.get("PlayEffect")
             mini_icon      = ttheme.get("MinimapIcon")
-            print(ttheme)
-            print(mini_icon)
 
             entries_sorted = sorted(grouped[t_lbl], key=lambda x: 0 if x[1] else 1)
             # ---- NEW GROUPING ----
@@ -195,7 +196,7 @@ def main():
                 text_color  = parse_rgba(over.get("TextColor", -1), base_text_col)
                 border_color= parse_rgba(over.get("BorderColor", -1), base_border_col)
                 font_size   = over.get("FontSize", DEFAULT_FONT_SIZE)
-                sound_line  = resolve_sound(tier_def.get(t_lbl, {}), over.get("sound"))
+                sound_line  = resolve_sound(tier_def.get(t_lbl, {}), over.get("custom_sound"))
                 eff         = over.get("PlayEffect", play_eff)
                 icon        = over.get("MinimapIcon", mini_icon)
                 hideable_tier = tier_def.get(t_lbl, {}).get("hideable", False)

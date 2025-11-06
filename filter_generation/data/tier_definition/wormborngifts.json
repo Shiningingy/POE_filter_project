@@ -20,7 +20,7 @@
       "min_value": 10,
       "sound":{
         "default_sound_id": 6,
-        "sharket_sound_file": null
+        "sharket_sound_id": "超级孕育赠礼"
       },
       "theme": {
         "Tier": 0
@@ -35,7 +35,7 @@
       "min_value": 8,
       "sound":{
         "default_sound_id": 1,
-        "sharket_sound_id": null
+        "sharket_sound_id": "孕育赠礼"
       },
       "theme": {
         "Tier": 1
@@ -50,7 +50,7 @@
       "min_value": 6,
       "sound":{
         "default_sound_id": 2,
-        "sharket_sound_file": null
+        "sharket_sound_id": "孕育赠礼"
       },
       "theme": {
         "Tier": 2

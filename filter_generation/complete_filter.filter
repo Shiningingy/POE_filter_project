@@ -2,15 +2,27 @@
 #  FILTER OVERVIEW
 #========================================
 #  [00000] 自定义规则
-#  [10000] 孕育赠礼 Wombgifts
+#  [10000] 嫁接 Grafts
+#  [20000] 孕育赠礼 Wombgifts
 #========================================
 
 #==[00000]-自定义规则==
 #在此添加自定义规则将会覆盖所有过滤器设定.
 
-#==[10000]-孕育赠礼 Wombgifts==
-#==[10100]-Tier 0 Wombgifts 孕育赠礼==
-#==[10101]-iLvl86+ Ancient/Mysterious → Tier 0 iLvl86+ Ancient/Mysterious → Tier 0==
+#==[10000]-嫁接 Grafts==
+#==[10300]-Tier 2 Grafts 嫁接==
+Show #嫁接-T2嫁接
+  Class "Grafts"
+  BaseType "Fleshgraft" "Battering Uulgraft" "Spiking Uulgraft" "Impaling Uulgraft" "Hardening Uulgraft" "Molten Xophgraft" "Erupting Xophgraft" "Flamecaller Xophgraft" "Stoking Xophgraft" "Storming Eshgraft" "Replicating Eshgraft" "Draining Eshgraft" "Jolting Eshgraft" "Squalling Tulgraft" "Freezing Tulgraft" "Summoning Tulgraft" "Aegis Tulgraft"
+  SetFontSize 45
+  SetTextColor 0 0 0 255
+  SetBorderColor 0 0 0 255
+  CustomAlertSound "Sharket掉落音效\嫁接.mp3" 300
+  MinimapIcon 2 Yellow Moon
+
+#==[20000]-孕育赠礼 Wombgifts==
+#==[20100]-Tier 0 Wombgifts 孕育赠礼==
+#==[20101]-iLvl86+ Ancient/Mysterious → Tier 0 iLvl86+ Ancient/Mysterious → Tier 0==
 Show #孕育赠礼-T0孕育赠礼
   Class "Wombgifts"
   BaseType "Ancient Wombgift" "Mysterious Wombgift"
@@ -18,21 +30,21 @@ Show #孕育赠礼-T0孕育赠礼
   SetFontSize 45
   SetTextColor 120 200 160 255
   SetBorderColor 120 200 160 255
-  PlayAlertSound 6 300
+  CustomAlertSound "Sharket掉落音效\超级孕育赠礼.mp3" 300
   PlayEffect Red
   MinimapIcon 0 Red Star
 
-#==[10200]-Tier 1 Wombgifts 孕育赠礼==
+#==[20200]-Tier 1 Wombgifts 孕育赠礼==
 Show #孕育赠礼-T1孕育赠礼
   Class "Wombgifts"
   BaseType "Ancient Wombgift" "Mysterious Wombgift"
   SetFontSize 45
   SetTextColor 255 255 255 255
   SetBorderColor 255 255 255 255
-  PlayAlertSound 1 300
+  CustomAlertSound "Sharket掉落音效\孕育赠礼.mp3" 300
   MinimapIcon 1 Red Moon
 
-#==[10300]-Tier 2 Wombgifts 孕育赠礼==
+#==[20300]-Tier 2 Wombgifts 孕育赠礼==
 #Minimal #隐藏-孕育赠礼-T2 孕育赠礼
 #    Class "Wombgifts"
 #    BaseType "Growing Wombgift" "Lavish Wombgift" "Provisioning Wombgift"
@@ -43,6 +55,6 @@ Show #孕育赠礼-T2孕育赠礼
   SetFontSize 45
   SetTextColor 0 0 0 255
   SetBorderColor 0 0 0 255
-  PlayAlertSound 2 300
+  CustomAlertSound "Sharket掉落音效\孕育赠礼.mp3" 300
   MinimapIcon 2 Yellow Moon
 
