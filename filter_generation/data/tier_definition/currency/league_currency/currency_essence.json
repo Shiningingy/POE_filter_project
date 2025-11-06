@@ -1,0 +1,126 @@
+{
+    "Essences": {
+        "_meta": {
+            "theme_category": "currency_essence",
+            "localization": {
+                "en": "Essences",
+                "zh": "精华"
+            },
+            "description": "All essences divided by tier.",
+            "tier_order": [
+                "Tier 0 Essence",
+                "Tier 1 Essence",
+                "Tier 2 Essence",
+                "Tier 3 Essence",
+                "Tier 4 Essence",
+                "Tier 5 Essence",
+                "Tier 6 Essence"
+            ]
+        },
+        "Tier 0 Essence": {
+            "hideable": false,
+            "min_value": 10,
+            "theme": {
+                "Tier": 0
+            },
+            "localization": {
+                "en": "Tier 0 Essence",
+                "zh": "T0 精华"
+            },
+            "sound": {
+                "default_sound_id": 6,
+                "sharket_sound_id": null
+            }
+        },
+        "Tier 1 Essence": {
+            "hideable": false,
+            "min_value": 8,
+            "theme": {
+                "Tier": 1
+            },
+            "localization": {
+                "en": "Tier 1 Essence",
+                "zh": "T1 精华"
+            },
+            "sound": {
+                "default_sound_id": 1,
+                "sharket_sound_id": null
+            }
+        },
+        "Tier 2 Essence": {
+            "hideable": false,
+            "min_value": 6,
+            "theme": {
+                "Tier": 2
+            },
+            "localization": {
+                "en": "Tier 2 Essence",
+                "zh": "T2 精华"
+            },
+            "sound": {
+                "default_sound_id": 2,
+                "sharket_sound_id": null
+            }
+        },
+        "Tier 3 Essence": {
+            "hideable": false,
+            "min_value": 4,
+            "theme": {
+                "Tier": 3
+            },
+            "localization": {
+                "en": "Tier 3 Essence",
+                "zh": "T3 精华"
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        },
+        "Tier 4 Essence": {
+            "hideable": true,
+            "min_value": 2,
+            "theme": {
+                "Tier": 4
+            },
+            "localization": {
+                "en": "Tier 4 Essence",
+                "zh": "T4 精华"
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        },
+        "Tier 5 Essence": {
+            "hideable": true,
+            "min_value": 2,
+            "theme": {
+                "Tier": 5
+            },
+            "localization": {
+                "en": "Tier 5 Essence",
+                "zh": "T5 精华"
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        },
+        "Tier 6 Essence": {
+            "hideable": true,
+            "min_value": 2,
+            "theme": {
+                "Tier": 6
+            },
+            "localization": {
+                "en": "Tier 6 Essence",
+                "zh": "T6 精华"
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    }
+}

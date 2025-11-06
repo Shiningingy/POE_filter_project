@@ -1,8 +1,9 @@
 {
-  "//comment1": "Item_class then tiers within that class tier0 is highest",
+  "//comment_wombgifts": "pseudo item_class then tiers within that class tier0 is highest",
   "Wombgifts": {
     "_meta": {
       "theme_category": "temporary league item",
+      "item_class":"Wombgifts",
       "localization": {
         "en": "Wombgifts",
         "zh": "孕育赠礼"
@@ -29,7 +30,7 @@
         "zh": "T0 孕育赠礼"
       }
     },
-    "Tier 1 Grafts": {
+    "Tier 1 Wombgifts": {
       "hideable": false,
       "min_value": 8,
       "sound":{
@@ -44,8 +45,8 @@
         "zh": "T1 孕育赠礼"
       }
     },
-    "Tier 2 Grafts": {
-      "hideable": false,
+    "Tier 2 Wombgifts": {
+      "hideable": true,
       "min_value": 6,
       "sound":{
         "default_sound_id": 2,

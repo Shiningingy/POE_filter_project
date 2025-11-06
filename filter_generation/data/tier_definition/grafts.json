@@ -1,8 +1,9 @@
 {
-    "//comment1": "Item_class then tiers within that class tier0 is highest",
+    "//comment_grafts": "pseudo item_class then tiers within that class tier0 is highest",
     "Grafts": {
         "_meta": {
             "theme_category": "temporary league item",
+            "item_class":"Grafts",
             "localization": {
                 "en": "Grafts",
                 "zh": "嫁接"

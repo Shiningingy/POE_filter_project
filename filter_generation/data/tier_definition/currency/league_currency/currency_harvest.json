@@ -1,0 +1,94 @@
+{
+    "Lifeforce": {
+        "_meta": {
+            "theme_category": "currency_harvest",
+            "localization": {
+                "en": "Lifeforce",
+                "zh": "命能"
+            },
+            "description": "All lifeforce divided by tier.",
+            "tier_order": [
+                "Tier 0 Lifeforce",
+                "Tier 1 Lifeforce",
+                "Tier 2 Lifeforce",
+                "Tier 3 Lifeforce",
+                "Tier 4 Lifeforce"
+            ]
+        },
+        "Tier 0 Lifeforce": {
+            "hideable": false,
+            "min_value": 10,
+            "theme": {
+                "Tier": 0
+            },
+            "localization": {
+                "en": "Tier 0 Lifeforce",
+                "zh": "T0 命能"
+            },
+            "sound": {
+                "default_sound_id": 6,
+                "sharket_sound_id": null
+            }
+        },
+        "Tier 1 Lifeforce": {
+            "hideable": false,
+            "min_value": 6,
+            "theme": {
+                "Tier": 2
+            },
+            "localization": {
+                "en": "Tier 1 Lifeforce",
+                "zh": "T1 命能"
+            },
+            "sound": {
+                "default_sound_id": 2,
+                "sharket_sound_id": null
+            }
+        },
+        "Tier 2 Lifeforce": {
+            "hideable": false,
+            "min_value": 4,
+            "theme": {
+                "Tier": 3
+            },
+            "localization": {
+                "en": "Tier 2 Lifeforce",
+                "zh": "T2 命能"
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        },
+        "Tier 3 Lifeforce": {
+            "hideable": true,
+            "min_value": 2,
+            "theme": {
+                "Tier": 4
+            },
+            "localization": {
+                "en": "Tier 3 Lifeforce",
+                "zh": "T3 命能"
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        },
+        "Tier 4 Lifeforce": {
+            "hideable": true,
+            "min_value": 2,
+            "theme": {
+                "Tier": 6
+            },
+            "localization": {
+                "en": "Tier 4 Lifeforce",
+                "zh": "T4 命能"
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    }
+}

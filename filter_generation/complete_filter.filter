@@ -1,0 +1,45 @@
+#========================================
+#  FILTER OVERVIEW
+#========================================
+#  [00000] 自定义规则
+#  [10000] 孕育赠礼 Wombgifts
+#========================================
+
+#==[00000]-自定义规则==
+#在此添加自定义规则将会覆盖所有过滤器设定.
+
+#==[10000]-孕育赠礼 Wombgifts==
+#==[10100]-Tier 0 Wombgifts 孕育赠礼==
+#==[10101]-iLvl86+ Ancient/Mysterious → Tier 0 iLvl86+ Ancient/Mysterious → Tier 0==
+Show #孕育赠礼-T0孕育赠礼
+  Class "Wombgifts"
+  BaseType "Ancient Wombgift" "Mysterious Wombgift"
+  ItemLevel >=86
+  SetFontSize 45
+  SetTextColor 120 200 160 255
+  SetBorderColor 120 200 160 255
+  PlayAlertSound 6 300
+  PlayEffect Red
+
+#==[10200]-Tier 1 Wombgifts 孕育赠礼==
+Show #孕育赠礼-T1孕育赠礼
+  Class "Wombgifts"
+  BaseType "Ancient Wombgift" "Mysterious Wombgift"
+  SetFontSize 45
+  SetTextColor 255 255 255 255
+  SetBorderColor 255 255 255 255
+  PlayAlertSound 1 300
+
+#==[10300]-Tier 2 Wombgifts 孕育赠礼==
+#Minimal #隐藏-孕育赠礼-T2 孕育赠礼
+#    Class "Wombgifts"
+#    BaseType "Growing Wombgift" "Lavish Wombgift" "Provisioning Wombgift"
+
+Show #孕育赠礼-T2孕育赠礼
+  Class "Wombgifts"
+  BaseType "Growing Wombgift" "Lavish Wombgift" "Provisioning Wombgift"
+  SetFontSize 45
+  SetTextColor 0 0 0 255
+  SetBorderColor 0 0 0 255
+  PlayAlertSound 2 300
+
