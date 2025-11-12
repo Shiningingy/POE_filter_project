@@ -1,0 +1,43 @@
+{
+  "_meta": {
+    "translations": {
+      "Fleshgraft": "<TBD>",
+      "Battering Uulgraft": "<TBD>",
+      "Spiking Uulgraft": "<TBD>",
+      "Impaling Uulgraft": "<TBD>",
+      "Hardening Uulgraft": "<TBD>",
+      "Molten Xophgraft": "<TBD>",
+      "Erupting Xophgraft": "<TBD>",
+      "Flamecaller Xophgraft": "<TBD>",
+      "Stoking Xophgraft": "<TBD>",
+      "Storming Eshgraft": "<TBD>",
+      "Replicating Eshgraft": "<TBD>",
+      "Draining Eshgraft": "<TBD>",
+      "Jolting Eshgraft": "<TBD>",
+      "Squalling Tulgraft": "<TBD>",
+      "Freezing Tulgraft": "<TBD>",
+      "Summoning Tulgraft": "<TBD>",
+      "Aegis Tulgraft": "<TBD>"
+    }
+  },
+  "mapping": {
+    "Fleshgraft": "Tier 2 Grafts",
+    "Battering Uulgraft": "Tier 2 Grafts",
+    "Spiking Uulgraft": "Tier 2 Grafts",
+    "Impaling Uulgraft": "Tier 2 Grafts",
+    "Hardening Uulgraft": "Tier 2 Grafts",
+    "Molten Xophgraft": "Tier 2 Grafts",
+    "Erupting Xophgraft": "Tier 2 Grafts",
+    "Flamecaller Xophgraft": "Tier 2 Grafts",
+    "Stoking Xophgraft": "Tier 2 Grafts",
+    "Storming Eshgraft": "Tier 2 Grafts",
+    "Replicating Eshgraft": "Tier 2 Grafts",
+    "Draining Eshgraft": "Tier 2 Grafts",
+    "Jolting Eshgraft": "Tier 2 Grafts",
+    "Squalling Tulgraft": "Tier 2 Grafts",
+    "Freezing Tulgraft": "Tier 2 Grafts",
+    "Summoning Tulgraft": "Tier 2 Grafts",
+    "Aegis Tulgraft": "Tier 2 Grafts"
+  },
+  "rules": []
+}

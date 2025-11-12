@@ -1,0 +1,86 @@
+{
+    "currency":{
+        "Tier 0":{
+            "FontSize":45,
+            "TextColor":"#ff0000ff",
+            "BorderColor":"#ff0000ff",
+            "BackgroundColor":"#ffffffff",
+            "PlayEffect":"Red",
+            "MinimapIcon":[0,"Red","Circle"]
+        },        
+        "Tier 1":{
+            "FontSize":45,
+            "TextColor":"#ffffffff",
+            "BorderColor":"#00ff00ff",
+            "BackgroundColor":"#d20000ff",
+            "PlayEffect":"Green",
+            "MinimapIcon":[1,"Green","Circle"]
+        },
+        "Tier 2":{
+            "FontSize":40,
+            "TextColor":"#ffffffff",
+            "BorderColor":"#00ff00ff",
+            "BackgroundColor":"#d20000ff",
+            "PlayEffect":"Green",
+            "MinimapIcon":[1,"Green","Circle"]
+        },
+        "Tier 3":{
+            "FontSize":40,
+            "TextColor":"#000000ff",
+            "BorderColor":"#000000ff",
+            "BackgroundColor":"#ffaa00ff",
+            "PlayEffect":null,
+            "MinimapIcon":null
+        },
+        "Tier 4":{
+            "FontSize":36,
+            "TextColor":"#000000ff",
+            "BorderColor":"#000000ff",
+            "BackgroundColor":"#ffaa00ff",
+            "PlayEffect":null,
+            "MinimapIcon":null
+        },
+        "Tier 5":{
+            "FontSize":36,
+            "TextColor":"#000000ff",
+            "BorderColor":"#000000ff",
+            "BackgroundColor":"#aa9e82ff",
+            "PlayEffect":null,
+            "MinimapIcon":null
+        },
+        "Tier 6":{
+            "FontSize":32,
+            "TextColor":"#000000ff",
+            "BorderColor":"#000000ff",
+            "BackgroundColor":"#aa9e82ff",
+            "PlayEffect":null,
+            "MinimapIcon":null
+        }
+    },
+    "temporary league item" : {
+        "Tier 0":{
+            "FontSize":45,
+            "TextColor":"#78c8a0ff",
+            "BorderColor":"#78c8a0ff",
+            "BackgroundColor":"#ffffffff",
+            "PlayEffect":"Red",
+            "MinimapIcon":[0,"Red","Star"]
+        },
+        "Tier 1":{
+            "FontSize":40,
+            "TextColor":"#ffffffff",
+            "BorderColor":"#ffffffff",
+            "BackgroundColor":"#78c8a0ff",
+            "PlayEffect":null,
+            "MinimapIcon":[1,"Red","Moon"]
+        },
+        "Tier 2":{
+            "FontSize":36,
+            "TextColor":"#000000ff",
+            "BorderColor":"#000000ff",
+            "BackgroundColor":"#78c8a0ff",
+            "PlayEffect":null,
+            "MinimapIcon":[2,"Yellow","Moon"]
+        }
+    }
+}

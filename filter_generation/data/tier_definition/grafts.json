@@ -1,0 +1,64 @@
+{
+    "//comment_grafts": "pseudo item_class then tiers within that class tier0 is highest",
+    "Grafts": {
+        "_meta": {
+            "theme_category": "temporary league item",
+            "item_class":"Grafts",
+            "localization": {
+                "en": "Grafts",
+                "zh": "嫁接"
+            },
+            "description": "Grafts introduced at keeprs league",
+            "tier_order": [
+                "Tier 0 Grafts",
+                "Tier 1 Grafts",
+                "Tier 2 Grafts"
+            ]
+        },
+        "Tier 0 Grafts": {
+            "hideable": false,
+            "min_value": 10,
+            "theme": {
+                "Tier": 0
+            },
+            "localization": {
+                "en": "Tier 0 Grafts",
+                "zh": "T0 嫁接"
+            },
+            "sound": {
+                "default_sound_id": 6,
+                "sharket_sound_id": "超级嫁接"
+            }
+        },
+        "Tier 1 Grafts": {
+            "hideable": false,
+            "min_value": 8,
+            "theme": {
+                "Tier": 1
+            },
+            "localization": {
+                "en": "Tier 1 Grafts",
+                "zh": "T1 嫁接"
+            },
+            "sound": {
+                "default_sound_id": 1,
+                "sharket_sound_id": "嫁接"
+            }
+        },
+        "Tier 2 Grafts": {
+            "hideable": false,
+            "min_value": 6,
+            "theme": {
+                "Tier": 2
+            },
+            "localization": {
+                "en": "Tier 2 Grafts",
+                "zh": "T2 嫁接"
+            },
+            "sound": {
+                "default_sound_id": 2,
+                "sharket_sound_id": "嫁接"
+            }
+        }
+    }
+}

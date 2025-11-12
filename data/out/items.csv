@@ -1,43 +1,1173 @@
-rarity,unique_name,base_type,item_class
-Unique,Shiversting,Bastard Sword,Two Hand Swords
-Unique,Edge of Madness,Etched Greatsword,Two Hand Swords
-Unique,Queen's Decree,Ornate Sword,Two Hand Swords
-Unique,Rigwald's Charge,Highland Blade,Two Hand Swords
-Unique,Rakiata's Dance,Engraved Greatsword,Two Hand Swords
-Unique,Terminus Est,Tiger Sword,Two Hand Swords
-Unique,The Dancing Dervish,Reaver Sword,Two Hand Swords
-Unique,Hiltless,Reaver Sword,Two Hand Swords
-Unique,Kondo's Pride,Ezomyte Blade,Two Hand Swords
-Unique,The Living Blade,Ezomyte Blade,Two Hand Swords
-Unique,Doomsower,Lion Sword,Two Hand Swords
-Unique,Oro's Sacrifice,Infernal Sword,Two Hand Swords
-Unique,Starforge,Infernal Sword,Two Hand Swords
-Unique,Voidforge,Infernal Sword,Two Hand Swords
-Unique,Replica Oro's Sacrifice,Infernal Sword,Two Hand Swords
-Unique,Echoforge,Infernal Sword,Two Hand Swords
-Normal,,Corroded Blade,Two Hand Swords
-Normal,,Longsword,Two Hand Swords
-Normal,,Bastard Sword,Two Hand Swords
-Normal,,Two-Handed Sword,Two Hand Swords
-Normal,,Etched Greatsword,Two Hand Swords
-Normal,,Ornate Sword,Two Hand Swords
-Normal,,Spectral Sword,Two Hand Swords
-Normal,,Curved Blade,Two Hand Swords
-Normal,,Butcher Sword,Two Hand Swords
-Normal,,Footman Sword,Two Hand Swords
-Normal,,Highland Blade,Two Hand Swords
-Normal,,Engraved Greatsword,Two Hand Swords
-Normal,,Tiger Sword,Two Hand Swords
-Normal,,Wraith Sword,Two Hand Swords
-Normal,,Lithe Blade,Two Hand Swords
-Normal,,Headman's Sword,Two Hand Swords
-Normal,,Reaver Sword,Two Hand Swords
-Normal,,Ezomyte Blade,Two Hand Swords
-Normal,,Vaal Greatsword,Two Hand Swords
-Normal,,Lion Sword,Two Hand Swords
-Normal,,Infernal Sword,Two Hand Swords
-Normal,,Exquisite Blade,Two Hand Swords
-Normal,,Rebuking Blade,Two Hand Swords
-Normal,,Blasting Blade,Two Hand Swords
-Normal,,Banishing Blade,Two Hand Swords
-Normal,,Energy Blade,Two Hand Swords
+rarity,unique_name,base_type,class
+Unique,Lifesprig,Driftwood Wand,Unique Item
+Unique,Abberath's Horn,Goat's Horn,Unique Item
+Unique,Ashcaller,Goat's Horn,Unique Item
+Unique,Reverberation Rod,Spiraled Wand,Unique Item
+Unique,Storm Prison,Spiraled Wand,Unique Item
+Unique,Twyzel,Sage Wand,Unique Item
+Unique,Shade of Solaris,Sage Wand,Unique Item
+Unique,Replica Twyzel,Sage Wand,Unique Item
+Unique,Relic of the Pact,Sage Wand,Unique Item
+Unique,Unlight Extant,Sage Wand,Unique Item
+Unique,Mystic Refractor,Pagan Wand,Unique Item
+Unique,Eclipse Solaris,Faun's Horn,Unique Item
+Unique,Apep's Rage,Omen Wand,Unique Item
+Unique,Obliteration,Omen Wand,Unique Item
+Unique,Tulfall,Opal Wand,Unique Item
+Unique,Tulborn,Opal Wand,Unique Item
+Unique,Replica Tulfall,Opal Wand,Unique Item
+Unique,Shimmeron,Tornado Wand,Unique Item
+Unique,Void Battery,Prophecy Wand,Unique Item
+Unique,Grace of the Goddess,Prophecy Wand,Unique Item
+Unique,The Poet's Pen,Somatic Wand,Unique Item
+Unique,Moonsorrow,Kinetic Wand,Unique Item
+Unique,Piscator's Vigil,Kinetic Wand,Unique Item
+Unique,Midnight Bargain,Calling Wand,Unique Item
+Unique,Replica Midnight Bargain,Calling Wand,Unique Item
+Unique,Goredrill,Skinning Knife,Unique Item
+Unique,Bloodplay,Stiletto,Unique Item
+Unique,Replica Bloodplay,Stiletto,Unique Item
+Unique,Ungil's Gauche,Boot Knife,Unique Item
+Unique,Replica Ungil's Gauche,Boot Knife,Unique Item
+Unique,Mightflay,Flaying Knife,Unique Item
+Unique,Widowmaker,Boot Blade,Unique Item
+Unique,Heartbreaker,Royal Skean,Unique Item
+Unique,Replica Heartbreaker,Royal Skean,Unique Item
+Unique,The Consuming Dark,Fiend Dagger,Unique Item
+Unique,Arakaali's Fang,Fiend Dagger,Unique Item
+Unique,Bino's Kitchen Knife,Slaughter Knife,Unique Item
+Unique,Taproot,Ambusher,Unique Item
+Unique,The Hidden Blade,Ambusher,Unique Item
+Unique,Goblinedge,Ambusher,Unique Item
+Unique,Cold Iron Point,Ezomyte Dagger,Unique Item
+Unique,Replica Cold Iron Point,Ezomyte Dagger,Unique Item
+Unique,Mark of the Doubting Knight,Platinum Kris,Unique Item
+Unique,Divinarius,Imperial Skean,Unique Item
+Unique,White Wind,Imperial Skean,Unique Item
+Unique,Vulconus,Demon Dagger,Unique Item
+Unique,Festering Resentment,Demon Dagger,Unique Item
+Unique,Last Resort,Nailed Fist,Unique Item
+Unique,Replica Last Resort,Nailed Fist,Unique Item
+Unique,Wildslash,Awl,Unique Item
+Unique,Al Dhih,Timeworn Claw,Unique Item
+Unique,Mortem Morsu,Fright Claw,Unique Item
+Unique,Cybil's Paw,Thresher Claw,Unique Item
+Unique,Ornament of the East,Gut Ripper,Unique Item
+Unique,Advancing Fortress,Gut Ripper,Unique Item
+Unique,Replica Advancing Fortress,Gut Ripper,Unique Item
+Unique,The Wasp Nest,Throat Stabber,Unique Item
+Unique,Bloodseeker,Hellion's Paw,Unique Item
+Unique,Law of the Wilds,Hellion's Paw,Unique Item
+Unique,Essentia Sanguis,Vaal Claw,Unique Item
+Unique,Allure,Vaal Claw,Unique Item
+Unique,Replica Allure,Vaal Claw,Unique Item
+Unique,Touch of Anguish,Imperial Claw,Unique Item
+Unique,Hand of Thought and Motion,Imperial Claw,Unique Item
+Unique,Hand of Wisdom and Action,Imperial Claw,Unique Item
+Unique,Rive,Terror Claw,Unique Item
+Unique,The Scourge,Terror Claw,Unique Item
+Unique,The Screaming Eagle,Jade Hatchet,Unique Item
+Unique,Dreadarc,Cleaver,Unique Item
+Unique,Relentless Fury,Decorative Axe,Unique Item
+Unique,The Grey Wind,Spectral Axe,Unique Item
+Unique,Moonbender's Wing,Tomahawk,Unique Item
+Unique,Soul Taker,Siege Axe,Unique Item
+Unique,Actum,Butcher Axe,Unique Item
+Unique,"Jack, the Axe",Vaal Hatchet,Unique Item
+Unique,Rigwald's Savagery,Royal Axe,Unique Item
+Unique,Dyadus,Infernal Axe,Unique Item
+Unique,Oni-Goroshi,Charan's Sword,Unique Item
+Unique,Redbeak,Rusted Sword,Unique Item
+Unique,The Princess,Sabre,Unique Item
+Unique,The Tempestuous Steel,War Sword,Unique Item
+Unique,Replica Tempestuous Steel,War Sword,Unique Item
+Unique,The Goddess Scorned,Elegant Sword,Unique Item
+Unique,Lakishu's Blade,Elegant Sword,Unique Item
+Unique,Ephemeral Edge,Dusk Blade,Unique Item
+Unique,Severed in Sleep,Cutlass,Unique Item
+Unique,United in Dream,Cutlass,Unique Item
+Unique,Innsbury Edge,Elder Sword,Unique Item
+Unique,Replica Innsbury Edge,Elder Sword,Unique Item
+Unique,Nametaker,Graceful Sword,Unique Item
+Unique,Prismatic Eclipse,Twilight Blade,Unique Item
+Unique,Story of the Vaal,Gemstone Sword,Unique Item
+Unique,Fate of the Vaal,Gemstone Sword,Unique Item
+Unique,Ichimonji,Corsair Sword,Unique Item
+Unique,Scaeva,Gladius,Unique Item
+Unique,The Iron Mass,Gladius,Unique Item
+Unique,Hyaon's Fury,Legion Sword,Unique Item
+Unique,The Rippling Thoughts,Legion Sword,Unique Item
+Unique,The Saviour,Legion Sword,Unique Item
+Unique,The Surging Thoughts,Legion Sword,Unique Item
+Unique,Rebuke of the Vaal,Vaal Blade,Unique Item
+Unique,Varunastra,Vaal Blade,Unique Item
+Unique,Dreamfeather,Eternal Sword,Unique Item
+Unique,Beltimber Blade,Eternal Sword,Unique Item
+Unique,Grelwood Shank,Eternal Sword,Unique Item
+Unique,Replica Dreamfeather,Eternal Sword,Unique Item
+Unique,Rigwald's Command,Midnight Blade,Unique Item
+Unique,Razor of the Seventh Sun,Midnight Blade,Unique Item
+Unique,Ahn's Might,Midnight Blade,Unique Item
+Unique,The Goddess Bound,Whalebone Rapier,Unique Item
+Unique,Aurumvorax,Basket Rapier,Unique Item
+Unique,Fidelitas' Spike,Jagged Foil,Unique Item
+Unique,Ewar's Mirage,Antique Rapier,Unique Item
+Unique,Daresso's Passion,Estoc,Unique Item
+Unique,Paradoxica,Vaal Rapier,Unique Item
+Unique,Replica Paradoxica,Vaal Rapier,Unique Item
+Unique,Cospri's Malice,Jewelled Foil,Unique Item
+Unique,Gorebreaker,Spiked Club,Unique Item
+Unique,Brightbeak,War Hammer,Unique Item
+Unique,Lavianga's Wisdom,War Hammer,Unique Item
+Unique,Flesh-Eater,Dream Mace,Unique Item
+Unique,The Monastery Bell,Dream Mace,Unique Item
+Unique,Clayshaper,Rock Breaker,Unique Item
+Unique,Frostbreath,Ornate Mace,Unique Item
+Unique,Replica Frostbreath,Ornate Mace,Unique Item
+Unique,Mjölner,Gavel,Unique Item
+Unique,Cameria's Maul,Gavel,Unique Item
+Unique,Cameria's Avarice,Gavel,Unique Item
+Unique,Callinellus Malleus,Auric Mace,Unique Item
+Unique,Nebuloch,Nightmare Mace,Unique Item
+Unique,Axiom Perpetuum,Bronze Sceptre,Unique Item
+Unique,Brutus' Lead Sprinkler,Ritual Sceptre,Unique Item
+Unique,The Dark Seer,Shadow Sceptre,Unique Item
+Unique,Bitterdream,Shadow Sceptre,Unique Item
+Unique,Replica Bitterdream,Shadow Sceptre,Unique Item
+Unique,Earendel's Embrace,Grinning Fetish,Unique Item
+Unique,Replica Earendel's Embrace,Grinning Fetish,Unique Item
+Unique,Nycta's Lantern,Crystal Sceptre,Unique Item
+Unique,The Supreme Truth,Crystal Sceptre,Unique Item
+Unique,Cerberus Limb,Blood Sceptre,Unique Item
+Unique,The Black Cane,Royal Sceptre,Unique Item
+Unique,Death's Hand,Karui Sceptre,Unique Item
+Unique,Maata's Teaching,Karui Sceptre,Unique Item
+Unique,Sign of the Sin Eater,Tyrant's Sekhem,Unique Item
+Unique,Balefire,Opal Sceptre,Unique Item
+Unique,Singularity,Platinum Sceptre,Unique Item
+Unique,Cadigan's Authority,Platinum Sceptre,Unique Item
+Unique,Doon Cuebiyari,Vaal Sceptre,Unique Item
+Unique,Doryani's Catalyst,Vaal Sceptre,Unique Item
+Unique,Yaomac's Accord,Vaal Sceptre,Unique Item
+Unique,Breath of the Council,Carnal Sceptre,Unique Item
+Unique,Mon'tregul's Grasp,Void Sceptre,Unique Item
+Unique,Augyre,Void Sceptre,Unique Item
+Unique,Nebulis,Void Sceptre,Unique Item
+Unique,Replica Nebulis,Void Sceptre,Unique Item
+Unique,Silverbranch,Crude Bow,Unique Item
+Unique,Widowhail,Crude Bow,Unique Item
+Unique,Quill Rain,Short Bow,Unique Item
+Unique,Replica Quill Rain,Short Bow,Unique Item
+Unique,Storm Cloud,Long Bow,Unique Item
+Unique,Roth's Reach,Recurve Bow,Unique Item
+Unique,Doomfletch,Royal Bow,Unique Item
+Unique,Death's Harp,Death Bow,Unique Item
+Unique,Iron Commander,Death Bow,Unique Item
+Unique,Replica Iron Commander,Death Bow,Unique Item
+Unique,Infractem,Decimation Bow,Unique Item
+Unique,Replica Infractem,Decimation Bow,Unique Item
+Unique,The Crimson Storm,Steelwood Bow,Unique Item
+Unique,Xoph's Nurture,Citadel Bow,Unique Item
+Unique,Xoph's Inception,Citadel Bow,Unique Item
+Unique,The Gluttonous Tide,Citadel Bow,Unique Item
+Unique,Null's Inclination,Ranger Bow,Unique Item
+Unique,Hopeshredder,Ranger Bow,Unique Item
+Unique,Chin Sol,Assassin Bow,Unique Item
+Unique,Darkscorn,Assassin Bow,Unique Item
+Unique,Arborix,Assassin Bow,Unique Item
+Unique,Voltaxic Rift,Spine Bow,Unique Item
+Unique,Reach of the Council,Spine Bow,Unique Item
+Unique,Lioneye's Glare,Imperial Bow,Unique Item
+Unique,Windripper,Imperial Bow,Unique Item
+Unique,Replica Windripper,Imperial Bow,Unique Item
+Unique,Wing of the Wyvern,Imperial Bow,Unique Item
+Unique,Nuro's Harp,Harbinger Bow,Unique Item
+Unique,Slivertongue,Harbinger Bow,Unique Item
+Unique,Fencoil,Gnarled Branch,Unique Item
+Unique,The Blood Thorn,Gnarled Branch,Unique Item
+Unique,Replica Blood Thorn,Gnarled Branch,Unique Item
+Unique,Replica Fencoil,Gnarled Branch,Unique Item
+Unique,Dying Breath,Iron Staff,Unique Item
+Unique,Pillar of the Caged God,Iron Staff,Unique Item
+Unique,Realmshaper,Iron Staff,Unique Item
+Unique,Xirgil's Crank,Coiled Staff,Unique Item
+Unique,The Stormheart,Royal Staff,Unique Item
+Unique,The Whispering Ice,Vile Staff,Unique Item
+Unique,The Annihilating Light,Quarterstaff,Unique Item
+Unique,Tremor Rod,Military Staff,Unique Item
+Unique,Sire of Shards,Serpentine Staff,Unique Item
+Unique,Cane of Kulemak,Serpentine Staff,Unique Item
+Unique,Martyr of Innocence,Highborn Staff,Unique Item
+Unique,Witchhunter's Judgment,Highborn Staff,Unique Item
+Unique,The Winds of Fate,Foul Staff,Unique Item
+Unique,Femurs of the Saints,Primordial Staff,Unique Item
+Unique,The Burden of Shadows,Primordial Staff,Unique Item
+Unique,The Searing Touch,Lathi,Unique Item
+Unique,Cane of Unravelling,Ezomyte Staff,Unique Item
+Unique,Soulwrest,Ezomyte Staff,Unique Item
+Unique,The Fulcrum,Ezomyte Staff,Unique Item
+Unique,Taryn's Shiver,Maelström Staff,Unique Item
+Unique,Duskdawn,Maelström Staff,Unique Item
+Unique,Disintegrator,Maelström Staff,Unique Item
+Unique,Replica Duskdawn,Maelström Staff,Unique Item
+Unique,Agnerod East,Imperial Staff,Unique Item
+Unique,Agnerod North,Imperial Staff,Unique Item
+Unique,Agnerod South,Imperial Staff,Unique Item
+Unique,Agnerod West,Imperial Staff,Unique Item
+Unique,The Enmity Divine,Imperial Staff,Unique Item
+Unique,The Yielding Mortality,Imperial Staff,Unique Item
+Unique,Jiquani's Potential,Imperial Staff,Unique Item
+Unique,Pledge of Hands,Judgement Staff,Unique Item
+Unique,Hegemony's Era,Judgement Staff,Unique Item
+Unique,The Grey Spire,Judgement Staff,Unique Item
+Unique,Atziri's Rule,Judgement Staff,Unique Item
+Unique,Legacy of the Rose,Judgement Staff,Unique Item
+Unique,Limbsplit,Woodsplitter,Unique Item
+Unique,Wideswing,Poleaxe,Unique Item
+Unique,Reaper's Pursuit,Shadow Axe,Unique Item
+Unique,The Harvest,Jasper Chopper,Unique Item
+Unique,Replica Harvest,Jasper Chopper,Unique Item
+Unique,The Blood Reaper,Headsman Axe,Unique Item
+Unique,Ngamahu's Flame,Abyssal Axe,Unique Item
+Unique,Starcaller,Abyssal Axe,Unique Item
+Unique,Kaom's Primacy,Karui Chopper,Unique Item
+Unique,Wings of Entropy,Ezomyte Axe,Unique Item
+Unique,Sinvicta's Mettle,Ezomyte Axe,Unique Item
+Unique,Replica Wings of Entropy,Ezomyte Axe,Unique Item
+Unique,Atziri's Disfavour,Vaal Axe,Unique Item
+Unique,Hezmana's Bloodlust,Vaal Axe,Unique Item
+Unique,Uul-Netol's Kiss,Vaal Axe,Unique Item
+Unique,Uul-Netol's Embrace,Vaal Axe,Unique Item
+Unique,Kingmaker,Despot Axe,Unique Item
+Unique,Debeon's Dirge,Despot Axe,Unique Item
+Unique,Kitava's Feast,Void Axe,Unique Item
+Unique,Shiversting,Bastard Sword,Unique Item
+Unique,Edge of Madness,Etched Greatsword,Unique Item
+Unique,Queen's Decree,Ornate Sword,Unique Item
+Unique,Rigwald's Charge,Highland Blade,Unique Item
+Unique,Rakiata's Dance,Engraved Greatsword,Unique Item
+Unique,Terminus Est,Tiger Sword,Unique Item
+Unique,The Dancing Dervish,Reaver Sword,Unique Item
+Unique,Hiltless,Reaver Sword,Unique Item
+Unique,Kondo's Pride,Ezomyte Blade,Unique Item
+Unique,The Living Blade,Ezomyte Blade,Unique Item
+Unique,Doomsower,Lion Sword,Unique Item
+Unique,Oro's Sacrifice,Infernal Sword,Unique Item
+Unique,Starforge,Infernal Sword,Unique Item
+Unique,Voidforge,Infernal Sword,Unique Item
+Unique,Replica Oro's Sacrifice,Infernal Sword,Unique Item
+Unique,Echoforge,Infernal Sword,Unique Item
+Unique,Hrimnor's Hymn,Sledgehammer,Unique Item
+Unique,Quecholli,Jagged Maul,Unique Item
+Unique,Geofri's Baptism,Brass Maul,Unique Item
+Unique,Chober Chaber,Great Mallet,Unique Item
+Unique,Trypanon,Great Mallet,Unique Item
+Unique,Replica Trypanon,Great Mallet,Unique Item
+Unique,Jorrhast's Blacksteel,Steelhead,Unique Item
+Unique,Voidhome,Dread Maul,Unique Item
+Unique,Marohi Erqi,Karui Maul,Unique Item
+Unique,Tawhoa's Felling,Piledriver,Unique Item
+Unique,Brain Rattler,Meatgrinder,Unique Item
+Unique,Tidebreaker,Imperial Maul,Unique Item
+Unique,Kongor's Undying Rage,Terror Maul,Unique Item
+Unique,Replica Kongor's Undying Rage,Terror Maul,Unique Item
+Unique,Song of the Sirens,Fishing Rod,Unique Item
+Unique,Reefbane,Fishing Rod,Unique Item
+Unique,Lycosidae,Rawhide Tower Shield,Unique Item
+Unique,Trolltimber Spire,Cedar Tower Shield,Unique Item
+Unique,Titucius' Span,Reinforced Tower Shield,Unique Item
+Unique,Redblade Banner,Painted Tower Shield,Unique Item
+Unique,Svalinn,Girded Tower Shield,Unique Item
+Unique,Chernobog's Pillar,Ebony Tower Shield,Unique Item
+Unique,Tukohama's Fortress,Ebony Tower Shield,Unique Item
+Unique,Replica Tukohama's Fortress,Ebony Tower Shield,Unique Item
+Unique,The Surrender,Ezomyte Tower Shield,Unique Item
+Unique,The Anticipation,Ezomyte Tower Shield,Unique Item
+Unique,Cowards' Wail,Ezomyte Tower Shield,Unique Item
+Unique,Ahn's Heritage,Colossal Tower Shield,Unique Item
+Unique,Dawnbreaker,Colossal Tower Shield,Unique Item
+Unique,Lioneye's Remorse,Pinnacle Tower Shield,Unique Item
+Unique,Magna Eclipsis,Pinnacle Tower Shield,Unique Item
+Unique,Crest of Perandus,Pine Buckler,Unique Item
+Unique,Kaltenhalt,Painted Buckler,Unique Item
+Unique,Chalice of Horrors,War Buckler,Unique Item
+Unique,Mutewind Pennant,Enameled Buckler,Unique Item
+Unique,Great Old One's Ward,Corrugated Buckler,Unique Item
+Unique,Atziri's Reflection,Golden Buckler,Unique Item
+Unique,Kiloava's Bluster,Ironwood Buckler,Unique Item
+Unique,Mistwall,Lacquered Buckler,Unique Item
+Unique,Replica Mistwall,Lacquered Buckler,Unique Item
+Unique,Azadi Crest,Lacquered Buckler,Unique Item
+Unique,Thousand Teeth Temu,Vaal Buckler,Unique Item
+Unique,Matua Tupuna,Tarnished Spirit Shield,Unique Item
+Unique,Brinerot Flag,Tarnished Spirit Shield,Unique Item
+Unique,Light of Lunaris,Jingling Spirit Shield,Unique Item
+Unique,Sentari's Answer,Brass Spirit Shield,Unique Item
+Unique,Kongming's Stratagem,Ancient Spirit Shield,Unique Item
+Unique,The Eternal Apple,Chiming Spirit Shield,Unique Item
+Unique,The Scales of Justice,Chiming Spirit Shield,Unique Item
+Unique,Manastorm,Lacewood Spirit Shield,Unique Item
+Unique,Esh's Mirror,Vaal Spirit Shield,Unique Item
+Unique,Esh's Visage,Vaal Spirit Shield,Unique Item
+Unique,Apep's Slumber,Vaal Spirit Shield,Unique Item
+Unique,Apep's Supremacy,Vaal Spirit Shield,Unique Item
+Unique,Malachai's Loop,Harmonic Spirit Shield,Unique Item
+Unique,Rathpith Globe,Titanium Spirit Shield,Unique Item
+Unique,Bitterbind Point,Titanium Spirit Shield,Unique Item
+Unique,Wheel of the Stormsail,Rotted Round Shield,Unique Item
+Unique,The Deep One's Hide,Studded Round Shield,Unique Item
+Unique,The Flawed Refuge,Maple Round Shield,Unique Item
+Unique,Shattershard,Crimson Round Shield,Unique Item
+Unique,Daresso's Courage,Baroque Round Shield,Unique Item
+Unique,The Ghastly Theatre,Teak Round Shield,Unique Item
+Unique,Vix Lunaris,Cardinal Round Shield,Unique Item
+Unique,The Squire,Elegant Round Shield,Unique Item
+Unique,The Oppressor,Elegant Round Shield,Unique Item
+Unique,Springleaf,Plank Kite Shield,Unique Item
+Unique,Emperor's Vigilance,Steel Kite Shield,Unique Item
+Unique,Mahuxotl's Machination,Steel Kite Shield,Unique Item
+Unique,Victario's Charity,Laminated Kite Shield,Unique Item
+Unique,Replica Victario's Charity,Laminated Kite Shield,Unique Item
+Unique,Saffell's Frame,Branded Kite Shield,Unique Item
+Unique,Aegis Aurora,Champion Kite Shield,Unique Item
+Unique,Rise of the Phoenix,Mosaic Kite Shield,Unique Item
+Unique,Prism Guardian,Archon Kite Shield,Unique Item
+Unique,Broken Faith,Archon Kite Shield,Unique Item
+Unique,The Unshattered Will,Archon Kite Shield,Unique Item
+Unique,Invictus Solaris,Archon Kite Shield,Unique Item
+Unique,Unyielding Flame,Archon Kite Shield,Unique Item
+Unique,The Immortal Will,Archon Kite Shield,Unique Item
+Unique,Maligaro's Lens,Compound Spiked Shield,Unique Item
+Unique,Zeel's Amplifier,Polished Spiked Shield,Unique Item
+Unique,Qotra's Regulator,Sovereign Spiked Shield,Unique Item
+Unique,Perepiteia,Ezomyte Spiked Shield,Unique Item
+Unique,Leper's Alms,Mirrored Spiked Shield,Unique Item
+Unique,Font of Thunder,Mirrored Spiked Shield,Unique Item
+Unique,Jaws of Agony,Supreme Spiked Shield,Unique Item
+Unique,Ezomyte Peak,Iron Hat,Unique Item
+Unique,Thrillsteel,Barbute Helmet,Unique Item
+Unique,The Baron,Close Helmet,Unique Item
+Unique,Blood Price,Reaver Helmet,Unique Item
+Unique,Kaom's Command,Siege Helmet,Unique Item
+Unique,Hrimnor's Resolve,Samnite Helmet,Unique Item
+Unique,Abyssus,Ezomyte Burgonet,Unique Item
+Unique,Cowl of the Thermophile,Ezomyte Burgonet,Unique Item
+Unique,Replica Abyssus,Ezomyte Burgonet,Unique Item
+Unique,Howlcrack,Ezomyte Burgonet,Unique Item
+Unique,The Formless Flame,Royal Burgonet,Unique Item
+Unique,The Formless Inferno,Royal Burgonet,Unique Item
+Unique,Echoes of Creation,Royal Burgonet,Unique Item
+Unique,Usurper's Penance,Eternal Burgonet,Unique Item
+Unique,Goldrim,Leather Cap,Unique Item
+Unique,Fairgraves' Tricorne,Tricorne,Unique Item
+Unique,Heatshiver,Leather Hood,Unique Item
+Unique,Replica Heatshiver,Leather Hood,Unique Item
+Unique,Elevore,Wolf Pelt,Unique Item
+Unique,Rat's Nest,Ursine Pelt,Unique Item
+Unique,Starkonja's Head,Silken Hood,Unique Item
+Unique,Saqawal's Flock,Silken Hood,Unique Item
+Unique,Cowl of the Cryophile,Silken Hood,Unique Item
+Unique,Alpha's Howl,Sinner Tricorne,Unique Item
+Unique,Assailum,Sinner Tricorne,Unique Item
+Unique,Replica Alpha's Howl,Sinner Tricorne,Unique Item
+Unique,Obscurantis,Lion Pelt,Unique Item
+Unique,Crown of Thorns,Vine Circlet,Unique Item
+Unique,Asenath's Mark,Iron Circlet,Unique Item
+Unique,Wreath of Phrecia,Iron Circlet,Unique Item
+Unique,Mark of the Red Covenant,Tribal Circlet,Unique Item
+Unique,Plume of Pursuit,Bone Circlet,Unique Item
+Unique,Wraithlord,Bone Circlet,Unique Item
+Unique,Doedre's Scorn,Lunaris Circlet,Unique Item
+Unique,Maw of Conquest,Steel Circlet,Unique Item
+Unique,Sudden Dawn,Steel Circlet,Unique Item
+Unique,Chitus' Apex,Necromancer Circlet,Unique Item
+Unique,Fenumus' Toxins,Necromancer Circlet,Unique Item
+Unique,The Devouring Diadem,Necromancer Circlet,Unique Item
+Unique,Sandstorm Visage,Necromancer Circlet,Unique Item
+Unique,Flamesight,Solaris Circlet,Unique Item
+Unique,Galesight,Solaris Circlet,Unique Item
+Unique,Thundersight,Solaris Circlet,Unique Item
+Unique,Cowl of the Ceraunophile,Solaris Circlet,Unique Item
+Unique,Wilma's Requital,Solaris Circlet,Unique Item
+Unique,Rime Gaze,Mind Cage,Unique Item
+Unique,Scold's Bridle,Mind Cage,Unique Item
+Unique,Hale Negator,Mind Cage,Unique Item
+Unique,Crown of Eyes,Hubris Circlet,Unique Item
+Unique,Ylfeban's Trickery,Hubris Circlet,Unique Item
+Unique,Eber's Unification,Hubris Circlet,Unique Item
+Unique,Indigon,Hubris Circlet,Unique Item
+Unique,The Dark Monarch,Lich's Circlet,Unique Item
+Unique,The Trickster's Smile,Visored Sallet,Unique Item
+Unique,Deidbell,Gilded Sallet,Unique Item
+Unique,Skullhead,Secutor Helm,Unique Item
+Unique,Black Sun Crest,Lacquered Helmet,Unique Item
+Unique,The Fledgling,Lacquered Helmet,Unique Item
+Unique,Crest of Desire,Fluted Bascinet,Unique Item
+Unique,The Devourer of Minds,Pig-Faced Bascinet,Unique Item
+Unique,The Bringer of Rain,Nightmare Bascinet,Unique Item
+Unique,Devoto's Devotion,Nightmare Bascinet,Unique Item
+Unique,Honourhome,Soldier Helmet,Unique Item
+Unique,Veil of the Night,Great Helmet,Unique Item
+Unique,Replica Veil of the Night,Great Helmet,Unique Item
+Unique,Mindspiral,Aventail Helmet,Unique Item
+Unique,Kitava's Thirst,Zealot Helmet,Unique Item
+Unique,Ravenous Passion,Zealot Helmet,Unique Item
+Unique,Geofri's Crest,Great Crown,Unique Item
+Unique,Lightpoacher,Great Crown,Unique Item
+Unique,Forbidden Shako,Great Crown,Unique Item
+Unique,Craiceann's Chitin,Magistrate Crown,Unique Item
+Unique,Mask of the Spirit Drinker,Magistrate Crown,Unique Item
+Unique,Mask of the Stitched Demon,Magistrate Crown,Unique Item
+Unique,Crown of the Tyrant,Magistrate Crown,Unique Item
+Unique,Mask of the Tribunal,Magistrate Crown,Unique Item
+Unique,The Broken Crown,Prophet Crown,Unique Item
+Unique,The Brine Crown,Prophet Crown,Unique Item
+Unique,Speaker's Wreath,Prophet Crown,Unique Item
+Unique,Crown of the Inward Eye,Prophet Crown,Unique Item
+Unique,Voll's Vision,Praetor Crown,Unique Item
+Unique,Malachai's Vision,Praetor Crown,Unique Item
+Unique,Ahn's Contempt,Praetor Crown,Unique Item
+Unique,Memory Vault,Praetor Crown,Unique Item
+Unique,Viridi's Veil,Praetor Crown,Unique Item
+Unique,Refuge in Isolation,Paladin Crown,Unique Item
+Unique,Curtain Call,Plague Mask,Unique Item
+Unique,Malachai's Simula,Iron Mask,Unique Item
+Unique,Leer Cast,Festival Mask,Unique Item
+Unique,Replica Leer Cast,Festival Mask,Unique Item
+Unique,The Three Dragons,Golden Mask,Unique Item
+Unique,Willclash,Golden Mask,Unique Item
+Unique,The Gull,Raven Mask,Unique Item
+Unique,The Tempest's Binding,Callous Mask,Unique Item
+Unique,Eye of Malice,Callous Mask,Unique Item
+Unique,The Tempest's Liberation,Callous Mask,Unique Item
+Unique,Crown of the Pale King,Regicide Mask,Unique Item
+Unique,Gorgon's Gaze,Regicide Mask,Unique Item
+Unique,Akoya's Gaze,Regicide Mask,Unique Item
+Unique,Mind of the Council,Harlequin Mask,Unique Item
+Unique,Farrul's Bite,Harlequin Mask,Unique Item
+Unique,The Vertex,Vaal Mask,Unique Item
+Unique,Fractal Thoughts,Vaal Mask,Unique Item
+Unique,Glimpse of Chaos,Vaal Mask,Unique Item
+Unique,Heretic's Veil,Deicide Mask,Unique Item
+Unique,Maw of Mischief,Bone Helmet,Unique Item
+Unique,Ancient Skull,Bone Helmet,Unique Item
+Unique,Faithguard,Runic Helm,Unique Item
+Unique,Cadigan's Crown,Runic Crown,Unique Item
+Unique,Bramblejack,Plate Vest,Unique Item
+Unique,Solaris Lorica,Copper Plate,Unique Item
+Unique,Pragmatism,Colosseum Plate,Unique Item
+Unique,Utula's Hunger,Majestic Plate,Unique Item
+Unique,Greed's Embrace,Golden Plate,Unique Item
+Unique,Craiceann's Carapace,Golden Plate,Unique Item
+Unique,Lioneye's Vision,Crusader Plate,Unique Item
+Unique,The Iron Fortress,Crusader Plate,Unique Item
+Unique,Death's Oath,Astral Plate,Unique Item
+Unique,Blunderbore,Astral Plate,Unique Item
+Unique,The Brass Dome,Gladiator Plate,Unique Item
+Unique,Kaom's Heart,Glorious Plate,Unique Item
+Unique,Perfidy,Glorious Plate,Unique Item
+Unique,Replica Kaom's Heart,Glorious Plate,Unique Item
+Unique,Ashrend,Buckskin Tunic,Unique Item
+Unique,Foxshade,Wild Leather,Unique Item
+Unique,Briskwrap,Sun Leather,Unique Item
+Unique,Bronn's Lithe,Cutthroat's Garb,Unique Item
+Unique,The Rat Cage,Sharkskin Tunic,Unique Item
+Unique,Queen of the Forest,Destiny Leather,Unique Item
+Unique,Kintsugi,Exquisite Leather,Unique Item
+Unique,Yriel's Fostering,Exquisite Leather,Unique Item
+Unique,Hyrri's Ire,Zodiac Leather,Unique Item
+Unique,The Snowblind Grace,Zodiac Leather,Unique Item
+Unique,The Perfect Form,Zodiac Leather,Unique Item
+Unique,Replica Perfect Form,Zodiac Leather,Unique Item
+Unique,Replica Hyrri's Ire,Zodiac Leather,Unique Item
+Unique,Cospri's Will,Assassin's Garb,Unique Item
+Unique,Thousand Ribbons,Simple Robe,Unique Item
+Unique,Skin of the Loyal,Simple Robe,Unique Item
+Unique,Skin of the Lords,Simple Robe,Unique Item
+Unique,Ghostwrithe,Silken Vest,Unique Item
+Unique,Cloak of Flame,Scholar's Robe,Unique Item
+Unique,The Apostate,Cabalist Regalia,Unique Item
+Unique,Zahndethus' Cassock,Sage's Robe,Unique Item
+Unique,Dialla's Malefaction,Sage's Robe,Unique Item
+Unique,The Covenant,Spidersilk Robe,Unique Item
+Unique,Soul Mantle,Spidersilk Robe,Unique Item
+Unique,Replica Covenant,Spidersilk Robe,Unique Item
+Unique,The Coming Calamity,Destroyer Regalia,Unique Item
+Unique,Cloak of Tawm'r Isley,Savant's Robe,Unique Item
+Unique,Garb of the Ephemeral,Savant's Robe,Unique Item
+Unique,Vis Mortis,Necromancer Silks,Unique Item
+Unique,Fleshcrafter,Necromancer Silks,Unique Item
+Unique,Shavronne's Wrappings,Occultist's Vestment,Unique Item
+Unique,Infernal Mantle,Widowsilk Robe,Unique Item
+Unique,Doedre's Skin,Widowsilk Robe,Unique Item
+Unique,Fenumus' Shroud,Widowsilk Robe,Unique Item
+Unique,The Beast Fur Shawl,Vaal Regalia,Unique Item
+Unique,The Queen's Hunger,Vaal Regalia,Unique Item
+Unique,Gruthkul's Pelt,Wyrmscale Doublet,Unique Item
+Unique,Belly of the Beast,Full Wyrmscale,Unique Item
+Unique,Lightning Coil,Desert Brigandine,Unique Item
+Unique,Daresso's Defiance,Full Dragonscale,Unique Item
+Unique,Rigwald's Hunt,General's Brigandine,Unique Item
+Unique,Cherrubim's Maleficence,Triumphant Lamellar,Unique Item
+Unique,Farrul's Fur,Triumphant Lamellar,Unique Item
+Unique,Replica Farrul's Fur,Triumphant Lamellar,Unique Item
+Unique,Voll's Protector,Holy Chainmail,Unique Item
+Unique,Icetomb,Latticed Ringmail,Unique Item
+Unique,Ambu's Charge,Crusader Chainmail,Unique Item
+Unique,Replica Ambu's Charge,Crusader Chainmail,Unique Item
+Unique,Lightbane Raiment,Ornate Ringmail,Unique Item
+Unique,The Fourth Vow,Devout Chainmail,Unique Item
+Unique,Kingsguard,Conquest Chainmail,Unique Item
+Unique,Geofri's Sanctuary,Elegant Ringmail,Unique Item
+Unique,Loreweave,Elegant Ringmail,Unique Item
+Unique,Replica Loreweave,Elegant Ringmail,Unique Item
+Unique,Sporeguard,Saint's Hauberk,Unique Item
+Unique,The Ivory Tower,Saint's Hauberk,Unique Item
+Unique,Doryani's Prototype,Saint's Hauberk,Unique Item
+Unique,Incandescent Heart,Saintly Chainmail,Unique Item
+Unique,Chains of Command,Saintly Chainmail,Unique Item
+Unique,Seven Teachings,Waxed Garb,Unique Item
+Unique,Bloodbond,Bone Armour,Unique Item
+Unique,Cloak of Defiance,Lacquered Garb,Unique Item
+Unique,Victario's Influence,Lacquered Garb,Unique Item
+Unique,Dendrobate,Sentinel Jacket,Unique Item
+Unique,Expedition's End,Sentinel Jacket,Unique Item
+Unique,Carcass Jack,Varnished Coat,Unique Item
+Unique,The Admiral,Varnished Coat,Unique Item
+Unique,Saqawal's Nest,Blood Raiment,Unique Item
+Unique,The Eternity Shroud,Blood Raiment,Unique Item
+Unique,Replica Eternity Shroud,Blood Raiment,Unique Item
+Unique,Tinkerskin,Sadist Garb,Unique Item
+Unique,Inpulsa's Broken Heart,Sadist Garb,Unique Item
+Unique,Doppelgänger Guise,Sadist Garb,Unique Item
+Unique,The Restless Ward,Carnal Armour,Unique Item
+Unique,Shroud of the Lightless,Carnal Armour,Unique Item
+Unique,Replica Shroud of the Lightless,Carnal Armour,Unique Item
+Unique,Replica Restless Ward,Carnal Armour,Unique Item
+Unique,Stasis Prison,Carnal Armour,Unique Item
+Unique,Servant of Decay,Torturer Garb,Unique Item
+Unique,Atziri's Splendour,Sacrificial Garb,Unique Item
+Unique,Shadowstitch,Sacrificial Garb,Unique Item
+Unique,Stormcharger,Plated Greaves,Unique Item
+Unique,Windscream,Reinforced Greaves,Unique Item
+Unique,Torchoak Step,Antique Greaves,Unique Item
+Unique,Redblade Tramplers,Ancient Greaves,Unique Item
+Unique,Kahuturoa's Certainty,Ancient Greaves,Unique Item
+Unique,Craiceann's Tracks,Goliath Greaves,Unique Item
+Unique,The Tempest Rising,Goliath Greaves,Unique Item
+Unique,Dawnstrider,Vaal Greaves,Unique Item
+Unique,Kaom's Roots,Titan Greaves,Unique Item
+Unique,The Infinite Pursuit,Titan Greaves,Unique Item
+Unique,The Red Trail,Titan Greaves,Unique Item
+Unique,Doryani's Delusion,Titan Greaves,Unique Item
+Unique,Replica Red Trail,Titan Greaves,Unique Item
+Unique,Seven-League Step,Rawhide Boots,Unique Item
+Unique,Victario's Flight,Goathide Boots,Unique Item
+Unique,Abberath's Hooves,Goathide Boots,Unique Item
+Unique,Deerstalker,Deerskin Boots,Unique Item
+Unique,Goldwyrm,Nubuck Boots,Unique Item
+Unique,Orbala's Stand,Eelskin Boots,Unique Item
+Unique,The Blood Dance,Sharkskin Boots,Unique Item
+Unique,Three-step Assault,Shagreen Boots,Unique Item
+Unique,Replica Three-step Assault,Shagreen Boots,Unique Item
+Unique,Temptation Step,Shagreen Boots,Unique Item
+Unique,Sin Trek,Stealth Boots,Unique Item
+Unique,Garukhan's Flight,Stealth Boots,Unique Item
+Unique,Atziri's Step,Slink Boots,Unique Item
+Unique,Farrul's Chase,Slink Boots,Unique Item
+Unique,Wanderlust,Wool Shoes,Unique Item
+Unique,Wondertrap,Velvet Slippers,Unique Item
+Unique,Bones of Ullr,Silk Slippers,Unique Item
+Unique,Replica Bones of Ullr,Silk Slippers,Unique Item
+Unique,Shavronne's Pace,Scholar Boots,Unique Item
+Unique,Scornflux,Satin Slippers,Unique Item
+Unique,Rainbowstride,Conjurer Boots,Unique Item
+Unique,Inya's Epiphany,Arcanist Slippers,Unique Item
+Unique,Replica Inya's Epiphany,Arcanist Slippers,Unique Item
+Unique,Steppan Eard,Sorcerer Boots,Unique Item
+Unique,Skyforth,Sorcerer Boots,Unique Item
+Unique,Dusktoe,Ironscale Boots,Unique Item
+Unique,Lioneye's Paws,Bronzescale Boots,Unique Item
+Unique,Replica Lioneye's Paws,Bronzescale Boots,Unique Item
+Unique,Mutewind Whispersteps,Serpentscale Boots,Unique Item
+Unique,Legacy of Fury,Wyrmscale Boots,Unique Item
+Unique,Saqawal's Talons,Hydrascale Boots,Unique Item
+Unique,Gamblesprint,Hydrascale Boots,Unique Item
+Unique,Darkray Vectors,Dragonscale Boots,Unique Item
+Unique,Annihilation's Approach,Dragonscale Boots,Unique Item
+Unique,Wake of Destruction,Mesh Boots,Unique Item
+Unique,Ralakesh's Impatience,Riveted Boots,Unique Item
+Unique,Alberon's Warpath,Soldier Boots,Unique Item
+Unique,Replica Alberon's Warpath,Soldier Boots,Unique Item
+Unique,Gang's Momentum,Legion Boots,Unique Item
+Unique,March of the Legion,Legion Boots,Unique Item
+Unique,Death's Door,Crusader Boots,Unique Item
+Unique,Nomic's Storm,Strapped Boots,Unique Item
+Unique,Sundance,Clasped Boots,Unique Item
+Unique,Veruso's Ambition,Shackled Boots,Unique Item
+Unique,Brinerot Whalers,Trapper Boots,Unique Item
+Unique,Dance of the Offered,Carnal Boots,Unique Item
+Unique,Omeyocan,Carnal Boots,Unique Item
+Unique,Corpsewalker,Carnal Boots,Unique Item
+Unique,Fenumus' Spinnerets,Assassin's Boots,Unique Item
+Unique,The Stampede,Assassin's Boots,Unique Item
+Unique,Replica Stampede,Assassin's Boots,Unique Item
+Unique,Voidwalker,Murder Boots,Unique Item
+Unique,Bubonic Trail,Murder Boots,Unique Item
+Unique,Replica Voidwalker,Murder Boots,Unique Item
+Unique,Beacon of Madness,Two-Toned Boots,Unique Item
+Unique,Inextricable Fate,Fugitive Boots,Unique Item
+Unique,Olroth's Charge,Runic Sollerets,Unique Item
+Unique,Vorana's March,Runic Sabatons,Unique Item
+Unique,Lochtonial Caress,Iron Gauntlets,Unique Item
+Unique,Giantsbane,Bronze Gauntlets,Unique Item
+Unique,Meginord's Vise,Steel Gauntlets,Unique Item
+Unique,Admiral's Arrogance,Antique Gauntlets,Unique Item
+Unique,The Caged Mammoth,Antique Gauntlets,Unique Item
+Unique,Winds of Change,Ancient Gauntlets,Unique Item
+Unique,Hateforge,Ancient Gauntlets,Unique Item
+Unique,Empire's Grasp,Goliath Gauntlets,Unique Item
+Unique,The Celestial Brace,Goliath Gauntlets,Unique Item
+Unique,Atziri's Acuity,Vaal Gauntlets,Unique Item
+Unique,Doryani's Fist,Vaal Gauntlets,Unique Item
+Unique,Replica Atziri's Acuity,Vaal Gauntlets,Unique Item
+Unique,Veruso's Battering Rams,Titan Gauntlets,Unique Item
+Unique,Craiceann's Pincers,Titan Gauntlets,Unique Item
+Unique,Kaom's Spirit,Titan Gauntlets,Unique Item
+Unique,Hrimsorrow,Goathide Gloves,Unique Item
+Unique,Maligaro's Virtuosity,Deerskin Gloves,Unique Item
+Unique,Oskarm,Nubuck Gloves,Unique Item
+Unique,Great Old One's Tentacles,Eelskin Gloves,Unique Item
+Unique,Painseeker,Shagreen Gloves,Unique Item
+Unique,Mercenary's Lot,Slink Gloves,Unique Item
+Unique,Sadima's Touch,Wool Gloves,Unique Item
+Unique,Doedre's Tenure,Velvet Gloves,Unique Item
+Unique,Asenath's Gentle Touch,Silk Gloves,Unique Item
+Unique,Vixen's Entrapment,Embroidered Gloves,Unique Item
+Unique,Allelopathy,Satin Gloves,Unique Item
+Unique,Demon Stitcher,Satin Gloves,Unique Item
+Unique,Replica Allelopathy,Satin Gloves,Unique Item
+Unique,Kalisa's Grace,Samite Gloves,Unique Item
+Unique,Replica Kalisa's Grace,Samite Gloves,Unique Item
+Unique,Voidbringer,Conjurer Gloves,Unique Item
+Unique,Grip of the Council,Arcanist Gloves,Unique Item
+Unique,Replica Grip of the Council,Arcanist Gloves,Unique Item
+Unique,Flesh and Spirit,Ironscale Gauntlets,Unique Item
+Unique,Slitherpinch,Bronzescale Gauntlets,Unique Item
+Unique,Vaal Caress,Bronzescale Gauntlets,Unique Item
+Unique,Aurseize,Steelscale Gauntlets,Unique Item
+Unique,Tombfist,Steelscale Gauntlets,Unique Item
+Unique,Haemophilia,Serpentscale Gauntlets,Unique Item
+Unique,Wyrmsign,Wyrmscale Gauntlets,Unique Item
+Unique,Tanu Ahi,Wyrmscale Gauntlets,Unique Item
+Unique,Farrul's Pounce,Hydrascale Gauntlets,Unique Item
+Unique,Breathstealer,Hydrascale Gauntlets,Unique Item
+Unique,Gravebind,Hydrascale Gauntlets,Unique Item
+Unique,Surgebinders,Dragonscale Gauntlets,Unique Item
+Unique,Shackles of the Wretched,Chain Gloves,Unique Item
+Unique,Triad Grip,Mesh Gloves,Unique Item
+Unique,The Hand of Phrecia,Mesh Gloves,Unique Item
+Unique,Command of the Pit,Riveted Gloves,Unique Item
+Unique,Volkuur's Guidance,Zealot Gloves,Unique Item
+Unique,Replica Volkuur's Guidance,Zealot Gloves,Unique Item
+Unique,Hand of the Fervent,Zealot Gloves,Unique Item
+Unique,Southbound,Soldier Gloves,Unique Item
+Unique,Saqawal's Winds,Soldier Gloves,Unique Item
+Unique,Null and Void,Legion Gloves,Unique Item
+Unique,Offering to the Serpent,Legion Gloves,Unique Item
+Unique,Repentance,Crusader Gloves,Unique Item
+Unique,Shaper's Touch,Crusader Gloves,Unique Item
+Unique,Hands of the High Templar,Crusader Gloves,Unique Item
+Unique,Hand of Heresy,Martyr Gloves,Unique Item
+Unique,Ondar's Clasp,Wrapped Mitts,Unique Item
+Unique,Facebreaker,Strapped Mitts,Unique Item
+Unique,Shadows and Dust,Clasped Mitts,Unique Item
+Unique,Aukuna's Will,Clasped Mitts,Unique Item
+Unique,Slavedriver's Hand,Ambush Mitts,Unique Item
+Unique,Architect's Hand,Ambush Mitts,Unique Item
+Unique,Abhorrent Interrogation,Ambush Mitts,Unique Item
+Unique,Stormseeker,Ambush Mitts,Unique Item
+Unique,The Embalmer,Carnal Mitts,Unique Item
+Unique,Fenumus' Weave,Carnal Mitts,Unique Item
+Unique,Algor Mortis,Carnal Mitts,Unique Item
+Unique,Soul Ascension,Carnal Mitts,Unique Item
+Unique,Hand of the Lords,Carnal Mitts,Unique Item
+Unique,Snakebite,Assassin's Mitts,Unique Item
+Unique,Blasphemer's Grasp,Assassin's Mitts,Unique Item
+Unique,Storm's Gift,Assassin's Mitts,Unique Item
+Unique,Entropic Devastation,Assassin's Mitts,Unique Item
+Unique,Thunderfist,Murder Mitts,Unique Item
+Unique,Malachai's Mark,Murder Mitts,Unique Item
+Unique,Machina Mitts,Murder Mitts,Unique Item
+Unique,Ceaseless Feast,Spiked Gloves,Unique Item
+Unique,Black Zenith,Fingerless Silk Gloves,Unique Item
+Unique,Nightgrip,Runic Gages,Unique Item
+Unique,Medved's Challenge,Runic Gauntlets,Unique Item
+Unique,Blackheart,Iron Ring,Unique Item
+Unique,Le Heup of All,Iron Ring,Unique Item
+Unique,The Warden's Brand,Iron Ring,Unique Item
+Unique,Circle of Guilt,Iron Ring,Unique Item
+Unique,Icefang Orbit,Iron Ring,Unique Item
+Unique,Venopuncture,Iron Ring,Unique Item
+Unique,Prospero's Protection,Iron Ring,Unique Item
+Unique,Kaom's Sign,Coral Ring,Unique Item
+Unique,Winterweave,Coral Ring,Unique Item
+Unique,Sibyl's Lament,Coral Ring,Unique Item
+Unique,Honoured Alliance,Coral Ring,Unique Item
+Unique,Doedre's Damning,Paua Ring,Unique Item
+Unique,Perandus Signet,Paua Ring,Unique Item
+Unique,Praxis,Paua Ring,Unique Item
+Unique,Replica Doedre's Damning,Paua Ring,Unique Item
+Unique,Fated End,Paua Ring,Unique Item
+Unique,Soulbound,Paua Ring,Unique Item
+Unique,Andvarius,Gold Ring,Unique Item
+Unique,Ventor's Gamble,Gold Ring,Unique Item
+Unique,The Highwayman,Gold Ring,Unique Item
+Unique,Ixchel's Temptation,Gold Ring,Unique Item
+Unique,Kikazaru,Topaz Ring,Unique Item
+Unique,Valako's Sign,Topaz Ring,Unique Item
+Unique,Putembo's Valley,Topaz Ring,Unique Item
+Unique,Putembo's Mountain,Topaz Ring,Unique Item
+Unique,Putembo's Meadow,Topaz Ring,Unique Item
+Unique,Precursor's Emblem,Topaz Ring,Unique Item
+Unique,Circle of Regret,Topaz Ring,Unique Item
+Unique,Astral Projector,Topaz Ring,Unique Item
+Unique,Storm Secret,Topaz Ring,Unique Item
+Unique,Nimis,Topaz Ring,Unique Item
+Unique,Dream Fragments,Sapphire Ring,Unique Item
+Unique,Pyre,Sapphire Ring,Unique Item
+Unique,Tasalio's Sign,Sapphire Ring,Unique Item
+Unique,Snakepit,Sapphire Ring,Unique Item
+Unique,Uzaza's Meadow,Sapphire Ring,Unique Item
+Unique,Uzaza's Mountain,Sapphire Ring,Unique Item
+Unique,Uzaza's Valley,Sapphire Ring,Unique Item
+Unique,Circle of Fear,Sapphire Ring,Unique Item
+Unique,Replica Tasalio's Sign,Sapphire Ring,Unique Item
+Unique,Call of the Void,Sapphire Ring,Unique Item
+Unique,Mokou's Embrace,Ruby Ring,Unique Item
+Unique,Ngamahu's Sign,Ruby Ring,Unique Item
+Unique,Emberwake,Ruby Ring,Unique Item
+Unique,Ahkeli's Mountain,Ruby Ring,Unique Item
+Unique,Ahkeli's Meadow,Ruby Ring,Unique Item
+Unique,Ahkeli's Valley,Ruby Ring,Unique Item
+Unique,Circle of Anguish,Ruby Ring,Unique Item
+Unique,Warrior's Legacy,Ruby Ring,Unique Item
+Unique,Replica Emberwake,Ruby Ring,Unique Item
+Unique,Lori's Lantern,Prismatic Ring,Unique Item
+Unique,The Taming,Prismatic Ring,Unique Item
+Unique,Thief's Torment,Prismatic Ring,Unique Item
+Unique,Circle of Ambition,Prismatic Ring,Unique Item
+Unique,Shavronne's Revelation,Moonstone Ring,Unique Item
+Unique,Timeclasp,Moonstone Ring,Unique Item
+Unique,Heartbound Loop,Moonstone Ring,Unique Item
+Unique,Valyrium,Moonstone Ring,Unique Item
+Unique,Anathema,Moonstone Ring,Unique Item
+Unique,Tawhanuku's Timing,Moonstone Ring,Unique Item
+Unique,Death Rush,Amethyst Ring,Unique Item
+Unique,Ming's Heart,Amethyst Ring,Unique Item
+Unique,Circle of Nostalgia,Amethyst Ring,Unique Item
+Unique,Blackflame,Amethyst Ring,Unique Item
+Unique,Original Sin,Amethyst Ring,Unique Item
+Unique,Coiling Whisper,Amethyst Ring,Unique Item
+Unique,Gifts from Above,Diamond Ring,Unique Item
+Unique,Romira's Banquet,Diamond Ring,Unique Item
+Unique,Grattus Signet,Diamond Ring,Unique Item
+Unique,Berek's Respite,Two-Stone Ring,Unique Item
+Unique,Berek's Grip,Two-Stone Ring,Unique Item
+Unique,Call of the Brotherhood,Two-Stone Ring,Unique Item
+Unique,Berek's Pass,Two-Stone Ring,Unique Item
+Unique,Rigwald's Crest,Two-Stone Ring,Unique Item
+Unique,Voideye,Unset Ring,Unique Item
+Unique,Malachai's Artifice,Unset Ring,Unique Item
+Unique,Brinerot Mark,Unset Ring,Unique Item
+Unique,Redblade Band,Unset Ring,Unique Item
+Unique,Mutewind Seal,Unset Ring,Unique Item
+Unique,The Pariah,Unset Ring,Unique Item
+Unique,Essence Worm,Unset Ring,Unique Item
+Unique,Angler's Plait,Unset Ring,Unique Item
+Unique,The Hungry Loop,Unset Ring,Unique Item
+Unique,Mark of Submission,Unset Ring,Unique Item
+Unique,Vivinsect,Unset Ring,Unique Item
+Unique,Profane Proxy,Unset Ring,Unique Item
+Unique,Replica Malachai's Artifice,Unset Ring,Unique Item
+Unique,Replica Voideye,Unset Ring,Unique Item
+Unique,Rotblood Promise,Unset Ring,Unique Item
+Unique,Triumvirate Authority,Unset Ring,Unique Item
+Unique,Squirming Terror,Unset Ring,Unique Item
+Unique,The Will of Tul,Cryonic Ring,Unique Item
+Unique,The Will of Xoph,Enthalpic Ring,Unique Item
+Unique,The Will of Esh,Synaptic Ring,Unique Item
+Unique,The Will of Uul-Netol,Organic Ring,Unique Item
+Unique,The Sundered Will,Fugitive Ring,Unique Item
+Unique,Lost Unity,Formless Ring,Unique Item
+Unique,The Queller of Minds,Nameless Ring,Unique Item
+Unique,The Selfish Shepherd,Nameless Ring,Unique Item
+Unique,The Hateful Accuser,Nameless Ring,Unique Item
+Unique,Mark of the Elder,Steel Ring,Unique Item
+Unique,Betrayal's Sting,Steel Ring,Unique Item
+Unique,Woespike,Steel Ring,Unique Item
+Unique,Stormfire,Opal Ring,Unique Item
+Unique,Mark of the Shaper,Opal Ring,Unique Item
+Unique,Polaric Devastation,Opal Ring,Unique Item
+Unique,The Unseen Hue,Opal Ring,Unique Item
+Unique,Enmity's Embrace,Vermillion Ring,Unique Item
+Unique,Kalandra's Touch,Ring,Unique Item
+Unique,Atziri's Foible,Paua Amulet,Unique Item
+Unique,Sidhebreath,Paua Amulet,Unique Item
+Unique,Zerphi's Heart,Paua Amulet,Unique Item
+Unique,Sacrificial Heart,Paua Amulet,Unique Item
+Unique,Replica Atziri's Foible,Paua Amulet,Unique Item
+Unique,Defiance of Destiny,Paua Amulet,Unique Item
+Unique,Araku Tiki,Coral Amulet,Unique Item
+Unique,The Primordial Chain,Coral Amulet,Unique Item
+Unique,Tavukai,Coral Amulet,Unique Item
+Unique,Tainted Pact,Coral Amulet,Unique Item
+Unique,Ikiaho's Promise,Coral Amulet,Unique Item
+Unique,The Anvil,Amber Amulet,Unique Item
+Unique,Blood of Corruption,Amber Amulet,Unique Item
+Unique,Xoph's Heart,Amber Amulet,Unique Item
+Unique,Xoph's Blood,Amber Amulet,Unique Item
+Unique,Bloodsoaked Medallion,Amber Amulet,Unique Item
+Unique,Karui Ward,Jade Amulet,Unique Item
+Unique,Rashkaldor's Patience,Jade Amulet,Unique Item
+Unique,The Halcyon,Jade Amulet,Unique Item
+Unique,The Pandemonius,Jade Amulet,Unique Item
+Unique,Hyrri's Truth,Jade Amulet,Unique Item
+Unique,Willowgift,Jade Amulet,Unique Item
+Unique,Replica Karui Ward,Jade Amulet,Unique Item
+Unique,Replica Hyrri's Truth,Jade Amulet,Unique Item
+Unique,Marylene's Fallacy,Lapis Amulet,Unique Item
+Unique,Stone of Lazhwar,Lapis Amulet,Unique Item
+Unique,Tear of Purity,Lapis Amulet,Unique Item
+Unique,Voice of the Storm,Lapis Amulet,Unique Item
+Unique,Choir of the Storm,Lapis Amulet,Unique Item
+Unique,The Ephemeral Bond,Lapis Amulet,Unique Item
+Unique,Doedre's Tongue,Lapis Amulet,Unique Item
+Unique,The Ignomon,Gold Amulet,Unique Item
+Unique,Winterheart,Gold Amulet,Unique Item
+Unique,Perquil's Toe,Gold Amulet,Unique Item
+Unique,Replica Winterheart,Gold Amulet,Unique Item
+Unique,The Untouched Soul,Gold Amulet,Unique Item
+Unique,The Utmost,Gold Amulet,Unique Item
+Unique,Astramentis,Onyx Amulet,Unique Item
+Unique,Carnage Heart,Onyx Amulet,Unique Item
+Unique,Eye of Chayula,Onyx Amulet,Unique Item
+Unique,Hinekora's Sight,Onyx Amulet,Unique Item
+Unique,Presence of Chayula,Onyx Amulet,Unique Item
+Unique,Yoke of Suffering,Onyx Amulet,Unique Item
+Unique,Impresence,Onyx Amulet,Unique Item
+Unique,Aul's Uprising,Onyx Amulet,Unique Item
+Unique,Solstice Vigil,Onyx Amulet,Unique Item
+Unique,Leadership's Price,Onyx Amulet,Unique Item
+Unique,Stranglegasp,Onyx Amulet,Unique Item
+Unique,Crystallised Omniscience,Onyx Amulet,Unique Item
+Unique,Ashes of the Stars,Onyx Amulet,Unique Item
+Unique,The Eternal Struggle,Onyx Amulet,Unique Item
+Unique,Replica Dragonfang's Flight,Onyx Amulet,Unique Item
+Unique,Replica Hinekora's Sight,Onyx Amulet,Unique Item
+Unique,Victario's Acuity,Turquoise Amulet,Unique Item
+Unique,Ungil's Harmony,Turquoise Amulet,Unique Item
+Unique,Warped Timepiece,Turquoise Amulet,Unique Item
+Unique,Maligaro's Cruelty,Turquoise Amulet,Unique Item
+Unique,Badge of the Brotherhood,Turquoise Amulet,Unique Item
+Unique,Fury Valve,Turquoise Amulet,Unique Item
+Unique,Replica Badge of the Brotherhood,Turquoise Amulet,Unique Item
+Unique,Haunting Memories,Turquoise Amulet,Unique Item
+Unique,Voll's Devotion,Agate Amulet,Unique Item
+Unique,Shaper's Seed,Agate Amulet,Unique Item
+Unique,The Aylardex,Agate Amulet,Unique Item
+Unique,Extractor Mentis,Agate Amulet,Unique Item
+Unique,Eternal Damnation,Agate Amulet,Unique Item
+Unique,Daresso's Salute,Citrine Amulet,Unique Item
+Unique,Eye of Innocence,Citrine Amulet,Unique Item
+Unique,The Jinxed Juju,Citrine Amulet,Unique Item
+Unique,The Felbog Fang,Citrine Amulet,Unique Item
+Unique,Retaliation Charm,Citrine Amulet,Unique Item
+Unique,Star of Wraeclast,Ruby Amulet,Unique Item
+Unique,Uul-Netol's Vow,Unset Amulet,Unique Item
+Unique,Venarius' Astrolabe,Astrolabe Amulet,Unique Item
+Unique,Gloomfang,Blue Pearl Amulet,Unique Item
+Unique,Bloodgrip,Marble Amulet,Unique Item
+Unique,Bonemeld,Marble Amulet,Unique Item
+Unique,Whispers of Infinity,Seaglass Amulet,Unique Item
+Unique,Night's Hold,Black Maw Talisman,Unique Item
+Unique,Rigwald's Curse,Wereclaw Talisman,Unique Item
+Unique,Blightwell,Clutching Talisman,Unique Item
+Unique,Natural Hierarchy,Rotfeather Talisman,Unique Item
+Unique,Eyes of the Greatwolf,Greatwolf Talisman,Unique Item
+Unique,Prismweave,Rustic Sash,Unique Item
+Unique,Feastbind,Rustic Sash,Unique Item
+Unique,Faminebind,Rustic Sash,Unique Item
+Unique,The Retch,Rustic Sash,Unique Item
+Unique,Replica Prismweave,Rustic Sash,Unique Item
+Unique,Bated Breath,Chain Belt,Unique Item
+Unique,Maligaro's Restraint,Chain Belt,Unique Item
+Unique,Ascent From Flesh,Chain Belt,Unique Item
+Unique,Coward's Chains,Chain Belt,Unique Item
+Unique,Coward's Legacy,Chain Belt,Unique Item
+Unique,Chains of Emancipation,Chain Belt,Unique Item
+Unique,Replica Bated Breath,Chain Belt,Unique Item
+Unique,Chain of Endurance,Chain Belt,Unique Item
+Unique,Headhunter,Leather Belt,Unique Item
+Unique,Immortal Flesh,Leather Belt,Unique Item
+Unique,Wurm's Molt,Leather Belt,Unique Item
+Unique,Umbilicus Immortalis,Leather Belt,Unique Item
+Unique,Cyclopean Coil,Leather Belt,Unique Item
+Unique,Gluttony,Leather Belt,Unique Item
+Unique,Hyperboreus,Leather Belt,Unique Item
+Unique,Leash of Oblation,Leather Belt,Unique Item
+Unique,Bear's Girdle,Leather Belt,Unique Item
+Unique,Replica Headhunter,Leather Belt,Unique Item
+Unique,Pyroshock Clasp,Leather Belt,Unique Item
+Unique,Doryani's Invitation,Heavy Belt,Unique Item
+Unique,Meginord's Girdle,Heavy Belt,Unique Item
+Unique,Belt of the Deceiver,Heavy Belt,Unique Item
+Unique,Dyadian Dawn,Heavy Belt,Unique Item
+Unique,Bisco's Leash,Heavy Belt,Unique Item
+Unique,String of Servitude,Heavy Belt,Unique Item
+Unique,Siegebreaker,Heavy Belt,Unique Item
+Unique,Mother's Embrace,Heavy Belt,Unique Item
+Unique,Replica Siegebreaker,Heavy Belt,Unique Item
+Unique,Survivor's Guilt,Heavy Belt,Unique Item
+Unique,Mageblood,Heavy Belt,Unique Item
+Unique,Kaom's Binding,Heavy Belt,Unique Item
+Unique,Perandus Blazon,Cloth Belt,Unique Item
+Unique,Sunblast,Cloth Belt,Unique Item
+Unique,Soulthirst,Cloth Belt,Unique Item
+Unique,Soul Tether,Cloth Belt,Unique Item
+Unique,The Flow Untethered,Cloth Belt,Unique Item
+Unique,The Torrent's Reclamation,Cloth Belt,Unique Item
+Unique,Replica Soul Tether,Cloth Belt,Unique Item
+Unique,The Druggery,Cloth Belt,Unique Item
+Unique,Arn's Anguish,Cloth Belt,Unique Item
+Unique,Olesya's Delight,Cloth Belt,Unique Item
+Unique,Graven's Secret,Cloth Belt,Unique Item
+Unique,Ceinture of Benevolence,Cloth Belt,Unique Item
+Unique,Bound Fate,Cloth Belt,Unique Item
+Unique,Nevalius Inheritance,Cloth Belt,Unique Item
+Unique,The Arkhon's Tools,Cloth Belt,Unique Item
+Unique,The Magnate,Studded Belt,Unique Item
+Unique,Ryslatha's Coil,Studded Belt,Unique Item
+Unique,Ynda's Stand,Studded Belt,Unique Item
+Unique,Perseverance,Vanguard Belt,Unique Item
+Unique,The Tides of Time,Vanguard Belt,Unique Item
+Unique,Binds of Bloody Vengeance,Vanguard Belt,Unique Item
+Unique,Auxium,Crystal Belt,Unique Item
+Unique,The Burden of Truth,Crystal Belt,Unique Item
+Unique,Darkness Enthroned,Stygian Vise,Unique Item
+Unique,Blood of the Karui,Sanctified Life Flask,Unique Item
+Unique,Doedre's Elixir,Greater Mana Flask,Unique Item
+Unique,Zerphi's Last Breath,Grand Mana Flask,Unique Item
+Unique,Wellwater Phylactery,Colossal Mana Flask,Unique Item
+Unique,Lavianga's Spirit,Sanctified Mana Flask,Unique Item
+Unique,Replica Lavianga's Spirit,Sanctified Mana Flask,Unique Item
+Unique,Divination Distillate,Large Hybrid Flask,Unique Item
+Unique,The Writhing Jar,Hallowed Hybrid Flask,Unique Item
+Unique,Coralito's Signature,Diamond Flask,Unique Item
+Unique,Coruscating Elixir,Ruby Flask,Unique Item
+Unique,Dying Sun,Ruby Flask,Unique Item
+Unique,Taste of Hate,Sapphire Flask,Unique Item
+Unique,Vessel of Vinktar,Topaz Flask,Unique Item
+Unique,Rumi's Concoction,Granite Flask,Unique Item
+Unique,Lion's Roar,Granite Flask,Unique Item
+Unique,Replica Rumi's Concoction,Granite Flask,Unique Item
+Unique,Rotgut,Quicksilver Flask,Unique Item
+Unique,Atziri's Promise,Amethyst Flask,Unique Item
+Unique,Progenesis,Amethyst Flask,Unique Item
+Unique,Forbidden Taste,Quartz Flask,Unique Item
+Unique,Soul Catcher,Quartz Flask,Unique Item
+Unique,Soul Ripper,Quartz Flask,Unique Item
+Unique,Witchfire Brew,Stibnite Flask,Unique Item
+Unique,Sin's Rebirth,Stibnite Flask,Unique Item
+Unique,Replica Witchfire Brew,Stibnite Flask,Unique Item
+Unique,The Sorrow of the Divine,Sulphur Flask,Unique Item
+Unique,The Overflowing Chalice,Sulphur Flask,Unique Item
+Unique,Bottled Faith,Sulphur Flask,Unique Item
+Unique,Replica Sorrow of the Divine,Sulphur Flask,Unique Item
+Unique,Kiara's Determination,Silver Flask,Unique Item
+Unique,Cinderswallow Urn,Silver Flask,Unique Item
+Unique,The Wise Oak,Bismuth Flask,Unique Item
+Unique,Oriath's End,Bismuth Flask,Unique Item
+Unique,Wine of the Prophet,Gold Flask,Unique Item
+Unique,Olroth's Resolve,Iron Flask,Unique Item
+Unique,Starlight Chalice,Iron Flask,Unique Item
+Unique,Elixir of the Unbroken Circle,Iron Flask,Unique Item
+Unique,Vorana's Preparation,Iron Flask,Unique Item
+Unique,Maloney's Mechanism,Ornate Quiver,Unique Item
+Unique,Replica Maloney's Mechanism,Ornate Quiver,Unique Item
+Unique,Craghead,Serrated Arrow Quiver,Unique Item
+Unique,Hyrri's Bite,Sharktooth Arrow Quiver,Unique Item
+Unique,Ahuana's Bite,Sharktooth Arrow Quiver,Unique Item
+Unique,Asphyxia's Wrath,Feathered Arrow Quiver,Unique Item
+Unique,Saemus' Gift,Feathered Arrow Quiver,Unique Item
+Unique,Drillneck,Penetrating Arrow Quiver,Unique Item
+Unique,Rearguard,Blunt Arrow Quiver,Unique Item
+Unique,The Fracturing Spinner,Blunt Arrow Quiver,Unique Item
+Unique,The Shattered Divinity,Blunt Arrow Quiver,Unique Item
+Unique,Rigwald's Quills,Two-Point Arrow Quiver,Unique Item
+Unique,Skirmish,Two-Point Arrow Quiver,Unique Item
+Unique,Soul Strike,Spike-Point Arrow Quiver,Unique Item
+Unique,Replica Soul Strike,Spike-Point Arrow Quiver,Unique Item
+Unique,Blackgleam,Blazing Arrow Quiver,Unique Item
+Unique,Steelworm,Broadhead Arrow Quiver,Unique Item
+Unique,Maloney's Nightfall,Vile Arrow Quiver,Unique Item
+Unique,Spinehail,Vile Arrow Quiver,Unique Item
+Unique,Scorpion's Call,Heavy Arrow Quiver,Unique Item
+Unique,Voidfletcher,Primal Arrow Quiver,Unique Item
+Unique,The Poised Prism,Primal Arrow Quiver,Unique Item
+Unique,Inertia,Crimson Jewel,Unique Item
+Unique,Inspired Learning,Crimson Jewel,Unique Item
+Unique,Rain of Splinters,Crimson Jewel,Unique Item
+Unique,Efficient Training,Crimson Jewel,Unique Item
+Unique,Atziri's Reign,Crimson Jewel,Unique Item
+Unique,Fragility,Crimson Jewel,Unique Item
+Unique,Energised Armour,Crimson Jewel,Unique Item
+Unique,Emperor's Might,Crimson Jewel,Unique Item
+Unique,Grand Spectrum,Crimson Jewel,Unique Item
+Unique,Primordial Might,Crimson Jewel,Unique Item
+Unique,The Red Dream,Crimson Jewel,Unique Item
+Unique,The Red Nightmare,Crimson Jewel,Unique Item
+Unique,Might of the Meek,Crimson Jewel,Unique Item
+Unique,Tempered Flesh,Crimson Jewel,Unique Item
+Unique,Combat Focus,Crimson Jewel,Unique Item
+Unique,Transcendent Flesh,Crimson Jewel,Unique Item
+Unique,Thread of Hope,Crimson Jewel,Unique Item
+Unique,Split Personality,Crimson Jewel,Unique Item
+Unique,Replica Primordial Might,Crimson Jewel,Unique Item
+Unique,Dissolution of the Flesh,Crimson Jewel,Unique Item
+Unique,Forbidden Flame,Crimson Jewel,Unique Item
+Unique,Firesong,Crimson Jewel,Unique Item
+Unique,Immutable Force,Crimson Jewel,Unique Item
+Unique,Bloodnotch,Crimson Jewel,Unique Item
+Unique,Warrior's Tale,Crimson Jewel,Unique Item
+Unique,The Adorned,Crimson Jewel,Unique Item
+Unique,Replica Fragility,Crimson Jewel,Unique Item
+Unique,Fluid Motion,Viridian Jewel,Unique Item
+Unique,Intuitive Leap,Viridian Jewel,Unique Item
+Unique,Lioneye's Fall,Viridian Jewel,Unique Item
+Unique,Careful Planning,Viridian Jewel,Unique Item
+Unique,Hidden Potential,Viridian Jewel,Unique Item
+Unique,Self-Flagellation,Viridian Jewel,Unique Item
+Unique,Chill of Corruption,Viridian Jewel,Unique Item
+Unique,Pacifism,Viridian Jewel,Unique Item
+Unique,Emperor's Cunning,Viridian Jewel,Unique Item
+Unique,Primordial Eminence,Viridian Jewel,Unique Item
+Unique,The Green Dream,Viridian Jewel,Unique Item
+Unique,The Green Nightmare,Viridian Jewel,Unique Item
+Unique,Pure Talent,Viridian Jewel,Unique Item
+Unique,The Golden Rule,Viridian Jewel,Unique Item
+Unique,Tempered Spirit,Viridian Jewel,Unique Item
+Unique,Transcendent Spirit,Viridian Jewel,Unique Item
+Unique,Unnatural Instinct,Viridian Jewel,Unique Item
+Unique,Seething Fury,Viridian Jewel,Unique Item
+Unique,Quickening Covenant,Viridian Jewel,Unique Item
+Unique,Impossible Escape,Viridian Jewel,Unique Item
+Unique,Stormshroud,Viridian Jewel,Unique Item
+Unique,Ancestral Vision,Viridian Jewel,Unique Item
+Unique,Replica Pacifism,Viridian Jewel,Unique Item
+Unique,To Dust,Cobalt Jewel,Unique Item
+Unique,Fertile Mind,Cobalt Jewel,Unique Item
+Unique,Brute Force Solution,Cobalt Jewel,Unique Item
+Unique,Fevered Mind,Cobalt Jewel,Unique Item
+Unique,Powerlessness,Cobalt Jewel,Unique Item
+Unique,Energy From Within,Cobalt Jewel,Unique Item
+Unique,Healthy Mind,Cobalt Jewel,Unique Item
+Unique,Dead Reckoning,Cobalt Jewel,Unique Item
+Unique,Reckless Defence,Cobalt Jewel,Unique Item
+Unique,Emperor's Wit,Cobalt Jewel,Unique Item
+Unique,Unending Hunger,Cobalt Jewel,Unique Item
+Unique,Primordial Harmony,Cobalt Jewel,Unique Item
+Unique,The Blue Dream,Cobalt Jewel,Unique Item
+Unique,The Blue Nightmare,Cobalt Jewel,Unique Item
+Unique,Tempered Mind,Cobalt Jewel,Unique Item
+Unique,Transcendent Mind,Cobalt Jewel,Unique Item
+Unique,Fortress Covenant,Cobalt Jewel,Unique Item
+Unique,Replica Reckless Defence,Cobalt Jewel,Unique Item
+Unique,Apex Mode,Cobalt Jewel,Unique Item
+Unique,Nadir Mode,Cobalt Jewel,Unique Item
+Unique,Melding of the Flesh,Cobalt Jewel,Unique Item
+Unique,Forbidden Flesh,Cobalt Jewel,Unique Item
+Unique,Witchbane,Cobalt Jewel,Unique Item
+Unique,Rational Doctrine,Cobalt Jewel,Unique Item
+Unique,The Balance of Terror,Cobalt Jewel,Unique Item
+Unique,Replica Powerlessness,Cobalt Jewel,Unique Item
+Unique,Emperor's Mastery,Prismatic Jewel,Unique Item
+Unique,The Anima Stone,Prismatic Jewel,Unique Item
+Unique,Watcher's Eye,Prismatic Jewel,Unique Item
+Unique,Sublime Vision,Prismatic Jewel,Unique Item
+Unique,The Light of Meaning,Prismatic Jewel,Unique Item
+Unique,Bound By Destiny,Prismatic Jewel,Unique Item
+Unique,Tecrod's Gaze,Murderous Eye Jewel,Unique Item
+Unique,Ulaman's Gaze,Searching Eye Jewel,Unique Item
+Unique,Kurgal's Gaze,Hypnotic Eye Jewel,Unique Item
+Unique,Amanamu's Gaze,Ghastly Eye Jewel,Unique Item
+Unique,Glorious Vanity,Timeless Jewel,Unique Item
+Unique,Militant Faith,Timeless Jewel,Unique Item
+Unique,Brutal Restraint,Timeless Jewel,Unique Item
+Unique,Elegant Hubris,Timeless Jewel,Unique Item
+Unique,Lethal Pride,Timeless Jewel,Unique Item
+Unique,Voices,Large Cluster Jewel,Unique Item
+Unique,Megalomaniac,Medium Cluster Jewel,Unique Item
+Unique,One With Nothing,Small Cluster Jewel,Unique Item
+Unique,Kitava's Teachings,Small Cluster Jewel,Unique Item
+Unique,The Interrogation,Small Cluster Jewel,Unique Item
+Unique,Calamitous Visions,Small Cluster Jewel,Unique Item
+Unique,Natural Affinity,Small Cluster Jewel,Unique Item
+Unique,The Siege,Small Cluster Jewel,Unique Item
+Unique,The Front Line,Small Cluster Jewel,Unique Item
+Unique,Whakawairua Tuahu,Strand Map,Unique Item
+Unique,Doryani's Machinarium,Maze Map,Unique Item
+Unique,Maelström of Chaos,Atoll Map,Unique Item
+Unique,Hallowed Ground,Cemetery Map,Unique Item
+Unique,Oba's Cursed Trove,Underground Sea Map,Unique Item
+Unique,Pillars of Arun,Dunes Map,Unique Item
+Unique,Replica Pillars of Arun,Dunes Map,Unique Item
+Unique,Olmec's Sanctum,Bone Crypt Map,Unique Item
+Unique,"Caer Blaidd, Wolfpack's Den",Underground River Map,Unique Item
+Unique,Vaults of Atziri,Vaal Pyramid Map,Unique Item
+Unique,The Vinktar Square,Courtyard Map,Unique Item
+Unique,Mao Kun,Shore Map,Unique Item
+Unique,The Twilight Temple,Moon Temple Map,Unique Item
+Unique,Poorjoy's Asylum,Temple Map,Unique Item
+Unique,Replica Poorjoy's Asylum,Temple Map,Unique Item
+Unique,The Putrid Cloister,Museum Map,Unique Item
+Unique,Cortex,Synthesised Map,Unique Item
+Unique,Altered Distant Memory,Synthesised Map,Unique Item
+Unique,Augmented Distant Memory,Synthesised Map,Unique Item
+Unique,Twisted Distant Memory,Synthesised Map,Unique Item
+Unique,Rewritten Distant Memory,Synthesised Map,Unique Item
+Unique,Replica Cortex,Synthesised Map,Unique Item
+Unique,The Coward's Trial,Cursed Crypt Map,Unique Item
+Unique,Hall of Grandmasters,Promenade Map,Unique Item
+Unique,Acton's Nightmare,Overgrown Shrine Map,Unique Item
+Unique,Death and Taxes,Necropolis Map,Unique Item
+Unique,The Beachhead,Harbinger Map,Unique Item
+Unique,Infused Beachhead,Harbinger Map,Unique Item
+Unique,Beauty,Vaal Aspect,Unique Item
+Unique,Curiosity,Vaal Aspect,Unique Item
+Unique,Ambition,Vaal Aspect,Unique Item
+Unique,Cooperation,Vaal Aspect,Unique Item
+Unique,Curio of Absorption,Primordial Fragment,Unique Item
+Unique,Curio of Consumption,Primordial Fragment,Unique Item
+Unique,Curio of Potential,Primordial Fragment,Unique Item
+Unique,Curio of Decay,Primordial Fragment,Unique Item
+Unique,Contract: Breaking the Unbreakable,Preventative Contract,Unique Item
+Unique,Contract: Heart of Glory,Familial Contract,Unique Item
+Unique,Contract: The Slaver King,Vigilante Contract,Unique Item
+Unique,Contract: Death to Darnaw,Naval Contract,Unique Item
+Unique,Contract: The Twins,Vengeful Contract,Unique Item
+Unique,The Hour of Divinity,Censer Relic,Unique Item
+Unique,The Blood of Innocence,Censer Relic,Unique Item
+Unique,The Gilded Chalice,Processional Relic,Unique Item
+Unique,The Chains of Castigation,Processional Relic,Unique Item
+Unique,The Second Sacrament,Candlestick Relic,Unique Item
+Unique,The Night Lamp,Urn Relic,Unique Item
+Unique,The First Crest,Coffer Relic,Unique Item
+Unique,The Broken Censer,Tome Relic,Unique Item
+Unique,The Power and the Promise,Tome Relic,Unique Item
+Unique,The Original Scripture,Papyrus Relic,Unique Item
+Unique,Sap of the Seasons,Prismatic Tincture,Unique Item
+Unique,Mightblood Ire,Ironwood Tincture,Unique Item
+Unique,Wildfire Phloem,Ashbark Tincture,Unique Item
+Unique,The Battle Within,Oakbranch Tincture,Unique Item
+Unique,Grasping Nightshade,Sporebloom Tincture,Unique Item

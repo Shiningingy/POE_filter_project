@@ -8,6 +8,10 @@
 test/
 data/*.filter
 data/*.ruthlessfilter
+data/cache
+data/debug
+
+
 # Virtual env
 .venv/
 
