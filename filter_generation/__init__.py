@@ -88,7 +88,7 @@ def minimal_block(cat_zh, tier_short, item_class, basetypes):
     )
 
 def show_block(cat_zh, tier_short, item_class, basetypes,
-               font_size, text_color, border_color, sound_line,
+               font_size, text_color, border_color, background_color,sound_line,
                play_effect=None, minimap_icon=None, extra_conditions=None):
     joined = '" "'.join(basetypes)
     lines = [
@@ -103,6 +103,7 @@ def show_block(cat_zh, tier_short, item_class, basetypes,
         f'  SetFontSize {font_size}',
         f'  SetTextColor {text_color}',
         f'  SetBorderColor {border_color}',
+        f'  SetBackgroundColor {background_color}'
     ]
     if sound_line:  lines.append(f"  {sound_line}")
     if play_effect: lines.append(f"  PlayEffect {play_effect}")
@@ -186,6 +187,7 @@ def main():
             ttheme = theme_ref.get(f"Tier {tnum}", {})
             base_text_col  = parse_rgba(ttheme.get("TextColor", "rgba(255,255,255,255)"))
             base_border_col= parse_rgba(ttheme.get("BorderColor", "rgba(255,255,255,255)"))
+            base_background_col = parse_rgba(ttheme.get("BackgroundColor", "rgba(255,255,255,255)"))
             play_eff       = ttheme.get("PlayEffect")
             mini_icon      = ttheme.get("MinimapIcon")
 
@@ -195,6 +197,7 @@ def main():
             for bt, conds, over, comment in entries_sorted:
                 text_color  = parse_rgba(over.get("TextColor", -1), base_text_col)
                 border_color= parse_rgba(over.get("BorderColor", -1), base_border_col)
+                background_color = parse_rgba(over.get("BackgroundColor", -1), base_background_col)
                 font_size   = over.get("FontSize", DEFAULT_FONT_SIZE)
                 sound_line  = resolve_sound(tier_def.get(t_lbl, {}), over.get("custom_sound"))
                 eff         = over.get("PlayEffect", play_eff)
@@ -206,6 +209,7 @@ def main():
                 key = json.dumps({
                     "TextColor": text_color,
                     "BorderColor": border_color,
+                    "BackgroundColor":background_color,
                     "FontSize": font_size,
                     "Sound": sound_line,
                     "PlayEffect": eff,
@@ -233,6 +237,7 @@ def main():
                     config["FontSize"],
                     config["TextColor"],
                     config["BorderColor"],
+                    config["BackgroundColor"],
                     config["Sound"],
                     config["PlayEffect"],
                     config["MinimapIcon"],

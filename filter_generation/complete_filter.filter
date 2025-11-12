@@ -17,6 +17,7 @@ Show #嫁接-T2嫁接
   SetFontSize 45
   SetTextColor 0 0 0 255
   SetBorderColor 0 0 0 255
+  SetBackgroundColor 120 200 160 255
   CustomAlertSound "Sharket掉落音效\嫁接.mp3" 300
   MinimapIcon 2 Yellow Moon
 
@@ -30,6 +31,7 @@ Show #孕育赠礼-T0孕育赠礼
   SetFontSize 45
   SetTextColor 120 200 160 255
   SetBorderColor 120 200 160 255
+  SetBackgroundColor 255 255 255 255
   CustomAlertSound "Sharket掉落音效\超级孕育赠礼.mp3" 300
   PlayEffect Red
   MinimapIcon 0 Red Star
@@ -41,6 +43,7 @@ Show #孕育赠礼-T1孕育赠礼
   SetFontSize 45
   SetTextColor 255 255 255 255
   SetBorderColor 255 255 255 255
+  SetBackgroundColor 120 200 160 255
   CustomAlertSound "Sharket掉落音效\孕育赠礼.mp3" 300
   MinimapIcon 1 Red Moon
 
@@ -55,6 +58,7 @@ Show #孕育赠礼-T2孕育赠礼
   SetFontSize 45
   SetTextColor 0 0 0 255
   SetBorderColor 0 0 0 255
+  SetBackgroundColor 120 200 160 255
   CustomAlertSound "Sharket掉落音效\孕育赠礼.mp3" 300
   MinimapIcon 2 Yellow Moon
 

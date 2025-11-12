@@ -4,7 +4,7 @@
             "FontSize":45,
             "TextColor":"#ff0000ff",
             "BorderColor":"#ff0000ff",
-            "BackGroundColor":"#ffffffff",
+            "BackgroundColor":"#ffffffff",
             "PlayEffect":"Red",
             "MinimapIcon":[0,"Red","Circle"]
         },        
@@ -12,7 +12,7 @@
             "FontSize":45,
             "TextColor":"#ffffffff",
             "BorderColor":"#00ff00ff",
-            "BackGroundColor":"#d20000ff",
+            "BackgroundColor":"#d20000ff",
             "PlayEffect":"Green",
             "MinimapIcon":[1,"Green","Circle"]
         },
@@ -20,7 +20,7 @@
             "FontSize":40,
             "TextColor":"#ffffffff",
             "BorderColor":"#00ff00ff",
-            "BackGroundColor":"#d20000ff",
+            "BackgroundColor":"#d20000ff",
             "PlayEffect":"Green",
             "MinimapIcon":[1,"Green","Circle"]
         },
@@ -28,7 +28,7 @@
             "FontSize":40,
             "TextColor":"#000000ff",
             "BorderColor":"#000000ff",
-            "BackGroundColor":"#ffaa00ff",
+            "BackgroundColor":"#ffaa00ff",
             "PlayEffect":null,
             "MinimapIcon":null
         },
@@ -36,7 +36,7 @@
             "FontSize":36,
             "TextColor":"#000000ff",
             "BorderColor":"#000000ff",
-            "BackGroundColor":"#ffaa00ff",
+            "BackgroundColor":"#ffaa00ff",
             "PlayEffect":null,
             "MinimapIcon":null
         },
@@ -44,7 +44,7 @@
             "FontSize":36,
             "TextColor":"#000000ff",
             "BorderColor":"#000000ff",
-            "BackGroundColor":"#aa9e82ff",
+            "BackgroundColor":"#aa9e82ff",
             "PlayEffect":null,
             "MinimapIcon":null
         },
@@ -52,7 +52,7 @@
             "FontSize":32,
             "TextColor":"#000000ff",
             "BorderColor":"#000000ff",
-            "BackGroundColor":"#aa9e82ff",
+            "BackgroundColor":"#aa9e82ff",
             "PlayEffect":null,
             "MinimapIcon":null
         }
@@ -62,7 +62,7 @@
             "FontSize":45,
             "TextColor":"#78c8a0ff",
             "BorderColor":"#78c8a0ff",
-            "BackGroundColor":"#ffffffff",
+            "BackgroundColor":"#ffffffff",
             "PlayEffect":"Red",
             "MinimapIcon":[0,"Red","Star"]
         },
@@ -70,7 +70,7 @@
             "FontSize":40,
             "TextColor":"#ffffffff",
             "BorderColor":"#ffffffff",
-            "BackGroundColor":"#78c8a0ff",
+            "BackgroundColor":"#78c8a0ff",
             "PlayEffect":null,
             "MinimapIcon":[1,"Red","Moon"]
         },
@@ -78,7 +78,7 @@
             "FontSize":36,
             "TextColor":"#000000ff",
             "BorderColor":"#000000ff",
-            "BackGroundColor":"#78c8a0ff",
+            "BackgroundColor":"#78c8a0ff",
             "PlayEffect":null,
             "MinimapIcon":[2,"Yellow","Moon"]
         }
