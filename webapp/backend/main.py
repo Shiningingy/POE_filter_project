@@ -35,7 +35,80 @@ def safe_join(base, path):
         raise HTTPException(status_code=400, detail="Invalid path")
     return full_path
 
-# --- Structured "Read-Only" Endpoints ---
+
+from typing import List, Dict
+from pydantic import BaseModel
+
+class UpdateItemTierRequest(BaseModel):
+    item_name: str
+    new_tier: str
+    source_file: str
+
+@app.post("/api/update-item-tier")
+def update_item_tier(request: UpdateItemTierRequest):
+    """
+    Updates the tier of a specific item in its source mapping file.
+    """
+    file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
+    
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail="Source mapping file not found.")
+        
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        
+        # Verify item exists (optional, but good safety)
+        if request.item_name not in data.get("mapping", {}):
+             raise HTTPException(status_code=404, detail="Item not found in specified mapping file.")
+             
+        # Update
+        data["mapping"][request.item_name] = request.new_tier
+        
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+            
+        return {"message": "Item tier updated successfully."}
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+class TierItemsRequest(BaseModel):
+    tier_keys: List[str]
+
+@app.post("/api/tier-items")
+def get_items_by_tier(request: TierItemsRequest):
+    """
+    Scans all base mapping files to find items belonging to the requested tier keys.
+    """
+    tier_keys_set = set(request.tier_keys)
+    result = {k: [] for k in tier_keys_set}
+    
+    mappings_dir = CONFIG_DATA_DIR / "base_mapping"
+    
+    if not mappings_dir.is_dir():
+        return {"items": result}
+
+    try:
+        # Scan all mapping files
+        for file_path in mappings_dir.glob("*.json"):
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    mapping = data.get("mapping", {})
+                    
+                    # Check each item in the mapping
+                    for item_name, tier_key in mapping.items():
+                        if tier_key in tier_keys_set:
+                            result[tier_key].append({
+                                "name": item_name,
+                                "source": file_path.name
+                            })
+            except json.JSONDecodeError:
+                continue # Skip bad files
+                
+        return {"items": result}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/themes")
 def get_themes_list():
@@ -264,17 +337,41 @@ def get_generated_filter():
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/api/generated-filter-styles")
-def get_generated_filter_styles():
+@app.get("/api/search-items")
+def search_items(q: str):
     """
-    Reads and returns the content of the complete_filter_styles.json file.
+    Searches for items across all base mapping files.
+    Returns matches with their current tier and source file.
     """
-    styles_file_path = FILTER_GEN_DIR / "complete_filter_styles.json"
+    if not q or len(q) < 2:
+        return {"results": []}
+    
+    q_lower = q.lower()
+    results = []
+    
+    mappings_dir = CONFIG_DATA_DIR / "base_mapping"
+    
     try:
-        with open(styles_file_path, "r", encoding="utf-8") as f:
-            content = json.load(f)
-        return {"content": content}
-    except FileNotFoundError:
-        raise HTTPException(status_code=404, detail="Generated styles file not found. Please generate it first.")
+        # Optimization: In a real app, we'd index this once on startup.
+        # For now, we scan on demand.
+        for file_path in mappings_dir.glob("*.json"):
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    mapping = data.get("mapping", {})
+                    
+                    for item_name, tier_key in mapping.items():
+                        if q_lower in item_name.lower():
+                            results.append({
+                                "name": item_name,
+                                "current_tier": tier_key,
+                                "source_file": file_path.name
+                            })
+                            if len(results) >= 20: # Limit results
+                                return {"results": results}
+            except:
+                continue
+                
+        return {"results": results}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

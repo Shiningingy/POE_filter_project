@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from '../components/Sidebar';
 import ConfigEditor from '../components/ConfigEditor';
 import MappingEditor from '../components/MappingEditor';
+import CategoryView from '../components/CategoryView';
 
 interface EditorViewProps {
   configs: string[];
@@ -27,6 +28,7 @@ const EditorView: React.FC<EditorViewProps> = ({
   message
 }) => {
   const isBaseMapping = selectedConfigPath.startsWith('base_mapping/');
+  const isTierDefinition = selectedConfigPath.startsWith('tier_definition/');
 
   return (
     <div className="editor-view">
@@ -40,6 +42,7 @@ const EditorView: React.FC<EditorViewProps> = ({
         <div className="top-bar">
           <h2>Editor</h2>
           <div className="actions">
+             {/* Hide Save button for MappingEditor as it has its own, but show for others */}
              {!isBaseMapping && selectedConfigPath && (
                 <button onClick={onSave} disabled={loading || !!jsonError}>Save Config</button>
              )}
@@ -56,6 +59,13 @@ const EditorView: React.FC<EditorViewProps> = ({
                 <MappingEditor 
                     configPath={selectedConfigPath} 
                     onSave={onSave}
+                />
+            ) : isTierDefinition ? (
+                <CategoryView
+                  configPath={selectedConfigPath}
+                  configContent={configContent}
+                  onConfigContentChange={setConfigContent}
+                  loading={loading}
                 />
             ) : (
                 <ConfigEditor
