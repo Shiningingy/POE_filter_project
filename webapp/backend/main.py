@@ -107,8 +107,9 @@ def get_all_items_in_class(class_name: str):
     Returns every item in a class (from GGPK) merged with current tier assignments.
     """
     try:
-        # 1. Load Item Classes to find the _rid for the class_name
-        with open(CONFIG_DATA_DIR.parent / "from_ggpk" / "itemclasses.json", "r", encoding="utf-8") as f:
+        # 1. Load Item Classes from the correct root data directory
+        ggpk_path = PROJECT_ROOT / "data" / "from_ggpk"
+        with open(ggpk_path / "itemclasses.json", "r", encoding="utf-8") as f:
             item_classes = json.load(f)
         
         target_rid = None
@@ -121,7 +122,7 @@ def get_all_items_in_class(class_name: str):
             return {"items": []}
 
         # 2. Load all Base Item Types
-        with open(CONFIG_DATA_DIR.parent / "from_ggpk" / "baseitemtypes.json", "r", encoding="utf-8") as f:
+        with open(ggpk_path / "baseitemtypes.json", "r", encoding="utf-8") as f:
             all_items = json.load(f)
         
         class_items = [item for item in all_items if item.get("ItemClassesKey") == target_rid]
@@ -134,7 +135,9 @@ def get_all_items_in_class(class_name: str):
             with open(mapping_path, "r", encoding="utf-8") as f:
                 map_data = json.load(f)
                 current_mapping = map_data.get("mapping", {})
-                translations = map_data.get("_meta", {}).get("localization", {}).get("ch", {})
+                loc_ch = map_data.get("_meta", {}).get("localization", {}).get("ch", {})
+                if isinstance(loc_ch, dict):
+                    translations = loc_ch
 
         # 4. Merge
         result = []
@@ -145,7 +148,7 @@ def get_all_items_in_class(class_name: str):
                 
             result.append({
                 "name": name,
-                "name_ch": translations.get(name, name), # Fallback to EN if no translation yet
+                "name_ch": translations.get(name, name), 
                 "current_tier": current_mapping.get(name),
                 "source_file": f"{class_name}.json"
             })
