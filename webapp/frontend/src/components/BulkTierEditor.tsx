@@ -36,7 +36,6 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTierKey, setSelectedTierKey] = useState(availableTiers[0]?.key || '');
   
-  // Staged changes: ItemName -> NewTierKey
   const [stagedChanges, setStagedChanges] = useState<Record<string, string>>({});
 
   const API_BASE_URL = 'http://localhost:8000';
@@ -65,11 +64,9 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   const handleItemClick = (name: string) => {
     setStagedChanges(prev => {
       const next = { ...prev };
-      // If already staged for THIS tier, remove it (undo)
       if (next[name] === selectedTierKey) {
         delete next[name];
       } else {
-        // Otherwise stage it for the currently selected "brush" tier
         next[name] = selectedTierKey;
       }
       return next;
@@ -103,10 +100,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     }
   };
 
-  const getTierColor = (itemName: string, currentTier: string | null) => {
-    // If staged, use staged tier color
-    const tierKey = stagedChanges[itemName] || currentTier;
-    
+  const getTierColor = (tierKey: string | null) => {
     if (!tierKey) return 'white';
     const match = tierKey.match(/Tier (\d+)/);
     if (!match) return '#f0f0f0';
@@ -137,10 +131,19 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
             <select 
                 value={selectedTierKey} 
                 onChange={e => setSelectedTierKey(e.target.value)}
-                style={{ borderLeft: `8px solid ${getTierColor('', selectedTierKey)}` }}
+                style={{ 
+                    backgroundColor: getTierColor(selectedTierKey),
+                    fontWeight: 'bold'
+                }}
             >
               {availableTiers.map(tier => (
-                <option key={tier.key} value={tier.key}>{tier.label}</option>
+                <option 
+                    key={tier.key} 
+                    value={tier.key}
+                    style={{ backgroundColor: getTierColor(tier.key) }}
+                >
+                    {tier.label}
+                </option>
               ))}
             </select>
           </div>
@@ -164,16 +167,16 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
           {loading && !items.length ? (
             <div className="loading">{t.loading}</div>
           ) : (
-            filteredItems.map(item => {
+            filteredItems.map((item, idx) => {
               const isStaged = !!stagedChanges[item.name];
               const stagedTier = stagedChanges[item.name];
               const displayTier = stagedTier || item.current_tier;
 
               return (
                 <div 
-                  key={item.name} 
+                  key={`${item.name}-${idx}`} 
                   className={`item-card ${isStaged ? 'staged' : ''}`}
-                  style={{ backgroundColor: getTierColor(item.name, item.current_tier) }}
+                  style={{ backgroundColor: getTierColor(displayTier) }}
                   onClick={() => handleItemClick(item.name)}
                 >
                   <div className="item-info">

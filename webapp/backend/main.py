@@ -141,11 +141,13 @@ def get_all_items_in_class(class_name: str):
 
         # 4. Merge
         result = []
+        seen_names = set()
         for item in class_items:
             name = item.get("Name")
-            if not name or name.startswith("[UNUSED]") or name.startswith("[DNT]") or name == "...":
+            if not name or name.startswith("[UNUSED]") or name.startswith("[DNT]") or name == "..." or name in seen_names:
                 continue
-                
+            
+            seen_names.add(name)
             result.append({
                 "name": name,
                 "name_ch": translations.get(name, name), 
