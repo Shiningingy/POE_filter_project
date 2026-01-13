@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import TierStyleEditor from './TierStyleEditor';
 import TierItemManager from './TierItemManager';
+import BulkTierEditor from './BulkTierEditor'; // Import Bulk Editor
 import { resolveStyle } from '../utils/styleResolver';
 import type { Language } from '../utils/localization';
 
@@ -30,6 +31,11 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   const [parsedConfig, setParsedConfig] = useState<any>(null);
   const [tierItems, setTierItems] = useState<Record<string, TierItem[]>>({});
   const [itemsLoading, setItemsLoading] = useState(false);
+  
+  // Bulk Edit State
+  const [showBulkEditor, setShowBulkEditor] = useState(false);
+  const [activeBulkClass, setActiveBulkClass] = useState<string | null>(null);
+  const [activeBulkOptions, setActiveBulkOptions] = useState<any[]>([]);
 
   const API_BASE_URL = 'http://localhost:8000';
 
@@ -101,9 +107,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
     const categoryData = newConfig[categoryKey];
     
-    // Find next tier number by looking at existing keys and theme objects
     const existingTiers = Object.keys(categoryData).filter(k => k.startsWith('Tier'));
-    
     let maxNum = -1;
     existingTiers.forEach(k => {
         const tNum = categoryData[k].theme?.Tier;
@@ -115,7 +119,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     
     categoryData[newTierKey] = {
       hideable: false,
-      theme: { Tier: nextNum }, // Set sequential tier number
+      theme: { Tier: nextNum },
       sound: { default_sound_id: -1, sharket_sound_id: null },
       localization: {
         en: newTierKey,
@@ -132,6 +136,12 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     onConfigContentChange(jsonString);
   };
 
+  const openBulkEditor = (className: string, options: any[]) => {
+    setActiveBulkClass(className);
+    setActiveBulkOptions(options);
+    setShowBulkEditor(true);
+  };
+
   if (!themeData || !parsedConfig) return <div>Loading category data...</div>;
 
   return (
@@ -142,6 +152,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         if (categoryKey.startsWith('//')) return null;
         const categoryData = parsedConfig[categoryKey];
         const catName = categoryData._meta?.localization?.[language] || categoryKey;
+        const themeCategory = categoryData._meta?.theme_category || categoryKey;
         
         const tierKeys = Object.keys(categoryData).filter(k => !k.startsWith('//') && k !== '_meta');
 
@@ -156,7 +167,12 @@ const CategoryView: React.FC<CategoryViewProps> = ({
 
         return (
           <div key={categoryKey} className="category-section">
-            <h3>{catName}</h3>
+            <div className="category-header">
+                <h3>{catName}</h3>
+                <button className="bulk-edit-btn" onClick={() => openBulkEditor(themeCategory, tierOptions)}>
+                    ⚡ {language === 'ch' ? '批量编辑' : 'Bulk Edit'}
+                </button>
+            </div>
             
             {tierKeys.map(tierKey => {
               const tierData = categoryData[tierKey];
@@ -193,12 +209,25 @@ const CategoryView: React.FC<CategoryViewProps> = ({
           </div>
         );
       })}
+
+      {showBulkEditor && activeBulkClass && (
+        <BulkTierEditor 
+            className={activeBulkClass}
+            availableTiers={activeBulkOptions}
+            language={language}
+            onClose={() => setShowBulkEditor(false)}
+            onSave={() => fetchTierItems(Object.keys(tierItems))}
+        />
+      )}
       
       <style>{`
         .category-view { padding-bottom: 50px; }
         .editor-title { font-size: 1.1rem; color: #888; margin-bottom: 20px; }
         .category-section { margin-bottom: 30px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); padding: 20px; }
-        .category-section h3 { border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-top: 0; color: #333; }
+        .category-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-bottom: 20px; }
+        .category-header h3 { margin: 0; color: #333; }
+        .bulk-edit-btn { background: #673ab7; color: white; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; }
+        .bulk-edit-btn:hover { background: #5e35b1; }
         .tier-block { margin-bottom: 20px; border: 1px solid #eee; border-radius: 4px; padding: 10px; }
         .add-tier-btn { 
           width: 100%; padding: 10px; background: #f9f9f9; border: 2px dashed #ddd; 
