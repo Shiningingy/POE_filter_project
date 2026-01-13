@@ -15,9 +15,9 @@
     "theme_category": "Stackable Currency"
   },
   "mapping": {
-    "Rogue's Marker": "Tier 1 Stackable Currency",
-    "Tempering Orb": "Tier 1 Stackable Currency",
-    "Tailoring Orb": "Tier 1 Stackable Currency"
+    "Rogue's Marker": "Tier 1 Heist",
+    "Tempering Orb": "Tier 1 Heist",
+    "Tailoring Orb": "Tier 1 Heist"
   },
   "rules": []
 }

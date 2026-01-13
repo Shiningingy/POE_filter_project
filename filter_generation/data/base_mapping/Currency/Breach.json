@@ -22,16 +22,16 @@
     "theme_category": "Stackable Currency"
   },
   "mapping": {
-    "Splinter of Xoph": "Tier 1 Stackable Currency",
-    "Splinter of Tul": "Tier 1 Stackable Currency",
-    "Splinter of Esh": "Tier 1 Stackable Currency",
-    "Splinter of Uul-Netol": "Tier 1 Stackable Currency",
-    "Splinter of Chayula": "Tier 1 Stackable Currency",
-    "Blessing of Xoph": "Tier 1 Stackable Currency",
-    "Blessing of Tul": "Tier 1 Stackable Currency",
-    "Blessing of Esh": "Tier 1 Stackable Currency",
-    "Blessing of Uul-Netol": "Tier 1 Stackable Currency",
-    "Blessing of Chayula": "Tier 1 Stackable Currency"
+    "Splinter of Xoph": "Tier 1 Breach",
+    "Splinter of Tul": "Tier 1 Breach",
+    "Splinter of Esh": "Tier 1 Breach",
+    "Splinter of Uul-Netol": "Tier 1 Breach",
+    "Splinter of Chayula": "Tier 1 Breach",
+    "Blessing of Xoph": "Tier 1 Breach",
+    "Blessing of Tul": "Tier 1 Breach",
+    "Blessing of Esh": "Tier 1 Breach",
+    "Blessing of Uul-Netol": "Tier 1 Breach",
+    "Blessing of Chayula": "Tier 1 Breach"
   },
   "rules": []
 }

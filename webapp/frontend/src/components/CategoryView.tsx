@@ -34,12 +34,17 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   const [parsedConfig, setParsedConfig] = useState<any>(null);
   const [tierItems, setTierItems] = useState<Record<string, TierItem[]>>({});
 
-  // Bulk Edit State
   const [showBulkEditor, setShowBulkEditor] = useState(false);
   const [activeBulkClass, setActiveBulkClass] = useState<string | null>(null);
   const [activeBulkOptions, setActiveBulkOptions] = useState<any[]>([]);
 
   const API_BASE_URL = 'http://localhost:8000';
+
+  const allItemsInTiers = useMemo(() => {
+    const list: string[] = [];
+    Object.values(tierItems).forEach(items => items.forEach(i => list.push(i.name)));
+    return Array.from(new Set(list));
+  }, [tierItems]);
 
   useEffect(() => {
     axios.get(`${API_BASE_URL}/api/themes/sharket`)
@@ -51,7 +56,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     try {
       const parsed = JSON.parse(configContent);
       setParsedConfig(parsed);
-      
       const keys: string[] = [];
       Object.keys(parsed).forEach(cat => {
         if (!cat.startsWith('//')) {
@@ -60,13 +64,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
           });
         }
       });
-      
-      if (keys.length > 0) {
-        fetchTierItems(keys);
-      }
-    } catch (e) {
-      // Ignore
-    }
+      if (keys.length > 0) fetchTierItems(keys);
+    } catch (e) {}
   }, [configContent]);
 
   const fetchTierItems = async (keys: string[]) => {
@@ -78,11 +77,14 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     }
   };
 
-  const handleTierUpdate = (categoryKey: string, tierKey: string, newStyle: any) => {
+  const handleTierUpdate = (categoryKey: string, tierKey: string, newStyle: any, newVisibility: boolean) => {
     if (!parsedConfig) return;
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
     const currentTheme = newConfig[categoryKey][tierKey].theme || {};
+    
     newConfig[categoryKey][tierKey].theme = { ...currentTheme, ...newStyle };
+    newConfig[categoryKey][tierKey].hideable = newVisibility; // true = Hidden/Minimal
+
     onConfigContentChange(JSON.stringify(newConfig, null, 2));
   };
 
@@ -125,7 +127,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     });
     const nextNum = maxNum + 1;
     const newTierKey = `Tier ${nextNum} ${categoryKey}`;
-    
     categoryData[newTierKey] = {
       hideable: false,
       theme: { Tier: nextNum },
@@ -183,7 +184,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                   <TierStyleEditor
                     tierName={displayTierName}
                     style={resolved}
-                    onChange={(newStyle) => handleTierUpdate(categoryKey, tierKey, newStyle)}
+                    visibility={!!tierData.hideable} // Pass visibility (hideable)
+                    onChange={(newStyle, newVis) => handleTierUpdate(categoryKey, tierKey, newStyle, newVis)}
                     language={language}
                   />
                   <TierItemManager 

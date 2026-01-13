@@ -3,11 +3,11 @@
     "_meta": {
       "theme_category": "Support Gems",
       "localization": {
-        "en": "Support Gems",
+        "en": "Support",
         "ch": "辅助宝石"
       }
     },
-    "Tier 1 Support Gems": {
+    "Tier 1 Support": {
       "hideable": false,
       "theme": {
         "Tier": 1

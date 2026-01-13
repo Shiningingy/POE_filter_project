@@ -19,13 +19,13 @@
     "theme_category": "Stackable Currency"
   },
   "mapping": {
-    "Time-light Scroll": "Tier 1 Stackable Currency",
-    "Fragmentation Scroll": "Tier 1 Stackable Currency",
-    "Deregulation Scroll": "Tier 1 Stackable Currency",
-    "Electroshock Scroll": "Tier 1 Stackable Currency",
-    "Haemocombustion Scroll": "Tier 1 Stackable Currency",
-    "Specularity Scroll": "Tier 1 Stackable Currency",
-    "Facetor's Lens": "Tier 1 Stackable Currency"
+    "Time-light Scroll": "Tier 1 Oils & Harvest",
+    "Fragmentation Scroll": "Tier 1 Oils & Harvest",
+    "Deregulation Scroll": "Tier 1 Oils & Harvest",
+    "Electroshock Scroll": "Tier 1 Oils & Harvest",
+    "Haemocombustion Scroll": "Tier 1 Oils & Harvest",
+    "Specularity Scroll": "Tier 1 Oils & Harvest",
+    "Facetor's Lens": "Tier 1 Oils & Harvest"
   },
   "rules": []
 }

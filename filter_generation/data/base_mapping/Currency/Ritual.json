@@ -15,9 +15,9 @@
     "theme_category": "Stackable Currency"
   },
   "mapping": {
-    "Ritual Splinter": "Tier 1 Stackable Currency",
-    "Ritual Vessel": "Tier 1 Stackable Currency",
-    "Crescent Splinter": "Tier 1 Stackable Currency"
+    "Ritual Splinter": "Tier 1 Ritual",
+    "Ritual Vessel": "Tier 1 Ritual",
+    "Crescent Splinter": "Tier 1 Ritual"
   },
   "rules": []
 }

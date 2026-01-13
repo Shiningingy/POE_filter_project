@@ -3,11 +3,11 @@
     "_meta": {
       "theme_category": "Stackable Currency",
       "localization": {
-        "en": "Stackable Currency",
-        "ch": "可堆叠通货"
+        "en": "General",
+        "ch": "通用"
       }
     },
-    "Tier 1 Stackable Currency": {
+    "Tier 1 General": {
       "hideable": false,
       "theme": {
         "Tier": 1

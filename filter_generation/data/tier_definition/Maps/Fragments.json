@@ -3,11 +3,11 @@
     "_meta": {
       "theme_category": "Map Fragments",
       "localization": {
-        "en": "Map Fragments",
-        "ch": "地图碎片"
+        "en": "Fragments",
+        "ch": "碎片"
       }
     },
-    "Tier 1 Map Fragments": {
+    "Tier 1 Fragments": {
       "hideable": false,
       "theme": {
         "Tier": 1

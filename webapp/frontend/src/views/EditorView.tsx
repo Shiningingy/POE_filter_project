@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Sidebar, { CategoryFile } from '../components/Sidebar';
+import Sidebar from '../components/Sidebar';
+import type { CategoryFile } from '../components/Sidebar';
 import CategoryView from '../components/CategoryView';
 import axios from 'axios';
 import type { Language } from '../utils/localization';

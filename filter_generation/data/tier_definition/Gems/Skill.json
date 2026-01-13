@@ -3,21 +3,11 @@
     "_meta": {
       "theme_category": "Skill Gems",
       "localization": {
-        "en": "Skill Gems",
+        "en": "Skill",
         "ch": "技能宝石"
       }
     },
-    "Tier 1 Skill Gems": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      }
-    },
-    "Tier 1 Two Hand Swords": {
+    "Tier 1 Skill": {
       "hideable": false,
       "theme": {
         "Tier": 1

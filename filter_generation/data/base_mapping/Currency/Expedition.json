@@ -16,10 +16,10 @@
     "theme_category": "Stackable Currency"
   },
   "mapping": {
-    "Exotic Coinage": "Tier 1 Stackable Currency",
-    "Scrap Metal": "Tier 1 Stackable Currency",
-    "Astragali": "Tier 1 Stackable Currency",
-    "Burial Medallion": "Tier 1 Stackable Currency"
+    "Exotic Coinage": "Tier 1 Expedition",
+    "Scrap Metal": "Tier 1 Expedition",
+    "Astragali": "Tier 1 Expedition",
+    "Burial Medallion": "Tier 1 Expedition"
   },
   "rules": []
 }

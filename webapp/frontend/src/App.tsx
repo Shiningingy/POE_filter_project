@@ -1,11 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './App.css';
-import { useTranslation, Language } from './utils/localization';
+import { useTranslation } from './utils/localization';
+import type { Language } from './utils/localization';
 import EditorView from './views/EditorView';
 import SimulatorView from './views/SimulatorView';
 import ExportView from './views/ExportView';
-import { CategoryFile } from './components/Sidebar';
+import type { CategoryFile } from './components/Sidebar';
 
 function App() {
   const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export'>('editor');

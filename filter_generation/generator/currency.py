@@ -20,36 +20,18 @@ def build_currency_section(tier_groups, theme, sound_map):
         if not items:
             continue
 
+        # Visibility: true = Minimal (Ruthless Hide), false = Show
+        is_minimal = group_data.get("hideable", False)
+        visibility_keyword = "Minimal" if is_minimal else "Show"
+
         tier_key = group_data["tier_key"]
-        group_text = group_data["group_text"]
-        text_ch = group_data["text_ch"]
-        conditions = group_data["conditions"]
-        overrides = group_data["style_override"]
-        comment = group_data["comment"]
-
-        # 1. Resolve Style
-        # Use tier_key to find base style (e.g. "Tier 1")
-        theme_key = _find_theme_key(tier_key, theme.get("currency", {}))
-        style = theme.get("currency", {}).get(theme_key) if theme_key else theme.get("currency", {}).get("CurrencyDefault", {})
-        style = style.copy()
-        style.update(overrides)
-
-        # 2. Resolve Sound
-        sound = overrides.get("PlayAlertSound")
-        if not sound:
-            # For lists, we use the style's sound. Item-specific sound maps don't apply well to groups
-            # unless all items in group share it. For now, group uses Tier sound.
-            sound = style.get("PlayAlertSound")
-
-        # Update style map for simulator (just for the first item in list for preview)
-        style_map[items[0]] = _extract_style_data(style, sound)
-
+...
         # 3. Compose Block
         header_comment = f'{group_text}'
         if comment:
             header_comment += f' ({comment})'
             
-        header = f'Show #{header_comment}'
+        header = f'{visibility_keyword} #{header_comment}'
         
         # Format BaseType list: "Item 1" "Item 2"
         item_list_str = '" "'.join(items)

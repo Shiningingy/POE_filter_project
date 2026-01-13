@@ -3,11 +3,11 @@
     "_meta": {
       "theme_category": "Stackable Currency",
       "localization": {
-        "en": "Stackable Currency",
-        "ch": "可堆叠通货"
+        "en": "Oils & Harvest",
+        "ch": "圣油与庄园"
       }
     },
-    "Tier 1 Stackable Currency": {
+    "Tier 1 Oils & Harvest": {
       "hideable": false,
       "theme": {
         "Tier": 1
