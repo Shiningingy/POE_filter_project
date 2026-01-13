@@ -9,6 +9,7 @@ interface CategoryViewProps {
   configContent: string;
   onConfigContentChange: (newContent: string) => void;
   loading: boolean;
+  language: 'ch' | 'en';
 }
 
 interface TierItem {
@@ -20,7 +21,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   configPath, 
   configContent, 
   onConfigContentChange,
-  loading 
+  loading,
+  language
 }) => {
   const [themeData, setThemeData] = useState<any>(null);
   const [parsedConfig, setParsedConfig] = useState<any>(null);
@@ -114,7 +116,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
 
         return (
           <div key={categoryKey} className="category-section">
-            <h3>{categoryData._meta?.localization?.ch || categoryKey}</h3>
+            <h3>{categoryData._meta?.localization?.[language] || categoryKey}</h3>
             
             {allTiers.map(tierKey => {
               const tierData = categoryData[tierKey];
@@ -124,7 +126,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
               return (
                 <div key={tierKey} className="tier-block">
                   <TierStyleEditor
-                    tierName={tierData.localization?.ch || tierKey}
+                    tierName={tierData.localization?.[language] || tierKey}
                     style={resolved}
                     onChange={(newStyle) => handleTierUpdate(categoryKey, tierKey, newStyle)}
                   />

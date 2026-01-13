@@ -9,6 +9,7 @@ import ExportView from './views/ExportView';
 function App() {
   // Navigation State
   const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export'>('editor');
+  const [language, setLanguage] = useState<'ch' | 'en'>('ch');
 
   // Shared Data State
   const [themes, setThemes] = useState<string[]>([]);
@@ -149,6 +150,11 @@ function App() {
           <button className={currentView === 'simulator' ? 'active' : ''} onClick={() => setCurrentView('simulator')}>Simulator</button>
           <button className={currentView === 'export' ? 'active' : ''} onClick={() => setCurrentView('export')}>Save & Export</button>
         </div>
+        <div className="language-toggle">
+            <button onClick={() => setLanguage(l => l === 'ch' ? 'en' : 'ch')}>
+                {language === 'ch' ? 'Language: 中文' : 'Language: EN'}
+            </button>
+        </div>
       </div>
 
       <div className="app-body">
@@ -163,6 +169,7 @@ function App() {
             jsonError={jsonError}
             onSave={saveConfigContent}
             message={message}
+            language={language}
           />
         )}
         {currentView === 'simulator' && (

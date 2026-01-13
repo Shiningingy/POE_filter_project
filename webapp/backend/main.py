@@ -8,6 +8,24 @@ from pathlib import Path
 
 app = FastAPI()
 
+# --- Path Definitions ---
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+FILTER_GEN_DIR = PROJECT_ROOT / "filter_generation"
+CONFIG_DATA_DIR = FILTER_GEN_DIR / "data"
+# Determine the python executable to use
+VENV_PYTHON = PROJECT_ROOT / ".venv" / "Scripts" / "python.exe" if sys.platform == "win32" else PROJECT_ROOT / ".venv" / "bin" / "python"
+PYTHON_EXECUTABLE = str(VENV_PYTHON) if VENV_PYTHON.exists() else sys.executable
+
+@app.on_event("startup")
+async def startup_event():
+    print("Detected Routes:")
+    for route in app.routes:
+        print(f"  {route.path} [{','.join(route.methods)}]")
+
+@app.get("/")
+def root():
+    return {"message": "Hello"}
+
 # Allow CORS for the React frontend
 app.add_middleware(
     CORSMiddleware,
@@ -17,14 +35,46 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- Path Definitions ---
-PROJECT_ROOT = Path(__file__).parent.parent.parent
-FILTER_GEN_DIR = PROJECT_ROOT / "filter_generation"
-CONFIG_DATA_DIR = FILTER_GEN_DIR / "data"
-# Determine the python executable to use
-VENV_PYTHON = PROJECT_ROOT / ".venv" / "Scripts" / "python.exe" if sys.platform == "win32" else PROJECT_ROOT / ".venv" / "bin" / "python"
-PYTHON_EXECUTABLE = str(VENV_PYTHON) if VENV_PYTHON.exists() else sys.executable
+from typing import List, Dict
+from pydantic import BaseModel
 
+class TierItemsRequest(BaseModel):
+    tier_keys: List[str]
+
+@app.post("/api/tier-items")
+def get_items_by_tier(request: TierItemsRequest):
+    """
+    Scans all base mapping files to find items belonging to the requested tier keys.
+    """
+    tier_keys_set = set(request.tier_keys)
+    result = {k: [] for k in tier_keys_set}
+    
+    mappings_dir = CONFIG_DATA_DIR / "base_mapping"
+    
+    if not mappings_dir.is_dir():
+        return {"items": result}
+
+    try:
+        # Scan all mapping files
+        for file_path in mappings_dir.glob("*.json"):
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    mapping = data.get("mapping", {})
+                    
+                    # Check each item in the mapping
+                    for item_name, tier_key in mapping.items():
+                        if tier_key in tier_keys_set:
+                            result[tier_key].append({
+                                "name": item_name,
+                                "source": file_path.name
+                            })
+            except json.JSONDecodeError:
+                continue # Skip bad files
+                
+        return {"items": result}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 def safe_join(base, path):
     """
@@ -70,43 +120,6 @@ def update_item_tier(request: UpdateItemTierRequest):
             
         return {"message": "Item tier updated successfully."}
         
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-class TierItemsRequest(BaseModel):
-    tier_keys: List[str]
-
-@app.post("/api/tier-items")
-def get_items_by_tier(request: TierItemsRequest):
-    """
-    Scans all base mapping files to find items belonging to the requested tier keys.
-    """
-    tier_keys_set = set(request.tier_keys)
-    result = {k: [] for k in tier_keys_set}
-    
-    mappings_dir = CONFIG_DATA_DIR / "base_mapping"
-    
-    if not mappings_dir.is_dir():
-        return {"items": result}
-
-    try:
-        # Scan all mapping files
-        for file_path in mappings_dir.glob("*.json"):
-            try:
-                with open(file_path, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                    mapping = data.get("mapping", {})
-                    
-                    # Check each item in the mapping
-                    for item_name, tier_key in mapping.items():
-                        if tier_key in tier_keys_set:
-                            result[tier_key].append({
-                                "name": item_name,
-                                "source": file_path.name
-                            })
-            except json.JSONDecodeError:
-                continue # Skip bad files
-                
-        return {"items": result}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

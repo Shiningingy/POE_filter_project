@@ -14,6 +14,7 @@ interface EditorViewProps {
   jsonError: string;
   onSave: () => void;
   message: string;
+  language: 'ch' | 'en';
 }
 
 const EditorView: React.FC<EditorViewProps> = ({
@@ -25,7 +26,8 @@ const EditorView: React.FC<EditorViewProps> = ({
   loading,
   jsonError,
   onSave,
-  message
+  message,
+  language
 }) => {
   const isBaseMapping = selectedConfigPath.startsWith('base_mapping/');
   const isTierDefinition = selectedConfigPath.startsWith('tier_definition/');
@@ -66,6 +68,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                   configContent={configContent}
                   onConfigContentChange={setConfigContent}
                   loading={loading}
+                  language={language}
                 />
             ) : (
                 <ConfigEditor
