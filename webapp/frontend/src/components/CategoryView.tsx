@@ -101,13 +101,21 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
     const categoryData = newConfig[categoryKey];
     
+    // Find next tier number by looking at existing keys and theme objects
     const existingTiers = Object.keys(categoryData).filter(k => k.startsWith('Tier'));
-    const nextNum = existingTiers.length;
+    
+    let maxNum = -1;
+    existingTiers.forEach(k => {
+        const tNum = categoryData[k].theme?.Tier;
+        if (typeof tNum === 'number' && tNum > maxNum) maxNum = tNum;
+    });
+    
+    const nextNum = maxNum + 1;
     const newTierKey = `Tier ${nextNum} ${categoryKey}`;
     
     categoryData[newTierKey] = {
       hideable: false,
-      theme: { Tier: 1 },
+      theme: { Tier: nextNum }, // Set sequential tier number
       sound: { default_sound_id: -1, sharket_sound_id: null },
       localization: {
         en: newTierKey,
@@ -137,7 +145,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         
         const tierKeys = Object.keys(categoryData).filter(k => !k.startsWith('//') && k !== '_meta');
 
-        // Prepare localized options for the dropdowns
         const tierOptions = tierKeys.map(tk => {
             const td = categoryData[tk];
             const tNum = td.theme?.Tier !== undefined ? td.theme.Tier : "?";
@@ -172,7 +179,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                   <TierItemManager 
                     tierKey={tierKey}
                     items={items}
-                    allTiers={tierOptions} // Pass localized objects instead of keys
+                    allTiers={tierOptions}
                     onMoveItem={handleMoveItem}
                     language={language}
                   />
