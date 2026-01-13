@@ -155,7 +155,18 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({ tierName, style, visi
       )}
 
       <style>{`
-        .tier-style-editor { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 4px; background: white; transition: all 0.3s; }
+        .tier-style-editor { 
+          border: 1px solid #ddd; 
+          padding: 20px; 
+          margin-bottom: 15px; 
+          border-radius: 8px; 
+          background: white; 
+          transition: all 0.3s; 
+          min-height: 120px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
         .tier-style-editor.hidden-tier { background: #f5f5f5; border-color: #eee; }
         
         .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
