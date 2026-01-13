@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
 
@@ -10,28 +10,65 @@ interface Rule {
 }
 
 interface RuleManagerProps {
-  rules: Rule[];
-  onChange: (newRules: Rule[]) => void;
+  tierKey: string;
+  allRules: Rule[];
+  onGlobalRulesChange: (newRules: Rule[]) => void;
   language: Language;
-  availableItems: string[];
+  availableItems: string[]; // Items currently in this tier (for suggestions)
 }
 
-const RuleManager: React.FC<RuleManagerProps> = ({ rules, onChange, language, availableItems }) => {
+const RuleManager: React.FC<RuleManagerProps> = ({ 
+  tierKey, 
+  allRules, 
+  onGlobalRulesChange, 
+  language, 
+  availableItems 
+}) => {
   const t = useTranslation(language);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
 
-  const handleUpdateRule = (index: number, updatedRule: Rule) => {
-    const newRules = [...rules];
-    newRules[index] = updatedRule;
-    onChange(newRules);
+  // Filter rules that belong to this tier. 
+  // We identify them by checking overrides.Tier or if target items belong to this tier.
+  // For simplicity in this UI, we'll assume a rule "belongs" to a tier if it's explicitly set in overrides
+  // OR if we are creating it from this Tier's UI.
+  const tierRulesIndices = useMemo(() => {
+    return allRules.map((r, i) => ({ r, i })).filter(({ r }) => {
+        // If the rule has a Tier override, it belongs to that tier's UI
+        if (r.overrides?.Tier) return r.overrides.Tier === tierKey;
+        // Otherwise, if any of its targets are in the 'availableItems' for this tier
+        return r.targets.some(target => availableItems.includes(target));
+    }).map(item => item.i);
+  }, [allRules, tierKey, availableItems]);
+
+  const handleAddRule = () => {
+    const newRule: Rule = {
+      targets: [],
+      conditions: {},
+      overrides: { Tier: tierKey }, // Explicitly bind to this tier
+      comment: "New " + tierKey + " Rule"
+    };
+    onGlobalRulesChange([...allRules, newRule]);
+    setEditingIndex(allRules.length);
   };
 
-  const updateCondition = (index: number, key: string, value: string) => {
-    const rule = rules[index];
+  const handleDeleteRule = (globalIndex: number) => {
+    const newRules = allRules.filter((_, i) => i !== globalIndex);
+    onGlobalRulesChange(newRules);
+    setEditingIndex(null);
+  };
+
+  const handleUpdateRule = (globalIndex: number, updatedRule: Rule) => {
+    const newRules = [...allRules];
+    newRules[globalIndex] = updatedRule;
+    onGlobalRulesChange(newRules);
+  };
+
+  const updateCondition = (globalIndex: number, key: string, value: string) => {
+    const rule = allRules[globalIndex];
     const nextConditions = { ...rule.conditions };
     if (value === "") delete nextConditions[key];
     else nextConditions[key] = value;
-    handleUpdateRule(index, { ...rule, conditions: nextConditions });
+    handleUpdateRule(globalIndex, { ...rule, conditions: nextConditions });
   };
 
   const POE_FACTORS = [
@@ -43,135 +80,94 @@ const RuleManager: React.FC<RuleManagerProps> = ({ rules, onChange, language, av
   ];
 
   return (
-    <div className="rule-manager">
-      <div className="header">
-        <h3>{t.rules}</h3>
-        <button className="add-btn" onClick={() => {
-            const newRule = { targets: [], conditions: {}, overrides: {}, comment: "New Rule" };
-            onChange([...rules, newRule]);
-            setEditingIndex(rules.length);
-        }}>+ {t.addRule}</button>
+    <div className="tier-rule-manager">
+      <div className="rule-header">
+        <span className="label">🛠 {t.rules} ({tierRulesIndices.length})</span>
+        <button className="mini-add-btn" onClick={handleAddRule}>+ {t.addRule}</button>
       </div>
 
-      <div className="rules-list">
-        {rules.map((rule, index) => (
-          <div key={index} className={`rule-card ${editingIndex === index ? 'editing' : ''}`}>
-            <div className="rule-summary" onClick={() => setEditingIndex(editingIndex === index ? null : index)}>
-              <span className="comment">{rule.comment || `Rule ${index + 1}`}</span>
-              <span className="targets-count">{rule.targets.length} {t.targets}</span>
-              <button className="delete-btn" onClick={(e) => { e.stopPropagation(); onChange(rules.filter((_, i) => i !== index)); }}>×</button>
-            </div>
+      <div className="rules-stack">
+        {tierRulesIndices.map((globalIndex) => {
+          const rule = allRules[globalIndex];
+          const isEditing = editingIndex === globalIndex;
 
-            {editingIndex === index && (
-              <div className="rule-details">
-                <div className="field">
-                  <label>{t.comment}</label>
-                  <input type="text" value={rule.comment} onChange={e => handleUpdateRule(index, { ...rule, comment: e.target.value })} />
-                </div>
+          return (
+            <div key={globalIndex} className={`inline-rule-card ${isEditing ? 'editing' : ''}`}>
+              <div className="summary" onClick={() => setEditingIndex(isEditing ? null : globalIndex)}>
+                <span className="comment">{rule.comment || `Rule ${globalIndex + 1}`}</span>
+                <button className="delete-btn" onClick={(e) => { e.stopPropagation(); handleDeleteRule(globalIndex); }}>×</button>
+              </div>
 
-                <div className="field">
-                  <label>{t.targets}</label>
-                  <textarea 
-                    placeholder="Comma separated item names..."
-                    value={rule.targets.join(', ')} 
-                    onChange={e => handleUpdateRule(index, { ...rule, targets: e.target.value.split(',').map(s => s.trim()).filter(s => s) })}
-                  />
-                </div>
+              {isEditing && (
+                <div className="details">
+                  <div className="field">
+                    <label>{t.targets}</label>
+                    <input 
+                      type="text"
+                      placeholder="Item names (comma separated)..."
+                      value={rule.targets.join(', ')} 
+                      onChange={e => handleUpdateRule(globalIndex, { ...rule, targets: e.target.value.split(',').map(s => s.trim()).filter(s => s) })}
+                    />
+                  </div>
 
-                <div className="factors-ui">
-                  <h4>Item Factors (Conditions)</h4>
-                  <div className="factors-grid">
+                  <div className="factors-mini-grid">
                     {POE_FACTORS.map(f => {
                         const currentVal = rule.conditions[f.key] || "";
                         const operator = currentVal.match(/^[>=<!]+/)?.[0] || "";
                         const num = currentVal.replace(/^[>=<!]+/, "");
-
                         return (
-                            <div key={f.key} className="factor-row">
-                                <span className="factor-label">{f.label}</span>
-                                <select 
-                                    value={operator} 
-                                    onChange={e => updateCondition(index, f.key, `${e.target.value}${num}`)}
-                                >
-                                    <option value="">Off</option>
-                                    <option value=">=">&gt;=</option>
-                                    <option value="<=">&lt;=</option>
-                                    <option value="==">==</option>
-                                    <option value=">">&gt;</option>
-                                    <option value="<">&lt;</option>
-                                </select>
-                                <input 
-                                    type="number" 
-                                    value={num} 
-                                    placeholder="Value"
-                                    onChange={e => updateCondition(index, f.key, `${operator}${e.target.value}`)}
-                                />
+                            <div key={f.key} className="mini-factor">
+                                <span>{f.label}</span>
+                                <div className="inputs">
+                                    <select value={operator} onChange={e => updateCondition(globalIndex, f.key, `${e.target.value}${num}`)}>
+                                        <option value="">Off</option>
+                                        <option value=">=">&gt;=</option>
+                                        <option value="<=">&lt;=</option>
+                                        <option value="==">==</option>
+                                    </select>
+                                    <input type="number" value={num} onChange={e => updateCondition(globalIndex, f.key, `${operator}${e.target.value}`)} />
+                                </div>
                             </div>
-                        )
+                        );
                     })}
-                    
-                    <div className="factor-row">
-                        <span className="factor-label">Corrupted</span>
-                        <select 
-                            value={rule.conditions["Corrupted"] || ""} 
-                            onChange={e => updateCondition(index, "Corrupted", e.target.value)}
-                        >
-                            <option value="">Any</option>
-                            <option value="True">True</option>
-                            <option value="False">False</option>
-                        </select>
-                    </div>
-
-                    <div className="factor-row">
-                        <span className="factor-label">Influence</span>
-                        <select 
-                            value={rule.conditions["HasInfluence"] || ""} 
-                            onChange={e => updateCondition(index, "HasInfluence", e.target.value)}
-                        >
-                            <option value="">None</option>
-                            <option value="Shaper">Shaper</option>
-                            <option value="Elder">Elder</option>
-                            <option value="Crusader">Crusader</option>
-                            <option value="Redeemer">Redeemer</option>
-                            <option value="Hunter">Hunter</option>
-                            <option value="Warlord">Warlord</option>
-                        </select>
-                    </div>
+                  </div>
+                  
+                  <div className="field">
+                    <label>{t.comment}</label>
+                    <input type="text" value={rule.comment} onChange={e => handleUpdateRule(globalIndex, { ...rule, comment: e.target.value })} />
                   </div>
                 </div>
-
-                <div className="field">
-                  <label>{t.overrides} (Advanced JSON)</label>
-                  <textarea 
-                    value={JSON.stringify(rule.overrides)} 
-                    onChange={e => { try { handleUpdateRule(index, { ...rule, overrides: JSON.parse(e.target.value) }); } catch(e) {} }}
-                  />
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
+              )}
+            </div>
+          );
+        })}
       </div>
 
       <style>{`
-        .rule-manager { margin-top: 20px; border-top: 2px solid #eee; padding-top: 20px; }
-        .rule-card { border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; background: #fdfdfd; overflow: hidden; }
-        .rule-summary { padding: 12px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #f8f9fa; }
-        .rule-card.editing { border-color: #2196F3; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .tier-rule-manager { margin-top: 15px; padding-top: 10px; border-top: 1px dashed #ddd; }
+        .rule-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .rule-header .label { font-size: 0.85rem; font-weight: bold; color: #777; }
+        .mini-add-btn { background: #e3f2fd; color: #2196F3; border: 1px solid #2196F3; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; }
+        .mini-add-btn:hover { background: #2196F3; color: white; }
         
-        .rule-details { padding: 20px; display: flex; flex-direction: column; gap: 15px; }
-        .field { display: flex; flex-direction: column; gap: 5px; }
-        .field label { font-size: 0.85rem; font-weight: bold; color: #555; }
-        .field input, .field textarea { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        .rules-stack { display: flex; flex-direction: column; gap: 5px; }
+        .inline-rule-card { border: 1px solid #eee; border-radius: 4px; background: #fafafa; }
+        .inline-rule-card.editing { border-color: #2196F3; background: white; }
+        .summary { padding: 6px 10px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .summary .comment { font-size: 0.85rem; color: #444; }
+        .delete-btn { background: none; border: none; color: #ff5252; cursor: pointer; font-size: 1.2rem; line-height: 1; }
         
-        .factors-ui { background: #f0f4f8; padding: 15px; border-radius: 6px; }
-        .factors-ui h4 { margin: 0 0 15px 0; font-size: 0.9rem; color: #2c3e50; }
-        .factors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+        .details { padding: 10px; border-top: 1px solid #eee; display: flex; flex-direction: column; gap: 8px; }
+        .field { display: flex; flex-direction: column; gap: 3px; }
+        .field label { font-size: 0.7rem; color: #999; font-weight: bold; text-transform: uppercase; }
+        .field input { padding: 5px; border: 1px solid #ddd; border-radius: 3px; font-size: 0.85rem; }
         
-        .factor-row { display: flex; align-items: center; gap: 8px; background: white; padding: 8px; border-radius: 4px; border: 1px solid #e1e8ed; }
-        .factor-label { flex: 1; font-size: 0.8rem; font-weight: bold; color: #606f7b; }
-        .factor-row select { padding: 4px; border-radius: 3px; border: 1px solid #ccc; font-size: 0.8rem; }
-        .factor-row input { width: 60px; padding: 4px; border: 1px solid #ccc; border-radius: 3px; font-size: 0.8rem; }
+        .factors-mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; background: #f0f0f0; padding: 8px; border-radius: 4px; }
+        .mini-factor { display: flex; flex-direction: column; gap: 2px; }
+        .mini-factor span { font-size: 0.65rem; color: #666; font-weight: bold; }
+        .mini-factor .inputs { display: flex; gap: 2px; }
+        .mini-factor select { padding: 2px; font-size: 0.75rem; width: 50px; }
+        .mini-factor input { padding: 2px; font-size: 0.75rem; width: 40px; }
       `}</style>
     </div>
   );

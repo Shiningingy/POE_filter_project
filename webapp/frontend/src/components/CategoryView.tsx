@@ -33,7 +33,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   const [themeData, setThemeData] = useState<any>(null);
   const [parsedConfig, setParsedConfig] = useState<any>(null);
   const [tierItems, setTierItems] = useState<Record<string, TierItem[]>>({});
-  const [activeTab, setActiveTab] = useState<'tiers' | 'rules'>('tiers');
 
   // Bulk Edit State
   const [showBulkEditor, setShowBulkEditor] = useState(false);
@@ -41,15 +40,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   const [activeBulkOptions, setActiveBulkOptions] = useState<any[]>([]);
 
   const API_BASE_URL = 'http://localhost:8000';
-
-  // --- 1. All Hooks must be at the top level ---
-
-  // Flattened items for RuleManager suggestions
-  const allItemsInTiers = useMemo(() => {
-    const list: string[] = [];
-    Object.values(tierItems).forEach(items => items.forEach(i => list.push(i.name)));
-    return Array.from(new Set(list));
-  }, [tierItems]);
 
   useEffect(() => {
     axios.get(`${API_BASE_URL}/api/themes/sharket`)
@@ -153,16 +143,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     onConfigContentChange(JSON.stringify(newConfig, null, 2));
   };
 
-  // --- 2. Conditional returns MUST happen after hooks ---
   if (!themeData || !parsedConfig) return <div>{t.loading}</div>;
 
   return (
     <div className="category-view">
-      <div className="view-tabs">
-        <button className={activeTab === 'tiers' ? 'active' : ''} onClick={() => setActiveTab('tiers')}>Tiers</button>
-        <button className={activeTab === 'rules' ? 'active' : ''} onClick={() => setActiveTab('rules')}>Rules</button>
-      </div>
-
       {Object.keys(parsedConfig).map(categoryKey => {
         if (categoryKey.startsWith('//')) return null;
         const categoryData = parsedConfig[categoryKey];
@@ -175,20 +159,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
             const tNum = td.theme?.Tier !== undefined ? td.theme.Tier : "?";
             return { key: tk, label: language === 'ch' ? `T${tNum} ${catName}` : `Tier ${tNum} ${catName}` };
         });
-
-        if (activeTab === 'rules') {
-            return (
-                <div key={categoryKey} className="category-section">
-                    <h3>{catName} - {t.rules}</h3>
-                    <RuleManager 
-                        rules={categoryData._meta?.rules || []}
-                        onChange={(newRules) => handleRulesChange(categoryKey, newRules)}
-                        language={language}
-                        availableItems={allItemsInTiers}
-                    />
-                </div>
-            );
-        }
 
         return (
           <div key={categoryKey} className="category-section">
@@ -224,6 +194,13 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     onUpdateOverride={handleUpdateOverride}
                     language={language}
                   />
+                  <RuleManager 
+                    tierKey={tierKey}
+                    allRules={categoryData._meta?.rules || []}
+                    onGlobalRulesChange={(newRules) => handleRulesChange(categoryKey, newRules)}
+                    language={language}
+                    availableItems={items.map(i => i.name)}
+                  />
                 </div>
               );
             })}
@@ -243,15 +220,12 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       )}
       
       <style>{`
-        .view-tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid #ddd; }
-        .view-tabs button { padding: 8px 20px; border: none; background: none; cursor: pointer; border-bottom: 3px solid transparent; }
-        .view-tabs button.active { border-bottom-color: #2196F3; font-weight: bold; }
         .category-view { padding-bottom: 50px; }
         .category-section { margin-bottom: 30px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); padding: 20px; }
         .category-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-bottom: 20px; }
         .category-header h3 { margin: 0; color: #333; }
         .bulk-edit-btn { background: #673ab7; color: white; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; }
-        .tier-block { margin-bottom: 20px; border: 1px solid #eee; border-radius: 4px; padding: 10px; }
+        .tier-block { margin-bottom: 20px; border: 1px solid #eee; border-radius: 4px; padding: 15px; background: #fff; }
         .add-tier-btn { width: 100%; padding: 10px; background: #f9f9f9; border: 2px dashed #ddd; color: #888; cursor: pointer; border-radius: 4px; font-weight: bold; }
       `}</style>
     </div>
