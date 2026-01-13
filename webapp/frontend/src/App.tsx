@@ -139,8 +139,8 @@ function App() {
                 <div className="switch-group">
                     <label>{t.gameMode}:</label>
                     <select value={gameMode} onChange={(e) => setGameMode(e.target.value as any)}>
-                        <option value="normal">Normal</option>
-                        <option value="ruthless">Ruthless</option>
+                        <option value="normal">{t.normalMode}</option>
+                        <option value="ruthless">{t.ruthlessMode}</option>
                     </select>
                 </div>
             )}
