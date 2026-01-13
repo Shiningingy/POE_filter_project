@@ -263,3 +263,18 @@ def get_generated_filter():
         raise HTTPException(status_code=404, detail="Generated filter file not found. Please generate it first.")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/generated-filter-styles")
+def get_generated_filter_styles():
+    """
+    Reads and returns the content of the complete_filter_styles.json file.
+    """
+    styles_file_path = FILTER_GEN_DIR / "complete_filter_styles.json"
+    try:
+        with open(styles_file_path, "r", encoding="utf-8") as f:
+            content = json.load(f)
+        return {"content": content}
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="Generated styles file not found. Please generate it first.")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

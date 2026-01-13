@@ -183,14 +183,20 @@ def generate_filter():
     # --- 6. Generate Sections ---
     print("Building Filter Sections...")
     # currently only building currency section as a test/start
-    final_filter_content = build_currency_section(item_data_for_generator, theme, sound_map)
+    final_filter_content, style_map = build_currency_section(item_data_for_generator, theme, sound_map)
     print(f"Generated filter content size: {len(final_filter_content)} bytes")
     
     # --- 7. Write Output ---
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(final_filter_content)
         
+    # Write Style Map
+    style_output_path = project_root / "filter_generation" / "complete_filter_styles.json"
+    with open(style_output_path, "w", encoding="utf-8") as f:
+        json.dump(style_map, f, indent=2, ensure_ascii=False)
+        
     print(f"Filter successfully generated at: {output_path}")
+    print(f"Styles exported to: {style_output_path}")
 
 if __name__ == "__main__":
     generate_filter()

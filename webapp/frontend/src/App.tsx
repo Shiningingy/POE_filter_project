@@ -3,7 +3,8 @@ import axios from 'axios';
 import './App.css';
 import ConfigEditor from './components/ConfigEditor'; 
 import MappingEditor from './components/MappingEditor'; 
-import Sidebar from './components/Sidebar'; // Import Sidebar
+import DropSimulator from './components/DropSimulator'; // Import DropSimulator
+import Sidebar from './components/Sidebar'; 
 import { getThemes } from './services/api'; 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   const [message, setMessage] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
   const [jsonError, setJsonError] = useState<string>(''); 
+  const [viewMode, setViewMode] = useState<'simulator' | 'text'>('simulator'); // New state
 
   const API_BASE_URL = 'http://localhost:8000'; 
 
@@ -111,6 +113,7 @@ function App() {
       const response = await axios.post(`${API_BASE_URL}/api/generate`);
       setMessage(`Filter generated successfully! ${response.data.output || ''}`);
       await fetchFilterPreview(); 
+      // Force refresh of styles in simulator (can't easily call child method, but simulator fetches on mount/button)
     } catch (error: any) {
       console.error('Error generating filter:', error);
       setMessage(`Failed to generate filter: ${error.response?.data?.detail || error.message}`);
@@ -125,10 +128,10 @@ function App() {
     try {
       const response = await axios.get(`${API_BASE_URL}/api/generated-filter`);
       setFilterPreview(response.data.content);
-      setMessage('Filter preview updated.');
+      // setMessage('Filter preview updated.');
     } catch (error) {
       console.error('Error fetching filter preview:', error);
-      setMessage('Failed to fetch filter preview.');
+      // setMessage('Failed to fetch filter preview.');
       setFilterPreview('Error loading filter preview.');
     } finally {
       setLoading(false);
@@ -164,7 +167,6 @@ function App() {
           <div className="top-bar">
             <h1>POE Filter Editor</h1>
             <div className="global-actions">
-               {/* Only show Save button here for ConfigEditor */}
                {!isBaseMapping && selectedConfigPath && (
                   <button onClick={saveConfigContent} disabled={loading || !!jsonError}>Save Config</button>
                )}
@@ -198,13 +200,31 @@ function App() {
             </div>
 
             <div className="preview-pane">
-              <h3>Generated Filter Preview</h3>
-              <textarea
-                className="filter-output"
-                value={filterPreview}
-                readOnly
-                placeholder="Generated filter will appear here..."
-              ></textarea>
+              <div className="preview-tabs">
+                <button 
+                  className={viewMode === 'simulator' ? 'active' : ''} 
+                  onClick={() => setViewMode('simulator')}
+                >
+                  Simulator
+                </button>
+                <button 
+                  className={viewMode === 'text' ? 'active' : ''} 
+                  onClick={() => setViewMode('text')}
+                >
+                  Raw Filter
+                </button>
+              </div>
+              
+              {viewMode === 'simulator' ? (
+                <DropSimulator />
+              ) : (
+                <textarea
+                  className="filter-output"
+                  value={filterPreview}
+                  readOnly
+                  placeholder="Generated filter will appear here..."
+                ></textarea>
+              )}
             </div>
           </div>
         </div>
@@ -224,9 +244,13 @@ function App() {
         
         .workspace { flex: 1; display: flex; padding: 20px; gap: 20px; overflow: hidden; }
         .editor-pane { flex: 2; display: flex; flex-direction: column; background: white; padding: 20px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow-y: auto; }
-        .preview-pane { flex: 1; display: flex; flex-direction: column; background: white; padding: 20px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .preview-pane { flex: 1; display: flex; flex-direction: column; background: white; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden;}
         
-        .filter-output { width: 100%; flex: 1; resize: none; border: 1px solid #ddd; font-family: monospace; font-size: 0.8rem; padding: 10px; }
+        .preview-tabs { display: flex; border-bottom: 1px solid #ddd; background: #f9f9f9; }
+        .preview-tabs button { flex: 1; padding: 10px; border: none; background: none; cursor: pointer; border-right: 1px solid #ddd; }
+        .preview-tabs button.active { background: white; font-weight: bold; border-bottom: 2px solid #2196F3; }
+        
+        .filter-output { width: 100%; flex: 1; resize: none; border: none; font-family: monospace; font-size: 0.8rem; padding: 10px; }
         .placeholder { display: flex; align-items: center; justify-content: center; height: 100%; color: #888; font-size: 1.2rem; }
       `}</style>
     </div>
