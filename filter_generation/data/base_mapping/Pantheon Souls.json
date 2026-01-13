@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Captured Soul of Puruna, the Challenger": "已捕获的挑战者普鲁纳之魂",
+        "Captured Soul of Merveil, the Returned": "已捕获的复生者莫薇儿之魂",
+        "Captured Soul of Glace": "已捕获的冻灵之魂",
+        "Captured Soul of Maligaro the Mutilator": "已捕获的切断者马雷格罗之魂",
+        "Captured Soul of Enticer of Rot": "已捕获的冥缶之女之魂",
+        "Captured Soul of Hybrid Widow": "已捕获的黑寡妇之魂",
+        "Captured Soul of Fire and Fury": "已捕获的炽怒之灵之魂",
+        "Captured Soul of Kitava, The Destroyer": "已捕获的摧残者奇塔弗之魂",
+        "Captured Soul of Jorus, Sky's Edge": "已捕获的空之边际乔瑞斯之魂",
+        "Captured Soul of Sebbert, Crescent's Point": "已捕获的新月之纪瑟伯特之魂",
+        "Captured Soul of The Winged Death": "已捕获的带翼死神之魂",
+        "Captured Soul of Ormud, Fiend of the Flood": "已捕获的洪水之魔厄玛德之魂",
+        "Captured Soul of Mephod, the Earth Scorcher": "已捕获的撼地者米福德之魂",
+        "Captured Soul of Erebix, Light's Bane": "已捕获的雷吉加候灵魂",
+        "Captured Soul of Oriath's Vigil": "已捕获的奥瑞亚的堡垒之魂",
+        "Captured Soul of Terror of the Infinite Drifts": "已捕获的漂泊畏灵之魂",
+        "Captured Soul of Sumter the Twisted": "已捕获的桑特之魂",
+        "Captured Soul of Leif, the Swift-Handed": "已捕获的快手宗师力弗之魂",
+        "Captured Soul of Preethi, Eye-Pecker": "已捕获的灼眼者普利斯之魂",
+        "Captured Soul of Gorulis, Will-Thief": "已捕获的传奇神盗罗格斯之魂",
+        "__class_name__": "万神殿之魂"
+      }
+    },
+    "item_class": {
+      "en": "Pantheon Souls",
+      "ch": "万神殿之魂"
+    },
+    "theme_category": "Pantheon Souls"
+  },
+  "mapping": {
+    "Captured Soul of Puruna, the Challenger": "Tier 1 Pantheon Souls",
+    "Captured Soul of Merveil, the Returned": "Tier 1 Pantheon Souls",
+    "Captured Soul of Glace": "Tier 1 Pantheon Souls",
+    "Captured Soul of Maligaro the Mutilator": "Tier 1 Pantheon Souls",
+    "Captured Soul of Enticer of Rot": "Tier 1 Pantheon Souls",
+    "Captured Soul of Hybrid Widow": "Tier 1 Pantheon Souls",
+    "Captured Soul of Fire and Fury": "Tier 1 Pantheon Souls",
+    "Captured Soul of Kitava, The Destroyer": "Tier 1 Pantheon Souls",
+    "Captured Soul of Jorus, Sky's Edge": "Tier 1 Pantheon Souls",
+    "Captured Soul of Sebbert, Crescent's Point": "Tier 1 Pantheon Souls",
+    "Captured Soul of The Winged Death": "Tier 1 Pantheon Souls",
+    "Captured Soul of Ormud, Fiend of the Flood": "Tier 1 Pantheon Souls",
+    "Captured Soul of Mephod, the Earth Scorcher": "Tier 1 Pantheon Souls",
+    "Captured Soul of Erebix, Light's Bane": "Tier 1 Pantheon Souls",
+    "Captured Soul of Oriath's Vigil": "Tier 1 Pantheon Souls",
+    "Captured Soul of Terror of the Infinite Drifts": "Tier 1 Pantheon Souls",
+    "Captured Soul of Sumter the Twisted": "Tier 1 Pantheon Souls",
+    "Captured Soul of Leif, the Swift-Handed": "Tier 1 Pantheon Souls",
+    "Captured Soul of Preethi, Eye-Pecker": "Tier 1 Pantheon Souls",
+    "Captured Soul of Gorulis, Will-Thief": "Tier 1 Pantheon Souls"
+  },
+  "rules": []
+}

@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "[DO NOT USE] Censer Relic": "[请勿使用]香炉遗物",
+        "[DO NOT USE] Processional Relic": "[请勿使用]圣歌遗物",
+        "[DO NOT USE] Candlestick Relic": "[请勿使用]烛台遗物",
+        "[DO NOT USE] Urn Relic": "[请勿使用]壶瓮遗物",
+        "[DO NOT USE] Coffer Relic": "[请勿使用]匣柜遗物",
+        "[DO NOT USE] Tome Relic": "[请勿使用]典籍遗物",
+        "[DO NOT USE] Papyrus Relic": "[请勿使用]纸草遗物",
+        "Censer Relic": "香炉遗物",
+        "Processional Relic": "圣歌遗物",
+        "Candlestick Relic": "烛台遗物",
+        "Urn Relic": "壶瓮遗物",
+        "Coffer Relic": "匣柜遗物",
+        "Tome Relic": "典籍遗物",
+        "Papyrus Relic": "纸草遗物",
+        "__class_name__": "遗物"
+      }
+    },
+    "item_class": {
+      "en": "Relics",
+      "ch": "遗物"
+    },
+    "theme_category": "Relics"
+  },
+  "mapping": {
+    "[DO NOT USE] Censer Relic": "Tier 1 Relics",
+    "[DO NOT USE] Processional Relic": "Tier 1 Relics",
+    "[DO NOT USE] Candlestick Relic": "Tier 1 Relics",
+    "[DO NOT USE] Urn Relic": "Tier 1 Relics",
+    "[DO NOT USE] Coffer Relic": "Tier 1 Relics",
+    "[DO NOT USE] Tome Relic": "Tier 1 Relics",
+    "[DO NOT USE] Papyrus Relic": "Tier 1 Relics",
+    "Censer Relic": "Tier 1 Relics",
+    "Processional Relic": "Tier 1 Relics",
+    "Candlestick Relic": "Tier 1 Relics",
+    "Urn Relic": "Tier 1 Relics",
+    "Coffer Relic": "Tier 1 Relics",
+    "Tome Relic": "Tier 1 Relics",
+    "Papyrus Relic": "Tier 1 Relics"
+  },
+  "rules": []
+}

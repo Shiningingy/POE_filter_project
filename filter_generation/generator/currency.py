@@ -19,8 +19,8 @@ def build_currency_section(item_data, theme, sound_map):
 
         # Determine which theme style to use (e.g. "CurrencyHigh", "CurrencyLow")
         # Fallback to default if group not in theme
-        theme_key = _find_theme_key(group, theme)
-        style = theme[theme_key] if theme_key else theme.get("CurrencyDefault", {})
+        theme_key = _find_theme_key(group, theme.get("currency", {}))
+        style = theme.get("currency", {}).get(theme_key) if theme_key else theme.get("currency", {}).get("CurrencyDefault", {})
 
         # Sound: per-item sound overrides theme
         sound = sound_map.get(baseType, style.get("PlayAlertSound"))
@@ -34,18 +34,27 @@ def build_currency_section(item_data, theme, sound_map):
     return "\n\n".join(blocks)
 
 
+def hex_to_rgb(hex_color):
+    hex_color = hex_color.lstrip('#')
+    # Assuming the format is RRGGBBAA or RRGGBB
+    if len(hex_color) == 8: # RRGGBBAA
+        return int(hex_color[0:2], 16), int(hex_color[2:4], 16), int(hex_color[4:6], 16)
+    elif len(hex_color) == 6: # RRGGBB
+        return int(hex_color[0:2], 16), int(hex_color[2:4], 16), int(hex_color[4:6], 16)
+    return 0, 0, 0 # Default if format is unexpected
+
 def _apply_style(lines, style, sound):
     """Append visual/sound settings from theme or sound map"""
     if "FontSize" in style:
         lines.append(f'SetFontSize {style["FontSize"]}')
     if "BorderColor" in style:
-        r, g, b = style["BorderColor"]
+        r, g, b = hex_to_rgb(style["BorderColor"])
         lines.append(f'SetBorderColor {r} {g} {b}')
     if "TextColor" in style:
-        r, g, b = style["TextColor"]
+        r, g, b = hex_to_rgb(style["TextColor"])
         lines.append(f'SetTextColor {r} {g} {b}')
     if "BackgroundColor" in style:
-        r, g, b = style["BackgroundColor"]
+        r, g, b = hex_to_rgb(style["BackgroundColor"])
         lines.append(f'SetBackgroundColor {r} {g} {b}')
 
     if sound:

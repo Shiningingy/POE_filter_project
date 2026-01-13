@@ -1,86 +1,136 @@
 {
-    "currency":{
-        "Tier 0":{
-            "FontSize":45,
-            "TextColor":"#ff0000ff",
-            "BorderColor":"#ff0000ff",
-            "BackgroundColor":"#ffffffff",
-            "PlayEffect":"Red",
-            "MinimapIcon":[0,"Red","Circle"]
-        },        
-        "Tier 1":{
-            "FontSize":45,
-            "TextColor":"#ffffffff",
-            "BorderColor":"#00ff00ff",
-            "BackgroundColor":"#d20000ff",
-            "PlayEffect":"Green",
-            "MinimapIcon":[1,"Green","Circle"]
+    "currency": {
+        "Tier 0": {
+            "FontSize": 46,
+            "TextColor": "#ff0000ff",
+            "BorderColor": "#ff0000ff",
+            "BackgroundColor": "#ffffffff",
+            "PlayEffect": "Red",
+            "MinimapIcon": "RedStar",
+            "PlayAlertSound": [
+                "Sharket_Sound_6.mp3",
+                300
+            ]
         },
-        "Tier 2":{
-            "FontSize":40,
-            "TextColor":"#ffffffff",
-            "BorderColor":"#00ff00ff",
-            "BackgroundColor":"#d20000ff",
-            "PlayEffect":"Green",
-            "MinimapIcon":[1,"Green","Circle"]
+        "Tier 1": {
+            "FontSize": 43,
+            "TextColor": "#e700e7ff",
+            "BorderColor": "#e700e7ff",
+            "BackgroundColor": "#ffffffff",
+            "PlayEffect": "Red",
+            "MinimapIcon": "RedStar",
+            "PlayAlertSound": [
+                "Sharket_Sound_5.mp3",
+                300
+            ]
         },
-        "Tier 3":{
-            "FontSize":40,
-            "TextColor":"#000000ff",
-            "BorderColor":"#000000ff",
-            "BackgroundColor":"#ffaa00ff",
-            "PlayEffect":null,
-            "MinimapIcon":null
+        "Tier 2": {
+            "FontSize": 40,
+            "TextColor": "#af00ffff",
+            "BorderColor": "#af00ffff",
+            "BackgroundColor": "#ffffffff",
+            "PlayEffect": "Red",
+            "MinimapIcon": "RedStar",
+            "PlayAlertSound": [
+                "Sharket_Sound_4.mp3",
+                300
+            ]
         },
-        "Tier 4":{
-            "FontSize":36,
-            "TextColor":"#000000ff",
-            "BorderColor":"#000000ff",
-            "BackgroundColor":"#ffaa00ff",
-            "PlayEffect":null,
-            "MinimapIcon":null
+        "Tier 3": {
+            "FontSize": 38,
+            "TextColor": "#3400ffff",
+            "BorderColor": "#3400ffff",
+            "BackgroundColor": "#ffffffff",
+            "PlayEffect": "Red",
+            "MinimapIcon": "RedStar",
+            "PlayAlertSound": [
+                "Sharket_Sound_3.mp3",
+                300
+            ]
         },
-        "Tier 5":{
-            "FontSize":36,
-            "TextColor":"#000000ff",
-            "BorderColor":"#000000ff",
-            "BackgroundColor":"#aa9e82ff",
-            "PlayEffect":null,
-            "MinimapIcon":null
+        "Tier 4": {
+            "FontSize": 36,
+            "TextColor": "#0090ffff",
+            "BorderColor": "#0090ffff",
+            "BackgroundColor": "#ffffffff",
+            "PlayEffect": "Red",
+            "MinimapIcon": "RedStar",
+            "PlayAlertSound": [
+                "Sharket_Sound_2.mp3",
+                300
+            ]
         },
-        "Tier 6":{
-            "FontSize":32,
-            "TextColor":"#000000ff",
-            "BorderColor":"#000000ff",
-            "BackgroundColor":"#aa9e82ff",
-            "PlayEffect":null,
-            "MinimapIcon":null
-        }
-    },
-    "temporary league item" : {
-        "Tier 0":{
-            "FontSize":45,
-            "TextColor":"#78c8a0ff",
-            "BorderColor":"#78c8a0ff",
-            "BackgroundColor":"#ffffffff",
-            "PlayEffect":"Red",
-            "MinimapIcon":[0,"Red","Star"]
+        "Tier 5": {
+            "FontSize": 35,
+            "TextColor": "#00ffb5ff",
+            "BorderColor": "#00ffb5ff",
+            "BackgroundColor": "#ffffffff",
+            "PlayEffect": "Red",
+            "MinimapIcon": "RedStar",
+            "PlayAlertSound": [
+                "Sharket_Sound_1.mp3",
+                300
+            ]
         },
-        "Tier 1":{
-            "FontSize":40,
-            "TextColor":"#ffffffff",
-            "BorderColor":"#ffffffff",
-            "BackgroundColor":"#78c8a0ff",
-            "PlayEffect":null,
-            "MinimapIcon":[1,"Red","Moon"]
+        "Tier 6": {
+            "FontSize": 34,
+            "TextColor": "#00ff2dff",
+            "BorderColor": "#00ff2dff",
+            "BackgroundColor": "#ffffffff",
+            "PlayEffect": "Red",
+            "MinimapIcon": "RedStar",
+            "PlayAlertSound": [
+                "Sharket_Sound_1.mp3",
+                300
+            ]
         },
-        "Tier 2":{
-            "FontSize":36,
-            "TextColor":"#000000ff",
-            "BorderColor":"#000000ff",
-            "BackgroundColor":"#78c8a0ff",
-            "PlayEffect":null,
-            "MinimapIcon":[2,"Yellow","Moon"]
+        "Tier 7": {
+            "FontSize": 32,
+            "TextColor": "#aeff00ff",
+            "BorderColor": "#aeff00ff",
+            "BackgroundColor": "#ffffffff",
+            "PlayEffect": "Red",
+            "MinimapIcon": "RedStar",
+            "PlayAlertSound": [
+                "Sharket_Sound_1.mp3",
+                300
+            ]
+        },
+        "Tier 8": {
+            "FontSize": 30,
+            "TextColor": "#ffff00ff",
+            "BorderColor": "#ffff00ff",
+            "BackgroundColor": "#ffffffff",
+            "PlayEffect": "Red",
+            "MinimapIcon": "RedStar",
+            "PlayAlertSound": [
+                "Sharket_Sound_1.mp3",
+                300
+            ]
+        },
+        "Tier 9": {
+            "FontSize": 28,
+            "TextColor": "#ff9d00ff",
+            "BorderColor": "#ff9d00ff",
+            "BackgroundColor": "#ffffffff",
+            "PlayEffect": "Red",
+            "MinimapIcon": "RedStar",
+            "PlayAlertSound": [
+                "Sharket_Sound_1.mp3",
+                300
+            ]
+        },
+        "CurrencyDefault": {
+            "FontSize": 28,
+            "TextColor": "#aaaaaaff",
+            "BorderColor": "#aaaaaaff",
+            "BackgroundColor": "#ffffffff",
+            "PlayEffect": "Red",
+            "MinimapIcon": "RedStar",
+            "PlayAlertSound": [
+                "Sharket_Sound_1.mp3",
+                300
+            ]
         }
     }
 }

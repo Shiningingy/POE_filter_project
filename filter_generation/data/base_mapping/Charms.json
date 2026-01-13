@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Ursine Charm": "蛮熊咒符",
+        "Lupine Charm": "幽狼咒符",
+        "Corvine Charm": "暗鸦咒符",
+        "__class_name__": "咒符"
+      }
+    },
+    "item_class": {
+      "en": "Charms",
+      "ch": "咒符"
+    },
+    "theme_category": "Charms"
+  },
+  "mapping": {
+    "Ursine Charm": "Tier 1 Charms",
+    "Lupine Charm": "Tier 1 Charms",
+    "Corvine Charm": "Tier 1 Charms"
+  },
+  "rules": []
+}

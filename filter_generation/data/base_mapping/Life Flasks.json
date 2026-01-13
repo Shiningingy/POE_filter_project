@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Small Life Flask": "小型生命药剂",
+        "Medium Life Flask": "中型生命药剂",
+        "Large Life Flask": "大型生命药剂",
+        "Greater Life Flask": "良质生命药剂",
+        "Grand Life Flask": "优质生命药剂",
+        "Giant Life Flask": "巨型生命药剂",
+        "Colossal Life Flask": "高阶生命药剂",
+        "Sacred Life Flask": "圣语生命药剂",
+        "Hallowed Life Flask": "祝福生命药剂",
+        "Sanctified Life Flask": "圣化生命药剂",
+        "Divine Life Flask": "不朽生命药剂",
+        "Eternal Life Flask": "永恒生命药剂",
+        "__class_name__": "生命药剂"
+      }
+    },
+    "item_class": {
+      "en": "Life Flasks",
+      "ch": "生命药剂"
+    },
+    "theme_category": "Life Flasks"
+  },
+  "mapping": {
+    "Small Life Flask": "Tier 1 Life Flasks",
+    "Medium Life Flask": "Tier 1 Life Flasks",
+    "Large Life Flask": "Tier 1 Life Flasks",
+    "Greater Life Flask": "Tier 1 Life Flasks",
+    "Grand Life Flask": "Tier 1 Life Flasks",
+    "Giant Life Flask": "Tier 1 Life Flasks",
+    "Colossal Life Flask": "Tier 1 Life Flasks",
+    "Sacred Life Flask": "Tier 1 Life Flasks",
+    "Hallowed Life Flask": "Tier 1 Life Flasks",
+    "Sanctified Life Flask": "Tier 1 Life Flasks",
+    "Divine Life Flask": "Tier 1 Life Flasks",
+    "Eternal Life Flask": "Tier 1 Life Flasks"
+  },
+  "rules": []
+}

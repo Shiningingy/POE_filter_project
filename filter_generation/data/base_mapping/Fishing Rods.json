@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Fishing Rod": "鱼竿",
+        "__class_name__": "鱼竿"
+      }
+    },
+    "item_class": {
+      "en": "Fishing Rods",
+      "ch": "鱼竿"
+    },
+    "theme_category": "Fishing Rods"
+  },
+  "mapping": {
+    "Fishing Rod": "Tier 1 Fishing Rods"
+  },
+  "rules": []
+}

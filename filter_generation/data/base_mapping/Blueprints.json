@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Blueprint: Bunker": "蓝图：堡垒",
+        "Blueprint: Smuggler's Den": "蓝图：珍宝之地",
+        "Blueprint: Laboratory": "蓝图：实验室",
+        "Blueprint: Repository": "蓝图：储藏库",
+        "Blueprint: Prohibited Library": "蓝图：禁断书库",
+        "Blueprint: Tunnels": "蓝图：隧道",
+        "Blueprint: Underbelly": "蓝图：薄弱之地",
+        "Blueprint: Records Office": "蓝图：档案处",
+        "Blueprint: Mansion": "蓝图：豪宅",
+        "__class_name__": "蓝图"
+      }
+    },
+    "item_class": {
+      "en": "Blueprints",
+      "ch": "蓝图"
+    },
+    "theme_category": "Blueprints"
+  },
+  "mapping": {
+    "Blueprint: Bunker": "Tier 1 Blueprints",
+    "Blueprint: Smuggler's Den": "Tier 1 Blueprints",
+    "Blueprint: Laboratory": "Tier 1 Blueprints",
+    "Blueprint: Repository": "Tier 1 Blueprints",
+    "Blueprint: Prohibited Library": "Tier 1 Blueprints",
+    "Blueprint: Tunnels": "Tier 1 Blueprints",
+    "Blueprint: Underbelly": "Tier 1 Blueprints",
+    "Blueprint: Records Office": "Tier 1 Blueprints",
+    "Blueprint: Mansion": "Tier 1 Blueprints"
+  },
+  "rules": []
+}

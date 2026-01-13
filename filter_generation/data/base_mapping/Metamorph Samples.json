@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Metamorph Brain": "灾变中枢",
+        "Metamorph Eye": "灾变视界",
+        "Metamorph Liver": "灾变转化",
+        "Metamorph Lung": "灾变呼吸",
+        "Metamorph Heart": "灾变核心",
+        "__class_name__": "灾变样本"
+      }
+    },
+    "item_class": {
+      "en": "Metamorph Samples",
+      "ch": "灾变样本"
+    },
+    "theme_category": "Metamorph Samples"
+  },
+  "mapping": {
+    "Metamorph Brain": "Tier 1 Metamorph Samples",
+    "Metamorph Eye": "Tier 1 Metamorph Samples",
+    "Metamorph Liver": "Tier 1 Metamorph Samples",
+    "Metamorph Lung": "Tier 1 Metamorph Samples",
+    "Metamorph Heart": "Tier 1 Metamorph Samples"
+  },
+  "rules": []
+}

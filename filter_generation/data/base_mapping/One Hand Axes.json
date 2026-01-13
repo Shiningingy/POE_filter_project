@@ -1,0 +1,73 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Rusted Hatchet": "锈斧",
+        "Jade Hatchet": "碎玉斧",
+        "Boarding Axe": "万用手斧",
+        "Cleaver": "切割者",
+        "Broad Axe": "阔斧",
+        "Arming Axe": "长柄斧",
+        "Decorative Axe": "富贵之斧",
+        "Spectral Axe": "幽魂之斧",
+        "Etched Hatchet": "蚀刻战斧",
+        "Jasper Axe": "灵玉斧",
+        "Tomahawk": "征战之斧",
+        "Wrist Chopper": "断腕之刃",
+        "War Axe": "行军斧",
+        "Chest Splitter": "开膛利刃",
+        "Ceremonial Axe": "血仪之斧",
+        "Wraith Axe": "凶灵之斧",
+        "Engraved Hatchet": "雕文战斧",
+        "Karui Axe": "卡鲁古斧",
+        "Siege Axe": "破城斧",
+        "Reaver Axe": "残暴之斧",
+        "Butcher Axe": "屠戮之斧",
+        "Vaal Hatchet": "瓦尔战斧",
+        "Royal Axe": "皇家之斧",
+        "Infernal Axe": "狱火之刃",
+        "Runic Hatchet": "密文之斧",
+        "Maltreatment Axe": "凌虐斧",
+        "Disapprobation Axe": "否认斧",
+        "Psychotic Axe": "癫狂斧",
+        "__class_name__": "单手斧"
+      }
+    },
+    "item_class": {
+      "en": "One Hand Axes",
+      "ch": "单手斧"
+    },
+    "theme_category": "One Hand Axes"
+  },
+  "mapping": {
+    "Rusted Hatchet": "Tier 1 One Hand Axes",
+    "Jade Hatchet": "Tier 1 One Hand Axes",
+    "Boarding Axe": "Tier 1 One Hand Axes",
+    "Cleaver": "Tier 1 One Hand Axes",
+    "Broad Axe": "Tier 1 One Hand Axes",
+    "Arming Axe": "Tier 1 One Hand Axes",
+    "Decorative Axe": "Tier 1 One Hand Axes",
+    "Spectral Axe": "Tier 1 One Hand Axes",
+    "Etched Hatchet": "Tier 1 One Hand Axes",
+    "Jasper Axe": "Tier 1 One Hand Axes",
+    "Tomahawk": "Tier 1 One Hand Axes",
+    "Wrist Chopper": "Tier 1 One Hand Axes",
+    "War Axe": "Tier 1 One Hand Axes",
+    "Chest Splitter": "Tier 1 One Hand Axes",
+    "Ceremonial Axe": "Tier 1 One Hand Axes",
+    "Wraith Axe": "Tier 1 One Hand Axes",
+    "Engraved Hatchet": "Tier 1 One Hand Axes",
+    "Karui Axe": "Tier 1 One Hand Axes",
+    "Siege Axe": "Tier 1 One Hand Axes",
+    "Reaver Axe": "Tier 1 One Hand Axes",
+    "Butcher Axe": "Tier 1 One Hand Axes",
+    "Vaal Hatchet": "Tier 1 One Hand Axes",
+    "Royal Axe": "Tier 1 One Hand Axes",
+    "Infernal Axe": "Tier 1 One Hand Axes",
+    "Runic Hatchet": "Tier 1 One Hand Axes",
+    "Maltreatment Axe": "Tier 1 One Hand Axes",
+    "Disapprobation Axe": "Tier 1 One Hand Axes",
+    "Psychotic Axe": "Tier 1 One Hand Axes"
+  },
+  "rules": []
+}

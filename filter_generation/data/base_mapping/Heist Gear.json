@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Rough Sharpening Stone": "粗糙磨刀石",
+        "Standard Sharpening Stone": "标准磨刀石",
+        "Fine Sharpening Stone": "良好磨刀石",
+        "Obsidian Sharpening Stone": "黑曜磨刀石",
+        "Flanged Arrowhead": "法兰箭头",
+        "Fragmenting Arrowhead": "裂片箭头",
+        "Hollowpoint Arrowhead": "中空箭头",
+        "Precise Arrowhead": "精准箭头",
+        "Focal Stone": "卵石",
+        "Conduit Line": "导线",
+        "Aggregator Charm": "聚合魔符",
+        "Burst Band": "爆破带",
+        "__class_name__": "赏金猎人装备"
+      }
+    },
+    "item_class": {
+      "en": "Heist Gear",
+      "ch": "赏金猎人装备"
+    },
+    "theme_category": "Heist Gear"
+  },
+  "mapping": {
+    "Rough Sharpening Stone": "Tier 1 Heist Gear",
+    "Standard Sharpening Stone": "Tier 1 Heist Gear",
+    "Fine Sharpening Stone": "Tier 1 Heist Gear",
+    "Obsidian Sharpening Stone": "Tier 1 Heist Gear",
+    "Flanged Arrowhead": "Tier 1 Heist Gear",
+    "Fragmenting Arrowhead": "Tier 1 Heist Gear",
+    "Hollowpoint Arrowhead": "Tier 1 Heist Gear",
+    "Precise Arrowhead": "Tier 1 Heist Gear",
+    "Focal Stone": "Tier 1 Heist Gear",
+    "Conduit Line": "Tier 1 Heist Gear",
+    "Aggregator Charm": "Tier 1 Heist Gear",
+    "Burst Band": "Tier 1 Heist Gear"
+  },
+  "rules": []
+}

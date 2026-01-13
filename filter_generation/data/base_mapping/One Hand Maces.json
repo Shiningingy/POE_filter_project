@@ -1,0 +1,73 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Driftwood Club": "朽木之棒",
+        "Tribal Club": "祭仪之杵",
+        "Spiked Club": "钝钉木棒",
+        "Stone Hammer": "石锤",
+        "War Hammer": "战锤",
+        "Bladed Mace": "多刃锤",
+        "Ceremonial Mace": "祭礼之锤",
+        "Dream Mace": "梦境之锤",
+        "Wyrm Mace": "古龙之锤",
+        "Petrified Club": "坚石木棒",
+        "Barbed Club": "锐刺木棒",
+        "Rock Breaker": "破岩锤",
+        "Battle Hammer": "强化战锤",
+        "Flanged Mace": "护体之锤",
+        "Ornate Mace": "华丽之锤",
+        "Phantom Mace": "幻象之锤",
+        "Dragon Mace": "龙之锤",
+        "Ancestral Club": "祖灵之杵",
+        "Tenderizer": "裂肉之锤",
+        "Gavel": "坚锤",
+        "Legion Hammer": "军团之锤",
+        "Pernach": "锋刃重锤",
+        "Auric Mace": "圣约之锤",
+        "Nightmare Mace": "梦魇之锤",
+        "Behemoth Mace": "巴哈姆特",
+        "Flare Mace": "明亮锤",
+        "Crack Mace": "开裂锤",
+        "Boom Mace": "风雷锤",
+        "__class_name__": "单手锤"
+      }
+    },
+    "item_class": {
+      "en": "One Hand Maces",
+      "ch": "单手锤"
+    },
+    "theme_category": "One Hand Maces"
+  },
+  "mapping": {
+    "Driftwood Club": "Tier 1 One Hand Maces",
+    "Tribal Club": "Tier 1 One Hand Maces",
+    "Spiked Club": "Tier 1 One Hand Maces",
+    "Stone Hammer": "Tier 1 One Hand Maces",
+    "War Hammer": "Tier 1 One Hand Maces",
+    "Bladed Mace": "Tier 1 One Hand Maces",
+    "Ceremonial Mace": "Tier 1 One Hand Maces",
+    "Dream Mace": "Tier 1 One Hand Maces",
+    "Wyrm Mace": "Tier 1 One Hand Maces",
+    "Petrified Club": "Tier 1 One Hand Maces",
+    "Barbed Club": "Tier 1 One Hand Maces",
+    "Rock Breaker": "Tier 1 One Hand Maces",
+    "Battle Hammer": "Tier 1 One Hand Maces",
+    "Flanged Mace": "Tier 1 One Hand Maces",
+    "Ornate Mace": "Tier 1 One Hand Maces",
+    "Phantom Mace": "Tier 1 One Hand Maces",
+    "Dragon Mace": "Tier 1 One Hand Maces",
+    "Ancestral Club": "Tier 1 One Hand Maces",
+    "Tenderizer": "Tier 1 One Hand Maces",
+    "Gavel": "Tier 1 One Hand Maces",
+    "Legion Hammer": "Tier 1 One Hand Maces",
+    "Pernach": "Tier 1 One Hand Maces",
+    "Auric Mace": "Tier 1 One Hand Maces",
+    "Nightmare Mace": "Tier 1 One Hand Maces",
+    "Behemoth Mace": "Tier 1 One Hand Maces",
+    "Flare Mace": "Tier 1 One Hand Maces",
+    "Crack Mace": "Tier 1 One Hand Maces",
+    "Boom Mace": "Tier 1 One Hand Maces"
+  },
+  "rules": []
+}
