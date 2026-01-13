@@ -1,0 +1,68 @@
+import json
+
+def build_currency_section(item_data, theme, sound_map):
+    """
+    item_data: dict of basetypes and metadata
+    theme: dict of visual appearance configs
+    sound_map: dict of sound overrides
+    """
+    blocks = []
+
+    for baseType, meta in item_data.items():
+        # Skip if marked as hideable (optional logic)
+        if meta.get("hideable", False):
+            continue
+
+        group = meta.get("group", "")
+        group_text = meta.get("group_text", "")
+        text_ch = meta.get("text_ch", "")
+
+        # Determine which theme style to use (e.g. "CurrencyHigh", "CurrencyLow")
+        # Fallback to default if group not in theme
+        theme_key = _find_theme_key(group, theme)
+        style = theme[theme_key] if theme_key else theme.get("CurrencyDefault", {})
+
+        # Sound: per-item sound overrides theme
+        sound = sound_map.get(baseType, style.get("PlayAlertSound"))
+
+        # Compose block
+        header = f'Show #通货-{group_text}-{text_ch}'
+        lines = [header, f'BaseType "{baseType}"']
+        _apply_style(lines, style, sound)
+        blocks.append("\n".join(lines))
+
+    return "\n\n".join(blocks)
+
+
+def _apply_style(lines, style, sound):
+    """Append visual/sound settings from theme or sound map"""
+    if "FontSize" in style:
+        lines.append(f'SetFontSize {style["FontSize"]}')
+    if "BorderColor" in style:
+        r, g, b = style["BorderColor"]
+        lines.append(f'SetBorderColor {r} {g} {b}')
+    if "TextColor" in style:
+        r, g, b = style["TextColor"]
+        lines.append(f'SetTextColor {r} {g} {b}')
+    if "BackgroundColor" in style:
+        r, g, b = style["BackgroundColor"]
+        lines.append(f'SetBackgroundColor {r} {g} {b}')
+
+    if sound:
+        if isinstance(sound, list):
+            file, vol = sound
+            lines.append(f'CustomAlertSound "{file}" {vol}')
+        elif isinstance(sound, dict):
+            lines.append(f'CustomAlertSound "{sound["file"]}" {sound["volume"]}')
+
+
+def _find_theme_key(group, theme):
+    """Try to find a matching theme key based on group name"""
+    # exact match first
+    if group in theme:
+        return group
+    # fallback: try to match by keywords
+    for k in theme.keys():
+        if group.lower() in k.lower():
+            return k
+    return None

@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "translations": {
+      "Ancient Wombgift": "上古孕育赠礼",
+      "Mysterious Wombgift": "神秘孕育赠礼",
+      "Growing Wombgift": "成长孕育赠礼",
+      "Lavish Wombgift": "奢华孕育赠礼",
+      "Provisioning Wombgift": "供养孕育赠礼"
+    }
+  },
+
+  "mapping": {
+    "Ancient Wombgift": "Tier 1 Wombgifts",
+    "Mysterious Wombgift": "Tier 1 Wombgifts",
+    "Growing Wombgift": "Tier 2 Wombgifts",
+    "Lavish Wombgift": "Tier 2 Wombgifts",
+    "Provisioning Wombgift": "Tier 2 Wombgifts"
+  },
+
+  "rules": [
+    {
+      "targets": ["Ancient Wombgift", "Mysterious Wombgift"],
+      "conditions": { "ItemLevel": ">=86" },
+      "overrides": {
+        "Tier": "Tier 0 Wombgifts"
+      },
+      "comment": "iLvl86+ Ancient/Mysterious → Tier 0"
+    }
+  ]
+}
