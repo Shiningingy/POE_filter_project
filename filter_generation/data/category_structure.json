@@ -1,0 +1,125 @@
+{
+  "categories": [
+    {
+      "_meta": {
+        "localization": { "en": "Currency", "ch": "通货" }
+      },
+      "subgroups": [
+        {
+          "_meta": {
+            "localization": { "en": "General", "ch": "基础通货" }
+          },
+          "files": [
+            { 
+              "path": "tier_definition/Currency/defaults.json", 
+              "target_category": "Default Stackable Currency",
+              "localization": { "en": "Stackable Currency", "ch": "可堆叠通货" } 
+            },
+            { 
+              "path": "tier_definition/currency/normal_currency.json", 
+              "target_category": "Normal Currency",
+              "localization": { "en": "Normal Currency", "ch": "常规通货" } 
+            }
+          ]
+        },
+        {
+          "_meta": {
+            "localization": { "en": "League Currency", "ch": "赛季通货" }
+          },
+          "files": [
+            { 
+              "path": "tier_definition/currency/league_currency/currency_fossil.json", 
+              "target_category": "Fossils",
+              "localization": { "en": "Fossils", "ch": "化石" } 
+            },
+            { 
+              "path": "tier_definition/currency/league_currency/currency_essence.json", 
+              "target_category": "Essences",
+              "localization": { "en": "Essences", "ch": "精华" } 
+            },
+            { 
+              "path": "tier_definition/currency/league_currency/currency_oil.json", 
+              "target_category": "Oils",
+              "localization": { "en": "Oils", "ch": "圣油" } 
+            },
+            { 
+              "path": "tier_definition/currency/league_currency/currency_delirium.json", 
+              "target_category": "Delirium Orbs",
+              "localization": { "en": "Delirium Orbs", "ch": "惊怖宝珠" } 
+            },
+            { 
+              "path": "tier_definition/currency/league_currency/currency_incubator.json", 
+              "target_category": "Incubators",
+              "localization": { "en": "Incubators", "ch": "孕育石" } 
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": { "en": "Equipment", "ch": "装备" }
+      },
+      "subgroups": [
+        {
+          "_meta": {
+            "localization": { "en": "Weapons", "ch": "武器" }
+          },
+          "files": [
+            { 
+              "path": "tier_definition/Weapon/defaults.json", 
+              "target_category": "Default One Hand Swords",
+              "localization": { "en": "One Hand Swords", "ch": "单手剑" } 
+            },
+            { 
+              "path": "tier_definition/Weapon/defaults.json", 
+              "target_category": "Default Bows",
+              "localization": { "en": "Bows", "ch": "弓" } 
+            }
+          ]
+        },
+        {
+          "_meta": {
+            "localization": { "en": "Armour", "ch": "护甲" }
+          },
+          "files": [
+            { 
+              "path": "tier_definition/Armour/defaults.json", 
+              "target_category": "Default Body Armours",
+              "localization": { "en": "Body Armours", "ch": "胸甲" } 
+            },
+            { 
+              "path": "tier_definition/Armour/defaults.json", 
+              "target_category": "Default Helmets",
+              "localization": { "en": "Helmets", "ch": "头盔" } 
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": { "en": "Maps & Atlas", "ch": "地图与异界" }
+      },
+      "subgroups": [
+        {
+          "_meta": {
+            "localization": { "en": "Maps", "ch": "地图" }
+          },
+          "files": [
+            { 
+              "path": "tier_definition/Map/defaults.json", 
+              "target_category": "Default Maps",
+              "localization": { "en": "General Maps", "ch": "常规地图" } 
+            },
+            { 
+              "path": "tier_definition/Map/defaults.json", 
+              "target_category": "Default Map Fragments",
+              "localization": { "en": "Fragments", "ch": "碎片" } 
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

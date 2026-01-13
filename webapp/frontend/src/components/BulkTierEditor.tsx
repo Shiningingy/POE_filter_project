@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
-import { useTranslation, Language } from '../utils/localization';
+import { useTranslation } from '../utils/localization';
+import type { Language } from '../utils/localization';
 
 interface Item {
   name: string;
