@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
+import ContextMenu from './ContextMenu';
 
 interface TierItem {
   name: string;
@@ -37,6 +38,9 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   const [addSearch, setAddSearch] = useState('');
   const [suggestions, setSuggestions] = useState<TierItem[]>([]);
 
+  // Context Menu State
+  const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: TierItem } | null>(null);
+
   const filteredItems = items.filter(i => 
     i.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
     (i.name_ch && i.name_ch.includes(searchTerm))
@@ -64,6 +68,20 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
     onMoveItem(item, tierKey);
     setAddSearch('');
     setSuggestions([]);
+  };
+
+  const handleRightClick = (e: React.MouseEvent, item: TierItem) => {
+    e.preventDefault();
+    setContextMenu({ x: e.clientX, y: e.clientY, item });
+  };
+
+  // Helper to get color for menu dots (simplified)
+  const getTierColor = (tk: string) => {
+    const match = tk.match(/Tier (\d+)/);
+    if (!match) return '#ddd';
+    const num = parseInt(match[1]);
+    const colors = ['#ff0000', '#e700e7', '#af00ff', '#3400ff', '#0090ff', '#00ffb5', '#00ff2d', '#aeff00', '#ffff00', '#ff9d00'];
+    return colors[num] || '#ddd';
   };
 
   return (
@@ -107,24 +125,36 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           
           <ul className="item-list">
             {filteredItems.map(item => (
-              <li key={item.name} className="item-row">
+              <li 
+                key={item.name} 
+                className="item-row" 
+                onContextMenu={(e) => handleRightClick(e, item)}
+                title="Right-click to change tier"
+              >
                 <span className="item-name" title={item.source}>
                     {language === 'ch' ? item.name_ch : item.name}
                 </span>
-                <select 
-                  value={tierKey}
-                  onChange={(e) => onMoveItem(item, e.target.value)}
-                  className="tier-select"
-                >
-                  {allTiers.map(t => (
-                    <option key={t.key} value={t.key}>{t.label}</option>
-                  ))}
-                </select>
+                <span className="tier-badge" onClick={(e) => handleRightClick(e as any, item)}>
+                    {tierKey.split(' ')[1] || 'T?'}
+                </span>
               </li>
             ))}
             {filteredItems.length === 0 && <li className="empty">{t.noItems}</li>}
           </ul>
         </div>
+      )}
+
+      {contextMenu && (
+        <ContextMenu 
+          x={contextMenu.x}
+          y={contextMenu.y}
+          onClose={() => setContextMenu(null)}
+          options={allTiers.map(t => ({
+            label: t.label,
+            color: getTierColor(t.key),
+            onClick: () => onMoveItem(contextMenu.item, t.key)
+          }))}
+        />
       )}
 
       <style>{`
@@ -141,9 +171,11 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
         .add-section { position: relative; margin-bottom: 10px; }
         .divider { border: 0; border-top: 1px solid #ddd; margin: 10px 0; }
         .item-list { list-style: none; padding: 0; margin: 0; max-height: 200px; overflow-y: auto; }
-        .item-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 1px solid #eee; }
+        .item-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 8px; border-bottom: 1px solid #eee; border-radius: 4px; transition: background 0.2s; cursor: context-menu; }
+        .item-row:hover { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
         .item-name { font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 200px; }
-        .tier-select { padding: 2px; font-size: 0.8rem; width: 120px; }
+        .tier-badge { background: #eee; color: #666; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem; font-weight: bold; cursor: pointer; }
+        .tier-badge:hover { background: #ddd; }
         .empty { color: #999; text-align: center; padding: 10px; font-size: 0.8rem; }
       `}</style>
     </div>
