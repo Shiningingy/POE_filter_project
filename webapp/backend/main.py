@@ -1,0 +1,265 @@
+from fastapi import FastAPI, HTTPException, Body
+from fastapi.middleware.cors import CORSMiddleware
+import os
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+app = FastAPI()
+
+# Allow CORS for the React frontend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Address of the Vite dev server
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# --- Path Definitions ---
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+FILTER_GEN_DIR = PROJECT_ROOT / "filter_generation"
+CONFIG_DATA_DIR = FILTER_GEN_DIR / "data"
+# Determine the python executable to use
+VENV_PYTHON = PROJECT_ROOT / ".venv" / "Scripts" / "python.exe" if sys.platform == "win32" else PROJECT_ROOT / ".venv" / "bin" / "python"
+PYTHON_EXECUTABLE = str(VENV_PYTHON) if VENV_PYTHON.exists() else sys.executable
+
+
+def safe_join(base, path):
+    """
+    Safely join a base directory with a relative path, ensuring the result is within the base.
+    """
+    full_path = (Path(base) / path).resolve()
+    if Path(base).resolve() not in full_path.parents:
+        raise HTTPException(status_code=400, detail="Invalid path")
+    return full_path
+
+# --- Structured "Read-Only" Endpoints ---
+
+@app.get("/api/themes")
+def get_themes_list():
+    """Returns a list of available theme names."""
+    themes_dir = CONFIG_DATA_DIR / "theme"
+    if not themes_dir.is_dir():
+        return {"themes": []}
+    themes = [d.name for d in themes_dir.iterdir() if d.is_dir()]
+    return {"themes": themes}
+
+@app.get("/api/themes/{theme_name}")
+def get_theme_data(theme_name: str):
+    """Reads and returns the content of a specific theme's configuration files."""
+    theme_dir = safe_join(CONFIG_DATA_DIR / "theme", theme_name)
+    if not theme_dir.is_dir():
+        raise HTTPException(status_code=404, detail="Theme not found.")
+
+    # Note: This makes an assumption about the sound map name. This might need to be more robust later.
+    theme_file_path = theme_dir / f"{theme_name}_theme.json"
+    sound_map_file_path = list(theme_dir.glob("*_sound_map.json"))
+
+    theme_content = {}
+    sound_map_content = {}
+
+    try:
+        if theme_file_path.exists():
+            with open(theme_file_path, "r", encoding="utf-8") as f:
+                theme_content = json.load(f)
+        if sound_map_file_path:
+             with open(sound_map_file_path[0], "r", encoding="utf-8") as f:
+                sound_map_content = json.load(f)
+    except Exception as e:
+         raise HTTPException(status_code=500, detail=f"Error reading theme files: {str(e)}")
+
+    return {"theme_name": theme_name, "theme_data": theme_content, "sound_map_data": sound_map_content}
+
+
+@app.get("/api/base_mappings")
+def get_base_mappings_list():
+    """Returns a list of available base mapping file names."""
+    mappings_dir = CONFIG_DATA_DIR / "base_mapping"
+    if not mappings_dir.is_dir():
+        return {"base_mappings": []}
+    mappings = [f.name for f in mappings_dir.iterdir() if f.is_file() and f.name.endswith(".json")]
+    return {"base_mappings": mappings}
+
+@app.get("/api/base_mappings/{file_name}")
+def get_base_mapping_content(file_name: str):
+    """Reads and returns the content of a specific base mapping file."""
+    file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", file_name)
+    if not file_path.is_file():
+        raise HTTPException(status_code=404, detail="Base mapping file not found.")
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            content = json.load(f)
+        return {"file_name": file_name, "content": content}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error reading base mapping file: {str(e)}")
+
+@app.get("/api/tier_definitions/categories")
+def get_tier_definition_categories():
+    """Returns a list of top-level categories within tier_definition."""
+    tier_def_dir = CONFIG_DATA_DIR / "tier_definition"
+    if not tier_def_dir.is_dir():
+        return {"categories": []}
+    
+    categories = [d.name for d in tier_def_dir.iterdir() if d.is_dir() or d.name.endswith('.json')]
+    return {"categories": categories}
+
+
+@app.get("/api/configs")
+def list_all_configs():
+    """Recursively lists all JSON config files in the data directory."""
+    try:
+        config_files = []
+        for root, _, files in os.walk(CONFIG_DATA_DIR):
+            for file in files:
+                if file.endswith(".json"):
+                    # Calculate relative path from CONFIG_DATA_DIR
+                    rel_path = Path(root).relative_to(CONFIG_DATA_DIR) / file
+                    config_files.append(str(rel_path).replace("\\", "/"))
+        return {"configs": sorted(config_files)}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/config/{config_path:path}")
+def get_config_content(config_path: str):
+    """Reads and returns the content of a specific config file."""
+    file_path = safe_join(CONFIG_DATA_DIR, config_path)
+    if not file_path.is_file():
+        raise HTTPException(status_code=404, detail="Config file not found.")
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            content = json.load(f)
+        return {"file_name": config_path, "content": content}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error reading config file: {str(e)}")
+
+@app.get("/api/mapping-info/{file_name}")
+def get_mapping_info(file_name: str):
+    """
+    Returns mapping content AND available tiers found in tier definitions.
+    """
+    mapping_path = safe_join(CONFIG_DATA_DIR / "base_mapping", file_name)
+    if not mapping_path.is_file():
+        raise HTTPException(status_code=404, detail="Mapping file not found.")
+
+    try:
+        with open(mapping_path, "r", encoding="utf-8") as f:
+            mapping_content = json.load(f)
+        
+        # 1. Identify Category
+        meta = mapping_content.get("_meta", {})
+        theme_category = meta.get("theme_category")
+        
+        available_tiers = []
+        
+        # 2. Find Definition
+        if theme_category:
+            # We assume the default definition key is usually "Default {theme_category}" 
+            # or simply the category itself exists in some file.
+            # We scan all tier definition files.
+            tier_def_dir = CONFIG_DATA_DIR / "tier_definition"
+            
+            found_def = False
+            for root, _, files in os.walk(tier_def_dir):
+                if found_def: break
+                for file in files:
+                    if file.endswith(".json"):
+                        try:
+                            with open(Path(root) / file, "r", encoding="utf-8") as tf:
+                                tier_defs = json.load(tf)
+                                
+                                # Look for keys like "Default {theme_category}"
+                                # The key used in generate_default_tier_definitions.py was f"Default {class_name}"
+                                target_key = f"Default {theme_category}"
+                                
+                                if target_key in tier_defs:
+                                    category_data = tier_defs[target_key]
+                                    # Extract tiers
+                                    # Keys look like "Tier 1 Stackable Currency"
+                                    # We just want the numbers "1", "2" etc or the full keys?
+                                    # Let's return full tier keys for now, or just the IDs if we want to build a UI.
+                                    # Returning full keys is safer for now.
+                                    for k in category_data.keys():
+                                        if k.startswith("Tier"):
+                                            available_tiers.append(k)
+                                    found_def = True
+                                    break
+                        except:
+                            continue
+        
+        # Sort tiers logic (Tier 1 < Tier 5)
+        # Extract numbers to sort
+        def tier_sort_key(t_str):
+            import re
+            m = re.search(r"Tier (\d+)", t_str)
+            return int(m.group(1)) if m else 999
+            
+        available_tiers.sort(key=tier_sort_key)
+
+        return {
+            "file_name": file_name,
+            "content": mapping_content,
+            "theme_category": theme_category,
+            "available_tiers": available_tiers
+        }
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error processing mapping info: {str(e)}")
+
+# --- "Write" and "Generate" Endpoints ---
+
+@app.post("/api/config/{config_path:path}")
+async def save_config_file(config_path: str, content: dict = Body(...)):
+    """
+    Saves the provided content to the specified config file within filter_generation/data.
+    """
+    try:
+        # Prevent path traversal outside of the intended config data directory
+        file_path = safe_join(CONFIG_DATA_DIR, config_path)
+        file_path.parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(content, f, indent=2, ensure_ascii=False)
+            
+        return {"message": f"Config file '{config_path}' saved successfully."}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/generate")
+def generate_filter_file():
+    """
+    Triggers the correct filter generation script.
+    """
+    try:
+        # Execute `python filter_generation/generate.py` from the project root
+        script_path = FILTER_GEN_DIR / "generate.py"
+        process = subprocess.run(
+            [PYTHON_EXECUTABLE, str(script_path)],
+            capture_output=True,
+            text=True,
+            check=True,
+            encoding='utf-8',
+            cwd=PROJECT_ROOT 
+        )
+        return {"message": "Filter generated successfully!", "output": process.stdout}
+    except subprocess.CalledProcessError as e:
+        # Include stdout and stderr for better debugging on the client side
+        raise HTTPException(status_code=500, detail=f"Filter generation failed.\nSTDOUT:\n{e.stdout}\n\nSTDERR:\n{e.stderr}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/generated-filter")
+def get_generated_filter():
+    """
+    Reads and returns the content of the complete_filter.filter file.
+    """
+    filter_file_path = FILTER_GEN_DIR / "complete_filter.filter"
+    try:
+        with open(filter_file_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        return {"content": content}
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="Generated filter file not found. Please generate it first.")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
