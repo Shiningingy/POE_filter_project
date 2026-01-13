@@ -1,15 +1,20 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './App.css';
-import { getThemes } from './services/api';
+import ConfigEditor from './components/ConfigEditor'; 
+import MappingEditor from './components/MappingEditor'; 
+import DropSimulator from './components/DropSimulator'; 
+import Sidebar from './components/Sidebar'; 
+import { getThemes } from './services/api'; 
+import { useTranslation, Language } from './utils/localization';
 import EditorView from './views/EditorView';
 import SimulatorView from './views/SimulatorView';
 import ExportView from './views/ExportView';
 
 function App() {
-  // Navigation State
   const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export'>('editor');
-  const [language, setLanguage] = useState<'ch' | 'en'>('ch');
+  const [language, setLanguage] = useState<Language>('ch');
+  const t = useTranslation(language);
 
   // Shared Data State
   const [themes, setThemes] = useState<string[]>([]);
@@ -33,8 +38,9 @@ function App() {
       setThemes(response.themes);
     } catch (error) {
       console.error('Error fetching themes:', error);
+      setMessage(t.loadFailed);
     }
-  }, []);
+  }, [t.loadFailed]);
 
   const validateJson = (jsonString: string) => {
     try {
@@ -52,13 +58,14 @@ function App() {
     try {
       const response = await axios.get(`${API_BASE_URL}/api/configs`);
       setConfigs(response.data.configs);
+      setMessage(t.selectFile);
     } catch (error) {
       console.error('Error fetching configs:', error);
-      setMessage('Failed to load config list.');
+      setMessage(t.loadFailed);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [t.selectFile, t.loadFailed]);
 
   const fetchConfigContent = useCallback(async (path: string) => {
     if (path.startsWith('base_mapping/')) return;
@@ -69,15 +76,16 @@ function App() {
       const contentString = JSON.stringify(response.data.content, null, 2);
       setConfigContent(contentString);
       validateJson(contentString); 
-      setMessage(`Loaded config: ${path}`);
+      setMessage(`Loaded: ${path}`);
     } catch (error) {
       console.error(`Error fetching config ${path}:`, error);
+      setMessage(t.loadFailed);
       setConfigContent('{}'); 
       setJsonError('Failed to load or parse config content.');
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [t.loadFailed]);
 
   const saveConfigContent = async () => {
     if (!selectedConfigPath) return;
@@ -90,10 +98,10 @@ function App() {
     try {
       const contentObject = JSON.parse(configContent);
       await axios.post(`${API_BASE_URL}/api/config/${selectedConfigPath}`, contentObject);
-      setMessage(`Config '${selectedConfigPath}' saved successfully!`);
+      setMessage(t.saveSuccess);
     } catch (error) {
       console.error(`Error saving config ${selectedConfigPath}:`, error);
-      setMessage(`Failed to save config: ${selectedConfigPath}.`);
+      setMessage('Failed to save config.');
     } finally {
       setLoading(false);
     }
@@ -102,26 +110,25 @@ function App() {
   const generateFilter = async () => {
     setLoading(true);
     try {
-      setMessage('Generating filter...');
+      setMessage(t.generating);
       const response = await axios.post(`${API_BASE_URL}/api/generate`);
-      setMessage(`Filter generated successfully!\n${response.data.output || ''}`);
+      setMessage(`${t.generatedSuccess}\n${response.data.output || ''}`);
       await fetchFilterPreview(); 
     } catch (error: any) {
       console.error('Error generating filter:', error);
-      setMessage(`Failed to generate filter: ${error.response?.data?.detail || error.message}`);
+      setMessage(`Failed: ${error.response?.data?.detail || error.message}`);
     } finally {
       setLoading(false);
     }
   };
 
   const fetchFilterPreview = useCallback(async () => {
-    // Silent load mostly, unless error
     try {
       const response = await axios.get(`${API_BASE_URL}/api/generated-filter`);
       setFilterPreview(response.data.content);
     } catch (error) {
       console.error('Error fetching filter preview:', error);
-      setFilterPreview('Error loading filter preview (Not generated yet?).');
+      setFilterPreview('Error loading filter preview.');
     }
   }, []);
 
@@ -144,16 +151,17 @@ function App() {
   return (
     <div className="App">
       <div className="navbar">
-        <div className="brand">POE Filter Editor</div>
+        <div className="brand">{t.appTitle}</div>
         <div className="nav-links">
-          <button className={currentView === 'editor' ? 'active' : ''} onClick={() => setCurrentView('editor')}>Editor</button>
-          <button className={currentView === 'simulator' ? 'active' : ''} onClick={() => setCurrentView('simulator')}>Simulator</button>
-          <button className={currentView === 'export' ? 'active' : ''} onClick={() => setCurrentView('export')}>Save & Export</button>
+          <button className={currentView === 'editor' ? 'active' : ''} onClick={() => setCurrentView('editor')}>{t.editor}</button>
+          <button className={currentView === 'simulator' ? 'active' : ''} onClick={() => setCurrentView('simulator')}>{t.simulator}</button>
+          <button className={currentView === 'export' ? 'active' : ''} onClick={() => setCurrentView('export')}>{t.saveExport}</button>
         </div>
-        <div className="language-toggle">
-            <button onClick={() => setLanguage(l => l === 'ch' ? 'en' : 'ch')}>
-                {language === 'ch' ? 'Language: 中文' : 'Language: EN'}
-            </button>
+        <div className="language-selector">
+            <select value={language} onChange={(e) => setLanguage(e.target.value as Language)}>
+                <option value="ch">中文</option>
+                <option value="en">English</option>
+            </select>
         </div>
       </div>
 
@@ -173,13 +181,14 @@ function App() {
           />
         )}
         {currentView === 'simulator' && (
-          <SimulatorView filterContent={filterPreview} />
+          <SimulatorView filterContent={filterPreview} language={language} />
         )}
         {currentView === 'export' && (
           <ExportView 
             onGenerate={generateFilter} 
             loading={loading} 
             message={message} 
+            language={language}
           />
         )}
       </div>
@@ -191,7 +200,7 @@ function App() {
           background: #333; color: white; height: 50px; flex-shrink: 0; 
         }
         .brand { font-weight: bold; font-size: 1.2rem; margin-right: 40px; }
-        .nav-links { display: flex; height: 100%; }
+        .nav-links { display: flex; height: 100%; flex-grow: 1; }
         .nav-links button {
           background: none; border: none; color: #ccc; 
           padding: 0 20px; cursor: pointer; height: 100%; font-size: 1rem;
@@ -199,6 +208,8 @@ function App() {
         }
         .nav-links button:hover { color: white; background: #444; }
         .nav-links button.active { color: white; border-bottom-color: #2196F3; background: #2a2a2a; }
+        
+        .language-selector select { padding: 5px; border-radius: 4px; border: none; }
         
         .app-body { flex: 1; overflow: hidden; position: relative; }
       `}</style>
