@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useTranslation } from '../utils/localization';
+import type { Language } from '../utils/localization';
 
 interface StyleProps {
   fontSize?: number;
@@ -9,10 +11,11 @@ interface StyleProps {
 }
 
 interface DropSimulatorProps {
-  // No props needed as it fetches its own data
+  language: Language;
 }
 
-const DropSimulator: React.FC<DropSimulatorProps> = () => {
+const DropSimulator: React.FC<DropSimulatorProps> = ({ language }) => {
+  const t = useTranslation(language);
   const [styles, setStyles] = useState<Record<string, StyleProps>>({});
   const [droppedItems, setDroppedItems] = useState<string[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -57,7 +60,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = () => {
     const toRgb = (arr?: number[]) => arr ? `rgb(${arr[0]}, ${arr[1]}, ${arr[2]})` : 'transparent';
 
     return {
-      fontSize: styleData.fontSize ? `${styleData.fontSize / 2.5}px` : '16px', // Scale down for UI
+      fontSize: styleData.fontSize ? `${styleData.fontSize / 2.5}px` : '16px', 
       color: toRgb(styleData.textColor),
       borderColor: toRgb(styleData.borderColor),
       backgroundColor: toRgb(styleData.backgroundColor),
@@ -66,14 +69,14 @@ const DropSimulator: React.FC<DropSimulatorProps> = () => {
       padding: '2px 4px',
       margin: '2px',
       display: 'inline-block',
-      fontFamily: 'Verdana, sans-serif', // Approximate look
+      fontFamily: 'Verdana, sans-serif',
       boxShadow: '0 0 2px rgba(0,0,0,0.5)'
     };
   };
 
   const filteredOptions = Object.keys(styles).filter(item => 
     item.toLowerCase().includes(searchTerm.toLowerCase())
-  ).slice(0, 10); // Limit suggestions
+  ).slice(0, 10);
 
   return (
     <div className="drop-simulator">
@@ -81,7 +84,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = () => {
         <div className="search-wrapper">
           <input 
             type="text" 
-            placeholder="Type item name to drop..." 
+            placeholder={t.typeToDrop} 
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
             className="sim-search"
@@ -96,15 +99,15 @@ const DropSimulator: React.FC<DropSimulatorProps> = () => {
             </div>
           )}
         </div>
-        <button onClick={handleClear}>Clear Ground</button>
-        <button onClick={fetchStyles}>Refresh Styles</button>
+        <button onClick={handleClear}>{t.clearGround}</button>
+        <button onClick={fetchStyles}>{t.refreshStyles}</button>
       </div>
 
-      {loading && <div>Loading styles...</div>}
+      {loading && <div>{t.loading}</div>}
       {error && <div className="error">{error}</div>}
 
       <div className="game-ground">
-        {droppedItems.length === 0 && <span className="placeholder-text">Ground is empty. Drop some items!</span>}
+        {droppedItems.length === 0 && <span className="placeholder-text">{t.groundEmpty}</span>}
         {droppedItems.map((item, index) => (
           <div key={index} className="item-plate" style={getCssStyle(item)}>
             {item}

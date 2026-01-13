@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import DropSimulator from '../components/DropSimulator';
+import type { Language } from '../utils/localization';
 
 interface SimulatorViewProps {
   filterContent: string;
+  language: Language;
 }
 
-const SimulatorView: React.FC<SimulatorViewProps> = ({ filterContent }) => {
+const SimulatorView: React.FC<SimulatorViewProps> = ({ filterContent, language }) => {
   const [mode, setMode] = useState<'visual' | 'text'>('visual');
 
   return (
@@ -30,7 +32,7 @@ const SimulatorView: React.FC<SimulatorViewProps> = ({ filterContent }) => {
 
       <div className="content-area">
         {mode === 'visual' ? (
-          <DropSimulator />
+          <DropSimulator language={language} />
         ) : (
           <textarea
             className="filter-output"

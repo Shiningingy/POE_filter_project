@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
+import { useTranslation } from '../utils/localization';
+import type { Language } from '../utils/localization';
 
 interface MappingEditorProps {
   configPath: string;
   onSave: () => void;
+  language: Language;
 }
 
 interface MappingData {
@@ -17,13 +20,13 @@ interface MappingData {
   };
 }
 
-const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave }) => {
+const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave, language }) => {
+  const t = useTranslation(language);
   const [data, setData] = useState<MappingData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   
-  // Local state for edits before saving
   const [localMapping, setLocalMapping] = useState<Record<string, string>>({});
 
   const API_BASE_URL = 'http://localhost:8000';
@@ -35,15 +38,13 @@ const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave }) => 
       setLoading(true);
       setError('');
       try {
-        // Extract filename from path (e.g. "base_mapping/Currency.json" -> "Currency.json")
         const fileName = configPath.split('/').pop() || configPath;
-        
         const response = await axios.get(`${API_BASE_URL}/api/mapping-info/${fileName}`);
         setData(response.data);
         setLocalMapping(response.data.content.mapping);
       } catch (err: any) {
         console.error("Error loading mapping:", err);
-        setError("Failed to load mapping data. Ensure you selected a Base Mapping file.");
+        setError("Failed to load mapping data.");
       } finally {
         setLoading(false);
       }
@@ -67,10 +68,9 @@ const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave }) => 
         ...data.content,
         mapping: localMapping
       };
-      
       await axios.post(`${API_BASE_URL}/api/config/${configPath}`, newContent);
       if (onSave) onSave();
-      alert("Saved successfully!");
+      alert(t.saveSuccess);
     } catch (err: any) {
       console.error("Error saving:", err);
       alert("Failed to save changes.");
@@ -79,7 +79,6 @@ const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave }) => 
     }
   };
 
-  // Filter items based on search
   const filteredItems = useMemo(() => {
     if (!data) return [];
     return Object.keys(localMapping).filter(item => 
@@ -87,22 +86,22 @@ const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave }) => 
     );
   }, [localMapping, searchTerm, data]);
 
-  if (loading && !data) return <div>Loading editor...</div>;
+  if (loading && !data) return <div>{t.loading}</div>;
   if (error) return <div className="error">{error}</div>;
-  if (!data) return <div>Select a mapping file to edit.</div>;
+  if (!data) return <div>{t.selectFile}</div>;
 
   return (
     <div className="mapping-editor">
       <div className="toolbar">
         <input 
           type="text" 
-          placeholder="Search items..." 
+          placeholder={t.filterPlaceholder} 
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
           className="search-box"
         />
         <button onClick={handleSave} disabled={loading} className="save-btn">
-          Save Changes
+          {t.saveConfig}
         </button>
         <span className="info">Found {data.available_tiers.length} tiers for {data.theme_category}</span>
       </div>
@@ -129,7 +128,6 @@ const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave }) => 
                         {tier}
                       </option>
                     ))}
-                    {/* Fallback if current tier is not in available list */}
                     {!data.available_tiers.includes(localMapping[item]) && (
                        <option value={localMapping[item]}>{localMapping[item]} (Unknown)</option>
                     )}

@@ -3,13 +3,14 @@ import axios from 'axios';
 import TierStyleEditor from './TierStyleEditor';
 import TierItemManager from './TierItemManager';
 import { resolveStyle } from '../utils/styleResolver';
+import type { Language } from '../utils/localization';
 
 interface CategoryViewProps {
   configPath: string;
   configContent: string;
   onConfigContentChange: (newContent: string) => void;
   loading: boolean;
-  language: 'ch' | 'en';
+  language: Language;
 }
 
 interface TierItem {

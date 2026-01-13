@@ -3,6 +3,7 @@ import Sidebar from '../components/Sidebar';
 import ConfigEditor from '../components/ConfigEditor';
 import MappingEditor from '../components/MappingEditor';
 import CategoryView from '../components/CategoryView';
+import type { Language } from '../utils/localization';
 
 interface EditorViewProps {
   configs: string[];
@@ -14,7 +15,7 @@ interface EditorViewProps {
   jsonError: string;
   onSave: () => void;
   message: string;
-  language: 'ch' | 'en';
+  language: Language;
 }
 
 const EditorView: React.FC<EditorViewProps> = ({
@@ -61,6 +62,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                 <MappingEditor 
                     configPath={selectedConfigPath} 
                     onSave={onSave}
+                    language={language}
                 />
             ) : isTierDefinition ? (
                 <CategoryView
