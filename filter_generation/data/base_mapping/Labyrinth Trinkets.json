@@ -1,0 +1,37 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Bane of the Loyal": "忠臣之灾",
+        "Heart of the Gargoyle": "石像之心",
+        "Cube Of Absorption": "融合方晶",
+        "Orb of Elemental Dispersion": "元素核心之球",
+        "Rod of Detonation": "爆裂之杖",
+        "Vial Of Power": "力量药剂",
+        "Sand of Eternity": "永恒之沙",
+        "Cogs of Disruption": "瓦解之轮",
+        "Black Rose of Anarchy": "混沌蔷薇",
+        "Portal Shredder": "时空之门破坏者",
+        "__class_name__": "迷宫饰品"
+      }
+    },
+    "item_class": {
+      "en": "Labyrinth Trinkets",
+      "ch": "迷宫饰品"
+    },
+    "theme_category": "Labyrinth Trinkets"
+  },
+  "mapping": {
+    "Bane of the Loyal": "Tier 1 Labyrinth Trinkets",
+    "Heart of the Gargoyle": "Tier 1 Labyrinth Trinkets",
+    "Cube Of Absorption": "Tier 1 Labyrinth Trinkets",
+    "Orb of Elemental Dispersion": "Tier 1 Labyrinth Trinkets",
+    "Rod of Detonation": "Tier 1 Labyrinth Trinkets",
+    "Vial Of Power": "Tier 1 Labyrinth Trinkets",
+    "Sand of Eternity": "Tier 1 Labyrinth Trinkets",
+    "Cogs of Disruption": "Tier 1 Labyrinth Trinkets",
+    "Black Rose of Anarchy": "Tier 1 Labyrinth Trinkets",
+    "Portal Shredder": "Tier 1 Labyrinth Trinkets"
+  },
+  "rules": []
+}

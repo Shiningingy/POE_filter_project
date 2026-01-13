@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Mystery Leaguestone": "神秘赛季石",
+        "__class_name__": "通货"
+      }
+    },
+    "item_class": {
+      "en": "Currency",
+      "ch": "通货"
+    },
+    "theme_category": "Currency"
+  },
+  "mapping": {
+    "Mystery Leaguestone": "Tier 1 Currency"
+  },
+  "rules": []
+}

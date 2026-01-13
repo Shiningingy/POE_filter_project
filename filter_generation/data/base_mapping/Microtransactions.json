@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "MTX Wrapper": "商城物品礼盒",
+        "Mystery Box": "神秘宝箱",
+        "__class_name__": "商城物品"
+      }
+    },
+    "item_class": {
+      "en": "Microtransactions",
+      "ch": "商城物品"
+    },
+    "theme_category": "Microtransactions"
+  },
+  "mapping": {
+    "MTX Wrapper": "Tier 1 Microtransactions",
+    "Mystery Box": "Tier 1 Microtransactions"
+  },
+  "rules": []
+}

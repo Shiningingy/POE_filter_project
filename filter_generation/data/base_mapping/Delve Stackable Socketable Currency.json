@@ -1,0 +1,33 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Primitive Alchemical Resonator": "原始炼金共振器",
+        "Potent Alchemical Resonator": "强能炼金共振器",
+        "Powerful Alchemical Resonator": "巨能炼金共振器",
+        "Prime Alchemical Resonator": "威能炼金共振器",
+        "Primitive Chaotic Resonator": "原始混乱共振器",
+        "Potent Chaotic Resonator": "强能混乱共振器",
+        "Powerful Chaotic Resonator": "巨能混乱共振器",
+        "Prime Chaotic Resonator": "威能混乱共振器",
+        "__class_name__": "地心探索可堆叠可插入通货"
+      }
+    },
+    "item_class": {
+      "en": "Delve Stackable Socketable Currency",
+      "ch": "地心探索可堆叠可插入通货"
+    },
+    "theme_category": "Delve Stackable Socketable Currency"
+  },
+  "mapping": {
+    "Primitive Alchemical Resonator": "Tier 1 Delve Stackable Socketable Currency",
+    "Potent Alchemical Resonator": "Tier 1 Delve Stackable Socketable Currency",
+    "Powerful Alchemical Resonator": "Tier 1 Delve Stackable Socketable Currency",
+    "Prime Alchemical Resonator": "Tier 1 Delve Stackable Socketable Currency",
+    "Primitive Chaotic Resonator": "Tier 1 Delve Stackable Socketable Currency",
+    "Potent Chaotic Resonator": "Tier 1 Delve Stackable Socketable Currency",
+    "Powerful Chaotic Resonator": "Tier 1 Delve Stackable Socketable Currency",
+    "Prime Chaotic Resonator": "Tier 1 Delve Stackable Socketable Currency"
+  },
+  "rules": []
+}

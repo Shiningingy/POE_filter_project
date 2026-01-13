@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Expedition Logbook": "先祖秘藏日志",
+        "__class_name__": "先祖秘藏日志"
+      }
+    },
+    "item_class": {
+      "en": "Expedition Logbooks",
+      "ch": "先祖秘藏日志"
+    },
+    "theme_category": "Expedition Logbooks"
+  },
+  "mapping": {
+    "Expedition Logbook": "Tier 1 Expedition Logbooks"
+  },
+  "rules": []
+}

@@ -1,0 +1,53 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Diamond Flask": "宝钻药剂",
+        "Ruby Flask": "红玉药剂",
+        "Sapphire Flask": "蓝玉药剂",
+        "Topaz Flask": "黄玉药剂",
+        "Granite Flask": "坚岩药剂",
+        "Quicksilver Flask": "水银药剂",
+        "Amethyst Flask": "紫晶药剂",
+        "Quartz Flask": "石英药剂",
+        "Jade Flask": "翠玉药剂",
+        "Basalt Flask": "石化药剂",
+        "Aquamarine Flask": "海蓝药剂",
+        "Stibnite Flask": "迷雾药剂",
+        "Sulphur Flask": "硫磺药剂",
+        "Silver Flask": "真银药剂",
+        "Bismuth Flask": "灰岩药剂",
+        "Gold Flask": "黄金药剂",
+        "Corundum Flask": "刚玉药剂",
+        "Iron Flask": "坚铁药剂",
+        "__class_name__": "功能药剂"
+      }
+    },
+    "item_class": {
+      "en": "Utility Flasks",
+      "ch": "功能药剂"
+    },
+    "theme_category": "Utility Flasks"
+  },
+  "mapping": {
+    "Diamond Flask": "Tier 1 Utility Flasks",
+    "Ruby Flask": "Tier 1 Utility Flasks",
+    "Sapphire Flask": "Tier 1 Utility Flasks",
+    "Topaz Flask": "Tier 1 Utility Flasks",
+    "Granite Flask": "Tier 1 Utility Flasks",
+    "Quicksilver Flask": "Tier 1 Utility Flasks",
+    "Amethyst Flask": "Tier 1 Utility Flasks",
+    "Quartz Flask": "Tier 1 Utility Flasks",
+    "Jade Flask": "Tier 1 Utility Flasks",
+    "Basalt Flask": "Tier 1 Utility Flasks",
+    "Aquamarine Flask": "Tier 1 Utility Flasks",
+    "Stibnite Flask": "Tier 1 Utility Flasks",
+    "Sulphur Flask": "Tier 1 Utility Flasks",
+    "Silver Flask": "Tier 1 Utility Flasks",
+    "Bismuth Flask": "Tier 1 Utility Flasks",
+    "Gold Flask": "Tier 1 Utility Flasks",
+    "Corundum Flask": "Tier 1 Utility Flasks",
+    "Iron Flask": "Tier 1 Utility Flasks"
+  },
+  "rules": []
+}

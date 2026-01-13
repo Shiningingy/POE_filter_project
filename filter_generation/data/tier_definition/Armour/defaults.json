@@ -1,0 +1,79 @@
+{
+    "//comment": "Default tier definitions for Armour items",
+    "Default Quivers": {
+        "_meta": {
+            "theme_category": "Quivers",
+            "localization": {
+                "en": "Quivers",
+                "ch": "箭袋"
+            }
+        },
+        "Tier 1 Quivers": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Body Armours": {
+        "_meta": {
+            "theme_category": "Body Armours",
+            "localization": {
+                "en": "Body Armours",
+                "ch": "胸甲"
+            }
+        },
+        "Tier 1 Body Armours": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Shields": {
+        "_meta": {
+            "theme_category": "Shields",
+            "localization": {
+                "en": "Shields",
+                "ch": "盾"
+            }
+        },
+        "Tier 1 Shields": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Helmets": {
+        "_meta": {
+            "theme_category": "Helmets",
+            "localization": {
+                "en": "Helmets",
+                "ch": "头部"
+            }
+        },
+        "Tier 1 Helmets": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    }
+}

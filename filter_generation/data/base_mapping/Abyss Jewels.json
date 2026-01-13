@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Murderous Eye Jewel": "凶残之凝珠宝",
+        "Searching Eye Jewel": "锐利之凝珠宝",
+        "Hypnotic Eye Jewel": "安睡之凝珠宝",
+        "Ghastly Eye Jewel": "苍白之凝珠宝",
+        "__class_name__": "深渊珠宝"
+      }
+    },
+    "item_class": {
+      "en": "Abyss Jewels",
+      "ch": "深渊珠宝"
+    },
+    "theme_category": "Abyss Jewels"
+  },
+  "mapping": {
+    "Murderous Eye Jewel": "Tier 1 Abyss Jewels",
+    "Searching Eye Jewel": "Tier 1 Abyss Jewels",
+    "Hypnotic Eye Jewel": "Tier 1 Abyss Jewels",
+    "Ghastly Eye Jewel": "Tier 1 Abyss Jewels"
+  },
+  "rules": []
+}

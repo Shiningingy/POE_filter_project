@@ -4,7 +4,7 @@
             "theme_category": "currency_oil",
             "localization": {
                 "en": "Oils",
-                "zh": "圣油"
+                "ch": "圣油"
             },
             "description": "All oils divided by tier.",
             "tier_order": [
@@ -21,10 +21,6 @@
             "theme": {
                 "Tier": 0
             },
-            "localization": {
-                "en": "Tier 0 Oil",
-                "zh": "T0 圣油"
-            },
             "sound": {
                 "default_sound_id": 6,
                 "sharket_sound_id": null
@@ -35,10 +31,6 @@
             "min_value": 6,
             "theme": {
                 "Tier": 2
-            },
-            "localization": {
-                "en": "Tier 1 Oil",
-                "zh": "T1 圣油"
             },
             "sound": {
                 "default_sound_id": 2,
@@ -51,10 +43,6 @@
             "theme": {
                 "Tier": 3
             },
-            "localization": {
-                "en": "Tier 2 Oil",
-                "zh": "T2 圣油"
-            },
             "sound": {
                 "default_sound_id": -1,
                 "sharket_sound_id": null
@@ -66,10 +54,6 @@
             "theme": {
                 "Tier": 4
             },
-            "localization": {
-                "en": "Tier 3 Oil",
-                "zh": "T3 圣油"
-            },
             "sound": {
                 "default_sound_id": -1,
                 "sharket_sound_id": null
@@ -80,10 +64,6 @@
             "min_value": 2,
             "theme": {
                 "Tier": 6
-            },
-            "localization": {
-                "en": "Tier 4 Oil",
-                "zh": "T4 圣油"
             },
             "sound": {
                 "default_sound_id": -1,

@@ -5,7 +5,7 @@
             "theme_category": "currency",
             "localization": {
                 "en": "Normal Currency",
-                "zh": "通货"
+                "ch": "通货"
             },
             "description": "All stackable currencies drop from normal content",
             "tier_order": [
@@ -24,10 +24,6 @@
             "theme": {
                 "Tier": 0
             },
-            "localization": {
-                "en": "Tier 0 Currency",
-                "zh": "T0 通货"
-            },
             "sound": {
                 "default_sound_id": 6,
                 "sharket_sound_id": null
@@ -38,10 +34,6 @@
             "min_value": 8,
             "theme": {
                 "Tier": 1
-            },
-            "localization": {
-                "en": "Tier 1 Currency",
-                "zh": "T1 通货"
             },
             "sound": {
                 "default_sound_id": 1,
@@ -54,10 +46,6 @@
             "theme": {
                 "Tier": 2
             },
-            "localization": {
-                "en": "Tier 2 Currency",
-                "zh": "T2 通货"
-            },
             "sound": {
                 "default_sound_id": 2,
                 "sharket_sound_id": null
@@ -68,10 +56,6 @@
             "min_value": 4,
             "theme": {
                 "Tier": 3
-            },
-            "localization": {
-                "en": "Tier 3 Currency",
-                "zh": "T3 通货"
             },
             "sound": {
                 "default_sound_id": -1,
@@ -85,10 +69,6 @@
             "theme": {
                 "Tier": 4
             },
-            "localization": {
-                "en": "Tier 4 Currency",
-                "zh": "T4 通货"
-            },
             "sound": {
                 "default_sound_id": -1,
                 "sharket_sound_id": null
@@ -100,10 +80,6 @@
             "theme": {
                 "Tier": 5
             },
-            "localization": {
-                "en": "Tier 5 Currency",
-                "zh": "T5 通货"
-            },
             "sound": {
                 "default_sound_id": -1,
                 "sharket_sound_id": null
@@ -114,10 +90,6 @@
             "min_value": 2,
             "theme": {
                 "Tier": 6
-            },
-            "localization": {
-                "en": "Tier 6 Currency",
-                "zh": "T6 通货"
             },
             "sound": {
                 "default_sound_id": -1,

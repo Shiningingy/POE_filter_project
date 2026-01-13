@@ -1,0 +1,71 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Keyblade": "宝钥之刃",
+        "Corroded Blade": "锈斑巨剑",
+        "Longsword": "大剑",
+        "Bastard Sword": "重剑",
+        "Two-Handed Sword": "双手剑",
+        "Etched Greatsword": "术雕巨剑",
+        "Ornate Sword": "名贵巨剑",
+        "Spectral Sword": "幽魂巨剑",
+        "Curved Blade": "弯刃",
+        "Butcher Sword": "冷血巨剑",
+        "Footman Sword": "士兵巨剑",
+        "Highland Blade": "高山重刃",
+        "Engraved Greatsword": "符文巨剑",
+        "Tiger Sword": "虎牙巨剑",
+        "Wraith Sword": "凶灵巨剑",
+        "Lithe Blade": "细刃",
+        "Headman's Sword": "行刑巨剑",
+        "Reaver Sword": "残暴巨剑",
+        "Ezomyte Blade": "艾兹麦巨剑",
+        "Vaal Greatsword": "瓦尔巨剑",
+        "Lion Sword": "狮爪巨剑",
+        "Infernal Sword": "狱炎重剑",
+        "Exquisite Blade": "精致之刃",
+        "Rebuking Blade": "责难刀",
+        "Blasting Blade": "爆破刀",
+        "Banishing Blade": "放逐刀",
+        "Energy Blade": "能量之刃",
+        "__class_name__": "双手剑"
+      }
+    },
+    "item_class": {
+      "en": "Two Hand Swords",
+      "ch": "双手剑"
+    },
+    "theme_category": "Two Hand Swords"
+  },
+  "mapping": {
+    "Keyblade": "Tier 1 Two Hand Swords",
+    "Corroded Blade": "Tier 1 Two Hand Swords",
+    "Longsword": "Tier 1 Two Hand Swords",
+    "Bastard Sword": "Tier 1 Two Hand Swords",
+    "Two-Handed Sword": "Tier 1 Two Hand Swords",
+    "Etched Greatsword": "Tier 1 Two Hand Swords",
+    "Ornate Sword": "Tier 1 Two Hand Swords",
+    "Spectral Sword": "Tier 1 Two Hand Swords",
+    "Curved Blade": "Tier 1 Two Hand Swords",
+    "Butcher Sword": "Tier 1 Two Hand Swords",
+    "Footman Sword": "Tier 1 Two Hand Swords",
+    "Highland Blade": "Tier 1 Two Hand Swords",
+    "Engraved Greatsword": "Tier 1 Two Hand Swords",
+    "Tiger Sword": "Tier 1 Two Hand Swords",
+    "Wraith Sword": "Tier 1 Two Hand Swords",
+    "Lithe Blade": "Tier 1 Two Hand Swords",
+    "Headman's Sword": "Tier 1 Two Hand Swords",
+    "Reaver Sword": "Tier 1 Two Hand Swords",
+    "Ezomyte Blade": "Tier 1 Two Hand Swords",
+    "Vaal Greatsword": "Tier 1 Two Hand Swords",
+    "Lion Sword": "Tier 1 Two Hand Swords",
+    "Infernal Sword": "Tier 1 Two Hand Swords",
+    "Exquisite Blade": "Tier 1 Two Hand Swords",
+    "Rebuking Blade": "Tier 1 Two Hand Swords",
+    "Blasting Blade": "Tier 1 Two Hand Swords",
+    "Banishing Blade": "Tier 1 Two Hand Swords",
+    "Energy Blade": "Tier 1 Two Hand Swords"
+  },
+  "rules": []
+}

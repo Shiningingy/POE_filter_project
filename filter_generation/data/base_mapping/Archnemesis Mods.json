@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Archnemesis Mod": "罪恶枷锁词缀",
+        "__class_name__": "罪恶枷锁词缀"
+      }
+    },
+    "item_class": {
+      "en": "Archnemesis Mods",
+      "ch": "罪恶枷锁词缀"
+    },
+    "theme_category": "Archnemesis Mods"
+  },
+  "mapping": {
+    "Archnemesis Mod": "Tier 1 Archnemesis Mods"
+  },
+  "rules": []
+}

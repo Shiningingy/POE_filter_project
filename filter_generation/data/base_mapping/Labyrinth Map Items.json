@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Offering to the Goddess": "女神祭品",
+        "__class_name__": "迷宫地图"
+      }
+    },
+    "item_class": {
+      "en": "Labyrinth Map Items",
+      "ch": "迷宫地图"
+    },
+    "theme_category": "Labyrinth Map Items"
+  },
+  "mapping": {
+    "Offering to the Goddess": "Tier 1 Labyrinth Map Items"
+  },
+  "rules": []
+}

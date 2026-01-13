@@ -1,0 +1,611 @@
+{
+    "//comment": "Default tier definitions for LeagueSpecific items",
+    "Default Corpses": {
+        "_meta": {
+            "theme_category": "Corpses",
+            "localization": {
+                "en": "Corpses",
+                "ch": "灵柩"
+            }
+        },
+        "Tier 1 Corpses": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Memories": {
+        "_meta": {
+            "theme_category": "Memories",
+            "localization": {
+                "en": "Memories",
+                "ch": "回忆"
+            }
+        },
+        "Tier 1 Memories": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Vault Keys": {
+        "_meta": {
+            "theme_category": "Vault Keys",
+            "localization": {
+                "en": "Vault Keys",
+                "ch": "宝库钥匙"
+            }
+        },
+        "Tier 1 Vault Keys": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Sanctified Relics": {
+        "_meta": {
+            "theme_category": "Sanctified Relics",
+            "localization": {
+                "en": "Sanctified Relics",
+                "ch": "圣洁遗物"
+            }
+        },
+        "Tier 1 Sanctified Relics": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Blueprints": {
+        "_meta": {
+            "theme_category": "Blueprints",
+            "localization": {
+                "en": "Blueprints",
+                "ch": "蓝图"
+            }
+        },
+        "Tier 1 Blueprints": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Microtransactions": {
+        "_meta": {
+            "theme_category": "Microtransactions",
+            "localization": {
+                "en": "Microtransactions",
+                "ch": "商城物品"
+            }
+        },
+        "Tier 1 Microtransactions": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Sentinels": {
+        "_meta": {
+            "theme_category": "Sentinels",
+            "localization": {
+                "en": "Sentinels",
+                "ch": "近卫"
+            }
+        },
+        "Tier 1 Sentinels": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Heist Brooches": {
+        "_meta": {
+            "theme_category": "Heist Brooches",
+            "localization": {
+                "en": "Heist Brooches",
+                "ch": "赏金猎人胸针"
+            }
+        },
+        "Tier 1 Heist Brooches": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Idols": {
+        "_meta": {
+            "theme_category": "Idols",
+            "localization": {
+                "en": "Idols",
+                "ch": "雕像"
+            }
+        },
+        "Tier 1 Idols": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Expedition Logbooks": {
+        "_meta": {
+            "theme_category": "Expedition Logbooks",
+            "localization": {
+                "en": "Expedition Logbooks",
+                "ch": "先祖秘藏日志"
+            }
+        },
+        "Tier 1 Expedition Logbooks": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Sanctum Research": {
+        "_meta": {
+            "theme_category": "Sanctum Research",
+            "localization": {
+                "en": "Sanctum Research",
+                "ch": "禁域研究"
+            }
+        },
+        "Tier 1 Sanctum Research": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Archnemesis Mods": {
+        "_meta": {
+            "theme_category": "Archnemesis Mods",
+            "localization": {
+                "en": "Archnemesis Mods",
+                "ch": "罪恶枷锁词缀"
+            }
+        },
+        "Tier 1 Archnemesis Mods": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Abyss Jewels": {
+        "_meta": {
+            "theme_category": "Abyss Jewels",
+            "localization": {
+                "en": "Abyss Jewels",
+                "ch": "深渊珠宝"
+            }
+        },
+        "Tier 1 Abyss Jewels": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Heist Gear": {
+        "_meta": {
+            "theme_category": "Heist Gear",
+            "localization": {
+                "en": "Heist Gear",
+                "ch": "赏金猎人装备"
+            }
+        },
+        "Tier 1 Heist Gear": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Instance Local Items": {
+        "_meta": {
+            "theme_category": "Instance Local Items",
+            "localization": {
+                "en": "Instance Local Items",
+                "ch": "副本本地物品"
+            }
+        },
+        "Tier 1 Instance Local Items": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Pieces": {
+        "_meta": {
+            "theme_category": "Pieces",
+            "localization": {
+                "en": "Pieces",
+                "ch": "片段"
+            }
+        },
+        "Tier 1 Pieces": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Embers of the Allflame": {
+        "_meta": {
+            "theme_category": "Embers of the Allflame",
+            "localization": {
+                "en": "Embers of the Allflame",
+                "ch": "不灭余烬"
+            }
+        },
+        "Tier 1 Embers of the Allflame": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Heist Cloaks": {
+        "_meta": {
+            "theme_category": "Heist Cloaks",
+            "localization": {
+                "en": "Heist Cloaks",
+                "ch": "赏金猎人披风"
+            }
+        },
+        "Tier 1 Heist Cloaks": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Hidden Items": {
+        "_meta": {
+            "theme_category": "Hidden Items",
+            "localization": {
+                "en": "Hidden Items",
+                "ch": "隐藏物品"
+            }
+        },
+        "Tier 1 Hidden Items": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Incursion Items": {
+        "_meta": {
+            "theme_category": "Incursion Items",
+            "localization": {
+                "en": "Incursion Items",
+                "ch": "穿越物品"
+            }
+        },
+        "Tier 1 Incursion Items": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Pantheon Souls": {
+        "_meta": {
+            "theme_category": "Pantheon Souls",
+            "localization": {
+                "en": "Pantheon Souls",
+                "ch": "万神殿之魂"
+            }
+        },
+        "Tier 1 Pantheon Souls": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Divination Cards": {
+        "_meta": {
+            "theme_category": "Divination Cards",
+            "localization": {
+                "en": "Divination Cards",
+                "ch": "命运卡"
+            }
+        },
+        "Tier 1 Divination Cards": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Charms": {
+        "_meta": {
+            "theme_category": "Charms",
+            "localization": {
+                "en": "Charms",
+                "ch": "咒符"
+            }
+        },
+        "Tier 1 Charms": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Metamorph Samples": {
+        "_meta": {
+            "theme_category": "Metamorph Samples",
+            "localization": {
+                "en": "Metamorph Samples",
+                "ch": "灾变样本"
+            }
+        },
+        "Tier 1 Metamorph Samples": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Relics": {
+        "_meta": {
+            "theme_category": "Relics",
+            "localization": {
+                "en": "Relics",
+                "ch": "遗物"
+            }
+        },
+        "Tier 1 Relics": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Contracts": {
+        "_meta": {
+            "theme_category": "Contracts",
+            "localization": {
+                "en": "Contracts",
+                "ch": "契约"
+            }
+        },
+        "Tier 1 Contracts": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Leaguestones": {
+        "_meta": {
+            "theme_category": "Leaguestones",
+            "localization": {
+                "en": "Leaguestones",
+                "ch": "赛季石"
+            }
+        },
+        "Tier 1 Leaguestones": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Labyrinth Items": {
+        "_meta": {
+            "theme_category": "Labyrinth Items",
+            "localization": {
+                "en": "Labyrinth Items",
+                "ch": "迷宫物品"
+            }
+        },
+        "Tier 1 Labyrinth Items": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Labyrinth Trinkets": {
+        "_meta": {
+            "theme_category": "Labyrinth Trinkets",
+            "localization": {
+                "en": "Labyrinth Trinkets",
+                "ch": "迷宫饰品"
+            }
+        },
+        "Tier 1 Labyrinth Trinkets": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Breachstones": {
+        "_meta": {
+            "theme_category": "Breachstones",
+            "localization": {
+                "en": "Breachstones",
+                "ch": "裂隙石"
+            }
+        },
+        "Tier 1 Breachstones": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Heist Tools": {
+        "_meta": {
+            "theme_category": "Heist Tools",
+            "localization": {
+                "en": "Heist Tools",
+                "ch": "赏金猎人工具"
+            }
+        },
+        "Tier 1 Heist Tools": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    },
+    "Default Heist Targets": {
+        "_meta": {
+            "theme_category": "Heist Targets",
+            "localization": {
+                "en": "Heist Targets",
+                "ch": "赏金目标"
+            }
+        },
+        "Tier 1 Heist Targets": {
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            }
+        }
+    }
+}

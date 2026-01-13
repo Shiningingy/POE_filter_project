@@ -4,7 +4,7 @@
             "theme_category": "currency_gold",
             "localization": {
                 "en": "Gold",
-                "zh": "金币"
+                "ch": "金币"
             },
             "description": "All gold divided by tier.",
             "tier_order": [
@@ -19,10 +19,6 @@
             "theme": {
                 "Tier": 0
             },
-            "localization": {
-                "en": "Tier 0 Gold",
-                "zh": "T0 金币"
-            },
             "sound": {
                 "default_sound_id": 6,
                 "sharket_sound_id": null
@@ -34,10 +30,6 @@
             "theme": {
                 "Tier": 3
             },
-            "localization": {
-                "en": "Tier 1 Gold",
-                "zh": "T1 金币"
-            },
             "sound": {
                 "default_sound_id": 2,
                 "sharket_sound_id": null
@@ -48,10 +40,6 @@
             "min_value": 2,
             "theme": {
                 "Tier": 6
-            },
-            "localization": {
-                "en": "Tier 2 Gold",
-                "zh": "T2 金币"
             },
             "sound": {
                 "default_sound_id": -1,

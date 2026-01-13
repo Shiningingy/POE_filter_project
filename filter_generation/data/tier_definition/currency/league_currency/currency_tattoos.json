@@ -4,7 +4,7 @@
             "theme_category": "currency_tattoos",
             "localization": {
                 "en": "Tattoos",
-                "zh": "纹身"
+                "ch": "纹身"
             },
             "description": "All tattoos divided by tier.",
             "tier_order": [
@@ -19,10 +19,6 @@
             "theme": {
                 "Tier": 0
             },
-            "localization": {
-                "en": "Tier 0 Tattoo",
-                "zh": "T0 纹身"
-            },
             "sound": {
                 "default_sound_id": 6,
                 "sharket_sound_id": null
@@ -34,10 +30,6 @@
             "theme": {
                 "Tier": 3
             },
-            "localization": {
-                "en": "Tier 1 Tattoo",
-                "zh": "T1 纹身"
-            },
             "sound": {
                 "default_sound_id": -1,
                 "sharket_sound_id": null
@@ -48,10 +40,6 @@
             "min_value": 2,
             "theme": {
                 "Tier": 6
-            },
-            "localization": {
-                "en": "Tier 2 Tattoo",
-                "zh": "T2 纹身"
             },
             "sound": {
                 "default_sound_id": -1,

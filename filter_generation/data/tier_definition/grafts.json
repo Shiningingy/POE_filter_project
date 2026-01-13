@@ -3,10 +3,10 @@
     "Grafts": {
         "_meta": {
             "theme_category": "temporary league item",
-            "item_class":"Grafts",
+            "item_class": "Grafts",
             "localization": {
                 "en": "Grafts",
-                "zh": "嫁接"
+                "ch": "嫁接"
             },
             "description": "Grafts introduced at keeprs league",
             "tier_order": [
@@ -21,10 +21,6 @@
             "theme": {
                 "Tier": 0
             },
-            "localization": {
-                "en": "Tier 0 Grafts",
-                "zh": "T0 嫁接"
-            },
             "sound": {
                 "default_sound_id": 6,
                 "sharket_sound_id": "超级嫁接"
@@ -36,10 +32,6 @@
             "theme": {
                 "Tier": 1
             },
-            "localization": {
-                "en": "Tier 1 Grafts",
-                "zh": "T1 嫁接"
-            },
             "sound": {
                 "default_sound_id": 1,
                 "sharket_sound_id": "嫁接"
@@ -50,10 +42,6 @@
             "min_value": 6,
             "theme": {
                 "Tier": 2
-            },
-            "localization": {
-                "en": "Tier 2 Grafts",
-                "zh": "T2 嫁接"
             },
             "sound": {
                 "default_sound_id": 2,

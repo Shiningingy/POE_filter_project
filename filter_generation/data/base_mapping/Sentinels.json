@@ -1,0 +1,69 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Rusted Stalker Sentinel": "锈迹追猎护卫",
+        "Bronze Stalker Sentinel": "青铜追猎护卫",
+        "Cobalt Stalker Sentinel": "钴蓝追猎护卫",
+        "Brimstone Stalker Sentinel": "硫石追猎护卫",
+        "Emberstone Stalker Sentinel": "余烬追猎护卫",
+        "Obsidian Stalker Sentinel": "黑曜追猎护卫",
+        "Cryptic Stalker Sentinel": "神秘追猎护卫",
+        "Primeval Stalker Sentinel": "原始追猎护卫",
+        "Ancient Stalker Sentinel": "远古追猎护卫",
+        "Bronze Pandemonium Sentinel": "青铜魔域护卫",
+        "Cobalt Pandemonium Sentinel": "钴蓝魔域护卫",
+        "Brimstone Pandemonium Sentinel": "硫石魔域护卫",
+        "Emberstone Pandemonium Sentinel": "余烬魔域护卫",
+        "Obsidian Pandemonium Sentinel": "黑曜魔域护卫",
+        "Cryptic Pandemonium Sentinel": "神秘魔域护卫",
+        "Primeval Pandemonium Sentinel": "原始魔域护卫",
+        "Ancient Pandemonium Sentinel": "远古魔域护卫",
+        "Bronze Apex Sentinel": "青铜巅峰护卫",
+        "Cobalt Apex Sentinel": "钴蓝巅峰护卫",
+        "Brimstone Apex Sentinel": "硫石巅峰护卫",
+        "Emberstone Apex Sentinel": "余烬巅峰护卫",
+        "Obsidian Apex Sentinel": "黑曜巅峰护卫",
+        "Cryptic Apex Sentinel": "神秘巅峰护卫",
+        "Primeval Apex Sentinel": "原始巅峰护卫",
+        "Ancient Apex Sentinel": "远古巅峰护卫",
+        "Cosmic Apex Sentinel": "宇宙巅峰近卫",
+        "__class_name__": "近卫"
+      }
+    },
+    "item_class": {
+      "en": "Sentinels",
+      "ch": "近卫"
+    },
+    "theme_category": "Sentinels"
+  },
+  "mapping": {
+    "Rusted Stalker Sentinel": "Tier 1 Sentinels",
+    "Bronze Stalker Sentinel": "Tier 1 Sentinels",
+    "Cobalt Stalker Sentinel": "Tier 1 Sentinels",
+    "Brimstone Stalker Sentinel": "Tier 1 Sentinels",
+    "Emberstone Stalker Sentinel": "Tier 1 Sentinels",
+    "Obsidian Stalker Sentinel": "Tier 1 Sentinels",
+    "Cryptic Stalker Sentinel": "Tier 1 Sentinels",
+    "Primeval Stalker Sentinel": "Tier 1 Sentinels",
+    "Ancient Stalker Sentinel": "Tier 1 Sentinels",
+    "Bronze Pandemonium Sentinel": "Tier 1 Sentinels",
+    "Cobalt Pandemonium Sentinel": "Tier 1 Sentinels",
+    "Brimstone Pandemonium Sentinel": "Tier 1 Sentinels",
+    "Emberstone Pandemonium Sentinel": "Tier 1 Sentinels",
+    "Obsidian Pandemonium Sentinel": "Tier 1 Sentinels",
+    "Cryptic Pandemonium Sentinel": "Tier 1 Sentinels",
+    "Primeval Pandemonium Sentinel": "Tier 1 Sentinels",
+    "Ancient Pandemonium Sentinel": "Tier 1 Sentinels",
+    "Bronze Apex Sentinel": "Tier 1 Sentinels",
+    "Cobalt Apex Sentinel": "Tier 1 Sentinels",
+    "Brimstone Apex Sentinel": "Tier 1 Sentinels",
+    "Emberstone Apex Sentinel": "Tier 1 Sentinels",
+    "Obsidian Apex Sentinel": "Tier 1 Sentinels",
+    "Cryptic Apex Sentinel": "Tier 1 Sentinels",
+    "Primeval Apex Sentinel": "Tier 1 Sentinels",
+    "Ancient Apex Sentinel": "Tier 1 Sentinels",
+    "Cosmic Apex Sentinel": "Tier 1 Sentinels"
+  },
+  "rules": []
+}

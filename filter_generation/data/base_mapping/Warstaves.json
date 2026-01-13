@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Iron Staff": "铁锻长杖",
+        "Coiled Staff": "强化长杖",
+        "Vile Staff": "毒牙长杖",
+        "Military Staff": "军用长杖",
+        "Serpentine Staff": "蛇纹长杖",
+        "Foul Staff": "恶灵长杖",
+        "Ezomyte Staff": "艾兹麦长杖",
+        "Maelström Staff": "风暴长杖",
+        "Judgement Staff": "审判长杖",
+        "Capacity Rod": "载荷之杖",
+        "Potentiality Rod": "潜力之杖",
+        "Eventuality Rod": "潜能之杖",
+        "__class_name__": "战杖"
+      }
+    },
+    "item_class": {
+      "en": "Warstaves",
+      "ch": "战杖"
+    },
+    "theme_category": "Warstaves"
+  },
+  "mapping": {
+    "Iron Staff": "Tier 1 Warstaves",
+    "Coiled Staff": "Tier 1 Warstaves",
+    "Vile Staff": "Tier 1 Warstaves",
+    "Military Staff": "Tier 1 Warstaves",
+    "Serpentine Staff": "Tier 1 Warstaves",
+    "Foul Staff": "Tier 1 Warstaves",
+    "Ezomyte Staff": "Tier 1 Warstaves",
+    "Maelström Staff": "Tier 1 Warstaves",
+    "Judgement Staff": "Tier 1 Warstaves",
+    "Capacity Rod": "Tier 1 Warstaves",
+    "Potentiality Rod": "Tier 1 Warstaves",
+    "Eventuality Rod": "Tier 1 Warstaves"
+  },
+  "rules": []
+}

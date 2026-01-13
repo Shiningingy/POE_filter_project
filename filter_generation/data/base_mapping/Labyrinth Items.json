@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Golden Key": "黄金钥匙",
+        "Silver Key": "白银钥匙",
+        "Treasure Key": "古铜钥匙",
+        "__class_name__": "迷宫物品"
+      }
+    },
+    "item_class": {
+      "en": "Labyrinth Items",
+      "ch": "迷宫物品"
+    },
+    "theme_category": "Labyrinth Items"
+  },
+  "mapping": {
+    "Golden Key": "Tier 1 Labyrinth Items",
+    "Silver Key": "Tier 1 Labyrinth Items",
+    "Treasure Key": "Tier 1 Labyrinth Items"
+  },
+  "rules": []
+}

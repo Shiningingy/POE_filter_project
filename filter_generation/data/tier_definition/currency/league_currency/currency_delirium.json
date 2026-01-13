@@ -4,7 +4,7 @@
             "theme_category": "currency_delirium",
             "localization": {
                 "en": "Delirium Orbs",
-                "zh": "雾魇宝珠"
+                "ch": "雾魇宝珠"
             },
             "description": "All delirium orbs divided by tier.",
             "tier_order": [
@@ -19,10 +19,6 @@
             "theme": {
                 "Tier": 0
             },
-            "localization": {
-                "en": "Tier 0 Delirium Orb",
-                "zh": "T0 雾魇宝珠"
-            },
             "sound": {
                 "default_sound_id": 6,
                 "sharket_sound_id": null
@@ -34,10 +30,6 @@
             "theme": {
                 "Tier": 3
             },
-            "localization": {
-                "en": "Tier 1 Delirium Orb",
-                "zh": "T1 雾魇宝珠"
-            },
             "sound": {
                 "default_sound_id": -1,
                 "sharket_sound_id": null
@@ -48,10 +40,6 @@
             "min_value": 2,
             "theme": {
                 "Tier": 6
-            },
-            "localization": {
-                "en": "Tier 2 Delirium Orb",
-                "zh": "T2 雾魇宝珠"
             },
             "sound": {
                 "default_sound_id": -1,

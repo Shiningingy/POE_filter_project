@@ -1,43 +1,51 @@
 {
   "_meta": {
-    "translations": {
-      "Fleshgraft": "<TBD>",
-      "Battering Uulgraft": "<TBD>",
-      "Spiking Uulgraft": "<TBD>",
-      "Impaling Uulgraft": "<TBD>",
-      "Hardening Uulgraft": "<TBD>",
-      "Molten Xophgraft": "<TBD>",
-      "Erupting Xophgraft": "<TBD>",
-      "Flamecaller Xophgraft": "<TBD>",
-      "Stoking Xophgraft": "<TBD>",
-      "Storming Eshgraft": "<TBD>",
-      "Replicating Eshgraft": "<TBD>",
-      "Draining Eshgraft": "<TBD>",
-      "Jolting Eshgraft": "<TBD>",
-      "Squalling Tulgraft": "<TBD>",
-      "Freezing Tulgraft": "<TBD>",
-      "Summoning Tulgraft": "<TBD>",
-      "Aegis Tulgraft": "<TBD>"
-    }
+    "localization": {
+      "ch": {
+        "Fleshgraft": "血肉嫁接",
+        "Battering Uulgraft": "冲撞的乌尔尼多之嫁接",
+        "Spiking Uulgraft": "刺击的乌尔尼多之嫁接",
+        "Impaling Uulgraft": "穿刺的乌尔尼多之嫁接",
+        "Hardening Uulgraft": "硬化的乌尔尼多之嫁接",
+        "Molten Xophgraft": "熔火的索伏之嫁接",
+        "Erupting Xophgraft": "喷发的索伏之嫁接",
+        "Flamecaller Xophgraft": "唤火者的索伏之嫁接",
+        "Stoking Xophgraft": "司炉的索伏之嫁接",
+        "Storming Eshgraft": "风暴的艾许之嫁接",
+        "Replicating Eshgraft": "复制的艾许之嫁接",
+        "Draining Eshgraft": "汲取的艾许之嫁接",
+        "Jolting Eshgraft": "震击的艾许之嫁接",
+        "Squalling Tulgraft": "狂啸的托沃之嫁接",
+        "Freezing Tulgraft": "急冻的托沃之嫁接",
+        "Summoning Tulgraft": "召唤的托沃之嫁接",
+        "Aegis Tulgraft": "护盾的托沃之嫁接",
+        "__class_name__": "嫁接物"
+      }
+    },
+    "item_class": {
+      "en": "Grafts",
+      "ch": "嫁接物"
+    },
+    "theme_category": "Grafts"
   },
   "mapping": {
-    "Fleshgraft": "Tier 2 Grafts",
-    "Battering Uulgraft": "Tier 2 Grafts",
-    "Spiking Uulgraft": "Tier 2 Grafts",
-    "Impaling Uulgraft": "Tier 2 Grafts",
-    "Hardening Uulgraft": "Tier 2 Grafts",
-    "Molten Xophgraft": "Tier 2 Grafts",
-    "Erupting Xophgraft": "Tier 2 Grafts",
-    "Flamecaller Xophgraft": "Tier 2 Grafts",
-    "Stoking Xophgraft": "Tier 2 Grafts",
-    "Storming Eshgraft": "Tier 2 Grafts",
-    "Replicating Eshgraft": "Tier 2 Grafts",
-    "Draining Eshgraft": "Tier 2 Grafts",
-    "Jolting Eshgraft": "Tier 2 Grafts",
-    "Squalling Tulgraft": "Tier 2 Grafts",
-    "Freezing Tulgraft": "Tier 2 Grafts",
-    "Summoning Tulgraft": "Tier 2 Grafts",
-    "Aegis Tulgraft": "Tier 2 Grafts"
+    "Fleshgraft": "Tier 1 Grafts",
+    "Battering Uulgraft": "Tier 1 Grafts",
+    "Spiking Uulgraft": "Tier 1 Grafts",
+    "Impaling Uulgraft": "Tier 1 Grafts",
+    "Hardening Uulgraft": "Tier 1 Grafts",
+    "Molten Xophgraft": "Tier 1 Grafts",
+    "Erupting Xophgraft": "Tier 1 Grafts",
+    "Flamecaller Xophgraft": "Tier 1 Grafts",
+    "Stoking Xophgraft": "Tier 1 Grafts",
+    "Storming Eshgraft": "Tier 1 Grafts",
+    "Replicating Eshgraft": "Tier 1 Grafts",
+    "Draining Eshgraft": "Tier 1 Grafts",
+    "Jolting Eshgraft": "Tier 1 Grafts",
+    "Squalling Tulgraft": "Tier 1 Grafts",
+    "Freezing Tulgraft": "Tier 1 Grafts",
+    "Summoning Tulgraft": "Tier 1 Grafts",
+    "Aegis Tulgraft": "Tier 1 Grafts"
   },
   "rules": []
 }

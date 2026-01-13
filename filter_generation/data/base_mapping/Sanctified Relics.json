@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Sanctified Relic": "圣洁遗物",
+        "__class_name__": "圣洁遗物"
+      }
+    },
+    "item_class": {
+      "en": "Sanctified Relics",
+      "ch": "圣洁遗物"
+    },
+    "theme_category": "Sanctified Relics"
+  },
+  "mapping": {
+    "Sanctified Relic": "Tier 1 Sanctified Relics"
+  },
+  "rules": []
+}
