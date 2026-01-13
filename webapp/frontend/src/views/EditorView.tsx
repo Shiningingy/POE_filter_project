@@ -1,14 +1,12 @@
-import React from 'react';
-import Sidebar from '../components/Sidebar';
-import ConfigEditor from '../components/ConfigEditor';
-import MappingEditor from '../components/MappingEditor';
+import React, { useState, useEffect } from 'react';
+import Sidebar, { CategoryFile } from '../components/Sidebar';
 import CategoryView from '../components/CategoryView';
+import axios from 'axios';
 import type { Language } from '../utils/localization';
 
 interface EditorViewProps {
-  configs: string[];
-  selectedConfigPath: string;
-  setSelectedConfigPath: (path: string) => void;
+  selectedFile: CategoryFile | null;
+  setSelectedFile: (file: CategoryFile) => void;
   configContent: string;
   setConfigContent: (content: string) => void;
   loading: boolean;
@@ -19,9 +17,8 @@ interface EditorViewProps {
 }
 
 const EditorView: React.FC<EditorViewProps> = ({
-  configs,
-  selectedConfigPath,
-  setSelectedConfigPath,
+  selectedFile,
+  setSelectedFile,
   configContent,
   setConfigContent,
   loading,
@@ -30,24 +27,30 @@ const EditorView: React.FC<EditorViewProps> = ({
   message,
   language
 }) => {
-  const isBaseMapping = selectedConfigPath.startsWith('base_mapping/');
-  const isTierDefinition = selectedConfigPath.startsWith('tier_definition/');
+  const [tierContent, setTierContent] = useState<string>('');
+
+  useEffect(() => {
+    if (selectedFile?.tier_path) {
+      axios.get(`http://localhost:8000/api/config/${selectedFile.tier_path}`)
+        .then(res => setTierContent(JSON.stringify(res.data.content, null, 2)))
+        .catch(err => console.error("Failed to load tier content", err));
+    }
+  }, [selectedFile]);
 
   return (
     <div className="editor-view">
       <Sidebar 
-        files={configs} 
-        selectedFile={selectedConfigPath} 
-        onSelect={setSelectedConfigPath} 
+        selectedFile={selectedFile?.path || ''} 
+        onSelect={setSelectedFile} 
+        language={language}
       />
       
       <div className="main-content">
         <div className="top-bar">
-          <h2>Editor</h2>
+          <h2>Editor: {selectedFile?.localization[language] || '...'}</h2>
           <div className="actions">
-             {/* Hide Save button for MappingEditor as it has its own, but show for others */}
-             {!isBaseMapping && selectedConfigPath && (
-                <button onClick={onSave} disabled={loading || !!jsonError}>Save Config</button>
+             {selectedFile && (
+                <button onClick={onSave} disabled={loading}>Save Config</button>
              )}
           </div>
         </div>
@@ -56,29 +59,19 @@ const EditorView: React.FC<EditorViewProps> = ({
 
         <div className="workspace">
           <div className="editor-pane full-width">
-            {!selectedConfigPath ? (
-              <div className="placeholder">Select a file from the sidebar to edit</div>
-            ) : isBaseMapping ? (
-                <MappingEditor 
-                    configPath={selectedConfigPath} 
-                    onSave={onSave}
-                    language={language}
-                />
-            ) : isTierDefinition ? (
+            {!selectedFile ? (
+              <div className="placeholder">Select a category from the sidebar to edit</div>
+            ) : (
                 <CategoryView
-                  configPath={selectedConfigPath}
-                  configContent={configContent}
-                  onConfigContentChange={setConfigContent}
+                  configPath={selectedFile.tier_path}
+                  configContent={tierContent}
+                  onConfigContentChange={(newContent) => {
+                    setTierContent(newContent);
+                    // Pass to parent if we want global save button to work
+                    setConfigContent(newContent); 
+                  }}
                   loading={loading}
                   language={language}
-                />
-            ) : (
-                <ConfigEditor
-                  configPath={selectedConfigPath}
-                  configContent={configContent}
-                  onConfigContentChange={setConfigContent}
-                  loading={loading}
-                  jsonError={jsonError} 
                 />
             )}
           </div>

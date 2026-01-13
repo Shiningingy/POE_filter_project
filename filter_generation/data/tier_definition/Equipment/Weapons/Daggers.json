@@ -1,0 +1,21 @@
+{
+  "Daggers": {
+    "_meta": {
+      "theme_category": "Daggers",
+      "localization": {
+        "en": "Daggers",
+        "ch": "匕首"
+      }
+    },
+    "Tier 1 Daggers": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

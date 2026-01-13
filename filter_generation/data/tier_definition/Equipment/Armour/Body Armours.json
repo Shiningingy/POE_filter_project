@@ -1,0 +1,21 @@
+{
+  "Body Armours": {
+    "_meta": {
+      "theme_category": "Body Armours",
+      "localization": {
+        "en": "Body Armours",
+        "ch": "胸甲"
+      }
+    },
+    "Tier 1 Body Armours": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

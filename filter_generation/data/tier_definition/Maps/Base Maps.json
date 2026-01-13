@@ -1,0 +1,21 @@
+{
+  "Base Maps": {
+    "_meta": {
+      "theme_category": "Maps",
+      "localization": {
+        "en": "Maps",
+        "ch": "异界地图"
+      }
+    },
+    "Tier 1 Maps": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

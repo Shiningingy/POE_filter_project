@@ -1,0 +1,21 @@
+{
+  "Ritual": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Stackable Currency",
+        "ch": "可堆叠通货"
+      }
+    },
+    "Tier 1 Stackable Currency": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

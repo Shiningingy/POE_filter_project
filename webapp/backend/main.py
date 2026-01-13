@@ -237,6 +237,41 @@ def update_item_tier(request: UpdateItemTierRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/api/category-structure")
+def get_category_structure():
+    """Returns the logical hierarchy for the sidebar."""
+    path = CONFIG_DATA_DIR / "category_structure.json"
+    if not path.exists():
+        return {"categories": []}
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+@app.get("/api/unified-category")
+def get_unified_category(tier_path: str, mapping_path: str):
+    """
+    Returns both tier definitions and base mappings for a unified view.
+    """
+    try:
+        tier_full_path = safe_join(CONFIG_DATA_DIR, tier_path)
+        mapping_full_path = safe_join(CONFIG_DATA_DIR, mapping_path)
+        
+        tier_content = {}
+        if tier_full_path.exists():
+            with open(tier_full_path, "r", encoding="utf-8") as f:
+                tier_content = json.load(f)
+                
+        mapping_content = {}
+        if mapping_full_path.exists():
+            with open(mapping_full_path, "r", encoding="utf-8") as f:
+                mapping_content = json.load(f)
+                
+        return {
+            "tier_definition": tier_content,
+            "base_mapping": mapping_content
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/api/themes")
 def get_themes_list():
     """Returns a list of available theme names."""

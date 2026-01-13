@@ -1,0 +1,21 @@
+{
+  "Wands": {
+    "_meta": {
+      "theme_category": "Wands",
+      "localization": {
+        "en": "Wands",
+        "ch": "法杖"
+      }
+    },
+    "Tier 1 Wands": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

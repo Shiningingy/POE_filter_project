@@ -1,0 +1,21 @@
+{
+  "Rings": {
+    "_meta": {
+      "theme_category": "Rings",
+      "localization": {
+        "en": "Rings",
+        "ch": "戒指"
+      }
+    },
+    "Tier 1 Rings": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

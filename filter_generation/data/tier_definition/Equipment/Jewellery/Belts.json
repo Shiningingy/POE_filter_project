@@ -1,0 +1,21 @@
+{
+  "Belts": {
+    "_meta": {
+      "theme_category": "Belts",
+      "localization": {
+        "en": "Belts",
+        "ch": "腰带"
+      }
+    },
+    "Tier 1 Belts": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

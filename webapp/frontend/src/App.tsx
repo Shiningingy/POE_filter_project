@@ -1,26 +1,21 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './App.css';
-import ConfigEditor from './components/ConfigEditor'; 
-import MappingEditor from './components/MappingEditor'; 
-import DropSimulator from './components/DropSimulator'; 
-import Sidebar from './components/Sidebar'; 
-import { getThemes } from './services/api'; 
-import { useTranslation } from './utils/localization';
-import type { Language } from './utils/localization';
+import { useTranslation, Language } from './utils/localization';
 import EditorView from './views/EditorView';
 import SimulatorView from './views/SimulatorView';
 import ExportView from './views/ExportView';
+import { CategoryFile } from './components/Sidebar';
 
 function App() {
   const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export'>('editor');
   const [language, setLanguage] = useState<Language>('ch');
   const t = useTranslation(language);
 
-  // Shared Data State
-  const [themes, setThemes] = useState<string[]>([]);
-  const [configs, setConfigs] = useState<string[]>([]);
-  const [selectedConfigPath, setSelectedConfigPath] = useState<string>('');
+  // Selection state
+  const [selectedFile, setSelectedFile] = useState<CategoryFile | null>(null);
+  
+  // Data for ConfigEditor (fallback)
   const [configContent, setConfigContent] = useState<string>('{}'); 
   const [filterPreview, setFilterPreview] = useState<string>('');
   
@@ -30,18 +25,6 @@ function App() {
   const [jsonError, setJsonError] = useState<string>(''); 
 
   const API_BASE_URL = 'http://localhost:8000'; 
-
-  // --- API Calls ---
-
-  const fetchThemes = useCallback(async () => {
-    try {
-      const response = await getThemes();
-      setThemes(response.themes);
-    } catch (error) {
-      console.error('Error fetching themes:', error);
-      setMessage(t.loadFailed);
-    }
-  }, [t.loadFailed]);
 
   const validateJson = (jsonString: string) => {
     try {
@@ -54,23 +37,8 @@ function App() {
     }
   };
 
-  const fetchConfigs = useCallback(async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get(`${API_BASE_URL}/api/configs`);
-      setConfigs(response.data.configs);
-      setMessage(t.selectFile);
-    } catch (error) {
-      console.error('Error fetching configs:', error);
-      setMessage(t.loadFailed);
-    } finally {
-      setLoading(false);
-    }
-  }, [t.selectFile, t.loadFailed]);
-
   const fetchConfigContent = useCallback(async (path: string) => {
-    if (path.startsWith('base_mapping/')) return;
-
+    // Only used for files that AREN'T handled by CategoryView/MappingEditor logic
     setLoading(true);
     try {
       const response = await axios.get(`${API_BASE_URL}/api/config/${path}`);
@@ -89,7 +57,7 @@ function App() {
   }, [t.loadFailed]);
 
   const saveConfigContent = async () => {
-    if (!selectedConfigPath) return;
+    if (!selectedFile) return;
     if (!validateJson(configContent)) {
       setMessage('Cannot save: Invalid JSON content.');
       return;
@@ -98,10 +66,10 @@ function App() {
     setLoading(true);
     try {
       const contentObject = JSON.parse(configContent);
-      await axios.post(`${API_BASE_URL}/api/config/${selectedConfigPath}`, contentObject);
+      await axios.post(`${API_BASE_URL}/api/config/${selectedFile.tier_path}`, contentObject);
       setMessage(t.saveSuccess);
     } catch (error) {
-      console.error(`Error saving config ${selectedConfigPath}:`, error);
+      console.error(`Error saving config:`, error);
       setMessage('Failed to save config.');
     } finally {
       setLoading(false);
@@ -133,21 +101,16 @@ function App() {
     }
   }, []);
 
-  // --- Effects ---
-
   useEffect(() => {
-    fetchThemes();
-    fetchConfigs();
     fetchFilterPreview();
-  }, [fetchThemes, fetchConfigs, fetchFilterPreview]); 
+  }, [fetchFilterPreview]); 
 
+  // Side Effect for raw config editing (if needed)
   useEffect(() => {
-    if (selectedConfigPath) {
-      fetchConfigContent(selectedConfigPath);
+    if (selectedFile && !selectedFile.tier_path.includes('tier_definition')) {
+        fetchConfigContent(selectedFile.tier_path);
     }
-  }, [selectedConfigPath, fetchConfigContent]);
-
-  // --- Rendering ---
+  }, [selectedFile, fetchConfigContent]);
 
   return (
     <div className="App">
@@ -169,9 +132,8 @@ function App() {
       <div className="app-body">
         {currentView === 'editor' && (
           <EditorView 
-            configs={configs}
-            selectedConfigPath={selectedConfigPath}
-            setSelectedConfigPath={setSelectedConfigPath}
+            selectedFile={selectedFile}
+            setSelectedFile={setSelectedFile}
             configContent={configContent}
             setConfigContent={setConfigContent}
             loading={loading}

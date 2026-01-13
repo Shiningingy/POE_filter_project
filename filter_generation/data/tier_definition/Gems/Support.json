@@ -1,0 +1,21 @@
+{
+  "Support": {
+    "_meta": {
+      "theme_category": "Support Gems",
+      "localization": {
+        "en": "Support Gems",
+        "ch": "辅助宝石"
+      }
+    },
+    "Tier 1 Support Gems": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}
