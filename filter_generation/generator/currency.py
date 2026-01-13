@@ -5,8 +5,12 @@ def build_currency_section(item_data, theme, sound_map):
     item_data: dict of basetypes and metadata
     theme: dict of visual appearance configs
     sound_map: dict of sound overrides
+    
+    Returns:
+        tuple: (filter_content_string, style_map_dictionary)
     """
     blocks = []
+    style_map = {}
 
     for baseType, meta in item_data.items():
         # Skip if marked as hideable (optional logic)
@@ -25,13 +29,17 @@ def build_currency_section(item_data, theme, sound_map):
         # Sound: per-item sound overrides theme
         sound = sound_map.get(baseType, style.get("PlayAlertSound"))
 
+        # Collect style data for Simulator
+        item_style = _extract_style_data(style, sound)
+        style_map[baseType] = item_style
+
         # Compose block
         header = f'Show #通货-{group_text}-{text_ch}'
         lines = [header, f'BaseType "{baseType}"']
         _apply_style(lines, style, sound)
         blocks.append("\n".join(lines))
 
-    return "\n\n".join(blocks)
+    return "\n\n".join(blocks), style_map
 
 
 def hex_to_rgb(hex_color):
@@ -42,6 +50,21 @@ def hex_to_rgb(hex_color):
     elif len(hex_color) == 6: # RRGGBB
         return int(hex_color[0:2], 16), int(hex_color[2:4], 16), int(hex_color[4:6], 16)
     return 0, 0, 0 # Default if format is unexpected
+
+def _extract_style_data(style, sound):
+    """Extracts style data into a dictionary for JSON export"""
+    data = {}
+    if "FontSize" in style:
+        data["fontSize"] = style["FontSize"]
+    
+    if "BorderColor" in style:
+        data["borderColor"] = hex_to_rgb(style["BorderColor"])
+    if "TextColor" in style:
+        data["textColor"] = hex_to_rgb(style["TextColor"])
+    if "BackgroundColor" in style:
+        data["backgroundColor"] = hex_to_rgb(style["BackgroundColor"])
+        
+    return data
 
 def _apply_style(lines, style, sound):
     """Append visual/sound settings from theme or sound map"""

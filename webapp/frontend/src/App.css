@@ -1,0 +1,112 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+h1 {
+  color: #646cff;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  color: #c2c2c2;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+select, button {
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  border: 1px solid #646cff;
+  border-radius: 8px;
+  transition: border-color 0.25s;
+  color: #ffffff;
+}
+
+button:hover {
+  border-color: #535bf2;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+button:disabled, select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.message {
+  padding: 0.8rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  color: #ffffff;
+  background-color: #333;
+}
+
+.loading {
+  color: #646cff;
+  font-style: italic;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.editor-area {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  gap: 1.5rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.config-editor, .filter-preview {
+  flex: 1; /* Take equal space */
+  min-width: 400px; /* Minimum width before wrapping */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align textareas to the left */
+}
+
+.json-editor, .filter-output {
+  width: 100%;
+  height: 500px; /* Fixed height for editor */
+  padding: 1rem;
+  font-family: 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.9em;
+  background-color: #242424;
+  color: #f0f0f0;
+  border: 1px solid #444;
+  border-radius: 8px;
+  resize: vertical; /* Allow vertical resizing */
+}
+
+.filter-output {
+  background-color: #1c1c1c; /* Slightly different background for read-only */
+  border-color: #333;
+}
