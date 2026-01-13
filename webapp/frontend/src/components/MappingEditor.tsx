@@ -3,6 +3,12 @@ import axios from 'axios';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
 
+interface TierOption {
+  key: string;
+  label_en: string;
+  label_ch: string;
+}
+
 interface MappingEditorProps {
   configPath: string;
   onSave: () => void;
@@ -12,7 +18,8 @@ interface MappingEditorProps {
 interface MappingData {
   file_name: string;
   theme_category: string;
-  available_tiers: string[];
+  available_tiers: TierOption[];
+  item_translations: Record<string, string>;
   content: {
     _meta: any;
     mapping: Record<string, string>;
@@ -54,25 +61,18 @@ const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave, langu
   }, [configPath]);
 
   const handleTierChange = (item: string, newTier: string) => {
-    setLocalMapping(prev => ({
-      ...prev,
-      [item]: newTier
-    }));
+    setLocalMapping(prev => ({ ...prev, [item]: newTier }));
   };
 
   const handleSave = async () => {
     if (!data) return;
     setLoading(true);
     try {
-      const newContent = {
-        ...data.content,
-        mapping: localMapping
-      };
+      const newContent = { ...data.content, mapping: localMapping };
       await axios.post(`${API_BASE_URL}/api/config/${configPath}`, newContent);
       if (onSave) onSave();
       alert(t.saveSuccess);
     } catch (err: any) {
-      console.error("Error saving:", err);
       alert("Failed to save changes.");
     } finally {
       setLoading(false);
@@ -81,9 +81,12 @@ const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave, langu
 
   const filteredItems = useMemo(() => {
     if (!data) return [];
-    return Object.keys(localMapping).filter(item => 
-      item.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const translations = data.item_translations || {};
+    return Object.keys(localMapping).filter(item => {
+      const matchEn = item.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchCh = translations[item] && translations[item].includes(searchTerm);
+      return matchEn || matchCh;
+    });
   }, [localMapping, searchTerm, data]);
 
   if (loading && !data) return <div>{t.loading}</div>;
@@ -117,20 +120,21 @@ const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave, langu
           <tbody>
             {filteredItems.map(item => (
               <tr key={item}>
-                <td>{item}</td>
+                <td>
+                    {language === 'ch' && data.item_translations[item] ? (
+                        <>{data.item_translations[item]} <small style={{color: '#999'}}>({item})</small></>
+                    ) : item}
+                </td>
                 <td>
                   <select 
                     value={localMapping[item]} 
                     onChange={e => handleTierChange(item, e.target.value)}
                   >
                     {data.available_tiers.map(tier => (
-                      <option key={tier} value={tier}>
-                        {tier}
+                      <option key={tier.key} value={tier.key}>
+                        {language === 'ch' ? tier.label_ch : tier.label_en}
                       </option>
                     ))}
-                    {!data.available_tiers.includes(localMapping[item]) && (
-                       <option value={localMapping[item]}>{localMapping[item]} (Unknown)</option>
-                    )}
                   </select>
                 </td>
               </tr>

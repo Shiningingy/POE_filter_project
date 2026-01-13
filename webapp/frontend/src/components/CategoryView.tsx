@@ -57,7 +57,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         fetchTierItems(keys);
       }
     } catch (e) {
-      // Ignore parse error
+      // Ignore
     }
   }, [configContent]);
 
@@ -90,13 +90,9 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         new_tier: newTier,
         source_file: item.source
       });
-      
-      const keys = Object.keys(tierItems);
-      fetchTierItems(keys);
-      
+      fetchTierItems(Object.keys(tierItems));
     } catch (err) {
       console.error("Failed to move item", err);
-      alert("Failed to move item.");
     }
   };
 
@@ -109,22 +105,29 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       {Object.keys(parsedConfig).map(categoryKey => {
         if (categoryKey.startsWith('//')) return null;
         const categoryData = parsedConfig[categoryKey];
+        const catName = categoryData._meta?.localization?.[language] || categoryKey;
         
         const allTiers = Object.keys(categoryData).filter(k => !k.startsWith('//') && k !== '_meta');
 
         return (
           <div key={categoryKey} className="category-section">
-            <h3>{categoryData._meta?.localization?.[language] || categoryKey}</h3>
+            <h3>{catName}</h3>
             
             {allTiers.map(tierKey => {
               const tierData = categoryData[tierKey];
               const resolved = resolveStyle(tierData, themeData);
               const items = tierItems[tierKey] || [];
 
+              // Construct dynamic localized tier name
+              const tierNum = tierData.theme?.Tier !== undefined ? tierData.theme.Tier : "?";
+              const displayTierName = language === 'ch' 
+                ? `T${tierNum} ${catName}` 
+                : `Tier ${tierNum} ${catName}`;
+
               return (
                 <div key={tierKey} className="tier-block">
                   <TierStyleEditor
-                    tierName={tierData.localization?.[language] || tierKey}
+                    tierName={displayTierName}
                     style={resolved}
                     onChange={(newStyle) => handleTierUpdate(categoryKey, tierKey, newStyle)}
                     language={language}

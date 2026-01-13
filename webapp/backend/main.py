@@ -268,24 +268,27 @@ def get_mapping_info(file_name: str):
                                 
                                 if target_key in tier_defs:
                                     category_data = tier_defs[target_key]
-                                    # Extract tiers
-                                    # Keys look like "Tier 1 Stackable Currency"
-                                    # We just want the numbers "1", "2" etc or the full keys?
-                                    # Let's return full tier keys for now, or just the IDs if we want to build a UI.
-                                    # Returning full keys is safer for now.
-                                    for k in category_data.keys():
+                                    cat_loc = category_data.get("_meta", {}).get("localization", {})
+                                    cat_en = cat_loc.get("en", theme_category)
+                                    cat_ch = cat_loc.get("ch", cat_en)
+
+                                    for k, v in category_data.items():
                                         if k.startswith("Tier"):
-                                            available_tiers.append(k)
+                                            t_num = v.get("theme", {}).get("Tier", "?")
+                                            available_tiers.append({
+                                                "key": k,
+                                                "label_en": f"Tier {t_num} {cat_en}",
+                                                "label_ch": f"T{t_num} {cat_ch}"
+                                            })
                                     found_def = True
                                     break
                         except:
                             continue
         
-        # Sort tiers logic (Tier 1 < Tier 5)
-        # Extract numbers to sort
-        def tier_sort_key(t_str):
+        # Sort tiers logic
+        def tier_sort_key(t_obj):
             import re
-            m = re.search(r"Tier (\d+)", t_str)
+            m = re.search(r"Tier (\d+)", t_obj["key"])
             return int(m.group(1)) if m else 999
             
         available_tiers.sort(key=tier_sort_key)
@@ -294,7 +297,9 @@ def get_mapping_info(file_name: str):
             "file_name": file_name,
             "content": mapping_content,
             "theme_category": theme_category,
-            "available_tiers": available_tiers
+            "available_tiers": available_tiers,
+            # Include translations for items in this class
+            "item_translations": mapping_content.get("_meta", {}).get("localization", {}).get("ch", {})
         }
 
     except Exception as e:
