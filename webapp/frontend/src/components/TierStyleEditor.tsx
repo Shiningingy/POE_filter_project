@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from '../utils/localization';
+import type { Language } from '../utils/localization';
 
 interface StyleProps {
   FontSize?: number;
@@ -11,9 +13,11 @@ interface TierStyleEditorProps {
   tierName: string;
   style: StyleProps;
   onChange: (newStyle: StyleProps) => void;
+  language: Language;
 }
 
-const TierStyleEditor: React.FC<TierStyleEditorProps> = ({ tierName, style, onChange }) => {
+const TierStyleEditor: React.FC<TierStyleEditorProps> = ({ tierName, style, onChange, language }) => {
+  const t = useTranslation(language);
   
   const handleChange = (key: keyof StyleProps, value: any) => {
     onChange({
@@ -49,13 +53,13 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({ tierName, style, onCh
           padding: '4px 8px',
           display: 'inline-block'
         }}>
-          Item Preview
+          {t.itemPreview}
         </div>
       </div>
 
       <div className="controls-grid">
         <label>
-          Font Size:
+          {t.fontSize}:
           <input 
             type="number" 
             value={style.FontSize || 32} 
@@ -63,7 +67,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({ tierName, style, onCh
           />
         </label>
         <label>
-          Text Color:
+          {t.textColor}:
           <input 
             type="color" 
             value={rgbaToHex(style.TextColor)} 
@@ -71,7 +75,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({ tierName, style, onCh
           />
         </label>
         <label>
-          Border Color:
+          {t.borderColor}:
           <input 
             type="color" 
             value={rgbaToHex(style.BorderColor)} 
@@ -79,7 +83,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({ tierName, style, onCh
           />
         </label>
         <label>
-          BG Color:
+          {t.bgColor}:
           <input 
             type="color" 
             value={rgbaToHex(style.BackgroundColor)} 

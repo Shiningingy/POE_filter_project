@@ -136,19 +136,18 @@ def generate_filter():
                 loc_data = tier_data.get('localization', {}) # Might be empty now
                 
                 # Dynamic Group Text Construction
-                group_text = loc_data.get("ch") # Try direct look up first
-                if not group_text:
-                    # Fallback: T{Tier} {CategoryChName}
-                    tier_num = theme_data.get('Tier', "?")
-                    
-                    cat_meta = category_data.get("_meta", {})
-                    cat_loc = cat_meta.get("localization", {})
-                    cat_name_ch = cat_loc.get("ch", cat_loc.get("en", "UnknownCategory"))
-                    
-                    group_text = f"T{tier_num} {cat_name_ch}"
+                # We prioritize Chinese for the internal filter comments as requested
+                cat_meta = category_data.get("_meta", {})
+                cat_loc = cat_meta.get("localization", {})
+                
+                tier_num = theme_data.get('Tier', "?")
+                cat_name_ch = cat_loc.get("ch", cat_loc.get("en", "Unknown"))
+                
+                # Format: T1 通货
+                group_text = f"T{tier_num} {cat_name_ch}"
 
                 meta = {
-                    "group": f"Tier {theme_data.get('Tier')}" if "Tier" in theme_data else loc_data.get('en', tier_key),
+                    "group": f"Tier {theme_data.get('Tier')}" if "Tier" in theme_data else tier_key,
                     "group_text": group_text,
                     "text_ch": global_translations.get(item_name, item_name),
                     "hideable": tier_data.get("hideable", False),

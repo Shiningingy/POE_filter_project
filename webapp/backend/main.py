@@ -61,12 +61,19 @@ def get_items_by_tier(request: TierItemsRequest):
                 with open(file_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     mapping = data.get("mapping", {})
+                    loc_data = data.get("_meta", {}).get("localization", {})
+                    translations = loc_data.get("ch", {})
+                    
+                    # Ensure translations is a dict (some files might have a string for the class name)
+                    if not isinstance(translations, dict):
+                        translations = {}
                     
                     # Check each item in the mapping
                     for item_name, tier_key in mapping.items():
                         if tier_key in tier_keys_set:
                             result[tier_key].append({
                                 "name": item_name,
+                                "name_ch": translations.get(item_name, item_name),
                                 "source": file_path.name
                             })
             except json.JSONDecodeError:
@@ -372,11 +379,17 @@ def search_items(q: str):
                 with open(file_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     mapping = data.get("mapping", {})
+                    loc_data = data.get("_meta", {}).get("localization", {})
+                    translations = loc_data.get("ch", {})
+
+                    if not isinstance(translations, dict):
+                        translations = {}
                     
                     for item_name, tier_key in mapping.items():
                         if q_lower in item_name.lower():
                             results.append({
                                 "name": item_name,
+                                "name_ch": translations.get(item_name, item_name),
                                 "current_tier": tier_key,
                                 "source_file": file_path.name
                             })

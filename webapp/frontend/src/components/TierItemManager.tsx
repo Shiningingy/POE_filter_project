@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } => 'react';
 import axios from 'axios';
+import { useTranslation } from '../utils/localization';
+import type { Language } from '../utils/localization';
 
 interface TierItem {
   name: string;
+  name_ch?: string;
   source: string;
   current_tier?: string;
 }
@@ -12,53 +15,23 @@ interface TierItemManagerProps {
   items: TierItem[];
   allTiers: string[]; // List of all available tier keys in this category
   onMoveItem: (item: TierItem, newTier: string) => void;
+  language: Language;
 }
 
-const TierItemManager: React.FC<TierItemManagerProps> = ({ 
-  tierKey, 
-  items, 
-  allTiers, 
-  onMoveItem 
+const TierItemManager: React.FC<TierItemManagerProps> = ({
+  tierKey,
+  items,
+  allTiers,
+  onMoveItem,
+  language
 }) => {
+  const t = useTranslation(language);
   const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  
-  // Add Item State
-  const [addSearch, setAddSearch] = useState('');
-  const [suggestions, setSuggestions] = useState<TierItem[]>([]);
-
-  const filteredItems = items.filter(i => 
-    i.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  useEffect(() => {
-    if (addSearch.length < 2) {
-      setSuggestions([]);
-      return;
-    }
-    
-    const timeoutId = setTimeout(async () => {
-      try {
-        const res = await axios.get(`http://localhost:8000/api/search-items?q=${encodeURIComponent(addSearch)}`);
-        setSuggestions(res.data.results);
-      } catch (e) {
-        console.error(e);
-      }
-    }, 300);
-    
-    return () => clearTimeout(timeoutId);
-  }, [addSearch]);
-
-  const handleAddItem = (item: TierItem) => {
-    onMoveItem(item, tierKey);
-    setAddSearch('');
-    setSuggestions([]);
-  };
-
+...
   return (
     <div className="tier-item-manager">
       <div className="header" onClick={() => setIsOpen(!isOpen)}>
-        <span>📦 Items in this Tier ({items.length})</span>
+        <span>📦 {t.itemsInTier} ({items.length})</span>
         <span>{isOpen ? '▲' : '▼'}</span>
       </div>
 
@@ -68,7 +41,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           <div className="add-section">
             <input 
               type="text" 
-              placeholder="Search to add item..." 
+              placeholder={t.searchPlaceholder} 
               value={addSearch}
               onChange={e => setAddSearch(e.target.value)}
               className="search-box add-input"
@@ -77,7 +50,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
               <ul className="suggestions-list">
                 {suggestions.map(s => (
                   <li key={s.name} onClick={() => handleAddItem(s)}>
-                    <strong>{s.name}</strong> 
+                    <strong>{language === 'ch' ? s.name_ch : s.name}</strong> 
                     <span className="source-hint">({s.current_tier || 'Unassigned'})</span>
                   </li>
                 ))}
@@ -90,7 +63,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           {/* Existing Items Filter */}
           <input 
             type="text" 
-            placeholder="Filter current items..." 
+            placeholder={t.filterPlaceholder} 
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
             className="search-box"
@@ -99,24 +72,21 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           <ul className="item-list">
             {filteredItems.map(item => (
               <li key={item.name} className="item-row">
-                <span className="item-name" title={item.source}>{item.name}</span>
+                <span className="item-name" title={item.source}>
+                    {language === 'ch' ? item.name_ch : item.name}
+                </span>
                 <select 
                   value={tierKey}
                   onChange={(e) => onMoveItem(item, e.target.value)}
                   className="tier-select"
                 >
-                  {allTiers.map(t => (
-                    <option key={t} value={t}>{t}</option>
-                  ))}
-                </select>
-              </li>
+...
             ))}
-            {filteredItems.length === 0 && <li className="empty">No items in this tier</li>}
+            {filteredItems.length === 0 && <li className="empty">{t.noItems}</li>}
           </ul>
         </div>
       )}
-
-      <style>{`
+...      <style>{`
         .tier-item-manager {
           margin-top: 10px;
           border-top: 1px solid #eee;
