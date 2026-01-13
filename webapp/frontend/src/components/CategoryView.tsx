@@ -101,12 +101,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
     const categoryData = newConfig[categoryKey];
     
-    // Generate a new unique key
     const existingTiers = Object.keys(categoryData).filter(k => k.startsWith('Tier'));
     const nextNum = existingTiers.length;
     const newTierKey = `Tier ${nextNum} ${categoryKey}`;
     
-    // Add default tier structure
     categoryData[newTierKey] = {
       hideable: false,
       theme: { Tier: 1 },
@@ -117,7 +115,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       }
     };
 
-    // Update tier_order if it exists
     if (categoryData._meta?.tier_order) {
       categoryData._meta.tier_order.push(newTierKey);
     }
@@ -138,13 +135,23 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         const categoryData = parsedConfig[categoryKey];
         const catName = categoryData._meta?.localization?.[language] || categoryKey;
         
-        const allTiers = Object.keys(categoryData).filter(k => !k.startsWith('//') && k !== '_meta');
+        const tierKeys = Object.keys(categoryData).filter(k => !k.startsWith('//') && k !== '_meta');
+
+        // Prepare localized options for the dropdowns
+        const tierOptions = tierKeys.map(tk => {
+            const td = categoryData[tk];
+            const tNum = td.theme?.Tier !== undefined ? td.theme.Tier : "?";
+            return {
+                key: tk,
+                label: language === 'ch' ? `T${tNum} ${catName}` : `Tier ${tNum} ${catName}`
+            };
+        });
 
         return (
           <div key={categoryKey} className="category-section">
             <h3>{catName}</h3>
             
-            {allTiers.map(tierKey => {
+            {tierKeys.map(tierKey => {
               const tierData = categoryData[tierKey];
               const resolved = resolveStyle(tierData, themeData);
               const items = tierItems[tierKey] || [];
@@ -165,7 +172,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                   <TierItemManager 
                     tierKey={tierKey}
                     items={items}
-                    allTiers={allTiers}
+                    allTiers={tierOptions} // Pass localized objects instead of keys
                     onMoveItem={handleMoveItem}
                     language={language}
                   />

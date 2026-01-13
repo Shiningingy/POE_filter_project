@@ -10,10 +10,15 @@ interface TierItem {
   current_tier?: string;
 }
 
+interface TierOption {
+  key: string;
+  label: string;
+}
+
 interface TierItemManagerProps {
   tierKey: string;
   items: TierItem[];
-  allTiers: string[]; 
+  allTiers: TierOption[]; 
   onMoveItem: (item: TierItem, newTier: string) => void;
   language: Language;
 }
@@ -112,7 +117,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                   className="tier-select"
                 >
                   {allTiers.map(t => (
-                    <option key={t} value={t}>{t}</option>
+                    <option key={t.key} value={t.key}>{t.label}</option>
                   ))}
                 </select>
               </li>
