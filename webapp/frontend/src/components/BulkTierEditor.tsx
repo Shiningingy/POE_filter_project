@@ -16,7 +16,7 @@ interface TierOption {
 }
 
 interface BulkTierEditorProps {
-  className: string; // The item class name (e.g. "Skill Gems")
+  className: string; 
   availableTiers: TierOption[];
   language: Language;
   onClose: () => void;
@@ -35,7 +35,9 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTierKey, setSelectedTierKey] = useState(availableTiers[0]?.key || '');
-  const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set());
+  
+  // Staged changes: ItemName -> NewTierKey
+  const [stagedChanges, setStagedChanges] = useState<Record<string, string>>({});
 
   const API_BASE_URL = 'http://localhost:8000';
 
@@ -60,30 +62,38 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     );
   }, [items, searchTerm]);
 
-  const toggleItem = (name: string) => {
-    const newChecked = new Set(checkedItems);
-    if (newChecked.has(name)) newChecked.delete(name);
-    else newChecked.add(name);
-    setCheckedItems(newChecked);
+  const handleItemClick = (name: string) => {
+    setStagedChanges(prev => {
+      const next = { ...prev };
+      // If already staged for THIS tier, remove it (undo)
+      if (next[name] === selectedTierKey) {
+        delete next[name];
+      } else {
+        // Otherwise stage it for the currently selected "brush" tier
+        next[name] = selectedTierKey;
+      }
+      return next;
+    });
   };
 
   const handleApply = async () => {
-    if (checkedItems.size === 0) return;
+    const changeCount = Object.keys(stagedChanges).length;
+    if (changeCount === 0) return;
+    
     setLoading(true);
     try {
-      // Bulk update items
-      const promises = Array.from(checkedItems).map(itemName => {
+      const promises = Object.entries(stagedChanges).map(([itemName, newTier]) => {
         const item = items.find(i => i.name === itemName);
         return axios.post(`${API_BASE_URL}/api/update-item-tier`, {
           item_name: itemName,
-          new_tier: selectedTierKey,
+          new_tier: newTier,
           source_file: item?.source_file || `${className}.json`
         });
       });
 
       await Promise.all(promises);
-      alert(`${checkedItems.size} items updated!`);
-      onSave(); // Refresh parent
+      alert(`${changeCount} items updated!`);
+      onSave(); 
       onClose();
     } catch (err) {
       console.error(err);
@@ -93,8 +103,10 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     }
   };
 
-  // Map tier numbers to background colors for visualization
-  const getTierColor = (tierKey: string | null) => {
+  const getTierColor = (itemName: string, currentTier: string | null) => {
+    // If staged, use staged tier color
+    const tierKey = stagedChanges[itemName] || currentTier;
+    
     if (!tierKey) return 'white';
     const match = tierKey.match(/Tier (\d+)/);
     if (!match) return '#f0f0f0';
@@ -106,18 +118,27 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     return colors[num] || '#f0f0f0';
   };
 
+  const stagedCount = Object.keys(stagedChanges).length;
+
   return (
     <div className="modal-overlay">
       <div className="modal-content">
         <div className="modal-header">
           <h2>Bulk Edit: {className}</h2>
-          <button className="close-btn" onClick={onClose}>×</button>
+          <div className="header-meta">
+             <span className="staged-badge">{stagedCount} items staged</span>
+             <button className="close-btn" onClick={onClose}>×</button>
+          </div>
         </div>
 
         <div className="bulk-toolbar">
-          <div className="target-select">
-            <span>Target Tier: </span>
-            <select value={selectedTierKey} onChange={e => setSelectedTierKey(e.target.value)}>
+          <div className="brush-tool">
+            <span className="label">Active Tier (Brush): </span>
+            <select 
+                value={selectedTierKey} 
+                onChange={e => setSelectedTierKey(e.target.value)}
+                style={{ borderLeft: `8px solid ${getTierColor('', selectedTierKey)}` }}
+            >
               {availableTiers.map(tier => (
                 <option key={tier.key} value={tier.key}>{tier.label}</option>
               ))}
@@ -132,59 +153,83 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
           />
           <button 
             className="apply-btn" 
-            disabled={checkedItems.size === 0 || loading}
+            disabled={stagedCount === 0 || loading}
             onClick={handleApply}
           >
-            Apply to {checkedItems.size} items
+            Save All Changes ({stagedCount})
           </button>
         </div>
 
         <div className="items-grid">
-          {loading ? (
+          {loading && !items.length ? (
             <div className="loading">{t.loading}</div>
           ) : (
-            filteredItems.map(item => (
-              <label 
-                key={item.name} 
-                className={`item-checkbox-card ${checkedItems.has(item.name) ? 'checked' : ''}`}
-                style={{ backgroundColor: getTierColor(item.current_tier) }}
-              >
-                <input 
-                  type="checkbox" 
-                  checked={checkedItems.has(item.name)} 
-                  onChange={() => toggleItem(item.name)}
-                />
-                <div className="item-info">
-                  <div className="name-en">{item.name}</div>
-                  <div className="name-ch">{item.name_ch}</div>
-                  {item.current_tier && <div className="current-tier-tag">{item.current_tier.split(' ')[1]}</div>}
+            filteredItems.map(item => {
+              const isStaged = !!stagedChanges[item.name];
+              const stagedTier = stagedChanges[item.name];
+              const displayTier = stagedTier || item.current_tier;
+
+              return (
+                <div 
+                  key={item.name} 
+                  className={`item-card ${isStaged ? 'staged' : ''}`}
+                  style={{ backgroundColor: getTierColor(item.name, item.current_tier) }}
+                  onClick={() => handleItemClick(item.name)}
+                >
+                  <div className="item-info">
+                    <div className="name-en">{item.name}</div>
+                    <div className="name-ch">{item.name_ch}</div>
+                    {displayTier && (
+                        <div className={`tier-tag ${isStaged ? 'staged-tag' : ''}`}>
+                            {isStaged ? 'NEW: ' : ''}{displayTier.split(' ')[1]}
+                        </div>
+                    )}
+                  </div>
+                  {isStaged && <div className="staged-indicator">●</div>}
                 </div>
-              </label>
-            ))
+              );
+            })
           )}
         </div>
       </div>
 
       <style>{`
-        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; }
-        .modal-content { background: white; width: 90%; height: 90%; border-radius: 8px; display: flex; flex-direction: column; overflow: hidden; }
-        .modal-header { padding: 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
-        .close-btn { background: none; border: none; font-size: 2rem; cursor: pointer; color: #999; }
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+        .modal-content { background: #fdfdfd; width: 95%; height: 95%; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .modal-header { padding: 15px 25px; background: white; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .header-meta { display: flex; align-items: center; gap: 20px; }
+        .staged-badge { background: #2196F3; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
+        .close-btn { background: none; border: none; font-size: 2.5rem; cursor: pointer; color: #ccc; line-height: 1; }
+        .close-btn:hover { color: #666; }
         
-        .bulk-toolbar { padding: 15px 20px; background: #f5f5f5; display: flex; gap: 20px; align-items: center; border-bottom: 1px solid #ddd; }
-        .target-select select { padding: 8px; border-radius: 4px; border: 1px solid #ccc; font-weight: bold; }
-        .search-box { flex-grow: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
-        .apply-btn { padding: 8px 20px; background: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
-        .apply-btn:disabled { background: #ccc; cursor: not-allowed; }
+        .bulk-toolbar { padding: 15px 25px; background: white; display: flex; gap: 25px; align-items: center; border-bottom: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .brush-tool { display: flex; align-items: center; gap: 10px; }
+        .brush-tool .label { font-size: 0.9rem; font-weight: bold; color: #555; }
+        .brush-tool select { padding: 8px 12px; border-radius: 6px; border: 1px solid #ccc; font-weight: bold; cursor: pointer; outline: none; transition: border 0.2s; }
+        
+        .search-box { flex-grow: 1; padding: 10px 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
+        .apply-btn { padding: 10px 25px; background: #4CAF50; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: background 0.2s; }
+        .apply-btn:hover { background: #43a047; }
+        .apply-btn:disabled { background: #e0e0e0; color: #999; cursor: not-allowed; }
 
-        .items-grid { flex-grow: 1; overflow-y: auto; padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; align-content: flex-start; }
-        .item-checkbox-card { border: 1px solid #ddd; padding: 10px; border-radius: 4px; cursor: pointer; display: flex; gap: 10px; transition: all 0.2s; position: relative; }
-        .item-checkbox-card:hover { transform: translateY(-2px); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .item-checkbox-card.checked { border: 2px solid #2196F3; }
-        .item-info { display: flex; flex-direction: column; overflow: hidden; }
-        .name-en { font-size: 0.8rem; color: #333; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .name-ch { font-size: 0.75rem; color: #666; }
-        .current-tier-tag { position: absolute; top: 2px; right: 5px; font-size: 0.6rem; color: #999; }
+        .items-grid { flex-grow: 1; overflow-y: auto; padding: 25px; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; align-content: flex-start; background: #f0f2f5; }
+        .item-card { 
+            border: 1px solid #ddd; padding: 12px; border-radius: 8px; cursor: pointer; 
+            display: flex; flex-direction: column; justify-content: center;
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1); position: relative; 
+            background: white; border-bottom: 3px solid rgba(0,0,0,0.1);
+        }
+        .item-card:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1; }
+        .item-card.staged { border: 2px solid #2196F3; transform: scale(1.05); box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3); border-bottom-width: 2px; }
+        
+        .name-en { font-size: 0.85rem; color: #1a1a1a; font-weight: bold; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .name-ch { font-size: 0.8rem; color: #666; }
+        
+        .tier-tag { position: absolute; top: 5px; right: 8px; font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: rgba(0,0,0,0.05); color: #777; font-weight: bold; }
+        .staged-tag { background: #2196F3; color: white; }
+        .staged-indicator { position: absolute; bottom: 5px; right: 8px; color: #2196F3; font-size: 1.2rem; }
+        
+        .loading { font-size: 1.5rem; color: #999; text-align: center; width: 100%; margin-top: 50px; }
       `}</style>
     </div>
   );
