@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import TierStyleEditor from './TierStyleEditor';
 import TierItemManager from './TierItemManager';
-import BulkTierEditor from './BulkTierEditor'; // Import Bulk Editor
+import BulkTierEditor from './BulkTierEditor';
+import RuleManager from './RuleManager';
 import { resolveStyle } from '../utils/styleResolver';
+import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
 
 interface CategoryViewProps {
@@ -27,17 +29,27 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   loading,
   language
 }) => {
+  const t = useTranslation(language);
   const [themeData, setThemeData] = useState<any>(null);
   const [parsedConfig, setParsedConfig] = useState<any>(null);
   const [tierItems, setTierItems] = useState<Record<string, TierItem[]>>({});
-  const [itemsLoading, setItemsLoading] = useState(false);
-  
+  const [activeTab, setActiveTab] = useState<'tiers' | 'rules'>('tiers');
+
   // Bulk Edit State
   const [showBulkEditor, setShowBulkEditor] = useState(false);
   const [activeBulkClass, setActiveBulkClass] = useState<string | null>(null);
   const [activeBulkOptions, setActiveBulkOptions] = useState<any[]>([]);
 
   const API_BASE_URL = 'http://localhost:8000';
+
+  // --- 1. All Hooks must be at the top level ---
+
+  // Flattened items for RuleManager suggestions
+  const allItemsInTiers = useMemo(() => {
+    const list: string[] = [];
+    Object.values(tierItems).forEach(items => items.forEach(i => list.push(i.name)));
+    return Array.from(new Set(list));
+  }, [tierItems]);
 
   useEffect(() => {
     axios.get(`${API_BASE_URL}/api/themes/sharket`)
@@ -68,14 +80,11 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   }, [configContent]);
 
   const fetchTierItems = async (keys: string[]) => {
-    setItemsLoading(true);
     try {
       const res = await axios.post(`${API_BASE_URL}/api/tier-items`, { tier_keys: keys });
       setTierItems(res.data.items);
     } catch (err) {
       console.error("Failed to load tier items", err);
-    } finally {
-      setItemsLoading(false);
     }
   };
 
@@ -84,9 +93,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
     const currentTheme = newConfig[categoryKey][tierKey].theme || {};
     newConfig[categoryKey][tierKey].theme = { ...currentTheme, ...newStyle };
-    const jsonString = JSON.stringify(newConfig, null, 2);
-    setParsedConfig(newConfig);
-    onConfigContentChange(jsonString);
+    onConfigContentChange(JSON.stringify(newConfig, null, 2));
   };
 
   const handleMoveItem = async (item: TierItem, newTier: string) => {
@@ -112,8 +119,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       alert("Override applied successfully!");
       fetchTierItems(Object.keys(tierItems));
     } catch (err) {
-      console.error("Failed to update override", err);
-      alert("Failed to update override.");
+      console.error(err);
     }
   };
 
@@ -121,14 +127,12 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     if (!parsedConfig) return;
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
     const categoryData = newConfig[categoryKey];
-    
     const existingTiers = Object.keys(categoryData).filter(k => k.startsWith('Tier'));
     let maxNum = -1;
     existingTiers.forEach(k => {
         const tNum = categoryData[k].theme?.Tier;
         if (typeof tNum === 'number' && tNum > maxNum) maxNum = tNum;
     });
-    
     const nextNum = maxNum + 1;
     const newTierKey = `Tier ${nextNum} ${categoryKey}`;
     
@@ -136,68 +140,73 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       hideable: false,
       theme: { Tier: nextNum },
       sound: { default_sound_id: -1, sharket_sound_id: null },
-      localization: {
-        en: newTierKey,
-        ch: `T${nextNum} ${categoryData._meta?.localization?.ch || categoryKey}`
-      }
+      localization: { en: newTierKey, ch: `T${nextNum} ${categoryData._meta?.localization?.ch || categoryKey}` }
     };
-
-    if (categoryData._meta?.tier_order) {
-      categoryData._meta.tier_order.push(newTierKey);
-    }
-
-    const jsonString = JSON.stringify(newConfig, null, 2);
-    setParsedConfig(newConfig);
-    onConfigContentChange(jsonString);
+    if (categoryData._meta?.tier_order) categoryData._meta.tier_order.push(newTierKey);
+    onConfigContentChange(JSON.stringify(newConfig, null, 2));
   };
 
-  const openBulkEditor = (className: string, options: any[]) => {
-    setActiveBulkClass(className);
-    setActiveBulkOptions(options);
-    setShowBulkEditor(true);
+  const handleRulesChange = (categoryKey: string, newRules: any[]) => {
+    const newConfig = JSON.parse(JSON.stringify(parsedConfig));
+    if (!newConfig[categoryKey]._meta) newConfig[categoryKey]._meta = {};
+    newConfig[categoryKey]._meta.rules = newRules;
+    onConfigContentChange(JSON.stringify(newConfig, null, 2));
   };
 
-  if (!themeData || !parsedConfig) return <div>Loading category data...</div>;
+  // --- 2. Conditional returns MUST happen after hooks ---
+  if (!themeData || !parsedConfig) return <div>{t.loading}</div>;
 
   return (
     <div className="category-view">
-      <h2 className="editor-title">Category Editor: {configPath.split('/').pop()}</h2>
-      
+      <div className="view-tabs">
+        <button className={activeTab === 'tiers' ? 'active' : ''} onClick={() => setActiveTab('tiers')}>Tiers</button>
+        <button className={activeTab === 'rules' ? 'active' : ''} onClick={() => setActiveTab('rules')}>Rules</button>
+      </div>
+
       {Object.keys(parsedConfig).map(categoryKey => {
         if (categoryKey.startsWith('//')) return null;
         const categoryData = parsedConfig[categoryKey];
         const catName = categoryData._meta?.localization?.[language] || categoryKey;
         const themeCategory = categoryData._meta?.theme_category || categoryKey;
-        
         const tierKeys = Object.keys(categoryData).filter(k => !k.startsWith('//') && k !== '_meta');
-
+        
         const tierOptions = tierKeys.map(tk => {
             const td = categoryData[tk];
             const tNum = td.theme?.Tier !== undefined ? td.theme.Tier : "?";
-            return {
-                key: tk,
-                label: language === 'ch' ? `T${tNum} ${catName}` : `Tier ${tNum} ${catName}`
-            };
+            return { key: tk, label: language === 'ch' ? `T${tNum} ${catName}` : `Tier ${tNum} ${catName}` };
         });
+
+        if (activeTab === 'rules') {
+            return (
+                <div key={categoryKey} className="category-section">
+                    <h3>{catName} - {t.rules}</h3>
+                    <RuleManager 
+                        rules={categoryData._meta?.rules || []}
+                        onChange={(newRules) => handleRulesChange(categoryKey, newRules)}
+                        language={language}
+                        availableItems={allItemsInTiers}
+                    />
+                </div>
+            );
+        }
 
         return (
           <div key={categoryKey} className="category-section">
             <div className="category-header">
                 <h3>{catName}</h3>
-                <button className="bulk-edit-btn" onClick={() => openBulkEditor(themeCategory, tierOptions)}>
-                    ⚡ {language === 'ch' ? '批量编辑' : 'Bulk Edit'}
-                </button>
+                <button className="bulk-edit-btn" onClick={() => {
+                    setActiveBulkClass(themeCategory);
+                    setActiveBulkOptions(tierOptions);
+                    setShowBulkEditor(true);
+                }}>⚡ {language === 'ch' ? '批量编辑' : 'Bulk Edit'}</button>
             </div>
             
             {tierKeys.map(tierKey => {
               const tierData = categoryData[tierKey];
               const resolved = resolveStyle(tierData, themeData);
               const items = tierItems[tierKey] || [];
-
               const tierNum = tierData.theme?.Tier !== undefined ? tierData.theme.Tier : "?";
-              const displayTierName = language === 'ch' 
-                ? `T${tierNum} ${catName}` 
-                : `Tier ${tierNum} ${catName}`;
+              const displayTierName = language === 'ch' ? `T${tierNum} ${catName}` : `Tier ${tierNum} ${catName}`;
 
               return (
                 <div key={tierKey} className="tier-block">
@@ -218,10 +227,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                 </div>
               );
             })}
-
-            <button className="add-tier-btn" onClick={() => handleAddTier(categoryKey)}>
-              + {language === 'ch' ? '添加新阶级' : 'Add New Tier'}
-            </button>
+            <button className="add-tier-btn" onClick={() => handleAddTier(categoryKey)}>+ {language === 'ch' ? '添加新阶级' : 'Add New Tier'}</button>
           </div>
         );
       })}
@@ -237,19 +243,16 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       )}
       
       <style>{`
+        .view-tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid #ddd; }
+        .view-tabs button { padding: 8px 20px; border: none; background: none; cursor: pointer; border-bottom: 3px solid transparent; }
+        .view-tabs button.active { border-bottom-color: #2196F3; font-weight: bold; }
         .category-view { padding-bottom: 50px; }
-        .editor-title { font-size: 1.1rem; color: #888; margin-bottom: 20px; }
         .category-section { margin-bottom: 30px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); padding: 20px; }
         .category-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-bottom: 20px; }
         .category-header h3 { margin: 0; color: #333; }
         .bulk-edit-btn { background: #673ab7; color: white; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; }
-        .bulk-edit-btn:hover { background: #5e35b1; }
         .tier-block { margin-bottom: 20px; border: 1px solid #eee; border-radius: 4px; padding: 10px; }
-        .add-tier-btn { 
-          width: 100%; padding: 10px; background: #f9f9f9; border: 2px dashed #ddd; 
-          color: #888; cursor: pointer; border-radius: 4px; font-weight: bold;
-        }
-        .add-tier-btn:hover { background: #f0f0f0; border-color: #ccc; color: #666; }
+        .add-tier-btn { width: 100%; padding: 10px; background: #f9f9f9; border: 2px dashed #ddd; color: #888; cursor: pointer; border-radius: 4px; font-weight: bold; }
       `}</style>
     </div>
   );

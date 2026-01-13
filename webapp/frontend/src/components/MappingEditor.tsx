@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
-import RuleManager from './RuleManager';
 
 interface TierOption {
   key: string;
@@ -36,8 +35,6 @@ const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave, langu
   const [searchTerm, setSearchTerm] = useState('');
   
   const [localMapping, setLocalMapping] = useState<Record<string, string>>({});
-  const [localRules, setLocalRules] = useState<any[]>([]);
-  const [activeTab, setActiveTab] = useState<'mapping' | 'rules'>('mapping');
 
   const API_BASE_URL = 'http://localhost:8000';
 
@@ -52,7 +49,6 @@ const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave, langu
         const response = await axios.get(`${API_BASE_URL}/api/mapping-info/${fileName}`);
         setData(response.data);
         setLocalMapping(response.data.content.mapping);
-        setLocalRules(response.data.content.rules || []);
       } catch (err: any) {
         console.error("Error loading mapping:", err);
         setError("Failed to load mapping data.");
@@ -72,11 +68,7 @@ const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave, langu
     if (!data) return;
     setLoading(true);
     try {
-      const newContent = { 
-        ...data.content, 
-        mapping: localMapping,
-        rules: localRules
-      };
+      const newContent = { ...data.content, mapping: localMapping };
       await axios.post(`${API_BASE_URL}/api/config/${configPath}`, newContent);
       if (onSave) onSave();
       alert(t.saveSuccess);
@@ -103,96 +95,56 @@ const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave, langu
 
   return (
     <div className="mapping-editor">
-      <div className="editor-tabs">
-        <button 
-          className={activeTab === 'mapping' ? 'active' : ''} 
-          onClick={() => setActiveTab('mapping')}
-        >
-          {t.itemsInTier}
+      <div className="toolbar">
+        <input 
+          type="text" 
+          placeholder={t.filterPlaceholder} 
+          value={searchTerm}
+          onChange={e => setSearchTerm(e.target.value)}
+          className="search-box"
+        />
+        <button onClick={handleSave} disabled={loading} className="save-btn">
+          {t.saveConfig}
         </button>
-        <button 
-          className={activeTab === 'rules' ? 'active' : ''} 
-          onClick={() => setActiveTab('rules')}
-        >
-          {t.rules}
-        </button>
+        <span className="info">Found {data.available_tiers.length} tiers for {data.theme_category}</span>
       </div>
 
-      {activeTab === 'mapping' ? (
-        <div className="mapping-content">
-          <div className="toolbar">
-            <input 
-              type="text" 
-              placeholder={t.filterPlaceholder} 
-              value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
-              className="search-box"
-            />
-            <button onClick={handleSave} disabled={loading} className="save-btn">
-              {t.saveConfig}
-            </button>
-          </div>
-
-          <div className="table-container" style={{ maxHeight: '600px', overflowY: 'auto' }}>
-            <table className="mapping-table">
-              <thead>
-                <tr>
-                  <th>Item Name</th>
-                  <th>Current Tier</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredItems.map(item => (
-                  <tr key={item}>
-                    <td>
-                        {language === 'ch' && data.item_translations[item] ? (
-                            <>{data.item_translations[item]} <small style={{color: '#999'}}>({item})</small></>
-                        ) : item}
-                    </td>
-                    <td>
-                      <select 
-                        value={localMapping[item]} 
-                        onChange={e => handleTierChange(item, e.target.value)}
-                      >
-                        {data.available_tiers.map(tier => (
-                          <option key={tier.key} value={tier.key}>
-                            {language === 'ch' ? tier.label_ch : tier.label_en}
-                          </option>
-                        ))}
-                      </select>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      ) : (
-        <div className="rules-content">
-          <div className="toolbar">
-            <div style={{flex: 1}}></div>
-            <button onClick={handleSave} disabled={loading} className="save-btn">
-              {t.saveConfig}
-            </button>
-          </div>
-          <RuleManager 
-            rules={localRules} 
-            onChange={setLocalRules} 
-            language={language} 
-            availableItems={Object.keys(localMapping)}
-          />
-        </div>
-      )}
+      <div className="table-container" style={{ maxHeight: '600px', overflowY: 'auto' }}>
+        <table className="mapping-table">
+          <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Current Tier</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredItems.map(item => (
+              <tr key={item}>
+                <td>
+                    {language === 'ch' && data.item_translations[item] ? (
+                        <>{data.item_translations[item]} <small style={{color: '#999'}}>({item})</small></>
+                    ) : item}
+                </td>
+                <td>
+                  <select 
+                    value={localMapping[item]} 
+                    onChange={e => handleTierChange(item, e.target.value)}
+                  >
+                    {data.available_tiers.map(tier => (
+                      <option key={tier.key} value={tier.key}>
+                        {language === 'ch' ? tier.label_ch : tier.label_en}
+                      </option>
+                    ))}
+                  </select>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       
       <style>{`
         .mapping-editor { display: flex; flex-direction: column; gap: 10px; }
-        .editor-tabs { display: flex; border-bottom: 1px solid #ddd; }
-        .editor-tabs button { 
-          padding: 10px 20px; border: none; background: none; cursor: pointer; 
-          border-bottom: 2px solid transparent; color: #666;
-        }
-        .editor-tabs button.active { border-bottom-color: #2196F3; color: #2196F3; font-weight: bold; }
-        
         .toolbar { display: flex; gap: 10px; align-items: center; padding: 10px; background: #f5f5f5; border-radius: 4px; }
         .search-box { padding: 5px; flex-grow: 1; }
         .save-btn { padding: 5px 15px; background: #4CAF50; color: white; border: none; cursor: pointer; border-radius: 4px; }
