@@ -31,6 +31,13 @@ export const translations = {
     saveSuccess: "Saved successfully!",
     moveFailed: "Failed to move item",
     loadFailed: "Failed to load",
+    rules: "Rules",
+    addRule: "Add Rule",
+    deleteRule: "Delete Rule",
+    targets: "Targets",
+    conditions: "Conditions",
+    overrides: "Overrides",
+    comment: "Comment",
   },
   ch: {
     appTitle: "POE 过滤器编辑器",
@@ -62,6 +69,13 @@ export const translations = {
     saveSuccess: "保存成功！",
     moveFailed: "移动物品失败",
     loadFailed: "加载失败",
+    rules: "规则",
+    addRule: "添加规则",
+    deleteRule: "删除规则",
+    targets: "目标",
+    conditions: "条件",
+    overrides: "覆盖设定",
+    comment: "备注",
   }
 };
 

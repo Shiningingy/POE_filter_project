@@ -96,6 +96,37 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     }
   };
 
+  const handleAddTier = (categoryKey: string) => {
+    if (!parsedConfig) return;
+    const newConfig = JSON.parse(JSON.stringify(parsedConfig));
+    const categoryData = newConfig[categoryKey];
+    
+    // Generate a new unique key
+    const existingTiers = Object.keys(categoryData).filter(k => k.startsWith('Tier'));
+    const nextNum = existingTiers.length;
+    const newTierKey = `Tier ${nextNum} ${categoryKey}`;
+    
+    // Add default tier structure
+    categoryData[newTierKey] = {
+      hideable: false,
+      theme: { Tier: 1 },
+      sound: { default_sound_id: -1, sharket_sound_id: null },
+      localization: {
+        en: newTierKey,
+        ch: `T${nextNum} ${categoryData._meta?.localization?.ch || categoryKey}`
+      }
+    };
+
+    // Update tier_order if it exists
+    if (categoryData._meta?.tier_order) {
+      categoryData._meta.tier_order.push(newTierKey);
+    }
+
+    const jsonString = JSON.stringify(newConfig, null, 2);
+    setParsedConfig(newConfig);
+    onConfigContentChange(jsonString);
+  };
+
   if (!themeData || !parsedConfig) return <div>Loading category data...</div>;
 
   return (
@@ -118,7 +149,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
               const resolved = resolveStyle(tierData, themeData);
               const items = tierItems[tierKey] || [];
 
-              // Construct dynamic localized tier name
               const tierNum = tierData.theme?.Tier !== undefined ? tierData.theme.Tier : "?";
               const displayTierName = language === 'ch' 
                 ? `T${tierNum} ${catName}` 
@@ -142,6 +172,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                 </div>
               );
             })}
+
+            <button className="add-tier-btn" onClick={() => handleAddTier(categoryKey)}>
+              + {language === 'ch' ? '添加新阶级' : 'Add New Tier'}
+            </button>
           </div>
         );
       })}
@@ -152,6 +186,11 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         .category-section { margin-bottom: 30px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); padding: 20px; }
         .category-section h3 { border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-top: 0; color: #333; }
         .tier-block { margin-bottom: 20px; border: 1px solid #eee; border-radius: 4px; padding: 10px; }
+        .add-tier-btn { 
+          width: 100%; padding: 10px; background: #f9f9f9; border: 2px dashed #ddd; 
+          color: #888; cursor: pointer; border-radius: 4px; font-weight: bold;
+        }
+        .add-tier-btn:hover { background: #f0f0f0; border-color: #ccc; color: #666; }
       `}</style>
     </div>
   );
