@@ -4,7 +4,7 @@
       "_meta": {
         "localization": {
           "en": "Currency",
-          "ch": "Currency"
+          "ch": "通货"
         }
       },
       "subgroups": [
@@ -12,7 +12,7 @@
           "_meta": {
             "localization": {
               "en": "General",
-              "ch": "General"
+              "ch": "通用"
             }
           },
           "files": [
@@ -23,7 +23,7 @@
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Breach",
-                "ch": "可堆叠通货"
+                "ch": "裂隙"
               }
             },
             {
@@ -33,7 +33,7 @@
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Delirium Orbs",
-                "ch": "可堆叠通货"
+                "ch": "惊怖宝珠"
               }
             },
             {
@@ -43,7 +43,7 @@
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Essences",
-                "ch": "可堆叠通货"
+                "ch": "精华"
               }
             },
             {
@@ -53,7 +53,7 @@
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Expedition",
-                "ch": "可堆叠通货"
+                "ch": "探险"
               }
             },
             {
@@ -63,7 +63,7 @@
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Fossils",
-                "ch": "可堆叠通货"
+                "ch": "化石"
               }
             },
             {
@@ -73,7 +73,7 @@
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "General",
-                "ch": "可堆叠通货"
+                "ch": "通用"
               }
             },
             {
@@ -83,7 +83,7 @@
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Harbinger",
-                "ch": "可堆叠通货"
+                "ch": "先驱"
               }
             },
             {
@@ -93,7 +93,7 @@
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Heist",
-                "ch": "可堆叠通货"
+                "ch": "夺宝"
               }
             },
             {
@@ -103,7 +103,7 @@
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Incubators",
-                "ch": "可堆叠通货"
+                "ch": "孕育石"
               }
             },
             {
@@ -113,7 +113,7 @@
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Oils & Harvest",
-                "ch": "可堆叠通货"
+                "ch": "圣油与庄园"
               }
             },
             {
@@ -123,7 +123,7 @@
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Ritual",
-                "ch": "可堆叠通货"
+                "ch": "仪式"
               }
             }
           ]
@@ -134,7 +134,7 @@
       "_meta": {
         "localization": {
           "en": "Divination Cards",
-          "ch": "Divination Cards"
+          "ch": "命运卡"
         }
       },
       "subgroups": [
@@ -142,7 +142,7 @@
           "_meta": {
             "localization": {
               "en": "General",
-              "ch": "General"
+              "ch": "通用"
             }
           },
           "files": [
@@ -164,7 +164,7 @@
       "_meta": {
         "localization": {
           "en": "Equipment",
-          "ch": "Equipment"
+          "ch": "装备"
         }
       },
       "subgroups": [
@@ -172,7 +172,7 @@
           "_meta": {
             "localization": {
               "en": "Armour",
-              "ch": "Armour"
+              "ch": "护甲"
             }
           },
           "files": [
@@ -242,7 +242,7 @@
           "_meta": {
             "localization": {
               "en": "Jewellery",
-              "ch": "Jewellery"
+              "ch": "饰品"
             }
           },
           "files": [
@@ -292,7 +292,7 @@
           "_meta": {
             "localization": {
               "en": "Weapons",
-              "ch": "Weapons"
+              "ch": "武器"
             }
           },
           "files": [
@@ -444,7 +444,7 @@
       "_meta": {
         "localization": {
           "en": "Gems",
-          "ch": "Gems"
+          "ch": "宝石"
         }
       },
       "subgroups": [
@@ -452,7 +452,7 @@
           "_meta": {
             "localization": {
               "en": "General",
-              "ch": "General"
+              "ch": "通用"
             }
           },
           "files": [
@@ -484,7 +484,7 @@
       "_meta": {
         "localization": {
           "en": "Maps",
-          "ch": "Maps"
+          "ch": "地图"
         }
       },
       "subgroups": [
@@ -492,7 +492,7 @@
           "_meta": {
             "localization": {
               "en": "General",
-              "ch": "General"
+              "ch": "通用"
             }
           },
           "files": [
@@ -503,7 +503,7 @@
               "target_category": "Maps",
               "localization": {
                 "en": "Base Maps",
-                "ch": "异界地图"
+                "ch": "常规地图"
               }
             },
             {
@@ -513,7 +513,7 @@
               "target_category": "Map Fragments",
               "localization": {
                 "en": "Fragments",
-                "ch": "地图碎片"
+                "ch": "碎片"
               }
             }
           ]
@@ -524,7 +524,7 @@
       "_meta": {
         "localization": {
           "en": "Misc",
-          "ch": "Misc"
+          "ch": "杂项"
         }
       },
       "subgroups": [
@@ -532,7 +532,7 @@
           "_meta": {
             "localization": {
               "en": "General",
-              "ch": "General"
+              "ch": "通用"
             }
           },
           "files": [
@@ -543,7 +543,7 @@
               "target_category": "Gold",
               "localization": {
                 "en": "General",
-                "ch": "金币"
+                "ch": "通用"
               }
             }
           ]
