@@ -38,6 +38,55 @@ app.add_middleware(
 from typing import List, Dict
 from pydantic import BaseModel
 
+class UpdateItemOverrideRequest(BaseModel):
+    item_name: str
+    overrides: dict
+    source_file: str
+
+@app.post("/api/update-item-override")
+def update_item_override(request: UpdateItemOverrideRequest):
+    """
+    Updates or creates an override rule for a specific item.
+    """
+    file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail="Source mapping file not found.")
+        
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        
+        rules = data.get("rules", [])
+        
+        # Look for existing override rule for this item
+        # Rule matches if targets == [item_name] and has no other conditions
+        found = False
+        for rule in rules:
+            if rule.get("targets") == [request.item_name] and not rule.get("conditions"):
+                rule["overrides"].update(request.overrides)
+                # If overrides are empty (e.g. sound cleared), we might want to remove the rule, 
+                # but for now we just update.
+                found = True
+                break
+        
+        if not found:
+            # Create new override rule
+            rules.append({
+                "targets": [request.item_name],
+                "conditions": {},
+                "overrides": request.overrides,
+                "comment": f"Manual override for {request.item_name}"
+            })
+            
+        data["rules"] = rules
+        
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+            
+        return {"message": "Item override updated successfully."}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 class TierItemsRequest(BaseModel):
     tier_keys: List[str]
 

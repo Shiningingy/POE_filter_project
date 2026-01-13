@@ -102,6 +102,21 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     }
   };
 
+  const handleUpdateOverride = async (item: TierItem, overrides: any) => {
+    try {
+      await axios.post(`${API_BASE_URL}/api/update-item-override`, {
+        item_name: item.name,
+        overrides: overrides,
+        source_file: item.source
+      });
+      alert("Override applied successfully!");
+      fetchTierItems(Object.keys(tierItems));
+    } catch (err) {
+      console.error("Failed to update override", err);
+      alert("Failed to update override.");
+    }
+  };
+
   const handleAddTier = (categoryKey: string) => {
     if (!parsedConfig) return;
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
@@ -197,6 +212,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     items={items}
                     allTiers={tierOptions}
                     onMoveItem={handleMoveItem}
+                    onUpdateOverride={handleUpdateOverride}
                     language={language}
                   />
                 </div>

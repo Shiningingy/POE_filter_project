@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 interface ContextMenuProps {
   x: number;
   y: number;
-  options: { label: string; onClick: () => void; color?: string }[];
+  options: { label: string; onClick: () => void; color?: string; divider?: boolean; className?: string }[];
   onClose: () => void;
 }
 
@@ -33,15 +33,16 @@ const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, options, onClose }) => 
       {options.map((option, index) => (
         <div 
           key={index} 
-          className="menu-item" 
+          className={`menu-item ${option.className || ''}`} 
           onClick={(e) => {
+            if (option.divider) return;
             e.stopPropagation();
             option.onClick();
             onClose();
           }}
         >
-          {option.color && <span className="color-dot" style={{ background: option.color }}></span>}
-          {option.label}
+          {!option.divider && option.color && <span className="color-dot" style={{ background: option.color }}></span>}
+          {option.divider ? "" : option.label}
         </div>
       ))}
       <style>{`
@@ -52,7 +53,7 @@ const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, options, onClose }) => 
           box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
           z-index: 2000;
           border-radius: 4px;
-          min-width: 180px;
+          min-width: 200px;
           padding: 5px 0;
         }
         .menu-item {
@@ -66,6 +67,14 @@ const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, options, onClose }) => 
         }
         .menu-item:hover {
           background: #f0f0f0;
+        }
+        .menu-item.divider {
+            border-top: 1px solid #eee;
+            margin-top: 5px;
+            padding-top: 10px;
+            font-weight: bold;
+            color: #888;
+            pointer-events: none;
         }
         .color-dot {
           width: 10px;

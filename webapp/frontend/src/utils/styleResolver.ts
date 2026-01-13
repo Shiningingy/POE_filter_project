@@ -35,9 +35,9 @@ export const resolveStyle = (tierData: any, themeData: any): StyleProps => {
 export const generateFilterText = (style: StyleProps, tierName: string, baseTypes: string[] = ["Item Name"]): string => {
   const lines = [`# ${tierName}`];
   lines.push('Show');
-  lines.push(`  BaseType "${baseTypes.join('" "')}"`);
+  lines.push(`    BaseType "${baseTypes.join('" "')}"`);
   
-  if (style.FontSize) lines.push(`  SetFontSize ${style.FontSize}`);
+  if (style.FontSize) lines.push(`    SetFontSize ${style.FontSize}`);
   
   const toRgb = (hex?: string) => {
     if (!hex || !hex.startsWith('#')) return "255 255 255";
@@ -47,13 +47,17 @@ export const generateFilterText = (style: StyleProps, tierName: string, baseType
     return `${r} ${g} ${b}`;
   };
 
-  if (style.TextColor) lines.push(`  SetTextColor ${toRgb(style.TextColor)}`);
-  if (style.BorderColor) lines.push(`  SetBorderColor ${toRgb(style.BorderColor)}`);
-  if (style.BackgroundColor) lines.push(`  SetBackgroundColor ${toRgb(style.BackgroundColor)}`);
+  if (style.TextColor) lines.push(`    SetTextColor ${toRgb(style.TextColor)}`);
+  if (style.BorderColor) lines.push(`    SetBorderColor ${toRgb(style.BorderColor)}`);
+  if (style.BackgroundColor) lines.push(`    SetBackgroundColor ${toRgb(style.BackgroundColor)}`);
   
-  if (style.PlayEffect) lines.push(`  PlayEffect ${style.PlayEffect}`);
-  if (style.MinimapIcon) lines.push(`  MinimapIcon 0 ${style.MinimapIcon}`);
-  if (style.PlayAlertSound) lines.push(`  CustomAlertSound "${style.PlayAlertSound[0]}" ${style.PlayAlertSound[1]}`);
+  if (style.PlayEffect) lines.push(`    PlayEffect ${style.PlayEffect}`);
+  if (style.MinimapIcon) lines.push(`    MinimapIcon 0 ${style.MinimapIcon}`);
+  
+  if (style.PlayAlertSound) {
+    const [file, vol] = style.PlayAlertSound;
+    lines.push(`    CustomAlertSound "${file}" ${vol}`);
+  }
 
   return lines.join('\n');
 };

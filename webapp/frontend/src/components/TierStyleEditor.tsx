@@ -23,11 +23,19 @@ interface TierStyleEditorProps {
 const TierStyleEditor: React.FC<TierStyleEditorProps> = ({ tierName, style, onChange, language }) => {
   const t = useTranslation(language);
   const [showTooltip, setShowTooltip] = useState(false);
+  const [copyFeedback, setCopyFeedback] = useState(false);
   
   const handleChange = (key: keyof StyleProps, value: any) => {
     onChange({
       ...style,
       [key]: value
+    });
+  };
+
+  const handleSoundChange = (file: string, vol: number) => {
+    onChange({
+      ...style,
+      PlayAlertSound: [file, vol]
     });
   };
 
@@ -43,6 +51,12 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({ tierName, style, onCh
 
   const filterText = generateFilterText(style, tierName);
 
+  const handleCopy = () => {
+    navigator.clipboard.writeText(filterText);
+    setCopyFeedback(true);
+    setTimeout(() => setCopyFeedback(false), 2000);
+  };
+
   return (
     <div className="tier-style-editor">
       <div className="header">
@@ -51,6 +65,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({ tierName, style, onCh
           className="preview-container"
           onMouseEnter={() => setShowTooltip(true)}
           onMouseLeave={() => setShowTooltip(false)}
+          onClick={handleCopy}
         >
             <div className="preview-box" style={{
               fontSize: `${(style.FontSize || 32) / 2}px`, 
@@ -59,17 +74,18 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({ tierName, style, onCh
               backgroundColor: style.BackgroundColor ? style.BackgroundColor.substring(0, 7) : 'rgba(0,0,0,0.5)',
               borderStyle: 'solid',
               borderWidth: '1px',
-              padding: '4px 8px',
+              padding: '4px 16px',
               display: 'inline-block',
-              cursor: 'help'
+              cursor: 'pointer',
+              textAlign: 'left'
             }}>
-              {t.itemPreview}
+              {copyFeedback ? "✓ Copied!" : t.itemPreview}
             </div>
 
             {showTooltip && (
                 <div className="filter-tooltip">
                     <pre>{filterText}</pre>
-                    <div className="copy-hint">Hover to see raw filter code</div>
+                    <div className="copy-hint">Click to copy raw filter code</div>
                 </div>
             )}
         </div>
@@ -110,6 +126,27 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({ tierName, style, onCh
         </label>
       </div>
 
+      <div className="sound-section">
+        <label className="sound-input">
+          🎵 Sound File:
+          <div className="input-group">
+            <input 
+              type="text" 
+              placeholder="e.g. Sharket掉落音效/example.mp3" 
+              value={style.PlayAlertSound?.[0] || ''} 
+              onChange={e => handleSoundChange(e.target.value, style.PlayAlertSound?.[1] || 300)}
+            />
+            <input 
+              type="number" 
+              title="Volume"
+              className="vol-input"
+              value={style.PlayAlertSound?.[1] || 300} 
+              onChange={e => handleSoundChange(style.PlayAlertSound?.[0] || '', parseInt(e.target.value))}
+            />
+          </div>
+        </label>
+      </div>
+
       <style>{`
         .tier-style-editor { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 4px; background: white; }
         .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
@@ -122,20 +159,28 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({ tierName, style, onCh
             right: 0;
             background: #1e1e1e;
             color: #d4d4d4;
-            padding: 10px;
+            padding: 15px;
             border-radius: 4px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             font-family: monospace;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             z-index: 100;
-            min-width: 250px;
+            min-width: 300px;
             pointer-events: none;
+            text-align: left;
         }
-        .filter-tooltip pre { margin: 0; white-space: pre-wrap; }
-        .copy-hint { border-top: 1px solid #444; margin-top: 5px; padding-top: 5px; font-size: 0.6rem; color: #888; text-align: center; }
+        .filter-tooltip pre { margin: 0; white-space: pre-wrap; text-align: left; }
+        .copy-hint { border-top: 1px solid #444; margin-top: 8px; padding-top: 5px; font-size: 0.65rem; color: #888; text-align: center; }
 
-        .controls-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-        .controls-grid label { display: flex; flex-direction: column; font-size: 0.9rem; color: #666; }
+        .controls-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 15px; }
+        .controls-grid label { display: flex; flex-direction: column; font-size: 0.8rem; color: #666; }
+        
+        .sound-section { border-top: 1px solid #eee; padding-top: 10px; }
+        .sound-input { display: flex; flex-direction: column; font-size: 0.8rem; color: #666; gap: 5px; }
+        .input-group { display: flex; gap: 5px; }
+        .input-group input[type="text"] { flex-grow: 1; padding: 6px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.8rem; }
+        .vol-input { width: 60px; padding: 6px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.8rem; }
+
         input[type="number"], input[type="color"] { margin-top: 4px; padding: 4px; border: 1px solid #ccc; border-radius: 4px; width: 100%; height: 30px; }
       `}</style>
     </div>

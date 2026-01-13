@@ -21,14 +21,16 @@ interface TierItemManagerProps {
   items: TierItem[];
   allTiers: TierOption[]; 
   onMoveItem: (item: TierItem, newTier: string) => void;
+  onUpdateOverride: (item: TierItem, overrides: any) => void;
   language: Language;
 }
 
-const TierItemManager: React.FC<TierItemManagerProps> = ({ 
-  tierKey, 
-  items, 
-  allTiers, 
+const TierItemManager: React.FC<TierItemManagerProps> = ({
+  tierKey,
+  items,
+  allTiers,
   onMoveItem,
+  onUpdateOverride,
   language
 }) => {
   const t = useTranslation(language);
@@ -82,6 +84,17 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
     const num = parseInt(match[1]);
     const colors = ['#ff0000', '#e700e7', '#af00ff', '#3400ff', '#0090ff', '#00ffb5', '#00ff2d', '#aeff00', '#ffff00', '#ff9d00'];
     return colors[num] || '#ddd';
+  };
+
+  const handleSoundOverride = (item: TierItem) => {
+    const path = prompt("Enter sound file path (e.g. Sharket掉落音效/example.mp3):");
+    if (path === null) return;
+    
+    const volStr = prompt("Enter volume (0-300):", "300");
+    if (volStr === null) return;
+    const vol = parseInt(volStr) || 300;
+
+    onUpdateOverride(item, { PlayAlertSound: [path, vol] });
   };
 
   return (
@@ -149,14 +162,17 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           x={contextMenu.x}
           y={contextMenu.y}
           onClose={() => setContextMenu(null)}
-          options={allTiers.map(t => ({
-            label: t.label,
-            color: getTierColor(t.key),
-            onClick: () => onMoveItem(contextMenu.item, t.key)
-          }))}
+          options={[
+            ...allTiers.map(t => ({
+                label: t.label,
+                color: getTierColor(t.key),
+                onClick: () => onMoveItem(contextMenu.item, t.key)
+            })),
+            { label: "divider", onClick: () => {}, divider: true }, // Custom divider logic
+            { label: "🎵 Custom Sound Override", onClick: () => handleSoundOverride(contextMenu.item) }
+          ].map(opt => ({ ...opt, className: opt.label === "divider" ? "divider" : "" }))}
         />
       )}
-
       <style>{`
         .tier-item-manager { margin-top: 10px; border-top: 1px solid #eee; }
         .header { padding: 8px 0; cursor: pointer; display: flex; justify-content: space-between; color: #666; font-size: 0.9rem; user-select: none; }
