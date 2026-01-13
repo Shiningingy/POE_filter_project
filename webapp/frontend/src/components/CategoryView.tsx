@@ -200,6 +200,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     onGlobalRulesChange={(newRules) => handleRulesChange(categoryKey, newRules)}
                     language={language}
                     availableItems={items.map(i => i.name)}
+                    categoryName={themeCategory}
                   />
                 </div>
               );

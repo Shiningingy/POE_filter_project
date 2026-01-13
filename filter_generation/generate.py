@@ -115,12 +115,6 @@ def generate_filter():
     print("Processing items...")
     item_blocks_data = [] # Changed from dict to list to allow multiple blocks for same item
     
-    # Load all base mapping data fully to access rules
-    mapping_docs = {}
-    for mapping_file in base_mapping_dir.glob("*.json"):
-        with open(mapping_file, "r", encoding="utf-8") as f:
-            mapping_docs[mapping_file.name] = json.load(f)
-
     for item in all_base_item_types:
         item_name = item.get("Name")
         if not item_name:
@@ -130,74 +124,59 @@ def generate_filter():
         if not tier_key:
             continue
 
-        # Find the source mapping doc to get rules
-        # We need to know which file this item came from. 
-        # In Turn 13, I didn't store the source file in global_item_mapping.
-        # I'll find it now by checking item_class in _meta? No, filenames match Class names.
-        # Actually, let's just find which mapping doc contains the item.
-        source_doc = None
-        for doc in mapping_docs.values():
-            if item_name in doc.get("mapping", {}):
-                source_doc = doc
-                break
-        
-        if not source_doc:
+        tier_info_tuple = tier_def_lookup.get(tier_key)
+        if not tier_info_tuple:
             continue
-
-        # Logic: 
-        # 1. Check for specific rules
-        # 2. Add the default mapping
+            
+        tier_data, category_data = tier_info_tuple
         
-        rules = source_doc.get("rules", [])
+        # 1. Check for Rules in the Category Definition (New source for rules)
+        cat_meta = category_data.get("_meta", {})
+        rules = cat_meta.get("rules", [])
+        
         for rule in rules:
             if item_name in rule.get("targets", []):
                 # Apply Rule
                 rule_tier_key = rule.get("overrides", {}).get("Tier", tier_key)
-                tier_info_tuple = tier_def_lookup.get(rule_tier_key)
                 
-                if tier_info_tuple:
-                    tier_data, category_data = tier_info_tuple
-                    
-                    # Merge style overrides from the rule into the tier data
-                    effective_style = tier_data.get('theme', {}).copy()
-                    effective_style.update(rule.get("overrides", {}))
-                    
-                    cat_meta = category_data.get("_meta", {})
-                    cat_loc = cat_meta.get("localization", {})
-                    tier_num = effective_style.get('Tier', "?")
-                    cat_name_ch = cat_loc.get("ch", cat_loc.get("en", "Unknown"))
-                    group_text = f"T{tier_num} {cat_name_ch}"
+                # Rule might reference a different tier or just override specific styles
+                target_tier_data = tier_data # Default
+                if rule_tier_key != tier_key and rule_tier_key in tier_def_lookup:
+                    target_tier_data, _ = tier_def_lookup[rule_tier_key]
+                
+                effective_style = target_tier_data.get('theme', {}).copy()
+                effective_style.update(rule.get("overrides", {}))
+                
+                cat_loc = cat_meta.get("localization", {})
+                tier_num = effective_style.get('Tier', "?")
+                cat_name_ch = cat_loc.get("ch", cat_loc.get("en", "Unknown"))
+                
+                item_blocks_data.append({
+                    "name": item_name,
+                    "group": f"Tier {tier_num}" if isinstance(tier_num, int) else rule_tier_key,
+                    "group_text": f"T{tier_num} {cat_name_ch}",
+                    "text_ch": global_translations.get(item_name, item_name),
+                    "hideable": rule.get("overrides", {}).get("hideable", target_tier_data.get("hideable", False)),
+                    "conditions": rule.get("conditions", {}),
+                    "style_override": rule.get("overrides", {}),
+                    "comment": rule.get("comment", "")
+                })
 
-                    item_blocks_data.append({
-                        "name": item_name,
-                        "group": f"Tier {tier_num}" if isinstance(tier_num, int) else rule_tier_key,
-                        "group_text": group_text,
-                        "text_ch": global_translations.get(item_name, item_name),
-                        "hideable": rule.get("overrides", {}).get("hideable", tier_data.get("hideable", False)),
-                        "conditions": rule.get("conditions", {}),
-                        "style_override": rule.get("overrides", {}),
-                        "comment": rule.get("comment", "")
-                    })
-
-        # Finally add the base (default) mapping
-        tier_info_tuple = tier_def_lookup.get(tier_key)
-        if tier_info_tuple:
-            tier_data, category_data = tier_info_tuple
-            cat_meta = category_data.get("_meta", {})
-            cat_loc = cat_meta.get("localization", {})
-            tier_num = tier_data.get('theme', {}).get('Tier', "?")
-            cat_name_ch = cat_loc.get("ch", cat_loc.get("en", "Unknown"))
-            
-            item_blocks_data.append({
-                "name": item_name,
-                "group": f"Tier {tier_num}" if isinstance(tier_num, int) else tier_key,
-                "group_text": f"T{tier_num} {cat_name_ch}",
-                "text_ch": global_translations.get(item_name, item_name),
-                "hideable": tier_data.get("hideable", False),
-                "conditions": {},
-                "style_override": {},
-                "comment": ""
-            })
+        # 2. Add the base (default) mapping
+        cat_loc = cat_meta.get("localization", {})
+        tier_num = tier_data.get('theme', {}).get('Tier', "?")
+        cat_name_ch = cat_loc.get("ch", cat_loc.get("en", "Unknown"))
+        
+        item_blocks_data.append({
+            "name": item_name,
+            "group": f"Tier {tier_num}" if isinstance(tier_num, int) else tier_key,
+            "group_text": f"T{tier_num} {cat_name_ch}",
+            "text_ch": global_translations.get(item_name, item_name),
+            "hideable": tier_data.get("hideable", False),
+            "conditions": {},
+            "style_override": {},
+            "comment": ""
+        })
 
     print(f"Prepared {len(item_blocks_data)} blocks for generator.")
 
