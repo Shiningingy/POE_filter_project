@@ -113,58 +113,93 @@ def generate_filter():
 
     # --- 4. Process Items and Assign Tiers ---
     print("Processing items...")
-    item_data_for_generator = {}
+    item_blocks_data = [] # Changed from dict to list to allow multiple blocks for same item
     
-    # Iterate through all known items from GGPK
+    # Load all base mapping data fully to access rules
+    mapping_docs = {}
+    for mapping_file in base_mapping_dir.glob("*.json"):
+        with open(mapping_file, "r", encoding="utf-8") as f:
+            mapping_docs[mapping_file.name] = json.load(f)
+
     for item in all_base_item_types:
         item_name = item.get("Name")
         if not item_name:
             continue
 
-        # Check if we have a mapping for this item
         tier_key = global_item_mapping.get(item_name)
-        
-        if tier_key:
-            # Look up the Tier Definition
-            tier_info_tuple = tier_def_lookup.get(tier_key)
-            
-            if tier_info_tuple:
-                tier_data, category_data = tier_info_tuple
-                
-                # Construct the meta object expected by the generator
-                theme_data = tier_data.get('theme', {})
-                loc_data = tier_data.get('localization', {}) # Might be empty now
-                
-                # Dynamic Group Text Construction
-                # We prioritize Chinese for the internal filter comments as requested
-                cat_meta = category_data.get("_meta", {})
-                cat_loc = cat_meta.get("localization", {})
-                
-                tier_num = theme_data.get('Tier', "?")
-                cat_name_ch = cat_loc.get("ch", cat_loc.get("en", "Unknown"))
-                
-                # Format: T1 通货
-                group_text = f"T{tier_num} {cat_name_ch}"
+        if not tier_key:
+            continue
 
-                meta = {
-                    "group": f"Tier {theme_data.get('Tier')}" if "Tier" in theme_data else tier_key,
-                    "group_text": group_text,
-                    "text_ch": global_translations.get(item_name, item_name),
-                    "hideable": tier_data.get("hideable", False),
-                    "category": category_data.get("_meta", {}).get("theme_category", "Unknown"),
-                    "tier_key": tier_key
-                }
-                item_data_for_generator[item_name] = meta
-            else:
-                # We have a mapping (e.g., "Tier 1 StackableCurrency") but no definition for it
-                # print(f"Warning: Item '{item_name}' mapped to '{tier_key}' but no Tier Definition found.")
-                pass
-        else:
-            # Item has no mapping in base_mapping/*.json
-            # Use Default/Fallback
-            pass
+        # Find the source mapping doc to get rules
+        # We need to know which file this item came from. 
+        # In Turn 13, I didn't store the source file in global_item_mapping.
+        # I'll find it now by checking item_class in _meta? No, filenames match Class names.
+        # Actually, let's just find which mapping doc contains the item.
+        source_doc = None
+        for doc in mapping_docs.values():
+            if item_name in doc.get("mapping", {}):
+                source_doc = doc
+                break
+        
+        if not source_doc:
+            continue
+
+        # Logic: 
+        # 1. Check for specific rules
+        # 2. Add the default mapping
+        
+        rules = source_doc.get("rules", [])
+        for rule in rules:
+            if item_name in rule.get("targets", []):
+                # Apply Rule
+                rule_tier_key = rule.get("overrides", {}).get("Tier", tier_key)
+                tier_info_tuple = tier_def_lookup.get(rule_tier_key)
+                
+                if tier_info_tuple:
+                    tier_data, category_data = tier_info_tuple
+                    
+                    # Merge style overrides from the rule into the tier data
+                    effective_style = tier_data.get('theme', {}).copy()
+                    effective_style.update(rule.get("overrides", {}))
+                    
+                    cat_meta = category_data.get("_meta", {})
+                    cat_loc = cat_meta.get("localization", {})
+                    tier_num = effective_style.get('Tier', "?")
+                    cat_name_ch = cat_loc.get("ch", cat_loc.get("en", "Unknown"))
+                    group_text = f"T{tier_num} {cat_name_ch}"
+
+                    item_blocks_data.append({
+                        "name": item_name,
+                        "group": f"Tier {tier_num}" if isinstance(tier_num, int) else rule_tier_key,
+                        "group_text": group_text,
+                        "text_ch": global_translations.get(item_name, item_name),
+                        "hideable": rule.get("overrides", {}).get("hideable", tier_data.get("hideable", False)),
+                        "conditions": rule.get("conditions", {}),
+                        "style_override": rule.get("overrides", {}),
+                        "comment": rule.get("comment", "")
+                    })
+
+        # Finally add the base (default) mapping
+        tier_info_tuple = tier_def_lookup.get(tier_key)
+        if tier_info_tuple:
+            tier_data, category_data = tier_info_tuple
+            cat_meta = category_data.get("_meta", {})
+            cat_loc = cat_meta.get("localization", {})
+            tier_num = tier_data.get('theme', {}).get('Tier', "?")
+            cat_name_ch = cat_loc.get("ch", cat_loc.get("en", "Unknown"))
             
-    print(f"Prepared {len(item_data_for_generator)} items for generator.")
+            item_blocks_data.append({
+                "name": item_name,
+                "group": f"Tier {tier_num}" if isinstance(tier_num, int) else tier_key,
+                "group_text": f"T{tier_num} {cat_name_ch}",
+                "text_ch": global_translations.get(item_name, item_name),
+                "hideable": tier_data.get("hideable", False),
+                "conditions": {},
+                "style_override": {},
+                "comment": ""
+            })
+
+    print(f"Prepared {len(item_blocks_data)} blocks for generator.")
 
     # --- 5. Load Theme and Sound ---
     print("Loading Theme and Sound...")
@@ -181,8 +216,8 @@ def generate_filter():
 
     # --- 6. Generate Sections ---
     print("Building Filter Sections...")
-    # currently only building currency section as a test/start
-    final_filter_content, style_map = build_currency_section(item_data_for_generator, theme, sound_map)
+    # item_blocks_data is now a list
+    final_filter_content, style_map = build_currency_section(item_blocks_data, theme, sound_map)
     print(f"Generated filter content size: {len(final_filter_content)} bytes")
     
     # --- 7. Write Output ---
