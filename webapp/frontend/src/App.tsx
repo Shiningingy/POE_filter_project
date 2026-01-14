@@ -1,28 +1,25 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './App.css';
-import ConfigEditor from './components/ConfigEditor'; 
-import MappingEditor from './components/MappingEditor'; 
-import DropSimulator from './components/DropSimulator'; 
-import Sidebar from './components/Sidebar'; 
-import { getThemes } from './services/api'; 
 import { useTranslation } from './utils/localization';
 import type { Language } from './utils/localization';
-import type { CategoryFile } from './components/Sidebar';
 import EditorView from './views/EditorView';
 import SimulatorView from './views/SimulatorView';
 import ExportView from './views/ExportView';
+import type { CategoryFile } from './components/Sidebar';
 
 function App() {
   const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export'>('editor');
   const [language, setLanguage] = useState<Language>('ch');
   const [gameVersion, setGameVersion] = useState<'poe1' | 'poe2'>('poe1');
   const [gameMode, setGameMode] = useState<'normal' | 'ruthless'>('ruthless');
-  
   const t = useTranslation(language);
 
   // Selection state
   const [selectedFile, setSelectedFile] = useState<CategoryFile | null>(null);
+  
+  // Clipboard for Styles
+  const [styleClipboard, setStyleClipboard] = useState<any>(null);
   
   // Data for ConfigEditor (fallback)
   const [configContent, setConfigContent] = useState<string>('{}'); 
@@ -32,6 +29,7 @@ function App() {
   const [message, setMessage] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
   const [jsonError, setJsonError] = useState<string>(''); 
+  const [viewerBackground, setViewerBackground] = useState<string>('Item_bg_coast.jpg');
 
   const API_BASE_URL = 'http://localhost:8000'; 
 
@@ -172,6 +170,10 @@ function App() {
             onSave={saveConfigContent}
             message={message}
             language={language}
+            styleClipboard={styleClipboard}
+            setStyleClipboard={setStyleClipboard}
+            viewerBackground={viewerBackground}
+            setViewerBackground={setViewerBackground}
           />
         )}
         {currentView === 'simulator' && (
@@ -190,7 +192,7 @@ function App() {
       <style>{`
         .App { display: flex; flex-direction: column; height: 100vh; font-family: 'Segoe UI', sans-serif; }
         .navbar { 
-          display: flex; align-items: center; padding: 0 20px; 
+          display: flex; align-items: center; padding: 0 30px; 
           background: #333; color: white; height: 60px; flex-shrink: 0; 
           gap: 20px;
         }

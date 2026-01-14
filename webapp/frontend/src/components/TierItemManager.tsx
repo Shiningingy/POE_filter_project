@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useTranslation } from '../utils/localization';
+import { useTranslation, getItemName } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ContextMenu from './ContextMenu';
 
@@ -21,6 +21,7 @@ interface TierItemManagerProps {
   items: TierItem[];
   allTiers: TierOption[]; 
   onMoveItem: (item: TierItem, newTier: string) => void;
+  onDeleteItem: (item: TierItem) => void;
   onUpdateOverride: (item: TierItem, overrides: any) => void;
   language: Language;
 }
@@ -30,6 +31,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   items,
   allTiers,
   onMoveItem,
+  onDeleteItem,
   onUpdateOverride,
   language
 }) => {
@@ -40,7 +42,6 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   const [addSearch, setAddSearch] = useState('');
   const [suggestions, setSuggestions] = useState<TierItem[]>([]);
 
-  // Context Menu State
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: TierItem } | null>(null);
 
   const filteredItems = items.filter(i => 
@@ -77,7 +78,6 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
     setContextMenu({ x: e.clientX, y: e.clientY, item });
   };
 
-  // Helper to get color for menu dots (simplified)
   const getTierColor = (tk: string) => {
     const match = tk.match(/Tier (\d+)/);
     if (!match) return '#ddd';
@@ -89,24 +89,22 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   const handleSoundOverride = (item: TierItem) => {
     const path = prompt("Enter sound file path (e.g. Sharket掉落音效/example.mp3):");
     if (path === null) return;
-    
-    const volStr = prompt("Enter volume (0-300):", "300");
+    const volStr = prompt("Enter volume (0-600):", "300");
     if (volStr === null) return;
     const vol = parseInt(volStr) || 300;
-
     onUpdateOverride(item, { PlayAlertSound: [path, vol] });
   };
 
   return (
     <div className="tier-item-manager">
-      <div className="header" onClick={() => setIsOpen(!isOpen)}>
-        <span>📦 {t.itemsInTier} ({items.length})</span>
-        <span>{isOpen ? '▲' : '▼'}</span>
+      <div className="mgr-header" onClick={() => setIsOpen(!isOpen)}>
+        <span className="mgr-title">📦 {t.itemsInTier} ({items.length})</span>
+        <span className="mgr-arrow">{isOpen ? '▲' : '▼'}</span>
       </div>
 
       {isOpen && (
-        <div className="content">
-          <div className="add-section">
+        <div className="mgr-content">
+          <div className="add-area">
             <input 
               type="text" 
               placeholder={t.searchPlaceholder} 
@@ -118,7 +116,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
               <ul className="suggestions-list">
                 {suggestions.map(s => (
                   <li key={s.name} onClick={() => handleAddItem(s)}>
-                    <strong>{language === 'ch' ? s.name_ch : s.name}</strong> 
+                    <strong>{getItemName(s, language)}</strong> 
                     <span className="source-hint">({s.current_tier || 'Unassigned'})</span>
                   </li>
                 ))}
@@ -126,34 +124,32 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
             )}
           </div>
 
-          <hr className="divider"/>
-
-          <input 
-            type="text" 
-            placeholder={t.filterPlaceholder} 
-            value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
-            className="search-box"
-          />
+          <div className="filter-area">
+            <input 
+                type="text" 
+                placeholder={t.filterPlaceholder} 
+                value={searchTerm}
+                onChange={e => setSearchTerm(e.target.value)}
+                className="search-box"
+            />
+          </div>
           
-          <ul className="item-list">
+          <div className="item-grid">
             {filteredItems.map(item => (
-              <li 
+              <div 
                 key={item.name} 
-                className="item-row" 
+                className="item-block" 
                 onContextMenu={(e) => handleRightClick(e, item)}
-                title="Right-click to change tier"
+                title={item.source}
               >
-                <span className="item-name" title={item.source}>
-                    {language === 'ch' ? item.name_ch : item.name}
+                <span className="item-text">
+                    {getItemName(item, language)}
                 </span>
-                <span className="tier-badge" onClick={(e) => handleRightClick(e as any, item)}>
-                    {tierKey.split(' ')[1] || 'T?'}
-                </span>
-              </li>
+                <button className="item-del-btn" onClick={(e) => { e.stopPropagation(); onDeleteItem(item); }}>×</button>
+              </div>
             ))}
-            {filteredItems.length === 0 && <li className="empty">{t.noItems}</li>}
-          </ul>
+            {filteredItems.length === 0 && <div className="empty-msg">{t.noItems}</div>}
+          </div>
         </div>
       )}
 
@@ -163,36 +159,51 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           y={contextMenu.y}
           onClose={() => setContextMenu(null)}
           options={[
-            ...allTiers.map(t => ({
-                label: t.label,
-                color: getTierColor(t.key),
-                onClick: () => onMoveItem(contextMenu.item, t.key)
+            ...allTiers.map(tOption => ({
+                label: tOption.label,
+                color: getTierColor(tOption.key),
+                onClick: () => onMoveItem(contextMenu.item, tOption.key)
             })),
-            { label: "divider", onClick: () => {}, divider: true }, // Custom divider logic
+            { label: "divider", onClick: () => {}, divider: true },
             { label: "🎵 Custom Sound Override", onClick: () => handleSoundOverride(contextMenu.item) }
           ].map(opt => ({ ...opt, className: opt.label === "divider" ? "divider" : "" }))}
         />
       )}
+
       <style>{`
-        .tier-item-manager { margin-top: 10px; border-top: 1px solid #eee; }
-        .header { padding: 8px 0; cursor: pointer; display: flex; justify-content: space-between; color: #666; font-size: 0.9rem; user-select: none; }
-        .header:hover { color: #333; }
-        .content { padding: 10px; background: #f9f9f9; border-radius: 4px; }
-        .search-box { width: 100%; padding: 5px; margin-bottom: 8px; border: 1px solid #ddd; border-radius: 3px; }
-        .add-input { border-color: #4CAF50; }
-        .suggestions-list { list-style: none; padding: 0; margin: 0; background: white; border: 1px solid #ddd; max-height: 150px; overflow-y: auto; position: absolute; width: 90%; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .suggestions-list li { padding: 5px 10px; cursor: pointer; display: flex; justify-content: space-between; }
-        .suggestions-list li:hover { background: #eee; }
-        .source-hint { font-size: 0.8rem; color: #888; }
-        .add-section { position: relative; margin-bottom: 10px; }
-        .divider { border: 0; border-top: 1px solid #ddd; margin: 10px 0; }
-        .item-list { list-style: none; padding: 0; margin: 0; max-height: 200px; overflow-y: auto; }
-        .item-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 8px; border-bottom: 1px solid #eee; border-radius: 4px; transition: background 0.2s; cursor: context-menu; }
-        .item-row:hover { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .item-name { font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 200px; }
-        .tier-badge { background: #eee; color: #666; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem; font-weight: bold; cursor: pointer; }
-        .tier-badge:hover { background: #ddd; }
-        .empty { color: #999; text-align: center; padding: 10px; font-size: 0.8rem; }
+        .tier-item-manager { margin-top: 12px; border-top: 1px solid #eee; padding-top: 5px; }
+        .mgr-header { padding: 10px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #555; transition: color 0.2s; }
+        .mgr-header:hover { color: #2196F3; }
+        .mgr-title { font-size: 0.95rem; font-weight: 600; }
+        .mgr-arrow { font-size: 0.8rem; opacity: 0.5; }
+
+        .mgr-content { padding: 15px; background: #f8f9fa; border-radius: 6px; border: 1px solid #e9ecef; }
+        .search-box { width: 100%; padding: 8px 12px; border: 1px solid #dee2e6; border-radius: 4px; font-size: 0.9rem; background: #fff; }
+        .add-input { border-color: #28a745; margin-bottom: 5px; }
+        .add-area { position: relative; margin-bottom: 12px; }
+        .suggestions-list { position: absolute; top: 100%; left: 0; right: 0; z-index: 100; background: #fff; border: 1px solid #ced4da; border-top: none; border-radius: 0 0 4px 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); max-height: 200px; overflow-y: auto; padding: 0; list-style: none; }
+        .suggestions-list li { padding: 8px 12px; cursor: pointer; display: flex; justify-content: space-between; border-bottom: 1px solid #f1f3f5; font-size: 0.85rem; }
+        .suggestions-list li:hover { background: #e7f5ff; }
+        .source-hint { color: #adb5bd; font-size: 0.75rem; }
+
+        .filter-area { margin-bottom: 12px; }
+
+        .item-grid { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
+        .item-block { 
+            display: flex; align-items: center; gap: 6px; padding: 4px 10px; 
+            background: #fff; border: 1px solid #dee2e6; border-radius: 4px;
+            font-size: 0.85rem; color: #495057; position: relative;
+            transition: all 0.2s; cursor: context-menu;
+        }
+        .item-block:hover { border-color: #2196F3; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .item-text { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .item-del-btn { 
+            background: none; border: none; padding: 0; color: #ced4da; 
+            cursor: pointer; font-size: 1.1rem; line-height: 1; margin-left: 4px;
+            transition: color 0.2s;
+        }
+        .item-del-btn:hover { color: #fa5252; }
+        .empty-msg { width: 100%; text-align: center; color: #adb5bd; padding: 20px; font-size: 0.85rem; font-style: italic; }
       `}</style>
     </div>
   );

@@ -30,17 +30,22 @@ interface CategoryStructure {
 const Sidebar: React.FC<SidebarProps> = ({ selectedFile, onSelect, language }) => {
   const [structure, setStructure] = useState<CategoryStructure | null>(null);
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     axios.get('http://localhost:8000/api/category-structure')
       .then(res => setStructure(res.data))
-      .catch(err => console.error("Failed to load sidebar structure", err));
+      .catch(err => {
+        console.error("Failed to load sidebar structure", err);
+        setError("Failed to load sidebar structure");
+      });
   }, []);
 
   const toggle = (id: string) => {
     setExpanded(prev => ({ ...prev, [id]: !prev[id] }));
   };
 
+  if (error) return <div className="sidebar error">{error}</div>;
   if (!structure) return <div className="sidebar loading">Loading structure...</div>;
 
   return (
@@ -97,6 +102,8 @@ const Sidebar: React.FC<SidebarProps> = ({ selectedFile, onSelect, language }) =
 
       <style>{`
         .sidebar { width: 280px; background: #2c2c2c; color: #fff; height: 100%; display: flex; flex-direction: column; border-right: 1px solid #1a1a1a; }
+        .sidebar.loading, .sidebar.error { align-items: center; justify-content: center; color: #888; font-style: italic; font-size: 0.9rem; }
+        .sidebar.error { color: #f44336; }
         .sidebar-content { flex: 1; overflow-y: auto; padding: 10px 0; }
         .group-header { padding: 10px 15px; background: #1a1a1a; cursor: pointer; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; color: #888; display: flex; align-items: center; }
         .subgroup-header { padding: 8px 25px; cursor: pointer; font-size: 0.85rem; color: #bbb; display: flex; align-items: center; }

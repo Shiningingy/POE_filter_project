@@ -14,6 +14,9 @@ interface CategoryViewProps {
   onConfigContentChange: (newContent: string) => void;
   loading: boolean;
   language: Language;
+  onInspectTier: (tier: any) => void;
+  onCopyStyle: (style: any) => void;
+  viewerBackground: string;
 }
 
 interface TierItem {
@@ -22,15 +25,19 @@ interface TierItem {
   source: string;
 }
 
-const CategoryView: React.FC<CategoryViewProps> = ({ 
-  configPath, 
-  configContent, 
+const CategoryView: React.FC<CategoryViewProps> = ({
+  configPath,
+  configContent,
   onConfigContentChange,
   loading,
-  language
+  language,
+  onInspectTier,
+  onCopyStyle,
+  viewerBackground
 }) => {
   const t = useTranslation(language);
   const [themeData, setThemeData] = useState<any>(null);
+  const [soundMap, setSoundMap] = useState<any>(null);
   const [parsedConfig, setParsedConfig] = useState<any>(null);
   const [tierItems, setTierItems] = useState<Record<string, TierItem[]>>({});
 
@@ -48,10 +55,12 @@ const CategoryView: React.FC<CategoryViewProps> = ({
 
   useEffect(() => {
     axios.get(`${API_BASE_URL}/api/themes/sharket`)
-      .then(res => setThemeData(res.data.theme_data))
+      .then(res => {
+          setThemeData(res.data.theme_data);
+          setSoundMap(res.data.sound_map_data);
+      })
       .catch(err => console.error("Failed to load theme:", err));
   }, []);
-
   useEffect(() => {
     try {
       const parsed = JSON.parse(configContent);
@@ -81,11 +90,21 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     if (!parsedConfig) return;
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
     const currentTheme = newConfig[categoryKey][tierKey].theme || {};
-    
     newConfig[categoryKey][tierKey].theme = { ...currentTheme, ...newStyle };
-    newConfig[categoryKey][tierKey].hideable = newVisibility; // true = Hidden/Minimal
-
+    newConfig[categoryKey][tierKey].hideable = newVisibility;
     onConfigContentChange(JSON.stringify(newConfig, null, 2));
+
+    // Update inspector if this is the tier being inspected
+    const displayTierName = language === 'ch' 
+        ? `T${newStyle.Tier ?? "?"} ${newConfig[categoryKey]._meta?.localization?.ch ?? categoryKey}` 
+        : `Tier ${newStyle.Tier ?? "?"} ${newConfig[categoryKey]._meta?.localization?.en ?? categoryKey}`;
+    
+    onInspectTier({ 
+        key: tierKey, 
+        name: displayTierName, 
+        style: resolveStyle(newConfig[categoryKey][tierKey], themeData, soundMap), 
+        visibility: newVisibility 
+    });
   };
 
   const handleMoveItem = async (item: TierItem, newTier: string) => {
@@ -99,6 +118,11 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     } catch (err) {
       console.error("Failed to move item", err);
     }
+  };
+
+  const handleDeleteItem = async (item: TierItem) => {
+    // Logic: move to an empty string or null to remove from mapping
+    handleMoveItem(item, ""); 
   };
 
   const handleUpdateOverride = async (item: TierItem, overrides: any) => {
@@ -144,6 +168,16 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     onConfigContentChange(JSON.stringify(newConfig, null, 2));
   };
 
+  const itemTranslationCache = useMemo(() => {
+    const cache: Record<string, string> = {};
+    Object.values(tierItems).forEach(items => {
+        items.forEach(i => {
+            if (i.name_ch) cache[i.name] = i.name_ch;
+        });
+    });
+    return cache;
+  }, [tierItems]);
+
   if (!themeData || !parsedConfig) return <div>{t.loading}</div>;
 
   return (
@@ -169,12 +203,12 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     setActiveBulkClass(themeCategory);
                     setActiveBulkOptions(tierOptions);
                     setShowBulkEditor(true);
-                }}>⚡ {language === 'ch' ? '批量编辑' : 'Bulk Edit'}</button>
+                }}>⚡ {t.bulkEdit}</button>
             </div>
             
             {tierKeys.map(tierKey => {
               const tierData = categoryData[tierKey];
-              const resolved = resolveStyle(tierData, themeData);
+              const resolved = resolveStyle(tierData, themeData, soundMap);
               const items = tierItems[tierKey] || [];
               const tierNum = tierData.theme?.Tier !== undefined ? tierData.theme.Tier : "?";
               const displayTierName = language === 'ch' ? `T${tierNum} ${catName}` : `Tier ${tierNum} ${catName}`;
@@ -184,15 +218,19 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                   <TierStyleEditor
                     tierName={displayTierName}
                     style={resolved}
-                    visibility={!!tierData.hideable} // Pass visibility (hideable)
+                    visibility={!!tierData.hideable}
                     onChange={(newStyle, newVis) => handleTierUpdate(categoryKey, tierKey, newStyle, newVis)}
                     language={language}
+                    onInspect={() => onInspectTier({ key: tierKey, name: displayTierName, style: resolved, visibility: !!tierData.hideable })}
+                    onCopy={() => onCopyStyle(resolved)}
+                    viewerBackground={viewerBackground}
                   />
                   <TierItemManager 
                     tierKey={tierKey}
                     items={items}
                     allTiers={tierOptions}
                     onMoveItem={handleMoveItem}
+                    onDeleteItem={handleDeleteItem}
                     onUpdateOverride={handleUpdateOverride}
                     language={language}
                   />
@@ -203,11 +241,12 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     language={language}
                     availableItems={items.map(i => i.name)}
                     categoryName={themeCategory}
+                    translationCache={itemTranslationCache}
                   />
                 </div>
               );
             })}
-            <button className="add-tier-btn" onClick={() => handleAddTier(categoryKey)}>+ {language === 'ch' ? '添加新阶级' : 'Add New Tier'}</button>
+            <button className="add-tier-btn" onClick={() => handleAddTier(categoryKey)}>+ {t.addNewTier}</button>
           </div>
         );
       })}
@@ -223,7 +262,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       )}
       
       <style>{`
-        .category-view { padding-bottom: 50px; }
+        .category-view { padding-bottom: 50px; max-width: 1200px; margin: 0 auto; width: 100%; }
         .category-section { margin-bottom: 30px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); padding: 20px; }
         .category-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-bottom: 20px; }
         .category-header h3 { margin: 0; color: #333; }
