@@ -830,26 +830,8 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 }
               />
             </div>
-            <div className="action-btns">
-              <button
-                className="style-btn"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onCopy();
-                }}
-              >
-                {t.copy}
-              </button>
-              <button
-                className="style-btn"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onPaste();
-                }}
-                disabled={!canPaste}
-              >
-                {t.paste}
-              </button>
+            <div className="action-btns" style={{ display: 'none' }}>
+              {/* Copy/Paste buttons removed */}
             </div>
           </div>
           <div className="bottom-row extra-btns">
