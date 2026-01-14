@@ -114,6 +114,18 @@ export const translations = {
     Pink: "Pink",
     Purple: "Purple",
     Temp: "Temp",
+    dragToReorder: "Drag to reorder",
+    insertTierBefore: "Insert Tier Before",
+    insertTierAfter: "Insert Tier After",
+    above: "ABOVE",
+    below: "BELOW",
+    copyTier: "Copy Tier",
+    deleteTier: "Delete Tier",
+    insertBefore: "Insert Before",
+    insertAfter: "Insert After",
+    pasteTier: "Paste Tier",
+    confirmDeleteTier: "Are you sure you want to delete this tier?",
+    DRAG:"DRAG"
   },
   ch: {
     appTitle: "POE 过滤器编辑器",
@@ -228,6 +240,18 @@ export const translations = {
     Pink: "粉色",
     Purple: "紫色",
     Temp: "临时",
+    dragToReorder: "拖动排序",
+    insertTierBefore: "在此之前插入新阶级",
+    insertTierAfter: "在此之后插入新阶级",
+    above: "上方",
+    below: "下方",
+    copyTier: "复制阶级",
+    deleteTier: "删除阶级",
+    insertBefore: "在此之前插入",
+    insertAfter: "在此之后插入",
+    pasteTier: "粘贴阶级",
+    confirmDeleteTier: "确定要删除此阶级吗?",
+    DRAG:"拖动"
   }
 };
 

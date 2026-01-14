@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+import { useTranslation } from '../utils/localization';
+import type { Language } from '../utils/localization';
 
 interface SortableTierBlockProps {
   id: string;
@@ -8,6 +10,7 @@ interface SortableTierBlockProps {
   onContextMenu: (e: React.MouseEvent) => void;
   onInsertBefore: () => void;
   onInsertAfter: () => void;
+  language: Language;
   tooltips: {
     drag: string;
     insertBefore: string;
@@ -23,8 +26,10 @@ const SortableTierBlock: React.FC<SortableTierBlockProps> = ({
   onContextMenu,
   onInsertBefore,
   onInsertAfter,
+  language,
   tooltips
 }) => {
+  const t = useTranslation(language);
   const {
     attributes,
     listeners,
@@ -53,7 +58,7 @@ const SortableTierBlock: React.FC<SortableTierBlockProps> = ({
         <div className="tier-controls-overlay">
             <div className="drag-handle" {...attributes} {...listeners} title={tooltips.drag}>
                 <span className="handle-icon">⠿</span>
-                <span className="handle-label">DRAG</span>
+                <span className="handle-label">{(t as any)["DRAG"]}</span>
             </div>
             <div className="insert-controls">
                 <button className="insert-btn before" onClick={onInsertBefore} title={tooltips.insertBefore}>

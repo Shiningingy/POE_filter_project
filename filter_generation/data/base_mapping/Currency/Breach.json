@@ -31,5 +31,19 @@
     "Blessing of Uul-Netol": "Tier 1 Breach",
     "Blessing of Chayula": "Tier 1 Breach"
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": [
+        "Splinter of Xoph"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "123.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Splinter of Xoph"
+    }
+  ]
 }

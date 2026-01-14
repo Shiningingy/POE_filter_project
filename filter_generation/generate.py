@@ -1,132 +1,223 @@
 import json
-from pathlib import Path
-import sys
+import re
 import os
+from pathlib import Path
 from collections import defaultdict
-import csv
 
-# Add the parent directory to the Python path to allow sibling imports
-sys.path.append(str(Path(__file__).parent))
+# ===========================
+# CONFIG
+# ===========================
+PROJECT_ROOT = Path(__file__).parent.parent.resolve()
+TIER_DEF_DIR = (PROJECT_ROOT / "filter_generation" / "data" / "tier_definition").resolve()
+BASE_MAPPING_DIR = (PROJECT_ROOT / "filter_generation" / "data" / "base_mapping").resolve()
+THEME_FILE = (PROJECT_ROOT / "filter_generation" / "data" / "theme" / "sharket" / "sharket_theme.json").resolve()
+SOUND_MAP_FILE = (PROJECT_ROOT / "filter_generation" / "data" / "theme" / "sharket" / "Sharket_sound_map.json").resolve()
+OUTPUT_FILE = (PROJECT_ROOT / "filter_generation" / "complete_filter.filter").resolve()
 
-from generator.currency import build_currency_section
+# Folder holding custom sound files (for sharket_sound_id)
+SOUND_FILE_PATH = Path("sound_files")
 
-def generate_filter():
-    project_root = Path(__file__).parent.parent
-    data_dir = project_root / "filter_generation" / "data"
-    ggpk_data_dir = project_root / "data" / "from_ggpk"
-    output_path = project_root / "filter_generation" / "complete_filter.filter"
+# Default font size if you don't carry it in the theme
+DEFAULT_FONT_SIZE = 32
+
+_rgba_re = re.compile(r"rgba?(\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?")
+
+# ---------- UTILITIES ----------
+def parse_rgba(value, default="255 255 255 255"):
+    """Return 'R G B A' string from rgba() string or [r,g,b,a] list. Fallback to white."""
+    if not value or value == -1: return default
+    if isinstance(value, str) and value.startswith("disabled:"): return default
     
-    print("--- Starting Filter Generation ---")
+    if isinstance(value, str) and value.startswith("#"):
+        hexv = value.lstrip("#")
+        if len(hexv) in (6, 8):
+            r = int(hexv[0:2], 16)
+            g = int(hexv[2:4], 16)
+            b = int(hexv[4:6], 16)
+            a = int(hexv[6:8], 16) if len(hexv) == 8 else 255
+            return f"{r} {g} {b} {a}"
+    return default
 
-    # 1. Load Data
-    with open(ggpk_data_dir / "baseitemtypes.json", "r", encoding="utf-8") as f:
-        all_base_item_types = json.load(f)
+def resolve_sound(tier_entry, sound_map, override_sound=None):
+    """Priority: override sound -> sharket -> default"""
+    # If user provided a specific override [file, vol] in a rule
+    if override_sound and isinstance(override_sound, list):
+        file, vol = override_sound
+        if file.startswith("Default/AlertSound"):
+            num = re.search(r"\d+", file).group(0)
+            return f"PlayAlertSound {num} {vol}"
+        else:
+            win_path = file.replace("/", "\\")
+            return f'CustomAlertSound "sound_files\\{win_path}" {vol}'
 
-    # Load Base Mappings
-    base_mapping_dir = data_dir / "base_mapping"
-    global_item_mapping = {}
-    global_translations = {}
-    for mapping_file in base_mapping_dir.glob("**/*.json"):
-        with open(mapping_file, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            global_item_mapping.update(data.get("mapping", {}))
-            global_translations.update(data.get("_meta", {}).get("localization", {}).get("ch", {}))
-
-    # Load Tier Definitions
-    tier_def_dir = data_dir / "tier_definition"
-    tier_def_lookup = {}
-    for root, _, files in os.walk(tier_def_dir):
-        for file in files:
-            if file.endswith(".json"):
-                with open(Path(root) / file, "r", encoding="utf-8") as f:
-                    content = json.load(f)
-                    for category_name, category_data in content.items():
-                        if category_name.startswith("//"): continue
-                        for tier_key, tier_data in category_data.items():
-                            if tier_key == "_meta" or tier_key.startswith("//"): continue
-                            tier_def_lookup[tier_key] = (tier_data, category_data)
-
-    # 2. Group items by Tier
-    items_by_tier = defaultdict(list)
-    for item in all_base_item_types:
-        name = item.get("Name")
-        if not name or name.startswith("[UNUSED]") or name.startswith("[DNT]") or name == "...":
-            continue
-        tier_key = global_item_mapping.get(name)
-        if tier_key:
-            items_by_tier[tier_key].append(name)
-
-    # 3. Process Tier Groups and Rules
-    tier_groups_data = []
+    sb = tier_entry.get("sound", {}) or {}
+    # 1. Sharket Sound
+    if sb.get("sharket_sound_id") and sound_map and sb["sharket_sound_id"] in sound_map:
+        s = sound_map[sb["sharket_sound_id"]]
+        win_path = s["file"].replace("/", "\\")
+        return f'CustomAlertSound "sound_files\\{win_path}" {s["volume"]}'
+    # 2. Default Sound
+    if sb.get("default_sound_id") is not None and sb["default_sound_id"] != -1:
+        return f'PlayAlertSound {sb["default_sound_id"]} 300'
     
-    # Sort tier keys to ensure T0 comes before T1 in the file
-    for tier_key in sorted(items_by_tier.keys()):
-        items = items_by_tier[tier_key]
-        tier_info_tuple = tier_def_lookup.get(tier_key)
-        if not tier_info_tuple: continue
-        
-        tier_data, category_data = tier_info_tuple
-        cat_meta = category_data.get("_meta", {})
-        cat_loc = cat_meta.get("localization", {})
-        tier_num = tier_data.get('theme', {}).get('Tier', "?")
-        cat_name_ch = cat_loc.get("ch", cat_loc.get("en", "Unknown"))
-        
-        # A. Process Rules for this tier
-        rules = cat_meta.get("rules", [])
-        for rule in rules:
-            # Logic: rule applies to items in its 'targets' OR all items in tier if targets empty
-            rule_targets = rule.get("targets", [])
-            
-            # Identify which items from THIS tier match the rule
-            matching_items = []
-            if not rule_targets:
-                # Rule with no targets applies to ALL items in the tier
-                matching_items = items
+    return None
+
+def tier_num_from_label(label):
+    m = re.search(r"Tier\s+(\d+)", label)
+    return int(m.group(1)) if m else 0
+
+def header_line(index, text):
+    return f"\n#==[{index:05d}]-{text}=="
+
+def show_block(cat_zh, tier_short, item_class, basetypes,
+               font_size, text_color, border_color, background_color, sound_line,
+               play_effect=None, minimap_icon=None, extra_conditions=None, raw_code=None):
+    joined = '" "'.join(basetypes)
+    lines = [
+        f'Show #{cat_zh}-{tier_short}',
+        f'    Class "{item_class}"',
+        f'    BaseType "{joined}"'
+    ]
+    
+    # 1. Extra Conditions (Handle RANGE)
+    if extra_conditions:
+        for key, val in extra_conditions.items():
+            if val.startswith("RANGE "):
+                parts = val.split(" ")
+                if len(parts) >= 5:
+                    lines.append(f"    {key} {parts[1]} {parts[2]}")
+                    lines.append(f"    {key} {parts[3]} {parts[4]}")
             else:
-                # Only items that belong to this tier AND are in the targets list
-                matching_items = [i for i in items if i in rule_targets]
-            
-            if matching_items:
-                rule_tier_key = rule.get("overrides", {}).get("Tier", tier_key)
-                tier_groups_data.append({
-                    "tier_key": rule_tier_key,
-                    "items": matching_items,
-                    "group_text": f"T{tier_num} {cat_name_ch}",
-                    "text_ch": "Rules",
-                    "conditions": rule.get("conditions", {}),
-                    "style_override": rule.get("overrides", {}),
-                    "comment": rule.get("comment", ""),
-                    "raw": rule.get("raw", "")
-                })
+                lines.append(f"    {key} {val}")
 
-        # B. Add default group for this tier
-        tier_groups_data.append({
-            "tier_key": tier_key,
-            "items": items,
-            "group_text": f"T{tier_num} {cat_name_ch}",
-            "text_ch": "Default",
-            "conditions": {},
-            "style_override": {},
-            "comment": ""
-        })
+    # 2. Raw Code (Indented)
+    if raw_code:
+        for r_line in raw_code.split('\n'):
+            if r_line.strip():
+                lines.append(f"    {r_line.strip()}")
 
-    # 4. Final Build
-    print("Loading Theme...")
-    theme_path = data_dir / "theme" / "sharket" / "sharket_theme.json"
-    with open(theme_path, "r", encoding="utf-8") as f:
-        theme = json.load(f)
-    sound_map_path = data_dir / "theme" / "sharket" / "Sharket_sound_map.json"
-    with open(sound_map_path, "r", encoding="utf-8") as f:
-        sound_map = json.load(f)
-
-    final_filter_content, style_map = build_currency_section(tier_groups_data, theme, sound_map)
+    # 3. Visuals
+    lines += [
+        f'    SetFontSize {font_size}',
+        f'    SetTextColor {text_color}',
+        f'    SetBorderColor {border_color}',
+        f'    SetBackgroundColor {background_color}'
+    ]
+    if sound_line:  lines.append(f"    {sound_line}")
+    if play_effect: lines.append(f"    PlayEffect {play_effect}")
+    if minimap_icon: lines.append(f"    MinimapIcon {minimap_icon}")
     
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(final_filter_content)
-    with open(project_root / "filter_generation" / "complete_filter_styles.json", "w", encoding="utf-8") as f:
-        json.dump(style_map, f, indent=2, ensure_ascii=False)
+    return "\n".join(lines) + "\n"
+
+# ---------- MAIN ----------
+def generate_filter():
+    theme_data = json.loads(Path(THEME_FILE).read_text(encoding="utf-8"))
+    sound_map = json.loads(Path(SOUND_MAP_FILE).read_text(encoding="utf-8"))
+    
+    overview = [
+        "#========================================",
+        "#  FILTER OVERVIEW",
+        "#========================================",
+        "#  [00000] 自定义规则"
+    ]
+
+    out_lines = []
+    out_lines.append(header_line(0, "自定义规则"))
+    out_lines.append("# 在此添加自定义规则将会覆盖所有过滤器设定.\n")
+
+    area_counter = 0
+    # Process all JSON files in base_mapping
+    for map_file in sorted(BASE_MAPPING_DIR.rglob("*.json")):
+        rel_path = map_file.relative_to(BASE_MAPPING_DIR)
+        tier_file = TIER_DEF_DIR / rel_path
         
-    print(f"Filter generated at: {output_path}")
+        if not tier_file.exists():
+            continue
+
+        tier_doc = json.loads(tier_file.read_text(encoding="utf-8"))
+        map_doc  = json.loads(map_file.read_text(encoding="utf-8"))
+        
+        category_key = next((k for k in tier_doc if not k.startswith("//")), None)
+        if not category_key: continue
+        
+        category_data = tier_doc[category_key]
+        meta = category_data.get("_meta", {})
+        loc_en = meta.get("localization", {}).get("en", category_key)
+        loc_zh = meta.get("localization", {}).get("ch", loc_en)
+        item_class = meta.get("item_class", category_key)
+        theme_cat_key = meta.get("theme_category", category_key)
+        theme_ref = theme_data.get(theme_cat_key, theme_data.get("Currency", {})) # Fallback to Currency theme if missing
+
+        area_counter += 1
+        area_index = area_counter * 10000
+        overview.append(f"#  [{area_index:05d}] {loc_zh} {loc_en}")
+        out_lines.append(header_line(area_index, f"{loc_zh} {loc_en}"))
+
+        # Map items to their tiers
+        mapping = map_doc.get("mapping", {})
+        items_by_tier = defaultdict(list)
+        for item_name, t_lbl in mapping.items():
+            items_by_tier[t_lbl].append(item_name)
+
+        # Sort tiers
+        tier_labels = sorted(items_by_tier.keys(), key=tier_num_from_label)
+        
+        for t_lbl in tier_labels:
+            items = items_by_tier[t_lbl]
+            tnum = tier_num_from_label(t_lbl)
+            tier_index = area_index + (tnum+1)*100
+            t_short = f"T{tnum}"
+            out_lines.append(header_line(tier_index, f"{t_lbl} {loc_zh}"))
+            
+            # Base Theme for this Tier
+            ttheme = theme_ref.get(f"Tier {tnum}", {})
+            base_text_col = parse_rgba(ttheme.get("TextColor"))
+            base_border_col = parse_rgba(ttheme.get("BorderColor"))
+            base_background_col = parse_rgba(ttheme.get("BackgroundColor", "0 0 0 255"))
+            base_play_eff = ttheme.get("PlayEffect")
+            base_mini_icon = ttheme.get("MinimapIcon")
+            
+            # 1. Process Rule (Limit to 1 per tier as requested)
+            rules = meta.get("rules", [])
+            active_rule = None
+            for r in rules:
+                r_targets = r.get("targets", [])
+                if not r_targets or any(t in items for t in r_targets):
+                    active_rule = r
+                    break
+            
+            # Check if this rule covers the whole tier
+            rule_covers_all = active_rule and (not active_rule.get("targets") or len(active_rule.get("targets", [])) == 0)
+
+            if active_rule:
+                r_over = active_rule.get("overrides", {})
+                out_lines.append(show_block(
+                    loc_zh, t_short, item_class, items,
+                    r_over.get("FontSize", ttheme.get("FontSize", DEFAULT_FONT_SIZE)),
+                    parse_rgba(r_over.get("TextColor"), base_text_col),
+                    parse_rgba(r_over.get("BorderColor"), base_border_col),
+                    parse_rgba(r_over.get("BackgroundColor"), base_background_col),
+                    resolve_sound(category_data.get(t_lbl, {}), sound_map, r_over.get("PlayAlertSound")),
+                    r_over.get("PlayEffect", base_play_eff),
+                    r_over.get("MinimapIcon", base_mini_icon),
+                    active_rule.get("conditions"),
+                    active_rule.get("raw")
+                ))
+            
+            # 2. Base Block - Only add if not fully covered by a rule
+            if not rule_covers_all:
+                out_lines.append(show_block(
+                    loc_zh, t_short, item_class, items,
+                    ttheme.get("FontSize", DEFAULT_FONT_SIZE),
+                    base_text_col, base_border_col, base_background_col,
+                    resolve_sound(category_data.get(t_lbl, {}), sound_map),
+                    base_play_eff, base_mini_icon
+                ))
+
+    overview.append("#========================================\n")
+    final_text = "\n".join(overview) + "\n" + "\n".join(out_lines) + "\n"
+    OUTPUT_FILE.write_text(final_text, encoding="utf-8")
+    print(f"✅ Complete filter generated at {OUTPUT_FILE}")
 
 if __name__ == "__main__":
     generate_filter()

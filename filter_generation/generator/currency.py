@@ -37,11 +37,26 @@ def build_currency_section(tier_groups, theme, sound_map):
         item_list_str = '" "'.join(items)
         lines = [header, f'    BaseType "{item_list_str}"']
         
-        for key, val in conditions.items():
-            lines.append(f'    {key} {val}')
+        # conditions is now expected to be a list of {key, value}
+        if isinstance(conditions, list):
+            for cond in conditions:
+                key, val = cond["key"], cond["value"]
+                if val.startswith("RANGE "):
+                    parts = val.replace("RANGE ", "").split(" ")
+                    if len(parts) >= 2:
+                        lines.append(f'    {key} >= {parts[0]}')
+                        lines.append(f'    {key} <= {parts[1]}')
+                else:
+                    lines.append(f'    {key} {val}')
+        elif isinstance(conditions, dict):
+            for key, val in conditions.items():
+                lines.append(f'    {key} {val}')
 
+        # Add Raw Code (Indented) BEFORE style
         if group_data.get("raw"):
-            lines.append(group_data["raw"])
+            for raw_line in group_data["raw"].split('\n'):
+                if raw_line.strip():
+                    lines.append(f'    {raw_line.strip()}')
 
         _apply_style(lines, style, sound)
         blocks.append("\n".join(lines))
