@@ -25,6 +25,7 @@ import ContextMenu from './ContextMenu';
 import { resolveStyle } from '../utils/styleResolver';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
+import tierTemplate from '../config/tierTemplate.json';
 
 interface TierItem {
   name: string;
@@ -223,28 +224,45 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       };
   };
 
-  const handleInsertTier = (index: number, position: 'before' | 'after', templateData: any = null) => {
+  const handleInsertTier = (index: number, position: 'before' | 'after', templateData: any = null, useFixedTemplate: boolean = true) => {
     if (!activeCategoryKey || !activeCategoryData) return;
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
     const categoryData = newConfig[activeCategoryKey];
     
+    // Generate unique key using auto-increment (to avoid collision)
     const { key: newTierKey, num: nextNum } = getNextTierName(categoryData, activeCategoryKey);
 
-    const tierData = templateData ? JSON.parse(JSON.stringify(templateData)) : {
-        hideable: false,
-        theme: { Tier: nextNum },
-        sound: { default_sound_id: -1, sharket_sound_id: null },
-        localization: { en: newTierKey, ch: `T${nextNum} ${categoryData._meta?.localization?.ch || activeCategoryKey}` }
-    };
-    
-    // Update theme tier number if we are pasting/templating but ensuring unique key
-    tierData.theme.Tier = nextNum; 
-    // Fix localization if it was copied
-    tierData.localization = { 
-        en: newTierKey, 
-        ch: `T${nextNum} ${categoryData._meta?.localization?.ch || activeCategoryKey}` 
-    };
+    let tierData;
 
+    if (templateData) {
+        // PASTE: Use copied data but ensure unique ID/localization
+        tierData = JSON.parse(JSON.stringify(templateData));
+        tierData.theme.Tier = nextNum; 
+        tierData.localization = { 
+            en: newTierKey, 
+            ch: `T${nextNum} ${categoryData._meta?.localization?.ch || activeCategoryKey}` 
+        };
+    } else if (useFixedTemplate) {
+        // INSERT BEFORE/AFTER: Use Fixed Template from JSON
+        tierData = JSON.parse(JSON.stringify(tierTemplate));
+        // We use the properties from template (including localization if we want "New Tier")
+        // But the key must be unique in the object map.
+        // We can keep tierData.theme.Tier as is (from template) or update it.
+        // User said: "we dont follow T0-T1-T2...order, we will insert a fixed template"
+        // So we keep the template's content as much as possible.
+        // But we MUST update the localization if we want it to be distinct?
+        // Actually, if the template says "New Tier", all of them will be "New Tier".
+        // That is likely intended.
+    } else {
+        // ADD NEW TIER BUTTON: Auto-increment (Legacy/Default behavior)
+        tierData = {
+            hideable: false,
+            theme: { Tier: nextNum },
+            sound: { default_sound_id: -1, sharket_sound_id: null },
+            localization: { en: newTierKey, ch: `T${nextNum} ${categoryData._meta?.localization?.ch || activeCategoryKey}` }
+        };
+    }
+    
     categoryData[newTierKey] = tierData;
 
     // Update Order
@@ -253,9 +271,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     if (categoryData._meta.tier_order) {
         newOrder = [...categoryData._meta.tier_order];
     }
-    
-    // Ensure all current keys are in order before inserting
-    // (If existing keys were missing from tier_order, appending them might be safer)
     
     const insertIdx = position === 'before' ? index : index + 1;
     newOrder.splice(insertIdx, 0, newTierKey);
@@ -282,10 +297,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     if (!newConfig[categoryKey]._meta) newConfig[categoryKey]._meta = {};
     newConfig[categoryKey]._meta.rules = newRules;
     updateConfig(newConfig);
-    // ... logic for update inspector ... (omitted for brevity, assume consistent with previous logic or handled by prop update)
+    
     if (tierKey && tierName && themeCategory) {
-         // Re-inspect to refresh rules list
-         // Note: this logic duplicates handleTierUpdate a bit, but is fine.
          const tierData = newConfig[categoryKey][tierKey];
          const items = tierItems[tierKey] || [];
          onInspectTier({ 
@@ -369,6 +382,13 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                             onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, tierKey, index); }}
                             onInsertBefore={() => handleInsertTier(index, 'before')}
                             onInsertAfter={() => handleInsertTier(index, 'after')}
+                            tooltips={{
+                                drag: language === 'ch' ? "拖动排序" : "Drag to reorder",
+                                insertBefore: language === 'ch' ? "在此之前插入新阶级" : "Insert Tier Before",
+                                insertAfter: language === 'ch' ? "在此之后插入新阶级" : "Insert Tier After",
+                                above: language === 'ch' ? "上方" : "ABOVE",
+                                below: language === 'ch' ? "下方" : "BELOW"
+                            }}
                         >
                             <TierStyleEditor
                                 tierName={displayTierName}
@@ -417,7 +437,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
             </SortableContext>
         </DndContext>
 
-        <button className="add-tier-btn" onClick={() => handleInsertTier(sortedTierKeys.length, 'after')}>+ {t.addNewTier}</button>
+        <button className="add-tier-btn" onClick={() => handleInsertTier(sortedTierKeys.length, 'after', null, false)}>+ {t.addNewTier}</button>
       </div>
 
       {showBulkEditor && activeBulkClass && (

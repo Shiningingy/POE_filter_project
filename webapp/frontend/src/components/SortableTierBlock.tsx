@@ -8,6 +8,13 @@ interface SortableTierBlockProps {
   onContextMenu: (e: React.MouseEvent) => void;
   onInsertBefore: () => void;
   onInsertAfter: () => void;
+  tooltips: {
+    drag: string;
+    insertBefore: string;
+    insertAfter: string;
+    above: string;
+    below: string;
+  };
 }
 
 const SortableTierBlock: React.FC<SortableTierBlockProps> = ({
@@ -15,7 +22,8 @@ const SortableTierBlock: React.FC<SortableTierBlockProps> = ({
   children,
   onContextMenu,
   onInsertBefore,
-  onInsertAfter
+  onInsertAfter,
+  tooltips
 }) => {
   const {
     attributes,
@@ -43,17 +51,17 @@ const SortableTierBlock: React.FC<SortableTierBlockProps> = ({
     >
         {/* Drag Handle & Insert Controls */}
         <div className="tier-controls-overlay">
-            <div className="drag-handle" {...attributes} {...listeners} title="Drag to reorder">
+            <div className="drag-handle" {...attributes} {...listeners} title={tooltips.drag}>
                 <span className="handle-icon">⠿</span>
                 <span className="handle-label">DRAG</span>
             </div>
             <div className="insert-controls">
-                <button className="insert-btn before" onClick={onInsertBefore} title="Insert Tier Before">
-                    <span className="plus">+</span> ABOVE
+                <button className="insert-btn before" onClick={onInsertBefore} title={tooltips.insertBefore}>
+                    <span className="plus">+</span> {tooltips.above}
                 </button>
                 <div className="separator"></div>
-                <button className="insert-btn after" onClick={onInsertAfter} title="Insert Tier After">
-                    <span className="plus">+</span> BELOW
+                <button className="insert-btn after" onClick={onInsertAfter} title={tooltips.insertAfter}>
+                    <span className="plus">+</span> {tooltips.below}
                 </button>
             </div>
         </div>
