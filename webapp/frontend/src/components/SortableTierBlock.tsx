@@ -44,15 +44,16 @@ const SortableTierBlock: React.FC<SortableTierBlockProps> = ({
         {/* Drag Handle & Insert Controls */}
         <div className="tier-controls-overlay">
             <div className="drag-handle" {...attributes} {...listeners} title="Drag to reorder">
-                ⋮⋮
+                <span className="handle-icon">⠿</span>
+                <span className="handle-label">DRAG</span>
             </div>
             <div className="insert-controls">
                 <button className="insert-btn before" onClick={onInsertBefore} title="Insert Tier Before">
-                    +↑
+                    <span className="plus">+</span> ABOVE
                 </button>
                 <div className="separator"></div>
                 <button className="insert-btn after" onClick={onInsertAfter} title="Insert Tier After">
-                    +↓
+                    <span className="plus">+</span> BELOW
                 </button>
             </div>
         </div>
@@ -64,65 +65,102 @@ const SortableTierBlock: React.FC<SortableTierBlockProps> = ({
         <style>{`
             .tier-block-wrapper {
                 position: relative;
-                transition: box-shadow 0.2s;
-                border-radius: 4px;
+                transition: transform 0.2s, box-shadow 0.2s;
+                border-radius: 6px;
+                margin-bottom: 25px;
             }
             .tier-block-wrapper.is-dragging {
-                z-index: 100;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                z-index: 1000;
+                box-shadow: 0 12px 24px rgba(0,0,0,0.2);
             }
             .tier-controls-overlay {
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
-                margin-bottom: 5px;
-                padding: 0 5px;
+                align-items: flex-end;
+                margin-bottom: 4px;
+                padding: 0 2px;
             }
             .drag-handle {
                 cursor: grab;
-                color: #ccc;
-                font-size: 1.2rem;
-                padding: 2px 8px;
-                border-radius: 4px;
+                background: #f0f4f8;
+                border: 1px solid #d1d9e0;
+                border-bottom: none;
+                color: #57606a;
+                font-size: 0.7rem;
+                padding: 4px 12px;
+                border-radius: 6px 6px 0 0;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-weight: bold;
+                transition: all 0.2s;
             }
             .drag-handle:hover {
-                background: #f0f0f0;
-                color: #666;
+                background: #e1eaf2;
+                color: #2196F3;
+                border-color: #2196F3;
             }
+            .drag-handle:active {
+                cursor: grabbing;
+            }
+            .handle-icon {
+                font-size: 1rem;
+                line-height: 1;
+            }
+            .handle-label {
+                letter-spacing: 0.5px;
+            }
+
             .insert-controls {
                 display: flex;
-                background: #f5f5f5;
-                border: 1px solid #ddd;
-                border-radius: 4px;
+                background: white;
+                border: 1px solid #d1d9e0;
+                border-bottom: none;
+                border-radius: 6px 6px 0 0;
                 overflow: hidden;
-                opacity: 0.2;
-                transition: opacity 0.2s;
+                opacity: 0.7;
+                transition: all 0.2s;
+                box-shadow: 0 -2px 5px rgba(0,0,0,0.02);
             }
             .tier-block-wrapper:hover .insert-controls {
                 opacity: 1;
+                border-color: #2196F3;
             }
             .insert-btn {
                 background: none;
                 border: none;
-                padding: 4px 10px;
+                padding: 5px 12px;
                 cursor: pointer;
-                font-size: 0.8rem;
-                color: #666;
-                transition: background 0.2s;
+                font-size: 0.7rem;
+                color: #57606a;
+                font-weight: bold;
+                transition: all 0.2s;
+                display: flex;
+                align-items: center;
+                gap: 5px;
             }
             .insert-btn:hover {
-                background: #e0e0e0;
+                background: #f0f7ff;
+                color: #2196F3;
+            }
+            .insert-btn .plus {
+                font-size: 1.1rem;
                 color: #2196F3;
             }
             .separator {
                 width: 1px;
-                background: #ddd;
+                background: #d1d9e0;
+                margin: 6px 0;
             }
             .tier-content {
-                border: 1px solid #eee;
-                border-radius: 4px;
-                padding: 15px;
+                border: 2px solid #d1d9e0;
+                border-radius: 0 0 6px 6px;
+                padding: 20px;
                 background: #fff;
+                transition: border-color 0.2s;
+            }
+            .tier-block-wrapper:hover .tier-content {
+                border-color: #2196F3;
             }
         `}</style>
     </div>
