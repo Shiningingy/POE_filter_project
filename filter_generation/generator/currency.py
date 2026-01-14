@@ -40,6 +40,9 @@ def build_currency_section(tier_groups, theme, sound_map):
         for key, val in conditions.items():
             lines.append(f'    {key} {val}')
 
+        if group_data.get("raw"):
+            lines.append(group_data["raw"])
+
         _apply_style(lines, style, sound)
         blocks.append("\n".join(lines))
 

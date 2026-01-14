@@ -95,7 +95,8 @@ def generate_filter():
                     "text_ch": "Rules",
                     "conditions": rule.get("conditions", {}),
                     "style_override": rule.get("overrides", {}),
-                    "comment": rule.get("comment", "")
+                    "comment": rule.get("comment", ""),
+                    "raw": rule.get("raw", "")
                 })
 
         # B. Add default group for this tier

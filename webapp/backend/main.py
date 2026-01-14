@@ -7,6 +7,7 @@ import json
 import subprocess
 import sys
 import time
+import re
 from pathlib import Path
 from typing import List, Dict
 from pydantic import BaseModel
@@ -37,9 +38,11 @@ VENV_PYTHON = PROJECT_ROOT / ".venv" / "Scripts" / "python.exe" if sys.platform 
 PYTHON_EXECUTABLE = str(VENV_PYTHON) if VENV_PYTHON.exists() else sys.executable
 
 # --- Middleware ---
+# Allow CORS for the React frontend
+# Note: allow_origins cannot be "*" if allow_credentials is True
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -70,7 +73,7 @@ def root():
 
 @app.get("/api/health")
 def health_check():
-    return {"status": "ok", "version": "1.0.2"}
+    return {"status": "ok", "version": "1.0.3"}
 
 @app.get("/api/sounds/list")
 def list_available_sounds():
@@ -104,6 +107,12 @@ def get_category_structure():
 def get_themes_list():
     themes_dir = CONFIG_DATA_DIR / "theme"
     return {"themes": [d.name for d in themes_dir.iterdir() if d.is_dir()]} if themes_dir.is_dir() else {"themes": []}
+
+@app.get("/api/rule-templates")
+def get_rule_templates():
+    path = CONFIG_DATA_DIR / "rule_templates.json"
+    if not path.exists(): return {"categories": []}
+    with open(path, "r", encoding="utf-8") as f: return json.load(f)
 
 @app.get("/api/search-items")
 def search_items(q: str):
@@ -241,4 +250,4 @@ if SOUND_FILES_DIR.exists():
 
 @app.on_event("startup")
 async def startup_event():
-    print(f"Backend 1.0.2 started. Project: {PROJECT_ROOT}")
+    print(f"Backend 1.0.3 started. Project: {PROJECT_ROOT}")

@@ -45,12 +45,51 @@ export const resolveStyle = (tierData: any, themeData: any, soundMap?: any): Sty
   return resolved;
 };
 
-export const generateFilterText = (style: StyleProps, tierName: string, baseTypes: string[] = ["Item Name"], hideable: boolean = false): string => {
-  const lines = [`# ${tierName}`];
+export const generateFilterText = (style: StyleProps, tierName: string, baseTypes: string[] = ["Item Name"], hideable: boolean = false, rules: any[] = []): string => {
+  const allBlocks: string[] = [];
+
+  // 1. Process Rules first (rules take precedence in POE filters)
+  rules.forEach((rule, idx) => {
+    const rLines = [`# Rule: ${rule.comment || (idx + 1)}`];
+    const rKeyword = hideable ? "Minimal" : "Show";
+    rLines.push(rKeyword);
+    
+    // BaseType constraint for rule
+    const targets = rule.targets?.length > 0 ? rule.targets : baseTypes;
+    rLines.push(`    BaseType "${targets.join('" "')}"`);
+
+    // Conditions
+    if (rule.conditions) {
+        Object.entries(rule.conditions).forEach(([key, val]) => {
+            rLines.push(`    ${key} ${val}`);
+        });
+    }
+
+    // Styles for rule (merged with base tier style if not explicitly overridden)
+    const ruleStyle = { ...style, ...(rule.overrides || {}) };
+    _appendStyleLines(rLines, ruleStyle);
+
+    // Raw text
+    if (rule.raw) {
+        rLines.push(rule.raw);
+    }
+
+    allBlocks.push(rLines.join('\n'));
+  });
+
+  // 2. Process the main Base block
+  const lines = [`# Base: ${tierName}`];
   const keyword = hideable ? "Minimal" : "Show";
   lines.push(keyword);
   lines.push(`    BaseType "${baseTypes.join('" "')}"`);
+  _appendStyleLines(lines, style);
   
+  allBlocks.push(lines.join('\n'));
+
+  return allBlocks.join('\n\n');
+};
+
+const _appendStyleLines = (lines: string[], style: StyleProps) => {
   if (style.FontSize) lines.push(`    SetFontSize ${style.FontSize}`);
   
   const toRgba = (hex?: string) => {
@@ -76,25 +115,17 @@ export const generateFilterText = (style: StyleProps, tierName: string, baseType
   
   if (isActive(style.PlayEffect)) lines.push(`    PlayEffect ${style.PlayEffect}`);
   if (isActive(style.MinimapIcon)) {
-      // style.MinimapIcon is "size color shape"
       lines.push(`    MinimapIcon ${style.MinimapIcon}`);
   }
   
   if (style.PlayAlertSound) {
     const [file, vol] = style.PlayAlertSound;
-    // If it's a default sound like "Default/AlertSound1.mp3"
     if (file.startsWith('Default/AlertSound')) {
         const num = file.match(/\d+/)?.[0] || "1";
         lines.push(`    PlayAlertSound ${num} ${vol}`);
     } else {
-        // It's a custom sound, use CustomAlertSound and provided path format
-        // User requested sound_files\Sharket掉落音效\... format
-        // Note: POE typically wants the path relative to the game's filter folder
-        // but here we follow the user's specific path instruction for the string.
         const winPath = file.replace(/\//g, '\\');
         lines.push(`    CustomAlertSound "sound_files\\${winPath}" ${vol}`);
     }
   }
-
-  return lines.join('\n');
 };

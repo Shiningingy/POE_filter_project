@@ -93,6 +93,15 @@ export const translations = {
     name: "Name",
     source: "Source",
     targetTooltip: "Targets are optional. If empty, the rule applies to all items in this tier. Use targets to apply specific conditions or style overrides to individual items within the tier.",
+    quickRules: "Quick Add Rules",
+    addCustomRule: "Add Custom Rule (Raw)",
+    stackSizeRule: "Stack Size Rule",
+    gemLevelRule: "Gem Level Rule",
+    qualityRule: "High Quality Rule",
+    influenceRule: "Influenced Rule",
+    fracturedRule: "Fractured Rule",
+    socketRule: "Sockets/Links Rule",
+    itemLevelRule: "High ItemLevel Rule",
     Red: "Red",
     Green: "Green",
     Blue: "Blue",
@@ -104,7 +113,7 @@ export const translations = {
     Orange: "Orange",
     Pink: "Pink",
     Purple: "Purple",
-    Temp:"Temp",
+    Temp: "Temp",
   },
   ch: {
     appTitle: "POE 过滤器编辑器",
@@ -195,7 +204,18 @@ export const translations = {
     addNewTier: "添加新阶级",
     testSound: "测试音效",
     color: "颜色",
+    name: "名称",
+    source: "来源",
     targetTooltip: "目标是可选的。如果为空，则该规则应用于此阶级中的所有物品。使用目标可以对阶级内的单个物品应用特定条件或样式覆盖。",
+    quickRules: "快速添加规则",
+    addCustomRule: "添加自定义规则 (原始代码)",
+    stackSizeRule: "堆叠数量规则",
+    gemLevelRule: "宝石等级规则",
+    qualityRule: "高品质规则",
+    influenceRule: "势力物品规则",
+    fracturedRule: "破碎物品规则",
+    socketRule: "插槽/连线规则",
+    itemLevelRule: "高物等规则",
     Red: "红色",
     Green: "绿色",
     Blue: "蓝色",
@@ -207,22 +227,15 @@ export const translations = {
     Orange: "橙色",
     Pink: "粉色",
     Purple: "紫色",
-    Temp:"临时",
+    Temp: "临时",
   }
 };
 
 export const useTranslation = (lang: Language) => {
-
   return translations[lang];
-
 };
 
-
-
 export const getItemName = (item: { name: string; name_ch?: string }, lang: Language) => {
-
   if (lang === 'ch' && item.name_ch) return item.name_ch;
-
   return item.name;
-
 };

@@ -7,126 +7,116 @@
           "ch": "通货"
         }
       },
-      "subgroups": [
+      "files": [
         {
-          "_meta": {
-            "localization": {
-              "en": "General",
-              "ch": "通用"
-            }
-          },
-          "files": [
-            {
-              "path": "Currency/Breach.json",
-              "tier_path": "tier_definition/Currency/Breach.json",
-              "mapping_path": "base_mapping/Currency/Breach.json",
-              "target_category": "Stackable Currency",
-              "localization": {
-                "en": "Breach",
-                "ch": "裂隙"
-              }
-            },
-            {
-              "path": "Currency/Delirium Orbs.json",
-              "tier_path": "tier_definition/Currency/Delirium Orbs.json",
-              "mapping_path": "base_mapping/Currency/Delirium Orbs.json",
-              "target_category": "Stackable Currency",
-              "localization": {
-                "en": "Delirium Orbs",
-                "ch": "惊怖宝珠"
-              }
-            },
-            {
-              "path": "Currency/Essences.json",
-              "tier_path": "tier_definition/Currency/Essences.json",
-              "mapping_path": "base_mapping/Currency/Essences.json",
-              "target_category": "Stackable Currency",
-              "localization": {
-                "en": "Essences",
-                "ch": "精华"
-              }
-            },
-            {
-              "path": "Currency/Expedition.json",
-              "tier_path": "tier_definition/Currency/Expedition.json",
-              "mapping_path": "base_mapping/Currency/Expedition.json",
-              "target_category": "Stackable Currency",
-              "localization": {
-                "en": "Expedition",
-                "ch": "探险"
-              }
-            },
-            {
-              "path": "Currency/Fossils.json",
-              "tier_path": "tier_definition/Currency/Fossils.json",
-              "mapping_path": "base_mapping/Currency/Fossils.json",
-              "target_category": "Stackable Currency",
-              "localization": {
-                "en": "Fossils",
-                "ch": "化石"
-              }
-            },
-            {
-              "path": "Currency/General.json",
-              "tier_path": "tier_definition/Currency/General.json",
-              "mapping_path": "base_mapping/Currency/General.json",
-              "target_category": "Stackable Currency",
-              "localization": {
-                "en": "General",
-                "ch": "通用"
-              }
-            },
-            {
-              "path": "Currency/Harbinger.json",
-              "tier_path": "tier_definition/Currency/Harbinger.json",
-              "mapping_path": "base_mapping/Currency/Harbinger.json",
-              "target_category": "Stackable Currency",
-              "localization": {
-                "en": "Harbinger",
-                "ch": "先驱"
-              }
-            },
-            {
-              "path": "Currency/Heist.json",
-              "tier_path": "tier_definition/Currency/Heist.json",
-              "mapping_path": "base_mapping/Currency/Heist.json",
-              "target_category": "Stackable Currency",
-              "localization": {
-                "en": "Heist",
-                "ch": "夺宝"
-              }
-            },
-            {
-              "path": "Currency/Incubators.json",
-              "tier_path": "tier_definition/Currency/Incubators.json",
-              "mapping_path": "base_mapping/Currency/Incubators.json",
-              "target_category": "Stackable Currency",
-              "localization": {
-                "en": "Incubators",
-                "ch": "孕育石"
-              }
-            },
-            {
-              "path": "Currency/Oils & Harvest.json",
-              "tier_path": "tier_definition/Currency/Oils & Harvest.json",
-              "mapping_path": "base_mapping/Currency/Oils & Harvest.json",
-              "target_category": "Stackable Currency",
-              "localization": {
-                "en": "Oils & Harvest",
-                "ch": "圣油与庄园"
-              }
-            },
-            {
-              "path": "Currency/Ritual.json",
-              "tier_path": "tier_definition/Currency/Ritual.json",
-              "mapping_path": "base_mapping/Currency/Ritual.json",
-              "target_category": "Stackable Currency",
-              "localization": {
-                "en": "Ritual",
-                "ch": "仪式"
-              }
-            }
-          ]
+          "path": "Currency/Breach.json",
+          "tier_path": "tier_definition/Currency/Breach.json",
+          "mapping_path": "base_mapping/Currency/Breach.json",
+          "target_category": "Stackable Currency",
+          "localization": {
+            "en": "Breach",
+            "ch": "裂隙"
+          }
+        },
+        {
+          "path": "Currency/Delirium Orbs.json",
+          "tier_path": "tier_definition/Currency/Delirium Orbs.json",
+          "mapping_path": "base_mapping/Currency/Delirium Orbs.json",
+          "target_category": "Stackable Currency",
+          "localization": {
+            "en": "Delirium Orbs",
+            "ch": "雾魇宝珠"
+          }
+        },
+        {
+          "path": "Currency/Essences.json",
+          "tier_path": "tier_definition/Currency/Essences.json",
+          "mapping_path": "base_mapping/Currency/Essences.json",
+          "target_category": "Stackable Currency",
+          "localization": {
+            "en": "Essences",
+            "ch": "精华"
+          }
+        },
+        {
+          "path": "Currency/Expedition.json",
+          "tier_path": "tier_definition/Currency/Expedition.json",
+          "mapping_path": "base_mapping/Currency/Expedition.json",
+          "target_category": "Stackable Currency",
+          "localization": {
+            "en": "Expedition",
+            "ch": "探险"
+          }
+        },
+        {
+          "path": "Currency/Fossils.json",
+          "tier_path": "tier_definition/Currency/Fossils.json",
+          "mapping_path": "base_mapping/Currency/Fossils.json",
+          "target_category": "Stackable Currency",
+          "localization": {
+            "en": "Fossils",
+            "ch": "化石"
+          }
+        },
+        {
+          "path": "Currency/General.json",
+          "tier_path": "tier_definition/Currency/General.json",
+          "mapping_path": "base_mapping/Currency/General.json",
+          "target_category": "Stackable Currency",
+          "localization": {
+            "en": "General",
+            "ch": "通用"
+          }
+        },
+        {
+          "path": "Currency/Harbinger.json",
+          "tier_path": "tier_definition/Currency/Harbinger.json",
+          "mapping_path": "base_mapping/Currency/Harbinger.json",
+          "target_category": "Stackable Currency",
+          "localization": {
+            "en": "Harbinger",
+            "ch": "先驱"
+          }
+        },
+        {
+          "path": "Currency/Heist.json",
+          "tier_path": "tier_definition/Currency/Heist.json",
+          "mapping_path": "base_mapping/Currency/Heist.json",
+          "target_category": "Stackable Currency",
+          "localization": {
+            "en": "Heist",
+            "ch": "夺宝"
+          }
+        },
+        {
+          "path": "Currency/Incubators.json",
+          "tier_path": "tier_definition/Currency/Incubators.json",
+          "mapping_path": "base_mapping/Currency/Incubators.json",
+          "target_category": "Stackable Currency",
+          "localization": {
+            "en": "Incubators",
+            "ch": "孕育石"
+          }
+        },
+        {
+          "path": "Currency/Oils & Harvest.json",
+          "tier_path": "tier_definition/Currency/Oils & Harvest.json",
+          "mapping_path": "base_mapping/Currency/Oils & Harvest.json",
+          "target_category": "Stackable Currency",
+          "localization": {
+            "en": "Oils & Harvest",
+            "ch": "圣油与庄园"
+          }
+        },
+        {
+          "path": "Currency/Ritual.json",
+          "tier_path": "tier_definition/Currency/Ritual.json",
+          "mapping_path": "base_mapping/Currency/Ritual.json",
+          "target_category": "Stackable Currency",
+          "localization": {
+            "en": "Ritual",
+            "ch": "仪式"
+          }
         }
       ]
     },
@@ -137,26 +127,16 @@
           "ch": "命运卡"
         }
       },
-      "subgroups": [
+      "files": [
         {
-          "_meta": {
-            "localization": {
-              "en": "General",
-              "ch": "通用"
-            }
-          },
-          "files": [
-            {
-              "path": "Divination Cards/Cards.json",
-              "tier_path": "tier_definition/Divination Cards/Cards.json",
-              "mapping_path": "base_mapping/Divination Cards/Cards.json",
-              "target_category": "Divination Cards",
-              "localization": {
-                "en": "Cards",
-                "ch": "命运卡"
-              }
-            }
-          ]
+          "path": "Divination Cards/Cards.json",
+          "tier_path": "tier_definition/Divination Cards/Cards.json",
+          "mapping_path": "base_mapping/Divination Cards/Cards.json",
+          "target_category": "Divination Cards",
+          "localization": {
+            "en": "Cards",
+            "ch": "命运卡"
+          }
         }
       ]
     },
@@ -428,8 +408,8 @@
             },
             {
               "path": "Equipment/Weapons/Warstaves.json",
-              "tier_path": "tier_definition/Equipment/Weapons/Warstaves.json",
-              "mapping_path": "base_mapping/Equipment/Weapons/Warstaves.json",
+              "tier_path": "tier_definition/Equipment/Warstaves.json",
+              "mapping_path": "base_mapping/Equipment/Warstaves.json",
               "target_category": "Warstaves",
               "localization": {
                 "en": "Warstaves",
@@ -447,36 +427,26 @@
           "ch": "宝石"
         }
       },
-      "subgroups": [
+      "files": [
         {
-          "_meta": {
-            "localization": {
-              "en": "General",
-              "ch": "通用"
-            }
-          },
-          "files": [
-            {
-              "path": "Gems/Skill.json",
-              "tier_path": "tier_definition/Gems/Skill.json",
-              "mapping_path": "base_mapping/Gems/Skill.json",
-              "target_category": "Skill Gems",
-              "localization": {
-                "en": "Skill",
-                "ch": "技能宝石"
-              }
-            },
-            {
-              "path": "Gems/Support.json",
-              "tier_path": "tier_definition/Gems/Support.json",
-              "mapping_path": "base_mapping/Gems/Support.json",
-              "target_category": "Support Gems",
-              "localization": {
-                "en": "Support",
-                "ch": "辅助宝石"
-              }
-            }
-          ]
+          "path": "Gems/Skill.json",
+          "tier_path": "tier_definition/Gems/Skill.json",
+          "mapping_path": "base_mapping/Gems/Skill.json",
+          "target_category": "Skill Gems",
+          "localization": {
+            "en": "Skill",
+            "ch": "技能宝石"
+          }
+        },
+        {
+          "path": "Gems/Support.json",
+          "tier_path": "tier_definition/Gems/Support.json",
+          "mapping_path": "base_mapping/Gems/Support.json",
+          "target_category": "Support Gems",
+          "localization": {
+            "en": "Support",
+            "ch": "辅助宝石"
+          }
         }
       ]
     },
@@ -487,36 +457,26 @@
           "ch": "地图"
         }
       },
-      "subgroups": [
+      "files": [
         {
-          "_meta": {
-            "localization": {
-              "en": "General",
-              "ch": "通用"
-            }
-          },
-          "files": [
-            {
-              "path": "Maps/Base Maps.json",
-              "tier_path": "tier_definition/Maps/Base Maps.json",
-              "mapping_path": "base_mapping/Maps/Base Maps.json",
-              "target_category": "Maps",
-              "localization": {
-                "en": "Base Maps",
-                "ch": "常规地图"
-              }
-            },
-            {
-              "path": "Maps/Fragments.json",
-              "tier_path": "tier_definition/Maps/Fragments.json",
-              "mapping_path": "base_mapping/Maps/Fragments.json",
-              "target_category": "Map Fragments",
-              "localization": {
-                "en": "Fragments",
-                "ch": "碎片"
-              }
-            }
-          ]
+          "path": "Maps/Base Maps.json",
+          "tier_path": "tier_definition/Maps/Base Maps.json",
+          "mapping_path": "base_mapping/Maps/Base Maps.json",
+          "target_category": "Maps",
+          "localization": {
+            "en": "Base Maps",
+            "ch": "常规地图"
+          }
+        },
+        {
+          "path": "Maps/Fragments.json",
+          "tier_path": "tier_definition/Maps/Fragments.json",
+          "mapping_path": "base_mapping/Maps/Fragments.json",
+          "target_category": "Map Fragments",
+          "localization": {
+            "en": "Fragments",
+            "ch": "碎片"
+          }
         }
       ]
     },
@@ -527,26 +487,16 @@
           "ch": "杂项"
         }
       },
-      "subgroups": [
+      "files": [
         {
-          "_meta": {
-            "localization": {
-              "en": "General",
-              "ch": "通用"
-            }
-          },
-          "files": [
-            {
-              "path": "Misc/General.json",
-              "tier_path": "tier_definition/Misc/General.json",
-              "mapping_path": "base_mapping/Misc/General.json",
-              "target_category": "Gold",
-              "localization": {
-                "en": "General",
-                "ch": "通用"
-              }
-            }
-          ]
+          "path": "Misc/General.json",
+          "tier_path": "tier_definition/Misc/General.json",
+          "mapping_path": "base_mapping/Misc/General.json",
+          "target_category": "Gold",
+          "localization": {
+            "en": "General",
+            "ch": "通用"
+          }
         }
       ]
     }

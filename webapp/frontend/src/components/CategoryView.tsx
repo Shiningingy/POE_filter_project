@@ -16,13 +16,8 @@ interface CategoryViewProps {
   language: Language;
   onInspectTier: (tier: any) => void;
   onCopyStyle: (style: any) => void;
+  onRuleEdit: (tierKey: string, idx: number | null) => void;
   viewerBackground: string;
-}
-
-interface TierItem {
-  name: string;
-  name_ch?: string;
-  source: string;
 }
 
 const CategoryView: React.FC<CategoryViewProps> = ({
@@ -33,6 +28,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   language,
   onInspectTier,
   onCopyStyle,
+  onRuleEdit,
   viewerBackground
 }) => {
   const t = useTranslation(language);
@@ -86,7 +82,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     }
   };
 
-  const handleTierUpdate = (categoryKey: string, tierKey: string, newStyle: any, newVisibility: boolean) => {
+  const handleTierUpdate = (categoryKey: string, tierKey: string, newStyle: any, newVisibility: boolean, themeCategory: string) => {
     if (!parsedConfig) return;
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
     const currentTheme = newConfig[categoryKey][tierKey].theme || {};
@@ -103,7 +99,12 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         key: tierKey, 
         name: displayTierName, 
         style: resolveStyle(newConfig[categoryKey][tierKey], themeData, soundMap), 
-        visibility: newVisibility 
+        visibility: newVisibility,
+        category: themeCategory,
+        rules: newConfig[categoryKey]._meta?.rules?.filter((r: any) => 
+            !r.targets?.length || r.targets.some((t: string) => tierItems[tierKey]?.some(i => i.name === t))
+        ) || [],
+        baseTypes: tierItems[tierKey]?.map(i => i.name) || ["Item Name"]
     });
   };
 
@@ -219,9 +220,19 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     tierName={displayTierName}
                     style={resolved}
                     visibility={!!tierData.hideable}
-                    onChange={(newStyle, newVis) => handleTierUpdate(categoryKey, tierKey, newStyle, newVis)}
+                    onChange={(newStyle, newVis) => handleTierUpdate(categoryKey, tierKey, newStyle, newVis, themeCategory)}
                     language={language}
-                    onInspect={() => onInspectTier({ key: tierKey, name: displayTierName, style: resolved, visibility: !!tierData.hideable })}
+                    onInspect={() => onInspectTier({ 
+                        key: tierKey, 
+                        name: displayTierName, 
+                        style: resolved, 
+                        visibility: !!tierData.hideable, 
+                        category: themeCategory,
+                        rules: categoryData._meta?.rules?.filter((r: any) => 
+                            !r.targets?.length || r.targets.some((t: string) => items.some(i => i.name === t))
+                        ) || [],
+                        baseTypes: items.map(i => i.name)
+                    })}
                     onCopy={() => onCopyStyle(resolved)}
                     viewerBackground={viewerBackground}
                   />
@@ -238,6 +249,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     tierKey={tierKey}
                     allRules={categoryData._meta?.rules || []}
                     onGlobalRulesChange={(newRules) => handleRulesChange(categoryKey, newRules)}
+                    onRuleEdit={onRuleEdit}
                     language={language}
                     availableItems={items.map(i => i.name)}
                     categoryName={themeCategory}
@@ -266,9 +278,11 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         .category-section { margin-bottom: 30px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); padding: 20px; }
         .category-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-bottom: 20px; }
         .category-header h3 { margin: 0; color: #333; }
-        .bulk-edit-btn { background: #673ab7; color: white; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; }
+        .bulk-edit-btn { background: #673ab7; color: white !important; border: none; padding: 6px 18px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; font-weight: bold; box-shadow: 0 2px 4px rgba(103, 58, 183, 0.2); transition: background 0.2s; }
+        .bulk-edit-btn:hover { background: #5e35b1; }
         .tier-block { margin-bottom: 20px; border: 1px solid #eee; border-radius: 4px; padding: 15px; background: #fff; }
-        .add-tier-btn { width: 100%; padding: 10px; background: #f9f9f9; border: 2px dashed #ddd; color: #888; cursor: pointer; border-radius: 4px; font-weight: bold; }
+        .add-tier-btn { width: 100%; padding: 12px; background: #fcfcfc; border: 2px dashed #ddd; color: #666 !important; cursor: pointer; border-radius: 6px; font-weight: bold; font-size: 0.9rem; transition: all 0.2s; }
+        .add-tier-btn:hover { background: #fff; border-color: #2196F3; color: #2196F3 !important; }
       `}</style>
     </div>
   );

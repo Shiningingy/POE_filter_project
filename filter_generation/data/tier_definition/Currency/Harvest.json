@@ -1,13 +1,13 @@
 {
-  "Heist": {
+  "Oils & Harvest": {
     "_meta": {
       "theme_category": "Stackable Currency",
       "localization": {
-        "en": "Heist Currency",
-        "ch": "夺宝奇兵通货"
+        "en": "Harvest",
+        "ch": "庄园通货"
       }
     },
-    "Tier 1 Heist": {
+    "Tier 1 Harvest Currency": {
       "hideable": false,
       "theme": {
         "Tier": 1

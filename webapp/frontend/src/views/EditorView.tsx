@@ -4,6 +4,7 @@ import type { CategoryFile } from '../components/Sidebar';
 import CategoryView from '../components/CategoryView';
 import InspectorPanel from '../components/InspectorPanel'; 
 import axios from 'axios';
+import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
 
 interface EditorViewProps {
@@ -37,8 +38,17 @@ const EditorView: React.FC<EditorViewProps> = ({
   viewerBackground,
   setViewerBackground
 }) => {
+  const t = useTranslation(language);
   const [tierContent, setTierContent] = useState<string>('');
   const [inspectedTier, setInspectedTier] = useState<any>(null);
+  const [editingRuleIndex, setEditingRuleIndex] = useState<number | null>(null);
+
+  const handleRuleEdit = (tierKey: string, ruleIndex: number | null) => {
+    setEditingRuleIndex(ruleIndex);
+    // If we're editing a rule but another tier is inspected, the user expects to see the code for the rule they just clicked.
+    // However, onInspectTier is usually triggered by clicking the visual block.
+    // For now we just sync the index.
+  };
 
   useEffect(() => {
     if (selectedFile?.tier_path) {
@@ -76,6 +86,77 @@ const EditorView: React.FC<EditorViewProps> = ({
     }
   };
 
+  const handleAddRulePreset = (tierKey: string, preset: any) => {
+    if (!tierContent) return;
+    try {
+        const parsed = JSON.parse(tierContent);
+        const catKey = Object.keys(parsed).find(k => !k.startsWith('//'));
+        if (catKey) {
+            if (!parsed[catKey]._meta) parsed[catKey]._meta = {};
+            if (!parsed[catKey]._meta.rules) parsed[catKey]._meta.rules = [];
+            
+            const currentRules = parsed[catKey]._meta.rules;
+
+            if (editingRuleIndex !== null) {
+                // UPDATE CURRENT RULE: Find the global index of the rule being edited
+                const currentTierItems = tierItems[tierKey]?.map(i => i.name) || [];
+                const tierRules = currentRules.filter((r: any) => 
+                    !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
+                );
+                const targetRule = tierRules[editingRuleIndex];
+                
+                if (targetRule) {
+                    targetRule.conditions = { ...targetRule.conditions, ...preset.conditions };
+                    if (preset.raw) targetRule.raw = (targetRule.raw || "") + "\n" + preset.raw;
+                }
+            } else {
+                // ADD NEW RULE (Original logic)
+                const newRule = {
+                    targets: [],
+                    conditions: preset.conditions || {},
+                    overrides: preset.overrides || { Tier: tierKey },
+                    comment: preset.comment || "New Preset Rule",
+                    raw: preset.raw || ""
+                };
+                currentRules.push(newRule);
+            }
+            
+            const newContent = JSON.stringify(parsed, null, 2);
+            setTierContent(newContent);
+            setConfigContent(newContent);
+        }
+    } catch (e) {
+        console.error("Failed to add preset", e);
+    }
+  };
+
+  const handleRemoveRule = (tierKey: string, ruleIndex: number) => {
+    if (!tierContent) return;
+    try {
+        const parsed = JSON.parse(tierContent);
+        const catKey = Object.keys(parsed).find(k => !k.startsWith('//'));
+        if (catKey && parsed[catKey]._meta?.rules) {
+            // We need to find the GLOBAL index of the rule
+            // The index passed from Inspector is relative to the INSPECTED TIER'S subset of rules.
+            // But for simplicity in this implementation, we'll just match by reference or rebuild the list.
+            // Actually, let's just use the index if it matches the filtered list.
+            
+            const currentTierItems = tierItems[tierKey]?.map(i => i.name) || [];
+            const tierRules = parsed[catKey]._meta.rules.filter((r: any) => 
+                !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
+            );
+            
+            const targetRule = tierRules[ruleIndex];
+            if (targetRule) {
+                parsed[catKey]._meta.rules = parsed[catKey]._meta.rules.filter((r: any) => r !== targetRule);
+                const newContent = JSON.stringify(parsed, null, 2);
+                setTierContent(newContent);
+                setConfigContent(newContent);
+            }
+        }
+    } catch (e) { console.error("Failed to remove rule", e); }
+  };
+
   return (
     <div className="editor-view">
       <Sidebar 
@@ -89,7 +170,9 @@ const EditorView: React.FC<EditorViewProps> = ({
           <h2>Editor: {selectedFile?.localization[language] || '...'}</h2>
           <div className="actions">
              {selectedFile && (
-                <button onClick={onSave} disabled={loading}>Save Config</button>
+                <button className="save-btn" onClick={onSave} disabled={loading}>
+                    💾 {t.saveConfig}
+                </button>
              )}
           </div>
         </div>
@@ -113,6 +196,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                   onInspectTier={setInspectedTier} 
                   styleClipboard={styleClipboard} 
                   onCopyStyle={setStyleClipboard} 
+                  onRuleEdit={handleRuleEdit}
                   viewerBackground={viewerBackground}
                 />
             )}
@@ -122,10 +206,13 @@ const EditorView: React.FC<EditorViewProps> = ({
 
       <InspectorPanel 
         inspectedTier={inspectedTier}
+        editingRuleIndex={editingRuleIndex}
         clipboardStyle={styleClipboard}
         onClearClipboard={() => setStyleClipboard(null)}
         onCopyStyle={setStyleClipboard}
         onPasteStyle={handlePasteStyle}
+        onAddRulePreset={handleAddRulePreset}
+        onRemoveRule={handleRemoveRule}
         language={language}
         viewerBackground={viewerBackground}
         setViewerBackground={setViewerBackground}
@@ -136,6 +223,14 @@ const EditorView: React.FC<EditorViewProps> = ({
         .main-content { flex: 1; display: flex; flex-direction: column; background: #f0f2f5; min-width: 0; }
         .top-bar { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; background: white; border-bottom: 1px solid #ddd; height: 60px; flex-shrink: 0; }
         .top-bar h2 { margin: 0; font-size: 1.1rem; color: #333; }
+        .save-btn { 
+            background: #4CAF50; color: white !important; border: none; padding: 8px 20px; 
+            border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: background 0.2s;
+        }
+        .save-btn:hover { background: #43a047; }
+        .save-btn:disabled { background: #ccc; cursor: not-allowed; }
+
         .workspace { flex: 1; padding: 0; overflow: hidden; display: flex; }
         .editor-pane { 
           background: #f0f2f5; 

@@ -48,7 +48,10 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   const [showIconPopup, setShowIconPopup] = useState(false);
   const [showBeamPopup, setShowBeamPopup] = useState(false);
 
-  const [availableSounds, setAvailableSounds] = useState<{ defaults: string[]; sharket: string[] }>({ defaults: [], sharket: [] });
+  const [availableSounds, setAvailableSounds] = useState<{
+    defaults: string[];
+    sharket: string[];
+  }>({ defaults: [], sharket: [] });
   const [soundSearch, setSoundSearch] = useState("");
   const [localAlphas, setLocalAlphas] = useState({
     TextColor: getAlpha(style.TextColor),
@@ -56,14 +59,59 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     BackgroundColor: getAlpha(style.BackgroundColor),
   });
 
-  const [tempSound, setTempSound] = useState<{ type: "default" | "sharket" | "custom"; file: string; vol: number }>({ type: "default", file: "Default/AlertSound1.mp3", vol: 100 });
+  const [tempSound, setTempSound] = useState<{
+    type: "default" | "sharket" | "custom";
+    file: string;
+    vol: number;
+  }>({ type: "default", file: "Default/AlertSound1.mp3", vol: 100 });
 
-  const [tempIcon, setTempIcon] = useState({ size: 0, color: "Red", shape: "Circle" });
+  const [tempIcon, setTempIcon] = useState({
+    size: 0,
+    color: "Red",
+    shape: "Circle",
+  });
   const [tempBeam, setTempBeam] = useState({ color: "Red", isTemp: false });
 
-  const ICON_COLORS = ["Blue", "Green", "Brown", "Red", "White", "Yellow", "Cyan", "Grey", "Orange", "Pink", "Purple"];
-  const ICON_SHAPES = ["Circle", "Diamond", "Hexagon", "Square", "Star", "Triangle", "Cross", "Moon", "Raindrop", "Kite", "Pentagon", "UpsideDownHouse"];
-  const BEAM_COLORS = ["Red", "Green", "Blue", "Brown", "White", "Yellow", "Cyan", "Grey", "Orange", "Pink", "Purple"];
+  const ICON_COLORS = [
+    "Blue",
+    "Green",
+    "Brown",
+    "Red",
+    "White",
+    "Yellow",
+    "Cyan",
+    "Grey",
+    "Orange",
+    "Pink",
+    "Purple",
+  ];
+  const ICON_SHAPES = [
+    "Circle",
+    "Diamond",
+    "Hexagon",
+    "Square",
+    "Star",
+    "Triangle",
+    "Cross",
+    "Moon",
+    "Raindrop",
+    "Kite",
+    "Pentagon",
+    "UpsideDownHouse",
+  ];
+  const BEAM_COLORS = [
+    "Red",
+    "Green",
+    "Blue",
+    "Brown",
+    "White",
+    "Yellow",
+    "Cyan",
+    "Grey",
+    "Orange",
+    "Pink",
+    "Purple",
+  ];
 
   const getIconStyle = (color: string, shape: string, scale: number = 1) => {
     const shapeIdx = ICON_SHAPES.indexOf(shape);
@@ -78,7 +126,9 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
       width: `${baseSize * scale}px`,
       height: `${baseSize * scale}px`,
       backgroundImage: `url('/assets/Icon/MiniMapIcon_FullSpriteV2.png')`,
-      backgroundPosition: `-${(colorIdx * stepX + offset) * scale}px -${(shapeIdx * stepY + offset) * scale}px`,
+      backgroundPosition: `-${(colorIdx * stepX + offset) * scale}px -${
+        (shapeIdx * stepY + offset) * scale
+      }px`,
       backgroundSize: `${logicalWidth * scale}px auto`,
       backgroundRepeat: "no-repeat",
       display: "inline-block",
@@ -89,7 +139,8 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
 
   useEffect(() => {
     if (showSoundPopup && availableSounds.defaults.length === 0) {
-      axios.get("http://localhost:8000/api/sounds/list")
+      axios
+        .get("http://localhost:8000/api/sounds/list")
         .then((res) => setAvailableSounds(res.data))
         .catch((err) => console.error(err));
     }
@@ -98,7 +149,9 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   useEffect(() => {
     if (showSoundPopup) {
       const soundData = style.PlayAlertSound;
-      const [file, vol] = Array.isArray(soundData) ? soundData : ["Default/AlertSound1.mp3", 100];
+      const [file, vol] = Array.isArray(soundData)
+        ? soundData
+        : ["Default/AlertSound1.mp3", 100];
       let type: "default" | "sharket" | "custom" = "custom";
       if (file.startsWith("Default/")) type = "default";
       else if (file.startsWith("Sharket掉落音效/")) type = "sharket";
@@ -107,7 +160,11 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     if (showIconPopup) {
       const iconStr = style.MinimapIcon || "0 Red Circle";
       const [s, c, sh] = iconStr.split(" ");
-      setTempIcon({ size: parseInt(s) || 0, color: c || "Red", shape: sh || "Circle" });
+      setTempIcon({
+        size: parseInt(s) || 0,
+        color: c || "Red",
+        shape: sh || "Circle",
+      });
     }
     if (showBeamPopup) {
       const beamStr = style.PlayEffect || "Red";
@@ -136,18 +193,27 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   };
 
   const applyIcon = () => {
-    handleChange("MinimapIcon", `${tempIcon.size} ${tempIcon.color} ${tempIcon.shape}`);
+    handleChange(
+      "MinimapIcon",
+      `${tempIcon.size} ${tempIcon.color} ${tempIcon.shape}`
+    );
     setShowIconPopup(false);
   };
 
   const applyBeam = () => {
-    handleChange("PlayEffect", `${tempBeam.color}${tempBeam.isTemp ? " Temp" : ""}`);
+    handleChange(
+      "PlayEffect",
+      `${tempBeam.color}${tempBeam.isTemp ? " Temp" : ""}`
+    );
     setShowBeamPopup(false);
   };
 
   const handleTestSound = () => {
-    const url = tempSound.type === "custom"
-        ? `http://localhost:8000/api/sounds/proxy?path=${encodeURIComponent(tempSound.file)}` 
+    const url =
+      tempSound.type === "custom"
+        ? `http://localhost:8000/api/sounds/proxy?path=${encodeURIComponent(
+            tempSound.file
+          )}`
         : `http://localhost:8000/sounds/${tempSound.file}`;
     const audio = new Audio(url);
     audio.volume = Math.min(1, tempSound.vol / 300);
@@ -174,14 +240,24 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
 
   const applyAlphas = () => {
     const nextStyle = { ...style };
-    const keys: (keyof StyleProps)[] = ["TextColor", "BorderColor", "BackgroundColor"];
+    const keys: (keyof StyleProps)[] = [
+      "TextColor",
+      "BorderColor",
+      "BackgroundColor",
+    ];
     keys.forEach((key) => {
-      const val = (style[key] as string) || (key === "BackgroundColor" ? "#000000ff" : "#ffffffff");
+      const val =
+        (style[key] as string) ||
+        (key === "BackgroundColor" ? "#000000ff" : "#ffffffff");
       const clean = val.startsWith("disabled:") ? val.split(":")[1] : val;
       const base = clean.substring(0, 7);
-      const aHex = localAlphas[key as keyof typeof localAlphas].toString(16).padStart(2, "0");
+      const aHex = localAlphas[key as keyof typeof localAlphas]
+        .toString(16)
+        .padStart(2, "0");
       const newVal = `${base}${aHex}`;
-      nextStyle[key] = val.startsWith("disabled:") ? `disabled:${newVal}` : newVal;
+      nextStyle[key] = val.startsWith("disabled:")
+        ? `disabled:${newVal}`
+        : newVal;
     });
     onChange(nextStyle, visibility);
     setShowAlphaPopup(false);
@@ -201,7 +277,10 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     return `rgba(${r}, ${g}, ${b}, ${a})`;
   };
 
-  const toggleColor = (key: keyof StyleProps, currentValue: string | null | undefined) => {
+  const toggleColor = (
+    key: keyof StyleProps,
+    currentValue: string | null | undefined
+  ) => {
     if (!currentValue) {
       handleChange(key, key === "BackgroundColor" ? "#000000ff" : "#ffffffff");
     } else if (currentValue.startsWith("disabled:")) {
@@ -212,16 +291,21 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   };
 
   const hexToRgba = (hex: string, key: keyof StyleProps) => {
-    const currentAlpha = getAlpha(style[key] as string).toString(16).padStart(2, "0");
+    const currentAlpha = getAlpha(style[key] as string)
+      .toString(16)
+      .padStart(2, "0");
     return `${hex}${currentAlpha}`;
   };
 
   const handlePreviewClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const isActive = (val: any) => val && (typeof val !== "string" || !val.startsWith("disabled:"));
+    const isActive = (val: any) =>
+      val && (typeof val !== "string" || !val.startsWith("disabled:"));
     if (isActive(style.PlayAlertSound)) {
       const soundData = style.PlayAlertSound;
-      const [soundFile, volume] = Array.isArray(soundData) ? soundData : [null, 0];
+      const [soundFile, volume] = Array.isArray(soundData)
+        ? soundData
+        : [null, 0];
       if (soundFile) {
         const audio = new Audio(`http://localhost:8000/sounds/${soundFile}`);
         audio.volume = Math.min(1, (volume as number) / 300);
@@ -236,55 +320,152 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     else if (key === "PlayEffect") setShowBeamPopup(true);
   };
 
-  const filteredSounds = tempSound.type === "default"
-      ? availableSounds.defaults.filter((s) => s.toLowerCase().includes(soundSearch.toLowerCase()))
-      : availableSounds.sharket.filter((s) => s.toLowerCase().includes(soundSearch.toLowerCase()));
+  const filteredSounds =
+    tempSound.type === "default"
+      ? availableSounds.defaults.filter((s) =>
+          s.toLowerCase().includes(soundSearch.toLowerCase())
+        )
+      : availableSounds.sharket.filter((s) =>
+          s.toLowerCase().includes(soundSearch.toLowerCase())
+        );
 
   return (
-    <div className={`VisualEditor_Container tier-style-editor ${visibility ? "hidden-tier" : ""}`} style={{ backgroundImage: `url('/assets/item_bg/${viewerBackground}')` }} onClick={onInspect}>
-      
+    <div
+      className={`VisualEditor_Container tier-style-editor ${
+        visibility ? "hidden-tier" : ""
+      }`}
+      style={{ backgroundImage: `url('/assets/item_bg/${viewerBackground}')` }}
+      onClick={onInspect}
+    >
       {/* Modals Section */}
       {showSoundPopup && (
         <div className="modal-overlay" onClick={() => setShowSoundPopup(false)}>
           <div className="sound-popup" onClick={(e) => e.stopPropagation()}>
             <div className="popup-header">
-              <h3>{t.sound} - {tierName}</h3>
-              <button className="close-x" onClick={() => setShowSoundPopup(false)}>X</button>
+              <h3>
+                {t.sound} - {tierName}
+              </h3>
+              <button
+                className="close-x"
+                onClick={() => setShowSoundPopup(false)}
+              >
+                X
+              </button>
             </div>
             <div className="sound-tabs">
-              <button className={tempSound.type === "default" ? "active" : ""} onClick={() => setTempSound({ ...tempSound, type: "default", file: availableSounds.defaults[0] })}>{t.default}</button>
-              <button className={tempSound.type === "sharket" ? "active" : ""} onClick={() => setTempSound({ ...tempSound, type: "sharket", file: availableSounds.sharket[0] })}>{t.sharket}</button>
-              <button className={tempSound.type === "custom" ? "active" : ""} onClick={() => setTempSound({ ...tempSound, type: "custom" })}>{t.custom}</button>
+              <button
+                className={tempSound.type === "default" ? "active" : ""}
+                onClick={() =>
+                  setTempSound({
+                    ...tempSound,
+                    type: "default",
+                    file: availableSounds.defaults[0],
+                  })
+                }
+              >
+                {t.default}
+              </button>
+              <button
+                className={tempSound.type === "sharket" ? "active" : ""}
+                onClick={() =>
+                  setTempSound({
+                    ...tempSound,
+                    type: "sharket",
+                    file: availableSounds.sharket[0],
+                  })
+                }
+              >
+                {t.sharket}
+              </button>
+              <button
+                className={tempSound.type === "custom" ? "active" : ""}
+                onClick={() => setTempSound({ ...tempSound, type: "custom" })}
+              >
+                {t.custom}
+              </button>
             </div>
             <div className="sound-config">
               {tempSound.type !== "custom" ? (
                 <>
-                  <input type="text" className="sound-search" placeholder={t.search} value={soundSearch} onChange={(e) => setSoundSearch(e.target.value)} />
+                  <input
+                    type="text"
+                    className="sound-search"
+                    placeholder={t.search}
+                    value={soundSearch}
+                    onChange={(e) => setSoundSearch(e.target.value)}
+                  />
                   <div className="sound-list">
                     {filteredSounds.map((s) => (
-                      <div key={s} className={`sound-item ${tempSound.file === s ? "active" : ""}`} onClick={() => setTempSound({ ...tempSound, file: s })}>{s.split("/").pop()}</div>
+                      <div
+                        key={s}
+                        className={`sound-item ${
+                          tempSound.file === s ? "active" : ""
+                        }`}
+                        onClick={() => setTempSound({ ...tempSound, file: s })}
+                      >
+                        {s.split("/").pop()}
+                      </div>
                     ))}
                   </div>
                 </>
               ) : (
                 <div className="custom-path-input">
                   <label>{t.filePath}</label>
-                  <input type="text" value={tempSound.file} onChange={(e) => setTempSound({ ...tempSound, file: e.target.value })} placeholder="C:\path\to\sound.mp3" />
+                  <input
+                    type="text"
+                    value={tempSound.file}
+                    onChange={(e) =>
+                      setTempSound({ ...tempSound, file: e.target.value })
+                    }
+                    placeholder="C:\path\to\sound.mp3"
+                  />
                 </div>
               )}
               <div className="volume-control">
                 <div className="volume-header">
                   <label>{t.volume}</label>
-                  <input type="number" min="0" max="600" className="vol-num-input" value={tempSound.vol} onChange={(e) => setTempSound({ ...tempSound, vol: Math.min(600, parseInt(e.target.value) || 0) })} />
+                  <input
+                    type="number"
+                    min="0"
+                    max="600"
+                    className="vol-num-input"
+                    value={tempSound.vol}
+                    onChange={(e) =>
+                      setTempSound({
+                        ...tempSound,
+                        vol: Math.min(600, parseInt(e.target.value) || 0),
+                      })
+                    }
+                  />
                 </div>
-                <input type="range" min="0" max="600" value={tempSound.vol} onChange={(e) => setTempSound({ ...tempSound, vol: parseInt(e.target.value) })} />
+                <input
+                  type="range"
+                  min="0"
+                  max="600"
+                  value={tempSound.vol}
+                  onChange={(e) =>
+                    setTempSound({
+                      ...tempSound,
+                      vol: parseInt(e.target.value),
+                    })
+                  }
+                />
               </div>
             </div>
             <div className="popup-footer">
-              <button className="test-btn" onClick={handleTestSound}>{t.testSound} 🔊</button>
+              <button className="test-btn" onClick={handleTestSound}>
+                {t.testSound} 🔊
+              </button>
               <div className="main-actions">
-                <button className="cancel-btn" onClick={() => setShowSoundPopup(false)}>{t.cancel}</button>
-                <button className="ok-btn" onClick={applySound}>OK</button>
+                <button
+                  className="cancel-btn"
+                  onClick={() => setShowSoundPopup(false)}
+                >
+                  {t.cancel}
+                </button>
+                <button className="ok-btn" onClick={applySound}>
+                  OK
+                </button>
               </div>
             </div>
           </div>
@@ -295,15 +476,28 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         <div className="modal-overlay" onClick={() => setShowIconPopup(false)}>
           <div className="sound-popup" onClick={(e) => e.stopPropagation()}>
             <div className="popup-header">
-              <h3>{t.icon} - {tierName}</h3>
-              <button className="close-x" onClick={() => setShowIconPopup(false)}>X</button>
+              <h3>
+                {t.icon} - {tierName}
+              </h3>
+              <button
+                className="close-x"
+                onClick={() => setShowIconPopup(false)}
+              >
+                X
+              </button>
             </div>
             <div className="icon-config">
               <div className="config-section">
                 <label>{t.size}</label>
                 <div className="option-grid size-grid">
                   {[0, 1, 2].map((s) => (
-                    <button key={s} className={tempIcon.size === s ? "active" : ""} onClick={() => setTempIcon({ ...tempIcon, size: s })}>{s === 0 ? t.small : s === 1 ? t.medium : t.large}</button>
+                    <button
+                      key={s}
+                      className={tempIcon.size === s ? "active" : ""}
+                      onClick={() => setTempIcon({ ...tempIcon, size: s })}
+                    >
+                      {s === 0 ? t.small : s === 1 ? t.medium : t.large}
+                    </button>
                   ))}
                 </div>
               </div>
@@ -311,7 +505,14 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 <label>{t.color}</label>
                 <div className="option-grid color-grid">
                   {ICON_COLORS.map((c) => (
-                    <button key={c} className={tempIcon.color === c ? "active" : ""} style={{ borderColor: c.toLowerCase() }} onClick={() => setTempIcon({ ...tempIcon, color: c })}>{(t as any)[c] || c}</button>
+                    <button
+                      key={c}
+                      className={tempIcon.color === c ? "active" : ""}
+                      style={{ borderColor: c.toLowerCase() }}
+                      onClick={() => setTempIcon({ ...tempIcon, color: c })}
+                    >
+                      {(t as any)[c] || c}
+                    </button>
                   ))}
                 </div>
               </div>
@@ -319,22 +520,61 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 <label>{t.shape}</label>
                 <div className="option-grid icon-grid">
                   {ICON_SHAPES.map((sh) => (
-                    <button key={sh} className={tempIcon.shape === sh ? "active" : ""} onClick={() => setTempIcon({ ...tempIcon, shape: sh })} title={sh}><div style={getIconStyle("White", sh, 1.2)}></div></button>
+                    <button
+                      key={sh}
+                      className={tempIcon.shape === sh ? "active" : ""}
+                      onClick={() => setTempIcon({ ...tempIcon, shape: sh })}
+                      title={sh}
+                    >
+                      <div style={getIconStyle(tempIcon.color, sh, 1.2)}></div>
+                    </button>
                   ))}
                 </div>
               </div>
             </div>
             <div className="popup-footer">
               <div className="preview-indicator">
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <div style={getIconStyle(tempIcon.color, tempIcon.shape, 1)}></div>
-                  <span>{(t as any)[tempIcon.size === 0 ? "small" : tempIcon.size === 1 ? "medium" : "large"]} {(t as any)[tempIcon.color]} {(t as any)[tempIcon.shape] || tempIcon.shape}</span>
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "8px" }}
+                >
+                  <div
+                    style={getIconStyle(tempIcon.color, tempIcon.shape, 1)}
+                  ></div>
+                  <span>
+                    {
+                      (t as any)[
+                        tempIcon.size === 0
+                          ? "small"
+                          : tempIcon.size === 1
+                          ? "medium"
+                          : "large"
+                      ]
+                    }{" "}
+                    {(t as any)[tempIcon.color]}{" "}
+                    {(t as any)[tempIcon.shape] || tempIcon.shape}
+                  </span>
                 </div>
               </div>
               <div className="main-actions">
-                <button className="reset-btn" style={{ background: "#c62828" }} onClick={() => { handleChange("MinimapIcon", null); setShowIconPopup(false); }}>{t.none}</button>
-                <button className="cancel-btn" onClick={() => setShowIconPopup(false)}>{t.cancel}</button>
-                <button className="ok-btn" onClick={applyIcon}>OK</button>
+                <button
+                  className="reset-btn"
+                  style={{ background: "#c62828" }}
+                  onClick={() => {
+                    handleChange("MinimapIcon", null);
+                    setShowIconPopup(false);
+                  }}
+                >
+                  {t.none}
+                </button>
+                <button
+                  className="cancel-btn"
+                  onClick={() => setShowIconPopup(false)}
+                >
+                  {t.cancel}
+                </button>
+                <button className="ok-btn" onClick={applyIcon}>
+                  OK
+                </button>
               </div>
             </div>
           </div>
@@ -345,34 +585,75 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         <div className="modal-overlay" onClick={() => setShowBeamPopup(false)}>
           <div className="sound-popup" onClick={(e) => e.stopPropagation()}>
             <div className="popup-header">
-              <h3>{t.beam} - {tierName}</h3>
-              <button className="close-x" onClick={() => setShowBeamPopup(false)}>X</button>
+              <h3>
+                {t.beam} - {tierName}
+              </h3>
+              <button
+                className="close-x"
+                onClick={() => setShowBeamPopup(false)}
+              >
+                X
+              </button>
             </div>
             <div className="icon-config">
               <div className="config-section">
                 <label>{t.color}</label>
                 <div className="option-grid color-grid">
                   {BEAM_COLORS.map((c) => (
-                    <button key={c} className={tempBeam.color === c ? "active" : ""} style={{ borderColor: c.toLowerCase() }} onClick={() => setTempBeam({ ...tempBeam, color: c })}>{(t as any)[c] || c}</button>
+                    <button
+                      key={c}
+                      className={tempBeam.color === c ? "active" : ""}
+                      style={{ borderColor: c.toLowerCase() }}
+                      onClick={() => setTempBeam({ ...tempBeam, color: c })}
+                    >
+                      {(t as any)[c] || c}
+                    </button>
                   ))}
                 </div>
               </div>
               <div className="config-section">
                 <label>{t.temporary}</label>
                 <div className="toggle-box">
-                  <button className={!tempBeam.isTemp ? "active" : ""} onClick={() => setTempBeam({ ...tempBeam, isTemp: false })}>{t.permanent}</button>
-                  <button className={tempBeam.isTemp ? "active" : ""} onClick={() => setTempBeam({ ...tempBeam, isTemp: true })}>{t.temporary}</button>
+                  <button
+                    className={!tempBeam.isTemp ? "active" : ""}
+                    onClick={() => setTempBeam({ ...tempBeam, isTemp: false })}
+                  >
+                    {t.permanent}
+                  </button>
+                  <button
+                    className={tempBeam.isTemp ? "active" : ""}
+                    onClick={() => setTempBeam({ ...tempBeam, isTemp: true })}
+                  >
+                    {t.temporary}
+                  </button>
                 </div>
               </div>
             </div>
             <div className="popup-footer">
               <div className="preview-indicator">
-                {(t as any)[tempBeam.color]} {tempBeam.isTemp ? `(${t.temporary})` : `(${t.permanent})`}
+                {(t as any)[tempBeam.color]}{" "}
+                {tempBeam.isTemp ? `(${t.temporary})` : `(${t.permanent})`}
               </div>
               <div className="main-actions">
-                <button className="reset-btn" style={{ background: "#c62828" }} onClick={() => { handleChange("PlayEffect", null); setShowBeamPopup(false); }}>{t.none}</button>
-                <button className="cancel-btn" onClick={() => setShowBeamPopup(false)}>{t.cancel}</button>
-                <button className="ok-btn" onClick={applyBeam}>OK</button>
+                <button
+                  className="reset-btn"
+                  style={{ background: "#c62828" }}
+                  onClick={() => {
+                    handleChange("PlayEffect", null);
+                    setShowBeamPopup(false);
+                  }}
+                >
+                  {t.none}
+                </button>
+                <button
+                  className="cancel-btn"
+                  onClick={() => setShowBeamPopup(false)}
+                >
+                  {t.cancel}
+                </button>
+                <button className="ok-btn" onClick={applyBeam}>
+                  OK
+                </button>
               </div>
             </div>
           </div>
@@ -382,56 +663,146 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
       <div className="tier-header-bar">
         <h4 className="tier-title">{tierName}</h4>
         <div className="header-actions">
-          <button className={`vis-btn ${visibility ? "is-hidden" : "is-shown"}`} onClick={(e) => { e.stopPropagation(); toggleVisibility(); }}>{visibility ? t.hide : t.show}</button>
-          {onReset && <button className="reset-btn" onClick={(e) => { e.stopPropagation(); onReset(); }}>RESET</button>}
+          <button
+            className={`vis-btn ${visibility ? "is-hidden" : "is-shown"}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              toggleVisibility();
+            }}
+          >
+            {visibility ? t.hide : t.show}
+          </button>
+          {onReset && (
+            <button
+              className="reset-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                onReset();
+              }}
+            >
+              RESET
+            </button>
+          )}
         </div>
       </div>
 
       <div className="editor-layout">
         <div className="color-controls">
           {["TextColor", "BorderColor", "BackgroundColor"].map((key) => {
-            const label = key === "TextColor" ? t.text : key === "BorderColor" ? t.border : t.background;
+            const label =
+              key === "TextColor"
+                ? t.text
+                : key === "BorderColor"
+                ? t.border
+                : t.background;
             const val = (style as any)[key];
             return (
               <div key={key} className="color-row">
                 <span className="color-label">{label}</span>
-                <input type="color" className={!isColorActive(val) ? "disabled-picker" : ""} value={rgbaToHex(val)} onChange={(e) => handleChange(key as keyof StyleProps, hexToRgba(e.target.value, key as keyof StyleProps))} />
-                <div className={`status-check ${isColorActive(val) ? "active" : ""}`} onClick={(e) => { e.stopPropagation(); toggleColor(key as keyof StyleProps, val); }}>{isColorActive(val) && "✓"}</div>
+                <input
+                  type="color"
+                  className={!isColorActive(val) ? "disabled-picker" : ""}
+                  value={rgbaToHex(val)}
+                  onChange={(e) =>
+                    handleChange(
+                      key as keyof StyleProps,
+                      hexToRgba(e.target.value, key as keyof StyleProps)
+                    )
+                  }
+                />
+                <div
+                  className={`status-check ${
+                    isColorActive(val) ? "active" : ""
+                  }`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleColor(key as keyof StyleProps, val);
+                  }}
+                >
+                  {isColorActive(val) && "✓"}
+                </div>
               </div>
             );
           })}
           <div className="alpha-bulk-container">
-            <button className="alpha-bulk-btn" onClick={(e) => { e.stopPropagation(); setShowAlphaPopup(!showAlphaPopup); }} title={t.transparency}>{t.transparency}</button>
+            <button
+              className="alpha-bulk-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowAlphaPopup(!showAlphaPopup);
+              }}
+              title={t.transparency}
+            >
+              {t.transparency}
+            </button>
             {showAlphaPopup && (
               <div className="alpha-popup" onClick={(e) => e.stopPropagation()}>
                 <div className="alpha-popup-header">{t.transparency}</div>
                 {["TextColor", "BorderColor", "BackgroundColor"].map((key) => (
                   <div key={key} className="alpha-input-row">
-                    <label>{key === "TextColor" ? t.text : key === "BorderColor" ? t.border : t.background}</label>
-                    <input type="number" min="0" max="255" value={localAlphas[key as keyof typeof localAlphas]} onChange={(e) => setLocalAlphas({ ...localAlphas, [key]: parseInt(e.target.value) || 0 })} />
+                    <label>
+                      {key === "TextColor"
+                        ? t.text
+                        : key === "BorderColor"
+                        ? t.border
+                        : t.background}
+                    </label>
+                    <input
+                      type="number"
+                      min="0"
+                      max="255"
+                      value={localAlphas[key as keyof typeof localAlphas]}
+                      onChange={(e) =>
+                        setLocalAlphas({
+                          ...localAlphas,
+                          [key]: parseInt(e.target.value) || 0,
+                        })
+                      }
+                    />
                   </div>
                 ))}
-                <button className="apply-alpha-btn" onClick={applyAlphas}>OK</button>
+                <button className="apply-alpha-btn" onClick={applyAlphas}>
+                  OK
+                </button>
               </div>
             )}
           </div>
         </div>
 
         <div className="CombiBoxShowcaseDiv" onClick={handlePreviewClick}>
-          {style.PlayEffect && (
-            <div className={`visual-beam ${style.PlayEffect.includes("Temp") ? "is-temp" : ""}`}
-                 style={{ "--beam-color": style.PlayEffect.split(" ")[0].toLowerCase() } as any}></div>
-          )}
-          <div className="item-plate" style={{
-            fontSize: `${(style.FontSize || 32) / 1.8}px`,
-            color: visibility ? "#555" : (isColorActive(style.TextColor) ? hexToCssRgba(style.TextColor, true) : "#000000"),
-            borderColor: visibility ? "#333" : (isColorActive(style.BorderColor) ? hexToCssRgba(style.BorderColor, true) : "transparent"),
-            backgroundColor: visibility ? "#1a1a1a" : (isColorActive(style.BackgroundColor) ? hexToCssRgba(style.BackgroundColor, true) : "#000000"),
-            borderStyle: "solid",
-            borderWidth: isColorActive(style.BorderColor) ? "1px" : "0",
-            opacity: visibility ? 0.6 : 1,
-          }}>
-            {style.MinimapIcon && <div style={getIconStyle(style.MinimapIcon.split(" ")[1], style.MinimapIcon.split(" ")[2], 0.8)}></div>}
+          <div
+            className="item-plate"
+            style={{
+              fontSize: `${(style.FontSize || 32) / 1.8}px`,
+              color: visibility
+                ? "#555"
+                : isColorActive(style.TextColor)
+                ? hexToCssRgba(style.TextColor, true)
+                : "#000000",
+              borderColor: visibility
+                ? "#333"
+                : isColorActive(style.BorderColor)
+                ? hexToCssRgba(style.BorderColor, true)
+                : "transparent",
+              backgroundColor: visibility
+                ? "#1a1a1a"
+                : isColorActive(style.BackgroundColor)
+                ? hexToCssRgba(style.BackgroundColor, true)
+                : "#000000",
+              borderStyle: "solid",
+              borderWidth: isColorActive(style.BorderColor) ? "1px" : "0",
+              opacity: visibility ? 0.6 : 1,
+            }}
+          >
+            {style.MinimapIcon && (
+              <div
+                style={getIconStyle(
+                  style.MinimapIcon.split(" ")[1],
+                  style.MinimapIcon.split(" ")[2],
+                  0.8
+                )}
+              ></div>
+            )}
             {copyFeedback ? "✓ COPIED" : tierName.toUpperCase()}
           </div>
         </div>
@@ -440,22 +811,108 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
           <div className="top-row">
             <div className="font-slider-container">
               <div className="slider-track"></div>
-              <div className="slider-thumb-visual" style={{ left: `${(((style.FontSize || 32) - 12) / (45 - 12)) * 100}%` }}>{style.FontSize || 32}</div>
-              <input type="range" min="12" max="45" className="real-range-input" value={style.FontSize || 32} onChange={(e) => handleChange("FontSize", parseInt(e.target.value))} />
+              <div
+                className="slider-thumb-visual"
+                style={{
+                  left: `${(((style.FontSize || 32) - 12) / (45 - 12)) * 100}%`,
+                }}
+              >
+                {style.FontSize || 32}
+              </div>
+              <input
+                type="range"
+                min="12"
+                max="45"
+                className="real-range-input"
+                value={style.FontSize || 32}
+                onChange={(e) =>
+                  handleChange("FontSize", parseInt(e.target.value))
+                }
+              />
             </div>
             <div className="action-btns">
-              <button className="style-btn" onClick={(e) => { e.stopPropagation(); onCopy(); }}>{t.copy}</button>
-              <button className="style-btn" onClick={(e) => { e.stopPropagation(); onPaste(); }} disabled={!canPaste}>{t.paste}</button>
+              <button
+                className="style-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onCopy();
+                }}
+              >
+                {t.copy}
+              </button>
+              <button
+                className="style-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onPaste();
+                }}
+                disabled={!canPaste}
+              >
+                {t.paste}
+              </button>
             </div>
           </div>
           <div className="bottom-row extra-btns">
-            <button className={`extra-toggle-btn ${style.PlayAlertSound ? "active" : ""}`} onClick={(e) => { e.stopPropagation(); toggleExtra("PlayAlertSound"); }}>{t.sound}</button>
-            <button className={`extra-toggle-btn ${style.MinimapIcon ? "active" : ""}`} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "5px" }} onClick={(e) => { e.stopPropagation(); toggleExtra("MinimapIcon"); }}>
-              {style.MinimapIcon && <div style={getIconStyle(style.MinimapIcon.split(" ")[1], style.MinimapIcon.split(" ")[2], 0.6)}></div>}
+            <button
+              className={`extra-toggle-btn ${
+                style.PlayAlertSound ? "active" : ""
+              }`}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleExtra("PlayAlertSound");
+              }}
+            >
+              {t.sound}
+            </button>
+            <button
+              className={`extra-toggle-btn ${
+                style.MinimapIcon ? "active" : ""
+              }`}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "5px",
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleExtra("MinimapIcon");
+              }}
+            >
+              {style.MinimapIcon && (
+                <div
+                  style={getIconStyle(
+                    style.MinimapIcon.split(" ")[1],
+                    style.MinimapIcon.split(" ")[2],
+                    0.6
+                  )}
+                ></div>
+              )}
               {t.icon}
             </button>
-            <button className={`extra-toggle-btn ${style.PlayEffect ? "active" : ""}`} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "5px" }} onClick={(e) => { e.stopPropagation(); toggleExtra("PlayEffect"); }}>
-              {style.PlayEffect && <div className={`beam-icon-mini ${style.PlayEffect.includes("Temp") ? "is-temp" : ""}`} style={{ color: style.PlayEffect.split(" ")[0].toLowerCase() }}></div>}
+            <button
+              className={`extra-toggle-btn ${style.PlayEffect ? "active" : ""}`}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "5px",
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleExtra("PlayEffect");
+              }}
+            >
+              {style.PlayEffect && (
+                <div
+                  className={`beam-icon-mini ${
+                    style.PlayEffect.includes("Temp") ? "is-temp" : ""
+                  }`}
+                  style={{
+                    color: style.PlayEffect.split(" ")[0].toLowerCase(),
+                  }}
+                ></div>
+              )}
               {t.beam}
             </button>
           </div>
@@ -477,17 +934,20 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         .color-controls input[type="color"] { background: none; border: 1px solid #444; width: 40px; height: 24px; cursor: pointer; padding: 0; transition: opacity 0.2s; }
         .disabled-picker { opacity: 0.3; pointer-events: none; }
         .alpha-bulk-container { position: relative; margin-top: 10px; display: flex; justify-content: flex-start; }
-        .alpha-bulk-btn { height: 24px; background: #263238; color: #aaa; border: 1px solid #444; border-radius: 2px; font-size: 11px; cursor: pointer; font-weight: bold; padding: 0 12px; text-transform: uppercase; }
-        .alpha-popup { position: absolute; top: 100%; left: 0; background: #1e1e1e; border: 1px solid #3949ab; padding: 12px; border-radius: 4px; z-index: 100; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.8); margin-top: 5px; min-width: 160px; }
-        .alpha-popup-header { font-size: 11px; font-weight: bold; color: #3949ab; text-transform: uppercase; margin-bottom: 2px; border-bottom: 1px solid #333; padding-bottom: 4px; }
+        .alpha-bulk-btn { height: 24px; background: #e0e0e0; color: #222; border: 1px solid #ccc; border-radius: 2px; font-size: 11px; cursor: pointer; font-weight: bold; padding: 0 12px; text-transform: uppercase; transition: background 0.2s; }
+        .alpha-bulk-btn:hover { background: #fff; }
+        .alpha-popup { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #2196F3; padding: 12px; border-radius: 4px; z-index: 100; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-top: 5px; min-width: 160px; color: #222; }
+        .alpha-popup-header { font-size: 11px; font-weight: bold; color: #2196F3; text-transform: uppercase; margin-bottom: 2px; border-bottom: 1px solid #eee; padding-bottom: 4px; }
         .alpha-input-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-        .alpha-input-row label { font-size: 11px; color: #888; flex: 1; }
-        .alpha-input-row input { width: 50px; background: #000; color: #fff; border: 1px solid #444; padding: 3px; font-size: 12px; text-align: center; border-radius: 2px; }
-        .apply-alpha-btn { background: #3949ab; color: #fff; border: none; padding: 6px; cursor: pointer; font-size: 11px; border-radius: 2px; font-weight: bold; margin-top: 5px; }
+        .alpha-input-row label { font-size: 11px; color: #666; flex: 1; }
+        .alpha-input-row input { width: 50px; background: #fff; color: #222; border: 1px solid #ddd; padding: 3px; font-size: 12px; text-align: center; border-radius: 2px; }
+        .apply-alpha-btn { background: #2196F3; color: #fff !important; border: none; padding: 6px; cursor: pointer; font-size: 11px; border-radius: 2px; font-weight: bold; margin-top: 5px; }
+        
         .status-check { width: 22px; height: 22px; border: 1px solid #444; background: #222; color: #4CAF50; display: flex; align-items: center; justify-content: center; font-size: 12px; cursor: pointer; border-radius: 50%; }
         .status-check.active { border-color: #4CAF50; box-shadow: 0 0 5px rgba(76, 175, 80, 0.3); }
         .CombiBoxShowcaseDiv { width: 360px; height: 80px; display: flex; align-items: center; justify-content: center; background: transparent; position: relative; }
-        .item-plate { font-family: Verdana, sans-serif; box-shadow: 0 0 10px rgba(0,0,0,0.5); white-space: nowrap; transition: all 0.2s; text-align: center; padding: 8px 30px; position: relative; z-index: 10; display: flex; align-items: center; gap: 10px; }
+        .item-plate { font-family: Verdana, sans-serif; box-shadow: 0 0 10px rgba(0,0,0,0.5); white-space: nowrap; transition: all 0.2s; text-align: center; padding: 8px 30px; position: relative; z-index: 10; display: flex; align-items: center; gap: 10px; font-weight: bold; }
+        
         .right-controls { display: flex; flex-direction: column; gap: 12px; width: 260px; align-items: stretch; }
         .top-row { display: flex; flex-direction: column; gap: 10px; }
         .font-slider-container { position: relative; width: 100%; height: 36px; display: flex; align-items: center; background: rgba(0,0,0,0.2); border-radius: 2px; padding: 0 12px; box-sizing: border-box; }
@@ -495,51 +955,54 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         .slider-thumb-visual { position: absolute; width: 32px; height: 20px; background: #1a237e; border: 1px solid #3949ab; color: #fff; font-size: 11px; font-weight: bold; display: flex; align-items: center; justify-content: center; pointer-events: none; transform: translate(-50%, 0); z-index: 2; box-shadow: 0 0 5px rgba(0,0,0,0.5); border-radius: 2px; top: 8px; }
         .real-range-input { position: absolute; left: 12px; right: 12px; width: calc(100% - 24px); opacity: 0; cursor: pointer; z-index: 3; margin: 0; height: 100%; }
         .action-btns { display: flex; gap: 6px; }
-        .style-btn { flex: 1; padding: 6px; font-size: 0.8rem; background: #263238; color: #ccc; border: 1px solid #37474f; cursor: pointer; }
+        .style-btn { flex: 1; padding: 6px; font-size: 0.8rem; background: #eee; color: #222 !important; border: 1px solid #ccc; cursor: pointer; font-weight: bold; border-radius: 2px; }
+        .style-btn:hover { background: #fff; }
+        .style-btn:disabled { opacity: 0.4; cursor: not-allowed; }
         .extra-btns { display: flex; gap: 6px; }
-        .extra-toggle-btn { flex: 1; padding: 8px 4px; font-size: 0.8rem; background: #102027; color: #546e7a; border: 1px solid #263238; cursor: pointer; text-transform: uppercase; font-weight: bold; }
-        .extra-toggle-btn.active { background: #01579b; color: #fff; border-color: #0288d1; box-shadow: inset 0 0 5px rgba(0,0,0,0.5); }
+        .extra-toggle-btn { flex: 1; padding: 8px 4px; font-size: 0.8rem; background: #eee; color: #222 !important; border: 1px solid #ccc; cursor: pointer; text-transform: uppercase; font-weight: bold; border-radius: 2px; }
+        .extra-toggle-btn.active { background: #2196F3; color: white !important; border-color: #2196F3; box-shadow: inset 0 0 5px rgba(0,0,0,0.2); }
+        .extra-toggle-btn:hover:not(.active) { background: #fff; }
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; }
-        .sound-popup { background: #1e1e1e; border: 1px solid #3949ab; width: 450px; padding: 20px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); display: flex; flex-direction: column; gap: 15px; cursor: default; }
-        .popup-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .popup-header h3 { margin: 0; color: #3949ab; font-size: 1rem; }
-        .close-x { background: none; border: none; color: #666; cursor: pointer; font-size: 1.2rem; }
-        .sound-tabs { display: flex; gap: 5px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        .sound-tabs button { flex: 1; padding: 8px; font-size: 0.8rem; background: #263238; color: #888; border: 1px solid #333; border-radius: 4px; }
-        .sound-tabs button.active { background: #3949ab; color: #fff; border-color: #3f51b5; }
+        .sound-popup { background: #fff; border: 1px solid #ddd; width: 450px; padding: 20px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: flex; flex-direction: column; gap: 15px; cursor: default; color: #222; }
+        .popup-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .popup-header h3 { margin: 0; color: #2196F3; font-size: 1rem; }
+        .close-x { background: none; border: none; color: #222 !important; cursor: pointer; font-size: 1.2rem; }
+        .sound-tabs { display: flex; gap: 5px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .sound-tabs button { flex: 1; padding: 8px; font-size: 0.8rem; background: #f5f5f5; color: #222 !important; border: 1px solid #ddd; border-radius: 4px; font-weight: bold; }
+        .sound-tabs button.active { background: #2196F3; color: white !important; border-color: #2196F3; }
         .sound-config { display: flex; flex-direction: column; gap: 12px; }
-        .sound-search { width: 100%; background: #000; border: 1px solid #444; padding: 8px; color: #fff; border-radius: 4px; font-size: 0.85rem; }
-        .sound-list { height: 200px; overflow-y: auto; background: #111; border: 1px solid #333; border-radius: 4px; padding: 5px; }
-        .sound-item { padding: 6px 10px; cursor: pointer; font-size: 0.8rem; color: #aaa; border-radius: 2px; }
-        .sound-item:hover { background: #222; color: #fff; }
-        .sound-item.active { background: #1a237e; color: #fff; font-weight: bold; }
+        .sound-search { width: 100%; background: #fff; border: 1px solid #ddd; padding: 8px; color: #222 !important; border-radius: 4px; font-size: 0.85rem; }
+        .sound-list { height: 200px; overflow-y: auto; background: #f9f9f9; border: 1px solid #eee; border-radius: 4px; padding: 5px; }
+        .sound-item { padding: 6px 10px; cursor: pointer; font-size: 0.8rem; color: #222 !important; border-radius: 2px; }
+        .sound-item:hover { background: #e3f2fd; }
+        .sound-item.active { background: #2196F3; color: white !important; font-weight: bold; }
         .custom-path-input { display: flex; flex-direction: column; gap: 8px; }
-        .custom-path-input label { font-size: 0.8rem; color: #888; }
-        .custom-path-input input { background: #000; border: 1px solid #444; padding: 8px; color: #fff; border-radius: 4px; font-size: 0.85rem; }
+        .custom-path-input label { font-size: 0.8rem; color: #222; font-weight: bold; }
+        .custom-path-input input { background: #fff; border: 1px solid #ddd; padding: 8px; color: #222 !important; border-radius: 4px; font-size: 0.85rem; }
         .volume-control { display: flex; flex-direction: column; gap: 8px; }
         .volume-header { display: flex; justify-content: space-between; align-items: center; }
-        .volume-header label { font-size: 0.8rem; color: #888; }
-        .vol-num-input { width: 50px; background: #000; border: 1px solid #444; color: #fff; padding: 2px 5px; border-radius: 2px; font-size: 12px; text-align: center; }
+        .volume-header label { font-size: 0.8rem; color: #222; font-weight: bold; }
+        .vol-num-input { width: 60px; background: #fff; border: 1px solid #ddd; color: #222 !important; padding: 4px; border-radius: 2px; font-size: 12px; text-align: center; }
         .volume-control input[type="range"] { width: 100%; cursor: pointer; }
-        .popup-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 15px; border-top: 1px solid #333; }
-        .test-btn { background: #455a64; color: #fff; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; }
+        .popup-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 15px; border-top: 1px solid #eee; }
+        .test-btn { background: #455a64; color: white !important; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; }
         .main-actions { display: flex; gap: 10px; }
-        .ok-btn { background: #3949ab; color: #fff; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; }
-        .cancel-btn { background: none; border: 1px solid #444; color: #888; padding: 8px 15px; border-radius: 4px; cursor: pointer; }
+        .ok-btn { background: #4CAF50; color: white !important; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .cancel-btn { background: none; border: 1px solid #ddd; color: #222 !important; padding: 8px 15px; border-radius: 4px; cursor: pointer; }
         .icon-config { display: flex; flex-direction: column; gap: 15px; }
         .config-section { display: flex; flex-direction: column; gap: 8px; }
-        .config-section label { font-size: 0.85rem; color: #888; font-weight: bold; }
+        .config-section label { font-size: 0.85rem; color: #222; font-weight: bold; }
         .option-grid { display: flex; flex-wrap: wrap; gap: 5px; }
-        .option-grid button { background: #111; border: 1px solid #333; color: #aaa; padding: 5px 10px; font-size: 0.75rem; border-radius: 2px; min-width: 35px; }
-        .option-grid button:hover { background: #222; border-color: #444; }
-        .option-grid button.active { background: #3949ab; color: #fff; border-color: #3f51b5; }
+        .option-grid button { background: #f5f5f5; border: 1px solid #ddd; color: #222 !important; padding: 5px 10px; font-size: 0.75rem; border-radius: 2px; min-width: 35px; font-weight: bold; }
+        .option-grid button:hover { background: #eee; border-color: #ccc; }
+        .option-grid button.active { background: #2196F3; color: white !important; border-color: #2196F3; }
         .color-grid button { border-left-width: 4px; }
-        .icon-grid button { flex: 0 0 calc(16.66% - 5px); display: flex; align-items: center; justify-content: center; padding: 8px 0; }
+        .icon-grid button { flex: 0 0 calc(16.66% - 5px); display: flex; align-items: center; justify-content: center; padding: 8px 0; background: #fcfcfc; }
         .size-grid button { flex: 1; }
         .toggle-box { display: flex; gap: 5px; }
-        .toggle-box button { flex: 1; padding: 10px; background: #111; border: 1px solid #333; color: #888; border-radius: 4px; cursor: pointer; }
-        .toggle-box button.active { background: #01579b; color: #fff; border-color: #0288d1; }
-        .preview-indicator { font-size: 0.85rem; color: #3949ab; font-weight: bold; background: #000; padding: 5px 15px; border-radius: 20px; border: 1px solid #333; }
+        .toggle-box button { flex: 1; padding: 10px; background: #f5f5f5; border: 1px solid #ddd; color: #222 !important; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .toggle-box button.active { background: #2196F3; color: white !important; border-color: #2196F3; }
+        .preview-indicator { font-size: 0.85rem; color: #2196F3; font-weight: bold; background: #f5f5f5; padding: 5px 15px; border-radius: 20px; border: 1px solid #ddd; }
         .visual-beam { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 100%; z-index: 1; pointer-events: none; filter: blur(8px); background: linear-gradient(to top, transparent, var(--beam-color), transparent); }
         .visual-beam.is-temp { background: repeating-linear-gradient(to top, transparent, transparent 10px, var(--beam-color) 10px, var(--beam-color) 20px); }
         .beam-icon-mini { width: 4px; height: 14px; border-radius: 2px; background: currentColor; box-shadow: 0 0 5px currentColor; }
