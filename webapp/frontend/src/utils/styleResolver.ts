@@ -45,46 +45,65 @@ export const resolveStyle = (tierData: any, themeData: any, soundMap?: any): Sty
   return resolved;
 };
 
-export const generateFilterText = (style: StyleProps, tierName: string, baseTypes: string[] = ["Item Name"], hideable: boolean = false, rules: any[] = []): string => {
+export const generateFilterText = (style: StyleProps, tierName: string, baseTypes: string[] = ["Item Name"], hideable: boolean = false, rules: any[] = [], includeBase: boolean = true): string => {
   const allBlocks: string[] = [];
+  let allItemsCovered = false;
 
-  // 1. Process Rules first (rules take precedence in POE filters)
-  rules.forEach((rule, idx) => {
-    const rLines = [`# Rule: ${rule.comment || (idx + 1)}`];
+  // 1. Process Rules first
+  rules.forEach((rule) => {
+    const rLines = [];
     const rKeyword = hideable ? "Minimal" : "Show";
     rLines.push(rKeyword);
     
     // BaseType constraint for rule
-    const targets = rule.targets?.length > 0 ? rule.targets : baseTypes;
+    const hasTargets = rule.targets && rule.targets.length > 0;
+    const targets = hasTargets ? rule.targets : baseTypes;
+    if (!hasTargets) allItemsCovered = true; // Rule applies to everything in tier
+
     rLines.push(`    BaseType "${targets.join('" "')}"`);
 
-    // Conditions
+    // 2. Conditions
     if (rule.conditions) {
-        Object.entries(rule.conditions).forEach(([key, val]) => {
-            rLines.push(`    ${key} ${val}`);
+        Object.entries(rule.conditions as Record<string, string>).forEach(([key, val]) => {
+            if (val.startsWith("RANGE ")) {
+                const parts = val.split(" ");
+                if (parts.length >= 5) {
+                    rLines.push(`    ${key} ${parts[1]} ${parts[2]}`);
+                    rLines.push(`    ${key} ${parts[3]} ${parts[4]}`);
+                }
+            } else {
+                rLines.push(`    ${key} ${val}`);
+            }
         });
     }
 
-    // Styles for rule (merged with base tier style if not explicitly overridden)
+    // 3. Raw text (Custom Code)
+    if (rule.raw) {
+        rule.raw.split('\n').forEach(line => {
+            if (line.trim()) {
+                rLines.push(`    ${line.trim()}`);
+            }
+        });
+    }
+
+    // 4. Styles
     const ruleStyle = { ...style, ...(rule.overrides || {}) };
     _appendStyleLines(rLines, ruleStyle);
-
-    // Raw text
-    if (rule.raw) {
-        rLines.push(rule.raw);
-    }
 
     allBlocks.push(rLines.join('\n'));
   });
 
   // 2. Process the main Base block
-  const lines = [`# Base: ${tierName}`];
-  const keyword = hideable ? "Minimal" : "Show";
-  lines.push(keyword);
-  lines.push(`    BaseType "${baseTypes.join('" "')}"`);
-  _appendStyleLines(lines, style);
-  
-  allBlocks.push(lines.join('\n'));
+  // If we are showing full block, and not all items were covered by rules, show base
+  if (includeBase && !allItemsCovered) {
+    const lines = [];
+    const keyword = hideable ? "Minimal" : "Show";
+    lines.push(keyword);
+    lines.push(`    BaseType "${baseTypes.join('" "')}"`);
+    _appendStyleLines(lines, style);
+    
+    allBlocks.push(lines.join('\n'));
+  }
 
   return allBlocks.join('\n\n');
 };

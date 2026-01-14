@@ -8,6 +8,12 @@ import { resolveStyle } from '../utils/styleResolver';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
 
+interface TierItem {
+  name: string;
+  name_ch?: string;
+  source: string;
+}
+
 interface CategoryViewProps {
   configPath: string;
   configContent: string;
@@ -18,6 +24,8 @@ interface CategoryViewProps {
   onCopyStyle: (style: any) => void;
   onRuleEdit: (tierKey: string, idx: number | null) => void;
   viewerBackground: string;
+  tierItems: Record<string, TierItem[]>;
+  fetchTierItems: (keys: string[]) => void;
 }
 
 const CategoryView: React.FC<CategoryViewProps> = ({
@@ -29,13 +37,14 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   onInspectTier,
   onCopyStyle,
   onRuleEdit,
-  viewerBackground
+  viewerBackground,
+  tierItems,
+  fetchTierItems
 }) => {
   const t = useTranslation(language);
   const [themeData, setThemeData] = useState<any>(null);
   const [soundMap, setSoundMap] = useState<any>(null);
   const [parsedConfig, setParsedConfig] = useState<any>(null);
-  const [tierItems, setTierItems] = useState<Record<string, TierItem[]>>({});
 
   const [showBulkEditor, setShowBulkEditor] = useState(false);
   const [activeBulkClass, setActiveBulkClass] = useState<string | null>(null);
@@ -55,32 +64,18 @@ const CategoryView: React.FC<CategoryViewProps> = ({
           setThemeData(res.data.theme_data);
           setSoundMap(res.data.sound_map_data);
       })
-      .catch(err => console.error("Failed to load theme:", err));
+      .catch(err => console.error("Failed to load theme", err));
   }, []);
+
   useEffect(() => {
     try {
-      const parsed = JSON.parse(configContent);
-      setParsedConfig(parsed);
-      const keys: string[] = [];
-      Object.keys(parsed).forEach(cat => {
-        if (!cat.startsWith('//')) {
-          Object.keys(parsed[cat]).forEach(k => {
-            if (!k.startsWith('//') && k !== '_meta') keys.push(k);
-          });
-        }
-      });
-      if (keys.length > 0) fetchTierItems(keys);
-    } catch (e) {}
-  }, [configContent]);
-
-  const fetchTierItems = async (keys: string[]) => {
-    try {
-      const res = await axios.post(`${API_BASE_URL}/api/tier-items`, { tier_keys: keys });
-      setTierItems(res.data.items);
-    } catch (err) {
-      console.error("Failed to load tier items", err);
+      if (configContent) {
+        setParsedConfig(JSON.parse(configContent));
+      }
+    } catch (e) {
+      console.error("JSON parse error in CategoryView", e);
     }
-  };
+  }, [configContent]);
 
   const handleTierUpdate = (categoryKey: string, tierKey: string, newStyle: any, newVisibility: boolean, themeCategory: string) => {
     if (!parsedConfig) return;
@@ -90,7 +85,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     newConfig[categoryKey][tierKey].hideable = newVisibility;
     onConfigContentChange(JSON.stringify(newConfig, null, 2));
 
-    // Update inspector if this is the tier being inspected
     const displayTierName = language === 'ch' 
         ? `T${newStyle.Tier ?? "?"} ${newConfig[categoryKey]._meta?.localization?.ch ?? categoryKey}` 
         : `Tier ${newStyle.Tier ?? "?"} ${newConfig[categoryKey]._meta?.localization?.en ?? categoryKey}`;
@@ -122,7 +116,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   };
 
   const handleDeleteItem = async (item: TierItem) => {
-    // Logic: move to an empty string or null to remove from mapping
     handleMoveItem(item, ""); 
   };
 
@@ -133,7 +126,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         overrides: overrides,
         source_file: item.source
       });
-      alert("Override applied successfully!");
       fetchTierItems(Object.keys(tierItems));
     } catch (err) {
       console.error(err);
@@ -162,11 +154,28 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     onConfigContentChange(JSON.stringify(newConfig, null, 2));
   };
 
-  const handleRulesChange = (categoryKey: string, newRules: any[]) => {
+  const handleRulesChange = (categoryKey: string, newRules: any[], tierKey?: string, tierName?: string, themeCategory?: string) => {
+    if (!parsedConfig) return;
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
     if (!newConfig[categoryKey]._meta) newConfig[categoryKey]._meta = {};
     newConfig[categoryKey]._meta.rules = newRules;
     onConfigContentChange(JSON.stringify(newConfig, null, 2));
+
+    if (tierKey && tierName && themeCategory) {
+        const tierData = newConfig[categoryKey][tierKey];
+        const items = tierItems[tierKey] || [];
+        onInspectTier({ 
+            key: tierKey, 
+            name: tierName, 
+            style: resolveStyle(tierData, themeData, soundMap), 
+            visibility: !!tierData.hideable, 
+            category: themeCategory,
+            rules: newRules.filter((r: any) => 
+                !r.targets?.length || r.targets.some((t: string) => items.some(i => i.name === t))
+            ),
+            baseTypes: items.map(i => i.name)
+        });
+    }
   };
 
   const itemTranslationCache = useMemo(() => {
@@ -248,7 +257,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                   <RuleManager 
                     tierKey={tierKey}
                     allRules={categoryData._meta?.rules || []}
-                    onGlobalRulesChange={(newRules) => handleRulesChange(categoryKey, newRules)}
+                    onGlobalRulesChange={(newRules) => handleRulesChange(categoryKey, newRules, tierKey, displayTierName, themeCategory)}
                     onRuleEdit={onRuleEdit}
                     language={language}
                     availableItems={items.map(i => i.name)}

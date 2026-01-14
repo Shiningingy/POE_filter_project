@@ -42,21 +42,38 @@ const EditorView: React.FC<EditorViewProps> = ({
   const [tierContent, setTierContent] = useState<string>('');
   const [inspectedTier, setInspectedTier] = useState<any>(null);
   const [editingRuleIndex, setEditingRuleIndex] = useState<number | null>(null);
+  const [tierItems, setTierItems] = useState<Record<string, any[]>>({});
 
   const handleRuleEdit = (tierKey: string, ruleIndex: number | null) => {
     setEditingRuleIndex(ruleIndex);
-    // If we're editing a rule but another tier is inspected, the user expects to see the code for the rule they just clicked.
-    // However, onInspectTier is usually triggered by clicking the visual block.
-    // For now we just sync the index.
+  };
+
+  const API_BASE_URL = 'http://localhost:8000';
+
+  const fetchTierItems = async (keys: string[]) => {
+    if (keys.length === 0) return;
+    try {
+      const res = await axios.post(`${API_BASE_URL}/api/tier-items`, { tier_keys: keys });
+      setTierItems(res.data.items);
+    } catch (err) {
+      console.error("Failed to load tier items", err);
+    }
   };
 
   useEffect(() => {
     if (selectedFile?.tier_path) {
-      axios.get(`http://localhost:8000/api/config/${selectedFile.tier_path}`)
+      axios.get(`${API_BASE_URL}/api/config/${selectedFile.tier_path}`)
         .then(res => {
             const content = JSON.stringify(res.data.content, null, 2);
             setTierContent(content);
             setConfigContent(content);
+            
+            // Fetch items for the new file
+            const catKey = Object.keys(res.data.content).find(k => !k.startsWith('//'));
+            if (catKey) {
+                const keys = Object.keys(res.data.content[catKey]).filter(k => k.startsWith('Tier'));
+                fetchTierItems(keys);
+            }
         })
         .catch(err => console.error("Failed to load tier content", err));
     }
@@ -98,7 +115,7 @@ const EditorView: React.FC<EditorViewProps> = ({
             const currentRules = parsed[catKey]._meta.rules;
 
             if (editingRuleIndex !== null) {
-                // UPDATE CURRENT RULE: Find the global index of the rule being edited
+                // UPDATE CURRENT RULE
                 const currentTierItems = tierItems[tierKey]?.map(i => i.name) || [];
                 const tierRules = currentRules.filter((r: any) => 
                     !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
@@ -106,16 +123,42 @@ const EditorView: React.FC<EditorViewProps> = ({
                 const targetRule = tierRules[editingRuleIndex];
                 
                 if (targetRule) {
-                    targetRule.conditions = { ...targetRule.conditions, ...preset.conditions };
+                    if (!targetRule.conditions) targetRule.conditions = {};
+                    
+                    if (Array.isArray(preset.conditions)) {
+                        preset.conditions.forEach((c: any) => {
+                            targetRule.conditions[c.key] = c.value;
+                        });
+                    } else {
+                        Object.assign(targetRule.conditions, preset.conditions);
+                    }
                     if (preset.raw) targetRule.raw = (targetRule.raw || "") + "\n" + preset.raw;
                 }
             } else {
-                // ADD NEW RULE (Original logic)
+                // ADD NEW RULE
+                // Check if rule already exists for this tier
+                const currentTierItems = tierItems[tierKey]?.map(i => i.name) || [];
+                const tierRules = currentRules.filter((r: any) => 
+                    !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
+                );
+
+                if (tierRules.length > 0) {
+                     alert(language === 'ch' ? '每个阶级目前仅限一个附加规则' : 'Only 1 additional rule per Tier is allowed for now.');
+                     return;
+                }
+
+                const conditions: Record<string, string> = {};
+                if (Array.isArray(preset.conditions)) {
+                    preset.conditions.forEach((c: any) => { conditions[c.key] = c.value; });
+                } else {
+                    Object.assign(conditions, preset.conditions);
+                }
+                
                 const newRule = {
                     targets: [],
-                    conditions: preset.conditions || {},
+                    conditions: conditions,
                     overrides: preset.overrides || { Tier: tierKey },
-                    comment: preset.comment || "New Preset Rule",
+                    comment: preset.comment || "",
                     raw: preset.raw || ""
                 };
                 currentRules.push(newRule);
@@ -124,6 +167,17 @@ const EditorView: React.FC<EditorViewProps> = ({
             const newContent = JSON.stringify(parsed, null, 2);
             setTierContent(newContent);
             setConfigContent(newContent);
+
+            // Trigger inspector refresh if this tier is active
+            if (inspectedTier && inspectedTier.key === tierKey) {
+                const currentTierItems = tierItems[tierKey]?.map(i => i.name) || [];
+                setInspectedTier({
+                    ...inspectedTier,
+                    rules: parsed[catKey]._meta.rules.filter((r: any) => 
+                        !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
+                    )
+                });
+            }
         }
     } catch (e) {
         console.error("Failed to add preset", e);
@@ -152,6 +206,16 @@ const EditorView: React.FC<EditorViewProps> = ({
                 const newContent = JSON.stringify(parsed, null, 2);
                 setTierContent(newContent);
                 setConfigContent(newContent);
+
+                // Refresh inspector
+                if (inspectedTier && inspectedTier.key === tierKey) {
+                    setInspectedTier({
+                        ...inspectedTier,
+                        rules: parsed[catKey]._meta.rules.filter((r: any) => 
+                            !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
+                        )
+                    });
+                }
             }
         }
     } catch (e) { console.error("Failed to remove rule", e); }
@@ -198,6 +262,8 @@ const EditorView: React.FC<EditorViewProps> = ({
                   onCopyStyle={setStyleClipboard} 
                   onRuleEdit={handleRuleEdit}
                   viewerBackground={viewerBackground}
+                  tierItems={tierItems}
+                  fetchTierItems={fetchTierItems}
                 />
             )}
           </div>

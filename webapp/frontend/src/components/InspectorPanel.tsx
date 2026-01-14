@@ -42,7 +42,7 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
   const t = useTranslation(language);
   const [ruleTemplates, setRuleTemplates] = useState<any[]>([]);
   const [templateSearch, setTemplateSearch] = useState("");
-  const [showFullBlock, setShowFullBlock] = useState(false);
+  const [showFullBlock, setShowFullBlock] = useState(true);
 
   useEffect(() => {
     axios
@@ -69,15 +69,18 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
           id: tmp.id,
           label: tmp.label[language],
           rule: {
-            conditions: {
-              [tmp.condition]:
-                tmp.type === "number"
-                  ? ">= 0"
-                  : tmp.type === "bool"
-                  ? "True"
-                  : "",
-            },
-            comment: tmp.label.en,
+            conditions: [
+              {
+                key: tmp.condition,
+                value:
+                  tmp.type === "number"
+                    ? ">= 0"
+                    : tmp.type === "bool"
+                    ? "True"
+                    : "",
+              },
+            ],
+            comment: "",
           },
         });
       });
@@ -103,17 +106,21 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
       .filter((cat) => cat.templates.length > 0);
   }, [ruleTemplates, templateSearch]);
 
-  const filterText = inspectedTier
+  const filterText = inspectedTier 
     ? generateFilterText(
-        inspectedTier.style,
-        inspectedTier.name,
-        inspectedTier.baseTypes || ["Item Name"],
+        inspectedTier.style, 
+        inspectedTier.name, 
+        inspectedTier.baseTypes || ["Item Name"], 
         inspectedTier.visibility,
-        editingRuleIndex !== null && !showFullBlock
-          ? [inspectedTier.rules?.[editingRuleIndex]].filter(Boolean)
-          : inspectedTier.rules || []
-      )
+        (editingRuleIndex !== null && !showFullBlock) 
+            ? [inspectedTier.rules?.[editingRuleIndex]].filter(Boolean)
+            : inspectedTier.rules || [],
+        (editingRuleIndex === null || showFullBlock)
+      ) 
     : "";
+
+  const hasExistingRules = (inspectedTier?.rules?.length || 0) > 0;
+  const canAddRule = !hasExistingRules || editingRuleIndex !== null;
 
   const handleCopyCode = () => {
     if (filterText) {
@@ -217,16 +224,16 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
           <div className="header-actions">
             {editingRuleIndex !== null && (
               <button
-                className={`toggle-full-btn ${showFullBlock ? "active" : ""}`}
+                className={`toggle-full-btn ${!showFullBlock ? "active" : ""}`}
                 onClick={() => setShowFullBlock(!showFullBlock)}
               >
-                {showFullBlock
+                {!showFullBlock
                   ? language === "ch"
-                    ? "显示单条"
-                    : "Show Rule"
+                    ? "显示完整"
+                    : "Show Full"
                   : language === "ch"
-                  ? "显示完整"
-                  : "Show Full"}
+                  ? "聚焦规则"
+                  : "Focus Rule"}
               </button>
             )}
             <button onClick={handleCopyCode} className="copy-link">
@@ -246,35 +253,6 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
         </div>
 
         <div className="rule-inspector-content">
-          {/* Active Rules List */}
-          {inspectedTier?.rules && inspectedTier.rules.length > 0 && (
-            <div className="active-rules-container">
-              <span className="sub-label">
-                {language === "ch" ? "当前生效" : "Active"}
-              </span>
-              <div className="active-rule-list">
-                {inspectedTier.rules.map((rule, idx) => (
-                  <div
-                    key={idx}
-                    className={`active-rule-item ${
-                      editingRuleIndex === idx ? "highlight" : ""
-                    }`}
-                  >
-                    <span className="rule-name">
-                      {rule.comment || `Rule #${idx + 1}`}
-                    </span>
-                    <button
-                      className="remove-rule-btn"
-                      onClick={() => onRemoveRule(inspectedTier.key, idx)}
-                    >
-                      ×
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
           {/* Suggested Presets */}
           {presets.length > 0 && (
             <div className="library-section">
@@ -286,6 +264,8 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
                   <button
                     key={p.id}
                     className="template-btn preset"
+                    disabled={!canAddRule}
+                    title={!canAddRule ? (language === 'ch' ? '每阶级仅限一个规则' : 'Only 1 rule per tier allowed') : ''}
                     onClick={() => onAddRulePreset(inspectedTier!.key, p.rule)}
                   >
                     + {p.label}
@@ -318,21 +298,13 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
                       <button
                         key={tmp.id}
                         className="template-btn"
-                        disabled={!inspectedTier}
-                        onClick={() =>
-                          inspectedTier &&
-                          onAddRulePreset(inspectedTier.key, {
-                            conditions: {
-                              [tmp.condition]:
-                                tmp.type === "number"
-                                  ? ">= 0"
-                                  : tmp.type === "bool"
-                                  ? "True"
-                                  : "",
-                            },
-                            comment: tmp.label.en,
-                          })
-                        }
+                        disabled={!inspectedTier || !canAddRule}
+                        title={!canAddRule ? (language === 'ch' ? '每阶级仅限一个规则' : 'Only 1 rule per tier allowed') : ''}
+                        onClick={() => inspectedTier && onAddRulePreset(inspectedTier.key, { 
+                                            targets: [],
+                                            conditions: { [tmp.condition]: tmp.type === 'number' ? ">= 0" : (tmp.type === 'bool' ? "True" : "") },
+                                            comment: "" 
+                                        })}
                       >
                         {tmp.label[language]}
                       </button>
@@ -343,13 +315,14 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
             </div>
             <button
               className="custom-raw-btn"
-              disabled={!inspectedTier}
+              disabled={!inspectedTier || !canAddRule}
+              title={!canAddRule ? (language === 'ch' ? '每阶级仅限一个规则' : 'Only 1 rule per tier allowed') : ''}
               onClick={() =>
                 inspectedTier &&
                 onAddRulePreset(inspectedTier.key, {
                   conditions: {},
                   raw: "# Add your raw code here",
-                  comment: "Custom Raw Rule",
+                  comment: "",
                 })
               }
             >
@@ -372,7 +345,8 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
         .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         
         /* Button text color fix */
-        button { color: #222 !important; }
+        button { color: #222; }
+        button:disabled { color: #999; }
 
         .empty-state { color: #aaa; font-style: italic; font-size: 0.85rem; padding: 15px; text-align: center; border: 1px dashed #ddd; border-radius: 6px; }
         .empty-state.mini { padding: 10px; border: none; }
@@ -388,7 +362,7 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
         .bg-btn { flex: 1; padding: 6px; font-size: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: white; cursor: pointer; }
         .bg-btn.active { background: #2196F3; color: white !important; border-color: #2196F3; }
 
-        .sub-label { font-size: 0.65rem; color: #999; font-weight: bold; text-transform: uppercase; margin-bottom: 6px; display: block; }
+        .sub-label { font-size: 1rem; color: #999; font-weight: bold; text-transform: uppercase; margin-bottom: 6px; display: block; }
         .active-rule-list { display: flex; flex-direction: column; gap: 4px; margin-bottom: 15px; }
         .active-rule-item { display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; background: #f8f9fa; border: 1px solid #eee; border-radius: 4px; }
         .active-rule-item.highlight { border-color: #2196F3; background: #f0f7ff; }
@@ -398,13 +372,17 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
 
         .library-section { margin-top: 15px; }
         .library-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-        .lib-search { padding: 4px 8px; font-size: 0.75rem; border: 1px solid #ddd; border-radius: 4px; width: 100px; color: #222; }
+        .lib-search { padding: 4px 8px; font-size: 1rem; border: 1px solid #ddd; border-radius: 4px; width: 100px; color: #222; }
         .library-scroll-area { max-height: 250px; overflow-y: auto; padding-right: 5px; border: 1px solid #f0f0f0; border-radius: 4px; padding: 8px; background: #fafafa; }
-        .lib-cat { margin-bottom: 10px; }
-        .lib-cat-title { font-size: 0.65rem; color: #aaa; display: block; margin-bottom: 4px; }
+        .lib-cat { margin-bottom: 15px; }
+        .lib-cat-title { 
+            font-size: 1.2rem; color: #444; font-weight: bold; text-transform: uppercase; 
+            display: block; margin-bottom: 6px; padding: 4px 8px; background: #eee; 
+            border-radius: 4px; border-left: 3px solid #2196F3;
+        }
         
         .template-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
-        .template-btn { background: #fff; border: 1px solid #eee; padding: 4px 8px; font-size: 0.75rem; border-radius: 3px; cursor: pointer; text-align: left; }
+        .template-btn { background: #fff; border: 1px solid #eee; padding: 4px 8px; font-size: 0.9rem; border-radius: 3px; cursor: pointer; text-align: left; }
         .template-btn:hover:not(:disabled) { border-color: #2196F3; color: #2196F3 !important; }
         .template-btn:disabled { opacity: 0.5; cursor: not-allowed; }
         .template-btn.preset { background: #f0f7ff; border-color: #d0e8ff; }
@@ -415,9 +393,9 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
         .custom-raw-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
         .code-block-modern { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 6px; font-family: 'Consolas', monospace; font-size: 0.75rem; line-height: 1.5; overflow-x: auto; border: 1px solid #333; margin: 0; min-height: 100px; }
-        .toggle-full-btn { background: #eee; border: 1px solid #ddd; padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; cursor: pointer; }
+        .toggle-full-btn { background: #eee; border: 1px solid #ddd; padding: 2px 12px; border-radius: 4px; font-size: 0.7rem; cursor: pointer; font-weight: bold; transition: all 0.2s; }
         .toggle-full-btn.active { background: #2196F3; color: white !important; border-color: #2196F3; }
-        .copy-link { font-size: 0.75rem; color: #2196F3 !important; background: none; border: none; cursor: pointer; text-decoration: underline; }
+        .copy-link { font-size: 0.75rem; color: #2196F3 !important; background: none; border: none; cursor: pointer; text-decoration: underline; font-weight: bold; }
       `}</style>
     </div>
   );
