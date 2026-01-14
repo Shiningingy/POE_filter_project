@@ -224,42 +224,68 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       };
   };
 
+  const getNextCustomTierName = (categoryData: any, categoryKey: string) => {
+      const existingTiers = Object.keys(categoryData).filter(k => k.startsWith('CustomTier'));
+      let maxNum = 0;
+      const regex = /CustomTier (\d+)/;
+      existingTiers.forEach(k => {
+          const match = k.match(regex);
+          if (match) {
+              const num = parseInt(match[1]);
+              if (num > maxNum) maxNum = num;
+          }
+      });
+      const nextNum = maxNum + 1;
+      return { 
+          key: `CustomTier ${nextNum} ${categoryKey}`,
+          num: nextNum
+      };
+  };
+
   const handleInsertTier = (index: number, position: 'before' | 'after', templateData: any = null, useFixedTemplate: boolean = true) => {
     if (!activeCategoryKey || !activeCategoryData) return;
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
     const categoryData = newConfig[activeCategoryKey];
     
-    // Generate unique key using auto-increment (to avoid collision)
-    const { key: newTierKey, num: nextNum } = getNextTierName(categoryData, activeCategoryKey);
-
-    let tierData;
+    let newTierKey: string;
+    let tierData: any;
 
     if (templateData) {
-        // PASTE: Use copied data but ensure unique ID/localization
+        // PASTE
+        const { key, num } = getNextTierName(categoryData, activeCategoryKey);
+        newTierKey = key;
         tierData = JSON.parse(JSON.stringify(templateData));
-        tierData.theme.Tier = nextNum; 
+        tierData.theme.Tier = num; 
         tierData.localization = { 
             en: newTierKey, 
-            ch: `T${nextNum} ${categoryData._meta?.localization?.ch || activeCategoryKey}` 
+            ch: `T${num} ${categoryData._meta?.localization?.ch || activeCategoryKey}` 
         };
     } else if (useFixedTemplate) {
-        // INSERT BEFORE/AFTER: Use Fixed Template from JSON
+        // INSERT CUSTOM
+        const { key, num } = getNextCustomTierName(categoryData, activeCategoryKey);
+        newTierKey = key;
         tierData = JSON.parse(JSON.stringify(tierTemplate));
-        // We use the properties from template (including localization if we want "New Tier")
-        // But the key must be unique in the object map.
-        // We can keep tierData.theme.Tier as is (from template) or update it.
-        // User said: "we dont follow T0-T1-T2...order, we will insert a fixed template"
-        // So we keep the template's content as much as possible.
-        // But we MUST update the localization if we want it to be distinct?
-        // Actually, if the template says "New Tier", all of them will be "New Tier".
-        // That is likely intended.
+        
+        const nameEn = `${tierData.name_template?.en || "Custom Tier #"}${num}`;
+        const nameCh = `${tierData.name_template?.ch || "自定义阶级 #"}${num}`;
+        if (tierData.name_template) delete tierData.name_template;
+
+        tierData.localization = { en: nameEn, ch: nameCh };
+        // Ensure theme.Tier is set if needed, or leave as is from template
+        if (tierData.theme?.Tier === "custom") {
+             // Maybe set to unique number if we want? Or just leave it.
+             // If we leave it, multiple custom tiers have same "Tier" prop.
+             // It shouldn't break anything except visual "T?" if looking at raw prop.
+        }
     } else {
-        // ADD NEW TIER BUTTON: Auto-increment (Legacy/Default behavior)
+        // ADD STANDARD
+        const { key, num } = getNextTierName(categoryData, activeCategoryKey);
+        newTierKey = key;
         tierData = {
             hideable: false,
-            theme: { Tier: nextNum },
+            theme: { Tier: num },
             sound: { default_sound_id: -1, sharket_sound_id: null },
-            localization: { en: newTierKey, ch: `T${nextNum} ${categoryData._meta?.localization?.ch || activeCategoryKey}` }
+            localization: { en: newTierKey, ch: `T${num} ${categoryData._meta?.localization?.ch || activeCategoryKey}` }
         };
     }
     
@@ -281,7 +307,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
 
   const handleDeleteTier = (tierKey: string) => {
     if (!activeCategoryKey) return;
-    if (!confirm(language === 'ch' ? `确定要删除 ${tierKey} 吗?` : `Are you sure you want to delete ${tierKey}?`)) return;
+    if (!confirm(t.confirmDeleteTier)) return;
 
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
     delete newConfig[activeCategoryKey][tierKey];
@@ -344,6 +370,13 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   const tierOptions = sortedTierKeys.map(tk => {
     const td = activeCategoryData[tk];
     const tNum = td.theme?.Tier !== undefined ? td.theme.Tier : "?";
+    // If localization exists, use it? Or stick to T{N}?
+    // The previous code forced `T{tNum}`.
+    // I should probably use localization if it's a Custom Tier (where tNum might be "custom" or meaningless).
+    const locName = td.localization?.[language];
+    if (locName && (tk.startsWith('CustomTier') || typeof tNum !== 'number')) {
+        return { key: tk, label: locName };
+    }
     return { key: tk, label: language === 'ch' ? `T${tNum} ${catName}` : `Tier ${tNum} ${catName}` };
   });
 
@@ -373,7 +406,13 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     const resolved = resolveStyle(tierData, themeData, soundMap);
                     const items = tierItems[tierKey] || [];
                     const tierNum = tierData.theme?.Tier !== undefined ? tierData.theme.Tier : "?";
-                    const displayTierName = language === 'ch' ? `T${tierNum} ${catName}` : `Tier ${tierNum} ${catName}`;
+                    
+                    // Improved display name logic
+                    let displayTierName = language === 'ch' ? `T${tierNum} ${catName}` : `Tier ${tierNum} ${catName}`;
+                    const locName = tierData.localization?.[language];
+                    if (locName && (tierKey.startsWith('CustomTier') || typeof tierNum !== 'number')) {
+                        displayTierName = locName;
+                    }
 
                     return (
                         <SortableTierBlock
@@ -382,12 +421,13 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                             onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, tierKey, index); }}
                             onInsertBefore={() => handleInsertTier(index, 'before')}
                             onInsertAfter={() => handleInsertTier(index, 'after')}
+                            language={language}
                             tooltips={{
-                                drag: language === 'ch' ? "拖动排序" : "Drag to reorder",
-                                insertBefore: language === 'ch' ? "在此之前插入新阶级" : "Insert Tier Before",
-                                insertAfter: language === 'ch' ? "在此之后插入新阶级" : "Insert Tier After",
-                                above: language === 'ch' ? "上方" : "ABOVE",
-                                below: language === 'ch' ? "下方" : "BELOW"
+                                drag: t.dragToReorder,
+                                insertBefore: t.insertTierBefore,
+                                insertAfter: t.insertTierAfter,
+                                above: t.above,
+                                below: t.below
                             }}
                         >
                             <TierStyleEditor
@@ -457,17 +497,17 @@ const CategoryView: React.FC<CategoryViewProps> = ({
           onClose={() => setContextMenu({ ...contextMenu, visible: false })}
           options={[
             ...(contextMenu.tierKey ? [
-                { label: language === 'ch' ? "复制阶级" : "Copy Tier", onClick: () => {
+                { label: t.copyTier, onClick: () => {
                     const data = activeCategoryData[contextMenu.tierKey!];
                     setTierClipboard(data);
                 }},
-                { label: language === 'ch' ? "删除阶级" : "Delete Tier", onClick: () => handleDeleteTier(contextMenu.tierKey!) },
+                { label: t.deleteTier, onClick: () => handleDeleteTier(contextMenu.tierKey!) },
                 { divider: true, label: '', onClick: () => {} }
             ] : []),
-            { label: language === 'ch' ? "在此之前插入" : "Insert Before", onClick: () => contextMenu.index !== undefined ? handleInsertTier(contextMenu.index, 'before') : handleInsertTier(0, 'before') },
-            { label: language === 'ch' ? "在此之后插入" : "Insert After", onClick: () => contextMenu.index !== undefined ? handleInsertTier(contextMenu.index, 'after') : handleInsertTier(sortedTierKeys.length, 'after') },
+            { label: t.insertBefore, onClick: () => contextMenu.index !== undefined ? handleInsertTier(contextMenu.index, 'before') : handleInsertTier(0, 'before') },
+            { label: t.insertAfter, onClick: () => contextMenu.index !== undefined ? handleInsertTier(contextMenu.index, 'after') : handleInsertTier(sortedTierKeys.length, 'after') },
             { 
-                label: language === 'ch' ? "粘贴阶级" : "Paste Tier", 
+                label: t.pasteTier, 
                 onClick: () => contextMenu.index !== undefined ? handleInsertTier(contextMenu.index + 1, 'before', tierClipboard) : handleInsertTier(sortedTierKeys.length, 'after', tierClipboard),
                 className: !tierClipboard ? 'disabled' : '' 
             }
