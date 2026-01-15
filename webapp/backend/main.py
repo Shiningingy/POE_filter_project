@@ -23,8 +23,11 @@ class UpdateItemOverrideRequest(BaseModel):
 
 class UpdateItemTierRequest(BaseModel):
     item_name: str
-    new_tier: str
+    new_tier: Optional[str] = None
     source_file: str
+    is_append: bool = False
+    old_tier: Optional[str] = None
+    new_tiers: Optional[List[str]] = None
 
 class TierItemsRequest(BaseModel):
     tier_keys: List[str]
@@ -45,6 +48,7 @@ ITEM_CLASSES = []
 CLASS_TO_ITEMS = {} # Class -> Set(BaseTypes)
 ITEM_TO_CLASS = {}  # BaseType -> Class
 ITEM_TRANSLATIONS = {} # English Name -> Chinese Name
+CATEGORY_MAP = {} # mapping_path -> ch_name
 
 # --- Middleware ---
 app.add_middleware(
@@ -127,6 +131,28 @@ def load_translations():
     except Exception as e:
         print(f"Error loading CH base types: {e}")
 
+def load_category_map():
+    global CATEGORY_MAP
+    print("Loading category map...")
+    try:
+        with open(CONFIG_DATA_DIR / "category_structure.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+            def traverse(node):
+                if "files" in node:
+                    for file in node["files"]:
+                        if "mapping_path" in file and "localization" in file:
+                            CATEGORY_MAP[file["mapping_path"]] = file["localization"].get("ch", "")
+                if "subgroups" in node:
+                    for sub in node["subgroups"]:
+                        traverse(sub)
+                if "categories" in node:
+                    for cat in node["categories"]:
+                        traverse(cat)
+            traverse(data)
+        print(f"Loaded {len(CATEGORY_MAP)} category mappings.")
+    except Exception as e:
+        print(f"Error loading category map: {e}")
+
 # --- Specific Endpoints (Top Priority) ---
 
 @app.get("/")
@@ -190,6 +216,11 @@ def search_items(q: str):
                 data = json.load(f)
                 mapping = data.get("mapping", {})
                 trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
+                
+                # Resolve category CH name
+                rel_path = file_path.relative_to(CONFIG_DATA_DIR).as_posix()
+                cat_ch = CATEGORY_MAP.get(rel_path, "")
+
                 for item_name, tier_key in mapping.items():
                     name_ch = trans.get(item_name, "")
                     if q_lower in item_name.lower() or (name_ch and q_lower in name_ch.lower()):
@@ -197,6 +228,7 @@ def search_items(q: str):
                             "name": item_name, 
                             "name_ch": name_ch or item_name, 
                             "current_tier": tier_key, 
+                            "category_ch": cat_ch,
                             "source_file": file_path.relative_to(mappings_dir).as_posix()
                         }
         except: continue
@@ -235,7 +267,7 @@ def get_items_by_class(item_class: str):
         item_data[name] = {
             "name": name,
             "name_ch": ITEM_TRANSLATIONS.get(name, name),
-            "current_tier": None,
+            "current_tier": [], # Initialize as empty list
             "source_file": None
         }
 
@@ -246,9 +278,15 @@ def get_items_by_class(item_class: str):
                 data = json.load(f)
                 mapping = data.get("mapping", {})
                 trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
-                for item_name, tier_key in mapping.items():
+                for item_name, tier_val in mapping.items():
                     if item_name in all_class_items:
-                        item_data[item_name]["current_tier"] = tier_key
+                        tiers = tier_val if isinstance(tier_val, list) else [tier_val]
+                        
+                        current_list = item_data[item_name]["current_tier"]
+                        for t in tiers:
+                            if t not in current_list:
+                                current_list.append(t)
+                        
                         item_data[item_name]["source_file"] = file_path.relative_to(mappings_dir).as_posix()
                         if item_name in trans:
                             item_data[item_name]["name_ch"] = trans[item_name]
@@ -262,23 +300,71 @@ def get_items_by_class(item_class: str):
 def update_item_tier(request: UpdateItemTierRequest):
     if not request.source_file:
         raise HTTPException(status_code=422, detail="Source file is required")
-        
-    file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
+    
+    if request.source_file.startswith("base_mapping/"):
+        file_path = safe_join(CONFIG_DATA_DIR, request.source_file)
+    else:
+        file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
+
     try:
         with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
         mapping = data.get("mapping", {})
         
-        # If new_tier is empty, remove item
-        if not request.new_tier:
-            if request.item_name in mapping: del mapping[request.item_name]
+        # 1. Update Localization
+        if "_meta" not in data: data["_meta"] = {}
+        if "localization" not in data["_meta"]: data["_meta"]["localization"] = {"en": {}, "ch": {}}
+        
+        # Ensure 'ch' dict exists
+        if "ch" not in data["_meta"]["localization"]: data["_meta"]["localization"]["ch"] = {}
+        
+        if request.item_name not in data["_meta"]["localization"]["ch"]:
+            trans = ITEM_TRANSLATIONS.get(request.item_name)
+            if trans:
+                data["_meta"]["localization"]["ch"][request.item_name] = trans
+
+        # 2. Update Mapping
+        if request.new_tiers is not None:
+            # Set exact list (bulk editor)
+            if not request.new_tiers:
+                if request.item_name in mapping: del mapping[request.item_name]
+            else:
+                mapping[request.item_name] = request.new_tiers
+        elif not request.new_tier:
+            if request.item_name in mapping:
+                current = mapping[request.item_name]
+                if request.old_tier and isinstance(current, list) and request.old_tier in current:
+                    current.remove(request.old_tier)
+                    if not current: del mapping[request.item_name]
+                    else: mapping[request.item_name] = current
+                elif request.old_tier and current == request.old_tier:
+                    del mapping[request.item_name]
+                elif not request.old_tier: # Delete all
+                    del mapping[request.item_name]
         else:
-            # Check for multiple tiers support?
-            # Current structure: mapping[item] = tier (string)
-            # If we want list, we need to change backend logic.
-            # User said "allow same basetype exist in multiple tiers".
-            # If we change to list, it breaks existing viewers?
-            # For now, simplistic overwrite.
-            mapping[request.item_name] = request.new_tier
+            current = mapping.get(request.item_name)
+            if request.is_append:
+                if current:
+                    if isinstance(current, list):
+                        if request.new_tier not in current:
+                            current.append(request.new_tier)
+                            mapping[request.item_name] = current
+                    elif current != request.new_tier:
+                        mapping[request.item_name] = [current, request.new_tier]
+                else:
+                    mapping[request.item_name] = request.new_tier
+            elif request.old_tier and current:
+                # Move specific instance
+                if isinstance(current, list):
+                    if request.old_tier in current:
+                        current.remove(request.old_tier)
+                    if request.new_tier not in current:
+                        current.append(request.new_tier)
+                    mapping[request.item_name] = current
+                elif current == request.old_tier:
+                    mapping[request.item_name] = request.new_tier
+            else:
+                # Overwrite (Reset)
+                mapping[request.item_name] = request.new_tier
             
         data["mapping"] = mapping
         with open(file_path, "w", encoding="utf-8") as f: json.dump(data, f, indent=2, ensure_ascii=False)
@@ -287,7 +373,11 @@ def update_item_tier(request: UpdateItemTierRequest):
 
 @app.post("/api/update-item-override")
 def update_item_override(request: UpdateItemOverrideRequest):
-    file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
+    if request.source_file.startswith("base_mapping/"):
+        file_path = safe_join(CONFIG_DATA_DIR, request.source_file)
+    else:
+        file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
+
     try:
         with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
         rules = data.get("rules", [])
@@ -314,14 +404,17 @@ def get_items_by_tier(request: TierItemsRequest):
                 mapping = data.get("mapping", {})
                 trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
                 
-                for item_name, tier_key in mapping.items():
+                for item_name, tier_val in mapping.items():
                     if request.class_filter:
                         item_class = ITEM_TO_CLASS.get(item_name)
                         if item_class != request.class_filter:
                             continue
                     
-                    if tier_key in tier_keys_set:
-                        result[tier_key].append({"name": item_name, "name_ch": trans.get(item_name, item_name), "source": file_path.relative_to(mappings_dir).as_posix()})
+                    tiers = tier_val if isinstance(tier_val, list) else [tier_val]
+                    
+                    for tier_key in tiers:
+                        if tier_key in tier_keys_set:
+                            result[tier_key].append({"name": item_name, "name_ch": trans.get(item_name, item_name), "source": file_path.relative_to(mappings_dir).as_posix()})
         except: continue
     
     # Untiered calculation omitted here to simplify (usually handled by class-items endpoint for bulk)
@@ -395,3 +488,4 @@ async def startup_event():
     print(f"Backend 1.0.3 started. Project: {PROJECT_ROOT}")
     load_base_types()
     load_translations()
+    load_category_map()

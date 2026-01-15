@@ -9,6 +9,7 @@ interface TierItem {
   name_ch?: string;
   source: string;
   current_tier?: string;
+  category_ch?: string;
 }
 
 interface TierOption {
@@ -20,7 +21,7 @@ interface TierItemManagerProps {
   tierKey: string;
   items: TierItem[];
   allTiers: TierOption[]; 
-  onMoveItem: (item: TierItem, newTier: string) => void;
+  onMoveItem: (item: TierItem, newTier: string, isAppend?: boolean, oldTier?: string) => void;
   onDeleteItem: (item: TierItem) => void;
   onUpdateOverride: (item: TierItem, overrides: any) => void;
   language: Language;
@@ -58,7 +59,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
     const timeoutId = setTimeout(async () => {
       try {
         const res = await axios.get(`http://localhost:8000/api/search-items?q=${encodeURIComponent(addSearch)}`);
-        setSuggestions(res.data.results);
+        setSuggestions(res.data.results.map((r: any) => ({ ...r, source: r.source_file })));
       } catch (e) {
         console.error(e);
       }
@@ -68,7 +69,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   }, [addSearch]);
 
   const handleAddItem = (item: TierItem) => {
-    onMoveItem(item, tierKey);
+    onMoveItem(item, tierKey, true); // isAppend = true
     setAddSearch('');
     setSuggestions([]);
   };
@@ -96,6 +97,22 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
     onUpdateOverride(item, { PlayAlertSound: [path, vol] });
   };
 
+  const renderTierLabels = (tier: string | string[] | undefined | null, catCh?: string) => {
+      if (!tier) return [t.untiered];
+      const tiers = Array.isArray(tier) ? tier : [tier];
+      return tiers.map(tk => {
+          const match = tk.match(/Tier (\d+)(?: (.*))?/);
+          if (match) {
+              const num = match[1];
+              const suffix = match[2];
+              if (language === 'ch' && catCh) return `T${num} ${catCh}`;
+              if (suffix) return `T${num} ${suffix}`;
+              return `T${num}`;
+          }
+          return tk;
+      });
+  };
+
   return (
     <div className="tier-item-manager">
       <div className="mgr-header" onClick={() => setIsOpen(!isOpen)}>
@@ -118,7 +135,11 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                 {suggestions.map(s => (
                   <li key={s.name} onClick={() => handleAddItem(s)}>
                     <strong>{getItemName(s, language)}</strong> 
-                    <span className="source-hint">({s.current_tier || 'Unassigned'})</span>
+                    <div className="source-tags">
+                        {renderTierLabels(s.current_tier, s.category_ch).map((lbl, idx) => (
+                            <span key={idx} className="source-hint">{lbl}</span>
+                        ))}
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -163,7 +184,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
             ...allTiers.map(tOption => ({
                 label: tOption.label,
                 color: getTierColor(tOption.key),
-                onClick: () => onMoveItem(contextMenu.item, tOption.key)
+                onClick: () => onMoveItem(contextMenu.item, tOption.key, false, tierKey) // Pass tierKey as oldTier
             })),
             { label: "divider", onClick: () => {}, divider: true },
             { label: "🎵 Custom Sound Override", onClick: () => handleSoundOverride(contextMenu.item) }
@@ -183,9 +204,11 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
         .add-input { border-color: #28a745; margin-bottom: 5px; }
         .add-area { position: relative; margin-bottom: 12px; }
         .suggestions-list { position: absolute; top: 100%; left: 0; right: 0; z-index: 100; background: #fff; border: 1px solid #ced4da; border-top: none; border-radius: 0 0 4px 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); max-height: 200px; overflow-y: auto; padding: 0; list-style: none; }
-        .suggestions-list li { padding: 8px 12px; cursor: pointer; display: flex; justify-content: space-between; border-bottom: 1px solid #f1f3f5; font-size: 0.85rem; }
+        .suggestions-list li { padding: 8px 12px; cursor: pointer; display: flex; justify-content: space-between; border-bottom: 1px solid #f1f3f5; font-size: 0.85rem; align-items: center; }
         .suggestions-list li:hover { background: #e7f5ff; }
-        .source-hint { color: #adb5bd; font-size: 0.75rem; }
+        
+        .source-tags { display: flex; gap: 4px; }
+        .source-hint { color: #6c757d; font-size: 0.75rem; font-weight: bold; background: #f8f9fa; padding: 2px 6px; border-radius: 4px; border: 1px solid #e9ecef; }
 
         .filter-area { margin-bottom: 12px; }
 
