@@ -41,6 +41,38 @@ interface BulkTierEditorProps {
   defaultMappingPath?: string;
 }
 
+const CLASS_TRANSLATIONS: Record<string, string> = {
+    "Body Armours": "胸甲",
+    "Boots": "鞋子",
+    "Gloves": "手套",
+    "Helmets": "头部",
+    "Shields": "盾",
+    "Quivers": "箭袋",
+    "Amulets": "项链",
+    "Belts": "腰带",
+    "Rings": "戒指",
+    "Bows": "弓",
+    "Claws": "爪",
+    "Daggers": "匕首",
+    "Rune Daggers": "符文匕首",
+    "One Hand Axes": "单手斧",
+    "One Hand Maces": "单手锤",
+    "One Hand Swords": "单手剑",
+    "Sceptres": "短杖",
+    "Staves": "长杖",
+    "Warstaves": "战杖",
+    "Two Hand Axes": "双手斧",
+    "Two Hand Maces": "双手锤",
+    "Two Hand Swords": "双手剑",
+    "Wands": "法杖",
+    "Active Skill Gems": "技能宝石",
+    "Support Skill Gems": "辅助宝石",
+    "Maps": "地图",
+    "Map Fragments": "碎片",
+    "Stackable Currency": "通货",
+    "Divination Card": "命运卡"
+};
+
 const SortableItem = ({ item, color, isStaged }: { item: Item, color: string, isStaged: boolean }) => {
   const {
     attributes,
@@ -65,6 +97,7 @@ const SortableItem = ({ item, color, isStaged }: { item: Item, color: string, is
       {...attributes} 
       {...listeners} 
       className={`item-card ${isStaged ? 'staged' : ''}`}
+      onContextMenu={(e) => e.stopPropagation()} // Stop context menu here too
     >
       <div className="item-info">
         <div className="name-en">{item.name}</div>
@@ -134,11 +167,17 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       }
       const tier = stagedChanges[item.name] !== undefined ? stagedChanges[item.name] : item.current_tier;
       const targetCol = tier || 'untiered';
-      if (cols[targetCol]) cols[targetCol].push(item);
-      else if (tier) {
-          // If item is in a tier not in availableTiers (e.g. T10), put in untiered or create col?
-          // Put in untiered for now to avoid crashes.
+      
+      // Ensure target column exists (handle custom tiers or missing tiers)
+      if (!cols[targetCol] && targetCol !== 'untiered') {
+          // If the tier exists in availableTiers (by key matching), we should have it.
+          // If not, put in untiered to avoid loss?
+          // Actually, if we add a custom tier, availableTiers updates.
+          // But if stagedChanges has a tier that doesn't exist? (Shouldn't happen)
+          // If item.current_tier is not in availableTiers? (e.g. Hidden tier not passed?)
           cols['untiered'].push(item);
+      } else {
+          cols[targetCol].push(item);
       }
     });
     return cols;
@@ -159,12 +198,15 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
 
     // Determine target tier
     let targetTier: string | null = null;
+    
+    // Check if dropped on a column (droppable container)
     if (overId === 'untiered' || availableTiers.some(t => t.key === overId)) {
         targetTier = overId === 'untiered' ? "" : overId;
     } else {
         // Dragged over an item, find its tier
         const overItem = items.find(i => i.name === overId);
         if (overItem) {
+            // Check staged tier first, then current
             const tier = stagedChanges[overItem.name] !== undefined ? stagedChanges[overItem.name] : overItem.current_tier;
             targetTier = tier || "";
         }
@@ -213,7 +255,11 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   const getTierColor = (tierKey: string | null) => {
     if (!tierKey) return 'white';
     const match = tierKey.match(/Tier (\d+)/);
-    if (!match) return '#f8f9fa';
+    if (!match) {
+        // Handle Custom Tiers or named tiers
+        if (tierKey.includes('Custom')) return '#fff3e0'; // Orange tint
+        return '#f0f0f0';
+    }
     const num = parseInt(match[1]);
     const colors = [
       '#ffebee', '#f3e5f5', '#e8eaf6', '#e3f2fd', '#e0f2f1', 
@@ -226,21 +272,28 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   const activeItem = activeId ? items.find(i => i.name === activeId) : null;
 
   return (
-    <div className="modal-overlay">
+    <div className="modal-overlay" onContextMenu={(e) => e.stopPropagation()}>
       <div className="modal-content">
         <div className="modal-header">
           <div className="header-left">
-            <h2>Bulk Sort</h2>
-            <select 
-                className="class-select"
-                value={selectedClass} 
-                onChange={e => setSelectedClass(e.target.value)}
-            >
-                {itemClasses.map(c => <option key={c} value={c}>{c}</option>)}
-            </select>
+            <h2>{t.bulkEdit}: {language === 'ch' ? (CLASS_TRANSLATIONS[selectedClass] || selectedClass) : selectedClass}</h2>
+            <div className="class-select-wrapper">
+                <span className="label">{t.itemClass}:</span>
+                <select 
+                    className="class-select"
+                    value={selectedClass} 
+                    onChange={e => setSelectedClass(e.target.value)}
+                >
+                    {itemClasses.map(c => (
+                        <option key={c} value={c}>
+                            {language === 'ch' ? (CLASS_TRANSLATIONS[c] || c) : c}
+                        </option>
+                    ))}
+                </select>
+            </div>
           </div>
           <div className="header-meta">
-             <span className="staged-badge">{stagedCount} items staged</span>
+             <span className="staged-badge">{stagedCount} {t.itemsStaged}</span>
              <button className="close-btn" onClick={onClose}>×</button>
           </div>
         </div>
@@ -258,7 +311,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
             disabled={stagedCount === 0 || loading}
             onClick={handleApply}
           >
-            {t.saveConfig} ({stagedCount})
+            {t.saveChanges} ({stagedCount})
           </button>
         </div>
 
@@ -272,7 +325,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
             {/* Untiered Column */}
             <div className="kanban-column untiered">
                 <div className="column-header">
-                    <h3>{language === 'ch' ? '未分类' : 'Untiered'} ({columns['untiered'].length})</h3>
+                    <h3>{t.untiered} ({columns['untiered'].length})</h3>
                 </div>
                 <SortableContext id="untiered" items={columns['untiered'].map(i => i.name)} strategy={verticalListSortingStrategy}>
                     <div className="column-content drop-zone" id="untiered">
@@ -330,7 +383,9 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         .modal-header { padding: 15px 25px; background: white; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
         .header-left { display: flex; align-items: center; gap: 20px; }
         .header-left h2 { margin: 0; font-size: 1.2rem; color: #333; }
-        .class-select { padding: 8px 12px; border-radius: 6px; border: 1px solid #ddd; font-weight: bold; font-size: 1rem; cursor: pointer; color: #2196F3; }
+        .class-select-wrapper { display: flex; align-items: center; gap: 10px; }
+        .class-select-wrapper .label { font-size: 0.9rem; font-weight: bold; color: #555; }
+        .class-select { padding: 6px 12px; border-radius: 6px; border: 1px solid #ddd; font-weight: bold; font-size: 0.95rem; cursor: pointer; color: #2196F3; max-width: 250px; }
         
         .header-meta { display: flex; align-items: center; gap: 20px; }
         .staged-badge { background: #2196F3; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }

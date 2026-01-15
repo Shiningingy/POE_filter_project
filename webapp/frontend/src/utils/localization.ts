@@ -125,7 +125,12 @@ export const translations = {
     insertAfter: "Insert After",
     pasteTier: "Paste Tier",
     confirmDeleteTier: "Are you sure you want to delete this tier?",
-    DRAG:"DRAG"
+    DRAG:"DRAG",
+    untiered: "Untiered",
+    itemsStaged: "items staged",
+    activeTierBrush: "Active Tier (Brush):",
+    saveChanges: "Save Changes",
+    itemClass: "Item Class",
   },
   ch: {
     appTitle: "POE 过滤器编辑器",
@@ -251,7 +256,12 @@ export const translations = {
     insertAfter: "在此之后插入",
     pasteTier: "粘贴阶级",
     confirmDeleteTier: "确定要删除此阶级吗?",
-    DRAG:"拖动"
+    DRAG:"拖动",
+    untiered: "未分类",
+    itemsStaged: "项变动",
+    activeTierBrush: "当前阶级 (刷子):",
+    saveChanges: "保存更改",
+    itemClass: "物品类型",
   }
 };
 
