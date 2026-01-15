@@ -47,7 +47,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   const [showIconPopup, setShowIconPopup] = useState(false);
   const [showBeamPopup, setShowBeamPopup] = useState(false);
 
-  const [availableSounds, setAvailableSounds] = useState<{ 
+  const [availableSounds, setAvailableSounds] = useState<{
     defaults: string[];
     sharket: string[];
   }>({ defaults: [], sharket: [] });
@@ -58,11 +58,13 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     BackgroundColor: getAlpha(style.BackgroundColor),
   });
 
-  const [tempSound, setTempSound] = useState<{
+  interface TempSoundState {
     type: "default" | "sharket" | "custom";
     file: string;
     vol: number;
-  }>({ type: "default", file: "Default/AlertSound1.mp3", vol: 100 });
+  }
+
+  const [tempSound, setTempSound] = useState<TempSoundState>({ type: "default", file: "Default/AlertSound1.mp3", vol: 100 });
 
   const [tempIcon, setTempIcon] = useState({
     size: 0,
@@ -124,7 +126,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     return {
       width: `${baseSize * scale}px`,
       height: `${baseSize * scale}px`,
-      backgroundImage: `url('/assets/Icon/MiniMapIcon_FullSpriteV2.png')`,
+      backgroundImage: `url('${import.meta.env.BASE_URL}/assets/Icon/MiniMapIcon_FullSpriteV2.png')`,
       backgroundPosition: `-${(colorIdx * stepX + offset) * scale}px -${
         (shapeIdx * stepY + offset) * scale
       }px`,
@@ -208,7 +210,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   };
 
   const handleTestSound = () => {
-    const url = 
+    const url =
       tempSound.type === "custom"
         ? `http://localhost:8000/api/sounds/proxy?path=${encodeURIComponent(
             tempSound.file
@@ -245,8 +247,8 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
       "BackgroundColor",
     ];
     keys.forEach((key) => {
-      const val = 
-        ((style as any)[key] as string) || 
+      const val =
+        ((style as any)[key] as string) ||
         (key === "BackgroundColor" ? "#000000ff" : "#ffffffff");
       const clean = val.startsWith("disabled:") ? val.split(":")[1] : val;
       const base = clean.substring(0, 7);
@@ -319,7 +321,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     else if (key === "PlayEffect") setShowBeamPopup(true);
   };
 
-  const filteredSounds = 
+  const filteredSounds =
     tempSound.type === "default"
       ? availableSounds.defaults.filter((s) =>
           s.toLowerCase().includes(soundSearch.toLowerCase())
@@ -330,10 +332,14 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
 
   return (
     <div
-      className={`VisualEditor_Container tier-style-editor ${ 
-        visibility ? "hidden-tier" : "" 
+      className={`VisualEditor_Container tier-style-editor ${
+        visibility ? "hidden-tier" : ""
       }`}
-      style={{ backgroundImage: `url('/assets/item_bg/${viewerBackground}')` }}
+      style={{
+        backgroundImage: `url('${
+          import.meta.env.BASE_URL
+        }/assets/item_bg/${viewerBackground}')`,
+      }}
       onClick={onInspect}
     >
       {/* Modals Section */}
@@ -397,7 +403,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                     {filteredSounds.map((s) => (
                       <div
                         key={s}
-                        className={`sound-item ${ 
+                        className={`sound-item ${
                           tempSound.file === s ? "active" : ""
                         }`}
                         onClick={() => setTempSound({ ...tempSound, file: s })}
@@ -548,8 +554,9 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                           ? "medium"
                           : "large"
                       ]
-                    }{ " " }
-                    {(t as any)[tempIcon.color]} {(t as any)[tempIcon.shape] || tempIcon.shape}
+                    }{" "}
+                    {(t as any)[tempIcon.color]}{" "}
+                    {(t as any)[tempIcon.shape] || tempIcon.shape}
                   </span>
                 </div>
               </div>
@@ -629,7 +636,8 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
             </div>
             <div className="popup-footer">
               <div className="preview-indicator">
-                {(t as any)[tempBeam.color]} {(tempBeam.isTemp ? `(${t.temporary})` : `(${t.permanent})`)}
+                {(t as any)[tempBeam.color]}{" "}
+                {tempBeam.isTemp ? `(${t.temporary})` : `(${t.permanent})`}
               </div>
               <div className="main-actions">
                 <button
@@ -708,7 +716,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                   }
                 />
                 <div
-                  className={`status-check ${ 
+                  className={`status-check ${
                     isColorActive(val) ? "active" : ""
                   }`}
                   onClick={(e) => {
@@ -827,14 +835,14 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 }
               />
             </div>
-            <div className="action-btns" style={{ display: 'none' }}>
+            <div className="action-btns" style={{ display: "none" }}>
               {/* Copy/Paste buttons removed */}
             </div>
           </div>
           <div className="bottom-row extra-btns">
             <button
-              className={`extra-toggle-btn ${ 
-                style.PlayAlertSound ? "active" : "" 
+              className={`extra-toggle-btn ${
+                style.PlayAlertSound ? "active" : ""
               }`}
               onClick={(e) => {
                 e.stopPropagation();
@@ -844,8 +852,8 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
               {t.sound}
             </button>
             <button
-              className={`extra-toggle-btn ${ 
-                style.MinimapIcon ? "active" : "" 
+              className={`extra-toggle-btn ${
+                style.MinimapIcon ? "active" : ""
               }`}
               style={{
                 display: "flex",
@@ -884,7 +892,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
             >
               {style.PlayEffect && (
                 <div
-                  className={`beam-icon-mini ${ 
+                  className={`beam-icon-mini ${
                     style.PlayEffect.includes("Temp") ? "is-temp" : ""
                   }`}
                   style={{
