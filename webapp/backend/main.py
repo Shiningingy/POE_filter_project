@@ -169,6 +169,40 @@ def search_items(q: str):
 def get_item_classes():
     return {"classes": ITEM_CLASSES}
 
+@app.get("/api/class-items/{item_class}")
+def get_items_by_class(item_class: str):
+    # Find all items of this class in the universe
+    all_class_items = CLASS_TO_ITEMS.get(item_class, set())
+    
+    # Scan all mappings to find current tiers
+    item_data = {} # name -> {name, name_ch, current_tier, source_file}
+    
+    # Initialize with all items as untiered
+    for name in all_class_items:
+        item_data[name] = {
+            "name": name,
+            "name_ch": name, # Fallback
+            "current_tier": None,
+            "source_file": None
+        }
+
+    mappings_dir = CONFIG_DATA_DIR / "base_mapping"
+    for file_path in mappings_dir.rglob("*.json"):
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                mapping = data.get("mapping", {})
+                trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
+                for item_name, tier_key in mapping.items():
+                    if item_name in all_class_items:
+                        item_data[item_name]["current_tier"] = tier_key
+                        item_data[item_name]["source_file"] = file_path.relative_to(mappings_dir).as_posix()
+                        if item_name in trans:
+                            item_data[item_name]["name_ch"] = trans[item_name]
+        except: continue
+        
+    return {"items": list(item_data.values())}
+
 # --- Action Endpoints ---
 
 @app.post("/api/update-item-tier")
