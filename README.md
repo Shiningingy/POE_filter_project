@@ -15,3 +15,5 @@ The following files are sourced from FilterBlade:
 - `bonusItemInfo.json`
 - `FilterBlade_*.filter` files
 - Visual assets: `item_bg` images and `MiniMapIcon_FullSpriteV2.png`
+
+We also use [poe-dat-viewer](https://github.com/SnosMe/poe-dat-viewer) to extract and process information from the game's GGPK files. Many thanks to the authors for this valuable tool.
