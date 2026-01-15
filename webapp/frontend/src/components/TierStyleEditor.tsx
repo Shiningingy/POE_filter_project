@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useTranslation } from "../utils/localization";
+import { getSoundUrl } from "../utils/soundUtils";
 import type { Language } from "../utils/localization";
 
 interface StyleProps {
@@ -211,12 +212,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   };
 
   const handleTestSound = () => {
-    const url =
-      tempSound.type === "custom"
-        ? `http://localhost:8000/api/sounds/proxy?path=${encodeURIComponent(
-            tempSound.file
-          )}`
-        : `http://localhost:8000/sounds/${tempSound.file}`;
+    const url = getSoundUrl(tempSound.file);
     const audio = new Audio(url);
     audio.volume = Math.min(1, tempSound.vol / 300);
     audio.play().catch((err) => alert("Play failed: " + err.message));
@@ -309,7 +305,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         ? soundData
         : [null, 0];
       if (soundFile) {
-        const audio = new Audio(`http://localhost:8000/sounds/${soundFile}`);
+        const audio = new Audio(getSoundUrl(soundFile));
         audio.volume = Math.min(1, (volume as number) / 300);
         audio.play().catch((err) => console.error("Sound play failed:", err));
       }
