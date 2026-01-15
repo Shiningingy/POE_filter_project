@@ -8,8 +8,9 @@ import subprocess
 import sys
 import time
 import re
+import csv
 from pathlib import Path
-from typing import List, Dict
+from typing import List, Dict, Optional
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -27,19 +28,24 @@ class UpdateItemTierRequest(BaseModel):
 
 class TierItemsRequest(BaseModel):
     tier_keys: List[str]
+    class_filter: Optional[str] = None
 
 # --- Path Definitions ---
 PROJECT_ROOT = Path(__file__).parent.parent.parent.resolve()
 FILTER_GEN_DIR = (PROJECT_ROOT / "filter_generation").resolve()
 CONFIG_DATA_DIR = (FILTER_GEN_DIR / "data").resolve()
 SOUND_FILES_DIR = (PROJECT_ROOT / "sound_files").resolve()
+DATA_DIR = PROJECT_ROOT / "data"
 
 VENV_PYTHON = PROJECT_ROOT / ".venv" / "Scripts" / "python.exe" if sys.platform == "win32" else PROJECT_ROOT / ".venv" / "bin" / "python"
 PYTHON_EXECUTABLE = str(VENV_PYTHON) if VENV_PYTHON.exists() else sys.executable
 
+# --- Globals ---
+ITEM_CLASSES = []
+CLASS_TO_ITEMS = {} # Class -> Set(BaseTypes)
+ITEM_TO_CLASS = {}  # BaseType -> Class
+
 # --- Middleware ---
-# Allow CORS for the React frontend
-# Note: allow_origins cannot be "*" if allow_credentials is True
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173"],
@@ -64,6 +70,31 @@ def safe_join(base: Path, path: str):
     except ValueError:
         raise HTTPException(status_code=400, detail="Invalid path traversal")
     return full_path
+
+def load_base_types():
+    global ITEM_CLASSES, CLASS_TO_ITEMS, ITEM_TO_CLASS
+    csv_path = DATA_DIR / "from_filter_blade" / "BaseTypes.csv"
+    if not csv_path.exists():
+        print("Warning: BaseTypes.csv not found.")
+        return
+
+    print("Loading BaseTypes.csv...")
+    try:
+        with open(csv_path, "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                cls = row.get("Class", "").strip()
+                name = row.get("BaseType", "").strip()
+                if cls and name:
+                    if cls not in CLASS_TO_ITEMS:
+                        CLASS_TO_ITEMS[cls] = set()
+                    CLASS_TO_ITEMS[cls].add(name)
+                    ITEM_TO_CLASS[name] = cls
+        
+        ITEM_CLASSES = sorted(list(CLASS_TO_ITEMS.keys()))
+        print(f"Loaded {len(ITEM_CLASSES)} item classes.")
+    except Exception as e:
+        print(f"Error loading BaseTypes.csv: {e}")
 
 # --- Specific Endpoints (Top Priority) ---
 
@@ -134,6 +165,10 @@ def search_items(q: str):
         except: continue
     return {"results": results}
 
+@app.get("/api/item-classes")
+def get_item_classes():
+    return {"classes": ITEM_CLASSES}
+
 # --- Action Endpoints ---
 
 @app.post("/api/update-item-tier")
@@ -172,6 +207,8 @@ def update_item_override(request: UpdateItemOverrideRequest):
 def get_items_by_tier(request: TierItemsRequest):
     tier_keys_set = set(request.tier_keys)
     result = {k: [] for k in tier_keys_set}
+    found_items = set() # Track found items to calculate untiered
+    
     mappings_dir = CONFIG_DATA_DIR / "base_mapping"
     for file_path in mappings_dir.rglob("*.json"):
         try:
@@ -179,11 +216,35 @@ def get_items_by_tier(request: TierItemsRequest):
                 data = json.load(f)
                 mapping = data.get("mapping", {})
                 trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
+                
                 for item_name, tier_key in mapping.items():
+                    # If class filter is active, skip mismatch
+                    if request.class_filter:
+                        item_class = ITEM_TO_CLASS.get(item_name)
+                        if item_class != request.class_filter:
+                            continue
+                    
                     if tier_key in tier_keys_set:
                         result[tier_key].append({"name": item_name, "name_ch": trans.get(item_name, item_name), "source": file_path.relative_to(mappings_dir).as_posix()})
+                        if request.class_filter:
+                            found_items.add(item_name)
         except: continue
-    return {"items": result}
+        
+    untiered = []
+    if request.class_filter:
+        all_class_items = CLASS_TO_ITEMS.get(request.class_filter, set())
+        for item_name in all_class_items:
+            if item_name not in found_items:
+                # Untiered items don't have a source file yet, so we might need to decide where to put them later.
+                # Or we return them without source.
+                # For update-item-tier, we need source_file.
+                # We can default to the first file encountered or let frontend decide?
+                # Actually, usually untiered items are new.
+                # We'll just return them. Frontend needs to pick a source file to add them to.
+                # Or we pass "default" source?
+                untiered.append({"name": item_name, "name_ch": item_name}) # TODO: CH translation for CSV items?
+    
+    return {"items": result, "untiered": untiered}
 
 @app.post("/api/generate")
 def generate_filter_file():
@@ -251,3 +312,4 @@ if SOUND_FILES_DIR.exists():
 @app.on_event("startup")
 async def startup_event():
     print(f"Backend 1.0.3 started. Project: {PROJECT_ROOT}")
+    load_base_types()
