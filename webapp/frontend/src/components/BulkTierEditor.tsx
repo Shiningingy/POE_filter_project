@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import { 
   DndContext, 
-  closestCenter, 
+  pointerWithin, 
   type DragEndEvent,
   type DragStartEvent,
   DragOverlay,
@@ -74,7 +74,7 @@ const CLASS_TRANSLATIONS: Record<string, string> = {
     "Divination Card": "命运卡"
 };
 
-const SortableItem = ({ item, color, isStaged }: { item: Item, color: string, isStaged: boolean }) => {
+const SortableItem = ({ item, color, isStaged, language }: { item: Item, color: string, isStaged: boolean, language: Language }) => {
   const {
     attributes,
     listeners,
@@ -91,6 +91,8 @@ const SortableItem = ({ item, color, isStaged }: { item: Item, color: string, is
     backgroundColor: color
   };
 
+  const showChineseFirst = language === 'ch';
+
   return (
     <div 
       ref={setNodeRef} 
@@ -101,8 +103,8 @@ const SortableItem = ({ item, color, isStaged }: { item: Item, color: string, is
       onContextMenu={(e) => e.stopPropagation()} 
     >
       <div className="item-info">
-        <div className="name-en">{item.name}</div>
-        <div className="name-ch">{item.name_ch}</div>
+        <div className="name-primary">{showChineseFirst ? item.name_ch : item.name}</div>
+        <div className="name-secondary">{showChineseFirst ? item.name : item.name_ch}</div>
       </div>
       {isStaged && <div className="staged-indicator">●</div>}
     </div>
@@ -333,7 +335,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         <div className="kanban-board">
           <DndContext 
             sensors={sensors}
-            collisionDetection={closestCenter}
+            collisionDetection={pointerWithin}
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
           >
@@ -345,13 +347,13 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                 items={columns['untiered']}
             >
                 {columns['untiered'].map(item => (
-                    <SortableItem 
-                        key={item.name} 
-                        item={item} 
-                        color="white"
-                        isStaged={stagedChanges[item.name] !== undefined}
-                    />
-                ))}
+                                                <SortableItem 
+                                                    key={item.name} 
+                                                    item={item} 
+                                                    color="white"
+                                                    isStaged={stagedChanges[item.name] !== undefined}
+                                                    language={language}
+                                                />                ))}
             </TierColumn>
 
             {/* Tier Columns */}
@@ -364,13 +366,13 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                     items={columns[tier.key]}
                 >
                     {columns[tier.key].map(item => (
-                        <SortableItem 
-                            key={item.name} 
-                            item={item} 
-                            color={getTierColor(tier.key)}
-                            isStaged={stagedChanges[item.name] !== undefined}
-                        />
-                    ))}
+                                                        <SortableItem 
+                                                            key={item.name} 
+                                                            item={item} 
+                                                            color={getTierColor(tier.key)}
+                                                            isStaged={stagedChanges[item.name] !== undefined}
+                                                            language={language}
+                                                        />                    ))}
                 </TierColumn>
             ))}
 
@@ -378,8 +380,8 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                 {activeItem ? (
                     <div className="item-card dragging" style={{ backgroundColor: getTierColor(stagedChanges[activeItem.name] || activeItem.current_tier) }}>
                         <div className="item-info">
-                            <div className="name-en">{activeItem.name}</div>
-                            <div className="name-ch">{activeItem.name_ch}</div>
+                            <div className="name-primary">{language === 'ch' ? activeItem.name_ch : activeItem.name}</div>
+                            <div className="name-secondary">{language === 'ch' ? activeItem.name : activeItem.name_ch}</div>
                         </div>
                     </div>
                 ) : null}
@@ -426,8 +428,8 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         .item-card.staged { border: 2px solid #2196F3; }
         .item-card.dragging { cursor: grabbing; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transform: rotate(2deg); width: 260px; z-index: 1000; }
         
-        .name-en { font-size: 0.8rem; font-weight: bold; color: #333; margin-bottom: 2px; }
-        .name-ch { font-size: 0.75rem; color: #666; }
+        .name-primary { font-size: 0.85rem; font-weight: bold; color: #1a1a1a; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .name-secondary { font-size: 0.75rem; color: #666; }
         .staged-indicator { position: absolute; top: 5px; right: 8px; color: #2196F3; font-size: 0.8rem; }
 
         .untiered .column-header { border-top: 4px solid #999; }

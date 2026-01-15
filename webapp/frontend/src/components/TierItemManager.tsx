@@ -75,6 +75,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
 
   const handleRightClick = (e: React.MouseEvent, item: TierItem) => {
     e.preventDefault();
+    e.stopPropagation();
     setContextMenu({ x: e.clientX, y: e.clientY, item });
   };
 
