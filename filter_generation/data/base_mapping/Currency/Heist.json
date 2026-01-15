@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Rogue's Marker": "赏金猎人印记",
+        "Tempering Orb": "回火石",
+        "Tailoring Orb": "裁剪石",
+        "__class_name__": "可堆叠通货"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Rogue's Marker": "Tier 1 Heist",
+    "Tempering Orb": "Tier 1 Heist",
+    "Tailoring Orb": "Tier 1 Heist"
+  },
+  "rules": []
+}

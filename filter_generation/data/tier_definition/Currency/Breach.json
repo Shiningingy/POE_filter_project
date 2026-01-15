@@ -1,0 +1,21 @@
+{
+  "Breach": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Breach",
+        "ch": "裂隙"
+      }
+    },
+    "Tier 1 Breach": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

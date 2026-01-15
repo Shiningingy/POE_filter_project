@@ -1,0 +1,21 @@
+{
+  "Rune Daggers": {
+    "_meta": {
+      "theme_category": "Rune Daggers",
+      "localization": {
+        "en": "Rune Daggers",
+        "ch": "符文匕首"
+      }
+    },
+    "Tier 1 Rune Daggers": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

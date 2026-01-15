@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Splinter of Xoph": "裂隙碎片(索伏)",
+        "Splinter of Tul": "裂隙碎片(托沃)",
+        "Splinter of Esh": "裂隙碎片(艾许)",
+        "Splinter of Uul-Netol": "裂隙碎片(乌尔尼多)",
+        "Splinter of Chayula": "裂隙碎片(夏乌拉)",
+        "Blessing of Xoph": "索伏的祝福",
+        "Blessing of Tul": "托沃的祝福",
+        "Blessing of Esh": "艾许的祝福",
+        "Blessing of Uul-Netol": "乌尔尼多的祝福",
+        "Blessing of Chayula": "夏乌拉的祝福",
+        "__class_name__": "可堆叠通货"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Splinter of Xoph": "Tier 1 Breach",
+    "Splinter of Tul": "Tier 1 Breach",
+    "Splinter of Chayula": "Tier 1 Breach",
+    "Blessing of Xoph": "Tier 1 Breach",
+    "Blessing of Tul": "Tier 1 Breach",
+    "Blessing of Esh": "Tier 1 Breach",
+    "Blessing of Uul-Netol": "Tier 1 Breach",
+    "Blessing of Chayula": "Tier 1 Breach"
+  },
+  "rules": [
+    {
+      "targets": [
+        "Splinter of Xoph"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "123.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Splinter of Xoph"
+    }
+  ]
+}

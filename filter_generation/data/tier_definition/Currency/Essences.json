@@ -1,0 +1,21 @@
+{
+  "Essences": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Essences",
+        "ch": "精华"
+      }
+    },
+    "Tier 1 Essences": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "theme": { 
+    "Tier": "custom",
+    "FontSize": 36,
+    "TextColor": "#FFFFFF",
+    "BorderColor": "#AAAAAA",
+    "BackgroundColor": "#222222"
+  },
+  "hideable": false,
+  "sound": { 
+    "default_sound_id": -1, 
+    "sharket_sound_id": null 
+  },
+  "name_template": {
+    "en": "Custom Tier #",
+    "ch": "自定义阶级 #"
+  }
+}

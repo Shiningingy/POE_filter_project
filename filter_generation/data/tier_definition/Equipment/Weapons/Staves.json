@@ -1,0 +1,21 @@
+{
+  "Staves": {
+    "_meta": {
+      "theme_category": "Staves",
+      "localization": {
+        "en": "Staves",
+        "ch": "长杖"
+      }
+    },
+    "Tier 1 Staves": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

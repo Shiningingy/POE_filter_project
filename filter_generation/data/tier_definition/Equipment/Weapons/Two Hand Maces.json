@@ -1,0 +1,21 @@
+{
+  "Two Hand Maces": {
+    "_meta": {
+      "theme_category": "Two Hand Maces",
+      "localization": {
+        "en": "Two Hand Maces",
+        "ch": "双手锤"
+      }
+    },
+    "Tier 1 Two Hand Maces": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Time-light Scroll": "时光卷轴",
+        "Fragmentation Scroll": "破碎卷轴",
+        "Deregulation Scroll": "解除卷轴",
+        "Electroshock Scroll": "电击卷轴",
+        "Haemocombustion Scroll": "焚血卷轴",
+        "Specularity Scroll": "光棱卷轴",
+        "Facetor's Lens": "费斯特的透镜",
+        "__class_name__": "可堆叠通货"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Time-light Scroll": "Tier 1 Oils & Harvest",
+    "Fragmentation Scroll": "Tier 1 Oils & Harvest",
+    "Deregulation Scroll": "Tier 1 Oils & Harvest",
+    "Electroshock Scroll": "Tier 1 Oils & Harvest",
+    "Haemocombustion Scroll": "Tier 1 Oils & Harvest",
+    "Specularity Scroll": "Tier 1 Oils & Harvest",
+    "Facetor's Lens": "Tier 1 Oils & Harvest"
+  },
+  "rules": []
+}

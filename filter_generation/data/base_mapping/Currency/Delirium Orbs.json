@@ -1,0 +1,53 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Fine Delirium Orb": "良好的雾魇宝珠",
+        "Singular Delirium Orb": "单独的雾魇宝珠",
+        "Thaumaturge's Delirium Orb": "奇术师的雾魇宝珠",
+        "Blacksmith's Delirium Orb": "铁匠的雾魇宝珠",
+        "Armoursmith's Delirium Orb": "铸甲师的雾魇宝珠",
+        "Cartographer's Delirium Orb": "制图师的雾魇宝珠",
+        "Jeweller's Delirium Orb": "珠宝匠的雾魇宝珠",
+        "Abyssal Delirium Orb": "深渊的雾魇宝珠",
+        "Foreboding Delirium Orb": "不详的雾魇宝珠",
+        "Obscured Delirium Orb": "朦胧的雾魇宝珠",
+        "Whispering Delirium Orb": "低语的雾魇宝珠",
+        "Fragmented Delirium Orb": "破碎的雾魇宝珠",
+        "Skittering Delirium Orb": "迷踪的雾魇宝珠",
+        "Fossilised Delirium Orb": "石化的雾魇宝珠",
+        "Diviner's Delirium Orb": "预言师的雾魇宝珠",
+        "Timeless Delirium Orb": "永恒的雾魇宝珠",
+        "Blighted Delirium Orb": "枯萎的雾魇宝珠",
+        "Simulacrum Splinter": "梦魇拟像裂片",
+        "__class_name__": "可堆叠通货"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Fine Delirium Orb": "Tier 1 Delirium Orbs",
+    "Singular Delirium Orb": "Tier 1 Delirium Orbs",
+    "Thaumaturge's Delirium Orb": "Tier 1 Delirium Orbs",
+    "Blacksmith's Delirium Orb": "Tier 1 Delirium Orbs",
+    "Armoursmith's Delirium Orb": "Tier 1 Delirium Orbs",
+    "Cartographer's Delirium Orb": "Tier 1 Delirium Orbs",
+    "Jeweller's Delirium Orb": "Tier 1 Delirium Orbs",
+    "Abyssal Delirium Orb": "Tier 1 Delirium Orbs",
+    "Foreboding Delirium Orb": "Tier 1 Delirium Orbs",
+    "Obscured Delirium Orb": "Tier 1 Delirium Orbs",
+    "Whispering Delirium Orb": "Tier 1 Delirium Orbs",
+    "Fragmented Delirium Orb": "Tier 1 Delirium Orbs",
+    "Skittering Delirium Orb": "Tier 1 Delirium Orbs",
+    "Fossilised Delirium Orb": "Tier 1 Delirium Orbs",
+    "Diviner's Delirium Orb": "Tier 1 Delirium Orbs",
+    "Timeless Delirium Orb": "Tier 1 Delirium Orbs",
+    "Blighted Delirium Orb": "Tier 1 Delirium Orbs",
+    "Simulacrum Splinter": "Tier 1 Delirium Orbs"
+  },
+  "rules": []
+}

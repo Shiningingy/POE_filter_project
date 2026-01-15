@@ -1,100 +1,105 @@
 import json
 
-def build_currency_section(item_data, theme, sound_map):
+def build_currency_section(tier_groups, theme, sound_map):
     """
-    item_data: dict of basetypes and metadata
-    theme: dict of visual appearance configs
-    sound_map: dict of sound overrides
-    
-    Returns:
-        tuple: (filter_content_string, style_map_dictionary)
+    tier_groups: list of dicts {
+        tier_key, 
+        items: [item_names],
+        group_text,
+        text_ch,
+        conditions,
+        style_override,
+        comment
+    }
     """
     blocks = []
     style_map = {}
 
-    for baseType, meta in item_data.items():
-        # Skip if marked as hideable (optional logic)
-        if meta.get("hideable", False):
+    for group_data in tier_groups:
+        items = group_data["items"]
+        if not items:
             continue
 
-        group = meta.get("group", "")
-        group_text = meta.get("group_text", "")
-        text_ch = meta.get("text_ch", "")
+        # Visibility: true = Minimal (Ruthless Hide), false = Show
+        is_minimal = group_data.get("hideable", False)
+        visibility_keyword = "Minimal" if is_minimal else "Show"
 
-        # Determine which theme style to use (e.g. "CurrencyHigh", "CurrencyLow")
-        # Fallback to default if group not in theme
-        theme_key = _find_theme_key(group, theme.get("currency", {}))
-        style = theme.get("currency", {}).get(theme_key) if theme_key else theme.get("currency", {}).get("CurrencyDefault", {})
+        tier_key = group_data["tier_key"]
+...
+        # 3. Compose Block
+        header_comment = f'{group_text}'
+        if comment:
+            header_comment += f' ({comment})'
+            
+        header = f'{visibility_keyword} #{header_comment}'
+        
+        # Format BaseType list: "Item 1" "Item 2"
+        item_list_str = '" "'.join(items)
+        lines = [header, f'    BaseType "{item_list_str}"']
+        
+        # conditions is now expected to be a list of {key, value}
+        if isinstance(conditions, list):
+            for cond in conditions:
+                key, val = cond["key"], cond["value"]
+                if val.startswith("RANGE "):
+                    parts = val.replace("RANGE ", "").split(" ")
+                    if len(parts) >= 2:
+                        lines.append(f'    {key} >= {parts[0]}')
+                        lines.append(f'    {key} <= {parts[1]}')
+                else:
+                    lines.append(f'    {key} {val}')
+        elif isinstance(conditions, dict):
+            for key, val in conditions.items():
+                lines.append(f'    {key} {val}')
 
-        # Sound: per-item sound overrides theme
-        sound = sound_map.get(baseType, style.get("PlayAlertSound"))
+        # Add Raw Code (Indented) BEFORE style
+        if group_data.get("raw"):
+            for raw_line in group_data["raw"].split('\n'):
+                if raw_line.strip():
+                    lines.append(f'    {raw_line.strip()}')
 
-        # Collect style data for Simulator
-        item_style = _extract_style_data(style, sound)
-        style_map[baseType] = item_style
-
-        # Compose block
-        header = f'Show #通货-{group_text}-{text_ch}'
-        lines = [header, f'BaseType "{baseType}"']
         _apply_style(lines, style, sound)
         blocks.append("\n".join(lines))
 
     return "\n\n".join(blocks), style_map
 
-
 def hex_to_rgb(hex_color):
     hex_color = hex_color.lstrip('#')
-    # Assuming the format is RRGGBBAA or RRGGBB
-    if len(hex_color) == 8: # RRGGBBAA
+    if len(hex_color) == 8:
         return int(hex_color[0:2], 16), int(hex_color[2:4], 16), int(hex_color[4:6], 16)
-    elif len(hex_color) == 6: # RRGGBB
+    elif len(hex_color) == 6:
         return int(hex_color[0:2], 16), int(hex_color[2:4], 16), int(hex_color[4:6], 16)
-    return 0, 0, 0 # Default if format is unexpected
+    return 0, 0, 0 
 
 def _extract_style_data(style, sound):
-    """Extracts style data into a dictionary for JSON export"""
     data = {}
-    if "FontSize" in style:
-        data["fontSize"] = style["FontSize"]
-    
-    if "BorderColor" in style:
-        data["borderColor"] = hex_to_rgb(style["BorderColor"])
-    if "TextColor" in style:
-        data["textColor"] = hex_to_rgb(style["TextColor"])
-    if "BackgroundColor" in style:
-        data["backgroundColor"] = hex_to_rgb(style["BackgroundColor"])
-        
+    if "FontSize" in style: data["fontSize"] = style["FontSize"]
+    if "BorderColor" in style: data["borderColor"] = hex_to_rgb(style["BorderColor"])
+    if "TextColor" in style: data["textColor"] = hex_to_rgb(style["TextColor"])
+    if "BackgroundColor" in style: data["backgroundColor"] = hex_to_rgb(style["BackgroundColor"])
     return data
 
 def _apply_style(lines, style, sound):
-    """Append visual/sound settings from theme or sound map"""
-    if "FontSize" in style:
-        lines.append(f'SetFontSize {style["FontSize"]}')
+    if "FontSize" in style: lines.append(f'    SetFontSize {style["FontSize"]}')
     if "BorderColor" in style:
         r, g, b = hex_to_rgb(style["BorderColor"])
-        lines.append(f'SetBorderColor {r} {g} {b}')
+        lines.append(f'    SetBorderColor {r} {g} {b}')
     if "TextColor" in style:
         r, g, b = hex_to_rgb(style["TextColor"])
-        lines.append(f'SetTextColor {r} {g} {b}')
+        lines.append(f'    SetTextColor {r} {g} {b}')
     if "BackgroundColor" in style:
         r, g, b = hex_to_rgb(style["BackgroundColor"])
-        lines.append(f'SetBackgroundColor {r} {g} {b}')
+        lines.append(f'    SetBackgroundColor {r} {g} {b}')
 
     if sound:
         if isinstance(sound, list):
             file, vol = sound
-            lines.append(f'CustomAlertSound "{file}" {vol}')
+            lines.append(f'    CustomAlertSound "{file}" {vol}')
         elif isinstance(sound, dict):
-            lines.append(f'CustomAlertSound "{sound["file"]}" {sound["volume"]}')
-
+            lines.append(f'    CustomAlertSound "{sound["file"]}" {sound["volume"]}')
 
 def _find_theme_key(group, theme):
-    """Try to find a matching theme key based on group name"""
-    # exact match first
-    if group in theme:
-        return group
-    # fallback: try to match by keywords
+    if group in theme: return group
     for k in theme.keys():
-        if group.lower() in k.lower():
-            return k
+        if group.lower() in k.lower(): return k
     return None

@@ -1,0 +1,21 @@
+{
+  "Fragments": {
+    "_meta": {
+      "theme_category": "Map Fragments",
+      "localization": {
+        "en": "Fragments",
+        "ch": "碎片"
+      }
+    },
+    "Tier 1 Fragments": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

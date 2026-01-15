@@ -1,0 +1,21 @@
+{
+  "One Hand Axes": {
+    "_meta": {
+      "theme_category": "One Hand Axes",
+      "localization": {
+        "en": "One Hand Axes",
+        "ch": "单手斧"
+      }
+    },
+    "Tier 1 One Hand Axes": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

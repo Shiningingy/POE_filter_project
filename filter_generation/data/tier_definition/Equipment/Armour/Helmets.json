@@ -1,0 +1,21 @@
+{
+  "Helmets": {
+    "_meta": {
+      "theme_category": "Helmets",
+      "localization": {
+        "en": "Helmets",
+        "ch": "头部"
+      }
+    },
+    "Tier 1 Helmets": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

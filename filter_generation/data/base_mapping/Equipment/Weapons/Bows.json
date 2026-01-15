@@ -1,0 +1,73 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Crude Bow": "粗制弓",
+        "Short Bow": "短弓",
+        "Long Bow": "长弓",
+        "Composite Bow": "合成弓",
+        "Recurve Bow": "反曲弓",
+        "Bone Bow": "骨制弓",
+        "Royal Bow": "皇家猎弓",
+        "Death Bow": "死亡之弓",
+        "Grove Bow": "丛林猎弓",
+        "Reflex Bow": "反射弓",
+        "Decurve Bow": "直弓",
+        "Compound Bow": "复合弓",
+        "Sniper Bow": "狙击弓",
+        "Ivory Bow": "象牙弓",
+        "Highborn Bow": "贵族之弓",
+        "Decimation Bow": "猎魂之弓",
+        "Thicket Bow": "林野猎弓",
+        "Steelwood Bow": "钢木之弓",
+        "Citadel Bow": "城塞战弓",
+        "Ranger Bow": "游侠弓",
+        "Assassin Bow": "暗影弓",
+        "Spine Bow": "脊弓",
+        "Imperial Bow": "帝国之弓",
+        "Harbinger Bow": "先驱者之弓",
+        "Maraketh Bow": "马拉克斯弓",
+        "Hedron Bow": "多面弓",
+        "Foundry Bow": "铸造弓",
+        "Solarine Bow": "日裔弓",
+        "__class_name__": "弓"
+      }
+    },
+    "item_class": {
+      "en": "Bows",
+      "ch": "弓"
+    },
+    "theme_category": "Bows"
+  },
+  "mapping": {
+    "Crude Bow": "Tier 1 Bows",
+    "Short Bow": "Tier 1 Bows",
+    "Long Bow": "Tier 1 Bows",
+    "Composite Bow": "Tier 1 Bows",
+    "Recurve Bow": "Tier 1 Bows",
+    "Bone Bow": "Tier 1 Bows",
+    "Royal Bow": "Tier 1 Bows",
+    "Death Bow": "Tier 1 Bows",
+    "Grove Bow": "Tier 1 Bows",
+    "Reflex Bow": "Tier 1 Bows",
+    "Decurve Bow": "Tier 1 Bows",
+    "Compound Bow": "Tier 1 Bows",
+    "Sniper Bow": "Tier 1 Bows",
+    "Ivory Bow": "Tier 1 Bows",
+    "Highborn Bow": "Tier 1 Bows",
+    "Decimation Bow": "Tier 1 Bows",
+    "Thicket Bow": "Tier 1 Bows",
+    "Steelwood Bow": "Tier 1 Bows",
+    "Citadel Bow": "Tier 1 Bows",
+    "Ranger Bow": "Tier 1 Bows",
+    "Assassin Bow": "Tier 1 Bows",
+    "Spine Bow": "Tier 1 Bows",
+    "Imperial Bow": "Tier 1 Bows",
+    "Harbinger Bow": "Tier 1 Bows",
+    "Maraketh Bow": "Tier 1 Bows",
+    "Hedron Bow": "Tier 1 Bows",
+    "Foundry Bow": "Tier 1 Bows",
+    "Solarine Bow": "Tier 1 Bows"
+  },
+  "rules": []
+}
