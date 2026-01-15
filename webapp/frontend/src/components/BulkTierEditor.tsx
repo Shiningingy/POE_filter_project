@@ -9,7 +9,8 @@ import {
   PointerSensor,
   useSensor,
   useSensors,
-  defaultDropAnimationSideEffects
+  defaultDropAnimationSideEffects,
+  useDroppable
 } from '@dnd-kit/core';
 import { 
   SortableContext, 
@@ -97,7 +98,7 @@ const SortableItem = ({ item, color, isStaged }: { item: Item, color: string, is
       {...attributes} 
       {...listeners} 
       className={`item-card ${isStaged ? 'staged' : ''}`}
-      onContextMenu={(e) => e.stopPropagation()} // Stop context menu here too
+      onContextMenu={(e) => e.stopPropagation()} 
     >
       <div className="item-info">
         <div className="name-en">{item.name}</div>
@@ -106,6 +107,23 @@ const SortableItem = ({ item, color, isStaged }: { item: Item, color: string, is
       {isStaged && <div className="staged-indicator">●</div>}
     </div>
   );
+};
+
+const TierColumn = ({ id, title, color, items, children }: { id: string, title: string, color: string, items: Item[], children: React.ReactNode }) => {
+    const { setNodeRef } = useDroppable({ id });
+    
+    return (
+        <div ref={setNodeRef} className={`kanban-column ${id === 'untiered' ? 'untiered' : ''}`}>
+            <div className="column-header" style={{ borderTop: `4px solid ${color}` }}>
+                <h3>{title} ({items.length})</h3>
+            </div>
+            <SortableContext id={id} items={items.map(i => i.name)} strategy={verticalListSortingStrategy}>
+                <div className="column-content drop-zone">
+                    {children}
+                </div>
+            </SortableContext>
+        </div>
+    );
 };
 
 const BulkTierEditor: React.FC<BulkTierEditorProps> = ({ 
@@ -168,13 +186,8 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       const tier = stagedChanges[item.name] !== undefined ? stagedChanges[item.name] : item.current_tier;
       const targetCol = tier || 'untiered';
       
-      // Ensure target column exists (handle custom tiers or missing tiers)
+      // Ensure target column exists
       if (!cols[targetCol] && targetCol !== 'untiered') {
-          // If the tier exists in availableTiers (by key matching), we should have it.
-          // If not, put in untiered to avoid loss?
-          // Actually, if we add a custom tier, availableTiers updates.
-          // But if stagedChanges has a tier that doesn't exist? (Shouldn't happen)
-          // If item.current_tier is not in availableTiers? (e.g. Hidden tier not passed?)
           cols['untiered'].push(item);
       } else {
           cols[targetCol].push(item);
@@ -206,14 +219,17 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         // Dragged over an item, find its tier
         const overItem = items.find(i => i.name === overId);
         if (overItem) {
-            // Check staged tier first, then current
             const tier = stagedChanges[overItem.name] !== undefined ? stagedChanges[overItem.name] : overItem.current_tier;
             targetTier = tier || "";
         }
     }
 
     if (targetTier !== null) {
-        const originalTier = items.find(i => i.name === itemName)?.current_tier || "";
+        // Calculate original tier
+        // Note: current_tier from backend is null for untiered.
+        const currentTier = items.find(i => i.name === itemName)?.current_tier;
+        const originalTier = currentTier === null ? "" : currentTier;
+        
         if (targetTier === originalTier) {
             setStagedChanges(prev => {
                 const next = { ...prev };
@@ -256,8 +272,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     if (!tierKey) return 'white';
     const match = tierKey.match(/Tier (\d+)/);
     if (!match) {
-        // Handle Custom Tiers or named tiers
-        if (tierKey.includes('Custom')) return '#fff3e0'; // Orange tint
+        if (tierKey.includes('Custom')) return '#fff3e0';
         return '#f0f0f0';
     }
     const num = parseInt(match[1]);
@@ -323,43 +338,40 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
             onDragEnd={handleDragEnd}
           >
             {/* Untiered Column */}
-            <div className="kanban-column untiered">
-                <div className="column-header">
-                    <h3>{t.untiered} ({columns['untiered'].length})</h3>
-                </div>
-                <SortableContext id="untiered" items={columns['untiered'].map(i => i.name)} strategy={verticalListSortingStrategy}>
-                    <div className="column-content drop-zone" id="untiered">
-                        {columns['untiered'].map(item => (
-                            <SortableItem 
-                                key={item.name} 
-                                item={item} 
-                                color="white"
-                                isStaged={stagedChanges[item.name] !== undefined}
-                            />
-                        ))}
-                    </div>
-                </SortableContext>
-            </div>
+            <TierColumn 
+                id="untiered" 
+                title={t.untiered} 
+                color="#999" 
+                items={columns['untiered']}
+            >
+                {columns['untiered'].map(item => (
+                    <SortableItem 
+                        key={item.name} 
+                        item={item} 
+                        color="white"
+                        isStaged={stagedChanges[item.name] !== undefined}
+                    />
+                ))}
+            </TierColumn>
 
             {/* Tier Columns */}
             {availableTiers.map(tier => (
-                <div key={tier.key} className="kanban-column">
-                    <div className="column-header" style={{ borderTop: `4px solid ${getTierColor(tier.key)}` }}>
-                        <h3>{tier.label} ({columns[tier.key].length})</h3>
-                    </div>
-                    <SortableContext id={tier.key} items={columns[tier.key].map(i => i.name)} strategy={verticalListSortingStrategy}>
-                        <div className="column-content drop-zone" id={tier.key}>
-                            {columns[tier.key].map(item => (
-                                <SortableItem 
-                                    key={item.name} 
-                                    item={item} 
-                                    color={getTierColor(tier.key)}
-                                    isStaged={stagedChanges[item.name] !== undefined}
-                                />
-                            ))}
-                        </div>
-                    </SortableContext>
-                </div>
+                <TierColumn
+                    key={tier.key}
+                    id={tier.key}
+                    title={tier.label}
+                    color={getTierColor(tier.key)}
+                    items={columns[tier.key]}
+                >
+                    {columns[tier.key].map(item => (
+                        <SortableItem 
+                            key={item.name} 
+                            item={item} 
+                            color={getTierColor(tier.key)}
+                            isStaged={stagedChanges[item.name] !== undefined}
+                        />
+                    ))}
+                </TierColumn>
             ))}
 
             <DragOverlay dropAnimation={{ sideEffects: defaultDropAnimationSideEffects({ styles: { active: { opacity: '0.5' } } }) }}>
