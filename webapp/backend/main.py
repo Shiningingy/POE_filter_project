@@ -44,6 +44,7 @@ PYTHON_EXECUTABLE = str(VENV_PYTHON) if VENV_PYTHON.exists() else sys.executable
 ITEM_CLASSES = []
 CLASS_TO_ITEMS = {} # Class -> Set(BaseTypes)
 ITEM_TO_CLASS = {}  # BaseType -> Class
+ITEM_TRANSLATIONS = {} # English Name -> Chinese Name
 
 # --- Middleware ---
 app.add_middleware(
@@ -95,6 +96,36 @@ def load_base_types():
         print(f"Loaded {len(ITEM_CLASSES)} item classes.")
     except Exception as e:
         print(f"Error loading BaseTypes.csv: {e}")
+
+def load_translations():
+    global ITEM_TRANSLATIONS
+    print("Loading translations...")
+    en_map = {}
+    try:
+        en_path = DATA_DIR / "from_ggpk" / "baseitemtypes.json"
+        if en_path.exists():
+            with open(en_path, "r", encoding="utf-8") as f:
+                en_data = json.load(f)
+                for item in en_data:
+                    if "Id" in item and "Name" in item:
+                        en_map[item["Id"]] = item["Name"]
+    except Exception as e: 
+        print(f"Error loading EN base types: {e}")
+        return
+
+    try:
+        ch_path = DATA_DIR / "from_ggpk" / "ch_simplified" / "baseitemtypes.json"
+        if ch_path.exists():
+            with open(ch_path, "r", encoding="utf-8") as f:
+                ch_data = json.load(f)
+                for item in ch_data:
+                    if "Id" in item and "Name" in item:
+                        en_name = en_map.get(item["Id"])
+                        if en_name:
+                            ITEM_TRANSLATIONS[en_name] = item["Name"]
+        print(f"Loaded {len(ITEM_TRANSLATIONS)} translations.")
+    except Exception as e:
+        print(f"Error loading CH base types: {e}")
 
 # --- Specific Endpoints (Top Priority) ---
 
@@ -149,7 +180,9 @@ def get_rule_templates():
 def search_items(q: str):
     if not q: return {"results": []}
     q_lower = q.lower()
-    results = []
+    results_map = {} # name -> result_obj (to deduplicate)
+
+    # 1. Search in Mappings (Tiered items)
     mappings_dir = CONFIG_DATA_DIR / "base_mapping"
     for file_path in mappings_dir.rglob("*.json"):
         try:
@@ -160,9 +193,33 @@ def search_items(q: str):
                 for item_name, tier_key in mapping.items():
                     name_ch = trans.get(item_name, "")
                     if q_lower in item_name.lower() or (name_ch and q_lower in name_ch.lower()):
-                        results.append({"name": item_name, "name_ch": name_ch or item_name, "current_tier": tier_key, "source_file": file_path.relative_to(mappings_dir).as_posix()})
-                        if len(results) >= 20: return {"results": results}
+                        results_map[item_name] = {
+                            "name": item_name, 
+                            "name_ch": name_ch or item_name, 
+                            "current_tier": tier_key, 
+                            "source_file": file_path.relative_to(mappings_dir).as_posix()
+                        }
         except: continue
+    
+    # 2. Search in BaseTypes (Untiered items)
+    for cls, items in CLASS_TO_ITEMS.items():
+        for item_name in items:
+            if item_name in results_map: continue
+            
+            name_ch = ITEM_TRANSLATIONS.get(item_name, item_name)
+            
+            if q_lower in item_name.lower() or q_lower in name_ch.lower():
+                results_map[item_name] = {
+                    "name": item_name,
+                    "name_ch": name_ch,
+                    "current_tier": None,
+                    "source_file": None
+                }
+
+    results = list(results_map.values())
+    results.sort(key=lambda x: x["name"])
+    
+    if len(results) > 50: results = results[:50]
     return {"results": results}
 
 @app.get("/api/item-classes")
@@ -171,17 +228,13 @@ def get_item_classes():
 
 @app.get("/api/class-items/{item_class}")
 def get_items_by_class(item_class: str):
-    # Find all items of this class in the universe
     all_class_items = CLASS_TO_ITEMS.get(item_class, set())
+    item_data = {} 
     
-    # Scan all mappings to find current tiers
-    item_data = {} # name -> {name, name_ch, current_tier, source_file}
-    
-    # Initialize with all items as untiered
     for name in all_class_items:
         item_data[name] = {
             "name": name,
-            "name_ch": name, # Fallback
+            "name_ch": ITEM_TRANSLATIONS.get(name, name),
             "current_tier": None,
             "source_file": None
         }
@@ -207,14 +260,26 @@ def get_items_by_class(item_class: str):
 
 @app.post("/api/update-item-tier")
 def update_item_tier(request: UpdateItemTierRequest):
+    if not request.source_file:
+        raise HTTPException(status_code=422, detail="Source file is required")
+        
     file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
     try:
         with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
         mapping = data.get("mapping", {})
+        
+        # If new_tier is empty, remove item
         if not request.new_tier:
             if request.item_name in mapping: del mapping[request.item_name]
         else:
+            # Check for multiple tiers support?
+            # Current structure: mapping[item] = tier (string)
+            # If we want list, we need to change backend logic.
+            # User said "allow same basetype exist in multiple tiers".
+            # If we change to list, it breaks existing viewers?
+            # For now, simplistic overwrite.
             mapping[request.item_name] = request.new_tier
+            
         data["mapping"] = mapping
         with open(file_path, "w", encoding="utf-8") as f: json.dump(data, f, indent=2, ensure_ascii=False)
         return {"message": "Success"}
@@ -241,8 +306,6 @@ def update_item_override(request: UpdateItemOverrideRequest):
 def get_items_by_tier(request: TierItemsRequest):
     tier_keys_set = set(request.tier_keys)
     result = {k: [] for k in tier_keys_set}
-    found_items = set() # Track found items to calculate untiered
-    
     mappings_dir = CONFIG_DATA_DIR / "base_mapping"
     for file_path in mappings_dir.rglob("*.json"):
         try:
@@ -252,7 +315,6 @@ def get_items_by_tier(request: TierItemsRequest):
                 trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
                 
                 for item_name, tier_key in mapping.items():
-                    # If class filter is active, skip mismatch
                     if request.class_filter:
                         item_class = ITEM_TO_CLASS.get(item_name)
                         if item_class != request.class_filter:
@@ -260,25 +322,10 @@ def get_items_by_tier(request: TierItemsRequest):
                     
                     if tier_key in tier_keys_set:
                         result[tier_key].append({"name": item_name, "name_ch": trans.get(item_name, item_name), "source": file_path.relative_to(mappings_dir).as_posix()})
-                        if request.class_filter:
-                            found_items.add(item_name)
         except: continue
-        
-    untiered = []
-    if request.class_filter:
-        all_class_items = CLASS_TO_ITEMS.get(request.class_filter, set())
-        for item_name in all_class_items:
-            if item_name not in found_items:
-                # Untiered items don't have a source file yet, so we might need to decide where to put them later.
-                # Or we return them without source.
-                # For update-item-tier, we need source_file.
-                # We can default to the first file encountered or let frontend decide?
-                # Actually, usually untiered items are new.
-                # We'll just return them. Frontend needs to pick a source file to add them to.
-                # Or we pass "default" source?
-                untiered.append({"name": item_name, "name_ch": item_name}) # TODO: CH translation for CSV items?
     
-    return {"items": result, "untiered": untiered}
+    # Untiered calculation omitted here to simplify (usually handled by class-items endpoint for bulk)
+    return {"items": result}
 
 @app.post("/api/generate")
 def generate_filter_file():
@@ -347,3 +394,4 @@ if SOUND_FILES_DIR.exists():
 async def startup_event():
     print(f"Backend 1.0.3 started. Project: {PROJECT_ROOT}")
     load_base_types()
+    load_translations()
