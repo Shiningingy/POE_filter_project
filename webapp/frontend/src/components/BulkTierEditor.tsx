@@ -1,5 +1,22 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
+import { 
+  DndContext, 
+  closestCenter, 
+  DragEndEvent,
+  DragStartEvent,
+  DragOverlay,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  defaultDropAnimationSideEffects
+} from '@dnd-kit/core';
+import { 
+  SortableContext, 
+  verticalListSortingStrategy,
+  useSortable
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
 
@@ -7,7 +24,7 @@ interface Item {
   name: string;
   name_ch: string;
   current_tier: string | null;
-  source_file: string;
+  source_file: string | null;
 }
 
 interface TierOption {
@@ -21,30 +38,81 @@ interface BulkTierEditorProps {
   language: Language;
   onClose: () => void;
   onSave: () => void;
+  defaultMappingPath?: string;
 }
 
+const SortableItem = ({ item, color, isStaged }: { item: Item, color: string, isStaged: boolean }) => {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging
+  } = useSortable({ id: item.name });
+
+  const style = {
+    transform: CSS.Translate.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : 1,
+    backgroundColor: color
+  };
+
+  return (
+    <div 
+      ref={setNodeRef} 
+      style={style} 
+      {...attributes} 
+      {...listeners} 
+      className={`item-card ${isStaged ? 'staged' : ''}`}
+    >
+      <div className="item-info">
+        <div className="name-en">{item.name}</div>
+        <div className="name-ch">{item.name_ch}</div>
+      </div>
+      {isStaged && <div className="staged-indicator">●</div>}
+    </div>
+  );
+};
+
 const BulkTierEditor: React.FC<BulkTierEditorProps> = ({ 
-  className, 
+  className: initialClassName, 
   availableTiers, 
   language, 
   onClose,
-  onSave
+  onSave,
+  defaultMappingPath
 }) => {
   const t = useTranslation(language);
   const [items, setItems] = useState<Item[]>([]);
+  const [itemClasses, setItemClasses] = useState<string[]>([]);
+  const [selectedClass, setSelectedClass] = useState(initialClassName);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedTierKey, setSelectedTierKey] = useState(availableTiers[0]?.key || '');
   
+  // stagedChanges: itemName -> newTierKey
   const [stagedChanges, setStagedChanges] = useState<Record<string, string>>({});
+  const [activeId, setActiveId] = useState<string | null>(null);
 
   const API_BASE_URL = 'http://localhost:8000';
 
+  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 5 } }));
+
+  // Load unique classes
+  useEffect(() => {
+    axios.get(`${API_BASE_URL}/api/item-classes`)
+      .then(res => setItemClasses(res.data.classes))
+      .catch(err => console.error(err));
+  }, []);
+
+  // Load items when class changes
   useEffect(() => {
     const fetchItems = async () => {
+      setLoading(true);
       try {
-        const res = await axios.get(`${API_BASE_URL}/api/class-items/${encodeURIComponent(className)}`);
+        const res = await axios.get(`${API_BASE_URL}/api/class-items/${encodeURIComponent(selectedClass)}`);
         setItems(res.data.items);
+        setStagedChanges({}); // Clear staged changes when switching classes
       } catch (err) {
         console.error(err);
       } finally {
@@ -52,25 +120,68 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       }
     };
     fetchItems();
-  }, [className]);
+  }, [selectedClass]);
 
-  const filteredItems = useMemo(() => {
-    return items.filter(i => 
-      i.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-      i.name_ch.includes(searchTerm)
-    );
-  }, [items, searchTerm]);
+  const columns = useMemo(() => {
+    const cols: Record<string, Item[]> = {
+      'untiered': []
+    };
+    availableTiers.forEach(tier => { cols[tier.key] = []; });
 
-  const handleItemClick = (name: string) => {
-    setStagedChanges(prev => {
-      const next = { ...prev };
-      if (next[name] === selectedTierKey) {
-        delete next[name];
-      } else {
-        next[name] = selectedTierKey;
+    items.forEach(item => {
+      if (searchTerm && !item.name.toLowerCase().includes(searchTerm.toLowerCase()) && !item.name_ch.includes(searchTerm)) {
+          return;
       }
-      return next;
+      const tier = stagedChanges[item.name] !== undefined ? stagedChanges[item.name] : item.current_tier;
+      const targetCol = tier || 'untiered';
+      if (cols[targetCol]) cols[targetCol].push(item);
+      else if (tier) {
+          // If item is in a tier not in availableTiers (e.g. T10), put in untiered or create col?
+          // Put in untiered for now to avoid crashes.
+          cols['untiered'].push(item);
+      }
     });
+    return cols;
+  }, [items, stagedChanges, searchTerm, availableTiers]);
+
+  const handleDragStart = (event: DragStartEvent) => {
+    setActiveId(event.active.id as string);
+  };
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+    setActiveId(null);
+
+    if (!over) return;
+
+    const itemName = active.id as string;
+    const overId = over.id as string;
+
+    // Determine target tier
+    let targetTier: string | null = null;
+    if (overId === 'untiered' || availableTiers.some(t => t.key === overId)) {
+        targetTier = overId === 'untiered' ? "" : overId;
+    } else {
+        // Dragged over an item, find its tier
+        const overItem = items.find(i => i.name === overId);
+        if (overItem) {
+            const tier = stagedChanges[overItem.name] !== undefined ? stagedChanges[overItem.name] : overItem.current_tier;
+            targetTier = tier || "";
+        }
+    }
+
+    if (targetTier !== null) {
+        const originalTier = items.find(i => i.name === itemName)?.current_tier || "";
+        if (targetTier === originalTier) {
+            setStagedChanges(prev => {
+                const next = { ...prev };
+                delete next[itemName];
+                return next;
+            });
+        } else {
+            setStagedChanges(prev => ({ ...prev, [itemName]: targetTier as string }));
+        }
+    }
   };
 
   const handleApply = async () => {
@@ -83,13 +194,12 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         const item = items.find(i => i.name === itemName);
         return axios.post(`${API_BASE_URL}/api/update-item-tier`, {
           item_name: itemName,
-          new_tier: newTier,
-          source_file: item?.source_file || `${className}.json`
+          new_tier: newTier, // empty string means remove from mapping (untiered)
+          source_file: item?.source_file || defaultMappingPath || `${selectedClass}.json`
         });
       });
 
       await Promise.all(promises);
-      alert(`${changeCount} items updated!`);
       onSave(); 
       onClose();
     } catch (err) {
@@ -103,22 +213,32 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   const getTierColor = (tierKey: string | null) => {
     if (!tierKey) return 'white';
     const match = tierKey.match(/Tier (\d+)/);
-    if (!match) return '#f0f0f0';
+    if (!match) return '#f8f9fa';
     const num = parseInt(match[1]);
     const colors = [
       '#ffebee', '#f3e5f5', '#e8eaf6', '#e3f2fd', '#e0f2f1', 
       '#f1f8e9', '#fffde7', '#fff3e0', '#efebe9', '#fafafa'
     ];
-    return colors[num] || '#f0f0f0';
+    return colors[num % colors.length] || '#f0f0f0';
   };
 
   const stagedCount = Object.keys(stagedChanges).length;
+  const activeItem = activeId ? items.find(i => i.name === activeId) : null;
 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
         <div className="modal-header">
-          <h2>Bulk Edit: {className}</h2>
+          <div className="header-left">
+            <h2>Bulk Sort</h2>
+            <select 
+                className="class-select"
+                value={selectedClass} 
+                onChange={e => setSelectedClass(e.target.value)}
+            >
+                {itemClasses.map(c => <option key={c} value={c}>{c}</option>)}
+            </select>
+          </div>
           <div className="header-meta">
              <span className="staged-badge">{stagedCount} items staged</span>
              <button className="close-btn" onClick={onClose}>×</button>
@@ -126,27 +246,6 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         </div>
 
         <div className="bulk-toolbar">
-          <div className="brush-tool">
-            <span className="label">Active Tier (Brush): </span>
-            <select 
-                value={selectedTierKey} 
-                onChange={e => setSelectedTierKey(e.target.value)}
-                style={{ 
-                    backgroundColor: getTierColor(selectedTierKey),
-                    fontWeight: 'bold'
-                }}
-            >
-              {availableTiers.map(tier => (
-                <option 
-                    key={tier.key} 
-                    value={tier.key}
-                    style={{ backgroundColor: getTierColor(tier.key) }}
-                >
-                    {tier.label}
-                </option>
-              ))}
-            </select>
-          </div>
           <input 
             type="text" 
             placeholder={t.filterPlaceholder} 
@@ -159,80 +258,112 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
             disabled={stagedCount === 0 || loading}
             onClick={handleApply}
           >
-            Save All Changes ({stagedCount})
+            {t.saveConfig} ({stagedCount})
           </button>
         </div>
 
-        <div className="items-grid">
-          {loading && !items.length ? (
-            <div className="loading">{t.loading}</div>
-          ) : (
-            filteredItems.map((item, idx) => {
-              const isStaged = !!stagedChanges[item.name];
-              const stagedTier = stagedChanges[item.name];
-              const displayTier = stagedTier || item.current_tier;
-
-              return (
-                <div 
-                  key={`${item.name}-${idx}`} 
-                  className={`item-card ${isStaged ? 'staged' : ''}`}
-                  style={{ backgroundColor: getTierColor(displayTier) }}
-                  onClick={() => handleItemClick(item.name)}
-                >
-                  <div className="item-info">
-                    <div className="name-en">{item.name}</div>
-                    <div className="name-ch">{item.name_ch}</div>
-                    {displayTier && (
-                        <div className={`tier-tag ${isStaged ? 'staged-tag' : ''}`}>
-                            {isStaged ? 'NEW: ' : ''}{displayTier.split(' ')[1]}
-                        </div>
-                    )}
-                  </div>
-                  {isStaged && <div className="staged-indicator">●</div>}
+        <div className="kanban-board">
+          <DndContext 
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragStart={handleDragStart}
+            onDragEnd={handleDragEnd}
+          >
+            {/* Untiered Column */}
+            <div className="kanban-column untiered">
+                <div className="column-header">
+                    <h3>{language === 'ch' ? '未分类' : 'Untiered'} ({columns['untiered'].length})</h3>
                 </div>
-              );
-            })
-          )}
+                <SortableContext id="untiered" items={columns['untiered'].map(i => i.name)} strategy={verticalListSortingStrategy}>
+                    <div className="column-content drop-zone" id="untiered">
+                        {columns['untiered'].map(item => (
+                            <SortableItem 
+                                key={item.name} 
+                                item={item} 
+                                color="white"
+                                isStaged={stagedChanges[item.name] !== undefined}
+                            />
+                        ))}
+                    </div>
+                </SortableContext>
+            </div>
+
+            {/* Tier Columns */}
+            {availableTiers.map(tier => (
+                <div key={tier.key} className="kanban-column">
+                    <div className="column-header" style={{ borderTop: `4px solid ${getTierColor(tier.key)}` }}>
+                        <h3>{tier.label} ({columns[tier.key].length})</h3>
+                    </div>
+                    <SortableContext id={tier.key} items={columns[tier.key].map(i => i.name)} strategy={verticalListSortingStrategy}>
+                        <div className="column-content drop-zone" id={tier.key}>
+                            {columns[tier.key].map(item => (
+                                <SortableItem 
+                                    key={item.name} 
+                                    item={item} 
+                                    color={getTierColor(tier.key)}
+                                    isStaged={stagedChanges[item.name] !== undefined}
+                                />
+                            ))}
+                        </div>
+                    </SortableContext>
+                </div>
+            ))}
+
+            <DragOverlay dropAnimation={{ sideEffects: defaultDropAnimationSideEffects({ styles: { active: { opacity: '0.5' } } }) }}>
+                {activeItem ? (
+                    <div className="item-card dragging" style={{ backgroundColor: getTierColor(stagedChanges[activeItem.name] || activeItem.current_tier) }}>
+                        <div className="item-info">
+                            <div className="name-en">{activeItem.name}</div>
+                            <div className="name-ch">{activeItem.name_ch}</div>
+                        </div>
+                    </div>
+                ) : null}
+            </DragOverlay>
+          </DndContext>
         </div>
       </div>
 
       <style>{`
         .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 1000; }
-        .modal-content { background: #fdfdfd; width: 95%; height: 95%; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .modal-content { background: #fdfdfd; width: 98%; height: 95%; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        
         .modal-header { padding: 15px 25px; background: white; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .header-left { display: flex; align-items: center; gap: 20px; }
+        .header-left h2 { margin: 0; font-size: 1.2rem; color: #333; }
+        .class-select { padding: 8px 12px; border-radius: 6px; border: 1px solid #ddd; font-weight: bold; font-size: 1rem; cursor: pointer; color: #2196F3; }
+        
         .header-meta { display: flex; align-items: center; gap: 20px; }
         .staged-badge { background: #2196F3; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
         .close-btn { background: none; border: none; font-size: 2.5rem; cursor: pointer; color: #ccc; line-height: 1; }
         .close-btn:hover { color: #666; }
         
-        .bulk-toolbar { padding: 15px 25px; background: white; display: flex; gap: 25px; align-items: center; border-bottom: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .brush-tool { display: flex; align-items: center; gap: 10px; }
-        .brush-tool .label { font-size: 0.9rem; font-weight: bold; color: #555; }
-        .brush-tool select { padding: 8px 12px; border-radius: 6px; border: 1px solid #ccc; font-weight: bold; cursor: pointer; outline: none; transition: border 0.2s; }
-        
+        .bulk-toolbar { padding: 10px 25px; background: white; display: flex; gap: 25px; align-items: center; border-bottom: 1px solid #ddd; }
         .search-box { flex-grow: 1; padding: 10px 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
         .apply-btn { padding: 10px 25px; background: #4CAF50; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: background 0.2s; }
         .apply-btn:hover { background: #43a047; }
         .apply-btn:disabled { background: #e0e0e0; color: #999; cursor: not-allowed; }
 
-        .items-grid { flex-grow: 1; overflow-y: auto; padding: 25px; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; align-content: flex-start; background: #f0f2f5; }
+        .kanban-board { flex-grow: 1; display: flex; gap: 15px; padding: 20px; overflow-x: auto; background: #f0f2f5; }
+        .kanban-column { flex: 0 0 280px; display: flex; flex-direction: column; background: #ebedf0; border-radius: 8px; overflow: hidden; max-height: 100%; border: 1px solid #ddd; }
+        .column-header { padding: 12px 15px; background: #f4f5f7; border-bottom: 1px solid #ddd; }
+        .column-header h3 { margin: 0; font-size: 0.9rem; color: #5e6c84; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        .column-content { flex-grow: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 8px; min-height: 100px; }
+        
         .item-card { 
-            border: 1px solid #ddd; padding: 12px; border-radius: 8px; cursor: pointer; 
-            display: flex; flex-direction: column; justify-content: center;
-            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1); position: relative; 
-            background: white; border-bottom: 3px solid rgba(0,0,0,0.1);
+            background: white; border: 1px solid #ddd; padding: 10px; border-radius: 6px; cursor: grab;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: transform 0.1s, box-shadow 0.1s;
+            position: relative;
         }
-        .item-card:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1; }
-        .item-card.staged { border: 2px solid #2196F3; transform: scale(1.05); box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3); border-bottom-width: 2px; }
+        .item-card:hover { box-shadow: 0 2px 5px rgba(0,0,0,0.15); }
+        .item-card.staged { border: 2px solid #2196F3; }
+        .item-card.dragging { cursor: grabbing; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transform: rotate(2deg); width: 260px; z-index: 1000; }
         
-        .name-en { font-size: 0.85rem; color: #1a1a1a; font-weight: bold; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .name-ch { font-size: 0.8rem; color: #666; }
-        
-        .tier-tag { position: absolute; top: 5px; right: 8px; font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: rgba(0,0,0,0.05); color: #777; font-weight: bold; }
-        .staged-tag { background: #2196F3; color: white; }
-        .staged-indicator { position: absolute; bottom: 5px; right: 8px; color: #2196F3; font-size: 1.2rem; }
-        
-        .loading { font-size: 1.5rem; color: #999; text-align: center; width: 100%; margin-top: 50px; }
+        .name-en { font-size: 0.8rem; font-weight: bold; color: #333; margin-bottom: 2px; }
+        .name-ch { font-size: 0.75rem; color: #666; }
+        .staged-indicator { position: absolute; top: 5px; right: 8px; color: #2196F3; font-size: 0.8rem; }
+
+        .untiered .column-header { border-top: 4px solid #999; }
       `}</style>
     </div>
   );

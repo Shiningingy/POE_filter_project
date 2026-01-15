@@ -45,6 +45,7 @@ interface CategoryViewProps {
   viewerBackground: string;
   tierItems: Record<string, TierItem[]>;
   fetchTierItems: (keys: string[]) => void;
+  defaultMappingPath?: string;
 }
 
 const CategoryView: React.FC<CategoryViewProps> = ({
@@ -58,7 +59,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   onRuleEdit,
   viewerBackground,
   tierItems,
-  fetchTierItems
+  fetchTierItems,
+  defaultMappingPath
 }) => {
   const t = useTranslation(language);
   const [themeData, setThemeData] = useState<any>(null);
@@ -487,6 +489,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
             language={language}
             onClose={() => setShowBulkEditor(false)}
             onSave={() => fetchTierItems(Object.keys(tierItems))}
+            defaultMappingPath={defaultMappingPath}
         />
       )}
 

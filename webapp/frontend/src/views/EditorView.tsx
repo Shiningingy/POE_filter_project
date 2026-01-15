@@ -258,12 +258,12 @@ const EditorView: React.FC<EditorViewProps> = ({
                   loading={loading}
                   language={language}
                   onInspectTier={setInspectedTier} 
-                  styleClipboard={styleClipboard} 
                   onCopyStyle={setStyleClipboard} 
                   onRuleEdit={handleRuleEdit}
                   viewerBackground={viewerBackground}
                   tierItems={tierItems}
                   fetchTierItems={fetchTierItems}
+                  defaultMappingPath={selectedFile.mapping_path}
                 />
             )}
           </div>
