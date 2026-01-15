@@ -57,7 +57,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     BackgroundColor: getAlpha(style.BackgroundColor),
   });
 
-  const [tempSound, setTempSound] = useState<{ 
+  const [tempSound, setTempSound] = useState({
     type: "default" | "sharket" | "custom";
     file: string;
     vol: number;
@@ -207,7 +207,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   };
 
   const handleTestSound = () => {
-    const url =
+    const url = 
       tempSound.type === "custom"
         ? `http://localhost:8000/api/sounds/proxy?path=${encodeURIComponent(
             tempSound.file
@@ -244,8 +244,8 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
       "BackgroundColor",
     ];
     keys.forEach((key) => {
-      const val =
-        (style[key] as string) ||
+      const val = 
+        (style[key] as string) || 
         (key === "BackgroundColor" ? "#000000ff" : "#ffffffff");
       const clean = val.startsWith("disabled:") ? val.split(":")[1] : val;
       const base = clean.substring(0, 7);
@@ -318,7 +318,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     else if (key === "PlayEffect") setShowBeamPopup(true);
   };
 
-  const filteredSounds =
+  const filteredSounds = 
     tempSound.type === "default"
       ? availableSounds.defaults.filter((s) =>
           s.toLowerCase().includes(soundSearch.toLowerCase())
