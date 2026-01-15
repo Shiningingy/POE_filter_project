@@ -1,0 +1,22 @@
+{
+  "General": {
+    "_meta": {
+      "theme_category": "Thrusting One Hand Swords",
+      "localization": {
+        "en": "General",
+        "ch": "通用"
+      }
+    },
+    "Tier 1 General": {
+      "hideable": false,
+      "min_value": 4,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

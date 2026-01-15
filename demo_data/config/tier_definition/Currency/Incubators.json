@@ -1,0 +1,21 @@
+{
+  "Incubators": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Incubators",
+        "ch": "孕育石"
+      }
+    },
+    "Tier 1 Incubators": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

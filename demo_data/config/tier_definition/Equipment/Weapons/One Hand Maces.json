@@ -1,0 +1,21 @@
+{
+  "One Hand Maces": {
+    "_meta": {
+      "theme_category": "One Hand Maces",
+      "localization": {
+        "en": "One Hand Maces",
+        "ch": "单手锤"
+      }
+    },
+    "Tier 1 One Hand Maces": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

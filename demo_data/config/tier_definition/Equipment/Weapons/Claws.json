@@ -1,0 +1,21 @@
+{
+  "Claws": {
+    "_meta": {
+      "theme_category": "Claws",
+      "localization": {
+        "en": "Claws",
+        "ch": "爪"
+      }
+    },
+    "Tier 1 Claws": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

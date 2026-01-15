@@ -1,0 +1,21 @@
+{
+  "Two Hand Swords": {
+    "_meta": {
+      "theme_category": "Two Hand Swords",
+      "localization": {
+        "en": "Two Hand Swords",
+        "ch": "双手剑"
+      }
+    },
+    "Tier 1 Two Hand Swords": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

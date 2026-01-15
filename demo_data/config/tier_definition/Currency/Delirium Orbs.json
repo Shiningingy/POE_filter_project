@@ -1,0 +1,21 @@
+{
+  "Delirium Orbs": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Delirium Orbs",
+        "ch": "雾魇宝珠"
+      }
+    },
+    "Tier 1 Delirium Orbs": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "Cards": {
+    "_meta": {
+      "theme_category": "Divination Cards",
+      "localization": {
+        "en": "Cards",
+        "ch": "命运卡"
+      }
+    },
+    "Tier 1 Cards": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}
