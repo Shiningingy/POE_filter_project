@@ -3,8 +3,8 @@ import axios from 'axios';
 import { 
   DndContext, 
   closestCenter, 
-  DragEndEvent,
-  DragStartEvent,
+  type DragEndEvent,
+  type DragStartEvent,
   DragOverlay,
   PointerSensor,
   useSensor,
