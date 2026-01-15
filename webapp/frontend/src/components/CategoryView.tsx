@@ -488,7 +488,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
             availableTiers={activeBulkOptions}
             language={language}
             onClose={() => setShowBulkEditor(false)}
-            onSave={() => fetchTierItems(Object.keys(tierItems))}
+            onSave={() => fetchTierItems(sortedTierKeys)}
             defaultMappingPath={defaultMappingPath}
         />
       )}
