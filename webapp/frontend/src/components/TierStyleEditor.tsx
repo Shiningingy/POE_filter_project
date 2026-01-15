@@ -246,7 +246,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     ];
     keys.forEach((key) => {
       const val = 
-        (style[key] as string) || 
+        ((style as any)[key] as string) || 
         (key === "BackgroundColor" ? "#000000ff" : "#ffffffff");
       const clean = val.startsWith("disabled:") ? val.split(":")[1] : val;
       const base = clean.substring(0, 7);
@@ -254,7 +254,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         .toString(16)
         .padStart(2, "0");
       const newVal = `${base}${aHex}`;
-      nextStyle[key] = val.startsWith("disabled:")
+      (nextStyle as any)[key] = val.startsWith("disabled:")
         ? `disabled:${newVal}`
         : newVal;
     });
