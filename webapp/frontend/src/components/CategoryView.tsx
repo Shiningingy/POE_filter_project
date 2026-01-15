@@ -48,10 +48,10 @@ interface CategoryViewProps {
 }
 
 const CategoryView: React.FC<CategoryViewProps> = ({
-  configPath,
+  configPath: _configPath,
   configContent,
   onConfigContentChange,
-  loading,
+  loading: _loading,
   language,
   onInspectTier,
   onCopyStyle,

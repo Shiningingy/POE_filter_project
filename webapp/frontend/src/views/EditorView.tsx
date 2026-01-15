@@ -26,10 +26,10 @@ interface EditorViewProps {
 const EditorView: React.FC<EditorViewProps> = ({
   selectedFile,
   setSelectedFile,
-  configContent,
+  configContent: _configContent, // Unused
   setConfigContent,
   loading,
-  jsonError,
+  jsonError: _jsonError, // Unused
   onSave,
   message,
   language,
@@ -44,7 +44,7 @@ const EditorView: React.FC<EditorViewProps> = ({
   const [editingRuleIndex, setEditingRuleIndex] = useState<number | null>(null);
   const [tierItems, setTierItems] = useState<Record<string, any[]>>({});
 
-  const handleRuleEdit = (tierKey: string, ruleIndex: number | null) => {
+  const handleRuleEdit = (_tierKey: string, ruleIndex: number | null) => { // tierKey Unused
     setEditingRuleIndex(ruleIndex);
   };
 
@@ -190,10 +190,6 @@ const EditorView: React.FC<EditorViewProps> = ({
         const parsed = JSON.parse(tierContent);
         const catKey = Object.keys(parsed).find(k => !k.startsWith('//'));
         if (catKey && parsed[catKey]._meta?.rules) {
-            // We need to find the GLOBAL index of the rule
-            // The index passed from Inspector is relative to the INSPECTED TIER'S subset of rules.
-            // But for simplicity in this implementation, we'll just match by reference or rebuild the list.
-            // Actually, let's just use the index if it matches the filtered list.
             
             const currentTierItems = tierItems[tierKey]?.map(i => i.name) || [];
             const tierRules = parsed[catKey]._meta.rules.filter((r: any) => 
@@ -258,7 +254,6 @@ const EditorView: React.FC<EditorViewProps> = ({
                   loading={loading}
                   language={language}
                   onInspectTier={setInspectedTier} 
-                  styleClipboard={styleClipboard} 
                   onCopyStyle={setStyleClipboard} 
                   onRuleEdit={handleRuleEdit}
                   viewerBackground={viewerBackground}

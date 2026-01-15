@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - webapp/demo-build
+  workflow_dispatch:
 
 permissions:
   contents: write

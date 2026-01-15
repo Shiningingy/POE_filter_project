@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useTranslation } from "../utils/localization";
 import type { Language } from "../utils/localization";
-import { generateFilterText } from "../utils/styleResolver";
 
 interface StyleProps {
   FontSize?: number;
@@ -21,9 +20,9 @@ interface TierStyleEditorProps {
   onChange: (newStyle: StyleProps, newVisibility: boolean) => void;
   language: Language;
   onInspect: () => void;
-  onCopy: () => void;
-  onPaste: () => void;
-  canPaste: boolean;
+  onCopy: () => void; // Unused but kept for interface compatibility if needed
+  onPaste: () => void; // Unused
+  canPaste: boolean;   // Unused
   onReset?: () => void;
   viewerBackground: string;
 }
@@ -35,20 +34,19 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   onChange,
   language,
   onInspect,
-  onCopy,
-  onPaste,
-  canPaste,
+  onCopy: _onCopy,
+  onPaste: _onPaste,
+  canPaste: _canPaste,
   onReset,
   viewerBackground,
 }) => {
   const t = useTranslation(language);
-  const [copyFeedback, setCopyFeedback] = useState(false);
   const [showAlphaPopup, setShowAlphaPopup] = useState(false);
   const [showSoundPopup, setShowSoundPopup] = useState(false);
   const [showIconPopup, setShowIconPopup] = useState(false);
   const [showBeamPopup, setShowBeamPopup] = useState(false);
 
-  const [availableSounds, setAvailableSounds] = useState<{
+  const [availableSounds, setAvailableSounds] = useState<{ 
     defaults: string[];
     sharket: string[];
   }>({ defaults: [], sharket: [] });
@@ -59,7 +57,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     BackgroundColor: getAlpha(style.BackgroundColor),
   });
 
-  const [tempSound, setTempSound] = useState<{
+  const [tempSound, setTempSound] = useState<{ 
     type: "default" | "sharket" | "custom";
     file: string;
     vol: number;
@@ -331,7 +329,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
 
   return (
     <div
-      className={`VisualEditor_Container tier-style-editor ${
+      className={`VisualEditor_Container tier-style-editor ${ 
         visibility ? "hidden-tier" : ""
       }`}
       style={{ backgroundImage: `url('/assets/item_bg/${viewerBackground}')` }}
@@ -398,7 +396,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                     {filteredSounds.map((s) => (
                       <div
                         key={s}
-                        className={`sound-item ${
+                        className={`sound-item ${ 
                           tempSound.file === s ? "active" : ""
                         }`}
                         onClick={() => setTempSound({ ...tempSound, file: s })}
@@ -549,449 +547,4 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                           ? "medium"
                           : "large"
                       ]
-                    }{" "}
-                    {(t as any)[tempIcon.color]}{" "}
-                    {(t as any)[tempIcon.shape] || tempIcon.shape}
-                  </span>
-                </div>
-              </div>
-              <div className="main-actions">
-                <button
-                  className="reset-btn"
-                  style={{ background: "#c62828" }}
-                  onClick={() => {
-                    handleChange("MinimapIcon", null);
-                    setShowIconPopup(false);
-                  }}
-                >
-                  {t.none}
-                </button>
-                <button
-                  className="cancel-btn"
-                  onClick={() => setShowIconPopup(false)}
-                >
-                  {t.cancel}
-                </button>
-                <button className="ok-btn" onClick={applyIcon}>
-                  OK
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {showBeamPopup && (
-        <div className="modal-overlay" onClick={() => setShowBeamPopup(false)}>
-          <div className="sound-popup" onClick={(e) => e.stopPropagation()}>
-            <div className="popup-header">
-              <h3>
-                {t.beam} - {tierName}
-              </h3>
-              <button
-                className="close-x"
-                onClick={() => setShowBeamPopup(false)}
-              >
-                X
-              </button>
-            </div>
-            <div className="icon-config">
-              <div className="config-section">
-                <label>{t.color}</label>
-                <div className="option-grid color-grid">
-                  {BEAM_COLORS.map((c) => (
-                    <button
-                      key={c}
-                      className={tempBeam.color === c ? "active" : ""}
-                      style={{ borderColor: c.toLowerCase() }}
-                      onClick={() => setTempBeam({ ...tempBeam, color: c })}
-                    >
-                      {(t as any)[c] || c}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="config-section">
-                <label>{t.temporary}</label>
-                <div className="toggle-box">
-                  <button
-                    className={!tempBeam.isTemp ? "active" : ""}
-                    onClick={() => setTempBeam({ ...tempBeam, isTemp: false })}
-                  >
-                    {t.permanent}
-                  </button>
-                  <button
-                    className={tempBeam.isTemp ? "active" : ""}
-                    onClick={() => setTempBeam({ ...tempBeam, isTemp: true })}
-                  >
-                    {t.temporary}
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="popup-footer">
-              <div className="preview-indicator">
-                {(t as any)[tempBeam.color]}{" "}
-                {tempBeam.isTemp ? `(${t.temporary})` : `(${t.permanent})`}
-              </div>
-              <div className="main-actions">
-                <button
-                  className="reset-btn"
-                  style={{ background: "#c62828" }}
-                  onClick={() => {
-                    handleChange("PlayEffect", null);
-                    setShowBeamPopup(false);
-                  }}
-                >
-                  {t.none}
-                </button>
-                <button
-                  className="cancel-btn"
-                  onClick={() => setShowBeamPopup(false)}
-                >
-                  {t.cancel}
-                </button>
-                <button className="ok-btn" onClick={applyBeam}>
-                  OK
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div className="tier-header-bar">
-        <h4 className="tier-title">{tierName}</h4>
-        <div className="header-actions">
-          <button
-            className={`vis-btn ${visibility ? "is-hidden" : "is-shown"}`}
-            onClick={(e) => {
-              e.stopPropagation();
-              toggleVisibility();
-            }}
-          >
-            {visibility ? t.hide : t.show}
-          </button>
-          {onReset && (
-            <button
-              className="reset-btn"
-              onClick={(e) => {
-                e.stopPropagation();
-                onReset();
-              }}
-            >
-              RESET
-            </button>
-          )}
-        </div>
-      </div>
-
-      <div className="editor-layout">
-        <div className="color-controls">
-          {["TextColor", "BorderColor", "BackgroundColor"].map((key) => {
-            const label =
-              key === "TextColor"
-                ? t.text
-                : key === "BorderColor"
-                ? t.border
-                : t.background;
-            const val = (style as any)[key];
-            return (
-              <div key={key} className="color-row">
-                <span className="color-label">{label}</span>
-                <input
-                  type="color"
-                  className={!isColorActive(val) ? "disabled-picker" : ""}
-                  value={rgbaToHex(val)}
-                  onChange={(e) =>
-                    handleChange(
-                      key as keyof StyleProps,
-                      hexToRgba(e.target.value, key as keyof StyleProps)
-                    )
-                  }
-                />
-                <div
-                  className={`status-check ${
-                    isColorActive(val) ? "active" : ""
-                  }`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    toggleColor(key as keyof StyleProps, val);
-                  }}
-                >
-                  {isColorActive(val) && "✓"}
-                </div>
-              </div>
-            );
-          })}
-          <div className="alpha-bulk-container">
-            <button
-              className="alpha-bulk-btn"
-              onClick={(e) => {
-                e.stopPropagation();
-                setShowAlphaPopup(!showAlphaPopup);
-              }}
-              title={t.transparency}
-            >
-              {t.transparency}
-            </button>
-            {showAlphaPopup && (
-              <div className="alpha-popup" onClick={(e) => e.stopPropagation()}>
-                <div className="alpha-popup-header">{t.transparency}</div>
-                {["TextColor", "BorderColor", "BackgroundColor"].map((key) => (
-                  <div key={key} className="alpha-input-row">
-                    <label>
-                      {key === "TextColor"
-                        ? t.text
-                        : key === "BorderColor"
-                        ? t.border
-                        : t.background}
-                    </label>
-                    <input
-                      type="number"
-                      min="0"
-                      max="255"
-                      value={localAlphas[key as keyof typeof localAlphas]}
-                      onChange={(e) =>
-                        setLocalAlphas({
-                          ...localAlphas,
-                          [key]: parseInt(e.target.value) || 0,
-                        })
-                      }
-                    />
-                  </div>
-                ))}
-                <button className="apply-alpha-btn" onClick={applyAlphas}>
-                  OK
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-
-        <div className="CombiBoxShowcaseDiv" onClick={handlePreviewClick}>
-          <div
-            className="item-plate"
-            style={{
-              fontSize: `${(style.FontSize || 32) / 1.8}px`,
-              color: visibility
-                ? "#555"
-                : isColorActive(style.TextColor)
-                ? hexToCssRgba(style.TextColor, true)
-                : "#000000",
-              borderColor: visibility
-                ? "#333"
-                : isColorActive(style.BorderColor)
-                ? hexToCssRgba(style.BorderColor, true)
-                : "transparent",
-              backgroundColor: visibility
-                ? "#1a1a1a"
-                : isColorActive(style.BackgroundColor)
-                ? hexToCssRgba(style.BackgroundColor, true)
-                : "#000000",
-              borderStyle: "solid",
-              borderWidth: isColorActive(style.BorderColor) ? "1px" : "0",
-              opacity: visibility ? 0.6 : 1,
-            }}
-          >
-            {style.MinimapIcon && (
-              <div
-                style={getIconStyle(
-                  style.MinimapIcon.split(" ")[1],
-                  style.MinimapIcon.split(" ")[2],
-                  0.8
-                )}
-              ></div>
-            )}
-            {copyFeedback ? "✓ COPIED" : tierName.toUpperCase()}
-          </div>
-        </div>
-
-        <div className="right-controls">
-          <div className="top-row">
-            <div className="font-slider-container">
-              <div className="slider-track"></div>
-              <div
-                className="slider-thumb-visual"
-                style={{
-                  left: `${(((style.FontSize || 32) - 12) / (45 - 12)) * 100}%`,
-                }}
-              >
-                {style.FontSize || 32}
-              </div>
-              <input
-                type="range"
-                min="12"
-                max="45"
-                className="real-range-input"
-                value={style.FontSize || 32}
-                onChange={(e) =>
-                  handleChange("FontSize", parseInt(e.target.value))
-                }
-              />
-            </div>
-            <div className="action-btns" style={{ display: 'none' }}>
-              {/* Copy/Paste buttons removed */}
-            </div>
-          </div>
-          <div className="bottom-row extra-btns">
-            <button
-              className={`extra-toggle-btn ${
-                style.PlayAlertSound ? "active" : ""
-              }`}
-              onClick={(e) => {
-                e.stopPropagation();
-                toggleExtra("PlayAlertSound");
-              }}
-            >
-              {t.sound}
-            </button>
-            <button
-              className={`extra-toggle-btn ${
-                style.MinimapIcon ? "active" : ""
-              }`}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "5px",
-              }}
-              onClick={(e) => {
-                e.stopPropagation();
-                toggleExtra("MinimapIcon");
-              }}
-            >
-              {style.MinimapIcon && (
-                <div
-                  style={getIconStyle(
-                    style.MinimapIcon.split(" ")[1],
-                    style.MinimapIcon.split(" ")[2],
-                    0.6
-                  )}
-                ></div>
-              )}
-              {t.icon}
-            </button>
-            <button
-              className={`extra-toggle-btn ${style.PlayEffect ? "active" : ""}`}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "5px",
-              }}
-              onClick={(e) => {
-                e.stopPropagation();
-                toggleExtra("PlayEffect");
-              }}
-            >
-              {style.PlayEffect && (
-                <div
-                  className={`beam-icon-mini ${
-                    style.PlayEffect.includes("Temp") ? "is-temp" : ""
-                  }`}
-                  style={{
-                    color: style.PlayEffect.split(" ")[0].toLowerCase(),
-                  }}
-                ></div>
-              )}
-              {t.beam}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <style>{`
-        .VisualEditor_Container { width: 100%; position: relative; border: 1px solid #61523e; border-radius: 1px; display: block; z-index: 5; background-color: #1e1e1e; background-repeat: no-repeat; background-position: top center; background-size: cover; margin-bottom: 15px; cursor: pointer; }
-        .tier-header-bar { background: rgba(37, 37, 37, 0.8); padding: 8px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #111; }
-        .tier-title { margin: 0; font-size: 0.95rem; font-weight: bold; text-transform: uppercase; color: #aaa; }
-        .vis-btn { background: #333; color: #fff; border: 1px solid #444; padding: 4px 12px; border-radius: 2px; cursor: pointer; font-size: 0.75rem; }
-        .vis-btn.is-shown { color: #4CAF50; border-color: #2e7d32; }
-        .vis-btn.is-hidden { color: #f44336; border-color: #c62828; }
-        .reset-btn { background: #1a237e; color: #fff; border: none; padding: 4px 12px; border-radius: 2px; cursor: pointer; font-size: 0.75rem; }
-        .editor-layout { display: flex; padding: 15px 20px; align-items: center; justify-content: space-between; min-height: 120px; background: rgba(0,0,0,0.4); }
-        .color-controls { display: flex; flex-direction: column; gap: 6px; width: 130px; }
-        .color-row { display: flex; align-items: center; gap: 8px; }
-        .color-label { font-size: 0.75rem; font-weight: bold; color: #888; width: 40px; text-align: left; }
-        .color-controls input[type="color"] { background: none; border: 1px solid #444; width: 40px; height: 24px; cursor: pointer; padding: 0; transition: opacity 0.2s; }
-        .disabled-picker { opacity: 0.3; pointer-events: none; }
-        .alpha-bulk-container { position: relative; margin-top: 10px; display: flex; justify-content: flex-start; }
-        .alpha-bulk-btn { height: 24px; background: #e0e0e0; color: #222; border: 1px solid #ccc; border-radius: 2px; font-size: 11px; cursor: pointer; font-weight: bold; padding: 0 12px; text-transform: uppercase; transition: background 0.2s; }
-        .alpha-bulk-btn:hover { background: #fff; }
-        .alpha-popup { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #2196F3; padding: 12px; border-radius: 4px; z-index: 100; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); margin-top: 5px; min-width: 160px; color: #222; }
-        .alpha-popup-header { font-size: 11px; font-weight: bold; color: #2196F3; text-transform: uppercase; margin-bottom: 2px; border-bottom: 1px solid #eee; padding-bottom: 4px; }
-        .alpha-input-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-        .alpha-input-row label { font-size: 11px; color: #666; flex: 1; }
-        .alpha-input-row input { width: 50px; background: #fff; color: #222; border: 1px solid #ddd; padding: 3px; font-size: 12px; text-align: center; border-radius: 2px; }
-        .apply-alpha-btn { background: #2196F3; color: #fff !important; border: none; padding: 6px; cursor: pointer; font-size: 11px; border-radius: 2px; font-weight: bold; margin-top: 5px; }
-        
-        .status-check { width: 22px; height: 22px; border: 1px solid #444; background: #222; color: #4CAF50; display: flex; align-items: center; justify-content: center; font-size: 12px; cursor: pointer; border-radius: 50%; }
-        .status-check.active { border-color: #4CAF50; box-shadow: 0 0 5px rgba(76, 175, 80, 0.3); }
-        .CombiBoxShowcaseDiv { width: 360px; height: 80px; display: flex; align-items: center; justify-content: center; background: transparent; position: relative; }
-        .item-plate { font-family: Verdana, sans-serif; box-shadow: 0 0 10px rgba(0,0,0,0.5); white-space: nowrap; transition: all 0.2s; text-align: center; padding: 8px 30px; position: relative; z-index: 10; display: flex; align-items: center; gap: 10px; font-weight: bold; }
-        
-        .right-controls { display: flex; flex-direction: column; gap: 12px; width: 260px; align-items: stretch; }
-        .top-row { display: flex; flex-direction: column; gap: 10px; }
-        .font-slider-container { position: relative; width: 100%; height: 36px; display: flex; align-items: center; background: rgba(0,0,0,0.2); border-radius: 2px; padding: 0 12px; box-sizing: border-box; }
-        .slider-track { width: 100%; height: 2px; background: #444; border-radius: 1px; }
-        .slider-thumb-visual { position: absolute; width: 32px; height: 20px; background: #1a237e; border: 1px solid #3949ab; color: #fff; font-size: 11px; font-weight: bold; display: flex; align-items: center; justify-content: center; pointer-events: none; transform: translate(-50%, 0); z-index: 2; box-shadow: 0 0 5px rgba(0,0,0,0.5); border-radius: 2px; top: 8px; }
-        .real-range-input { position: absolute; left: 12px; right: 12px; width: calc(100% - 24px); opacity: 0; cursor: pointer; z-index: 3; margin: 0; height: 100%; }
-        .action-btns { display: flex; gap: 6px; }
-        .style-btn { flex: 1; padding: 6px; font-size: 0.8rem; background: #eee; color: #222 !important; border: 1px solid #ccc; cursor: pointer; font-weight: bold; border-radius: 2px; }
-        .style-btn:hover { background: #fff; }
-        .style-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-        .extra-btns { display: flex; gap: 6px; }
-        .extra-toggle-btn { flex: 1; padding: 8px 4px; font-size: 0.8rem; background: #eee; color: #222 !important; border: 1px solid #ccc; cursor: pointer; text-transform: uppercase; font-weight: bold; border-radius: 2px; }
-        .extra-toggle-btn.active { background: #2196F3; color: white !important; border-color: #2196F3; box-shadow: inset 0 0 5px rgba(0,0,0,0.2); }
-        .extra-toggle-btn:hover:not(.active) { background: #fff; }
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; }
-        .sound-popup { background: #fff; border: 1px solid #ddd; width: 450px; padding: 20px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: flex; flex-direction: column; gap: 15px; cursor: default; color: #222; }
-        .popup-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .popup-header h3 { margin: 0; color: #2196F3; font-size: 1rem; }
-        .close-x { background: none; border: none; color: #222 !important; cursor: pointer; font-size: 1.2rem; }
-        .sound-tabs { display: flex; gap: 5px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .sound-tabs button { flex: 1; padding: 8px; font-size: 0.8rem; background: #f5f5f5; color: #222 !important; border: 1px solid #ddd; border-radius: 4px; font-weight: bold; }
-        .sound-tabs button.active { background: #2196F3; color: white !important; border-color: #2196F3; }
-        .sound-config { display: flex; flex-direction: column; gap: 12px; }
-        .sound-search { width: 100%; background: #fff; border: 1px solid #ddd; padding: 8px; color: #222 !important; border-radius: 4px; font-size: 0.85rem; }
-        .sound-list { height: 200px; overflow-y: auto; background: #f9f9f9; border: 1px solid #eee; border-radius: 4px; padding: 5px; }
-        .sound-item { padding: 6px 10px; cursor: pointer; font-size: 0.8rem; color: #222 !important; border-radius: 2px; }
-        .sound-item:hover { background: #e3f2fd; }
-        .sound-item.active { background: #2196F3; color: white !important; font-weight: bold; }
-        .custom-path-input { display: flex; flex-direction: column; gap: 8px; }
-        .custom-path-input label { font-size: 0.8rem; color: #222; font-weight: bold; }
-        .custom-path-input input { background: #fff; border: 1px solid #ddd; padding: 8px; color: #222 !important; border-radius: 4px; font-size: 0.85rem; }
-        .volume-control { display: flex; flex-direction: column; gap: 8px; }
-        .volume-header { display: flex; justify-content: space-between; align-items: center; }
-        .volume-header label { font-size: 0.8rem; color: #222; font-weight: bold; }
-        .vol-num-input { width: 60px; background: #fff; border: 1px solid #ddd; color: #222 !important; padding: 4px; border-radius: 2px; font-size: 12px; text-align: center; }
-        .volume-control input[type="range"] { width: 100%; cursor: pointer; }
-        .popup-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 15px; border-top: 1px solid #eee; }
-        .test-btn { background: #455a64; color: white !important; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; }
-        .main-actions { display: flex; gap: 10px; }
-        .ok-btn { background: #4CAF50; color: white !important; border: none; padding: 8px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; }
-        .cancel-btn { background: none; border: 1px solid #ddd; color: #222 !important; padding: 8px 15px; border-radius: 4px; cursor: pointer; }
-        .icon-config { display: flex; flex-direction: column; gap: 15px; }
-        .config-section { display: flex; flex-direction: column; gap: 8px; }
-        .config-section label { font-size: 0.85rem; color: #222; font-weight: bold; }
-        .option-grid { display: flex; flex-wrap: wrap; gap: 5px; }
-        .option-grid button { background: #f5f5f5; border: 1px solid #ddd; color: #222 !important; padding: 5px 10px; font-size: 0.75rem; border-radius: 2px; min-width: 35px; font-weight: bold; }
-        .option-grid button:hover { background: #eee; border-color: #ccc; }
-        .option-grid button.active { background: #2196F3; color: white !important; border-color: #2196F3; }
-        .color-grid button { border-left-width: 4px; }
-        .icon-grid button { flex: 0 0 calc(16.66% - 5px); display: flex; align-items: center; justify-content: center; padding: 8px 0; background: #fcfcfc; }
-        .size-grid button { flex: 1; }
-        .toggle-box { display: flex; gap: 5px; }
-        .toggle-box button { flex: 1; padding: 10px; background: #f5f5f5; border: 1px solid #ddd; color: #222 !important; border-radius: 4px; cursor: pointer; font-weight: bold; }
-        .toggle-box button.active { background: #2196F3; color: white !important; border-color: #2196F3; }
-        .preview-indicator { font-size: 0.85rem; color: #2196F3; font-weight: bold; background: #f5f5f5; padding: 5px 15px; border-radius: 20px; border: 1px solid #ddd; }
-        .visual-beam { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 100%; z-index: 1; pointer-events: none; filter: blur(8px); background: linear-gradient(to top, transparent, var(--beam-color), transparent); }
-        .visual-beam.is-temp { background: repeating-linear-gradient(to top, transparent, transparent 10px, var(--beam-color) 10px, var(--beam-color) 20px); }
-        .beam-icon-mini { width: 4px; height: 14px; border-radius: 2px; background: currentColor; box-shadow: 0 0 5px currentColor; }
-        .beam-icon-mini.is-temp { background: repeating-linear-gradient(to bottom, currentColor, currentColor 3px, transparent 3px, transparent 6px); }
-      `}</style>
-    </div>
-  );
-};
-
-export default TierStyleEditor;
+                    }{

@@ -8,7 +8,7 @@ interface ExportViewProps {
   language: Language;
 }
 
-const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, language }) => {
+const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, language: _language }) => {
   return (
     <div className="export-view">
       <div className="top-bar">

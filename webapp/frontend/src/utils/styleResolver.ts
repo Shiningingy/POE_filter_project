@@ -45,13 +45,13 @@ export const resolveStyle = (tierData: any, themeData: any, soundMap?: any): Sty
   return resolved;
 };
 
-export const generateFilterText = (style: StyleProps, tierName: string, baseTypes: string[] = ["Item Name"], hideable: boolean = false, rules: any[] = [], includeBase: boolean = true): string => {
+export const generateFilterText = (style: StyleProps, _tierName: string, baseTypes: string[] = ["Item Name"], hideable: boolean = false, rules: any[] = [], includeBase: boolean = true): string => {
   const allBlocks: string[] = [];
   let allItemsCovered = false;
 
   // 1. Process Rules first
   rules.forEach((rule) => {
-    const rLines = [];
+    const rLines: string[] = [];
     const rKeyword = hideable ? "Minimal" : "Show";
     rLines.push(rKeyword);
     
@@ -79,7 +79,7 @@ export const generateFilterText = (style: StyleProps, tierName: string, baseType
 
     // 3. Raw text (Custom Code)
     if (rule.raw) {
-        rule.raw.split('\n').forEach(line => {
+        rule.raw.split('\n').forEach((line: string) => {
             if (line.trim()) {
                 rLines.push(`    ${line.trim()}`);
             }

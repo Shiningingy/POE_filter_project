@@ -1,6 +1,5 @@
-import React, { useState, useMemo, useEffect } from "react";
-import axios from "axios";
-import { useTranslation, getItemName } from "../utils/localization";
+import React, { useState, useMemo } from "react";
+import { useTranslation } from "../utils/localization";
 import type { Language } from "../utils/localization";
 
 interface Rule {
@@ -19,7 +18,7 @@ interface RuleManagerProps {
   language: Language;
   availableItems: string[];
   categoryName: string;
-  translationCache: Record<string, string>;
+  translationCache: Record<string, string>; // Kept in interface but unused
 }
 
 const RULE_FACTOR_LOCALIZATION: Record<string, { en: string; ch: string }> = {
@@ -51,13 +50,10 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   language,
   availableItems,
   categoryName,
-  translationCache,
+  translationCache: _translationCache, // Unused
 }) => {
   const t = useTranslation(language);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
-
-  const [targetSearch, setTargetSearch] = useState("");
-  const [suggestions, setSuggestions] = useState<any[]>([]);
 
   const tierRulesIndices = useMemo(() => {
     return allRules
@@ -68,26 +64,6 @@ const RuleManager: React.FC<RuleManagerProps> = ({
       })
       .map((item) => item.i);
   }, [allRules, tierKey, availableItems]);
-
-  useEffect(() => {
-    if (targetSearch.length < 2) {
-      setSuggestions([]);
-      return;
-    }
-    const timeoutId = setTimeout(async () => {
-      try {
-        const res = await axios.get(
-          `http://localhost:8000/api/search-items?q=${encodeURIComponent(
-            targetSearch
-          )}`
-        );
-        setSuggestions(res.data.results);
-      } catch (e) {
-        console.error(e);
-      }
-    }, 300);
-    return () => clearTimeout(timeoutId);
-  }, [targetSearch]);
 
   const handleAddRule = () => {
     if (tierRulesIndices.length > 0) {
@@ -114,20 +90,6 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   const setEditingAndNotify = (idx: number | null) => {
     setEditingIndex(idx);
     onRuleEdit(tierKey, idx);
-  };
-
-  const addTarget = (globalIndex: number, itemName: string) => {
-    const rule = allRules[globalIndex];
-    if (!rule.targets.includes(itemName)) {
-        handleUpdateRule(globalIndex, { ...rule, targets: [...rule.targets, itemName] });
-    }
-    setTargetSearch('');
-    setSuggestions([]);
-  };
-
-  const removeTarget = (globalIndex: number, itemName: string) => {
-    const rule = allRules[globalIndex];
-    handleUpdateRule(globalIndex, { ...rule, targets: rule.targets.filter(t => t !== itemName) });
   };
 
   const updateCondition = (globalIndex: number, key: string, value: string) => {
@@ -236,9 +198,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                         return (
                           <div
                             key={key}
-                            className={`mini-factor ${
-                              isRange ? "range-factor" : ""
-                            }`}
+                            className={`mini-factor ${isRange ? "range-factor" : ""}`}
                           >
                             <div className="factor-header">
                               <span>{label}</span>
@@ -422,7 +382,8 @@ const RuleManager: React.FC<RuleManagerProps> = ({
 
                   <div className="raw-code-field">
                     <textarea
-                      placeholder="# Custom lines like: \n    SetFontSize 45"
+                      placeholder="# Custom lines like: 
+    SetFontSize 45"
                       value={rule.raw || ""}
                       onChange={(e) =>
                         handleUpdateRule(globalIndex, {
@@ -432,11 +393,6 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                       }
                     />
                   </div>
-
-                  {/* <div className="field" style={{ marginTop: '10px' }}>
-                    <label>{t.comment}</label>
-                    <input type="text" value={rule.comment} onChange={e => handleUpdateRule(globalIndex, { ...rule, comment: e.target.value })} />
-                  </div> */}
                 </div>
               )}
             </div>

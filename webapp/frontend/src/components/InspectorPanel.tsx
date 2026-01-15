@@ -34,7 +34,7 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
   onCopyStyle,
   onPasteStyle,
   onAddRulePreset,
-  onRemoveRule,
+  onRemoveRule: _onRemoveRule,
   language,
   viewerBackground,
   setViewerBackground,

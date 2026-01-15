@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useTranslation } from "../utils/localization";
 import type { Language } from "../utils/localization";
 
 export interface CategoryFile {
