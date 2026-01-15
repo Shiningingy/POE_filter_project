@@ -76,6 +76,14 @@ export const setupDemoAdapter = () => {
         
         response.data = { items: filteredItems };
     }
+
+    // Post-process config files to match backend structure { content: ... }
+    if (response.config.url?.includes('/demo_data/config/')) {
+        if (!response.data.content) {
+            response.data = { content: response.data };
+        }
+    }
+
     return response;
   });
 };
