@@ -1,0 +1,76 @@
+Currency:
+  _name: 通货
+  _default_target: Stackable Currency
+  Breach: 裂隙
+  Delirium Orbs: 雾魇宝珠
+  Essences: 精华
+  Expedition: 探险
+  Fossils: 化石
+  General: 通用
+  Harbinger: 先驱
+  Heist: 夺宝
+  Incubators: 孕育石
+  Oils & Harvest: 圣油与庄园
+  Ritual: 仪式
+
+Divination Cards:
+  _name: 命运卡
+  _default_target: Divination Cards
+  Cards: 命运卡
+
+Equipment:
+  _name: 装备
+  Armour:
+    _name: 护甲
+    Body Armours: 胸甲
+    Boots: 鞋子
+    Gloves: 手套
+    Helmets: 头部
+    Quivers: 箭袋
+    Shields: 盾
+  Jewellery:
+    _name: 饰品
+    Amulets: 项链
+    Belts: 腰带
+    Rings: 戒指
+    Trinkets: 饰品
+  Weapons:
+    _name: 武器
+    Bows: 弓
+    Claws: 爪
+    Daggers: 匕首
+    One Hand Axes: 单手斧
+    One Hand Maces: 单手锤
+    One Hand Swords: 单手剑
+    Rune Daggers: 符文匕首
+    Sceptres: 短杖
+    Staves: 长杖
+    Two Hand Axes: 双手斧
+    Two Hand Maces: 双手锤
+    Two Hand Swords: 双手剑
+    Wands: 法杖
+    Warstaves: 战杖
+
+Gems:
+  _name: 宝石
+  Skill: 
+    name: 技能宝石
+    target: Skill Gems
+  Support: 
+    name: 辅助宝石
+    target: Support Gems
+
+Maps:
+  _name: 地图
+  Base Maps: 
+    name: 常规地图
+    target: Maps
+  Fragments: 
+    name: 碎片
+    target: Map Fragments
+
+Misc:
+  _name: 杂项
+  General: 
+    name: 通用
+    target: Gold
