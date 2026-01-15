@@ -24,7 +24,7 @@ import type { Language } from '../utils/localization';
 interface Item {
   name: string;
   name_ch: string;
-  current_tier: string | null;
+  current_tier: string[] | null;
   source_file: string | null;
 }
 
@@ -74,7 +74,7 @@ const CLASS_TRANSLATIONS: Record<string, string> = {
     "Divination Card": "命运卡"
 };
 
-const SortableItem = ({ item, color, isStaged, language }: { item: Item, color: string, isStaged: boolean, language: Language }) => {
+const SortableItem = ({ id, item, color, isStaged, language }: { id: string, item: Item, color: string, isStaged: boolean, language: Language }) => {
   const {
     attributes,
     listeners,
@@ -82,7 +82,7 @@ const SortableItem = ({ item, color, isStaged, language }: { item: Item, color: 
     transform,
     transition,
     isDragging
-  } = useSortable({ id: item.name });
+  } = useSortable({ id });
 
   const style = {
     transform: CSS.Translate.toString(transform),
@@ -119,7 +119,7 @@ const TierColumn = ({ id, title, color, items, children }: { id: string, title: 
             <div className="column-header" style={{ borderTop: `4px solid ${color}` }}>
                 <h3>{title} ({items.length})</h3>
             </div>
-            <SortableContext id={id} items={items.map(i => i.name)} strategy={verticalListSortingStrategy}>
+            <SortableContext id={id} items={items.map(i => `${i.name}::${id}`)} strategy={verticalListSortingStrategy}>
                 <div className="column-content drop-zone">
                     {children}
                 </div>
@@ -143,8 +143,8 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   
-  // stagedChanges: itemName -> newTierKey
-  const [stagedChanges, setStagedChanges] = useState<Record<string, string>>({});
+  // stagedChanges: itemName -> newTierKeyList
+  const [stagedChanges, setStagedChanges] = useState<Record<string, string[]>>({});
   const [activeId, setActiveId] = useState<string | null>(null);
 
   const API_BASE_URL = 'http://localhost:8000';
@@ -185,61 +185,110 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       if (searchTerm && !item.name.toLowerCase().includes(searchTerm.toLowerCase()) && !item.name_ch.includes(searchTerm)) {
           return;
       }
-      const tier = stagedChanges[item.name] !== undefined ? stagedChanges[item.name] : item.current_tier;
-      const targetCol = tier || 'untiered';
       
-      // Ensure target column exists
-      if (!cols[targetCol] && targetCol !== 'untiered') {
+      let effectiveTiers: string[] = [];
+      if (stagedChanges[item.name] !== undefined) {
+          effectiveTiers = stagedChanges[item.name];
+      } else {
+          effectiveTiers = item.current_tier || [];
+      }
+      
+      if (effectiveTiers.length === 0) {
           cols['untiered'].push(item);
       } else {
-          cols[targetCol].push(item);
+          effectiveTiers.forEach(t => {
+              const targetCol = t || 'untiered';
+              if (cols[targetCol]) cols[targetCol].push(item);
+              else cols['untiered'].push(item);
+          });
       }
     });
     return cols;
   }, [items, stagedChanges, searchTerm, availableTiers]);
 
   const handleDragStart = (event: DragStartEvent) => {
-    setActiveId(event.active.id as string);
+    const activeIdStr = event.active.id as string;
+    const itemName = activeIdStr.split('::')[0];
+    setActiveId(itemName);
   };
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
+    console.log("DragEnd Raw:", { activeId: active.id, overId: over?.id });
     setActiveId(null);
 
     if (!over) return;
 
-    const itemName = active.id as string;
-    const overId = over.id as string;
+    const activeIdStr = active.id as string;
+    const itemName = activeIdStr.split('::')[0];
+    const overIdStr = over.id as string;
+    
+    console.log("Drag Logic:", { activeIdStr, itemName, overIdStr });
 
     // Determine target tier
     let targetTier: string | null = null;
     
     // Check if dropped on a column (droppable container)
-    if (overId === 'untiered' || availableTiers.some(t => t.key === overId)) {
-        targetTier = overId === 'untiered' ? "" : overId;
+    if (overIdStr === 'untiered' || availableTiers.some(t => t.key === overIdStr)) {
+        targetTier = overIdStr === 'untiered' ? "" : overIdStr;
     } else {
-        // Dragged over an item, find its tier
-        const overItem = items.find(i => i.name === overId);
-        if (overItem) {
-            const tier = stagedChanges[overItem.name] !== undefined ? stagedChanges[overItem.name] : overItem.current_tier;
-            targetTier = tier || "";
+        // Dropped on an item (ItemName::TierKey)
+        // Extract tier from the ID suffix
+        const parts = overIdStr.split('::');
+        if (parts.length > 1) {
+            const tierKey = parts[1];
+            targetTier = tierKey === 'untiered' ? "" : tierKey;
+        } else {
+            // Fallback: look up item
+            const overItemName = parts[0];
+            const overItem = items.find(i => i.name === overItemName);
+            if (overItem) {
+                const tier = stagedChanges[overItem.name] !== undefined ? stagedChanges[overItem.name] : overItem.current_tier;
+                // If tier is array, pick first? Or assume overwrite?
+                // This fallback path shouldn't be hit often with correct IDs.
+                // Just use first if array.
+                const tVal = Array.isArray(tier) ? tier[0] : tier;
+                targetTier = tVal || "";
+            }
         }
     }
 
     if (targetTier !== null) {
-        // Calculate original tier
-        // Note: current_tier from backend is null for untiered.
-        const currentTier = items.find(i => i.name === itemName)?.current_tier;
-        const originalTier = currentTier === null ? "" : currentTier;
+        const currentTiers = items.find(i => i.name === itemName)?.current_tier || [];
         
-        if (targetTier === originalTier) {
+        // Determine effective list before this drag
+        let effectiveTiers = stagedChanges[itemName] ? [...stagedChanges[itemName]] : [...currentTiers];
+        
+        // Identify source tier from drag ID
+        const sourceTier = activeIdStr.split('::')[1];
+        const actualSource = sourceTier === 'untiered' ? "" : sourceTier;
+        
+        // Remove source tier instance
+        // Note: If dragging from untiered, effectiveTiers is empty, so nothing to remove.
+        const idx = effectiveTiers.indexOf(actualSource);
+        if (idx > -1) {
+            effectiveTiers.splice(idx, 1);
+        }
+        
+        // Add target tier
+        if (targetTier !== "") {
+            if (!effectiveTiers.includes(targetTier)) {
+                effectiveTiers.push(targetTier);
+            }
+        }
+        
+        // Compare with original to decide if staged
+        const sortedEffective = [...effectiveTiers].sort();
+        const sortedOriginal = [...currentTiers].sort();
+        
+        if (JSON.stringify(sortedEffective) === JSON.stringify(sortedOriginal)) {
             setStagedChanges(prev => {
                 const next = { ...prev };
                 delete next[itemName];
                 return next;
             });
         } else {
-            setStagedChanges(prev => ({ ...prev, [itemName]: targetTier as string }));
+            setStagedChanges(prev => ({ ...prev, [itemName]: effectiveTiers }));
         }
     }
   };
@@ -250,11 +299,12 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     
     setLoading(true);
     try {
-      const promises = Object.entries(stagedChanges).map(([itemName, newTier]) => {
+      const promises = Object.entries(stagedChanges).map(([itemName, newTiers]) => {
         const item = items.find(i => i.name === itemName);
         return axios.post(`${API_BASE_URL}/api/update-item-tier`, {
           item_name: itemName,
-          new_tier: newTier, // empty string means remove from mapping (untiered)
+          new_tiers: newTiers,
+          new_tier: "", // Ignored by backend when new_tiers is present
           source_file: item?.source_file || defaultMappingPath || `${selectedClass}.json`
         });
       });
@@ -270,8 +320,8 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     }
   };
 
-  const getTierColor = (tierKey: string | null) => {
-    if (!tierKey) return 'white';
+  const getTierColor = (tierKey: string | null | any) => {
+    if (!tierKey || typeof tierKey !== 'string') return 'white';
     const match = tierKey.match(/Tier (\d+)/);
     if (!match) {
         if (tierKey.includes('Custom')) return '#fff3e0';
@@ -286,7 +336,8 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   };
 
   const stagedCount = Object.keys(stagedChanges).length;
-  const activeItem = activeId ? items.find(i => i.name === activeId) : null;
+  const activeItem = activeId ? items.find(i => i.name === activeId.split('::')[0]) : null;
+  const activeSourceTier = activeId ? activeId.split('::')[1] : null;
 
   return (
     <div className="modal-overlay" onContextMenu={(e) => e.stopPropagation()}>
@@ -347,13 +398,15 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                 items={columns['untiered']}
             >
                 {columns['untiered'].map(item => (
-                                                <SortableItem 
-                                                    key={item.name} 
-                                                    item={item} 
-                                                    color="white"
-                                                    isStaged={stagedChanges[item.name] !== undefined}
-                                                    language={language}
-                                                />                ))}
+                    <SortableItem 
+                        key={`${item.name}-untiered`} 
+                        id={`${item.name}::untiered`}
+                        item={item} 
+                        color="white"
+                        isStaged={stagedChanges[item.name] !== undefined}
+                        language={language}
+                    />
+                ))}
             </TierColumn>
 
             {/* Tier Columns */}
@@ -365,20 +418,22 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                     color={getTierColor(tier.key)}
                     items={columns[tier.key]}
                 >
-                    {columns[tier.key].map(item => (
-                                                        <SortableItem 
-                                                            key={item.name} 
-                                                            item={item} 
-                                                            color={getTierColor(tier.key)}
-                                                            isStaged={stagedChanges[item.name] !== undefined}
-                                                            language={language}
-                                                        />                    ))}
+                        {columns[tier.key].map(item => (
+                        <SortableItem 
+                            key={`${item.name}-${tier.key}`} 
+                            id={`${item.name}::${tier.key}`}
+                            item={item} 
+                            color={getTierColor(tier.key)}
+                            isStaged={stagedChanges[item.name] !== undefined && !(item.current_tier || []).includes(tier.key)}
+                            language={language}
+                        />
+                    ))}
                 </TierColumn>
             ))}
 
             <DragOverlay dropAnimation={{ sideEffects: defaultDropAnimationSideEffects({ styles: { active: { opacity: '0.5' } } }) }}>
                 {activeItem ? (
-                    <div className="item-card dragging" style={{ backgroundColor: getTierColor(stagedChanges[activeItem.name] || activeItem.current_tier) }}>
+                    <div className="item-card dragging" style={{ backgroundColor: getTierColor(activeSourceTier === 'untiered' ? null : activeSourceTier) }}>
                         <div className="item-info">
                             <div className="name-primary">{language === 'ch' ? activeItem.name_ch : activeItem.name}</div>
                             <div className="name-secondary">{language === 'ch' ? activeItem.name : activeItem.name_ch}</div>
@@ -407,7 +462,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         .close-btn:hover { color: #666; }
         
         .bulk-toolbar { padding: 10px 25px; background: white; display: flex; gap: 25px; align-items: center; border-bottom: 1px solid #ddd; }
-        .search-box { flex-grow: 1; padding: 10px 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
+        .search-box { flex-grow: 0; width: 300px; padding: 10px 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
         .apply-btn { padding: 10px 25px; background: #4CAF50; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: background 0.2s; }
         .apply-btn:hover { background: #43a047; }
         .apply-btn:disabled { background: #e0e0e0; color: #999; cursor: not-allowed; }
@@ -437,5 +492,4 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     </div>
   );
 };
-
 export default BulkTierEditor;
