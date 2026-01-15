@@ -1,0 +1,21 @@
+{
+  "One Hand Swords": {
+    "_meta": {
+      "theme_category": "One Hand Swords",
+      "localization": {
+        "en": "One Hand Swords",
+        "ch": "单手剑"
+      }
+    },
+    "Tier 1 One Hand Swords": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

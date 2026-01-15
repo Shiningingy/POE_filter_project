@@ -1,0 +1,21 @@
+{
+  "Bows": {
+    "_meta": {
+      "theme_category": "Bows",
+      "localization": {
+        "en": "Bows",
+        "ch": "弓"
+      }
+    },
+    "Tier 1 Bows": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

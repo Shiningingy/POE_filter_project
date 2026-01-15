@@ -1,0 +1,21 @@
+{
+  "Skill": {
+    "_meta": {
+      "theme_category": "Skill Gems",
+      "localization": {
+        "en": "Skill",
+        "ch": "技能宝石"
+      }
+    },
+    "Tier 1 Skill": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

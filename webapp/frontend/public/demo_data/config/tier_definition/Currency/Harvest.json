@@ -1,0 +1,21 @@
+{
+  "Oils & Harvest": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Harvest",
+        "ch": "庄园通货"
+      }
+    },
+    "Tier 1 Harvest Currency": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

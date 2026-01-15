@@ -1,0 +1,70 @@
+{
+  "categories": [
+    {
+      "id": "general",
+      "name": { "en": "General", "ch": "常规" },
+      "aliases": ["all", "any"],
+      "templates": [
+        { "id": "item_level", "label": { "en": "Item Level", "ch": "物品等级" }, "condition": "ItemLevel", "type": "number" },
+        { "id": "drop_level", "label": { "en": "Drop Level", "ch": "掉落等级" }, "condition": "DropLevel", "type": "number" },
+        { "id": "rarity", "label": { "en": "Rarity", "ch": "稀有度" }, "condition": "Rarity", "type": "select", "options": ["Normal", "Magic", "Rare", "Unique"] },
+        { "id": "quality", "label": { "en": "Quality", "ch": "品质" }, "condition": "Quality", "type": "number" },
+        { "id": "identified", "label": { "en": "Identified", "ch": "已鉴定" }, "condition": "Identified", "type": "bool" },
+        { "id": "corrupted", "label": { "en": "Corrupted", "ch": "已污染" }, "condition": "Corrupted", "type": "bool" },
+        { "id": "mirrored", "label": { "en": "Mirrored", "ch": "已复制" }, "condition": "Mirrored", "type": "bool" },
+        { "id": "fractured", "label": { "en": "Fractured", "ch": "破碎物品" }, "condition": "FracturedItem", "type": "bool" },
+        { "id": "synthesised", "label": { "en": "Synthesised", "ch": "合成物品" }, "condition": "SynthesisedItem", "type": "bool" }
+      ]
+    },
+    {
+      "id": "currency",
+      "name": { "en": "Currency", "ch": "通货" },
+      "aliases": ["stackable currency", "currency", "essence", "oil", "harvest", "fossil", "catalyst", "delirium orb"],
+      "templates": [
+        { "id": "stack_size", "label": { "en": "Stack Size", "ch": "堆叠数量" }, "condition": "StackSize", "type": "number" }
+      ]
+    },
+    {
+      "id": "sockets",
+      "name": { "en": "Sockets & Links", "ch": "插槽与连线" },
+      "aliases": ["body armour", "boots", "gloves", "helmet", "shield", "weapon", "bow", "staff", "wand", "axe", "sword", "mace", "claw", "dagger"],
+      "templates": [
+        { "id": "sockets", "label": { "en": "Sockets", "ch": "插槽数量" }, "condition": "Sockets", "type": "number" },
+        { "id": "links", "label": { "en": "Linked Sockets", "ch": "连线数量" }, "condition": "LinkedSockets", "type": "number" },
+        { "id": "socket_group", "label": { "en": "Socket Group", "ch": "插槽组合" }, "condition": "SocketGroup", "type": "text" }
+      ]
+    },
+    {
+      "id": "gems",
+      "name": { "en": "Gems", "ch": "宝石" },
+      "aliases": ["skill gems", "support gems", "gem"],
+      "templates": [
+        { "id": "gem_level", "label": { "en": "Gem Level", "ch": "宝石等级" }, "condition": "GemLevel", "type": "number" },
+        { "id": "vaal_gem", "label": { "en": "Vaal Gem", "ch": "瓦尔宝石" }, "condition": "VaalGem", "type": "bool" },
+        { "id": "transfigured", "label": { "en": "Transfigured", "ch": "变异宝石" }, "condition": "TransfiguredGem", "type": "bool" }
+      ]
+    },
+    {
+      "id": "equipment",
+      "name": { "en": "Equipment", "ch": "装备" },
+      "aliases": ["body armour", "boots", "gloves", "helmet", "shield", "weapon", "bow", "staff", "wand", "axe", "sword", "mace", "claw", "dagger", "amulet", "belt", "ring", "trinket", "quiver", "jewellery"],
+      "templates": [
+        { "id": "influence", "label": { "en": "Influence", "ch": "势力影响" }, "condition": "HasInfluence", "type": "select", "options": ["Shaper", "Elder", "Crusader", "Redeemer", "Hunter", "Warlord"] },
+        { "id": "armour", "label": { "en": "Armour", "ch": "护甲值" }, "condition": "Armour", "type": "number" },
+        { "id": "evasion", "label": { "en": "Evasion", "ch": "闪避值" }, "condition": "Evasion", "type": "number" },
+        { "id": "energy_shield", "label": { "en": "Energy Shield", "ch": "能量护盾" }, "condition": "EnergyShield", "type": "number" },
+        { "id": "base_percentile", "label": { "en": "Base Percentile", "ch": "基础防御百分比" }, "condition": "BaseDefencePercentile", "type": "number" }
+      ]
+    },
+    {
+      "id": "maps",
+      "name": { "en": "Maps", "ch": "地图" },
+      "aliases": ["maps", "map fragments", "fragment", "breachstone", "invitation", "scarab"],
+      "templates": [
+        { "id": "map_tier", "label": { "en": "Map Tier", "ch": "地图阶级" }, "condition": "MapTier", "type": "number" },
+        { "id": "blighted", "label": { "en": "Blighted", "ch": "菌潮地图" }, "condition": "BlightedMap", "type": "bool" },
+        { "id": "uber_blighted", "label": { "en": "Blight-ravaged", "ch": "菌潮灭绝地图" }, "condition": "BlightRavagedMap", "type": "bool" }
+      ]
+    }
+  ]
+}

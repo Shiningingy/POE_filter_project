@@ -1,0 +1,21 @@
+{
+  "Warstaves": {
+    "_meta": {
+      "theme_category": "Warstaves",
+      "localization": {
+        "en": "Warstaves",
+        "ch": "战杖"
+      }
+    },
+    "Tier 1 Warstaves": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

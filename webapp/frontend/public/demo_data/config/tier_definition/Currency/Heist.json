@@ -1,0 +1,21 @@
+{
+  "Heist": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Heist Currency",
+        "ch": "夺宝奇兵通货"
+      }
+    },
+    "Tier 1 Heist": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

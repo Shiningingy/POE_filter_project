@@ -1,0 +1,21 @@
+{
+  "Harbinger": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Harbinger",
+        "ch": "先驱"
+      }
+    },
+    "Tier 1 Harbinger": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

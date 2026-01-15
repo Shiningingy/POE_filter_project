@@ -1,0 +1,21 @@
+{
+  "Amulets": {
+    "_meta": {
+      "theme_category": "Amulets",
+      "localization": {
+        "en": "Amulets",
+        "ch": "项链"
+      }
+    },
+    "Tier 1 Amulets": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}

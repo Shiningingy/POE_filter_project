@@ -1,0 +1,21 @@
+{
+  "Trinkets": {
+    "_meta": {
+      "theme_category": "Trinkets",
+      "localization": {
+        "en": "Trinkets",
+        "ch": "饰品"
+      }
+    },
+    "Tier 1 Trinkets": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      }
+    }
+  }
+}
