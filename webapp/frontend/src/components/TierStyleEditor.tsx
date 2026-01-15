@@ -28,6 +28,7 @@ interface TierStyleEditorProps {
 }
 
 const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
+  // Component to edit tier styles
   tierName,
   style,
   visibility,
@@ -57,7 +58,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     BackgroundColor: getAlpha(style.BackgroundColor),
   });
 
-  const [tempSound, setTempSound] = useState({
+  const [tempSound, setTempSound] = useState<{
     type: "default" | "sharket" | "custom";
     file: string;
     vol: number;
