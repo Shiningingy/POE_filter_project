@@ -20,9 +20,9 @@ interface TierStyleEditorProps {
   onChange: (newStyle: StyleProps, newVisibility: boolean) => void;
   language: Language;
   onInspect: () => void;
-  onCopy: () => void; // Unused but kept for interface compatibility if needed
-  onPaste: () => void; // Unused
-  canPaste: boolean;   // Unused
+  onCopy: () => void;
+  onPaste: () => void;
+  canPaste: boolean;
   onReset?: () => void;
   viewerBackground: string;
 }
@@ -330,7 +330,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   return (
     <div
       className={`VisualEditor_Container tier-style-editor ${ 
-        visibility ? "hidden-tier" : ""
+        visibility ? "hidden-tier" : "" 
       }`}
       style={{ backgroundImage: `url('/assets/item_bg/${viewerBackground}')` }}
       onClick={onInspect}
@@ -415,7 +415,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                     onChange={(e) =>
                       setTempSound({ ...tempSound, file: e.target.value })
                     }
-                    placeholder="C:\path\to\sound.mp3"
+                    placeholder="C:\\path\\to\\sound.mp3"
                   />
                 </div>
               )}
