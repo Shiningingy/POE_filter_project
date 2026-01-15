@@ -58,6 +58,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     BackgroundColor: getAlpha(style.BackgroundColor),
   });
 
+  // Interface for sound state to avoid TS parsing issues
   interface TempSoundState {
     type: "default" | "sharket" | "custom";
     file: string;
