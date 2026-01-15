@@ -103,6 +103,13 @@ def main():
     if (DATA_DIR / "tier_definition").exists():
         shutil.copytree(DATA_DIR / "tier_definition", DEMO_DATA_DIR / "config" / "tier_definition", dirs_exist_ok=True)
 
+    # 7. Actual MP3 Files
+    print("Copying actual sound files...")
+    if SOUND_DIR.exists():
+        # Copy to demo_data/sounds/ so they are available statically
+        shutil.copytree(SOUND_DIR / "Default", DEMO_DATA_DIR / "sounds" / "Default", dirs_exist_ok=True)
+        shutil.copytree(SOUND_DIR / "Sharket掉落音效", DEMO_DATA_DIR / "sounds" / "Sharket掉落音效", dirs_exist_ok=True)
+
     print("Demo setup complete.")
 
 if __name__ == "__main__":
