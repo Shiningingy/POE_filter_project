@@ -5,7 +5,14 @@
       "localization": {
         "en": "Harvest",
         "ch": "庄园"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Harvest",
+        "Tier 1 Harvest",
+        "Tier 2 Harvest",
+        "Tier 3 Harvest",
+        "Tier Hide Harvest"
+      ]
     },
     "Tier 1 Harvest": {
       "hideable": false,
@@ -62,6 +69,21 @@
       "localization": {
         "en": "Hide",
         "ch": "隐藏"
+      }
+    },
+    "Tier 0 Harvest": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: Absolute Top",
+        "ch": "T0: 顶级/核心"
       }
     }
   }

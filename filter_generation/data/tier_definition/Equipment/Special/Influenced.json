@@ -19,7 +19,8 @@
       "localization": {
         "en": "T0: iLvl 86+",
         "ch": "T0: 顶级势力底材"
-      }
+      },
+      "show_in_editor": false
     },
     "Tier 1 Influenced": {
       "hideable": false,

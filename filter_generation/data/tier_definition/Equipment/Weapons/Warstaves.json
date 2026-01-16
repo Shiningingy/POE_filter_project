@@ -19,7 +19,8 @@
       "localization": {
         "en": "T0: i83+ Top Warstaves",
         "ch": "T0: 顶级战杖(83+)"
-      }
+      },
+      "show_in_editor": false
     },
     "Tier 1 Warstaves": {
       "hideable": false,

@@ -19,7 +19,8 @@
       "localization": {
         "en": "T0: i83+ Top Wands",
         "ch": "T0: 顶级法杖(83+)"
-      }
+      },
+      "show_in_editor": false
     },
     "Tier 1 Wands": {
       "hideable": false,

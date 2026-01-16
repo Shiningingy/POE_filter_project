@@ -33,9 +33,7 @@
     "theme_category": "Divination Cards"
   },
   "mapping": {
-    "House of Mirrors": [
-      "Tier 0 Cards"
-    ],
+    "House of Mirrors": "Tier 0 Cards",
     "The Doctor": "Tier 0 Cards",
     "The Demon": "Tier 0 Cards",
     "The Fiend": "Tier 0 Cards",

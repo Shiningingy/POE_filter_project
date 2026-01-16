@@ -19,7 +19,8 @@
       "localization": {
         "en": "T0: i86 Top Claws",
         "ch": "T0: 顶级爪(86+)"
-      }
+      },
+      "show_in_editor": false
     },
     "Tier 1 Claws": {
       "hideable": false,

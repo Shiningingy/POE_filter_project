@@ -19,7 +19,8 @@
       "localization": {
         "en": "T0: Top Synth",
         "ch": "T0: 顶级合成底材"
-      }
+      },
+      "show_in_editor": false
     },
     "Tier 1 Synthesised": {
       "hideable": false,

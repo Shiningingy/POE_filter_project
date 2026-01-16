@@ -19,7 +19,8 @@
       "localization": {
         "en": "T0: i83+ Top Staves",
         "ch": "T0: 顶级长杖(83+)"
-      }
+      },
+      "show_in_editor": false
     },
     "Tier 1 Staves": {
       "hideable": false,

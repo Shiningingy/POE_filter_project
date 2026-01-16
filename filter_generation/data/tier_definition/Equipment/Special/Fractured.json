@@ -19,7 +19,8 @@
       "localization": {
         "en": "T0: Top Fractured",
         "ch": "T0: 顶级破碎底材"
-      }
+      },
+      "show_in_editor": false
     },
     "Tier 1 Fractured": {
       "hideable": false,

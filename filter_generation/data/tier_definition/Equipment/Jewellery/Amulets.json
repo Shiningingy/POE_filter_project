@@ -19,7 +19,8 @@
       "localization": {
         "en": "T0: i86 Top Bases",
         "ch": "T0: 顶级底材(86+)"
-      }
+      },
+      "show_in_editor": false
     },
     "Tier 1 Amulets": {
       "hideable": false,

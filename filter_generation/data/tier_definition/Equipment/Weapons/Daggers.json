@@ -19,7 +19,8 @@
       "localization": {
         "en": "T0: i86 Top Daggers",
         "ch": "T0: 顶级匕首(86+)"
-      }
+      },
+      "show_in_editor": false
     },
     "Tier 1 Daggers": {
       "hideable": false,

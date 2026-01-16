@@ -19,7 +19,8 @@
       "localization": {
         "en": "T0: i83+ Top Bases",
         "ch": "T0: 顶级双手锤(83+)"
-      }
+      },
+      "show_in_editor": false
     },
     "Tier 1 Two Hand Maces": {
       "hideable": false,

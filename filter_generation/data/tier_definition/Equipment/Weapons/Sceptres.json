@@ -19,7 +19,8 @@
       "localization": {
         "en": "T0: i83+ Top Sceptres",
         "ch": "T0: 顶级短杖(83+)"
-      }
+      },
+      "show_in_editor": false
     },
     "Tier 1 Sceptres": {
       "hideable": false,

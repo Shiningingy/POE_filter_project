@@ -9,6 +9,7 @@
     },
     "Tier 0 Cards": {
       "hideable": false,
+      "show_in_editor": false,
       "theme": {
         "Tier": 0
       },

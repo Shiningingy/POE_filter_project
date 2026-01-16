@@ -19,7 +19,8 @@
       "localization": {
         "en": "T0: i86 Top Rune Daggers",
         "ch": "T0: 顶级符文匕首(86+)"
-      }
+      },
+      "show_in_editor": false
     },
     "Tier 1 Rune Daggers": {
       "hideable": false,
