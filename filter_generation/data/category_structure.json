@@ -408,8 +408,8 @@
             },
             {
               "path": "Equipment/Weapons/Warstaves.json",
-              "tier_path": "tier_definition/Equipment/Warstaves.json",
-              "mapping_path": "base_mapping/Equipment/Warstaves.json",
+              "tier_path": "tier_definition/Equipment/Weapons/Warstaves.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/Warstaves.json",
               "target_category": "Warstaves",
               "localization": {
                 "en": "Warstaves",
