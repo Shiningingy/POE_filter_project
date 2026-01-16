@@ -31,7 +31,9 @@
         "Legion Sword Piece": "军团长剑(碎片)",
         "Imperfect Dancing Sword": "残次舞动之剑",
         "Dancing Sword": "舞动之剑",
-        "Perfect Dancing Sword": "完美舞动之剑"
+        "Perfect Dancing Sword": "完美舞动之剑",
+        "Rusted Spike": "锈刺剑",
+        "Maligaro's Spike": "马雷格罗的尖刺"
       }
     },
     "item_class": {
@@ -71,7 +73,9 @@
     "Legion Sword Piece": "Tier 1 One Hand Swords",
     "Imperfect Dancing Sword": "Tier 1 One Hand Swords",
     "Dancing Sword": "Tier 1 One Hand Swords",
-    "Perfect Dancing Sword": "Tier 1 One Hand Swords"
+    "Perfect Dancing Sword": "Tier 1 One Hand Swords",
+    "Rusted Spike": "Tier 1 One Hand Swords",
+    "Maligaro's Spike": "Tier 1 One Hand Swords"
   },
   "rules": [
     {

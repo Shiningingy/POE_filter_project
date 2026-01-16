@@ -70,7 +70,12 @@
         "Basic Disguise Kit": "基础易容工具",
         "Theatre Disguise Kit": "剧院易容工具",
         "Espionage Disguise Kit": "间谍易容工具",
-        "Regicide Disguise Kit": "弑君易容工具"
+        "Regicide Disguise Kit": "弑君易容工具",
+        "Preventative Contract": "预防契约",
+        "Familial Contract": "家族契约",
+        "Vigilante Contract": "义警契约",
+        "Naval Contract": "海军契约",
+        "Vengeful Contract": "复仇契约"
       }
     },
     "item_class": {
@@ -147,7 +152,12 @@
     "Basic Disguise Kit": "Tier 1 Heist",
     "Theatre Disguise Kit": "Tier 1 Heist",
     "Espionage Disguise Kit": "Tier 1 Heist",
-    "Regicide Disguise Kit": "Tier 1 Heist"
+    "Regicide Disguise Kit": "Tier 1 Heist",
+    "Preventative Contract": "Tier 1 Heist",
+    "Familial Contract": "Tier 1 Heist",
+    "Vigilante Contract": "Tier 1 Heist",
+    "Naval Contract": "Tier 1 Heist",
+    "Vengeful Contract": "Tier 1 Heist"
   },
   "rules": []
 }

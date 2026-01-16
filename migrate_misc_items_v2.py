@@ -44,13 +44,24 @@ def migrate():
         
         if "Incubator" in name: return targets["Incubators"]
         
-        if "Rapier" in name or "Foil" in name or "Smallsword" in name or "Estoc" in name or "Saber" in name or "Cutlass" in name or "Blade" in name or "Sword" in name:
+        # Weapons
+        if "Rapier" in name or "Foil" in name or "Smallsword" in name or "Estoc" in name or "Saber" in name or "Cutlass" in name or "Blade" in name or "Sword" in name or "Spike" in name:
              return targets["One Hand Swords"] # Simplification
+        
+        if "Dagger" in name: return targets["Rune Daggers"]
              
         if "Breachstone" in name: return targets["Breach"]
         if "Delirium Orb" in name: return targets["Delirium Orbs"]
         if "Resonator" in name or "Fossil" in name: return targets["Fossils"]
         if "Oil" in name or "Tainted Oil" in name: return targets["Oils"]
+        
+        # Quest / Maps
+        if "Piece" in name or "Key" in name or "Relic" in name or "Invitation" in name or "Voidstone" in name or "Memory" in name or "Tome" in name or "Research" in name or "Tablet" in name or "Aspect" in name:
+             return BASE_DIR / "Quest/Quest Items.json" # Default to Quest
+             
+        # Heist
+        if "Contract" in name or "Blueprint" in name or "Marker" in name or "Coin" in name:
+             return BASE_DIR / "Currency/Heist.json"
 
         return None
 
@@ -60,6 +71,10 @@ def migrate():
     for item, tier in misc_data.get("mapping", {}).items():
         target_file = get_target(item)
         if target_file and target_file != misc_path:
+            # Load target on demand if not preloaded (for new defaults)
+            if target_file not in target_data:
+                 target_data[target_file] = load_json(target_file)
+            
             # Add to target
             target_json = target_data[target_file]
             
