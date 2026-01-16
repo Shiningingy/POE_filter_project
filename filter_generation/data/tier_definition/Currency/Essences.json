@@ -5,7 +5,14 @@
       "localization": {
         "en": "Essences",
         "ch": "精华"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Essences",
+        "Tier 1 Essences",
+        "Tier 2 Essences",
+        "Tier 3 Essences",
+        "Tier Hide Essences"
+      ]
     },
     "Tier 1 Essences": {
       "hideable": false,

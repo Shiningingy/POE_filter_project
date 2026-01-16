@@ -5,7 +5,15 @@
       "localization": {
         "en": "Boots",
         "ch": "鞋子"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Boots",
+        "Tier 1 Boots",
+        "Tier 2 Boots",
+        "Tier 3 Boots",
+        "Tier 4 Boots",
+        "Tier Hide Boots"
+      ]
     },
     "Tier 0 Boots": {
       "hideable": false,

@@ -5,7 +5,15 @@
       "localization": {
         "en": "Claws",
         "ch": "爪"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Claws",
+        "Tier 1 Claws",
+        "Tier 2 Claws",
+        "Tier 3 Claws",
+        "Tier 4 Claws",
+        "Tier Hide Claws"
+      ]
     },
     "Tier 0 Claws": {
       "hideable": false,

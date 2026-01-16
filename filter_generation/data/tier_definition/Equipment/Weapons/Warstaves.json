@@ -5,7 +5,12 @@
       "localization": {
         "en": "Warstaves",
         "ch": "战杖"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Warstaves",
+        "Tier 1 Warstaves",
+        "Tier Hide Warstaves"
+      ]
     },
     "Tier 0 Warstaves": {
       "hideable": false,

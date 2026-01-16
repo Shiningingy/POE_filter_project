@@ -5,7 +5,11 @@
       "localization": {
         "en": "Heist Currency",
         "ch": "夺宝奇兵通货"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Heist",
+        "Tier 1 Heist"
+      ]
     },
     "Tier 1 Heist": {
       "hideable": false,

@@ -5,7 +5,15 @@
       "localization": {
         "en": "Shields",
         "ch": "盾"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Shields",
+        "Tier 1 Shields",
+        "Tier 2 Shields",
+        "Tier 3 Shields",
+        "Tier 4 Shields",
+        "Tier Hide Shields"
+      ]
     },
     "Tier 0 Shields": {
       "hideable": false,

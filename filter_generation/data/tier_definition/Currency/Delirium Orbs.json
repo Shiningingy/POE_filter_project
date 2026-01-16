@@ -5,7 +5,13 @@
       "localization": {
         "en": "Delirium Orbs",
         "ch": "雾魇宝珠"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Delirium Orbs",
+        "Tier 1 Delirium Orbs",
+        "Tier 2 Delirium Orbs",
+        "Tier Hide Delirium Orbs"
+      ]
     },
     "Tier 1 Delirium Orbs": {
       "hideable": false,

@@ -5,7 +5,12 @@
       "localization": {
         "en": "Two Hand Swords",
         "ch": "双手剑"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Two Hand Swords",
+        "Tier 1 Two Hand Swords",
+        "Tier Hide Two Hand Swords"
+      ]
     },
     "Tier 0 Two Hand Swords": {
       "hideable": false,

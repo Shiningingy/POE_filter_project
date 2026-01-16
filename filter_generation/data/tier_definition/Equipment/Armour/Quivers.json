@@ -5,7 +5,14 @@
       "localization": {
         "en": "Quivers",
         "ch": "箭袋"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Quivers",
+        "Tier 1 Quivers",
+        "Tier 2 Quivers",
+        "Tier 3 Quivers",
+        "Tier Hide Quivers"
+      ]
     },
     "Tier 0 Quivers": {
       "hideable": false,

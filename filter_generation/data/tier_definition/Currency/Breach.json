@@ -5,7 +5,14 @@
       "localization": {
         "en": "Breach",
         "ch": "裂隙"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Breach",
+        "Tier 1 Breach",
+        "Tier 2 Breach",
+        "Tier 3 Breach",
+        "Tier Hide Breach"
+      ]
     },
     "Tier 0 Breach": {
       "hideable": false,

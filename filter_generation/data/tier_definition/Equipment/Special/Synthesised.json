@@ -5,7 +5,12 @@
       "localization": {
         "en": "Synthesised",
         "ch": "合成装备"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Synthesised",
+        "Tier 1 Synthesised",
+        "Tier Hide Synthesised"
+      ]
     },
     "Tier 0 Synthesised": {
       "hideable": false,

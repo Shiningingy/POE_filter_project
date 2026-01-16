@@ -5,7 +5,13 @@
       "localization": {
         "en": "One Hand Axes",
         "ch": "单手斧"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Axes",
+        "Tier 1 Axes",
+        "Tier 2 Axes",
+        "Tier Hide Axes"
+      ]
     },
     "Tier 0 Axes": {
       "hideable": false,

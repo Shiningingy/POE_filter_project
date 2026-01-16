@@ -5,7 +5,14 @@
       "localization": {
         "en": "Daggers",
         "ch": "匕首"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Daggers",
+        "Tier 1 Daggers",
+        "Tier 2 Daggers",
+        "Tier 3 Daggers",
+        "Tier Hide Daggers"
+      ]
     },
     "Tier 0 Daggers": {
       "hideable": false,

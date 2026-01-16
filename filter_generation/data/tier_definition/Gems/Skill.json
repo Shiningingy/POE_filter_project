@@ -5,7 +5,11 @@
       "localization": {
         "en": "Skill",
         "ch": "技能宝石"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Skill",
+        "Tier 1 Skill"
+      ]
     },
     "Tier 1 Skill": {
       "hideable": false,

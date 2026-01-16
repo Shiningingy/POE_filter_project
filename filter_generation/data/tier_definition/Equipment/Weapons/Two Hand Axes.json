@@ -5,7 +5,12 @@
       "localization": {
         "en": "Two Hand Axes",
         "ch": "双手斧"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Two Hand Axes",
+        "Tier 1 Two Hand Axes",
+        "Tier Hide Two Hand Axes"
+      ]
     },
     "Tier 0 Two Hand Axes": {
       "hideable": false,

@@ -5,7 +5,11 @@
       "localization": {
         "en": "Base Maps",
         "ch": "常规地图"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Base Maps",
+        "Tier 1 Base Maps"
+      ]
     },
     "Tier 1 Base Maps": {
       "hideable": false,

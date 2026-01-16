@@ -5,7 +5,14 @@
       "localization": {
         "en": "Rings",
         "ch": "戒指"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Rings",
+        "Tier 1 Rings",
+        "Tier 2 Rings",
+        "Tier 3 Rings",
+        "Tier Hide Rings"
+      ]
     },
     "Tier 0 Rings": {
       "hideable": false,

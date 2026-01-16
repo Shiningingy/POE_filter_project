@@ -5,7 +5,15 @@
       "localization": {
         "en": "Body Armours",
         "ch": "胸甲"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Body Armours",
+        "Tier 1 Body Armours",
+        "Tier 2 Body Armours",
+        "Tier 3 Body Armours",
+        "Tier 4 Body Armours",
+        "Tier Hide Body Armours"
+      ]
     },
     "Tier 0 Body Armours": {
       "hideable": false,

@@ -5,7 +5,15 @@
       "localization": {
         "en": "Cards",
         "ch": "命运卡"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Cards",
+        "Tier 1 Cards",
+        "Tier 2 Cards",
+        "Tier 3 Cards",
+        "Tier 4 Cards",
+        "Tier Hide Cards"
+      ]
     },
     "Tier 0 Cards": {
       "hideable": false,

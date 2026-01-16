@@ -5,7 +5,12 @@
       "localization": {
         "en": "Sceptres",
         "ch": "短杖"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Sceptres",
+        "Tier 1 Sceptres",
+        "Tier Hide Sceptres"
+      ]
     },
     "Tier 0 Sceptres": {
       "hideable": false,

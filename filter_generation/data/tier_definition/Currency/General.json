@@ -5,7 +5,16 @@
       "localization": {
         "en": "General",
         "ch": "通用"
-      }
+      },
+      "tier_order": [
+        "Tier 0 General",
+        "Tier 1 General",
+        "Tier 2 General",
+        "Tier 3 General",
+        "Tier 4 General",
+        "Tier 5 General",
+        "Tier Hide General"
+      ]
     },
     "Tier 0 General": {
       "hideable": false,

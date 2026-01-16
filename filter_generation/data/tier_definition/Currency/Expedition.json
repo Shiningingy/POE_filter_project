@@ -5,7 +5,11 @@
       "localization": {
         "en": "Expedition",
         "ch": "探险"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Expedition",
+        "Tier 1 Expedition"
+      ]
     },
     "Tier 1 Expedition": {
       "hideable": false,

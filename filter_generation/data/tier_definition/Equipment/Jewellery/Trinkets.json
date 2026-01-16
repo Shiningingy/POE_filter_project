@@ -5,7 +5,11 @@
       "localization": {
         "en": "Trinkets",
         "ch": "饰品"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Trinkets",
+        "Tier 1 Trinkets"
+      ]
     },
     "Tier 1 Trinkets": {
       "hideable": false,

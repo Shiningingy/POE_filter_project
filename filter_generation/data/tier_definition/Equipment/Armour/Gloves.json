@@ -5,7 +5,15 @@
       "localization": {
         "en": "Gloves",
         "ch": "手套"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Gloves",
+        "Tier 1 Gloves",
+        "Tier 2 Gloves",
+        "Tier 3 Gloves",
+        "Tier 4 Gloves",
+        "Tier Hide Gloves"
+      ]
     },
     "Tier 0 Gloves": {
       "hideable": false,

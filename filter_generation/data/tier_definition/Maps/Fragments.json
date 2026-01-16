@@ -5,7 +5,15 @@
       "localization": {
         "en": "Fragments",
         "ch": "碎片"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Fragments",
+        "Tier 1 Fragments",
+        "Tier 2 Fragments",
+        "Tier 3 Fragments",
+        "Tier 4 Fragments",
+        "Tier Hide Fragments"
+      ]
     },
     "Tier 1 Fragments": {
       "hideable": false,

@@ -5,7 +5,12 @@
       "localization": {
         "en": "Two Hand Maces",
         "ch": "双手锤"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Two Hand Maces",
+        "Tier 1 Two Hand Maces",
+        "Tier Hide Two Hand Maces"
+      ]
     },
     "Tier 0 Two Hand Maces": {
       "hideable": false,

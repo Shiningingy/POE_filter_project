@@ -5,7 +5,13 @@
       "localization": {
         "en": "Incubators",
         "ch": "孕育石"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Incubators",
+        "Tier 1 Incubators",
+        "Tier 2 Incubators",
+        "Tier Hide Incubators"
+      ]
     },
     "Tier 1 Incubators": {
       "hideable": false,

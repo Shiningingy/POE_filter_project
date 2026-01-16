@@ -5,7 +5,11 @@
       "localization": {
         "en": "Support",
         "ch": "辅助宝石"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Support",
+        "Tier 1 Support"
+      ]
     },
     "Tier 1 Support": {
       "hideable": false,

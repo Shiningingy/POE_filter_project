@@ -5,7 +5,11 @@
       "localization": {
         "en": "General",
         "ch": "通用"
-      }
+      },
+      "tier_order": [
+        "Tier 0 General",
+        "Tier 1 General"
+      ]
     },
     "Tier 1 General": {
       "hideable": false,

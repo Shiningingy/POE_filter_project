@@ -5,7 +5,12 @@
       "localization": {
         "en": "One Hand Swords",
         "ch": "单手剑"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Swords",
+        "Tier 1 Swords",
+        "Tier Hide Swords"
+      ]
     },
     "Tier 0 Swords": {
       "hideable": false,

@@ -5,7 +5,13 @@
       "localization": {
         "en": "Influenced",
         "ch": "势力装备"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Influenced",
+        "Tier 1 Influenced",
+        "Tier 2 Influenced",
+        "Tier Hide Influenced"
+      ]
     },
     "Tier 0 Influenced": {
       "hideable": false,

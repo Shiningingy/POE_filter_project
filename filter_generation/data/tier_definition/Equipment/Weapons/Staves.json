@@ -5,7 +5,12 @@
       "localization": {
         "en": "Staves",
         "ch": "长杖"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Staves",
+        "Tier 1 Staves",
+        "Tier Hide Staves"
+      ]
     },
     "Tier 0 Staves": {
       "hideable": false,

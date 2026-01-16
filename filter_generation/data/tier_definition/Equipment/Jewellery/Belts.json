@@ -5,7 +5,14 @@
       "localization": {
         "en": "Belts",
         "ch": "腰带"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Belts",
+        "Tier 1 Belts",
+        "Tier 2 Belts",
+        "Tier 3 Belts",
+        "Tier Hide Belts"
+      ]
     },
     "Tier 0 Belts": {
       "hideable": false,

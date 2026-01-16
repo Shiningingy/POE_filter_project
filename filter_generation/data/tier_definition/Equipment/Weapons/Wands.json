@@ -5,7 +5,12 @@
       "localization": {
         "en": "Wands",
         "ch": "法杖"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Wands",
+        "Tier 1 Wands",
+        "Tier Hide Wands"
+      ]
     },
     "Tier 0 Wands": {
       "hideable": false,

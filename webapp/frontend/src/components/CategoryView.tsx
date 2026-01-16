@@ -140,6 +140,14 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       onConfigContentChange(JSON.stringify(newConfig, null, 2));
   };
 
+  const getTierOrderScore = (key: string) => {
+      if (key.startsWith('CustomTier')) return null;
+      if (key.includes('Tier 0')) return 0;
+      if (key.includes('Hide')) return 9;
+      const match = key.match(/^Tier (\d+)/);
+      return match ? parseInt(match[1]) : null; // null for custom
+  };
+
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
     if (!activeCategoryKey || !activeCategoryData) return;
@@ -147,8 +155,38 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         const oldIndex = sortedTierKeys.indexOf(active.id as string);
         const newIndex = sortedTierKeys.indexOf(over?.id as string);
         
-        const newOrder = arrayMove(sortedTierKeys, oldIndex, newIndex);
+        let newOrder = arrayMove(sortedTierKeys, oldIndex, newIndex);
         
+        // 1. Warning if custom tier ends up above Tier 0 (and it wasn't before)
+        const t0IdxOriginal = sortedTierKeys.findIndex(key => getTierOrderScore(key) === 0);
+        const activeIsCustom = getTierOrderScore(active.id as string) === null;
+        
+        if (activeIsCustom && oldIndex > t0IdxOriginal && newIndex <= t0IdxOriginal) {
+             if (!window.confirm(t.t0OrderWarning)) return;
+        }
+
+        // 2. ENFORCE RELATIVE POSITIONING FOR PREDEFINED TIERS
+        // Identify indices where predefined tiers exist in the new order
+        const predefinedIndices: number[] = [];
+        const predefinedKeys: string[] = [];
+        
+        newOrder.forEach((key, idx) => {
+            if (getTierOrderScore(key) !== null) {
+                predefinedIndices.push(idx);
+                predefinedKeys.push(key);
+            }
+        });
+
+        // Sort the predefined keys by their logical score (0, 1, 2...)
+        const correctlySortedPredefined = [...predefinedKeys].sort((a, b) => {
+            return (getTierOrderScore(a) ?? 0) - (getTierOrderScore(b) ?? 0);
+        });
+
+        // Re-insert the correctly sorted keys back into the identified positions
+        predefinedIndices.forEach((pos, i) => {
+            newOrder[pos] = correctlySortedPredefined[i];
+        });
+
         const newConfig = JSON.parse(JSON.stringify(parsedConfig));
         if (!newConfig[activeCategoryKey]._meta) newConfig[activeCategoryKey]._meta = {};
         newConfig[activeCategoryKey]._meta.tier_order = newOrder;
@@ -291,6 +329,13 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     }
     
     const insertIdx = position === 'before' ? index : index + 1;
+    
+    // Warning if inserting before T0
+    const targetKey = sortedTierKeys[index];
+    if (getTierOrderScore(targetKey) === 0 && position === 'before') {
+        if (!window.confirm(t.t0InsertWarning)) return;
+    }
+
     newOrder.splice(insertIdx, 0, newTierKey);
     
     categoryData._meta.tier_order = newOrder;

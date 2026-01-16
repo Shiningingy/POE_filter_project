@@ -5,7 +5,13 @@
       "localization": {
         "en": "Rune Daggers",
         "ch": "符文匕首"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Rune Daggers",
+        "Tier 1 Rune Daggers",
+        "Tier 2 Rune Daggers",
+        "Tier Hide Rune Daggers"
+      ]
     },
     "Tier 0 Rune Daggers": {
       "hideable": false,

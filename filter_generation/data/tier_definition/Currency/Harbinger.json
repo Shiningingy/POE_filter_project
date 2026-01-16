@@ -5,7 +5,11 @@
       "localization": {
         "en": "Harbinger",
         "ch": "先驱"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Harbinger",
+        "Tier 1 Harbinger"
+      ]
     },
     "Tier 1 Harbinger": {
       "hideable": false,

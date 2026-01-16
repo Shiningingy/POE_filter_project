@@ -5,7 +5,12 @@
       "localization": {
         "en": "One Hand Maces",
         "ch": "单手锤"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Maces",
+        "Tier 1 Maces",
+        "Tier Hide Maces"
+      ]
     },
     "Tier 0 Maces": {
       "hideable": false,

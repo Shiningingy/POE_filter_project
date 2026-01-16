@@ -5,7 +5,13 @@
       "localization": {
         "en": "Fractured",
         "ch": "破碎装备"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Fractured",
+        "Tier 1 Fractured",
+        "Tier 2 Fractured",
+        "Tier Hide Fractured"
+      ]
     },
     "Tier 0 Fractured": {
       "hideable": false,

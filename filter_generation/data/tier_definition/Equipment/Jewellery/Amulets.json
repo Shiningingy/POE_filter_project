@@ -5,7 +5,14 @@
       "localization": {
         "en": "Amulets",
         "ch": "项链"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Amulets",
+        "Tier 1 Amulets",
+        "Tier 2 Amulets",
+        "Tier 3 Amulets",
+        "Tier Hide Amulets"
+      ]
     },
     "Tier 0 Amulets": {
       "hideable": false,

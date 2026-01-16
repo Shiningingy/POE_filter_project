@@ -5,7 +5,15 @@
       "localization": {
         "en": "Bows",
         "ch": "弓"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Bows",
+        "Tier 1 Bows",
+        "Tier 2 Bows",
+        "Tier 3 Bows",
+        "Tier 4 Bows",
+        "Tier Hide Bows"
+      ]
     },
     "Tier 0 Bows": {
       "hideable": false,

@@ -5,7 +5,14 @@
       "localization": {
         "en": "Oils",
         "ch": "圣油"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Oils",
+        "Tier 1 Oils",
+        "Tier 2 Oils",
+        "Tier 3 Oils",
+        "Tier Hide Oils"
+      ]
     },
     "Tier 1 Oils": {
       "hideable": false,

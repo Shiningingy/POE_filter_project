@@ -5,7 +5,13 @@
       "localization": {
         "en": "Fossils",
         "ch": "化石"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Fossils",
+        "Tier 1 Fossils",
+        "Tier 2 Fossils",
+        "Tier Hide Fossils"
+      ]
     },
     "Tier 1 Fossils": {
       "hideable": false,

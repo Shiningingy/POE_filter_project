@@ -5,7 +5,15 @@
       "localization": {
         "en": "Helmets",
         "ch": "头部"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Helmets",
+        "Tier 1 Helmets",
+        "Tier 2 Helmets",
+        "Tier 3 Helmets",
+        "Tier 4 Helmets",
+        "Tier Hide Helmets"
+      ]
     },
     "Tier 0 Helmets": {
       "hideable": false,
