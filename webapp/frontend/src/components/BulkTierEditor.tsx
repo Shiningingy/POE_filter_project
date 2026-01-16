@@ -20,6 +20,7 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
+import ContextMenu from './ContextMenu';
 
 interface Item {
   name: string;
@@ -74,7 +75,7 @@ const CLASS_TRANSLATIONS: Record<string, string> = {
     "Divination Card": "命运卡"
 };
 
-const SortableItem = ({ id, item, color, isStaged, language }: { id: string, item: Item, color: string, isStaged: boolean, language: Language }) => {
+const SortableItem = ({ id, item, color, isStaged, language, onContextMenu }: { id: string, item: Item, color: string, isStaged: boolean, language: Language, onContextMenu: (e: React.MouseEvent) => void }) => {
   const {
     attributes,
     listeners,
@@ -100,7 +101,7 @@ const SortableItem = ({ id, item, color, isStaged, language }: { id: string, ite
       {...attributes} 
       {...listeners} 
       className={`item-card ${isStaged ? 'staged' : ''}`}
-      onContextMenu={(e) => e.stopPropagation()} 
+      onContextMenu={onContextMenu} 
     >
       <div className="item-info">
         <div className="name-primary">{showChineseFirst ? item.name_ch : item.name}</div>
@@ -146,6 +147,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   // stagedChanges: itemName -> newTierKeyList
   const [stagedChanges, setStagedChanges] = useState<Record<string, string[]>>({});
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: Item, tierKey: string } | null>(null);
 
   const API_BASE_URL = 'http://localhost:8000';
 
@@ -214,7 +216,6 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
-    console.log("DragEnd Raw:", { activeId: active.id, overId: over?.id });
     setActiveId(null);
 
     if (!over) return;
@@ -222,8 +223,6 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     const activeIdStr = active.id as string;
     const itemName = activeIdStr.split('::')[0];
     const overIdStr = over.id as string;
-    
-    console.log("Drag Logic:", { activeIdStr, itemName, overIdStr });
 
     // Determine target tier
     let targetTier: string | null = null;
@@ -233,20 +232,16 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         targetTier = overIdStr === 'untiered' ? "" : overIdStr;
     } else {
         // Dropped on an item (ItemName::TierKey)
-        // Extract tier from the ID suffix
         const parts = overIdStr.split('::');
         if (parts.length > 1) {
             const tierKey = parts[1];
             targetTier = tierKey === 'untiered' ? "" : tierKey;
         } else {
-            // Fallback: look up item
+            // Fallback
             const overItemName = parts[0];
             const overItem = items.find(i => i.name === overItemName);
             if (overItem) {
                 const tier = stagedChanges[overItem.name] !== undefined ? stagedChanges[overItem.name] : overItem.current_tier;
-                // If tier is array, pick first? Or assume overwrite?
-                // This fallback path shouldn't be hit often with correct IDs.
-                // Just use first if array.
                 const tVal = Array.isArray(tier) ? tier[0] : tier;
                 targetTier = tVal || "";
             }
@@ -255,29 +250,22 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
 
     if (targetTier !== null) {
         const currentTiers = items.find(i => i.name === itemName)?.current_tier || [];
-        
-        // Determine effective list before this drag
         let effectiveTiers = stagedChanges[itemName] ? [...stagedChanges[itemName]] : [...currentTiers];
         
-        // Identify source tier from drag ID
         const sourceTier = activeIdStr.split('::')[1];
         const actualSource = sourceTier === 'untiered' ? "" : sourceTier;
         
-        // Remove source tier instance
-        // Note: If dragging from untiered, effectiveTiers is empty, so nothing to remove.
         const idx = effectiveTiers.indexOf(actualSource);
         if (idx > -1) {
             effectiveTiers.splice(idx, 1);
         }
         
-        // Add target tier
         if (targetTier !== "") {
             if (!effectiveTiers.includes(targetTier)) {
                 effectiveTiers.push(targetTier);
             }
         }
         
-        // Compare with original to decide if staged
         const sortedEffective = [...effectiveTiers].sort();
         const sortedOriginal = [...currentTiers].sort();
         
@@ -304,7 +292,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         return axios.post(`${API_BASE_URL}/api/update-item-tier`, {
           item_name: itemName,
           new_tiers: newTiers,
-          new_tier: "", // Ignored by backend when new_tiers is present
+          new_tier: "", 
           source_file: item?.source_file || defaultMappingPath || `${selectedClass}.json`
         });
       });
@@ -318,6 +306,41 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleItemRightClick = (e: React.MouseEvent, item: Item, tierKey: string) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setContextMenu({ x: e.clientX, y: e.clientY, item, tierKey });
+  };
+
+  const handleModifyTierList = (item: Item, action: 'remove' | 'add', tierKey: string) => {
+      const currentTiers = item.current_tier || [];
+      let effectiveTiers = stagedChanges[item.name] ? [...stagedChanges[item.name]] : [...currentTiers];
+      
+      const target = tierKey === 'untiered' ? "" : tierKey;
+
+      if (action === 'remove') {
+          const idx = effectiveTiers.indexOf(target);
+          if (idx > -1) effectiveTiers.splice(idx, 1);
+      } else {
+          if (target !== "" && !effectiveTiers.includes(target)) {
+              effectiveTiers.push(target);
+          }
+      }
+
+      const sortedEffective = [...effectiveTiers].sort();
+      const sortedOriginal = [...currentTiers].sort();
+      
+      if (JSON.stringify(sortedEffective) === JSON.stringify(sortedOriginal)) {
+          setStagedChanges(prev => {
+              const next = { ...prev };
+              delete next[item.name];
+              return next;
+          });
+      } else {
+          setStagedChanges(prev => ({ ...prev, [item.name]: effectiveTiers }));
+      }
   };
 
   const getTierColor = (tierKey: string | null | any) => {
@@ -405,6 +428,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                         color="white"
                         isStaged={stagedChanges[item.name] !== undefined}
                         language={language}
+                        onContextMenu={(e) => handleItemRightClick(e, item, 'untiered')}
                     />
                 ))}
             </TierColumn>
@@ -418,7 +442,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                     color={getTierColor(tier.key)}
                     items={columns[tier.key]}
                 >
-                        {columns[tier.key].map(item => (
+                    {columns[tier.key].map(item => (
                         <SortableItem 
                             key={`${item.name}-${tier.key}`} 
                             id={`${item.name}::${tier.key}`}
@@ -426,6 +450,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                             color={getTierColor(tier.key)}
                             isStaged={stagedChanges[item.name] !== undefined && !(item.current_tier || []).includes(tier.key)}
                             language={language}
+                            onContextMenu={(e) => handleItemRightClick(e, item, tier.key)}
                         />
                     ))}
                 </TierColumn>
@@ -444,6 +469,25 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
           </DndContext>
         </div>
       </div>
+
+      {contextMenu && (
+        <ContextMenu 
+            x={contextMenu.x} 
+            y={contextMenu.y} 
+            onClose={() => setContextMenu(null)}
+            options={[
+                { label: language === 'ch' ? "从此阶级移除" : "Remove from this Tier", onClick: () => handleModifyTierList(contextMenu.item, 'remove', contextMenu.tierKey) },
+                { divider: true, label: '', onClick: () => {} },
+                ...availableTiers
+                    .filter(t => t.key !== contextMenu.tierKey && !(stagedChanges[contextMenu.item.name] || contextMenu.item.current_tier || []).includes(t.key))
+                    .map(t => ({
+                        label: language === 'ch' ? `添加至 ${t.label}` : `Add to ${t.label}`,
+                        color: getTierColor(t.key),
+                        onClick: () => handleModifyTierList(contextMenu.item, 'add', t.key)
+                    }))
+            ]}
+        />
+      )}
 
       <style>{`
         .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 1000; }
@@ -492,4 +536,5 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     </div>
   );
 };
+
 export default BulkTierEditor;
