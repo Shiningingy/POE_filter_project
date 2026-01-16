@@ -381,8 +381,11 @@ const CategoryView: React.FC<CategoryViewProps> = ({
 
   const handleRulesChange = (categoryKey: string, newRules: any[], tierKey?: string, tierName?: string, themeCategory?: string) => {
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
-    if (!newConfig[categoryKey]._meta) newConfig[categoryKey]._meta = {};
-    newConfig[categoryKey]._meta.rules = newRules;
+    // Write to root "rules"
+    newConfig[categoryKey].rules = newRules;
+    // Clear old location if exists to avoid confusion
+    if (newConfig[categoryKey]._meta?.rules) delete newConfig[categoryKey]._meta.rules;
+    
     updateConfig(newConfig);
     
     if (tierKey && tierName && themeCategory) {
@@ -529,7 +532,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                             />
                             <RuleManager 
                                 tierKey={tierKey}
-                                allRules={activeCategoryData._meta?.rules || []}
+                                allRules={activeCategoryData.rules || activeCategoryData._meta?.rules || []}
                                 onGlobalRulesChange={(newRules) => handleRulesChange(activeCategoryKey, newRules, tierKey, displayTierName, themeCategory)}
                                 onRuleEdit={onRuleEdit}
                                 language={language}

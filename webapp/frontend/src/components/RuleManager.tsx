@@ -73,7 +73,8 @@ const RuleManager: React.FC<RuleManagerProps> = ({
       .map((r, i) => ({ r, i }))
       .filter(({ r }) => {
         if (r.overrides?.Tier) return r.overrides.Tier === tierKey;
-        return r.targets.some((target) => availableItems.includes(target));
+        // Fix: Check if any target string matches an item's name property
+        return r.targets.some((target) => availableItems.some(i => i.name === target));
       })
       .map((item) => item.i);
   }, [allRules, tierKey, availableItems]);
@@ -99,10 +100,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   }, [targetSearch]);
 
   const handleAddRule = () => {
-    if (tierRulesIndices.length > 0) {
-        alert(language === 'ch' ? '每个阶级目前仅限一个附加规则' : 'Only 1 additional rule per Tier is allowed for now.');
-        return;
-    }
+    // Limit removed to support sequential processing
     const newRule: Rule = {
       targets: [],
       conditions: {},
@@ -177,7 +175,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   return (
     <div className="tier-rule-manager">
       <div className="rule-header">
-        <span className="label">🛠 {t.rules} ({tierRulesIndices.length})</span>
+        <span className="label">🛠 {t.rules} ({tierRulesIndices.length}/{allRules.length})</span>
         <button className="mini-add-btn" onClick={handleAddRule}>+ {t.addRule}</button>
       </div>
 
@@ -467,6 +465,43 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                           ))}
                       </select>
                     </div>
+                  </div>
+
+                  <div className="section-divider">
+                    <span>{t.overrides || "Overrides"}</span>
+                  </div>
+                  
+                  <div className="overrides-section">
+                      <div className="field">
+                          <label>Target Tier</label>
+                          <input 
+                            type="text" 
+                            value={rule.overrides?.Tier || ""} 
+                            placeholder="e.g. Tier 0 General"
+                            onChange={(e) => {
+                                const newOverrides = { ...rule.overrides };
+                                if (e.target.value) newOverrides.Tier = e.target.value;
+                                else delete newOverrides.Tier;
+                                handleUpdateRule(globalIndex, { ...rule, overrides: newOverrides });
+                            }} 
+                          />
+                      </div>
+                      {/* Placeholder for other overrides */}
+                      <div className="field">
+                          <label>Raw Overrides (JSON)</label>
+                          <textarea 
+                            value={JSON.stringify(rule.overrides || {}, null, 2)}
+                            onChange={(e) => {
+                                try {
+                                    const parsed = JSON.parse(e.target.value);
+                                    handleUpdateRule(globalIndex, { ...rule, overrides: parsed });
+                                } catch (err) {
+                                    // Ignore parse errors while typing
+                                }
+                            }}
+                            style={{ height: '80px', fontFamily: 'monospace', fontSize: '0.8rem' }}
+                          />
+                      </div>
                   </div>
 
                   <div className="section-divider">

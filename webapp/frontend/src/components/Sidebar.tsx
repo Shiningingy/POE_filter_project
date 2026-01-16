@@ -45,7 +45,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/category-structure")
+      .get(`http://localhost:8000/api/category-structure?t=${new Date().getTime()}`)
       .then((res) => setStructure(res.data))
       .catch((err) => {
         console.error("Failed to load sidebar structure", err);

@@ -346,9 +346,16 @@ def get_items_by_class(item_class: str):
             with open(file_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 mapping = data.get("mapping", {})
+                rules = data.get("rules", [])
                 trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
-                for item_name, tier_val in mapping.items():
-                    # If item is not in requested_items but is in a mapping, we still want it!
+                
+                # Items specifically in this category
+                all_possible_items = set(mapping.keys())
+                for r in rules:
+                    all_possible_items.update(r.get("targets", []))
+
+                for item_name in all_possible_items:
+                    # If item is not in requested_items but is in a mapping/rule, we still want it!
                     if item_name not in item_data:
                         details = ITEM_DETAILS.get(item_name, {})
                         item_data[item_name] = {
@@ -360,12 +367,24 @@ def get_items_by_class(item_class: str):
                             "source_file": None
                         }
                     
-                    tiers = tier_val if isinstance(tier_val, list) else [tier_val]
                     current_list = item_data[item_name]["current_tier"]
-                    for t in tiers:
-                        if t not in current_list:
-                            current_list.append(t)
                     
+                    # Add base mapping tier
+                    if item_name in mapping:
+                        t_val = mapping[item_name]
+                        tiers = t_val if isinstance(t_val, list) else [t_val]
+                        for t in tiers:
+                            if t not in current_list:
+                                current_list.append(t)
+                    
+                    # Add rule tiers
+                    for r in rules:
+                        r_targets = r.get("targets", [])
+                        if not r_targets or item_name in r_targets:
+                            tier_override = r.get("overrides", {}).get("Tier")
+                            if tier_override and tier_override not in current_list:
+                                current_list.append(tier_override)
+
                     item_data[item_name]["source_file"] = file_path.relative_to(mappings_dir).as_posix()
                     if item_name in trans:
                         item_data[item_name]["name_ch"] = trans[item_name]
@@ -482,30 +501,46 @@ def get_items_by_tier(request: TierItemsRequest):
             with open(file_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 mapping = data.get("mapping", {})
+                rules = data.get("rules", [])
                 trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
                 
-                for item_name, tier_val in mapping.items():
+                # Evaluate all possible items in this file context
+                all_involved = set(mapping.keys())
+                for r in rules: all_involved.update(r.get("targets", []))
+
+                for item_name in all_involved:
                     if request.class_filter:
                         item_class = ITEM_TO_CLASS.get(item_name)
                         if item_class != request.class_filter:
                             continue
                     
-                    tiers = tier_val if isinstance(tier_val, list) else [tier_val]
+                    # Calculate final tiers for this item
+                    final_tiers = []
+                    if item_name in mapping:
+                        t_val = mapping[item_name]
+                        final_tiers += t_val if isinstance(t_val, list) else [t_val]
                     
-                    for tier_key in tiers:
+                    for r in rules:
+                        r_targets = r.get("targets", [])
+                        if not r_targets or item_name in r_targets:
+                            t_over = r.get("overrides", {}).get("Tier")
+                            if t_over and t_over not in final_tiers:
+                                final_tiers.append(t_over)
+
+                    # Distribute to results
+                    for tier_key in final_tiers:
                         if tier_key in tier_keys_set:
                             details = ITEM_DETAILS.get(item_name, {})
                             result[tier_key].append({
                                 "name": item_name, 
                                 "name_ch": trans.get(item_name, item_name), 
                                 "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
-                                "current_tiers": tiers,
+                                "current_tiers": final_tiers,
                                 "source": file_path.relative_to(mappings_dir).as_posix(),
                                 **details
                             })
         except: continue
     
-    # Untiered calculation omitted here to simplify (usually handled by class-items endpoint for bulk)
     return {"items": result}
 
 @app.post("/api/generate")

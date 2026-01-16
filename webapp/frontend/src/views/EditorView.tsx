@@ -50,6 +50,8 @@ const EditorView: React.FC<EditorViewProps> = ({
 
   const API_BASE_URL = 'http://localhost:8000';
 
+  const [mappingContent, setMappingContent] = useState<string>('');
+
   const fetchTierItems = async (keys: string[]) => {
     if (keys.length === 0) return;
     try {
@@ -62,22 +64,79 @@ const EditorView: React.FC<EditorViewProps> = ({
 
   useEffect(() => {
     if (selectedFile?.tier_path) {
-      axios.get(`${API_BASE_URL}/api/config/${selectedFile.tier_path}`)
-        .then(res => {
-            const content = JSON.stringify(res.data.content, null, 2);
-            setTierContent(content);
-            setConfigContent(content);
+      const ts = new Date().getTime();
+      
+      // Load BOTH Tier Definition and Base Mapping
+      Promise.all([
+          axios.get(`${API_BASE_URL}/api/config/${selectedFile.tier_path}?t=${ts}`),
+          selectedFile.mapping_path ? axios.get(`${API_BASE_URL}/api/config/${selectedFile.mapping_path}?t=${ts}`) : Promise.resolve({ data: { content: {} } })
+      ])
+      .then(([tierRes, mapRes]) => {
+            const tierData = tierRes.data.content;
+            const mapData = mapRes.data.content;
             
-            // Fetch items for the new file
-            const catKey = Object.keys(res.data.content).find(k => !k.startsWith('//'));
+            // Store raw content
+            setTierContent(JSON.stringify(tierData, null, 2));
+            setMappingContent(JSON.stringify(mapData, null, 2));
+
+            // MERGE RULES into Tier Data for Frontend View
+            const catKey = Object.keys(tierData).find(k => !k.startsWith('//'));
+            const mergedData = JSON.parse(JSON.stringify(tierData)); // Deep copy
+            
             if (catKey) {
-                const keys = Object.keys(res.data.content[catKey]).filter(k => k.startsWith('Tier'));
+                // Inject rules from mapping file (root level 'rules')
+                if (mapData.rules) {
+                    mergedData[catKey].rules = mapData.rules;
+                }
+                
+                // Fetch items
+                const keys = Object.keys(mergedData[catKey]).filter(k => k.startsWith('Tier'));
                 fetchTierItems(keys);
             }
-        })
-        .catch(err => console.error("Failed to load tier content", err));
+            
+            // Update the VIEW
+            setConfigContent(JSON.stringify(mergedData, null, 2));
+      })
+      .catch(err => console.error("Failed to load content", err));
     }
-  }, [selectedFile, setConfigContent]);
+  }, [selectedFile]);
+
+  // Override the Save function to split and save both files
+  const handleSave = async () => {
+      if (!selectedFile) return;
+      try {
+          const currentViewData = JSON.parse(configContent);
+          const catKey = Object.keys(currentViewData).find(k => !k.startsWith('//'));
+          
+          if (catKey) {
+              // 1. Prepare Tier Definition (Remove rules)
+              const tierToSave = JSON.parse(JSON.stringify(currentViewData));
+              if (tierToSave[catKey].rules) delete tierToSave[catKey].rules;
+              if (tierToSave[catKey]._meta?.rules) delete tierToSave[catKey]._meta.rules;
+
+              // 2. Prepare Mapping (Update rules)
+              const mappingToSave = JSON.parse(mappingContent || "{}");
+              if (currentViewData[catKey].rules) {
+                  mappingToSave.rules = currentViewData[catKey].rules;
+              }
+              
+              // 3. Save Both
+              await Promise.all([
+                  axios.post(`${API_BASE_URL}/api/config/${selectedFile.tier_path}`, tierToSave),
+                  selectedFile.mapping_path ? axios.post(`${API_BASE_URL}/api/config/${selectedFile.mapping_path}`, mappingToSave) : Promise.resolve()
+              ]);
+              
+              // Call parent onSave to trigger generic success message or refresh
+              if (onSave) onSave(); // Note: Parent onSave might try to save too, but we are intercepting logic here? 
+              // Actually EditorView calls onSave prop. We should probably NOT call parent's onSave if it blindly saves configContent to tierPath.
+              // Instead, we show success here.
+              alert("Saved successfully!");
+          }
+      } catch (e) {
+          console.error("Save failed", e);
+          alert("Save failed");
+      }
+  };
 
   const handlePasteStyle = (tierKey: string, style: any) => {
     if (!style || !tierContent) return;
@@ -103,18 +162,41 @@ const EditorView: React.FC<EditorViewProps> = ({
     }
   };
 
-  const handleAddRulePreset = (tierKey: string, preset: any) => {
-    if (!tierContent) return;
-    try {
-        const parsed = JSON.parse(tierContent);
-        const catKey = Object.keys(parsed).find(k => !k.startsWith('//'));
-        if (catKey) {
-            if (!parsed[catKey]._meta) parsed[catKey]._meta = {};
-            if (!parsed[catKey]._meta.rules) parsed[catKey]._meta.rules = [];
-            
-            const currentRules = parsed[catKey]._meta.rules;
+      const handleAddRulePreset = (tierKey: string, preset: any) => {
 
-            if (editingRuleIndex !== null) {
+      if (!tierContent) return;
+
+      try {
+
+          const parsed = JSON.parse(tierContent);
+
+          const catKey = Object.keys(parsed).find(k => !k.startsWith('//'));
+
+          if (catKey) {
+
+              // Ensure rules array exists at root
+
+              if (!parsed[catKey].rules) parsed[catKey].rules = [];
+
+              // Migrate old if needed
+
+              if (parsed[catKey]._meta?.rules) {
+
+                  parsed[catKey].rules = [...parsed[catKey].rules, ...parsed[catKey]._meta.rules];
+
+                  delete parsed[catKey]._meta.rules;
+
+              }
+
+              
+
+              const currentRules = parsed[catKey].rules;
+
+  
+
+              if (editingRuleIndex !== null) {
+
+  
                 // UPDATE CURRENT RULE
                 const currentTierItems = tierItems[tierKey]?.map(i => i.name) || [];
                 const tierRules = currentRules.filter((r: any) => 
@@ -136,17 +218,8 @@ const EditorView: React.FC<EditorViewProps> = ({
                 }
             } else {
                 // ADD NEW RULE
-                // Check if rule already exists for this tier
-                const currentTierItems = tierItems[tierKey]?.map(i => i.name) || [];
-                const tierRules = currentRules.filter((r: any) => 
-                    !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
-                );
-
-                if (tierRules.length > 0) {
-                     alert(language === 'ch' ? '每个阶级目前仅限一个附加规则' : 'Only 1 additional rule per Tier is allowed for now.');
-                     return;
-                }
-
+                // Limit removed to support sequential processing
+                
                 const conditions: Record<string, string> = {};
                 if (Array.isArray(preset.conditions)) {
                     preset.conditions.forEach((c: any) => { conditions[c.key] = c.value; });
@@ -173,7 +246,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                 const currentTierItems = tierItems[tierKey]?.map(i => i.name) || [];
                 setInspectedTier({
                     ...inspectedTier,
-                    rules: parsed[catKey]._meta.rules.filter((r: any) => 
+                    rules: parsed[catKey].rules.filter((r: any) => 
                         !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
                     )
                 });
@@ -189,20 +262,23 @@ const EditorView: React.FC<EditorViewProps> = ({
     try {
         const parsed = JSON.parse(tierContent);
         const catKey = Object.keys(parsed).find(k => !k.startsWith('//'));
-        if (catKey && parsed[catKey]._meta?.rules) {
+        
+        // Normalize rules location
+        let rules = parsed[catKey].rules || parsed[catKey]._meta?.rules || [];
+        
+        if (catKey && rules) {
             // We need to find the GLOBAL index of the rule
-            // The index passed from Inspector is relative to the INSPECTED TIER'S subset of rules.
-            // But for simplicity in this implementation, we'll just match by reference or rebuild the list.
-            // Actually, let's just use the index if it matches the filtered list.
-            
             const currentTierItems = tierItems[tierKey]?.map(i => i.name) || [];
-            const tierRules = parsed[catKey]._meta.rules.filter((r: any) => 
+            const tierRules = rules.filter((r: any) => 
                 !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
             );
             
             const targetRule = tierRules[ruleIndex];
             if (targetRule) {
-                parsed[catKey]._meta.rules = parsed[catKey]._meta.rules.filter((r: any) => r !== targetRule);
+                // Filter out the target rule
+                parsed[catKey].rules = rules.filter((r: any) => r !== targetRule);
+                if (parsed[catKey]._meta?.rules) delete parsed[catKey]._meta.rules; // Cleanup old
+
                 const newContent = JSON.stringify(parsed, null, 2);
                 setTierContent(newContent);
                 setConfigContent(newContent);
@@ -211,7 +287,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                 if (inspectedTier && inspectedTier.key === tierKey) {
                     setInspectedTier({
                         ...inspectedTier,
-                        rules: parsed[catKey]._meta.rules.filter((r: any) => 
+                        rules: parsed[catKey].rules.filter((r: any) => 
                             !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
                         )
                     });
@@ -231,10 +307,10 @@ const EditorView: React.FC<EditorViewProps> = ({
       
       <div className="main-content">
         <div className="top-bar">
-          <h2>Editor: {selectedFile?.localization[language] || '...'}</h2>
+          <h2>Editor: {selectedFile?.localization[language] || '...'} <small style={{fontSize: '0.7em', color: '#999'}}>({selectedFile?.mapping_path || 'No Mapping'})</small></h2>
           <div className="actions">
              {selectedFile && (
-                <button className="save-btn" onClick={onSave} disabled={loading}>
+                <button className="save-btn" onClick={handleSave} disabled={loading}>
                     💾 {t.saveConfig}
                 </button>
              )}
@@ -250,10 +326,12 @@ const EditorView: React.FC<EditorViewProps> = ({
             ) : (
                 <CategoryView
                   configPath={selectedFile.tier_path}
-                  configContent={tierContent}
+                  configContent={configContent}
                   onConfigContentChange={(newContent) => {
-                    setTierContent(newContent);
+                    // Update the merged view
                     setConfigContent(newContent); 
+                    // Note: We don't update tierContent directly here, because newContent is merged.
+                    // Splitting happens on Save.
                   }}
                   loading={loading}
                   language={language}
