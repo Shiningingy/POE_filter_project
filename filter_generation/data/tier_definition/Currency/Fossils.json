@@ -2,20 +2,26 @@
   "Fossils": {
     "_meta": {
       "theme_category": "Stackable Currency",
-      "localization": {
-        "en": "Fossils",
-        "ch": "化石"
-      }
+      "localization": { "en": "Fossils", "ch": "化石" }
     },
     "Tier 1 Fossils": {
       "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      }
+      "theme": { "Tier": 1 },
+      "sound": { "default_sound_id": 1, "sharket_sound_id": "高级化石.mp3" },
+      "localization": { "en": "T1: Rare Fossils", "ch": "T1: 顶级化石" }
+    },
+    "Tier 2 Fossils": {
+      "hideable": false,
+      "theme": { "Tier": 2 },
+      "sound": { "default_sound_id": 2, "sharket_sound_id": "化石.mp3" },
+      "localization": { "en": "T2: Common Fossils", "ch": "T2: 普通化石" }
+    },
+    "Tier Hide Fossils": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": { "Tier": 9 },
+      "sound": { "default_sound_id": -1, "sharket_sound_id": null },
+      "localization": { "en": "Hide", "ch": "隐藏" }
     }
   }
 }

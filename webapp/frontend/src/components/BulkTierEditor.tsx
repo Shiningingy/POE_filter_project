@@ -31,11 +31,14 @@ interface Item {
   current_tier: string[] | null;
   source_file: string | null;
   sub_type?: string;
+  item_class?: string;
+  drop_level?: number;
 }
 
 interface TierOption {
   key: string;
   label: string;
+  show_in_editor?: boolean;
 }
 
 interface BulkTierEditorProps {
@@ -49,7 +52,7 @@ interface BulkTierEditorProps {
 
 const ARMOUR_CLASSES = ["Body Armours", "Gloves", "Boots", "Helmets", "Shields"];
 
-const SortableItem = ({ id, item, color, isStaged, language, onContextMenu }: { id: string, item: Item, color: string, isStaged: boolean, language: Language, onContextMenu: (e: React.MouseEvent) => void }) => {
+const SortableItem = ({ id, item, color, isStaged, language, onContextMenu, disabled }: { id: string, item: Item, color: string, isStaged: boolean, language: Language, onContextMenu: (e: React.MouseEvent) => void, disabled?: boolean }) => {
   const {
     attributes,
     listeners,
@@ -57,23 +60,24 @@ const SortableItem = ({ id, item, color, isStaged, language, onContextMenu }: { 
     transform,
     transition,
     isDragging
-  } = useSortable({ id });
+  } = useSortable({ id, disabled });
 
   const style = {
     transform: CSS.Translate.toString(transform),
     transition,
     opacity: isDragging ? 0.5 : 1,
+    cursor: disabled ? 'default' : undefined
   };
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+    <div ref={setNodeRef} style={style} {...attributes} {...(disabled ? {} : listeners)}>
       <ItemCard 
         item={item}
         language={language}
         color={color}
         isStaged={isStaged}
         onContextMenu={onContextMenu}
-        className={isDragging ? 'dragging' : ''}
+        className={`${isDragging ? 'dragging' : ''} ${disabled ? 'locked' : ''}`}
       />
     </div>
   );
@@ -202,7 +206,9 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     const cols: Record<string, Item[]> = {
       'untiered': []
     };
-    availableTiers.forEach(tier => { cols[tier.key] = []; });
+    availableTiers.forEach(tier => { 
+        cols[tier.key] = []; 
+    });
 
     items.forEach(item => {
       let effectiveTiers: string[] = [];
@@ -533,29 +539,33 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
             </TierColumn>
 
                         {/* Tier Columns */}
-                        {availableTiers.map(tier => (
-                            <TierColumn
-                                key={tier.key}
-                                id={tier.key}
-                                title={tier.label}
-                                color={getTierColor(tier.key)}
-                                items={columns[tier.key].slice(0, columnLimits[tier.key] || 100)}
-                                totalCount={columns[tier.key].length}
-                                onScrollBottom={() => handleLoadMore(tier.key)}
-                            >
-                                    {columns[tier.key].slice(0, columnLimits[tier.key] || 100).map(item => (
-                                    <SortableItem 
-                                        key={`${item.name}-${tier.key}`} 
-                                        id={`${item.name}::${tier.key}`}
-                                        item={item} 
-                                        color={getTierColor(tier.key)}
-                                        isStaged={stagedChanges[item.name] !== undefined && !(item.current_tier || []).includes(tier.key)}
-                                        language={language}
-                                        onContextMenu={(e) => handleItemRightClick(e, item, tier.key)}
-                                    />
-                                ))}
-                            </TierColumn>
-                        ))}
+                        {availableTiers.map(tier => {
+                            const isLockedTier = tier.show_in_editor === false;
+                            return (
+                                <TierColumn
+                                    key={tier.key}
+                                    id={tier.key}
+                                    title={tier.label}
+                                    color={getTierColor(tier.key)}
+                                    items={columns[tier.key].slice(0, columnLimits[tier.key] || 100)}
+                                    totalCount={columns[tier.key].length}
+                                    onScrollBottom={() => handleLoadMore(tier.key)}
+                                >
+                                        {columns[tier.key].slice(0, columnLimits[tier.key] || 100).map(item => (
+                                        <SortableItem 
+                                            key={`${item.name}-${tier.key}`} 
+                                            id={`${item.name}::${tier.key}`}
+                                            item={item} 
+                                            color={getTierColor(tier.key)}
+                                            isStaged={stagedChanges[item.name] !== undefined && !(item.current_tier || []).includes(tier.key)}
+                                            language={language}
+                                            onContextMenu={(e) => handleItemRightClick(e, item, tier.key)}
+                                            disabled={isLockedTier}
+                                        />
+                                    ))}
+                                </TierColumn>
+                            );
+                        })}
             <DragOverlay dropAnimation={{ sideEffects: defaultDropAnimationSideEffects({ styles: { active: { opacity: '0.5' } } }) }}>
                 {activeItem ? (
                     <ItemCard 

@@ -2,20 +2,26 @@
   "Warstaves": {
     "_meta": {
       "theme_category": "Warstaves",
-      "localization": {
-        "en": "Warstaves",
-        "ch": "战杖"
-      }
+      "localization": { "en": "Warstaves", "ch": "战杖" }
+    },
+    "Tier 0 Warstaves": {
+      "hideable": false,
+      "theme": { "Tier": 0 },
+      "sound": { "default_sound_id": 6, "sharket_sound_id": "顶级底材.mp3" },
+      "localization": { "en": "T0: i83+ Top Warstaves", "ch": "T0: 顶级战杖(83+)" }
     },
     "Tier 1 Warstaves": {
       "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      }
+      "theme": { "Tier": 1 },
+      "sound": { "default_sound_id": 1, "sharket_sound_id": "精品装备.mp3" },
+      "localization": { "en": "T1: High End", "ch": "T1: 优质战杖" }
+    },
+    "Tier Hide Warstaves": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": { "Tier": 9 },
+      "sound": { "default_sound_id": -1, "sharket_sound_id": null },
+      "localization": { "en": "Hide", "ch": "隐藏" }
     }
   }
 }

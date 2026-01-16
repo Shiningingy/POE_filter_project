@@ -151,6 +151,46 @@
         {
           "_meta": {
             "localization": {
+              "en": "Special Equipment",
+              "ch": "特殊装备"
+            }
+          },
+          "files": [
+            {
+              "path": "Equipment/Special/Influenced.json",
+              "tier_path": "tier_definition/Equipment/Special/Influenced.json",
+              "mapping_path": "base_mapping/Equipment/Special/Influenced.json",
+              "target_category": "Body Armours",
+              "localization": {
+                "en": "Influenced",
+                "ch": "势力装备"
+              }
+            },
+            {
+              "path": "Equipment/Special/Fractured.json",
+              "tier_path": "tier_definition/Equipment/Special/Fractured.json",
+              "mapping_path": "base_mapping/Equipment/Special/Fractured.json",
+              "target_category": "Body Armours",
+              "localization": {
+                "en": "Fractured",
+                "ch": "破碎装备"
+              }
+            },
+            {
+              "path": "Equipment/Special/Synthesised.json",
+              "tier_path": "tier_definition/Equipment/Special/Synthesised.json",
+              "mapping_path": "base_mapping/Equipment/Special/Synthesised.json",
+              "target_category": "Body Armours",
+              "localization": {
+                "en": "Synthesised",
+                "ch": "合成装备"
+              }
+            }
+          ]
+        },
+        {
+          "_meta": {
+            "localization": {
               "en": "Armour",
               "ch": "护甲"
             }

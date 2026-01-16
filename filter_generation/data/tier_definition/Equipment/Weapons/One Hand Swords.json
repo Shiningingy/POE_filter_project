@@ -1,21 +1,27 @@
 {
-  "One Hand Swords": {
+  "Swords": {
     "_meta": {
       "theme_category": "One Hand Swords",
-      "localization": {
-        "en": "One Hand Swords",
-        "ch": "单手剑"
-      }
+      "localization": { "en": "One Hand Swords", "ch": "单手剑" }
     },
-    "Tier 1 One Hand Swords": {
+    "Tier 0 Swords": {
       "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      }
+      "theme": { "Tier": 0 },
+      "sound": { "default_sound_id": 6, "sharket_sound_id": "顶级底材.mp3" },
+      "localization": { "en": "T0: i83+ Top Bases", "ch": "T0: 顶级单手剑(83+)" }
+    },
+    "Tier 1 Swords": {
+      "hideable": false,
+      "theme": { "Tier": 1 },
+      "sound": { "default_sound_id": 1, "sharket_sound_id": "精品装备.mp3" },
+      "localization": { "en": "T1: High End", "ch": "T1: 优质单手剑" }
+    },
+    "Tier Hide Swords": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": { "Tier": 9 },
+      "sound": { "default_sound_id": -1, "sharket_sound_id": null },
+      "localization": { "en": "Hide", "ch": "隐藏" }
     }
   }
 }

@@ -1,0 +1,36 @@
+{
+  "Influenced": {
+    "_meta": {
+      "theme_category": "Body Armours",
+      "localization": {
+        "en": "Influenced",
+        "ch": "势力装备"
+      }
+    },
+    "Tier 0 Influenced": {
+      "hideable": false,
+      "theme": { "Tier": 0 },
+      "sound": { "default_sound_id": 6, "sharket_sound_id": "顶级底材.mp3" },
+      "localization": { "en": "T0: iLvl 86+", "ch": "T0: 顶级势力底材" }
+    },
+    "Tier 1 Influenced": {
+      "hideable": false,
+      "theme": { "Tier": 1 },
+      "sound": { "default_sound_id": 1, "sharket_sound_id": "势力装备.mp3" },
+      "localization": { "en": "T1: High iLvl", "ch": "T1: 高级势力装备" }
+    },
+    "Tier 2 Influenced": {
+      "hideable": true,
+      "theme": { "Tier": 2 },
+      "sound": { "default_sound_id": 2, "sharket_sound_id": "高级势力装.mp3" },
+      "localization": { "en": "T2: Standard", "ch": "T2: 常规势力装备" }
+    },
+    "Tier Hide Influenced": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": { "Tier": 9 },
+      "sound": { "default_sound_id": -1, "sharket_sound_id": null },
+      "localization": { "en": "Hide", "ch": "隐藏" }
+    }
+  }
+}

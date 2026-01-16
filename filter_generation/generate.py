@@ -71,14 +71,19 @@ def header_line(index, text):
 
 def show_block(cat_zh, tier_short, item_class, basetypes,
                font_size, text_color, border_color, background_color, sound_line,
-               play_effect=None, minimap_icon=None, extra_conditions=None, raw_code=None):
+               play_effect=None, minimap_icon=None, extra_conditions=None, raw_code=None, is_hide=False):
     joined = '" "'.join(basetypes)
+    cmd = "Hide" if is_hide else "Show"
     lines = [
-        f'Show #{cat_zh}-{tier_short}',
+        f'{cmd} #{cat_zh}-{tier_short}',
         f'    Class "{item_class}"',
         f'    BaseType "{joined}"'
     ]
     
+    if is_hide:
+        # Simplified block for hiding
+        return "\n".join(lines) + "\n"
+
     # 1. Extra Conditions (Handle RANGE)
     if extra_conditions:
         for key, val in extra_conditions.items():
@@ -169,6 +174,9 @@ def generate_filter():
             t_short = f"T{tnum}"
             out_lines.append(header_line(tier_index, f"{t_lbl} {loc_zh}"))
             
+            tier_entry = category_data.get(t_lbl, {})
+            is_hide = tier_entry.get("is_hide_tier", False)
+
             # Base Theme for this Tier
             ttheme = theme_ref.get(f"Tier {tnum}", {})
             base_text_col = parse_rgba(ttheme.get("TextColor"))
@@ -197,11 +205,12 @@ def generate_filter():
                     parse_rgba(r_over.get("TextColor"), base_text_col),
                     parse_rgba(r_over.get("BorderColor"), base_border_col),
                     parse_rgba(r_over.get("BackgroundColor"), base_background_col),
-                    resolve_sound(category_data.get(t_lbl, {}), sound_map, r_over.get("PlayAlertSound")),
+                    resolve_sound(tier_entry, sound_map, r_over.get("PlayAlertSound")),
                     r_over.get("PlayEffect", base_play_eff),
                     r_over.get("MinimapIcon", base_mini_icon),
                     active_rule.get("conditions"),
-                    active_rule.get("raw")
+                    active_rule.get("raw"),
+                    is_hide=is_hide
                 ))
             
             # 2. Base Block - Only add if not fully covered by a rule
@@ -210,8 +219,9 @@ def generate_filter():
                     loc_zh, t_short, item_class, items,
                     ttheme.get("FontSize", DEFAULT_FONT_SIZE),
                     base_text_col, base_border_col, base_background_col,
-                    resolve_sound(category_data.get(t_lbl, {}), sound_map),
-                    base_play_eff, base_mini_icon
+                    resolve_sound(tier_entry, sound_map),
+                    base_play_eff, base_mini_icon,
+                    is_hide=is_hide
                 ))
 
     overview.append("#========================================\n")

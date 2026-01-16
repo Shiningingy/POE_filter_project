@@ -2,74 +2,30 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Rusted Sword": "锈剑",
-        "Copper Sword": "青铜短剑",
-        "Sabre": "旧军刀",
-        "Broad Sword": "阔剑",
-        "War Sword": "征战之剑",
-        "Ancient Sword": "远古之剑",
-        "Elegant Sword": "贵族之剑",
-        "Dusk Blade": "暮色之刃",
-        "Hook Sword": "钩爪剑",
-        "Variscite Blade": "碧铜短剑",
-        "Cutlass": "军用长刃",
-        "Baselard": "冷光长剑",
-        "Battle Sword": "士兵长剑",
-        "Elder Sword": "智者长剑",
-        "Graceful Sword": "权贵之剑",
-        "Twilight Blade": "暮光长剑",
-        "Grappler": "捕捉者",
-        "Gemstone Sword": "宝石之剑",
-        "Corsair Sword": "海贼长刀",
-        "Gladius": "斗士长剑",
-        "Legion Sword": "军团长剑",
-        "Vaal Blade": "瓦尔军刃",
+        "Jewelled Foil": "细剑",
+        "Corsair Sword": "海盗长剑",
         "Eternal Sword": "永恒之剑",
-        "Midnight Blade": "夜语长剑",
-        "Tiger Hook": "虎钩",
-        "Fickle Spiritblade": "无常魂刃",
-        "Capricious Spiritblade": "莫测魂刃",
-        "Anarchic Spiritblade": "无序魂刃",
-        "Golden Blade": "金色之刃",
+        "Vaal Rapier": "瓦尔细剑",
         "__class_name__": "单手剑"
       }
     },
-    "item_class": {
-      "en": "One Hand Swords",
-      "ch": "单手剑"
-    },
+    "item_class": { "en": "One Hand Swords", "ch": "单手剑" },
     "theme_category": "One Hand Swords"
   },
   "mapping": {
-    "Rusted Sword": "Tier 1 One Hand Swords",
-    "Copper Sword": "Tier 1 One Hand Swords",
-    "Sabre": "Tier 1 One Hand Swords",
-    "Broad Sword": "Tier 1 One Hand Swords",
-    "War Sword": "Tier 1 One Hand Swords",
-    "Ancient Sword": "Tier 1 One Hand Swords",
-    "Elegant Sword": "Tier 1 One Hand Swords",
-    "Dusk Blade": "Tier 1 One Hand Swords",
-    "Hook Sword": "Tier 1 One Hand Swords",
-    "Variscite Blade": "Tier 1 One Hand Swords",
-    "Cutlass": "Tier 1 One Hand Swords",
-    "Baselard": "Tier 1 One Hand Swords",
-    "Battle Sword": "Tier 1 One Hand Swords",
-    "Elder Sword": "Tier 1 One Hand Swords",
-    "Graceful Sword": "Tier 1 One Hand Swords",
-    "Twilight Blade": "Tier 1 One Hand Swords",
-    "Grappler": "Tier 1 One Hand Swords",
-    "Gemstone Sword": "Tier 1 One Hand Swords",
-    "Corsair Sword": "Tier 1 One Hand Swords",
-    "Gladius": "Tier 1 One Hand Swords",
-    "Legion Sword": "Tier 1 One Hand Swords",
-    "Vaal Blade": "Tier 1 One Hand Swords",
-    "Eternal Sword": "Tier 1 One Hand Swords",
-    "Midnight Blade": "Tier 1 One Hand Swords",
-    "Tiger Hook": "Tier 1 One Hand Swords",
-    "Fickle Spiritblade": "Tier 1 One Hand Swords",
-    "Capricious Spiritblade": "Tier 1 One Hand Swords",
-    "Anarchic Spiritblade": "Tier 1 One Hand Swords",
-    "Golden Blade": "Tier 1 One Hand Swords"
+    "Jewelled Foil": "Tier 1 Swords",
+    "Corsair Sword": "Tier 1 Swords",
+    "Eternal Sword": "Tier 1 Swords",
+    "Vaal Rapier": "Tier 1 Swords",
+    "Midnight Blade": "Tier 2 Swords",
+    "Reaver Sword": "Tier 2 Swords"
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": ["Jewelled Foil", "Corsair Sword", "Eternal Sword"],
+      "conditions": { "ItemLevel": ">= 83" },
+      "overrides": { "Tier": "Tier 0 Swords", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i83 Top Swords"
+    }
+  ]
 }

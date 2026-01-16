@@ -1,21 +1,27 @@
 {
-  "Oils & Harvest": {
+  "Oils": {
     "_meta": {
       "theme_category": "Stackable Currency",
-      "localization": {
-        "en": "Oils",
-        "ch": "圣油"
-      }
+      "localization": { "en": "Oils & Harvest", "ch": "圣油与庄园" }
     },
     "Tier 1 Oils": {
       "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      }
+      "theme": { "Tier": 1 },
+      "sound": { "default_sound_id": 1, "sharket_sound_id": "高级圣油.mp3" },
+      "localization": { "en": "T1: Golden/Silver", "ch": "T1: 顶级圣油" }
+    },
+    "Tier 2 Oils": {
+      "hideable": false,
+      "theme": { "Tier": 2 },
+      "sound": { "default_sound_id": 2, "sharket_sound_id": "圣油.mp3" },
+      "localization": { "en": "T2: Mid Tier Oils", "ch": "T2: 中级圣油" }
+    },
+    "Tier Hide Oils": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": { "Tier": 9 },
+      "sound": { "default_sound_id": -1, "sharket_sound_id": null },
+      "localization": { "en": "Hide", "ch": "隐藏" }
     }
   }
 }

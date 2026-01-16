@@ -2,20 +2,32 @@
   "Essences": {
     "_meta": {
       "theme_category": "Stackable Currency",
-      "localization": {
-        "en": "Essences",
-        "ch": "精华"
-      }
+      "localization": { "en": "Essences", "ch": "精华" }
     },
     "Tier 1 Essences": {
       "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      }
+      "theme": { "Tier": 1 },
+      "sound": { "default_sound_id": 1, "sharket_sound_id": "高级精华.mp3" },
+      "localization": { "en": "T1: Top Essences", "ch": "T1: 顶级精华" }
+    },
+    "Tier 2 Essences": {
+      "hideable": false,
+      "theme": { "Tier": 2 },
+      "sound": { "default_sound_id": 2, "sharket_sound_id": "精华.mp3" },
+      "localization": { "en": "T2: High Essences", "ch": "T2: 高级精华" }
+    },
+    "Tier 3 Essences": {
+      "hideable": true,
+      "theme": { "Tier": 3 },
+      "sound": { "default_sound_id": -1, "sharket_sound_id": "是精华哎.mp3" },
+      "localization": { "en": "T3: Regular Essences", "ch": "T3: 普通精华" }
+    },
+    "Tier Hide Essences": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": { "Tier": 9 },
+      "sound": { "default_sound_id": -1, "sharket_sound_id": null },
+      "localization": { "en": "Hide", "ch": "隐藏" }
     }
   }
 }

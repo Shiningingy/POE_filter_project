@@ -2,20 +2,26 @@
   "Delirium Orbs": {
     "_meta": {
       "theme_category": "Stackable Currency",
-      "localization": {
-        "en": "Delirium Orbs",
-        "ch": "雾魇宝珠"
-      }
+      "localization": { "en": "Delirium Orbs", "ch": "雾魇宝珠" }
     },
     "Tier 1 Delirium Orbs": {
       "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      }
+      "theme": { "Tier": 1 },
+      "sound": { "default_sound_id": 1, "sharket_sound_id": "高级雾魇宝珠.mp3" },
+      "localization": { "en": "T1: High End Orbs", "ch": "T1: 高级雾魇宝珠" }
+    },
+    "Tier 2 Delirium Orbs": {
+      "hideable": true,
+      "theme": { "Tier": 2 },
+      "sound": { "default_sound_id": 2, "sharket_sound_id": "雾魇宝珠.mp3" },
+      "localization": { "en": "T2: Common Orbs", "ch": "T2: 普通雾魇宝珠" }
+    },
+    "Tier Hide Delirium Orbs": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": { "Tier": 9 },
+      "sound": { "default_sound_id": -1, "sharket_sound_id": null },
+      "localization": { "en": "Hide", "ch": "隐藏" }
     }
   }
 }

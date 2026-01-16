@@ -2,72 +2,39 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Nailed Fist": "拳钉",
-        "Sharktooth Claw": "鲨颚爪",
-        "Awl": "凿钉",
-        "Cat's Paw": "猫爪刃",
-        "Blinder": "袭眼钩",
-        "Timeworn Claw": "远古战爪",
-        "Sparkling Claw": "眩目爪刃",
-        "Fright Claw": "恐惧之爪",
-        "Double Claw": "双刃爪",
-        "Thresher Claw": "撕裂尖爪",
-        "Gouger": "穿体凿",
-        "Tiger's Paw": "虎爪刃",
-        "Gut Ripper": "裂脏钩",
-        "Prehistoric Claw": "史前战爪",
-        "Noble Claw": "贵族战爪",
-        "Eagle Claw": "鹰爪刃",
-        "Twin Claw": "重刃爪",
-        "Great White Claw": "白灵之爪",
-        "Throat Stabber": "刺喉刃",
-        "Hellion's Paw": "魔爪刃",
-        "Eye Gouger": "刺眼钩",
-        "Vaal Claw": "瓦尔战爪",
         "Imperial Claw": "帝国战爪",
-        "Terror Claw": "恐惧之牙",
         "Gemini Claw": "双子战爪",
-        "Shadow Fangs": "暗影之牙",
-        "Malign Fangs": "恶毒之牙",
-        "Void Fangs": "虚空之牙",
+        "Great White Claw": "白灵之爪",
+        "Terror Claw": "恐惧之牙",
+        "Vaal Claw": "瓦尔战爪",
         "__class_name__": "爪"
       }
     },
-    "item_class": {
-      "en": "Claws",
-      "ch": "爪"
-    },
+    "item_class": { "en": "Claws", "ch": "爪" },
     "theme_category": "Claws"
   },
   "mapping": {
-    "Nailed Fist": "Tier 1 Claws",
-    "Sharktooth Claw": "Tier 1 Claws",
-    "Awl": "Tier 1 Claws",
-    "Cat's Paw": "Tier 1 Claws",
-    "Blinder": "Tier 1 Claws",
-    "Timeworn Claw": "Tier 1 Claws",
-    "Sparkling Claw": "Tier 1 Claws",
-    "Fright Claw": "Tier 1 Claws",
-    "Double Claw": "Tier 1 Claws",
-    "Thresher Claw": "Tier 1 Claws",
-    "Gouger": "Tier 1 Claws",
-    "Tiger's Paw": "Tier 1 Claws",
-    "Gut Ripper": "Tier 1 Claws",
-    "Prehistoric Claw": "Tier 1 Claws",
-    "Noble Claw": "Tier 1 Claws",
-    "Eagle Claw": "Tier 1 Claws",
-    "Twin Claw": "Tier 1 Claws",
-    "Great White Claw": "Tier 1 Claws",
-    "Throat Stabber": "Tier 1 Claws",
-    "Hellion's Paw": "Tier 1 Claws",
-    "Eye Gouger": "Tier 1 Claws",
-    "Vaal Claw": "Tier 1 Claws",
     "Imperial Claw": "Tier 1 Claws",
-    "Terror Claw": "Tier 1 Claws",
     "Gemini Claw": "Tier 1 Claws",
-    "Shadow Fangs": "Tier 1 Claws",
-    "Malign Fangs": "Tier 1 Claws",
-    "Void Fangs": "Tier 1 Claws"
+    "Great White Claw": "Tier 1 Claws",
+    "Terror Claw": "Tier 1 Claws",
+    "Vaal Claw": "Tier 1 Claws",
+    "Eye Gouger": "Tier 2 Claws",
+    "Hellion's Paw": "Tier 2 Claws",
+    "Throat Stabber": "Tier 2 Claws"
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": ["Imperial Claw", "Gemini Claw", "Great White Claw"],
+      "conditions": { "ItemLevel": ">= 86" },
+      "overrides": { "Tier": "Tier 0 Claws", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i86 Top Claws"
+    },
+    {
+      "targets": ["Imperial Claw", "Gemini Claw", "Great White Claw"],
+      "conditions": { "ItemLevel": ">= 84" },
+      "overrides": { "Tier": "Tier 1 Claws", "PlayAlertSound": ["Sharket掉落音效/精品装备.mp3", 300] },
+      "comment": "i84 Top Claws"
+    }
+  ]
 }

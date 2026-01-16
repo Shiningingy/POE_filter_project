@@ -129,6 +129,8 @@ button:focus-visible {
 }
 .item-card-base:hover { box-shadow: 0 2px 5px rgba(0,0,0,0.15); border-color: #2196F3; }
 .item-card-base.staged { border: 2px solid #2196F3; }
+.item-card-base.locked { border-style: dashed; opacity: 0.8; cursor: default; }
+.item-card-base.locked::after { content: "🔒"; position: absolute; top: 2px; left: 2px; font-size: 0.7rem; }
 
 .defense-indicator { 
     position: absolute; top: 8px; right: 8px; 

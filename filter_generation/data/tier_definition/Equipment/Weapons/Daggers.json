@@ -2,20 +2,38 @@
   "Daggers": {
     "_meta": {
       "theme_category": "Daggers",
-      "localization": {
-        "en": "Daggers",
-        "ch": "匕首"
-      }
+      "localization": { "en": "Daggers", "ch": "匕首" }
+    },
+    "Tier 0 Daggers": {
+      "hideable": false,
+      "theme": { "Tier": 0 },
+      "sound": { "default_sound_id": 6, "sharket_sound_id": "顶级底材.mp3" },
+      "localization": { "en": "T0: i86 Top Daggers", "ch": "T0: 顶级匕首(86+)" }
     },
     "Tier 1 Daggers": {
       "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      }
+      "theme": { "Tier": 1 },
+      "sound": { "default_sound_id": 1, "sharket_sound_id": "精品装备.mp3" },
+      "localization": { "en": "T1: High iLvl Daggers", "ch": "T1: 优质匕首(84+)" }
+    },
+    "Tier 2 Daggers": {
+      "hideable": false,
+      "theme": { "Tier": 2 },
+      "sound": { "default_sound_id": 2, "sharket_sound_id": "金装备.mp3" },
+      "localization": { "en": "T2: Decent Bases", "ch": "T2: 常用底材" }
+    },
+    "Tier 3 Daggers": {
+      "hideable": true,
+      "theme": { "Tier": 3 },
+      "sound": { "default_sound_id": -1, "sharket_sound_id": "金装.mp3" },
+      "localization": { "en": "T3: Mid Tier", "ch": "T3: 普通匕首" }
+    },
+    "Tier Hide Daggers": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": { "Tier": 9 },
+      "sound": { "default_sound_id": -1, "sharket_sound_id": null },
+      "localization": { "en": "Hide", "ch": "隐藏" }
     }
   }
 }

@@ -541,7 +541,13 @@ def get_mapping_info(file_name: str):
                         for k, v in category_data.items():
                             if k.startswith("Tier"):
                                 t_num = v.get("theme", {}).get("Tier", "?")
-                                available_tiers.append({"key": k, "label_en": f"Tier {t_num} {cat_en}", "label_ch": f"T{t_num} {cat_ch}"})
+                                available_tiers.append({
+                                    "key": k, 
+                                    "label_en": f"Tier {t_num} {cat_en}", 
+                                    "label_ch": f"T{t_num} {cat_ch}",
+                                    "show_in_editor": v.get("show_in_editor", True),
+                                    "is_hide_tier": v.get("is_hide_tier", False)
+                                })
                         break
                 except: continue
         available_tiers.sort(key=lambda x: int(re.search(r"Tier (\d+)", x["key"]).group(1)) if re.search(r"Tier (\d+)", x["key"]) else 999)
