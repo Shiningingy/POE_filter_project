@@ -27,9 +27,9 @@
               }
             },
             {
-              "path": "Currency/Special Currency/Breach.json",
-              "tier_path": "tier_definition/Currency/Special Currency/Breach.json",
-              "mapping_path": "base_mapping/Currency/Special Currency/Breach.json",
+              "path": "Currency/Breach.json",
+              "tier_path": "tier_definition/Currency/Breach.json",
+              "mapping_path": "base_mapping/Currency/Breach.json",
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Breach",
@@ -37,9 +37,9 @@
               }
             },
             {
-              "path": "Currency/Special Currency/Delirium Orbs.json",
-              "tier_path": "tier_definition/Currency/Special Currency/Delirium Orbs.json",
-              "mapping_path": "base_mapping/Currency/Special Currency/Delirium Orbs.json",
+              "path": "Currency/Delirium Orbs.json",
+              "tier_path": "tier_definition/Currency/Delirium Orbs.json",
+              "mapping_path": "base_mapping/Currency/Delirium Orbs.json",
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Delirium Orbs",
@@ -47,9 +47,9 @@
               }
             },
             {
-              "path": "Currency/Special Currency/Essences.json",
-              "tier_path": "tier_definition/Currency/Special Currency/Essences.json",
-              "mapping_path": "base_mapping/Currency/Special Currency/Essences.json",
+              "path": "Currency/Essences.json",
+              "tier_path": "tier_definition/Currency/Essences.json",
+              "mapping_path": "base_mapping/Currency/Essences.json",
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Essences",
@@ -57,9 +57,9 @@
               }
             },
             {
-              "path": "Currency/Special Currency/Expedition.json",
-              "tier_path": "tier_definition/Currency/Special Currency/Expedition.json",
-              "mapping_path": "base_mapping/Currency/Special Currency/Expedition.json",
+              "path": "Currency/Expedition.json",
+              "tier_path": "tier_definition/Currency/Expedition.json",
+              "mapping_path": "base_mapping/Currency/Expedition.json",
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Expedition",
@@ -67,9 +67,9 @@
               }
             },
             {
-              "path": "Currency/Special Currency/Fossils.json",
-              "tier_path": "tier_definition/Currency/Special Currency/Fossils.json",
-              "mapping_path": "base_mapping/Currency/Special Currency/Fossils.json",
+              "path": "Currency/Fossils.json",
+              "tier_path": "tier_definition/Currency/Fossils.json",
+              "mapping_path": "base_mapping/Currency/Fossils.json",
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Fossils",
@@ -77,9 +77,9 @@
               }
             },
             {
-              "path": "Currency/Special Currency/Harbinger.json",
-              "tier_path": "tier_definition/Currency/Special Currency/Harbinger.json",
-              "mapping_path": "base_mapping/Currency/Special Currency/Harbinger.json",
+              "path": "Currency/Harbinger.json",
+              "tier_path": "tier_definition/Currency/Harbinger.json",
+              "mapping_path": "base_mapping/Currency/Harbinger.json",
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Harbinger",
@@ -87,9 +87,9 @@
               }
             },
             {
-              "path": "Currency/Special Currency/Harvest.json",
-              "tier_path": "tier_definition/Currency/Special Currency/Harvest.json",
-              "mapping_path": "base_mapping/Currency/Special Currency/Harvest.json",
+              "path": "Currency/Harvest.json",
+              "tier_path": "tier_definition/Currency/Harvest.json",
+              "mapping_path": "base_mapping/Currency/Harvest.json",
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Harvest",
@@ -97,9 +97,9 @@
               }
             },
             {
-              "path": "Currency/Special Currency/Heist.json",
-              "tier_path": "tier_definition/Currency/Special Currency/Heist.json",
-              "mapping_path": "base_mapping/Currency/Special Currency/Heist.json",
+              "path": "Currency/Heist.json",
+              "tier_path": "tier_definition/Currency/Heist.json",
+              "mapping_path": "base_mapping/Currency/Heist.json",
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Heist",
@@ -107,9 +107,9 @@
               }
             },
             {
-              "path": "Currency/Special Currency/Incubators.json",
-              "tier_path": "tier_definition/Currency/Special Currency/Incubators.json",
-              "mapping_path": "base_mapping/Currency/Special Currency/Incubators.json",
+              "path": "Currency/Incubators.json",
+              "tier_path": "tier_definition/Currency/Incubators.json",
+              "mapping_path": "base_mapping/Currency/Incubators.json",
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Incubators",
@@ -117,9 +117,9 @@
               }
             },
             {
-              "path": "Currency/Special Currency/Oils.json",
-              "tier_path": "tier_definition/Currency/Special Currency/Oils.json",
-              "mapping_path": "base_mapping/Currency/Special Currency/Oils.json",
+              "path": "Currency/Oils.json",
+              "tier_path": "tier_definition/Currency/Oils.json",
+              "mapping_path": "base_mapping/Currency/Oils.json",
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Oils",
@@ -127,9 +127,9 @@
               }
             },
             {
-              "path": "Currency/Special Currency/Ritual.json",
-              "tier_path": "tier_definition/Currency/Special Currency/Ritual.json",
-              "mapping_path": "base_mapping/Currency/Special Currency/Ritual.json",
+              "path": "Currency/Ritual.json",
+              "tier_path": "tier_definition/Currency/Ritual.json",
+              "mapping_path": "base_mapping/Currency/Ritual.json",
               "target_category": "Stackable Currency",
               "localization": {
                 "en": "Ritual",
@@ -154,7 +154,7 @@
           "path": "Currency/Gold.json",
           "tier_path": "tier_definition/Currency/Gold.json",
           "mapping_path": "base_mapping/Currency/Gold.json",
-          "target_category": "Stackable Currency",
+          "target_category": "Gold",
           "localization": {
             "en": "Gold",
             "ch": "金币"
@@ -205,7 +205,7 @@
     {
       "_meta": {
         "localization": {
-          "en": "Maps",
+          "en": "Maps & Fragments",
           "ch": "地图与碎片"
         }
       },

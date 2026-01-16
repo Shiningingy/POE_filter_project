@@ -9,48 +9,56 @@
       "tier_order": [
         "Tier 0 Base Maps",
         "Tier 1 Base Maps",
+        "Tier 2 Base Maps",
+        "Tier 3 Base Maps",
+        "Tier 4 Base Maps",
+        "Tier 5 Base Maps",
         "Tier Hide Base Maps"
       ]
-    },
-    "Tier 1 Base Maps": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      }
     },
     "Tier 0 Base Maps": {
       "hideable": false,
       "show_in_editor": false,
-      "theme": {
-        "Tier": 0
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "顶级底材.mp3"
-      },
-      "localization": {
-        "en": "T0: Absolute Top",
-        "ch": "T0: 顶级/核心"
-      }
+      "theme": { "Tier": 0 },
+      "sound": { "default_sound_id": 6, "sharket_sound_id": "超级地图.mp3" },
+      "localization": { "en": "T0: T17 Maps", "ch": "T0: T17地图" }
+    },
+    "Tier 1 Base Maps": {
+      "hideable": false,
+      "theme": { "Tier": 1 },
+      "sound": { "default_sound_id": 1, "sharket_sound_id": "顶级底材.mp3" },
+      "localization": { "en": "T1: Influenced / Memory", "ch": "T1: 势力/回忆地图" }
+    },
+    "Tier 2 Base Maps": {
+      "hideable": false,
+      "theme": { "Tier": 2 },
+      "sound": { "default_sound_id": 1, "sharket_sound_id": "顶级底材.mp3" },
+      "localization": { "en": "T2: Reds (T14-T16)", "ch": "T2: 红色地图 (T14-T16)" }
+    },
+    "Tier 3 Base Maps": {
+      "hideable": false,
+      "theme": { "Tier": 3 },
+      "sound": { "default_sound_id": 2, "sharket_sound_id": "地图.mp3" },
+      "localization": { "en": "T3: Mid Reds (T11+)", "ch": "T3: 低阶红图 (T11+)" }
+    },
+    "Tier 4 Base Maps": {
+      "hideable": false,
+      "theme": { "Tier": 4 },
+      "sound": { "default_sound_id": 2, "sharket_sound_id": "地图.mp3" },
+      "localization": { "en": "T4: Yellow Maps (T6-T10)", "ch": "T4: 黄色地图 (T6-T10)" }
+    },
+    "Tier 5 Base Maps": {
+      "hideable": false,
+      "theme": { "Tier": 5 },
+      "sound": { "default_sound_id": -1, "sharket_sound_id": null },
+      "localization": { "en": "T5: White Maps (T1-T5)", "ch": "T5: 白色地图 (T1-T5)" }
     },
     "Tier Hide Base Maps": {
       "hideable": true,
       "is_hide_tier": true,
-      "theme": {
-        "Tier": 9
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Hide",
-        "ch": "隐藏"
-      }
+      "theme": { "Tier": 9 },
+      "sound": { "default_sound_id": -1, "sharket_sound_id": null },
+      "localization": { "en": "Hide", "ch": "隐藏" }
     }
   }
 }

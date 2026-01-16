@@ -1,136 +1,113 @@
 {
-    "currency": {
-        "Tier 0": {
-            "FontSize": 46,
-            "TextColor": "#ff0000ff",
-            "BorderColor": "#ff0000ff",
-            "BackgroundColor": "#ffffffff",
-            "PlayEffect": "Red",
-            "MinimapIcon": "RedStar",
-            "PlayAlertSound": [
-                "Sharket_Sound_6.mp3",
-                300
-            ]
-        },
-        "Tier 1": {
-            "FontSize": 43,
-            "TextColor": "#e700e7ff",
-            "BorderColor": "#e700e7ff",
-            "BackgroundColor": "#ffffffff",
-            "PlayEffect": "Red",
-            "MinimapIcon": "RedStar",
-            "PlayAlertSound": [
-                "Sharket_Sound_5.mp3",
-                300
-            ]
-        },
-        "Tier 2": {
-            "FontSize": 40,
-            "TextColor": "#af00ffff",
-            "BorderColor": "#af00ffff",
-            "BackgroundColor": "#ffffffff",
-            "PlayEffect": "Red",
-            "MinimapIcon": "RedStar",
-            "PlayAlertSound": [
-                "Sharket_Sound_4.mp3",
-                300
-            ]
-        },
-        "Tier 3": {
-            "FontSize": 38,
-            "TextColor": "#3400ffff",
-            "BorderColor": "#3400ffff",
-            "BackgroundColor": "#ffffffff",
-            "PlayEffect": "Red",
-            "MinimapIcon": "RedStar",
-            "PlayAlertSound": [
-                "Sharket_Sound_3.mp3",
-                300
-            ]
-        },
-        "Tier 4": {
-            "FontSize": 36,
-            "TextColor": "#0090ffff",
-            "BorderColor": "#0090ffff",
-            "BackgroundColor": "#ffffffff",
-            "PlayEffect": "Red",
-            "MinimapIcon": "RedStar",
-            "PlayAlertSound": [
-                "Sharket_Sound_2.mp3",
-                300
-            ]
-        },
-        "Tier 5": {
-            "FontSize": 35,
-            "TextColor": "#00ffb5ff",
-            "BorderColor": "#00ffb5ff",
-            "BackgroundColor": "#ffffffff",
-            "PlayEffect": "Red",
-            "MinimapIcon": "RedStar",
-            "PlayAlertSound": [
-                "Sharket_Sound_1.mp3",
-                300
-            ]
-        },
-        "Tier 6": {
-            "FontSize": 34,
-            "TextColor": "#00ff2dff",
-            "BorderColor": "#00ff2dff",
-            "BackgroundColor": "#ffffffff",
-            "PlayEffect": "Red",
-            "MinimapIcon": "RedStar",
-            "PlayAlertSound": [
-                "Sharket_Sound_1.mp3",
-                300
-            ]
-        },
-        "Tier 7": {
-            "FontSize": 32,
-            "TextColor": "#aeff00ff",
-            "BorderColor": "#aeff00ff",
-            "BackgroundColor": "#ffffffff",
-            "PlayEffect": "Red",
-            "MinimapIcon": "RedStar",
-            "PlayAlertSound": [
-                "Sharket_Sound_1.mp3",
-                300
-            ]
-        },
-        "Tier 8": {
-            "FontSize": 30,
-            "TextColor": "#ffff00ff",
-            "BorderColor": "#ffff00ff",
-            "BackgroundColor": "#ffffffff",
-            "PlayEffect": "Red",
-            "MinimapIcon": "RedStar",
-            "PlayAlertSound": [
-                "Sharket_Sound_1.mp3",
-                300
-            ]
-        },
-        "Tier 9": {
-            "FontSize": 28,
-            "TextColor": "#ff9d00ff",
-            "BorderColor": "#ff9d00ff",
-            "BackgroundColor": "#ffffffff",
-            "PlayEffect": "Red",
-            "MinimapIcon": "RedStar",
-            "PlayAlertSound": [
-                "Sharket_Sound_1.mp3",
-                300
-            ]
-        },
-        "CurrencyDefault": {
-            "FontSize": 28,
-            "TextColor": "#aaaaaaff",
-            "BorderColor": "#aaaaaaff",
-            "BackgroundColor": "#ffffffff",
-            "PlayEffect": "Red",
-            "MinimapIcon": "RedStar",
-            "PlayAlertSound": [
-                "Sharket_Sound_1.mp3",
-                300
-            ]
-        }
+    "Currency": {
+        "Tier 0": { "FontSize": 46, "TextColor": "#ff0000ff", "BorderColor": "#ff0000ff", "BackgroundColor": "#ffffffff", "PlayEffect": "Red", "MinimapIcon": "RedStar" },
+        "Tier 1": { "FontSize": 43, "TextColor": "#e700e7ff", "BorderColor": "#e700e7ff", "BackgroundColor": "#ffffffff", "PlayEffect": "Red", "MinimapIcon": "RedStar" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#3400ffff", "BorderColor": "#3400ffff", "BackgroundColor": "#ffffffff", "PlayEffect": "Red", "MinimapIcon": "RedStar" },
+        "Tier 3": { "FontSize": 38, "TextColor": "#000000ff", "BorderColor": "#000000ff", "BackgroundColor": "#f05a23ff", "PlayEffect": "Orange", "MinimapIcon": "OrangeCircle" },
+        "Tier 4": { "FontSize": 36, "TextColor": "#000000ff", "BorderColor": "#000000ff", "BackgroundColor": "#d59f00ff", "PlayEffect": "Yellow", "MinimapIcon": "YellowCircle" },
+        "Tier 5": { "FontSize": 35, "TextColor": "#000000ff", "BorderColor": "#000000ff", "BackgroundColor": "#d2b287ff", "PlayEffect": "Grey", "MinimapIcon": "GreyCircle" },
+        "Tier 6": { "FontSize": 34, "TextColor": "#000000ff", "BorderColor": "#404040ff", "BackgroundColor": "#a0a0a0ff" },
+        "Tier 7": { "FontSize": 32, "TextColor": "#202020ff", "BorderColor": "#606060ff", "BackgroundColor": "#b0b0b0ff" },
+        "Tier 8": { "FontSize": 30, "TextColor": "#404040ff", "BorderColor": "#808080ff", "BackgroundColor": "#c0c0c0ff" },
+        "Tier 9": { "FontSize": 28, "TextColor": "#606060ff", "BorderColor": "#a0a0a0ff", "BackgroundColor": "#d1d1d1ff" }
+    },
+    "Stackable Currency": {
+        "Tier 0": { "FontSize": 46, "TextColor": "#ff0000ff", "BorderColor": "#ff0000ff", "BackgroundColor": "#ffffffff", "PlayEffect": "Red", "MinimapIcon": "RedStar" },
+        "Tier 1": { "FontSize": 43, "TextColor": "#e700e7ff", "BorderColor": "#e700e7ff", "BackgroundColor": "#ffffffff", "PlayEffect": "Red", "MinimapIcon": "RedStar" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#3400ffff", "BorderColor": "#3400ffff", "BackgroundColor": "#ffffffff", "PlayEffect": "Red", "MinimapIcon": "RedStar" },
+        "Tier 3": { "FontSize": 38, "TextColor": "#000000ff", "BorderColor": "#000000ff", "BackgroundColor": "#f05a23ff" },
+        "Tier 4": { "FontSize": 36, "TextColor": "#000000ff", "BorderColor": "#000000ff", "BackgroundColor": "#d59f00ff" },
+        "Tier 5": { "FontSize": 35, "TextColor": "#000000ff", "BorderColor": "#000000ff", "BackgroundColor": "#d2b287ff" }
+    },
+    "Essences": {
+        "Tier 0": { "FontSize": 46, "TextColor": "#ffffffff", "BorderColor": "#00ffffff", "BackgroundColor": "#400080ff", "PlayEffect": "Cyan", "MinimapIcon": "CyanStar" },
+        "Tier 1": { "FontSize": 43, "TextColor": "#00ffffff", "BorderColor": "#00ffffff", "BackgroundColor": "#200040ff", "PlayEffect": "Cyan", "MinimapIcon": "CyanCircle" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#00ffffff", "BackgroundColor": "#100020ff" }
+    },
+    "Fossils": {
+        "Tier 0": { "FontSize": 46, "TextColor": "#ffffffff", "BorderColor": "#ffaa00ff", "BackgroundColor": "#402000ff", "PlayEffect": "Orange", "MinimapIcon": "YellowStar" },
+        "Tier 1": { "FontSize": 43, "TextColor": "#ffaa00ff", "BorderColor": "#ffaa00ff", "BackgroundColor": "#201000ff", "PlayEffect": "Orange", "MinimapIcon": "YellowCircle" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#ffaa00ff", "BackgroundColor": "#100800ff" }
+    },
+    "Delirium Orbs": {
+        "Tier 0": { "FontSize": 46, "TextColor": "#000000ff", "BorderColor": "#ffffffff", "BackgroundColor": "#a0a0a0ff", "PlayEffect": "White", "MinimapIcon": "WhiteStar" },
+        "Tier 1": { "FontSize": 43, "TextColor": "#ffffffff", "BorderColor": "#a0a0a0ff", "BackgroundColor": "#202020ff", "PlayEffect": "White", "MinimapIcon": "WhiteCircle" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#a0a0a0ff", "BackgroundColor": "#101010ff" }
+    },
+    "Harvest": {
+        "Tier 0": { "FontSize": 46, "TextColor": "#ffffffff", "BorderColor": "#3400ffff", "BackgroundColor": "#001040ff", "PlayEffect": "Blue", "MinimapIcon": "BlueStar" },
+        "Tier 1": { "FontSize": 43, "TextColor": "#3400ffff", "BorderColor": "#3400ffff", "BackgroundColor": "#000820ff", "PlayEffect": "Blue", "MinimapIcon": "BlueCircle" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#3400ffff", "BackgroundColor": "#000410ff" },
+        "Tier 3": { "FontSize": 35, "TextColor": "#a0a0a0ff", "BackgroundColor": "#000208ff" }
+    },
+    "Quest Items": {
+        "Tier 0": { "FontSize": 46, "TextColor": "#ffffffff", "BorderColor": "#00ff00ff", "BackgroundColor": "#004000ff", "PlayEffect": "Green", "MinimapIcon": "GreenStar" },
+        "Tier 1": { "FontSize": 43, "TextColor": "#00ff00ff", "BorderColor": "#00ff00ff", "BackgroundColor": "#002000ff", "PlayEffect": "Green", "MinimapIcon": "GreenCircle" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#00ff00ff", "BackgroundColor": "#001000ff" }
+    },
+    "Labyrinth Items": {
+        "Tier 0": { "FontSize": 46, "TextColor": "#ffffffff", "BorderColor": "#00ffffff", "BackgroundColor": "#004040ff", "PlayEffect": "Cyan", "MinimapIcon": "CyanStar" },
+        "Tier 1": { "FontSize": 43, "TextColor": "#00ffffff", "BorderColor": "#00ffffff", "BackgroundColor": "#002020ff", "PlayEffect": "Cyan", "MinimapIcon": "CyanCircle" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#00ffffff", "BackgroundColor": "#001010ff" }
+    },
+    "Gold": {
+        "Tier 0": { "FontSize": 45, "TextColor": "#ffaa00ff", "BorderColor": "#ffaa00ff", "BackgroundColor": "#202020ff", "PlayEffect": "Orange", "MinimapIcon": "YellowStar" },
+        "Tier 1": { "FontSize": 40, "TextColor": "#ffaa00ff", "BorderColor": "#ffaa00ff", "BackgroundColor": "#202020ff", "MinimapIcon": "YellowCircle" },
+        "Tier 2": { "FontSize": 35, "TextColor": "#aaaaaaff", "BackgroundColor": "#202020ff" }
+    },
+    "Uniques": {
+        "Tier 0": { "FontSize": 46, "TextColor": "#ffffffff", "BorderColor": "#ff0000ff", "BackgroundColor": "#703500ff", "PlayEffect": "Red", "MinimapIcon": "RedStar" },
+        "Tier 1": { "FontSize": 43, "TextColor": "#ffffffff", "BorderColor": "#ffffffff", "BackgroundColor": "#402000ff", "PlayEffect": "Orange", "MinimapIcon": "OrangeStar" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#000000ff", "BorderColor": "#000000ff", "BackgroundColor": "#af6025ff", "PlayEffect": "Orange", "MinimapIcon": "OrangeCircle" },
+        "Tier 3": { "FontSize": 35, "TextColor": "#000000ff", "BackgroundColor": "#703500ff" }
+    },
+    "Divination Cards": {
+        "Tier 0": { "FontSize": 46, "TextColor": "#ff0000ff", "BorderColor": "#ff0000ff", "BackgroundColor": "#ffffffff", "PlayEffect": "Red", "MinimapIcon": "RedStar" },
+        "Tier 1": { "FontSize": 43, "TextColor": "#00ffffff", "BorderColor": "#00ffffff", "BackgroundColor": "#002040ff", "PlayEffect": "Blue", "MinimapIcon": "BlueStar" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#00ffffff", "BackgroundColor": "#001020ff", "PlayEffect": "Blue", "MinimapIcon": "BlueCircle" },
+        "Tier 3": { "FontSize": 35, "TextColor": "#a0a0a0ff", "BackgroundColor": "#000810ff" }
+    },
+    "Maps": {
+        "Tier 0": { "FontSize": 46, "TextColor": "#ffffffff", "BorderColor": "#64007aff", "BackgroundColor": "#ffffffff", "PlayEffect": "Red", "MinimapIcon": "RedStar" },
+        "Tier 1": { "FontSize": 43, "TextColor": "#3400ffff", "BorderColor": "#3400ffff", "BackgroundColor": "#ffffffff", "PlayEffect": "Blue", "MinimapIcon": "BlueStar" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#000000ff", "BorderColor": "#ff0000ff", "BackgroundColor": "#ebebebff", "PlayEffect": "Red", "MinimapIcon": "RedSquare" },
+        "Tier 3": { "FontSize": 38, "TextColor": "#ff0000ff", "BorderColor": "#ff0000ff", "BackgroundColor": "#c8c8c8ff", "PlayEffect": "Red", "MinimapIcon": "RedCircle" },
+        "Tier 4": { "FontSize": 36, "TextColor": "#000000ff", "BorderColor": "#000000ff", "BackgroundColor": "#d59f00ff", "PlayEffect": "Yellow", "MinimapIcon": "YellowSquare" },
+        "Tier 5": { "FontSize": 35, "TextColor": "#000000ff", "BorderColor": "#404040ff", "BackgroundColor": "#a0a0a0ff", "MinimapIcon": "GreySquare" }
+    },
+    "Map Fragments": {
+        "Tier 0": { "FontSize": 46, "TextColor": "#ffffffff", "BorderColor": "#ff0000ff", "BackgroundColor": "#400000ff", "PlayEffect": "Red", "MinimapIcon": "RedStar" },
+        "Tier 1": { "FontSize": 43, "TextColor": "#ff0000ff", "BorderColor": "#ff0000ff", "BackgroundColor": "#202020ff", "PlayEffect": "Red", "MinimapIcon": "RedCircle" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#ff0000ff", "BackgroundColor": "#101010ff" }
+    },
+    "Gems": {
+        "Tier 0": { "FontSize": 46, "TextColor": "#ffffffff", "BorderColor": "#ffffffff", "BackgroundColor": "#008080ff", "PlayEffect": "Cyan", "MinimapIcon": "CyanStar" },
+        "Tier 1": { "FontSize": 43, "TextColor": "#00ffffff", "BorderColor": "#00ffffff", "BackgroundColor": "#004040ff", "PlayEffect": "Cyan", "MinimapIcon": "CyanCircle" },
+        "Tier 2": { "FontSize": 35, "TextColor": "#00ffffff", "BackgroundColor": "#002020ff" }
+    },
+    "Jewels": {
+        "Tier 0": { "FontSize": 46, "TextColor": "#ffffffff", "BorderColor": "#ffffffff", "BackgroundColor": "#400080ff", "PlayEffect": "Purple", "MinimapIcon": "PurpleStar" },
+        "Tier 1": { "FontSize": 43, "TextColor": "#ff00ffff", "BorderColor": "#ff00ffff", "BackgroundColor": "#200040ff", "PlayEffect": "Purple", "MinimapIcon": "PurpleCircle" },
+        "Tier 2": { "FontSize": 35, "TextColor": "#ff00ffff", "BackgroundColor": "#100020ff" }
+    },
+    "Life Flasks": {
+        "Tier 0": { "FontSize": 45, "TextColor": "#ffffffff", "BackgroundColor": "#800000ff", "BorderColor": "#ffffffff" },
+        "Tier 1": { "FontSize": 40, "TextColor": "#ff0000ff", "BackgroundColor": "#200000ff", "BorderColor": "#ff0000ff" },
+        "Tier 2": { "FontSize": 35, "TextColor": "#aaaaaaff", "BackgroundColor": "#100000ff" }
+    },
+    "Mana Flasks": {
+        "Tier 0": { "FontSize": 45, "TextColor": "#ffffffff", "BackgroundColor": "#000080ff", "BorderColor": "#ffffffff" },
+        "Tier 1": { "FontSize": 40, "TextColor": "#0000ffff", "BackgroundColor": "#200020ff", "BorderColor": "#0000ffff" },
+        "Tier 2": { "FontSize": 35, "TextColor": "#aaaaaaff", "BackgroundColor": "#000010ff" }
+    },
+    "Utility Flasks": {
+        "Tier 0": { "FontSize": 45, "TextColor": "#ffffffff", "BackgroundColor": "#404040ff", "BorderColor": "#ffffffff" },
+        "Tier 1": { "FontSize": 40, "TextColor": "#ffffffff", "BackgroundColor": "#202020ff" },
+        "Tier 2": { "FontSize": 35, "TextColor": "#aaaaaaff", "BackgroundColor": "#101010ff" }
+    },
+    "Body Armours": {
+        "Tier 0": { "FontSize": 45, "TextColor": "#ffffffff", "BackgroundColor": "#004000ff", "BorderColor": "#ffffffff", "PlayEffect": "Green", "MinimapIcon": "GreenStar" },
+        "Tier 1": { "FontSize": 40, "TextColor": "#ffff00ff", "BackgroundColor": "#002000ff", "BorderColor": "#ffff00ff" },
+        "Tier 2": { "FontSize": 35, "TextColor": "#ffff00ff", "BackgroundColor": "#001000ff" }
     }
 }

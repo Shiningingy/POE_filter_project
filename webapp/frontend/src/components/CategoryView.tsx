@@ -208,7 +208,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     onInspectTier({ 
         key: tierKey, 
         name: displayTierName, 
-        style: resolveStyle(newConfig[activeCategoryKey][tierKey], themeData, soundMap), 
+        style: resolveStyle(newConfig[activeCategoryKey][tierKey], themeData, themeCategory, soundMap), 
         visibility: newVisibility,
         category: themeCategory,
         rules: newConfig[activeCategoryKey].rules || newConfig[activeCategoryKey]._meta?.rules || [],
@@ -399,7 +399,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
          onInspectTier({ 
              key: tierKey, 
              name: tierName, 
-             style: resolveStyle(tierData, themeData, soundMap), 
+             style: resolveStyle(tierData, themeData, themeCategory, soundMap), 
              visibility: !!tierData.hideable, 
              category: themeCategory,
              rules: newRules.filter((r: any) => 
@@ -476,7 +476,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
             >
                 {sortedTierKeys.map((tierKey, index) => {
                     const tierData = activeCategoryData[tierKey];
-                    const resolved = resolveStyle(tierData, themeData, soundMap);
+                    const resolved = resolveStyle(tierData, themeData, themeCategory, soundMap);
                     const items = tierItems[tierKey] || [];
                     const tierNum = tierData.theme?.Tier !== undefined ? tierData.theme.Tier : "?";
                     

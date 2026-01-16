@@ -8,19 +8,42 @@ Currency:
       name: 尸体
       target: Corpses
       path: Currency/Corpses.json
-    Breach: 裂隙
-    Delirium Orbs: 雾魇宝珠
-    Essences: 精华
-    Expedition: 探险
-    Fossils: 化石
-    Harbinger: 先驱
-    Harvest: 庄园
-    Heist: 夺宝
-    Incubators: 孕育石
-    Oils: 圣油
-    Ritual: 仪式
+    Breach:
+      name: 裂隙
+      path: Currency/Breach.json
+    Delirium Orbs:
+      name: 雾魇宝珠
+      path: Currency/Delirium Orbs.json
+    Essences:
+      name: 精华
+      path: Currency/Essences.json
+    Expedition:
+      name: 探险
+      path: Currency/Expedition.json
+    Fossils:
+      name: 化石
+      path: Currency/Fossils.json
+    Harbinger:
+      name: 先驱
+      path: Currency/Harbinger.json
+    Harvest:
+      name: 庄园
+      path: Currency/Harvest.json
+    Heist:
+      name: 夺宝
+      path: Currency/Heist.json
+    Incubators:
+      name: 孕育石
+      path: Currency/Incubators.json
+    Oils:
+      name: 圣油
+      path: Currency/Oils.json
+    Ritual:
+      name: 仪式
+      path: Currency/Ritual.json
   Gold:
     name: 金币
+    target: Gold
     path: Currency/Gold.json
 
 Uniques:
@@ -33,13 +56,16 @@ Divination Cards:
   _default_target: Divination Cards
   Cards: 命运卡
 
-Maps:
+Maps & Fragments:
   _name: 地图与碎片
   _default_target: Maps
-  Base Maps: 常规地图
+  Base Maps:
+    name: 常规地图
+    path: Maps/Base Maps.json
   Fragments:
     name: 碎片与圣甲虫
     target: Map Fragments
+    path: Maps/Fragments.json
 
 Gems:
   _name: 宝石
@@ -171,3 +197,4 @@ Misc:
   _default_target: Misc
   General:
     name: 其他杂项
+    path: Misc/General.json
