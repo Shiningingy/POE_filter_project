@@ -24,7 +24,10 @@
   },
   "mapping": {
     "Splinter of Xoph": "Tier 3 Breach",
-    "Splinter of Chayula": "Tier 1 Breach",
+    "Splinter of Chayula": [
+      "Tier 2 Breach",
+      "Tier 1 Breach"
+    ],
     "Blessing of Esh": "Tier 1 Breach",
     "Blessing of Uul-Netol": "Tier 1 Breach",
     "Blessing of Chayula": "Tier 1 Breach",

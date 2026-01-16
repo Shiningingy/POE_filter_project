@@ -18,15 +18,17 @@ import {
   useSortable
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { useTranslation } from '../utils/localization';
+import { useTranslation, CLASS_KEY_MAP } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ContextMenu from './ContextMenu';
+import ItemTooltip from './ItemTooltip';
 
 interface Item {
   name: string;
   name_ch: string;
   current_tier: string[] | null;
   source_file: string | null;
+  sub_type?: string;
 }
 
 interface TierOption {
@@ -43,37 +45,7 @@ interface BulkTierEditorProps {
   defaultMappingPath?: string;
 }
 
-const CLASS_TRANSLATIONS: Record<string, string> = {
-    "Body Armours": "胸甲",
-    "Boots": "鞋子",
-    "Gloves": "手套",
-    "Helmets": "头部",
-    "Shields": "盾",
-    "Quivers": "箭袋",
-    "Amulets": "项链",
-    "Belts": "腰带",
-    "Rings": "戒指",
-    "Bows": "弓",
-    "Claws": "爪",
-    "Daggers": "匕首",
-    "Rune Daggers": "符文匕首",
-    "One Hand Axes": "单手斧",
-    "One Hand Maces": "单手锤",
-    "One Hand Swords": "单手剑",
-    "Sceptres": "短杖",
-    "Staves": "长杖",
-    "Warstaves": "战杖",
-    "Two Hand Axes": "双手斧",
-    "Two Hand Maces": "双手锤",
-    "Two Hand Swords": "双手剑",
-    "Wands": "法杖",
-    "Active Skill Gems": "技能宝石",
-    "Support Skill Gems": "辅助宝石",
-    "Maps": "地图",
-    "Map Fragments": "碎片",
-    "Stackable Currency": "通货",
-    "Divination Card": "命运卡"
-};
+const ARMOUR_CLASSES = ["Body Armours", "Gloves", "Boots", "Helmets", "Shields"];
 
 const SortableItem = ({ id, item, color, isStaged, language, onContextMenu }: { id: string, item: Item, color: string, isStaged: boolean, language: Language, onContextMenu: (e: React.MouseEvent) => void }) => {
   const {
@@ -95,38 +67,66 @@ const SortableItem = ({ id, item, color, isStaged, language, onContextMenu }: { 
   const showChineseFirst = language === 'ch';
 
   return (
-    <div 
-      ref={setNodeRef} 
-      style={style} 
-      {...attributes} 
-      {...listeners} 
-      className={`item-card ${isStaged ? 'staged' : ''}`}
-      onContextMenu={onContextMenu} 
-    >
-      <div className="item-info">
-        <div className="name-primary">{showChineseFirst ? item.name_ch : item.name}</div>
-        <div className="name-secondary">{showChineseFirst ? item.name : item.name_ch}</div>
+    <ItemTooltip item={item} language={language}>
+      <div 
+        ref={setNodeRef} 
+        style={style} 
+        {...attributes} 
+        {...listeners} 
+        className={`item-card ${isStaged ? 'staged' : ''}`}
+        onContextMenu={onContextMenu} 
+      >
+        <div className="item-info">
+          {language === 'ch' ? (
+            <>
+              <div className="name-primary">{item.name_ch || item.name}</div>
+              <div className="name-secondary">{item.name}</div>
+            </>
+          ) : (
+            <div className="name-primary">{item.name}</div>
+          )}
+        </div>
+        {isStaged && <div className="staged-indicator">●</div>}
       </div>
-      {isStaged && <div className="staged-indicator">●</div>}
-    </div>
+    </ItemTooltip>
   );
 };
 
-const TierColumn = ({ id, title, color, items, children }: { id: string, title: string, color: string, items: Item[], children: React.ReactNode }) => {
+const TierColumn = ({ id, title, color, items, children, searchInput, onScrollBottom, totalCount }: { id: string, title: string, color: string, items: Item[], children: React.ReactNode, searchInput?: React.ReactNode, onScrollBottom?: () => void, totalCount?: number }) => {
     const { setNodeRef } = useDroppable({ id });
     
+    const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+        if (!onScrollBottom) return;
+        const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
+        if (scrollHeight - scrollTop <= clientHeight + 100) { // 100px threshold
+            onScrollBottom();
+        }
+    };
+
     return (
         <div ref={setNodeRef} className={`kanban-column ${id === 'untiered' ? 'untiered' : ''}`}>
             <div className="column-header" style={{ borderTop: `4px solid ${color}` }}>
-                <h3>{title} ({items.length})</h3>
+                <h3>{title} ({totalCount ?? items.length})</h3>
+                {searchInput}
             </div>
             <SortableContext id={id} items={items.map(i => `${i.name}::${id}`)} strategy={verticalListSortingStrategy}>
-                <div className="column-content drop-zone">
+                <div className="column-content drop-zone" onScroll={handleScroll}>
                     {children}
                 </div>
             </SortableContext>
         </div>
     );
+};
+
+const SUBTYPE_KEY_MAP: Record<string, string> = {
+    "Armour": "Armour",
+    "Evasion Rating": "Evasion_Rating",
+    "Energy Shield": "Energy_Shield",
+    "Armour / ES": "Armour_ES",
+    "Evasion / Armour": "Evasion_Armour",
+    "ES / Evasion": "ES_Evasion",
+    "Armour / Evasion / ES": "Armour_Evasion_ES",
+    "All": "All"
 };
 
 const BulkTierEditor: React.FC<BulkTierEditorProps> = ({ 
@@ -142,12 +142,18 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   const [itemClasses, setItemClasses] = useState<string[]>([]);
   const [selectedClass, setSelectedClass] = useState(initialClassName);
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTermTiered, setSearchTermTiered] = useState('');
+  const [searchTermPool, setSearchTermPool] = useState('');
+  const [debouncedSearchTermTiered, setDebouncedSearchTermTiered] = useState('');
+  const [debouncedSearchTermPool, setDebouncedSearchTermPool] = useState('');
+  const [columnLimits, setColumnLimits] = useState<Record<string, number>>({ untiered: 100 });
   
   // stagedChanges: itemName -> newTierKeyList
   const [stagedChanges, setStagedChanges] = useState<Record<string, string[]>>({});
   const [activeId, setActiveId] = useState<string | null>(null);
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: Item, tierKey: string } | null>(null);
+  const [selectedSubType, setSelectedSubType] = useState('All');
+  const [showAllClasses, setShowAllClasses] = useState(false);
 
   const API_BASE_URL = 'http://localhost:8000';
 
@@ -160,14 +166,34 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       .catch(err => console.error(err));
   }, []);
 
-  // Load items when class changes
+  // Debounce search terms
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedSearchTermPool(searchTermPool), 300);
+    return () => clearTimeout(timer);
+  }, [searchTermPool]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedSearchTermTiered(searchTermTiered), 300);
+    return () => clearTimeout(timer);
+  }, [searchTermTiered]);
+
+  useEffect(() => {
+      setColumnLimits({ untiered: 100 });
+  }, [debouncedSearchTermPool, debouncedSearchTermTiered, selectedClass, showAllClasses, selectedSubType]);
+
+  const handleLoadMore = (id: string) => {
+      setColumnLimits(prev => ({ ...prev, [id]: (prev[id] || 100) + 100 }));
+  };
+
+  // Load items when class or global mode changes
   useEffect(() => {
     const fetchItems = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`${API_BASE_URL}/api/class-items/${encodeURIComponent(selectedClass)}`);
+        const classToFetch = showAllClasses ? "All" : selectedClass;
+        const res = await axios.get(`${API_BASE_URL}/api/class-items/${encodeURIComponent(classToFetch)}`);
         setItems(res.data.items);
-        setStagedChanges({}); // Clear staged changes when switching classes
+        setStagedChanges({}); 
       } catch (err) {
         console.error(err);
       } finally {
@@ -175,7 +201,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       }
     };
     fetchItems();
-  }, [selectedClass]);
+  }, [selectedClass, showAllClasses]);
 
   const columns = useMemo(() => {
     const cols: Record<string, Item[]> = {
@@ -184,20 +210,36 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     availableTiers.forEach(tier => { cols[tier.key] = []; });
 
     items.forEach(item => {
-      if (searchTerm && !item.name.toLowerCase().includes(searchTerm.toLowerCase()) && !item.name_ch.includes(searchTerm)) {
-          return;
-      }
-      
       let effectiveTiers: string[] = [];
       if (stagedChanges[item.name] !== undefined) {
           effectiveTiers = stagedChanges[item.name];
       } else {
           effectiveTiers = item.current_tier || [];
       }
-      
-      if (effectiveTiers.length === 0) {
+
+      const isItemTiered = effectiveTiers.length > 0;
+
+      if (!isItemTiered) {
+          // Filtering for Untiered Pool
+          const searchLower = debouncedSearchTermPool.toLowerCase();
+          const matchesSearch = !debouncedSearchTermPool || 
+                               item.name.toLowerCase().includes(searchLower) || 
+                               (item.name_ch && item.name_ch.toLowerCase().includes(searchLower));
+          
+          const matchesSubType = selectedSubType === 'All' || item.sub_type === selectedSubType;
+          
+          if (!matchesSearch || !matchesSubType) return;
+          
           cols['untiered'].push(item);
       } else {
+          // Filtering for Tiered Columns
+          const searchLower = debouncedSearchTermTiered.toLowerCase();
+          const matchesSearch = !debouncedSearchTermTiered || 
+                               item.name.toLowerCase().includes(searchLower) || 
+                               (item.name_ch && item.name_ch.toLowerCase().includes(searchLower));
+          
+          if (!matchesSearch) return;
+
           effectiveTiers.forEach(t => {
               const targetCol = t || 'untiered';
               if (cols[targetCol]) cols[targetCol].push(item);
@@ -206,7 +248,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       }
     });
     return cols;
-  }, [items, stagedChanges, searchTerm, availableTiers]);
+  }, [items, stagedChanges, debouncedSearchTermTiered, debouncedSearchTermPool, availableTiers, selectedSubType]);
 
   const handleDragStart = (event: DragStartEvent) => {
     const activeIdStr = event.active.id as string;
@@ -367,7 +409,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       <div className="modal-content">
         <div className="modal-header">
           <div className="header-left">
-            <h2>{t.bulkEdit}: {language === 'ch' ? (CLASS_TRANSLATIONS[selectedClass] || selectedClass) : selectedClass}</h2>
+            <h2>{t.bulkEdit}: {language === 'ch' ? ((t as any)[CLASS_KEY_MAP[selectedClass] || selectedClass] || selectedClass) : selectedClass}</h2>
             <div className="class-select-wrapper">
                 <span className="label">{t.itemClass}:</span>
                 <select 
@@ -377,10 +419,22 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                 >
                     {itemClasses.map(c => (
                         <option key={c} value={c}>
-                            {language === 'ch' ? (CLASS_TRANSLATIONS[c] || c) : c}
+                            {language === 'ch' ? ((t as any)[CLASS_KEY_MAP[c] || c] || c) : c}
                         </option>
                     ))}
                 </select>
+                {ARMOUR_CLASSES.includes(selectedClass) && availableSubTypes.length > 0 && (
+                    <select 
+                        className="class-select"
+                        value={selectedSubType} 
+                        onChange={e => setSelectedSubType(e.target.value)}
+                        style={{ marginLeft: '10px', minWidth: '100px' }}
+                    >
+                        {availableSubTypes.map(st => (
+                            <option key={st} value={st}>{(t as any)[SUBTYPE_KEY_MAP[st] || st] || st}</option>
+                        ))}
+                    </select>
+                )}
             </div>
           </div>
           <div className="header-meta">
@@ -390,11 +444,21 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         </div>
 
         <div className="bulk-toolbar">
+          <div className="filter-options">
+              <label className="checkbox-label">
+                  <input 
+                    type="checkbox" 
+                    checked={showAllClasses} 
+                    onChange={e => setShowAllClasses(e.target.checked)} 
+                  />
+                  {language === 'ch' ? "显示全物品类" : "Show All Classes"}
+              </label>
+          </div>
           <input 
             type="text" 
-            placeholder={t.filterPlaceholder} 
-            value={searchTerm} 
-            onChange={e => setSearchTerm(e.target.value)}
+            placeholder={language === 'ch' ? "筛选已分类项..." : "Filter Tiered..."} 
+            value={searchTermTiered} 
+            onChange={e => setSearchTermTiered(e.target.value)}
             className="search-box"
           />
           <button 
@@ -418,9 +482,20 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                 id="untiered" 
                 title={t.untiered} 
                 color="#999" 
-                items={columns['untiered']}
+                items={columns['untiered'].slice(0, columnLimits['untiered'] || 100)}
+                totalCount={columns['untiered'].length}
+                onScrollBottom={() => handleLoadMore('untiered')}
+                searchInput={
+                    <input 
+                        type="text"
+                        placeholder={t.filterPlaceholder}
+                        value={searchTermPool}
+                        onChange={e => setSearchTermPool(e.target.value)}
+                        className="column-search"
+                    />
+                }
             >
-                {columns['untiered'].map(item => (
+                {columns['untiered'].slice(0, columnLimits['untiered'] || 100).map(item => (
                     <SortableItem 
                         key={`${item.name}-untiered`} 
                         id={`${item.name}::untiered`}
@@ -433,29 +508,30 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                 ))}
             </TierColumn>
 
-            {/* Tier Columns */}
-            {availableTiers.map(tier => (
-                <TierColumn
-                    key={tier.key}
-                    id={tier.key}
-                    title={tier.label}
-                    color={getTierColor(tier.key)}
-                    items={columns[tier.key]}
-                >
-                    {columns[tier.key].map(item => (
-                        <SortableItem 
-                            key={`${item.name}-${tier.key}`} 
-                            id={`${item.name}::${tier.key}`}
-                            item={item} 
-                            color={getTierColor(tier.key)}
-                            isStaged={stagedChanges[item.name] !== undefined && !(item.current_tier || []).includes(tier.key)}
-                            language={language}
-                            onContextMenu={(e) => handleItemRightClick(e, item, tier.key)}
-                        />
-                    ))}
-                </TierColumn>
-            ))}
-
+                        {/* Tier Columns */}
+                        {availableTiers.map(tier => (
+                            <TierColumn
+                                key={tier.key}
+                                id={tier.key}
+                                title={tier.label}
+                                color={getTierColor(tier.key)}
+                                items={columns[tier.key].slice(0, columnLimits[tier.key] || 100)}
+                                totalCount={columns[tier.key].length}
+                                onScrollBottom={() => handleLoadMore(tier.key)}
+                            >
+                                    {columns[tier.key].slice(0, columnLimits[tier.key] || 100).map(item => (
+                                    <SortableItem 
+                                        key={`${item.name}-${tier.key}`} 
+                                        id={`${item.name}::${tier.key}`}
+                                        item={item} 
+                                        color={getTierColor(tier.key)}
+                                        isStaged={stagedChanges[item.name] !== undefined && !(item.current_tier || []).includes(tier.key)}
+                                        language={language}
+                                        onContextMenu={(e) => handleItemRightClick(e, item, tier.key)}
+                                    />
+                                ))}
+                            </TierColumn>
+                        ))}
             <DragOverlay dropAnimation={{ sideEffects: defaultDropAnimationSideEffects({ styles: { active: { opacity: '0.5' } } }) }}>
                 {activeItem ? (
                     <div className="item-card dragging" style={{ backgroundColor: getTierColor(activeSourceTier === 'untiered' ? null : activeSourceTier) }}>
@@ -515,6 +591,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         .kanban-column { flex: 0 0 280px; display: flex; flex-direction: column; background: #ebedf0; border-radius: 8px; overflow: hidden; max-height: 100%; border: 1px solid #ddd; }
         .column-header { padding: 12px 15px; background: #f4f5f7; border-bottom: 1px solid #ddd; }
         .column-header h3 { margin: 0; font-size: 0.9rem; color: #5e6c84; text-transform: uppercase; letter-spacing: 0.5px; }
+        .column-search { width: 100%; padding: 6px 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem; margin-top: 8px; box-sizing: border-box; }
         
         .column-content { flex-grow: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 8px; min-height: 100px; }
         

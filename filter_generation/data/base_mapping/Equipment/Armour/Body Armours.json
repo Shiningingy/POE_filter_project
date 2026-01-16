@@ -161,7 +161,10 @@
     "Thief's Garb": "Tier 1 Body Armours",
     "Eelskin Tunic": "Tier 1 Body Armours",
     "Frontier Leather": "Tier 1 Body Armours",
-    "Glorious Leather": "Tier 1 Body Armours",
+    "Glorious Leather": [
+      "Tier 1 Body Armours",
+      "Tier 1 Breach"
+    ],
     "Coronal Leather": "Tier 1 Body Armours",
     "Cutthroat's Garb": "Tier 1 Body Armours",
     "Sharkskin Tunic": "Tier 1 Body Armours",

@@ -267,7 +267,10 @@
     "Museum Map": "Tier 1 Base Maps",
     "Necropolis Map": "Tier 1 Base Maps",
     "Orchard Map": "Tier 1 Base Maps",
-    "Overgrown Ruin Map": "Tier 1 Base Maps",
+    "Overgrown Ruin Map": [
+      "Tier 1 Base Maps",
+      "Tier 1 Breach"
+    ],
     "Overgrown Shrine Map": "Tier 1 Base Maps",
     "Palace Map": "Tier 1 Base Maps",
     "Park Map": "Tier 1 Base Maps",

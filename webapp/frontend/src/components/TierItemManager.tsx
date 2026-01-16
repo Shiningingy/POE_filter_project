@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useTranslation, getItemName } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ContextMenu from './ContextMenu';
+import ItemTooltip from './ItemTooltip';
 
 interface TierItem {
   name: string;
@@ -133,14 +134,23 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
             {suggestions.length > 0 && (
               <ul className="suggestions-list">
                 {suggestions.map(s => (
-                  <li key={s.name} onClick={() => handleAddItem(s)}>
-                    <strong>{getItemName(s, language)}</strong> 
-                    <div className="source-tags">
-                        {renderTierLabels(s.current_tier, s.category_ch).map((lbl, idx) => (
-                            <span key={idx} className="source-hint">{lbl}</span>
-                        ))}
-                    </div>
-                  </li>
+                  <ItemTooltip key={s.name} item={s} language={language}>
+                      <li onClick={() => handleAddItem(s)}>
+                        {language === 'ch' ? (
+                            <div className="name-wrapper">
+                                <div className="name-ch">{s.name_ch || s.name}</div>
+                                <div className="name-en-small">{s.name}</div>
+                            </div>
+                        ) : (
+                            <strong>{s.name}</strong>
+                        )}
+                        <div className="source-tags">
+                            {renderTierLabels(s.current_tier, s.category_ch).map((lbl, idx) => (
+                                <span key={idx} className="source-hint">{lbl}</span>
+                            ))}
+                        </div>
+                      </li>
+                  </ItemTooltip>
                 ))}
               </ul>
             )}
@@ -158,17 +168,23 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           
           <div className="item-grid">
             {filteredItems.map(item => (
-              <div 
-                key={item.name} 
-                className="item-block" 
-                onContextMenu={(e) => handleRightClick(e, item)}
-                title={item.source}
-              >
-                <span className="item-text">
-                    {getItemName(item, language)}
-                </span>
-                <button className="item-del-btn" onClick={(e) => { e.stopPropagation(); onDeleteItem(item); }}>×</button>
-              </div>
+              <ItemTooltip key={item.name} item={item} language={language}>
+                  <div 
+                    className="item-block" 
+                    onContextMenu={(e) => handleRightClick(e, item)}
+                    title={item.source}
+                  >
+                    {language === 'ch' ? (
+                        <div className="name-wrapper">
+                            <div className="name-ch">{item.name_ch || item.name}</div>
+                            <div className="name-en-small">{item.name}</div>
+                        </div>
+                    ) : (
+                        <span className="item-text">{item.name}</span>
+                    )}
+                    <button className="item-del-btn" onClick={(e) => { e.stopPropagation(); onDeleteItem(item); }}>×</button>
+                  </div>
+              </ItemTooltip>
             ))}
             {filteredItems.length === 0 && <div className="empty-msg">{t.noItems}</div>}
           </div>
@@ -221,6 +237,9 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
         }
         .item-block:hover { border-color: #2196F3; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .item-text { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .name-wrapper { display: flex; flex-direction: column; line-height: 1.2; text-align: left; }
+        .name-ch { font-weight: bold; font-size: 0.85rem; }
+        .name-en-small { font-size: 0.7rem; color: #888; }
         .item-del-btn { 
             background: none; border: none; padding: 0; color: #ced4da; 
             cursor: pointer; font-size: 1.1rem; line-height: 1; margin-left: 4px;

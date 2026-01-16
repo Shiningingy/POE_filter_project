@@ -50,6 +50,9 @@ ITEM_TO_CLASS = {}  # BaseType -> Class
 ITEM_TRANSLATIONS = {} # English Name -> Chinese Name
 CATEGORY_MAP = {} # mapping_path -> ch_name
 
+ITEM_SUBTYPES = {} # BaseType -> STR/DEX/INT
+ITEM_DETAILS = {} # BaseType -> {drop_level, implicit, ...}
+
 # --- Middleware ---
 app.add_middleware(
     CORSMiddleware,
@@ -77,7 +80,7 @@ def safe_join(base: Path, path: str):
     return full_path
 
 def load_base_types():
-    global ITEM_CLASSES, CLASS_TO_ITEMS, ITEM_TO_CLASS
+    global ITEM_CLASSES, CLASS_TO_ITEMS, ITEM_TO_CLASS, ITEM_SUBTYPES
     csv_path = DATA_DIR / "from_filter_blade" / "BaseTypes.csv"
     if not csv_path.exists():
         print("Warning: BaseTypes.csv not found.")
@@ -85,7 +88,7 @@ def load_base_types():
 
     print("Loading BaseTypes.csv...")
     try:
-        with open(csv_path, "r", encoding="utf-8") as f:
+        with open(csv_path, "r", encoding="utf-8-sig") as f:
             reader = csv.DictReader(f)
             for row in reader:
                 cls = row.get("Class", "").strip()
@@ -95,6 +98,52 @@ def load_base_types():
                         CLASS_TO_ITEMS[cls] = set()
                     CLASS_TO_ITEMS[cls].add(name)
                     ITEM_TO_CLASS[name] = cls
+                    
+                    # Parse attributes and assign game-facing sub-types only for relevant classes
+                    subtype = "Other"
+                    if cls in ["Body Armours", "Gloves", "Boots", "Helmets", "Shields"]:
+                        s = int(row.get("Game:Strength") or 0)
+                        d = int(row.get("Game:Dexterity") or 0)
+                        i = int(row.get("Game:Intelligence") or 0)
+                        
+                        if s > 0 and d == 0 and i == 0: subtype = "Armour"
+                        elif d > 0 and s == 0 and i == 0: subtype = "Evasion Rating"
+                        elif i > 0 and s == 0 and d == 0: subtype = "Energy Shield"
+                        elif s > 0 and d > 0 and i == 0: subtype = "Evasion / Armour"
+                        elif s > 0 and i > 0 and d == 0: subtype = "Armour / ES"
+                        elif d > 0 and i > 0 and s == 0: subtype = "ES / Evasion"
+                        elif s > 0 and d > 0 and i > 0: subtype = "Armour / Evasion / ES"
+                    
+                    ITEM_SUBTYPES[name] = subtype
+                    
+                    # Parse detailed stats
+                    details = {
+                        "drop_level": int(row.get("DropLevel") or 0),
+                        "width": int(row.get("Width") or 1),
+                        "height": int(row.get("Height") or 1),
+                        "implicit": [],
+                        "armour": int(row.get("Game:Armour") or 0),
+                        "armour_max": int(row.get("Game:Armour Max") or 0),
+                        "evasion": int(row.get("Game:Evasion") or 0),
+                        "evasion_max": int(row.get("Game:Evasion Max") or 0),
+                        "energy_shield": int(row.get("Game:Energy Shield") or 0),
+                        "energy_shield_max": int(row.get("Game:Energy Shield Max") or 0),
+                        "damage_min": int(row.get("Game:Damage From") or 0),
+                        "damage_max": int(row.get("Game:Damage To") or 0),
+                        "aps": float(row.get("Game:APS") or 0),
+                        "crit": float(row.get("Game:Crit") or 0),
+                        "dps": float(row.get("Game:DPS") or 0),
+                        "req_str": int(row.get("Game:Strength") or 0),
+                        "req_dex": int(row.get("Game:Dexterity") or 0),
+                        "req_int": int(row.get("Game:Intelligence") or 0),
+                        "item_class": cls,
+                    }
+                    imp1 = row.get("Game:Implicit 1")
+                    imp2 = row.get("Game:Implicit 2")
+                    if imp1: details["implicit"].append(imp1)
+                    if imp2: details["implicit"].append(imp2)
+                    
+                    ITEM_DETAILS[name] = details
         
         ITEM_CLASSES = sorted(list(CLASS_TO_ITEMS.keys()))
         print(f"Loaded {len(ITEM_CLASSES)} item classes.")
@@ -224,12 +273,14 @@ def search_items(q: str):
                 for item_name, tier_key in mapping.items():
                     name_ch = trans.get(item_name, "")
                     if q_lower in item_name.lower() or (name_ch and q_lower in name_ch.lower()):
+                        details = ITEM_DETAILS.get(item_name, {})
                         results_map[item_name] = {
                             "name": item_name, 
                             "name_ch": name_ch or item_name, 
                             "current_tier": tier_key, 
                             "category_ch": cat_ch,
-                            "source_file": file_path.relative_to(mappings_dir).as_posix()
+                            "source_file": file_path.relative_to(mappings_dir).as_posix(),
+                            **details
                         }
         except: continue
     
@@ -241,11 +292,13 @@ def search_items(q: str):
             name_ch = ITEM_TRANSLATIONS.get(item_name, item_name)
             
             if q_lower in item_name.lower() or q_lower in name_ch.lower():
+                details = ITEM_DETAILS.get(item_name, {})
                 results_map[item_name] = {
                     "name": item_name,
                     "name_ch": name_ch,
                     "current_tier": None,
-                    "source_file": None
+                    "source_file": None,
+                    **details
                 }
 
     results = list(results_map.values())
@@ -260,17 +313,27 @@ def get_item_classes():
 
 @app.get("/api/class-items/{item_class}")
 def get_items_by_class(item_class: str):
-    all_class_items = CLASS_TO_ITEMS.get(item_class, set())
+    # Items to explicitly include (based on class filter)
+    if item_class == "All":
+        requested_items = set(ITEM_TO_CLASS.keys())
+    else:
+        requested_items = CLASS_TO_ITEMS.get(item_class, set())
+    
     item_data = {} 
     
-    for name in all_class_items:
+    # Pre-populate requested items
+    for name in requested_items:
+        details = ITEM_DETAILS.get(name, {})
         item_data[name] = {
             "name": name,
             "name_ch": ITEM_TRANSLATIONS.get(name, name),
-            "current_tier": [], # Initialize as empty list
+            "sub_type": ITEM_SUBTYPES.get(name, "Other"),
+            **details,
+            "current_tier": [], 
             "source_file": None
         }
 
+    # Scan all mappings to find current tiers AND include tiered items from other classes
     mappings_dir = CONFIG_DATA_DIR / "base_mapping"
     for file_path in mappings_dir.rglob("*.json"):
         try:
@@ -279,17 +342,27 @@ def get_items_by_class(item_class: str):
                 mapping = data.get("mapping", {})
                 trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
                 for item_name, tier_val in mapping.items():
-                    if item_name in all_class_items:
-                        tiers = tier_val if isinstance(tier_val, list) else [tier_val]
-                        
-                        current_list = item_data[item_name]["current_tier"]
-                        for t in tiers:
-                            if t not in current_list:
-                                current_list.append(t)
-                        
-                        item_data[item_name]["source_file"] = file_path.relative_to(mappings_dir).as_posix()
-                        if item_name in trans:
-                            item_data[item_name]["name_ch"] = trans[item_name]
+                    # If item is not in requested_items but is in a mapping, we still want it!
+                    if item_name not in item_data:
+                        details = ITEM_DETAILS.get(item_name, {})
+                        item_data[item_name] = {
+                            "name": item_name,
+                            "name_ch": ITEM_TRANSLATIONS.get(item_name, item_name),
+                            "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
+                            **details,
+                            "current_tier": [],
+                            "source_file": None
+                        }
+                    
+                    tiers = tier_val if isinstance(tier_val, list) else [tier_val]
+                    current_list = item_data[item_name]["current_tier"]
+                    for t in tiers:
+                        if t not in current_list:
+                            current_list.append(t)
+                    
+                    item_data[item_name]["source_file"] = file_path.relative_to(mappings_dir).as_posix()
+                    if item_name in trans:
+                        item_data[item_name]["name_ch"] = trans[item_name]
         except: continue
         
     return {"items": list(item_data.values())}
@@ -414,7 +487,13 @@ def get_items_by_tier(request: TierItemsRequest):
                     
                     for tier_key in tiers:
                         if tier_key in tier_keys_set:
-                            result[tier_key].append({"name": item_name, "name_ch": trans.get(item_name, item_name), "source": file_path.relative_to(mappings_dir).as_posix()})
+                            details = ITEM_DETAILS.get(item_name, {})
+                            result[tier_key].append({
+                                "name": item_name, 
+                                "name_ch": trans.get(item_name, item_name), 
+                                "source": file_path.relative_to(mappings_dir).as_posix(),
+                                **details
+                            })
         except: continue
     
     # Untiered calculation omitted here to simplify (usually handled by class-items endpoint for bulk)
