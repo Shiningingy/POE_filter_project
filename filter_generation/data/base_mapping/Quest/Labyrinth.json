@@ -13,7 +13,10 @@
         "__class_name__": "迷宫物品"
       }
     },
-    "item_class": { "en": "Labyrinth Items", "ch": "迷宫物品" },
+    "item_class": {
+      "en": "Labyrinth Items",
+      "ch": "迷宫物品"
+    },
     "theme_category": "Labyrinth Items"
   },
   "mapping": {

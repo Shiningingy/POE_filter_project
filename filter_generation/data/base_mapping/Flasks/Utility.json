@@ -9,20 +9,24 @@
         "Quartz Flask": "石英药剂",
         "Amethyst Flask": "紫晶药剂",
         "Silver Flask": "真银药剂",
-        "Basalt Flask": "玄武药剂",
+        "Basalt Flask": "石化药剂",
         "Stibnite Flask": "迷雾药剂",
         "Sulphur Flask": "硫磺药剂",
-        "Bismuth Flask": "铋造药剂",
+        "Bismuth Flask": "灰岩药剂",
         "Ruby Flask": "红玉药剂",
         "Sapphire Flask": "蓝玉药剂",
         "Topaz Flask": "黄玉药剂",
         "Aquamarine Flask": "海蓝药剂",
         "Gold Flask": "黄金药剂",
         "Corundum Flask": "刚玉药剂",
-        "__class_name__": "功能药剂"
+        "__class_name__": "功能药剂",
+        "Iron Flask": "坚铁药剂"
       }
     },
-    "item_class": { "en": "Utility Flasks", "ch": "功能药剂" },
+    "item_class": {
+      "en": "Utility Flasks",
+      "ch": "功能药剂"
+    },
     "theme_category": "Utility Flasks"
   },
   "mapping": {
@@ -34,27 +38,54 @@
     "Amethyst Flask": "Tier 1 Utility Flasks",
     "Gold Flask": "Tier 1 Utility Flasks",
     "Corundum Flask": "Tier 1 Utility Flasks",
-    "Ruby Flask": "Tier 2 Utility Flasks",
-    "Sapphire Flask": "Tier 2 Utility Flasks",
-    "Topaz Flask": "Tier 2 Utility Flasks",
-    "Bismuth Flask": "Tier 2 Utility Flasks",
-    "Sulphur Flask": "Tier 2 Utility Flasks",
-    "Stibnite Flask": "Tier 2 Utility Flasks",
-    "Basalt Flask": "Tier 2 Utility Flasks",
-    "Quartz Flask": "Tier 2 Utility Flasks",
-    "Aquamarine Flask": "Tier 2 Utility Flasks"
+    "Ruby Flask": "Tier 1 Utility Flasks",
+    "Sapphire Flask": "Tier 1 Utility Flasks",
+    "Topaz Flask": "Tier 1 Utility Flasks",
+    "Bismuth Flask": "Tier 1 Utility Flasks",
+    "Sulphur Flask": "Tier 1 Utility Flasks",
+    "Stibnite Flask": "Tier 1 Utility Flasks",
+    "Basalt Flask": "Tier 1 Utility Flasks",
+    "Quartz Flask": "Tier 1 Utility Flasks",
+    "Aquamarine Flask": "Tier 1 Utility Flasks",
+    "Iron Flask": "Tier 1 Utility Flasks"
   },
   "rules": [
     {
-      "targets": ["Gold Flask", "Corundum Flask", "Silver Flask", "Amethyst Flask", "Diamond Flask", "Quicksilver Flask"],
-      "conditions": { "ItemLevel": ">= 84" },
-      "overrides": { "Tier": "Tier 0 Utility Flasks", "PlayAlertSound": ["Sharket掉落音效/高级药酊.mp3", 300] },
+      "targets": [
+        "Gold Flask",
+        "Corundum Flask",
+        "Silver Flask",
+        "Amethyst Flask",
+        "Diamond Flask",
+        "Quicksilver Flask"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 84"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Utility Flasks",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级药酊.mp3",
+          300
+        ]
+      },
       "comment": "i84 Top Utility Flasks"
     },
     {
-      "targets": ["Gold Flask", "Corundum Flask", "Silver Flask", "Amethyst Flask", "Diamond Flask", "Quicksilver Flask"],
-      "conditions": { "ItemLevel": ">= 82" },
-      "overrides": { "Tier": "Tier 1 Utility Flasks" },
+      "targets": [
+        "Gold Flask",
+        "Corundum Flask",
+        "Silver Flask",
+        "Amethyst Flask",
+        "Diamond Flask",
+        "Quicksilver Flask"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 82"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Utility Flasks"
+      },
       "comment": "i82 Utility Flasks"
     }
   ]

@@ -523,6 +523,34 @@
     },
     {
       "_meta": {
+        "localization": { "en": "Jewels", "ch": "珠宝" }
+      },
+      "files": [
+        {
+          "path": "Jewels/Base Jewels.json",
+          "tier_path": "tier_definition/Jewels/Base Jewels.json",
+          "mapping_path": "base_mapping/Jewels/Base Jewels.json",
+          "target_category": "Jewels",
+          "localization": { "en": "Base Jewels", "ch": "基础珠宝" }
+        },
+        {
+          "path": "Jewels/Cluster Jewels.json",
+          "tier_path": "tier_definition/Jewels/Cluster Jewels.json",
+          "mapping_path": "base_mapping/Jewels/Cluster Jewels.json",
+          "target_category": "Cluster Jewels",
+          "localization": { "en": "Cluster Jewels", "ch": "星团珠宝" }
+        },
+        {
+          "path": "Jewels/Abyss Jewels.json",
+          "tier_path": "tier_definition/Jewels/Abyss Jewels.json",
+          "mapping_path": "base_mapping/Jewels/Abyss Jewels.json",
+          "target_category": "Abyss Jewels",
+          "localization": { "en": "Abyss Jewels", "ch": "深渊珠宝" }
+        }
+      ]
+    },
+    {
+      "_meta": {
         "localization": { "en": "Flasks", "ch": "药剂" }
       },
       "files": [

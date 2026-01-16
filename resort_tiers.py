@@ -24,8 +24,8 @@ def resort_tiers(directory):
                 if cat_key == "_meta": continue
                 if not isinstance(cat_data, dict): continue
                 
-                # Get all tier keys (excluding _meta)
-                keys = [k for k in cat_data.keys() if k != "_meta"]
+                # Get all tier keys (excluding _meta and rules)
+                keys = [k for k in cat_data.keys() if k != "_meta" and k != "rules"]
                 
                 # Sort them
                 sorted_keys = sorted(keys, key=get_tier_num)

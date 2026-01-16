@@ -9,7 +9,10 @@
         "__class_name__": "符文匕首"
       }
     },
-    "item_class": { "en": "Rune Daggers", "ch": "符文匕首" },
+    "item_class": {
+      "en": "Rune Daggers",
+      "ch": "符文匕首"
+    },
     "theme_category": "Rune Daggers"
   },
   "mapping": {
@@ -22,9 +25,21 @@
   },
   "rules": [
     {
-      "targets": ["Golden Kris", "Platinum Kris", "Ezomyte Dagger"],
-      "conditions": { "ItemLevel": ">= 86" },
-      "overrides": { "Tier": "Tier 0 Rune Daggers", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "targets": [
+        "Golden Kris",
+        "Platinum Kris",
+        "Ezomyte Dagger"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rune Daggers",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
       "comment": "i86 Top Rune Daggers"
     }
   ]

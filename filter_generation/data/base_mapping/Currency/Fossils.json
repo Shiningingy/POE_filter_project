@@ -27,7 +27,15 @@
         "Gilded Fossil": "镶金化石",
         "Deft Fossil": "机巧化石",
         "Fundamental Fossil": "根基化石",
-        "__class_name__": "可堆叠通货"
+        "__class_name__": "可堆叠通货",
+        "Primitive Alchemical Resonator": "原始炼金共振器",
+        "Potent Alchemical Resonator": "强能炼金共振器",
+        "Powerful Alchemical Resonator": "巨能炼金共振器",
+        "Prime Alchemical Resonator": "威能炼金共振器",
+        "Primitive Chaotic Resonator": "原始混乱共振器",
+        "Potent Chaotic Resonator": "强能混乱共振器",
+        "Powerful Chaotic Resonator": "巨能混乱共振器",
+        "Prime Chaotic Resonator": "威能混乱共振器"
       }
     },
     "item_class": {
@@ -61,7 +69,15 @@
     "Sanctified Fossil": "Tier 1 Fossils",
     "Gilded Fossil": "Tier 1 Fossils",
     "Deft Fossil": "Tier 1 Fossils",
-    "Fundamental Fossil": "Tier 1 Fossils"
+    "Fundamental Fossil": "Tier 1 Fossils",
+    "Primitive Alchemical Resonator": "Tier 1 Fossils",
+    "Potent Alchemical Resonator": "Tier 1 Fossils",
+    "Powerful Alchemical Resonator": "Tier 1 Fossils",
+    "Prime Alchemical Resonator": "Tier 1 Fossils",
+    "Primitive Chaotic Resonator": "Tier 1 Fossils",
+    "Potent Chaotic Resonator": "Tier 1 Fossils",
+    "Powerful Chaotic Resonator": "Tier 1 Fossils",
+    "Prime Chaotic Resonator": "Tier 1 Fossils"
   },
   "rules": []
 }

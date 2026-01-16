@@ -122,7 +122,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     if (!catKey) return { activeCategoryKey: null, activeCategoryData: null, sortedTierKeys: [] };
 
     const catData = parsedConfig[catKey];
-    let keys = Object.keys(catData).filter(k => !k.startsWith('//') && k !== '_meta');
+    let keys = Object.keys(catData).filter(k => !k.startsWith('//') && k !== '_meta' && k !== 'rules');
 
     if (catData._meta?.tier_order) {
         const order = catData._meta.tier_order;
