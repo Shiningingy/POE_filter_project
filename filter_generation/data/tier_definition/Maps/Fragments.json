@@ -50,7 +50,7 @@
       }
     },
     "Tier 4 Fragments": {
-      "hideable": true,
+      "hideable": false,
       "theme": {
         "Tier": 4
       },

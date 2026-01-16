@@ -99,13 +99,23 @@
           }
         },
         {
-          "path": "Currency/Oils & Harvest.json",
-          "tier_path": "tier_definition/Currency/Oils & Harvest.json",
-          "mapping_path": "base_mapping/Currency/Oils & Harvest.json",
+          "path": "Currency/Oils.json",
+          "tier_path": "tier_definition/Currency/Oils.json",
+          "mapping_path": "base_mapping/Currency/Oils.json",
           "target_category": "Stackable Currency",
           "localization": {
-            "en": "Oils & Harvest",
-            "ch": "圣油与庄园"
+            "en": "Oils",
+            "ch": "圣油"
+          }
+        },
+        {
+          "path": "Currency/Harvest.json",
+          "tier_path": "tier_definition/Currency/Harvest.json",
+          "mapping_path": "base_mapping/Currency/Harvest.json",
+          "target_category": "Stackable Currency",
+          "localization": {
+            "en": "Harvest",
+            "ch": "庄园"
           }
         },
         {

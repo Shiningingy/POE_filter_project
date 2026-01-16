@@ -2,44 +2,95 @@
   "Shields": {
     "_meta": {
       "theme_category": "Shields",
-      "localization": { "en": "Shields", "ch": "盾" }
+      "localization": {
+        "en": "Shields",
+        "ch": "盾"
+      }
     },
     "Tier 0 Shields": {
       "hideable": false,
-      "theme": { "Tier": 0 },
-      "sound": { "default_sound_id": 6, "sharket_sound_id": "顶级底材.mp3" },
-      "localization": { "en": "T0: i86 Top Bases", "ch": "T0: 顶级底材(86+)" }
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: i86 Top Bases",
+        "ch": "T0: 顶级底材(86+)"
+      }
     },
     "Tier 1 Shields": {
       "hideable": false,
-      "theme": { "Tier": 1 },
-      "sound": { "default_sound_id": 1, "sharket_sound_id": "精品装备.mp3" },
-      "localization": { "en": "T1: High iLvl Bases", "ch": "T1: 优质底材(84+)" }
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "精品装备.mp3"
+      },
+      "localization": {
+        "en": "T1: High iLvl Bases",
+        "ch": "T1: 优质底材(84+)"
+      }
     },
     "Tier 2 Shields": {
       "hideable": false,
-      "theme": { "Tier": 2 },
-      "sound": { "default_sound_id": 2, "sharket_sound_id": "金装备.mp3" },
-      "localization": { "en": "T2: Decent Bases", "ch": "T2: 常用底材" }
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "金装备.mp3"
+      },
+      "localization": {
+        "en": "T2: Decent Bases",
+        "ch": "T2: 常用底材"
+      }
     },
     "Tier 3 Shields": {
-      "hideable": true,
-      "theme": { "Tier": 3 },
-      "sound": { "default_sound_id": -1, "sharket_sound_id": "金装.mp3" },
-      "localization": { "en": "T3: Mid Tier", "ch": "T3: 普通盾" }
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": "金装.mp3"
+      },
+      "localization": {
+        "en": "T3: Mid Tier",
+        "ch": "T3: 普通盾"
+      }
     },
     "Tier 4 Shields": {
-      "hideable": true,
-      "theme": { "Tier": 4 },
-      "sound": { "default_sound_id": -1, "sharket_sound_id": null },
-      "localization": { "en": "T4: Low Tier", "ch": "T4: 低级盾" }
+      "hideable": false,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T4: Low Tier",
+        "ch": "T4: 低级盾"
+      }
     },
     "Tier Hide Shields": {
       "hideable": true,
       "is_hide_tier": true,
-      "theme": { "Tier": 9 },
-      "sound": { "default_sound_id": -1, "sharket_sound_id": null },
-      "localization": { "en": "Hide", "ch": "隐藏" }
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
     }
   }
 }

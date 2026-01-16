@@ -1,41 +1,55 @@
 {
-  "Fossils": {
+  "Oils": {
     "_meta": {
       "theme_category": "Stackable Currency",
       "localization": {
-        "en": "Fossils",
-        "ch": "化石"
+        "en": "Oils",
+        "ch": "圣油"
       }
     },
-    "Tier 1 Fossils": {
+    "Tier 1 Oils": {
       "hideable": false,
       "theme": {
         "Tier": 1
       },
       "sound": {
         "default_sound_id": 1,
-        "sharket_sound_id": "高级化石.mp3"
+        "sharket_sound_id": "高级圣油.mp3"
       },
       "localization": {
-        "en": "T1: Rare Fossils",
-        "ch": "T1: 顶级化石"
+        "en": "T1: High End",
+        "ch": "T1: 顶级圣油"
       }
     },
-    "Tier 2 Fossils": {
+    "Tier 2 Oils": {
       "hideable": false,
       "theme": {
         "Tier": 2
       },
       "sound": {
         "default_sound_id": 2,
-        "sharket_sound_id": "化石.mp3"
+        "sharket_sound_id": "圣油.mp3"
       },
       "localization": {
-        "en": "T2: Common Fossils",
-        "ch": "T2: 普通化石"
+        "en": "T2: Mid Tier",
+        "ch": "T2: 中级圣油"
       }
     },
-    "Tier Hide Fossils": {
+    "Tier 3 Oils": {
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T3: Low Tier",
+        "ch": "T3: 普通圣油"
+      }
+    },
+    "Tier Hide Oils": {
       "hideable": true,
       "is_hide_tier": true,
       "theme": {

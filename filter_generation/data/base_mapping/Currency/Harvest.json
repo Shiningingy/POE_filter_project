@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Sacred Crystallised Lifeforce": "神圣白晶命能",
+        "Wild Crystallised Lifeforce": "狂野紫晶命能",
+        "Vivid Crystallised Lifeforce": "活性黄晶命能",
+        "Primal Crystallised Lifeforce": "原始蓝晶命能",
+        "__class_name__": "庄园"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Sacred Crystallised Lifeforce": "Tier 1 Harvest",
+    "Wild Crystallised Lifeforce": "Tier 3 Harvest",
+    "Vivid Crystallised Lifeforce": "Tier 3 Harvest",
+    "Primal Crystallised Lifeforce": "Tier 3 Harvest"
+  },
+  "rules": [
+    {
+      "targets": ["Wild Crystallised Lifeforce", "Vivid Crystallised Lifeforce", "Primal Crystallised Lifeforce"],
+      "conditions": {
+        "StackSize": ">= 500"
+      },
+      "overrides": {
+        "Tier": "Tier 2 Harvest"
+      },
+      "comment": "Stacked Lifeforce"
+    }
+  ]
+}

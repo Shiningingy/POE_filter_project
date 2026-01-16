@@ -50,7 +50,7 @@
       }
     },
     "Tier 3 Cards": {
-      "hideable": true,
+      "hideable": false,
       "theme": {
         "Tier": 3
       },
@@ -64,7 +64,7 @@
       }
     },
     "Tier 4 Cards": {
-      "hideable": true,
+      "hideable": false,
       "theme": {
         "Tier": 4
       },

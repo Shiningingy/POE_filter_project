@@ -255,17 +255,21 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     let tierData: any;
 
     if (templateData) {
-        // PASTE
-        const { key, num } = getNextTierName(categoryData, activeCategoryKey);
+        // PASTE AS CUSTOM
+        const { key, num } = getNextCustomTierName(categoryData, activeCategoryKey);
         newTierKey = key;
         tierData = JSON.parse(JSON.stringify(templateData));
-        tierData.theme.Tier = num; 
+        
+        // Ensure it's marked as custom and localization is clear
+        const originalName = templateData.localization?.[language] || "Tier";
         tierData.localization = { 
-            en: newTierKey, 
-            ch: `T${num} ${categoryData._meta?.localization?.ch || activeCategoryKey}` 
+            en: `${originalName} ${translations.en.copyLabel}`, 
+            ch: `${templateData.localization?.ch || originalName} ${translations.ch.copyLabel}` 
         };
-    } else if (useFixedTemplate) {
-        // INSERT CUSTOM
+        // Reset or adjust custom properties if needed
+        tierData.show_in_editor = true; 
+    } else {
+        // ADD NEW CUSTOM (Fixed Template or Empty)
         const { key, num } = getNextCustomTierName(categoryData, activeCategoryKey);
         newTierKey = key;
         tierData = JSON.parse(JSON.stringify(tierTemplate));
@@ -275,22 +279,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         if (tierData.name_template) delete tierData.name_template;
 
         tierData.localization = { en: nameEn, ch: nameCh };
-        // Ensure theme.Tier is set if needed, or leave as is from template
-        if (tierData.theme?.Tier === "custom") {
-             // Maybe set to unique number if we want? Or just leave it.
-             // If we leave it, multiple custom tiers have same "Tier" prop.
-             // It shouldn't break anything except visual "T?" if looking at raw prop.
-        }
-    } else {
-        // ADD STANDARD
-        const { key, num } = getNextTierName(categoryData, activeCategoryKey);
-        newTierKey = key;
-        tierData = {
-            hideable: false,
-            theme: { Tier: num },
-            sound: { default_sound_id: -1, sharket_sound_id: null },
-            localization: { en: newTierKey, ch: `T${num} ${categoryData._meta?.localization?.ch || activeCategoryKey}` }
-        };
     }
     
     categoryData[newTierKey] = tierData;
@@ -398,14 +386,18 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   const tierOptions = sortedTierKeys.map(tk => {
     const td = activeCategoryData[tk];
     const tNum = td.theme?.Tier !== undefined ? td.theme.Tier : "?";
-    // If localization exists, use it? Or stick to T{N}?
-    // The previous code forced `T{tNum}`.
-    // I should probably use localization if it's a Custom Tier (where tNum might be "custom" or meaningless).
     const locName = td.localization?.[language];
+    
+    const baseOption = { 
+        key: tk, 
+        show_in_editor: td.show_in_editor !== false,
+        is_hide_tier: !!td.is_hide_tier
+    };
+
     if (locName && (tk.startsWith('CustomTier') || typeof tNum !== 'number')) {
-        return { key: tk, label: locName };
+        return { ...baseOption, label: locName };
     }
-    return { key: tk, label: language === 'ch' ? `T${tNum} ${catName}` : `Tier ${tNum} ${catName}` };
+    return { ...baseOption, label: language === 'ch' ? `T${tNum} ${catName}` : `Tier ${tNum} ${catName}` };
   });
 
   return (
@@ -462,6 +454,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                 tierName={displayTierName}
                                 style={resolved}
                                 visibility={!!tierData.hideable}
+                                canHide={tierData.show_in_editor !== false}
                                 onChange={(newStyle, newVis) => handleTierUpdate(tierKey, newStyle, newVis, themeCategory)}
                                 language={language}
                                 onInspect={() => onInspectTier({ 

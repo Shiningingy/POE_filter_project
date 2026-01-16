@@ -42,12 +42,13 @@
         "__class_name__": "可堆叠通货"
       }
     },
-    "item_class": { "en": "Stackable Currency", "ch": "可堆叠通货" },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
     "theme_category": "Stackable Currency"
   },
   "mapping": {
-    "Mirror of Kalandra": "Tier 0 General",
-    "Mirror Shard": "Tier 0 General",
     "Eternal Orb": "Tier 0 General",
     "Hinekora's Lock": "Tier 0 General",
     "Albino Rhoa Feather": "Tier 0 General",
@@ -63,10 +64,8 @@
     "Hunter's Exalted Orb": "Tier 2 General",
     "Warlord's Exalted Orb": "Tier 2 General",
     "Orb of Conflict": "Tier 2 General",
-    "Golden Oil": "Tier 2 General",
     "Exalted Orb": "Tier 3 General",
     "Ancient Orb": "Tier 3 General",
-    "Silver Oil": "Tier 3 General",
     "Fertile Catalyst": "Tier 3 General",
     "Annulment Shard": "Tier 3 General",
     "Chaos Orb": "Tier 4 General",
@@ -97,14 +96,122 @@
     "Blessed Orb": "Tier 5 General"
   },
   "rules": [
-    { "targets": ["Mirror of Kalandra"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/卡兰德的魔镜.mp3", 300] }, "comment": "Mirror Override" },
-    { "targets": ["Mirror Shard"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/镜子碎掉.mp3", 300] }, "comment": "Mirror Shard Override" },
-    { "targets": ["Divine Orb"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/神圣石.mp3", 300] }, "comment": "Divine Override" },
-    { "targets": ["Exalted Orb"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/崇高石.mp3", 300] }, "comment": "Exalt Override" },
-    { "targets": ["Ancient Orb"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/远古石.mp3", 300] }, "comment": "Ancient Override" },
-    { "targets": ["Chaos Orb"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/混沌石.mp3", 300] }, "comment": "Chaos Override" },
-    { "targets": ["Gemcutter's Prism"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/宝石棱镜.mp3", 300] }, "comment": "GCP Override" },
-    { "targets": ["Orb of Annulment"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/剥离石.mp3", 300] }, "comment": "Annul Override" },
-    { "targets": ["Orb of Regret"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/后悔石.mp3", 300] }, "comment": "Regret Override" }
+    {
+      "targets": [
+        "Mirror of Kalandra"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/卡兰德的魔镜.mp3",
+          300
+        ]
+      },
+      "comment": "Mirror Override"
+    },
+    {
+      "targets": [
+        "Mirror Shard"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/镜子碎掉.mp3",
+          300
+        ]
+      },
+      "comment": "Mirror Shard Override"
+    },
+    {
+      "targets": [
+        "Divine Orb"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/神圣石.mp3",
+          300
+        ]
+      },
+      "comment": "Divine Override"
+    },
+    {
+      "targets": [
+        "Exalted Orb"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/崇高石.mp3",
+          300
+        ]
+      },
+      "comment": "Exalt Override"
+    },
+    {
+      "targets": [
+        "Ancient Orb"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/远古石.mp3",
+          300
+        ]
+      },
+      "comment": "Ancient Override"
+    },
+    {
+      "targets": [
+        "Chaos Orb"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/混沌石.mp3",
+          300
+        ]
+      },
+      "comment": "Chaos Override"
+    },
+    {
+      "targets": [
+        "Gemcutter's Prism"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/宝石棱镜.mp3",
+          300
+        ]
+      },
+      "comment": "GCP Override"
+    },
+    {
+      "targets": [
+        "Orb of Annulment"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/剥离石.mp3",
+          300
+        ]
+      },
+      "comment": "Annul Override"
+    },
+    {
+      "targets": [
+        "Orb of Regret"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/后悔石.mp3",
+          300
+        ]
+      },
+      "comment": "Regret Override"
+    }
   ]
 }

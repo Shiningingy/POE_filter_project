@@ -321,11 +321,26 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     }
 
     if (targetTier !== null) {
-        const currentTiers = items.find(i => i.name === itemName)?.current_tier || [];
+        const item = items.find(i => i.name === itemName);
+        const currentTiers = item?.current_tier || [];
         let effectiveTiers = stagedChanges[itemName] ? [...stagedChanges[itemName]] : [...currentTiers];
         
         const sourceTier = activeIdStr.split('::')[1];
         const actualSource = sourceTier === 'untiered' ? "" : sourceTier;
+
+        // Check if item is a T0 item (belongs to a show_in_editor: false tier)
+        const isT0Item = currentTiers.some(tk => {
+            const opt = availableTiers.find(o => o.key === tk);
+            return opt && opt.show_in_editor === false;
+        });
+
+        const targetOpt = availableTiers.find(o => o.key === targetTier);
+        const isTargetHide = targetOpt?.is_hide_tier === true;
+
+        if (isT0Item && isTargetHide) {
+            const confirmMsg = t.t0MoveWarning.replace("{name}", item?.name_ch || item?.name || "");
+            if (!window.confirm(confirmMsg)) return;
+        }
         
         const idx = effectiveTiers.indexOf(actualSource);
         if (idx > -1) {
@@ -525,22 +540,29 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                     />
                 }
             >
-                {columns['untiered'].slice(0, columnLimits['untiered'] || 100).map(item => (
-                    <SortableItem 
-                        key={`${item.name}-untiered`} 
-                        id={`${item.name}::untiered`}
-                        item={item} 
-                        color="white"
-                        isStaged={stagedChanges[item.name] !== undefined}
-                        language={language}
-                        onContextMenu={(e) => handleItemRightClick(e, item, 'untiered')}
-                    />
-                ))}
+                {columns['untiered'].slice(0, columnLimits['untiered'] || 100).map(item => {
+                    const isItemLocked = item.current_tier?.some(tKey => {
+                        const tierOpt = availableTiers.find(opt => opt.key === tKey);
+                        return tierOpt && tierOpt.show_in_editor === false;
+                    });
+
+                    return (
+                        <SortableItem 
+                            key={`${item.name}-untiered`} 
+                            id={`${item.name}::untiered`}
+                            item={item} 
+                            color="white"
+                            isStaged={stagedChanges[item.name] !== undefined}
+                            language={language}
+                            onContextMenu={(e) => handleItemRightClick(e, item, 'untiered')}
+                            disabled={isItemLocked}
+                        />
+                    );
+                })}
             </TierColumn>
 
                         {/* Tier Columns */}
                         {availableTiers.map(tier => {
-                            const isLockedTier = tier.show_in_editor === false;
                             return (
                                 <TierColumn
                                     key={tier.key}
@@ -551,18 +573,32 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                                     totalCount={columns[tier.key].length}
                                     onScrollBottom={() => handleLoadMore(tier.key)}
                                 >
-                                        {columns[tier.key].slice(0, columnLimits[tier.key] || 100).map(item => (
-                                        <SortableItem 
-                                            key={`${item.name}-${tier.key}`} 
-                                            id={`${item.name}::${tier.key}`}
-                                            item={item} 
-                                            color={getTierColor(tier.key)}
-                                            isStaged={stagedChanges[item.name] !== undefined && !(item.current_tier || []).includes(tier.key)}
-                                            language={language}
-                                            onContextMenu={(e) => handleItemRightClick(e, item, tier.key)}
-                                            disabled={isLockedTier}
-                                        />
-                                    ))}
+                                        {columns[tier.key].slice(0, columnLimits[tier.key] || 100).map(item => {
+                                            // Item is locked ONLY if it is in a show_in_editor: false tier AND that is its CURRENT location
+                                            const tierOpt = availableTiers.find(opt => opt.key === tier.key);
+                                            const isLocationLocked = tierOpt && tierOpt.show_in_editor === false;
+                                            
+                                            // Additionally check if it's a T0 item by origin
+                                            const isT0ByOrigin = item.current_tier?.some(tk => {
+                                                const opt = availableTiers.find(o => o.key === tk);
+                                                return opt && opt.show_in_editor === false;
+                                            });
+
+                                            const isItemLocked = isLocationLocked && isT0ByOrigin;
+
+                                            return (
+                                                <SortableItem 
+                                                    key={`${item.name}-${tier.key}`} 
+                                                    id={`${item.name}::${tier.key}`}
+                                                    item={item} 
+                                                    color={getTierColor(tier.key)}
+                                                    isStaged={stagedChanges[item.name] !== undefined && !(item.current_tier || []).includes(tier.key)}
+                                                    language={language}
+                                                    onContextMenu={(e) => handleItemRightClick(e, item, tier.key)}
+                                                    disabled={isItemLocked}
+                                                />
+                                            );
+                                        })}
                                 </TierColumn>
                             );
                         })}
@@ -588,7 +624,18 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
             onClose={() => setContextMenu(null)}
             options={[
                 ...(contextMenu.tierKey !== 'untiered' ? [
-                    { label: language === 'ch' ? "从此阶级移除" : "Remove from this Tier", onClick: () => handleModifyTierList(contextMenu.item, 'remove', contextMenu.tierKey) },
+                    { 
+                        label: language === 'ch' ? "从此阶级移除" : "Remove from this Tier", 
+                        onClick: () => handleModifyTierList(contextMenu.item, 'remove', contextMenu.tierKey),
+                        disabled: (() => {
+                            const opt = availableTiers.find(o => o.key === contextMenu.tierKey);
+                            const isT0ByOrigin = contextMenu.item.current_tier?.some(tk => {
+                                const o = availableTiers.find(x => x.key === tk);
+                                return o && o.show_in_editor === false;
+                            });
+                            return opt && opt.show_in_editor === false && isT0ByOrigin;
+                        })()
+                    },
                     { divider: true, label: '', onClick: () => {} }
                 ] : []),
                 ...availableTiers
@@ -596,7 +643,17 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                     .map(t => ({
                         label: language === 'ch' ? `添加至 ${t.label}` : `Add to ${t.label}`,
                         color: getTierColor(t.key),
-                        onClick: () => handleModifyTierList(contextMenu.item, 'add', t.key)
+                        onClick: () => {
+                            const isT0ByOrigin = contextMenu.item.current_tier?.some(tk => {
+                                const o = availableTiers.find(x => x.key === tk);
+                                return o && o.show_in_editor === false;
+                            });
+                            if (isT0ByOrigin && t.is_hide_tier) {
+                                const confirmMsg = (t as any).t0MoveWarning.replace("{name}", contextMenu.item.name_ch || contextMenu.item.name);
+                                if (!window.confirm(confirmMsg)) return;
+                            }
+                            handleModifyTierList(contextMenu.item, 'add', t.key);
+                        }
                     }))
             ]}
         />

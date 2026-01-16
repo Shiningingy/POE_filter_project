@@ -11,6 +11,7 @@ interface TierItem {
   name_ch?: string;
   source: string;
   current_tier?: string;
+  current_tiers?: string[];
   category_ch?: string;
   sub_type?: string;
 }
@@ -18,6 +19,7 @@ interface TierItem {
 interface TierOption {
   key: string;
   label: string;
+  show_in_editor?: boolean;
 }
 
 interface TierItemManagerProps {
@@ -164,15 +166,28 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           </div>
           
           <div className="item-grid">
-            {filteredItems.map(item => (
-              <ItemCard 
-                key={item.name}
-                item={item}
-                language={language}
-                onContextMenu={(e) => handleRightClick(e, item)}
-                onDelete={() => onDeleteItem(item)}
-              />
-            ))}
+            {filteredItems.map(item => {
+              const currentTierOpt = allTiers.find(opt => opt.key === tierKey);
+              const isLocationLocked = currentTierOpt && currentTierOpt.show_in_editor === false;
+              
+              const isT0ByOrigin = item.current_tiers?.some(tk => {
+                  const opt = allTiers.find(o => o.key === tk);
+                  return opt && opt.show_in_editor === false;
+              });
+
+              const isLocked = isLocationLocked && isT0ByOrigin;
+
+              return (
+                <ItemCard 
+                  key={item.name}
+                  item={item}
+                  language={language}
+                  onContextMenu={(e) => handleRightClick(e, item)}
+                  onDelete={isLocked ? undefined : () => onDeleteItem(item)}
+                  className={isLocked ? 'locked' : ''}
+                />
+              );
+            })}
             {filteredItems.length === 0 && <div className="empty-msg">{t.noItems}</div>}
           </div>
         </div>
@@ -184,11 +199,31 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           y={contextMenu.y}
           onClose={() => setContextMenu(null)}
           options={[
-            ...allTiers.map(tOption => ({
-                label: tOption.label,
-                color: getTierColor(tOption.key),
-                onClick: () => onMoveItem(contextMenu.item, tOption.key, false, tierKey) // Pass tierKey as oldTier
-            })),
+            ...allTiers.map(tOption => {
+                const isT0ByOrigin = contextMenu.item.current_tiers?.some(tk => {
+                    const opt = allTiers.find(o => o.key === tk);
+                    return opt && opt.show_in_editor === false;
+                });
+                const isLocationLocked = (() => {
+                    const opt = allTiers.find(o => o.key === tierKey);
+                    return opt && opt.show_in_editor === false;
+                })();
+
+                const isLocked = isLocationLocked && isT0ByOrigin;
+
+                return {
+                    label: tOption.label,
+                    color: getTierColor(tOption.key),
+                    onClick: () => {
+                        if (isT0ByOrigin && tOption.is_hide_tier) {
+                            const confirmMsg = t.t0MoveWarning.replace("{name}", contextMenu.item.name_ch || contextMenu.item.name);
+                            if (!window.confirm(confirmMsg)) return;
+                        }
+                        onMoveItem(contextMenu.item, tOption.key, false, tierKey);
+                    },
+                    disabled: isLocked
+                };
+            }),
             { label: "divider", onClick: () => {}, divider: true },
             { label: "🎵 Custom Sound Override", onClick: () => handleSoundOverride(contextMenu.item) }
           ].map(opt => ({ ...opt, className: opt.label === "divider" ? "divider" : "" }))}

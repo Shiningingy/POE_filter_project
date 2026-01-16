@@ -18,6 +18,7 @@ interface TierStyleEditorProps {
   tierName: string;
   style: StyleProps;
   visibility: boolean;
+  canHide?: boolean;
   onChange: (newStyle: StyleProps, newVisibility: boolean) => void;
   language: Language;
   onInspect: () => void;
@@ -32,6 +33,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   tierName,
   style,
   visibility,
+  canHide = true,
   onChange,
   language,
   onInspect,
@@ -664,10 +666,11 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         <h4 className="tier-title">{tierName}</h4>
         <div className="header-actions">
           <button
-            className={`vis-btn ${visibility ? "is-hidden" : "is-shown"}`}
+            className={`vis-btn ${visibility ? "is-hidden" : "is-shown"} ${!canHide ? "disabled-vis" : ""}`}
+            disabled={!canHide}
             onClick={(e) => {
               e.stopPropagation();
-              toggleVisibility();
+              if (canHide) toggleVisibility();
             }}
           >
             {visibility ? t.hide : t.show}
@@ -908,6 +911,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         .vis-btn { background: #333; color: #fff; border: 1px solid #444; padding: 4px 12px; border-radius: 2px; cursor: pointer; font-size: 0.75rem; }
         .vis-btn.is-shown { color: #4CAF50; border-color: #2e7d32; }
         .vis-btn.is-hidden { color: #f44336; border-color: #c62828; }
+        .vis-btn.disabled-vis { opacity: 0.3; cursor: not-allowed; grayscale: 1; }
         .reset-btn { background: #1a237e; color: #fff; border: none; padding: 4px 12px; border-radius: 2px; cursor: pointer; font-size: 0.75rem; }
         .editor-layout { display: flex; padding: 15px 20px; align-items: center; justify-content: space-between; min-height: 120px; background: rgba(0,0,0,0.4); }
         .color-controls { display: flex; flex-direction: column; gap: 6px; width: 130px; }

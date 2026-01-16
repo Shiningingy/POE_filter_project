@@ -494,6 +494,7 @@ def get_items_by_tier(request: TierItemsRequest):
                                 "name": item_name, 
                                 "name_ch": trans.get(item_name, item_name), 
                                 "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
+                                "current_tiers": tiers,
                                 "source": file_path.relative_to(mappings_dir).as_posix(),
                                 **details
                             })

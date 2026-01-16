@@ -79,7 +79,7 @@
       }
     },
     "Tier 5 General": {
-      "hideable": true,
+      "hideable": false,
       "theme": {
         "Tier": 5
       },

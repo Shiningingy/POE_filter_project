@@ -2,44 +2,95 @@
   "Claws": {
     "_meta": {
       "theme_category": "Claws",
-      "localization": { "en": "Claws", "ch": "爪" }
+      "localization": {
+        "en": "Claws",
+        "ch": "爪"
+      }
     },
     "Tier 0 Claws": {
       "hideable": false,
-      "theme": { "Tier": 0 },
-      "sound": { "default_sound_id": 6, "sharket_sound_id": "顶级底材.mp3" },
-      "localization": { "en": "T0: i86 Top Claws", "ch": "T0: 顶级爪(86+)" }
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: i86 Top Claws",
+        "ch": "T0: 顶级爪(86+)"
+      }
     },
     "Tier 1 Claws": {
       "hideable": false,
-      "theme": { "Tier": 1 },
-      "sound": { "default_sound_id": 1, "sharket_sound_id": "精品装备.mp3" },
-      "localization": { "en": "T1: High iLvl Claws", "ch": "T1: 优质爪(84+)" }
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "精品装备.mp3"
+      },
+      "localization": {
+        "en": "T1: High iLvl Claws",
+        "ch": "T1: 优质爪(84+)"
+      }
     },
     "Tier 2 Claws": {
       "hideable": false,
-      "theme": { "Tier": 2 },
-      "sound": { "default_sound_id": 2, "sharket_sound_id": "金装备.mp3" },
-      "localization": { "en": "T2: Decent Bases", "ch": "T2: 常用爪" }
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "金装备.mp3"
+      },
+      "localization": {
+        "en": "T2: Decent Bases",
+        "ch": "T2: 常用爪"
+      }
     },
     "Tier 3 Claws": {
-      "hideable": true,
-      "theme": { "Tier": 3 },
-      "sound": { "default_sound_id": -1, "sharket_sound_id": "金装.mp3" },
-      "localization": { "en": "T3: Mid Tier", "ch": "T3: 普通爪" }
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": "金装.mp3"
+      },
+      "localization": {
+        "en": "T3: Mid Tier",
+        "ch": "T3: 普通爪"
+      }
     },
     "Tier 4 Claws": {
-      "hideable": true,
-      "theme": { "Tier": 4 },
-      "sound": { "default_sound_id": -1, "sharket_sound_id": null },
-      "localization": { "en": "T4: Low Tier", "ch": "T4: 低级爪" }
+      "hideable": false,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T4: Low Tier",
+        "ch": "T4: 低级爪"
+      }
     },
     "Tier Hide Claws": {
       "hideable": true,
       "is_hide_tier": true,
-      "theme": { "Tier": 9 },
-      "sound": { "default_sound_id": -1, "sharket_sound_id": null },
-      "localization": { "en": "Hide", "ch": "隐藏" }
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
     }
   }
 }
