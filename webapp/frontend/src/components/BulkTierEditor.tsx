@@ -181,17 +181,25 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       setColumnLimits({ untiered: 100 });
   }, [debouncedSearchTermPool, debouncedSearchTermTiered, selectedClass, showAllClasses, selectedSubType]);
 
+  const availableSubTypes = useMemo(() => {
+      const types = new Set<string>();
+      items.forEach(i => { if(i.sub_type && i.sub_type !== 'Other') types.add(i.sub_type); });
+      const sorted = Array.from(types).sort();
+      if (sorted.length > 0) return ['All', ...sorted];
+      return [];
+  }, [items]);
+
   const handleLoadMore = (id: string) => {
       setColumnLimits(prev => ({ ...prev, [id]: (prev[id] || 100) + 100 }));
   };
 
-  // Load items when class or global mode changes
+  // Load items once on mount or when needed for the full pool
   useEffect(() => {
     const fetchItems = async () => {
       setLoading(true);
       try {
-        const classToFetch = showAllClasses ? "All" : selectedClass;
-        const res = await axios.get(`${API_BASE_URL}/api/class-items/${encodeURIComponent(classToFetch)}`);
+        // Fetch all items to support global search across all classes
+        const res = await axios.get(`${API_BASE_URL}/api/class-items/All`);
         setItems(res.data.items);
         setStagedChanges({}); 
       } catch (err) {
@@ -201,7 +209,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       }
     };
     fetchItems();
-  }, [selectedClass, showAllClasses]);
+  }, []);
 
   const columns = useMemo(() => {
     const cols: Record<string, Item[]> = {
@@ -219,36 +227,49 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
 
       const isItemTiered = effectiveTiers.length > 0;
 
-      if (!isItemTiered) {
-          // Filtering for Untiered Pool
-          const searchLower = debouncedSearchTermPool.toLowerCase();
-          const matchesSearch = !debouncedSearchTermPool || 
-                               item.name.toLowerCase().includes(searchLower) || 
-                               (item.name_ch && item.name_ch.toLowerCase().includes(searchLower));
-          
-          const matchesSubType = selectedSubType === 'All' || item.sub_type === selectedSubType;
-          
-          if (!matchesSearch || !matchesSubType) return;
-          
-          cols['untiered'].push(item);
-      } else {
-          // Filtering for Tiered Columns
+      // 1. Tiered Columns Filtering
+      if (isItemTiered) {
           const searchLower = debouncedSearchTermTiered.toLowerCase();
           const matchesSearch = !debouncedSearchTermTiered || 
                                item.name.toLowerCase().includes(searchLower) || 
                                (item.name_ch && item.name_ch.toLowerCase().includes(searchLower));
-          
-          if (!matchesSearch) return;
+          if (matchesSearch) {
+              effectiveTiers.forEach(t => {
+                  const targetCol = t || 'untiered';
+                  if (cols[targetCol]) cols[targetCol].push(item);
+              });
+          }
+      }
 
-          effectiveTiers.forEach(t => {
-              const targetCol = t || 'untiered';
-              if (cols[targetCol]) cols[targetCol].push(item);
-              else cols['untiered'].push(item);
-          });
+      // 2. Untiered Pool Filtering
+      const poolSearchLower = debouncedSearchTermPool.toLowerCase();
+      const hasSearch = poolSearchLower.length > 0;
+      
+      const matchesPoolSearch = !hasSearch || 
+                               item.name.toLowerCase().includes(poolSearchLower) || 
+                               (item.name_ch && item.name_ch.toLowerCase().includes(poolSearchLower));
+      
+      // Class Filter: 
+      // If searching: ignore class filter (global search)
+      // If not searching: must match selectedClass
+      const matchesClass = hasSearch || item.item_class === selectedClass;
+      
+      // Tier Visibility Filter:
+      // If searching: ignore
+      // If not searching: 
+      //    showAllClasses (checkbox) ON -> show all in class
+      //    showAllClasses OFF -> show only untiered in class
+      const isVisibleInPool = hasSearch || (matchesClass && (showAllClasses || !isItemTiered));
+
+      if (matchesPoolSearch && matchesClass && isVisibleInPool) {
+          const matchesSubType = selectedSubType === 'All' || item.sub_type === selectedSubType;
+          if (matchesSubType) {
+              cols['untiered'].push(item);
+          }
       }
     });
     return cols;
-  }, [items, stagedChanges, debouncedSearchTermTiered, debouncedSearchTermPool, availableTiers, selectedSubType]);
+  }, [items, stagedChanges, debouncedSearchTermTiered, debouncedSearchTermPool, availableTiers, selectedSubType, showAllClasses, selectedClass]);
 
   const handleDragStart = (event: DragStartEvent) => {
     const activeIdStr = event.active.id as string;
@@ -552,8 +573,10 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
             y={contextMenu.y} 
             onClose={() => setContextMenu(null)}
             options={[
-                { label: language === 'ch' ? "从此阶级移除" : "Remove from this Tier", onClick: () => handleModifyTierList(contextMenu.item, 'remove', contextMenu.tierKey) },
-                { divider: true, label: '', onClick: () => {} },
+                ...(contextMenu.tierKey !== 'untiered' ? [
+                    { label: language === 'ch' ? "从此阶级移除" : "Remove from this Tier", onClick: () => handleModifyTierList(contextMenu.item, 'remove', contextMenu.tierKey) },
+                    { divider: true, label: '', onClick: () => {} }
+                ] : []),
                 ...availableTiers
                     .filter(t => t.key !== contextMenu.tierKey && !(stagedChanges[contextMenu.item.name] || contextMenu.item.current_tier || []).includes(t.key))
                     .map(t => ({

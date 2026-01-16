@@ -505,7 +505,10 @@
     "Bound Rune": "Tier 1 General",
     "War Rune": "Tier 1 General",
     "River Rune": "Tier 1 General",
-    "Bounty Rune": "Tier 1 General",
+    "Bounty Rune": [
+      "Tier 1 General",
+      "Tier 1 Breach"
+    ],
     "Journey Rune": "Tier 1 General",
     "Mountain Rune": "Tier 1 General",
     "Time Rune": "Tier 1 General",
