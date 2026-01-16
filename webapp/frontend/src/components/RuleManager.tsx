@@ -4,6 +4,7 @@ import { useTranslation, getItemName } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import ItemTooltip from "./ItemTooltip";
 import ItemCard from "./ItemCard";
+import ContextMenu from "./ContextMenu";
 
 interface Item {
   name: string;
@@ -18,6 +19,12 @@ interface Rule {
   overrides: Record<string, any>;
   comment?: string;
   raw?: string;
+  disabled?: boolean;
+}
+
+interface TierOption {
+    key: string;
+    label: string;
 }
 
 interface RuleManagerProps {
@@ -29,6 +36,7 @@ interface RuleManagerProps {
   availableItems: Item[];
   categoryName: string;
   translationCache: Record<string, string>;
+  availableTiers?: TierOption[];
 }
 
 const RULE_FACTOR_LOCALIZATION: Record<string, { en: string; ch: string }> = {
@@ -61,23 +69,26 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   availableItems,
   categoryName,
   translationCache,
+  availableTiers
 }) => {
   const t = useTranslation(language);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
 
   const [targetSearch, setTargetSearch] = useState("");
   const [suggestions, setSuggestions] = useState<any[]>([]);
+  const [contextMenu, setContextMenu] = useState<{ x: number, y: number, ruleIndex: number } | null>(null);
 
   const tierRulesIndices = useMemo(() => {
     return allRules
       .map((r, i) => ({ r, i }))
       .filter(({ r }) => {
         if (r.overrides?.Tier) return r.overrides.Tier === tierKey;
-        // Fix: Check if any target string matches an item's name property
         return r.targets.some((target) => availableItems.some(i => i.name === target));
       })
       .map((item) => item.i);
   }, [allRules, tierKey, availableItems]);
+
+  const activeCount = tierRulesIndices.filter(i => !allRules[i].disabled).length;
 
   useEffect(() => {
     if (targetSearch.length < 2) {
@@ -100,7 +111,6 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   }, [targetSearch]);
 
   const handleAddRule = () => {
-    // Limit removed to support sequential processing
     const newRule: Rule = {
       targets: [],
       conditions: {},
@@ -121,6 +131,38 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   const setEditingAndNotify = (idx: number | null) => {
     setEditingIndex(idx);
     onRuleEdit(tierKey, idx);
+  };
+
+  const handleDeleteRule = (e: React.MouseEvent, globalIndex: number) => {
+      e.stopPropagation();
+      if (window.confirm(language === 'ch' ? "确定要删除此规则吗？" : "Delete this rule?")) {
+          onGlobalRulesChange(allRules.filter((_, i) => i !== globalIndex));
+          setEditingAndNotify(null);
+      }
+  };
+  
+  const handleDeleteRuleNoConfirm = (globalIndex: number) => {
+      onGlobalRulesChange(allRules.filter((_, i) => i !== globalIndex));
+      setEditingAndNotify(null);
+  };
+
+  const toggleDisable = (e: React.MouseEvent, globalIndex: number) => {
+      e.stopPropagation();
+      const rule = allRules[globalIndex];
+      handleUpdateRule(globalIndex, { ...rule, disabled: !rule.disabled });
+  };
+
+  const handleMoveRule = (globalIndex: number, newTierKey: string) => {
+      const rule = allRules[globalIndex];
+      const newOverrides = { ...rule.overrides, Tier: newTierKey };
+      handleUpdateRule(globalIndex, { ...rule, overrides: newOverrides });
+      setEditingAndNotify(null); 
+  };
+
+  const handleRightClick = (e: React.MouseEvent, globalIndex: number) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setContextMenu({ x: e.clientX, y: e.clientY, ruleIndex: globalIndex });
   };
 
   const addTarget = (globalIndex: number, itemName: string) => {
@@ -173,33 +215,38 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   const relevantFactors = useMemo(getRelevantFactors, [categoryName]);
 
   return (
-    <div className="tier-rule-manager">
+    <div className="tier-rule-manager" onContextMenu={(e) => { e.preventDefault(); e.stopPropagation(); }}>
       <div className="rule-header">
-        <span className="label">🛠 {t.rules} ({tierRulesIndices.length}/{allRules.length})</span>
+        <span className="label">🛠 {t.rules} ({activeCount}/{tierRulesIndices.length})</span>
         <button className="mini-add-btn" onClick={handleAddRule}>+ {t.addRule}</button>
       </div>
 
       <div className="rules-stack">
-        {tierRulesIndices.map((globalIndex) => {
+        {tierRulesIndices.map((globalIndex, localIndex) => {
           const rule = allRules[globalIndex];
           const isEditing = editingIndex === globalIndex;
 
           return (
-            <div key={globalIndex} className={`inline-rule-card ${isEditing ? 'editing' : ''}`}>
+            <div 
+                key={globalIndex} 
+                className={`inline-rule-card ${isEditing ? 'editing' : ''} ${rule.disabled ? 'disabled-card' : ''}`}
+                onContextMenu={(e) => handleRightClick(e, globalIndex)}
+            >
               <div className="summary" onClick={() => setEditingAndNotify(isEditing ? null : globalIndex)}>
-                <div className="rule-badge">#{globalIndex + 1}</div>
+                <div className={`rule-badge ${rule.disabled ? 'disabled-badge' : ''}`}>#{localIndex + 1}</div>
                 <input 
-                    className="rule-name-input"
+                    className={`rule-name-input ${rule.disabled ? 'disabled-text' : ''}`}
                     value={rule.comment || ""} 
                     placeholder={language === 'ch' ? `规则备注...` : `Rule Comment...`}
                     onClick={(e) => e.stopPropagation()}
                     onChange={(e) => handleUpdateRule(globalIndex, { ...rule, comment: e.target.value })}
                 />
-                <button className="delete-btn" title={t.deleteRule} onClick={(e) => { 
-                    e.stopPropagation(); 
-                    onGlobalRulesChange(allRules.filter((_, i) => i !== globalIndex)); 
-                    setEditingAndNotify(null); 
-                }}>×</button>
+                <div className="rule-actions">
+                    <button className="icon-btn" title={rule.disabled ? "Enable" : "Disable"} onClick={(e) => toggleDisable(e, globalIndex)}>
+                        {rule.disabled ? '⚪' : '🟢'}
+                    </button>
+                    <button className="delete-btn" title={t.deleteRule} onClick={(e) => handleDeleteRule(e, globalIndex)}>×</button>
+                </div>
               </div>
 
               {isEditing && (
@@ -252,7 +299,6 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                     <span>{t.conditions}</span>
                   </div>
 
-
                   <div className="factors-mini-grid">
                     {Object.entries(rule.conditions).map(
                       ([key, currentVal]) => {
@@ -287,9 +333,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                         return (
                           <div
                             key={key}
-                            className={`mini-factor ${
-                              isRange ? "range-factor" : ""
-                            }`}
+                            className={`mini-factor ${isRange ? "range-factor" : ""}`}
                           >
                             <div className="factor-header">
                               <span>{label}</span>
@@ -468,43 +512,6 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                   </div>
 
                   <div className="section-divider">
-                    <span>{t.overrides || "Overrides"}</span>
-                  </div>
-                  
-                  <div className="overrides-section">
-                      <div className="field">
-                          <label>Target Tier</label>
-                          <input 
-                            type="text" 
-                            value={rule.overrides?.Tier || ""} 
-                            placeholder="e.g. Tier 0 General"
-                            onChange={(e) => {
-                                const newOverrides = { ...rule.overrides };
-                                if (e.target.value) newOverrides.Tier = e.target.value;
-                                else delete newOverrides.Tier;
-                                handleUpdateRule(globalIndex, { ...rule, overrides: newOverrides });
-                            }} 
-                          />
-                      </div>
-                      {/* Placeholder for other overrides */}
-                      <div className="field">
-                          <label>Raw Overrides (JSON)</label>
-                          <textarea 
-                            value={JSON.stringify(rule.overrides || {}, null, 2)}
-                            onChange={(e) => {
-                                try {
-                                    const parsed = JSON.parse(e.target.value);
-                                    handleUpdateRule(globalIndex, { ...rule, overrides: parsed });
-                                } catch (err) {
-                                    // Ignore parse errors while typing
-                                }
-                            }}
-                            style={{ height: '80px', fontFamily: 'monospace', fontSize: '0.8rem' }}
-                          />
-                      </div>
-                  </div>
-
-                  <div className="section-divider">
                     <span>{t.rawText}</span>
                   </div>
 
@@ -521,10 +528,25 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                     />
                   </div>
 
-                  {/* <div className="field" style={{ marginTop: '10px' }}>
-                    <label>{t.comment}</label>
-                    <input type="text" value={rule.comment} onChange={e => handleUpdateRule(globalIndex, { ...rule, comment: e.target.value })} />
-                  </div> */}
+                  <div className="section-divider">
+                    <span>{t.actions || "Actions"}</span>
+                  </div>
+                  <div className="actions-row">
+                      {availableTiers && (
+                          <div className="move-control">
+                              <label>{language === 'ch' ? "移动至:" : "Move to:"}</label>
+                              <select 
+                                value={rule.overrides?.Tier || tierKey}
+                                onChange={(e) => handleMoveRule(globalIndex, e.target.value)}
+                                className="tier-select"
+                              >
+                                  {availableTiers.map(t => (
+                                      <option key={t.key} value={t.key}>{t.label}</option>
+                                  ))}
+                              </select>
+                          </div>
+                      )}
+                  </div>
                 </div>
               )}
             </div>
@@ -633,7 +655,45 @@ const RuleManager: React.FC<RuleManagerProps> = ({
         
         .delete-btn { background: none; border: none; color: #ff5252; cursor: pointer; font-size: 1.4rem; opacity: 0.6; transition: opacity 0.2s; }
         .delete-btn:hover { opacity: 1; }
+
+        .disabled-card { opacity: 0.6; background: #f5f5f5; }
+        .disabled-badge { background: #ccc; color: #888; }
+        .disabled-text { color: #aaa; text-decoration: line-through; }
+        .rule-actions { display: flex; align-items: center; gap: 8px; }
+        .icon-btn { background: none; border: none; cursor: pointer; font-size: 0.9rem; padding: 0; opacity: 0.8; }
+        .icon-btn:hover { opacity: 1; }
+        .move-control { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; width: 100%; }
+        .tier-select { padding: 4px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem; flex-grow: 1; max-width: 250px; }
+        .actions-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; }
       `}</style>
+      
+      {contextMenu && (
+        <ContextMenu
+            x={contextMenu.x}
+            y={contextMenu.y}
+            onClose={() => setContextMenu(null)}
+            options={[
+                {
+                    label: allRules[contextMenu.ruleIndex].disabled ? (language==='ch'?'启用规则':'Enable Rule') : (language==='ch'?'禁用规则':'Disable Rule'),
+                    onClick: () => {
+                        const rule = allRules[contextMenu.ruleIndex];
+                        handleUpdateRule(contextMenu.ruleIndex, { ...rule, disabled: !rule.disabled });
+                    }
+                },
+                { divider: true, label: '', onClick: () => {} },
+                ...(availableTiers || []).map(t => ({
+                    label: language==='ch' ? `移动至 ${t.label}` : `Move to ${t.label}`,
+                    onClick: () => handleMoveRule(contextMenu.ruleIndex, t.key)
+                })),
+                { divider: true, label: '', onClick: () => {} },
+                {
+                    label: language==='ch' ? "删除规则" : "Delete Rule",
+                    onClick: () => handleDeleteRuleNoConfirm(contextMenu.ruleIndex),
+                    className: "delete-option"
+                }
+            ]}
+        />
+      )}
     </div>
   );
 };

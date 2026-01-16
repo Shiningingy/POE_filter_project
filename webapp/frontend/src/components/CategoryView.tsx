@@ -539,6 +539,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                 availableItems={items}
                                 categoryName={themeCategory}
                                 translationCache={itemTranslationCache}
+                                availableTiers={tierOptions}
                             />
                         </SortableTierBlock>
                     );

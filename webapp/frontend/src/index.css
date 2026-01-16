@@ -24,9 +24,16 @@ a:hover {
 
 body {
   margin: 0;
-  min-width: 320px;
-  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Custom Context Menu Global Overrides */
+* {
+    /* Prevent default blue highlight on click in some browsers */
+    -webkit-tap-highlight-color: transparent;
+}
+
 
 h1 {
   font-size: 3.2em;
