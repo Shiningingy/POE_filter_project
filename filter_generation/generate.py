@@ -63,8 +63,10 @@ def resolve_sound(tier_entry, sound_map, override_sound=None):
     return None
 
 def tier_num_from_label(label):
+    if "Tier 0" in label: return 0
+    if "Hide" in label: return 9
     m = re.search(r"Tier\s+(\d+)", label)
-    return int(m.group(1)) if m else 0
+    return int(m.group(1)) if m else 99
 
 def header_line(index, text):
     return f"\n#==[{index:05d}]-{text}=="
@@ -164,19 +166,32 @@ def generate_filter():
         for item_name, t_lbl in mapping.items():
             items_by_tier[t_lbl].append(item_name)
 
-        # Sort tiers
-        tier_labels = sorted(items_by_tier.keys(), key=tier_num_from_label)
+        # Determine Tier Order
+        # Use _meta["tier_order"] if available, otherwise sort numerically
+        tier_order = meta.get("tier_order", [])
+        if not tier_order:
+            tier_order = sorted(items_by_tier.keys(), key=tier_num_from_label)
         
-        for t_lbl in tier_labels:
-            items = items_by_tier[t_lbl]
-            tnum = tier_num_from_label(t_lbl)
-            tier_index = area_index + (tnum+1)*100
-            t_short = f"T{tnum}"
-            out_lines.append(header_line(tier_index, f"{t_lbl} {loc_zh}"))
-            
-            tier_entry = category_data.get(t_lbl, {})
-            is_hide = tier_entry.get("is_hide_tier", False)
+        # Ensure all used tiers are in the order list
+        used_tiers = set(items_by_tier.keys())
+        for t in used_tiers:
+            if t not in tier_order:
+                tier_order.append(t)
 
+        block_counter = 0
+        
+        for t_lbl in tier_order:
+            if t_lbl not in category_data: continue # Skip if not defined (e.g. empty T0 not in mapping but in definition) 
+            
+            items = items_by_tier.get(t_lbl, [])
+            # Even if empty, we might want to generate empty blocks? No, skip empty unless forced.
+            # But wait, T0 is forced by definition. 
+            # Actually, standard logic is: if no items and no rules, skip.
+            
+            tier_entry = category_data[t_lbl]
+            is_hide = tier_entry.get("is_hide_tier", False)
+            tnum = tier_num_from_label(t_lbl)
+            
             # Base Theme for this Tier
             ttheme = theme_ref.get(f"Tier {tnum}", {})
             base_text_col = parse_rgba(ttheme.get("TextColor"))
@@ -184,23 +199,59 @@ def generate_filter():
             base_background_col = parse_rgba(ttheme.get("BackgroundColor", "0 0 0 255"))
             base_play_eff = ttheme.get("PlayEffect")
             base_mini_icon = ttheme.get("MinimapIcon")
-            
-            # 1. Process Rule (Limit to 1 per tier as requested)
-            rules = meta.get("rules", [])
-            active_rule = None
-            for r in rules:
-                r_targets = r.get("targets", [])
-                if not r_targets or any(t in items for t in r_targets):
-                    active_rule = r
-                    break
-            
-            # Check if this rule covers the whole tier
-            rule_covers_all = active_rule and (not active_rule.get("targets") or len(active_rule.get("targets", [])) == 0)
 
-            if active_rule:
-                r_over = active_rule.get("overrides", {})
+            # Sequential Rule Processing
+            # 1. Get all rules associated with this category
+            # (Currently rules are stored in base_mapping/_meta/rules or global rules array)
+            # Standard structure in base_mapping is "rules": [...] 
+            
+            all_rules = map_doc.get("rules", [])
+            
+            # Filter rules relevant to this tier
+            # A rule applies if:
+            # a) It has overrides: {"Tier": t_lbl}  <-- Explicitly targets this tier
+            # b) It has targets in the item list, AND no explicit Tier override (so it applies to current tier items)
+            
+            # Actually, the "Partitioning" plan was:
+            # Iterate ALL rules. If rule targets items in CURRENT tier, generate block and remove items.
+            
+            pending_items = set(items)
+            
+            for rule in all_rules:
+                rule_targets = rule.get("targets", [])
+                
+                # Identify matching items in this tier
+                # If rule has NO targets, does it apply to ALL? 
+                # Yes, if no targets, it's a generic rule. 
+                # But we should check if the rule is intended for THIS tier.
+                # Usually generic rules have overrides: {"Tier": "Tier 0 ..."}
+                
+                rule_tier_override = rule.get("overrides", {}).get("Tier")
+                
+                # Case A: Rule specifically targets this tier via override (e.g. "All items in T0 get this sound")
+                # Case B: Rule targets specific items that happen to be in this tier
+                
+                matches = []
+                if rule_targets:
+                    # Match specific items
+                    matches = [item for item in rule_targets if item in pending_items]
+                elif rule_tier_override == t_lbl:
+                    # Generic rule for this tier (e.g. "All T0 items")
+                    matches = list(pending_items)
+                
+                if not matches:
+                    continue
+
+                # Generate Block for matches
+                block_counter += 1
+                tier_index = area_index + block_counter
+                t_short = f"T{tnum}"
+                
+                r_over = rule.get("overrides", {})
+                
+                out_lines.append(header_line(tier_index, f"{t_lbl} - Rule: {rule.get('comment', 'Custom')}"))
                 out_lines.append(show_block(
-                    loc_zh, t_short, item_class, items,
+                    loc_zh, t_short, item_class, matches,
                     r_over.get("FontSize", ttheme.get("FontSize", DEFAULT_FONT_SIZE)),
                     parse_rgba(r_over.get("TextColor"), base_text_col),
                     parse_rgba(r_over.get("BorderColor"), base_border_col),
@@ -208,15 +259,24 @@ def generate_filter():
                     resolve_sound(tier_entry, sound_map, r_over.get("PlayAlertSound")),
                     r_over.get("PlayEffect", base_play_eff),
                     r_over.get("MinimapIcon", base_mini_icon),
-                    active_rule.get("conditions"),
-                    active_rule.get("raw"),
+                    rule.get("conditions"),
+                    rule.get("raw"),
                     is_hide=is_hide
                 ))
-            
-            # 2. Base Block - Only add if not fully covered by a rule
-            if not rule_covers_all:
+                
+                # Remove processed items
+                for m in matches:
+                    pending_items.discard(m)
+
+            # 3. Base Block for Remaining Items
+            if pending_items:
+                block_counter += 1
+                tier_index = area_index + block_counter
+                t_short = f"T{tnum}"
+                out_lines.append(header_line(tier_index, f"{t_lbl} {loc_zh}"))
+                
                 out_lines.append(show_block(
-                    loc_zh, t_short, item_class, items,
+                    loc_zh, t_short, item_class, sorted(list(pending_items)),
                     ttheme.get("FontSize", DEFAULT_FONT_SIZE),
                     base_text_col, base_border_col, base_background_col,
                     resolve_sound(tier_entry, sound_map),
