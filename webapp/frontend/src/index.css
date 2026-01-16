@@ -149,7 +149,26 @@ button:focus-visible {
 .item-card-base .name-primary { font-size: 0.85rem; font-weight: bold; color: #1a1a1a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px; line-height: 1.2; }
 .item-card-base .name-secondary { font-size: 0.75rem; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.1; }
 
-.staged-indicator { position: absolute; bottom: 6px; right: 8px; color: #2196F3; font-size: 0.8rem; }
+.staged-indicator {
+  position: absolute;
+  top: 2px;
+  right: 6px;
+  color: #2196F3;
+  font-size: 8px;
+}
+
+.rule-source-badge {
+  position: absolute;
+  top: 2px;
+  right: 20px;
+  background: #673ab7;
+  color: white;
+  font-size: 0.65rem;
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-weight: bold;
+  opacity: 0.8;
+}
 
 .item-card-del-btn {
     position: absolute; top: 2px; right: 2px;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import { useTranslation, getItemName } from '../utils/localization';
 import type { Language } from '../utils/localization';
@@ -14,12 +14,14 @@ interface TierItem {
   current_tiers?: string[];
   category_ch?: string;
   sub_type?: string;
+  rule_index?: number | null;
 }
 
 interface TierOption {
   key: string;
   label: string;
   show_in_editor?: boolean;
+  is_hide_tier?: boolean;
 }
 
 interface TierItemManagerProps {
@@ -29,7 +31,10 @@ interface TierItemManagerProps {
   onMoveItem: (item: TierItem, newTier: string, isAppend?: boolean, oldTier?: string) => void;
   onDeleteItem: (item: TierItem, fromTier: string) => void;
   onUpdateOverride: (item: TierItem, overrides: any) => void;
+  onRemoveRuleTarget: (item: TierItem, ruleIndex: number) => void;
   language: Language;
+  onRuleEdit?: (tierKey: string, ruleIndex: number) => void;
+  categoryRules?: any[];
 }
 
 const TierItemManager: React.FC<TierItemManagerProps> = ({
@@ -39,7 +44,10 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   onMoveItem,
   onDeleteItem,
   onUpdateOverride,
-  language
+  onRemoveRuleTarget,
+  language,
+  onRuleEdit,
+  categoryRules = []
 }) => {
   const t = useTranslation(language);
   const [isOpen, setIsOpen] = useState(false);
@@ -50,10 +58,33 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
 
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: TierItem } | null>(null);
 
+  // Map global rule index to local tier index for badges
+  const ruleBadgeMap = useMemo(() => {
+      const map: Record<number, number> = {};
+      let localCount = 0;
+      categoryRules.forEach((r, globalIdx) => {
+          // Check if rule applies to this tier
+          const tierOverride = r.overrides?.Tier;
+          const tierMatch = tierOverride === tierKey;
+          
+          // Check if any item in this tier is a target of this rule
+          const hasTargetsInTier = r.targets?.some((t: string) => items.some(i => i.name === t));
+          
+          if (tierMatch || hasTargetsInTier) {
+              localCount++;
+              map[globalIdx] = localCount;
+          }
+      });
+      return map;
+  }, [categoryRules, tierKey, items]);
+
   const filteredItems = items.filter(i => 
     i.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
     (i.name_ch && i.name_ch.includes(searchTerm))
   );
+
+  const ruleItems = filteredItems.filter(i => i.rule_index !== undefined && i.rule_index !== null);
+  const standardItems = filteredItems.filter(i => i.rule_index === undefined || i.rule_index === null);
 
   useEffect(() => {
     if (addSearch.length < 2) {
@@ -130,6 +161,53 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
       });
   };
 
+  const renderItem = (item: TierItem) => {
+      const currentTierOpt = allTiers.find(opt => opt.key === tierKey);
+      const isLocationLocked = currentTierOpt && currentTierOpt.show_in_editor === false;
+      
+      const isRuleItem = item.rule_index !== undefined && item.rule_index !== null;
+
+      const isT0ByOrigin = item.current_tiers?.some(tk => {
+          const opt = allTiers.find(o => o.key === tk);
+          return opt && opt.show_in_editor === false;
+      });
+
+      // Unlock if it is a rule item
+      const isLocked = !isRuleItem && isLocationLocked && isT0ByOrigin;
+      
+      // Calculate local badge index
+      let localBadge = item.rule_index; 
+      if (isRuleItem && ruleBadgeMap[item.rule_index!] !== undefined) {
+          localBadge = ruleBadgeMap[item.rule_index!] - 1; // 0-based for display? ItemCard adds +1
+      }
+
+      return (
+        <ItemCard 
+          key={`${item.name}-${item.rule_index || 'std'}`} 
+          item={isRuleItem ? { ...item, rule_index: localBadge } : item}
+          language={language}
+          onContextMenu={(e) => handleRightClick(e, item)}
+          onDelete={
+              isLocked 
+              ? undefined 
+              : () => {
+                  if (item.rule_index !== undefined && item.rule_index !== null) {
+                      onRemoveRuleTarget(item, item.rule_index);
+                  } else {
+                      onDeleteItem(item, tierKey);
+                  }
+              }
+          }
+          onClick={(e) => {
+              if (e.detail === 2 && isRuleItem && onRuleEdit) {
+                  onRuleEdit(tierKey, item.rule_index!);
+              }
+          }}
+          className={isLocked ? 'locked' : ''}
+        />
+      );
+  };
+
   return (
     <div className="tier-item-manager">
       <div className="mgr-header" onClick={() => setIsOpen(!isOpen)}>
@@ -177,29 +255,20 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
             />
           </div>
           
-          <div className="item-grid">
-            {filteredItems.map(item => {
-              const currentTierOpt = allTiers.find(opt => opt.key === tierKey);
-              const isLocationLocked = currentTierOpt && currentTierOpt.show_in_editor === false;
-              
-              const isT0ByOrigin = item.current_tiers?.some(tk => {
-                  const opt = allTiers.find(o => o.key === tk);
-                  return opt && opt.show_in_editor === false;
-              });
-
-              const isLocked = isLocationLocked && isT0ByOrigin;
-
-              return (
-                <ItemCard 
-                  key={item.name}
-                  item={item}
-                  language={language}
-                  onContextMenu={(e) => handleRightClick(e, item)}
-                  onDelete={isLocked ? undefined : () => onDeleteItem(item, tierKey)}
-                  className={isLocked ? 'locked' : ''}
-                />
-              );
-            })}
+          <div className="item-grid-container">
+            {ruleItems.length > 0 && (
+                <div className="rule-items-section">
+                    <div className="section-label">{language === 'ch' ? "条件物品 (规则)" : "Conditional Items"}</div>
+                    <div className="item-grid">
+                        {ruleItems.map(renderItem)}
+                    </div>
+                </div>
+            )}
+            
+            <div className="item-grid">
+                {standardItems.map(renderItem)}
+            </div>
+            
             {filteredItems.length === 0 && <div className="empty-msg">{t.noItems}</div>}
           </div>
         </div>
@@ -221,7 +290,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                     return opt && opt.show_in_editor === false;
                 })();
 
-                const isLocked = isLocationLocked && isT0ByOrigin;
+                const isLocked = isLocationLocked && isT0ByOrigin && contextMenu.item.rule_index === undefined;
 
                 return {
                     label: tOption.label,
@@ -270,6 +339,9 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
 
         .item-grid { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
         .empty-msg { width: 100%; text-align: center; color: #adb5bd; padding: 20px; font-size: 0.85rem; font-style: italic; }
+        
+        .rule-items-section { margin-bottom: 15px; border-bottom: 1px dashed #ddd; padding-bottom: 10px; }
+        .section-label { font-size: 0.75rem; color: #673ab7; font-weight: bold; margin-bottom: 8px; text-transform: uppercase; }
       `}</style>
     </div>
   );

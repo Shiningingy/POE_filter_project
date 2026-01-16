@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import axios from "axios";
 import { useTranslation, getItemName } from "../utils/localization";
 import type { Language } from "../utils/localization";
@@ -37,6 +37,7 @@ interface RuleManagerProps {
   categoryName: string;
   translationCache: Record<string, string>;
   availableTiers?: TierOption[];
+  activeRuleIndex?: number | null;
 }
 
 const RULE_FACTOR_LOCALIZATION: Record<string, { en: string; ch: string }> = {
@@ -69,10 +70,12 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   availableItems,
   categoryName,
   translationCache,
-  availableTiers
+  availableTiers,
+  activeRuleIndex
 }) => {
   const t = useTranslation(language);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
+  const ruleRefs = useRef<Record<number, HTMLDivElement | null>>({});
 
   const [targetSearch, setTargetSearch] = useState("");
   const [suggestions, setSuggestions] = useState<any[]>([]);
@@ -89,6 +92,19 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   }, [allRules, tierKey, availableItems]);
 
   const activeCount = tierRulesIndices.filter(i => !allRules[i].disabled).length;
+
+  useEffect(() => {
+      if (activeRuleIndex !== undefined && activeRuleIndex !== null) {
+          setEditingIndex(activeRuleIndex);
+          // Scroll into view
+          setTimeout(() => {
+              const el = ruleRefs.current[activeRuleIndex];
+              if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }
+          }, 100);
+      }
+  }, [activeRuleIndex]);
 
   useEffect(() => {
     if (targetSearch.length < 2) {
@@ -231,6 +247,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                 key={globalIndex} 
                 className={`inline-rule-card ${isEditing ? 'editing' : ''} ${rule.disabled ? 'disabled-card' : ''}`}
                 onContextMenu={(e) => handleRightClick(e, globalIndex)}
+                ref={el => ruleRefs.current[globalIndex] = el}
             >
               <div className="summary" onClick={() => setEditingAndNotify(isEditing ? null : globalIndex)}>
                 <div className={`rule-badge ${rule.disabled ? 'disabled-badge' : ''}`}>#{localIndex + 1}</div>
@@ -259,10 +276,11 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                     <div className="target-grid">
                         {rule.targets.map(tName => {
                             const item = availableItems.find(i => i.name === tName) || { name: tName, name_ch: translationCache[tName] };
+                            const displayItem = { ...item, rule_index: undefined };
                             return (
                                 <ItemCard 
                                     key={tName}
-                                    item={item}
+                                    item={displayItem}
                                     language={language}
                                     onDelete={() => removeTarget(globalIndex, tName)}
                                     className="compact-card"

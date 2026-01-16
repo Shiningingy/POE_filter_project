@@ -43,6 +43,21 @@ const EditorView: React.FC<EditorViewProps> = ({
   const [inspectedTier, setInspectedTier] = useState<any>(null);
   const [editingRuleIndex, setEditingRuleIndex] = useState<number | null>(null);
   const [tierItems, setTierItems] = useState<Record<string, any[]>>({});
+  const isDirtyRef = React.useRef(false);
+
+  useEffect(() => {
+      const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+          if (isDirtyRef.current) {
+              e.preventDefault();
+              e.returnValue = '';
+          }
+      };
+      window.addEventListener('beforeunload', handleBeforeUnload);
+      return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, []);
+
+  const markDirty = () => { isDirtyRef.current = true; };
+  const markClean = () => { isDirtyRef.current = false; };
 
   const handleRuleEdit = (tierKey: string, ruleIndex: number | null) => {
     setEditingRuleIndex(ruleIndex);
@@ -60,6 +75,13 @@ const EditorView: React.FC<EditorViewProps> = ({
     } catch (err) {
       console.error("Failed to load tier items", err);
     }
+  };
+
+  const handleManualItemUpdate = (tierKey: string, updatedItems: any[]) => {
+      setTierItems(prev => ({
+          ...prev,
+          [tierKey]: updatedItems
+      }));
   };
 
   useEffect(() => {
@@ -96,6 +118,7 @@ const EditorView: React.FC<EditorViewProps> = ({
             
             // Update the VIEW
             setConfigContent(JSON.stringify(mergedData, null, 2));
+            markClean(); // Initial load is clean
       })
       .catch(err => console.error("Failed to load content", err));
     }
@@ -109,28 +132,15 @@ const EditorView: React.FC<EditorViewProps> = ({
           const catKey = Object.keys(currentViewData).find(k => !k.startsWith('//'));
           
           if (catKey) {
-              // 1. Prepare Tier Definition (Remove rules)
-              const tierToSave = JSON.parse(JSON.stringify(currentViewData));
-              if (tierToSave[catKey].rules) delete tierToSave[catKey].rules;
-              if (tierToSave[catKey]._meta?.rules) delete tierToSave[catKey]._meta.rules;
-
-              // 2. Prepare Mapping (Update rules)
-              const mappingToSave = JSON.parse(mappingContent || "{}");
-              if (currentViewData[catKey].rules) {
-                  mappingToSave.rules = currentViewData[catKey].rules;
-              }
-              
+              // ... (saving logic) ...
               // 3. Save Both
               await Promise.all([
                   axios.post(`${API_BASE_URL}/api/config/${selectedFile.tier_path}`, tierToSave),
                   selectedFile.mapping_path ? axios.post(`${API_BASE_URL}/api/config/${selectedFile.mapping_path}`, mappingToSave) : Promise.resolve()
               ]);
               
-              // Call parent onSave to trigger generic success message or refresh
-              if (onSave) onSave(); // Note: Parent onSave might try to save too, but we are intercepting logic here? 
-              // Actually EditorView calls onSave prop. We should probably NOT call parent's onSave if it blindly saves configContent to tierPath.
-              // Instead, we show success here.
               alert("Saved successfully!");
+              markClean();
           }
       } catch (e) {
           console.error("Save failed", e);
@@ -330,8 +340,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                   onConfigContentChange={(newContent) => {
                     // Update the merged view
                     setConfigContent(newContent); 
-                    // Note: We don't update tierContent directly here, because newContent is merged.
-                    // Splitting happens on Save.
+                    markDirty();
                   }}
                   loading={loading}
                   language={language}
@@ -342,6 +351,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                   tierItems={tierItems}
                   fetchTierItems={fetchTierItems}
                   defaultMappingPath={selectedFile.mapping_path}
+                  onUpdateTierItems={handleManualItemUpdate}
                 />
             )}
           </div>

@@ -31,6 +31,7 @@ interface TierItem {
   name: string;
   name_ch?: string;
   source: string;
+  rule_index?: number | null;
 }
 
 interface CategoryViewProps {
@@ -46,6 +47,7 @@ interface CategoryViewProps {
   tierItems: Record<string, TierItem[]>;
   fetchTierItems: (keys: string[]) => void;
   defaultMappingPath?: string;
+  onUpdateTierItems?: (tierKey: string, items: TierItem[]) => void;
 }
 
 const CategoryView: React.FC<CategoryViewProps> = ({
@@ -60,7 +62,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   viewerBackground,
   tierItems,
   fetchTierItems,
-  defaultMappingPath
+  defaultMappingPath,
+  onUpdateTierItems
 }) => {
   const t = useTranslation(language);
   const [themeData, setThemeData] = useState<any>(null);
@@ -81,6 +84,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   }>({ visible: false, x: 0, y: 0 });
 
   const [tierClipboard, setTierClipboard] = useState<any>(null);
+  const [activeRuleIndex, setActiveRuleIndex] = useState<{ tierKey: string, index: number } | null>(null);
 
   const API_BASE_URL = 'http://localhost:8000';
 
@@ -114,7 +118,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   const { activeCategoryKey, activeCategoryData, sortedTierKeys } = useMemo(() => {
     if (!parsedConfig) return { activeCategoryKey: null, activeCategoryData: null, sortedTierKeys: [] };
     
-    // Assuming single category per file for now (standard in this project)
     const catKey = Object.keys(parsedConfig).find(k => !k.startsWith('//'));
     if (!catKey) return { activeCategoryKey: null, activeCategoryData: null, sortedTierKeys: [] };
 
@@ -127,7 +130,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
             const idxA = order.indexOf(a);
             const idxB = order.indexOf(b);
             if (idxA === -1 && idxB === -1) return 0;
-            if (idxA === -1) return 1; // Unordered go to end
+            if (idxA === -1) return 1;
             if (idxB === -1) return -1;
             return idxA - idxB;
         });
@@ -145,7 +148,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       if (key.includes('Tier 0')) return 0;
       if (key.includes('Hide')) return 9;
       const match = key.match(/^Tier (\d+)/);
-      return match ? parseInt(match[1]) : null; // null for custom
+      return match ? parseInt(match[1]) : null;
   };
 
   const handleDragEnd = (event: DragEndEvent) => {
@@ -157,7 +160,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         
         let newOrder = arrayMove(sortedTierKeys, oldIndex, newIndex);
         
-        // 1. Warning if custom tier ends up above Tier 0 (and it wasn't before)
         const t0IdxOriginal = sortedTierKeys.findIndex(key => getTierOrderScore(key) === 0);
         const activeIsCustom = getTierOrderScore(active.id as string) === null;
         
@@ -165,8 +167,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
              if (!window.confirm(t.t0OrderWarning)) return;
         }
 
-        // 2. ENFORCE RELATIVE POSITIONING FOR PREDEFINED TIERS
-        // Identify indices where predefined tiers exist in the new order
         const predefinedIndices: number[] = [];
         const predefinedKeys: string[] = [];
         
@@ -177,12 +177,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
             }
         });
 
-        // Sort the predefined keys by their logical score (0, 1, 2...)
         const correctlySortedPredefined = [...predefinedKeys].sort((a, b) => {
             return (getTierOrderScore(a) ?? 0) - (getTierOrderScore(b) ?? 0);
         });
 
-        // Re-insert the correctly sorted keys back into the identified positions
         predefinedIndices.forEach((pos, i) => {
             newOrder[pos] = correctlySortedPredefined[i];
         });
@@ -213,9 +211,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         style: resolveStyle(newConfig[activeCategoryKey][tierKey], themeData, soundMap), 
         visibility: newVisibility,
         category: themeCategory,
-        rules: newConfig[activeCategoryKey]._meta?.rules?.filter((r: any) => 
-            !r.targets?.length || r.targets.some((t: string) => tierItems[tierKey]?.some(i => i.name === t))
-        ) || [],
+        rules: newConfig[activeCategoryKey].rules || newConfig[activeCategoryKey]._meta?.rules || [],
         baseTypes: tierItems[tierKey]?.map(i => i.name) || ["Item Name"]
     });
   };
@@ -250,6 +246,26 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const handleRemoveRuleTarget = (item: TierItem, ruleIndex: number) => {
+      if (!activeCategoryKey) return;
+      const newConfig = JSON.parse(JSON.stringify(parsedConfig));
+      const rules = newConfig[activeCategoryKey].rules || newConfig[activeCategoryKey]._meta?.rules;
+      
+      if (rules && rules[ruleIndex]) {
+          const rule = rules[ruleIndex];
+          if (rule.targets) {
+              rule.targets = rule.targets.filter((t: string) => t !== item.name);
+              updateConfig(newConfig);
+              
+              const tierKey = sortedTierKeys.find(key => tierItems[key]?.some(i => i.name === item.name && i.rule_index === ruleIndex));
+              if (tierKey && onUpdateTierItems) {
+                  const newItems = tierItems[tierKey].filter(i => !(i.name === item.name && i.rule_index === ruleIndex));
+                  onUpdateTierItems(tierKey, newItems);
+              }
+          }
+      }
   };
 
   const getNextTierName = (categoryData: any, categoryKey: string) => {
@@ -293,21 +309,17 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     let tierData: any;
 
     if (templateData) {
-        // PASTE AS CUSTOM
         const { key, num } = getNextCustomTierName(categoryData, activeCategoryKey);
         newTierKey = key;
         tierData = JSON.parse(JSON.stringify(templateData));
         
-        // Ensure it's marked as custom and localization is clear
         const originalName = templateData.localization?.[language] || "Tier";
         tierData.localization = { 
             en: `${originalName} ${translations.en.copyLabel}`, 
             ch: `${templateData.localization?.ch || originalName} ${translations.ch.copyLabel}` 
         };
-        // Reset or adjust custom properties if needed
         tierData.show_in_editor = true; 
     } else {
-        // ADD NEW CUSTOM (Fixed Template or Empty)
         const { key, num } = getNextCustomTierName(categoryData, activeCategoryKey);
         newTierKey = key;
         tierData = JSON.parse(JSON.stringify(tierTemplate));
@@ -321,7 +333,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     
     categoryData[newTierKey] = tierData;
 
-    // Update Order
     let newOrder = [...sortedTierKeys];
     if (!categoryData._meta) categoryData._meta = {};
     if (categoryData._meta.tier_order) {
@@ -330,7 +341,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     
     const insertIdx = position === 'before' ? index : index + 1;
     
-    // Warning if inserting before T0
     const targetKey = sortedTierKeys[index];
     if (getTierOrderScore(targetKey) === 0 && position === 'before') {
         if (!window.confirm(t.t0InsertWarning)) return;
@@ -341,7 +351,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     categoryData._meta.tier_order = newOrder;
     updateConfig(newConfig);
     
-    // Refresh items to include new tier
     fetchTierItems(newOrder);
   };
 
@@ -349,7 +358,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     if (!activeCategoryKey) return;
     if (!confirm(t.confirmDeleteTier)) return;
 
-    // Unassign items first
     const itemsToUnassign = tierItems[tierKey] || [];
     if (itemsToUnassign.length > 0) {
         try {
@@ -374,16 +382,13 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     }
     updateConfig(newConfig);
     
-    // Refresh items for remaining tiers
     const remainingKeys = sortedTierKeys.filter(k => k !== tierKey);
     fetchTierItems(remainingKeys);
   };
 
   const handleRulesChange = (categoryKey: string, newRules: any[], tierKey?: string, tierName?: string, themeCategory?: string) => {
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
-    // Write to root "rules"
     newConfig[categoryKey].rules = newRules;
-    // Clear old location if exists to avoid confusion
     if (newConfig[categoryKey]._meta?.rules) delete newConfig[categoryKey]._meta.rules;
     
     updateConfig(newConfig);
@@ -475,7 +480,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     const items = tierItems[tierKey] || [];
                     const tierNum = tierData.theme?.Tier !== undefined ? tierData.theme.Tier : "?";
                     
-                    // Improved display name logic
                     let displayTierName = language === 'ch' ? `T${tierNum} ${catName}` : `Tier ${tierNum} ${catName}`;
                     const locName = tierData.localization?.[language];
                     if (locName && (tierKey.startsWith('CustomTier') || typeof tierNum !== 'number')) {
@@ -511,13 +515,11 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                     style: resolved, 
                                     visibility: !!tierData.hideable, 
                                     category: themeCategory,
-                                    rules: activeCategoryData._meta?.rules?.filter((r: any) => 
-                                        !r.targets?.length || r.targets.some((t: string) => items.some(i => i.name === t))
-                                    ) || [],
+                                    rules: activeCategoryData.rules || activeCategoryData._meta?.rules || [],
                                     baseTypes: items.map(i => i.name)
                                 })}
                                 onCopy={() => onCopyStyle(resolved)}
-                                onPaste={() => {}} // Disabled/Hidden
+                                onPaste={() => {}} 
                                 canPaste={false}
                                 viewerBackground={viewerBackground}
                             />
@@ -528,7 +530,13 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                 onMoveItem={handleMoveItem}
                                 onDeleteItem={handleDeleteItem}
                                 onUpdateOverride={handleUpdateOverride}
+                                onRemoveRuleTarget={handleRemoveRuleTarget}
                                 language={language}
+                                onRuleEdit={(tKey, idx) => {
+                                    onRuleEdit(tKey, idx); 
+                                    setActiveRuleIndex({ tierKey: tKey, index: idx });
+                                }}
+                                categoryRules={activeCategoryData.rules || activeCategoryData._meta?.rules || []}
                             />
                             <RuleManager 
                                 tierKey={tierKey}
@@ -540,6 +548,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                 categoryName={themeCategory}
                                 translationCache={itemTranslationCache}
                                 availableTiers={tierOptions}
+                                activeRuleIndex={activeRuleIndex?.tierKey === tierKey ? activeRuleIndex.index : null}
                             />
                         </SortableTierBlock>
                     );

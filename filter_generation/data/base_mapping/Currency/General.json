@@ -305,21 +305,41 @@
     "Chance Shard": "Tier 5 General",
     "Chaos Shard": "Tier 5 General"
   },
-    "rules": [
-      {
-        "targets": ["Divine Orb"],
-        "conditions": { "StackSize": ">= 100" },
-        "overrides": { "Tier": "Tier 0 General" },
-        "comment": "Test Rule: Stacked Divine"
+  "rules": [
+    {
+      "targets": [
+        "Chaos Orb"
+      ],
+      "conditions": {
+        "StackSize": ">= 100"
       },
-      {
-        "targets": ["Chaos Orb"],
-  
+      "overrides": {
+        "Tier": "Tier 0 General"
+      },
+      "comment": "Test Rule: Stacked Divine"
+    },
+    {
+      "targets": [
+        "Chaos Orb"
+      ],
       "conditions": {
         "StackSize": ">=10"
       },
       "overrides": {
         "Tier": "Tier 3 General"
+      },
+      "comment": ""
+    },
+    {
+      "targets": [
+        "Eldritch Orb of Annulment",
+        "Chaos Orb"
+      ],
+      "conditions": {
+        "StackSize": ">=1000"
+      },
+      "overrides": {
+        "Tier": "Tier 0 General"
       },
       "comment": ""
     }

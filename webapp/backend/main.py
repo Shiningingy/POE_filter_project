@@ -515,28 +515,36 @@ def get_items_by_tier(request: TierItemsRequest):
                             continue
                     
                     # Calculate final tiers for this item
-                    final_tiers = []
+                    final_tier_entries = [] # List of (tier_key, rule_index or None)
+
                     if item_name in mapping:
                         t_val = mapping[item_name]
-                        final_tiers += t_val if isinstance(t_val, list) else [t_val]
+                        base_tiers = t_val if isinstance(t_val, list) else [t_val]
+                        for t in base_tiers:
+                            final_tier_entries.append((t, None))
                     
-                    for r in rules:
+                    for idx, r in enumerate(rules):
                         r_targets = r.get("targets", [])
                         if not r_targets or item_name in r_targets:
                             t_over = r.get("overrides", {}).get("Tier")
-                            if t_over and t_over not in final_tiers:
-                                final_tiers.append(t_over)
+                            if t_over:
+                                # Always add rule-based assignment, even if duplicate tier
+                                final_tier_entries.append((t_over, idx))
 
                     # Distribute to results
-                    for tier_key in final_tiers:
+                    for tier_key, rule_idx in final_tier_entries:
                         if tier_key in tier_keys_set:
                             details = ITEM_DETAILS.get(item_name, {})
+                            # Determine current_tiers list for frontend display
+                            current_tiers_list = list(set(t for t, _ in final_tier_entries))
+                            
                             result[tier_key].append({
                                 "name": item_name, 
                                 "name_ch": trans.get(item_name, item_name), 
                                 "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
-                                "current_tiers": final_tiers,
+                                "current_tiers": current_tiers_list,
                                 "source": file_path.relative_to(mappings_dir).as_posix(),
+                                "rule_index": rule_idx,
                                 **details
                             })
         except: continue
