@@ -8,7 +8,8 @@
       },
       "tier_order": [
         "Tier 0 Harbinger",
-        "Tier 1 Harbinger"
+        "Tier 1 Harbinger",
+        "Tier Hide Harbinger"
       ]
     },
     "Tier 1 Harbinger": {
@@ -34,6 +35,21 @@
       "localization": {
         "en": "T0: Absolute Top",
         "ch": "T0: 顶级/核心"
+      }
+    },
+    "Tier Hide Harbinger": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
       }
     }
   }

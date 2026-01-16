@@ -472,31 +472,22 @@
     },
     {
       "_meta": {
-        "localization": {
-          "en": "Gems",
-          "ch": "宝石"
-        }
+        "localization": { "en": "Gems", "ch": "宝石" }
       },
       "files": [
         {
           "path": "Gems/Skill.json",
           "tier_path": "tier_definition/Gems/Skill.json",
           "mapping_path": "base_mapping/Gems/Skill.json",
-          "target_category": "Skill Gems",
-          "localization": {
-            "en": "Skill",
-            "ch": "技能宝石"
-          }
+          "target_category": "Active Skill Gems",
+          "localization": { "en": "Skill Gems", "ch": "技能宝石" }
         },
         {
           "path": "Gems/Support.json",
           "tier_path": "tier_definition/Gems/Support.json",
           "mapping_path": "base_mapping/Gems/Support.json",
-          "target_category": "Support Gems",
-          "localization": {
-            "en": "Support",
-            "ch": "辅助宝石"
-          }
+          "target_category": "Support Skill Gems",
+          "localization": { "en": "Support Gems", "ch": "辅助宝石" }
         }
       ]
     },
@@ -527,6 +518,55 @@
             "en": "Fragments",
             "ch": "碎片"
           }
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": { "en": "Flasks", "ch": "药剂" }
+      },
+      "files": [
+        {
+          "path": "Flasks/Life.json",
+          "tier_path": "tier_definition/Flasks/Life.json",
+          "mapping_path": "base_mapping/Flasks/Life.json",
+          "target_category": "Life Flasks",
+          "localization": { "en": "Life Flasks", "ch": "生命药剂" }
+        },
+        {
+          "path": "Flasks/Mana.json",
+          "tier_path": "tier_definition/Flasks/Mana.json",
+          "mapping_path": "base_mapping/Flasks/Mana.json",
+          "target_category": "Mana Flasks",
+          "localization": { "en": "Mana Flasks", "ch": "魔力药剂" }
+        },
+        {
+          "path": "Flasks/Utility.json",
+          "tier_path": "tier_definition/Flasks/Utility.json",
+          "mapping_path": "base_mapping/Flasks/Utility.json",
+          "target_category": "Utility Flasks",
+          "localization": { "en": "Utility Flasks", "ch": "功能药剂" }
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": { "en": "Quest & Misc", "ch": "任务与杂项" }
+      },
+      "files": [
+        {
+          "path": "Quest/Quest Items.json",
+          "tier_path": "tier_definition/Quest/Quest Items.json",
+          "mapping_path": "base_mapping/Quest/Quest Items.json",
+          "target_category": "Quest Items",
+          "localization": { "en": "Quest Items", "ch": "任务物品" }
+        },
+        {
+          "path": "Quest/Labyrinth.json",
+          "tier_path": "tier_definition/Quest/Labyrinth.json",
+          "mapping_path": "base_mapping/Quest/Labyrinth.json",
+          "target_category": "Labyrinth Items",
+          "localization": { "en": "Labyrinth Items", "ch": "迷宫物品" }
         }
       ]
     },

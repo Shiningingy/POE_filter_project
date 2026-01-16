@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Divine Life Flask": "神圣生命药剂",
+        "Eternal Life Flask": "永恒生命药剂",
+        "Hallowed Life Flask": "不朽生命药剂",
+        "__class_name__": "生命药剂"
+      }
+    },
+    "item_class": { "en": "Life Flasks", "ch": "生命药剂" },
+    "theme_category": "Life Flasks"
+  },
+  "mapping": {
+    "Divine Life Flask": "Tier 1 Life Flasks",
+    "Eternal Life Flask": "Tier 1 Life Flasks",
+    "Hallowed Life Flask": "Tier 2 Life Flasks"
+  },
+  "rules": [
+    {
+      "targets": [],
+      "conditions": { "ItemLevel": ">= 82", "Quality": ">= 20" },
+      "overrides": { "Tier": "Tier 1 Life Flasks" },
+      "comment": "High Quality Life Flasks"
+    }
+  ]
+}

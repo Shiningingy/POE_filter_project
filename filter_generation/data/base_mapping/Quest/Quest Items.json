@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Silver Key": "白银钥匙",
+        "Golden Key": "黄金钥匙",
+        "Treasure Key": "宝藏钥匙",
+        "Bane of the Loyal": "忠诚之恨",
+        "Cogs of Disruption": "瓦解之轮",
+        "Cube of Absorption": "吸收之石",
+        "Heart of the Gargoyle": "石像鬼之心",
+        "Orb of Elemental Essence": "元素宝珠",
+        "Portal Shredder": "传送门撕裂者",
+        "Rod of Detonation": "爆破之杖",
+        "Sand of Eternity": "永恒之沙",
+        "Staff of Purity": "纯净之杖",
+        "__class_name__": "任务物品"
+      }
+    },
+    "item_class": { "en": "Quest Items", "ch": "任务物品" },
+    "theme_category": "Quest Items"
+  },
+  "mapping": {
+    "Silver Key": "Tier 1 Quest Items",
+    "Golden Key": "Tier 1 Quest Items",
+    "Treasure Key": "Tier 1 Quest Items",
+    "Bane of the Loyal": "Tier 1 Quest Items",
+    "Cogs of Disruption": "Tier 1 Quest Items",
+    "Cube of Absorption": "Tier 1 Quest Items",
+    "Heart of the Gargoyle": "Tier 1 Quest Items",
+    "Orb of Elemental Essence": "Tier 1 Quest Items",
+    "Portal Shredder": "Tier 1 Quest Items",
+    "Rod of Detonation": "Tier 1 Quest Items",
+    "Sand of Eternity": "Tier 1 Quest Items",
+    "Staff of Purity": "Tier 1 Quest Items"
+  },
+  "rules": []
+}

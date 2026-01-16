@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Divine Mana Flask": "神圣魔力药剂",
+        "Eternal Mana Flask": "永恒魔力药剂",
+        "Hallowed Mana Flask": "不朽魔力药剂",
+        "__class_name__": "魔力药剂"
+      }
+    },
+    "item_class": { "en": "Mana Flasks", "ch": "魔力药剂" },
+    "theme_category": "Mana Flasks"
+  },
+  "mapping": {
+    "Divine Mana Flask": "Tier 1 Mana Flasks",
+    "Eternal Mana Flask": "Tier 1 Mana Flasks",
+    "Hallowed Mana Flask": "Tier 2 Mana Flasks"
+  },
+  "rules": [
+    {
+      "targets": [],
+      "conditions": { "ItemLevel": ">= 82", "Quality": ">= 20" },
+      "overrides": { "Tier": "Tier 1 Mana Flasks" },
+      "comment": "High Quality Mana Flasks"
+    }
+  ]
+}
