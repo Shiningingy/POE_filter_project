@@ -93,7 +93,10 @@
     "Portal Scroll": "Tier 5 General",
     "Scroll of Wisdom": "Tier 5 General",
     "Regal Orb": "Tier 5 General",
-    "Blessed Orb": "Tier 5 General"
+    "Blessed Orb": "Tier 5 General",
+    "Mirror of Kalandra": [
+      "Tier 0 General"
+    ]
   },
   "rules": [
     {

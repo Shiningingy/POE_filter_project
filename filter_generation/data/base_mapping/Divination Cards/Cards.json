@@ -26,11 +26,16 @@
         "__class_name__": "命运卡"
       }
     },
-    "item_class": { "en": "Divination Cards", "ch": "命运卡" },
+    "item_class": {
+      "en": "Divination Cards",
+      "ch": "命运卡"
+    },
     "theme_category": "Divination Cards"
   },
   "mapping": {
-    "House of Mirrors": "Tier 0 Cards",
+    "House of Mirrors": [
+      "Tier 0 Cards"
+    ],
     "The Doctor": "Tier 0 Cards",
     "The Demon": "Tier 0 Cards",
     "The Fiend": "Tier 0 Cards",
@@ -63,15 +68,135 @@
     "Thunderous Skies": "Tier 4 Cards"
   },
   "rules": [
-    { "targets": ["The Doctor"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/疯医.mp3", 300] }, "comment": "Doctor" },
-    { "targets": ["The Apothecary"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/药剂师.mp3", 300] }, "comment": "Apothecary" },
-    { "targets": ["House of Mirrors"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/明镜.mp3", 300] }, "comment": "Mirror Card" },
-    { "targets": ["The Fiend"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/劣魔.mp3", 300] }, "comment": "Fiend" },
-    { "targets": ["Abandoned Wealth"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/弃财求生.mp3", 300] }, "comment": "Wealth" },
-    { "targets": ["The Seven Years Bad Luck"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/发财啦.mp3", 300] }, "comment": "Bad Luck" },
-    { "targets": ["The Saint's Treasure"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/圣人之礼.mp3", 300] }, "comment": "Saint" },
-    { "targets": ["The Nurse"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/照料者.mp3", 300] }, "comment": "Nurse" },
-    { "targets": ["The Patient"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/病患.mp3", 300] }, "comment": "Patient" },
-    { "targets": ["The Insane Cat"], "conditions": {}, "overrides": { "PlayAlertSound": ["Sharket掉落音效/疯猫.mp3", 300] }, "comment": "Cat" }
+    {
+      "targets": [
+        "The Doctor"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/疯医.mp3",
+          300
+        ]
+      },
+      "comment": "Doctor"
+    },
+    {
+      "targets": [
+        "The Apothecary"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/药剂师.mp3",
+          300
+        ]
+      },
+      "comment": "Apothecary"
+    },
+    {
+      "targets": [
+        "House of Mirrors"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/明镜.mp3",
+          300
+        ]
+      },
+      "comment": "Mirror Card"
+    },
+    {
+      "targets": [
+        "The Fiend"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/劣魔.mp3",
+          300
+        ]
+      },
+      "comment": "Fiend"
+    },
+    {
+      "targets": [
+        "Abandoned Wealth"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/弃财求生.mp3",
+          300
+        ]
+      },
+      "comment": "Wealth"
+    },
+    {
+      "targets": [
+        "The Seven Years Bad Luck"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/发财啦.mp3",
+          300
+        ]
+      },
+      "comment": "Bad Luck"
+    },
+    {
+      "targets": [
+        "The Saint's Treasure"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/圣人之礼.mp3",
+          300
+        ]
+      },
+      "comment": "Saint"
+    },
+    {
+      "targets": [
+        "The Nurse"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/照料者.mp3",
+          300
+        ]
+      },
+      "comment": "Nurse"
+    },
+    {
+      "targets": [
+        "The Patient"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/病患.mp3",
+          300
+        ]
+      },
+      "comment": "Patient"
+    },
+    {
+      "targets": [
+        "The Insane Cat"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/疯猫.mp3",
+          300
+        ]
+      },
+      "comment": "Cat"
+    }
   ]
 }

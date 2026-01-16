@@ -49,6 +49,7 @@ CLASS_TO_ITEMS = {} # Class -> Set(BaseTypes)
 ITEM_TO_CLASS = {}  # BaseType -> Class
 ITEM_TRANSLATIONS = {} # English Name -> Chinese Name
 CATEGORY_MAP = {} # mapping_path -> ch_name
+CLASS_TO_FILE = {} # item_class -> mapping_path (relative to base_mapping)
 
 ITEM_SUBTYPES = {} # BaseType -> STR/DEX/INT
 ITEM_DETAILS = {} # BaseType -> {drop_level, implicit, ...}
@@ -270,14 +271,16 @@ def search_items(q: str):
                 rel_path = file_path.relative_to(CONFIG_DATA_DIR).as_posix()
                 cat_ch = CATEGORY_MAP.get(rel_path, "")
 
-                for item_name, tier_key in mapping.items():
+                for item_name, tier_val in mapping.items():
                     name_ch = trans.get(item_name, "")
                     if q_lower in item_name.lower() or (name_ch and q_lower in name_ch.lower()):
                         details = ITEM_DETAILS.get(item_name, {})
+                        tiers = tier_val if isinstance(tier_val, list) else [tier_val]
                         results_map[item_name] = {
                             "name": item_name, 
                             "name_ch": name_ch or item_name, 
-                            "current_tier": tier_key, 
+                            "current_tier": tiers[0] if tiers else None,
+                            "current_tiers": tiers,
                             "category_ch": cat_ch,
                             "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
                             "source_file": file_path.relative_to(mappings_dir).as_posix(),
@@ -298,6 +301,7 @@ def search_items(q: str):
                     "name": item_name,
                     "name_ch": name_ch,
                     "current_tier": None,
+                    "current_tiers": [],
                     "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
                     "source_file": None,
                     **details
@@ -400,15 +404,16 @@ def update_item_tier(request: UpdateItemTierRequest):
         # 2. Update Mapping
         if request.new_tiers is not None:
             # Set exact list (bulk editor)
-            if not request.new_tiers:
-                if request.item_name in mapping: del mapping[request.item_name]
-            else:
-                mapping[request.item_name] = request.new_tiers
+            # Ensure we don't accidentally remove T0 tiers if the bulk editor didn't see them
+            # (though the current editor should see them now)
+            mapping[request.item_name] = request.new_tiers
         elif not request.new_tier:
+            # DELETE logic
             if request.item_name in mapping:
                 current = mapping[request.item_name]
-                if request.old_tier and isinstance(current, list) and request.old_tier in current:
-                    current.remove(request.old_tier)
+                if request.old_tier and isinstance(current, list):
+                    if request.old_tier in current:
+                        current.remove(request.old_tier)
                     if not current: del mapping[request.item_name]
                     else: mapping[request.item_name] = current
                 elif request.old_tier and current == request.old_tier:

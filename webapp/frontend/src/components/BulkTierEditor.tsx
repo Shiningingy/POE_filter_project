@@ -131,6 +131,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   const t = useTranslation(language);
   const [items, setItems] = useState<Item[]>([]);
   const [itemClasses, setItemClasses] = useState<string[]>([]);
+  const [classToFile, setClassToFile] = useState<Record<string, string>>({});
   const [selectedClass, setSelectedClass] = useState(initialClassName);
   const [loading, setLoading] = useState(true);
   const [searchTermTiered, setSearchTermTiered] = useState('');
@@ -153,7 +154,10 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   // Load unique classes
   useEffect(() => {
     axios.get(`${API_BASE_URL}/api/item-classes`)
-      .then(res => setItemClasses(res.data.classes))
+      .then(res => {
+          setItemClasses(res.data.classes);
+          setClassToFile(res.data.class_to_file || {});
+      })
       .catch(err => console.error(err));
   }, []);
 
@@ -195,8 +199,6 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         setStagedChanges({}); 
       } catch (err) {
         console.error(err);
-      } finally {
-        setLoading(false);
       }
     };
     fetchItems();
@@ -327,24 +329,16 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         
         const sourceTier = activeIdStr.split('::')[1];
         const actualSource = sourceTier === 'untiered' ? "" : sourceTier;
-
-        // Check if item is a T0 item (belongs to a show_in_editor: false tier)
-        const isT0Item = currentTiers.some(tk => {
-            const opt = availableTiers.find(o => o.key === tk);
-            return opt && opt.show_in_editor === false;
-        });
-
-        const targetOpt = availableTiers.find(o => o.key === targetTier);
-        const isTargetHide = targetOpt?.is_hide_tier === true;
-
-        if (isT0Item && isTargetHide) {
-            const confirmMsg = t.t0MoveWarning.replace("{name}", item?.name_ch || item?.name || "");
-            if (!window.confirm(confirmMsg)) return;
-        }
         
-        const idx = effectiveTiers.indexOf(actualSource);
-        if (idx > -1) {
-            effectiveTiers.splice(idx, 1);
+        // PROTECT T0: Do not remove from list if it's a locked tier
+        const sourceOpt = availableTiers.find(o => o.key === actualSource);
+        const isSourceLocked = sourceOpt && sourceOpt.show_in_editor === false;
+
+        if (!isSourceLocked) {
+            const idx = effectiveTiers.indexOf(actualSource);
+            if (idx > -1) {
+                effectiveTiers.splice(idx, 1);
+            }
         }
         
         if (targetTier !== "") {
@@ -376,11 +370,14 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     try {
       const promises = Object.entries(stagedChanges).map(([itemName, newTiers]) => {
         const item = items.find(i => i.name === itemName);
+        // Use mapping from classToFile if available, fallback to existing or default
+        const sourceFile = item?.source_file || classToFile[item?.item_class || ""] || defaultMappingPath || `${selectedClass}.json`;
+        
         return axios.post(`${API_BASE_URL}/api/update-item-tier`, {
           item_name: itemName,
           new_tiers: newTiers,
           new_tier: "", 
-          source_file: item?.source_file || defaultMappingPath || `${selectedClass}.json`
+          source_file: sourceFile
         });
       });
 
@@ -408,8 +405,14 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       const target = tierKey === 'untiered' ? "" : tierKey;
 
       if (action === 'remove') {
-          const idx = effectiveTiers.indexOf(target);
-          if (idx > -1) effectiveTiers.splice(idx, 1);
+          // PROTECT T0
+          const targetOpt = availableTiers.find(o => o.key === target);
+          const isTargetLocked = targetOpt && targetOpt.show_in_editor === false;
+          
+          if (!isTargetLocked) {
+              const idx = effectiveTiers.indexOf(target);
+              if (idx > -1) effectiveTiers.splice(idx, 1);
+          }
       } else {
           if (target !== "" && !effectiveTiers.includes(target)) {
               effectiveTiers.push(target);

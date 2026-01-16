@@ -197,8 +197,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     }
   };
 
-  const handleDeleteItem = async (item: TierItem) => {
-    handleMoveItem(item, ""); 
+  const handleDeleteItem = async (item: TierItem, fromTier: string) => {
+    handleMoveItem(item, "", false, fromTier); 
   };
 
   const handleUpdateOverride = async (item: TierItem, overrides: any) => {

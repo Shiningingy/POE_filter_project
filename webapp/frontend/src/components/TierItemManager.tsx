@@ -27,7 +27,7 @@ interface TierItemManagerProps {
   items: TierItem[];
   allTiers: TierOption[]; 
   onMoveItem: (item: TierItem, newTier: string, isAppend?: boolean, oldTier?: string) => void;
-  onDeleteItem: (item: TierItem) => void;
+  onDeleteItem: (item: TierItem, fromTier: string) => void;
   onUpdateOverride: (item: TierItem, overrides: any) => void;
   language: Language;
 }
@@ -74,6 +74,18 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   }, [addSearch]);
 
   const handleAddItem = (item: TierItem) => {
+    // Check if item is T0 by origin
+    const isT0ByOrigin = item.current_tiers?.some(tk => {
+        const opt = allTiers.find(o => o.key === tk);
+        return opt && opt.show_in_editor === false;
+    });
+
+    const targetTierOpt = allTiers.find(o => o.key === tierKey);
+    if (isT0ByOrigin && targetTierOpt?.is_hide_tier) {
+        const confirmMsg = t.t0MoveWarning.replace("{name}", item.name_ch || item.name);
+        if (!window.confirm(confirmMsg)) return;
+    }
+
     onMoveItem(item, tierKey, true); // isAppend = true
     setAddSearch('');
     setSuggestions([]);
@@ -183,7 +195,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                   item={item}
                   language={language}
                   onContextMenu={(e) => handleRightClick(e, item)}
-                  onDelete={isLocked ? undefined : () => onDeleteItem(item)}
+                  onDelete={isLocked ? undefined : () => onDeleteItem(item, tierKey)}
                   className={isLocked ? 'locked' : ''}
                 />
               );
