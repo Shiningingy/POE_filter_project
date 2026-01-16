@@ -13,7 +13,9 @@
         "Blessing of Uul-Netol": "乌尔尼多的祝福",
         "Blessing of Chayula": "夏乌拉的祝福",
         "__class_name__": "可堆叠通货",
-        "Chaos Orb": "混沌石"
+        "Chaos Orb": "混沌石",
+        "Glorious Leather": "荣耀皮甲",
+        "Blue Pearl Amulet": "碧珠护身符"
       }
     },
     "item_class": {
@@ -33,6 +35,12 @@
     "Blessing of Chayula": "Tier 1 Breach",
     "Chaos Orb": [
       "Tier 3 Breach",
+      "Tier 1 Breach"
+    ],
+    "Glorious Leather": [
+      "Tier 1 Breach"
+    ],
+    "Blue Pearl Amulet": [
       "Tier 1 Breach"
     ]
   },

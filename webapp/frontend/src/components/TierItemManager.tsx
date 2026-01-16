@@ -4,6 +4,7 @@ import { useTranslation, getItemName } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ContextMenu from './ContextMenu';
 import ItemTooltip from './ItemTooltip';
+import ItemCard from './ItemCard';
 
 interface TierItem {
   name: string;
@@ -11,6 +12,7 @@ interface TierItem {
   source: string;
   current_tier?: string;
   category_ch?: string;
+  sub_type?: string;
 }
 
 interface TierOption {
@@ -134,23 +136,18 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
             {suggestions.length > 0 && (
               <ul className="suggestions-list">
                 {suggestions.map(s => (
-                  <ItemTooltip key={s.name} item={s} language={language}>
-                      <li onClick={() => handleAddItem(s)}>
-                        {language === 'ch' ? (
-                            <div className="name-wrapper">
-                                <div className="name-ch">{s.name_ch || s.name}</div>
-                                <div className="name-en-small">{s.name}</div>
-                            </div>
-                        ) : (
-                            <strong>{s.name}</strong>
-                        )}
-                        <div className="source-tags">
-                            {renderTierLabels(s.current_tier, s.category_ch).map((lbl, idx) => (
-                                <span key={idx} className="source-hint">{lbl}</span>
-                            ))}
-                        </div>
-                      </li>
-                  </ItemTooltip>
+                  <li key={s.name} onClick={() => handleAddItem(s)} className="suggestion-item">
+                    <ItemCard 
+                      item={s}
+                      language={language}
+                      showStagedIndicator={false}
+                    />
+                    <div className="source-tags">
+                        {renderTierLabels(s.current_tier, s.category_ch).map((lbl, idx) => (
+                            <span key={idx} className="source-hint">{lbl}</span>
+                        ))}
+                    </div>
+                  </li>
                 ))}
               </ul>
             )}
@@ -168,23 +165,13 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           
           <div className="item-grid">
             {filteredItems.map(item => (
-              <ItemTooltip key={item.name} item={item} language={language}>
-                  <div 
-                    className="item-block" 
-                    onContextMenu={(e) => handleRightClick(e, item)}
-                    title={item.source}
-                  >
-                    {language === 'ch' ? (
-                        <div className="name-wrapper">
-                            <div className="name-ch">{item.name_ch || item.name}</div>
-                            <div className="name-en-small">{item.name}</div>
-                        </div>
-                    ) : (
-                        <span className="item-text">{item.name}</span>
-                    )}
-                    <button className="item-del-btn" onClick={(e) => { e.stopPropagation(); onDeleteItem(item); }}>×</button>
-                  </div>
-              </ItemTooltip>
+              <ItemCard 
+                key={item.name}
+                item={item}
+                language={language}
+                onContextMenu={(e) => handleRightClick(e, item)}
+                onDelete={() => onDeleteItem(item)}
+              />
             ))}
             {filteredItems.length === 0 && <div className="empty-msg">{t.noItems}</div>}
           </div>
@@ -219,33 +206,22 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
         .search-box { width: 100%; padding: 8px 12px; border: 1px solid #dee2e6; border-radius: 4px; font-size: 0.9rem; background: #fff; }
         .add-input { border-color: #28a745; margin-bottom: 5px; }
         .add-area { position: relative; margin-bottom: 12px; }
-        .suggestions-list { position: absolute; top: 100%; left: 0; right: 0; z-index: 100; background: #fff; border: 1px solid #ced4da; border-top: none; border-radius: 0 0 4px 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); max-height: 200px; overflow-y: auto; padding: 0; list-style: none; }
-        .suggestions-list li { padding: 8px 12px; cursor: pointer; display: flex; justify-content: space-between; border-bottom: 1px solid #f1f3f5; font-size: 0.85rem; align-items: center; }
-        .suggestions-list li:hover { background: #e7f5ff; }
+        .suggestions-list { 
+            position: absolute; top: 100%; left: 0; right: 0; z-index: 1000; 
+            background: #fff; border: 1px solid #ced4da; border-radius: 6px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); max-height: 250px; 
+            overflow-y: auto; padding: 5px; list-style: none; 
+        }
+        .suggestion-item { padding: 4px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; border-radius: 4px; }
+        .suggestion-item:hover { background: #e7f5ff; }
+        .suggestion-item > div:first-child { flex: 1; }
         
-        .source-tags { display: flex; gap: 4px; }
-        .source-hint { color: #6c757d; font-size: 0.75rem; font-weight: bold; background: #f8f9fa; padding: 2px 6px; border-radius: 4px; border: 1px solid #e9ecef; }
+        .source-tags { display: flex; gap: 4px; margin-left: 10px; }
+        .source-hint { color: #6c757d; font-size: 0.75rem; font-weight: bold; background: #f8f9fa; padding: 2px 6px; border-radius: 4px; border: 1px solid #e9ecef; white-space: nowrap; }
 
         .filter-area { margin-bottom: 12px; }
 
         .item-grid { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
-        .item-block { 
-            display: flex; align-items: center; gap: 6px; padding: 4px 10px; 
-            background: #fff; border: 1px solid #dee2e6; border-radius: 4px;
-            font-size: 0.85rem; color: #495057; position: relative;
-            transition: all 0.2s; cursor: context-menu;
-        }
-        .item-block:hover { border-color: #2196F3; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .item-text { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .name-wrapper { display: flex; flex-direction: column; line-height: 1.2; text-align: left; }
-        .name-ch { font-weight: bold; font-size: 0.85rem; }
-        .name-en-small { font-size: 0.7rem; color: #888; }
-        .item-del-btn { 
-            background: none; border: none; padding: 0; color: #ced4da; 
-            cursor: pointer; font-size: 1.1rem; line-height: 1; margin-left: 4px;
-            transition: color 0.2s;
-        }
-        .item-del-btn:hover { color: #fa5252; }
         .empty-msg { width: 100%; text-align: center; color: #adb5bd; padding: 20px; font-size: 0.85rem; font-style: italic; }
       `}</style>
     </div>

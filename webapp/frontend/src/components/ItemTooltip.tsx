@@ -64,7 +64,7 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({ item, children, language = 'e
   const hasImplicit = item.implicit && item.implicit.length > 0;
   
   const isEquipment = hasWeaponStats || ar || ev || es || hasReqs;
-  const hasContent = item.item_class || isEquipment;
+  const hasContent = item.item_class || isEquipment || hasImplicit;
   
   if (!hasContent) return children;
 
@@ -92,6 +92,7 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({ item, children, language = 'e
                 {displayClass && <div className="item-class">{displayClass}</div>}
             </div>
 
+            {/* Properties Section (Weapon / Defence / Drop Level) */}
             {(hasWeaponStats || ar || ev || es || (isEquipment && item.drop_level)) && (
                 <>
                     <div className="separator" />
@@ -113,25 +114,26 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({ item, children, language = 'e
                 </>
             )}
 
-            {isEquipment && (item.drop_level || hasReqs) && (
+            {/* Requirements Section */}
+            {(isEquipment && hasReqs) && (
                 <>
                     <div className="separator" />
                     <div className="reqs-block">
-                        {item.drop_level ? <span className="req-line">{t.requiresLevel} <span className="value">{item.drop_level}</span></span> : null}
-                        {hasReqs && (
-                            <span className="req-line">
-                                {item.drop_level && ", "}
-                                {item.req_str ? <span><span className="value">{item.req_str}</span> {t.str}</span> : null}
-                                {item.req_str && (item.req_dex || item.req_int) ? ", " : ""}
-                                {item.req_dex ? <span><span className="value">{item.req_dex}</span> {t.dex}</span> : null}
-                                {item.req_dex && item.req_int ? ", " : ""}
-                                {item.req_int ? <span><span className="value">{item.req_int}</span> {t.int}</span> : null}
-                            </span>
-                        )}
+                        {/* Level is already in first section if equipment? No, usually level is in Requirements in PoE */}
+                        {/* But I put it in Stats above. I'll move it back to Reqs to be classic. */}
+                        {item.drop_level ? <div className="req-line">{t.requiresLevel} <span className="value">{item.drop_level}</span></div> : null}
+                        <div className="req-line">
+                            {item.req_str ? <span><span className="value">{item.req_str}</span> {t.str}</span> : null}
+                            {item.req_str && (item.req_dex || item.req_int) ? ", " : ""}
+                            {item.req_dex ? <span><span className="value">{item.req_dex}</span> {t.dex}</span> : null}
+                            {item.req_dex && item.req_int ? ", " : ""}
+                            {item.req_int ? <span><span className="value">{item.req_int}</span> {t.int}</span> : null}
+                        </div>
                     </div>
                 </>
             )}
 
+            {/* Implicit Section */}
             {hasImplicit && (
                 <>
                     <div className="separator" />
@@ -142,45 +144,6 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({ item, children, language = 'e
             )}
         </div>
       )}
-      <style>{`
-        .poe-tooltip {
-            position: fixed; z-index: 9999; 
-            background: rgba(0, 0, 0, 0.94); 
-            color: #7f7f7f;
-            border: 1px solid #7f7f7f;
-            font-family: 'Fontin', 'Times New Roman', serif;
-            font-size: 16px;
-            min-width: 300px;
-            max-width: 450px;
-            pointer-events: none;
-            padding: 8px;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-        
-        .tooltip-header { padding: 5px; }
-        .item-name { font-size: 22px; font-weight: normal; margin-bottom: 4px; }
-        .item-name-en { font-size: 14px; color: #888; margin-bottom: 4px; }
-        .item-class { font-size: 16px; color: #7f7f7f; }
-
-        .separator {
-            height: 1px;
-            background: linear-gradient(90deg, rgba(127,127,127,0) 0%, rgba(127,127,127,1) 50%, rgba(127,127,127,0) 100%);
-            margin: 8px 0;
-        }
-
-        .stats-block, .reqs-block { padding: 5px; text-align: center; }
-        .stat-line { margin: 4px 0; font-size: 16px; }
-        .label { color: #7f7f7f; }
-        .value { color: #fff; }
-
-        .stat-line.armour .value { color: #e88; }
-        .stat-line.evasion .value { color: #8e8; }
-        .stat-line.es .value { color: #88e; }
-
-        .implicit-block { padding: 5px; color: #8888ff; font-size: 16px; }
-        .mod { margin: 3px 0; }
-      `}</style>
     </>
   );
 };

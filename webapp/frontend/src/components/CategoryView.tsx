@@ -495,7 +495,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                 onGlobalRulesChange={(newRules) => handleRulesChange(activeCategoryKey, newRules, tierKey, displayTierName, themeCategory)}
                                 onRuleEdit={onRuleEdit}
                                 language={language}
-                                availableItems={items.map(i => i.name)}
+                                availableItems={items}
                                 categoryName={themeCategory}
                                 translationCache={itemTranslationCache}
                             />

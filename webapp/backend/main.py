@@ -279,6 +279,7 @@ def search_items(q: str):
                             "name_ch": name_ch or item_name, 
                             "current_tier": tier_key, 
                             "category_ch": cat_ch,
+                            "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
                             "source_file": file_path.relative_to(mappings_dir).as_posix(),
                             **details
                         }
@@ -297,6 +298,7 @@ def search_items(q: str):
                     "name": item_name,
                     "name_ch": name_ch,
                     "current_tier": None,
+                    "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
                     "source_file": None,
                     **details
                 }
@@ -491,6 +493,7 @@ def get_items_by_tier(request: TierItemsRequest):
                             result[tier_key].append({
                                 "name": item_name, 
                                 "name_ch": trans.get(item_name, item_name), 
+                                "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
                                 "source": file_path.relative_to(mappings_dir).as_posix(),
                                 **details
                             })

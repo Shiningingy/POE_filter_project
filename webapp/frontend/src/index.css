@@ -64,3 +64,89 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* PoE Item Tooltip Global Styles */
+.poe-tooltip {
+    position: fixed; z-index: 10000; 
+    background: rgba(0, 0, 0, 0.94); 
+    color: #7f7f7f;
+    border: 1px solid #7f7f7f;
+    font-family: 'Fontin', 'Times New Roman', serif;
+    font-size: 16px;
+    min-width: 300px;
+    max-width: 450px;
+    pointer-events: none;
+    padding: 8px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    line-height: 1.2;
+}
+
+.tooltip-header { padding: 5px; }
+.item-name { font-size: 22px; font-weight: normal; margin-bottom: 4px; }
+.item-name-en { font-size: 14px; color: #888; margin-bottom: 4px; }
+.item-class { font-size: 16px; color: #7f7f7f; }
+
+.poe-tooltip .separator {
+    width: 100%;
+    height: 0;
+    border-top: 1px solid #666;
+    margin: 15px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.poe-tooltip .separator::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: -4px;
+    box-shadow: 0 0 4px rgba(255,255,255,0.8);
+}
+
+.stats-block, .reqs-block { padding: 5px; text-align: center; }
+.stat-line, .req-line { margin: 4px 0; font-size: 16px; }
+.poe-tooltip .label { color: #7f7f7f; }
+.poe-tooltip .value { color: #fff; }
+
+.stat-line.armour .value { color: #e88; }
+.stat-line.evasion .value { color: #8e8; }
+.stat-line.es .value { color: #88e; }
+
+.implicit-block { padding: 5px; color: #8888ff; font-size: 16px; }
+.mod { margin: 3px 0; }
+
+/* Global Item Card Styles */
+.item-card-base { 
+    background: white; border: 1px solid #ddd; padding: 10px; border-radius: 6px; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: all 0.2s;
+    position: relative; cursor: pointer; display: flex; align-items: center;
+    min-width: 120px; text-align: left;
+}
+.item-card-base:hover { box-shadow: 0 2px 5px rgba(0,0,0,0.15); border-color: #2196F3; }
+.item-card-base.staged { border: 2px solid #2196F3; }
+
+.defense-indicator { 
+    position: absolute; top: 8px; right: 8px; 
+    width: 10px; height: 10px; border-radius: 50%; 
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    z-index: 5;
+}
+
+.item-card-base .name-primary { font-size: 0.85rem; font-weight: bold; color: #1a1a1a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px; line-height: 1.2; }
+.item-card-base .name-secondary { font-size: 0.75rem; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.1; }
+
+.staged-indicator { position: absolute; bottom: 6px; right: 8px; color: #2196F3; font-size: 0.8rem; }
+
+.item-card-del-btn {
+    position: absolute; top: 2px; right: 2px;
+    background: none; border: none; color: #ccc; 
+    cursor: pointer; font-size: 1.1rem; line-height: 1; opacity: 0;
+    transition: all 0.2s; padding: 2px 5px;
+}
+.item-card-base:hover .item-card-del-btn { opacity: 1; }
+.item-card-del-btn:hover { color: #fa5252; }

@@ -20,8 +20,10 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 import { useTranslation, CLASS_KEY_MAP } from '../utils/localization';
 import type { Language } from '../utils/localization';
+import { getSubTypeBackground } from '../utils/itemUtils';
 import ContextMenu from './ContextMenu';
 import ItemTooltip from './ItemTooltip';
+import ItemCard from './ItemCard';
 
 interface Item {
   name: string;
@@ -61,34 +63,19 @@ const SortableItem = ({ id, item, color, isStaged, language, onContextMenu }: { 
     transform: CSS.Translate.toString(transform),
     transition,
     opacity: isDragging ? 0.5 : 1,
-    backgroundColor: color
   };
 
-  const showChineseFirst = language === 'ch';
-
   return (
-    <ItemTooltip item={item} language={language}>
-      <div 
-        ref={setNodeRef} 
-        style={style} 
-        {...attributes} 
-        {...listeners} 
-        className={`item-card ${isStaged ? 'staged' : ''}`}
-        onContextMenu={onContextMenu} 
-      >
-        <div className="item-info">
-          {language === 'ch' ? (
-            <>
-              <div className="name-primary">{item.name_ch || item.name}</div>
-              <div className="name-secondary">{item.name}</div>
-            </>
-          ) : (
-            <div className="name-primary">{item.name}</div>
-          )}
-        </div>
-        {isStaged && <div className="staged-indicator">●</div>}
-      </div>
-    </ItemTooltip>
+    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+      <ItemCard 
+        item={item}
+        language={language}
+        color={color}
+        isStaged={isStaged}
+        onContextMenu={onContextMenu}
+        className={isDragging ? 'dragging' : ''}
+      />
+    </div>
   );
 };
 
@@ -268,6 +255,22 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
           }
       }
     });
+
+    // Final Sorting for each column
+    const SUBTYPE_ORDER = ["Armour", "Evasion / Armour", "Evasion Rating", "ES / Evasion", "Energy Shield", "Armour / ES", "Armour / Evasion / ES", "Other"];
+    const sortItems = (a: Item, b: Item) => {
+        // 1. SubType Priority
+        const idxA = SUBTYPE_ORDER.indexOf(a.sub_type || "Other");
+        const idxB = SUBTYPE_ORDER.indexOf(b.sub_type || "Other");
+        if (idxA !== idxB) return idxA - idxB;
+        // 2. Drop Level (Desc)
+        return (b.drop_level || 0) - (a.drop_level || 0);
+    };
+
+    Object.keys(cols).forEach(key => {
+        cols[key].sort(sortItems);
+    });
+
     return cols;
   }, [items, stagedChanges, debouncedSearchTermTiered, debouncedSearchTermPool, availableTiers, selectedSubType, showAllClasses, selectedClass]);
 
@@ -555,12 +558,13 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                         ))}
             <DragOverlay dropAnimation={{ sideEffects: defaultDropAnimationSideEffects({ styles: { active: { opacity: '0.5' } } }) }}>
                 {activeItem ? (
-                    <div className="item-card dragging" style={{ backgroundColor: getTierColor(activeSourceTier === 'untiered' ? null : activeSourceTier) }}>
-                        <div className="item-info">
-                            <div className="name-primary">{language === 'ch' ? activeItem.name_ch : activeItem.name}</div>
-                            <div className="name-secondary">{language === 'ch' ? activeItem.name : activeItem.name_ch}</div>
-                        </div>
-                    </div>
+                    <ItemCard 
+                        item={activeItem}
+                        language={language}
+                        color={getTierColor(activeSourceTier === 'untiered' ? null : activeSourceTier)}
+                        className="dragging"
+                        style={{ width: '260px' }}
+                    />
                 ) : null}
             </DragOverlay>
           </DndContext>
@@ -618,19 +622,8 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         
         .column-content { flex-grow: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 8px; min-height: 100px; }
         
-        .item-card { 
-            background: white; border: 1px solid #ddd; padding: 10px; border-radius: 6px; cursor: grab;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: transform 0.1s, box-shadow 0.1s;
-            position: relative;
-        }
-        .item-card:hover { box-shadow: 0 2px 5px rgba(0,0,0,0.15); }
-        .item-card.staged { border: 2px solid #2196F3; }
-        .item-card.dragging { cursor: grabbing; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transform: rotate(2deg); width: 260px; z-index: 1000; }
+        .dragging { cursor: grabbing !important; box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important; transform: rotate(2deg); z-index: 1000; }
         
-        .name-primary { font-size: 0.85rem; font-weight: bold; color: #1a1a1a; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .name-secondary { font-size: 0.75rem; color: #666; }
-        .staged-indicator { position: absolute; top: 5px; right: 8px; color: #2196F3; font-size: 0.8rem; }
-
         .untiered .column-header { border-top: 4px solid #999; }
       `}</style>
     </div>
