@@ -2,66 +2,28 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Driftwood Wand": "朽木法杖 ",
-        "Goat's Horn": "羊角法杖",
-        "Carved Wand": "粗纹法杖",
-        "Quartz Wand": "石英法杖",
-        "Calling Wand": "召唤法杖",
-        "Spiraled Wand": "螺纹法杖",
-        "Sage Wand": "贤者法杖",
-        "Pagan Wand": "异教法杖",
-        "Faun's Horn": "兽角法杖",
-        "Engraved Wand": "符文法杖",
-        "Crystal Wand": "水晶法杖",
-        "Coiled Wand": "盘曲法杖",
-        "Convening Wand": "召集法杖",
-        "Omen Wand": "灵兆法杖",
-        "Heathen Wand": "异徒法杖",
-        "Demon's Horn": "魔角法杖",
-        "Imbued Wand": "魔性法杖",
-        "Opal Wand": "灵石法杖",
-        "Tornado Wand": "狂风法杖",
-        "Prophecy Wand": "箴言法杖",
+        "Opal Wand": "蛋白石法杖",
         "Profane Wand": "亵渎法杖",
+        "Prophecy Wand": "预言法杖",
         "Convoking Wand": "召集法杖",
-        "Assembler Wand": "装配法杖",
-        "Congregator Wand": "集合法杖",
-        "Accumulator Wand": "蓄能法杖",
         "__class_name__": "法杖"
       }
     },
-    "item_class": {
-      "en": "Wands",
-      "ch": "法杖"
-    },
+    "item_class": { "en": "Wands", "ch": "法杖" },
     "theme_category": "Wands"
   },
   "mapping": {
-    "Driftwood Wand": "Tier 1 Wands",
-    "Goat's Horn": "Tier 1 Wands",
-    "Carved Wand": "Tier 1 Wands",
-    "Quartz Wand": "Tier 1 Wands",
-    "Calling Wand": "Tier 1 Wands",
-    "Spiraled Wand": "Tier 1 Wands",
-    "Sage Wand": "Tier 1 Wands",
-    "Pagan Wand": "Tier 1 Wands",
-    "Faun's Horn": "Tier 1 Wands",
-    "Engraved Wand": "Tier 1 Wands",
-    "Crystal Wand": "Tier 1 Wands",
-    "Coiled Wand": "Tier 1 Wands",
-    "Convening Wand": "Tier 1 Wands",
-    "Omen Wand": "Tier 1 Wands",
-    "Heathen Wand": "Tier 1 Wands",
-    "Demon's Horn": "Tier 1 Wands",
-    "Imbued Wand": "Tier 1 Wands",
     "Opal Wand": "Tier 1 Wands",
-    "Tornado Wand": "Tier 1 Wands",
-    "Prophecy Wand": "Tier 1 Wands",
     "Profane Wand": "Tier 1 Wands",
-    "Convoking Wand": "Tier 1 Wands",
-    "Assembler Wand": "Tier 1 Wands",
-    "Congregator Wand": "Tier 1 Wands",
-    "Accumulator Wand": "Tier 1 Wands"
+    "Prophecy Wand": "Tier 1 Wands",
+    "Convoking Wand": "Tier 1 Wands"
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": ["Opal Wand", "Profane Wand", "Convoking Wand"],
+      "conditions": { "ItemLevel": ">= 83" },
+      "overrides": { "Tier": "Tier 0 Wands", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i83 Top Wands"
+    }
+  ]
 }

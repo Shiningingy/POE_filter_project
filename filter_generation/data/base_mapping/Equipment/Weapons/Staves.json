@@ -2,48 +2,26 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Gnarled Branch": "朽木之干",
-        "Primitive Staff": "粗制长杖",
-        "Long Staff": "长杖",
-        "Royal Staff": "皇家长杖",
-        "Crescent Staff": "新月长杖",
-        "Woodful Staff": "坚木长杖",
-        "Quarterstaff": "细柄长杖",
-        "Highborn Staff": "贵族长杖",
-        "Moon Staff": "月神长杖",
-        "Primordial Staff": "史典长杖",
-        "Lathi": "武术长杖",
         "Imperial Staff": "帝国长杖",
-        "Eclipse Staff": "月蚀长杖",
-        "Transformer Staff": "变形长杖",
-        "Reciprocation Staff": "交换长杖",
-        "Battery Staff": "蓄能长杖",
+        "Eclipse Staff": "日蚀长杖",
+        "Lathi": "拉提",
         "__class_name__": "长杖"
       }
     },
-    "item_class": {
-      "en": "Staves",
-      "ch": "长杖"
-    },
+    "item_class": { "en": "Staves", "ch": "长杖" },
     "theme_category": "Staves"
   },
   "mapping": {
-    "Gnarled Branch": "Tier 1 Staves",
-    "Primitive Staff": "Tier 1 Staves",
-    "Long Staff": "Tier 1 Staves",
-    "Royal Staff": "Tier 1 Staves",
-    "Crescent Staff": "Tier 1 Staves",
-    "Woodful Staff": "Tier 1 Staves",
-    "Quarterstaff": "Tier 1 Staves",
-    "Highborn Staff": "Tier 1 Staves",
-    "Moon Staff": "Tier 1 Staves",
-    "Primordial Staff": "Tier 1 Staves",
-    "Lathi": "Tier 1 Staves",
     "Imperial Staff": "Tier 1 Staves",
     "Eclipse Staff": "Tier 1 Staves",
-    "Transformer Staff": "Tier 1 Staves",
-    "Reciprocation Staff": "Tier 1 Staves",
-    "Battery Staff": "Tier 1 Staves"
+    "Lathi": "Tier 1 Staves"
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": ["Imperial Staff", "Eclipse Staff"],
+      "conditions": { "ItemLevel": ">= 83" },
+      "overrides": { "Tier": "Tier 0 Staves", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i83 Top Staves"
+    }
+  ]
 }

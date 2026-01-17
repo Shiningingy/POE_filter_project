@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useTranslation } from "../utils/localization";
-import { getSoundUrl } from "../utils/soundUtils";
 import type { Language } from "../utils/localization";
 
 interface StyleProps {
@@ -18,27 +17,22 @@ interface TierStyleEditorProps {
   tierName: string;
   style: StyleProps;
   visibility: boolean;
+  canHide?: boolean;
   onChange: (newStyle: StyleProps, newVisibility: boolean) => void;
   language: Language;
   onInspect: () => void;
-  onCopy: () => void;
-  onPaste: () => void;
-  canPaste: boolean;
   onReset?: () => void;
   viewerBackground: string;
 }
 
 const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
-  // Component to edit tier styles
   tierName,
   style,
   visibility,
+  canHide = true,
   onChange,
   language,
   onInspect,
-  onCopy: _onCopy,
-  onPaste: _onPaste,
-  canPaste: _canPaste,
   onReset,
   viewerBackground,
 }) => {
@@ -59,14 +53,11 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     BackgroundColor: getAlpha(style.BackgroundColor),
   });
 
-  // Interface for sound state to avoid TS parsing issues
-  interface TempSoundState {
+  const [tempSound, setTempSound] = useState<{
     type: "default" | "sharket" | "custom";
     file: string;
     vol: number;
-  }
-
-  const [tempSound, setTempSound] = useState<TempSoundState>({ type: "default", file: "Default/AlertSound1.mp3", vol: 100 });
+  }>({ type: "default", file: "Default/AlertSound1.mp3", vol: 100 });
 
   const [tempIcon, setTempIcon] = useState({
     size: 0,
@@ -128,7 +119,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     return {
       width: `${baseSize * scale}px`,
       height: `${baseSize * scale}px`,
-      backgroundImage: `url('${import.meta.env.BASE_URL}/assets/Icon/MiniMapIcon_FullSpriteV2.png')`,
+      backgroundImage: `url('/assets/Icon/MiniMapIcon_FullSpriteV2.png')`,
       backgroundPosition: `-${(colorIdx * stepX + offset) * scale}px -${
         (shapeIdx * stepY + offset) * scale
       }px`,
@@ -212,7 +203,12 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   };
 
   const handleTestSound = () => {
-    const url = getSoundUrl(tempSound.file);
+    const url =
+      tempSound.type === "custom"
+        ? `http://localhost:8000/api/sounds/proxy?path=${encodeURIComponent(
+            tempSound.file
+          )}`
+        : `http://localhost:8000/sounds/${tempSound.file}`;
     const audio = new Audio(url);
     audio.volume = Math.min(1, tempSound.vol / 300);
     audio.play().catch((err) => alert("Play failed: " + err.message));
@@ -245,7 +241,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     ];
     keys.forEach((key) => {
       const val =
-        ((style as any)[key] as string) ||
+        (style[key] as string) ||
         (key === "BackgroundColor" ? "#000000ff" : "#ffffffff");
       const clean = val.startsWith("disabled:") ? val.split(":")[1] : val;
       const base = clean.substring(0, 7);
@@ -305,7 +301,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         ? soundData
         : [null, 0];
       if (soundFile) {
-        const audio = new Audio(getSoundUrl(soundFile));
+        const audio = new Audio(`http://localhost:8000/sounds/${soundFile}`);
         audio.volume = Math.min(1, (volume as number) / 300);
         audio.play().catch((err) => console.error("Sound play failed:", err));
       }
@@ -332,11 +328,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
       className={`VisualEditor_Container tier-style-editor ${
         visibility ? "hidden-tier" : ""
       }`}
-      style={{
-        backgroundImage: `url('${
-          import.meta.env.BASE_URL
-        }/assets/item_bg/${viewerBackground}')`,
-      }}
+      style={{ backgroundImage: `url('/assets/item_bg/${viewerBackground}')` }}
       onClick={onInspect}
     >
       {/* Modals Section */}
@@ -666,10 +658,11 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         <h4 className="tier-title">{tierName}</h4>
         <div className="header-actions">
           <button
-            className={`vis-btn ${visibility ? "is-hidden" : "is-shown"}`}
+            className={`vis-btn ${visibility ? "is-hidden" : "is-shown"} ${!canHide ? "disabled-vis" : ""}`}
+            disabled={!canHide}
             onClick={(e) => {
               e.stopPropagation();
-              toggleVisibility();
+              if (canHide) toggleVisibility();
             }}
           >
             {visibility ? t.hide : t.show}
@@ -832,9 +825,6 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 }
               />
             </div>
-            <div className="action-btns" style={{ display: "none" }}>
-              {/* Copy/Paste buttons removed */}
-            </div>
           </div>
           <div className="bottom-row extra-btns">
             <button
@@ -910,6 +900,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         .vis-btn { background: #333; color: #fff; border: 1px solid #444; padding: 4px 12px; border-radius: 2px; cursor: pointer; font-size: 0.75rem; }
         .vis-btn.is-shown { color: #4CAF50; border-color: #2e7d32; }
         .vis-btn.is-hidden { color: #f44336; border-color: #c62828; }
+        .vis-btn.disabled-vis { opacity: 0.3; cursor: not-allowed; grayscale: 1; }
         .reset-btn { background: #1a237e; color: #fff; border: none; padding: 4px 12px; border-radius: 2px; cursor: pointer; font-size: 0.75rem; }
         .editor-layout { display: flex; padding: 15px 20px; align-items: center; justify-content: space-between; min-height: 120px; background: rgba(0,0,0,0.4); }
         .color-controls { display: flex; flex-direction: column; gap: 6px; width: 130px; }

@@ -28,21 +28,9 @@ function App() {
   // Status State
   const [message, setMessage] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-  const [jsonError, setJsonError] = useState<string>(''); 
   const [viewerBackground, setViewerBackground] = useState<string>('Item_bg_coast.jpg');
 
   const API_BASE_URL = 'http://localhost:8000'; 
-
-  const validateJson = (jsonString: string) => {
-    try {
-      JSON.parse(jsonString);
-      setJsonError('');
-      return true;
-    } catch (e: any) {
-      setJsonError(e.message);
-      return false;
-    }
-  };
 
   const fetchConfigContent = useCallback(async (path: string) => {
     setLoading(true);
@@ -50,37 +38,15 @@ function App() {
       const response = await axios.get(`${API_BASE_URL}/api/config/${path}`);
       const contentString = JSON.stringify(response.data.content, null, 2);
       setConfigContent(contentString);
-      validateJson(contentString); 
       setMessage(`Loaded: ${path}`);
     } catch (error) {
       console.error(`Error fetching config ${path}:`, error);
       setMessage(t.loadFailed);
       setConfigContent('{}'); 
-      setJsonError('Failed to load or parse config content.');
     } finally {
       setLoading(false);
     }
   }, [t.loadFailed]);
-
-  const saveConfigContent = async () => {
-    if (!selectedFile) return;
-    if (!validateJson(configContent)) {
-      setMessage('Cannot save: Invalid JSON content.');
-      return;
-    }
-
-    setLoading(true);
-    try {
-      const contentObject = JSON.parse(configContent);
-      await axios.post(`${API_BASE_URL}/api/config/${selectedFile.tier_path}`, contentObject);
-      setMessage(t.saveSuccess);
-    } catch (error) {
-      console.error(`Error saving config:`, error);
-      setMessage('Failed to save config.');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const generateFilter = async () => {
     setLoading(true);
@@ -166,8 +132,6 @@ function App() {
             configContent={configContent}
             setConfigContent={setConfigContent}
             loading={loading}
-            jsonError={jsonError}
-            onSave={saveConfigContent}
             message={message}
             language={language}
             styleClipboard={styleClipboard}
@@ -184,7 +148,6 @@ function App() {
             onGenerate={generateFilter} 
             loading={loading} 
             message={message} 
-            language={language}
           />
         )}
       </div>

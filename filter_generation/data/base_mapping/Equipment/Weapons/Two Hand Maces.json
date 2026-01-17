@@ -2,66 +2,28 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Driftwood Maul": "朽木巨锤",
-        "Tribal Maul": "祭仪巨锤",
-        "Mallet": "千斤锤",
-        "Sledgehammer": "冷铁重锤",
-        "Jagged Maul": "狼牙重锤",
-        "Brass Maul": "铜影巨锤",
-        "Fright Maul": "恐惧重锤",
-        "Morning Star": "晨星",
-        "Totemic Maul": "图腾巨锤",
-        "Great Mallet": "刚猛巨锤",
-        "Steelhead": "沉钢重锤",
-        "Spiny Maul": "凶刺巨锤",
-        "Plated Maul": "华丽重锤",
-        "Dread Maul": "威权巨锤",
-        "Solar Maul": "日光锤",
-        "Karui Maul": "卡鲁重锤",
-        "Colossus Mallet": "巨型重锤",
-        "Piledriver": "扫荡者",
-        "Meatgrinder": "戮魂重锤",
-        "Imperial Maul": "帝国重锤",
-        "Terror Maul": "惧灵重锤",
-        "Coronal Maul": "花冠重锤",
-        "Blunt Force Condenser": "钝击之力凝聚器",
-        "Crushing Force Magnifier": "破坏之力放大器",
-        "Impact Force Propagator": "冲击之力扩散器",
+        "Coronal Maul": "加冕重锤",
+        "Meatgrinder": "绞肉机",
+        "Piledriver": "打桩机",
+        "Terror Maul": "恐惧重锤",
         "__class_name__": "双手锤"
       }
     },
-    "item_class": {
-      "en": "Two Hand Maces",
-      "ch": "双手锤"
-    },
+    "item_class": { "en": "Two Hand Maces", "ch": "双手锤" },
     "theme_category": "Two Hand Maces"
   },
   "mapping": {
-    "Driftwood Maul": "Tier 1 Two Hand Maces",
-    "Tribal Maul": "Tier 1 Two Hand Maces",
-    "Mallet": "Tier 1 Two Hand Maces",
-    "Sledgehammer": "Tier 1 Two Hand Maces",
-    "Jagged Maul": "Tier 1 Two Hand Maces",
-    "Brass Maul": "Tier 1 Two Hand Maces",
-    "Fright Maul": "Tier 1 Two Hand Maces",
-    "Morning Star": "Tier 1 Two Hand Maces",
-    "Totemic Maul": "Tier 1 Two Hand Maces",
-    "Great Mallet": "Tier 1 Two Hand Maces",
-    "Steelhead": "Tier 1 Two Hand Maces",
-    "Spiny Maul": "Tier 1 Two Hand Maces",
-    "Plated Maul": "Tier 1 Two Hand Maces",
-    "Dread Maul": "Tier 1 Two Hand Maces",
-    "Solar Maul": "Tier 1 Two Hand Maces",
-    "Karui Maul": "Tier 1 Two Hand Maces",
-    "Colossus Mallet": "Tier 1 Two Hand Maces",
-    "Piledriver": "Tier 1 Two Hand Maces",
-    "Meatgrinder": "Tier 1 Two Hand Maces",
-    "Imperial Maul": "Tier 1 Two Hand Maces",
-    "Terror Maul": "Tier 1 Two Hand Maces",
     "Coronal Maul": "Tier 1 Two Hand Maces",
-    "Blunt Force Condenser": "Tier 1 Two Hand Maces",
-    "Crushing Force Magnifier": "Tier 1 Two Hand Maces",
-    "Impact Force Propagator": "Tier 1 Two Hand Maces"
+    "Meatgrinder": "Tier 1 Two Hand Maces",
+    "Piledriver": "Tier 1 Two Hand Maces",
+    "Terror Maul": "Tier 1 Two Hand Maces"
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": ["Coronal Maul", "Meatgrinder"],
+      "conditions": { "ItemLevel": ">= 83" },
+      "overrides": { "Tier": "Tier 0 Two Hand Maces", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i83 Top 2H Maces"
+    }
+  ]
 }

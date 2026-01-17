@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "localization": {
+      "en": "Cluster Jewels",
+      "ch": {
+        "Large Cluster Jewel": "大型星团珠宝",
+        "Medium Cluster Jewel": "中型星团珠宝",
+        "Small Cluster Jewel": "小型星团珠宝"
+      }
+    }
+  },
+  "mapping": {
+    "Large Cluster Jewel": "Tier 1 Cluster Jewels",
+    "Medium Cluster Jewel": "Tier 1 Cluster Jewels",
+    "Small Cluster Jewel": "Tier 1 Cluster Jewels"
+  },
+  "rules": []
+}

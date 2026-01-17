@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
-import { useTranslation, getItemName } from '../utils/localization';
+import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ContextMenu from './ContextMenu';
-import ItemTooltip from './ItemTooltip';
 import ItemCard from './ItemCard';
 
 interface TierItem {
@@ -11,13 +10,18 @@ interface TierItem {
   name_ch?: string;
   source: string;
   current_tier?: string;
+  current_tiers?: string[];
   category_ch?: string;
   sub_type?: string;
+  match_mode?: 'exact' | 'partial';
+  rule_index?: number | null;
 }
 
 interface TierOption {
   key: string;
   label: string;
+  show_in_editor?: boolean;
+  is_hide_tier?: boolean;
 }
 
 interface TierItemManagerProps {
@@ -25,9 +29,13 @@ interface TierItemManagerProps {
   items: TierItem[];
   allTiers: TierOption[]; 
   onMoveItem: (item: TierItem, newTier: string, isAppend?: boolean, oldTier?: string) => void;
-  onDeleteItem: (item: TierItem) => void;
+  onDeleteItem: (item: TierItem, fromTier: string) => void;
   onUpdateOverride: (item: TierItem, overrides: any) => void;
+  onRemoveRuleTarget: (item: TierItem, ruleIndex: number) => void;
   language: Language;
+  onRuleEdit?: (tierKey: string, ruleIndex: number) => void;
+  categoryRules?: any[];
+  onRefresh?: () => void;
 }
 
 const TierItemManager: React.FC<TierItemManagerProps> = ({
@@ -37,7 +45,11 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   onMoveItem,
   onDeleteItem,
   onUpdateOverride,
-  language
+  onRemoveRuleTarget,
+  language,
+  onRuleEdit,
+  categoryRules = [],
+  onRefresh
 }) => {
   const t = useTranslation(language);
   const [isOpen, setIsOpen] = useState(false);
@@ -48,10 +60,49 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
 
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: TierItem } | null>(null);
 
+  // Map global rule index to local tier index for badges
+  const ruleBadgeMap = useMemo(() => {
+      const map: Record<number, number> = {};
+      let localCount = 0;
+      categoryRules.forEach((r, globalIdx) => {
+          // 1. Must match this tier (if tier override exists) or target items in this tier
+          const hasTierOverride = !!r.overrides?.Tier;
+          const tierMatch = hasTierOverride ? r.overrides.Tier === tierKey : r.targets?.some((target: string) => items.some(i => i.name === target));
+          
+          if (!tierMatch) return;
+
+          // 2. Hide "Sound-only" rules (consistent with RuleManager)
+          const hasConditions = Object.keys(r.conditions || {}).length > 0;
+          const overrideKeys = Object.keys(r.overrides || {}).filter(k => k !== 'Tier');
+          
+          const hasSound = overrideKeys.some(k => k.toLowerCase().includes('sound'));
+          const hasVisuals = overrideKeys.some(k => ["TextColor", "BackgroundColor", "BorderColor", "PlayEffect", "MinimapIcon"].includes(k));
+          
+          if (hasSound && !hasConditions && !hasVisuals && !hasTierOverride) return;
+
+          localCount++;
+          map[globalIdx] = localCount;
+      });
+      return map;
+  }, [categoryRules, tierKey, items]);
+
   const filteredItems = items.filter(i => 
     i.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
     (i.name_ch && i.name_ch.includes(searchTerm))
   );
+
+  const ruleItems = filteredItems.filter(i => {
+    if (i.rule_index === undefined || i.rule_index === null) return false;
+    const rule = categoryRules[i.rule_index];
+    const isTarget = rule?.targets?.includes(i.name);
+    return isTarget || !rule?.applyToTier;
+  });
+  const standardItems = filteredItems.filter(i => {
+    if (i.rule_index === undefined || i.rule_index === null) return true;
+    const rule = categoryRules[i.rule_index];
+    const isTarget = rule?.targets?.includes(i.name);
+    return !!rule?.applyToTier && !isTarget;
+  });
 
   useEffect(() => {
     if (addSearch.length < 2) {
@@ -72,6 +123,18 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   }, [addSearch]);
 
   const handleAddItem = (item: TierItem) => {
+    // Check if item is T0 by origin
+    const isT0ByOrigin = item.current_tiers?.some(tk => {
+        const opt = allTiers.find(o => o.key === tk);
+        return opt && opt.show_in_editor === false;
+    });
+
+    const targetTierOpt = allTiers.find(o => o.key === tierKey);
+    if (isT0ByOrigin && targetTierOpt?.is_hide_tier) {
+        const confirmMsg = t.t0MoveWarning.replace("{name}", item.name_ch || item.name);
+        if (!window.confirm(confirmMsg)) return;
+    }
+
     onMoveItem(item, tierKey, true); // isAppend = true
     setAddSearch('');
     setSuggestions([]);
@@ -81,6 +144,24 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
     e.preventDefault();
     e.stopPropagation();
     setContextMenu({ x: e.clientX, y: e.clientY, item });
+  };
+
+  const toggleItemMode = async (item: TierItem) => {
+      const currentMode = item.match_mode || 'exact';
+      const newMode = currentMode === 'exact' ? 'partial' : 'exact';
+      
+      try {
+          await axios.post('http://localhost:8000/api/update-item-tier', {
+              item_name: item.name,
+              source_file: item.source,
+              new_tier: tierKey, // Keep same tier
+              match_mode: newMode
+          });
+          if (onRefresh) onRefresh();
+      } catch (err) {
+          console.error("Failed to toggle match mode", err);
+      }
+      setContextMenu(null);
   };
 
   const getTierColor = (tk: string) => {
@@ -114,6 +195,60 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           }
           return tk;
       });
+  };
+
+  const renderItem = (item: TierItem) => {
+      const currentTierOpt = allTiers.find(opt => opt.key === tierKey);
+      const isLocationLocked = currentTierOpt && currentTierOpt.show_in_editor === false;
+      
+      const isRuleItem = item.rule_index !== undefined && item.rule_index !== null;
+
+      const isT0ByOrigin = item.current_tiers?.some(tk => {
+          const opt = allTiers.find(o => o.key === tk);
+          return opt && opt.show_in_editor === false;
+      });
+
+      // Unlock if it is a rule item
+      const isLocked = !isRuleItem && isLocationLocked && isT0ByOrigin;
+      
+      // Calculate local badge index
+      let localBadge = item.rule_index; 
+      if (isRuleItem && ruleBadgeMap[item.rule_index!] !== undefined) {
+          localBadge = ruleBadgeMap[item.rule_index!] - 1; // 0-based for display? ItemCard adds +1
+      }
+
+      return (
+        <ItemCard 
+          key={`${item.name}-${item.rule_index || 'std'}`} 
+          item={isRuleItem ? { ...item, rule_index: localBadge } : item}
+          language={language}
+          matchMode={item.match_mode || 'exact'}
+          onContextMenu={(e) => handleRightClick(e, item)}
+          onDelete={
+              isLocked 
+              ? undefined 
+              : () => {
+                  if (item.rule_index !== undefined && item.rule_index !== null) {
+                      const rule = categoryRules[item.rule_index];
+                      const isTarget = rule?.targets?.includes(item.name);
+                      if (rule?.applyToTier && !isTarget) {
+                          onDeleteItem(item, tierKey);
+                      } else {
+                          onRemoveRuleTarget(item, item.rule_index);
+                      }
+                  } else {
+                      onDeleteItem(item, tierKey);
+                  }
+              }
+          }
+          onClick={(e) => {
+              if (e.detail === 2 && isRuleItem && onRuleEdit) {
+                  onRuleEdit(tierKey, item.rule_index!);
+              }
+          }}
+          className={isLocked ? 'locked' : ''}
+        />
+      );
   };
 
   return (
@@ -163,16 +298,20 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
             />
           </div>
           
-          <div className="item-grid">
-            {filteredItems.map(item => (
-              <ItemCard 
-                key={item.name}
-                item={item}
-                language={language}
-                onContextMenu={(e) => handleRightClick(e, item)}
-                onDelete={() => onDeleteItem(item)}
-              />
-            ))}
+          <div className="item-grid-container">
+            {ruleItems.length > 0 && (
+                <div className="rule-items-section">
+                    <div className="section-label">{language === 'ch' ? "条件物品 (规则)" : "Conditional Items"}</div>
+                    <div className="item-grid">
+                        {ruleItems.map(renderItem)}
+                    </div>
+                </div>
+            )}
+            
+            <div className="item-grid">
+                {standardItems.map(renderItem)}
+            </div>
+            
             {filteredItems.length === 0 && <div className="empty-msg">{t.noItems}</div>}
           </div>
         </div>
@@ -183,15 +322,57 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           x={contextMenu.x}
           y={contextMenu.y}
           onClose={() => setContextMenu(null)}
-          options={[
-            ...allTiers.map(tOption => ({
-                label: tOption.label,
-                color: getTierColor(tOption.key),
-                onClick: () => onMoveItem(contextMenu.item, tOption.key, false, tierKey) // Pass tierKey as oldTier
-            })),
-            { label: "divider", onClick: () => {}, divider: true },
-            { label: "🎵 Custom Sound Override", onClick: () => handleSoundOverride(contextMenu.item) }
-          ].map(opt => ({ ...opt, className: opt.label === "divider" ? "divider" : "" }))}
+          options={
+            contextMenu.item.rule_index !== undefined && contextMenu.item.rule_index !== null
+            ? [
+                { 
+                    label: `🔗 ${t.goToRule}`, 
+                    onClick: () => {
+                        if (onRuleEdit) onRuleEdit(tierKey, contextMenu.item.rule_index!);
+                    } 
+                },
+                { 
+                    label: `🗑 ${t.removeFromRule}`, 
+                    onClick: () => onRemoveRuleTarget(contextMenu.item, contextMenu.item.rule_index!),
+                    className: "delete-option"
+                }
+            ]
+            : [
+                ...allTiers.map(tOption => {
+                    const isT0ByOrigin = contextMenu.item.current_tiers?.some(tk => {
+                        const opt = allTiers.find(o => o.key === tk);
+                        return opt && opt.show_in_editor === false;
+                    });
+                    const isLocationLocked = (() => {
+                        const opt = allTiers.find(o => o.key === tierKey);
+                        return opt && opt.show_in_editor === false;
+                    })();
+
+                    const isLocked = isLocationLocked && isT0ByOrigin && contextMenu.item.rule_index === undefined;
+
+                    return {
+                        label: tOption.label,
+                        color: getTierColor(tOption.key),
+                        onClick: () => {
+                            if (isT0ByOrigin && tOption.is_hide_tier) {
+                                const confirmMsg = t.t0MoveWarning.replace("{name}", contextMenu.item.name_ch || contextMenu.item.name);
+                                if (!window.confirm(confirmMsg)) return;
+                            }
+                            onMoveItem(contextMenu.item, tOption.key, false, tierKey);
+                        },
+                        disabled: isLocked
+                    };
+                }),
+                { label: "divider", onClick: () => {}, divider: true },
+                { 
+                    label: (contextMenu.item.match_mode || 'exact') === 'exact' 
+                        ? `≈ ${language === 'ch' ? "切换为模糊匹配" : "Switch to Partial Match"}`
+                        : `E ${language === 'ch' ? "切换为精确匹配" : "Switch to Exact Match"}`,
+                    onClick: () => toggleItemMode(contextMenu.item)
+                },
+                { label: "🎵 Custom Sound Override", onClick: () => handleSoundOverride(contextMenu.item) }
+            ].map((opt: any) => ({ ...opt, className: opt.label === "divider" ? "divider" : (opt.className || "") }))
+          }
         />
       )}
 
@@ -203,7 +384,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
         .mgr-arrow { font-size: 0.8rem; opacity: 0.5; }
 
         .mgr-content { padding: 15px; background: #f8f9fa; border-radius: 6px; border: 1px solid #e9ecef; }
-        .search-box { width: 100%; padding: 8px 12px; border: 1px solid #dee2e6; border-radius: 4px; font-size: 0.9rem; background: #fff; }
+        .search-box { width: calc(100% - 24px); padding: 8px 12px; border: 1px solid #dee2e6; border-radius: 4px; font-size: 0.9rem; background: #fff; }
         .add-input { border-color: #28a745; margin-bottom: 5px; }
         .add-area { position: relative; margin-bottom: 12px; }
         .suggestions-list { 
@@ -223,6 +404,9 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
 
         .item-grid { display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
         .empty-msg { width: 100%; text-align: center; color: #adb5bd; padding: 20px; font-size: 0.85rem; font-style: italic; }
+        
+        .rule-items-section { margin-bottom: 15px; border-bottom: 1px dashed #ddd; padding-bottom: 10px; }
+        .section-label { font-size: 0.75rem; color: #673ab7; font-weight: bold; margin-bottom: 8px; text-transform: uppercase; }
       `}</style>
     </div>
   );

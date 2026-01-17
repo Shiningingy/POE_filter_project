@@ -2,24 +2,10 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Carving Knife": "刻骨刀",
-        "Boot Knife": "窃者短刃",
-        "Copper Kris": "铜锻波刃",
-        "Skean": "双刃匕",
-        "Imp Dagger": "魔性之刃",
-        "Butcher Knife": "屠兽利刃",
-        "Boot Blade": "窃者短匕",
-        "Golden Kris": "金光波刃",
-        "Royal Skean": "皇家短匕",
-        "Fiend Dagger": "兽血短匕",
-        "Slaughter Knife": "猎者之刃",
-        "Ezomyte Dagger": "艾兹麦之匕",
-        "Platinum Kris": "白金波刃",
-        "Imperial Skean": "帝国短匕",
-        "Demon Dagger": "魔灵短匕",
-        "Flickerflame Blade": "火焰刀",
-        "Flashfire Blade": "闪火刀",
-        "Infernal Blade": "炼狱刀",
+        "Golden Kris": "金晶匕首",
+        "Platinum Kris": "白金匕首",
+        "Copper Kris": "青铜匕首",
+        "Ezomyte Dagger": "艾兹麦匕首",
         "__class_name__": "符文匕首"
       }
     },
@@ -30,24 +16,31 @@
     "theme_category": "Rune Daggers"
   },
   "mapping": {
-    "Carving Knife": "Tier 1 Rune Daggers",
-    "Boot Knife": "Tier 1 Rune Daggers",
-    "Copper Kris": "Tier 1 Rune Daggers",
-    "Skean": "Tier 1 Rune Daggers",
-    "Imp Dagger": "Tier 1 Rune Daggers",
-    "Butcher Knife": "Tier 1 Rune Daggers",
-    "Boot Blade": "Tier 1 Rune Daggers",
     "Golden Kris": "Tier 1 Rune Daggers",
-    "Royal Skean": "Tier 1 Rune Daggers",
-    "Fiend Dagger": "Tier 1 Rune Daggers",
-    "Slaughter Knife": "Tier 1 Rune Daggers",
-    "Ezomyte Dagger": "Tier 1 Rune Daggers",
     "Platinum Kris": "Tier 1 Rune Daggers",
-    "Imperial Skean": "Tier 1 Rune Daggers",
-    "Demon Dagger": "Tier 1 Rune Daggers",
-    "Flickerflame Blade": "Tier 1 Rune Daggers",
-    "Flashfire Blade": "Tier 1 Rune Daggers",
-    "Infernal Blade": "Tier 1 Rune Daggers"
+    "Copper Kris": "Tier 1 Rune Daggers",
+    "Ezomyte Dagger": "Tier 1 Rune Daggers",
+    "Fiend Dagger": "Tier 2 Rune Daggers",
+    "Imperial Skean": "Tier 2 Rune Daggers"
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": [
+        "Golden Kris",
+        "Platinum Kris",
+        "Ezomyte Dagger"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rune Daggers",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "i86 Top Rune Daggers"
+    }
+  ]
 }

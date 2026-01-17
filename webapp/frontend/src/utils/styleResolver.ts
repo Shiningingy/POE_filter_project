@@ -11,7 +11,7 @@ interface StyleProps {
   [key: string]: any;
 }
 
-export const resolveStyle = (tierData: any, themeData: any, soundMap?: any): StyleProps => {
+export const resolveStyle = (tierData: any, themeData: any, themeCategory: string = "Stackable Currency", soundMap?: any): StyleProps => {
   const localTheme = tierData.theme || {};
   const localSound = tierData.sound || {};
   let resolved: StyleProps = {};
@@ -19,7 +19,11 @@ export const resolveStyle = (tierData: any, themeData: any, soundMap?: any): Sty
   // 1. Check if it references a global tier
   if (localTheme.Tier !== undefined) {
     const tierKey = `Tier ${localTheme.Tier}`;
-    const globalStyle = themeData.currency?.[tierKey] || {}; 
+    // Try category, then fallback to common keys
+    const globalStyle = themeData?.[themeCategory]?.[tierKey] || 
+                        themeData?.["Stackable Currency"]?.[tierKey] || 
+                        themeData?.["Currency"]?.[tierKey] || 
+                        themeData?.["currency"]?.[tierKey] || {}; 
     resolved = { ...globalStyle };
   }
 
@@ -45,13 +49,13 @@ export const resolveStyle = (tierData: any, themeData: any, soundMap?: any): Sty
   return resolved;
 };
 
-export const generateFilterText = (style: StyleProps, _tierName: string, baseTypes: string[] = ["Item Name"], hideable: boolean = false, rules: any[] = [], includeBase: boolean = true): string => {
+export const generateFilterText = (style: StyleProps, baseTypes: string[] = ["Item Name"], hideable: boolean = false, rules: any[] = [], includeBase: boolean = true): string => {
   const allBlocks: string[] = [];
   let allItemsCovered = false;
 
   // 1. Process Rules first
   rules.forEach((rule) => {
-    const rLines: string[] = [];
+    const rLines = [];
     const rKeyword = hideable ? "Minimal" : "Show";
     rLines.push(rKeyword);
     

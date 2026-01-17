@@ -2,42 +2,34 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Glass Shank": "玻璃利片",
-        "Skinning Knife": "剥皮刀",
-        "Stiletto": "锐利刺匕",
-        "Flaying Knife": "残体利刃",
-        "Prong Dagger": "尖耙短匕",
-        "Poignard": "夺命刺",
-        "Trisula": "三叉短匕",
-        "Gutting Knife": "重伤短刀",
         "Ambusher": "伏击刺刃",
-        "Sai": "战叉",
-        "Hollowpoint Dagger": "折叠匕首",
-        "Pressurised Dagger": "冲压匕首",
-        "Pneumatic Dagger": "气动匕首",
+        "Imperial Skean": "帝国之匕",
+        "Demon Dagger": "魔族匕首",
         "__class_name__": "匕首"
       }
     },
-    "item_class": {
-      "en": "Daggers",
-      "ch": "匕首"
-    },
+    "item_class": { "en": "Daggers", "ch": "匕首" },
     "theme_category": "Daggers"
   },
   "mapping": {
-    "Glass Shank": "Tier 1 Daggers",
-    "Skinning Knife": "Tier 1 Daggers",
-    "Stiletto": "Tier 1 Daggers",
-    "Flaying Knife": "Tier 1 Daggers",
-    "Prong Dagger": "Tier 1 Daggers",
-    "Poignard": "Tier 1 Daggers",
-    "Trisula": "Tier 1 Daggers",
-    "Gutting Knife": "Tier 1 Daggers",
     "Ambusher": "Tier 1 Daggers",
-    "Sai": "Tier 1 Daggers",
-    "Hollowpoint Dagger": "Tier 1 Daggers",
-    "Pressurised Dagger": "Tier 1 Daggers",
-    "Pneumatic Dagger": "Tier 1 Daggers"
+    "Imperial Skean": "Tier 1 Daggers",
+    "Demon Dagger": "Tier 1 Daggers",
+    "Slaughter Knife": "Tier 2 Daggers",
+    "Royal Skean": "Tier 2 Daggers"
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": ["Ambusher", "Imperial Skean", "Demon Dagger"],
+      "conditions": { "ItemLevel": ">= 86" },
+      "overrides": { "Tier": "Tier 0 Daggers", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i86 Top Daggers"
+    },
+    {
+      "targets": ["Ambusher", "Imperial Skean", "Demon Dagger"],
+      "conditions": { "ItemLevel": ">= 84" },
+      "overrides": { "Tier": "Tier 1 Daggers", "PlayAlertSound": ["Sharket掉落音效/精品装备.mp3", 300] },
+      "comment": "i84 Top Daggers"
+    }
+  ]
 }

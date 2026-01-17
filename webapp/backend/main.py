@@ -28,6 +28,7 @@ class UpdateItemTierRequest(BaseModel):
     is_append: bool = False
     old_tier: Optional[str] = None
     new_tiers: Optional[List[str]] = None
+    match_mode: Optional[str] = None # 'exact' or 'partial'
 
 class TierItemsRequest(BaseModel):
     tier_keys: List[str]
@@ -49,6 +50,7 @@ CLASS_TO_ITEMS = {} # Class -> Set(BaseTypes)
 ITEM_TO_CLASS = {}  # BaseType -> Class
 ITEM_TRANSLATIONS = {} # English Name -> Chinese Name
 CATEGORY_MAP = {} # mapping_path -> ch_name
+CLASS_TO_FILE = {} # item_class -> mapping_path (relative to base_mapping)
 
 ITEM_SUBTYPES = {} # BaseType -> STR/DEX/INT
 ITEM_DETAILS = {} # BaseType -> {drop_level, implicit, ...}
@@ -270,14 +272,16 @@ def search_items(q: str):
                 rel_path = file_path.relative_to(CONFIG_DATA_DIR).as_posix()
                 cat_ch = CATEGORY_MAP.get(rel_path, "")
 
-                for item_name, tier_key in mapping.items():
+                for item_name, tier_val in mapping.items():
                     name_ch = trans.get(item_name, "")
                     if q_lower in item_name.lower() or (name_ch and q_lower in name_ch.lower()):
                         details = ITEM_DETAILS.get(item_name, {})
+                        tiers = tier_val if isinstance(tier_val, list) else [tier_val]
                         results_map[item_name] = {
                             "name": item_name, 
                             "name_ch": name_ch or item_name, 
-                            "current_tier": tier_key, 
+                            "current_tier": tiers[0] if tiers else None,
+                            "current_tiers": tiers,
                             "category_ch": cat_ch,
                             "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
                             "source_file": file_path.relative_to(mappings_dir).as_posix(),
@@ -298,6 +302,7 @@ def search_items(q: str):
                     "name": item_name,
                     "name_ch": name_ch,
                     "current_tier": None,
+                    "current_tiers": [],
                     "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
                     "source_file": None,
                     **details
@@ -342,9 +347,16 @@ def get_items_by_class(item_class: str):
             with open(file_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 mapping = data.get("mapping", {})
+                rules = data.get("rules", [])
                 trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
-                for item_name, tier_val in mapping.items():
-                    # If item is not in requested_items but is in a mapping, we still want it!
+                
+                # Items specifically in this category
+                all_possible_items = set(mapping.keys())
+                for r in rules:
+                    all_possible_items.update(r.get("targets", []))
+
+                for item_name in all_possible_items:
+                    # If item is not in requested_items but is in a mapping/rule, we still want it!
                     if item_name not in item_data:
                         details = ITEM_DETAILS.get(item_name, {})
                         item_data[item_name] = {
@@ -356,12 +368,24 @@ def get_items_by_class(item_class: str):
                             "source_file": None
                         }
                     
-                    tiers = tier_val if isinstance(tier_val, list) else [tier_val]
                     current_list = item_data[item_name]["current_tier"]
-                    for t in tiers:
-                        if t not in current_list:
-                            current_list.append(t)
                     
+                    # Add base mapping tier
+                    if item_name in mapping:
+                        t_val = mapping[item_name]
+                        tiers = t_val if isinstance(t_val, list) else [t_val]
+                        for t in tiers:
+                            if t not in current_list:
+                                current_list.append(t)
+                    
+                    # Add rule tiers
+                    for r in rules:
+                        r_targets = r.get("targets", [])
+                        if r_targets and item_name in r_targets:
+                            tier_override = r.get("overrides", {}).get("Tier")
+                            if tier_override and tier_override not in current_list:
+                                current_list.append(tier_override)
+
                     item_data[item_name]["source_file"] = file_path.relative_to(mappings_dir).as_posix()
                     if item_name in trans:
                         item_data[item_name]["name_ch"] = trans[item_name]
@@ -397,18 +421,24 @@ def update_item_tier(request: UpdateItemTierRequest):
             if trans:
                 data["_meta"]["localization"]["ch"][request.item_name] = trans
 
+        # 3. Update Match Mode
+        if "match_modes" not in data["_meta"]: data["_meta"]["match_modes"] = {}
+        if request.match_mode:
+            data["_meta"]["match_modes"][request.item_name] = request.match_mode
+        
         # 2. Update Mapping
         if request.new_tiers is not None:
             # Set exact list (bulk editor)
-            if not request.new_tiers:
-                if request.item_name in mapping: del mapping[request.item_name]
-            else:
-                mapping[request.item_name] = request.new_tiers
+            # Ensure we don't accidentally remove T0 tiers if the bulk editor didn't see them
+            # (though the current editor should see them now)
+            mapping[request.item_name] = request.new_tiers
         elif not request.new_tier:
+            # DELETE logic
             if request.item_name in mapping:
                 current = mapping[request.item_name]
-                if request.old_tier and isinstance(current, list) and request.old_tier in current:
-                    current.remove(request.old_tier)
+                if request.old_tier and isinstance(current, list):
+                    if request.old_tier in current:
+                        current.remove(request.old_tier)
                     if not current: del mapping[request.item_name]
                     else: mapping[request.item_name] = current
                 elif request.old_tier and current == request.old_tier:
@@ -477,29 +507,64 @@ def get_items_by_tier(request: TierItemsRequest):
             with open(file_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 mapping = data.get("mapping", {})
-                trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
+                rules = data.get("rules", [])
+                meta = data.get("_meta", {})
+                trans = meta.get("localization", {}).get("ch", {})
+                match_modes = meta.get("match_modes", {})
                 
-                for item_name, tier_val in mapping.items():
+                # Evaluate all possible items in this file context
+                all_involved = set(mapping.keys())
+                for r in rules: all_involved.update(r.get("targets", []))
+
+                for item_name in all_involved:
                     if request.class_filter:
                         item_class = ITEM_TO_CLASS.get(item_name)
                         if item_class != request.class_filter:
                             continue
                     
-                    tiers = tier_val if isinstance(tier_val, list) else [tier_val]
+                    # Calculate final tiers for this item
+                    final_tier_entries = [] # List of (tier_key, rule_index or None)
+
+                    if item_name in mapping:
+                        t_val = mapping[item_name]
+                        base_tiers = t_val if isinstance(t_val, list) else [t_val]
+                        for t in base_tiers:
+                            final_tier_entries.append((t, None))
                     
-                    for tier_key in tiers:
+                    for idx, r in enumerate(rules):
+                        r_t = r.get("targets", [])
+                        # ONLY match if targets is a non-empty list
+                        if isinstance(r_t, list) and len(r_t) > 0 and item_name in r_t:
+                            t_over = r.get("overrides", {}).get("Tier")
+                            if t_over:
+                                final_tier_entries.append((t_over, idx))
+
+                    # Distribute to results
+                    for tier_key, rule_idx in final_tier_entries:
                         if tier_key in tier_keys_set:
                             details = ITEM_DETAILS.get(item_name, {})
+                            # Determine current_tiers list for frontend display
+                            current_tiers_list = list(set(t for t, _ in final_tier_entries))
+                            
+                            # Resolve match mode: from rule or from base mapping meta
+                            item_mode = "exact"
+                            if rule_idx is not None:
+                                item_mode = rules[rule_idx].get("targetMatchModes", {}).get(item_name, "exact")
+                            else:
+                                item_mode = match_modes.get(item_name, "exact")
+
                             result[tier_key].append({
                                 "name": item_name, 
                                 "name_ch": trans.get(item_name, item_name), 
                                 "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
+                                "current_tiers": current_tiers_list,
                                 "source": file_path.relative_to(mappings_dir).as_posix(),
+                                "rule_index": rule_idx,
+                                "match_mode": item_mode,
                                 **details
                             })
         except: continue
     
-    # Untiered calculation omitted here to simplify (usually handled by class-items endpoint for bulk)
     return {"items": result}
 
 @app.post("/api/generate")
@@ -541,7 +606,13 @@ def get_mapping_info(file_name: str):
                         for k, v in category_data.items():
                             if k.startswith("Tier"):
                                 t_num = v.get("theme", {}).get("Tier", "?")
-                                available_tiers.append({"key": k, "label_en": f"Tier {t_num} {cat_en}", "label_ch": f"T{t_num} {cat_ch}"})
+                                available_tiers.append({
+                                    "key": k, 
+                                    "label_en": f"Tier {t_num} {cat_en}", 
+                                    "label_ch": f"T{t_num} {cat_ch}",
+                                    "show_in_editor": v.get("show_in_editor", True),
+                                    "is_hide_tier": v.get("is_hide_tier", False)
+                                })
                         break
                 except: continue
         available_tiers.sort(key=lambda x: int(re.search(r"Tier (\d+)", x["key"]).group(1)) if re.search(r"Tier (\d+)", x["key"]) else 999)

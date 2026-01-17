@@ -18,9 +18,8 @@ import {
   useSortable
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { useTranslation } from '../utils/localization';
+import { useTranslation, CLASS_KEY_MAP } from '../utils/localization';
 import type { Language } from '../utils/localization';
-import { getSubTypeBackground } from '../utils/itemUtils';
 import ContextMenu from './ContextMenu';
 import ItemCard from './ItemCard';
 
@@ -37,6 +36,8 @@ interface Item {
 interface TierOption {
   key: string;
   label: string;
+  show_in_editor?: boolean;
+  is_hide_tier?: boolean;
 }
 
 interface BulkTierEditorProps {
@@ -50,7 +51,7 @@ interface BulkTierEditorProps {
 
 const ARMOUR_CLASSES = ["Body Armours", "Gloves", "Boots", "Helmets", "Shields"];
 
-const SortableItem = ({ id, item, color, isStaged, language, onContextMenu }: { id: string, item: Item, color: string, isStaged: boolean, language: Language, onContextMenu: (e: React.MouseEvent) => void }) => {
+const SortableItem = ({ id, item, color, isStaged, language, onContextMenu, disabled }: { id: string, item: Item, color: string, isStaged: boolean, language: Language, onContextMenu: (e: React.MouseEvent) => void, disabled?: boolean }) => {
   const {
     attributes,
     listeners,
@@ -58,23 +59,24 @@ const SortableItem = ({ id, item, color, isStaged, language, onContextMenu }: { 
     transform,
     transition,
     isDragging
-  } = useSortable({ id });
+  } = useSortable({ id, disabled });
 
   const style = {
     transform: CSS.Translate.toString(transform),
     transition,
     opacity: isDragging ? 0.5 : 1,
+    cursor: disabled ? 'default' : undefined
   };
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+    <div ref={setNodeRef} style={style} {...attributes} {...(disabled ? {} : listeners)}>
       <ItemCard 
         item={item}
         language={language}
         color={color}
         isStaged={isStaged}
         onContextMenu={onContextMenu}
-        className={isDragging ? 'dragging' : ''}
+        className={`${isDragging ? 'dragging' : ''} ${disabled ? 'locked' : ''}`}
       />
     </div>
   );
@@ -128,6 +130,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   const t = useTranslation(language);
   const [items, setItems] = useState<Item[]>([]);
   const [itemClasses, setItemClasses] = useState<string[]>([]);
+  const [classToFile, setClassToFile] = useState<Record<string, string>>({});
   const [selectedClass, setSelectedClass] = useState(initialClassName);
   const [loading, setLoading] = useState(true);
   const [searchTermTiered, setSearchTermTiered] = useState('');
@@ -150,7 +153,10 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   // Load unique classes
   useEffect(() => {
     axios.get(`${API_BASE_URL}/api/item-classes`)
-      .then(res => setItemClasses(res.data.classes))
+      .then(res => {
+          setItemClasses(res.data.classes);
+          setClassToFile(res.data.class_to_file || {});
+      })
       .catch(err => console.error(err));
   }, []);
 
@@ -192,8 +198,6 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         setStagedChanges({}); 
       } catch (err) {
         console.error(err);
-      } finally {
-        setLoading(false);
       }
     };
     fetchItems();
@@ -203,7 +207,9 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     const cols: Record<string, Item[]> = {
       'untiered': []
     };
-    availableTiers.forEach(tier => { cols[tier.key] = []; });
+    availableTiers.forEach(tier => { 
+        cols[tier.key] = []; 
+    });
 
     items.forEach(item => {
       let effectiveTiers: string[] = [];
@@ -316,15 +322,36 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     }
 
     if (targetTier !== null) {
-        const currentTiers = items.find(i => i.name === itemName)?.current_tier || [];
+        const item = items.find(i => i.name === itemName);
+        const currentTiers = item?.current_tier || [];
         let effectiveTiers = stagedChanges[itemName] ? [...stagedChanges[itemName]] : [...currentTiers];
         
         const sourceTier = activeIdStr.split('::')[1];
         const actualSource = sourceTier === 'untiered' ? "" : sourceTier;
+
+        // Check if item is a T0 item (belongs to a show_in_editor: false tier)
+        const isT0Item = (item?.current_tier || []).some(tk => {
+            const opt = availableTiers.find(o => o.key === tk);
+            return opt && opt.show_in_editor === false;
+        });
+
+        const targetOpt = availableTiers.find(o => o.key === targetTier);
+        const isTargetHide = targetOpt?.is_hide_tier === true;
+
+        if (isT0Item && isTargetHide) {
+            const confirmMsg = t.t0MoveWarning.replace("{name}", item?.name_ch || item?.name || "");
+            if (!window.confirm(confirmMsg)) return;
+        }
         
-        const idx = effectiveTiers.indexOf(actualSource);
-        if (idx > -1) {
-            effectiveTiers.splice(idx, 1);
+        // PROTECT T0: Do not remove from list if it's a locked tier
+        const sourceOpt = availableTiers.find(o => o.key === actualSource);
+        const isSourceLocked = sourceOpt && sourceOpt.show_in_editor === false;
+
+        if (!isSourceLocked) {
+            const idx = effectiveTiers.indexOf(actualSource);
+            if (idx > -1) {
+                effectiveTiers.splice(idx, 1);
+            }
         }
         
         if (targetTier !== "") {
@@ -356,11 +383,14 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     try {
       const promises = Object.entries(stagedChanges).map(([itemName, newTiers]) => {
         const item = items.find(i => i.name === itemName);
+        // Use mapping from classToFile if available, fallback to existing or default
+        const sourceFile = item?.source_file || classToFile[item?.item_class || ""] || defaultMappingPath || `${selectedClass}.json`;
+        
         return axios.post(`${API_BASE_URL}/api/update-item-tier`, {
           item_name: itemName,
           new_tiers: newTiers,
           new_tier: "", 
-          source_file: item?.source_file || defaultMappingPath || `${selectedClass}.json`
+          source_file: sourceFile
         });
       });
 
@@ -388,8 +418,14 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       const target = tierKey === 'untiered' ? "" : tierKey;
 
       if (action === 'remove') {
-          const idx = effectiveTiers.indexOf(target);
-          if (idx > -1) effectiveTiers.splice(idx, 1);
+          // PROTECT T0
+          const targetOpt = availableTiers.find(o => o.key === target);
+          const isTargetLocked = targetOpt && targetOpt.show_in_editor === false;
+          
+          if (!isTargetLocked) {
+              const idx = effectiveTiers.indexOf(target);
+              if (idx > -1) effectiveTiers.splice(idx, 1);
+          }
       } else {
           if (target !== "" && !effectiveTiers.includes(target)) {
               effectiveTiers.push(target);
@@ -520,43 +556,67 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                     />
                 }
             >
-                {columns['untiered'].slice(0, columnLimits['untiered'] || 100).map(item => (
-                    <SortableItem 
-                        key={`${item.name}-untiered`} 
-                        id={`${item.name}::untiered`}
-                        item={item} 
-                        color="white"
-                        isStaged={stagedChanges[item.name] !== undefined}
-                        language={language}
-                        onContextMenu={(e) => handleItemRightClick(e, item, 'untiered')}
-                    />
-                ))}
+                {columns['untiered'].slice(0, columnLimits['untiered'] || 100).map(item => {
+                    // Item is locked ONLY if it is in a show_in_editor: false tier AND that is its CURRENT location
+                    // Untiered is never locked.
+                    const isItemLocked = false; 
+
+                    return (
+                        <SortableItem 
+                            key={`${item.name}-untiered`} 
+                            id={`${item.name}::untiered`}
+                            item={item} 
+                            color="white"
+                            isStaged={stagedChanges[item.name] !== undefined}
+                            language={language}
+                            onContextMenu={(e) => handleItemRightClick(e, item, 'untiered')}
+                            disabled={isItemLocked}
+                        />
+                    );
+                })}
             </TierColumn>
 
                         {/* Tier Columns */}
-                        {availableTiers.map(tier => (
-                            <TierColumn
-                                key={tier.key}
-                                id={tier.key}
-                                title={tier.label}
-                                color={getTierColor(tier.key)}
-                                items={columns[tier.key].slice(0, columnLimits[tier.key] || 100)}
-                                totalCount={columns[tier.key].length}
-                                onScrollBottom={() => handleLoadMore(tier.key)}
-                            >
-                                    {columns[tier.key].slice(0, columnLimits[tier.key] || 100).map(item => (
-                                    <SortableItem 
-                                        key={`${item.name}-${tier.key}`} 
-                                        id={`${item.name}::${tier.key}`}
-                                        item={item} 
-                                        color={getTierColor(tier.key)}
-                                        isStaged={stagedChanges[item.name] !== undefined && !(item.current_tier || []).includes(tier.key)}
-                                        language={language}
-                                        onContextMenu={(e) => handleItemRightClick(e, item, tier.key)}
-                                    />
-                                ))}
-                            </TierColumn>
-                        ))}
+                        {availableTiers.map(tier => {
+                            return (
+                                <TierColumn
+                                    key={tier.key}
+                                    id={tier.key}
+                                    title={tier.label}
+                                    color={getTierColor(tier.key)}
+                                    items={columns[tier.key].slice(0, columnLimits[tier.key] || 100)}
+                                    totalCount={columns[tier.key].length}
+                                    onScrollBottom={() => handleLoadMore(tier.key)}
+                                >
+                                        {columns[tier.key].slice(0, columnLimits[tier.key] || 100).map(item => {
+                                            // Item is locked ONLY if it is in a show_in_editor: false tier AND that is its CURRENT location
+                                            const tierOpt = availableTiers.find(opt => opt.key === tier.key);
+                                            const isLocationLocked = tierOpt && tierOpt.show_in_editor === false;
+                                            
+                                            // Additionally check if it's a T0 item by origin
+                                            const isT0ByOrigin = item.current_tier?.some(tk => {
+                                                const opt = availableTiers.find(o => o.key === tk);
+                                                return opt && opt.show_in_editor === false;
+                                            });
+
+                                            const isItemLocked = isLocationLocked && isT0ByOrigin;
+
+                                            return (
+                                                <SortableItem 
+                                                    key={`${item.name}-${tier.key}`} 
+                                                    id={`${item.name}::${tier.key}`}
+                                                    item={item} 
+                                                    color={getTierColor(tier.key)}
+                                                    isStaged={stagedChanges[item.name] !== undefined && !(item.current_tier || []).includes(tier.key)}
+                                                    language={language}
+                                                    onContextMenu={(e) => handleItemRightClick(e, item, tier.key)}
+                                                    disabled={isItemLocked}
+                                                />
+                                            );
+                                        })}
+                                </TierColumn>
+                            );
+                        })}
             <DragOverlay dropAnimation={{ sideEffects: defaultDropAnimationSideEffects({ styles: { active: { opacity: '0.5' } } }) }}>
                 {activeItem ? (
                     <ItemCard 
@@ -579,7 +639,18 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
             onClose={() => setContextMenu(null)}
             options={[
                 ...(contextMenu.tierKey !== 'untiered' ? [
-                    { label: language === 'ch' ? "从此阶级移除" : "Remove from this Tier", onClick: () => handleModifyTierList(contextMenu.item, 'remove', contextMenu.tierKey) },
+                    { 
+                        label: language === 'ch' ? "从此阶级移除" : "Remove from this Tier", 
+                        onClick: () => handleModifyTierList(contextMenu.item, 'remove', contextMenu.tierKey),
+                        disabled: (() => {
+                            const opt = availableTiers.find(o => o.key === contextMenu.tierKey);
+                            const isT0ByOrigin = contextMenu.item.current_tier?.some(tk => {
+                                const o = availableTiers.find(x => x.key === tk);
+                                return o && o.show_in_editor === false;
+                            });
+                            return opt && opt.show_in_editor === false && isT0ByOrigin;
+                        })()
+                    },
                     { divider: true, label: '', onClick: () => {} }
                 ] : []),
                 ...availableTiers
@@ -587,7 +658,17 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                     .map(t => ({
                         label: language === 'ch' ? `添加至 ${t.label}` : `Add to ${t.label}`,
                         color: getTierColor(t.key),
-                        onClick: () => handleModifyTierList(contextMenu.item, 'add', t.key)
+                        onClick: () => {
+                            const isT0ByOrigin = contextMenu.item.current_tier?.some(tk => {
+                                const o = availableTiers.find(x => x.key === tk);
+                                return o && o.show_in_editor === false;
+                            });
+                            if (isT0ByOrigin && t.is_hide_tier) {
+                                const confirmMsg = (t as any).t0MoveWarning.replace("{name}", contextMenu.item.name_ch || contextMenu.item.name);
+                                if (!window.confirm(confirmMsg)) return;
+                            }
+                            handleModifyTierList(contextMenu.item, 'add', t.key);
+                        }
                     }))
             ]}
         />

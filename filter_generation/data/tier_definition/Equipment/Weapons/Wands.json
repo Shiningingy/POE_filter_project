@@ -5,7 +5,27 @@
       "localization": {
         "en": "Wands",
         "ch": "法杖"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Wands",
+        "Tier 1 Wands",
+        "Tier Hide Wands"
+      ]
+    },
+    "Tier 0 Wands": {
+      "hideable": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: i83+ Top Wands",
+        "ch": "T0: 顶级法杖(83+)"
+      },
+      "show_in_editor": false
     },
     "Tier 1 Wands": {
       "hideable": false,
@@ -13,8 +33,27 @@
         "Tier": 1
       },
       "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "精品装备.mp3"
+      },
+      "localization": {
+        "en": "T1: High End",
+        "ch": "T1: 优质法杖"
+      }
+    },
+    "Tier Hide Wands": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
       }
     }
   }

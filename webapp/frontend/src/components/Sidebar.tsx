@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import type { Language } from "../utils/localization";
+import axios from 'axios';
+import type { Language } from '../utils/localization';
 
 export interface CategoryFile {
   path: string;
@@ -44,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/category-structure")
+      .get(`http://localhost:8000/api/category-structure?t=${new Date().getTime()}`)
       .then((res) => setStructure(res.data))
       .catch((err) => {
         console.error("Failed to load sidebar structure", err);

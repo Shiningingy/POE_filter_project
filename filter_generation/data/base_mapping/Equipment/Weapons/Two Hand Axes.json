@@ -2,66 +2,28 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Stone Axe": "石斧",
-        "Jade Chopper": "碎玉大斧",
-        "Woodsplitter": "柴斧",
-        "Poleaxe": "巨战斧",
-        "Double Axe": "双刃巨斧",
-        "Gilded Axe": "金柄之斧",
-        "Shadow Axe": "幽影巨斧",
-        "Dagger Axe": "匕斧",
-        "Jasper Chopper": "灵玉巨斧",
-        "Timber Axe": "裂木巨斧",
-        "Headsman Axe": "行刑巨斧",
-        "Labrys": "双影巨斧",
-        "Noble Axe": "权贵巨斧",
-        "Abyssal Axe": "深渊巨斧",
-        "Karui Chopper": "卡鲁巨斧",
-        "Talon Axe": "猛禽爪斧",
-        "Sundering Axe": "裂甲巨斧",
-        "Ezomyte Axe": "艾兹麦巨斧",
-        "Vaal Axe": "瓦尔巨斧",
-        "Despot Axe": "霸主巨斧",
-        "Void Axe": "虚影巨斧",
+        "Despot Axe": "霸者之斧",
+        "Vaal Axe": "瓦尔战斧",
+        "Ezomyte Axe": "艾兹麦长斧",
         "Fleshripper": "裂肉者",
-        "Prime Cleaver": "首要砍刀",
-        "Honed Cleaver": "磨利砍刀",
-        "Apex Cleaver": "锋锐砍刀",
         "__class_name__": "双手斧"
       }
     },
-    "item_class": {
-      "en": "Two Hand Axes",
-      "ch": "双手斧"
-    },
+    "item_class": { "en": "Two Hand Axes", "ch": "双手斧" },
     "theme_category": "Two Hand Axes"
   },
   "mapping": {
-    "Stone Axe": "Tier 1 Two Hand Axes",
-    "Jade Chopper": "Tier 1 Two Hand Axes",
-    "Woodsplitter": "Tier 1 Two Hand Axes",
-    "Poleaxe": "Tier 1 Two Hand Axes",
-    "Double Axe": "Tier 1 Two Hand Axes",
-    "Gilded Axe": "Tier 1 Two Hand Axes",
-    "Shadow Axe": "Tier 1 Two Hand Axes",
-    "Dagger Axe": "Tier 1 Two Hand Axes",
-    "Jasper Chopper": "Tier 1 Two Hand Axes",
-    "Timber Axe": "Tier 1 Two Hand Axes",
-    "Headsman Axe": "Tier 1 Two Hand Axes",
-    "Labrys": "Tier 1 Two Hand Axes",
-    "Noble Axe": "Tier 1 Two Hand Axes",
-    "Abyssal Axe": "Tier 1 Two Hand Axes",
-    "Karui Chopper": "Tier 1 Two Hand Axes",
-    "Talon Axe": "Tier 1 Two Hand Axes",
-    "Sundering Axe": "Tier 1 Two Hand Axes",
-    "Ezomyte Axe": "Tier 1 Two Hand Axes",
-    "Vaal Axe": "Tier 1 Two Hand Axes",
     "Despot Axe": "Tier 1 Two Hand Axes",
-    "Void Axe": "Tier 1 Two Hand Axes",
-    "Fleshripper": "Tier 1 Two Hand Axes",
-    "Prime Cleaver": "Tier 1 Two Hand Axes",
-    "Honed Cleaver": "Tier 1 Two Hand Axes",
-    "Apex Cleaver": "Tier 1 Two Hand Axes"
+    "Vaal Axe": "Tier 1 Two Hand Axes",
+    "Ezomyte Axe": "Tier 1 Two Hand Axes",
+    "Fleshripper": "Tier 1 Two Hand Axes"
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": ["Despot Axe", "Vaal Axe", "Fleshripper"],
+      "conditions": { "ItemLevel": ">= 83" },
+      "overrides": { "Tier": "Tier 0 Two Hand Axes", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i83 Top 2H Axes"
+    }
+  ]
 }

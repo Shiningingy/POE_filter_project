@@ -1,14 +1,12 @@
 import React from 'react';
-import type { Language } from '../utils/localization';
 
 interface ExportViewProps {
   onGenerate: () => void;
   loading: boolean;
   message: string;
-  language: Language;
 }
 
-const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, language: _language }) => {
+const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message }) => {
   return (
     <div className="export-view">
       <div className="top-bar">
