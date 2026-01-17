@@ -85,8 +85,22 @@ const RuleManager: React.FC<RuleManagerProps> = ({
     return allRules
       .map((r, i) => ({ r, i }))
       .filter(({ r }) => {
-        if (r.overrides?.Tier) return r.overrides.Tier === tierKey;
-        return r.targets.some((target) => availableItems.some(i => i.name === target));
+        // 1. Must match this tier (if tier override exists) or target items in this tier
+        const hasTierOverride = !!r.overrides?.Tier;
+        const matchesTier = hasTierOverride ? r.overrides.Tier === tierKey : r.targets.some((target) => availableItems.some(i => i.name === target));
+        if (!matchesTier) return false;
+
+        // 2. Hide "Sound-only" rules (rules that only override sound and have no conditions/other visuals)
+        const hasConditions = Object.keys(r.conditions || {}).length > 0;
+        const overrideKeys = Object.keys(r.overrides || {}).filter(k => k !== 'Tier');
+        
+        const hasSound = overrideKeys.some(k => k.toLowerCase().includes('sound'));
+        const hasVisuals = overrideKeys.some(k => ["TextColor", "BackgroundColor", "BorderColor", "PlayEffect", "MinimapIcon"].includes(k));
+        
+        // If it's sound-only (no conditions, no other visuals, no tier override), hide it
+        if (hasSound && !hasConditions && !hasVisuals && !hasTierOverride) return false;
+
+        return true;
       })
       .map((item) => item.i);
   }, [allRules, tierKey, availableItems]);
@@ -151,7 +165,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
 
   const handleDeleteRule = (e: React.MouseEvent, globalIndex: number) => {
       e.stopPropagation();
-      if (window.confirm(language === 'ch' ? "确定要删除此规则吗？" : "Delete this rule?")) {
+      if (window.confirm(t.deleteRuleConfirm)) {
           onGlobalRulesChange(allRules.filter((_, i) => i !== globalIndex));
           setEditingAndNotify(null);
       }
@@ -254,7 +268,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                 <input 
                     className={`rule-name-input ${rule.disabled ? 'disabled-text' : ''}`}
                     value={rule.comment || ""} 
-                    placeholder={language === 'ch' ? `规则备注...` : `Rule Comment...`}
+                    placeholder={t.ruleComment}
                     onClick={(e) => e.stopPropagation()}
                     onChange={(e) => handleUpdateRule(globalIndex, { ...rule, comment: e.target.value })}
                 />
@@ -293,7 +307,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                     <div className="add-target-box">
                         <input 
                             type="text" 
-                            placeholder={language === 'ch' ? "添加物品目标..." : "Add item target..."}
+                            placeholder={t.addItemTarget}
                             value={targetSearch}
                             onChange={e => setTargetSearch(e.target.value)}
                         />
@@ -320,6 +334,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                   <div className="factors-mini-grid">
                     {Object.entries(rule.conditions).map(
                       ([key, currentVal]) => {
+                        // ... (existing condition rendering)
                         const isRange = currentVal.startsWith("RANGE ");
                         const parts = isRange ? currentVal.split(" ") : [];
                         const op1 = isRange
@@ -408,163 +423,202 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                         <option value="==">==</option>
                                         <option value=">">&gt;</option>
                                         <option value="<">&lt;</option>
-                                        <option value="RANGE">
-                                          {language === "ch"
-                                            ? "范围"
-                                            : "Between"}
-                                        </option>
-                                      </select>
-                                      <input
-                                        type="text"
-                                        value={v1}
-                                        onChange={(e) =>
-                                          updateCondition(
-                                            globalIndex,
-                                            key,
-                                            `${op1}${e.target.value}`
-                                          )
-                                        }
-                                      />
-                                    </>
-                                  ) : (
-                                    <div className="range-controls-row">
-                                      <div className="range-half">
-                                        <select
-                                          value={op1}
-                                          onChange={(e) =>
-                                            updateCondition(
-                                              globalIndex,
-                                              key,
-                                              `RANGE ${e.target.value} ${v1} ${op2} ${v2}`
-                                            )
-                                          }
-                                        >
-                                          <option value=">=">&gt;=</option>
-                                          <option value=">">&gt;</option>
-                                        </select>
-                                        <input
-                                          type="text"
-                                          value={v1}
-                                          onChange={(e) =>
-                                            updateCondition(
-                                              globalIndex,
-                                              key,
-                                              `RANGE ${op1} ${e.target.value} ${op2} ${v2}`
-                                            )
-                                          }
-                                        />
-                                      </div>
-                                      <span className="range-sep">AND</span>
-                                      <div className="range-half">
-                                        <select
-                                          value={op2}
-                                          onChange={(e) =>
-                                            updateCondition(
-                                              globalIndex,
-                                              key,
-                                              `RANGE ${op1} ${v1} ${e.target.value} ${v2}`
-                                            )
-                                          }
-                                        >
-                                          <option value="<=">&lt;=</option>
-                                          <option value="<">&lt;</option>
-                                        </select>
-                                        <input
-                                          type="text"
-                                          value={v2}
-                                          onChange={(e) =>
-                                            updateCondition(
-                                              globalIndex,
-                                              key,
-                                              `RANGE ${op1} ${v1} ${op2} ${e.target.value}`
-                                            )
-                                          }
-                                        />
-                                      </div>
-                                      <button
-                                        className="range-back-btn"
-                                        onClick={() =>
-                                          updateCondition(
-                                            globalIndex,
-                                            key,
-                                            `>= ${v1}`
-                                          )
-                                        }
-                                      >
-                                        ×
-                                      </button>
-                                    </div>
-                                  )}
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        );
-                      }
-                    )}
-
-                    <div className="mini-factor add-condition-card">
-                      <span>+ {t.conditions}</span>
-                      <select
-                        value=""
-                        onChange={(e) =>
-                          addCondition(globalIndex, e.target.value)
-                        }
-                        className="add-cond-select"
-                      >
-                        <option value="" disabled>
-                          {language === "ch"
-                            ? "添加条件..."
-                            : "Add condition..."}
-                        </option>
-                        {relevantFactors
-                          .filter((f) => rule.conditions[f.key] === undefined)
-                          .map((f) => (
-                            <option key={f.key} value={f.key}>
-                              {RULE_FACTOR_LOCALIZATION[f.key]?.[language] ||
-                                f.label}
-                            </option>
-                          ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="section-divider">
-                    <span>{t.rawText}</span>
-                  </div>
-
-                  <div className="raw-code-field">
-                    <textarea
-                      placeholder="# Custom lines like: \n    SetFontSize 45"
-                      value={rule.raw || ""}
-                      onChange={(e) =>
-                        handleUpdateRule(globalIndex, {
-                          ...rule,
-                          raw: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-
-                  <div className="section-divider">
-                    <span>{t.actions || "Actions"}</span>
-                  </div>
-                  <div className="actions-row">
-                      {availableTiers && (
-                          <div className="move-control">
-                              <label>{language === 'ch' ? "移动至:" : "Move to:"}</label>
-                              <select 
-                                value={rule.overrides?.Tier || tierKey}
-                                onChange={(e) => handleMoveRule(globalIndex, e.target.value)}
-                                className="tier-select"
-                              >
-                                  {availableTiers.map(t => (
-                                      <option key={t.key} value={t.key}>{t.label}</option>
-                                  ))}
-                              </select>
-                          </div>
-                      )}
-                  </div>
+                                                                                <option value="RANGE">
+                                                                                  {t.rangeBetween}
+                                                                                </option>
+                                                                              </select>
+                                                                              <input
+                                                                                type="text"
+                                                                                value={v1}
+                                                                                onChange={(e) =>
+                                                                                  updateCondition(
+                                                                                    globalIndex,
+                                                                                    key,
+                                                                                    `${op1}${e.target.value}`
+                                                                                  )
+                                                                                }
+                                                                              />
+                                                                            </>
+                                                                          ) : (
+                                                                            <div className="range-controls-row">
+                                                                              <div className="range-half">
+                                                                                <select
+                                                                                  value={op1}
+                                                                                  onChange={(e) =>
+                                                                                    updateCondition(
+                                                                                      globalIndex,
+                                                                                      key,
+                                                                                      `RANGE ${e.target.value} ${v1} ${op2} ${v2}`
+                                                                                    )
+                                                                                  }
+                                                                                >
+                                                                                  <option value=">=">&gt;=</option>
+                                                                                  <option value=">">&gt;</option>
+                                                                                </select>
+                                                                                <input
+                                                                                  type="text"
+                                                                                  value={v1}
+                                                                                  onChange={(e) =>
+                                                                                    updateCondition(
+                                                                                      globalIndex,
+                                                                                      key,
+                                                                                      `RANGE ${op1} ${e.target.value} ${op2} ${v2}`
+                                                                                    )
+                                                                                  }
+                                                                                />
+                                                                              </div>
+                                                                              <span className="range-sep">AND</span>
+                                                                              <div className="range-half">
+                                                                                <select
+                                                                                  value={op2}
+                                                                                  onChange={(e) =>
+                                                                                    updateCondition(
+                                                                                      globalIndex,
+                                                                                      key,
+                                                                                      `RANGE ${op1} ${v1} ${e.target.value} ${v2}`
+                                                                                    )
+                                                                                  }
+                                                                                >
+                                                                                  <option value="<=">&lt;=</option>
+                                                                                  <option value="<">&lt;</option>
+                                                                                </select>
+                                                                                <input
+                                                                                  type="text"
+                                                                                  value={v2}
+                                                                                  onChange={(e) =>
+                                                                                    updateCondition(
+                                                                                      globalIndex,
+                                                                                      key,
+                                                                                      `RANGE ${op1} ${v1} ${op2} ${e.target.value}`
+                                                                                    )
+                                                                                  }
+                                                                                />
+                                                                              </div>
+                                                                              <button
+                                                                                className="range-back-btn"
+                                                                                onClick={() =>
+                                                                                  updateCondition(
+                                                                                    globalIndex,
+                                                                                    key,
+                                                                                    `>= ${v1}`
+                                                                                  )
+                                                                                }
+                                                                              >
+                                                                                ×
+                                                                              </button>
+                                                                            </div>
+                                                                          )}
+                                                                        </div>
+                                                                      )}
+                                                                    </div>
+                                                                  </div>
+                                                                );
+                                                              }
+                                                            )}
+                                        
+                                                            <div className="mini-factor add-condition-card">
+                                                              <span>+ {t.conditions}</span>
+                                                              <select
+                                                                value=""
+                                                                onChange={(e) =>
+                                                                  addCondition(globalIndex, e.target.value)
+                                                                }
+                                                                className="add-cond-select"
+                                                              >
+                                                                <option value="" disabled>
+                                                                  {t.addItemTarget}
+                                                                </option>
+                                                                {relevantFactors
+                                                                  .filter((f) => rule.conditions[f.key] === undefined)
+                                                                  .map((f) => (
+                                                                    <option key={f.key} value={f.key}>
+                                                                      {RULE_FACTOR_LOCALIZATION[f.key]?.[language] ||
+                                                                        f.label}
+                                                                    </option>
+                                                                  ))}
+                                                              </select>
+                                                            </div>
+                                                          </div>
+                                        
+                                                          <div className="section-divider">
+                                                            <span>{t.themeOverrides}</span>
+                                                          </div>
+                                        
+                                                          <div className="theme-overrides-grid">
+                                                            {["TextColor", "BackgroundColor", "BorderColor"].map(key => {
+                                                                const label = key === "TextColor" ? t.text : key === "BackgroundColor" ? t.background : t.border;
+                                                                const hexToRgba = (hex: string) => `${hex}ff`;
+                                                                const rgbaToHex = (rgba: string) => rgba?.startsWith("disabled:") ? rgba.split(":")[1].substring(0, 7) : (rgba?.substring(0, 7) || "#000000");
+                                                                const val = rule.overrides?.[key];
+                                                                const isActive = !!val && !val.startsWith("disabled:");
+                                        
+                                                                return (
+                                                                    <div key={key} className="color-override-item">
+                                                                        <label>{label}</label>
+                                                                        <div className="color-input-group">
+                                                                            <input 
+                                                                                type="color" 
+                                                                                value={rgbaToHex(val)} 
+                                                                                disabled={!isActive}
+                                                                                onChange={(e) => {
+                                                                                    const newOverrides = { ...rule.overrides, [key]: hexToRgba(e.target.value) };
+                                                                                    handleUpdateRule(globalIndex, { ...rule, overrides: newOverrides });
+                                                                                }}
+                                                                            />
+                                                                            <button 
+                                                                                className={`toggle-override-btn ${isActive ? 'active' : ''}`}
+                                                                                onClick={() => {
+                                                                                    const nextOverrides = { ...rule.overrides };
+                                                                                    if (isActive) delete nextOverrides[key];
+                                                                                    else nextOverrides[key] = key === "BackgroundColor" ? "#000000ff" : "#ffffffff";
+                                                                                    handleUpdateRule(globalIndex, { ...rule, overrides: nextOverrides });
+                                                                                }}
+                                                                            >
+                                                                                {isActive ? "ON" : "OFF"}
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                );
+                                                            })}
+                                                          </div>
+                                        
+                                                          <div className="section-divider">
+                                                            <span>{t.rawText}</span>
+                                                          </div>
+                                        
+                                                          <div className="raw-code-field">
+                                                            <textarea
+                                                              placeholder="# Custom lines like: \n    SetFontSize 45"
+                                                              value={rule.raw || ""}
+                                                              onChange={(e) =>
+                                                                handleUpdateRule(globalIndex, {
+                                                                  ...rule,
+                                                                  raw: e.target.value,
+                                                                })
+                                                              }
+                                                            />
+                                                          </div>
+                                        
+                                                          <div className="section-divider">
+                                                            <span>{t.actions}</span>
+                                                          </div>
+                                                          <div className="actions-row">
+                                                              {availableTiers && (
+                                                                  <div className="move-control">
+                                                                      <label>{t.moveTo}</label>
+                                                                      <select 
+                                                                        value={rule.overrides?.Tier || tierKey}
+                                                                        onChange={(e) => handleMoveRule(globalIndex, e.target.value)}
+                                                                        className="tier-select"
+                                                                      >
+                                                                          {availableTiers.map(t => (
+                                                                              <option key={t.key} value={t.key}>{t.label}</option>
+                                                                          ))}
+                                                                      </select>
+                                                                  </div>
+                                                              )}
+                                                          </div>
+                                        
                 </div>
               )}
             </div>
@@ -683,6 +737,19 @@ const RuleManager: React.FC<RuleManagerProps> = ({
         .move-control { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; width: 100%; }
         .tier-select { padding: 4px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem; flex-grow: 1; max-width: 250px; }
         .actions-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; }
+
+        .theme-overrides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; background: #fdfdfd; padding: 12px; border-radius: 6px; border: 1px solid #f0f0f0; }
+        .color-override-item { display: flex; flex-direction: column; gap: 6px; }
+        .color-override-item label { font-size: 0.7rem; color: #888; font-weight: bold; text-transform: uppercase; }
+        .color-input-group { display: flex; align-items: center; gap: 8px; }
+        .color-input-group input[type="color"] { width: 40px; height: 28px; padding: 0; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; }
+        .color-input-group input[type="color"]:disabled { opacity: 0.3; cursor: not-allowed; }
+        
+        .toggle-override-btn { 
+            padding: 4px 10px; font-size: 0.7rem; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; 
+            font-weight: bold; transition: all 0.2s; background: #f5f5f5; color: #999;
+        }
+        .toggle-override-btn.active { background: #2196F3; color: white; border-color: #2196F3; }
       `}</style>
       
       {contextMenu && (
@@ -692,20 +759,20 @@ const RuleManager: React.FC<RuleManagerProps> = ({
             onClose={() => setContextMenu(null)}
             options={[
                 {
-                    label: allRules[contextMenu.ruleIndex].disabled ? (language==='ch'?'启用规则':'Enable Rule') : (language==='ch'?'禁用规则':'Disable Rule'),
+                    label: allRules[contextMenu.ruleIndex].disabled ? t.enableRule : t.disableRule,
                     onClick: () => {
                         const rule = allRules[contextMenu.ruleIndex];
                         handleUpdateRule(contextMenu.ruleIndex, { ...rule, disabled: !rule.disabled });
                     }
                 },
                 { divider: true, label: '', onClick: () => {} },
-                ...(availableTiers || []).map(t => ({
-                    label: language==='ch' ? `移动至 ${t.label}` : `Move to ${t.label}`,
-                    onClick: () => handleMoveRule(contextMenu.ruleIndex, t.key)
+                ...(availableTiers || []).map(tier => ({
+                    label: `${t.moveTo} ${tier.label}`,
+                    onClick: () => handleMoveRule(contextMenu.ruleIndex, tier.key)
                 })),
                 { divider: true, label: '', onClick: () => {} },
                 {
-                    label: language==='ch' ? "删除规则" : "Delete Rule",
+                    label: t.deleteRuleLabel,
                     onClick: () => handleDeleteRuleNoConfirm(contextMenu.ruleIndex),
                     className: "delete-option"
                 }
