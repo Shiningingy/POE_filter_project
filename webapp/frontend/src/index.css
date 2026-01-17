@@ -133,6 +133,7 @@ button:focus-visible {
     box-shadow: 0 1px 3px rgba(0,0,0,0.1); transition: all 0.2s;
     position: relative; cursor: pointer; display: flex; align-items: center;
     min-width: 120px; text-align: left;
+    min-height: 33.5px;
 }
 .item-card-base:hover { box-shadow: 0 2px 5px rgba(0,0,0,0.15); border-color: #2196F3; }
 .item-card-base.staged { border: 2px solid #2196F3; }
