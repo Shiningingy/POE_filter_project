@@ -10,9 +10,14 @@
       "ch": {
         "City Square Map": "城中广场"
       }
+    },
+    "match_modes": {
+      "City Square Map": "exact"
     }
   },
-  "mapping": {},
+  "mapping": {
+    "City Square Map": "Tier 2 Base Maps"
+  },
   "rules": [
     {
       "targets": [],
@@ -22,6 +27,7 @@
       "overrides": {
         "Tier": "Tier 0 Base Maps"
       },
+      "applyToTier": true,
       "comment": "T17 Maps"
     },
     {
@@ -32,6 +38,7 @@
       "overrides": {
         "Tier": "Tier 1 Base Maps"
       },
+      "applyToTier": true,
       "comment": "Influenced Maps"
     },
     {
@@ -42,6 +49,7 @@
       "overrides": {
         "Tier": "Tier 2 Base Maps"
       },
+      "applyToTier": true,
       "comment": "Red Maps (T14-T16)"
     },
     {
@@ -56,6 +64,7 @@
         "BorderColor": "#00ff00ff",
         "FontSize": 45
       },
+      "applyToTier": false,
       "comment": "Highlight: City Square (Green Border)"
     },
     {
@@ -66,6 +75,7 @@
       "overrides": {
         "Tier": "Tier 3 Base Maps"
       },
+      "applyToTier": true,
       "comment": "Mid Reds (T11-T13)"
     },
     {
@@ -76,6 +86,7 @@
       "overrides": {
         "Tier": "Tier 4 Base Maps"
       },
+      "applyToTier": true,
       "comment": "Yellow Maps (T6-T10)"
     },
     {
@@ -86,6 +97,7 @@
       "overrides": {
         "Tier": "Tier 5 Base Maps"
       },
+      "applyToTier": true,
       "comment": "White Maps (T1-T5)"
     },
     {
@@ -96,6 +108,7 @@
       "overrides": {
         "TextColor": "#ffff00ff"
       },
+      "applyToTier": true,
       "comment": "Rarity: Rare (Yellow Text)"
     },
     {
@@ -106,6 +119,7 @@
       "overrides": {
         "TextColor": "#8888ffff"
       },
+      "applyToTier": true,
       "comment": "Rarity: Magic (Blue Text)"
     }
   ]

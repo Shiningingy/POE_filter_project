@@ -436,7 +436,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   }, [tierItems]);
 
   const derivedTierItems = useMemo(() => {
-    if (!parsedConfig || !activeCategoryKey) return tierItems;
+    // If we have tier keys but no items yet, we are likely loading.
+    // Return original tierItems to avoid flashing an empty grid.
+    const hasAnyItems = Object.keys(tierItems).some(k => tierItems[k]?.length > 0);
+    if (!parsedConfig || !activeCategoryKey || !hasAnyItems) return tierItems;
     
     const rules = activeCategoryData?.rules || activeCategoryData?._meta?.rules || [];
     const result: Record<string, TierItem[]> = {};
@@ -448,25 +451,46 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     
     // 2. Add items from current frontend rules
     rules.forEach((rule: any, ruleIdx: number) => {
+        if (rule.disabled) return;
         const ruleTier = rule.overrides?.Tier;
-        if (ruleTier && result[ruleTier] && rule.targets) {
+        if (!ruleTier || !result[ruleTier]) return;
+
+        if (rule.applyToTier) {
+            // If "Apply to all", move all current standard items in this tier to be "rule items"
+            const standardItems = result[ruleTier].filter(i => i.rule_index === undefined || i.rule_index === null);
+            const otherItems = result[ruleTier].filter(i => i.rule_index !== undefined && i.rule_index !== null);
+            
+            const updatedStandard = standardItems.map(i => ({
+                ...i,
+                rule_index: ruleIdx
+            }));
+            
+            result[ruleTier] = [...otherItems, ...updatedStandard];
+        } else if (rule.targets) {
             rule.targets.forEach((tName: string) => {
                 // Find existing details if possible
                 const existing = allItemDetails[tName];
                 const matchMode = rule.targetMatchModes?.[tName] || 'exact';
                 
-                // Avoid duplicates if same item is in same tier via same rule (shouldn't happen but safe)
-                const alreadyAdded = result[ruleTier].some(i => i.name === tName && i.rule_index === ruleIdx);
-                if (!alreadyAdded) {
-                    result[ruleTier].push({
-                        name: tName,
-                        name_ch: existing?.name_ch || itemTranslationCache[tName] || tName,
-                        sub_type: existing?.sub_type || "Other",
-                        source: existing?.source || defaultMappingPath || "",
-                        rule_index: ruleIdx,
-                        match_mode: matchMode,
-                        ...(existing || {})
-                    });
+                // If the item already exists in standardItems, we MOVE it to ruleItems
+                const stdIdx = result[ruleTier].findIndex(i => i.name === tName && (i.rule_index === undefined || i.rule_index === null));
+                if (stdIdx !== -1) {
+                    const item = result[ruleTier][stdIdx];
+                    result[ruleTier][stdIdx] = { ...item, rule_index: ruleIdx, match_mode: matchMode };
+                } else {
+                    // Avoid duplicates if same item is in same tier via same rule
+                    const alreadyAdded = result[ruleTier].some(i => i.name === tName && i.rule_index === ruleIdx);
+                    if (!alreadyAdded) {
+                        result[ruleTier].push({
+                            name: tName,
+                            name_ch: existing?.name_ch || itemTranslationCache[tName] || tName,
+                            sub_type: existing?.sub_type || "Other",
+                            source: existing?.source || defaultMappingPath || "",
+                            rule_index: ruleIdx,
+                            match_mode: matchMode,
+                            ...(existing || {})
+                        });
+                    }
                 }
             });
         }

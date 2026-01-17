@@ -28,6 +28,7 @@ class UpdateItemTierRequest(BaseModel):
     is_append: bool = False
     old_tier: Optional[str] = None
     new_tiers: Optional[List[str]] = None
+    match_mode: Optional[str] = None # 'exact' or 'partial'
 
 class TierItemsRequest(BaseModel):
     tier_keys: List[str]
@@ -420,6 +421,11 @@ def update_item_tier(request: UpdateItemTierRequest):
             if trans:
                 data["_meta"]["localization"]["ch"][request.item_name] = trans
 
+        # 3. Update Match Mode
+        if "match_modes" not in data["_meta"]: data["_meta"]["match_modes"] = {}
+        if request.match_mode:
+            data["_meta"]["match_modes"][request.item_name] = request.match_mode
+        
         # 2. Update Mapping
         if request.new_tiers is not None:
             # Set exact list (bulk editor)
@@ -502,7 +508,9 @@ def get_items_by_tier(request: TierItemsRequest):
                 data = json.load(f)
                 mapping = data.get("mapping", {})
                 rules = data.get("rules", [])
-                trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
+                meta = data.get("_meta", {})
+                trans = meta.get("localization", {}).get("ch", {})
+                match_modes = meta.get("match_modes", {})
                 
                 # Evaluate all possible items in this file context
                 all_involved = set(mapping.keys())
@@ -538,6 +546,13 @@ def get_items_by_tier(request: TierItemsRequest):
                             # Determine current_tiers list for frontend display
                             current_tiers_list = list(set(t for t, _ in final_tier_entries))
                             
+                            # Resolve match mode: from rule or from base mapping meta
+                            item_mode = "exact"
+                            if rule_idx is not None:
+                                item_mode = rules[rule_idx].get("targetMatchModes", {}).get(item_name, "exact")
+                            else:
+                                item_mode = match_modes.get(item_name, "exact")
+
                             result[tier_key].append({
                                 "name": item_name, 
                                 "name_ch": trans.get(item_name, item_name), 
@@ -545,6 +560,7 @@ def get_items_by_tier(request: TierItemsRequest):
                                 "current_tiers": current_tiers_list,
                                 "source": file_path.relative_to(mappings_dir).as_posix(),
                                 "rule_index": rule_idx,
+                                "match_mode": item_mode,
                                 **details
                             })
         except: continue

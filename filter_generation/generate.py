@@ -84,7 +84,7 @@ def show_block(cat_zh, tier_short, item_class, basetypes,
     # Only add BaseType if we have specific targets
     if basetypes:
         joined = '" "'.join(basetypes)
-        lines.append(f'    BaseType "{joined}"')
+        lines.append(f'    BaseType == "{joined}"') # Use strict matching
     
     if is_hide:
         # Simplified block for hiding
@@ -212,78 +212,141 @@ def generate_filter():
                 
                 rule_targets = rule.get("targets", [])
                 rule_tier_override = rule.get("overrides", {}).get("Tier")
+                apply_to_tier = rule.get("applyToTier", False)
+                match_modes = rule.get("targetMatchModes", {})
                 
-                # A rule applies to this TIER block if:
-                # 1. It explicitly targets this tier via override
-                # 2. It has targets that exist in this tier (and no tier override)
-                
-                matches = []
+                rule_matches = []
                 is_class_wide = False
 
                 if rule_tier_override:
                     if rule_tier_override == t_lbl:
-                        if rule_targets:
-                            matches = [item for item in rule_targets if item in pending_items]
+                        if apply_to_tier:
+                            rule_matches = list(pending_items)
+                        elif rule_targets:
+                            rule_matches = [item for item in rule_targets if item in pending_items]
                         else:
-                            is_class_wide = True # Targets entire class within this tier
+                            continue
                     else:
-                        continue # Rule targets a different tier
+                        continue
                 else:
-                    # No tier override, match items by name
                     if rule_targets:
-                        matches = [item for item in rule_targets if item in pending_items]
-                        if not matches: continue
+                        rule_matches = [item for item in rule_targets if item in pending_items]
+                        if not rule_matches: continue
                     else:
-                        continue # Rule has no targets and no tier override - skip or handle as global?
+                        continue
                 
-                if not matches and not is_class_wide:
-                    continue
+                if not rule_matches: continue
 
-                # Generate Block
-                block_counter += 1
-                tier_index = area_index + block_counter
-                t_short = f"T{tnum}"
-                
-                r_over = rule.get("overrides", {})
-                
-                out_lines.append(header_line(tier_index, f"{t_lbl} - Rule: {rule.get('comment', 'Custom')}"))
-                out_lines.append(show_block(
-                    loc_zh, t_short, item_class, matches, # empty matches if is_class_wide
-                    r_over.get("FontSize", ttheme.get("FontSize", DEFAULT_FONT_SIZE)),
-                    parse_rgba(r_over.get("TextColor"), base_text_col),
-                    parse_rgba(r_over.get("BorderColor"), base_border_col),
-                    parse_rgba(r_over.get("BackgroundColor"), base_background_col),
-                    resolve_sound(tier_entry, sound_map, r_over.get("PlayAlertSound")),
-                    r_over.get("PlayEffect", base_play_eff),
-                    r_over.get("MinimapIcon", base_mini_icon),
-                    rule.get("conditions"),
-                    rule.get("raw"),
-                    is_hide=is_hide
-                ))
-                
+                # Partition matches into Exact and Partial groups
+                exact_group = []
+                partial_group = []
+                for m in rule_matches:
+                    mode = match_modes.get(m, "exact")
+                    if mode == "exact": exact_group.append(m)
+                    else: partial_group.append(m)
+
+                # Generate Blocks
+                for subgroup, mode_label, is_strict in [(exact_group, "Exact", True), (partial_group, "Partial", False)]:
+                    if not subgroup: continue
+                    
+                    block_counter += 1
+                    tier_index = area_index + block_counter
+                    t_short = f"T{tnum}"
+                    r_over = rule.get("overrides", {})
+                    
+                    out_lines.append(header_line(tier_index, f"{t_lbl} - Rule: {rule.get('comment', 'Custom')} ({mode_label})"))
+                    
+                    # Manual call to show_block with strict override
+                    joined = '" "'.join(subgroup)
+                    cmd = "Hide" if is_hide else "Show"
+                    block_lines = [
+                        f'{cmd} #{loc_zh}-{t_short}',
+                        f'    Class "{item_class}"'
+                    ]
+                    
+                    # Custom BaseType line logic
+                    bt_operator = " == " if is_strict else " "
+                    block_lines.append(f'    BaseType{bt_operator}"{joined}"')
+
+                    # Add other conditions and visuals (copied from show_block logic)
+                    extra_conditions = rule.get("conditions")
+                    if extra_conditions:
+                        for key, val in extra_conditions.items():
+                            if val.startswith("RANGE "):
+                                parts = val.split(" ")
+                                if len(parts) >= 5:
+                                    block_lines.append(f"    {key} {parts[1]} {parts[2]}")
+                                    block_lines.append(f"    {key} {parts[3]} {parts[4]}")
+                            elif key == "Rarity":
+                                clean_val = val.replace("==", "").replace("=", "").strip()
+                                block_lines.append(f"    {key} {clean_val}")
+                            else:
+                                block_lines.append(f"    {key} {val}")
+
+                    if rule.get("raw"):
+                        for r_line in rule.get("raw").split('\n'):
+                            if r_line.strip(): block_lines.append(f"    {r_line.strip()}")
+
+                    block_lines += [
+                        f'    SetFontSize {r_over.get("FontSize", ttheme.get("FontSize", DEFAULT_FONT_SIZE))}',
+                        f'    SetTextColor {parse_rgba(r_over.get("TextColor"), base_text_col)}',
+                        f'    SetBorderColor {parse_rgba(r_over.get("BorderColor"), base_border_col)}',
+                        f'    SetBackgroundColor {parse_rgba(r_over.get("BackgroundColor"), base_background_col)}'
+                    ]
+                    
+                    sound_line = resolve_sound(tier_entry, sound_map, r_over.get("PlayAlertSound"))
+                    if sound_line:  block_lines.append(f"    {sound_line}")
+                    if r_over.get("PlayEffect", base_play_eff): block_lines.append(f"    PlayEffect {r_over.get('PlayEffect', base_play_eff)}")
+                    if r_over.get("MinimapIcon", base_mini_icon): block_lines.append(f"    MinimapIcon {r_over.get('MinimapIcon', base_mini_icon)}")
+                    
+                    out_lines.append("\n".join(block_lines) + "\n")
+
                 # Remove matched items from pending
-                if not is_class_wide:
-                    for m in matches:
-                        pending_items.discard(m)
-                else:
-                    # If it's class wide for this tier, we've covered everything!
-                    pending_items.clear()
+                for m in rule_matches:
+                    pending_items.discard(m)
 
             # 3. Base Block for Remaining Items
             if pending_items:
-                block_counter += 1
-                tier_index = area_index + block_counter
-                t_short = f"T{tnum}"
-                out_lines.append(header_line(tier_index, f"{t_lbl} {loc_zh}"))
+                match_modes = meta.get("match_modes", {})
                 
-                out_lines.append(show_block(
-                    loc_zh, t_short, item_class, sorted(list(pending_items)),
-                    ttheme.get("FontSize", DEFAULT_FONT_SIZE),
-                    base_text_col, base_border_col, base_background_col,
-                    resolve_sound(tier_entry, sound_map),
-                    base_play_eff, base_mini_icon,
-                    is_hide=is_hide
-                ))
+                # Partition pending items
+                exact_pending = []
+                partial_pending = []
+                for item in sorted(list(pending_items)):
+                    if match_modes.get(item, "exact") == "exact":
+                        exact_pending.append(item)
+                    else:
+                        partial_pending.append(item)
+
+                for subgroup, mode_label, is_strict in [(exact_pending, "Exact", True), (partial_pending, "Partial", False)]:
+                    if not subgroup: continue
+                    
+                    block_counter += 1
+                    tier_index = area_index + block_counter
+                    t_short = f"T{tnum}"
+                    out_lines.append(header_line(tier_index, f"{t_lbl} {loc_zh} ({mode_label})"))
+                    
+                    # Construct block manually to handle exact match operator
+                    joined = '" "'.join(subgroup)
+                    cmd = "Hide" if is_hide else "Show"
+                    bt_operator = " == " if is_strict else " "
+                    
+                    block_lines = [
+                        f'{cmd} #{loc_zh}-{t_short}',
+                        f'    Class "{item_class}"',
+                        f'    BaseType{bt_operator}"{joined}"',
+                        f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}',
+                        f'    SetTextColor {base_text_col}',
+                        f'    SetBorderColor {base_border_col}',
+                        f'    SetBackgroundColor {base_background_col}'
+                    ]
+                    
+                    sound_line = resolve_sound(tier_entry, sound_map)
+                    if sound_line:  block_lines.append(f"    {sound_line}")
+                    if base_play_eff: block_lines.append(f"    PlayEffect {base_play_eff}")
+                    if base_mini_icon: block_lines.append(f"    MinimapIcon {base_mini_icon}")
+                    
+                    out_lines.append("\n".join(block_lines) + "\n")
 
     overview.append("#========================================\n")
     final_text = "\n".join(overview) + "\n" + "\n".join(out_lines) + "\n"
