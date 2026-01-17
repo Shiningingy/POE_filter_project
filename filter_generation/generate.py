@@ -74,19 +74,23 @@ def header_line(index, text):
 def show_block(cat_zh, tier_short, item_class, basetypes,
                font_size, text_color, border_color, background_color, sound_line,
                play_effect=None, minimap_icon=None, extra_conditions=None, raw_code=None, is_hide=False):
-    joined = '" "'.join(basetypes)
+    
     cmd = "Hide" if is_hide else "Show"
     lines = [
         f'{cmd} #{cat_zh}-{tier_short}',
-        f'    Class "{item_class}"',
-        f'    BaseType "{joined}"'
+        f'    Class "{item_class}"'
     ]
+    
+    # Only add BaseType if we have specific targets
+    if basetypes:
+        joined = '" "'.join(basetypes)
+        lines.append(f'    BaseType "{joined}"')
     
     if is_hide:
         # Simplified block for hiding
         return "\n".join(lines) + "\n"
 
-    # 1. Extra Conditions (Handle RANGE)
+    # 1. Extra Conditions (Handle RANGE and Operator-less keys)
     if extra_conditions:
         for key, val in extra_conditions.items():
             if val.startswith("RANGE "):
@@ -94,6 +98,10 @@ def show_block(cat_zh, tier_short, item_class, basetypes,
                 if len(parts) >= 5:
                     lines.append(f"    {key} {parts[1]} {parts[2]}")
                     lines.append(f"    {key} {parts[3]} {parts[4]}")
+            elif key == "Rarity":
+                # Strip operator if present
+                clean_val = val.replace("==", "").replace("=", "").strip()
+                lines.append(f"    {key} {clean_val}")
             else:
                 lines.append(f"    {key} {val}")
 
@@ -181,13 +189,9 @@ def generate_filter():
         block_counter = 0
         
         for t_lbl in tier_order:
-            if t_lbl not in category_data: continue # Skip if not defined (e.g. empty T0 not in mapping but in definition) 
+            if t_lbl not in category_data: continue 
             
             items = items_by_tier.get(t_lbl, [])
-            # Even if empty, we might want to generate empty blocks? No, skip empty unless forced.
-            # But wait, T0 is forced by definition. 
-            # Actually, standard logic is: if no items and no rules, skip.
-            
             tier_entry = category_data[t_lbl]
             is_hide = tier_entry.get("is_hide_tier", False)
             tnum = tier_num_from_label(t_lbl)
@@ -200,49 +204,42 @@ def generate_filter():
             base_play_eff = ttheme.get("PlayEffect")
             base_mini_icon = ttheme.get("MinimapIcon")
 
-            # Sequential Rule Processing
-            # 1. Get all rules associated with this category
-            # (Currently rules are stored in base_mapping/_meta/rules or global rules array)
-            # Standard structure in base_mapping is "rules": [...] 
-            
             all_rules = map_doc.get("rules", [])
-            
-            # Filter rules relevant to this tier
-            # A rule applies if:
-            # a) It has overrides: {"Tier": t_lbl}  <-- Explicitly targets this tier
-            # b) It has targets in the item list, AND no explicit Tier override (so it applies to current tier items)
-            
-            # Actually, the "Partitioning" plan was:
-            # Iterate ALL rules. If rule targets items in CURRENT tier, generate block and remove items.
-            
             pending_items = set(items)
             
             for rule in all_rules:
+                if rule.get("disabled"): continue
+                
                 rule_targets = rule.get("targets", [])
-                
-                # Identify matching items in this tier
-                # If rule has NO targets, does it apply to ALL? 
-                # Yes, if no targets, it's a generic rule. 
-                # But we should check if the rule is intended for THIS tier.
-                # Usually generic rules have overrides: {"Tier": "Tier 0 ..."}
-                
                 rule_tier_override = rule.get("overrides", {}).get("Tier")
                 
-                # Case A: Rule specifically targets this tier via override (e.g. "All items in T0 get this sound")
-                # Case B: Rule targets specific items that happen to be in this tier
+                # A rule applies to this TIER block if:
+                # 1. It explicitly targets this tier via override
+                # 2. It has targets that exist in this tier (and no tier override)
                 
                 matches = []
-                if rule_targets:
-                    # Match specific items
-                    matches = [item for item in rule_targets if item in pending_items]
-                elif rule_tier_override == t_lbl:
-                    # Generic rule for this tier (e.g. "All T0 items")
-                    matches = list(pending_items)
+                is_class_wide = False
+
+                if rule_tier_override:
+                    if rule_tier_override == t_lbl:
+                        if rule_targets:
+                            matches = [item for item in rule_targets if item in pending_items]
+                        else:
+                            is_class_wide = True # Targets entire class within this tier
+                    else:
+                        continue # Rule targets a different tier
+                else:
+                    # No tier override, match items by name
+                    if rule_targets:
+                        matches = [item for item in rule_targets if item in pending_items]
+                        if not matches: continue
+                    else:
+                        continue # Rule has no targets and no tier override - skip or handle as global?
                 
-                if not matches:
+                if not matches and not is_class_wide:
                     continue
 
-                # Generate Block for matches
+                # Generate Block
                 block_counter += 1
                 tier_index = area_index + block_counter
                 t_short = f"T{tnum}"
@@ -251,7 +248,7 @@ def generate_filter():
                 
                 out_lines.append(header_line(tier_index, f"{t_lbl} - Rule: {rule.get('comment', 'Custom')}"))
                 out_lines.append(show_block(
-                    loc_zh, t_short, item_class, matches,
+                    loc_zh, t_short, item_class, matches, # empty matches if is_class_wide
                     r_over.get("FontSize", ttheme.get("FontSize", DEFAULT_FONT_SIZE)),
                     parse_rgba(r_over.get("TextColor"), base_text_col),
                     parse_rgba(r_over.get("BorderColor"), base_border_col),
@@ -264,9 +261,13 @@ def generate_filter():
                     is_hide=is_hide
                 ))
                 
-                # Remove processed items
-                for m in matches:
-                    pending_items.discard(m)
+                # Remove matched items from pending
+                if not is_class_wide:
+                    for m in matches:
+                        pending_items.discard(m)
+                else:
+                    # If it's class wide for this tier, we've covered everything!
+                    pending_items.clear()
 
             # 3. Base Block for Remaining Items
             if pending_items:

@@ -380,7 +380,7 @@ def get_items_by_class(item_class: str):
                     # Add rule tiers
                     for r in rules:
                         r_targets = r.get("targets", [])
-                        if not r_targets or item_name in r_targets:
+                        if r_targets and item_name in r_targets:
                             tier_override = r.get("overrides", {}).get("Tier")
                             if tier_override and tier_override not in current_list:
                                 current_list.append(tier_override)
@@ -524,11 +524,11 @@ def get_items_by_tier(request: TierItemsRequest):
                             final_tier_entries.append((t, None))
                     
                     for idx, r in enumerate(rules):
-                        r_targets = r.get("targets", [])
-                        if not r_targets or item_name in r_targets:
+                        r_t = r.get("targets", [])
+                        # ONLY match if targets is a non-empty list
+                        if isinstance(r_t, list) and len(r_t) > 0 and item_name in r_t:
                             t_over = r.get("overrides", {}).get("Tier")
                             if t_over:
-                                # Always add rule-based assignment, even if duplicate tier
                                 final_tier_entries.append((t_over, idx))
 
                     # Distribute to results

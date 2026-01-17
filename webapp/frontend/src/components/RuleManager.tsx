@@ -301,7 +301,11 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                 />
                             );
                         })}
-                        {rule.targets.length === 0 && <div className="target-empty-hint">{t.targetTooltip}</div>}
+                        {rule.targets.length === 0 && (
+                            <div className="target-class-hint">
+                                📢 {language === 'ch' ? `此规则应用于所有 [${categoryName}]` : `Rule applies to all [${categoryName}]`}
+                            </div>
+                        )}
                     </div>
                     
                     <div className="add-target-box">
@@ -669,6 +673,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
         .target-manager { background: #f8f9fa; padding: 12px; border-radius: 8px; border: 1px solid #eee; display: flex; flex-direction: column; gap: 12px; }
         .target-grid { display: flex; flex-wrap: wrap; gap: 8px; min-height: 20px; }
         .target-empty-hint { font-size: 0.75rem; color: #999; font-style: italic; line-height: 1.4; }
+        .target-class-hint { font-size: 0.8rem; color: #2196F3; font-weight: bold; background: #e3f2fd; padding: 8px 12px; border-radius: 4px; width: 100%; border: 1px dashed #2196F3; }
         
         .compact-card { min-width: 140px; max-width: 200px; padding: 6px 10px; }
 
