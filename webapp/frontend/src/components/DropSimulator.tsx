@@ -22,7 +22,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const API_BASE_URL = 'http://localhost:8000';
+  const API_BASE_URL = '';
 
   useEffect(() => {
     fetchStyles();

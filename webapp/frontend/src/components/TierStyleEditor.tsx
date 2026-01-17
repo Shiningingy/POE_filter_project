@@ -134,7 +134,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   useEffect(() => {
     if (showSoundPopup && availableSounds.defaults.length === 0) {
       axios
-        .get("http://localhost:8000/api/sounds/list")
+        .get("/api/sounds/list")
         .then((res) => setAvailableSounds(res.data))
         .catch((err) => console.error(err));
     }
@@ -205,10 +205,10 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   const handleTestSound = () => {
     const url =
       tempSound.type === "custom"
-        ? `http://localhost:8000/api/sounds/proxy?path=${encodeURIComponent(
+        ? `/api/sounds/proxy?path=${encodeURIComponent(
             tempSound.file
           )}`
-        : `http://localhost:8000/sounds/${tempSound.file}`;
+        : `/sounds/${tempSound.file}`;
     const audio = new Audio(url);
     audio.volume = Math.min(1, tempSound.vol / 300);
     audio.play().catch((err) => alert("Play failed: " + err.message));
@@ -301,7 +301,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         ? soundData
         : [null, 0];
       if (soundFile) {
-        const audio = new Audio(`http://localhost:8000/sounds/${soundFile}`);
+        const audio = new Audio(`/sounds/${soundFile}`);
         audio.volume = Math.min(1, (volume as number) / 300);
         audio.play().catch((err) => console.error("Sound play failed:", err));
       }

@@ -36,7 +36,7 @@ const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave, langu
   
   const [localMapping, setLocalMapping] = useState<Record<string, string>>({});
 
-  const API_BASE_URL = 'http://localhost:8000';
+  const API_BASE_URL = '';
 
   useEffect(() => {
     if (!configPath) return;

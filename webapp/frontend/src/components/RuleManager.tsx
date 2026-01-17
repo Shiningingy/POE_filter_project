@@ -130,7 +130,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
     const timeoutId = setTimeout(async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8000/api/search-items?q=${encodeURIComponent(
+          `/api/search-items?q=${encodeURIComponent(
             targetSearch
           )}`
         );

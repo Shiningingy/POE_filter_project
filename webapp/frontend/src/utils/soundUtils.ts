@@ -14,9 +14,9 @@ export const getSoundUrl = (filePath: string) => {
   // In development mode, check if it's a known folder or a custom absolute path
   if (filePath.startsWith('Default/') || filePath.startsWith('Sharket')) {
       // Served statically by the FastAPI backend
-      return `http://localhost:8000/sounds/${filePath}`;
+      return `/sounds/${filePath}`;
   } else {
       // Custom absolute path on user's disk, served via proxy
-      return `http://localhost:8000/api/sounds/proxy?path=${encodeURIComponent(filePath)}`;
+      return `/api/sounds/proxy?path=${encodeURIComponent(filePath)}`;
   }
 };

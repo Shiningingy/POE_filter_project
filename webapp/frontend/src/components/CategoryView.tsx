@@ -82,7 +82,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   const [tierClipboard, setTierClipboard] = useState<any>(null);
   const [activeRuleIndex, setActiveRuleIndex] = useState<{ tierKey: string, index: number } | null>(null);
 
-  const API_BASE_URL = 'http://localhost:8000';
+  const API_BASE_URL = '';
 
   const sensors = useSensors(
     useSensor(PointerSensor),

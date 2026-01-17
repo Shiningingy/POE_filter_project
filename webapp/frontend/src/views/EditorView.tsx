@@ -58,7 +58,7 @@ const EditorView: React.FC<EditorViewProps> = ({
     setEditingRuleIndex(ruleIndex);
   };
 
-  const API_BASE_URL = 'http://localhost:8000';
+  const API_BASE_URL = '';
 
   const fetchTierItems = async (keys: string[]) => {
     if (keys.length === 0) return;

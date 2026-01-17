@@ -30,7 +30,7 @@ function App() {
   const [loading, setLoading] = useState<boolean>(false);
   const [viewerBackground, setViewerBackground] = useState<string>('Item_bg_coast.jpg');
 
-  const API_BASE_URL = 'http://localhost:8000'; 
+  const API_BASE_URL = ''; 
 
   const fetchConfigContent = useCallback(async (path: string) => {
     setLoading(true);
