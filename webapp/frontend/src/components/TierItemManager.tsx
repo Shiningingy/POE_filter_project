@@ -385,7 +385,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
         .mgr-arrow { font-size: 0.8rem; opacity: 0.5; }
 
         .mgr-content { padding: 15px; background: #f8f9fa; border-radius: 6px; border: 1px solid #e9ecef; }
-        .search-box { width: 100%; padding: 8px 12px; border: 1px solid #dee2e6; border-radius: 4px; font-size: 0.9rem; background: #fff; }
+        .search-box { width: calc(100% - 24px); padding: 8px 12px; border: 1px solid #dee2e6; border-radius: 4px; font-size: 0.9rem; background: #fff; }
         .add-input { border-color: #28a745; margin-bottom: 5px; }
         .add-area { position: relative; margin-bottom: 12px; }
         .suggestions-list { 

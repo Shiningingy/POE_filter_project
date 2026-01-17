@@ -140,14 +140,14 @@ button:focus-visible {
 .item-card-base.locked::after { content: "🔒"; position: absolute; top: 2px; left: 2px; font-size: 0.7rem; }
 
 .defense-indicator { 
-    position: absolute; top: 8px; right: 8px; 
-    width: 10px; height: 10px; border-radius: 50%; 
+    position: absolute; top: 10px; right: 30px; 
+    width: 8px; height: 8px; border-radius: 50%; 
     box-shadow: 0 1px 2px rgba(0,0,0,0.1);
     z-index: 5;
 }
 
-.item-card-base .name-primary { font-size: 0.85rem; font-weight: bold; color: #1a1a1a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px; line-height: 1.2; }
-.item-card-base .name-secondary { font-size: 0.75rem; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.1; }
+.item-card-base .name-primary { font-size: 0.85rem; font-weight: bold; color: #1a1a1a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 2px; line-height: 1.2; padding-right: 25px; }
+.item-card-base .name-secondary { font-size: 0.75rem; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.1; padding-right: 25px; }
 
 .staged-indicator {
   position: absolute;
@@ -159,35 +159,37 @@ button:focus-visible {
 
 .rule-source-badge {
   position: absolute;
-  top: 2px;
-  right: 6px;
+  top: 18px;
+  right: 4px;
   background: #673ab7;
   color: white;
-  font-size: 0.65rem;
-  padding: 1px 4px;
-  border-radius: 4px;
+  font-size: 0.6rem;
+  padding: 0px 3px;
+  border-radius: 3px;
   font-weight: bold;
   opacity: 0.8;
+  z-index: 8;
 }
 
 .item-card-del-btn {
-    position: absolute; top: 2px; right: 2px;
-    background: none; border: none; color: #ccc; 
-    cursor: pointer; font-size: 1.1rem; line-height: 1; opacity: 0;
-    transition: all 0.2s; padding: 2px 5px;
+    position: absolute; top: 0px; right: 1px;
+    background: none; border: none; color: #ff5252; 
+    cursor: pointer; font-size: 1rem; line-height: 1; opacity: 0.5;
+    transition: all 0.2s; padding: 1px 4px;
+    z-index: 12;
 }
 .item-card-base:hover .item-card-del-btn { opacity: 1; }
-.item-card-del-btn:hover { color: #fa5252; }
+.item-card-del-btn:hover { color: #fa5252; background: rgba(250, 82, 82, 0.1); border-radius: 3px; }
 
 .match-mode-badge {
     position: absolute;
     bottom: 2px;
-    right: 2px;
+    right: 4px;
     background: rgba(0,0,0,0.6);
     color: #fff;
-    font-size: 9px;
-    padding: 1px 4px;
-    border-radius: 3px;
+    font-size: 8px;
+    padding: 0px 3px;
+    border-radius: 2px;
     font-weight: bold;
     z-index: 10;
     border: 1px solid rgba(255,255,255,0.2);
