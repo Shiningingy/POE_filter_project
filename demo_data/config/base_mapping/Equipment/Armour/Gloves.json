@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Fingerless Silk Gloves": "苍指手套",
+        "Gripped Gloves": "擒拿手套",
+        "Spiked Gloves": "扣钉手套",
+        "Apothecary's Gloves": "药剂师手套",
+        "Dragonscale Gloves": "龙鳞手套",
+        "__class_name__": "手套"
+      }
+    },
+    "item_class": { "en": "Gloves", "ch": "手套" },
+    "theme_category": "Gloves"
+  },
+  "mapping": {
+    "Fingerless Silk Gloves": "Tier 1 Gloves",
+    "Gripped Gloves": "Tier 1 Gloves",
+    "Spiked Gloves": "Tier 1 Gloves",
+    "Apothecary's Gloves": "Tier 1 Gloves",
+    "Dragonscale Gloves": "Tier 2 Gloves",
+    "Sorcerer Gloves": "Tier 2 Gloves",
+    "Slink Gloves": "Tier 2 Gloves",
+    "Titan Gauntlets": "Tier 2 Gloves"
+  },
+  "rules": [
+    {
+      "targets": ["Fingerless Silk Gloves", "Gripped Gloves", "Spiked Gloves", "Apothecary's Gloves"],
+      "conditions": { "ItemLevel": ">= 86" },
+      "overrides": { "Tier": "Tier 0 Gloves", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i86 Top Gloves"
+    },
+    {
+      "targets": ["Fingerless Silk Gloves", "Gripped Gloves", "Spiked Gloves", "Apothecary's Gloves"],
+      "conditions": { "ItemLevel": ">= 84" },
+      "overrides": { "Tier": "Tier 1 Gloves", "PlayAlertSound": ["Sharket掉落音效/精品装备.mp3", 300] },
+      "comment": "i84 Top Gloves"
+    }
+  ]
+}

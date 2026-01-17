@@ -1,0 +1,65 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Divine Life Flask": "不朽生命药剂",
+        "Eternal Life Flask": "永恒生命药剂",
+        "Hallowed Life Flask": "祝福生命药剂",
+        "__class_name__": "生命药剂",
+        "Small Life Flask": "小型生命药剂",
+        "Medium Life Flask": "中型生命药剂",
+        "Large Life Flask": "大型生命药剂",
+        "Greater Life Flask": "良质生命药剂",
+        "Grand Life Flask": "优质生命药剂",
+        "Giant Life Flask": "巨型生命药剂",
+        "Colossal Life Flask": "高阶生命药剂",
+        "Sacred Life Flask": "圣语生命药剂",
+        "Sanctified Life Flask": "圣化生命药剂",
+        "Small Hybrid Flask": "小型复合药剂",
+        "Medium Hybrid Flask": "中型复合药剂",
+        "Large Hybrid Flask": "大型复合药剂",
+        "Colossal Hybrid Flask": "高阶复合药剂",
+        "Sacred Hybrid Flask": "圣语复合药剂",
+        "Hallowed Hybrid Flask": "祝福复合药剂"
+      }
+    },
+    "item_class": {
+      "en": "Life Flasks",
+      "ch": "生命药剂"
+    },
+    "theme_category": "Life Flasks"
+  },
+  "mapping": {
+    "Divine Life Flask": "Tier 1 Life Flasks",
+    "Eternal Life Flask": "Tier 1 Life Flasks",
+    "Hallowed Life Flask": "Tier 1 Life Flasks",
+    "Small Life Flask": "Tier 1 Life Flasks",
+    "Medium Life Flask": "Tier 1 Life Flasks",
+    "Large Life Flask": "Tier 1 Life Flasks",
+    "Greater Life Flask": "Tier 1 Life Flasks",
+    "Grand Life Flask": "Tier 1 Life Flasks",
+    "Giant Life Flask": "Tier 1 Life Flasks",
+    "Colossal Life Flask": "Tier 1 Life Flasks",
+    "Sacred Life Flask": "Tier 1 Life Flasks",
+    "Sanctified Life Flask": "Tier 1 Life Flasks",
+    "Small Hybrid Flask": "Tier 1 Life Flasks",
+    "Medium Hybrid Flask": "Tier 1 Life Flasks",
+    "Large Hybrid Flask": "Tier 1 Life Flasks",
+    "Colossal Hybrid Flask": "Tier 1 Life Flasks",
+    "Sacred Hybrid Flask": "Tier 1 Life Flasks",
+    "Hallowed Hybrid Flask": "Tier 1 Life Flasks"
+  },
+  "rules": [
+    {
+      "targets": [],
+      "conditions": {
+        "ItemLevel": ">= 82",
+        "Quality": ">= 20"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Life Flasks"
+      },
+      "comment": "High Quality Life Flasks"
+    }
+  ]
+}

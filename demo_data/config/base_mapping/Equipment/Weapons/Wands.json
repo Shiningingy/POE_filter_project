@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Opal Wand": "蛋白石法杖",
+        "Profane Wand": "亵渎法杖",
+        "Prophecy Wand": "预言法杖",
+        "Convoking Wand": "召集法杖",
+        "__class_name__": "法杖"
+      }
+    },
+    "item_class": { "en": "Wands", "ch": "法杖" },
+    "theme_category": "Wands"
+  },
+  "mapping": {
+    "Opal Wand": "Tier 1 Wands",
+    "Profane Wand": "Tier 1 Wands",
+    "Prophecy Wand": "Tier 1 Wands",
+    "Convoking Wand": "Tier 1 Wands"
+  },
+  "rules": [
+    {
+      "targets": ["Opal Wand", "Profane Wand", "Convoking Wand"],
+      "conditions": { "ItemLevel": ">= 83" },
+      "overrides": { "Tier": "Tier 0 Wands", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i83 Top Wands"
+    }
+  ]
+}

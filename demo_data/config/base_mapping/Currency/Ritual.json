@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Ritual Splinter": "驱灵裂片",
+        "Ritual Vessel": "驱灵法器",
+        "Crescent Splinter": "新月裂片",
+        "__class_name__": "可堆叠通货"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Ritual Splinter": "Tier 1 Ritual",
+    "Ritual Vessel": "Tier 1 Ritual",
+    "Crescent Splinter": "Tier 1 Ritual"
+  },
+  "rules": []
+}

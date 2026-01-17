@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Ambusher": "伏击刺刃",
+        "Imperial Skean": "帝国之匕",
+        "Demon Dagger": "魔族匕首",
+        "__class_name__": "匕首"
+      }
+    },
+    "item_class": { "en": "Daggers", "ch": "匕首" },
+    "theme_category": "Daggers"
+  },
+  "mapping": {
+    "Ambusher": "Tier 1 Daggers",
+    "Imperial Skean": "Tier 1 Daggers",
+    "Demon Dagger": "Tier 1 Daggers",
+    "Slaughter Knife": "Tier 2 Daggers",
+    "Royal Skean": "Tier 2 Daggers"
+  },
+  "rules": [
+    {
+      "targets": ["Ambusher", "Imperial Skean", "Demon Dagger"],
+      "conditions": { "ItemLevel": ">= 86" },
+      "overrides": { "Tier": "Tier 0 Daggers", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i86 Top Daggers"
+    },
+    {
+      "targets": ["Ambusher", "Imperial Skean", "Demon Dagger"],
+      "conditions": { "ItemLevel": ">= 84" },
+      "overrides": { "Tier": "Tier 1 Daggers", "PlayAlertSound": ["Sharket掉落音效/精品装备.mp3", 300] },
+      "comment": "i84 Top Daggers"
+    }
+  ]
+}

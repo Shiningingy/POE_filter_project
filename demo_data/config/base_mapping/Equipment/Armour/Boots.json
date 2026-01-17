@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Sorcerer Boots": "术士长靴",
+        "Slink Boots": "蛇鳞长靴",
+        "Titan Boots": "泰坦之靴",
+        "Two-Tone Boots": "异色鞋",
+        "Fugitive Boots": "逃亡之靴",
+        "Dragonscale Boots": "龙鳞长靴",
+        "__class_name__": "鞋子"
+      }
+    },
+    "item_class": { "en": "Boots", "ch": "鞋子" },
+    "theme_category": "Boots"
+  },
+  "mapping": {
+    "Sorcerer Boots": "Tier 1 Boots",
+    "Slink Boots": "Tier 1 Boots",
+    "Titan Boots": "Tier 1 Boots",
+    "Two-Tone Boots": "Tier 1 Boots",
+    "Fugitive Boots": "Tier 1 Boots",
+    "Dragonscale Boots": "Tier 2 Boots",
+    "Crusader Boots": "Tier 2 Boots",
+    "Murder Boots": "Tier 2 Boots"
+  },
+  "rules": [
+    {
+      "targets": ["Sorcerer Boots", "Slink Boots", "Titan Boots", "Two-Tone Boots", "Fugitive Boots"],
+      "conditions": { "ItemLevel": ">= 86" },
+      "overrides": { "Tier": "Tier 0 Boots", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i86 Top Boots"
+    },
+    {
+      "targets": ["Sorcerer Boots", "Slink Boots", "Titan Boots", "Two-Tone Boots", "Fugitive Boots"],
+      "conditions": { "ItemLevel": ">= 84" },
+      "overrides": { "Tier": "Tier 1 Boots", "PlayAlertSound": ["Sharket掉落音效/精品装备.mp3", 300] },
+      "comment": "i84 Top Boots"
+    }
+  ]
+}

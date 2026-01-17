@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Judgement Staff": "审判长杖",
+        "Ezomyte Staff": "艾兹麦长杖",
+        "Maelström Staff": "大漩涡长杖",
+        "__class_name__": "战杖"
+      }
+    },
+    "item_class": { "en": "Warstaves", "ch": "战杖" },
+    "theme_category": "Warstaves"
+  },
+  "mapping": {
+    "Judgement Staff": "Tier 1 Warstaves",
+    "Ezomyte Staff": "Tier 1 Warstaves",
+    "Maelström Staff": "Tier 1 Warstaves"
+  },
+  "rules": [
+    {
+      "targets": ["Judgement Staff", "Ezomyte Staff"],
+      "conditions": { "ItemLevel": ">= 83" },
+      "overrides": { "Tier": "Tier 0 Warstaves", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i83 Top Warstaves"
+    }
+  ]
+}

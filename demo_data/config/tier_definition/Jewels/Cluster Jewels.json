@@ -1,0 +1,75 @@
+{
+  "Cluster Jewels": {
+    "_meta": {
+      "theme_category": "Jewels",
+      "localization": {
+        "en": "Cluster Jewels",
+        "ch": "星团珠宝"
+      },
+      "tier_order": [
+        "Tier 0 Cluster Jewels",
+        "Tier 1 Cluster Jewels",
+        "Tier 2 Cluster Jewels",
+        "Tier Hide Cluster Jewels"
+      ]
+    },
+    "Tier 0 Cluster Jewels": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: Top Value",
+        "ch": "T0: 顶级珠宝"
+      }
+    },
+    "Tier 1 Cluster Jewels": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "高级通货.mp3"
+      },
+      "localization": {
+        "en": "T1: High Value",
+        "ch": "T1: 高级珠宝"
+      }
+    },
+    "Tier 2 Cluster Jewels": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "通货.mp3"
+      },
+      "localization": {
+        "en": "T2: Standard",
+        "ch": "T2: 常用珠宝"
+      }
+    },
+    "Tier Hide Cluster Jewels": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

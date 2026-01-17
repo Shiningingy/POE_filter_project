@@ -1,11 +1,16 @@
 {
   "Skill": {
     "_meta": {
-      "theme_category": "Skill Gems",
+      "theme_category": "Gems",
       "localization": {
         "en": "Skill",
         "ch": "技能宝石"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Skill",
+        "Tier 1 Skill",
+        "Tier Hide Skill"
+      ]
     },
     "Tier 1 Skill": {
       "hideable": false,
@@ -15,6 +20,36 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      }
+    },
+    "Tier 0 Skill": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: Absolute Top",
+        "ch": "T0: 顶级/核心"
+      }
+    },
+    "Tier Hide Skill": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
       }
     }
   }

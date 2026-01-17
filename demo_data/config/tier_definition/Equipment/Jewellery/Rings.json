@@ -5,7 +5,29 @@
       "localization": {
         "en": "Rings",
         "ch": "戒指"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Rings",
+        "Tier 1 Rings",
+        "Tier 2 Rings",
+        "Tier 3 Rings",
+        "Tier Hide Rings"
+      ]
+    },
+    "Tier 0 Rings": {
+      "hideable": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: i86 Top Bases",
+        "ch": "T0: 顶级底材(86+)"
+      },
+      "show_in_editor": false
     },
     "Tier 1 Rings": {
       "hideable": false,
@@ -13,8 +35,55 @@
         "Tier": 1
       },
       "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "精品装备.mp3"
+      },
+      "localization": {
+        "en": "T1: High End",
+        "ch": "T1: 优质戒指"
+      }
+    },
+    "Tier 2 Rings": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "金装备.mp3"
+      },
+      "localization": {
+        "en": "T2: Good Bases",
+        "ch": "T2: 常用戒指"
+      }
+    },
+    "Tier 3 Rings": {
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": "金装.mp3"
+      },
+      "localization": {
+        "en": "T3: Mid Tier",
+        "ch": "T3: 普通戒指"
+      }
+    },
+    "Tier Hide Rings": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
       }
     }
   }

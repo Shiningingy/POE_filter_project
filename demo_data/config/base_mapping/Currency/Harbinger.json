@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Harbinger's Orb": "先驱石",
+        "Binding Shard": "高阶点金石碎片",
+        "Harbinger's Shard": "先驱石碎片",
+        "Engineer's Orb": "制箱岩",
+        "Ancient Orb": "远古石",
+        "Annulment Shard": "剥离石碎片",
+        "Horizon Shard": "平行石碎片",
+        "Engineer's Shard": "制箱岩碎片",
+        "Ancient Shard": "远古石碎片",
+        "Chaos Shard": "混沌石碎片",
+        "Mirror Shard": "卡兰德的魔镜碎片",
+        "Exalted Shard": "崇高石碎片",
+        "Regal Shard": "富豪石碎片",
+        "Alchemy Shard": "点金石碎片",
+        "Transmutation Shard": "蜕变石碎片",
+        "Alteration Shard": "改造石碎片",
+        "Fracturing Orb": "破溃宝珠",
+        "Fracturing Shard": "破溃碎片",
+        "__class_name__": "可堆叠通货"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Harbinger's Orb": "Tier 1 Harbinger",
+    "Binding Shard": "Tier 1 Harbinger",
+    "Harbinger's Shard": "Tier 1 Harbinger",
+    "Engineer's Orb": "Tier 1 Harbinger",
+    "Ancient Orb": "Tier 1 Harbinger",
+    "Annulment Shard": "Tier 1 Harbinger",
+    "Horizon Shard": "Tier 1 Harbinger",
+    "Engineer's Shard": "Tier 1 Harbinger",
+    "Ancient Shard": "Tier 1 Harbinger",
+    "Chaos Shard": "Tier 1 Harbinger",
+    "Mirror Shard": [
+      "Tier 1 Harbinger",
+      "Tier 0 General"
+    ],
+    "Exalted Shard": "Tier 1 Harbinger",
+    "Regal Shard": "Tier 1 Harbinger",
+    "Alchemy Shard": "Tier 1 Harbinger",
+    "Transmutation Shard": "Tier 1 Harbinger",
+    "Alteration Shard": "Tier 1 Harbinger",
+    "Fracturing Orb": "Tier 1 Harbinger",
+    "Fracturing Shard": "Tier 1 Harbinger"
+  },
+  "rules": []
+}
