@@ -1,0 +1,30 @@
+{
+  "classes": [
+    "Currency",
+    "Divination Cards",
+    "Gems",
+    "Body Armours",
+    "Gloves",
+    "Boots",
+    "Helmets",
+    "Shields",
+    "Amulets",
+    "Rings",
+    "Belts",
+    "Bows",
+    "Claws",
+    "Daggers",
+    "One Hand Axes",
+    "One Hand Maces",
+    "One Hand Swords",
+    "Staves",
+    "Two Hand Axes",
+    "Two Hand Maces",
+    "Two Hand Swords",
+    "Wands",
+    "Maps",
+    "Fragments",
+    "Jewels",
+    "Flasks"
+  ]
+}

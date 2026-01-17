@@ -30,9 +30,10 @@ export const setupDemoAdapter = () => {
             config.url = `${baseURL}demo_data/theme_${themeName}.json`;
         } else if (url === '/api/sounds/list') {
             config.url = `${baseURL}demo_data/sounds.json`;
-        } else if (url.startsWith('/api/config/')) {
-            const path = url.replace('/api/config/', '');
-            config.url = `${baseURL}demo_data/config/${path}`;
+        } else if (url === '/api/item-classes') {
+            config.url = `${baseURL}demo_data/item_classes.json`;
+        } else if (url.startsWith('/api/class-items/')) {
+            config.url = `${baseURL}demo_data/all_items.json`;
         } else if (url.startsWith('/api/search-items')) {
             config.adapter = async () => {
                 return { data: { results: [] }, status: 200, statusText: 'OK', headers: {}, config };

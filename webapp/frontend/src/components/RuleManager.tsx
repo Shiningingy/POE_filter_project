@@ -59,20 +59,44 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   language,
   availableItems,
   categoryName,
-  translationCache: _translationCache, // Unused
+  translationCache, 
 }) => {
   const t = useTranslation(language);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
+  const [targetSearch, setTargetSearch] = useState("");
 
   const tierRulesIndices = useMemo(() => {
     return allRules
       .map((r, i) => ({ r, i }))
       .filter(({ r }) => {
         if (r.overrides?.Tier) return r.overrides.Tier === tierKey;
-        return r.targets.some((target) => availableItems.includes(target));
+        // Check if any target in the rule is in availableItems for this category
+        return r.targets.some((targetName) => availableItems.some(i => i.name === targetName));
       })
       .map((item) => item.i);
   }, [allRules, tierKey, availableItems]);
+
+  const suggestions = useMemo(() => {
+    if (!targetSearch) return [];
+    const low = targetSearch.toLowerCase();
+    return availableItems
+      .filter(i => (i.name.toLowerCase().includes(low) || (i.name_ch && i.name_ch.toLowerCase().includes(low))))
+      .slice(0, 10);
+  }, [targetSearch, availableItems]);
+
+  const addTarget = (globalIndex: number, itemName: string) => {
+    const rule = allRules[globalIndex];
+    if (rule.targets.includes(itemName)) return;
+    const newRule = { ...rule, targets: [...rule.targets, itemName] };
+    handleUpdateRule(globalIndex, newRule);
+    setTargetSearch("");
+  };
+
+  const removeTarget = (globalIndex: number, itemName: string) => {
+    const rule = allRules[globalIndex];
+    const newRule = { ...rule, targets: rule.targets.filter(t => t !== itemName) };
+    handleUpdateRule(globalIndex, newRule);
+  };
 
   const handleAddRule = () => {
     if (tierRulesIndices.length > 0) {

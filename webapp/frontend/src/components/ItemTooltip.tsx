@@ -79,10 +79,10 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
   if (!hasContent) return children;
 
   const nameColor = "#c8c8c8";
+  const classKey = item.item_class ? (CLASS_KEY_MAP as any)[item.item_class] : null;
   const displayClass =
     language === "ch"
-      ? (t as any)[CLASS_KEY_MAP[item.item_class || ""] || item.item_class] ||
-        item.item_class
+      ? (classKey ? (t as any)[classKey] : item.item_class) || item.item_class
       : item.item_class;
 
   return (
@@ -91,7 +91,7 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
         onMouseEnter: handleMouseEnter,
         onMouseMove: handleMouseMove,
         onMouseLeave: handleMouseLeave,
-      })}
+      } as any)}
       {visible && (
         <div
           className="poe-tooltip"

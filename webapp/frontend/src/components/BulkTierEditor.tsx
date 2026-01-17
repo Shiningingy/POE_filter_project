@@ -18,11 +18,10 @@ import {
   useSortable
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { useTranslation, CLASS_KEY_MAP } from '../utils/localization';
+import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import { getSubTypeBackground } from '../utils/itemUtils';
 import ContextMenu from './ContextMenu';
-import ItemTooltip from './ItemTooltip';
 import ItemCard from './ItemCard';
 
 interface Item {
@@ -31,6 +30,8 @@ interface Item {
   current_tier: string[] | null;
   source_file: string | null;
   sub_type?: string;
+  item_class?: string;
+  drop_level?: number;
 }
 
 interface TierOption {
