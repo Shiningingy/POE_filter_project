@@ -5,7 +5,13 @@
       "localization": {
         "en": "Incubators",
         "ch": "孕育石"
-      }
+      },
+      "tier_order": [
+        "Tier 0 Incubators",
+        "Tier 1 Incubators",
+        "Tier 2 Incubators",
+        "Tier Hide Incubators"
+      ]
     },
     "Tier 1 Incubators": {
       "hideable": false,
@@ -13,8 +19,56 @@
         "Tier": 1
       },
       "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "高级赏金装备.mp3"
+      },
+      "localization": {
+        "en": "T1: High End",
+        "ch": "T1: 高级孕育石"
+      }
+    },
+    "Tier 2 Incubators": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "孕育石.mp3"
+      },
+      "localization": {
+        "en": "T2: Common",
+        "ch": "T2: 普通孕育石"
+      }
+    },
+    "Tier Hide Incubators": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    },
+    "Tier 0 Incubators": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: Absolute Top",
+        "ch": "T0: 顶级/核心"
       }
     }
   }

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useTranslation } from "../utils/localization";
 import type { Language } from "../utils/localization";
-import { generateFilterText } from "../utils/styleResolver";
 
 interface StyleProps {
   FontSize?: number;
@@ -18,12 +17,10 @@ interface TierStyleEditorProps {
   tierName: string;
   style: StyleProps;
   visibility: boolean;
+  canHide?: boolean;
   onChange: (newStyle: StyleProps, newVisibility: boolean) => void;
   language: Language;
   onInspect: () => void;
-  onCopy: () => void;
-  onPaste: () => void;
-  canPaste: boolean;
   onReset?: () => void;
   viewerBackground: string;
 }
@@ -32,17 +29,14 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   tierName,
   style,
   visibility,
+  canHide = true,
   onChange,
   language,
   onInspect,
-  onCopy,
-  onPaste,
-  canPaste,
   onReset,
   viewerBackground,
 }) => {
   const t = useTranslation(language);
-  const [copyFeedback, setCopyFeedback] = useState(false);
   const [showAlphaPopup, setShowAlphaPopup] = useState(false);
   const [showSoundPopup, setShowSoundPopup] = useState(false);
   const [showIconPopup, setShowIconPopup] = useState(false);
@@ -255,7 +249,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         .toString(16)
         .padStart(2, "0");
       const newVal = `${base}${aHex}`;
-      nextStyle[key] = val.startsWith("disabled:")
+      (nextStyle as any)[key] = val.startsWith("disabled:")
         ? `disabled:${newVal}`
         : newVal;
     });
@@ -664,10 +658,11 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         <h4 className="tier-title">{tierName}</h4>
         <div className="header-actions">
           <button
-            className={`vis-btn ${visibility ? "is-hidden" : "is-shown"}`}
+            className={`vis-btn ${visibility ? "is-hidden" : "is-shown"} ${!canHide ? "disabled-vis" : ""}`}
+            disabled={!canHide}
             onClick={(e) => {
               e.stopPropagation();
-              toggleVisibility();
+              if (canHide) toggleVisibility();
             }}
           >
             {visibility ? t.hide : t.show}
@@ -803,7 +798,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 )}
               ></div>
             )}
-            {copyFeedback ? "✓ COPIED" : tierName.toUpperCase()}
+            {tierName.toUpperCase()}
           </div>
         </div>
 
@@ -829,9 +824,6 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                   handleChange("FontSize", parseInt(e.target.value))
                 }
               />
-            </div>
-            <div className="action-btns" style={{ display: 'none' }}>
-              {/* Copy/Paste buttons removed */}
             </div>
           </div>
           <div className="bottom-row extra-btns">
@@ -908,6 +900,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         .vis-btn { background: #333; color: #fff; border: 1px solid #444; padding: 4px 12px; border-radius: 2px; cursor: pointer; font-size: 0.75rem; }
         .vis-btn.is-shown { color: #4CAF50; border-color: #2e7d32; }
         .vis-btn.is-hidden { color: #f44336; border-color: #c62828; }
+        .vis-btn.disabled-vis { opacity: 0.3; cursor: not-allowed; grayscale: 1; }
         .reset-btn { background: #1a237e; color: #fff; border: none; padding: 4px 12px; border-radius: 2px; cursor: pointer; font-size: 0.75rem; }
         .editor-layout { display: flex; padding: 15px 20px; align-items: center; justify-content: space-between; min-height: 120px; background: rgba(0,0,0,0.4); }
         .color-controls { display: flex; flex-direction: column; gap: 6px; width: 130px; }

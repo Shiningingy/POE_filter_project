@@ -50,19 +50,22 @@ def parse_group(group_key, group_data, path_prefix="", parent_default_target=Non
             # Value can be string (ch name) or dict ({name: ch, target: ...})
             file_name_ch = value
             target_cat = default_target
+            file_path = f"{current_path}.json"
             
             if isinstance(value, dict):
                 file_name_ch = value.get("name", key)
                 if "target" in value:
                     target_cat = value["target"]
+                if "path" in value:
+                    file_path = value["path"]
             
             if target_cat is None:
                 target_cat = key # Default to file key if no default set
                 
             file_obj = {
-                "path": f"{current_path}.json",
-                "tier_path": f"tier_definition/{current_path}.json",
-                "mapping_path": f"base_mapping/{current_path}.json",
+                "path": file_path,
+                "tier_path": f"tier_definition/{file_path}",
+                "mapping_path": f"base_mapping/{file_path}",
                 "target_category": target_cat,
                 "localization": {
                     "en": key,

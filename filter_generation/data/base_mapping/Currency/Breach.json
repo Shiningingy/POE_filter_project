@@ -2,20 +2,24 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Splinter of Xoph": "裂隙碎片(索伏)",
-        "Splinter of Tul": "裂隙碎片(托沃)",
-        "Splinter of Esh": "裂隙碎片(艾许)",
-        "Splinter of Uul-Netol": "裂隙碎片(乌尔尼多)",
-        "Splinter of Chayula": "裂隙碎片(夏乌拉)",
-        "Blessing of Xoph": "索伏的祝福",
-        "Blessing of Tul": "托沃的祝福",
-        "Blessing of Esh": "艾许的祝福",
-        "Blessing of Uul-Netol": "乌尔尼多的祝福",
         "Blessing of Chayula": "夏乌拉的祝福",
-        "__class_name__": "可堆叠通货",
-        "Chaos Orb": "混沌石",
-        "Glorious Leather": "荣耀皮甲",
-        "Blue Pearl Amulet": "碧珠护身符"
+        "Blessing of Uul-Netol": "乌尔尼多的祝福",
+        "Chayula's Flawless Breachstone": "夏乌拉的无暇裂隙石",
+        "Splinter of Chayula": "夏乌拉裂片",
+        "Splinter of Uul-Netol": "乌尔尼多裂片",
+        "Splinter of Esh": "艾许裂片",
+        "Splinter of Tul": "图利裂片",
+        "Splinter of Xoph": "索伏裂片",
+        "__class_name__": "裂隙",
+        "Esh's Breachstone": "艾许裂隙石",
+        "Tul's Breachstone": "托沃裂隙石",
+        "Xoph's Breachstone": "索伏裂隙石",
+        "Uul-Netol's Breachstone": "乌尔尼多裂隙石",
+        "Chayula's Breachstone": "夏乌拉裂隙石",
+        "Esh's Flawless Breachstone": "艾许的无暇裂隙石",
+        "Tul's Flawless Breachstone": "托沃的无暇裂隙石",
+        "Xoph's Flawless Breachstone": "索伏的无暇裂隙石",
+        "Uul-Netol's Flawless Breachstone": "乌尔尼多的无暇裂隙石"
       }
     },
     "item_class": {
@@ -25,38 +29,23 @@
     "theme_category": "Stackable Currency"
   },
   "mapping": {
-    "Splinter of Xoph": "Tier 3 Breach",
-    "Splinter of Chayula": [
-      "Tier 2 Breach",
-      "Tier 1 Breach"
-    ],
-    "Blessing of Esh": "Tier 1 Breach",
+    "Blessing of Chayula": "Tier 0 Breach",
+    "Chayula's Flawless Breachstone": "Tier 1 Breach",
     "Blessing of Uul-Netol": "Tier 1 Breach",
-    "Blessing of Chayula": "Tier 1 Breach",
-    "Chaos Orb": [
-      "Tier 3 Breach",
-      "Tier 1 Breach"
-    ],
-    "Glorious Leather": [
-      "Tier 1 Breach"
-    ],
-    "Blue Pearl Amulet": [
-      "Tier 1 Breach"
-    ]
+    "Splinter of Chayula": "Tier 1 Breach",
+    "Splinter of Uul-Netol": "Tier 2 Breach",
+    "Splinter of Esh": "Tier 3 Breach",
+    "Splinter of Tul": "Tier 3 Breach",
+    "Splinter of Xoph": "Tier 3 Breach",
+    "Esh's Breachstone": "Tier 1 Breach",
+    "Tul's Breachstone": "Tier 1 Breach",
+    "Xoph's Breachstone": "Tier 1 Breach",
+    "Uul-Netol's Breachstone": "Tier 1 Breach",
+    "Chayula's Breachstone": "Tier 1 Breach",
+    "Esh's Flawless Breachstone": "Tier 1 Breach",
+    "Tul's Flawless Breachstone": "Tier 1 Breach",
+    "Xoph's Flawless Breachstone": "Tier 1 Breach",
+    "Uul-Netol's Flawless Breachstone": "Tier 1 Breach"
   },
-  "rules": [
-    {
-      "targets": [
-        "Splinter of Xoph"
-      ],
-      "conditions": {},
-      "overrides": {
-        "PlayAlertSound": [
-          "123.mp3",
-          300
-        ]
-      },
-      "comment": "Override for Splinter of Xoph"
-    }
-  ]
+  "rules": []
 }

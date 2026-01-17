@@ -6,7 +6,8 @@
         "Scrap Metal": "废金属",
         "Astragali": "骨牌",
         "Burial Medallion": "葬礼徽章",
-        "__class_name__": "可堆叠通货"
+        "__class_name__": "可堆叠通货",
+        "Expedition Logbook": "先祖秘藏日志"
       }
     },
     "item_class": {
@@ -19,7 +20,8 @@
     "Exotic Coinage": "Tier 1 Expedition",
     "Scrap Metal": "Tier 1 Expedition",
     "Astragali": "Tier 1 Expedition",
-    "Burial Medallion": "Tier 1 Expedition"
+    "Burial Medallion": "Tier 1 Expedition",
+    "Expedition Logbook": "Tier 1 Expedition"
   },
   "rules": []
 }

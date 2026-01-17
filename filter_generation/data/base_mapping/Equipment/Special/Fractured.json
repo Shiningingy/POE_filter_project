@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "__class_name__": "破碎装备"
+      }
+    },
+    "item_class": { "en": "Body Armours", "ch": "破碎装备" },
+    "theme_category": "Body Armours"
+  },
+  "mapping": {},
+  "rules": [
+    {
+      "targets": [],
+      "conditions": { "FracturedItem": "True", "ItemLevel": ">= 84" },
+      "overrides": { "Tier": "Tier 0 Fractured" },
+      "comment": "High Level Fractured Items"
+    }
+  ]
+}

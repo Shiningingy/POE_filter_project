@@ -1,76 +1,200 @@
 Currency:
   _name: 通货
   _default_target: Stackable Currency
-  Breach: 裂隙
-  Delirium Orbs: 雾魇宝珠
-  Essences: 精华
-  Expedition: 探险
-  Fossils: 化石
-  General: 通用
-  Harbinger: 先驱
-  Heist: 夺宝
-  Incubators: 孕育石
-  Oils & Harvest: 圣油与庄园
-  Ritual: 仪式
+  General: 通用通货
+  Special Currency:
+    _name: 特殊通货
+    Corpses:
+      name: 尸体
+      target: Corpses
+      path: Currency/Corpses.json
+    Breach:
+      name: 裂隙
+      path: Currency/Breach.json
+    Delirium Orbs:
+      name: 雾魇宝珠
+      path: Currency/Delirium Orbs.json
+    Essences:
+      name: 精华
+      path: Currency/Essences.json
+    Expedition:
+      name: 探险
+      path: Currency/Expedition.json
+    Fossils:
+      name: 化石
+      path: Currency/Fossils.json
+    Harbinger:
+      name: 先驱
+      path: Currency/Harbinger.json
+    Harvest:
+      name: 庄园
+      path: Currency/Harvest.json
+    Heist:
+      name: 夺宝
+      path: Currency/Heist.json
+    Incubators:
+      name: 孕育石
+      path: Currency/Incubators.json
+    Oils:
+      name: 圣油
+      path: Currency/Oils.json
+    Ritual:
+      name: 仪式
+      path: Currency/Ritual.json
+  Gold:
+    name: 金币
+    target: Gold
+    path: Currency/Gold.json
+
+Uniques:
+  _name: 传奇物品
+  _default_target: Unique Items
+  General: 传奇物品
 
 Divination Cards:
   _name: 命运卡
   _default_target: Divination Cards
   Cards: 命运卡
 
-Equipment:
-  _name: 装备
-  Armour:
-    _name: 护甲
-    Body Armours: 胸甲
-    Boots: 鞋子
-    Gloves: 手套
-    Helmets: 头部
-    Quivers: 箭袋
-    Shields: 盾
-  Jewellery:
-    _name: 饰品
-    Amulets: 项链
-    Belts: 腰带
-    Rings: 戒指
-    Trinkets: 饰品
-  Weapons:
-    _name: 武器
-    Bows: 弓
-    Claws: 爪
-    Daggers: 匕首
-    One Hand Axes: 单手斧
-    One Hand Maces: 单手锤
-    One Hand Swords: 单手剑
-    Rune Daggers: 符文匕首
-    Sceptres: 短杖
-    Staves: 长杖
-    Two Hand Axes: 双手斧
-    Two Hand Maces: 双手锤
-    Two Hand Swords: 双手剑
-    Wands: 法杖
-    Warstaves: 战杖
+Maps & Fragments:
+  _name: 地图与碎片
+  _default_target: Maps
+  Base Maps:
+    name: 常规地图
+    path: Maps/Base Maps.json
+  Fragments:
+    name: 碎片与圣甲虫
+    target: Map Fragments
+    path: Maps/Fragments.json
 
 Gems:
   _name: 宝石
-  Skill: 
+  Skill:
     name: 技能宝石
-    target: Skill Gems
-  Support: 
+    target: Active Skill Gems
+  Support:
     name: 辅助宝石
-    target: Support Gems
+    target: Support Skill Gems
 
-Maps:
-  _name: 地图
-  Base Maps: 
-    name: 常规地图
-    target: Maps
-  Fragments: 
-    name: 碎片
-    target: Map Fragments
+Jewels:
+  _name: 珠宝
+  _default_target: Jewels
+  Base Jewels: 基础珠宝
+  Cluster Jewels: 星团珠宝
+  Abyss Jewels: 深渊珠宝
+
+Flasks:
+  _name: 药剂
+  _default_target: Life Flasks
+  Life: 生命药剂
+  Mana:
+    name: 魔力药剂
+    target: Mana Flasks
+  Utility:
+    name: 功能药剂
+    target: Utility Flasks
+
+Equipment:
+  _name: 终局装备
+  Special Bases:
+    _name: 特殊底材
+    _default_target: Body Armours
+    Influenced:
+      name: 势力物品
+      path: Equipment/Special/Influenced.json
+    Fractured:
+      name: 破碎物品
+      path: Equipment/Special/Fractured.json
+    Synthesised:
+      name: 合成物品
+      path: Equipment/Special/Synthesised.json
+  Armour:
+    _name: 护甲
+    _default_target: Body Armours
+    Body Armours: 胸甲
+    Helmets:
+      name: 头部
+      target: Helmets
+    Gloves:
+      name: 手套
+      target: Gloves
+    Boots:
+      name: 鞋子
+      target: Boots
+    Shields:
+      name: 盾
+      target: Shields
+    Quivers:
+      name: 箭袋
+      target: Quivers
+  Weapons:
+    _name: 武器
+    _default_target: Bows
+    Bows: 弓
+    Wands:
+      name: 法杖
+      target: Wands
+    Claws:
+      name: 爪
+      target: Claws
+    Daggers:
+      name: 匕首
+      target: Daggers
+    Rune Daggers:
+      name: 符文匕首
+      target: Rune Daggers
+    Sceptres:
+      name: 短杖
+      target: Sceptres
+    Staves:
+      name: 长杖
+      target: Staves
+    Warstaves:
+      name: 战杖
+      target: Warstaves
+    One Hand Axes:
+      name: 单手斧
+      target: One Hand Axes
+    One Hand Maces:
+      name: 单手锤
+      target: One Hand Maces
+    One Hand Swords:
+      name: 单手剑
+      target: One Hand Swords
+    Two Hand Axes:
+      name: 双手斧
+      target: Two Hand Axes
+    Two Hand Maces:
+      name: 双手锤
+      target: Two Hand Maces
+    Two Hand Swords:
+      name: 双手剑
+      target: Two Hand Swords
+  Jewellery:
+    _name: 饰品
+    _default_target: Amulets
+    Amulets: 项链
+    Rings:
+      name: 戒指
+      target: Rings
+    Belts:
+      name: 腰带
+      target: Belts
+    Trinkets:
+      name: 饰品
+      target: Trinkets
+
+Quest:
+  _name: 任务物品
+  _default_target: Quest Items
+  Quest Items: 任务物品
+  Labyrinth:
+    name: 迷宫
+    target: Labyrinth Items
 
 Misc:
   _name: 杂项
-  General: 
-    name: 通用
-    target: Gold
+  _default_target: Misc
+  General:
+    name: 其他杂项
+    path: Misc/General.json

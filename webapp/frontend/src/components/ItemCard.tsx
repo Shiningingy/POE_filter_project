@@ -15,9 +15,11 @@ interface ItemCardProps {
   language: Language;
   color?: string;
   isStaged?: boolean;
+  matchMode?: 'exact' | 'partial';
   onContextMenu?: (e: React.MouseEvent) => void;
   onDelete?: (e: React.MouseEvent) => void;
   onClick?: (e: React.MouseEvent) => void;
+  onDoubleClick?: (e: React.MouseEvent) => void;
   className?: string;
   style?: React.CSSProperties;
   showStagedIndicator?: boolean;
@@ -28,9 +30,11 @@ const ItemCard: React.FC<ItemCardProps> = ({
   language,
   color,
   isStaged,
+  matchMode,
   onContextMenu,
   onDelete,
   onClick,
+  onDoubleClick,
   className = "",
   style = {},
   showStagedIndicator = true,
@@ -45,6 +49,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
         className={`item-card-base ${isStaged ? "staged" : ""} ${className}`}
         onContextMenu={onContextMenu}
         onClick={onClick}
+        onDoubleClick={onDoubleClick}
       >
         {dotBg && (
           <div className="defense-indicator" style={{ background: dotBg }} />
@@ -61,8 +66,15 @@ const ItemCard: React.FC<ItemCardProps> = ({
           )}
         </div>
 
+        {matchMode === 'exact' && (
+          <div className="match-mode-badge exact">E</div>
+        )}
+
         {isStaged && showStagedIndicator && (
           <div className="staged-indicator">●</div>
+        )}
+        {item.rule_index !== undefined && item.rule_index !== null && (
+          <div className="rule-source-badge" title={`From Rule #${item.rule_index + 1}`}>#{item.rule_index + 1}</div>
         )}
         {onDelete && (
           <button

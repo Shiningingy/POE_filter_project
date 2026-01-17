@@ -34,10 +34,9 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
   onCopyStyle,
   onPasteStyle,
   onAddRulePreset,
-  onRemoveRule,
   language,
   viewerBackground,
-  setViewerBackground,
+  setViewerBackground
 }) => {
   const t = useTranslation(language);
   const [ruleTemplates, setRuleTemplates] = useState<any[]>([]);
@@ -109,7 +108,6 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
   const filterText = inspectedTier 
     ? generateFilterText(
         inspectedTier.style, 
-        inspectedTier.name, 
         inspectedTier.baseTypes || ["Item Name"], 
         inspectedTier.visibility,
         (editingRuleIndex !== null && !showFullBlock) 

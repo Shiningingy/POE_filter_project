@@ -40,7 +40,10 @@
     "Engineer's Shard": "Tier 1 Harbinger",
     "Ancient Shard": "Tier 1 Harbinger",
     "Chaos Shard": "Tier 1 Harbinger",
-    "Mirror Shard": "Tier 1 Harbinger",
+    "Mirror Shard": [
+      "Tier 1 Harbinger",
+      "Tier 0 General"
+    ],
     "Exalted Shard": "Tier 1 Harbinger",
     "Regal Shard": "Tier 1 Harbinger",
     "Alchemy Shard": "Tier 1 Harbinger",
