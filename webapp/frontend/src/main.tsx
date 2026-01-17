@@ -1,7 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import axios from 'axios'
 import App from './App.tsx'
 import './index.css'
+
+// Default to local backend
+axios.defaults.baseURL = 'http://localhost:8000';
 
 // Disable default context menu globally
 window.oncontextmenu = (e) => {

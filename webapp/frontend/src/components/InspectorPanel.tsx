@@ -45,7 +45,7 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/rule-templates")
+      .get("/api/rule-templates")
       .then((res) => setRuleTemplates(res.data.categories || []))
       .catch((e) => console.error("Failed to fetch rule templates", e));
   }, []);

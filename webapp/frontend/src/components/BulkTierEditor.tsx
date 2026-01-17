@@ -146,7 +146,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   const [selectedSubType, setSelectedSubType] = useState('All');
   const [showAllClasses, setShowAllClasses] = useState(false);
 
-  const API_BASE_URL = 'http://localhost:8000';
+  const API_BASE_URL = '';
 
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 5 } }));
 

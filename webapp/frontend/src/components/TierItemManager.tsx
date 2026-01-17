@@ -112,7 +112,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
     
     const timeoutId = setTimeout(async () => {
       try {
-        const res = await axios.get(`http://localhost:8000/api/search-items?q=${encodeURIComponent(addSearch)}`);
+        const res = await axios.get(`/api/search-items?q=${encodeURIComponent(addSearch)}`);
         setSuggestions(res.data.results.map((r: any) => ({ ...r, source: r.source_file })));
       } catch (e) {
         console.error(e);
@@ -151,7 +151,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
       const newMode = currentMode === 'exact' ? 'partial' : 'exact';
       
       try {
-          await axios.post('http://localhost:8000/api/update-item-tier', {
+          await axios.post('/api/update-item-tier', {
               item_name: item.name,
               source_file: item.source,
               new_tier: tierKey, // Keep same tier
