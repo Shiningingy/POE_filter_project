@@ -444,56 +444,66 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     const rules = activeCategoryData?.rules || activeCategoryData?._meta?.rules || [];
     const result: Record<string, TierItem[]> = {};
     
-    // 1. Initialize with backend tierItems but only the standard ones (no rule_index)
+    // 1. Initialize with all backend tierItems, resetting rule_index
+    // This preserves all items (mapping ones and rule ones) as a starting pool
     sortedTierKeys.forEach(tk => {
-        result[tk] = (tierItems[tk] || []).filter(i => i.rule_index === undefined || i.rule_index === null);
+        result[tk] = (tierItems[tk] || []).map(i => ({
+            ...i,
+            rule_index: undefined
+        }));
     });
     
-    // 2. Add items from current frontend rules
+    // 2. First Pass: Process explicit targets for all rules
+    // Explicit targets always take priority over "Apply to all"
     rules.forEach((rule: any, ruleIdx: number) => {
         if (rule.disabled) return;
         const ruleTier = rule.overrides?.Tier;
         if (!ruleTier || !result[ruleTier]) return;
 
-        if (rule.applyToTier) {
-            // If "Apply to all", move all current standard items in this tier to be "rule items"
-            const standardItems = result[ruleTier].filter(i => i.rule_index === undefined || i.rule_index === null);
-            const otherItems = result[ruleTier].filter(i => i.rule_index !== undefined && i.rule_index !== null);
-            
-            const updatedStandard = standardItems.map(i => ({
-                ...i,
-                rule_index: ruleIdx
-            }));
-            
-            result[ruleTier] = [...otherItems, ...updatedStandard];
-        } else if (rule.targets) {
+        if (rule.targets) {
             rule.targets.forEach((tName: string) => {
-                // Find existing details if possible
                 const existing = allItemDetails[tName];
                 const matchMode = rule.targetMatchModes?.[tName] || 'exact';
                 
-                // If the item already exists in standardItems, we MOVE it to ruleItems
-                const stdIdx = result[ruleTier].findIndex(i => i.name === tName && (i.rule_index === undefined || i.rule_index === null));
+                // Try to find an available item card in this tier that hasn't been assigned to a rule yet
+                const stdIdx = result[ruleTier].findIndex(i => i.name === tName && i.rule_index === undefined);
+                
                 if (stdIdx !== -1) {
-                    const item = result[ruleTier][stdIdx];
-                    result[ruleTier][stdIdx] = { ...item, rule_index: ruleIdx, match_mode: matchMode };
+                    result[ruleTier][stdIdx] = { 
+                        ...result[ruleTier][stdIdx], 
+                        rule_index: ruleIdx, 
+                        match_mode: matchMode 
+                    };
                 } else {
-                    // Avoid duplicates if same item is in same tier via same rule
-                    const alreadyAdded = result[ruleTier].some(i => i.name === tName && i.rule_index === ruleIdx);
-                    if (!alreadyAdded) {
-                        result[ruleTier].push({
-                            name: tName,
-                            name_ch: existing?.name_ch || itemTranslationCache[tName] || tName,
-                            sub_type: existing?.sub_type || "Other",
-                            source: existing?.source || defaultMappingPath || "",
-                            rule_index: ruleIdx,
-                            match_mode: matchMode,
-                            ...(existing || {})
-                        });
-                    }
+                    // If no card is available in the pool (e.g. item is only in rule targets, not in mapping),
+                    // create a new card for this rule target.
+                    result[ruleTier].push({
+                        name: tName,
+                        name_ch: existing?.name_ch || itemTranslationCache[tName] || tName,
+                        sub_type: existing?.sub_type || "Other",
+                        source: existing?.source || defaultMappingPath || "",
+                        ...(existing || {}),
+                        rule_index: ruleIdx,
+                        match_mode: matchMode,
+                    });
                 }
             });
         }
+    });
+
+    // 3. Second Pass: Apply "Apply to all" rules to remaining standard items
+    rules.forEach((rule: any, ruleIdx: number) => {
+        if (rule.disabled || !rule.applyToTier) return;
+        const ruleTier = rule.overrides?.Tier;
+        if (!ruleTier || !result[ruleTier]) return;
+
+        // Apply to any item that still doesn't have a rule_index
+        result[ruleTier] = result[ruleTier].map(i => {
+            if (i.rule_index === undefined) {
+                return { ...i, rule_index: ruleIdx };
+            }
+            return i;
+        });
     });
     
     return result;

@@ -66,17 +66,23 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
       const map: Record<number, number> = {};
       let localCount = 0;
       categoryRules.forEach((r, globalIdx) => {
-          // Check if rule applies to this tier
-          const tierOverride = r.overrides?.Tier;
-          const tierMatch = tierOverride === tierKey;
+          // 1. Must match this tier (if tier override exists) or target items in this tier
+          const hasTierOverride = !!r.overrides?.Tier;
+          const tierMatch = hasTierOverride ? r.overrides.Tier === tierKey : r.targets?.some((target: string) => items.some(i => i.name === target));
           
-          // Check if any item in this tier is a target of this rule
-          const hasTargetsInTier = r.targets?.some((t: string) => items.some(i => i.name === t));
+          if (!tierMatch) return;
+
+          // 2. Hide "Sound-only" rules (consistent with RuleManager)
+          const hasConditions = Object.keys(r.conditions || {}).length > 0;
+          const overrideKeys = Object.keys(r.overrides || {}).filter(k => k !== 'Tier');
           
-          if (tierMatch || hasTargetsInTier) {
-              localCount++;
-              map[globalIdx] = localCount;
-          }
+          const hasSound = overrideKeys.some(k => k.toLowerCase().includes('sound'));
+          const hasVisuals = overrideKeys.some(k => ["TextColor", "BackgroundColor", "BorderColor", "PlayEffect", "MinimapIcon"].includes(k));
+          
+          if (hasSound && !hasConditions && !hasVisuals && !hasTierOverride) return;
+
+          localCount++;
+          map[globalIdx] = localCount;
       });
       return map;
   }, [categoryRules, tierKey, items]);
@@ -86,8 +92,18 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
     (i.name_ch && i.name_ch.includes(searchTerm))
   );
 
-  const ruleItems = filteredItems.filter(i => i.rule_index !== undefined && i.rule_index !== null);
-  const standardItems = filteredItems.filter(i => i.rule_index === undefined || i.rule_index === null);
+  const ruleItems = filteredItems.filter(i => {
+    if (i.rule_index === undefined || i.rule_index === null) return false;
+    const rule = categoryRules[i.rule_index];
+    const isTarget = rule?.targets?.includes(i.name);
+    return isTarget || !rule?.applyToTier;
+  });
+  const standardItems = filteredItems.filter(i => {
+    if (i.rule_index === undefined || i.rule_index === null) return true;
+    const rule = categoryRules[i.rule_index];
+    const isTarget = rule?.targets?.includes(i.name);
+    return !!rule?.applyToTier && !isTarget;
+  });
 
   useEffect(() => {
     if (addSearch.length < 2) {
@@ -214,7 +230,13 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
               ? undefined 
               : () => {
                   if (item.rule_index !== undefined && item.rule_index !== null) {
-                      onRemoveRuleTarget(item, item.rule_index);
+                      const rule = categoryRules[item.rule_index];
+                      const isTarget = rule?.targets?.includes(item.name);
+                      if (rule?.applyToTier && !isTarget) {
+                          onDeleteItem(item, tierKey);
+                      } else {
+                          onRemoveRuleTarget(item, item.rule_index);
+                      }
                   } else {
                       onDeleteItem(item, tierKey);
                   }

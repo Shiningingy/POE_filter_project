@@ -200,7 +200,8 @@
       "en": "Stackable Currency",
       "ch": "可堆叠通货"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Stackable Currency",
+    "match_modes": {}
   },
   "mapping": {
     "Mirror of Kalandra": "Tier 0 General",
@@ -248,7 +249,9 @@
     "Maven's Chisel of Divination": "Tier 3 General",
     "Maven's Chisel of Proliferation": "Tier 3 General",
     "Exalted Shard": "Tier 3 General",
-    "Chaos Orb": "Tier 4 General",
+    "Chaos Orb": [
+      "Tier 4 General"
+    ],
     "Orb of Annulment": "Tier 4 General",
     "Stacked Deck": "Tier 4 General",
     "Gemcutter's Prism": "Tier 4 General",
