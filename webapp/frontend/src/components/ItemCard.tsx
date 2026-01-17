@@ -15,6 +15,7 @@ interface ItemCardProps {
   language: Language;
   color?: string;
   isStaged?: boolean;
+  matchMode?: 'exact' | 'partial';
   onContextMenu?: (e: React.MouseEvent) => void;
   onDelete?: (e: React.MouseEvent) => void;
   onClick?: (e: React.MouseEvent) => void;
@@ -29,6 +30,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
   language,
   color,
   isStaged,
+  matchMode,
   onContextMenu,
   onDelete,
   onClick,
@@ -63,6 +65,10 @@ const ItemCard: React.FC<ItemCardProps> = ({
             <div className="name-primary">{item.name}</div>
           )}
         </div>
+
+        {matchMode === 'exact' && (
+          <div className="match-mode-badge exact">E</div>
+        )}
 
         {isStaged && showStagedIndicator && (
           <div className="staged-indicator">●</div>

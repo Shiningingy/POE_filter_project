@@ -152,7 +152,7 @@ button:focus-visible {
 .staged-indicator {
   position: absolute;
   top: 2px;
-  right: 6px;
+  left: 2px;
   color: #2196F3;
   font-size: 8px;
 }
@@ -160,7 +160,7 @@ button:focus-visible {
 .rule-source-badge {
   position: absolute;
   top: 2px;
-  right: 20px;
+  right: 6px;
   background: #673ab7;
   color: white;
   font-size: 0.65rem;
@@ -178,3 +178,19 @@ button:focus-visible {
 }
 .item-card-base:hover .item-card-del-btn { opacity: 1; }
 .item-card-del-btn:hover { color: #fa5252; }
+
+.match-mode-badge {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    font-size: 9px;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+    z-index: 10;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.match-mode-badge.exact { color: #4CAF50; border-color: #2e7d32; }
+.match-mode-badge.partial { color: #FF9800; border-color: #ef6c00; }
