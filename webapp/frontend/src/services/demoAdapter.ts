@@ -14,30 +14,34 @@ export const setupDemoAdapter = () => {
     if (!config.url) return config;
 
     // 1. Clean the URL: Remove host and ignore query parameters for matching
-    // Matches /api/... or just /api/...
     let url = config.url.replace(/^https?:\/\/[^\/]+/, ''); 
     const [path] = url.split('?'); 
+
+    const setDemoUrl = (newUrl: string) => {
+        config.url = newUrl;
+        config.baseURL = ''; // CRITICAL: prevent axios from prepending localhost:8000
+    };
 
     // 2. GET Requests
     if (config.method === 'get') {
         if (path === '/api/category-structure') {
-            config.url = `${baseURL}demo_data/category_structure.json`;
+            setDemoUrl(`${baseURL}demo_data/category_structure.json`);
         } else if (path === '/api/rule-templates') {
-            config.url = `${baseURL}demo_data/rule_templates.json`;
+            setDemoUrl(`${baseURL}demo_data/rule_templates.json`);
         } else if (path === '/api/themes') {
-            config.url = `${baseURL}demo_data/themes.json`;
+            setDemoUrl(`${baseURL}demo_data/themes.json`);
         } else if (path.startsWith('/api/themes/')) {
             const themeName = path.split('/').pop();
-            config.url = `${baseURL}demo_data/theme_${themeName}.json`;
+            setDemoUrl(`${baseURL}demo_data/theme_${themeName}.json`);
         } else if (path === '/api/sounds/list') {
-            config.url = `${baseURL}demo_data/sounds.json`;
+            setDemoUrl(`${baseURL}demo_data/sounds.json`);
         } else if (path === '/api/item-classes') {
-            config.url = `${baseURL}demo_data/item_classes.json`;
+            setDemoUrl(`${baseURL}demo_data/item_classes.json`);
         } else if (path.startsWith('/api/class-items/')) {
-            config.url = `${baseURL}demo_data/all_items.json`;
+            setDemoUrl(`${baseURL}demo_data/all_items.json`);
         } else if (path.startsWith('/api/config/')) {
             const configPath = path.replace('/api/config/', '');
-            config.url = `${baseURL}demo_data/config/${configPath}`;
+            setDemoUrl(`${baseURL}demo_data/config/${configPath}`);
         } else if (path.startsWith('/api/search-items')) {
             config.adapter = async () => {
                 return { data: { results: [] }, status: 200, statusText: 'OK', headers: {}, config };
@@ -53,7 +57,7 @@ export const setupDemoAdapter = () => {
     if (config.method === 'post') {
         if (path === '/api/tier-items') {
             config.method = 'get';
-            config.url = `${baseURL}demo_data/tier_items.json`;
+            setDemoUrl(`${baseURL}demo_data/tier_items.json`);
             
             const requestedKeys = JSON.parse(config.data).tier_keys;
             (config as any)._tierKeys = requestedKeys;
