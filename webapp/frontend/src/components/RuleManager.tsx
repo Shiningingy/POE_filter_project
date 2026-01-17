@@ -1,8 +1,7 @@
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import axios from "axios";
-import { useTranslation, getItemName } from "../utils/localization";
+import { useTranslation } from "../utils/localization";
 import type { Language } from "../utils/localization";
-import ItemTooltip from "./ItemTooltip";
 import ItemCard from "./ItemCard";
 import ContextMenu from "./ContextMenu";
 

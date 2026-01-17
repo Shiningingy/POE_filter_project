@@ -49,7 +49,7 @@ export const resolveStyle = (tierData: any, themeData: any, themeCategory: strin
   return resolved;
 };
 
-export const generateFilterText = (style: StyleProps, tierName: string, baseTypes: string[] = ["Item Name"], hideable: boolean = false, rules: any[] = [], includeBase: boolean = true): string => {
+export const generateFilterText = (style: StyleProps, baseTypes: string[] = ["Item Name"], hideable: boolean = false, rules: any[] = [], includeBase: boolean = true): string => {
   const allBlocks: string[] = [];
   let allItemsCovered = false;
 
@@ -83,7 +83,7 @@ export const generateFilterText = (style: StyleProps, tierName: string, baseType
 
     // 3. Raw text (Custom Code)
     if (rule.raw) {
-        rule.raw.split('\n').forEach(line => {
+        rule.raw.split('\n').forEach((line: string) => {
             if (line.trim()) {
                 rLines.push(`    ${line.trim()}`);
             }

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useTranslation } from "../utils/localization";
 import type { Language } from "../utils/localization";
-import { generateFilterText } from "../utils/styleResolver";
 
 interface StyleProps {
   FontSize?: number;
@@ -22,9 +21,6 @@ interface TierStyleEditorProps {
   onChange: (newStyle: StyleProps, newVisibility: boolean) => void;
   language: Language;
   onInspect: () => void;
-  onCopy: () => void;
-  onPaste: () => void;
-  canPaste: boolean;
   onReset?: () => void;
   viewerBackground: string;
 }
@@ -37,14 +33,10 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   onChange,
   language,
   onInspect,
-  onCopy,
-  onPaste,
-  canPaste,
   onReset,
   viewerBackground,
 }) => {
   const t = useTranslation(language);
-  const [copyFeedback, setCopyFeedback] = useState(false);
   const [showAlphaPopup, setShowAlphaPopup] = useState(false);
   const [showSoundPopup, setShowSoundPopup] = useState(false);
   const [showIconPopup, setShowIconPopup] = useState(false);
@@ -257,7 +249,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         .toString(16)
         .padStart(2, "0");
       const newVal = `${base}${aHex}`;
-      nextStyle[key] = val.startsWith("disabled:")
+      (nextStyle as any)[key] = val.startsWith("disabled:")
         ? `disabled:${newVal}`
         : newVal;
     });
@@ -806,7 +798,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 )}
               ></div>
             )}
-            {copyFeedback ? "✓ COPIED" : tierName.toUpperCase()}
+            {tierName.toUpperCase()}
           </div>
         </div>
 
@@ -832,9 +824,6 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                   handleChange("FontSize", parseInt(e.target.value))
                 }
               />
-            </div>
-            <div className="action-btns" style={{ display: 'none' }}>
-              {/* Copy/Paste buttons removed */}
             </div>
           </div>
           <div className="bottom-row extra-btns">

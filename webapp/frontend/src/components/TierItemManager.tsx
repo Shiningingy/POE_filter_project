@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
-import { useTranslation, getItemName } from '../utils/localization';
+import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ContextMenu from './ContextMenu';
-import ItemTooltip from './ItemTooltip';
 import ItemCard from './ItemCard';
 
 interface TierItem {

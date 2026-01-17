@@ -20,9 +20,7 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 import { useTranslation, CLASS_KEY_MAP } from '../utils/localization';
 import type { Language } from '../utils/localization';
-import { getSubTypeBackground } from '../utils/itemUtils';
 import ContextMenu from './ContextMenu';
-import ItemTooltip from './ItemTooltip';
 import ItemCard from './ItemCard';
 
 interface Item {
@@ -39,6 +37,7 @@ interface TierOption {
   key: string;
   label: string;
   show_in_editor?: boolean;
+  is_hide_tier?: boolean;
 }
 
 interface BulkTierEditorProps {

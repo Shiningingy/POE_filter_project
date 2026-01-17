@@ -13,8 +13,6 @@ interface EditorViewProps {
   configContent: string;
   setConfigContent: (content: string) => void;
   loading: boolean;
-  jsonError: string;
-  onSave: () => void;
   message: string;
   language: Language;
   styleClipboard: any;
@@ -29,8 +27,6 @@ const EditorView: React.FC<EditorViewProps> = ({
   configContent,
   setConfigContent,
   loading,
-  jsonError,
-  onSave,
   message,
   language,
   styleClipboard,
@@ -39,7 +35,6 @@ const EditorView: React.FC<EditorViewProps> = ({
   setViewerBackground
 }) => {
   const t = useTranslation(language);
-  const [tierContent, setTierContent] = useState<string>('');
   const [inspectedTier, setInspectedTier] = useState<any>(null);
   const [editingRuleIndex, setEditingRuleIndex] = useState<number | null>(null);
   const [tierItems, setTierItems] = useState<Record<string, any[]>>({});
@@ -59,13 +54,11 @@ const EditorView: React.FC<EditorViewProps> = ({
   const markDirty = () => { isDirtyRef.current = true; };
   const markClean = () => { isDirtyRef.current = false; };
 
-  const handleRuleEdit = (tierKey: string, ruleIndex: number | null) => {
+  const handleRuleEdit = (_tierKey: string, ruleIndex: number | null) => {
     setEditingRuleIndex(ruleIndex);
   };
 
   const API_BASE_URL = 'http://localhost:8000';
-
-  const [mappingContent, setMappingContent] = useState<string>('');
 
   const fetchTierItems = async (keys: string[]) => {
     if (keys.length === 0) return;
@@ -97,10 +90,6 @@ const EditorView: React.FC<EditorViewProps> = ({
             const tierData = tierRes.data.content;
             const mapData = mapRes.data.content;
             
-            // Store raw content
-            setTierContent(JSON.stringify(tierData, null, 2));
-            setMappingContent(JSON.stringify(mapData, null, 2));
-
             // MERGE RULES into Tier Data for Frontend View
             const catKey = Object.keys(tierData).find(k => !k.startsWith('//'));
             const mergedData = JSON.parse(JSON.stringify(tierData)); // Deep copy
@@ -132,7 +121,27 @@ const EditorView: React.FC<EditorViewProps> = ({
           const catKey = Object.keys(currentViewData).find(k => !k.startsWith('//'));
           
           if (catKey) {
-              // ... (saving logic) ...
+              const viewCategory = currentViewData[catKey];
+              const rules = viewCategory.rules || [];
+
+              // 1. Prepare Tier Definition (remove items and rules)
+              const tierToSave = JSON.parse(JSON.stringify(currentViewData));
+              const saveCategory = tierToSave[catKey];
+              
+              // Remove rules from Tier Definition (they live in mapping)
+              delete saveCategory.rules;
+              if (saveCategory._meta?.rules) delete saveCategory._meta.rules;
+
+              // 2. Prepare Base Mapping (update only rules)
+              let mappingToSave: any = null;
+              if (selectedFile.mapping_path) {
+                  // We need to fetch the original mapping to preserve other fields
+                  const ts = new Date().getTime();
+                  const mapRes = await axios.get(`${API_BASE_URL}/api/config/${selectedFile.mapping_path}?t=${ts}`);
+                  mappingToSave = mapRes.data.content;
+                  mappingToSave.rules = rules;
+              }
+
               // 3. Save Both
               await Promise.all([
                   axios.post(`${API_BASE_URL}/api/config/${selectedFile.tier_path}`, tierToSave),
@@ -149,159 +158,75 @@ const EditorView: React.FC<EditorViewProps> = ({
   };
 
   const handlePasteStyle = (tierKey: string, style: any) => {
-    if (!style || !tierContent) return;
-    
+    if (!style || !configContent) return;
     try {
-        const parsed = JSON.parse(tierContent);
-        // Find category (assuming first one)
+        const parsed = JSON.parse(configContent);
         const catKey = Object.keys(parsed).find(k => !k.startsWith('//'));
-        if (catKey) {
+        if (catKey && parsed[catKey][tierKey]) {
             const currentTheme = parsed[catKey][tierKey].theme || {};
             parsed[catKey][tierKey].theme = { ...currentTheme, ...style };
-            const newContent = JSON.stringify(parsed, null, 2);
-            setTierContent(newContent);
-            setConfigContent(newContent);
+            setConfigContent(JSON.stringify(parsed, null, 2));
+            markDirty();
             
-            // Refresh inspected tier UI if it's the one we just pasted to
             if (inspectedTier && inspectedTier.key === tierKey) {
                 setInspectedTier({ ...inspectedTier, style: parsed[catKey][tierKey].theme });
             }
         }
-    } catch (e) {
-        console.error("Paste failed", e);
-    }
+    } catch (e) { console.error("Paste failed", e); }
   };
 
-      const handleAddRulePreset = (tierKey: string, preset: any) => {
-
-      if (!tierContent) return;
-
+  const handleAddRulePreset = (tierKey: string, preset: any) => {
       try {
-
-          const parsed = JSON.parse(tierContent);
-
+          const parsed = JSON.parse(configContent);
           const catKey = Object.keys(parsed).find(k => !k.startsWith('//'));
-
           if (catKey) {
-
-              // Ensure rules array exists at root
-
               if (!parsed[catKey].rules) parsed[catKey].rules = [];
-
-              // Migrate old if needed
-
-              if (parsed[catKey]._meta?.rules) {
-
-                  parsed[catKey].rules = [...parsed[catKey].rules, ...parsed[catKey]._meta.rules];
-
-                  delete parsed[catKey]._meta.rules;
-
-              }
-
-              
-
               const currentRules = parsed[catKey].rules;
 
-  
-
               if (editingRuleIndex !== null) {
-
-  
-                // UPDATE CURRENT RULE
+                // Find rule in THIS tier
                 const currentTierItems = tierItems[tierKey]?.map(i => i.name) || [];
-                const tierRules = currentRules.filter((r: any) => 
+                const tierRulesIndices = currentRules.map((r: any, i: number) => ({r, i})).filter(({r}: any) => 
                     !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
                 );
-                const targetRule = tierRules[editingRuleIndex];
                 
-                if (targetRule) {
+                const targetEntry = tierRulesIndices[editingRuleIndex];
+                if (targetEntry) {
+                    const targetRule = currentRules[targetEntry.i];
                     if (!targetRule.conditions) targetRule.conditions = {};
-                    
-                    if (Array.isArray(preset.conditions)) {
-                        preset.conditions.forEach((c: any) => {
-                            targetRule.conditions[c.key] = c.value;
-                        });
-                    } else {
-                        Object.assign(targetRule.conditions, preset.conditions);
-                    }
+                    Object.assign(targetRule.conditions, preset.conditions || {});
                     if (preset.raw) targetRule.raw = (targetRule.raw || "") + "\n" + preset.raw;
                 }
             } else {
-                // ADD NEW RULE
-                // Limit removed to support sequential processing
-                
-                const conditions: Record<string, string> = {};
-                if (Array.isArray(preset.conditions)) {
-                    preset.conditions.forEach((c: any) => { conditions[c.key] = c.value; });
-                } else {
-                    Object.assign(conditions, preset.conditions);
-                }
-                
-                const newRule = {
+                currentRules.push({
                     targets: [],
-                    conditions: conditions,
+                    conditions: preset.conditions || {},
                     overrides: preset.overrides || { Tier: tierKey },
                     comment: preset.comment || "",
                     raw: preset.raw || ""
-                };
-                currentRules.push(newRule);
-            }
-            
-            const newContent = JSON.stringify(parsed, null, 2);
-            setTierContent(newContent);
-            setConfigContent(newContent);
-
-            // Trigger inspector refresh if this tier is active
-            if (inspectedTier && inspectedTier.key === tierKey) {
-                const currentTierItems = tierItems[tierKey]?.map(i => i.name) || [];
-                setInspectedTier({
-                    ...inspectedTier,
-                    rules: parsed[catKey].rules.filter((r: any) => 
-                        !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
-                    )
                 });
             }
+            setConfigContent(JSON.stringify(parsed, null, 2));
+            markDirty();
         }
-    } catch (e) {
-        console.error("Failed to add preset", e);
-    }
+    } catch (e) { console.error("Failed to add preset", e); }
   };
 
   const handleRemoveRule = (tierKey: string, ruleIndex: number) => {
-    if (!tierContent) return;
     try {
-        const parsed = JSON.parse(tierContent);
+        const parsed = JSON.parse(configContent);
         const catKey = Object.keys(parsed).find(k => !k.startsWith('//'));
-        
-        // Normalize rules location
-        let rules = parsed[catKey].rules || parsed[catKey]._meta?.rules || [];
-        
-        if (catKey && rules) {
-            // We need to find the GLOBAL index of the rule
+        if (catKey && parsed[catKey].rules) {
             const currentTierItems = tierItems[tierKey]?.map(i => i.name) || [];
-            const tierRules = rules.filter((r: any) => 
+            const tierRulesIndices = parsed[catKey].rules.map((r: any, i: number) => ({r, i})).filter(({r}: any) => 
                 !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
             );
             
-            const targetRule = tierRules[ruleIndex];
-            if (targetRule) {
-                // Filter out the target rule
-                parsed[catKey].rules = rules.filter((r: any) => r !== targetRule);
-                if (parsed[catKey]._meta?.rules) delete parsed[catKey]._meta.rules; // Cleanup old
-
-                const newContent = JSON.stringify(parsed, null, 2);
-                setTierContent(newContent);
-                setConfigContent(newContent);
-
-                // Refresh inspector
-                if (inspectedTier && inspectedTier.key === tierKey) {
-                    setInspectedTier({
-                        ...inspectedTier,
-                        rules: parsed[catKey].rules.filter((r: any) => 
-                            !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
-                        )
-                    });
-                }
+            const targetEntry = tierRulesIndices[ruleIndex];
+            if (targetEntry) {
+                parsed[catKey].rules.splice(targetEntry.i, 1);
+                setConfigContent(JSON.stringify(parsed, null, 2));
+                markDirty();
             }
         }
     } catch (e) { console.error("Failed to remove rule", e); }
@@ -335,17 +260,14 @@ const EditorView: React.FC<EditorViewProps> = ({
               <div className="placeholder">Select a category from the sidebar to edit</div>
             ) : (
                 <CategoryView
-                  configPath={selectedFile.tier_path}
                   configContent={configContent}
                   onConfigContentChange={(newContent) => {
                     // Update the merged view
                     setConfigContent(newContent); 
                     markDirty();
                   }}
-                  loading={loading}
                   language={language}
                   onInspectTier={setInspectedTier} 
-                  onCopyStyle={setStyleClipboard} 
                   onRuleEdit={handleRuleEdit}
                   viewerBackground={viewerBackground}
                   tierItems={tierItems}

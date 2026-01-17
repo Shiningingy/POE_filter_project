@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 interface ContextMenuProps {
   x: number;
   y: number;
-  options: { label: string; onClick: () => void; color?: string; divider?: boolean; className?: string }[];
+  options: { label: string; onClick: () => void; color?: string; divider?: boolean; className?: string; disabled?: boolean }[];
   onClose: () => void;
 }
 
@@ -33,9 +33,9 @@ const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, options, onClose }) => 
       {options.map((option, index) => (
         <div 
           key={index} 
-          className={`menu-item ${option.className || ''}`} 
+          className={`menu-item ${option.className || ''} ${option.disabled ? 'disabled' : ''}`} 
           onClick={(e) => {
-            if (option.divider) return;
+            if (option.divider || option.disabled) return;
             e.stopPropagation();
             option.onClick();
             onClose();
@@ -67,6 +67,11 @@ const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, options, onClose }) => 
         }
         .menu-item:hover {
           background: #f0f0f0;
+        }
+        .menu-item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: none !important;
         }
         .menu-item.divider {
             border-top: 1px solid #eee;
