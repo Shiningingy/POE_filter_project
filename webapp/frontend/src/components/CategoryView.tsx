@@ -23,13 +23,15 @@ import RuleManager from './RuleManager';
 import SortableTierBlock from './SortableTierBlock';
 import ContextMenu from './ContextMenu';
 import { resolveStyle } from '../utils/styleResolver';
-import { useTranslation } from '../utils/localization';
+import { useTranslation, translations } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import tierTemplate from '../config/tierTemplate.json';
 
 interface TierItem {
   name: string;
   name_ch?: string;
+  sub_type?: string;
+  match_mode?: 'exact' | 'partial';
   source: string;
   rule_index?: number | null;
 }
@@ -212,7 +214,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         visibility: newVisibility,
         category: themeCategory,
         rules: newConfig[activeCategoryKey].rules || newConfig[activeCategoryKey]._meta?.rules || [],
-        baseTypes: tierItems[tierKey]?.map(i => i.name) || ["Item Name"]
+        baseTypes: derivedTierItems[tierKey]?.map(i => i.name) || ["Item Name"]
     });
   };
 
@@ -259,9 +261,9 @@ const CategoryView: React.FC<CategoryViewProps> = ({
               rule.targets = rule.targets.filter((t: string) => t !== item.name);
               updateConfig(newConfig);
               
-              const tierKey = sortedTierKeys.find(key => tierItems[key]?.some(i => i.name === item.name && i.rule_index === ruleIndex));
+              const tierKey = sortedTierKeys.find(key => derivedTierItems[key]?.some(i => i.name === item.name && i.rule_index === ruleIndex));
               if (tierKey && onUpdateTierItems) {
-                  const newItems = tierItems[tierKey].filter(i => !(i.name === item.name && i.rule_index === ruleIndex));
+                  const newItems = derivedTierItems[tierKey].filter(i => !(i.name === item.name && i.rule_index === ruleIndex));
                   onUpdateTierItems(tierKey, newItems);
               }
           }
@@ -358,7 +360,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     if (!activeCategoryKey) return;
     if (!confirm(t.confirmDeleteTier)) return;
 
-    const itemsToUnassign = tierItems[tierKey] || [];
+    const itemsToUnassign = derivedTierItems[tierKey] || [];
     if (itemsToUnassign.length > 0) {
         try {
             await Promise.all(itemsToUnassign.map(item => 
@@ -392,10 +394,11 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     if (newConfig[categoryKey]._meta?.rules) delete newConfig[categoryKey]._meta.rules;
     
     updateConfig(newConfig);
+    fetchTierItems(sortedTierKeys);
     
     if (tierKey && tierName && themeCategory) {
          const tierData = newConfig[categoryKey][tierKey];
-         const items = tierItems[tierKey] || [];
+         const items = derivedTierItems[tierKey] || [];
          onInspectTier({ 
              key: tierKey, 
              name: tierName, 
@@ -410,6 +413,18 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     }
   };
 
+  const allItemDetails = useMemo(() => {
+    const cache: Record<string, any> = {};
+    Object.values(tierItems).forEach(items => {
+        items.forEach(i => {
+            if (!cache[i.name] || (!cache[i.name].sub_type && i.sub_type)) {
+                cache[i.name] = { ...i, rule_index: undefined }; // Store without rule_index
+            }
+        });
+    });
+    return cache;
+  }, [tierItems]);
+
   const itemTranslationCache = useMemo(() => {
     const cache: Record<string, string> = {};
     Object.values(tierItems).forEach(items => {
@@ -419,6 +434,46 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     });
     return cache;
   }, [tierItems]);
+
+  const derivedTierItems = useMemo(() => {
+    if (!parsedConfig || !activeCategoryKey) return tierItems;
+    
+    const rules = activeCategoryData?.rules || activeCategoryData?._meta?.rules || [];
+    const result: Record<string, TierItem[]> = {};
+    
+    // 1. Initialize with backend tierItems but only the standard ones (no rule_index)
+    sortedTierKeys.forEach(tk => {
+        result[tk] = (tierItems[tk] || []).filter(i => i.rule_index === undefined || i.rule_index === null);
+    });
+    
+    // 2. Add items from current frontend rules
+    rules.forEach((rule: any, ruleIdx: number) => {
+        const ruleTier = rule.overrides?.Tier;
+        if (ruleTier && result[ruleTier] && rule.targets) {
+            rule.targets.forEach((tName: string) => {
+                // Find existing details if possible
+                const existing = allItemDetails[tName];
+                const matchMode = rule.targetMatchModes?.[tName] || 'exact';
+                
+                // Avoid duplicates if same item is in same tier via same rule (shouldn't happen but safe)
+                const alreadyAdded = result[ruleTier].some(i => i.name === tName && i.rule_index === ruleIdx);
+                if (!alreadyAdded) {
+                    result[ruleTier].push({
+                        name: tName,
+                        name_ch: existing?.name_ch || itemTranslationCache[tName] || tName,
+                        sub_type: existing?.sub_type || "Other",
+                        source: existing?.source || defaultMappingPath || "",
+                        rule_index: ruleIdx,
+                        match_mode: matchMode,
+                        ...(existing || {})
+                    });
+                }
+            });
+        }
+    });
+    
+    return result;
+  }, [tierItems, activeCategoryData?.rules, sortedTierKeys, allItemDetails, itemTranslationCache, activeCategoryKey, defaultMappingPath]);
 
   const handleContextMenu = (e: React.MouseEvent, tierKey?: string, index?: number) => {
     e.preventDefault();
@@ -477,7 +532,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                 {sortedTierKeys.map((tierKey, index) => {
                     const tierData = activeCategoryData[tierKey];
                     const resolved = resolveStyle(tierData, themeData, themeCategory, soundMap);
-                    const items = tierItems[tierKey] || [];
+                    const items = derivedTierItems[tierKey] || [];
                     const tierNum = tierData.theme?.Tier !== undefined ? tierData.theme.Tier : "?";
                     
                     let displayTierName = language === 'ch' ? `T${tierNum} ${catName}` : `Tier ${tierNum} ${catName}`;
@@ -537,6 +592,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                     setActiveRuleIndex({ tierKey: tKey, index: idx });
                                 }}
                                 categoryRules={activeCategoryData.rules || activeCategoryData._meta?.rules || []}
+                                onRefresh={() => fetchTierItems(sortedTierKeys)}
                             />
                             <RuleManager 
                                 tierKey={tierKey}

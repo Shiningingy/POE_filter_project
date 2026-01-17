@@ -15,11 +15,13 @@ interface Item {
 
 interface Rule {
   targets: string[];
+  targetMatchModes?: Record<string, 'exact' | 'partial'>; // New field
   conditions: Record<string, string>;
   overrides: Record<string, any>;
   comment?: string;
   raw?: string;
   disabled?: boolean;
+  applyToTier?: boolean;
 }
 
 interface TierOption {
@@ -80,6 +82,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   const [targetSearch, setTargetSearch] = useState("");
   const [suggestions, setSuggestions] = useState<any[]>([]);
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, ruleIndex: number } | null>(null);
+  const [itemContextMenu, setItemContextMenu] = useState<{ x: number, y: number, ruleIndex: number, itemName: string } | null>(null);
 
   const tierRulesIndices = useMemo(() => {
     return allRules
@@ -182,6 +185,21 @@ const RuleManager: React.FC<RuleManagerProps> = ({
       handleUpdateRule(globalIndex, { ...rule, disabled: !rule.disabled });
   };
 
+  const toggleItemMatchMode = (globalIndex: number, itemName: string) => {
+      const rule = allRules[globalIndex];
+      const modes = { ...(rule.targetMatchModes || {}) };
+      const current = modes[itemName] || 'exact';
+      modes[itemName] = current === 'exact' ? 'partial' : 'exact';
+      handleUpdateRule(globalIndex, { ...rule, targetMatchModes: modes });
+      setItemContextMenu(null);
+  };
+
+  const handleItemRightClick = (e: React.MouseEvent, globalIndex: number, itemName: string) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setItemContextMenu({ x: e.clientX, y: e.clientY, ruleIndex: globalIndex, itemName });
+  };
+
   const handleMoveRule = (globalIndex: number, newTierKey: string) => {
       const rule = allRules[globalIndex];
       const newOverrides = { ...rule.overrides, Tier: newTierKey };
@@ -261,7 +279,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                 key={globalIndex} 
                 className={`inline-rule-card ${isEditing ? 'editing' : ''} ${rule.disabled ? 'disabled-card' : ''}`}
                 onContextMenu={(e) => handleRightClick(e, globalIndex)}
-                ref={el => ruleRefs.current[globalIndex] = el}
+                ref={el => { ruleRefs.current[globalIndex] = el; }}
             >
               <div className="summary" onClick={() => setEditingAndNotify(isEditing ? null : globalIndex)}>
                 <div className={`rule-badge ${rule.disabled ? 'disabled-badge' : ''}`}>#{localIndex + 1}</div>
@@ -286,50 +304,69 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                     <span>{t.targets}</span>
                   </div>
 
-                  <div className="target-manager">
-                    <div className="target-grid">
-                        {rule.targets.map(tName => {
-                            const item = availableItems.find(i => i.name === tName) || { name: tName, name_ch: translationCache[tName] };
-                            const displayItem = { ...item, rule_index: undefined };
-                            return (
-                                <ItemCard 
-                                    key={tName}
-                                    item={displayItem}
-                                    language={language}
-                                    onDelete={() => removeTarget(globalIndex, tName)}
-                                    className="compact-card"
-                                />
-                            );
-                        })}
-                        {rule.targets.length === 0 && (
-                            <div className="target-class-hint">
-                                📢 {language === 'ch' ? `此规则应用于所有 [${categoryName}]` : `Rule applies to all [${categoryName}]`}
-                            </div>
-                        )}
-                    </div>
-                    
-                    <div className="add-target-box">
-                        <input 
-                            type="text" 
-                            placeholder={t.addItemTarget}
-                            value={targetSearch}
-                            onChange={e => setTargetSearch(e.target.value)}
-                        />
-                        {suggestions.length > 0 && (
-                            <ul className="suggestions-pop">
-                                {suggestions.map(s => (
-                                    <li key={s.name} onClick={() => addTarget(globalIndex, s.name)}>
-                                        <ItemCard 
-                                            item={s}
-                                            language={language}
-                                            showStagedIndicator={false}
-                                        />
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </div>
+                  <div className="tier-apply-toggle">
+                      <label className="checkbox-container">
+                          <input 
+                            type="checkbox" 
+                            checked={!!rule.applyToTier} 
+                            onChange={(e) => handleUpdateRule(globalIndex, { ...rule, applyToTier: e.target.checked })}
+                          />
+                          <span className="checkmark"></span>
+                          <span className="toggle-label">
+                              {language === 'ch' ? "应用至此阶级的所有物品" : "Apply to all items in this Tier"}
+                          </span>
+                      </label>
                   </div>
+
+                  {!rule.applyToTier && (
+                    <div className="target-manager">
+                        <div className="target-grid">
+                                                    {rule.targets.map(tName => {
+                                                        const item = availableItems.find(i => i.name === tName) || { name: tName, name_ch: translationCache[tName] };
+                                                        const displayItem = { ...item, rule_index: undefined };
+                                                        const matchMode = rule.targetMatchModes?.[tName] || 'exact';
+                                                        
+                                                        return (
+                                                            <ItemCard 
+                                                                key={tName}
+                                                                item={displayItem}
+                                                                language={language}
+                                                                onDelete={() => removeTarget(globalIndex, tName)}
+                                                                onContextMenu={(e) => handleItemRightClick(e, globalIndex, tName)}
+                                                                matchMode={matchMode}
+                                                                className="compact-card"
+                                                            />
+                                                        );
+                                                    })}
+                            
+                            {rule.targets.length === 0 && (
+                                <div className="target-empty-hint">{t.targetTooltip}</div>
+                            )}
+                        </div>
+                        
+                        <div className="add-target-box">
+                            <input 
+                                type="text" 
+                                placeholder={t.addItemTarget}
+                                value={targetSearch}
+                                onChange={e => setTargetSearch(e.target.value)}
+                            />
+                            {suggestions.length > 0 && (
+                                <ul className="suggestions-pop">
+                                    {suggestions.map(s => (
+                                        <li key={s.name} onClick={() => addTarget(globalIndex, s.name)}>
+                                            <ItemCard 
+                                                item={s}
+                                                language={language}
+                                                showStagedIndicator={false}
+                                            />
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
+                    </div>
+                  )}
 
                   <div className="section-divider">
                     <span>{t.conditions}</span>
@@ -743,6 +780,16 @@ const RuleManager: React.FC<RuleManagerProps> = ({
         .tier-select { padding: 4px 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem; flex-grow: 1; max-width: 250px; }
         .actions-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; }
 
+        .tier-apply-toggle { margin-bottom: 10px; padding: 5px 0; }
+        .checkbox-container { display: flex; align-items: center; cursor: pointer; font-size: 0.85rem; user-select: none; gap: 10px; }
+        .checkbox-container input { position: absolute; opacity: 0; cursor: pointer; height: 0; width: 0; }
+        .checkmark { height: 18px; width: 18px; background-color: #eee; border-radius: 4px; border: 1px solid #ddd; transition: all 0.2s; position: relative; }
+        .checkbox-container:hover input ~ .checkmark { background-color: #ccc; }
+        .checkbox-container input:checked ~ .checkmark { background-color: #2196F3; border-color: #2196F3; }
+        .checkmark:after { content: ""; position: absolute; display: none; left: 6px; top: 2px; width: 4px; height: 9px; border: solid white; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+        .checkbox-container input:checked ~ .checkmark:after { display: block; }
+        .toggle-label { font-weight: 600; color: #444; }
+
         .theme-overrides-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; background: #fdfdfd; padding: 12px; border-radius: 6px; border: 1px solid #f0f0f0; }
         .color-override-item { display: flex; flex-direction: column; gap: 6px; }
         .color-override-item label { font-size: 0.7rem; color: #888; font-weight: bold; text-transform: uppercase; }
@@ -780,6 +827,22 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                     label: t.deleteRuleLabel,
                     onClick: () => handleDeleteRuleNoConfirm(contextMenu.ruleIndex),
                     className: "delete-option"
+                }
+            ]}
+        />
+      )}
+
+      {itemContextMenu && (
+        <ContextMenu
+            x={itemContextMenu.x}
+            y={itemContextMenu.y}
+            onClose={() => setItemContextMenu(null)}
+            options={[
+                {
+                    label: (allRules[itemContextMenu.ruleIndex].targetMatchModes?.[itemContextMenu.itemName] || 'exact') === 'exact' 
+                        ? (language === 'ch' ? "切换为模糊匹配" : "Switch to Partial Match")
+                        : (language === 'ch' ? "切换为精确匹配" : "Switch to Exact Match"),
+                    onClick: () => toggleItemMatchMode(itemContextMenu.ruleIndex, itemContextMenu.itemName)
                 }
             ]}
         />

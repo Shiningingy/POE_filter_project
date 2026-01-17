@@ -14,6 +14,7 @@ interface TierItem {
   current_tiers?: string[];
   category_ch?: string;
   sub_type?: string;
+  match_mode?: 'exact' | 'partial';
   rule_index?: number | null;
 }
 
@@ -35,6 +36,7 @@ interface TierItemManagerProps {
   language: Language;
   onRuleEdit?: (tierKey: string, ruleIndex: number) => void;
   categoryRules?: any[];
+  onRefresh?: () => void;
 }
 
 const TierItemManager: React.FC<TierItemManagerProps> = ({
@@ -47,7 +49,8 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   onRemoveRuleTarget,
   language,
   onRuleEdit,
-  categoryRules = []
+  categoryRules = [],
+  onRefresh
 }) => {
   const t = useTranslation(language);
   const [isOpen, setIsOpen] = useState(false);
@@ -128,6 +131,24 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
     setContextMenu({ x: e.clientX, y: e.clientY, item });
   };
 
+  const toggleItemMode = async (item: TierItem) => {
+      const currentMode = item.match_mode || 'exact';
+      const newMode = currentMode === 'exact' ? 'partial' : 'exact';
+      
+      try {
+          await axios.post('http://localhost:8000/api/update-item-tier', {
+              item_name: item.name,
+              source_file: item.source,
+              new_tier: tierKey, // Keep same tier
+              match_mode: newMode
+          });
+          if (onRefresh) onRefresh();
+      } catch (err) {
+          console.error("Failed to toggle match mode", err);
+      }
+      setContextMenu(null);
+  };
+
   const getTierColor = (tk: string) => {
     const match = tk.match(/Tier (\d+)/);
     if (!match) return '#ddd';
@@ -186,6 +207,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           key={`${item.name}-${item.rule_index || 'std'}`} 
           item={isRuleItem ? { ...item, rule_index: localBadge } : item}
           language={language}
+          matchMode={item.match_mode || 'exact'}
           onContextMenu={(e) => handleRightClick(e, item)}
           onDelete={
               isLocked 
@@ -279,35 +301,57 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           x={contextMenu.x}
           y={contextMenu.y}
           onClose={() => setContextMenu(null)}
-          options={[
-            ...allTiers.map(tOption => {
-                const isT0ByOrigin = contextMenu.item.current_tiers?.some(tk => {
-                    const opt = allTiers.find(o => o.key === tk);
-                    return opt && opt.show_in_editor === false;
-                });
-                const isLocationLocked = (() => {
-                    const opt = allTiers.find(o => o.key === tierKey);
-                    return opt && opt.show_in_editor === false;
-                })();
-
-                const isLocked = isLocationLocked && isT0ByOrigin && contextMenu.item.rule_index === undefined;
-
-                return {
-                    label: tOption.label,
-                    color: getTierColor(tOption.key),
+          options={
+            contextMenu.item.rule_index !== undefined && contextMenu.item.rule_index !== null
+            ? [
+                { 
+                    label: `🔗 ${t.goToRule}`, 
                     onClick: () => {
-                        if (isT0ByOrigin && tOption.is_hide_tier) {
-                            const confirmMsg = t.t0MoveWarning.replace("{name}", contextMenu.item.name_ch || contextMenu.item.name);
-                            if (!window.confirm(confirmMsg)) return;
-                        }
-                        onMoveItem(contextMenu.item, tOption.key, false, tierKey);
-                    },
-                    disabled: isLocked
-                };
-            }),
-            { label: "divider", onClick: () => {}, divider: true },
-            { label: "🎵 Custom Sound Override", onClick: () => handleSoundOverride(contextMenu.item) }
-          ].map(opt => ({ ...opt, className: opt.label === "divider" ? "divider" : "" }))}
+                        if (onRuleEdit) onRuleEdit(tierKey, contextMenu.item.rule_index!);
+                    } 
+                },
+                { 
+                    label: `🗑 ${t.removeFromRule}`, 
+                    onClick: () => onRemoveRuleTarget(contextMenu.item, contextMenu.item.rule_index!),
+                    className: "delete-option"
+                }
+            ]
+            : [
+                ...allTiers.map(tOption => {
+                    const isT0ByOrigin = contextMenu.item.current_tiers?.some(tk => {
+                        const opt = allTiers.find(o => o.key === tk);
+                        return opt && opt.show_in_editor === false;
+                    });
+                    const isLocationLocked = (() => {
+                        const opt = allTiers.find(o => o.key === tierKey);
+                        return opt && opt.show_in_editor === false;
+                    })();
+
+                    const isLocked = isLocationLocked && isT0ByOrigin && contextMenu.item.rule_index === undefined;
+
+                    return {
+                        label: tOption.label,
+                        color: getTierColor(tOption.key),
+                        onClick: () => {
+                            if (isT0ByOrigin && tOption.is_hide_tier) {
+                                const confirmMsg = t.t0MoveWarning.replace("{name}", contextMenu.item.name_ch || contextMenu.item.name);
+                                if (!window.confirm(confirmMsg)) return;
+                            }
+                            onMoveItem(contextMenu.item, tOption.key, false, tierKey);
+                        },
+                        disabled: isLocked
+                    };
+                }),
+                { label: "divider", onClick: () => {}, divider: true },
+                { 
+                    label: (contextMenu.item.match_mode || 'exact') === 'exact' 
+                        ? `≈ ${language === 'ch' ? "切换为模糊匹配" : "Switch to Partial Match"}`
+                        : `E ${language === 'ch' ? "切换为精确匹配" : "Switch to Exact Match"}`,
+                    onClick: () => toggleItemMode(contextMenu.item)
+                },
+                { label: "🎵 Custom Sound Override", onClick: () => handleSoundOverride(contextMenu.item) }
+            ].map((opt: any) => ({ ...opt, className: opt.label === "divider" ? "divider" : (opt.className || "") }))
+          }
         />
       )}
 
