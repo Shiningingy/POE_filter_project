@@ -61,7 +61,15 @@ export const setupDemoAdapter = () => {
         if (path.endsWith('/api/tier-items')) {
             config.method = 'get';
             setDemoUrl(`${baseURL}demo_data/tier_items.json`);
-            const requestedKeys = JSON.parse(config.data).tier_keys;
+            
+            let requestedKeys = [];
+            try {
+                const data = typeof config.data === 'string' ? JSON.parse(config.data) : config.data;
+                requestedKeys = data.tier_keys || [];
+            } catch (e) {
+                console.error("Failed to parse tier_keys from request data", e);
+            }
+            
             (config as any)._tierKeys = requestedKeys;
         } else if (path.includes('/api/update') || path.includes('/api/config') || path.includes('/api/generate')) {
             config.adapter = async () => {
