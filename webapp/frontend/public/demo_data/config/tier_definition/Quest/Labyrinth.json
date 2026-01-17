@@ -1,0 +1,75 @@
+{
+  "Labyrinth Items": {
+    "_meta": {
+      "theme_category": "Labyrinth Items",
+      "localization": {
+        "en": "Labyrinth Items",
+        "ch": "迷宫物品"
+      },
+      "tier_order": [
+        "Tier 0 Labyrinth Items",
+        "Tier 1 Labyrinth Items",
+        "Tier 2 Labyrinth Items",
+        "Tier Hide Labyrinth Items"
+      ]
+    },
+    "Tier 1 Labyrinth Items": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "白银钥匙.mp3"
+      },
+      "localization": {
+        "en": "Labyrinth Keys",
+        "ch": "迷宫钥匙"
+      }
+    },
+    "Tier 2 Labyrinth Items": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "迷宫饰品.mp3"
+      },
+      "localization": {
+        "en": "Offerings",
+        "ch": "迷宫祭品"
+      }
+    },
+    "Tier 0 Labyrinth Items": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: Absolute Top",
+        "ch": "T0: 顶级/核心"
+      }
+    },
+    "Tier Hide Labyrinth Items": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

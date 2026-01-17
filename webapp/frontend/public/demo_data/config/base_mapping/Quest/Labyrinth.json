@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Offering to the Goddess": "女神祭品",
+        "Dedication to the Goddess": "女神献祭",
+        "Gift to the Goddess": "女神之礼",
+        "Tribute to the Goddess": "女神贡品",
+        "Divine Font": "神圣源泉",
+        "Silver Key": "白银钥匙",
+        "Golden Key": "黄金钥匙",
+        "Treasure Key": "宝藏钥匙",
+        "__class_name__": "迷宫物品"
+      }
+    },
+    "item_class": {
+      "en": "Labyrinth Items",
+      "ch": "迷宫物品"
+    },
+    "theme_category": "Labyrinth Items"
+  },
+  "mapping": {
+    "Silver Key": "Tier 1 Labyrinth Items",
+    "Golden Key": "Tier 1 Labyrinth Items",
+    "Treasure Key": "Tier 1 Labyrinth Items",
+    "Offering to the Goddess": "Tier 2 Labyrinth Items",
+    "Dedication to the Goddess": "Tier 2 Labyrinth Items",
+    "Gift to the Goddess": "Tier 2 Labyrinth Items",
+    "Tribute to the Goddess": "Tier 2 Labyrinth Items"
+  },
+  "rules": []
+}

@@ -1,0 +1,75 @@
+{
+  "Utility Flasks": {
+    "_meta": {
+      "theme_category": "Utility Flasks",
+      "localization": {
+        "en": "Utility Flasks",
+        "ch": "功能药剂"
+      },
+      "tier_order": [
+        "Tier 0 Utility Flasks",
+        "Tier 1 Utility Flasks",
+        "Tier 2 Utility Flasks",
+        "Tier Hide Utility Flasks"
+      ]
+    },
+    "Tier 1 Utility Flasks": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "高级通货.mp3"
+      },
+      "localization": {
+        "en": "T1: Top Utility",
+        "ch": "T1: 顶级功能药剂"
+      }
+    },
+    "Tier 2 Utility Flasks": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "通货.mp3"
+      },
+      "localization": {
+        "en": "T2: Standard",
+        "ch": "T2: 常用功能药剂"
+      }
+    },
+    "Tier Hide Utility Flasks": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    },
+    "Tier 0 Utility Flasks": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: Absolute Top",
+        "ch": "T0: 顶级/核心"
+      }
+    }
+  }
+}

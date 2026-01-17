@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Imperial Claw": "帝国战爪",
+        "Gemini Claw": "双子战爪",
+        "Great White Claw": "白灵之爪",
+        "Terror Claw": "恐惧之牙",
+        "Vaal Claw": "瓦尔战爪",
+        "__class_name__": "爪"
+      }
+    },
+    "item_class": { "en": "Claws", "ch": "爪" },
+    "theme_category": "Claws"
+  },
+  "mapping": {
+    "Imperial Claw": "Tier 1 Claws",
+    "Gemini Claw": "Tier 1 Claws",
+    "Great White Claw": "Tier 1 Claws",
+    "Terror Claw": "Tier 1 Claws",
+    "Vaal Claw": "Tier 1 Claws",
+    "Eye Gouger": "Tier 2 Claws",
+    "Hellion's Paw": "Tier 2 Claws",
+    "Throat Stabber": "Tier 2 Claws"
+  },
+  "rules": [
+    {
+      "targets": ["Imperial Claw", "Gemini Claw", "Great White Claw"],
+      "conditions": { "ItemLevel": ">= 86" },
+      "overrides": { "Tier": "Tier 0 Claws", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i86 Top Claws"
+    },
+    {
+      "targets": ["Imperial Claw", "Gemini Claw", "Great White Claw"],
+      "conditions": { "ItemLevel": ">= 84" },
+      "overrides": { "Tier": "Tier 1 Claws", "PlayAlertSound": ["Sharket掉落音效/精品装备.mp3", 300] },
+      "comment": "i84 Top Claws"
+    }
+  ]
+}

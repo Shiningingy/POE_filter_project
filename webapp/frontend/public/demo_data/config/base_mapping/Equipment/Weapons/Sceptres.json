@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Void Sceptre": "虚空短杖",
+        "Sambar Sceptre": "三首短杖",
+        "Opal Sceptre": "蛋白石短杖",
+        "__class_name__": "短杖"
+      }
+    },
+    "item_class": { "en": "Sceptres", "ch": "短杖" },
+    "theme_category": "Sceptres"
+  },
+  "mapping": {
+    "Void Sceptre": "Tier 1 Sceptres",
+    "Sambar Sceptre": "Tier 1 Sceptres",
+    "Opal Sceptre": "Tier 1 Sceptres"
+  },
+  "rules": [
+    {
+      "targets": ["Void Sceptre", "Sambar Sceptre"],
+      "conditions": { "ItemLevel": ">= 83" },
+      "overrides": { "Tier": "Tier 0 Sceptres", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i83 Top Sceptres"
+    }
+  ]
+}

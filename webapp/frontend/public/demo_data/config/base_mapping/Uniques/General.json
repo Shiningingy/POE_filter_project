@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Mageblood": "法师之血",
+        "Headhunter": "猎首",
+        "Squaire's Shield": "侍从",
+        "Kalandra's Touch": "卡兰德之触",
+        "__class_name__": "传奇物品"
+      }
+    },
+    "item_class": { "en": "Unique Items", "ch": "传奇物品" },
+    "theme_category": "Uniques"
+  },
+  "mapping": {
+    "Mageblood": "Tier 0 Unique Items",
+    "Headhunter": "Tier 0 Unique Items",
+    "Kalandra's Touch": "Tier 0 Unique Items"
+  },
+  "rules": []
+}

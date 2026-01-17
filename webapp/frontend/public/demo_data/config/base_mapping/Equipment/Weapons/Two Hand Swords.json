@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Exquisite Blade": "精华之剑",
+        "Lion Sword": "狮剑",
+        "Vaal Greatsword": "瓦尔大剑",
+        "__class_name__": "双手剑"
+      }
+    },
+    "item_class": { "en": "Two Hand Swords", "ch": "双手剑" },
+    "theme_category": "Two Hand Swords"
+  },
+  "mapping": {
+    "Exquisite Blade": "Tier 1 Two Hand Swords",
+    "Lion Sword": "Tier 1 Two Hand Swords",
+    "Vaal Greatsword": "Tier 1 Two Hand Swords"
+  },
+  "rules": [
+    {
+      "targets": ["Exquisite Blade"],
+      "conditions": { "ItemLevel": ">= 83" },
+      "overrides": { "Tier": "Tier 0 Two Hand Swords", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i83 Top 2H Swords"
+    }
+  ]
+}

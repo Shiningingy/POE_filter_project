@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "__class_name__": "合成装备"
+      }
+    },
+    "item_class": { "en": "Body Armours", "ch": "合成装备" },
+    "theme_category": "Body Armours"
+  },
+  "mapping": {},
+  "rules": [
+    {
+      "targets": [],
+      "conditions": { "SynthesisedItem": "True" },
+      "overrides": { "Tier": "Tier 0 Synthesised" },
+      "comment": "Synthesised Bases"
+    }
+  ]
+}

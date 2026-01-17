@@ -1,0 +1,126 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Maps",
+      "ch": "异界地图"
+    },
+    "theme_category": "Maps",
+    "localization": {
+      "en": {},
+      "ch": {
+        "City Square Map": "城中广场"
+      }
+    },
+    "match_modes": {
+      "City Square Map": "exact"
+    }
+  },
+  "mapping": {
+    "City Square Map": "Tier 2 Base Maps"
+  },
+  "rules": [
+    {
+      "targets": [],
+      "conditions": {
+        "MapTier": "== 17"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps"
+      },
+      "applyToTier": true,
+      "comment": "T17 Maps"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "HasInfluence": "Eldritch Shaper Elder Crusader Redeemer Hunter Warlord"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Base Maps"
+      },
+      "applyToTier": true,
+      "comment": "Influenced Maps"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "MapTier": ">= 14"
+      },
+      "overrides": {
+        "Tier": "Tier 2 Base Maps"
+      },
+      "applyToTier": true,
+      "comment": "Red Maps (T14-T16)"
+    },
+    {
+      "targets": [
+        "City Square Map"
+      ],
+      "conditions": {
+        "MapTier": ">= 14"
+      },
+      "overrides": {
+        "Tier": "Tier 2 Base Maps",
+        "BorderColor": "#00ff00ff",
+        "FontSize": 45
+      },
+      "applyToTier": false,
+      "comment": "Highlight: City Square (Green Border)"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "MapTier": ">= 11"
+      },
+      "overrides": {
+        "Tier": "Tier 3 Base Maps"
+      },
+      "applyToTier": true,
+      "comment": "Mid Reds (T11-T13)"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "MapTier": ">= 6"
+      },
+      "overrides": {
+        "Tier": "Tier 4 Base Maps"
+      },
+      "applyToTier": true,
+      "comment": "Yellow Maps (T6-T10)"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "MapTier": ">= 1"
+      },
+      "overrides": {
+        "Tier": "Tier 5 Base Maps"
+      },
+      "applyToTier": true,
+      "comment": "White Maps (T1-T5)"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "== Rare"
+      },
+      "overrides": {
+        "TextColor": "#ffff00ff"
+      },
+      "applyToTier": true,
+      "comment": "Rarity: Rare (Yellow Text)"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "== Magic"
+      },
+      "overrides": {
+        "TextColor": "#8888ffff"
+      },
+      "applyToTier": true,
+      "comment": "Rarity: Magic (Blue Text)"
+    }
+  ]
+}
