@@ -1,129 +1,101 @@
+import yaml
 import json
+import os
 from pathlib import Path
-from collections import defaultdict
 
-# Mapping for logical category and file names to their Chinese counterparts
-LOCALIZATION_MAP = {
-    # Top Level
-    "Currency": "通货",
-    "Equipment": "装备",
-    "Gems": "宝石",
-    "Maps": "地图",
-    "Divination Cards": "命运卡",
-    "Misc": "杂项",
-    
-    # Sub Groups
-    "General": "通用",
-    "Armour": "护甲",
-    "Weapons": "武器",
-    "Jewellery": "饰品",
-    
-    # Functional Files
-    "Fossils": "化石",
-    "Essences": "精华",
-    "Delirium Orbs": "惊怖宝珠",
-    "Incubators": "孕育石",
-    "Oils & Harvest": "圣油与庄园",
-    "Breach": "裂隙",
-    "Harbinger": "先驱",
-    "Scarabs": "圣甲虫",
-    "Heist": "夺宝",
-    "Expedition": "探险",
-    "Ritual": "仪式",
-    "Eldritch": "古灵",
-    "Cards": "命运卡",
-    "Base Maps": "常规地图",
-    "Fragments": "碎片",
-    "Skill": "技能宝石",
-    "Support": "辅助宝石",
-    "Body Armours": "胸甲",
-    "Boots": "鞋子",
-    "Gloves": "手套",
-    "Helmets": "头部",
-    "Quivers": "箭袋",
-    "Shields": "盾",
-    "Amulets": "项链",
-    "Belts": "腰带",
-    "Rings": "戒指",
-    "Trinkets": "饰品",
-    "Bows": "弓",
-    "Claws": "爪",
-    "Daggers": "匕首",
-    "One Hand Axes": "单手斧",
-    "One Hand Maces": "单手锤",
-    "One Hand Swords": "单手剑",
-    "Rune Daggers": "符文匕首",
-    "Sceptres": "短杖",
-    "Staves": "长杖",
-    "Two Hand Axes": "双手斧",
-    "Two Hand Maces": "双手锤",
-    "Two Hand Swords": "双手剑",
-    "Wands": "法杖",
-    "Warstaves": "战杖",
-    "Fishing Rods": "鱼竿"
-}
+# Paths
+BASE_DIR = Path(__file__).parent.parent
+DATA_DIR = BASE_DIR / "filter_generation" / "data"
+YAML_FILE = DATA_DIR / "category_structure.yaml"
+JSON_FILE = DATA_DIR / "category_structure.json"
 
-def generate_structure():
-    project_root = Path(__file__).parent.parent
-    data_dir = project_root / "filter_generation" / "data"
-    mapping_dir = data_dir / "base_mapping"
+def parse_group(group_key, group_data, path_prefix="", parent_default_target=None):
+    """
+    Parses a dictionary representing a group (Category or Subgroup).
+    Returns a dictionary matching the JSON structure for a Category/Subgroup.
+    """
     
-    structure = {"categories": []}
-    categories_map = {} 
-
-    for json_file in mapping_dir.glob("**/*.json"):
-        rel_path = json_file.relative_to(mapping_dir)
-        parts = rel_path.parts 
-        
-        if len(parts) < 2: continue
-        
-        cat_name = parts[0]
-        file_name = parts[-1]
-        
-        if cat_name not in categories_map:
-            categories_map[cat_name] = {
-                "_meta": { "localization": { "en": cat_name, "ch": LOCALIZATION_MAP.get(cat_name, cat_name) } },
-                "subgroups": defaultdict(list)
+    # Metadata
+    loc_en = group_key
+    loc_ch = group_data.get("_name", group_key)
+    
+    default_target = group_data.get("_default_target", parent_default_target)
+    
+    group_obj = {
+        "_meta": {
+            "localization": {
+                "en": loc_en,
+                "ch": loc_ch
             }
-        
-        sub_name = parts[1] if len(parts) > 2 else "General"
-        
-        mapping_path = f"base_mapping/{rel_path.as_posix()}"
-        tier_path = f"tier_definition/{rel_path.as_posix()}"
-        
-        with open(json_file, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            file_loc_en = file_name.replace(".json", "")
-            # Priority: Manual Map -> Meta Name -> Filename
-            file_loc_ch = LOCALIZATION_MAP.get(file_loc_en, data.get("_meta", {}).get("item_class", {}).get("ch", file_loc_en))
-            target_cat = data.get("_meta", {}).get("theme_category", file_loc_en)
-
-        categories_map[cat_name]["subgroups"][sub_name].append({
-            "path": rel_path.as_posix(),
-            "tier_path": tier_path,
-            "mapping_path": mapping_path,
-            "target_category": target_cat,
-            "localization": { "en": file_loc_en, "ch": file_loc_ch }
-        })
-
-    for cat_name, cat_data in sorted(categories_map.items()):
-        subgroups = []
-        for sub_name, files in sorted(cat_data["subgroups"].items()):
-            subgroups.append({
-                "_meta": { "localization": { "en": sub_name, "ch": LOCALIZATION_MAP.get(sub_name, sub_name) } },
-                "files": sorted(files, key=lambda x: x["localization"]["en"])
-            })
-        
-        category = {
-            "_meta": cat_data["_meta"],
-            "subgroups": subgroups
         }
-        structure["categories"].append(category)
+    }
+    
+    subgroups = []
+    files = []
+    
+    # Iterate through children
+    for key, value in group_data.items():
+        if key.startswith("_"):
+            continue
+            
+        current_path = f"{path_prefix}/{key}" if path_prefix else key
+        
+        # Check if it's a subgroup (dict with _name) or a file
+        is_subgroup = isinstance(value, dict) and "_name" in value
+        
+        if is_subgroup:
+            subgroups.append(parse_group(key, value, current_path, default_target))
+        else:
+            # It's a file
+            # Value can be string (ch name) or dict ({name: ch, target: ...})
+            file_name_ch = value
+            target_cat = default_target
+            
+            if isinstance(value, dict):
+                file_name_ch = value.get("name", key)
+                if "target" in value:
+                    target_cat = value["target"]
+            
+            if target_cat is None:
+                target_cat = key # Default to file key if no default set
+                
+            file_obj = {
+                "path": f"{current_path}.json",
+                "tier_path": f"tier_definition/{current_path}.json",
+                "mapping_path": f"base_mapping/{current_path}.json",
+                "target_category": target_cat,
+                "localization": {
+                    "en": key,
+                    "ch": file_name_ch
+                }
+            }
+            files.append(file_obj)
+            
+    if subgroups:
+        group_obj["subgroups"] = subgroups
+    if files:
+        group_obj["files"] = files
+        
+    return group_obj
 
-    with open(data_dir / "category_structure.json", "w", encoding="utf-8") as f:
-        json.dump(structure, f, indent=2, ensure_ascii=False)
+def main():
+    if not YAML_FILE.exists():
+        print(f"Error: {YAML_FILE} not found.")
+        return
 
-    print("Generated localized category_structure.json")
+    with open(YAML_FILE, "r", encoding="utf-8") as f:
+        yaml_data = yaml.safe_load(f)
+        
+    categories = []
+    for cat_key, cat_data in yaml_data.items():
+        categories.append(parse_group(cat_key, cat_data, path_prefix=cat_key))
+        
+    output = {"categories": categories}
+    
+    with open(JSON_FILE, "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+        
+    print(f"Successfully generated {JSON_FILE}")
 
 if __name__ == "__main__":
-    generate_structure()
+    main()

@@ -45,6 +45,7 @@ interface CategoryViewProps {
   viewerBackground: string;
   tierItems: Record<string, TierItem[]>;
   fetchTierItems: (keys: string[]) => void;
+  defaultMappingPath?: string;
 }
 
 const CategoryView: React.FC<CategoryViewProps> = ({
@@ -58,7 +59,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   onRuleEdit,
   viewerBackground,
   tierItems,
-  fetchTierItems
+  fetchTierItems,
+  defaultMappingPath
 }) => {
   const t = useTranslation(language);
   const [themeData, setThemeData] = useState<any>(null);
@@ -180,14 +182,16 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     });
   };
 
-  const handleMoveItem = async (item: TierItem, newTier: string) => {
+  const handleMoveItem = async (item: TierItem, newTier: string, isAppend: boolean = false, oldTier?: string) => {
     try {
       await axios.post(`${API_BASE_URL}/api/update-item-tier`, {
         item_name: item.name,
         new_tier: newTier,
-        source_file: item.source
+        source_file: item.source || defaultMappingPath,
+        is_append: isAppend,
+        old_tier: oldTier
       });
-      fetchTierItems(Object.keys(tierItems));
+      fetchTierItems(sortedTierKeys);
     } catch (err) {
       console.error("Failed to move item", err);
     }
@@ -204,7 +208,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         overrides: overrides,
         source_file: item.source
       });
-      fetchTierItems(Object.keys(tierItems));
+      fetchTierItems(sortedTierKeys);
     } catch (err) {
       console.error(err);
     }
@@ -303,11 +307,31 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     
     categoryData._meta.tier_order = newOrder;
     updateConfig(newConfig);
+    
+    // Refresh items to include new tier
+    fetchTierItems(newOrder);
   };
 
-  const handleDeleteTier = (tierKey: string) => {
+  const handleDeleteTier = async (tierKey: string) => {
     if (!activeCategoryKey) return;
     if (!confirm(t.confirmDeleteTier)) return;
+
+    // Unassign items first
+    const itemsToUnassign = tierItems[tierKey] || [];
+    if (itemsToUnassign.length > 0) {
+        try {
+            await Promise.all(itemsToUnassign.map(item => 
+                axios.post(`${API_BASE_URL}/api/update-item-tier`, {
+                    item_name: item.name,
+                    new_tier: "",
+                    source_file: item.source
+                })
+            ));
+        } catch (e) {
+            console.error("Failed to unassign items", e);
+            return;
+        }
+    }
 
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
     delete newConfig[activeCategoryKey][tierKey];
@@ -316,6 +340,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         newConfig[activeCategoryKey]._meta.tier_order = newConfig[activeCategoryKey]._meta.tier_order.filter((k: string) => k !== tierKey);
     }
     updateConfig(newConfig);
+    
+    // Refresh items for remaining tiers
+    const remainingKeys = sortedTierKeys.filter(k => k !== tierKey);
+    fetchTierItems(remainingKeys);
   };
 
   const handleRulesChange = (categoryKey: string, newRules: any[], tierKey?: string, tierName?: string, themeCategory?: string) => {
@@ -467,7 +495,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                 onGlobalRulesChange={(newRules) => handleRulesChange(activeCategoryKey, newRules, tierKey, displayTierName, themeCategory)}
                                 onRuleEdit={onRuleEdit}
                                 language={language}
-                                availableItems={items.map(i => i.name)}
+                                availableItems={items}
                                 categoryName={themeCategory}
                                 translationCache={itemTranslationCache}
                             />
@@ -486,7 +514,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
             availableTiers={activeBulkOptions}
             language={language}
             onClose={() => setShowBulkEditor(false)}
-            onSave={() => fetchTierItems(Object.keys(tierItems))}
+            onSave={() => fetchTierItems(sortedTierKeys)}
+            defaultMappingPath={defaultMappingPath}
         />
       )}
 

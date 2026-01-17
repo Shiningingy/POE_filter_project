@@ -1,6 +1,15 @@
 import React, { useState, useMemo } from "react";
 import { useTranslation } from "../utils/localization";
 import type { Language } from "../utils/localization";
+import ItemTooltip from "./ItemTooltip";
+import ItemCard from "./ItemCard";
+
+interface Item {
+  name: string;
+  name_ch?: string;
+  source: string;
+  [key: string]: any;
+}
 
 interface Rule {
   targets: string[];
@@ -16,7 +25,7 @@ interface RuleManagerProps {
   onGlobalRulesChange: (newRules: Rule[]) => void;
   onRuleEdit: (tierKey: string, ruleIndex: number | null) => void;
   language: Language;
-  availableItems: string[];
+  availableItems: Item[];
   categoryName: string;
   translationCache: Record<string, string>; // Kept in interface but unused
 }
@@ -159,6 +168,50 @@ const RuleManager: React.FC<RuleManagerProps> = ({
 
               {isEditing && (
                 <div className="details">
+                  <div className="section-divider">
+                    <span>{t.targets}</span>
+                  </div>
+
+                  <div className="target-manager">
+                    <div className="target-grid">
+                        {rule.targets.map(tName => {
+                            const item = availableItems.find(i => i.name === tName) || { name: tName, name_ch: translationCache[tName] };
+                            return (
+                                <ItemCard 
+                                    key={tName}
+                                    item={item}
+                                    language={language}
+                                    onDelete={() => removeTarget(globalIndex, tName)}
+                                    className="compact-card"
+                                />
+                            );
+                        })}
+                        {rule.targets.length === 0 && <div className="target-empty-hint">{t.targetTooltip}</div>}
+                    </div>
+                    
+                    <div className="add-target-box">
+                        <input 
+                            type="text" 
+                            placeholder={language === 'ch' ? "添加物品目标..." : "Add item target..."}
+                            value={targetSearch}
+                            onChange={e => setTargetSearch(e.target.value)}
+                        />
+                        {suggestions.length > 0 && (
+                            <ul className="suggestions-pop">
+                                {suggestions.map(s => (
+                                    <li key={s.name} onClick={() => addTarget(globalIndex, s.name)}>
+                                        <ItemCard 
+                                            item={s}
+                                            language={language}
+                                            showStagedIndicator={false}
+                                        />
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                  </div>
+
                   <div className="section-divider">
                     <span>{t.conditions}</span>
                   </div>
@@ -440,17 +493,24 @@ const RuleManager: React.FC<RuleManagerProps> = ({
         .section-divider span { font-size: 0.7rem; color: #bbb; font-weight: bold; text-transform: uppercase; white-space: nowrap; }
         .section-divider::after { content: ""; height: 1px; background: #eee; width: 100%; }
 
-        .target-manager { background: #f8f9fa; padding: 10px; border-radius: 6px; border: 1px solid #eee; }
-        .target-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
-        .target-block { display: flex; align-items: center; gap: 6px; background: white; border: 1px solid #dee2e6; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05); color: #222; }
-        .target-block button { background: none; border: none; padding: 0; color: #adb5bd; cursor: pointer; font-size: 1.1rem; line-height: 1; }
-        .target-block button:hover { color: #ff5252; }
+        .target-manager { background: #f8f9fa; padding: 12px; border-radius: 8px; border: 1px solid #eee; display: flex; flex-direction: column; gap: 12px; }
+        .target-grid { display: flex; flex-wrap: wrap; gap: 8px; min-height: 20px; }
+        .target-empty-hint { font-size: 0.75rem; color: #999; font-style: italic; line-height: 1.4; }
         
+        .compact-card { min-width: 140px; max-width: 200px; padding: 6px 10px; }
+
         .add-target-box { position: relative; }
-        .add-target-box input { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem; color: #222; }
-        .suggestions-pop { position: absolute; top: 100%; left: 0; right: 0; z-index: 100; background: white; border: 1px solid #ddd; max-height: 150px; overflow-y: auto; padding: 0; list-style: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 4px; }
-        .suggestions-pop li { padding: 8px 12px; cursor: pointer; font-size: 0.85rem; border-bottom: 1px solid #eee; color: #222; }
-        .suggestions-pop li:hover { background: #f0f7ff; color: #2196F3; }
+        .add-target-box input { width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.85rem; background: #fff; box-sizing: border-box; }
+        .add-target-box input:focus { border-color: #2196F3; outline: none; }
+        
+        .suggestions-pop { 
+            position: absolute; top: 100%; left: 0; right: 0; z-index: 1000; 
+            background: white; border: 1px solid #ddd; border-radius: 6px;
+            max-height: 250px; overflow-y: auto; padding: 5px; list-style: none; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+        }
+        .suggestions-pop li { padding: 2px; cursor: pointer; }
+        .suggestions-pop li:hover { background: #f0f7ff; }
 
         .factors-mini-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
         .mini-factor { display: flex; flex-direction: column; gap: 4px; background: #fcfcfc; padding: 8px; border-radius: 4px; border: 1px solid #f0f0f0; }

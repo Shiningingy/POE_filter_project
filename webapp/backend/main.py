@@ -8,8 +8,9 @@ import subprocess
 import sys
 import time
 import re
+import csv
 from pathlib import Path
-from typing import List, Dict
+from typing import List, Dict, Optional
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -22,24 +23,37 @@ class UpdateItemOverrideRequest(BaseModel):
 
 class UpdateItemTierRequest(BaseModel):
     item_name: str
-    new_tier: str
+    new_tier: Optional[str] = None
     source_file: str
+    is_append: bool = False
+    old_tier: Optional[str] = None
+    new_tiers: Optional[List[str]] = None
 
 class TierItemsRequest(BaseModel):
     tier_keys: List[str]
+    class_filter: Optional[str] = None
 
 # --- Path Definitions ---
 PROJECT_ROOT = Path(__file__).parent.parent.parent.resolve()
 FILTER_GEN_DIR = (PROJECT_ROOT / "filter_generation").resolve()
 CONFIG_DATA_DIR = (FILTER_GEN_DIR / "data").resolve()
 SOUND_FILES_DIR = (PROJECT_ROOT / "sound_files").resolve()
+DATA_DIR = PROJECT_ROOT / "data"
 
 VENV_PYTHON = PROJECT_ROOT / ".venv" / "Scripts" / "python.exe" if sys.platform == "win32" else PROJECT_ROOT / ".venv" / "bin" / "python"
 PYTHON_EXECUTABLE = str(VENV_PYTHON) if VENV_PYTHON.exists() else sys.executable
 
+# --- Globals ---
+ITEM_CLASSES = []
+CLASS_TO_ITEMS = {} # Class -> Set(BaseTypes)
+ITEM_TO_CLASS = {}  # BaseType -> Class
+ITEM_TRANSLATIONS = {} # English Name -> Chinese Name
+CATEGORY_MAP = {} # mapping_path -> ch_name
+
+ITEM_SUBTYPES = {} # BaseType -> STR/DEX/INT
+ITEM_DETAILS = {} # BaseType -> {drop_level, implicit, ...}
+
 # --- Middleware ---
-# Allow CORS for the React frontend
-# Note: allow_origins cannot be "*" if allow_credentials is True
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173"],
@@ -64,6 +78,129 @@ def safe_join(base: Path, path: str):
     except ValueError:
         raise HTTPException(status_code=400, detail="Invalid path traversal")
     return full_path
+
+def load_base_types():
+    global ITEM_CLASSES, CLASS_TO_ITEMS, ITEM_TO_CLASS, ITEM_SUBTYPES
+    csv_path = DATA_DIR / "from_filter_blade" / "BaseTypes.csv"
+    if not csv_path.exists():
+        print("Warning: BaseTypes.csv not found.")
+        return
+
+    print("Loading BaseTypes.csv...")
+    try:
+        with open(csv_path, "r", encoding="utf-8-sig") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                cls = row.get("Class", "").strip()
+                name = row.get("BaseType", "").strip()
+                if cls and name:
+                    if cls not in CLASS_TO_ITEMS:
+                        CLASS_TO_ITEMS[cls] = set()
+                    CLASS_TO_ITEMS[cls].add(name)
+                    ITEM_TO_CLASS[name] = cls
+                    
+                    # Parse attributes and assign game-facing sub-types only for relevant classes
+                    subtype = "Other"
+                    if cls in ["Body Armours", "Gloves", "Boots", "Helmets", "Shields"]:
+                        s = int(row.get("Game:Strength") or 0)
+                        d = int(row.get("Game:Dexterity") or 0)
+                        i = int(row.get("Game:Intelligence") or 0)
+                        
+                        if s > 0 and d == 0 and i == 0: subtype = "Armour"
+                        elif d > 0 and s == 0 and i == 0: subtype = "Evasion Rating"
+                        elif i > 0 and s == 0 and d == 0: subtype = "Energy Shield"
+                        elif s > 0 and d > 0 and i == 0: subtype = "Evasion / Armour"
+                        elif s > 0 and i > 0 and d == 0: subtype = "Armour / ES"
+                        elif d > 0 and i > 0 and s == 0: subtype = "ES / Evasion"
+                        elif s > 0 and d > 0 and i > 0: subtype = "Armour / Evasion / ES"
+                    
+                    ITEM_SUBTYPES[name] = subtype
+                    
+                    # Parse detailed stats
+                    details = {
+                        "drop_level": int(row.get("DropLevel") or 0),
+                        "width": int(row.get("Width") or 1),
+                        "height": int(row.get("Height") or 1),
+                        "implicit": [],
+                        "armour": int(row.get("Game:Armour") or 0),
+                        "armour_max": int(row.get("Game:Armour Max") or 0),
+                        "evasion": int(row.get("Game:Evasion") or 0),
+                        "evasion_max": int(row.get("Game:Evasion Max") or 0),
+                        "energy_shield": int(row.get("Game:Energy Shield") or 0),
+                        "energy_shield_max": int(row.get("Game:Energy Shield Max") or 0),
+                        "damage_min": int(row.get("Game:Damage From") or 0),
+                        "damage_max": int(row.get("Game:Damage To") or 0),
+                        "aps": float(row.get("Game:APS") or 0),
+                        "crit": float(row.get("Game:Crit") or 0),
+                        "dps": float(row.get("Game:DPS") or 0),
+                        "req_str": int(row.get("Game:Strength") or 0),
+                        "req_dex": int(row.get("Game:Dexterity") or 0),
+                        "req_int": int(row.get("Game:Intelligence") or 0),
+                        "item_class": cls,
+                    }
+                    imp1 = row.get("Game:Implicit 1")
+                    imp2 = row.get("Game:Implicit 2")
+                    if imp1: details["implicit"].append(imp1)
+                    if imp2: details["implicit"].append(imp2)
+                    
+                    ITEM_DETAILS[name] = details
+        
+        ITEM_CLASSES = sorted(list(CLASS_TO_ITEMS.keys()))
+        print(f"Loaded {len(ITEM_CLASSES)} item classes.")
+    except Exception as e:
+        print(f"Error loading BaseTypes.csv: {e}")
+
+def load_translations():
+    global ITEM_TRANSLATIONS
+    print("Loading translations...")
+    en_map = {}
+    try:
+        en_path = DATA_DIR / "from_ggpk" / "baseitemtypes.json"
+        if en_path.exists():
+            with open(en_path, "r", encoding="utf-8") as f:
+                en_data = json.load(f)
+                for item in en_data:
+                    if "Id" in item and "Name" in item:
+                        en_map[item["Id"]] = item["Name"]
+    except Exception as e: 
+        print(f"Error loading EN base types: {e}")
+        return
+
+    try:
+        ch_path = DATA_DIR / "from_ggpk" / "ch_simplified" / "baseitemtypes.json"
+        if ch_path.exists():
+            with open(ch_path, "r", encoding="utf-8") as f:
+                ch_data = json.load(f)
+                for item in ch_data:
+                    if "Id" in item and "Name" in item:
+                        en_name = en_map.get(item["Id"])
+                        if en_name:
+                            ITEM_TRANSLATIONS[en_name] = item["Name"]
+        print(f"Loaded {len(ITEM_TRANSLATIONS)} translations.")
+    except Exception as e:
+        print(f"Error loading CH base types: {e}")
+
+def load_category_map():
+    global CATEGORY_MAP
+    print("Loading category map...")
+    try:
+        with open(CONFIG_DATA_DIR / "category_structure.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+            def traverse(node):
+                if "files" in node:
+                    for file in node["files"]:
+                        if "mapping_path" in file and "localization" in file:
+                            CATEGORY_MAP[file["mapping_path"]] = file["localization"].get("ch", "")
+                if "subgroups" in node:
+                    for sub in node["subgroups"]:
+                        traverse(sub)
+                if "categories" in node:
+                    for cat in node["categories"]:
+                        traverse(cat)
+            traverse(data)
+        print(f"Loaded {len(CATEGORY_MAP)} category mappings.")
+    except Exception as e:
+        print(f"Error loading category map: {e}")
 
 # --- Specific Endpoints (Top Priority) ---
 
@@ -118,7 +255,9 @@ def get_rule_templates():
 def search_items(q: str):
     if not q: return {"results": []}
     q_lower = q.lower()
-    results = []
+    results_map = {} # name -> result_obj (to deduplicate)
+
+    # 1. Search in Mappings (Tiered items)
     mappings_dir = CONFIG_DATA_DIR / "base_mapping"
     for file_path in mappings_dir.rglob("*.json"):
         try:
@@ -126,26 +265,182 @@ def search_items(q: str):
                 data = json.load(f)
                 mapping = data.get("mapping", {})
                 trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
+                
+                # Resolve category CH name
+                rel_path = file_path.relative_to(CONFIG_DATA_DIR).as_posix()
+                cat_ch = CATEGORY_MAP.get(rel_path, "")
+
                 for item_name, tier_key in mapping.items():
                     name_ch = trans.get(item_name, "")
                     if q_lower in item_name.lower() or (name_ch and q_lower in name_ch.lower()):
-                        results.append({"name": item_name, "name_ch": name_ch or item_name, "current_tier": tier_key, "source_file": file_path.relative_to(mappings_dir).as_posix()})
-                        if len(results) >= 20: return {"results": results}
+                        details = ITEM_DETAILS.get(item_name, {})
+                        results_map[item_name] = {
+                            "name": item_name, 
+                            "name_ch": name_ch or item_name, 
+                            "current_tier": tier_key, 
+                            "category_ch": cat_ch,
+                            "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
+                            "source_file": file_path.relative_to(mappings_dir).as_posix(),
+                            **details
+                        }
         except: continue
+    
+    # 2. Search in BaseTypes (Untiered items)
+    for cls, items in CLASS_TO_ITEMS.items():
+        for item_name in items:
+            if item_name in results_map: continue
+            
+            name_ch = ITEM_TRANSLATIONS.get(item_name, item_name)
+            
+            if q_lower in item_name.lower() or q_lower in name_ch.lower():
+                details = ITEM_DETAILS.get(item_name, {})
+                results_map[item_name] = {
+                    "name": item_name,
+                    "name_ch": name_ch,
+                    "current_tier": None,
+                    "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
+                    "source_file": None,
+                    **details
+                }
+
+    results = list(results_map.values())
+    results.sort(key=lambda x: x["name"])
+    
+    if len(results) > 50: results = results[:50]
     return {"results": results}
+
+@app.get("/api/item-classes")
+def get_item_classes():
+    return {"classes": ITEM_CLASSES}
+
+@app.get("/api/class-items/{item_class}")
+def get_items_by_class(item_class: str):
+    # Items to explicitly include (based on class filter)
+    if item_class == "All":
+        requested_items = set(ITEM_TO_CLASS.keys())
+    else:
+        requested_items = CLASS_TO_ITEMS.get(item_class, set())
+    
+    item_data = {} 
+    
+    # Pre-populate requested items
+    for name in requested_items:
+        details = ITEM_DETAILS.get(name, {})
+        item_data[name] = {
+            "name": name,
+            "name_ch": ITEM_TRANSLATIONS.get(name, name),
+            "sub_type": ITEM_SUBTYPES.get(name, "Other"),
+            **details,
+            "current_tier": [], 
+            "source_file": None
+        }
+
+    # Scan all mappings to find current tiers AND include tiered items from other classes
+    mappings_dir = CONFIG_DATA_DIR / "base_mapping"
+    for file_path in mappings_dir.rglob("*.json"):
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                mapping = data.get("mapping", {})
+                trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
+                for item_name, tier_val in mapping.items():
+                    # If item is not in requested_items but is in a mapping, we still want it!
+                    if item_name not in item_data:
+                        details = ITEM_DETAILS.get(item_name, {})
+                        item_data[item_name] = {
+                            "name": item_name,
+                            "name_ch": ITEM_TRANSLATIONS.get(item_name, item_name),
+                            "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
+                            **details,
+                            "current_tier": [],
+                            "source_file": None
+                        }
+                    
+                    tiers = tier_val if isinstance(tier_val, list) else [tier_val]
+                    current_list = item_data[item_name]["current_tier"]
+                    for t in tiers:
+                        if t not in current_list:
+                            current_list.append(t)
+                    
+                    item_data[item_name]["source_file"] = file_path.relative_to(mappings_dir).as_posix()
+                    if item_name in trans:
+                        item_data[item_name]["name_ch"] = trans[item_name]
+        except: continue
+        
+    return {"items": list(item_data.values())}
 
 # --- Action Endpoints ---
 
 @app.post("/api/update-item-tier")
 def update_item_tier(request: UpdateItemTierRequest):
-    file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
+    if not request.source_file:
+        raise HTTPException(status_code=422, detail="Source file is required")
+    
+    if request.source_file.startswith("base_mapping/"):
+        file_path = safe_join(CONFIG_DATA_DIR, request.source_file)
+    else:
+        file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
+
     try:
         with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
         mapping = data.get("mapping", {})
-        if not request.new_tier:
-            if request.item_name in mapping: del mapping[request.item_name]
+        
+        # 1. Update Localization
+        if "_meta" not in data: data["_meta"] = {}
+        if "localization" not in data["_meta"]: data["_meta"]["localization"] = {"en": {}, "ch": {}}
+        
+        # Ensure 'ch' dict exists
+        if "ch" not in data["_meta"]["localization"]: data["_meta"]["localization"]["ch"] = {}
+        
+        if request.item_name not in data["_meta"]["localization"]["ch"]:
+            trans = ITEM_TRANSLATIONS.get(request.item_name)
+            if trans:
+                data["_meta"]["localization"]["ch"][request.item_name] = trans
+
+        # 2. Update Mapping
+        if request.new_tiers is not None:
+            # Set exact list (bulk editor)
+            if not request.new_tiers:
+                if request.item_name in mapping: del mapping[request.item_name]
+            else:
+                mapping[request.item_name] = request.new_tiers
+        elif not request.new_tier:
+            if request.item_name in mapping:
+                current = mapping[request.item_name]
+                if request.old_tier and isinstance(current, list) and request.old_tier in current:
+                    current.remove(request.old_tier)
+                    if not current: del mapping[request.item_name]
+                    else: mapping[request.item_name] = current
+                elif request.old_tier and current == request.old_tier:
+                    del mapping[request.item_name]
+                elif not request.old_tier: # Delete all
+                    del mapping[request.item_name]
         else:
-            mapping[request.item_name] = request.new_tier
+            current = mapping.get(request.item_name)
+            if request.is_append:
+                if current:
+                    if isinstance(current, list):
+                        if request.new_tier not in current:
+                            current.append(request.new_tier)
+                            mapping[request.item_name] = current
+                    elif current != request.new_tier:
+                        mapping[request.item_name] = [current, request.new_tier]
+                else:
+                    mapping[request.item_name] = request.new_tier
+            elif request.old_tier and current:
+                # Move specific instance
+                if isinstance(current, list):
+                    if request.old_tier in current:
+                        current.remove(request.old_tier)
+                    if request.new_tier not in current:
+                        current.append(request.new_tier)
+                    mapping[request.item_name] = current
+                elif current == request.old_tier:
+                    mapping[request.item_name] = request.new_tier
+            else:
+                # Overwrite (Reset)
+                mapping[request.item_name] = request.new_tier
+            
         data["mapping"] = mapping
         with open(file_path, "w", encoding="utf-8") as f: json.dump(data, f, indent=2, ensure_ascii=False)
         return {"message": "Success"}
@@ -153,7 +448,11 @@ def update_item_tier(request: UpdateItemTierRequest):
 
 @app.post("/api/update-item-override")
 def update_item_override(request: UpdateItemOverrideRequest):
-    file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
+    if request.source_file.startswith("base_mapping/"):
+        file_path = safe_join(CONFIG_DATA_DIR, request.source_file)
+    else:
+        file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
+
     try:
         with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
         rules = data.get("rules", [])
@@ -179,10 +478,28 @@ def get_items_by_tier(request: TierItemsRequest):
                 data = json.load(f)
                 mapping = data.get("mapping", {})
                 trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
-                for item_name, tier_key in mapping.items():
-                    if tier_key in tier_keys_set:
-                        result[tier_key].append({"name": item_name, "name_ch": trans.get(item_name, item_name), "source": file_path.relative_to(mappings_dir).as_posix()})
+                
+                for item_name, tier_val in mapping.items():
+                    if request.class_filter:
+                        item_class = ITEM_TO_CLASS.get(item_name)
+                        if item_class != request.class_filter:
+                            continue
+                    
+                    tiers = tier_val if isinstance(tier_val, list) else [tier_val]
+                    
+                    for tier_key in tiers:
+                        if tier_key in tier_keys_set:
+                            details = ITEM_DETAILS.get(item_name, {})
+                            result[tier_key].append({
+                                "name": item_name, 
+                                "name_ch": trans.get(item_name, item_name), 
+                                "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
+                                "source": file_path.relative_to(mappings_dir).as_posix(),
+                                **details
+                            })
         except: continue
+    
+    # Untiered calculation omitted here to simplify (usually handled by class-items endpoint for bulk)
     return {"items": result}
 
 @app.post("/api/generate")
@@ -251,3 +568,6 @@ if SOUND_FILES_DIR.exists():
 @app.on_event("startup")
 async def startup_event():
     print(f"Backend 1.0.3 started. Project: {PROJECT_ROOT}")
+    load_base_types()
+    load_translations()
+    load_category_map()

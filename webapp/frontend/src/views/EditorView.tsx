@@ -259,6 +259,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                   viewerBackground={viewerBackground}
                   tierItems={tierItems}
                   fetchTierItems={fetchTierItems}
+                  defaultMappingPath={selectedFile.mapping_path}
                 />
             )}
           </div>
