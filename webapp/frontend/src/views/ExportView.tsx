@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface ExportViewProps {
   onGenerate: () => void;
@@ -9,6 +9,8 @@ interface ExportViewProps {
 }
 
 const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, filterContent, gameMode }) => {
+  const lastDownloadedContent = useRef<string | null>(null);
+
   const triggerDownload = (content: string) => {
     const extension = gameMode === 'ruthless' ? '.ruthlessfilter' : '.filter';
     const blob = new Blob([content], { type: 'text/plain' });
@@ -20,14 +22,15 @@ const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, f
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+    lastDownloadedContent.current = content;
   };
 
-  // Auto-trigger download when generation completes
+  // Auto-trigger download when generation completes and content is NEW
   useEffect(() => {
-    if (filterContent && !loading && message.includes("Success")) {
+    if (filterContent && !loading && filterContent !== lastDownloadedContent.current) {
         triggerDownload(filterContent);
     }
-  }, [filterContent, loading, message]);
+  }, [filterContent, loading]);
 
   const extensionLabel = gameMode === 'ruthless' ? '.ruthlessfilter' : '.filter';
 
