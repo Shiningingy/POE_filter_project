@@ -226,9 +226,28 @@ def list_available_sounds():
 
 @app.get("/api/sounds/proxy")
 def proxy_local_sound(path: str):
+    # If it's an absolute path (from user disk), use it directly
     p = Path(path)
-    if not p.is_file(): raise HTTPException(status_code=404, detail="File not found.")
-    return FileResponse(path)
+    if not p.is_absolute():
+        # Otherwise, assume it's relative to our sound_files folder
+        p = SOUND_FILES_DIR / p
+    
+    print(f"DEBUG PROXY: Requested '{path}' -> Resolved '{p}' (Exists: {p.exists()})")
+    
+    if not p.is_file(): 
+        raise HTTPException(status_code=404, detail=f"File not found: {p}")
+    return FileResponse(p, media_type="audio/mpeg", content_disposition_type="inline")
+
+@app.get("/api/debug/sounds")
+def debug_sounds():
+    files = []
+    if SOUND_FILES_DIR.exists():
+        for root, dirs, fnames in os.walk(SOUND_FILES_DIR):
+            for f in fnames:
+                try:
+                    files.append(str(Path(root) / f))
+                except: pass
+    return {"root": str(SOUND_FILES_DIR), "files": files[:100]} # Limit to 100
 
 @app.get("/api/generated-filter")
 def get_generated_filter():

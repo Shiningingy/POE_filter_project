@@ -10,6 +10,7 @@ interface SortableTierBlockProps {
   onContextMenu: (e: React.MouseEvent) => void;
   onInsertBefore: () => void;
   onInsertAfter: () => void;
+  onClick?: (e: React.MouseEvent) => void;
   language: Language;
   tooltips: {
     drag: string;
@@ -26,6 +27,7 @@ const SortableTierBlock: React.FC<SortableTierBlockProps> = ({
   onContextMenu,
   onInsertBefore,
   onInsertAfter,
+  onClick,
   language,
   tooltips
 }) => {
@@ -71,7 +73,7 @@ const SortableTierBlock: React.FC<SortableTierBlockProps> = ({
             </div>
         </div>
 
-        <div className="tier-content">
+        <div className="tier-content" onClick={onClick}>
             {children}
         </div>
 

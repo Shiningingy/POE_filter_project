@@ -24,7 +24,7 @@
       },
       "sound": {
         "default_sound_id": 6,
-        "sharket_sound_id": "Sharket_Sound_6.mp3"
+        "sharket_sound_id": "超级通货"
       },
       "localization": {
         "en": "T0: Absolute Top",
@@ -38,7 +38,7 @@
       },
       "sound": {
         "default_sound_id": 1,
-        "sharket_sound_id": "Sharket_Sound_5.mp3"
+        "sharket_sound_id": "高级通货"
       },
       "localization": {
         "en": "T1: Divine+",
@@ -52,7 +52,7 @@
       },
       "sound": {
         "default_sound_id": 2,
-        "sharket_sound_id": "Sharket_Sound_4.mp3"
+        "sharket_sound_id": "高级通货"
       },
       "localization": {
         "en": "T2: High Value",
@@ -66,7 +66,7 @@
       },
       "sound": {
         "default_sound_id": 2,
-        "sharket_sound_id": "Sharket_Sound_3.mp3"
+        "sharket_sound_id": "通货"
       },
       "localization": {
         "en": "T3: Exalt Level",
@@ -80,7 +80,7 @@
       },
       "sound": {
         "default_sound_id": 2,
-        "sharket_sound_id": "Sharket_Sound_2.mp3"
+        "sharket_sound_id": "通货"
       },
       "localization": {
         "en": "T4: Chaos Level",
@@ -94,7 +94,7 @@
       },
       "sound": {
         "default_sound_id": -1,
-        "sharket_sound_id": "Sharket_Sound_1.mp3"
+        "sharket_sound_id": null
       },
       "localization": {
         "en": "T5: Low Value",

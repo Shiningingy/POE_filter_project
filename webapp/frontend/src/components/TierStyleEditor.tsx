@@ -191,7 +191,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   const applyIcon = () => {
     handleChange(
       "MinimapIcon",
-      `${tempIcon.size} ${tempIcon.color} ${tempIcon.shape}`
+      `${tempIcon.size} ${tempIcon.color} ${tempIcon.shape}`,
     );
     setShowIconPopup(false);
   };
@@ -199,7 +199,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   const applyBeam = () => {
     handleChange(
       "PlayEffect",
-      `${tempBeam.color}${tempBeam.isTemp ? " Temp" : ""}`
+      `${tempBeam.color}${tempBeam.isTemp ? " Temp" : ""}`,
     );
     setShowBeamPopup(false);
   };
@@ -207,7 +207,11 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   const handleTestSound = () => {
     const audio = new Audio(getSoundUrl(tempSound.file));
     audio.volume = Math.min(1, tempSound.vol / 300);
-    audio.play().catch((err) => alert("Play failed: " + err.message));
+    audio
+      .play()
+      .catch((err) =>
+        alert("Play failed " + getSoundUrl(tempSound.file) + " " + err.message),
+      );
   };
 
   const toggleVisibility = () => {
@@ -269,7 +273,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
 
   const toggleColor = (
     key: keyof StyleProps,
-    currentValue: string | null | undefined
+    currentValue: string | null | undefined,
   ) => {
     if (!currentValue) {
       handleChange(key, key === "BackgroundColor" ? "#000000ff" : "#ffffffff");
@@ -313,10 +317,10 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   const filteredSounds =
     tempSound.type === "default"
       ? availableSounds.defaults.filter((s) =>
-          s.toLowerCase().includes(soundSearch.toLowerCase())
+          s.toLowerCase().includes(soundSearch.toLowerCase()),
         )
       : availableSounds.sharket.filter((s) =>
-          s.toLowerCase().includes(soundSearch.toLowerCase())
+          s.toLowerCase().includes(soundSearch.toLowerCase()),
         );
 
   return (
@@ -324,7 +328,9 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
       className={`VisualEditor_Container tier-style-editor ${
         visibility ? "hidden-tier" : ""
       }`}
-      style={{ backgroundImage: `url('${getAssetUrl(`assets/item_bg/${viewerBackground}`)}')` }}
+      style={{
+        backgroundImage: `url('${getAssetUrl(`assets/item_bg/${viewerBackground}`)}')`,
+      }}
       onClick={onInspect}
     >
       {/* Modals Section */}
@@ -443,6 +449,19 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
               </div>
             </div>
             <div className="popup-footer">
+              <div
+                className="current-sound-path"
+                style={{
+                  fontSize: "0.7em",
+                  color: "#888",
+                  marginBottom: "8px",
+                  width: "100%",
+                  wordBreak: "break-all",
+                  textAlign: "center",
+                }}
+              >
+                {tempSound.file || "No File"}
+              </div>
               <button className="test-btn" onClick={handleTestSound}>
                 {t.testSound} 🔊
               </button>
@@ -536,8 +555,8 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                         tempIcon.size === 0
                           ? "small"
                           : tempIcon.size === 1
-                          ? "medium"
-                          : "large"
+                            ? "medium"
+                            : "large"
                       ]
                     }{" "}
                     {(t as any)[tempIcon.color]}{" "}
@@ -684,8 +703,8 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
               key === "TextColor"
                 ? t.text
                 : key === "BorderColor"
-                ? t.border
-                : t.background;
+                  ? t.border
+                  : t.background;
             const val = (style as any)[key];
             return (
               <div key={key} className="color-row">
@@ -697,7 +716,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                   onChange={(e) =>
                     handleChange(
                       key as keyof StyleProps,
-                      hexToRgba(e.target.value, key as keyof StyleProps)
+                      hexToRgba(e.target.value, key as keyof StyleProps),
                     )
                   }
                 />
@@ -735,8 +754,8 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                       {key === "TextColor"
                         ? t.text
                         : key === "BorderColor"
-                        ? t.border
-                        : t.background}
+                          ? t.border
+                          : t.background}
                     </label>
                     <input
                       type="number"
@@ -768,18 +787,18 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
               color: visibility
                 ? "#555"
                 : isColorActive(style.TextColor)
-                ? hexToCssRgba(style.TextColor, true)
-                : "#000000",
+                  ? hexToCssRgba(style.TextColor, true)
+                  : "#000000",
               borderColor: visibility
                 ? "#333"
                 : isColorActive(style.BorderColor)
-                ? hexToCssRgba(style.BorderColor, true)
-                : "transparent",
+                  ? hexToCssRgba(style.BorderColor, true)
+                  : "transparent",
               backgroundColor: visibility
                 ? "#1a1a1a"
                 : isColorActive(style.BackgroundColor)
-                ? hexToCssRgba(style.BackgroundColor, true)
-                : "#000000",
+                  ? hexToCssRgba(style.BackgroundColor, true)
+                  : "#000000",
               borderStyle: "solid",
               borderWidth: isColorActive(style.BorderColor) ? "1px" : "0",
               opacity: visibility ? 0.6 : 1,
@@ -790,7 +809,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 style={getIconStyle(
                   style.MinimapIcon.split(" ")[1],
                   style.MinimapIcon.split(" ")[2],
-                  0.8
+                  0.8,
                 )}
               ></div>
             )}
@@ -854,7 +873,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                   style={getIconStyle(
                     style.MinimapIcon.split(" ")[1],
                     style.MinimapIcon.split(" ")[2],
-                    0.6
+                    0.6,
                   )}
                 ></div>
               )}

@@ -289,6 +289,7 @@ const EditorView: React.FC<EditorViewProps> = ({
         onPasteStyle={handlePasteStyle}
         onAddRulePreset={handleAddRulePreset}
         onRemoveRule={handleRemoveRule}
+        onDeselectRule={() => setEditingRuleIndex(null)}
         language={language}
         viewerBackground={viewerBackground}
         setViewerBackground={setViewerBackground}
