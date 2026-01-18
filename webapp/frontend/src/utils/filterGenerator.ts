@@ -230,15 +230,17 @@ export const generateFilter = (data: GeneratorData): string => {
       const basePlayEff = ttheme.PlayEffect;
       const baseMiniIcon = ttheme.MinimapIcon;
 
-      const allRules = [...(mapDoc.rules || [])];
+      // Create a fresh deep copy of rules for this tier
+      const allRules = JSON.parse(JSON.stringify(mapDoc.rules || []));
 
       // Auto-Inject Sound Rules
       const btSounds = soundMap?.basetype_sounds || {};
       items.forEach(item => {
         if (btSounds[item]) {
           const sData = btSounds[item];
-          const handled = allRules.some(r => r.targets?.includes(item));
+          const handled = allRules.some((r: any) => r.targets?.includes(item));
           if (!handled) {
+            console.log(`TS GENERATOR: Injecting auto-sound for ${item}`);
             allRules.push({
               targets: [item],
               overrides: { PlayAlertSound: [sData.file, sData.volume] },

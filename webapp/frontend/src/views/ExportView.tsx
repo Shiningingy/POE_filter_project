@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface ExportViewProps {
   onGenerate: () => void;
@@ -9,10 +9,9 @@ interface ExportViewProps {
 }
 
 const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, filterContent, gameMode }) => {
-  const handleDownload = () => {
-    if (!filterContent) return;
+  const triggerDownload = (content: string) => {
     const extension = gameMode === 'ruthless' ? '.ruthlessfilter' : '.filter';
-    const blob = new Blob([filterContent], { type: 'text/plain' });
+    const blob = new Blob([content], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -22,6 +21,13 @@ const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, f
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   };
+
+  // Auto-trigger download when generation completes
+  useEffect(() => {
+    if (filterContent && !loading && message.includes("Success")) {
+        triggerDownload(filterContent);
+    }
+  }, [filterContent, loading, message]);
 
   const extensionLabel = gameMode === 'ruthless' ? '.ruthlessfilter' : '.filter';
 
@@ -33,18 +39,12 @@ const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, f
       
       <div className="content-area">
         <div className="card">
-          <h3>Generate Filter</h3>
-          <p>Compile your configurations into a downloadable {extensionLabel} file.</p>
+          <h3>Compile & Download</h3>
+          <p>Generate your customized {extensionLabel} file and download it immediately.</p>
           <div className="btn-group">
             <button onClick={onGenerate} disabled={loading} className="generate-btn">
-              {loading ? 'Generating...' : 'Generate Filter'}
+              {loading ? 'Generating...' : 'Generate & Download'}
             </button>
-            
-            {filterContent && (
-              <button onClick={handleDownload} className="download-btn">
-                Download {extensionLabel} File
-              </button>
-            )}
           </div>
           {message && <div className="log-output">{message}</div>}
         </div>

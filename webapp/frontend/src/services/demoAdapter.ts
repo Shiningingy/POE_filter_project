@@ -96,8 +96,6 @@ export const setupDemoAdapter = () => {
                 const bundle = await loadBundle();
                 if (!bundle) return { data: { message: "Error: No bundle" }, status: 500, statusText: 'Error', headers: {}, config };
 
-                const themeRes = await axios.get(`${baseURL}demo_data/theme_sharket.json`, { baseURL: '' });
-                
                 // Merge User modifications from VFS
                 const mergedMappings = { ...bundle.mappings };
                 const mergedTiers = { ...bundle.tiers };
@@ -115,15 +113,15 @@ export const setupDemoAdapter = () => {
                 });
 
                 const filterText = generateFilter({
-                    themeData: themeRes.data.theme_data,
-                    soundMap: themeRes.data.sound_map_data,
+                    themeData: bundle.theme,
+                    soundMap: bundle.soundMap,
                     allMappings: mergedMappings,
                     allTierDefinitions: mergedTiers,
                     language: 'ch'
                 });
 
                 localStorage.setItem('demo_generated_filter', filterText);
-                return { data: { message: "Success (Generated in Demo)" }, status: 200, statusText: 'OK', headers: {}, config };
+                return { data: { message: "Success (Generated in Demo)", content: filterText }, status: 200, statusText: 'OK', headers: {}, config };
             };
         } else if (path.includes('/api/update-item-tier') || path.includes('/api/update-item-override')) {
              config.adapter = async () => {

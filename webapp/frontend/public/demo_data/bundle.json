@@ -9639,5 +9639,2312 @@
         }
       }
     }
+  },
+  "theme": {
+    "Currency": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ff0000ff",
+        "BorderColor": "#ff0000ff",
+        "BackgroundColor": "#ffffffff",
+        "PlayEffect": "Red",
+        "MinimapIcon": "RedStar"
+      },
+      "Tier 1": {
+        "FontSize": 42,
+        "TextColor": "#e700e7ff",
+        "BorderColor": "#e700e7ff",
+        "BackgroundColor": "#ffffffff",
+        "PlayEffect": "Red",
+        "MinimapIcon": "RedStar"
+      },
+      "Tier 2": {
+        "FontSize": 40,
+        "TextColor": "#3400ffff",
+        "BorderColor": "#3400ffff",
+        "BackgroundColor": "#ffffffff",
+        "PlayEffect": "Red",
+        "MinimapIcon": "RedStar"
+      },
+      "Tier 3": {
+        "FontSize": 37,
+        "TextColor": "#000000ff",
+        "BorderColor": "#000000ff",
+        "BackgroundColor": "#f05a23ff",
+        "PlayEffect": "Orange",
+        "MinimapIcon": "OrangeCircle"
+      },
+      "Tier 4": {
+        "FontSize": 35,
+        "TextColor": "#000000ff",
+        "BorderColor": "#000000ff",
+        "BackgroundColor": "#d59f00ff",
+        "PlayEffect": "Yellow",
+        "MinimapIcon": "YellowCircle"
+      },
+      "Tier 5": {
+        "FontSize": 32,
+        "TextColor": "#000000ff",
+        "BorderColor": "#000000ff",
+        "BackgroundColor": "#d2b287ff",
+        "PlayEffect": "Grey",
+        "MinimapIcon": "GreyCircle"
+      },
+      "Tier 6": {
+        "FontSize": 30,
+        "TextColor": "#000000ff",
+        "BorderColor": "#404040ff",
+        "BackgroundColor": "#a0a0a0ff"
+      },
+      "Tier 7": {
+        "FontSize": 30,
+        "TextColor": "#202020ff",
+        "BorderColor": "#606060ff",
+        "BackgroundColor": "#b0b0b0ff"
+      },
+      "Tier 8": {
+        "FontSize": 30,
+        "TextColor": "#404040ff",
+        "BorderColor": "#808080ff",
+        "BackgroundColor": "#c0c0c0ff"
+      },
+      "Tier 9": {
+        "FontSize": 30,
+        "TextColor": "#606060ff",
+        "BorderColor": "#a0a0a0ff",
+        "BackgroundColor": "#d1d1d1ff"
+      }
+    },
+    "Stackable Currency": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ff0000ff",
+        "BorderColor": "#ff0000ff",
+        "BackgroundColor": "#ffffffff",
+        "PlayEffect": "Red",
+        "MinimapIcon": "RedStar"
+      },
+      "Tier 1": {
+        "FontSize": 42,
+        "TextColor": "#e700e7ff",
+        "BorderColor": "#e700e7ff",
+        "BackgroundColor": "#ffffffff",
+        "PlayEffect": "Red",
+        "MinimapIcon": "RedStar"
+      },
+      "Tier 2": {
+        "FontSize": 40,
+        "TextColor": "#3400ffff",
+        "BorderColor": "#3400ffff",
+        "BackgroundColor": "#ffffffff",
+        "PlayEffect": "Red",
+        "MinimapIcon": "RedStar"
+      },
+      "Tier 3": {
+        "FontSize": 37,
+        "TextColor": "#000000ff",
+        "BorderColor": "#000000ff",
+        "BackgroundColor": "#f05a23ff"
+      },
+      "Tier 4": {
+        "FontSize": 35,
+        "TextColor": "#000000ff",
+        "BorderColor": "#000000ff",
+        "BackgroundColor": "#d59f00ff"
+      },
+      "Tier 5": {
+        "FontSize": 32,
+        "TextColor": "#000000ff",
+        "BorderColor": "#000000ff",
+        "BackgroundColor": "#d2b287ff"
+      }
+    },
+    "Essences": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#00ffffff",
+        "BackgroundColor": "#400080ff",
+        "PlayEffect": "Cyan",
+        "MinimapIcon": "CyanStar"
+      },
+      "Tier 1": {
+        "FontSize": 42,
+        "TextColor": "#00ffffff",
+        "BorderColor": "#00ffffff",
+        "BackgroundColor": "#200040ff",
+        "PlayEffect": "Cyan",
+        "MinimapIcon": "CyanCircle"
+      },
+      "Tier 2": {
+        "FontSize": 40,
+        "TextColor": "#00ffffff",
+        "BackgroundColor": "#100020ff"
+      }
+    },
+    "Fossils": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#ffaa00ff",
+        "BackgroundColor": "#402000ff",
+        "PlayEffect": "Orange",
+        "MinimapIcon": "YellowStar"
+      },
+      "Tier 1": {
+        "FontSize": 42,
+        "TextColor": "#ffaa00ff",
+        "BorderColor": "#ffaa00ff",
+        "BackgroundColor": "#201000ff",
+        "PlayEffect": "Orange",
+        "MinimapIcon": "YellowCircle"
+      },
+      "Tier 2": {
+        "FontSize": 40,
+        "TextColor": "#ffaa00ff",
+        "BackgroundColor": "#100800ff"
+      }
+    },
+    "Delirium Orbs": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#000000ff",
+        "BorderColor": "#ffffffff",
+        "BackgroundColor": "#a0a0a0ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "WhiteStar"
+      },
+      "Tier 1": {
+        "FontSize": 42,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#a0a0a0ff",
+        "BackgroundColor": "#202020ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "WhiteCircle"
+      },
+      "Tier 2": {
+        "FontSize": 40,
+        "TextColor": "#a0a0a0ff",
+        "BackgroundColor": "#101010ff"
+      }
+    },
+    "Harvest": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#3400ffff",
+        "BackgroundColor": "#001040ff",
+        "PlayEffect": "Blue",
+        "MinimapIcon": "BlueStar"
+      },
+      "Tier 1": {
+        "FontSize": 42,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#3400ffff",
+        "BackgroundColor": "#202020ff",
+        "PlayEffect": "Blue",
+        "MinimapIcon": "BlueCircle"
+      },
+      "Tier 2": {
+        "FontSize": 40,
+        "TextColor": "#3400ffff",
+        "BackgroundColor": "#202020ff"
+      },
+      "Tier 3": {
+        "FontSize": 35,
+        "TextColor": "#a0a0a0ff",
+        "BackgroundColor": "#202020ff"
+      }
+    },
+    "Quest Items": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#00ff00ff",
+        "BackgroundColor": "#004000ff",
+        "PlayEffect": "Green",
+        "MinimapIcon": "GreenStar"
+      },
+      "Tier 1": {
+        "FontSize": 42,
+        "TextColor": "#00ff00ff",
+        "BorderColor": "#00ff00ff",
+        "BackgroundColor": "#002000ff",
+        "PlayEffect": "Green",
+        "MinimapIcon": "GreenCircle"
+      },
+      "Tier 2": {
+        "FontSize": 40,
+        "TextColor": "#00ff00ff",
+        "BackgroundColor": "#001000ff"
+      }
+    },
+    "Labyrinth Items": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#00ffffff",
+        "BackgroundColor": "#004040ff",
+        "PlayEffect": "Cyan",
+        "MinimapIcon": "CyanStar"
+      },
+      "Tier 1": {
+        "FontSize": 42,
+        "TextColor": "#00ffffff",
+        "BorderColor": "#00ffffff",
+        "BackgroundColor": "#002020ff",
+        "PlayEffect": "Cyan",
+        "MinimapIcon": "CyanCircle"
+      },
+      "Tier 2": {
+        "FontSize": 40,
+        "TextColor": "#00ffffff",
+        "BackgroundColor": "#001010ff"
+      }
+    },
+    "Gold": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ffaa00ff",
+        "BorderColor": "#ffaa00ff",
+        "BackgroundColor": "#202020ff",
+        "PlayEffect": "Orange",
+        "MinimapIcon": "YellowStar"
+      },
+      "Tier 1": {
+        "FontSize": 40,
+        "TextColor": "#ffaa00ff",
+        "BorderColor": "#ffaa00ff",
+        "BackgroundColor": "#202020ff",
+        "MinimapIcon": "YellowCircle"
+      },
+      "Tier 2": {
+        "FontSize": 35,
+        "TextColor": "#aaaaaaff",
+        "BackgroundColor": "#202020ff"
+      }
+    },
+    "Uniques": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#ff0000ff",
+        "BackgroundColor": "#703500ff",
+        "PlayEffect": "Red",
+        "MinimapIcon": "RedStar"
+      },
+      "Tier 1": {
+        "FontSize": 42,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#ffffffff",
+        "BackgroundColor": "#402000ff",
+        "PlayEffect": "Orange",
+        "MinimapIcon": "OrangeStar"
+      },
+      "Tier 2": {
+        "FontSize": 40,
+        "TextColor": "#000000ff",
+        "BorderColor": "#000000ff",
+        "BackgroundColor": "#af6025ff",
+        "PlayEffect": "Orange",
+        "MinimapIcon": "OrangeCircle"
+      },
+      "Tier 3": {
+        "FontSize": 35,
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#703500ff"
+      }
+    },
+    "Divination Cards": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ff0000ff",
+        "BorderColor": "#ff0000ff",
+        "BackgroundColor": "#ffffffff",
+        "PlayEffect": "Red",
+        "MinimapIcon": "RedStar"
+      },
+      "Tier 1": {
+        "FontSize": 42,
+        "TextColor": "#00ffffff",
+        "BorderColor": "#00ffffff",
+        "BackgroundColor": "#002040ff",
+        "PlayEffect": "Blue",
+        "MinimapIcon": "BlueStar"
+      },
+      "Tier 2": {
+        "FontSize": 40,
+        "TextColor": "#00ffffff",
+        "BackgroundColor": "#001020ff",
+        "PlayEffect": "Blue",
+        "MinimapIcon": "BlueCircle"
+      },
+      "Tier 3": {
+        "FontSize": 35,
+        "TextColor": "#a0a0a0ff",
+        "BackgroundColor": "#000810ff"
+      }
+    },
+    "Maps": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#64007aff",
+        "BorderColor": "#64007aff",
+        "BackgroundColor": "#ffffffff",
+        "PlayEffect": "Red",
+        "MinimapIcon": "RedStar"
+      },
+      "Tier 1": {
+        "FontSize": 42,
+        "TextColor": "#3400ffff",
+        "BorderColor": "#3400ffff",
+        "BackgroundColor": "#ffffffff",
+        "PlayEffect": "Blue",
+        "MinimapIcon": "BlueStar"
+      },
+      "Tier 2": {
+        "FontSize": 40,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#ff0000ff",
+        "BackgroundColor": "#202020ff",
+        "PlayEffect": "Red",
+        "MinimapIcon": "RedSquare"
+      },
+      "Tier 3": {
+        "FontSize": 37,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#ff0000ff",
+        "BackgroundColor": "#202020ff",
+        "PlayEffect": "Red",
+        "MinimapIcon": "RedCircle"
+      },
+      "Tier 4": {
+        "FontSize": 35,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#ffff00ff",
+        "BackgroundColor": "#202020ff",
+        "PlayEffect": "Yellow",
+        "MinimapIcon": "YellowSquare"
+      },
+      "Tier 5": {
+        "FontSize": 32,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#ffffffff",
+        "BackgroundColor": "#202020ff",
+        "MinimapIcon": "GreySquare"
+      }
+    },
+    "Map Fragments": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#ff0000ff",
+        "BackgroundColor": "#400000ff",
+        "PlayEffect": "Red",
+        "MinimapIcon": "RedStar"
+      },
+      "Tier 1": {
+        "FontSize": 42,
+        "TextColor": "#ff0000ff",
+        "BorderColor": "#ff0000ff",
+        "BackgroundColor": "#202020ff",
+        "PlayEffect": "Red",
+        "MinimapIcon": "RedCircle"
+      },
+      "Tier 2": {
+        "FontSize": 40,
+        "TextColor": "#ff0000ff",
+        "BackgroundColor": "#101010ff"
+      }
+    },
+    "Gems": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#ffffffff",
+        "BackgroundColor": "#008080ff",
+        "PlayEffect": "Cyan",
+        "MinimapIcon": "CyanStar"
+      },
+      "Tier 1": {
+        "FontSize": 42,
+        "TextColor": "#00ffffff",
+        "BorderColor": "#00ffffff",
+        "BackgroundColor": "#004040ff",
+        "PlayEffect": "Cyan",
+        "MinimapIcon": "CyanCircle"
+      },
+      "Tier 2": {
+        "FontSize": 40,
+        "TextColor": "#00ffffff",
+        "BackgroundColor": "#002020ff"
+      }
+    },
+    "Jewels": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#ffffffff",
+        "BackgroundColor": "#400080ff",
+        "PlayEffect": "Purple",
+        "MinimapIcon": "PurpleStar"
+      },
+      "Tier 1": {
+        "FontSize": 42,
+        "TextColor": "#ff00ffff",
+        "BorderColor": "#ff00ffff",
+        "BackgroundColor": "#200040ff",
+        "PlayEffect": "Purple",
+        "MinimapIcon": "PurpleCircle"
+      },
+      "Tier 2": {
+        "FontSize": 40,
+        "TextColor": "#ff00ffff",
+        "BackgroundColor": "#100020ff"
+      }
+    },
+    "Life Flasks": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#800000ff",
+        "BorderColor": "#ffffffff"
+      },
+      "Tier 1": {
+        "FontSize": 40,
+        "TextColor": "#ff0000ff",
+        "BackgroundColor": "#200000ff",
+        "BorderColor": "#ff0000ff"
+      },
+      "Tier 2": {
+        "FontSize": 35,
+        "TextColor": "#aaaaaaff",
+        "BackgroundColor": "#100000ff"
+      }
+    },
+    "Mana Flasks": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#000080ff",
+        "BorderColor": "#ffffffff"
+      },
+      "Tier 1": {
+        "FontSize": 40,
+        "TextColor": "#0000ffff",
+        "BackgroundColor": "#200020ff",
+        "BorderColor": "#0000ffff"
+      },
+      "Tier 2": {
+        "FontSize": 35,
+        "TextColor": "#aaaaaaff",
+        "BackgroundColor": "#000010ff"
+      }
+    },
+    "Utility Flasks": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#404040ff",
+        "BorderColor": "#ffffffff"
+      },
+      "Tier 1": {
+        "FontSize": 40,
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#202020ff"
+      },
+      "Tier 2": {
+        "FontSize": 35,
+        "TextColor": "#aaaaaaff",
+        "BackgroundColor": "#101010ff"
+      }
+    },
+    "Body Armours": {
+      "Tier 0": {
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#004000ff",
+        "BorderColor": "#ffffffff",
+        "PlayEffect": "Green",
+        "MinimapIcon": "GreenStar"
+      },
+      "Tier 1": {
+        "FontSize": 40,
+        "TextColor": "#ffff00ff",
+        "BackgroundColor": "#002000ff",
+        "BorderColor": "#ffff00ff"
+      },
+      "Tier 2": {
+        "FontSize": 35,
+        "TextColor": "#ffff00ff",
+        "BackgroundColor": "#001000ff"
+      }
+    }
+  },
+  "soundMap": {
+    "basetype_sounds": {
+      "Mirror of Kalandra": {
+        "type": "custom",
+        "file": "Sharket掉落音效/卡兰德的魔镜.mp3",
+        "volume": 300
+      },
+      "Eternal Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/永恒宝珠.mp3",
+        "volume": 300
+      },
+      "Awakener's Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/觉醒者之石.mp3",
+        "volume": 300
+      },
+      "Tempering Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/回火石.mp3",
+        "volume": 300
+      },
+      "Tailoring Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/裁剪石.mp3",
+        "volume": 300
+      },
+      "Tainted Orb of Fusing": {
+        "type": "custom",
+        "file": "Sharket掉落音效/污秽链结石.mp3",
+        "volume": 300
+      },
+      "Tainted Exalted Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/污秽崇高石.mp3",
+        "volume": 300
+      },
+      "Tainted Chaos Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/污秽混沌石.mp3",
+        "volume": 300
+      },
+      "Tainted Chromatic Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/污秽幻色石.mp3",
+        "volume": 300
+      },
+      "Tainted Jeweller's Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/污秽工匠石.mp3",
+        "volume": 300
+      },
+      "Eldritch Chaos Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/古灵混沌石.mp3",
+        "volume": 300
+      },
+      "Eldritch Exalted Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/古灵崇高石.mp3",
+        "volume": 300
+      },
+      "Eldritch Orb of Annulment": {
+        "type": "custom",
+        "file": "Sharket掉落音效/古灵剥离石.mp3",
+        "volume": 300
+      },
+      "Exalted Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/崇高石.mp3",
+        "volume": 300
+      },
+      "Orb of Annulment": {
+        "type": "custom",
+        "file": "Sharket掉落音效/剥离石.mp3",
+        "volume": 300
+      },
+      "Divine Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/神圣石.mp3",
+        "volume": 300
+      },
+      "Sacred Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/崇神石.mp3",
+        "volume": 300
+      },
+      "Fracturing Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/破溃宝珠.mp3",
+        "volume": 300
+      },
+      "Orb of Dominance": {
+        "type": "custom",
+        "file": "Sharket掉落音效/统御宝珠.mp3",
+        "volume": 300
+      },
+      "Reflecting Mist": {
+        "type": "custom",
+        "file": "Sharket掉落音效/倒映薄雾.mp3",
+        "volume": 300
+      },
+      "Albino Rhoa Feather": {
+        "type": "custom",
+        "file": "Sharket掉落音效/白化的羽毛.mp3",
+        "volume": 300
+      },
+      "Ancient Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/远古石.mp3",
+        "volume": 300
+      },
+      "Harbinger's Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/先驱石.mp3",
+        "volume": 300
+      },
+      "Regal Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/富豪石.mp3",
+        "volume": 300
+      },
+      "Orb of Binding": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高阶点金石.mp3",
+        "volume": 300
+      },
+      "Orb of Alchemy": {
+        "type": "custom",
+        "file": "Sharket掉落音效/点金石.mp3",
+        "volume": 300
+      },
+      "Chaos Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/混沌石.mp3",
+        "volume": 300
+      },
+      "Vaal Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/瓦尔宝珠.mp3",
+        "volume": 300
+      },
+      "Orb of Regret": {
+        "type": "custom",
+        "file": "Sharket掉落音效/后悔石.mp3",
+        "volume": 300
+      },
+      "Orb of Scouring": {
+        "type": "custom",
+        "file": "Sharket掉落音效/重铸石.mp3",
+        "volume": 300
+      },
+      "Tainted Blacksmith's Whetstone": {
+        "type": "custom",
+        "file": "Sharket掉落音效/污秽磨刀石.mp3",
+        "volume": 200
+      },
+      "Tainted Armourer's Scrap": {
+        "type": "custom",
+        "file": "Sharket掉落音效/污秽护甲片.mp3",
+        "volume": 200
+      },
+      "Orb of Fusing": {
+        "type": "custom",
+        "file": "Sharket掉落音效/链结石.mp3",
+        "volume": 200
+      },
+      "Orb of Unmaking": {
+        "type": "custom",
+        "file": "Sharket掉落音效/粉碎石.mp3",
+        "volume": 200
+      },
+      "Orb of Chance": {
+        "type": "custom",
+        "file": "Sharket掉落音效/机会石.mp3",
+        "volume": 200
+      },
+      "Orb of Alteration": {
+        "type": "custom",
+        "file": "Sharket掉落音效/改造石.mp3",
+        "volume": 200
+      },
+      "Orb of Horizons": {
+        "type": "custom",
+        "file": "Sharket掉落音效/平行石.mp3",
+        "volume": 200
+      },
+      "Blessed Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/祝福石.mp3",
+        "volume": 200
+      },
+      "Jeweller's Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/工匠石.mp3",
+        "volume": 100
+      },
+      "Chromatic Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/幻色石.mp3",
+        "volume": 100
+      },
+      "Orb of Augmentation": {
+        "type": "custom",
+        "file": "Sharket掉落音效/增幅石.mp3",
+        "volume": 100
+      },
+      "Orb of Transmutation": {
+        "type": "custom",
+        "file": "Sharket掉落音效/蜕变石.mp3",
+        "volume": 100
+      },
+      "Cartographer's Chisel": {
+        "type": "custom",
+        "file": "Sharket掉落音效/制图钉.mp3",
+        "volume": 100
+      },
+      "Glassblower's Bauble": {
+        "type": "custom",
+        "file": "Sharket掉落音效/玻璃弹珠.mp3",
+        "volume": 100
+      },
+      "Blacksmith's Whetstone": {
+        "type": "custom",
+        "file": "Sharket掉落音效/磨刀石.mp3",
+        "volume": 100
+      },
+      "Armourer's Scrap": {
+        "type": "custom",
+        "file": "Sharket掉落音效/护甲片.mp3",
+        "volume": 100
+      },
+      "Engineer's Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/制箱岩.mp3",
+        "volume": 100
+      },
+      "Portal Scroll": {
+        "type": "custom",
+        "file": "Sharket掉落音效/传送卷轴.mp3",
+        "volume": 100
+      },
+      "Scroll of Wisdom": {
+        "type": "custom",
+        "file": "Sharket掉落音效/知识卷轴.mp3",
+        "volume": 100
+      },
+      "Fracturing Shard": {
+        "type": "custom",
+        "file": "Sharket掉落音效/破溃碎片.mp3",
+        "volume": 300
+      },
+      "Perandus Coin": {
+        "type": "custom",
+        "file": "Sharket掉落音效/普兰德斯金币.mp3",
+        "volume": 100
+      },
+      "Golden Key": {
+        "type": "custom",
+        "file": "Sharket掉落音效/黄金钥匙.mp3",
+        "volume": 200
+      },
+      "Silver Key": {
+        "type": "custom",
+        "file": "Sharket掉落音效/白银钥匙.mp3",
+        "volume": 200
+      },
+      "Treasure Key": {
+        "type": "custom",
+        "file": "Sharket掉落音效/古铜钥匙.mp3",
+        "volume": 200
+      },
+      "Bestiary Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/封魔之玉.mp3",
+        "volume": 200
+      },
+      "Delirium Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/雾魇宝珠.mp3",
+        "volume": 200
+      },
+      "Time-light Scroll": {
+        "type": "custom",
+        "file": "Sharket掉落音效/时光卷轴.mp3",
+        "volume": 300
+      },
+      "Electroshock Scroll": {
+        "type": "custom",
+        "file": "Sharket掉落音效/电击卷轴.mp3",
+        "volume": 300
+      },
+      "Specularity Scroll": {
+        "type": "custom",
+        "file": "Sharket掉落音效/光棱卷轴.mp3",
+        "volume": 300
+      },
+      "Deregulation Scroll": {
+        "type": "custom",
+        "file": "Sharket掉落音效/解除卷轴.mp3",
+        "volume": 300
+      },
+      "Fragmentation Scroll": {
+        "type": "custom",
+        "file": "Sharket掉落音效/破碎卷轴.mp3",
+        "volume": 300
+      },
+      "Haemocombustion Scroll": {
+        "type": "custom",
+        "file": "Sharket掉落音效/焚血卷轴.mp3",
+        "volume": 300
+      },
+      "Facetor's Lens": {
+        "type": "custom",
+        "file": "Sharket掉落音效/费斯特的透镜.mp3",
+        "volume": 300
+      },
+      "Crescent Splinter": {
+        "type": "custom",
+        "file": "Sharket掉落音效/新月裂片.mp3",
+        "volume": 300
+      },
+      "Ritual Splinter": {
+        "type": "custom",
+        "file": "Sharket掉落音效/驱灵裂片.mp3",
+        "volume": 100
+      },
+      "Exotic Coinage": {
+        "type": "custom",
+        "file": "Sharket掉落音效/异域铸币.mp3",
+        "volume": 200
+      },
+      "Scrap Metal": {
+        "type": "custom",
+        "file": "Sharket掉落音效/废金属.mp3",
+        "volume": 200
+      },
+      "Burial Medallion": {
+        "type": "custom",
+        "file": "Sharket掉落音效/葬礼徽章.mp3",
+        "volume": 200
+      },
+      "Tainted Divine Teardrop": {
+        "type": "custom",
+        "file": "Sharket掉落音效/污染神泪.mp3",
+        "volume": 300
+      },
+      "Tainted Mythic Orb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/污秽神秘石.mp3",
+        "volume": 300
+      },
+      "Tainted Blessing": {
+        "type": "custom",
+        "file": "Sharket掉落音效/污秽祝福.mp3",
+        "volume": 200
+      },
+      "Orb of Conflict": {
+        "type": "custom",
+        "file": "Sharket掉落音效/冲突石.mp3",
+        "volume": 300
+      },
+      "Weapon Recombinator": {
+        "type": "custom",
+        "file": "Sharket掉落音效/武器重组器.mp3",
+        "volume": 300
+      },
+      "Armour Recombinator": {
+        "type": "custom",
+        "file": "Sharket掉落音效/护甲重组器.mp3",
+        "volume": 300
+      },
+      "Jewellery Recombinator": {
+        "type": "custom",
+        "file": "Sharket掉落音效/珠宝重组器.mp3",
+        "volume": 300
+      },
+      "Power Core": {
+        "type": "custom",
+        "file": "Sharket掉落音效/力量核心.mp3",
+        "volume": 200
+      },
+      "Allflame": {
+        "type": "custom",
+        "file": "Sharket掉落音效/不灭之火.mp3",
+        "volume": 300
+      },
+      "Empty Coffin": {
+        "type": "custom",
+        "file": "Sharket掉落音效/空棺材.mp3",
+        "volume": 100
+      },
+      "Chronicle of Atzoatl": {
+        "type": "custom",
+        "file": "Sharket掉落音效/阿佐亚特编年史.mp3",
+        "volume": 300
+      },
+      "Inscribed Ultimatum": {
+        "type": "custom",
+        "file": "Sharket掉落音效/贪婪战书.mp3",
+        "volume": 300
+      },
+      "Simulacrum": {
+        "type": "custom",
+        "file": "Sharket掉落音效/梦魇拟像.mp3",
+        "volume": 300
+      },
+      "Tribute to the Goddess": {
+        "type": "custom",
+        "file": "Sharket掉落音效/女神贡品.mp3",
+        "volume": 200
+      },
+      "Gift to the Goddess": {
+        "type": "custom",
+        "file": "Sharket掉落音效/女神之礼.mp3",
+        "volume": 200
+      },
+      "Offering to the Goddess": {
+        "type": "custom",
+        "file": "Sharket掉落音效/女神祭品.mp3",
+        "volume": 100
+      },
+      "Divine Vessel": {
+        "type": "custom",
+        "file": "Sharket掉落音效/禁灵之瓶.mp3",
+        "volume": 100
+      },
+      "The Maven's Writ": {
+        "type": "custom",
+        "file": "Sharket掉落音效/贤主敕令.mp3",
+        "volume": 300
+      },
+      "Blood-filled Vessel": {
+        "type": "custom",
+        "file": "Sharket掉落音效/浸血法器.mp3",
+        "volume": 200
+      },
+      "Sacred Blossom": {
+        "type": "custom",
+        "file": "Sharket掉落音效/神圣之花.mp3",
+        "volume": 300
+      },
+      "Mirrored Tablet": {
+        "type": "custom",
+        "file": "Sharket掉落音效/镜像桌台.mp3",
+        "volume": 100
+      },
+      "An Audience With The King": {
+        "type": "custom",
+        "file": "Sharket掉落音效/谒王之约.mp3",
+        "volume": 300
+      },
+      "Mortal Hope": {
+        "type": "custom",
+        "file": "Sharket掉落音效/凡人的希望.mp3",
+        "volume": 300
+      },
+      "Pit of the Chimera Map": {
+        "type": "custom",
+        "file": "Sharket掉落音效/奇美拉领域.mp3",
+        "volume": 300
+      },
+      "Lair of the Hydra Map": {
+        "type": "custom",
+        "file": "Sharket掉落音效/九头蛇巢穴.mp3",
+        "volume": 300
+      },
+      "Maze of the Minotaur Map": {
+        "type": "custom",
+        "file": "Sharket掉落音效/牛头人迷宫.mp3",
+        "volume": 300
+      },
+      "Forge of the Phoenix Map": {
+        "type": "custom",
+        "file": "Sharket掉落音效/不死鸟锻台.mp3",
+        "volume": 300
+      },
+      "Vaal Temple Map": {
+        "type": "custom",
+        "file": "Sharket掉落音效/瓦尔密殿.mp3",
+        "volume": 300
+      },
+      "Blight-ravaged Map": {
+        "type": "custom",
+        "file": "Sharket掉落音效/菌潮灭绝地图.mp3",
+        "volume": 300
+      },
+      "Blighted Map": {
+        "type": "custom",
+        "file": "Sharket掉落音效/菌潮地图.mp3",
+        "volume": 300
+      },
+      "Purity of Elements": {
+        "type": "custom",
+        "file": "Sharket掉落音效/元素净化.mp3",
+        "volume": 300
+      },
+      "Temporal Rift": {
+        "type": "custom",
+        "file": "Sharket掉落音效/时空裂隙.mp3",
+        "volume": 300
+      },
+      "Portal": {
+        "type": "custom",
+        "file": "Sharket掉落音效/时空之门.mp3",
+        "volume": 300
+      },
+      "The Maven's Beacon": {
+        "type": "custom",
+        "file": "Sharket掉落音效/贤主信标.mp3",
+        "volume": 300
+      },
+      "Medicine Chest": {
+        "type": "custom",
+        "file": "Sharket掉落音效/医药箱.mp3",
+        "volume": 200
+      },
+      "Sanctified Relic": {
+        "type": "custom",
+        "file": "Sharket掉落音效/圣洁遗物.mp3",
+        "volume": 300
+      },
+      "Ornate Quiver": {
+        "type": "custom",
+        "file": "Sharket掉落音效/华美箭袋.mp3",
+        "volume": 200
+      },
+      "Grasping Mail": {
+        "type": "custom",
+        "file": "Sharket掉落音效/扼杀链甲.mp3",
+        "volume": 200
+      },
+      "Ruby Amulet": {
+        "type": "custom",
+        "file": "Sharket掉落音效/血色护身符.mp3",
+        "volume": 200
+      },
+      "Unset Amulet": {
+        "type": "custom",
+        "file": "Sharket掉落音效/潜能项链.mp3",
+        "volume": 200
+      },
+      "Jet Amulet": {
+        "type": "custom",
+        "file": "Sharket掉落音效/杰特护身符.mp3",
+        "volume": 200
+      },
+      "Jet Ring": {
+        "type": "custom",
+        "file": "Sharket掉落音效/杰特戒指.mp3",
+        "volume": 200
+      },
+      "Avian Slippers": {
+        "type": "custom",
+        "file": "Sharket掉落音效/飞羽便鞋.mp3",
+        "volume": 200
+      },
+      "Vermillion Ring": {
+        "type": "custom",
+        "file": "Sharket掉落音效/朱砂之戒.mp3",
+        "volume": 200
+      },
+      "Spiked Gloves": {
+        "type": "custom",
+        "file": "Sharket掉落音效/扣钉手套.mp3",
+        "volume": 200
+      },
+      "Gripped Gloves": {
+        "type": "custom",
+        "file": "Sharket掉落音效/擒拿手套.mp3",
+        "volume": 200
+      },
+      "Fingerless Silk Gloves": {
+        "type": "custom",
+        "file": "Sharket掉落音效/丝绸手套.mp3",
+        "volume": 200
+      },
+      "Apothecary's Gloves": {
+        "type": "custom",
+        "file": "Sharket掉落音效/药剂师手套.mp3",
+        "volume": 200
+      },
+      "Fugitive Boots": {
+        "type": "custom",
+        "file": "Sharket掉落音效/逃亡之靴.mp3",
+        "volume": 200
+      },
+      "Bone Helmet": {
+        "type": "custom",
+        "file": "Sharket掉落音效/唤骨头盔.mp3",
+        "volume": 200
+      },
+      "Blue Pearl Amulet": {
+        "type": "custom",
+        "file": "Sharket掉落音效/碧珠护身符.mp3",
+        "volume": 200
+      },
+      "Marble Amulet": {
+        "type": "custom",
+        "file": "Sharket掉落音效/大理石护身符.mp3",
+        "volume": 200
+      },
+      "Seaglass Amulet": {
+        "type": "custom",
+        "file": "Sharket掉落音效/海晶护符.mp3",
+        "volume": 200
+      },
+      "Steel Ring": {
+        "type": "custom",
+        "file": "Sharket掉落音效/合金戒指.mp3",
+        "volume": 200
+      },
+      "Opal Ring": {
+        "type": "custom",
+        "file": "Sharket掉落音效/蛋白石戒指.mp3",
+        "volume": 200
+      },
+      "Cerulean Ring": {
+        "type": "custom",
+        "file": "Sharket掉落音效/天蓝之戒.mp3",
+        "volume": 200
+      },
+      "Iolite Ring": {
+        "type": "custom",
+        "file": "Sharket掉落音效/青石戒指.mp3",
+        "volume": 200
+      },
+      "Vanguard Belt": {
+        "type": "custom",
+        "file": "Sharket掉落音效/先锋腰带.mp3",
+        "volume": 200
+      },
+      "Crystal Belt": {
+        "type": "custom",
+        "file": "Sharket掉落音效/水晶腰带.mp3",
+        "volume": 200
+      },
+      "Artillery Quiver": {
+        "type": "custom",
+        "file": "Sharket掉落音效/火炮箭袋.mp3",
+        "volume": 200
+      },
+      "Stygian Vise": {
+        "type": "custom",
+        "file": "Sharket掉落音效/深渊腰带.mp3",
+        "volume": 200
+      },
+      "The Sigil": {
+        "type": "custom",
+        "file": "Sharket掉落音效/魔符.mp3",
+        "volume": 100
+      },
+      "Astrolabe Amulet": {
+        "type": "custom",
+        "file": "Sharket掉落音效/星盘项链.mp3",
+        "volume": 300
+      },
+      "Simplex Amulet": {
+        "type": "custom",
+        "file": "Sharket掉落音效/朴实项链.mp3",
+        "volume": 300
+      },
+      "Breach Ring": {
+        "type": "custom",
+        "file": "Sharket掉落音效/裂隙戒指.mp3",
+        "volume": 200
+      },
+      "Sacrificial Garb": {
+        "type": "custom",
+        "file": "Sharket掉落音效/祭礼束衣.mp3",
+        "volume": 200
+      },
+      "Granite Flask": {
+        "type": "custom",
+        "file": "Sharket掉落音效/坚岩药剂.mp3",
+        "volume": 200
+      },
+      "Convoking Wand": {
+        "type": "custom",
+        "file": "Sharket掉落音效/召集法杖.mp3",
+        "volume": 200
+      },
+      "Amethyst Ring": {
+        "type": "custom",
+        "file": "Sharket掉落音效/紫晶戒指.mp3",
+        "volume": 200
+      },
+      "Timeless Jewel": {
+        "type": "custom",
+        "file": "Sharket掉落音效/永恒珠宝.mp3",
+        "volume": 300
+      },
+      "Prismatic Jewel": {
+        "type": "custom",
+        "file": "Sharket掉落音效/三相珠宝.mp3",
+        "volume": 300
+      },
+      "Quartz Flask": {
+        "type": "custom",
+        "file": "Sharket掉落音效/石英药剂.mp3",
+        "volume": 200
+      },
+      "Quicksilver Flask": {
+        "type": "custom",
+        "file": "Sharket掉落音效/水银药剂.mp3",
+        "volume": 200
+      },
+      "Iron Flask": {
+        "type": "custom",
+        "file": "Sharket掉落音效/坚铁药剂.mp3",
+        "volume": 200
+      }
+    },
+    "class_sounds": {
+      "优质底材": {
+        "type": "custom",
+        "file": "Sharket掉落音效/优质底材.mp3",
+        "volume": 200
+      },
+      "哇哦运气真好": {
+        "type": "custom",
+        "file": "Sharket掉落音效/哇哦运气真好.mp3",
+        "volume": 300
+      },
+      "超级崇高石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/超级崇高石.mp3",
+        "volume": 300
+      },
+      "矫正透镜": {
+        "type": "custom",
+        "file": "Sharket掉落音效/矫正透镜.mp3",
+        "volume": 300
+      },
+      "超级通货": {
+        "type": "custom",
+        "file": "Sharket掉落音效/超级通货.mp3",
+        "volume": 300
+      },
+      "命运卡组": {
+        "type": "custom",
+        "file": "Sharket掉落音效/命运卡组.mp3",
+        "volume": 300
+      },
+      "宝石棱镜": {
+        "type": "custom",
+        "file": "Sharket掉落音效/宝石棱镜.mp3",
+        "volume": 300
+      },
+      "灌注制箱岩": {
+        "type": "custom",
+        "file": "Sharket掉落音效/灌注制箱岩.mp3",
+        "volume": 300
+      },
+      "高级通货": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级通货.mp3",
+        "volume": 200
+      },
+      "镜子碎掉": {
+        "type": "custom",
+        "file": "Sharket掉落音效/镜子碎掉.mp3",
+        "volume": 300
+      },
+      "通货碎片": {
+        "type": "custom",
+        "file": "Sharket掉落音效/通货碎片.mp3",
+        "volume": 100
+      },
+      "迷宫饰品": {
+        "type": "custom",
+        "file": "Sharket掉落音效/迷宫饰品.mp3",
+        "volume": 200
+      },
+      "是精华哎": {
+        "type": "custom",
+        "file": "Sharket掉落音效/是精华哎.mp3",
+        "volume": 300
+      },
+      "精华": {
+        "type": "custom",
+        "file": "Sharket掉落音效/精华.mp3",
+        "volume": 200
+      },
+      "裂隙祝福": {
+        "type": "custom",
+        "file": "Sharket掉落音效/裂隙祝福.mp3",
+        "volume": 300
+      },
+      "夏乌拉碎片": {
+        "type": "custom",
+        "file": "Sharket掉落音效/夏乌拉碎片.mp3",
+        "volume": 200
+      },
+      "裂隙碎片": {
+        "type": "custom",
+        "file": "Sharket掉落音效/裂隙碎片.mp3",
+        "volume": 100
+      },
+      "赛季石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/赛季石.mp3",
+        "volume": 200
+      },
+      "么加油": {
+        "type": "custom",
+        "file": "Sharket掉落音效/么加油.mp3",
+        "volume": 200
+      },
+      "大地初子": {
+        "type": "custom",
+        "file": "Sharket掉落音效/大地初子.mp3",
+        "volume": 300
+      },
+      "暗夜初子": {
+        "type": "custom",
+        "file": "Sharket掉落音效/暗夜初子.mp3",
+        "volume": 300
+      },
+      "深海初子": {
+        "type": "custom",
+        "file": "Sharket掉落音效/深海初子.mp3",
+        "volume": 300
+      },
+      "苍空初子": {
+        "type": "custom",
+        "file": "Sharket掉落音效/苍空初子.mp3",
+        "volume": 300
+      },
+      "传奇野兽": {
+        "type": "custom",
+        "file": "Sharket掉落音效/传奇野兽.mp3",
+        "volume": 300
+      },
+      "稀有野兽": {
+        "type": "custom",
+        "file": "Sharket掉落音效/稀有野兽.mp3",
+        "volume": 300
+      },
+      "封魔印": {
+        "type": "custom",
+        "file": "Sharket掉落音效/封魔印.mp3",
+        "volume": 200
+      },
+      "猎魔夹": {
+        "type": "custom",
+        "file": "Sharket掉落音效/猎魔夹.mp3",
+        "volume": 100
+      },
+      "永恒印记": {
+        "type": "custom",
+        "file": "Sharket掉落音效/永恒印记.mp3",
+        "volume": 300
+      },
+      "砰砰砰嗯哼": {
+        "type": "custom",
+        "file": "Sharket掉落音效/砰砰砰嗯哼.mp3",
+        "volume": 300
+      },
+      "魔瓶": {
+        "type": "custom",
+        "file": "Sharket掉落音效/魔瓶.mp3",
+        "volume": 200
+      },
+      "联盟通货": {
+        "type": "custom",
+        "file": "Sharket掉落音效/联盟通货.mp3",
+        "volume": 200
+      },
+      "高级化石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级化石.mp3",
+        "volume": 300
+      },
+      "化石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/化石.mp3",
+        "volume": 200
+      },
+      "高级共振器": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级共振器.mp3",
+        "volume": 300
+      },
+      "共振器": {
+        "type": "custom",
+        "file": "Sharket掉落音效/共振器.mp3",
+        "volume": 200
+      },
+      "666": {
+        "type": "custom",
+        "file": "Sharket掉落音效/666.mp3",
+        "volume": 300
+      },
+      "永恒裂片": {
+        "type": "custom",
+        "file": "Sharket掉落音效/永恒裂片.mp3",
+        "volume": 100
+      },
+      "超级圣油": {
+        "type": "custom",
+        "file": "Sharket掉落音效/超级圣油.mp3",
+        "volume": 300
+      },
+      "高级圣油": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级圣油.mp3",
+        "volume": 200
+      },
+      "圣油": {
+        "type": "custom",
+        "file": "Sharket掉落音效/圣油.mp3",
+        "volume": 100
+      },
+      "高级催化剂": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级催化剂.mp3",
+        "volume": 300
+      },
+      "催化剂": {
+        "type": "custom",
+        "file": "Sharket掉落音效/催化剂.mp3",
+        "volume": 200
+      },
+      "灾变样本": {
+        "type": "custom",
+        "file": "Sharket掉落音效/灾变样本.mp3",
+        "volume": 200
+      },
+      "高级雾魇宝珠": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级雾魇宝珠.mp3",
+        "volume": 300
+      },
+      "拟像裂片": {
+        "type": "custom",
+        "file": "Sharket掉落音效/拟像裂片.mp3",
+        "volume": 100
+      },
+      "神圣命能": {
+        "type": "custom",
+        "file": "Sharket掉落音效/神圣命能.mp3",
+        "volume": 300
+      },
+      "种子种子": {
+        "type": "custom",
+        "file": "Sharket掉落音效/种子种子.mp3",
+        "volume": 200
+      },
+      "命能": {
+        "type": "custom",
+        "file": "Sharket掉落音效/命能.mp3",
+        "volume": 100
+      },
+      "赏金目标": {
+        "type": "custom",
+        "file": "Sharket掉落音效/赏金目标.mp3",
+        "volume": 300
+      },
+      "赏金印记": {
+        "type": "custom",
+        "file": "Sharket掉落音效/赏金印记.mp3",
+        "volume": 100
+      },
+      "黄芪": {
+        "type": "custom",
+        "file": "Sharket掉落音效/黄芪.mp3",
+        "volume": 200
+      },
+      "至高神器": {
+        "type": "custom",
+        "file": "Sharket掉落音效/至高神器.mp3",
+        "volume": 100
+      },
+      "高级神器": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级神器.mp3",
+        "volume": 100
+      },
+      "普通神器": {
+        "type": "custom",
+        "file": "Sharket掉落音效/普通神器.mp3",
+        "volume": 100
+      },
+      "次品神器": {
+        "type": "custom",
+        "file": "Sharket掉落音效/次品神器.mp3",
+        "volume": 100
+      },
+      "虚空石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/虚空石.mp3",
+        "volume": 200
+      },
+      "拜托~更新一下过滤吧": {
+        "type": "custom",
+        "file": "Sharket掉落音效/拜托~更新一下过滤吧.mp3",
+        "volume": 150
+      },
+      "舆图升级石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/舆图升级石.mp3",
+        "volume": 300
+      },
+      "侦察报告": {
+        "type": "custom",
+        "file": "Sharket掉落音效/侦察报告.mp3",
+        "volume": 200
+      },
+      "特级侦察报告": {
+        "type": "custom",
+        "file": "Sharket掉落音效/特级侦察报告.mp3",
+        "volume": 300
+      },
+      "上级余烬": {
+        "type": "custom",
+        "file": "Sharket掉落音效/上级余烬.mp3",
+        "volume": 300
+      },
+      "上级溶液": {
+        "type": "custom",
+        "file": "Sharket掉落音效/上级溶液.mp3",
+        "volume": 300
+      },
+      "高级余烬": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级余烬.mp3",
+        "volume": 200
+      },
+      "高级溶液": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级溶液.mp3",
+        "volume": 200
+      },
+      "次级余烬": {
+        "type": "custom",
+        "file": "Sharket掉落音效/次级余烬.mp3",
+        "volume": 200
+      },
+      "次级溶液": {
+        "type": "custom",
+        "file": "Sharket掉落音效/次级溶液.mp3",
+        "volume": 200
+      },
+      "枷锁词缀": {
+        "type": "custom",
+        "file": "Sharket掉落音效/枷锁词缀.mp3",
+        "volume": 100
+      },
+      "高级力量核心": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级力量核心.mp3",
+        "volume": 300
+      },
+      "回忆": {
+        "type": "custom",
+        "file": "Sharket掉落音效/回忆.mp3",
+        "volume": 300
+      },
+      "莉西娅的恳求": {
+        "type": "custom",
+        "file": "Sharket掉落音效/莉西娅的恳求.mp3",
+        "volume": 300
+      },
+      "辛格拉的发缕": {
+        "type": "custom",
+        "file": "Sharket掉落音效/辛格拉的发缕.mp3",
+        "volume": 300
+      },
+      "荣誉文身": {
+        "type": "custom",
+        "file": "Sharket掉落音效/荣誉文身.mp3",
+        "volume": 300
+      },
+      "文身": {
+        "type": "custom",
+        "file": "Sharket掉落音效/文身.mp3",
+        "volume": 300
+      },
+      "一定有好事发生": {
+        "type": "custom",
+        "file": "Sharket掉落音效/一定有好事发生.mp3",
+        "volume": 300
+      },
+      "灵柩": {
+        "type": "custom",
+        "file": "Sharket掉落音效/灵柩.mp3",
+        "volume": 200
+      },
+      "不灭余烬": {
+        "type": "custom",
+        "file": "Sharket掉落音效/不灭余烬.mp3",
+        "volume": 100
+      },
+      "贤主钉": {
+        "type": "custom",
+        "file": "Sharket掉落音效/贤主钉.mp3",
+        "volume": 200
+      },
+      "符文": {
+        "type": "custom",
+        "file": "Sharket掉落音效/符文.mp3",
+        "volume": 300
+      },
+      "活动通货": {
+        "type": "custom",
+        "file": "Sharket掉落音效/活动通货.mp3",
+        "volume": 100
+      },
+      "通货": {
+        "type": "custom",
+        "file": "Sharket掉落音效/通货.mp3",
+        "volume": 100
+      },
+      "圣物厅钥匙": {
+        "type": "custom",
+        "file": "Sharket掉落音效/圣物厅钥匙.mp3",
+        "volume": 300
+      },
+      "裂隙石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/裂隙石.mp3",
+        "volume": 300
+      },
+      "超级地图碎片": {
+        "type": "custom",
+        "file": "Sharket掉落音效/超级地图碎片.mp3",
+        "volume": 300
+      },
+      "超级圣甲虫": {
+        "type": "custom",
+        "file": "Sharket掉落音效/超级圣甲虫.mp3",
+        "volume": 300
+      },
+      "高级圣甲虫": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级圣甲虫.mp3",
+        "volume": 200
+      },
+      "圣甲虫": {
+        "type": "custom",
+        "file": "Sharket掉落音效/圣甲虫.mp3",
+        "volume": 100
+      },
+      "女神献祭": {
+        "type": "custom",
+        "file": "Sharket掉落音效/女神献祭.mp3",
+        "volume": 200
+      },
+      "熔炉遗迹": {
+        "type": "custom",
+        "file": "Sharket掉落音效/熔炉遗迹.mp3",
+        "volume": 300
+      },
+      "碎片之冠": {
+        "type": "custom",
+        "file": "Sharket掉落音效/碎片之冠.mp3",
+        "volume": 300
+      },
+      "疯狂碎片": {
+        "type": "custom",
+        "file": "Sharket掉落音效/疯狂碎片.mp3",
+        "volume": 300
+      },
+      "腐坏碎片": {
+        "type": "custom",
+        "file": "Sharket掉落音效/腐坏碎片.mp3",
+        "volume": 300
+      },
+      "记忆碎片": {
+        "type": "custom",
+        "file": "Sharket掉落音效/记忆碎片.mp3",
+        "volume": 300
+      },
+      "绿门碎片": {
+        "type": "custom",
+        "file": "Sharket掉落音效/绿门碎片.mp3",
+        "volume": 200
+      },
+      "红门碎片": {
+        "type": "custom",
+        "file": "Sharket掉落音效/红门碎片.mp3",
+        "volume": 100
+      },
+      "不屈永恒印记": {
+        "type": "custom",
+        "file": "Sharket掉落音效/不屈永恒印记.mp3",
+        "volume": 300
+      },
+      "特殊地图": {
+        "type": "custom",
+        "file": "Sharket掉落音效/特殊地图.mp3",
+        "volume": 200
+      },
+      "地图碎片": {
+        "type": "custom",
+        "file": "Sharket掉落音效/地图碎片.mp3",
+        "volume": 200
+      },
+      "裂界地图": {
+        "type": "custom",
+        "file": "Sharket掉落音效/裂界地图.mp3",
+        "volume": 300
+      },
+      "超级地图": {
+        "type": "custom",
+        "file": "Sharket掉落音效/超级地图.mp3",
+        "volume": 300
+      },
+      "忆境地图": {
+        "type": "custom",
+        "file": "Sharket掉落音效/忆境地图.mp3",
+        "volume": 300
+      },
+      "高级地图": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级地图.mp3",
+        "volume": 200
+      },
+      "天灾地图": {
+        "type": "custom",
+        "file": "Sharket掉落音效/天灾地图.mp3",
+        "volume": 100
+      },
+      "中级地图": {
+        "type": "custom",
+        "file": "Sharket掉落音效/中级地图.mp3",
+        "volume": 100
+      },
+      "地图": {
+        "type": "custom",
+        "file": "Sharket掉落音效/地图.mp3",
+        "volume": 100
+      },
+      "特品技能石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/特品技能石.mp3",
+        "volume": 300
+      },
+      "强辅技能石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/强辅技能石.mp3",
+        "volume": 300
+      },
+      "元素穿透": {
+        "type": "custom",
+        "file": "Sharket掉落音效/元素穿透.mp3",
+        "volume": 300
+      },
+      "赋予宝石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/赋予宝石.mp3",
+        "volume": 300
+      },
+      "启蒙宝石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/启蒙宝石.mp3",
+        "volume": 300
+      },
+      "增幅宝石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/增幅宝石.mp3",
+        "volume": 300
+      },
+      "坚定宝石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/坚定宝石.mp3",
+        "volume": 300
+      },
+      "优雅宝石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/优雅宝石.mp3",
+        "volume": 300
+      },
+      "怨毒宝石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/怨毒宝石.mp3",
+        "volume": 300
+      },
+      "光环技能石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/光环技能石.mp3",
+        "volume": 300
+      },
+      "瓦尔技能石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/瓦尔技能石.mp3",
+        "volume": 300
+      },
+      "稀有技能石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/稀有技能石.mp3",
+        "volume": 300
+      },
+      "品质技能石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/品质技能石.mp3",
+        "volume": 300
+      },
+      "特殊技能石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/特殊技能石.mp3",
+        "volume": 300
+      },
+      "辅助技能石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/辅助技能石.mp3",
+        "volume": 200
+      },
+      "经验技能石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/经验技能石.mp3",
+        "volume": 200
+      },
+      "技能宝石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/技能宝石.mp3",
+        "volume": 200
+      },
+      "改造技能石": {
+        "type": "custom",
+        "file": "Sharket掉落音效/改造技能石.mp3",
+        "volume": 200
+      },
+      "这张卡太赞了": {
+        "type": "custom",
+        "file": "Sharket掉落音效/这张卡太赞了.mp3",
+        "volume": 300
+      },
+      "异界的邀请": {
+        "type": "custom",
+        "file": "Sharket掉落音效/异界的邀请.mp3",
+        "volume": 300
+      },
+      "贤主之邀": {
+        "type": "custom",
+        "file": "Sharket掉落音效/贤主之邀.mp3",
+        "volume": 300
+      },
+      "主线契约": {
+        "type": "custom",
+        "file": "Sharket掉落音效/主线契约.mp3",
+        "volume": 200
+      },
+      "任务物品": {
+        "type": "custom",
+        "file": "Sharket掉落音效/任务物品.mp3",
+        "volume": 200
+      },
+      "塑界玉": {
+        "type": "custom",
+        "file": "Sharket掉落音效/塑界玉.mp3",
+        "volume": 300
+      },
+      "裂界玉": {
+        "type": "custom",
+        "file": "Sharket掉落音效/裂界玉.mp3",
+        "volume": 300
+      },
+      "赏金契约": {
+        "type": "custom",
+        "file": "Sharket掉落音效/赏金契约.mp3",
+        "volume": 200
+      },
+      "传奇契约": {
+        "type": "custom",
+        "file": "Sharket掉落音效/传奇契约.mp3",
+        "volume": 300
+      },
+      "赏金蓝图": {
+        "type": "custom",
+        "file": "Sharket掉落音效/赏金蓝图.mp3",
+        "volume": 300
+      },
+      "先祖日志": {
+        "type": "custom",
+        "file": "Sharket掉落音效/先祖日志.mp3",
+        "volume": 300
+      },
+      "传奇日志": {
+        "type": "custom",
+        "file": "Sharket掉落音效/传奇日志.mp3",
+        "volume": 300
+      },
+      "禁域": {
+        "type": "custom",
+        "file": "Sharket掉落音效/禁域.mp3",
+        "volume": 300
+      },
+      "传奇禁域": {
+        "type": "custom",
+        "file": "Sharket掉落音效/传奇禁域.mp3",
+        "volume": 300
+      },
+      "赏金装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/赏金装备.mp3",
+        "volume": 200
+      },
+      "金护卫": {
+        "type": "custom",
+        "file": "Sharket掉落音效/金护卫.mp3",
+        "volume": 200
+      },
+      "蓝护卫": {
+        "type": "custom",
+        "file": "Sharket掉落音效/蓝护卫.mp3",
+        "volume": 200
+      },
+      "白护卫": {
+        "type": "custom",
+        "file": "Sharket掉落音效/白护卫.mp3",
+        "volume": 200
+      },
+      "传奇遗物": {
+        "type": "custom",
+        "file": "Sharket掉落音效/传奇遗物.mp3",
+        "volume": 300
+      },
+      "遗物": {
+        "type": "custom",
+        "file": "Sharket掉落音效/遗物.mp3",
+        "volume": 200
+      },
+      "哇6连装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/哇6连装备.mp3",
+        "volume": 300
+      },
+      "5连装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/5连装备.mp3",
+        "volume": 300
+      },
+      "深渊装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/深渊装备.mp3",
+        "volume": 300
+      },
+      "6洞装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/6洞装备.mp3",
+        "volume": 300
+      },
+      "哇鱼竿": {
+        "type": "custom",
+        "file": "Sharket掉落音效/哇鱼竿.mp3",
+        "volume": 300
+      },
+      "特殊装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/特殊装备.mp3",
+        "volume": 200
+      },
+      "神装": {
+        "type": "custom",
+        "file": "Sharket掉落音效/神装.mp3",
+        "volume": 300
+      },
+      "异色鞋": {
+        "type": "custom",
+        "file": "Sharket掉落音效/异色鞋.mp3",
+        "volume": 200
+      },
+      "精品底材": {
+        "type": "custom",
+        "file": "Sharket掉落音效/精品底材.mp3",
+        "volume": 100
+      },
+      "顶级底材": {
+        "type": "custom",
+        "file": "Sharket掉落音效/顶级底材.mp3",
+        "volume": 200
+      },
+      "精品金装": {
+        "type": "custom",
+        "file": "Sharket掉落音效/精品金装.mp3",
+        "volume": 100
+      },
+      "高级魔符": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级魔符.mp3",
+        "volume": 200
+      },
+      "赏金饰品": {
+        "type": "custom",
+        "file": "Sharket掉落音效/赏金饰品.mp3",
+        "volume": 200
+      },
+      "超级武装": {
+        "type": "custom",
+        "file": "Sharket掉落音效/超级武装.mp3",
+        "volume": 300
+      },
+      "结界装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/结界装备.mp3",
+        "volume": 300
+      },
+      "镜像戒指": {
+        "type": "custom",
+        "file": "Sharket掉落音效/镜像戒指.mp3",
+        "volume": 300
+      },
+      "势力装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/势力装备.mp3",
+        "volume": 200
+      },
+      "忆境装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/忆境装备.mp3",
+        "volume": 300
+      },
+      "破碎装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/破碎装备.mp3",
+        "volume": 200
+      },
+      "瓦尔装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/瓦尔装备.mp3",
+        "volume": 100
+      },
+      "双瓦装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/双瓦装备.mp3",
+        "volume": 300
+      },
+      "影匿装": {
+        "type": "custom",
+        "file": "Sharket掉落音效/影匿装.mp3",
+        "volume": 200
+      },
+      "联盟装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/联盟装备.mp3",
+        "volume": 200
+      },
+      "超级天灾装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/超级天灾装备.mp3",
+        "volume": 200
+      },
+      "高级焚界装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级焚界装备.mp3",
+        "volume": 200
+      },
+      "高级灭界装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级灭界装备.mp3",
+        "volume": 200
+      },
+      "附魔装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/附魔装备.mp3",
+        "volume": 200
+      },
+      "熔炉装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/熔炉装备.mp3",
+        "volume": 200
+      },
+      "吃药": {
+        "type": "custom",
+        "file": "Sharket掉落音效/吃药.mp3",
+        "volume": 100
+      },
+      "药不能停": {
+        "type": "custom",
+        "file": "Sharket掉落音效/药不能停.mp3",
+        "volume": 300
+      },
+      "高级势力装": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级势力装.mp3",
+        "volume": 300
+      },
+      "势力装": {
+        "type": "custom",
+        "file": "Sharket掉落音效/势力装.mp3",
+        "volume": 100
+      },
+      "幻色装": {
+        "type": "custom",
+        "file": "Sharket掉落音效/幻色装.mp3",
+        "volume": 100
+      },
+      "点金装": {
+        "type": "custom",
+        "file": "Sharket掉落音效/点金装.mp3",
+        "volume": 100
+      },
+      "白洞装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/白洞装备.mp3",
+        "volume": 200
+      },
+      "过渡装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/过渡装备.mp3",
+        "volume": 200
+      },
+      "4连装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/4连装备.mp3",
+        "volume": 100
+      },
+      "底材": {
+        "type": "custom",
+        "file": "Sharket掉落音效/底材.mp3",
+        "volume": 100
+      },
+      "精品装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/精品装备.mp3",
+        "volume": 200
+      },
+      "高级星团珠宝": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级星团珠宝.mp3",
+        "volume": 300
+      },
+      "小星团珠宝": {
+        "type": "custom",
+        "file": "Sharket掉落音效/小星团珠宝.mp3",
+        "volume": 200
+      },
+      "中星团珠宝": {
+        "type": "custom",
+        "file": "Sharket掉落音效/中星团珠宝.mp3",
+        "volume": 300
+      },
+      "大星团珠宝": {
+        "type": "custom",
+        "file": "Sharket掉落音效/大星团珠宝.mp3",
+        "volume": 300
+      },
+      "星团珠宝": {
+        "type": "custom",
+        "file": "Sharket掉落音效/星团珠宝.mp3",
+        "volume": 200
+      },
+      "深渊珠宝": {
+        "type": "custom",
+        "file": "Sharket掉落音效/深渊珠宝.mp3",
+        "volume": 300
+      },
+      "常规珠宝": {
+        "type": "custom",
+        "file": "Sharket掉落音效/常规珠宝.mp3",
+        "volume": 300
+      },
+      "咒符": {
+        "type": "custom",
+        "file": "Sharket掉落音效/咒符.mp3",
+        "volume": 300
+      },
+      "高级酊剂": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级酊剂.mp3",
+        "volume": 200
+      },
+      "金项链": {
+        "type": "custom",
+        "file": "Sharket掉落音效/金项链.mp3",
+        "volume": 200
+      },
+      "金戒指": {
+        "type": "custom",
+        "file": "Sharket掉落音效/金戒指.mp3",
+        "volume": 200
+      },
+      "金腰带": {
+        "type": "custom",
+        "file": "Sharket掉落音效/金腰带.mp3",
+        "volume": 200
+      },
+      "金装备": {
+        "type": "custom",
+        "file": "Sharket掉落音效/金装备.mp3",
+        "volume": 100
+      },
+      "金装": {
+        "type": "custom",
+        "file": "Sharket掉落音效/金装.mp3",
+        "volume": 100
+      },
+      "3连": {
+        "type": "custom",
+        "file": "Sharket掉落音效/3连.mp3",
+        "volume": 100
+      },
+      "你是我的主人吗": {
+        "type": "custom",
+        "file": "Sharket掉落音效/你是我的主人吗.mp3",
+        "volume": 300
+      },
+      "白袍": {
+        "type": "custom",
+        "file": "Sharket掉落音效/白袍.mp3",
+        "volume": 300
+      },
+      "哇哦6连传奇": {
+        "type": "custom",
+        "file": "Sharket掉落音效/哇哦6连传奇.mp3",
+        "volume": 300
+      },
+      "超级传奇": {
+        "type": "custom",
+        "file": "Sharket掉落音效/超级传奇.mp3",
+        "volume": 300
+      },
+      "传奇碎片": {
+        "type": "custom",
+        "file": "Sharket掉落音效/传奇碎片.mp3",
+        "volume": 200
+      },
+      "哇~三相珠宝！": {
+        "type": "custom",
+        "file": "Sharket掉落音效/哇~三相珠宝！.mp3",
+        "volume": 300
+      },
+      "传奇珠宝": {
+        "type": "custom",
+        "file": "Sharket掉落音效/传奇珠宝.mp3",
+        "volume": 300
+      },
+      "高级仿品传奇": {
+        "type": "custom",
+        "file": "Sharket掉落音效/高级仿品传奇.mp3",
+        "volume": 300
+      },
+      "仿品传奇": {
+        "type": "custom",
+        "file": "Sharket掉落音效/仿品传奇.mp3",
+        "volume": 300
+      },
+      "法师之血": {
+        "type": "custom",
+        "file": "Sharket掉落音效/法师之血.mp3",
+        "volume": 100
+      },
+      "不会是猎首吧": {
+        "type": "custom",
+        "file": "Sharket掉落音效/不会是猎首吧.mp3",
+        "volume": 100
+      },
+      "传奇戒指": {
+        "type": "custom",
+        "file": "Sharket掉落音效/传奇戒指.mp3",
+        "volume": 200
+      },
+      "传奇地图": {
+        "type": "custom",
+        "file": "Sharket掉落音效/传奇地图.mp3",
+        "volume": 300
+      },
+      "哇哦传奇": {
+        "type": "custom",
+        "file": "Sharket掉落音效/哇哦传奇.mp3",
+        "volume": 300
+      }
+    }
   }
 }
