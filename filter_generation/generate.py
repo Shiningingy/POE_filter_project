@@ -48,7 +48,7 @@ FOLDER_LOCALIZATION = {
 }
 
 def tr(key):
-    return TERMS.get(LANG, TERMS["en"]).get(key, key)
+    return TERMS.get(LANG, TERMS["en"])
 
 # ---------- UTILITIES ----------
 def parse_rgba(value, default="255 255 255 255"):
@@ -75,17 +75,17 @@ def resolve_sound(tier_entry, sound_map, override_sound=None):
             num = re.search(r"\d+", file).group(0)
             return f"PlayAlertSound {num} {vol}"
         else:
-            win_path = file.replace("/", "\")
-            return f'CustomAlertSound "sound_files\{win_path}" {vol}'
+            win_path = file.replace("/", "\\")
+            return f'CustomAlertSound "sound_files\\{win_path}" {vol}'
 
     # Handle the new sound_map structure (dict with basetype_sounds and class_sounds)
-    sb = tier_entry.get("sound", {}) or {}
+    sb = tier_entry.get("sound", {})
     
     # Check if sound_map has tiered default IDs
     if sb.get("sharket_sound_id") and "class_sounds" in sound_map and sb["sharket_sound_id"] in sound_map["class_sounds"]:
         s = sound_map["class_sounds"][sb["sharket_sound_id"]]
-        win_path = s["file"].replace("/", "\")
-        return f'CustomAlertSound "sound_files\{win_path}" {s["volume"]}'
+        win_path = s["file"].replace("/", "\\")
+        return f'CustomAlertSound "sound_files\\{win_path}" {s["volume"]}'
     
     # 2. Default Sound
     if sb.get("default_sound_id") is not None and sb["default_sound_id"] != -1:
@@ -105,7 +105,7 @@ def header_line(index, text):
 # ---------- MAIN ----------
 def generate_filter():
     theme_data = json.loads(Path(THEME_FILE).read_text(encoding="utf-8"))
-    sound_map = json.loads(Path(SOUND_MAP_FILE).read_text(encoding="utf-8")
+    sound_map = json.loads(Path(SOUND_MAP_FILE).read_text(encoding="utf-8"))
     
     overview = [
         "#========================================",
@@ -143,9 +143,9 @@ def generate_filter():
             folder_localized = FOLDER_LOCALIZATION.get(folder, folder)
             header_text = f"{folder_localized} {folder}" if LANG == "ch" else folder
             
-            out_lines.append(f"\n#================================================================================================================")
+            out_lines.append(f"\n#===================================================================================================================")
             out_lines.append(f"# [[{major_counter:05d}]] {header_text}")
-            out_lines.append(f"#================================================================================================================")
+            out_lines.append(f"#===================================================================================================================")
             overview.append(f"#  [{major_counter:05d}] {header_text}")
 
         # --- Sub Category (File) ---
@@ -153,7 +153,7 @@ def generate_filter():
         block_index = sub_counter # 11000 start
 
         tier_doc = json.loads(tier_file.read_text(encoding="utf-8"))
-        map_doc  = json.loads(map_file.read_text(encoding="utf-8")
+        map_doc  = json.loads(map_file.read_text(encoding="utf-8"))
         
         category_key = next((k for k in tier_doc if not k.startswith("//")), None)
         if not category_key: continue
@@ -166,17 +166,15 @@ def generate_filter():
         map_meta = map_doc.get("_meta", {})
         
         # Generic Localization Loading
-        # Try to load the block for the target language (LANG)
         loc_data = map_meta.get("localization", {}).get(LANG, {})
         
         if isinstance(loc_data, dict):
             # It's a dictionary (like 'ch' with items and class name)
-            # Try to get class name from map_doc meta first, then tier_doc meta
-            loc_zh = loc_data.get("__class_name__", meta.get("localization", {}).get("ch", loc_en))
+            loc_cat = loc_data.get("__class_name__", meta.get("localization", {}).get("ch", loc_en))
             item_trans = loc_data # The whole dict is the translation map
         else:
             # It's a string (like 'en' usually is) or missing
-            loc_zh = loc_data if loc_data else loc_en
+            loc_cat = loc_data if loc_data else loc_en
             item_trans = {}
         
         item_class_raw = meta.get("item_class", category_key)
@@ -200,7 +198,7 @@ def generate_filter():
         for i, p in enumerate(rel_path.parts):
             if i == len(rel_path.parts) - 1:
                 # Last part is file -> use Category Name from JSON
-                breadcrumbs.append(f"{loc_zh} {loc_en}")
+                breadcrumbs.append(f"{loc_cat} {loc_en}")
             else:
                 # Folder -> use FOLDER_LOCALIZATION
                 loc_folder = FOLDER_LOCALIZATION.get(p, p)
@@ -329,7 +327,7 @@ def generate_filter():
                         rule_part = f"#{rule_counter} {rule_name}"
 
                     final_mode = tr(mode_label)
-                    out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -Tier {tnum} {loc_zh} - {rule_part} - {final_mode}==")
+                    out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -Tier {tnum} {loc_cat} - {rule_part} - {final_mode}==")
                     
                     joined = '" "'.join(subgroup)
                     cmd = "Hide" if is_hide else "Show"
@@ -393,7 +391,7 @@ def generate_filter():
                     block_index += 1
                     final_mode = tr(mode_label)
                     base_label = tr("Base")
-                    out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -Tier {tnum} {loc_zh} - {base_label} - {final_mode}==")
+                    out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -Tier {tnum} {loc_cat} - {base_label} - {final_mode}==")
                     
                     joined = '" "'.join(subgroup)
                     cmd = "Hide" if is_hide else "Show"
