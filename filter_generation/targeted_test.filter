@@ -1,0 +1,93 @@
+
+#==[09999]-TEST: General==
+
+# Base Block: Tier 0 General (Exact)
+Show
+    Class "General"
+    BaseType == "Albino Rhoa Feather" "Eternal Orb" "Hinekora's Lock" "Mirror Shard" "Mirror of Kalandra"
+    SetFontSize 45
+    SetTextColor 255 0 0 255
+    SetBorderColor 255 0 0 255
+    SetBackgroundColor 255 255 255 255
+    PlayAlertSound 6 300
+
+# Rule Block: Test Override for Divine Orb (Exact)
+Show
+    Class "General"
+    BaseType == "Divine Orb"
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 255 255 255 255
+    CustomAlertSound "sound_files\Sharket_Sound_1.mp3" 300
+
+# Base Block: Tier 1 General (Exact)
+Show
+    Class "General"
+    BaseType == "Awakener's Orb" "Exceptional Eldritch Ember" "Exceptional Eldritch Ichor" "Fracturing Orb" "Power Rune" "Reflecting Mist" "Tailoring Orb" "Tempering Orb" "Time Rune" "Valdo's Puzzle Box" "Veiled Exalted Orb"
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 255 255 255 255
+    PlayAlertSound 1 300
+
+# Base Block: Tier 2 General (Exact)
+Show
+    Class "General"
+    BaseType == "Crusader's Exalted Orb" "Grand Eldritch Ember" "Grand Eldritch Ichor" "Hunter's Exalted Orb" "Maven's Chisel of Scarabs" "Orb of Conflict" "Orb of Dominance" "Prismatic Catalyst" "Redeemer's Exalted Orb" "Sacred Orb" "Tainted Divine Teardrop" "Tainted Exalted Orb" "Warlord's Exalted Orb"
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 255 255 255 255
+    PlayAlertSound 2 300
+
+# Base Block: Tier 3 General (Exact)
+Show
+    Class "General"
+    BaseType == "Ancient Orb" "Annulment Shard" "Eldritch Chaos Orb" "Eldritch Exalted Orb" "Eldritch Orb of Annulment" "Exalted Orb" "Exalted Shard" "Fertile Catalyst" "Maven's Chisel of Avarice" "Maven's Chisel of Divination" "Maven's Chisel of Proliferation" "Tainted Chaos Orb" "Tainted Chromatic Orb" "Tainted Mythic Orb" "Tainted Orb of Fusing"
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 255 255 255 255
+    PlayAlertSound 2 300
+
+# Base Block: Tier 4 General (Exact)
+Show
+    Class "General"
+    BaseType == "Abrasive Catalyst" "Accelerating Catalyst" "Chaos Orb" "Enkindling Orb" "Gemcutter's Prism" "Greater Eldritch Ember" "Greater Eldritch Ichor" "Harbinger's Orb" "Imbued Catalyst" "Instilling Orb" "Intrinsic Catalyst" "Maven's Chisel of Procurement" "Noxious Catalyst" "Orb of Annulment" "Orb of Regret" "Orb of Scouring" "Orb of Unmaking" "Stacked Deck" "Tainted Armourer's Scrap" "Tainted Blacksmith's Whetstone" "Tempering Catalyst" "Turbulent Catalyst" "Unstable Catalyst" "Vaal Orb"
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 255 255 255 255
+    PlayAlertSound 2 300
+
+# Base Block: Tier 5 General (Exact)
+Show
+    Class "General"
+    BaseType == "Alchemy Shard" "Alteration Shard" "Armourer's Scrap" "Binding Shard" "Blacksmith's Whetstone" "Blessed Orb" "Cartographer's Chisel" "Chance Shard" "Chaos Shard" "Chromatic Orb" "Engineer's Shard" "Glassblower's Bauble" "Harbinger's Shard" "Horizon Shard" "Jeweller's Orb" "Lesser Eldritch Ember" "Lesser Eldritch Ichor" "Orb of Alchemy" "Orb of Alteration" "Orb of Augmentation" "Orb of Binding" "Orb of Chance" "Orb of Fusing" "Orb of Horizons" "Orb of Transmutation" "Perandus Coin" "Portal Scroll" "Regal Orb" "Regal Shard" "Scroll Fragment" "Scroll of Wisdom" "Transmutation Shard"
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 255 255 255 255
+
+#==[09999]-TEST: Influenced==
+
+# Base Block: Tier 0 Influenced (Exact)
+Show
+    Class "Influenced"
+    BaseType == "Hubris Circlet" "Stygian Vise" "Titanium Spirit Shield" "Vaal Regalia"
+    SetFontSize 45
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 0 64 0 255
+    PlayAlertSound 6 300
+
+# Base Block: Tier 1 Influenced (Exact)
+Show
+    Class "Influenced"
+    BaseType == "Blue Pearl Amulet" "Fingerless Silk Gloves" "Marble Amulet" "Opal Ring" "Sorcerer Boots" "Steel Ring"
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 255 255 255 255
+    PlayAlertSound 1 300

@@ -56,15 +56,19 @@ export const generateFilterText = (style: StyleProps, baseTypes: string[] = ["It
   // 1. Process Rules first
   rules.forEach((rule) => {
     const rLines = [];
-    const rKeyword = hideable ? "Minimal" : "Show";
+    const rKeyword = hideable ? "Hide" : "Show";
     rLines.push(rKeyword);
     
+    // Class constraint
+    rLines.push(`    Class "Item Class"`); // Placeholder or passed in?
+
     // BaseType constraint for rule
     const hasTargets = rule.targets && rule.targets.length > 0;
     const targets = hasTargets ? rule.targets : baseTypes;
     if (!hasTargets) allItemsCovered = true; // Rule applies to everything in tier
 
-    rLines.push(`    BaseType "${targets.join('" "')}"`);
+    // Default to strict matching for now to match generate.py common case
+    rLines.push(`    BaseType == "${targets.join('" "')}"`);
 
     // 2. Conditions
     if (rule.conditions) {
@@ -75,6 +79,9 @@ export const generateFilterText = (style: StyleProps, baseTypes: string[] = ["It
                     rLines.push(`    ${key} ${parts[1]} ${parts[2]}`);
                     rLines.push(`    ${key} ${parts[3]} ${parts[4]}`);
                 }
+            } else if (key === "Rarity") {
+                const cleanVal = val.replace(/==|=/g, "").trim();
+                rLines.push(`    ${key} ${cleanVal}`);
             } else {
                 rLines.push(`    ${key} ${val}`);
             }
@@ -101,9 +108,10 @@ export const generateFilterText = (style: StyleProps, baseTypes: string[] = ["It
   // If we are showing full block, and not all items were covered by rules, show base
   if (includeBase && !allItemsCovered) {
     const lines = [];
-    const keyword = hideable ? "Minimal" : "Show";
+    const keyword = hideable ? "Hide" : "Show";
     lines.push(keyword);
-    lines.push(`    BaseType "${baseTypes.join('" "')}"`);
+    lines.push(`    Class "Item Class"`);
+    lines.push(`    BaseType == "${baseTypes.join('" "')}"`);
     _appendStyleLines(lines, style);
     
     allBlocks.push(lines.join('\n'));
