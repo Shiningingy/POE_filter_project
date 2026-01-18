@@ -1,4 +1,4 @@
-// webapp/frontend/src/utils/styleResolver.ts
+import { translations, type Language } from './localization';
 
 interface StyleProps {
   FontSize?: number;
@@ -32,9 +32,11 @@ export const resolveStyle = (tierData: any, themeData: any, themeCategory: strin
   resolved = { ...resolved, ...overrides };
 
   // 3. Resolve Sound
-  if (localSound.sharket_sound_id && soundMap && soundMap[localSound.sharket_sound_id]) {
-      const s = soundMap[localSound.sharket_sound_id];
+  if (localSound.sharket_sound_id && soundMap && soundMap.class_sounds && soundMap.class_sounds[localSound.sharket_sound_id]) {
+      const s = soundMap.class_sounds[localSound.sharket_sound_id];
       resolved.PlayAlertSound = [s.file, s.volume];
+  } else if (localSound.default_sound_id !== undefined && localSound.default_sound_id !== -1) {
+      resolved.PlayAlertSound = [`Default/AlertSound${localSound.default_sound_id}.mp3`, 300];
   } else if (resolved.PlayAlertSound) {
       // If it's a "Sharket_Sound_X.mp3" placeholder, try to map it to Default/AlertSoundX.mp3
       const [file, vol] = resolved.PlayAlertSound;
@@ -49,60 +51,75 @@ export const resolveStyle = (tierData: any, themeData: any, themeCategory: strin
   return resolved;
 };
 
-export const generateFilterText = (style: StyleProps, baseTypes: string[] = ["Item Name"], hideable: boolean = false, rules: any[] = [], includeBase: boolean = true): string => {
+export const generateFilterText = (style: StyleProps, baseTypes: string[] = ["Item Name"], hideable: boolean = false, rules: any[] = [], includeBase: boolean = true, summarizeRules: boolean = false, language: Language = 'en'): string => {
   const allBlocks: string[] = [];
+  const t = translations[language];
   let allItemsCovered = false;
 
   // 1. Process Rules first
-  rules.forEach((rule) => {
-    const rLines = [];
-    const rKeyword = hideable ? "Hide" : "Show";
-    rLines.push(rKeyword);
-    
-    // Class constraint
-    rLines.push(`    Class "Item Class"`); // Placeholder or passed in?
+  if (summarizeRules && rules.length > 0) {
+      const implicitCount = rules.filter((r: any) => r.isImplicit).length;
+      const explicitCount = rules.length - implicitCount;
+      let summary = `# ... (`;
+      const parts = [];
+      if (explicitCount > 0) parts.push(`${explicitCount} ${(t as any).customRules}`);
+      if (implicitCount > 0) parts.push(`${implicitCount} ${(t as any).autoSounds}`);
+      
+      summary += parts.join(` ${(t as any).and} `);
+      summary += ` ${(t as any).active}) ...`;
+      
+      allBlocks.push(summary);
+  } else {
+      rules.forEach((rule) => {
+        const rLines = [];
+        const rKeyword = hideable ? "Hide" : "Show";
+        rLines.push(rKeyword);
+        
+        // Class constraint
+        rLines.push(`    Class "Item Class"`);
 
-    // BaseType constraint for rule
-    const hasTargets = rule.targets && rule.targets.length > 0;
-    const targets = hasTargets ? rule.targets : baseTypes;
-    if (!hasTargets) allItemsCovered = true; // Rule applies to everything in tier
+        // BaseType constraint for rule
+        const hasTargets = rule.targets && rule.targets.length > 0;
+        const targets = hasTargets ? rule.targets : baseTypes;
+        if (!hasTargets) allItemsCovered = true; // Rule applies to everything in tier
 
-    // Default to strict matching for now to match generate.py common case
-    rLines.push(`    BaseType == "${targets.join('" "')}"`);
+        // Default to strict matching for now to match generate.py common case
+        rLines.push(`    BaseType == "${targets.join('" "')}"`);
 
-    // 2. Conditions
-    if (rule.conditions) {
-        Object.entries(rule.conditions as Record<string, string>).forEach(([key, val]) => {
-            if (val.startsWith("RANGE ")) {
-                const parts = val.split(" ");
-                if (parts.length >= 5) {
-                    rLines.push(`    ${key} ${parts[1]} ${parts[2]}`);
-                    rLines.push(`    ${key} ${parts[3]} ${parts[4]}`);
+        // 2. Conditions
+        if (rule.conditions) {
+            Object.entries(rule.conditions as Record<string, string>).forEach(([key, val]) => {
+                if (val.startsWith("RANGE ")) {
+                    const parts = val.split(" ");
+                    if (parts.length >= 5) {
+                        rLines.push(`    ${key} ${parts[1]} ${parts[2]}`);
+                        rLines.push(`    ${key} ${parts[3]} ${parts[4]}`);
+                    }
+                } else if (key === "Rarity") {
+                    const cleanVal = val.replace(/==|=/g, "").trim();
+                    rLines.push(`    ${key} ${cleanVal}`);
+                } else {
+                    rLines.push(`    ${key} ${val}`);
                 }
-            } else if (key === "Rarity") {
-                const cleanVal = val.replace(/==|=/g, "").trim();
-                rLines.push(`    ${key} ${cleanVal}`);
-            } else {
-                rLines.push(`    ${key} ${val}`);
-            }
-        });
-    }
+            });
+        }
 
-    // 3. Raw text (Custom Code)
-    if (rule.raw) {
-        rule.raw.split('\n').forEach((line: string) => {
-            if (line.trim()) {
-                rLines.push(`    ${line.trim()}`);
-            }
-        });
-    }
+        // 3. Raw text (Custom Code)
+        if (rule.raw) {
+            rule.raw.split('\n').forEach((line: string) => {
+                if (line.trim()) {
+                    rLines.push(`    ${line.trim()}`);
+                }
+            });
+        }
 
-    // 4. Styles
-    const ruleStyle = { ...style, ...(rule.overrides || {}) };
-    _appendStyleLines(rLines, ruleStyle);
+        // 4. Styles
+        const ruleStyle = { ...style, ...(rule.overrides || {}) };
+        _appendStyleLines(rLines, ruleStyle);
 
-    allBlocks.push(rLines.join('\n'));
-  });
+        allBlocks.push(rLines.join('\n'));
+      });
+  }
 
   // 2. Process the main Base block
   // If we are showing full block, and not all items were covered by rules, show base

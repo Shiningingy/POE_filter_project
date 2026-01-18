@@ -189,6 +189,25 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     }
   };
 
+  const getAugmentedRules = (baseRules: any[], items: TierItem[]) => {
+      const newRules = [...baseRules];
+      if (!soundMap?.basetype_sounds) return newRules;
+
+      items.forEach(item => {
+          const handled = baseRules.some(r => r.targets?.includes(item.name));
+          if (!handled && soundMap.basetype_sounds[item.name]) {
+              const sData = soundMap.basetype_sounds[item.name];
+              newRules.push({
+                  targets: [item.name],
+                  overrides: { PlayAlertSound: [sData.file, sData.volume] },
+                  comment: `__AUTO_SOUND__:${item.name}`,
+                  isImplicit: true
+              });
+          }
+      });
+      return newRules;
+  };
+
   const handleTierUpdate = (tierKey: string, newStyle: any, newVisibility: boolean, themeCategory: string) => {
     if (!activeCategoryKey) return;
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
@@ -201,14 +220,17 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         ? `T${newStyle.Tier ?? "?"} ${newConfig[activeCategoryKey]._meta?.localization?.ch ?? activeCategoryKey}` 
         : `Tier ${newStyle.Tier ?? "?"} ${newConfig[activeCategoryKey]._meta?.localization?.en ?? activeCategoryKey}`;
     
+    const items = derivedTierItems[tierKey] || [];
+    const baseRules = newConfig[activeCategoryKey].rules || newConfig[activeCategoryKey]._meta?.rules || [];
+
     onInspectTier({ 
         key: tierKey, 
         name: displayTierName, 
         style: resolveStyle(newConfig[activeCategoryKey][tierKey], themeData, themeCategory, soundMap), 
         visibility: newVisibility,
         category: themeCategory,
-        rules: newConfig[activeCategoryKey].rules || newConfig[activeCategoryKey]._meta?.rules || [],
-        baseTypes: derivedTierItems[tierKey]?.map(i => i.name) || ["Item Name"]
+        rules: getAugmentedRules(baseRules, items),
+        baseTypes: items.map(i => i.name)
     });
   };
 
@@ -562,6 +584,21 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                             onContextMenu={(e) => { e.stopPropagation(); handleContextMenu(e, tierKey, index); }}
                             onInsertBefore={() => handleInsertTier(index, 'before')}
                             onInsertAfter={() => handleInsertTier(index, 'after')}
+                            onClick={(e) => {
+                                // Only trigger if clicking the background (direct target or non-interactive elements)
+                                // We rely on interactive elements stopping propagation if needed, or simple check
+                                if ((e.target as HTMLElement).closest('button, input, .item-card')) return;
+                                
+                                onInspectTier({ 
+                                    key: tierKey, 
+                                    name: displayTierName, 
+                                    style: resolved, 
+                                    visibility: !!tierData.hideable, 
+                                    category: themeCategory,
+                                    rules: getAugmentedRules(activeCategoryData.rules || activeCategoryData._meta?.rules || [], items),
+                                    baseTypes: items.map(i => i.name)
+                                });
+                            }}
                             language={language}
                             tooltips={{
                                 drag: t.dragToReorder,
@@ -584,7 +621,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                                                         style: resolved, 
                                                                         visibility: !!tierData.hideable, 
                                                                         category: themeCategory,
-                                                                        rules: activeCategoryData.rules || activeCategoryData._meta?.rules || [],
+                                                                        rules: getAugmentedRules(activeCategoryData.rules || activeCategoryData._meta?.rules || [], items),
                                                                         baseTypes: items.map(i => i.name)
                                                                     })}
                                                                     viewerBackground={viewerBackground}

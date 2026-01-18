@@ -77,6 +77,7 @@ export const translations = {
     normalMode: "Normal",
     ruthlessMode: "Ruthless",
     rules: "Rules",
+    rule: "Rule",
     addRule: "Add Rule",
     deleteRule: "Delete Rule",
     targets: "Targets",
@@ -225,6 +226,11 @@ export const translations = {
     Evasion_Armour: "Evasion/Armour",
     ES_Evasion: "ES/Evasion",
     Armour_Evasion_ES: "Armour/Evasion/ES",
+    customRules: "custom rules",
+    autoSounds: "auto-sounds",
+    active: "active",
+    and: "and",
+    moreRulesHidden: "more rules hidden",
   },
   ch: {
     appTitle: "POE 过滤器编辑器",
@@ -270,6 +276,7 @@ export const translations = {
     normalMode: "普通",
     ruthlessMode: "无情",
     rules: "规则",
+    rule: "规则",
     addRule: "添加规则",
     deleteRule: "删除规则",
     targets: "目标",
@@ -418,6 +425,11 @@ export const translations = {
     Evasion_Armour: "闪避/护甲",
     ES_Evasion: "能量护盾/闪避",
     Armour_Evasion_ES: "护甲/能量护盾/闪避",
+    customRules: "自定义规则",
+    autoSounds: "自动音效",
+    active: "生效中",
+    and: "和",
+    moreRulesHidden: "更多规则已隐藏",
   }
 };
 

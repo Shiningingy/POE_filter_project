@@ -60,6 +60,17 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
 
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: TierItem } | null>(null);
 
+  // Deduplicate items to prevent key errors
+  const uniqueItems = useMemo(() => {
+      const seen = new Set();
+      return items.filter(i => {
+          const key = `${i.name}-${i.rule_index ?? 'std'}`;
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+      });
+  }, [items]);
+
   // Map global rule index to local tier index for badges
   const ruleBadgeMap = useMemo(() => {
       const map: Record<number, number> = {};
@@ -67,7 +78,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
       categoryRules.forEach((r, globalIdx) => {
           // 1. Must match this tier (if tier override exists) or target items in this tier
           const hasTierOverride = !!r.overrides?.Tier;
-          const tierMatch = hasTierOverride ? r.overrides.Tier === tierKey : r.targets?.some((target: string) => items.some(i => i.name === target));
+          const tierMatch = hasTierOverride ? r.overrides.Tier === tierKey : r.targets?.some((target: string) => uniqueItems.some(i => i.name === target));
           
           if (!tierMatch) return;
 
@@ -84,9 +95,9 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           map[globalIdx] = localCount;
       });
       return map;
-  }, [categoryRules, tierKey, items]);
+  }, [categoryRules, tierKey, uniqueItems]);
 
-  const filteredItems = items.filter(i => 
+  const filteredItems = uniqueItems.filter(i => 
     i.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
     (i.name_ch && i.name_ch.includes(searchTerm))
   );
