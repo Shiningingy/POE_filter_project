@@ -26,6 +26,9 @@ We also use [poe-dat-viewer](https://github.com/SnosMe/poe-dat-viewer) to extrac
 Jan 13. Baic Viewer finished, DEMO went live.
 
 Jan 17. Pre-defined tier added, Added Houver, Rule-system refined, Initilized Basic Theme, Viewer-Refineding, and a lot of bug fixing, DEMO updated.
+
 - Refined frontend components with relative paths for better portability.
 - Fixed TypeScript interface issues across Bulk Editor and Tooltips.
 - Synchronized demo improvements back to main.
+
+JAN 18. Major Bug fix on viewer, Auto-sound and sound file path fix. Generator logic implemented should work for most of the cases.
