@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Behemoth Mace": "巨兽之锤",
+        "Nightmare Mace": "梦魇之锤",
+        "Piledriver": "打桩机",
+        "__class_name__": "单手锤"
+      }
+    },
+    "item_class": { "en": "One Hand Maces", "ch": "单手锤" },
+    "theme_category": "One Hand Maces"
+  },
+  "mapping": {
+    "Behemoth Mace": "Tier 1 Maces",
+    "Nightmare Mace": "Tier 1 Maces",
+    "Piledriver": "Tier 1 Maces",
+    "Auric Mace": "Tier 2 Maces"
+  },
+  "rules": [
+    {
+      "targets": ["Behemoth Mace", "Nightmare Mace"],
+      "conditions": { "ItemLevel": ">= 83" },
+      "overrides": { "Tier": "Tier 0 Maces", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i83 Top Maces"
+    }
+  ]
+}

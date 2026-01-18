@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Stygian Vise": "深渊腰带",
+        "Crystal Belt": "水晶腰带",
+        "Leather Belt": "皮革腰带",
+        "Vanguard Belt": "先锋腰带",
+        "__class_name__": "腰带"
+      }
+    },
+    "item_class": { "en": "Belts", "ch": "腰带" },
+    "theme_category": "Belts"
+  },
+  "mapping": {
+    "Stygian Vise": "Tier 1 Belts",
+    "Crystal Belt": "Tier 1 Belts",
+    "Leather Belt": "Tier 1 Belts",
+    "Vanguard Belt": "Tier 1 Belts",
+    "Heavy Belt": "Tier 2 Belts",
+    "Rustic Coil": "Tier 2 Belts",
+    "Chain Belt": "Tier 2 Belts",
+    "Cloth Belt": "Tier 2 Belts"
+  },
+  "rules": [
+    {
+      "targets": ["Stygian Vise", "Crystal Belt"],
+      "conditions": { "ItemLevel": ">= 86" },
+      "overrides": { "Tier": "Tier 0 Belts", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i86 Top Belts"
+    },
+    {
+      "targets": ["Stygian Vise", "Crystal Belt"],
+      "conditions": { "ItemLevel": ">= 84" },
+      "overrides": { "Tier": "Tier 1 Belts", "PlayAlertSound": ["Sharket掉落音效/精品装备.mp3", 300] },
+      "comment": "i84 Top Belts"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Jewelled Foil": "细剑",
+        "Corsair Sword": "海盗长剑",
+        "Eternal Sword": "永恒之剑",
+        "Vaal Rapier": "瓦尔细剑",
+        "__class_name__": "单手剑",
+        "Whalebone Rapier": "鲸骨细刃",
+        "Battered Foil": "钝刃细剑",
+        "Basket Rapier": "练武者细剑",
+        "Jagged Foil": "锯状薄刃",
+        "Antique Rapier": "古代细剑",
+        "Elegant Foil": "贵族细剑",
+        "Thorn Rapier": "棘刺细剑",
+        "Smallsword": "小剑",
+        "Wyrmbone Rapier": "龙骨细剑",
+        "Burnished Foil": "冷芒刺剑",
+        "Estoc": "穿甲刺剑",
+        "Serrated Foil": "锯齿细剑",
+        "Primeval Rapier": "古典刺剑",
+        "Fancy Foil": "华丽细剑",
+        "Apex Rapier": "锐锋细剑",
+        "Courtesan Sword": "花魁之剑",
+        "Dragonbone Rapier": "龙骨细剑",
+        "Tempered Foil": "强化细剑",
+        "Spiraled Foil": "螺纹细剑",
+        "Harpy Rapier": "魔喙细剑",
+        "Dragoon Sword": "骑兵军刀",
+        "Legion Sword Piece": "军团长剑(碎片)",
+        "Imperfect Dancing Sword": "残次舞动之剑",
+        "Dancing Sword": "舞动之剑",
+        "Perfect Dancing Sword": "完美舞动之剑",
+        "Rusted Spike": "锈刺剑",
+        "Maligaro's Spike": "马雷格罗的尖刺"
+      }
+    },
+    "item_class": {
+      "en": "One Hand Swords",
+      "ch": "单手剑"
+    },
+    "theme_category": "One Hand Swords"
+  },
+  "mapping": {
+    "Jewelled Foil": "Tier 1 Swords",
+    "Corsair Sword": "Tier 1 Swords",
+    "Eternal Sword": "Tier 1 Swords",
+    "Vaal Rapier": "Tier 1 One Hand Swords",
+    "Midnight Blade": "Tier 2 Swords",
+    "Reaver Sword": "Tier 2 Swords",
+    "Whalebone Rapier": "Tier 1 One Hand Swords",
+    "Battered Foil": "Tier 1 One Hand Swords",
+    "Basket Rapier": "Tier 1 One Hand Swords",
+    "Jagged Foil": "Tier 1 One Hand Swords",
+    "Antique Rapier": "Tier 1 One Hand Swords",
+    "Elegant Foil": "Tier 1 One Hand Swords",
+    "Thorn Rapier": "Tier 1 One Hand Swords",
+    "Smallsword": "Tier 1 One Hand Swords",
+    "Wyrmbone Rapier": "Tier 1 One Hand Swords",
+    "Burnished Foil": "Tier 1 One Hand Swords",
+    "Estoc": "Tier 1 One Hand Swords",
+    "Serrated Foil": "Tier 1 One Hand Swords",
+    "Primeval Rapier": "Tier 1 One Hand Swords",
+    "Fancy Foil": "Tier 1 One Hand Swords",
+    "Apex Rapier": "Tier 1 One Hand Swords",
+    "Courtesan Sword": "Tier 1 One Hand Swords",
+    "Dragonbone Rapier": "Tier 1 One Hand Swords",
+    "Tempered Foil": "Tier 1 One Hand Swords",
+    "Spiraled Foil": "Tier 1 One Hand Swords",
+    "Harpy Rapier": "Tier 1 One Hand Swords",
+    "Dragoon Sword": "Tier 1 One Hand Swords",
+    "Legion Sword Piece": "Tier 1 One Hand Swords",
+    "Imperfect Dancing Sword": "Tier 1 One Hand Swords",
+    "Dancing Sword": "Tier 1 One Hand Swords",
+    "Perfect Dancing Sword": "Tier 1 One Hand Swords",
+    "Rusted Spike": "Tier 1 One Hand Swords",
+    "Maligaro's Spike": "Tier 1 One Hand Swords"
+  },
+  "rules": [
+    {
+      "targets": [
+        "Jewelled Foil",
+        "Corsair Sword",
+        "Eternal Sword"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 83"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Swords",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "i83 Top Swords"
+    }
+  ]
+}

@@ -32,3 +32,8 @@ Jan 17. Pre-defined tier added, Added Houver, Rule-system refined, Initilized Ba
 - Synchronized demo improvements back to main.
 
 JAN 18. Major Bug fix on viewer, Auto-sound and sound file path fix. Generator logic implemented should work for most of the cases.
+
+- **Demo Mode Evolution**: Implemented a complete browser-side TypeScript filter generator (`filterGenerator.ts`) enabling full offline filter building without a Python backend.
+- **Virtual File System (VFS)**: Enhanced `demoAdapter` to persist user configuration changes in `localStorage`, allowing the demo to remember edits and generate customized filters.
+- **Seamless Export**: Merged "Generate" and "Download" into a single action with automatic extension handling for Ruthless mode (`.filter` vs `.ruthlessfilter`).
+- **UI/UX Polishing**: Resolved stacking context issues for modals and refined the Sound Popup footer for better visual clarity.

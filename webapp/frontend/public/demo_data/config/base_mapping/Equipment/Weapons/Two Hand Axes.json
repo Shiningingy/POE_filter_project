@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Despot Axe": "霸者之斧",
+        "Vaal Axe": "瓦尔战斧",
+        "Ezomyte Axe": "艾兹麦长斧",
+        "Fleshripper": "裂肉者",
+        "__class_name__": "双手斧"
+      }
+    },
+    "item_class": { "en": "Two Hand Axes", "ch": "双手斧" },
+    "theme_category": "Two Hand Axes"
+  },
+  "mapping": {
+    "Despot Axe": "Tier 1 Two Hand Axes",
+    "Vaal Axe": "Tier 1 Two Hand Axes",
+    "Ezomyte Axe": "Tier 1 Two Hand Axes",
+    "Fleshripper": "Tier 1 Two Hand Axes"
+  },
+  "rules": [
+    {
+      "targets": ["Despot Axe", "Vaal Axe", "Fleshripper"],
+      "conditions": { "ItemLevel": ">= 83" },
+      "overrides": { "Tier": "Tier 0 Two Hand Axes", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i83 Top 2H Axes"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Thief's Trinket": "赏金猎人饰品",
+        "__class_name__": "饰品"
+      }
+    },
+    "item_class": {
+      "en": "Trinkets",
+      "ch": "饰品"
+    },
+    "theme_category": "Trinkets"
+  },
+  "mapping": {
+    "Thief's Trinket": "Tier 1 Trinkets"
+  },
+  "rules": []
+}

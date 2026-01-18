@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Spine Bow": "脊弓",
+        "Thicket Bow": "灌木弓",
+        "Imperial Bow": "帝国之弓",
+        "Maraketh Bow": "马拉克斯之弓",
+        "__class_name__": "弓"
+      }
+    },
+    "item_class": { "en": "Bows", "ch": "弓" },
+    "theme_category": "Bows"
+  },
+  "mapping": {
+    "Spine Bow": "Tier 1 Bows",
+    "Thicket Bow": "Tier 1 Bows",
+    "Imperial Bow": "Tier 1 Bows",
+    "Maraketh Bow": "Tier 1 Bows",
+    "Harbinger Bow": "Tier 2 Bows",
+    "Decimation Bow": "Tier 2 Bows",
+    "Citadel Bow": "Tier 2 Bows"
+  },
+  "rules": [
+    {
+      "targets": ["Spine Bow", "Thicket Bow", "Imperial Bow"],
+      "conditions": { "ItemLevel": ">= 86" },
+      "overrides": { "Tier": "Tier 0 Bows", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i86 Top Bows"
+    },
+    {
+      "targets": ["Spine Bow", "Thicket Bow", "Imperial Bow"],
+      "conditions": { "ItemLevel": ">= 84" },
+      "overrides": { "Tier": "Tier 1 Bows", "PlayAlertSound": ["Sharket掉落音效/精品装备.mp3", 300] },
+      "comment": "i84 Top Bows"
+    }
+  ]
+}

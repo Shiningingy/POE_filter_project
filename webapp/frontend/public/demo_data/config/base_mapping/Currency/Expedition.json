@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Exotic Coinage": "异域铸币",
+        "Scrap Metal": "废金属",
+        "Astragali": "骨牌",
+        "Burial Medallion": "葬礼徽章",
+        "__class_name__": "可堆叠通货",
+        "Expedition Logbook": "先祖秘藏日志"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Exotic Coinage": "Tier 1 Expedition",
+    "Scrap Metal": "Tier 1 Expedition",
+    "Astragali": "Tier 1 Expedition",
+    "Burial Medallion": "Tier 1 Expedition",
+    "Expedition Logbook": "Tier 1 Expedition"
+  },
+  "rules": []
+}

@@ -1,0 +1,62 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Simulacrum": "惊怖镜",
+        "The Maven's Writ": "贤主的通告",
+        "Chayula's Flawless Breachstone": "夏乌拉的无瑕裂隙石",
+        "Sacred Blossom": "神圣之花",
+        "Awakening Fragment": "觉醒碎片",
+        "Cosmic Fragment": "宇宙碎片",
+        "Decaying Fragment": "腐败碎片",
+        "Devouring Fragment": "吞噬碎片",
+        "Reality Fragment": "现实碎片",
+        "Synthesising Fragment": "合成碎片",
+        "Fragment of the Hydra": "九头蛇之印",
+        "Fragment of the Phoenix": "不死鸟之印",
+        "Fragment of the Minotaur": "牛头人之印",
+        "Fragment of the Chimera": "奇美拉之印",
+        "Fragment of Enslavement": "奴役之印",
+        "Fragment of Eradication": "抹除之印",
+        "Fragment of Constriction": "禁锢之印",
+        "Fragment of Purification": "净化之印",
+        "Sacrifice at Dusk": "黎明的牺牲",
+        "Sacrifice at Midnight": "午夜的牺牲",
+        "Sacrifice at Dawn": "黄昏的牺牲",
+        "Sacrifice at Noon": "正午的牺牲",
+        "__class_name__": "碎片"
+      }
+    },
+    "item_class": {
+      "en": "Map Fragments",
+      "ch": "碎片"
+    },
+    "theme_category": "Map Fragments"
+  },
+  "mapping": {
+    "Simulacrum": "Tier 1 Fragments",
+    "The Maven's Writ": "Tier 1 Fragments",
+    "Chayula's Flawless Breachstone": "Tier 1 Fragments",
+    "Sacred Blossom": "Tier 1 Fragments",
+    "Awakening Fragment": "Tier 2 Fragments",
+    "Cosmic Fragment": "Tier 2 Fragments",
+    "Decaying Fragment": "Tier 2 Fragments",
+    "Devouring Fragment": "Tier 2 Fragments",
+    "Reality Fragment": "Tier 2 Fragments",
+    "Synthesising Fragment": "Tier 2 Fragments",
+    "Fragment of the Hydra": "Tier 3 Fragments",
+    "Fragment of the Phoenix": "Tier 3 Fragments",
+    "Fragment of the Minotaur": "Tier 3 Fragments",
+    "Fragment of the Chimera": "Tier 3 Fragments",
+    "Fragment of Enslavement": "Tier 3 Fragments",
+    "Fragment of Eradication": "Tier 3 Fragments",
+    "Fragment of Constriction": "Tier 3 Fragments",
+    "Fragment of Purification": "Tier 3 Fragments",
+    "Sacrifice at Midnight": "Tier 4 Fragments",
+    "Sacrifice at Dusk": "Tier 4 Fragments",
+    "Sacrifice at Dawn": "Tier 4 Fragments",
+    "Sacrifice at Noon": "Tier 4 Fragments",
+    "Divine Vessel": "Tier 4 Fragments"
+  },
+  "rules": []
+}

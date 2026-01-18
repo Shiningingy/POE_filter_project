@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Titanium Spirit Shield": "钛金之盾",
+        "Archon Kite Shield": "威能鸢盾",
+        "Champion Kite Shield": "斗士鸢盾",
+        "Harmonic Spirit Shield": "和音之盾",
+        "__class_name__": "盾"
+      }
+    },
+    "item_class": { "en": "Shields", "ch": "盾" },
+    "theme_category": "Shields"
+  },
+  "mapping": {
+    "Titanium Spirit Shield": "Tier 1 Shields",
+    "Archon Kite Shield": "Tier 1 Shields",
+    "Champion Kite Shield": "Tier 1 Shields",
+    "Harmonic Spirit Shield": "Tier 1 Shields",
+    "Fossilised Spirit Shield": "Tier 2 Shields",
+    "Colossal Tower Shield": "Tier 2 Shields",
+    "Pinnacle Tower Shield": "Tier 2 Shields"
+  },
+  "rules": [
+    {
+      "targets": ["Titanium Spirit Shield", "Archon Kite Shield"],
+      "conditions": { "ItemLevel": ">= 86" },
+      "overrides": { "Tier": "Tier 0 Shields", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i86 Top Shields"
+    },
+    {
+      "targets": ["Titanium Spirit Shield", "Archon Kite Shield"],
+      "conditions": { "ItemLevel": ">= 84" },
+      "overrides": { "Tier": "Tier 1 Shields", "PlayAlertSound": ["Sharket掉落音效/精品装备.mp3", 300] },
+      "comment": "i84 Top Shields"
+    }
+  ]
+}

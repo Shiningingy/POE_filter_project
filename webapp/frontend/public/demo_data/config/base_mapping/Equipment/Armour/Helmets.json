@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Hubris Circlet": "枢枢冠",
+        "Lion Pelt": "狮鹫头盔",
+        "Royal Burgonet": "皇家之冠",
+        "Bone Helmet": "唤骨头盔",
+        "__class_name__": "头部"
+      }
+    },
+    "item_class": { "en": "Helmets", "ch": "头部" },
+    "theme_category": "Helmets"
+  },
+  "mapping": {
+    "Hubris Circlet": "Tier 1 Helmets",
+    "Lion Pelt": "Tier 1 Helmets",
+    "Royal Burgonet": "Tier 1 Helmets",
+    "Bone Helmet": "Tier 1 Helmets",
+    "Deicide Mask": "Tier 2 Helmets",
+    "Sinner Tricorne": "Tier 2 Helmets",
+    "Eternal Burgonet": "Tier 2 Helmets"
+  },
+  "rules": [
+    {
+      "targets": ["Hubris Circlet", "Lion Pelt", "Royal Burgonet", "Bone Helmet"],
+      "conditions": { "ItemLevel": ">= 86" },
+      "overrides": { "Tier": "Tier 0 Helmets", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i86 Top Helmets"
+    },
+    {
+      "targets": ["Hubris Circlet", "Lion Pelt", "Royal Burgonet", "Bone Helmet"],
+      "conditions": { "ItemLevel": ">= 84" },
+      "overrides": { "Tier": "Tier 1 Helmets", "PlayAlertSound": ["Sharket掉落音效/精品装备.mp3", 300] },
+      "comment": "i84 Top Helmets"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "Fragments": {
+    "_meta": {
+      "theme_category": "Map Fragments",
+      "localization": {
+        "en": "Fragments",
+        "ch": "碎片"
+      },
+      "tier_order": [
+        "Tier 0 Fragments",
+        "Tier 1 Fragments",
+        "Tier 2 Fragments",
+        "Tier 3 Fragments",
+        "Tier 4 Fragments",
+        "Tier Hide Fragments"
+      ]
+    },
+    "Tier 1 Fragments": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "Sharket_Sound_6.mp3"
+      },
+      "localization": {
+        "en": "T1: High Value",
+        "ch": "T1: 顶级碎片"
+      }
+    },
+    "Tier 2 Fragments": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "Sharket_Sound_5.mp3"
+      },
+      "localization": {
+        "en": "T2: Decent Value",
+        "ch": "T2: 高价值碎片"
+      }
+    },
+    "Tier 3 Fragments": {
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "Sharket_Sound_4.mp3"
+      },
+      "localization": {
+        "en": "T3: Mid Value",
+        "ch": "T3: 普通碎片"
+      }
+    },
+    "Tier 4 Fragments": {
+      "hideable": false,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": "Sharket_Sound_1.mp3"
+      },
+      "localization": {
+        "en": "T4: Low Value",
+        "ch": "T4: 低价值碎片"
+      }
+    },
+    "Tier Hide Fragments": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    },
+    "Tier 0 Fragments": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: Absolute Top",
+        "ch": "T0: 顶级/核心"
+      }
+    }
+  }
+}

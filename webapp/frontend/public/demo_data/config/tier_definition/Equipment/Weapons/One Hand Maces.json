@@ -1,0 +1,60 @@
+{
+  "Maces": {
+    "_meta": {
+      "theme_category": "One Hand Maces",
+      "localization": {
+        "en": "One Hand Maces",
+        "ch": "单手锤"
+      },
+      "tier_order": [
+        "Tier 0 Maces",
+        "Tier 1 Maces",
+        "Tier Hide Maces"
+      ]
+    },
+    "Tier 0 Maces": {
+      "hideable": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: i83+ Top Bases",
+        "ch": "T0: 顶级单手锤(83+)"
+      },
+      "show_in_editor": false
+    },
+    "Tier 1 Maces": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "精品装备.mp3"
+      },
+      "localization": {
+        "en": "T1: High iLvl Maces",
+        "ch": "T1: 优质单手锤(78+)"
+      }
+    },
+    "Tier Hide Maces": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

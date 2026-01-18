@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Blue Pearl Amulet": "碧珠护身符",
+        "Marble Amulet": "大理石护身符",
+        "Seaglass Amulet": "海晶护符",
+        "Onyx Amulet": "黑曜护身符",
+        "__class_name__": "项链"
+      }
+    },
+    "item_class": { "en": "Amulets", "ch": "项链" },
+    "theme_category": "Amulets"
+  },
+  "mapping": {
+    "Blue Pearl Amulet": "Tier 1 Amulets",
+    "Marble Amulet": "Tier 1 Amulets",
+    "Seaglass Amulet": "Tier 1 Amulets",
+    "Onyx Amulet": "Tier 1 Amulets",
+    "Gold Amulet": "Tier 2 Amulets",
+    "Agate Amulet": "Tier 2 Amulets",
+    "Turquoise Amulet": "Tier 2 Amulets",
+    "Citrine Amulet": "Tier 2 Amulets"
+  },
+  "rules": [
+    {
+      "targets": ["Blue Pearl Amulet", "Marble Amulet", "Seaglass Amulet"],
+      "conditions": { "ItemLevel": ">= 86" },
+      "overrides": { "Tier": "Tier 0 Amulets", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i86 Top Amulets"
+    },
+    {
+      "targets": ["Blue Pearl Amulet", "Marble Amulet", "Seaglass Amulet"],
+      "conditions": { "ItemLevel": ">= 84" },
+      "overrides": { "Tier": "Tier 1 Amulets", "PlayAlertSound": ["Sharket掉落音效/精品装备.mp3", 300] },
+      "comment": "i84 Top Amulets"
+    }
+  ]
+}

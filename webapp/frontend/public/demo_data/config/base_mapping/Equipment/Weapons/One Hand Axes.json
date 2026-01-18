@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Siege Axe": "破城斧",
+        "Reaver Axe": "裂魂者",
+        "Runic Hatchet": "符文战斧",
+        "Vaal Hatchet": "瓦尔战斧",
+        "__class_name__": "单手斧"
+      }
+    },
+    "item_class": { "en": "One Hand Axes", "ch": "单手斧" },
+    "theme_category": "One Hand Axes"
+  },
+  "mapping": {
+    "Siege Axe": "Tier 1 Axes",
+    "Reaver Axe": "Tier 1 Axes",
+    "Runic Hatchet": "Tier 1 Axes",
+    "Vaal Hatchet": "Tier 2 Axes",
+    "Royal Axe": "Tier 2 Axes"
+  },
+  "rules": [
+    {
+      "targets": ["Siege Axe", "Reaver Axe", "Runic Hatchet"],
+      "conditions": { "ItemLevel": ">= 83" },
+      "overrides": { "Tier": "Tier 0 Axes", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i83 Top Axes"
+    }
+  ]
+}

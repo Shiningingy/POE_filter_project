@@ -1,0 +1,75 @@
+{
+  "Mana Flasks": {
+    "_meta": {
+      "theme_category": "Mana Flasks",
+      "localization": {
+        "en": "Mana Flasks",
+        "ch": "魔力药剂"
+      },
+      "tier_order": [
+        "Tier 0 Mana Flasks",
+        "Tier 1 Mana Flasks",
+        "Tier 2 Mana Flasks",
+        "Tier Hide Mana Flasks"
+      ]
+    },
+    "Tier 1 Mana Flasks": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "高级通货.mp3"
+      },
+      "localization": {
+        "en": "T1: Divine/Eternal",
+        "ch": "T1: 顶级魔力药剂"
+      }
+    },
+    "Tier 2 Mana Flasks": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "通货.mp3"
+      },
+      "localization": {
+        "en": "T2: High Level",
+        "ch": "T2: 高级魔力药剂"
+      }
+    },
+    "Tier Hide Mana Flasks": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    },
+    "Tier 0 Mana Flasks": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: Absolute Top",
+        "ch": "T0: 顶级/核心"
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "Axes": {
+    "_meta": {
+      "theme_category": "One Hand Axes",
+      "localization": {
+        "en": "One Hand Axes",
+        "ch": "单手斧"
+      },
+      "tier_order": [
+        "Tier 0 Axes",
+        "Tier 1 Axes",
+        "Tier 2 Axes",
+        "Tier Hide Axes"
+      ]
+    },
+    "Tier 0 Axes": {
+      "hideable": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: i83+ Top Bases",
+        "ch": "T0: 顶级单手斧(83+)"
+      },
+      "show_in_editor": false
+    },
+    "Tier 1 Axes": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "精品装备.mp3"
+      },
+      "localization": {
+        "en": "T1: High iLvl Axes",
+        "ch": "T1: 优质单手斧(78+)"
+      }
+    },
+    "Tier 2 Axes": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "金装备.mp3"
+      },
+      "localization": {
+        "en": "T2: Decent Bases",
+        "ch": "T2: 常用底材"
+      }
+    },
+    "Tier Hide Axes": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}
