@@ -66,7 +66,7 @@ function App() {
   const fetchFilterPreview = useCallback(async () => {
     try {
       const response = await axios.get(`${API_BASE_URL}/api/generated-filter`);
-      setFilterPreview(response.data.content);
+      setFilterPreview(response.data);
     } catch (error) {
       console.error('Error fetching filter preview:', error);
       setFilterPreview('Error loading filter preview.');
