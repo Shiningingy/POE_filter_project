@@ -181,7 +181,7 @@ export const generateFilter = (data: GeneratorData): string => {
     }
 
     const themeCatKey = meta.theme_category || categoryKey;
-    const themeRef = themeData[themeCatKey] || themeData["Currency"] || {};
+    const themeRef = (themeData || {})[themeCatKey] || (themeData || {})["Currency"] || {};
 
     // --- Breadcrumbs ---
     const breadcrumbs: string[] = [];
