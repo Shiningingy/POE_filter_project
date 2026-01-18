@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useTranslation } from "../utils/localization";
 import type { Language } from "../utils/localization";
+import { getSoundUrl } from "../utils/soundUtils";
+import { getAssetUrl } from "../utils/assetUtils";
 
 interface StyleProps {
   FontSize?: number;
@@ -119,7 +121,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     return {
       width: `${baseSize * scale}px`,
       height: `${baseSize * scale}px`,
-      backgroundImage: `url('/assets/Icon/MiniMapIcon_FullSpriteV2.png')`,
+      backgroundImage: `url('${getAssetUrl("assets/Icon/MiniMapIcon_FullSpriteV2.png")}')`,
       backgroundPosition: `-${(colorIdx * stepX + offset) * scale}px -${
         (shapeIdx * stepY + offset) * scale
       }px`,
@@ -203,13 +205,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   };
 
   const handleTestSound = () => {
-    const url =
-      tempSound.type === "custom"
-        ? `/api/sounds/proxy?path=${encodeURIComponent(
-            tempSound.file
-          )}`
-        : `/sounds/${tempSound.file}`;
-    const audio = new Audio(url);
+    const audio = new Audio(getSoundUrl(tempSound.file));
     audio.volume = Math.min(1, tempSound.vol / 300);
     audio.play().catch((err) => alert("Play failed: " + err.message));
   };
@@ -301,7 +297,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         ? soundData
         : [null, 0];
       if (soundFile) {
-        const audio = new Audio(`/sounds/${soundFile}`);
+        const audio = new Audio(getSoundUrl(soundFile));
         audio.volume = Math.min(1, (volume as number) / 300);
         audio.play().catch((err) => console.error("Sound play failed:", err));
       }
@@ -328,7 +324,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
       className={`VisualEditor_Container tier-style-editor ${
         visibility ? "hidden-tier" : ""
       }`}
-      style={{ backgroundImage: `url('/assets/item_bg/${viewerBackground}')` }}
+      style={{ backgroundImage: `url('${getAssetUrl(`assets/item_bg/${viewerBackground}`)}')` }}
       onClick={onInspect}
     >
       {/* Modals Section */}
