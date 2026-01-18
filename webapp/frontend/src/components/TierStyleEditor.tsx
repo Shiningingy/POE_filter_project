@@ -45,7 +45,10 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   const [showBeamPopup, setShowBeamPopup] = useState(false);
   const [showAlphaPopup, setShowAlphaPopup] = useState(false);
   const [soundSearch, setSoundSearch] = useState("");
-  const [availableSounds, setAvailableSounds] = useState({
+  const [availableSounds, setAvailableSounds] = useState<{
+    defaults: string[];
+    sharket: string[];
+  }>({
     defaults: [],
     sharket: [],
   });
@@ -56,23 +59,11 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     BackgroundColor: getAlpha(style.BackgroundColor),
   });
 
-  const [tempSound, setTempSound] = useState({
+  const [tempSound, setTempSound] = useState<{
     type: "default" | "sharket" | "custom";
     file: string;
     vol: number;
-  } | {
-    type: "default";
-    file: string;
-    vol: number;
-  } | {
-    type: "sharket";
-    file: string;
-    vol: number;
-  } | {
-    type: "custom";
-    file: string;
-    vol: number;
-  })({ type: "default", file: "Default/AlertSound1.mp3", vol: 100 });
+  }>({ type: "default", file: "Default/AlertSound1.mp3", vol: 100 });
 
   const [tempIcon, setTempIcon] = useState({
     size: 0,

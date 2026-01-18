@@ -1,19 +1,8 @@
-import { translations, Language } from './localization';
+import { translations, type Language } from './localization';
 
 // ===========================
 // TYPES
 // ===========================
-
-interface StyleProps {
-  FontSize?: number;
-  TextColor?: string;
-  BorderColor?: string;
-  BackgroundColor?: string;
-  PlayEffect?: string;
-  MinimapIcon?: string;
-  PlayAlertSound?: [string, number];
-  [key: string]: any;
-}
 
 interface GeneratorData {
   themeData: any;
@@ -280,7 +269,7 @@ export const generateFilter = (data: GeneratorData): string => {
           }
         } else {
           if (ruleTargets.length > 0) {
-            ruleMatches = ruleTargets.filter(item => pendingItems.has(item));
+            ruleMatches = ruleTargets.filter((item: string) => pendingItems.has(item));
           } else {
             continue;
           }
@@ -288,8 +277,8 @@ export const generateFilter = (data: GeneratorData): string => {
 
         if (ruleMatches.length === 0) continue;
 
-        const exactGroup = ruleMatches.filter(m => (matchModes[m] || 'exact') === 'exact');
-        const partialGroup = ruleMatches.filter(m => matchModes[m] === 'partial');
+        const exactGroup = ruleMatches.filter((m: string) => (matchModes[m] || 'exact') === 'exact');
+        const partialGroup = ruleMatches.filter((m: string) => matchModes[m] === 'partial');
 
         for (const [subgroup, modeLabel, isStrict] of [[exactGroup, "Exact", true], [partialGroup, "Partial", false]] as const) {
           if (subgroup.length === 0) continue;
@@ -358,8 +347,8 @@ export const generateFilter = (data: GeneratorData): string => {
       // Base Block
       if (pendingItems.size > 0) {
         const matchModes = meta.match_modes || {};
-        const exactPending = Array.from(pendingItems).filter(item => (matchModes[item] || 'exact') === 'exact').sort();
-        const partialPending = Array.from(pendingItems).filter(item => matchModes[item] === 'partial').sort();
+        const exactPending = Array.from(pendingItems).filter((item: string) => (matchModes[item] || 'exact') === 'exact').sort();
+        const partialPending = Array.from(pendingItems).filter((item: string) => matchModes[item] === 'partial').sort();
 
         for (const [subgroup, modeLabel, isStrict] of [[exactPending, "Exact", true], [partialPending, "Partial", false]] as const) {
           if (subgroup.length === 0) continue;

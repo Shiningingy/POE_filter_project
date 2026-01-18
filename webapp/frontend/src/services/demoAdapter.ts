@@ -94,7 +94,7 @@ export const setupDemoAdapter = () => {
             config.adapter = async () => {
                 console.log("DEMO GENERATOR: Running...");
                 const bundle = await loadBundle();
-                if (!bundle) return { data: { message: "Error: No bundle" }, status: 500, config };
+                if (!bundle) return { data: { message: "Error: No bundle" }, status: 500, statusText: 'Error', headers: {}, config };
 
                 const themeRes = await axios.get(`${baseURL}demo_data/theme_sharket.json`, { baseURL: '' });
                 
@@ -126,18 +126,15 @@ export const setupDemoAdapter = () => {
                 return { data: { message: "Success (Generated in Demo)" }, status: 200, statusText: 'OK', headers: {}, config };
             };
         } else if (path.includes('/api/update-item-tier') || path.includes('/api/update-item-override')) {
-             // These are complex to implement in VFS perfectly without state management, 
-             // but they usually trigger a refetch or config reload.
-             // For now, we assume EditorView's handleSave handles the main persistence.
              config.adapter = async () => {
-                return { data: { message: "Success (Demo)" }, status: 200, config };
+                return { data: { message: "Success (Demo)" }, status: 200, statusText: 'OK', headers: {}, config };
              };
         } else if (path.includes('/api/config/')) {
             const configPath = path.split('/api/config/')[1];
             const content = typeof config.data === 'string' ? JSON.parse(config.data) : config.data;
             localStorage.setItem(DEMO_CONFIG_PREFIX + configPath, JSON.stringify(content));
             config.adapter = async () => {
-                return { data: { message: "Saved to Demo Storage" }, status: 200, config };
+                return { data: { message: "Saved to Demo Storage" }, status: 200, statusText: 'OK', headers: {}, config };
             };
         }
     }
