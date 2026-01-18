@@ -1,0 +1,60 @@
+{
+  "Quest Items": {
+    "_meta": {
+      "theme_category": "Quest Items",
+      "localization": {
+        "en": "Quest Items",
+        "ch": "任务物品"
+      },
+      "tier_order": [
+        "Tier 0 Quest Items",
+        "Tier 1 Quest Items",
+        "Tier Hide Quest Items"
+      ]
+    },
+    "Tier 1 Quest Items": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "任务物品.mp3"
+      },
+      "localization": {
+        "en": "Quest Items",
+        "ch": "任务物品"
+      }
+    },
+    "Tier 0 Quest Items": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: Absolute Top",
+        "ch": "T0: 顶级/核心"
+      }
+    },
+    "Tier Hide Quest Items": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

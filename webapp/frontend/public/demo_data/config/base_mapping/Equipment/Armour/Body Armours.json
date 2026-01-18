@@ -1,0 +1,33 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Vaal Regalia": "瓦尔护甲",
+        "Astral Plate": "星辰之铠",
+        "Zodiac Leather": "星辰皮甲",
+        "Saintly Chainmail": "圣洁锁子甲",
+        "Carnal Armour": "禁礼之衣",
+        "__class_name__": "胸甲"
+      }
+    },
+    "item_class": { "en": "Body Armours", "ch": "胸甲" },
+    "theme_category": "Body Armours"
+  },
+  "mapping": {
+    "Vaal Regalia": "Tier 0 Body Armours",
+    "Astral Plate": "Tier 0 Body Armours",
+    "Zodiac Leather": "Tier 0 Body Armours",
+    "Saintly Chainmail": "Tier 1 Body Armours",
+    "Carnal Armour": "Tier 1 Body Armours",
+    "Glorious Plate": "Tier 1 Body Armours",
+    "Assassin's Garb": "Tier 1 Body Armours",
+    "Sadist Garb": "Tier 2 Body Armours",
+    "Triumphant Lamellar": "Tier 2 Body Armours",
+    "General's Brigandine": "Tier 2 Body Armours"
+  },
+  "rules": [
+    { "targets": ["Vaal Regalia"], "conditions": { "ItemLevel": ">= 86" }, "overrides": { "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] }, "comment": "Vaal Regalia i86" },
+    { "targets": ["Astral Plate"], "conditions": { "ItemLevel": ">= 86" }, "overrides": { "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] }, "comment": "Astral Plate i86" },
+    { "targets": ["Zodiac Leather"], "conditions": { "ItemLevel": ">= 86" }, "overrides": { "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] }, "comment": "Zodiac Leather i86" }
+  ]
+}

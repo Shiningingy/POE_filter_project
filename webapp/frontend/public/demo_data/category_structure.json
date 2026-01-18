@@ -1,0 +1,716 @@
+{
+  "categories": [
+    {
+      "_meta": {
+        "localization": {
+          "en": "Currency",
+          "ch": "通货"
+        }
+      },
+      "subgroups": [
+        {
+          "_meta": {
+            "localization": {
+              "en": "Special Currency",
+              "ch": "特殊通货"
+            }
+          },
+          "files": [
+            {
+              "path": "Currency/Corpses.json",
+              "tier_path": "tier_definition/Currency/Corpses.json",
+              "mapping_path": "base_mapping/Currency/Corpses.json",
+              "target_category": "Corpses",
+              "localization": {
+                "en": "Corpses",
+                "ch": "尸体"
+              }
+            },
+            {
+              "path": "Currency/Breach.json",
+              "tier_path": "tier_definition/Currency/Breach.json",
+              "mapping_path": "base_mapping/Currency/Breach.json",
+              "target_category": "Stackable Currency",
+              "localization": {
+                "en": "Breach",
+                "ch": "裂隙"
+              }
+            },
+            {
+              "path": "Currency/Delirium Orbs.json",
+              "tier_path": "tier_definition/Currency/Delirium Orbs.json",
+              "mapping_path": "base_mapping/Currency/Delirium Orbs.json",
+              "target_category": "Stackable Currency",
+              "localization": {
+                "en": "Delirium Orbs",
+                "ch": "雾魇宝珠"
+              }
+            },
+            {
+              "path": "Currency/Essences.json",
+              "tier_path": "tier_definition/Currency/Essences.json",
+              "mapping_path": "base_mapping/Currency/Essences.json",
+              "target_category": "Stackable Currency",
+              "localization": {
+                "en": "Essences",
+                "ch": "精华"
+              }
+            },
+            {
+              "path": "Currency/Expedition.json",
+              "tier_path": "tier_definition/Currency/Expedition.json",
+              "mapping_path": "base_mapping/Currency/Expedition.json",
+              "target_category": "Stackable Currency",
+              "localization": {
+                "en": "Expedition",
+                "ch": "探险"
+              }
+            },
+            {
+              "path": "Currency/Fossils.json",
+              "tier_path": "tier_definition/Currency/Fossils.json",
+              "mapping_path": "base_mapping/Currency/Fossils.json",
+              "target_category": "Stackable Currency",
+              "localization": {
+                "en": "Fossils",
+                "ch": "化石"
+              }
+            },
+            {
+              "path": "Currency/Harbinger.json",
+              "tier_path": "tier_definition/Currency/Harbinger.json",
+              "mapping_path": "base_mapping/Currency/Harbinger.json",
+              "target_category": "Stackable Currency",
+              "localization": {
+                "en": "Harbinger",
+                "ch": "先驱"
+              }
+            },
+            {
+              "path": "Currency/Harvest.json",
+              "tier_path": "tier_definition/Currency/Harvest.json",
+              "mapping_path": "base_mapping/Currency/Harvest.json",
+              "target_category": "Stackable Currency",
+              "localization": {
+                "en": "Harvest",
+                "ch": "庄园"
+              }
+            },
+            {
+              "path": "Currency/Heist.json",
+              "tier_path": "tier_definition/Currency/Heist.json",
+              "mapping_path": "base_mapping/Currency/Heist.json",
+              "target_category": "Stackable Currency",
+              "localization": {
+                "en": "Heist",
+                "ch": "夺宝"
+              }
+            },
+            {
+              "path": "Currency/Incubators.json",
+              "tier_path": "tier_definition/Currency/Incubators.json",
+              "mapping_path": "base_mapping/Currency/Incubators.json",
+              "target_category": "Stackable Currency",
+              "localization": {
+                "en": "Incubators",
+                "ch": "孕育石"
+              }
+            },
+            {
+              "path": "Currency/Oils.json",
+              "tier_path": "tier_definition/Currency/Oils.json",
+              "mapping_path": "base_mapping/Currency/Oils.json",
+              "target_category": "Stackable Currency",
+              "localization": {
+                "en": "Oils",
+                "ch": "圣油"
+              }
+            },
+            {
+              "path": "Currency/Ritual.json",
+              "tier_path": "tier_definition/Currency/Ritual.json",
+              "mapping_path": "base_mapping/Currency/Ritual.json",
+              "target_category": "Stackable Currency",
+              "localization": {
+                "en": "Ritual",
+                "ch": "仪式"
+              }
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "Currency/General.json",
+          "tier_path": "tier_definition/Currency/General.json",
+          "mapping_path": "base_mapping/Currency/General.json",
+          "target_category": "Stackable Currency",
+          "localization": {
+            "en": "General",
+            "ch": "通用通货"
+          }
+        },
+        {
+          "path": "Currency/Gold.json",
+          "tier_path": "tier_definition/Currency/Gold.json",
+          "mapping_path": "base_mapping/Currency/Gold.json",
+          "target_category": "Gold",
+          "localization": {
+            "en": "Gold",
+            "ch": "金币"
+          }
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "Uniques",
+          "ch": "传奇物品"
+        }
+      },
+      "files": [
+        {
+          "path": "Uniques/General.json",
+          "tier_path": "tier_definition/Uniques/General.json",
+          "mapping_path": "base_mapping/Uniques/General.json",
+          "target_category": "Unique Items",
+          "localization": {
+            "en": "General",
+            "ch": "传奇物品"
+          }
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "Divination Cards",
+          "ch": "命运卡"
+        }
+      },
+      "files": [
+        {
+          "path": "Divination Cards/Cards.json",
+          "tier_path": "tier_definition/Divination Cards/Cards.json",
+          "mapping_path": "base_mapping/Divination Cards/Cards.json",
+          "target_category": "Divination Cards",
+          "localization": {
+            "en": "Cards",
+            "ch": "命运卡"
+          }
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "Maps & Fragments",
+          "ch": "地图与碎片"
+        }
+      },
+      "files": [
+        {
+          "path": "Maps/Base Maps.json",
+          "tier_path": "tier_definition/Maps/Base Maps.json",
+          "mapping_path": "base_mapping/Maps/Base Maps.json",
+          "target_category": "Maps",
+          "localization": {
+            "en": "Base Maps",
+            "ch": "常规地图"
+          }
+        },
+        {
+          "path": "Maps/Fragments.json",
+          "tier_path": "tier_definition/Maps/Fragments.json",
+          "mapping_path": "base_mapping/Maps/Fragments.json",
+          "target_category": "Map Fragments",
+          "localization": {
+            "en": "Fragments",
+            "ch": "碎片与圣甲虫"
+          }
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "Gems",
+          "ch": "宝石"
+        }
+      },
+      "files": [
+        {
+          "path": "Gems/Skill.json",
+          "tier_path": "tier_definition/Gems/Skill.json",
+          "mapping_path": "base_mapping/Gems/Skill.json",
+          "target_category": "Active Skill Gems",
+          "localization": {
+            "en": "Skill",
+            "ch": "技能宝石"
+          }
+        },
+        {
+          "path": "Gems/Support.json",
+          "tier_path": "tier_definition/Gems/Support.json",
+          "mapping_path": "base_mapping/Gems/Support.json",
+          "target_category": "Support Skill Gems",
+          "localization": {
+            "en": "Support",
+            "ch": "辅助宝石"
+          }
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "Jewels",
+          "ch": "珠宝"
+        }
+      },
+      "files": [
+        {
+          "path": "Jewels/Base Jewels.json",
+          "tier_path": "tier_definition/Jewels/Base Jewels.json",
+          "mapping_path": "base_mapping/Jewels/Base Jewels.json",
+          "target_category": "Jewels",
+          "localization": {
+            "en": "Base Jewels",
+            "ch": "基础珠宝"
+          }
+        },
+        {
+          "path": "Jewels/Cluster Jewels.json",
+          "tier_path": "tier_definition/Jewels/Cluster Jewels.json",
+          "mapping_path": "base_mapping/Jewels/Cluster Jewels.json",
+          "target_category": "Jewels",
+          "localization": {
+            "en": "Cluster Jewels",
+            "ch": "星团珠宝"
+          }
+        },
+        {
+          "path": "Jewels/Abyss Jewels.json",
+          "tier_path": "tier_definition/Jewels/Abyss Jewels.json",
+          "mapping_path": "base_mapping/Jewels/Abyss Jewels.json",
+          "target_category": "Jewels",
+          "localization": {
+            "en": "Abyss Jewels",
+            "ch": "深渊珠宝"
+          }
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "Flasks",
+          "ch": "药剂"
+        }
+      },
+      "files": [
+        {
+          "path": "Flasks/Life.json",
+          "tier_path": "tier_definition/Flasks/Life.json",
+          "mapping_path": "base_mapping/Flasks/Life.json",
+          "target_category": "Life Flasks",
+          "localization": {
+            "en": "Life",
+            "ch": "生命药剂"
+          }
+        },
+        {
+          "path": "Flasks/Mana.json",
+          "tier_path": "tier_definition/Flasks/Mana.json",
+          "mapping_path": "base_mapping/Flasks/Mana.json",
+          "target_category": "Mana Flasks",
+          "localization": {
+            "en": "Mana",
+            "ch": "魔力药剂"
+          }
+        },
+        {
+          "path": "Flasks/Utility.json",
+          "tier_path": "tier_definition/Flasks/Utility.json",
+          "mapping_path": "base_mapping/Flasks/Utility.json",
+          "target_category": "Utility Flasks",
+          "localization": {
+            "en": "Utility",
+            "ch": "功能药剂"
+          }
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "Equipment",
+          "ch": "终局装备"
+        }
+      },
+      "subgroups": [
+        {
+          "_meta": {
+            "localization": {
+              "en": "Special Bases",
+              "ch": "特殊底材"
+            }
+          },
+          "files": [
+            {
+              "path": "Equipment/Special/Influenced.json",
+              "tier_path": "tier_definition/Equipment/Special/Influenced.json",
+              "mapping_path": "base_mapping/Equipment/Special/Influenced.json",
+              "target_category": "Body Armours",
+              "localization": {
+                "en": "Influenced",
+                "ch": "势力物品"
+              }
+            },
+            {
+              "path": "Equipment/Special/Fractured.json",
+              "tier_path": "tier_definition/Equipment/Special/Fractured.json",
+              "mapping_path": "base_mapping/Equipment/Special/Fractured.json",
+              "target_category": "Body Armours",
+              "localization": {
+                "en": "Fractured",
+                "ch": "破碎物品"
+              }
+            },
+            {
+              "path": "Equipment/Special/Synthesised.json",
+              "tier_path": "tier_definition/Equipment/Special/Synthesised.json",
+              "mapping_path": "base_mapping/Equipment/Special/Synthesised.json",
+              "target_category": "Body Armours",
+              "localization": {
+                "en": "Synthesised",
+                "ch": "合成物品"
+              }
+            }
+          ]
+        },
+        {
+          "_meta": {
+            "localization": {
+              "en": "Armour",
+              "ch": "护甲"
+            }
+          },
+          "files": [
+            {
+              "path": "Equipment/Armour/Body Armours.json",
+              "tier_path": "tier_definition/Equipment/Armour/Body Armours.json",
+              "mapping_path": "base_mapping/Equipment/Armour/Body Armours.json",
+              "target_category": "Body Armours",
+              "localization": {
+                "en": "Body Armours",
+                "ch": "胸甲"
+              }
+            },
+            {
+              "path": "Equipment/Armour/Helmets.json",
+              "tier_path": "tier_definition/Equipment/Armour/Helmets.json",
+              "mapping_path": "base_mapping/Equipment/Armour/Helmets.json",
+              "target_category": "Helmets",
+              "localization": {
+                "en": "Helmets",
+                "ch": "头部"
+              }
+            },
+            {
+              "path": "Equipment/Armour/Gloves.json",
+              "tier_path": "tier_definition/Equipment/Armour/Gloves.json",
+              "mapping_path": "base_mapping/Equipment/Armour/Gloves.json",
+              "target_category": "Gloves",
+              "localization": {
+                "en": "Gloves",
+                "ch": "手套"
+              }
+            },
+            {
+              "path": "Equipment/Armour/Boots.json",
+              "tier_path": "tier_definition/Equipment/Armour/Boots.json",
+              "mapping_path": "base_mapping/Equipment/Armour/Boots.json",
+              "target_category": "Boots",
+              "localization": {
+                "en": "Boots",
+                "ch": "鞋子"
+              }
+            },
+            {
+              "path": "Equipment/Armour/Shields.json",
+              "tier_path": "tier_definition/Equipment/Armour/Shields.json",
+              "mapping_path": "base_mapping/Equipment/Armour/Shields.json",
+              "target_category": "Shields",
+              "localization": {
+                "en": "Shields",
+                "ch": "盾"
+              }
+            },
+            {
+              "path": "Equipment/Armour/Quivers.json",
+              "tier_path": "tier_definition/Equipment/Armour/Quivers.json",
+              "mapping_path": "base_mapping/Equipment/Armour/Quivers.json",
+              "target_category": "Quivers",
+              "localization": {
+                "en": "Quivers",
+                "ch": "箭袋"
+              }
+            }
+          ]
+        },
+        {
+          "_meta": {
+            "localization": {
+              "en": "Weapons",
+              "ch": "武器"
+            }
+          },
+          "files": [
+            {
+              "path": "Equipment/Weapons/Bows.json",
+              "tier_path": "tier_definition/Equipment/Weapons/Bows.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/Bows.json",
+              "target_category": "Bows",
+              "localization": {
+                "en": "Bows",
+                "ch": "弓"
+              }
+            },
+            {
+              "path": "Equipment/Weapons/Wands.json",
+              "tier_path": "tier_definition/Equipment/Weapons/Wands.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/Wands.json",
+              "target_category": "Wands",
+              "localization": {
+                "en": "Wands",
+                "ch": "法杖"
+              }
+            },
+            {
+              "path": "Equipment/Weapons/Claws.json",
+              "tier_path": "tier_definition/Equipment/Weapons/Claws.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/Claws.json",
+              "target_category": "Claws",
+              "localization": {
+                "en": "Claws",
+                "ch": "爪"
+              }
+            },
+            {
+              "path": "Equipment/Weapons/Daggers.json",
+              "tier_path": "tier_definition/Equipment/Weapons/Daggers.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/Daggers.json",
+              "target_category": "Daggers",
+              "localization": {
+                "en": "Daggers",
+                "ch": "匕首"
+              }
+            },
+            {
+              "path": "Equipment/Weapons/Rune Daggers.json",
+              "tier_path": "tier_definition/Equipment/Weapons/Rune Daggers.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/Rune Daggers.json",
+              "target_category": "Rune Daggers",
+              "localization": {
+                "en": "Rune Daggers",
+                "ch": "符文匕首"
+              }
+            },
+            {
+              "path": "Equipment/Weapons/Sceptres.json",
+              "tier_path": "tier_definition/Equipment/Weapons/Sceptres.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/Sceptres.json",
+              "target_category": "Sceptres",
+              "localization": {
+                "en": "Sceptres",
+                "ch": "短杖"
+              }
+            },
+            {
+              "path": "Equipment/Weapons/Staves.json",
+              "tier_path": "tier_definition/Equipment/Weapons/Staves.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/Staves.json",
+              "target_category": "Staves",
+              "localization": {
+                "en": "Staves",
+                "ch": "长杖"
+              }
+            },
+            {
+              "path": "Equipment/Weapons/Warstaves.json",
+              "tier_path": "tier_definition/Equipment/Weapons/Warstaves.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/Warstaves.json",
+              "target_category": "Warstaves",
+              "localization": {
+                "en": "Warstaves",
+                "ch": "战杖"
+              }
+            },
+            {
+              "path": "Equipment/Weapons/One Hand Axes.json",
+              "tier_path": "tier_definition/Equipment/Weapons/One Hand Axes.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/One Hand Axes.json",
+              "target_category": "One Hand Axes",
+              "localization": {
+                "en": "One Hand Axes",
+                "ch": "单手斧"
+              }
+            },
+            {
+              "path": "Equipment/Weapons/One Hand Maces.json",
+              "tier_path": "tier_definition/Equipment/Weapons/One Hand Maces.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/One Hand Maces.json",
+              "target_category": "One Hand Maces",
+              "localization": {
+                "en": "One Hand Maces",
+                "ch": "单手锤"
+              }
+            },
+            {
+              "path": "Equipment/Weapons/One Hand Swords.json",
+              "tier_path": "tier_definition/Equipment/Weapons/One Hand Swords.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/One Hand Swords.json",
+              "target_category": "One Hand Swords",
+              "localization": {
+                "en": "One Hand Swords",
+                "ch": "单手剑"
+              }
+            },
+            {
+              "path": "Equipment/Weapons/Two Hand Axes.json",
+              "tier_path": "tier_definition/Equipment/Weapons/Two Hand Axes.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/Two Hand Axes.json",
+              "target_category": "Two Hand Axes",
+              "localization": {
+                "en": "Two Hand Axes",
+                "ch": "双手斧"
+              }
+            },
+            {
+              "path": "Equipment/Weapons/Two Hand Maces.json",
+              "tier_path": "tier_definition/Equipment/Weapons/Two Hand Maces.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/Two Hand Maces.json",
+              "target_category": "Two Hand Maces",
+              "localization": {
+                "en": "Two Hand Maces",
+                "ch": "双手锤"
+              }
+            },
+            {
+              "path": "Equipment/Weapons/Two Hand Swords.json",
+              "tier_path": "tier_definition/Equipment/Weapons/Two Hand Swords.json",
+              "mapping_path": "base_mapping/Equipment/Weapons/Two Hand Swords.json",
+              "target_category": "Two Hand Swords",
+              "localization": {
+                "en": "Two Hand Swords",
+                "ch": "双手剑"
+              }
+            }
+          ]
+        },
+        {
+          "_meta": {
+            "localization": {
+              "en": "Jewellery",
+              "ch": "饰品"
+            }
+          },
+          "files": [
+            {
+              "path": "Equipment/Jewellery/Amulets.json",
+              "tier_path": "tier_definition/Equipment/Jewellery/Amulets.json",
+              "mapping_path": "base_mapping/Equipment/Jewellery/Amulets.json",
+              "target_category": "Amulets",
+              "localization": {
+                "en": "Amulets",
+                "ch": "项链"
+              }
+            },
+            {
+              "path": "Equipment/Jewellery/Rings.json",
+              "tier_path": "tier_definition/Equipment/Jewellery/Rings.json",
+              "mapping_path": "base_mapping/Equipment/Jewellery/Rings.json",
+              "target_category": "Rings",
+              "localization": {
+                "en": "Rings",
+                "ch": "戒指"
+              }
+            },
+            {
+              "path": "Equipment/Jewellery/Belts.json",
+              "tier_path": "tier_definition/Equipment/Jewellery/Belts.json",
+              "mapping_path": "base_mapping/Equipment/Jewellery/Belts.json",
+              "target_category": "Belts",
+              "localization": {
+                "en": "Belts",
+                "ch": "腰带"
+              }
+            },
+            {
+              "path": "Equipment/Jewellery/Trinkets.json",
+              "tier_path": "tier_definition/Equipment/Jewellery/Trinkets.json",
+              "mapping_path": "base_mapping/Equipment/Jewellery/Trinkets.json",
+              "target_category": "Trinkets",
+              "localization": {
+                "en": "Trinkets",
+                "ch": "饰品"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "Quest",
+          "ch": "任务物品"
+        }
+      },
+      "files": [
+        {
+          "path": "Quest/Quest Items.json",
+          "tier_path": "tier_definition/Quest/Quest Items.json",
+          "mapping_path": "base_mapping/Quest/Quest Items.json",
+          "target_category": "Quest Items",
+          "localization": {
+            "en": "Quest Items",
+            "ch": "任务物品"
+          }
+        },
+        {
+          "path": "Quest/Labyrinth.json",
+          "tier_path": "tier_definition/Quest/Labyrinth.json",
+          "mapping_path": "base_mapping/Quest/Labyrinth.json",
+          "target_category": "Labyrinth Items",
+          "localization": {
+            "en": "Labyrinth",
+            "ch": "迷宫"
+          }
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "Misc",
+          "ch": "杂项"
+        }
+      },
+      "files": [
+        {
+          "path": "Misc/General.json",
+          "tier_path": "tier_definition/Misc/General.json",
+          "mapping_path": "base_mapping/Misc/General.json",
+          "target_category": "Misc",
+          "localization": {
+            "en": "General",
+            "ch": "其他杂项"
+          }
+        }
+      ]
+    }
+  ]
+}

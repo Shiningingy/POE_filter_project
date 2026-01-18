@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Coronal Maul": "加冕重锤",
+        "Meatgrinder": "绞肉机",
+        "Piledriver": "打桩机",
+        "Terror Maul": "恐惧重锤",
+        "__class_name__": "双手锤"
+      }
+    },
+    "item_class": { "en": "Two Hand Maces", "ch": "双手锤" },
+    "theme_category": "Two Hand Maces"
+  },
+  "mapping": {
+    "Coronal Maul": "Tier 1 Two Hand Maces",
+    "Meatgrinder": "Tier 1 Two Hand Maces",
+    "Piledriver": "Tier 1 Two Hand Maces",
+    "Terror Maul": "Tier 1 Two Hand Maces"
+  },
+  "rules": [
+    {
+      "targets": ["Coronal Maul", "Meatgrinder"],
+      "conditions": { "ItemLevel": ">= 83" },
+      "overrides": { "Tier": "Tier 0 Two Hand Maces", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i83 Top 2H Maces"
+    }
+  ]
+}

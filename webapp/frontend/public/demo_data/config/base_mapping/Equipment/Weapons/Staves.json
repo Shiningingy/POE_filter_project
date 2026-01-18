@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Imperial Staff": "帝国长杖",
+        "Eclipse Staff": "日蚀长杖",
+        "Lathi": "拉提",
+        "__class_name__": "长杖"
+      }
+    },
+    "item_class": { "en": "Staves", "ch": "长杖" },
+    "theme_category": "Staves"
+  },
+  "mapping": {
+    "Imperial Staff": "Tier 1 Staves",
+    "Eclipse Staff": "Tier 1 Staves",
+    "Lathi": "Tier 1 Staves"
+  },
+  "rules": [
+    {
+      "targets": ["Imperial Staff", "Eclipse Staff"],
+      "conditions": { "ItemLevel": ">= 83" },
+      "overrides": { "Tier": "Tier 0 Staves", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "comment": "i83 Top Staves"
+    }
+  ]
+}

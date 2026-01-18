@@ -1,0 +1,90 @@
+{
+  "Harvest": {
+    "_meta": {
+      "theme_category": "Harvest",
+      "localization": {
+        "en": "Harvest",
+        "ch": "庄园"
+      },
+      "tier_order": [
+        "Tier 0 Harvest",
+        "Tier 1 Harvest",
+        "Tier 2 Harvest",
+        "Tier 3 Harvest",
+        "Tier Hide Harvest"
+      ]
+    },
+    "Tier 1 Harvest": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "神圣命能.mp3"
+      },
+      "localization": {
+        "en": "T1: Sacred",
+        "ch": "T1: 神圣命能"
+      }
+    },
+    "Tier 2 Harvest": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "命能.mp3"
+      },
+      "localization": {
+        "en": "T2: High Volume",
+        "ch": "T2: 大量命能"
+      }
+    },
+    "Tier 3 Harvest": {
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": "命能.mp3"
+      },
+      "localization": {
+        "en": "T3: Regular",
+        "ch": "T3: 普通命能"
+      }
+    },
+    "Tier Hide Harvest": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    },
+    "Tier 0 Harvest": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: Absolute Top",
+        "ch": "T0: 顶级/核心"
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "Staves": {
+    "_meta": {
+      "theme_category": "Staves",
+      "localization": {
+        "en": "Staves",
+        "ch": "长杖"
+      },
+      "tier_order": [
+        "Tier 0 Staves",
+        "Tier 1 Staves",
+        "Tier Hide Staves"
+      ]
+    },
+    "Tier 0 Staves": {
+      "hideable": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: i83+ Top Staves",
+        "ch": "T0: 顶级长杖(83+)"
+      },
+      "show_in_editor": false
+    },
+    "Tier 1 Staves": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "精品装备.mp3"
+      },
+      "localization": {
+        "en": "T1: High End",
+        "ch": "T1: 优质长杖"
+      }
+    },
+    "Tier Hide Staves": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

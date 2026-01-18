@@ -1,0 +1,90 @@
+{
+  "Oils": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Oils",
+        "ch": "圣油"
+      },
+      "tier_order": [
+        "Tier 0 Oils",
+        "Tier 1 Oils",
+        "Tier 2 Oils",
+        "Tier 3 Oils",
+        "Tier Hide Oils"
+      ]
+    },
+    "Tier 1 Oils": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "高级圣油.mp3"
+      },
+      "localization": {
+        "en": "T1: High End",
+        "ch": "T1: 顶级圣油"
+      }
+    },
+    "Tier 2 Oils": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "圣油.mp3"
+      },
+      "localization": {
+        "en": "T2: Mid Tier",
+        "ch": "T2: 中级圣油"
+      }
+    },
+    "Tier 3 Oils": {
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T3: Low Tier",
+        "ch": "T3: 普通圣油"
+      }
+    },
+    "Tier Hide Oils": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    },
+    "Tier 0 Oils": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: Absolute Top",
+        "ch": "T0: 顶级/核心"
+      }
+    }
+  }
+}

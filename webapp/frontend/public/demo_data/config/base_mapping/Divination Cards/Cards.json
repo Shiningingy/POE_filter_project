@@ -1,0 +1,200 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "House of Mirrors": "明镜",
+        "The Doctor": "疯医",
+        "The Fiend": "劣魔",
+        "The Apothecary": "药剂师",
+        "The Demon": "恶魔",
+        "The Immortal": "永恒不朽",
+        "The Dragon's Heart": "龙之心",
+        "The Price of Devotion": "虔诚的代价",
+        "The Insane Cat": "失智猫咪",
+        "Unrequited Love": "一厢情愿",
+        "The Seven Years Bad Luck": "七年厄运",
+        "Brother's Stash": "兄弟的秘藏",
+        "The Enlightened": "智慧启蒙",
+        "The Empowered": "赋能",
+        "The Saint's Treasure": "圣人之礼",
+        "Abandoned Wealth": "弃财求生",
+        "The Hoarder": "宝箱",
+        "The Scout": "斥候",
+        "The Patient": "病患",
+        "The Nurse": "照料者",
+        "Stacked Deck": "未知的命运卡",
+        "__class_name__": "命运卡"
+      }
+    },
+    "item_class": {
+      "en": "Divination Cards",
+      "ch": "命运卡"
+    },
+    "theme_category": "Divination Cards"
+  },
+  "mapping": {
+    "House of Mirrors": "Tier 0 Cards",
+    "The Doctor": "Tier 0 Cards",
+    "The Demon": "Tier 0 Cards",
+    "The Fiend": "Tier 0 Cards",
+    "The Apothecary": "Tier 0 Cards",
+    "The Immortal": "Tier 0 Cards",
+    "Unrequited Love": "Tier 0 Cards",
+    "The Dragon's Heart": "Tier 1 Cards",
+    "The Price of Devotion": "Tier 1 Cards",
+    "The Insane Cat": "Tier 1 Cards",
+    "Seven Years Bad Luck": "Tier 1 Cards",
+    "Brother's Stash": "Tier 1 Cards",
+    "Wealth and Power": "Tier 1 Cards",
+    "The Enlightened": "Tier 2 Cards",
+    "The Empowered": "Tier 2 Cards",
+    "The Saint's Treasure": "Tier 2 Cards",
+    "Abandoned Wealth": "Tier 2 Cards",
+    "The Hoarder": "Tier 3 Cards",
+    "The Scout": "Tier 3 Cards",
+    "The Patient": "Tier 3 Cards",
+    "The Nurse": "Tier 3 Cards",
+    "The Fortunate": "Tier 3 Cards",
+    "Humility": "Tier 4 Cards",
+    "The Gambler": "Tier 4 Cards",
+    "The Scholar": "Tier 4 Cards",
+    "Rain of Chaos": "Tier 4 Cards",
+    "Her Mask": "Tier 4 Cards",
+    "The Flora's Gift": "Tier 4 Cards",
+    "The Carrion Crow": "Tier 4 Cards",
+    "Destined to Crumble": "Tier 4 Cards",
+    "Thunderous Skies": "Tier 4 Cards"
+  },
+  "rules": [
+    {
+      "targets": [
+        "The Doctor"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/疯医.mp3",
+          300
+        ]
+      },
+      "comment": "Doctor"
+    },
+    {
+      "targets": [
+        "The Apothecary"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/药剂师.mp3",
+          300
+        ]
+      },
+      "comment": "Apothecary"
+    },
+    {
+      "targets": [
+        "House of Mirrors"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/明镜.mp3",
+          300
+        ]
+      },
+      "comment": "Mirror Card"
+    },
+    {
+      "targets": [
+        "The Fiend"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/劣魔.mp3",
+          300
+        ]
+      },
+      "comment": "Fiend"
+    },
+    {
+      "targets": [
+        "Abandoned Wealth"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/弃财求生.mp3",
+          300
+        ]
+      },
+      "comment": "Wealth"
+    },
+    {
+      "targets": [
+        "The Seven Years Bad Luck"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/发财啦.mp3",
+          300
+        ]
+      },
+      "comment": "Bad Luck"
+    },
+    {
+      "targets": [
+        "The Saint's Treasure"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/圣人之礼.mp3",
+          300
+        ]
+      },
+      "comment": "Saint"
+    },
+    {
+      "targets": [
+        "The Nurse"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/照料者.mp3",
+          300
+        ]
+      },
+      "comment": "Nurse"
+    },
+    {
+      "targets": [
+        "The Patient"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/病患.mp3",
+          300
+        ]
+      },
+      "comment": "Patient"
+    },
+    {
+      "targets": [
+        "The Insane Cat"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/疯猫.mp3",
+          300
+        ]
+      },
+      "comment": "Cat"
+    }
+  ]
+}

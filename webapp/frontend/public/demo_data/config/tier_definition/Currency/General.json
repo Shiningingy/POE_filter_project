@@ -1,0 +1,159 @@
+{
+  "General": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "General",
+        "ch": "通用"
+      },
+      "tier_order": [
+        "Tier 0 General",
+        "Tier 1 General",
+        "Tier 2 General",
+        "Tier 3 General",
+        "Tier 4 General",
+        "Tier 5 General",
+        "Tier Hide General"
+      ]
+    },
+    "Tier 0 General": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "Sharket_Sound_6.mp3"
+      },
+      "localization": {
+        "en": "T0: Absolute Top",
+        "ch": "T0: 顶级通货"
+      }
+    },
+    "Tier 1 General": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "Sharket_Sound_5.mp3"
+      },
+      "localization": {
+        "en": "T1: Divine+",
+        "ch": "T1: 神圣石级"
+      }
+    },
+    "Tier 2 General": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "Sharket_Sound_4.mp3"
+      },
+      "localization": {
+        "en": "T2: High Value",
+        "ch": "T2: 高价值通货"
+      }
+    },
+    "Tier 3 General": {
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "Sharket_Sound_3.mp3"
+      },
+      "localization": {
+        "en": "T3: Exalt Level",
+        "ch": "T3: 崇高石级"
+      }
+    },
+    "Tier 4 General": {
+      "hideable": false,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "Sharket_Sound_2.mp3"
+      },
+      "localization": {
+        "en": "T4: Chaos Level",
+        "ch": "T4: 混沌石级"
+      }
+    },
+    "Tier 5 General": {
+      "hideable": false,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": "Sharket_Sound_1.mp3"
+      },
+      "localization": {
+        "en": "T5: Low Value",
+        "ch": "T5: 低价值通货"
+      }
+    },
+    "Tier Hide General": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    },
+    "rules": [
+      {
+        "targets": [
+          "Chaos Orb"
+        ],
+        "conditions": {
+          "StackSize": ">= 100"
+        },
+        "overrides": {
+          "Tier": "Tier 0 General"
+        },
+        "comment": "Test Rule: Stacked Divine"
+      },
+      {
+        "targets": [
+          "Chaos Orb"
+        ],
+        "conditions": {
+          "StackSize": ">=10"
+        },
+        "overrides": {
+          "Tier": "Tier 3 General"
+        },
+        "comment": ""
+      },
+      {
+        "targets": [
+          "Eldritch Orb of Annulment",
+          "Chaos Orb"
+        ],
+        "conditions": {
+          "StackSize": ">=1000"
+        },
+        "overrides": {
+          "Tier": "Tier 0 General"
+        },
+        "comment": ""
+      }
+    ]
+  }
+}
