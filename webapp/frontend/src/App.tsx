@@ -149,6 +149,7 @@ function App() {
             loading={loading} 
             message={message} 
             filterContent={filterPreview}
+            gameMode={gameMode}
           />
         )}
       </div>

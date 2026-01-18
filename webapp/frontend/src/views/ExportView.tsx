@@ -5,21 +5,25 @@ interface ExportViewProps {
   loading: boolean;
   message: string;
   filterContent?: string;
+  gameMode?: 'normal' | 'ruthless';
 }
 
-const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, filterContent }) => {
+const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, filterContent, gameMode }) => {
   const handleDownload = () => {
     if (!filterContent) return;
+    const extension = gameMode === 'ruthless' ? '.ruthlessfilter' : '.filter';
     const blob = new Blob([filterContent], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'Sharket_Custom.filter';
+    a.download = `Sharket_Custom${extension}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   };
+
+  const extensionLabel = gameMode === 'ruthless' ? '.ruthlessfilter' : '.filter';
 
   return (
     <div className="export-view">
@@ -30,7 +34,7 @@ const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, f
       <div className="content-area">
         <div className="card">
           <h3>Generate Filter</h3>
-          <p>Compile your configurations into a downloadable .filter file.</p>
+          <p>Compile your configurations into a downloadable {extensionLabel} file.</p>
           <div className="btn-group">
             <button onClick={onGenerate} disabled={loading} className="generate-btn">
               {loading ? 'Generating...' : 'Generate Filter'}
@@ -38,7 +42,7 @@ const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, f
             
             {filterContent && (
               <button onClick={handleDownload} className="download-btn">
-                Download .filter File
+                Download {extensionLabel} File
               </button>
             )}
           </div>
