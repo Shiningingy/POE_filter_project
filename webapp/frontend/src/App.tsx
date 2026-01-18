@@ -148,6 +148,7 @@ function App() {
             onGenerate={generateFilter} 
             loading={loading} 
             message={message} 
+            filterContent={filterPreview}
           />
         )}
       </div>

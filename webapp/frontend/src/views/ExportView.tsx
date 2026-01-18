@@ -4,9 +4,23 @@ interface ExportViewProps {
   onGenerate: () => void;
   loading: boolean;
   message: string;
+  filterContent?: string;
 }
 
-const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message }) => {
+const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, filterContent }) => {
+  const handleDownload = () => {
+    if (!filterContent) return;
+    const blob = new Blob([filterContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Sharket_Custom.filter';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="export-view">
       <div className="top-bar">
@@ -17,9 +31,17 @@ const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message })
         <div className="card">
           <h3>Generate Filter</h3>
           <p>Compile your configurations into a downloadable .filter file.</p>
-          <button onClick={onGenerate} disabled={loading} className="generate-btn">
-            {loading ? 'Generating...' : 'Generate Filter'}
-          </button>
+          <div className="btn-group">
+            <button onClick={onGenerate} disabled={loading} className="generate-btn">
+              {loading ? 'Generating...' : 'Generate Filter'}
+            </button>
+            
+            {filterContent && (
+              <button onClick={handleDownload} className="download-btn">
+                Download .filter File
+              </button>
+            )}
+          </div>
           {message && <div className="log-output">{message}</div>}
         </div>
       </div>
@@ -30,9 +52,11 @@ const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message })
         .top-bar h2 { margin: 0; font-size: 1.2rem; }
         .content-area { padding: 40px; background: #f0f0f0; flex: 1; }
         .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto; text-align: center; }
-        .generate-btn { background-color: #4CAF50; color: white; border: none; padding: 12px 24px; font-size: 1rem; border-radius: 4px; cursor: pointer; margin-top: 20px; }
+        .btn-group { display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 20px; }
+        .generate-btn { background-color: #4CAF50; color: white; border: none; padding: 12px 24px; font-size: 1rem; border-radius: 4px; cursor: pointer; width: 250px; font-weight: bold; }
         .generate-btn:disabled { background-color: #ccc; }
-        .log-output { margin-top: 20px; padding: 15px; background: #333; color: #0f0; font-family: monospace; text-align: left; border-radius: 4px; white-space: pre-wrap; }
+        .download-btn { background-color: #2196F3; color: white; border: none; padding: 12px 24px; font-size: 1rem; border-radius: 4px; cursor: pointer; width: 250px; font-weight: bold; }
+        .log-output { margin-top: 20px; padding: 15px; background: #333; color: #0f0; font-family: monospace; text-align: left; border-radius: 4px; white-space: pre-wrap; max-height: 200px; overflow-y: auto; }
       `}</style>
     </div>
   );
