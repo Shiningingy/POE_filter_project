@@ -12,4 +12,16 @@ export default defineConfig({
       'react-dom': resolve('node_modules/react-dom'),
     },
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true,
+      },
+      '/sounds': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true,
+      }
+    }
+  }
 })

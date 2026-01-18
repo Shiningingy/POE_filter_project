@@ -11,12 +11,11 @@ export const getSoundUrl = (filePath: string) => {
     return `${baseUrl}demo_data/sounds/${filePath}`;
   }
   
-  // In development mode, check if it's a known folder or a custom absolute path
+  // In development mode, use proxy for all files to ensure correct path/encoding resolution on backend
   if (filePath.startsWith('Default/') || filePath.startsWith('Sharket')) {
-      // Served statically by the FastAPI backend
-      return `/sounds/${filePath}`;
+      return `/api/sounds/proxy?path=${encodeURIComponent(filePath)}`;
   } else {
-      // Custom absolute path on user's disk, served via proxy
+      // Custom absolute path on user's disk
       return `/api/sounds/proxy?path=${encodeURIComponent(filePath)}`;
   }
 };

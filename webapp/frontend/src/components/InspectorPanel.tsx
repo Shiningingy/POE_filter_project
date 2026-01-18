@@ -21,6 +21,7 @@ interface InspectorPanelProps {
   onPasteStyle: (tierKey: string, style: any) => void;
   onAddRulePreset: (tierKey: string, preset: any) => void;
   onRemoveRule: (tierKey: string, ruleIndex: number) => void;
+  onDeselectRule?: () => void;
   language: Language;
   viewerBackground: string;
   setViewerBackground: (bg: string) => void;
@@ -34,6 +35,7 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
   onCopyStyle,
   onPasteStyle,
   onAddRulePreset,
+  onDeselectRule,
   language,
   viewerBackground,
   setViewerBackground
@@ -41,7 +43,7 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
   const t = useTranslation(language);
   const [ruleTemplates, setRuleTemplates] = useState<any[]>([]);
   const [templateSearch, setTemplateSearch] = useState("");
-  const [showFullBlock, setShowFullBlock] = useState(true);
+  const [showFullBlock, setShowFullBlock] = useState(false);
 
   useEffect(() => {
     axios
@@ -113,7 +115,9 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
         (editingRuleIndex !== null && !showFullBlock) 
             ? [inspectedTier.rules?.[editingRuleIndex]].filter(Boolean)
             : inspectedTier.rules || [],
-        (editingRuleIndex === null || showFullBlock)
+        (editingRuleIndex === null || showFullBlock),
+        (editingRuleIndex === null),
+        language
       ) 
     : "";
 
@@ -175,7 +179,13 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
 
         {inspectedTier && (
           <div className="tier-action-group" style={{ marginTop: "10px" }}>
-            <div className="tier-id-tag">{inspectedTier.name}</div>
+            <div 
+                className={`tier-id-tag ${editingRuleIndex !== null ? 'clickable' : ''}`}
+                onClick={() => editingRuleIndex !== null && onDeselectRule?.()}
+                title={editingRuleIndex !== null ? (language === 'ch' ? '点击返回阶级视图' : 'Click to return to Tier view') : ''}
+            >
+                {inspectedTier.name} {editingRuleIndex !== null && ' > ' + t.rule}
+            </div>
             <div className="dual-btns">
               <button
                 className="action-btn-small"
@@ -222,7 +232,7 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
           <div className="header-actions">
             {editingRuleIndex !== null && (
               <button
-                className={`toggle-full-btn ${!showFullBlock ? "active" : ""}`}
+                className={`toggle-full-btn ${showFullBlock ? "active" : ""}`}
                 onClick={() => setShowFullBlock(!showFullBlock)}
               >
                 {!showFullBlock
@@ -351,6 +361,8 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
 
         .clipboard-preview { background: #fcfcfc; padding: 10px; border-radius: 6px; border: 1px solid #eee; }
         .tier-id-tag { font-size: 0.75rem; font-weight: bold; color: #2196F3; margin-bottom: 8px; }
+        .tier-id-tag.clickable { cursor: pointer; text-decoration: underline; }
+        .tier-id-tag.clickable:hover { color: #1976D2; }
         .dual-btns { display: flex; gap: 6px; }
         .action-btn-small { flex: 1; padding: 6px; font-size: 0.75rem; border: 1px solid #ddd; border-radius: 4px; background: white; cursor: pointer; transition: all 0.2s; }
         .action-btn-small:hover:not(:disabled) { border-color: #2196F3; background: #f0f7ff; }
