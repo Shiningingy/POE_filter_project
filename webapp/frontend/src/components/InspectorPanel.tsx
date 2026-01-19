@@ -37,13 +37,11 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
   onCopyStyle,
   onPasteStyle,
   onAddRulePreset,
-  onRemoveRule,
   onDeselectRule,
   onPingCondition,
   language,
   viewerBackground,
-  setViewerBackground,
-  soundMap
+  setViewerBackground
 }) => {
   const t = useTranslation(language);
   const [ruleTemplates, setRuleTemplates] = useState<any[]>([]);

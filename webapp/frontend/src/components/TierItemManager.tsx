@@ -277,8 +277,8 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           }
       }
 
-      // 2. Check Auto-Sound (if no rule override)
-      if (!soundFile && soundMap?.basetype_sounds?.[item.name]) {
+      // 2. Check Auto-Sound (if no rule override AND item is not part of a rule)
+      if (!soundFile && item.rule_index == null && soundMap?.basetype_sounds?.[item.name]) {
           const s = soundMap.basetype_sounds[item.name];
           soundFile = s.file;
           soundVol = s.volume;

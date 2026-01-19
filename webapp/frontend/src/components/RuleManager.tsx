@@ -106,8 +106,8 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   translationCache,
   availableTiers,
   activeRuleIndex,
-  pingedCondition,
-  soundMap
+  onPingCondition,
+  pingedCondition
 }) => {
   const t = useTranslation(language);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
@@ -521,9 +521,6 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                           const soundOverrideKey = soundKeys.find(k => rule.overrides?.[k] && !rule.overrides[k].startsWith("disabled:"));
                           const hasExplicitSound = !!soundOverrideKey;
                           
-                          const autoSound = soundMap?.basetype_sounds?.[tName];
-                          const hasSound = hasExplicitSound || !!autoSound;
-                          
                           const handlePlaySound = () => {
                               let file: string | null = null;
                               let vol = 300;
@@ -542,9 +539,6 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                       file = val[0];
                                       vol = val[1];
                                   }
-                              } else if (autoSound) {
-                                  file = autoSound.file;
-                                  vol = autoSound.volume;
                               }
 
                               if (file) {
@@ -565,7 +559,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                 handleItemRightClick(e, globalIndex, tName)
                               }
                               matchMode={matchMode}
-                              hasSound={hasSound}
+                              hasSound={hasExplicitSound}
                               onPlaySound={handlePlaySound}
                               className="compact-card"
                             />
