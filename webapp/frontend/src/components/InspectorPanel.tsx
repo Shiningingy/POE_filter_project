@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
-import { useTranslation } from "../utils/localization";
+import { useTranslation, translations } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import { generateFilterText } from "../utils/styleResolver";
 
@@ -22,71 +22,11 @@ interface InspectorPanelProps {
   onAddRulePreset: (tierKey: string, preset: any) => void;
   onRemoveRule: (tierKey: string, ruleIndex: number) => void;
   onDeselectRule?: () => void;
+  onPingCondition?: (tierKey: string, ruleIndex: number, conditionKey: string) => void;
   language: Language;
   viewerBackground: string;
   setViewerBackground: (bg: string) => void;
 }
-
-const ITEM_CLASSES = [
-    "Stackable Currency", "Maps", "Divination Cards", "Skill Gems", "Support Gems", 
-    "Body Armours", "Boots", "Gloves", "Helmets", "Shields", "Quivers",
-    "Amulets", "Rings", "Belts", "Jewels", "Abyss Jewels",
-    "Claws", "Daggers", "Rune Daggers", "Wands", "One Hand Swords", "Thrusting One Hand Swords", 
-    "One Hand Axes", "One Hand Maces", "Sceptres", "Bows", "Staves", "Warstaves", 
-    "Two Hand Swords", "Two Hand Axes", "Two Hand Maces",
-    "Life Flasks", "Mana Flasks", "Utility Flasks",
-    "Map Fragments", "Scarabs", "Expedition Logbooks", "Contract", "Blueprint", "Relic"
-];
-
-const TRANSFIGURED_GEMS = [
-    "Absolution of Inspiring", "Animate Guardian of Smiting", "Bladestorm of Uncertainty", "Boneshatter of Carnage",
-    "Boneshatter of Complex Trauma", "Cleave of Rage", "Consecrated Path of Endurance", "Dominating Blow of Inspiring",
-    "Earthquake of Amplification", "Earthshatter of Fragility", "Earthshatter of Prominence", "Exsanguinate of Transmission",
-    "Frozen Legion of Rallying", "Glacial Hammer of Shattering", "Ground Slam of Earthshaking", "Holy Flame Totem of Ire",
-    "Ice Crash of Cadence", "Infernal Blow of Immolation", "Leap Slam of Groundbreaking", "Molten Strike of the Zenith",
-    "Perforate of Bloodshed", "Perforate of Duality", "Rage Vortex of Berserking", "Shield Crush of the Chieftain",
-    "Smite of Divine Judgement", "Summon Flame Golem of Hordes", "Summon Flame Golem of the Meteor", "Summon Stone Golem of Hordes",
-    "Summon Stone Golem of Safeguarding", "Sunder of Earthbreaking", "Tectonic Slam of Cataclysm", "Volcanic Fissure of Snaking",
-    "Animate Weapon of Ranged Arms", "Animate Weapon of Self Reflection", "Artillery Ballista of Cross Strafe", "Artillery Ballista of Focus Fire",
-    "Barrage of Volley Fire", "Bear Trap of Skewers", "Blade Blast of Dagger Detonation", "Blade Blast of Unloading",
-    "Blade Flurry of Incision", "Blade Trap of Greatswords", "Blade Trap of Laceration", "Blade Vortex of the Scythe",
-    "Bladefall of Impaling", "Bladefall of Volleys", "Blink Arrow of Bombarding Clones", "Blink Arrow of Prismatic Clones",
-    "Burning Arrow of Vigour", "Caustic Arrow of Poison", "Cremation of Exhuming", "Cremation of the Volcano",
-    "Cyclone of Tumult", "Detonate Dead of Chain Reaction", "Detonate Dead of Scavenging", "Double Strike of Impaling",
-    "Double Strike of Momentum", "Dual Strike of Ambidexterity", "Elemental Hit of the Spectrum", "Ethereal Knives of Lingering Blades",
-    "Ethereal Knives of the Massacre", "Explosive Concoction of Destruction", "Explosive Trap of Magnitude", "Explosive Trap of Shrapnel",
-    "Fire Trap of Blasting", "Flicker Strike of Power", "Frenzy of Onslaught", "Frost Blades of Katabasis",
-    "Galvanic Arrow of Energy", "Galvanic Arrow of Surging", "Ice Shot of Penetration", "Ice Trap of Hollowness",
-    "Lacerate of Butchering", "Lacerate of Haemorrhage", "Lancing Steel of Spraying", "Lightning Arrow of Electrocution",
-    "Lightning Strike of Arcing", "Mirror Arrow of Bombarding Clones", "Mirror Arrow of Prismatic Clones", "Poisonous Concoction of Bouncing",
-    "Puncture of Shanking", "Rain of Arrows of Artillery", "Rain of Arrows of Saturation", "Reave of Refraction",
-    "Scourge Arrow of Menace", "Seismic Trap of Swells", "Shattering Steel of Ammunition", "Shrapnel Ballista of Steel",
-    "Siege Ballista of Splintering", "Spectral Shield Throw of Shattering", "Spectral Throw of Materialising", "Split Arrow of Splitting",
-    "Splitting Steel of Ammunition", "Storm Rain of the Conduit", "Storm Rain of the Fence", "Summon Ice Golem of Hordes",
-    "Summon Ice Golem of Shattering", "Tornado of Elemental Turbulence", "Tornado Shot of Cloudburst", "Toxic Rain of Sporeburst",
-    "Toxic Rain of Withering", "Viper Strike of the Mamba", "Volatile Dead of Confinement", "Volatile Dead of Seething",
-    "Wild Strike of Extremes", "Arc of Oscillating", "Arc of Surging", "Armageddon Brand of Recall",
-    "Armageddon Brand of Volatility", "Ball Lightning of Orbiting", "Ball Lightning of Static", "Bane of Condemnation",
-    "Blight of Atrophy", "Blight of Contagion", "Bodyswap of Sacrifice", "Cold Snap of Power",
-    "Contagion of Subsiding", "Contagion of Transference", "Crackling Lance of Branching", "Crackling Lance of Disintegration",
-    "Discharge of Misery", "Divine Ire of Disintegration", "Divine Ire of Holy Lightning", "Essence Drain of Desperation",
-    "Essence Drain of Wickedness", "Eye of Winter of Finality", "Eye of Winter of Transience", "Firestorm of Meteors",
-    "Firestorm of Pelting", "Flame Dash of Return", "Flame Surge of Combusting", "Flameblast of Celerity",
-    "Flameblast of Contraction", "Forbidden Rite of Soul Sacrifice", "Frost Bomb of Forthcoming", "Frost Bomb of Instability",
-    "Frostblink of Wintry Blast", "Galvanic Field of Intensity", "Glacial Cascade of the Fissure", "Hexblast of Contradiction",
-    "Hexblast of Havoc", "Ice Nova of Deep Freeze", "Ice Nova of Frostbolts", "Ice Spear of Splitting",
-    "Icicle Mine of Fanning", "Icicle Mine of Sabotage", "Incinerate of Expanse", "Incinerate of Venting",
-    "Kinetic Blast of Clustering", "Kinetic Bolt of Fragmentation", "Kinetic Rain of Impact", "Lightning Conduit of the Heavens",
-    "Lightning Spire Trap of Overloading", "Lightning Spire Trap of Zapping", "Lightning Tendrils of Eccentricity", "Lightning Tendrils of Escalation",
-    "Lightning Trap of Sparking", "Penance Brand of Conduction", "Penance Brand of Dissipation", "Power Siphon of the Archmage",
-    "Purifying Flame of Revelations", "Pyroclast Mine of Sabotage", "Raise Spectre of Transience", "Raise Zombie of Falling",
-    "Raise Zombie of Slamming", "Righteous Fire of Arcane Devotion", "Scorching Ray of Immolation", "Soulrend of Reaping",
-    "Soulrend of the Spiral", "Spark of the Nova", "Spark of Unpredictability", "Storm Brand of Indecision",
-    "Stormbind of Teleportation", "Summon Carrion Golem of Hordes", "Summon Carrion Golem of Scavenging", "Summon Chaos Golem of Hordes",
-    "Summon Chaos Golem of the Maelström", "Summon Holy Relic of Conviction", "Summon Lightning Golem of Hordes", "Summon Raging Spirit of Enormity",
-    "Summon Reaper of Eviscerating", "Summon Reaper of Revenants", "Summon Skeletons of Archers", "Summon Skeletons of Mages",
-    "Void Sphere of Rending", "Vortex of Projection"
-];
 
 const InspectorPanel: React.FC<InspectorPanelProps> = ({
   inspectedTier,
@@ -97,6 +37,7 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
   onPasteStyle,
   onAddRulePreset,
   onDeselectRule,
+  onPingCondition,
   language,
   viewerBackground,
   setViewerBackground
@@ -106,10 +47,6 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
   const [templateSearch, setTemplateSearch] = useState("");
   const [showFullBlock, setShowFullBlock] = useState(false);
 
-  // Picker States
-  const [gemSearch, setGemSearch] = useState("");
-  const [gemSuggestions, setGemSuggestions] = useState<any[]>([]);
-
   useEffect(() => {
     axios
       .get("/api/rule-templates")
@@ -117,27 +54,14 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
       .catch((e) => console.error("Failed to fetch rule templates", e));
   }, []);
 
-  useEffect(() => {
-      if (gemSearch.length < 2) {
-          setGemSuggestions([]);
-          return;
-      }
-      const timeout = setTimeout(async () => {
-          try {
-              const res = await axios.get(`/api/search-items?q=${encodeURIComponent(gemSearch)}`);
-              const gems = res.data.results.filter((i: any) => i.item_class?.includes("Gem"));
-              setGemSuggestions(gems);
-          } catch (e) {}
-      }, 300);
-      return () => clearTimeout(timeout);
-  }, [gemSearch]);
-
   const activeRule = (inspectedTier && editingRuleIndex !== null) ? inspectedTier.rules?.[editingRuleIndex] : null;
 
   const handleAddConditionToCurrent = (tmp: any) => {
-      if (!activeRule) return;
+      if (!activeRule || !inspectedTier) return;
       if (activeRule.conditions && activeRule.conditions[tmp.condition]) {
-          alert(`${tmp.label[language]} already exists in this rule.`);
+          // Rule exists, trigger ping and popup
+          onPingCondition?.(inspectedTier.key, editingRuleIndex!, tmp.condition);
+          alert((translations[language] as any).conditionAlreadyAdded + ": " + (tmp.label[language] || tmp.condition));
           return;
       }
       
@@ -147,8 +71,9 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
       else if (tmp.type === 'select') val = tmp.options[0];
       else if (tmp.type === 'class_picker') val = "Currency";
       else if (tmp.type === 'text') val = "";
+      else if (tmp.type === 'gem_picker') val = "True";
       
-      onAddRulePreset(inspectedTier!.key, {
+      onAddRulePreset(inspectedTier.key, {
           ...activeRule,
           conditions: { ...activeRule.conditions, [tmp.condition]: val }
       });
@@ -180,7 +105,7 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
                         ? ">= 0"
                         : tmp.type === "bool"
                         ? "True"
-                        : (tmp.type === "select" ? tmp.options[0] : (tmp.type === "text" ? "" : "")),
+                        : (tmp.type === "select" ? tmp.options[0] : (tmp.type === "text" ? "" : (tmp.type === "gem_picker" ? "True" : ""))),
                 },
                 comment: tmp.label[language],
               },

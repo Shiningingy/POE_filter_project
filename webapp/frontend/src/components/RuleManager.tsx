@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import axios from "axios";
-import { useTranslation } from "../utils/localization";
+import { useTranslation, RULE_FACTOR_LOCALIZATION, translations } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import ItemCard from "./ItemCard";
 import ContextMenu from "./ContextMenu";
@@ -35,34 +35,11 @@ interface RuleManagerProps {
   onRuleEdit: (tierKey: string, ruleIndex: number | null) => void;
   language: Language;
   availableItems: Item[];
-  categoryName: string;
   translationCache: Record<string, string>;
   availableTiers?: TierOption[];
   activeRuleIndex?: number | null;
+  pingedCondition?: { tierKey: string, ruleIndex: number, conditionKey: string, timestamp: number } | null;
 }
-
-const RULE_FACTOR_LOCALIZATION: Record<string, { en: string; ch: string }> = {
-  ItemLevel: { en: "Item Level", ch: "物品等级" },
-  DropLevel: { en: "Drop Level", ch: "掉落等级" },
-  GemLevel: { en: "Gem Level", ch: "宝石等级" },
-  Quality: { en: "Quality", ch: "品质" },
-  MapTier: { en: "Map Tier", ch: "地图阶级" },
-  StackSize: { en: "Stack Size", ch: "堆叠数量" },
-  Sockets: { en: "Sockets", ch: "插槽" },
-  LinkedSockets: { en: "Links", ch: "连线" },
-  Corrupted: { en: "Corrupted", ch: "已污染" },
-  Mirrored: { en: "Mirrored", ch: "已复制" },
-  Identified: { en: "Identified", ch: "已鉴定" },
-  FracturedItem: { en: "Fractured", ch: "破碎物品" },
-  SynthesisedItem: { en: "Synthesised", ch: "合成物品" },
-  HasInfluence: { en: "Influence", ch: "势力" },
-  BlightedMap: { en: "Blighted", ch: "菌潮" },
-  BlightRavagedMap: { en: "Blight-ravaged", ch: "菌潮灭绝" },
-  VaalGem: { en: "Vaal", ch: "瓦尔" },
-  TransfiguredGem: { en: "Transfigured", ch: "特品宝石" },
-  Class: { en: "Item Class", ch: "物品类别" },
-  EnchantmentPassiveNode: { en: "Cluster Node", ch: "星团天赋" },
-};
 
 const ITEM_CLASSES = [
     "Stackable Currency", "Maps", "Divination Cards", "Skill Gems", "Support Gems", 
@@ -132,10 +109,10 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   onRuleEdit,
   language,
   availableItems,
-  categoryName,
   translationCache,
   availableTiers,
-  activeRuleIndex
+  activeRuleIndex,
+  pingedCondition
 }) => {
   const t = useTranslation(language);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
@@ -150,6 +127,20 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   const [ruleTemplates, setRuleTemplates] = useState<any[]>([]);
   const [gemSearch, setGemSearch] = useState("");
   const [gemSuggestions, setGemSuggestions] = useState<any[]>([]);
+
+  const [localPing, setLocalPing] = useState<{ ruleIndex: number, conditionKey: string, timestamp: number } | null>(null);
+
+  useEffect(() => {
+      if (pingedCondition && pingedCondition.tierKey === tierKey) {
+          setLocalPing({ 
+              ruleIndex: pingedCondition.ruleIndex, 
+              conditionKey: pingedCondition.conditionKey, 
+              timestamp: pingedCondition.timestamp 
+          });
+          const timeout = setTimeout(() => setLocalPing(null), 2000);
+          return () => clearTimeout(timeout);
+      }
+  }, [pingedCondition, tierKey]);
 
   useEffect(() => {
       axios.get("/api/rule-templates")
@@ -336,6 +327,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
         else if (tmp.type === 'select') val = tmp.options[0];
         else if (tmp.type === 'class_picker') val = "Currency";
         else if (tmp.type === 'text') val = "";
+        else if (tmp.type === 'gem_picker') val = "True";
     }
     updateCondition(globalIndex, key, val);
   };
@@ -494,22 +486,21 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                             "blightedmap",
                             "blightravagedmap",
                             "vaalgem",
-                            "transfiguredgem",
                           ].includes(key.toLowerCase());
 
-                        const label =
-                          RULE_FACTOR_LOCALIZATION[key]?.[language] || key;
-
                         const tmp = ruleTemplates.flatMap(c => c.templates).find(t => t.condition === key);
+                        const label = tmp?.label[language] || RULE_FACTOR_LOCALIZATION[key]?.[language] || key;
                         const isSelect = tmp?.type === 'select';
                         const isClass = tmp?.type === 'class_picker';
                         const isGem = tmp?.type === 'gem_picker';
                         const isText = tmp?.type === 'text';
 
+                        const isPinging = localPing?.ruleIndex === globalIndex && localPing?.conditionKey === key;
+
                         return (
                           <div
                             key={key}
-                            className={`mini-factor ${isRange ? "range-factor" : ""}`}
+                            className={`mini-factor ${isRange ? "range-factor" : ""} ${isPinging ? "pinging" : ""}`}
                           >
                             <div className="factor-header">
                               <span>{label}</span>
@@ -536,8 +527,8 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                   }
                                   style={{ width: "100%" }}
                                 >
-                                  <option value="True">Yes</option>
-                                  <option value="False">No</option>
+                                  <option value="True">{(translations[language] as any).true}</option>
+                                  <option value="False">{(translations[language] as any).false}</option>
                                 </select>
                               ) : isSelect ? (
                                 <select
@@ -557,14 +548,18 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                               ) : isClass ? (
                                 <div className="class-picker-ui">
                                     <select value={ITEM_CLASSES.includes(currentVal) ? currentVal : "custom"} onChange={(e) => updateCondition(globalIndex, key, e.target.value)}>
-                                        {ITEM_CLASSES.map(cls => <option key={cls} value={cls}>{cls}</option>)}
-                                        <option value="custom">-- Manual --</option>
+                                        {ITEM_CLASSES.map(cls => {
+                                            const locKey = cls.replace(/ /g, "_");
+                                            const locName = (translations[language] as any)[locKey] || cls;
+                                            return <option key={cls} value={cls}>{locName}</option>;
+                                        })}
+                                        <option value="custom">-- {(translations[language] as any).custom} --</option>
                                     </select>
                                     {!ITEM_CLASSES.includes(currentVal) && (
                                         <input 
                                             type="text" 
                                             value={currentVal === "custom" ? "" : currentVal} 
-                                            placeholder="Partial class..."
+                                            placeholder={(translations[language] as any).search}
                                             onChange={(e) => updateCondition(globalIndex, key, e.target.value)}
                                             className="mt-5"
                                         />
@@ -575,12 +570,19 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                     <div className="gem-search-box">
                                         <input 
                                             type="text" 
-                                            placeholder="Search gem..." 
+                                            placeholder={(translations[language] as any).search} 
                                             value={gemSearch}
                                             onChange={(e) => setGemSearch(e.target.value)}
                                         />
-                                        {(gemSuggestions.length > 0 || (key === "TransfiguredGem" && gemSearch.length >= 2)) && (
+                                        {(gemSuggestions.length > 0 || (key === "TransfiguredGem" && gemSearch.length >= 2) || gemSearch.length > 0) && (
                                             <div className="gem-popover">
+                                                {/* Prepend Boolean options if they match or if search is empty/short */}
+                                                {["True", "False"].filter(b => b.toLowerCase().includes(gemSearch.toLowerCase())).map(b => (
+                                                    <div key={b} className="gem-sugg-item bool-opt" onClick={() => { updateCondition(globalIndex, key, b); setGemSearch(""); }}>
+                                                        {(translations[language] as any)[b.toLowerCase()] || b}
+                                                    </div>
+                                                ))}
+                                                
                                                 {key === "TransfiguredGem" ? (
                                                     TRANSFIGURED_GEMS.filter(g => g.toLowerCase().includes(gemSearch.toLowerCase())).slice(0, 15).map(g => (
                                                         <div key={g} className="gem-sugg-item" onClick={() => { updateCondition(globalIndex, key, `"${g}"`); setGemSearch(""); }}>
@@ -977,7 +979,19 @@ const RuleManager: React.FC<RuleManagerProps> = ({
         .gem-popover { position: absolute; top: 100%; left: 0; right: 0; z-index: 100; background: white; border: 1px solid #ddd; border-radius: 4px; max-height: 200px; overflow-y: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         .gem-sugg-item { padding: 6px 10px; cursor: pointer; font-size: 0.8rem; color: #222; }
         .gem-sugg-item:hover { background: #f0f7ff; color: #2196F3; }
+        .gem-sugg-item.bool-opt { font-weight: bold; color: #1976d2; background: #f0f7ff; border-bottom: 1px solid #e3f2fd; }
+        .gem-sugg-item.bool-opt:hover { background: #e3f2fd; }
         .current-gem-val { font-size: 0.7rem; color: #666; padding: 2px 4px; background: #eee; border-radius: 3px; }
+
+        @keyframes ping-fade {
+            0% { border-color: #2196F3; box-shadow: 0 0 10px rgba(33, 150, 243, 0.5); transform: scale(1.02); }
+            100% { border-color: #f0f0f0; box-shadow: none; transform: scale(1); }
+        }
+        .mini-factor.pinging {
+            animation: ping-fade 2s ease-out;
+            border-width: 2px;
+            z-index: 10;
+        }
       `}</style>
       
       {contextMenu && (

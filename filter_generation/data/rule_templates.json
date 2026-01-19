@@ -552,8 +552,9 @@
             "ch": "特品宝石"
           },
           "condition": "TransfiguredGem",
-          "type": "bool",
+          "type": "gem_picker",
           "aliases": [
+            "all",
             "gems",
             "skill",
             "support"

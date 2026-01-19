@@ -37,6 +37,7 @@ const EditorView: React.FC<EditorViewProps> = ({
   const t = useTranslation(language);
   const [inspectedTier, setInspectedTier] = useState<any>(null);
   const [editingRuleIndex, setEditingRuleIndex] = useState<number | null>(null);
+  const [pingedCondition, setPingedCondition] = useState<{ tierKey: string, ruleIndex: number, conditionKey: string, timestamp: number } | null>(null);
   const [tierItems, setTierItems] = useState<Record<string, any[]>>({});
   const isDirtyRef = React.useRef(false);
 
@@ -274,6 +275,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                   fetchTierItems={fetchTierItems}
                   defaultMappingPath={selectedFile.mapping_path}
                   onUpdateTierItems={handleManualItemUpdate}
+                  pingedCondition={pingedCondition}
                 />
             )}
           </div>
@@ -293,6 +295,7 @@ const EditorView: React.FC<EditorViewProps> = ({
         language={language}
         viewerBackground={viewerBackground}
         setViewerBackground={setViewerBackground}
+        onPingCondition={(tierKey, ruleIdx, condKey) => setPingedCondition({ tierKey, ruleIndex: ruleIdx, conditionKey: condKey, timestamp: Date.now() })}
       />
 
       <style>{`

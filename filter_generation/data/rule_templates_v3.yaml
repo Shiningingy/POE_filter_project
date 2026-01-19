@@ -252,8 +252,8 @@ categories:
       - id: transfigured
         label: { en: Transfigured Gem, ch: 特品宝石 }
         condition: TransfiguredGem
-        type: bool
-        aliases: [gems, skill, support]
+        type: gem_picker
+        aliases: [all, gems, skill, support]
 
   - id: maps
     name:

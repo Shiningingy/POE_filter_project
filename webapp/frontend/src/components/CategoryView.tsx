@@ -47,6 +47,7 @@ interface CategoryViewProps {
   fetchTierItems: (keys: string[]) => void;
   defaultMappingPath?: string;
   onUpdateTierItems?: (tierKey: string, items: TierItem[]) => void;
+  pingedCondition?: { tierKey: string, ruleIndex: number, conditionKey: string, timestamp: number } | null;
 }
 
 const CategoryView: React.FC<CategoryViewProps> = ({
@@ -59,7 +60,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   tierItems,
   fetchTierItems,
   defaultMappingPath,
-  onUpdateTierItems
+  onUpdateTierItems,
+  pingedCondition
 }) => {
   const t = useTranslation(language);
   const [themeData, setThemeData] = useState<any>(null);
@@ -649,10 +651,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                                                     onRuleEdit={onRuleEdit}
                                                                     language={language}
                                                                     availableItems={items}
-                                                                    categoryName={themeCategory}
                                                                     translationCache={itemTranslationCache}
                                                                     availableTiers={tierOptions}
                                                                     activeRuleIndex={activeRuleIndex?.tierKey === tierKey ? activeRuleIndex.index : null}
+                                                                    pingedCondition={pingedCondition}
                                                                 />
                                                             </SortableTierBlock>
                                                         );

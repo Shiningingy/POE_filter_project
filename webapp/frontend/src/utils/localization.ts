@@ -231,6 +231,9 @@ export const translations = {
     active: "active",
     and: "and",
     moreRulesHidden: "more rules hidden",
+    true: "True",
+    false: "False",
+    conditionAlreadyAdded: "Condition already added",
   },
   ch: {
     appTitle: "POE 过滤器编辑器",
@@ -430,6 +433,9 @@ export const translations = {
     active: "生效中",
     and: "和",
     moreRulesHidden: "更多规则已隐藏",
+    true: "是 (True)",
+    false: "否 (False)",
+    conditionAlreadyAdded: "条件已添加",
   }
 };
 
