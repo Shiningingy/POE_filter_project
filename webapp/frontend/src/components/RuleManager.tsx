@@ -586,18 +586,19 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                             placeholder={(translations[language] as any).search} 
                                             value={gemSearch}
                                             onChange={(e) => setGemSearch(e.target.value)}
+                                            onFocus={() => { if(gemSearch === "") setGemSearch(" "); }} // Trigger popover on focus
                                         />
-                                        {(gemSuggestions.length > 0 || (key === "TransfiguredGem" && gemSearch.length >= 2) || gemSearch.length > 0) && (
+                                        {(gemSearch.length > 0 || gemSuggestions.length > 0) && (
                                             <div className="gem-popover">
-                                                {/* Prepend Boolean options if they match or if search is empty/short */}
-                                                {["True", "False"].filter(b => b.toLowerCase().includes(gemSearch.toLowerCase())).map(b => (
+                                                {/* Always show True/False if they match search or if search is broad */}
+                                                {["True", "False"].map(b => (
                                                     <div key={b} className="gem-sugg-item bool-opt" onClick={() => { updateCondition(globalIndex, key, b); setGemSearch(""); }}>
                                                         {(translations[language] as any)[b.toLowerCase()] || b}
                                                     </div>
                                                 ))}
                                                 
                                                 {key === "TransfiguredGem" ? (
-                                                    TRANSFIGURED_GEMS.filter(g => g.toLowerCase().includes(gemSearch.toLowerCase())).slice(0, 15).map(g => (
+                                                    TRANSFIGURED_GEMS.filter(g => g.toLowerCase().includes(gemSearch.trim().toLowerCase())).slice(0, 15).map(g => (
                                                         <div key={g} className="gem-sugg-item" onClick={() => { updateCondition(globalIndex, key, `"${g}"`); setGemSearch(""); }}>
                                                             {g}
                                                         </div>
@@ -613,7 +614,12 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                         )}
                                     </div>
                                     <div className="current-gem-val">
-                                        <span>Current: <b>{currentVal}</b></span>
+                                        {(() => {
+                                            let displayVal = currentVal;
+                                            if (currentVal === "True") displayVal = (translations[language] as any).true;
+                                            else if (currentVal === "False") displayVal = (translations[language] as any).false;
+                                            return <span>Current: <b>{displayVal}</b></span>;
+                                        })()}
                                     </div>
                                 </div>
                               ) : (
