@@ -20,7 +20,7 @@ import {
   arrayMove
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { useTranslation } from '../utils/localization';
+import { useTranslation, CLASS_KEY_MAP } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ItemCard from './ItemCard';
 
@@ -171,6 +171,9 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   // Workspace State
   const [activeColumns, setActiveColumns] = useState<SoundDef[]>([]);
   const [stagedChanges, setStagedChanges] = useState<Record<string, string>>({}); // itemName -> soundPath
+  const [selectedClass, setSelectedClass] = useState('All');
+  const [itemClasses, setItemClasses] = useState<string[]>([]);
+  const [searchTermPool, setSearchTermPool] = useState('');
   
   // Drag State
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -182,15 +185,17 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
     const fetchData = async () => {
       setLoading(true);
       try {
-        const [itemsRes, mapRes, listRes] = await Promise.all([
+        const [itemsRes, mapRes, listRes, classesRes] = await Promise.all([
             axios.get('/api/class-items/All'),
             axios.get('/api/sound-map'),
-            axios.get('/api/sounds/list')
+            axios.get('/api/sounds/list'),
+            axios.get('/api/item-classes')
         ]);
         setItems(itemsRes.data.items);
         setSoundMap(mapRes.data);
         setDefaults(listRes.data.defaults.map((p: string) => ({ path: p, label: p.split('/').pop() || p, type: 'default' })));
         setSharket(listRes.data.sharket.map((p: string) => ({ path: p, label: p.split('/').pop() || p, type: 'sharket' })));
+        setItemClasses(['All', ...classesRes.data.classes]);
         setLoading(false);
       } catch (err) { console.error(err); setLoading(false); }
     };
@@ -200,12 +205,13 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   const addColumn = (sound: SoundDef, index?: number) => {
       if (!activeColumns.find(c => c.path === sound.path)) {
           setActiveColumns(prev => {
-              if (index !== undefined) {
-                  const next = [...prev];
+              const next = [...prev];
+              if (index !== undefined && index !== -1) {
                   next.splice(index, 0, sound);
-                  return next;
+              } else {
+                  next.push(sound);
               }
-              return [...prev, sound];
+              return next;
           });
       }
   };
@@ -225,35 +231,48 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
     const id = active.id as string;
     const overId = over.id as string;
 
-    // 1. Item Dragging
-    if (id.includes('::')) {
-        const itemName = id.split('::')[0];
-        // Target is either a column ID (path) or another item in a column
-        const targetPath = activeColumns.find(c => c.path === overId) ? overId : overId.split('::')[1];
-        if (targetPath && targetPath !== 'pool') {
-            setStagedChanges(prev => ({ ...prev, [itemName]: targetPath }));
-        } else if (targetPath === 'pool') {
-            setStagedChanges(prev => {
-                const next = { ...prev };
-                delete next[itemName];
-                return next;
-            });
-        }
-    } 
-    // 2. Sound Catalog Dragging
-    else if (id.startsWith('catalog::')) {
+    // A. CATALOG SOUND -> WORKSPACE
+    if (id.startsWith('catalog::')) {
         const sound = active.data.current?.sound;
         if (sound) {
             const overIndex = activeColumns.findIndex(c => c.path === overId);
             addColumn(sound, overIndex === -1 ? undefined : overIndex);
         }
+        return;
     }
-    // 3. Column Reordering
-    else if (activeColumns.find(c => c.path === id)) {
-        const oldIndex = activeColumns.findIndex(c => c.path === id);
-        const newIndex = activeColumns.findIndex(c => c.path === overId);
-        if (oldIndex !== -1 && newIndex !== -1) {
-            setActiveColumns(arrayMove(activeColumns, oldIndex, newIndex));
+
+    // B. COLUMN -> COLUMN (REORDER)
+    if (activeColumns.some(c => c.path === id)) {
+        if (id !== overId) {
+            const oldIndex = activeColumns.findIndex(c => c.path === id);
+            const newIndex = activeColumns.findIndex(c => c.path === overId);
+            if (oldIndex !== -1 && newIndex !== -1) {
+                setActiveColumns(arrayMove(activeColumns, oldIndex, newIndex));
+            }
+        }
+        return;
+    }
+
+    // C. ITEM -> COLUMN/POOL
+    if (id.includes('::')) {
+        const itemName = id.split('::')[0];
+        
+        let targetPath: string | null = null;
+        if (overId === 'pool' || overId.endsWith('::pool')) {
+            targetPath = 'pool';
+        } else {
+            const isColumn = activeColumns.some(c => c.path === overId);
+            targetPath = isColumn ? overId : overId.split('::')[1];
+        }
+
+        if (targetPath === 'pool') {
+            setStagedChanges(prev => {
+                const next = { ...prev };
+                delete next[itemName];
+                return next;
+            });
+        } else if (targetPath) {
+            setStagedChanges(prev => ({ ...prev, [itemName]: targetPath }));
         }
     }
   };
@@ -279,14 +298,24 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
 
   const poolItems = useMemo(() => {
       return items.filter(i => {
-          const currentSound = stagedChanges[i.name] || soundMap?.basetype_sounds[i.name]?.file;
-          return !currentSound;
+          const currentSound = stagedChanges[i.name] !== undefined 
+            ? stagedChanges[i.name] 
+            : soundMap?.basetype_sounds[i.name]?.file;
+          
+          if (currentSound) return false;
+          if (selectedClass !== 'All' && i.item_class !== selectedClass) return false;
+          const searchLower = searchTermPool.toLowerCase();
+          if (searchTermPool && !i.name.toLowerCase().includes(searchLower) && !(i.name_ch && i.name_ch.toLowerCase().includes(searchLower))) return false;
+
+          return true;
       }).slice(0, 100);
-  }, [items, soundMap, stagedChanges]);
+  }, [items, soundMap, stagedChanges, selectedClass, searchTermPool]);
 
   const getColumnItems = (path: string) => {
       return items.filter(i => {
-          const currentSound = stagedChanges[i.name] || soundMap?.basetype_sounds[i.name]?.file;
+          const currentSound = stagedChanges[i.name] !== undefined 
+            ? stagedChanges[i.name] 
+            : soundMap?.basetype_sounds[i.name]?.file;
           return currentSound === path;
       });
   };
@@ -297,7 +326,15 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
     <div className="sound-bulk-editor modal-overlay">
       <div className="modal-content">
         <div className="modal-header">
-          <h2>🎵 {language === 'ch' ? "音效批量编辑器" : "Sound Bulk Editor"}</h2>
+          <div className="header-left">
+            <h2>🎵 {language === 'ch' ? "音效批量编辑器" : "Sound Bulk Editor"}</h2>
+            <div className="class-nav">
+                <span className="label">{(t as any).itemClass}:</span>
+                <select value={selectedClass} onChange={e => setSelectedClass(e.target.value)} className="class-select">
+                    {itemClasses.map(c => <option key={c} value={c}>{language === 'ch' ? ((t as any)[CLASS_KEY_MAP[c] || c] || c) : c}</option>)}
+                </select>
+            </div>
+          </div>
           <button className="close-btn" onClick={onClose}>×</button>
         </div>
 
@@ -308,12 +345,18 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
             <div ref={setPoolRef} className="item-pool-sidebar">
                 <div className="sidebar-header">
                     <h3>{language === 'ch' ? "物品池" : "Item Pool"}</h3>
-                    <input type="text" placeholder={t.search} className="pool-search" />
+                    <input 
+                        type="text" 
+                        placeholder={t.search} 
+                        className="pool-search" 
+                        value={searchTermPool}
+                        onChange={e => setSearchTermPool(e.target.value)}
+                    />
                 </div>
                 <div className="pool-content">
                     <SortableContext id="pool" items={poolItems.map(i => `${i.name}::pool`)} strategy={verticalListSortingStrategy}>
                         {poolItems.map(i => (
-                            <SortableItem key={i.name} id={`${i.name}::pool`} item={i} language={language} isStaged={false} />
+                            <SortableItem key={`${i.name}::pool`} id={`${i.name}::pool`} item={i} language={language} isStaged={false} />
                         ))}
                     </SortableContext>
                 </div>
@@ -390,6 +433,12 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
         .sound-bulk-editor { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 1000; display: flex; align-items: center; justify-content: center; }
         .modal-content { background: #fff; width: 98%; height: 95%; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
         .modal-header { padding: 15px 25px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; background: #fff; }
+        .header-left { display: flex; align-items: center; gap: 30px; }
+        .header-left h2 { margin: 0; font-size: 1.2rem; }
+        .class-nav { display: flex; align-items: center; gap: 10px; }
+        .class-nav .label { font-size: 0.85rem; font-weight: bold; color: #666; }
+        .class-select { padding: 6px 12px; border-radius: 6px; border: 1px solid #ddd; font-weight: bold; color: #2196F3; cursor: pointer; }
+
         .main-layout { flex: 1; display: flex; overflow: hidden; background: #f0f2f5; }
         
         .item-pool-sidebar, .sound-catalog-sidebar { width: 280px; display: flex; flex-direction: column; background: #fff; border-right: 1px solid #ddd; }
