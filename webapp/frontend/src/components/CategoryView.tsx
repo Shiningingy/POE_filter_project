@@ -49,6 +49,8 @@ interface CategoryViewProps {
   defaultMappingPath?: string;
   onUpdateTierItems?: (tierKey: string, items: TierItem[]) => void;
   pingedCondition?: { tierKey: string, ruleIndex: number, conditionKey: string, timestamp: number } | null;
+  soundMap?: any;
+  themeData?: any;
 }
 
 const CategoryView: React.FC<CategoryViewProps> = ({
@@ -63,11 +65,13 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   fetchTierItems,
   defaultMappingPath,
   onUpdateTierItems,
-  pingedCondition
+  pingedCondition,
+  soundMap,
+  themeData
 }) => {
   const t = useTranslation(language);
-  const [themeData, setThemeData] = useState<any>(null);
-  const [soundMap, setSoundMap] = useState<any>(null);
+  // const [themeData, setThemeData] = useState<any>(null); // Lifted to EditorView
+  // const [soundMap, setSoundMap] = useState<any>(null); // Lifted
   const [parsedConfig, setParsedConfig] = useState<any>(null);
 
   const [showBulkEditor, setShowBulkEditor] = useState(false);
@@ -94,15 +98,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       coordinateGetter: sortableKeyboardCoordinates,
     })
   );
-
-  useEffect(() => {
-    axios.get(`${API_BASE_URL}/api/themes/sharket`)
-      .then(res => {
-          setThemeData(res.data.theme_data);
-          setSoundMap(res.data.sound_map_data);
-      })
-      .catch(err => console.error("Failed to load theme", err));
-  }, []);
 
   useEffect(() => {
     try {
@@ -645,6 +640,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                                                     }}
                                                                     categoryRules={activeCategoryData.rules || activeCategoryData._meta?.rules || []}
                                                                     onRefresh={() => fetchTierItems(sortedTierKeys)}
+                                                                    soundMap={soundMap}
                                                                 />
                                                                 <RuleManager 
                                                                     tierKey={tierKey}
@@ -658,6 +654,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                                                     availableTiers={tierOptions}
                                                                     activeRuleIndex={activeRuleIndex?.tierKey === tierKey ? activeRuleIndex.index : null}
                                                                     pingedCondition={pingedCondition}
+                                                                    soundMap={soundMap}
                                                                 />
                                                             </SortableTierBlock>
                                                         );

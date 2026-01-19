@@ -17,6 +17,8 @@ interface ItemCardProps {
   color?: string;
   isStaged?: boolean;
   matchMode?: 'exact' | 'partial';
+  hasSound?: boolean;
+  onPlaySound?: () => void;
   onContextMenu?: (e: React.MouseEvent) => void;
   onDelete?: (e: React.MouseEvent) => void;
   onClick?: (e: React.MouseEvent) => void;
@@ -32,6 +34,8 @@ const ItemCard: React.FC<ItemCardProps> = ({
   color,
   isStaged,
   matchMode,
+  hasSound,
+  onPlaySound,
   onContextMenu,
   onDelete,
   onClick,
@@ -43,6 +47,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
   const dotBg = getSubTypeBackground(item.sub_type);
   const showChineseFirst = language === "ch";
 
+  // Render logic
   return (
     <ItemTooltip item={item} language={language}>
       <div
@@ -66,28 +71,43 @@ const ItemCard: React.FC<ItemCardProps> = ({
 
         <div className="item-info">
           {showChineseFirst ? (
-            <>
-              <div className="name-primary">{item.name_ch || item.name}</div>
-              <div className="name-secondary">{item.name}</div>
-            </>
+            <div className="name-container">
+              <span className="name-primary">{item.name_ch || item.name}</span>
+              {hasSound && (
+                <span 
+                    className="sound-icon" 
+                    onClick={(e) => { e.stopPropagation(); onPlaySound?.(); }}
+                    title="Play Sound"
+                >
+                    🔊
+                </span>
+              )}
+            </div>
           ) : (
-            <div className="name-primary">{item.name}</div>
+             <div className="name-container">
+              <span className="name-primary">{item.name}</span>
+              {hasSound && (
+                <span 
+                    className="sound-icon" 
+                    onClick={(e) => { e.stopPropagation(); onPlaySound?.(); }}
+                    title="Play Sound"
+                >
+                    🔊
+                </span>
+              )}
+            </div>
           )}
+          {showChineseFirst && <div className="name-secondary">{item.name}</div>}
         </div>
 
-        {matchMode === 'exact' && (
-          <div className="match-mode-badge exact">E</div>
-        )}
-
-        {isStaged && showStagedIndicator && (
-          <div className="staged-indicator">●</div>
-        )}
+        {/* Corner Indicators */}
         {item.rule_index !== undefined && item.rule_index !== null && (
-          <div className="rule-source-badge" title={`From Rule #${item.rule_index + 1}`}>#{item.rule_index + 1}</div>
+          <div className="rule-source-badge-tl" title={`From Rule #${item.rule_index + 1}`}>#{item.rule_index + 1}</div>
         )}
+        
         {onDelete && (
           <button
-            className="item-card-del-btn"
+            className="item-card-del-btn-tr"
             onClick={(e) => {
               e.stopPropagation();
               onDelete(e);
@@ -95,6 +115,14 @@ const ItemCard: React.FC<ItemCardProps> = ({
           >
             ×
           </button>
+        )}
+
+        {matchMode === 'exact' && (
+          <div className="match-mode-badge-br">E</div>
+        )}
+
+        {isStaged && showStagedIndicator && (
+          <div className="staged-indicator-bl">●</div>
         )}
       </div>
     </ItemTooltip>

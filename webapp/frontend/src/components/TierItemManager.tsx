@@ -36,6 +36,7 @@ interface TierItemManagerProps {
   onRuleEdit?: (tierKey: string, ruleIndex: number) => void;
   categoryRules?: any[];
   onRefresh?: () => void;
+  soundMap?: any;
 }
 
 const TierItemManager: React.FC<TierItemManagerProps> = ({
@@ -49,7 +50,8 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   language,
   onRuleEdit,
   categoryRules = [],
-  onRefresh
+  onRefresh,
+  soundMap
 }) => {
   const t = useTranslation(language);
   const [isOpen, setIsOpen] = useState(false);
@@ -59,6 +61,22 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   const [suggestions, setSuggestions] = useState<TierItem[]>([]);
 
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: TierItem } | null>(null);
+
+  // Play Sound Helper
+  const playSound = (file: string, vol: number = 300) => {
+      // Normalize path
+      let cleanPath = file;
+      if (file.includes('AlertSound')) {
+          // It's likely "Default/AlertSoundX.mp3" or "6 300" style if raw
+          // If it is just a number?
+      }
+      
+      // If full path provided
+      const url = `/sounds/${cleanPath.replace(/\\/g, '/')}`;
+      const audio = new Audio(url);
+      audio.volume = Math.min(Math.max(vol / 300, 0), 1); // Normalize 300 -> 1.0 (PoE volume is weird, usually 0-300)
+      audio.play().catch(e => console.error("Failed to play sound", e));
+  };
 
   // Deduplicate items to prevent key errors
   const uniqueItems = useMemo(() => {
@@ -228,12 +246,52 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           localBadge = ruleBadgeMap[item.rule_index!] - 1; // 0-based for display? ItemCard adds +1
       }
 
+      // Sound Logic
+      let soundFile: string | null = null;
+      let soundVol = 300;
+
+      // 1. Check Rule Override
+      if (item.rule_index !== undefined && item.rule_index !== null) {
+          const rule = categoryRules[item.rule_index];
+          if (rule && rule.overrides) {
+              const overrideKey = ["CustomAlertSound", "AlertSound", "DropSound"].find(k => rule.overrides[k] && !rule.overrides[k].startsWith("disabled:"));
+              if (overrideKey) {
+                  const val = rule.overrides[overrideKey];
+                  if (Array.isArray(val)) { 
+                      soundFile = val[0]; 
+                      soundVol = val[1]; 
+                  } else if (typeof val === 'string') {
+                      // Parse string like "6 300" or "path 300"
+                      // Simple heuristic
+                      if (val.match(/^\d+ \d+$/)) {
+                          const parts = val.split(' ');
+                          soundFile = `Default/AlertSound${parts[0]}.mp3`;
+                          soundVol = parseInt(parts[1]);
+                      } else {
+                          // Custom path string (might be quoted in raw, but usually raw is clean here)
+                          // Assume it's a path if not number
+                          soundFile = val; // Might need cleaning if it contains quotes
+                      }
+                  }
+              }
+          }
+      }
+
+      // 2. Check Auto-Sound (if no rule override)
+      if (!soundFile && soundMap?.basetype_sounds?.[item.name]) {
+          const s = soundMap.basetype_sounds[item.name];
+          soundFile = s.file;
+          soundVol = s.volume;
+      }
+
       return (
         <ItemCard 
           key={`${item.name}-${item.rule_index || 'std'}`} 
           item={isRuleItem ? { ...item, rule_index: localBadge } : item}
           language={language}
           matchMode={item.match_mode || 'exact'}
+          hasSound={!!soundFile}
+          onPlaySound={() => soundFile && playSound(soundFile, soundVol)}
           onContextMenu={(e) => handleRightClick(e, item)}
           onDelete={
               isLocked 

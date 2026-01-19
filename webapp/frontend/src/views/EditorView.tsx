@@ -6,6 +6,7 @@ import InspectorPanel from '../components/InspectorPanel';
 import axios from 'axios';
 import { useTranslation, translations, RULE_FACTOR_LOCALIZATION } from '../utils/localization';
 import type { Language } from '../utils/localization';
+import { resolveStyle } from '../utils/styleResolver';
 
 interface EditorViewProps {
   selectedFile: CategoryFile | null;
@@ -40,6 +41,18 @@ const EditorView: React.FC<EditorViewProps> = ({
   const [pingedCondition, setPingedCondition] = useState<{ tierKey: string, ruleIndex: number, conditionKey: string, timestamp: number } | null>(null);
   const [toast, setToast] = useState<{ message: string, timestamp: number } | null>(null);
   const [tierItems, setTierItems] = useState<Record<string, any[]>>({});
+  const [soundMap, setSoundMap] = useState<any>({ basetype_sounds: {}, class_sounds: {} });
+  const [themeData, setThemeData] = useState<any>(null);
+
+  useEffect(() => {
+    // Load Theme & Sound Map
+    axios.get(`${API_BASE_URL}/api/themes/sharket`)
+        .then(res => {
+            setThemeData(res.data.theme_data);
+            setSoundMap(res.data.sound_map_data);
+        })
+        .catch(err => console.error("Failed to load theme", err));
+  }, []);
 
   useEffect(() => {
       if (pingedCondition) {
@@ -66,20 +79,44 @@ const EditorView: React.FC<EditorViewProps> = ({
           const catData = parsed[catKey];
           const items = tierItems[inspectedTierKey] || [];
           
-          // We don't have themeData and soundMap here easily without lifting them up, 
-          // but we can pass the raw data and let InspectorPanel resolve if needed, 
-          // or just pass what we have.
+          let rules = catData.rules || catData._meta?.rules || [];
+
+          // Augment rules with Auto-Sounds (Live Preview)
+          if (soundMap?.basetype_sounds) {
+              const augmentedRules = [...rules];
+              const tierItemNames = items.map(i => i.name);
+              
+              tierItemNames.forEach(name => {
+                  const sData = soundMap.basetype_sounds[name];
+                  if (sData) {
+                      const handled = rules.some((r: any) => r.targets?.includes(name));
+                      if (!handled) {
+                          augmentedRules.push({
+                              targets: [name],
+                              overrides: { PlayAlertSound: [sData.file, sData.volume] },
+                              comment: `__AUTO_SOUND__:${name}`,
+                              isImplicit: true
+                          });
+                      }
+                  }
+              });
+              rules = augmentedRules;
+          }
+
+          const themeCategory = catData._meta?.theme_category || catKey;
+          const resolvedStyle = resolveStyle(tierData, themeData, themeCategory, soundMap);
+
           return {
               key: inspectedTierKey,
               name: inspectedTierKey, // Fallback
-              style: tierData.theme || {},
+              style: resolvedStyle,
               visibility: !!tierData.hideable,
-              category: catData._meta?.theme_category || catKey,
-              rules: catData.rules || catData._meta?.rules || [],
+              category: themeCategory,
+              rules: rules,
               baseTypes: items.map(i => i.name)
           };
       } catch (e) { return null; }
-  }, [inspectedTierKey, configContent, tierItems]);
+  }, [inspectedTierKey, configContent, tierItems, soundMap, themeData]);
 
   useEffect(() => {
       const handleBeforeUnload = (e: BeforeUnloadEvent) => {
@@ -324,6 +361,8 @@ const EditorView: React.FC<EditorViewProps> = ({
                   defaultMappingPath={selectedFile.mapping_path}
                   onUpdateTierItems={handleManualItemUpdate}
                   pingedCondition={pingedCondition}
+                  soundMap={soundMap}
+                  themeData={themeData}
                 />
             )}
           </div>
@@ -344,6 +383,7 @@ const EditorView: React.FC<EditorViewProps> = ({
         viewerBackground={viewerBackground}
         setViewerBackground={setViewerBackground}
         onPingCondition={(tierKey, ruleIdx, condKey) => setPingedCondition({ tierKey, ruleIndex: ruleIdx, conditionKey: condKey, timestamp: Date.now() })}
+        soundMap={soundMap}
       />
 
       {toast && (

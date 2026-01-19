@@ -50,6 +50,7 @@ interface RuleManagerProps {
     conditionKey: string;
     timestamp: number;
   } | null;
+  soundMap?: any;
 }
 
 const ITEM_CLASSES = [
@@ -106,6 +107,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   availableTiers,
   activeRuleIndex,
   pingedCondition,
+  soundMap
 }) => {
   const t = useTranslation(language);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
@@ -513,6 +515,45 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                           };
                           const matchMode =
                             rule.targetMatchModes?.[tName] || "exact";
+                          
+                          // Check for sound overrides
+                          const soundKeys = ["CustomAlertSound", "AlertSound", "DropSound"];
+                          const soundOverrideKey = soundKeys.find(k => rule.overrides?.[k] && !rule.overrides[k].startsWith("disabled:"));
+                          const hasExplicitSound = !!soundOverrideKey;
+                          
+                          const autoSound = soundMap?.basetype_sounds?.[tName];
+                          const hasSound = hasExplicitSound || !!autoSound;
+                          
+                          const handlePlaySound = () => {
+                              let file: string | null = null;
+                              let vol = 300;
+
+                              if (hasExplicitSound) {
+                                  const val = rule.overrides?.[soundOverrideKey!];
+                                  if (typeof val === 'string') {
+                                      if (val.match(/^\d+ \d+$/)) {
+                                          const parts = val.split(' ');
+                                          file = `Default/AlertSound${parts[0]}.mp3`;
+                                          vol = parseInt(parts[1]);
+                                      } else {
+                                          file = val;
+                                      }
+                                  } else if (Array.isArray(val)) {
+                                      file = val[0];
+                                      vol = val[1];
+                                  }
+                              } else if (autoSound) {
+                                  file = autoSound.file;
+                                  vol = autoSound.volume;
+                              }
+
+                              if (file) {
+                                  const url = `/sounds/${file.replace(/\\/g, '/')}`;
+                                  const audio = new Audio(url);
+                                  audio.volume = Math.min(Math.max(vol / 300, 0), 1);
+                                  audio.play().catch(e => console.error("Play failed", e));
+                              }
+                          };
 
                           return (
                             <ItemCard
@@ -524,6 +565,8 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                 handleItemRightClick(e, globalIndex, tName)
                               }
                               matchMode={matchMode}
+                              hasSound={hasSound}
+                              onPlaySound={handlePlaySound}
                               className="compact-card"
                             />
                           );

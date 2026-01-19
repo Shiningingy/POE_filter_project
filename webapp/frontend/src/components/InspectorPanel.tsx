@@ -26,6 +26,7 @@ interface InspectorPanelProps {
   language: Language;
   viewerBackground: string;
   setViewerBackground: (bg: string) => void;
+  soundMap?: any;
 }
 
 const InspectorPanel: React.FC<InspectorPanelProps> = ({
@@ -36,11 +37,13 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
   onCopyStyle,
   onPasteStyle,
   onAddRulePreset,
+  onRemoveRule,
   onDeselectRule,
   onPingCondition,
   language,
   viewerBackground,
-  setViewerBackground
+  setViewerBackground,
+  soundMap
 }) => {
   const t = useTranslation(language);
   const [ruleTemplates, setRuleTemplates] = useState<any[]>([]);

@@ -77,87 +77,125 @@ export const generateIconUrl = (itemName: string, itemClass?: string): string =>
 export const generateFilterText = (style: StyleProps, baseTypes: string[] = ["Item Name"], hideable: boolean = false, rules: any[] = [], includeBase: boolean = true, summarizeRules: boolean = false, language: Language = 'en'): string => {
   const allBlocks: string[] = [];
   const t = translations[language];
-  let allItemsCovered = false;
+  // Filter empty strings from baseTypes to prevent empty BaseType lines
+  const cleanBaseTypes = baseTypes.filter(b => b && b.trim() !== "");
+  const pendingBaseItems = new Set(cleanBaseTypes);
 
-  // 1. Process Rules first
+  // 1. Process Rules (Explicit & Implicit)
   if (summarizeRules && rules.length > 0) {
       const implicitCount = rules.filter((r: any) => r.isImplicit).length;
       const explicitCount = rules.length - implicitCount;
       let summary = `# ... (`;
       const parts = [];
-      if (explicitCount > 0) parts.push(`${explicitCount} ${(t as any).customRules}`);
-      if (implicitCount > 0) parts.push(`${implicitCount} ${(t as any).autoSounds}`);
+      if (explicitCount > 0) parts.push(`${explicitCount} ${(t as any).customRules || 'custom rules'}`);
+      if (implicitCount > 0) parts.push(`${implicitCount} ${(t as any).autoSounds || 'auto-sounds'}`);
       
-      summary += parts.join(` ${(t as any).and} `);
-      summary += ` ${(t as any).active}) ...`;
+      summary += parts.join(` ${(t as any).and || 'and'} `);
+      summary += ` ${(t as any).active || 'active'}) ...`;
       
       allBlocks.push(summary);
+      
+      // Remove targets from pendingBaseItems logic:
+      // If summarizing, we usually hide the rules.
+      // User wants auto-sound items to appear in the Base Block (generic preview).
+      // So we ONLY remove targets of EXPLICIT rules (custom rules).
+      // Implicit (auto-sound) targets remain in pendingBaseItems and get rendered in the Base Block.
+      rules.forEach(r => {
+          if (!r.isImplicit && r.targets) {
+              r.targets.forEach((t: string) => pendingBaseItems.delete(t));
+          }
+      });
   } else {
+      // Grouping rules by their overrides to reduce clutter
+      // (This handles cases where multiple auto-sounds or rules share identical settings)
+      const groups: Record<string, { items: string[], rule: any }> = {};
+
       rules.forEach((rule) => {
-        const rLines = [];
-        const rKeyword = hideable ? "Hide" : "Show";
-        rLines.push(rKeyword);
-        
-        // Class constraint
-        rLines.push(`    Class "Item Class"`);
+          if (rule.disabled) return;
+          
+          // Remove from pending base
+          const targets = rule.targets && rule.targets.length > 0 ? rule.targets : cleanBaseTypes;
+          if (rule.targets) rule.targets.forEach((t: string) => pendingBaseItems.delete(t));
+          else pendingBaseItems.clear();
 
-        // BaseType constraint for rule
-        const hasTargets = rule.targets && rule.targets.length > 0;
-        const targets = hasTargets ? rule.targets : baseTypes;
-        if (!hasTargets) allItemsCovered = true; // Rule applies to everything in tier
+          // Create a key for grouping
+          const overrideKey = JSON.stringify({ 
+              o: rule.overrides || {}, 
+              c: rule.conditions || {},
+              isI: !!rule.isImplicit 
+          });
 
-        // Default to strict matching for now to match generate.py common case
-        rLines.push(`    BaseType == "${targets.join('" "')}"`);
+          if (!groups[overrideKey] && !rule.raw) {
+              groups[overrideKey] = { items: [...targets], rule };
+          } else if (groups[overrideKey] && !rule.raw) {
+              groups[overrideKey].items.push(...targets);
+          } else {
+              // Rules with raw code or unique settings get their own block immediately
+              allBlocks.push(_generateBlock(rule, targets, style, hideable));
+          }
+      });
 
-        // 2. Conditions
-        if (rule.conditions) {
-            Object.entries(rule.conditions as Record<string, string>).forEach(([key, val]) => {
-                if (val.startsWith("RANGE ")) {
-                    const parts = val.split(" ");
-                    if (parts.length >= 5) {
-                        rLines.push(`    ${key} ${parts[1]} ${parts[2]}`);
-                        rLines.push(`    ${key} ${parts[3]} ${parts[4]}`);
-                    }
-                } else if (key === "Rarity") {
-                    const cleanVal = val.replace(/==|=/g, "").trim();
-                    rLines.push(`    ${key} ${cleanVal}`);
-                } else {
-                    rLines.push(`    ${key} ${val}`);
-                }
-            });
-        }
-
-        // 3. Raw text (Custom Code)
-        if (rule.raw) {
-            rule.raw.split('\n').forEach((line: string) => {
-                if (line.trim()) {
-                    rLines.push(`    ${line.trim()}`);
-                }
-            });
-        }
-
-        // 4. Styles
-        const ruleStyle = { ...style, ...(rule.overrides || {}) };
-        _appendStyleLines(rLines, ruleStyle);
-
-        allBlocks.push(rLines.join('\n'));
+      // Render grouped blocks
+      Object.values(groups).forEach(g => {
+          allBlocks.push(_generateBlock(g.rule, g.items, style, hideable));
       });
   }
 
-  // 2. Process the main Base block
-  // If we are showing full block, and not all items were covered by rules, show base
-  if (includeBase && !allItemsCovered) {
+  // 2. Main Base Block
+  if (includeBase && pendingBaseItems.size > 0) {
     const lines = [];
-    const keyword = hideable ? "Hide" : "Show";
-    lines.push(keyword);
-    lines.push(`    Class "Item Class"`);
-    lines.push(`    BaseType == "${baseTypes.join('" "')}"`);
+    lines.push(hideable ? "Hide" : "Show");
+    lines.push(`    BaseType == "${Array.from(pendingBaseItems).sort().join('" "')}"`);
     _appendStyleLines(lines, style);
-    
     allBlocks.push(lines.join('\n'));
   }
 
   return allBlocks.join('\n\n');
+};
+
+const _generateBlock = (rule: any, targets: string[], baseStyle: any, hideable: boolean) => {
+    const rLines = [];
+    
+    if (rule.comment) {
+        const cleanComment = rule.comment.startsWith("__AUTO_SOUND__:") 
+            ? `Auto-Sound: ${rule.comment.split(":")[1]}`
+            : rule.comment;
+        rLines.push(`    # ${cleanComment}`);
+    }
+
+    rLines.push(hideable ? "Hide" : "Show");
+    
+    // Use unique targets only
+    const uniqueTargets = Array.from(new Set(targets)).sort();
+    rLines.push(`    BaseType == "${uniqueTargets.join('" "')}"`);
+
+    if (rule.conditions) {
+        Object.entries(rule.conditions as Record<string, string>).forEach(([key, val]) => {
+            if (val.startsWith("RANGE ")) {
+                const parts = val.split(" ");
+                if (parts.length >= 5) {
+                    rLines.push(`    ${key} ${parts[1]} ${parts[2]}`);
+                    rLines.push(`    ${key} ${parts[3]} ${parts[4]}`);
+                }
+            } else if (key === "Rarity") {
+                const cleanVal = val.replace(/==|=/g, "").trim();
+                rLines.push(`    ${key} ${cleanVal}`);
+            } else {
+                rLines.push(`    ${key} ${val}`);
+            }
+        });
+    }
+
+    if (rule.raw) {
+        rule.raw.split('\n').forEach((line: string) => {
+            if (line.trim()) rLines.push(`    ${line.trim()}`);
+        });
+    }
+
+    const ruleStyle = { ...baseStyle, ...(rule.overrides || {}) };
+    _appendStyleLines(rLines, ruleStyle);
+
+    return rLines.join('\n');
 };
 
 const _appendStyleLines = (lines: string[], style: StyleProps) => {

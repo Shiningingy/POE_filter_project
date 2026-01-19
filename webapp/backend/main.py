@@ -595,6 +595,14 @@ def generate_filter_file():
 
 # --- Generic Path Endpoints (Bottom Priority) ---
 
+@app.get("/api/sound-map")
+def get_sound_map():
+    path = CONFIG_DATA_DIR / "theme" / "sharket" / "Sharket_sound_map.json"
+    if not path.exists(): return {"basetype_sounds": {}, "class_sounds": {}}
+    try:
+        with open(path, "r", encoding="utf-8") as f: return json.load(f)
+    except Exception as e: raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/api/themes/{theme_name}")
 def get_theme_data(theme_name: str):
     theme_dir = safe_join(CONFIG_DATA_DIR / "theme", theme_name)
