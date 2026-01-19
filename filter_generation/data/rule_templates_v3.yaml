@@ -242,7 +242,17 @@ categories:
         condition: StackSize
         type: number
         default: ">= 1"
-        aliases: [currency, stackable currency, essence, oil, harvest, fossil, catalyst, delirium orb]
+        aliases:
+          [
+            currency,
+            stackable currency,
+            essence,
+            oil,
+            harvest,
+            fossil,
+            catalyst,
+            delirium orb,
+          ]
       - id: gem_level
         label: { en: Gem Level, ch: 宝石等级 }
         condition: GemLevel
@@ -250,9 +260,9 @@ categories:
         default: ">= 1"
         aliases: [gems, skill, support]
       - id: transfigured
-        label: { en: Transfigured Gem, ch: 特品宝石 }
+        label: { en: Transfigured Gem, ch: 改造技能石 }
         condition: TransfiguredGem
-        type: gem_picker
+        type: bool
         aliases: [all, gems, skill, support]
 
   - id: maps

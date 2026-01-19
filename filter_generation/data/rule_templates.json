@@ -549,10 +549,10 @@
           "id": "transfigured",
           "label": {
             "en": "Transfigured Gem",
-            "ch": "特品宝石"
+            "ch": "改造技能石"
           },
           "condition": "TransfiguredGem",
-          "type": "gem_picker",
+          "type": "bool",
           "aliases": [
             "all",
             "gems",
