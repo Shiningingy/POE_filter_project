@@ -51,6 +51,29 @@ export const resolveStyle = (tierData: any, themeData: any, themeCategory: strin
   return resolved;
 };
 
+export const generateIconUrl = (itemName: string, itemClass?: string): string => {
+    // Basic logic to generate PoE CDN urls. 
+    // They usually follow a pattern but have a dynamic hash part.
+    // For many base items, we can use a "predictable" part if we know the class.
+    
+    const cleanName = itemName.replace(/[^a-zA-Z]/g, '');
+    let category = "Currency";
+    
+    if (itemClass) {
+        if (itemClass.includes("Gem")) category = "Gems";
+        else if (itemClass.includes("Map")) category = "Maps";
+        else if (itemClass.includes("Divination")) category = "Divination";
+    }
+
+    // This is a placeholder for a more complex mapping. 
+    // For now, return a reliable placeholder or try a lucky guess for currency.
+    if (category === "Currency") {
+        return `https://web.poecdn.com/image/art/2DItems/Currency/${cleanName}.png?scale=1`;
+    }
+    
+    return `https://web.poecdn.com/image/art/2DItems/${category}/${cleanName}.png?scale=1`;
+};
+
 export const generateFilterText = (style: StyleProps, baseTypes: string[] = ["Item Name"], hideable: boolean = false, rules: any[] = [], includeBase: boolean = true, summarizeRules: boolean = false, language: Language = 'en'): string => {
   const allBlocks: string[] = [];
   const t = translations[language];

@@ -433,6 +433,29 @@ export const translations = {
   }
 };
 
+export const RULE_FACTOR_LOCALIZATION: Record<string, { en: string; ch: string }> = {
+  ItemLevel: { en: "Item Level", ch: "物品等级" },
+  DropLevel: { en: "Drop Level", ch: "掉落等级" },
+  GemLevel: { en: "Gem Level", ch: "宝石等级" },
+  Quality: { en: "Quality", ch: "品质" },
+  MapTier: { en: "Map Tier", ch: "地图阶级" },
+  StackSize: { en: "Stack Size", ch: "堆叠数量" },
+  Sockets: { en: "Sockets", ch: "插槽" },
+  LinkedSockets: { en: "Links", ch: "连线" },
+  Corrupted: { en: "Corrupted", ch: "已污染" },
+  Mirrored: { en: "Mirrored", ch: "已复制" },
+  Identified: { en: "Identified", ch: "已鉴定" },
+  FracturedItem: { en: "Fractured", ch: "破碎物品" },
+  SynthesisedItem: { en: "Synthesised", ch: "合成物品" },
+  HasInfluence: { en: "Influence", ch: "势力" },
+  BlightedMap: { en: "Blighted", ch: "菌潮" },
+  BlightRavagedMap: { en: "Blight-ravaged", ch: "菌潮灭绝" },
+  VaalGem: { en: "Vaal", ch: "瓦尔" },
+  TransfiguredGem: { en: "Transfigured", ch: "特品宝石" },
+  Class: { en: "Item Class", ch: "物品类别" },
+  EnchantmentPassiveNode: { en: "Cluster Node", ch: "星团天赋" },
+};
+
 export const useTranslation = (lang: Language) => {
   return translations[lang];
 };
