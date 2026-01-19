@@ -432,6 +432,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                 }
             ]
             : [
+                { title: true, label: (t as any).quickMove, onClick: () => {} },
                 ...allTiers.map(tOption => {
                     const isT0ByOrigin = contextMenu.item.current_tiers?.some(tk => {
                         const opt = allTiers.find(o => o.key === tk);
@@ -442,10 +443,11 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                         return opt && opt.show_in_editor === false;
                     })();
 
-                    const isLocked = isLocationLocked && isT0ByOrigin && contextMenu.item.rule_index === undefined;
+                    const isCurrent = tOption.key === tierKey;
+                    const isLocked = (isLocationLocked && isT0ByOrigin && contextMenu.item.rule_index === undefined);
 
                     return {
-                        label: tOption.label,
+                        label: isCurrent ? `${tOption.label} ${(t as any).current}` : tOption.label,
                         color: getTierColor(tOption.key),
                         onClick: () => {
                             if (isT0ByOrigin && tOption.is_hide_tier) {
@@ -454,18 +456,19 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                             }
                             onMoveItem(contextMenu.item, tOption.key, false, tierKey);
                         },
-                        disabled: isLocked
+                        disabled: isLocked || isCurrent
                     };
                 }),
-                { label: "divider", onClick: () => {}, divider: true },
+                { title: true, label: (t as any).itemSettings, onClick: () => {} },
                 { 
                     label: (contextMenu.item.match_mode || 'exact') === 'exact' 
-                        ? `≈ ${language === 'ch' ? "切换为模糊匹配" : "Switch to Partial Match"}`
-                        : `E ${language === 'ch' ? "切换为精确匹配" : "Switch to Exact Match"}`,
+                        ? `≈ ${(t as any).switchToPartial}`
+                        : `E ${(t as any).switchToExact}`,
                     onClick: () => toggleItemMode(contextMenu.item)
                 },
+                { divider: true, label: '', onClick: () => {} },
                 { label: `🎵 ${(t as any).soundSelection || "Sound Selection"}`, onClick: () => handleSoundOverride(contextMenu.item) }
-            ].map((opt: any) => ({ ...opt, className: opt.label === "divider" ? "divider" : (opt.className || "") }))
+            ].map((opt: any) => ({ ...opt, className: opt.label === "divider" || (opt.divider && !opt.label) ? "divider" : (opt.className || "") }))
           }
         />
       )}

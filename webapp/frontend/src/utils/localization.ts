@@ -265,7 +265,12 @@ export const translations = {
     fromRule: "From Rule Override",
     fromTierDefault: "From Tier Default",
     currentSource: "Current Source",
-    currentSound: "Current Sound"
+    currentSound: "Current Sound",
+    quickMove: "Quick Move",
+    itemSettings: "Item Settings",
+    current: "(Current)",
+    switchToPartial: "Switch to Partial Match",
+    switchToExact: "Switch to Exact Match"
   },
   ch: {
     appTitle: "POE 过滤器编辑器",
@@ -489,6 +494,11 @@ export const translations = {
     fromTierDefault: "来自阶级默认",
     currentSource: "当前来源",
     currentSound: "当前音效",
+    quickMove: "快速移动",
+    itemSettings: "物品设置",
+    current: "(当前)",
+    switchToPartial: "切换为模糊匹配",
+    switchToExact: "切换为精确匹配",
     Normal: "普通",
     Magic: "魔法",
     Rare: "稀有",

@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 interface ContextMenuProps {
   x: number;
   y: number;
-  options: { label: string; onClick: () => void; color?: string; divider?: boolean; className?: string; disabled?: boolean }[];
+  options: { label: string; onClick: () => void; color?: string; divider?: boolean; className?: string; disabled?: boolean; title?: boolean }[];
   onClose: () => void;
 }
 
@@ -24,27 +24,34 @@ const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, options, onClose }) => 
   const menuX = Math.min(x, window.innerWidth - 200);
   const menuY = Math.min(y, window.innerHeight - 300);
 
+  const displayOptions = options.length > 0 ? options : [{ label: "No available options", onClick: () => {}, disabled: true, className: "no-options" }];
+
   return (
     <div 
       className="context-menu" 
       ref={menuRef} 
       style={{ top: menuY, left: menuX }}
     >
-      {options.map((option, index) => (
-        <div 
-          key={index} 
-          className={`menu-item ${option.className || ''} ${option.disabled ? 'disabled' : ''}`} 
-          onClick={(e) => {
-            if (option.divider || option.disabled) return;
-            e.stopPropagation();
-            option.onClick();
-            onClose();
-          }}
-        >
-          {!option.divider && option.color && <span className="color-dot" style={{ background: option.color }}></span>}
-          {option.divider ? "" : option.label}
-        </div>
-      ))}
+      {displayOptions.map((option, index) => {
+          const isTitle = option.title || (option.divider && option.label);
+          const isDivider = option.divider && !option.label;
+          
+          return (
+            <div 
+              key={index} 
+              className={`menu-item ${option.className || ''} ${option.disabled ? 'disabled' : ''} ${isTitle ? 'title' : ''} ${isDivider ? 'divider' : ''}`} 
+              onClick={(e) => {
+                if (isTitle || isDivider || option.disabled) return;
+                e.stopPropagation();
+                option.onClick();
+                onClose();
+              }}
+            >
+              {!isTitle && !isDivider && option.color && <span className="color-dot" style={{ background: option.color }}></span>}
+              {(!isDivider) ? option.label : ""}
+            </div>
+          );
+      })}
       <style>{`
         .context-menu {
           position: fixed;
@@ -73,13 +80,32 @@ const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, options, onClose }) => 
             cursor: not-allowed;
             background: none !important;
         }
+        .menu-item.no-options {
+            font-style: italic;
+            color: #999;
+            justify-content: center;
+        }
         .menu-item.divider {
             border-top: 1px solid #eee;
-            margin-top: 5px;
-            padding-top: 10px;
-            font-weight: bold;
-            color: #888;
+            margin: 4px 0;
+            padding: 0;
+            height: 1px;
             pointer-events: none;
+        }
+        .menu-item.title {
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #999;
+            text-transform: uppercase;
+            padding: 10px 15px 4px 15px;
+            background: none !important;
+            cursor: default;
+            border-top: 1px solid #f5f5f5;
+            margin-top: 2px;
+        }
+        .menu-item.title:first-child {
+            border-top: none;
+            padding-top: 8px;
         }
         .color-dot {
           width: 10px;
