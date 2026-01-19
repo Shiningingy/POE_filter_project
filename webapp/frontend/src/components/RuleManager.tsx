@@ -309,25 +309,38 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   const updateCondition = (globalIndex: number, key: string, value: string) => {
     const rule = allRules[globalIndex];
     const nextConditions = { ...rule.conditions };
-    if (value === "") delete nextConditions[key];
-    else nextConditions[key] = value;
+    
+    // Only delete if explicitly requested or if it's a type that SHOULD be removed when empty
+    // For text/class_picker manual entry, we want to allow empty string while typing
+    const tmp = ruleTemplates.flatMap(c => c.templates).find(t => t.condition === key);
+    const isTextField = tmp?.type === 'text' || tmp?.type === 'class_picker';
+
+    if (value === null || (value === "" && !isTextField)) {
+        delete nextConditions[key];
+    } else {
+        nextConditions[key] = value;
+    }
     handleUpdateRule(globalIndex, { ...rule, conditions: nextConditions });
   };
 
   const addCondition = (globalIndex: number, key: string) => {
     const rule = allRules[globalIndex];
-    if (rule.conditions[key] !== undefined) return;
+    if (rule.conditions[key] !== undefined) {
+        // Trigger ping if trying to add existing from dropdown
+        onRuleEdit(tierKey, globalIndex);
+        // Find way to ping... for now just set editing
+        return;
+    }
     
-    const allTemplates = ruleTemplates.flatMap(c => c.templates);
-    const tmp = allTemplates.find(t => t.condition === key);
+    const allTemplates = ruleTemplates.flatMap(c => c.templates).find(t => t.condition === key);
     
     let val = ">= 0";
-    if (tmp) {
-        if (tmp.type === 'bool') val = "True";
-        else if (tmp.type === 'select') val = tmp.options[0];
-        else if (tmp.type === 'class_picker') val = "Currency";
-        else if (tmp.type === 'text') val = "";
-        else if (tmp.type === 'gem_picker') val = "True";
+    if (allTemplates) {
+        if (allTemplates.type === 'bool') val = "True";
+        else if (allTemplates.type === 'select') val = allTemplates.options[0];
+        else if (allTemplates.type === 'class_picker') val = "Stackable Currency";
+        else if (allTemplates.type === 'text') val = "";
+        else if (allTemplates.type === 'gem_picker') val = "True";
     }
     updateCondition(globalIndex, key, val);
   };
@@ -463,20 +476,21 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                   <div className="factors-mini-grid">
                     {Object.entries(rule.conditions).map(
                       ([key, currentVal]) => {
-                        // ... (existing condition rendering)
-                        const isRange = currentVal.startsWith("RANGE ");
+                        const isRange = currentVal?.startsWith("RANGE ");
                         const parts = isRange ? currentVal.split(" ") : [];
                         const op1 = isRange
                           ? parts[1]
-                          : currentVal.match(/^[>=<!]+/)?.[0] || "";
+                          : currentVal?.match(/^[>=<!]+/)?.[0] || "";
                         const v1 = isRange
                           ? parts[2]
-                          : currentVal.replace(/^[>=<!]+/, "");
+                          : currentVal?.replace(/^[>=<!]+/, "");
                         const op2 = isRange ? parts[3] : "";
                         const v2 = isRange ? parts[4] : "";
 
-                        const isBool =
-                          ["True", "False"].includes(currentVal) ||
+                        const tmp = ruleTemplates.flatMap(c => c.templates).find(t => t.condition === key);
+                        
+                        const isBool = tmp?.type === 'bool' || 
+                          (["True", "False"].includes(currentVal) && 
                           [
                             "corrupted",
                             "mirrored",
@@ -486,9 +500,8 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                             "blightedmap",
                             "blightravagedmap",
                             "vaalgem",
-                          ].includes(key.toLowerCase());
+                          ].includes(key.toLowerCase()));
 
-                        const tmp = ruleTemplates.flatMap(c => c.templates).find(t => t.condition === key);
                         const label = tmp?.label[language] || RULE_FACTOR_LOCALIZATION[key]?.[language] || key;
                         const isSelect = tmp?.type === 'select';
                         const isClass = tmp?.type === 'class_picker';
@@ -499,7 +512,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
 
                         return (
                           <div
-                            key={key}
+                            key={`${key}-${localPing?.timestamp || 'static'}`}
                             className={`mini-factor ${isRange ? "range-factor" : ""} ${isPinging ? "pinging" : ""}`}
                           >
                             <div className="factor-header">
@@ -508,7 +521,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                 className="remove-factor-btn"
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  updateCondition(globalIndex, key, "");
+                                  updateCondition(globalIndex, key, null as any);
                                 }}
                               >
                                 ×

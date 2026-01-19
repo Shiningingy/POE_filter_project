@@ -457,7 +457,7 @@ export const RULE_FACTOR_LOCALIZATION: Record<string, { en: string; ch: string }
   BlightedMap: { en: "Blighted", ch: "菌潮" },
   BlightRavagedMap: { en: "Blight-ravaged", ch: "菌潮灭绝" },
   VaalGem: { en: "Vaal", ch: "瓦尔" },
-  TransfiguredGem: { en: "Transfigured", ch: "特品宝石" },
+  TransfiguredGem: { en: "Transfigured", ch: "改造技能石" },
   Class: { en: "Item Class", ch: "物品类别" },
   EnchantmentPassiveNode: { en: "Cluster Node", ch: "星团天赋" },
 };
