@@ -6,10 +6,11 @@ import type { Language } from './utils/localization';
 import EditorView from './views/EditorView';
 import SimulatorView from './views/SimulatorView';
 import ExportView from './views/ExportView';
+import ThemeView from './views/ThemeView';
 import type { CategoryFile } from './components/Sidebar';
 
 function App() {
-  const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export'>('editor');
+  const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export' | 'theme'>('editor');
   const [language, setLanguage] = useState<Language>('ch');
   const [gameVersion, setGameVersion] = useState<'poe1' | 'poe2'>('poe1');
   const [gameMode, setGameMode] = useState<'normal' | 'ruthless'>('ruthless');
@@ -112,6 +113,7 @@ function App() {
 
         <div className="nav-links">
           <button className={currentView === 'editor' ? 'active' : ''} onClick={() => setCurrentView('editor')}>{t.editor}</button>
+          <button className={currentView === 'theme' ? 'active' : ''} onClick={() => setCurrentView('theme')}>{language === 'ch' ? "外观与音效" : "Theme & Sound"}</button>
           <button className={currentView === 'simulator' ? 'active' : ''} onClick={() => setCurrentView('simulator')}>{t.simulator}</button>
           <button className={currentView === 'export' ? 'active' : ''} onClick={() => setCurrentView('export')}>{t.saveExport}</button>
         </div>
@@ -139,6 +141,9 @@ function App() {
             viewerBackground={viewerBackground}
             setViewerBackground={setViewerBackground}
           />
+        )}
+        {currentView === 'theme' && (
+          <ThemeView language={language} />
         )}
         {currentView === 'simulator' && (
           <SimulatorView filterContent={filterPreview} language={language} />
