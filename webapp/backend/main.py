@@ -603,6 +603,14 @@ def get_sound_map():
         with open(path, "r", encoding="utf-8") as f: return json.load(f)
     except Exception as e: raise HTTPException(status_code=500, detail=str(e))
 
+@app.post("/api/sound-map")
+async def save_sound_map(content: dict = Body(...)):
+    path = CONFIG_DATA_DIR / "theme" / "sharket" / "Sharket_sound_map.json"
+    try:
+        with open(path, "w", encoding="utf-8") as f: json.dump(content, f, indent=2, ensure_ascii=False)
+        return {"message": "Success"}
+    except Exception as e: raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/api/themes/{theme_name}")
 def get_theme_data(theme_name: str):
     theme_dir = safe_join(CONFIG_DATA_DIR / "theme", theme_name)

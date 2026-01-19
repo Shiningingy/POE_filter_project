@@ -4,6 +4,7 @@ import type { CategoryFile } from '../components/Sidebar';
 import CategoryView from '../components/CategoryView';
 import InspectorPanel from '../components/InspectorPanel'; 
 import ContextMenu from '../components/ContextMenu';
+import SoundBulkEditor from '../components/SoundBulkEditor';
 import axios from 'axios';
 import { useTranslation, translations, RULE_FACTOR_LOCALIZATION } from '../utils/localization';
 import type { Language } from '../utils/localization';
@@ -45,6 +46,7 @@ const EditorView: React.FC<EditorViewProps> = ({
   const [soundMap, setSoundMap] = useState<any>({ basetype_sounds: {}, class_sounds: {} });
   const [themeData, setThemeData] = useState<any>(null);
   const [fallbackMenu, setFallbackMenu] = useState<{ x: number, y: number } | null>(null);
+  const [showSoundManager, setShowSoundManager] = useState(false);
 
   useEffect(() => {
     // Load Theme & Sound Map
@@ -330,6 +332,7 @@ const EditorView: React.FC<EditorViewProps> = ({
         selectedFile={selectedFile?.path || ''} 
         onSelect={setSelectedFile} 
         language={language}
+        onOpenSoundManager={() => setShowSoundManager(true)}
       />
       
       <div className="main-content">
@@ -397,6 +400,16 @@ const EditorView: React.FC<EditorViewProps> = ({
           <div key={toast.timestamp} className="ping-toast">
               {toast.message}
           </div>
+      )}
+
+      {showSoundManager && (
+          <SoundBulkEditor 
+            language={language}
+            onClose={() => setShowSoundManager(false)}
+            onSave={() => {
+                window.location.reload(); 
+            }}
+          />
       )}
 
       {fallbackMenu && (

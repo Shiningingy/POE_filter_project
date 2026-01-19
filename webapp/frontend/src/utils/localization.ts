@@ -271,7 +271,9 @@ export const translations = {
     current: "(Current)",
     switchToPartial: "Switch to Partial Match",
     switchToExact: "Switch to Exact Match",
-    noOptions: "No available options"
+    noOptions: "No available options",
+    removeFromTier: "Remove from this Tier",
+    addTo: "Add to"
   },
   ch: {
     appTitle: "POE 过滤器编辑器",
@@ -501,6 +503,8 @@ export const translations = {
     switchToPartial: "切换为模糊匹配",
     switchToExact: "切换为精确匹配",
     noOptions: "暂无可用操作",
+    removeFromTier: "从此阶级移除",
+    addTo: "添加至",
     Normal: "普通",
     Magic: "魔法",
     Rare: "稀有",
