@@ -910,7 +910,20 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       <style>{`
         .category-view { padding-bottom: 50px; max-width: 1200px; margin: 0 auto; width: 100%; min-height: 400px; }
         .category-section { margin-bottom: 30px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); padding: 20px; }
-        .category-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-bottom: 20px; }
+        .category-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 2px solid #f0f0f0; 
+            padding-bottom: 10px; 
+            margin-bottom: 20px;
+            position: sticky;
+            top: -20px; /* Account for parent padding */
+            background: white;
+            z-index: 100;
+            margin-top: -20px; /* Offset parent padding */
+            padding-top: 20px;
+        }
         .category-header h3 { margin: 0; color: #333; }
         .bulk-edit-btn { background: #673ab7; color: white !important; border: none; padding: 6px 18px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; font-weight: bold; box-shadow: 0 2px 4px rgba(103, 58, 183, 0.2); transition: background 0.2s; }
         .bulk-edit-btn:hover { background: #5e35b1; }
