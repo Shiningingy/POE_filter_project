@@ -110,3 +110,17 @@ button:disabled, select:disabled {
   background-color: #1c1c1c; /* Slightly different background for read-only */
   border-color: #333;
 }
+
+.item-class-label {
+    font-size: 0.6rem;
+    color: #888;
+    background: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-top: 4px;
+    display: inline-block;
+}
+
+.item-card-base.staged .item-class-label {
+    background: #e3f2fd;
+}

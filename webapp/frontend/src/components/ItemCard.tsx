@@ -1,5 +1,6 @@
 import React from "react";
 import ItemTooltip from "./ItemTooltip";
+import { translations, CLASS_KEY_MAP } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import { getSubTypeBackground } from "../utils/itemUtils";
 
@@ -98,6 +99,11 @@ const ItemCard: React.FC<ItemCardProps> = ({
             </div>
           )}
           {showChineseFirst && <div className="name-secondary">{item.name}</div>}
+          {item.item_class && (
+              <div className="item-class-label">
+                  {language === 'ch' ? ((translations[language] as any)[CLASS_KEY_MAP[item.item_class] || item.item_class] || item.item_class) : item.item_class}
+              </div>
+          )}
         </div>
 
         {/* Corner Indicators */}
