@@ -257,7 +257,12 @@ export const translations = {
     false: "False",
     conditionAlreadyAdded: "Condition already added",
     ruleAdded: "Rule added",
-    conditionAdded: "Condition added"
+    conditionAdded: "Condition added",
+    soundSelection: "Sound Selection",
+    customPath: "Custom Path",
+    enterPath: "Enter file path...",
+    fromAutoSound: "From Auto-Sound",
+    fromRule: "From Rule Override"
   },
   ch: {
     appTitle: "POE 过滤器编辑器",
@@ -473,6 +478,11 @@ export const translations = {
     conditionAlreadyAdded: "该条件已存在",
     ruleAdded: "规则已添加",
     conditionAdded: "条件已添加",
+    soundSelection: "音效选择",
+    customPath: "自定义路径",
+    enterPath: "输入文件路径...",
+    fromAutoSound: "来自自动音效",
+    fromRule: "来自规则覆盖",
     Normal: "普通",
     Magic: "魔法",
     Rare: "稀有",

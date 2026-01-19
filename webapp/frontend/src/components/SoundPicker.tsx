@@ -6,6 +6,7 @@ import type { Language } from '../utils/localization';
 interface SoundPickerProps {
   initialPath?: string;
   initialVolume?: number;
+  currentSource?: string;
   language: Language;
   onClose: () => void;
   onConfirm: (path: string, volume: number) => void;
@@ -14,6 +15,7 @@ interface SoundPickerProps {
 const SoundPicker: React.FC<SoundPickerProps> = ({
   initialPath = '',
   initialVolume = 300,
+  currentSource,
   language,
   onClose,
   onConfirm
@@ -24,8 +26,16 @@ const SoundPicker: React.FC<SoundPickerProps> = ({
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedPath, setSelectedPath] = useState(initialPath);
+  const [customPathInput, setCustomPathInput] = useState(initialPath.startsWith('Sharket') || initialPath.startsWith('Default') ? '' : initialPath);
   const [volume, setVolume] = useState(initialVolume);
-  const [activeTab, setActiveTab] = useState<'sharket' | 'default'>(initialPath.startsWith('Default') ? 'default' : 'sharket');
+  
+  const determineTab = (p: string) => {
+      if (p.startsWith('Default')) return 'default';
+      if (p.startsWith('Sharket')) return 'sharket';
+      return 'custom';
+  };
+  
+  const [activeTab, setActiveTab] = useState<'sharket' | 'default' | 'custom'>(determineTab(initialPath));
 
   useEffect(() => {
     axios.get('/api/sounds/list')
@@ -55,11 +65,17 @@ const SoundPicker: React.FC<SoundPickerProps> = ({
     <div className="modal-overlay" onClick={onClose}>
       <div className="sound-picker-content" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
-          <h3>{t.sound} Override</h3>
+          <h3>{(t as any).soundSelection}</h3>
           <button className="close-x" onClick={onClose}>×</button>
         </div>
 
         <div className="sound-picker-body">
+          {currentSource && (
+              <div className="current-source-badge">
+                  Source: {currentSource}
+              </div>
+          )}
+
           <div className="volume-section">
             <label>{t.volume}: {volume}</label>
             <input 
@@ -84,34 +100,57 @@ const SoundPicker: React.FC<SoundPickerProps> = ({
             >
                 {t.default}
             </button>
+            <button 
+                className={activeTab === 'custom' ? 'active' : ''} 
+                onClick={() => setActiveTab('custom')}
+            >
+                {(t as any).custom}
+            </button>
           </div>
 
-          <div className="search-bar">
-            <input 
-              type="text" 
-              placeholder={t.search} 
-              value={searchTerm} 
-              onChange={e => setSearchTerm(e.target.value)} 
-            />
-          </div>
-
-          <div className="sound-list">
-            {loading ? <div className="loading">{t.loading}</div> : (
-              filteredSounds.map(path => (
-                <div 
-                  key={path} 
-                  className={`sound-item ${selectedPath === path ? 'selected' : ''}`}
-                  onClick={() => {
-                      setSelectedPath(path);
-                      playPreview(path);
-                  }}
-                >
-                  <span className="play-btn">▶</span>
-                  <span className="path-text">{path.split('/').pop()}</span>
+          {activeTab === 'custom' ? (
+              <div className="custom-path-section">
+                  <input 
+                      type="text" 
+                      placeholder={(t as any).enterPath}
+                      value={customPathInput} 
+                      onChange={e => {
+                          setCustomPathInput(e.target.value);
+                          setSelectedPath(e.target.value);
+                      }} 
+                  />
+                  <div className="hint">e.g. MySounds/DropSound.mp3</div>
+              </div>
+          ) : (
+              <>
+                <div className="search-bar">
+                    <input 
+                    type="text" 
+                    placeholder={t.search} 
+                    value={searchTerm} 
+                    onChange={e => setSearchTerm(e.target.value)} 
+                    />
                 </div>
-              ))
-            )}
-          </div>
+
+                <div className="sound-list">
+                    {loading ? <div className="loading">{t.loading}</div> : (
+                    filteredSounds.map(path => (
+                        <div 
+                        key={path} 
+                        className={`sound-item ${selectedPath === path ? 'selected' : ''}`}
+                        onClick={() => {
+                            setSelectedPath(path);
+                            playPreview(path);
+                        }}
+                        >
+                        <span className="play-btn">▶</span>
+                        <span className="path-text">{path.split('/').pop()}</span>
+                        </div>
+                    ))
+                    )}
+                </div>
+              </>
+          )}
         </div>
 
         <div className="modal-footer">
@@ -137,6 +176,13 @@ const SoundPicker: React.FC<SoundPickerProps> = ({
           overflow: hidden;
           box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
+        .modal-header { padding: 15px 20px; background: #f9f9f9; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .modal-header h3 { margin: 0; color: #333; font-size: 1.1rem; }
+        
+        .current-source-badge { 
+            background: #e8f5e9; color: #2e7d32; padding: 8px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; border: 1px solid #c8e6c9; 
+        }
+
         .sound-picker-body { padding: 20px; display: flex; flex-direction: column; gap: 15px; overflow: hidden; }
         
         .volume-section { display: flex; flex-direction: column; gap: 5px; }
@@ -146,7 +192,8 @@ const SoundPicker: React.FC<SoundPickerProps> = ({
         .tabs button { flex: 1; padding: 10px; background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; color: #999; font-weight: bold; border-radius: 0; }
         .tabs button.active { color: #2196F3; border-bottom-color: #2196F3; }
         
-        .search-bar input { width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        .search-bar input, .custom-path-section input { width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        .custom-path-section .hint { font-size: 0.75rem; color: #999; margin-top: 5px; font-style: italic; }
         
         .sound-list { height: 300px; overflow-y: auto; border: 1px solid #eee; border-radius: 4px; }
         .sound-item { padding: 8px 12px; display: flex; align-items: center; gap: 10px; cursor: pointer; border-bottom: 1px solid #f9f9f9; }
