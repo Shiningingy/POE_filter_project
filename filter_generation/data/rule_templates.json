@@ -6,11 +6,6 @@
         "en": "General",
         "ch": "常规"
       },
-      "aliases": [
-        "all",
-        "any",
-        "misc"
-      ],
       "templates": [
         {
           "id": "rarity",
@@ -25,6 +20,9 @@
             "Magic",
             "Rare",
             "Unique"
+          ],
+          "aliases": [
+            "all"
           ]
         },
         {
@@ -35,7 +33,10 @@
           },
           "condition": "ItemLevel",
           "type": "number",
-          "default": ">= 0"
+          "default": ">= 0",
+          "aliases": [
+            "all"
+          ]
         },
         {
           "id": "item_class",
@@ -44,7 +45,10 @@
             "ch": "物品类别"
           },
           "condition": "Class",
-          "type": "class_picker"
+          "type": "class_picker",
+          "aliases": [
+            "all"
+          ]
         },
         {
           "id": "quality",
@@ -54,7 +58,10 @@
           },
           "condition": "Quality",
           "type": "number",
-          "default": ">= 0"
+          "default": ">= 0",
+          "aliases": [
+            "all"
+          ]
         },
         {
           "id": "drop_level",
@@ -64,7 +71,10 @@
           },
           "condition": "DropLevel",
           "type": "number",
-          "default": ">= 0"
+          "default": ">= 0",
+          "aliases": [
+            "all"
+          ]
         },
         {
           "id": "area_level",
@@ -74,7 +84,10 @@
           },
           "condition": "AreaLevel",
           "type": "number",
-          "default": ">= 0"
+          "default": ">= 0",
+          "aliases": [
+            "all"
+          ]
         }
       ]
     },
@@ -84,15 +97,6 @@
         "en": "Item Status",
         "ch": "物品状态"
       },
-      "aliases": [
-        "all",
-        "equipment",
-        "weapon",
-        "armour",
-        "jewellery",
-        "gem",
-        "maps"
-      ],
       "templates": [
         {
           "id": "identified",
@@ -101,7 +105,10 @@
             "ch": "已鉴定"
           },
           "condition": "Identified",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "all"
+          ]
         },
         {
           "id": "corrupted",
@@ -110,7 +117,10 @@
             "ch": "已污染"
           },
           "condition": "Corrupted",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "all"
+          ]
         },
         {
           "id": "mirrored",
@@ -119,7 +129,10 @@
             "ch": "已复制"
           },
           "condition": "Mirrored",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "all"
+          ]
         },
         {
           "id": "fractured",
@@ -128,7 +141,13 @@
             "ch": "破碎物品"
           },
           "condition": "FracturedItem",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "equipment",
+            "weapon",
+            "armour",
+            "jewellery"
+          ]
         },
         {
           "id": "synthesised",
@@ -137,7 +156,13 @@
             "ch": "合成物品"
           },
           "condition": "SynthesisedItem",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "equipment",
+            "weapon",
+            "armour",
+            "jewellery"
+          ]
         }
       ]
     },
@@ -147,22 +172,6 @@
         "en": "Equipment & Mods",
         "ch": "装备与词缀"
       },
-      "aliases": [
-        "equipment",
-        "weapon",
-        "armour",
-        "jewellery",
-        "body armour",
-        "boots",
-        "gloves",
-        "helmet",
-        "shield",
-        "quiver",
-        "amulet",
-        "ring",
-        "belt",
-        "trinket"
-      ],
       "templates": [
         {
           "id": "base_percentile",
@@ -172,7 +181,15 @@
           },
           "condition": "BaseDefencePercentile",
           "type": "number",
-          "default": ">= 0"
+          "default": ">= 0",
+          "aliases": [
+            "armour",
+            "body armour",
+            "boots",
+            "gloves",
+            "helmet",
+            "shield"
+          ]
         },
         {
           "id": "influence",
@@ -190,6 +207,12 @@
             "Hunter",
             "Warlord",
             "None"
+          ],
+          "aliases": [
+            "equipment",
+            "weapon",
+            "armour",
+            "jewellery"
           ]
         },
         {
@@ -200,7 +223,13 @@
           },
           "condition": "HasExplicitMod",
           "type": "text",
-          "placeholder": "e.g. \"Tyrannical\""
+          "placeholder": "e.g. \"Tyrannical\"",
+          "aliases": [
+            "equipment",
+            "weapon",
+            "armour",
+            "jewellery"
+          ]
         },
         {
           "id": "implicit_mod",
@@ -209,7 +238,13 @@
             "ch": "含有基底词缀"
           },
           "condition": "HasImplicitMod",
-          "type": "text"
+          "type": "text",
+          "aliases": [
+            "equipment",
+            "weapon",
+            "armour",
+            "jewellery"
+          ]
         },
         {
           "id": "enchantment",
@@ -218,7 +253,13 @@
             "ch": "含有附魔"
           },
           "condition": "HasEnchantment",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "equipment",
+            "weapon",
+            "armour",
+            "jewellery"
+          ]
         },
         {
           "id": "HasSearingExarchImplicit",
@@ -228,7 +269,14 @@
           },
           "condition": "HasSearingExarchImplicit",
           "type": "number",
-          "default": ">= 0"
+          "default": ">= 0",
+          "aliases": [
+            "armour",
+            "body armour",
+            "boots",
+            "gloves",
+            "helmet"
+          ]
         },
         {
           "id": "HasEaterOfWorldsImplicit",
@@ -238,7 +286,14 @@
           },
           "condition": "HasEaterOfWorldsImplicit",
           "type": "number",
-          "default": ">= 0"
+          "default": ">= 0",
+          "aliases": [
+            "armour",
+            "body armour",
+            "boots",
+            "gloves",
+            "helmet"
+          ]
         },
         {
           "id": "CorruptedMods",
@@ -248,7 +303,13 @@
           },
           "condition": "CorruptedMods",
           "type": "number",
-          "default": ">= 0"
+          "default": ">= 0",
+          "aliases": [
+            "equipment",
+            "weapon",
+            "armour",
+            "jewellery"
+          ]
         }
       ]
     },
@@ -258,11 +319,6 @@
         "en": "Cluster Jewels",
         "ch": "星团珠宝"
       },
-      "aliases": [
-        "cluster jewels",
-        "cluster",
-        "jewel"
-      ],
       "templates": [
         {
           "id": "EnchantmentPassiveNum",
@@ -272,7 +328,11 @@
           },
           "condition": "EnchantmentPassiveNum",
           "type": "number",
-          "default": ">= 0"
+          "default": ">= 0",
+          "aliases": [
+            "cluster jewels",
+            "cluster"
+          ]
         },
         {
           "id": "EnchantmentPassiveNode",
@@ -334,6 +394,10 @@
             "Chaos Resistance",
             "Chance to Suppress Spell Damage",
             "Reservation Efficiency"
+          ],
+          "aliases": [
+            "cluster jewels",
+            "cluster"
           ]
         }
       ]
@@ -344,10 +408,6 @@
         "en": "Unique Items",
         "ch": "传奇物品"
       },
-      "aliases": [
-        "uniques",
-        "unique"
-      ],
       "templates": [
         {
           "id": "Replica",
@@ -356,7 +416,11 @@
             "ch": "仿品传奇"
           },
           "condition": "IsReplica",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "uniques",
+            "unique"
+          ]
         },
         {
           "id": "FoulBorn",
@@ -365,7 +429,11 @@
             "ch": "秽生传奇物品"
           },
           "condition": "IsFoulborn",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "uniques",
+            "unique"
+          ]
         }
       ]
     },
@@ -375,22 +443,6 @@
         "en": "Sockets & Links",
         "ch": "插槽与连线"
       },
-      "aliases": [
-        "body armour",
-        "boots",
-        "gloves",
-        "helmet",
-        "shield",
-        "weapon",
-        "bow",
-        "staff",
-        "wand",
-        "axe",
-        "sword",
-        "mace",
-        "claw",
-        "dagger"
-      ],
       "templates": [
         {
           "id": "sockets",
@@ -400,7 +452,16 @@
           },
           "condition": "Sockets",
           "type": "number",
-          "default": ">= 0"
+          "default": ">= 0",
+          "aliases": [
+            "weapon",
+            "armour",
+            "body armour",
+            "boots",
+            "gloves",
+            "helmet",
+            "shield"
+          ]
         },
         {
           "id": "links",
@@ -410,7 +471,16 @@
           },
           "condition": "LinkedSockets",
           "type": "number",
-          "default": ">= 0"
+          "default": ">= 0",
+          "aliases": [
+            "weapon",
+            "armour",
+            "body armour",
+            "boots",
+            "gloves",
+            "helmet",
+            "shield"
+          ]
         },
         {
           "id": "socket_group",
@@ -420,7 +490,16 @@
           },
           "condition": "SocketGroup",
           "type": "text",
-          "placeholder": "e.g. RGB"
+          "placeholder": "e.g. RGB",
+          "aliases": [
+            "weapon",
+            "armour",
+            "body armour",
+            "boots",
+            "gloves",
+            "helmet",
+            "shield"
+          ]
         }
       ]
     },
@@ -430,19 +509,6 @@
         "en": "Currency & Gems",
         "ch": "通货与宝石"
       },
-      "aliases": [
-        "currency",
-        "stackable currency",
-        "gems",
-        "skill",
-        "support",
-        "essence",
-        "oil",
-        "harvest",
-        "fossil",
-        "catalyst",
-        "delirium orb"
-      ],
       "templates": [
         {
           "id": "stack_size",
@@ -452,7 +518,17 @@
           },
           "condition": "StackSize",
           "type": "number",
-          "default": ">= 1"
+          "default": ">= 1",
+          "aliases": [
+            "currency",
+            "stackable currency",
+            "essence",
+            "oil",
+            "harvest",
+            "fossil",
+            "catalyst",
+            "delirium orb"
+          ]
         },
         {
           "id": "gem_level",
@@ -462,7 +538,12 @@
           },
           "condition": "GemLevel",
           "type": "number",
-          "default": ">= 1"
+          "default": ">= 1",
+          "aliases": [
+            "gems",
+            "skill",
+            "support"
+          ]
         },
         {
           "id": "transfigured",
@@ -471,7 +552,12 @@
             "ch": "特品宝石"
           },
           "condition": "TransfiguredGem",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "gems",
+            "skill",
+            "support"
+          ]
         }
       ]
     },
@@ -481,14 +567,6 @@
         "en": "Maps & Endgame",
         "ch": "地图与异界"
       },
-      "aliases": [
-        "maps",
-        "fragment",
-        "map fragments",
-        "breachstone",
-        "invitation",
-        "scarab"
-      ],
       "templates": [
         {
           "id": "map_tier",
@@ -498,7 +576,10 @@
           },
           "condition": "MapTier",
           "type": "number",
-          "default": ">= 1"
+          "default": ">= 1",
+          "aliases": [
+            "maps"
+          ]
         },
         {
           "id": "blighted",
@@ -507,7 +588,10 @@
             "ch": "菌潮地图"
           },
           "condition": "BlightedMap",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "maps"
+          ]
         },
         {
           "id": "uber_blighted",
@@ -516,7 +600,10 @@
             "ch": "菌潮灭绝地图"
           },
           "condition": "BlightRavagedMap",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "maps"
+          ]
         },
         {
           "id": "ZanaMemory",
@@ -525,7 +612,12 @@
             "ch": "扎娜记忆"
           },
           "condition": "ZanasMemory",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "maps",
+            "fragment",
+            "map fragments"
+          ]
         },
         {
           "id": "ShapedMap",
@@ -534,7 +626,10 @@
             "ch": "塑界地图"
           },
           "condition": "ShapedMap",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "maps"
+          ]
         }
       ]
     },
@@ -544,9 +639,6 @@
         "en": "PoE 2 Specific",
         "ch": "流放之路 2"
       },
-      "aliases": [
-        "all"
-      ],
       "templates": [
         {
           "id": "waystone_tier",
@@ -556,7 +648,11 @@
           },
           "condition": "WaystoneTier",
           "type": "number",
-          "default": ">= 1"
+          "default": ">= 1",
+          "aliases": [
+            "poe2",
+            "maps"
+          ]
         },
         {
           "id": "unidentified_tier",
@@ -566,7 +662,10 @@
           },
           "condition": "UnidentifiedItemTier",
           "type": "number",
-          "default": ">= 1"
+          "default": ">= 1",
+          "aliases": [
+            "poe2"
+          ]
         },
         {
           "id": "twice_corrupted",
@@ -575,7 +674,10 @@
             "ch": "双重污染"
           },
           "condition": "TwiceCorrupted",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "poe2"
+          ]
         },
         {
           "id": "IsVaalUnique",
@@ -584,7 +686,11 @@
             "ch": "瓦尔传奇物品"
           },
           "condition": "IsVaalUnique",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "poe2",
+            "unique"
+          ]
         },
         {
           "id": "AlwaysShow",
@@ -593,7 +699,10 @@
             "ch": "总是显示"
           },
           "condition": "AlwaysShow",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "poe2"
+          ]
         }
       ]
     },
@@ -603,9 +712,6 @@
         "en": "Actions (Overrides)",
         "ch": "动作 (覆盖)"
       },
-      "aliases": [
-        "all"
-      ],
       "templates": [
         {
           "id": "disable_drop_sound",
@@ -614,7 +720,10 @@
             "ch": "禁用掉落声音"
           },
           "condition": "DisableDropSound",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "all"
+          ]
         },
         {
           "id": "enable_drop_sound",
@@ -623,7 +732,10 @@
             "ch": "启用掉落声音"
           },
           "condition": "EnableDropSound",
-          "type": "bool"
+          "type": "bool",
+          "aliases": [
+            "all"
+          ]
         }
       ]
     }
