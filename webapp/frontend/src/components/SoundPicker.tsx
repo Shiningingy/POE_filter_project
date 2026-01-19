@@ -71,8 +71,15 @@ const SoundPicker: React.FC<SoundPickerProps> = ({
 
         <div className="sound-picker-body">
           {currentSource && (
-              <div className="current-source-badge">
-                  Source: {currentSource}
+              <div className="current-info-box">
+                  <div className="info-line">
+                      <strong>{(t as any).currentSource}:</strong> {currentSource}
+                  </div>
+                  {initialPath && (
+                      <div className="info-line">
+                          <strong>{(t as any).currentSound}:</strong> {initialPath.split('/').pop()}
+                      </div>
+                  )}
               </div>
           )}
 
@@ -179,9 +186,12 @@ const SoundPicker: React.FC<SoundPickerProps> = ({
         .modal-header { padding: 15px 20px; background: #f9f9f9; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
         .modal-header h3 { margin: 0; color: #333; font-size: 1.1rem; }
         
-        .current-source-badge { 
-            background: #e8f5e9; color: #2e7d32; padding: 8px; border-radius: 4px; font-size: 0.85rem; font-weight: bold; border: 1px solid #c8e6c9; 
+        .current-info-box { 
+            background: #e8f5e9; color: #2e7d32; padding: 10px 15px; border-radius: 6px; font-size: 0.85rem; border: 1px solid #c8e6c9; 
+            display: flex; flex-direction: column; gap: 4px;
         }
+        .info-line { display: flex; gap: 8px; align-items: baseline; }
+        .info-line strong { white-space: nowrap; }
 
         .sound-picker-body { padding: 20px; display: flex; flex-direction: column; gap: 15px; overflow: hidden; }
         

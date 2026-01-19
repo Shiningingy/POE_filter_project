@@ -776,27 +776,24 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     }
                     viewerBackground={viewerBackground}
                   />
-                  <TierItemManager
-                    tierKey={tierKey}
-                    items={items}
-                    allTiers={tierOptions}
-                    onMoveItem={handleMoveItem}
-                    onDeleteItem={handleDeleteItem}
-                    onUpdateOverride={handleUpdateOverride}
-                    onRemoveRuleTarget={handleRemoveRuleTarget}
-                    language={language}
-                    onRuleEdit={(tKey, idx) => {
-                      onRuleEdit(tKey, idx);
-                      setActiveRuleIndex({ tierKey: tKey, index: idx });
-                    }}
-                    categoryRules={
-                      activeCategoryData.rules ||
-                      activeCategoryData._meta?.rules ||
-                      []
-                    }
-                    onRefresh={() => fetchTierItems(sortedTierKeys)}
-                    soundMap={soundMap}
-                  />
+                                                  <TierItemManager 
+                                                      tierKey={tierKey}
+                                                      items={items}
+                                                      allTiers={tierOptions}
+                                                      onMoveItem={handleMoveItem}
+                                                      onDeleteItem={handleDeleteItem}
+                                                      onUpdateOverride={handleUpdateOverride}
+                                                      onRemoveRuleTarget={handleRemoveRuleTarget}
+                                                      language={language}
+                                                      onRuleEdit={(tKey, idx) => {
+                                                          onRuleEdit(tKey, idx); 
+                                                          setActiveRuleIndex({ tierKey: tKey, index: idx });
+                                                      }}
+                                                      categoryRules={activeCategoryData.rules || activeCategoryData._meta?.rules || []}
+                                                      onRefresh={() => fetchTierItems(sortedTierKeys)}
+                                                      soundMap={soundMap}
+                                                      tierStyle={resolved}
+                                                  />
                   <RuleManager
                     tierKey={tierKey}
                     allRules={

@@ -262,7 +262,10 @@ export const translations = {
     customPath: "Custom Path",
     enterPath: "Enter file path...",
     fromAutoSound: "From Auto-Sound",
-    fromRule: "From Rule Override"
+    fromRule: "From Rule Override",
+    fromTierDefault: "From Tier Default",
+    currentSource: "Current Source",
+    currentSound: "Current Sound"
   },
   ch: {
     appTitle: "POE 过滤器编辑器",
@@ -483,6 +486,9 @@ export const translations = {
     enterPath: "输入文件路径...",
     fromAutoSound: "来自自动音效",
     fromRule: "来自规则覆盖",
+    fromTierDefault: "来自阶级默认",
+    currentSource: "当前来源",
+    currentSound: "当前音效",
     Normal: "普通",
     Magic: "魔法",
     Rare: "稀有",

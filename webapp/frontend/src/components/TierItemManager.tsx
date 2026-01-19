@@ -38,6 +38,7 @@ interface TierItemManagerProps {
   categoryRules?: any[];
   onRefresh?: () => void;
   soundMap?: any;
+  tierStyle?: any;
 }
 
 const TierItemManager: React.FC<TierItemManagerProps> = ({
@@ -52,7 +53,8 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   onRuleEdit,
   categoryRules = [],
   onRefresh,
-  soundMap
+  soundMap,
+  tierStyle
 }) => {
   const t = useTranslation(language);
   const [isOpen, setIsOpen] = useState(false);
@@ -114,6 +116,15 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           soundFile = s.file;
           soundVol = s.volume;
           sourceLabel = (t as any).fromAutoSound || "Auto-Sound";
+      }
+
+      // 3. Check Tier Default (Only for non-rule items or rules that don't override sound)
+      if (!soundFile && tierStyle?.PlayAlertSound) {
+          // resolvedStyle already parses into [file, vol] format
+          const [file, vol] = tierStyle.PlayAlertSound;
+          soundFile = file;
+          soundVol = vol;
+          sourceLabel = (t as any).fromTierDefault || "Tier Default";
       }
 
       return { soundFile, soundVol, sourceLabel };
@@ -293,7 +304,10 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
       }
 
       // Sound Logic using Helper
-      const { soundFile, soundVol } = resolveItemSound(item);
+      const { soundFile, soundVol, sourceLabel } = resolveItemSound(item);
+      
+      // Show icon ONLY if explicit override or auto-sound (not tier default)
+      const hasIcon = !!soundFile && sourceLabel !== ((t as any).fromTierDefault || "Tier Default");
 
       return (
         <ItemCard 
@@ -301,7 +315,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           item={isRuleItem ? { ...item, rule_index: localBadge } : item}
           language={language}
           matchMode={item.match_mode || 'exact'}
-          hasSound={!!soundFile}
+          hasSound={hasIcon}
           onPlaySound={() => soundFile && playSound(soundFile, soundVol)}
           onContextMenu={(e) => handleRightClick(e, item)}
           onDelete={
