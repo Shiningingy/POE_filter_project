@@ -2,7 +2,6 @@ import React from "react";
 import ItemTooltip from "./ItemTooltip";
 import type { Language } from "../utils/localization";
 import { getSubTypeBackground } from "../utils/itemUtils";
-import { generateIconUrl } from "../utils/styleResolver";
 
 interface Item {
   name: string;
@@ -43,7 +42,6 @@ const ItemCard: React.FC<ItemCardProps> = ({
 }) => {
   const dotBg = getSubTypeBackground(item.sub_type);
   const showChineseFirst = language === "ch";
-  const iconUrl = generateIconUrl(item.name, item.item_class || item.sub_type);
 
   return (
     <ItemTooltip item={item} language={language}>
@@ -58,13 +56,13 @@ const ItemCard: React.FC<ItemCardProps> = ({
           <div className="defense-indicator" style={{ background: dotBg }} />
         )}
 
-        <div className="item-icon-mini">
+        {/* <div className="item-icon-mini">
             <img 
                 src={iconUrl} 
                 alt="" 
                 onError={(e) => (e.currentTarget.style.display = 'none')}
             />
-        </div>
+        </div> */}
 
         <div className="item-info">
           {showChineseFirst ? (
