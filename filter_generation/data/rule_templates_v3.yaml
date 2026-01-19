@@ -1,0 +1,296 @@
+categories:
+  - id: general
+    name:
+      en: General
+      ch: 常规
+    templates:
+      - id: rarity
+        label: { en: Rarity, ch: 稀有度 }
+        condition: Rarity
+        type: select
+        options: [Normal, Magic, Rare, Unique]
+      - id: item_level
+        label: { en: Item Level, ch: 物品等级 }
+        condition: ItemLevel
+        type: number
+        default: ">= 0"
+      - id: item_class
+        label: { en: Item Class, ch: 物品类别 }
+        condition: Class
+        type: class_picker
+      - id: quality
+        label: { en: Quality, ch: 品质 }
+        condition: Quality
+        type: number
+        default: ">= 0"
+      - id: drop_level
+        label: { en: Drop Level, ch: 掉落等级 }
+        condition: DropLevel
+        type: number
+        default: ">= 0"
+      - id: area_level
+        label: { en: Area Level, ch: 区域等级 }
+        condition: AreaLevel
+        type: number
+        default: ">= 0"
+
+  - id: status
+    name:
+      en: Item Status
+      ch: 物品状态
+    templates:
+      - id: identified
+        label: { en: Identified, ch: 已鉴定 }
+        condition: Identified
+        type: bool
+      - id: corrupted
+        label: { en: Corrupted, ch: 已污染 }
+        condition: Corrupted
+        type: bool
+      - id: mirrored
+        label: { en: Mirrored, ch: 已复制 }
+        condition: Mirrored
+        type: bool
+      - id: fractured
+        label: { en: Fractured, ch: 破碎物品 }
+        condition: FracturedItem
+        type: bool
+      - id: synthesised
+        label: { en: Synthesised, ch: 合成物品 }
+        condition: SynthesisedItem
+        type: bool
+
+  - id: equipment
+    name:
+      en: Equipment & Mods
+      ch: 装备与词缀
+    templates:
+      - id: base_percentile
+        label: { en: Base Percentile, ch: 基础防御百分比 }
+        condition: BaseDefencePercentile
+        type: number
+        default: ">= 0"
+      - id: influence
+        label: { en: Influence, ch: 势力影响 }
+        condition: HasInfluence
+        type: select
+        options: [Shaper, Elder, Crusader, Redeemer, Hunter, Warlord, None]
+      - id: explicit_mod
+        label: { en: Has Explicit Mod, ch: 含有词缀 }
+        condition: HasExplicitMod
+        type: text
+        placeholder: 'e.g. "Tyrannical"'
+      - id: implicit_mod
+        label: { en: Has Implicit Mod, ch: 含有基底词缀 }
+        condition: HasImplicitMod
+        type: text
+      - id: enchantment
+        label: { en: Has Enchantment, ch: 含有附魔 }
+        condition: HasEnchantment
+        type: bool
+      - id: HasSearingExarchImplicit
+        label: { en: Has Searing Exarch Implicit, ch: 含有焚界基底词缀 }
+        condition: HasSearingExarchImplicit
+        type: number
+        default: ">= 0"
+      - id: HasEaterOfWorldsImplicit
+        label: { en: Has Eater of Worlds Implicit, ch: 含有灭界基底词缀 }
+        condition: HasEaterOfWorldsImplicit
+        type: number
+        default: ">= 0"
+      - id: CorruptedMods
+        label: { en: Corrupted Mods, ch: 污染词缀 }
+        condition: CorruptedMods
+        type: number
+        default: ">= 0"
+
+  - id: ClusterJewels
+    name:
+      en: Cluster Jewels
+      ch: 星团珠宝
+    templates:
+      - id: EnchantmentPassiveNum
+        label: { en: Enchantment Passive Number, ch: 天赋数量 }
+        condition: EnchantmentPassiveNum
+        type: number
+        default: ">= 0"
+      - id: EnchantmentPassiveNode
+        label: { en: Enchantment Passive Nodes, ch: 星团珠宝天赋类型 }
+        condition: EnchantmentPassiveNode
+        type: select
+        options:
+          - "Axe and Sword Damage"
+          - "Mace and Staff Damage"
+          - "Dagger and Claw Damage"
+          - "Bow Damage"
+          - "Wand Damage"
+          - "Damage with Two Handed Weapons"
+          - "Attack Damage while Dual Wielding"
+          - "Attack Damage while holding a Shield"
+          - "Attack Damage"
+          - "Spell Damage"
+          - "Elemental Damage"
+          - "Physical Damage"
+          - "Fire Damage"
+          - "Lightning Damage"
+          - "Cold Damage"
+          - "Chaos Damage"
+          - "Minion Damage"
+          - "Fire Damage over Time"
+          - "Chaos Damage over Time"
+          - "Physical Damage over Time"
+          - "Cold Damage over Time"
+          - "Damage over Time"
+          - "Effect of Non-Damaging Ailments"
+          - "Damage while you have a Herald"
+          - "Minion Damage while you have a Herald"
+          - "Exerted Attack Damage"
+          - "Critical Chance"
+          - "Minion life"
+          - "Area Damage"
+          - "Projectile Damage"
+          - "Trap and Mine Damage"
+          - "Totem Damage"
+          - "Brand Damage"
+          - "Channelling Skill Damage"
+          - "Flask Duration"
+          - "Life and Mana recovery from Flasks"
+          - "Aura effect"
+          - "Curse effect"
+          - "Life"
+          - "Energy Shield"
+          - "Mana"
+          - "Armour"
+          - "Evasion"
+          - "Chance to Block Attack Damage"
+          - "Chance to Block Spell Damage"
+          - "Fire Resistance"
+          - "Cold Resistance"
+          - "Lightning Resistance"
+          - "Chaos Resistance"
+          - "Chance to Suppress Spell Damage"
+          - "Reservation Efficiency"
+
+  - id: UniqueItems
+    name:
+      en: Unique Items
+      ch: 传奇物品
+    templates:
+      - id: Replica
+        label: { en: Replica Item, ch: 仿品传奇 }
+        condition: IsReplica
+        type: bool
+      - id: FoulBorn
+        label: { en: Foulborn Unique, ch: 秽生传奇物品 }
+        condition: IsFoulborn
+        type: bool
+
+  - id: sockets
+    name:
+      en: Sockets & Links
+      ch: 插槽与连线
+    templates:
+      - id: sockets
+        label: { en: Sockets, ch: 插槽数量 }
+        condition: Sockets
+        type: number
+        default: ">= 0"
+      - id: links
+        label: { en: Linked Sockets, ch: 连线数量 }
+        condition: LinkedSockets
+        type: number
+        default: ">= 0"
+      - id: socket_group
+        label: { en: Socket Group, ch: 插槽组合 }
+        condition: SocketGroup
+        type: text
+        placeholder: "e.g. RGB"
+
+  - id: currency_gems
+    name:
+      en: Currency & Gems
+      ch: 通货与宝石
+    templates:
+      - id: stack_size
+        label: { en: Stack Size, ch: 堆叠数量 }
+        condition: StackSize
+        type: number
+        default: ">= 1"
+      - id: gem_level
+        label: { en: Gem Level, ch: 宝石等级 }
+        condition: GemLevel
+        type: number
+        default: ">= 1"
+      - id: transfigured
+        label: { en: Transfigured Gem, ch: 特品宝石 }
+        condition: TransfiguredGem
+        type: gem_picker # Frontend will handle Bool vs Search/List
+
+  - id: maps
+    name:
+      en: Maps & Endgame
+      ch: 地图与异界
+    templates:
+      - id: map_tier
+        label: { en: Map Tier, ch: 地图阶级 }
+        condition: MapTier
+        type: number
+        default: ">= 1"
+      - id: blighted
+        label: { en: Blighted Map, ch: 菌潮地图 }
+        condition: BlightedMap
+        type: bool
+      - id: uber_blighted
+        label: { en: Blight-ravaged Map, ch: 菌潮灭绝地图 }
+        condition: BlightRavagedMap
+        type: bool
+      - id: ZanaMemory
+        label: { en: Zana's Memory, ch: 扎娜记忆 }
+        condition: ZanasMemory
+        type: bool
+      - id: ShapedMap
+        label: { en: Shaped Map, ch: 塑界地图 }
+        condition: ShapedMap
+        type: bool
+
+  - id: poe2
+    name:
+      en: PoE 2 Specific
+      ch: 流放之路 2
+    templates:
+      - id: waystone_tier
+        label: { en: Waystone Tier, ch: 路径石阶级 }
+        condition: WaystoneTier
+        type: number
+        default: ">= 1"
+      - id: unidentified_tier
+        label: { en: Unidentified Tier, ch: 未鉴定物品阶级 }
+        condition: UnidentifiedItemTier
+        type: number
+        default: ">= 1"
+      - id: twice_corrupted
+        label: { en: Twice Corrupted, ch: 双重污染 }
+        condition: TwiceCorrupted
+        type: bool
+      - id: IsVaalUnique
+        label: { en: Vaal Unique, ch: 瓦尔传奇物品 }
+        condition: IsVaalUnique
+        type: bool
+      - id: AlwaysShow
+        label: { en: Always Show, ch: 总是显示 }
+        condition: AlwaysShow
+        type: bool
+
+  - id: actions
+    name:
+      en: Actions (Overrides)
+      ch: 动作 (覆盖)
+    templates:
+      - id: disable_drop_sound
+        label: { en: Disable Drop Sound, ch: 禁用掉落声音 }
+        condition: DisableDropSound
+        type: bool
+      - id: enable_drop_sound
+        label: { en: Enable Drop Sound, ch: 启用掉落声音 }
+        condition: EnableDropSound
+        type: bool
