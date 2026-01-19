@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
-import { useTranslation, translations } from "../utils/localization";
+import { useTranslation } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import { generateFilterText } from "../utils/styleResolver";
 
@@ -59,9 +59,8 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
   const handleAddConditionToCurrent = (tmp: any) => {
       if (!activeRule || !inspectedTier) return;
       if (activeRule.conditions && activeRule.conditions[tmp.condition]) {
-          // Rule exists, trigger ping and popup
+          // Rule exists, trigger ping (Toast handled in EditorView)
           onPingCondition?.(inspectedTier.key, editingRuleIndex!, tmp.condition);
-          alert((translations[language] as any).conditionAlreadyAdded + ": " + (tmp.label[language] || tmp.condition));
           return;
       }
       

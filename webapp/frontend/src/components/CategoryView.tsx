@@ -42,6 +42,7 @@ interface CategoryViewProps {
   language: Language;
   onInspectTier: (tier: any) => void;
   onRuleEdit: (tierKey: string, idx: number | null) => void;
+  onPingCondition?: (tierKey: string, ruleIndex: number, conditionKey: string) => void;
   viewerBackground: string;
   tierItems: Record<string, TierItem[]>;
   fetchTierItems: (keys: string[]) => void;
@@ -56,6 +57,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   language,
   onInspectTier,
   onRuleEdit,
+  onPingCondition,
   viewerBackground,
   tierItems,
   fetchTierItems,
@@ -649,6 +651,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                                                     allRules={activeCategoryData.rules || activeCategoryData._meta?.rules || []}
                                                                     onGlobalRulesChange={(newRules) => handleRulesChange(activeCategoryKey, newRules, tierKey, displayTierName, themeCategory)}
                                                                     onRuleEdit={onRuleEdit}
+                                                                    onPingCondition={onPingCondition}
                                                                     language={language}
                                                                     availableItems={items}
                                                                     translationCache={itemTranslationCache}

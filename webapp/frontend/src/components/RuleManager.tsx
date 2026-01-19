@@ -1,6 +1,11 @@
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import axios from "axios";
-import { useTranslation, RULE_FACTOR_LOCALIZATION, translations, CLASS_KEY_MAP } from "../utils/localization";
+import {
+  useTranslation,
+  RULE_FACTOR_LOCALIZATION,
+  translations,
+  CLASS_KEY_MAP,
+} from "../utils/localization";
 import type { Language } from "../utils/localization";
 import ItemCard from "./ItemCard";
 import ContextMenu from "./ContextMenu";
@@ -14,7 +19,7 @@ interface Item {
 
 interface Rule {
   targets: string[];
-  targetMatchModes?: Record<string, 'exact' | 'partial'>; // New field
+  targetMatchModes?: Record<string, "exact" | "partial">; // New field
   conditions: Record<string, string>;
   overrides: Record<string, any>;
   comment?: string;
@@ -24,8 +29,8 @@ interface Rule {
 }
 
 interface TierOption {
-    key: string;
-    label: string;
+  key: string;
+  label: string;
 }
 
 interface RuleManagerProps {
@@ -38,18 +43,56 @@ interface RuleManagerProps {
   translationCache: Record<string, string>;
   availableTiers?: TierOption[];
   activeRuleIndex?: number | null;
-  pingedCondition?: { tierKey: string, ruleIndex: number, conditionKey: string, timestamp: number } | null;
+  onPingCondition?: (tierKey: string, ruleIndex: number, conditionKey: string) => void;
+  pingedCondition?: {
+    tierKey: string;
+    ruleIndex: number;
+    conditionKey: string;
+    timestamp: number;
+  } | null;
 }
 
 const ITEM_CLASSES = [
-    "Stackable Currency", "Maps", "Divination Cards", "Skill Gems", "Support Gems", 
-    "Body Armours", "Boots", "Gloves", "Helmets", "Shields", "Quivers",
-    "Amulets", "Rings", "Belts", "Jewels", "Abyss Jewels",
-    "Claws", "Daggers", "Rune Daggers", "Wands", "One Hand Swords", "Thrusting One Hand Swords", 
-    "One Hand Axes", "One Hand Maces", "Sceptres", "Bows", "Staves", "Warstaves", 
-    "Two Hand Swords", "Two Hand Axes", "Two Hand Maces",
-    "Life Flasks", "Mana Flasks", "Utility Flasks",
-    "Map Fragments", "Scarabs", "Expedition Logbooks", "Contract", "Blueprint", "Relic"
+  "Stackable Currency",
+  "Maps",
+  "Divination Cards",
+  "Skill Gems",
+  "Support Gems",
+  "Body Armours",
+  "Boots",
+  "Gloves",
+  "Helmets",
+  "Shields",
+  "Quivers",
+  "Amulets",
+  "Rings",
+  "Belts",
+  "Jewels",
+  "Abyss Jewels",
+  "Claws",
+  "Daggers",
+  "Rune Daggers",
+  "Wands",
+  "One Hand Swords",
+  "Thrusting One Hand Swords",
+  "One Hand Axes",
+  "One Hand Maces",
+  "Sceptres",
+  "Bows",
+  "Staves",
+  "Warstaves",
+  "Two Hand Swords",
+  "Two Hand Axes",
+  "Two Hand Maces",
+  "Life Flasks",
+  "Mana Flasks",
+  "Utility Flasks",
+  "Map Fragments",
+  "Scarabs",
+  "Expedition Logbooks",
+  "Contract",
+  "Blueprint",
+  "Relic",
 ];
 
 const RuleManager: React.FC<RuleManagerProps> = ({
@@ -62,7 +105,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   translationCache,
   availableTiers,
   activeRuleIndex,
-  pingedCondition
+  pingedCondition,
 }) => {
   const t = useTranslation(language);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
@@ -70,30 +113,44 @@ const RuleManager: React.FC<RuleManagerProps> = ({
 
   const [targetSearch, setTargetSearch] = useState("");
   const [suggestions, setSuggestions] = useState<any[]>([]);
-  const [contextMenu, setContextMenu] = useState<{ x: number, y: number, ruleIndex: number } | null>(null);
-  const [itemContextMenu, setItemContextMenu] = useState<{ x: number, y: number, ruleIndex: number, itemName: string } | null>(null);
+  const [contextMenu, setContextMenu] = useState<{
+    x: number;
+    y: number;
+    ruleIndex: number;
+  } | null>(null);
+  const [itemContextMenu, setItemContextMenu] = useState<{
+    x: number;
+    y: number;
+    ruleIndex: number;
+    itemName: string;
+  } | null>(null);
 
   // Specialized Picker States
   const [ruleTemplates, setRuleTemplates] = useState<any[]>([]);
 
-  const [localPing, setLocalPing] = useState<{ ruleIndex: number, conditionKey: string, timestamp: number } | null>(null);
+  const [localPing, setLocalPing] = useState<{
+    ruleIndex: number;
+    conditionKey: string;
+    timestamp: number;
+  } | null>(null);
 
   useEffect(() => {
-      if (pingedCondition && pingedCondition.tierKey === tierKey) {
-          setLocalPing({ 
-              ruleIndex: pingedCondition.ruleIndex, 
-              conditionKey: pingedCondition.conditionKey, 
-              timestamp: pingedCondition.timestamp 
-          });
-          const timeout = setTimeout(() => setLocalPing(null), 2000);
-          return () => clearTimeout(timeout);
-      }
+    if (pingedCondition && pingedCondition.tierKey === tierKey) {
+      setLocalPing({
+        ruleIndex: pingedCondition.ruleIndex,
+        conditionKey: pingedCondition.conditionKey,
+        timestamp: pingedCondition.timestamp,
+      });
+      const timeout = setTimeout(() => setLocalPing(null), 2000);
+      return () => clearTimeout(timeout);
+    }
   }, [pingedCondition, tierKey]);
 
   useEffect(() => {
-      axios.get("/api/rule-templates")
-          .then(res => setRuleTemplates(res.data.categories || []))
-          .catch(e => console.error(e));
+    axios
+      .get("/api/rule-templates")
+      .then((res) => setRuleTemplates(res.data.categories || []))
+      .catch((e) => console.error(e));
   }, []);
 
   const tierRulesIndices = useMemo(() => {
@@ -102,37 +159,56 @@ const RuleManager: React.FC<RuleManagerProps> = ({
       .filter(({ r }) => {
         // 1. Must match this tier (if tier override exists) or target items in this tier
         const hasTierOverride = !!r.overrides?.Tier;
-        const matchesTier = hasTierOverride ? r.overrides.Tier === tierKey : r.targets.some((target) => availableItems.some(i => i.name === target));
+        const matchesTier = hasTierOverride
+          ? r.overrides.Tier === tierKey
+          : r.targets.some((target) =>
+              availableItems.some((i) => i.name === target),
+            );
         if (!matchesTier) return false;
 
         // 2. Hide "Sound-only" rules (rules that only override sound and have no conditions/other visuals)
         const hasConditions = Object.keys(r.conditions || {}).length > 0;
-        const overrideKeys = Object.keys(r.overrides || {}).filter(k => k !== 'Tier');
-        
-        const hasSound = overrideKeys.some(k => k.toLowerCase().includes('sound'));
-        const hasVisuals = overrideKeys.some(k => ["TextColor", "BackgroundColor", "BorderColor", "PlayEffect", "MinimapIcon"].includes(k));
-        
+        const overrideKeys = Object.keys(r.overrides || {}).filter(
+          (k) => k !== "Tier",
+        );
+
+        const hasSound = overrideKeys.some((k) =>
+          k.toLowerCase().includes("sound"),
+        );
+        const hasVisuals = overrideKeys.some((k) =>
+          [
+            "TextColor",
+            "BackgroundColor",
+            "BorderColor",
+            "PlayEffect",
+            "MinimapIcon",
+          ].includes(k),
+        );
+
         // If it's sound-only (no conditions, no other visuals, no tier override), hide it
-        if (hasSound && !hasConditions && !hasVisuals && !hasTierOverride) return false;
+        if (hasSound && !hasConditions && !hasVisuals && !hasTierOverride)
+          return false;
 
         return true;
       })
       .map((item) => item.i);
   }, [allRules, tierKey, availableItems]);
 
-  const activeCount = tierRulesIndices.filter(i => !allRules[i].disabled).length;
+  const activeCount = tierRulesIndices.filter(
+    (i) => !allRules[i].disabled,
+  ).length;
 
   useEffect(() => {
-      if (activeRuleIndex !== undefined && activeRuleIndex !== null) {
-          setEditingIndex(activeRuleIndex);
-          // Scroll into view
-          setTimeout(() => {
-              const el = ruleRefs.current[activeRuleIndex];
-              if (el) {
-                  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              }
-          }, 100);
-      }
+    if (activeRuleIndex !== undefined && activeRuleIndex !== null) {
+      setEditingIndex(activeRuleIndex);
+      // Scroll into view
+      setTimeout(() => {
+        const el = ruleRefs.current[activeRuleIndex];
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }, 100);
+    }
   }, [activeRuleIndex]);
 
   useEffect(() => {
@@ -143,9 +219,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
     const timeoutId = setTimeout(async () => {
       try {
         const res = await axios.get(
-          `/api/search-items?q=${encodeURIComponent(
-            targetSearch
-          )}`
+          `/api/search-items?q=${encodeURIComponent(targetSearch)}`,
         );
         setSuggestions(res.data.results);
       } catch (e) {
@@ -160,7 +234,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
       targets: [],
       conditions: {},
       overrides: { Tier: tierKey },
-      comment: ""
+      comment: "",
     };
     onGlobalRulesChange([...allRules, newRule]);
     setEditingAndNotify(allRules.length);
@@ -179,79 +253,96 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   };
 
   const handleDeleteRule = (e: React.MouseEvent, globalIndex: number) => {
-      e.stopPropagation();
-      if (window.confirm(t.deleteRuleConfirm)) {
-          onGlobalRulesChange(allRules.filter((_, i) => i !== globalIndex));
-          setEditingAndNotify(null);
-      }
-  };
-  
-  const handleDeleteRuleNoConfirm = (globalIndex: number) => {
+    e.stopPropagation();
+    if (window.confirm(t.deleteRuleConfirm)) {
       onGlobalRulesChange(allRules.filter((_, i) => i !== globalIndex));
       setEditingAndNotify(null);
+    }
+  };
+
+  const handleDeleteRuleNoConfirm = (globalIndex: number) => {
+    onGlobalRulesChange(allRules.filter((_, i) => i !== globalIndex));
+    setEditingAndNotify(null);
   };
 
   const toggleDisable = (e: React.MouseEvent, globalIndex: number) => {
-      e.stopPropagation();
-      const rule = allRules[globalIndex];
-      handleUpdateRule(globalIndex, { ...rule, disabled: !rule.disabled });
+    e.stopPropagation();
+    const rule = allRules[globalIndex];
+    handleUpdateRule(globalIndex, { ...rule, disabled: !rule.disabled });
   };
 
   const toggleItemMatchMode = (globalIndex: number, itemName: string) => {
-      const rule = allRules[globalIndex];
-      const modes = { ...(rule.targetMatchModes || {}) };
-      const current = modes[itemName] || 'exact';
-      modes[itemName] = current === 'exact' ? 'partial' : 'exact';
-      handleUpdateRule(globalIndex, { ...rule, targetMatchModes: modes });
-      setItemContextMenu(null);
+    const rule = allRules[globalIndex];
+    const modes = { ...(rule.targetMatchModes || {}) };
+    const current = modes[itemName] || "exact";
+    modes[itemName] = current === "exact" ? "partial" : "exact";
+    handleUpdateRule(globalIndex, { ...rule, targetMatchModes: modes });
+    setItemContextMenu(null);
   };
 
-  const handleItemRightClick = (e: React.MouseEvent, globalIndex: number, itemName: string) => {
-      e.preventDefault();
-      e.stopPropagation();
-      setItemContextMenu({ x: e.clientX, y: e.clientY, ruleIndex: globalIndex, itemName });
+  const handleItemRightClick = (
+    e: React.MouseEvent,
+    globalIndex: number,
+    itemName: string,
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setItemContextMenu({
+      x: e.clientX,
+      y: e.clientY,
+      ruleIndex: globalIndex,
+      itemName,
+    });
   };
 
   const handleMoveRule = (globalIndex: number, newTierKey: string) => {
-      const rule = allRules[globalIndex];
-      const newOverrides = { ...rule.overrides, Tier: newTierKey };
-      handleUpdateRule(globalIndex, { ...rule, overrides: newOverrides });
-      setEditingAndNotify(null); 
+    const rule = allRules[globalIndex];
+    const newOverrides = { ...rule.overrides, Tier: newTierKey };
+    handleUpdateRule(globalIndex, { ...rule, overrides: newOverrides });
+    setEditingAndNotify(null);
   };
 
   const handleRightClick = (e: React.MouseEvent, globalIndex: number) => {
-      e.preventDefault();
-      e.stopPropagation();
-      setContextMenu({ x: e.clientX, y: e.clientY, ruleIndex: globalIndex });
+    e.preventDefault();
+    e.stopPropagation();
+    setContextMenu({ x: e.clientX, y: e.clientY, ruleIndex: globalIndex });
   };
 
   const addTarget = (globalIndex: number, itemName: string) => {
     const rule = allRules[globalIndex];
     if (!rule.targets.includes(itemName)) {
-        handleUpdateRule(globalIndex, { ...rule, targets: [...rule.targets, itemName] });
+      handleUpdateRule(globalIndex, {
+        ...rule,
+        targets: [...rule.targets, itemName],
+      });
     }
-    setTargetSearch('');
+    setTargetSearch("");
     setSuggestions([]);
   };
 
   const removeTarget = (globalIndex: number, itemName: string) => {
     const rule = allRules[globalIndex];
-    handleUpdateRule(globalIndex, { ...rule, targets: rule.targets.filter(t => t !== itemName) });
+    handleUpdateRule(globalIndex, {
+      ...rule,
+      targets: rule.targets.filter((t) => t !== itemName),
+    });
   };
 
   const updateCondition = (globalIndex: number, key: string, value: string) => {
     const rule = allRules[globalIndex];
     const nextConditions = { ...rule.conditions };
-    
+
     // Only delete if explicitly requested or if it's a type that SHOULD be removed when empty
     // For text/class_picker manual entry, we want to allow empty string while typing
-    const tmp = ruleTemplates.flatMap(c => c.templates).find(t => t.condition === key);
-    const isTextField = tmp?.type === 'text' || tmp?.type === 'class_picker';
+    const tmp = ruleTemplates
+      .flatMap((c) => c.templates)
+      .find((t) => t.condition === key);
+    const isTextField = tmp?.type === "text" || tmp?.type === "class_picker";
 
     if (value === null || (value === "" && !isTextField)) {
-        delete nextConditions[key];
+      delete nextConditions[key];
     } else {
-        nextConditions[key] = value;
+      nextConditions[key] = value;
     }
     handleUpdateRule(globalIndex, { ...rule, conditions: nextConditions });
   };
@@ -259,21 +350,23 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   const addCondition = (globalIndex: number, key: string) => {
     const rule = allRules[globalIndex];
     if (rule.conditions[key] !== undefined) {
-        // Trigger ping if trying to add existing from dropdown
-        onRuleEdit(tierKey, globalIndex);
-        // Find way to ping... for now just set editing
-        return;
+      // Trigger ping if trying to add existing from dropdown
+      onPingCondition?.(tierKey, globalIndex, key);
+      onRuleEdit(tierKey, globalIndex);
+      return;
     }
-    
-    const allTemplates = ruleTemplates.flatMap(c => c.templates).find(t => t.condition === key);
-    
+
+    const allTemplates = ruleTemplates
+      .flatMap((c) => c.templates)
+      .find((t) => t.condition === key);
+
     let val = ">= 0";
     if (allTemplates) {
-        if (allTemplates.type === 'bool') val = "True";
-        else if (allTemplates.type === 'select') val = allTemplates.options[0];
-        else if (allTemplates.type === 'class_picker') val = "Stackable Currency";
-        else if (allTemplates.type === 'text') val = "";
-        else if (allTemplates.type === 'gem_picker') val = "True";
+      if (allTemplates.type === "bool") val = "True";
+      else if (allTemplates.type === "select") val = allTemplates.options[0];
+      else if (allTemplates.type === "class_picker") val = "Stackable Currency";
+      else if (allTemplates.type === "text") val = "";
+      else if (allTemplates.type === "gem_picker") val = "True";
     }
     updateCondition(globalIndex, key, val);
   };
@@ -284,23 +377,42 @@ const RuleManager: React.FC<RuleManagerProps> = ({
     const combined: any[] = [];
 
     ruleTemplates.forEach((category) => {
-        category.templates.forEach((tmp: any) => {
-            if (!combined.some(existing => existing.condition === tmp.condition)) {
-                combined.push(tmp);
-            }
-        });
+      category.templates.forEach((tmp: any) => {
+        if (
+          !combined.some((existing) => existing.condition === tmp.condition)
+        ) {
+          combined.push(tmp);
+        }
+      });
     });
 
-    return combined.map(t => ({ key: t.condition, label: t.label[language], template: t }));
+    return combined.map((t) => ({
+      key: t.condition,
+      label: t.label[language],
+      template: t,
+    }));
   };
 
-  const relevantFactors = useMemo(getRelevantFactors, [ruleTemplates, language]);
+  const relevantFactors = useMemo(getRelevantFactors, [
+    ruleTemplates,
+    language,
+  ]);
 
   return (
-    <div className="tier-rule-manager" onContextMenu={(e) => { e.preventDefault(); e.stopPropagation(); }}>
+    <div
+      className="tier-rule-manager"
+      onContextMenu={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
+    >
       <div className="rule-header">
-        <span className="label">🛠 {t.rules} ({activeCount}/{tierRulesIndices.length})</span>
-        <button className="mini-add-btn" onClick={handleAddRule}>+ {t.addRule}</button>
+        <span className="label">
+          🛠 {t.rules} ({activeCount}/{tierRulesIndices.length})
+        </span>
+        <button className="mini-add-btn" onClick={handleAddRule}>
+          + {t.addRule}
+        </button>
       </div>
 
       <div className="rules-stack">
@@ -309,26 +421,52 @@ const RuleManager: React.FC<RuleManagerProps> = ({
           const isEditing = editingIndex === globalIndex;
 
           return (
-            <div 
-                key={globalIndex} 
-                className={`inline-rule-card ${isEditing ? 'editing' : ''} ${rule.disabled ? 'disabled-card' : ''}`}
-                onContextMenu={(e) => handleRightClick(e, globalIndex)}
-                ref={el => { ruleRefs.current[globalIndex] = el; }}
+            <div
+              key={globalIndex}
+              className={`inline-rule-card ${isEditing ? "editing" : ""} ${rule.disabled ? "disabled-card" : ""}`}
+              onContextMenu={(e) => handleRightClick(e, globalIndex)}
+              ref={(el) => {
+                ruleRefs.current[globalIndex] = el;
+              }}
             >
-              <div className="summary" onClick={() => setEditingAndNotify(isEditing ? null : globalIndex)}>
-                <div className={`rule-badge ${rule.disabled ? 'disabled-badge' : ''}`}>#{localIndex + 1}</div>
-                <input 
-                    className={`rule-name-input ${rule.disabled ? 'disabled-text' : ''}`}
-                    value={rule.comment || ""} 
-                    placeholder={t.ruleComment}
-                    onClick={(e) => e.stopPropagation()}
-                    onChange={(e) => handleUpdateRule(globalIndex, { ...rule, comment: e.target.value })}
+              <div
+                className="summary"
+                onClick={() =>
+                  setEditingAndNotify(isEditing ? null : globalIndex)
+                }
+              >
+                <div
+                  className={`rule-badge ${rule.disabled ? "disabled-badge" : ""}`}
+                >
+                  #{localIndex + 1}
+                </div>
+                <input
+                  className={`rule-name-input ${rule.disabled ? "disabled-text" : ""}`}
+                  value={rule.comment || ""}
+                  placeholder={t.ruleComment}
+                  onClick={(e) => e.stopPropagation()}
+                  onChange={(e) =>
+                    handleUpdateRule(globalIndex, {
+                      ...rule,
+                      comment: e.target.value,
+                    })
+                  }
                 />
                 <div className="rule-actions">
-                    <button className="icon-btn" title={rule.disabled ? "Enable" : "Disable"} onClick={(e) => toggleDisable(e, globalIndex)}>
-                        {rule.disabled ? '⚪' : '🟢'}
-                    </button>
-                    <button className="delete-btn" title={t.deleteRule} onClick={(e) => handleDeleteRule(e, globalIndex)}>×</button>
+                  <button
+                    className="icon-btn"
+                    title={rule.disabled ? "Enable" : "Disable"}
+                    onClick={(e) => toggleDisable(e, globalIndex)}
+                  >
+                    {rule.disabled ? "⚪" : "🟢"}
+                  </button>
+                  <button
+                    className="delete-btn"
+                    title={t.deleteRule}
+                    onClick={(e) => handleDeleteRule(e, globalIndex)}
+                  >
+                    ×
+                  </button>
                 </div>
               </div>
 
@@ -339,66 +477,89 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                   </div>
 
                   <div className="tier-apply-toggle">
-                      <label className="checkbox-container">
-                          <input 
-                            type="checkbox" 
-                            checked={!!rule.applyToTier} 
-                            onChange={(e) => handleUpdateRule(globalIndex, { ...rule, applyToTier: e.target.checked })}
-                          />
-                          <span className="checkmark"></span>
-                          <span className="toggle-label">
-                              {language === 'ch' ? "应用至此阶级的所有物品" : "Apply to all items in this Tier"}
-                          </span>
-                      </label>
+                    <label className="checkbox-container">
+                      <input
+                        type="checkbox"
+                        checked={!!rule.applyToTier}
+                        onChange={(e) =>
+                          handleUpdateRule(globalIndex, {
+                            ...rule,
+                            applyToTier: e.target.checked,
+                          })
+                        }
+                      />
+                      <span className="checkmark"></span>
+                      <span className="toggle-label">
+                        {language === "ch"
+                          ? "应用至此阶级的所有物品"
+                          : "Apply to all items in this Tier"}
+                      </span>
+                    </label>
                   </div>
 
                   {!rule.applyToTier && (
                     <div className="target-manager">
-                        <div className="target-grid">
-                                                    {rule.targets.map(tName => {
-                                                        const item = availableItems.find(i => i.name === tName) || { name: tName, name_ch: translationCache[tName] };
-                                                        const displayItem = { ...item, rule_index: undefined };
-                                                        const matchMode = rule.targetMatchModes?.[tName] || 'exact';
-                                                        
-                                                        return (
-                                                            <ItemCard 
-                                                                key={tName}
-                                                                item={displayItem}
-                                                                language={language}
-                                                                onDelete={() => removeTarget(globalIndex, tName)}
-                                                                onContextMenu={(e) => handleItemRightClick(e, globalIndex, tName)}
-                                                                matchMode={matchMode}
-                                                                className="compact-card"
-                                                            />
-                                                        );
-                                                    })}
-                            
-                            {rule.targets.length === 0 && (
-                                <div className="target-empty-hint">{t.targetTooltip}</div>
-                            )}
-                        </div>
-                        
-                        <div className="add-target-box">
-                            <input 
-                                type="text" 
-                                placeholder={t.addItemTarget}
-                                value={targetSearch}
-                                onChange={e => setTargetSearch(e.target.value)}
+                      <div className="target-grid">
+                        {rule.targets.map((tName) => {
+                          const item = availableItems.find(
+                            (i) => i.name === tName,
+                          ) || {
+                            name: tName,
+                            name_ch: translationCache[tName],
+                          };
+                          const displayItem = {
+                            ...item,
+                            rule_index: undefined,
+                          };
+                          const matchMode =
+                            rule.targetMatchModes?.[tName] || "exact";
+
+                          return (
+                            <ItemCard
+                              key={tName}
+                              item={displayItem}
+                              language={language}
+                              onDelete={() => removeTarget(globalIndex, tName)}
+                              onContextMenu={(e) =>
+                                handleItemRightClick(e, globalIndex, tName)
+                              }
+                              matchMode={matchMode}
+                              className="compact-card"
                             />
-                            {suggestions.length > 0 && (
-                                <ul className="suggestions-pop">
-                                    {suggestions.map(s => (
-                                        <li key={s.name} onClick={() => addTarget(globalIndex, s.name)}>
-                                            <ItemCard 
-                                                item={s}
-                                                language={language}
-                                                showStagedIndicator={false}
-                                            />
-                                        </li>
-                                    ))}
-                                </ul>
-                            )}
-                        </div>
+                          );
+                        })}
+
+                        {rule.targets.length === 0 && (
+                          <div className="target-empty-hint">
+                            {t.targetTooltip}
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="add-target-box">
+                        <input
+                          type="text"
+                          placeholder={t.addItemTarget}
+                          value={targetSearch}
+                          onChange={(e) => setTargetSearch(e.target.value)}
+                        />
+                        {suggestions.length > 0 && (
+                          <ul className="suggestions-pop">
+                            {suggestions.map((s) => (
+                              <li
+                                key={s.name}
+                                onClick={() => addTarget(globalIndex, s.name)}
+                              >
+                                <ItemCard
+                                  item={s}
+                                  language={language}
+                                  showStagedIndicator={false}
+                                />
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
                     </div>
                   )}
 
@@ -420,32 +581,40 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                         const op2 = isRange ? parts[3] : "";
                         const v2 = isRange ? parts[4] : "";
 
-                        const tmp = ruleTemplates.flatMap(c => c.templates).find(t => t.condition === key);
-                        
-                        const isBool = tmp?.type === 'bool' || 
-                          (["True", "False"].includes(currentVal) && 
-                          [
-                            "corrupted",
-                            "mirrored",
-                            "identified",
-                            "fractureditem",
-                            "synthesiseditem",
-                            "blightedmap",
-                            "blightravagedmap",
-                            "vaalgem",
-                            "transfiguredgem",
-                          ].includes(key.toLowerCase()));
+                        const tmp = ruleTemplates
+                          .flatMap((c) => c.templates)
+                          .find((t) => t.condition === key);
 
-                        const label = tmp?.label[language] || RULE_FACTOR_LOCALIZATION[key]?.[language] || key;
-                        const isSelect = tmp?.type === 'select';
-                        const isClass = tmp?.type === 'class_picker';
-                        const isText = tmp?.type === 'text';
+                        const isBool =
+                          tmp?.type === "bool" ||
+                          (["True", "False"].includes(currentVal) &&
+                            [
+                              "corrupted",
+                              "mirrored",
+                              "identified",
+                              "fractureditem",
+                              "synthesiseditem",
+                              "blightedmap",
+                              "blightravagedmap",
+                              "vaalgem",
+                              "transfiguredgem",
+                            ].includes(key.toLowerCase()));
 
-                        const isPinging = localPing?.ruleIndex === globalIndex && localPing?.conditionKey === key;
+                        const label =
+                          tmp?.label[language] ||
+                          RULE_FACTOR_LOCALIZATION[key]?.[language] ||
+                          key;
+                        const isSelect = tmp?.type === "select";
+                        const isClass = tmp?.type === "class_picker";
+                        const isText = tmp?.type === "text";
+
+                        const isPinging =
+                          localPing?.ruleIndex === globalIndex &&
+                          localPing?.conditionKey === key;
 
                         return (
                           <div
-                            key={`${key}-${localPing?.timestamp || 'static'}`}
+                            key={`${key}-${localPing?.timestamp || "static"}`}
                             className={`mini-factor ${isRange ? "range-factor" : ""} ${isPinging ? "pinging" : ""}`}
                           >
                             <div className="factor-header">
@@ -454,7 +623,11 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                 className="remove-factor-btn"
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  updateCondition(globalIndex, key, null as any);
+                                  updateCondition(
+                                    globalIndex,
+                                    key,
+                                    null as any,
+                                  );
                                 }}
                               >
                                 ×
@@ -468,52 +641,113 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                     updateCondition(
                                       globalIndex,
                                       key,
-                                      e.target.value
+                                      e.target.value,
                                     )
                                   }
                                   style={{ width: "100%" }}
                                 >
-                                  <option value="True">{(translations[language] as any).true}</option>
-                                  <option value="False">{(translations[language] as any).false}</option>
+                                  <option value="True">
+                                    {(translations[language] as any).true}
+                                  </option>
+                                  <option value="False">
+                                    {(translations[language] as any).false}
+                                  </option>
                                 </select>
                               ) : isSelect ? (
                                 <select
-                                    value={currentVal}
-                                    onChange={(e) => updateCondition(globalIndex, key, e.target.value)}
-                                    style={{ width: "100%" }}
+                                  value={currentVal}
+                                  onChange={(e) =>
+                                    updateCondition(
+                                      globalIndex,
+                                      key,
+                                      e.target.value,
+                                    )
+                                  }
+                                  style={{ width: "100%" }}
                                 >
-                                    {tmp.options.map((opt: string) => {
-                                        const locKey = opt.replace(/ /g, "_");
-                                        const locName = (translations[language] as any)[opt] || (translations[language] as any)[locKey] || opt;
-                                        return <option key={opt} value={opt}>{locName}</option>;
-                                    })}
+                                  {tmp.options.map((opt: string) => {
+                                    const locKey = opt.replace(/ /g, "_");
+                                    const locName =
+                                      (translations[language] as any)[opt] ||
+                                      (translations[language] as any)[locKey] ||
+                                      opt;
+                                    return (
+                                      <option key={opt} value={opt}>
+                                        {locName}
+                                      </option>
+                                    );
+                                  })}
                                 </select>
                               ) : isText ? (
-                                <input 
-                                    type="text" 
-                                    value={currentVal} 
-                                    placeholder={tmp.placeholder || ""}
-                                    onChange={(e) => updateCondition(globalIndex, key, e.target.value)}
+                                <input
+                                  type="text"
+                                  value={currentVal}
+                                  placeholder={tmp.placeholder || ""}
+                                  onChange={(e) =>
+                                    updateCondition(
+                                      globalIndex,
+                                      key,
+                                      e.target.value,
+                                    )
+                                  }
                                 />
                               ) : isClass ? (
                                 <div className="class-picker-ui">
-                                    <select value={ITEM_CLASSES.includes(currentVal) ? currentVal : "custom"} onChange={(e) => updateCondition(globalIndex, key, e.target.value)}>
-                                        {ITEM_CLASSES.map(cls => {
-                                            const locKey = CLASS_KEY_MAP[cls] || cls.replace(/ /g, "_");
-                                            const locName = (translations[language] as any)[locKey] || cls;
-                                            return <option key={cls} value={cls}>{locName}</option>;
-                                        })}
-                                        <option value="custom">-- {(translations[language] as any).custom} --</option>
-                                    </select>
-                                    {!ITEM_CLASSES.includes(currentVal) && (
-                                        <input 
-                                            type="text" 
-                                            value={currentVal === "custom" ? "" : currentVal} 
-                                            placeholder={(translations[language] as any).search}
-                                            onChange={(e) => updateCondition(globalIndex, key, e.target.value)}
-                                            className="mt-5"
-                                        />
-                                    )}
+                                  <select
+                                    value={
+                                      ITEM_CLASSES.includes(currentVal)
+                                        ? currentVal
+                                        : "custom"
+                                    }
+                                    onChange={(e) =>
+                                      updateCondition(
+                                        globalIndex,
+                                        key,
+                                        e.target.value,
+                                      )
+                                    }
+                                  >
+                                    {ITEM_CLASSES.map((cls) => {
+                                      const locKey =
+                                        CLASS_KEY_MAP[cls] ||
+                                        cls.replace(/ /g, "_");
+                                      const locName =
+                                        (translations[language] as any)[
+                                          locKey
+                                        ] || cls;
+                                      return (
+                                        <option key={cls} value={cls}>
+                                          {locName}
+                                        </option>
+                                      );
+                                    })}
+                                    <option value="custom">
+                                      --{" "}
+                                      {(translations[language] as any).custom}{" "}
+                                      --
+                                    </option>
+                                  </select>
+                                  {!ITEM_CLASSES.includes(currentVal) && (
+                                    <input
+                                      type="text"
+                                      value={
+                                        currentVal === "custom"
+                                          ? ""
+                                          : currentVal
+                                      }
+                                      placeholder={
+                                        (translations[language] as any).search
+                                      }
+                                      onChange={(e) =>
+                                        updateCondition(
+                                          globalIndex,
+                                          key,
+                                          e.target.value,
+                                        )
+                                      }
+                                      className="mt-5"
+                                    />
+                                  )}
                                 </div>
                               ) : (
                                 <div className="op-val-pair">
@@ -527,13 +761,13 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                             updateCondition(
                                               globalIndex,
                                               key,
-                                              `RANGE >= ${v1} <= 100`
+                                              `RANGE >= ${v1} <= 100`,
                                             );
                                           else
                                             updateCondition(
                                               globalIndex,
                                               key,
-                                              `${newOp}${v1}`
+                                              `${newOp}${v1}`,
                                             );
                                         }}
                                       >
@@ -542,202 +776,228 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                         <option value="==">==</option>
                                         <option value=">">&gt;</option>
                                         <option value="<">&lt;</option>
-                                                                                <option value="RANGE">
-                                                                                  {t.rangeBetween}
-                                                                                </option>
-                                                                              </select>
-                                                                              <input
-                                                                                type="text"
-                                                                                value={v1}
-                                                                                onChange={(e) =>
-                                                                                  updateCondition(
-                                                                                    globalIndex,
-                                                                                    key,
-                                                                                    `${op1}${e.target.value}`
-                                                                                  )
-                                                                                }
-                                                                              />
-                                                                            </>
-                                                                          ) : (
-                                                                            <div className="range-controls-row">
-                                                                              <div className="range-half">
-                                                                                <select
-                                                                                  value={op1}
-                                                                                  onChange={(e) =>
-                                                                                    updateCondition(
-                                                                                      globalIndex,
-                                                                                      key,
-                                                                                      `RANGE ${e.target.value} ${v1} ${op2} ${v2}`
-                                                                                    )
-                                                                                  }
-                                                                                >
-                                                                                  <option value=">=">&gt;=</option>
-                                                                                  <option value=">">&gt;</option>
-                                                                                </select>
-                                                                                <input
-                                                                                  type="text"
-                                                                                  value={v1}
-                                                                                  onChange={(e) =>
-                                                                                    updateCondition(
-                                                                                      globalIndex,
-                                                                                      key,
-                                                                                      `RANGE ${op1} ${e.target.value} ${op2} ${v2}`
-                                                                                    )
-                                                                                  }
-                                                                                />
-                                                                              </div>
-                                                                              <span className="range-sep">AND</span>
-                                                                              <div className="range-half">
-                                                                                <select
-                                                                                  value={op2}
-                                                                                  onChange={(e) =>
-                                                                                    updateCondition(
-                                                                                      globalIndex,
-                                                                                      key,
-                                                                                      `RANGE ${op1} ${v1} ${e.target.value} ${v2}`
-                                                                                    )
-                                                                                  }
-                                                                                >
-                                                                                  <option value="<=">&lt;=</option>
-                                                                                  <option value="<">&lt;</option>
-                                                                                </select>
-                                                                                <input
-                                                                                  type="text"
-                                                                                  value={v2}
-                                                                                  onChange={(e) =>
-                                                                                    updateCondition(
-                                                                                      globalIndex,
-                                                                                      key,
-                                                                                      `RANGE ${op1} ${v1} ${op2} ${e.target.value}`
-                                                                                    )
-                                                                                  }
-                                                                                />
-                                                                              </div>
-                                                                              <button
-                                                                                className="range-back-btn"
-                                                                                onClick={() =>
-                                                                                  updateCondition(
-                                                                                    globalIndex,
-                                                                                    key,
-                                                                                    `>= ${v1}`
-                                                                                  )
-                                                                                }
-                                                                              >
-                                                                                ×
-                                                                              </button>
-                                                                            </div>
-                                                                          )}
-                                                                        </div>
-                                                                      )}
-                                                                    </div>
-                                                                  </div>
-                                                                );
-                                                              }
-                                                            )}
-                                        
-                                                            <div className="mini-factor add-condition-card">
-                                                              <span>+ {t.conditions}</span>
-                                                              <select
-                                                                value=""
-                                                                onChange={(e) =>
-                                                                  addCondition(globalIndex, e.target.value)
-                                                                }
-                                                                className="add-cond-select"
-                                                              >
-                                                                <option value="" disabled>
-                                                                  {t.addItemTarget}
-                                                                </option>
-                                                                {relevantFactors
-                                                                  .filter((f) => rule.conditions[f.key] === undefined)
-                                                                  .map((f) => (
-                                                                    <option key={f.key} value={f.key}>
-                                                                      {RULE_FACTOR_LOCALIZATION[f.key]?.[language] ||
-                                                                        f.label}
-                                                                    </option>
-                                                                  ))}
-                                                              </select>
-                                                            </div>
-                                                          </div>
-                                        
-                                                          <div className="section-divider">
-                                                            <span>{t.themeOverrides}</span>
-                                                          </div>
-                                        
-                                                          <div className="theme-overrides-grid">
-                                                            {["TextColor", "BackgroundColor", "BorderColor"].map(key => {
-                                                                const label = key === "TextColor" ? t.text : key === "BackgroundColor" ? t.background : t.border;
-                                                                const hexToRgba = (hex: string) => `${hex}ff`;
-                                                                const rgbaToHex = (rgba: string) => rgba?.startsWith("disabled:") ? rgba.split(":")[1].substring(0, 7) : (rgba?.substring(0, 7) || "#000000");
-                                                                const val = rule.overrides?.[key];
-                                                                const isActive = !!val && !val.startsWith("disabled:");
-                                        
-                                                                return (
-                                                                    <div key={key} className="color-override-item">
-                                                                        <label>{label}</label>
-                                                                        <div className="color-input-group">
-                                                                            <input 
-                                                                                type="color" 
-                                                                                value={rgbaToHex(val)} 
-                                                                                disabled={!isActive}
-                                                                                onChange={(e) => {
-                                                                                    const newOverrides = { ...rule.overrides, [key]: hexToRgba(e.target.value) };
-                                                                                    handleUpdateRule(globalIndex, { ...rule, overrides: newOverrides });
-                                                                                }}
-                                                                            />
-                                                                            <button 
-                                                                                className={`toggle-override-btn ${isActive ? 'active' : ''}`}
-                                                                                onClick={() => {
-                                                                                    const nextOverrides = { ...rule.overrides };
-                                                                                    if (isActive) delete nextOverrides[key];
-                                                                                    else nextOverrides[key] = key === "BackgroundColor" ? "#000000ff" : "#ffffffff";
-                                                                                    handleUpdateRule(globalIndex, { ...rule, overrides: nextOverrides });
-                                                                                }}
-                                                                            >
-                                                                                {isActive ? "ON" : "OFF"}
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                );
-                                                            })}
-                                                          </div>
-                                        
-                                                          <div className="section-divider">
-                                                            <span>{t.rawText}</span>
-                                                          </div>
-                                        
-                                                          <div className="raw-code-field">
-                                                            <textarea
-                                                              placeholder="# Custom lines like: \n    SetFontSize 45"
-                                                              value={rule.raw || ""}
-                                                              onChange={(e) =>
-                                                                handleUpdateRule(globalIndex, {
-                                                                  ...rule,
-                                                                  raw: e.target.value,
-                                                                })
-                                                              }
-                                                            />
-                                                          </div>
-                                        
-                                                          <div className="section-divider">
-                                                            <span>{t.actions}</span>
-                                                          </div>
-                                                          <div className="actions-row">
-                                                              {availableTiers && (
-                                                                  <div className="move-control">
-                                                                      <label>{t.moveTo}</label>
-                                                                      <select 
-                                                                        value={rule.overrides?.Tier || tierKey}
-                                                                        onChange={(e) => handleMoveRule(globalIndex, e.target.value)}
-                                                                        className="tier-select"
-                                                                      >
-                                                                          {availableTiers.map(t => (
-                                                                              <option key={t.key} value={t.key}>{t.label}</option>
-                                                                          ))}
-                                                                      </select>
-                                                                  </div>
-                                                              )}
-                                                          </div>
-                                        
+                                        <option value="RANGE">
+                                          {t.rangeBetween}
+                                        </option>
+                                      </select>
+                                      <input
+                                        type="text"
+                                        value={v1}
+                                        onChange={(e) =>
+                                          updateCondition(
+                                            globalIndex,
+                                            key,
+                                            `${op1}${e.target.value}`,
+                                          )
+                                        }
+                                      />
+                                    </>
+                                  ) : (
+                                    <div className="range-controls-row">
+                                      <div className="range-half">
+                                        <select
+                                          value={op1}
+                                          onChange={(e) =>
+                                            updateCondition(
+                                              globalIndex,
+                                              key,
+                                              `RANGE ${e.target.value} ${v1} ${op2} ${v2}`,
+                                            )
+                                          }
+                                        >
+                                          <option value=">=">&gt;=</option>
+                                          <option value=">">&gt;</option>
+                                        </select>
+                                        <input
+                                          type="text"
+                                          value={v1}
+                                          onChange={(e) =>
+                                            updateCondition(
+                                              globalIndex,
+                                              key,
+                                              `RANGE ${op1} ${e.target.value} ${op2} ${v2}`,
+                                            )
+                                          }
+                                        />
+                                      </div>
+                                      <span className="range-sep">AND</span>
+                                      <div className="range-half">
+                                        <select
+                                          value={op2}
+                                          onChange={(e) =>
+                                            updateCondition(
+                                              globalIndex,
+                                              key,
+                                              `RANGE ${op1} ${v1} ${e.target.value} ${v2}`,
+                                            )
+                                          }
+                                        >
+                                          <option value="<=">&lt;=</option>
+                                          <option value="<">&lt;</option>
+                                        </select>
+                                        <input
+                                          type="text"
+                                          value={v2}
+                                          onChange={(e) =>
+                                            updateCondition(
+                                              globalIndex,
+                                              key,
+                                              `RANGE ${op1} ${v1} ${op2} ${e.target.value}`,
+                                            )
+                                          }
+                                        />
+                                      </div>
+                                      <button
+                                        className="range-back-btn"
+                                        onClick={() =>
+                                          updateCondition(
+                                            globalIndex,
+                                            key,
+                                            `>= ${v1}`,
+                                          )
+                                        }
+                                      >
+                                        ×
+                                      </button>
+                                    </div>
+                                  )}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      },
+                    )}
+
+                    <div className="mini-factor add-condition-card">
+                      <span>+ {t.conditions}</span>
+                      <select
+                        value=""
+                        onChange={(e) =>
+                          addCondition(globalIndex, e.target.value)
+                        }
+                        className="add-cond-select"
+                      >
+                        <option value="" disabled>
+                          {t.addItemTarget}
+                        </option>
+                        {relevantFactors
+                          .filter((f) => rule.conditions[f.key] === undefined)
+                          .map((f) => (
+                            <option key={f.key} value={f.key}>
+                              {RULE_FACTOR_LOCALIZATION[f.key]?.[language] ||
+                                f.label}
+                            </option>
+                          ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="section-divider">
+                    <span>{t.themeOverrides}</span>
+                  </div>
+
+                  <div className="theme-overrides-grid">
+                    {["TextColor", "BackgroundColor", "BorderColor"].map(
+                      (key) => {
+                        const label =
+                          key === "TextColor"
+                            ? t.text
+                            : key === "BackgroundColor"
+                              ? t.background
+                              : t.border;
+                        const hexToRgba = (hex: string) => `${hex}ff`;
+                        const rgbaToHex = (rgba: string) =>
+                          rgba?.startsWith("disabled:")
+                            ? rgba.split(":")[1].substring(0, 7)
+                            : rgba?.substring(0, 7) || "#000000";
+                        const val = rule.overrides?.[key];
+                        const isActive = !!val && !val.startsWith("disabled:");
+
+                        return (
+                          <div key={key} className="color-override-item">
+                            <label>{label}</label>
+                            <div className="color-input-group">
+                              <input
+                                type="color"
+                                value={rgbaToHex(val)}
+                                disabled={!isActive}
+                                onChange={(e) => {
+                                  const newOverrides = {
+                                    ...rule.overrides,
+                                    [key]: hexToRgba(e.target.value),
+                                  };
+                                  handleUpdateRule(globalIndex, {
+                                    ...rule,
+                                    overrides: newOverrides,
+                                  });
+                                }}
+                              />
+                              <button
+                                className={`toggle-override-btn ${isActive ? "active" : ""}`}
+                                onClick={() => {
+                                  const nextOverrides = { ...rule.overrides };
+                                  if (isActive) delete nextOverrides[key];
+                                  else
+                                    nextOverrides[key] =
+                                      key === "BackgroundColor"
+                                        ? "#000000ff"
+                                        : "#ffffffff";
+                                  handleUpdateRule(globalIndex, {
+                                    ...rule,
+                                    overrides: nextOverrides,
+                                  });
+                                }}
+                              >
+                                {isActive ? "ON" : "OFF"}
+                              </button>
+                            </div>
+                          </div>
+                        );
+                      },
+                    )}
+                  </div>
+
+                  <div className="section-divider">
+                    <span>{t.rawText}</span>
+                  </div>
+
+                  <div className="raw-code-field">
+                    <textarea
+                      placeholder="# Custom lines like: \n    SetFontSize 45"
+                      value={rule.raw || ""}
+                      onChange={(e) =>
+                        handleUpdateRule(globalIndex, {
+                          ...rule,
+                          raw: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+
+                  <div className="section-divider">
+                    <span>{t.actions}</span>
+                  </div>
+                  <div className="actions-row">
+                    {availableTiers && (
+                      <div className="move-control">
+                        <label>{t.moveTo}</label>
+                        <select
+                          value={rule.overrides?.Tier || tierKey}
+                          onChange={(e) =>
+                            handleMoveRule(globalIndex, e.target.value)
+                          }
+                          className="tier-select"
+                        >
+                          {availableTiers.map((t) => (
+                            <option key={t.key} value={t.key}>
+                              {t.label}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
@@ -905,48 +1165,64 @@ const RuleManager: React.FC<RuleManagerProps> = ({
             z-index: 10;
         }
       `}</style>
-      
+
       {contextMenu && (
         <ContextMenu
-            x={contextMenu.x}
-            y={contextMenu.y}
-            onClose={() => setContextMenu(null)}
-            options={[
-                {
-                    label: allRules[contextMenu.ruleIndex].disabled ? t.enableRule : t.disableRule,
-                    onClick: () => {
-                        const rule = allRules[contextMenu.ruleIndex];
-                        handleUpdateRule(contextMenu.ruleIndex, { ...rule, disabled: !rule.disabled });
-                    }
-                },
-                { divider: true, label: '', onClick: () => {} },
-                ...(availableTiers || []).map(tier => ({
-                    label: `${t.moveTo} ${tier.label}`,
-                    onClick: () => handleMoveRule(contextMenu.ruleIndex, tier.key)
-                })),
-                { divider: true, label: '', onClick: () => {} },
-                {
-                    label: t.deleteRuleLabel,
-                    onClick: () => handleDeleteRuleNoConfirm(contextMenu.ruleIndex),
-                    className: "delete-option"
-                }
-            ]}
+          x={contextMenu.x}
+          y={contextMenu.y}
+          onClose={() => setContextMenu(null)}
+          options={[
+            {
+              label: allRules[contextMenu.ruleIndex].disabled
+                ? t.enableRule
+                : t.disableRule,
+              onClick: () => {
+                const rule = allRules[contextMenu.ruleIndex];
+                handleUpdateRule(contextMenu.ruleIndex, {
+                  ...rule,
+                  disabled: !rule.disabled,
+                });
+              },
+            },
+            { divider: true, label: "", onClick: () => {} },
+            ...(availableTiers || []).map((tier) => ({
+              label: `${t.moveTo} ${tier.label}`,
+              onClick: () => handleMoveRule(contextMenu.ruleIndex, tier.key),
+            })),
+            { divider: true, label: "", onClick: () => {} },
+            {
+              label: t.deleteRuleLabel,
+              onClick: () => handleDeleteRuleNoConfirm(contextMenu.ruleIndex),
+              className: "delete-option",
+            },
+          ]}
         />
       )}
 
       {itemContextMenu && (
         <ContextMenu
-            x={itemContextMenu.x}
-            y={itemContextMenu.y}
-            onClose={() => setItemContextMenu(null)}
-            options={[
-                {
-                    label: (allRules[itemContextMenu.ruleIndex].targetMatchModes?.[itemContextMenu.itemName] || 'exact') === 'exact' 
-                        ? (language === 'ch' ? "切换为模糊匹配" : "Switch to Partial Match")
-                        : (language === 'ch' ? "切换为精确匹配" : "Switch to Exact Match"),
-                    onClick: () => toggleItemMatchMode(itemContextMenu.ruleIndex, itemContextMenu.itemName)
-                }
-            ]}
+          x={itemContextMenu.x}
+          y={itemContextMenu.y}
+          onClose={() => setItemContextMenu(null)}
+          options={[
+            {
+              label:
+                (allRules[itemContextMenu.ruleIndex].targetMatchModes?.[
+                  itemContextMenu.itemName
+                ] || "exact") === "exact"
+                  ? language === "ch"
+                    ? "切换为模糊匹配"
+                    : "Switch to Partial Match"
+                  : language === "ch"
+                    ? "切换为精确匹配"
+                    : "Switch to Exact Match",
+              onClick: () =>
+                toggleItemMatchMode(
+                  itemContextMenu.ruleIndex,
+                  itemContextMenu.itemName,
+                ),
+            },
+          ]}
         />
       )}
     </div>

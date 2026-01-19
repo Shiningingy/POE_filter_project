@@ -4,7 +4,7 @@ import type { CategoryFile } from '../components/Sidebar';
 import CategoryView from '../components/CategoryView';
 import InspectorPanel from '../components/InspectorPanel'; 
 import axios from 'axios';
-import { useTranslation } from '../utils/localization';
+import { useTranslation, translations, RULE_FACTOR_LOCALIZATION } from '../utils/localization';
 import type { Language } from '../utils/localization';
 
 interface EditorViewProps {
@@ -38,7 +38,20 @@ const EditorView: React.FC<EditorViewProps> = ({
   const [inspectedTierKey, setInspectedTierKey] = useState<string | null>(null);
   const [editingRuleIndex, setEditingRuleIndex] = useState<number | null>(null);
   const [pingedCondition, setPingedCondition] = useState<{ tierKey: string, ruleIndex: number, conditionKey: string, timestamp: number } | null>(null);
+  const [toast, setToast] = useState<{ message: string, timestamp: number } | null>(null);
   const [tierItems, setTierItems] = useState<Record<string, any[]>>({});
+
+  useEffect(() => {
+      if (pingedCondition) {
+          const locName = RULE_FACTOR_LOCALIZATION[pingedCondition.conditionKey]?.[language] || pingedCondition.conditionKey;
+          setToast({ 
+              message: `${translations[language].conditionAlreadyAdded}: ${locName}`, 
+              timestamp: pingedCondition.timestamp 
+          });
+          const timer = setTimeout(() => setToast(null), 1500);
+          return () => clearTimeout(timer);
+      }
+  }, [pingedCondition, language]);
   const isDirtyRef = React.useRef(false);
 
   // Derive active tier data in real-time from configContent
@@ -218,8 +231,17 @@ const EditorView: React.FC<EditorViewProps> = ({
                 if (targetEntry) {
                     const targetRule = currentRules[targetEntry.i];
                     if (!targetRule.conditions) targetRule.conditions = {};
+                    
+                    // Identify the newly added condition key before merging
+                    const addedKey = Object.keys(preset.conditions || {}).find(k => !targetRule.conditions[k]);
+
                     Object.assign(targetRule.conditions, preset.conditions || {});
                     if (preset.raw) targetRule.raw = (targetRule.raw || "") + "\n" + preset.raw;
+                    
+                    const condKey = addedKey || Object.keys(preset.conditions || {})[0];
+                    const locName = RULE_FACTOR_LOCALIZATION[condKey]?.[language] || condKey;
+                    setToast({ message: `${translations[language].conditionAdded}: ${locName}`, timestamp: Date.now() });
+                    setTimeout(() => setToast(null), 1500);
                 }
             } else {
                 currentRules.push({
@@ -229,6 +251,8 @@ const EditorView: React.FC<EditorViewProps> = ({
                     comment: preset.comment || "",
                     raw: preset.raw || ""
                 });
+                setToast({ message: translations[language].ruleAdded, timestamp: Date.now() });
+                setTimeout(() => setToast(null), 1500);
             }
             setConfigContent(JSON.stringify(parsed, null, 2));
             markDirty();
@@ -293,6 +317,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                   language={language}
                   onInspectTier={(tier) => setInspectedTierKey(tier.key)} 
                   onRuleEdit={handleRuleEdit}
+                  onPingCondition={(tierKey, ruleIdx, condKey) => setPingedCondition({ tierKey, ruleIndex: ruleIdx, conditionKey: condKey, timestamp: Date.now() })}
                   viewerBackground={viewerBackground}
                   tierItems={tierItems}
                   fetchTierItems={fetchTierItems}
@@ -320,6 +345,12 @@ const EditorView: React.FC<EditorViewProps> = ({
         setViewerBackground={setViewerBackground}
         onPingCondition={(tierKey, ruleIdx, condKey) => setPingedCondition({ tierKey, ruleIndex: ruleIdx, conditionKey: condKey, timestamp: Date.now() })}
       />
+
+      {toast && (
+          <div key={toast.timestamp} className="ping-toast">
+              {toast.message}
+          </div>
+      )}
 
       <style>{`
         .editor-view { display: flex; flex: 1; overflow: hidden; height: 100%; width: 100%; }

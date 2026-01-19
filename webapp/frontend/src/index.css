@@ -209,6 +209,30 @@ button:focus-visible {
     z-index: 12;
 }
 .item-card-base:hover .item-card-del-btn { opacity: 1; }
+
+.ping-toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(33, 150, 243, 0.9);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    z-index: 10000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    pointer-events: none;
+    animation: toast-fade 1.5s ease-out forwards;
+}
+
+@keyframes toast-fade {
+    0% { opacity: 0; transform: translate(-50%, -40%); }
+    15% { opacity: 1; transform: translate(-50%, -50%); }
+    70% { opacity: 1; transform: translate(-50%, -50%); }
+    100% { opacity: 0; transform: translate(-50%, -60%); }
+}
 .item-card-del-btn:hover { color: #fa5252; background: rgba(250, 82, 82, 0.1); border-radius: 3px; }
 
 .match-mode-badge {
