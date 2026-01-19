@@ -852,6 +852,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
           x={contextMenu.x}
           y={contextMenu.y}
           onClose={() => setContextMenu({ ...contextMenu, visible: false })}
+          language={language}
           options={[
             ...(contextMenu.tierKey
               ? [

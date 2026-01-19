@@ -3,6 +3,7 @@ import Sidebar from '../components/Sidebar';
 import type { CategoryFile } from '../components/Sidebar';
 import CategoryView from '../components/CategoryView';
 import InspectorPanel from '../components/InspectorPanel'; 
+import ContextMenu from '../components/ContextMenu';
 import axios from 'axios';
 import { useTranslation, translations, RULE_FACTOR_LOCALIZATION } from '../utils/localization';
 import type { Language } from '../utils/localization';
@@ -43,6 +44,7 @@ const EditorView: React.FC<EditorViewProps> = ({
   const [tierItems, setTierItems] = useState<Record<string, any[]>>({});
   const [soundMap, setSoundMap] = useState<any>({ basetype_sounds: {}, class_sounds: {} });
   const [themeData, setThemeData] = useState<any>(null);
+  const [fallbackMenu, setFallbackMenu] = useState<{ x: number, y: number } | null>(null);
 
   useEffect(() => {
     // Load Theme & Sound Map
@@ -317,8 +319,13 @@ const EditorView: React.FC<EditorViewProps> = ({
     } catch (e) { console.error("Failed to remove rule", e); }
   };
 
+  const handleGlobalContextMenu = (e: React.MouseEvent) => {
+      e.preventDefault();
+      setFallbackMenu({ x: e.clientX, y: e.clientY });
+  };
+
   return (
-    <div className="editor-view">
+    <div className="editor-view" onContextMenu={handleGlobalContextMenu}>
       <Sidebar 
         selectedFile={selectedFile?.path || ''} 
         onSelect={setSelectedFile} 
@@ -390,6 +397,16 @@ const EditorView: React.FC<EditorViewProps> = ({
           <div key={toast.timestamp} className="ping-toast">
               {toast.message}
           </div>
+      )}
+
+      {fallbackMenu && (
+          <ContextMenu 
+            x={fallbackMenu.x}
+            y={fallbackMenu.y}
+            onClose={() => setFallbackMenu(null)}
+            language={language}
+            options={[]}
+          />
       )}
 
       <style>{`

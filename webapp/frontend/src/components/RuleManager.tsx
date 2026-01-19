@@ -401,13 +401,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   ]);
 
   return (
-    <div
-      className="tier-rule-manager"
-      onContextMenu={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-      }}
-    >
+    <div className="tier-rule-manager">
       <div className="rule-header">
         <span className="label">
           🛠 {t.rules} ({activeCount}/{tierRulesIndices.length})
@@ -1208,6 +1202,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
           x={contextMenu.x}
           y={contextMenu.y}
           onClose={() => setContextMenu(null)}
+          language={language}
           options={[
             {
               label: allRules[contextMenu.ruleIndex].disabled
@@ -1241,6 +1236,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
           x={itemContextMenu.x}
           y={itemContextMenu.y}
           onClose={() => setItemContextMenu(null)}
+          language={language}
           options={[
             {
               label:

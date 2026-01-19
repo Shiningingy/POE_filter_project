@@ -270,7 +270,8 @@ export const translations = {
     itemSettings: "Item Settings",
     current: "(Current)",
     switchToPartial: "Switch to Partial Match",
-    switchToExact: "Switch to Exact Match"
+    switchToExact: "Switch to Exact Match",
+    noOptions: "No available options"
   },
   ch: {
     appTitle: "POE 过滤器编辑器",
@@ -499,6 +500,7 @@ export const translations = {
     current: "(当前)",
     switchToPartial: "切换为模糊匹配",
     switchToExact: "切换为精确匹配",
+    noOptions: "暂无可用操作",
     Normal: "普通",
     Magic: "魔法",
     Rare: "稀有",

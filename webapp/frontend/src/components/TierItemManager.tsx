@@ -416,6 +416,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           x={contextMenu.x}
           y={contextMenu.y}
           onClose={() => setContextMenu(null)}
+          language={language}
           options={
             contextMenu.item.rule_index !== undefined && contextMenu.item.rule_index !== null
             ? [

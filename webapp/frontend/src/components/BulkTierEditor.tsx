@@ -637,6 +637,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
             x={contextMenu.x} 
             y={contextMenu.y} 
             onClose={() => setContextMenu(null)}
+            language={language}
             options={[
                 ...(contextMenu.tierKey !== 'untiered' ? [
                     { 

@@ -1,13 +1,15 @@
 import React, { useEffect, useRef } from 'react';
+import { translations, type Language } from '../utils/localization';
 
 interface ContextMenuProps {
   x: number;
   y: number;
   options: { label: string; onClick: () => void; color?: string; divider?: boolean; className?: string; disabled?: boolean; title?: boolean }[];
   onClose: () => void;
+  language?: Language;
 }
 
-const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, options, onClose }) => {
+const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, options, onClose, language = 'en' }) => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -24,7 +26,17 @@ const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, options, onClose }) => 
   const menuX = Math.min(x, window.innerWidth - 200);
   const menuY = Math.min(y, window.innerHeight - 300);
 
-  const displayOptions = options.length > 0 ? options : [{ label: "No available options", onClick: () => {}, disabled: true, className: "no-options" }];
+  const displayOptions = options.length > 0 ? options : [
+      { 
+          label: (translations[language] as any).noOptions || "No available options", 
+          onClick: () => {}, 
+          disabled: true, 
+          className: "no-options",
+          title: false,
+          divider: false,
+          color: undefined 
+      }
+  ];
 
   return (
     <div 
