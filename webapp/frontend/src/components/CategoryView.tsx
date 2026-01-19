@@ -618,6 +618,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     index?: number,
   ) => {
     e.preventDefault();
+    e.stopPropagation();
     setContextMenu({
       visible: true,
       x: e.clientX,
