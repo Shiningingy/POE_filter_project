@@ -825,7 +825,6 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                         : null
                     }
                     pingedCondition={pingedCondition}
-                    soundMap={soundMap}
                   />
                 </SortableTierBlock>
               );

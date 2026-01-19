@@ -4,6 +4,7 @@ import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ContextMenu from './ContextMenu';
 import ItemCard from './ItemCard';
+import SoundPicker from './SoundPicker';
 
 interface TierItem {
   name: string;
@@ -61,6 +62,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   const [suggestions, setSuggestions] = useState<TierItem[]>([]);
 
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: TierItem } | null>(null);
+  const [soundEditorItem, setSoundEditorItem] = useState<TierItem | null>(null);
 
   // Play Sound Helper
   const playSound = (file: string, vol: number = 300) => {
@@ -202,12 +204,15 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   };
 
   const handleSoundOverride = (item: TierItem) => {
-    const path = prompt("Enter sound file path (e.g. Sharket掉落音效/example.mp3):");
-    if (path === null) return;
-    const volStr = prompt("Enter volume (0-600):", "300");
-    if (volStr === null) return;
-    const vol = parseInt(volStr) || 300;
-    onUpdateOverride(item, { PlayAlertSound: [path, vol] });
+    setSoundEditorItem(item);
+    setContextMenu(null);
+  };
+
+  const onSoundConfirm = (path: string, volume: number) => {
+      if (soundEditorItem) {
+          onUpdateOverride(soundEditorItem, { PlayAlertSound: [path, volume] });
+      }
+      setSoundEditorItem(null);
   };
 
   const renderTierLabels = (tier: string | string[] | undefined | null, catCh?: string) => {
@@ -443,6 +448,14 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
             ].map((opt: any) => ({ ...opt, className: opt.label === "divider" ? "divider" : (opt.className || "") }))
           }
         />
+      )}
+
+      {soundEditorItem && (
+          <SoundPicker 
+            language={language}
+            onClose={() => setSoundEditorItem(null)}
+            onConfirm={onSoundConfirm}
+          />
       )}
 
       <style>{`
