@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Sidebar from '../components/Sidebar';
 import type { CategoryFile } from '../components/Sidebar';
 import CategoryView from '../components/CategoryView';
@@ -35,11 +35,38 @@ const EditorView: React.FC<EditorViewProps> = ({
   setViewerBackground
 }) => {
   const t = useTranslation(language);
-  const [inspectedTier, setInspectedTier] = useState<any>(null);
+  const [inspectedTierKey, setInspectedTierKey] = useState<string | null>(null);
   const [editingRuleIndex, setEditingRuleIndex] = useState<number | null>(null);
   const [pingedCondition, setPingedCondition] = useState<{ tierKey: string, ruleIndex: number, conditionKey: string, timestamp: number } | null>(null);
   const [tierItems, setTierItems] = useState<Record<string, any[]>>({});
   const isDirtyRef = React.useRef(false);
+
+  // Derive active tier data in real-time from configContent
+  const inspectedTier = useMemo(() => {
+      if (!inspectedTierKey || !configContent) return null;
+      try {
+          const parsed = JSON.parse(configContent);
+          const catKey = Object.keys(parsed).find(k => !k.startsWith('//'));
+          if (!catKey || !parsed[catKey][inspectedTierKey]) return null;
+
+          const tierData = parsed[catKey][inspectedTierKey];
+          const catData = parsed[catKey];
+          const items = tierItems[inspectedTierKey] || [];
+          
+          // We don't have themeData and soundMap here easily without lifting them up, 
+          // but we can pass the raw data and let InspectorPanel resolve if needed, 
+          // or just pass what we have.
+          return {
+              key: inspectedTierKey,
+              name: inspectedTierKey, // Fallback
+              style: tierData.theme || {},
+              visibility: !!tierData.hideable,
+              category: catData._meta?.theme_category || catKey,
+              rules: catData.rules || catData._meta?.rules || [],
+              baseTypes: items.map(i => i.name)
+          };
+      } catch (e) { return null; }
+  }, [inspectedTierKey, configContent, tierItems]);
 
   useEffect(() => {
       const handleBeforeUnload = (e: BeforeUnloadEvent) => {
@@ -168,10 +195,6 @@ const EditorView: React.FC<EditorViewProps> = ({
             parsed[catKey][tierKey].theme = { ...currentTheme, ...style };
             setConfigContent(JSON.stringify(parsed, null, 2));
             markDirty();
-            
-            if (inspectedTier && inspectedTier.key === tierKey) {
-                setInspectedTier({ ...inspectedTier, style: parsed[catKey][tierKey].theme });
-            }
         }
     } catch (e) { console.error("Paste failed", e); }
   };
@@ -268,7 +291,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                     markDirty();
                   }}
                   language={language}
-                  onInspectTier={setInspectedTier} 
+                  onInspectTier={(tier) => setInspectedTierKey(tier.key)} 
                   onRuleEdit={handleRuleEdit}
                   viewerBackground={viewerBackground}
                   tierItems={tierItems}

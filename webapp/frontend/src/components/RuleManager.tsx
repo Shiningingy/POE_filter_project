@@ -482,7 +482,11 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                                     onChange={(e) => updateCondition(globalIndex, key, e.target.value)}
                                     style={{ width: "100%" }}
                                 >
-                                    {tmp.options.map((opt: string) => <option key={opt} value={opt}>{opt}</option>)}
+                                    {tmp.options.map((opt: string) => {
+                                        const locKey = opt.replace(/ /g, "_");
+                                        const locName = (translations[language] as any)[opt] || (translations[language] as any)[locKey] || opt;
+                                        return <option key={opt} value={opt}>{locName}</option>;
+                                    })}
                                 </select>
                               ) : isText ? (
                                 <input 
