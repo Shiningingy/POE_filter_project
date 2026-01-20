@@ -712,6 +712,11 @@
     }
   },
   "class_sounds": {
+    "666": {
+      "type": "custom",
+      "file": "Sharket掉落音效/666.mp3",
+      "volume": 300
+    },
     "优质底材": {
       "type": "custom",
       "file": "Sharket掉落音效/优质底材.mp3",
@@ -886,11 +891,6 @@
       "type": "custom",
       "file": "Sharket掉落音效/共振器.mp3",
       "volume": 200
-    },
-    "666": {
-      "type": "custom",
-      "file": "Sharket掉落音效/666.mp3",
-      "volume": 300
     },
     "永恒裂片": {
       "type": "custom",

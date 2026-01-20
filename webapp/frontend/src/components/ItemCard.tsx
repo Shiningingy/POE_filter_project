@@ -99,9 +99,13 @@ const ItemCard: React.FC<ItemCardProps> = ({
             </div>
           )}
           {showChineseFirst && <div className="name-secondary">{item.name}</div>}
-          {item.item_class && (
+          {(item.item_class || item.instance_tier || item.current_tier) && (
               <div className="item-class-label">
-                  {language === 'ch' ? ((translations[language] as any)[CLASS_KEY_MAP[item.item_class] || item.item_class] || item.item_class) : item.item_class}
+                  {item.item_class && (language === 'ch' ? ((translations[language] as any)[CLASS_KEY_MAP[item.item_class] || item.item_class] || item.item_class) : item.item_class)}
+                  {item.instance_tier && <span className="tier-pill"> | {item.instance_tier.match(/Tier (\d+)/)?.[1] ? `T${item.instance_tier.match(/Tier (\d+)/)?.[1]}` : item.instance_tier}</span>}
+                  {!item.instance_tier && item.current_tier && item.current_tier.length > 0 && (
+                      <span className="tier-pill"> | {item.current_tier.map((t: string) => t.match(/Tier (\d+)/)?.[1] ? `T${t.match(/Tier (\d+)/)?.[1]}` : t).join(', ')}</span>
+                  )}
               </div>
           )}
         </div>

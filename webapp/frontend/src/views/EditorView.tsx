@@ -407,7 +407,10 @@ const EditorView: React.FC<EditorViewProps> = ({
             language={language}
             onClose={() => setShowSoundManager(false)}
             onSave={() => {
-                window.location.reload(); 
+                // Re-fetch sound map to keep editor in sync without reload
+                axios.get('/api/themes/sharket')
+                    .then(res => setSoundMap(res.data.sound_map_data))
+                    .catch(err => console.error(err));
             }}
           />
       )}
