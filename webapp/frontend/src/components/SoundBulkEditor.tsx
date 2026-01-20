@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import axios from 'axios';
 import { 
   DndContext, 
@@ -42,6 +42,7 @@ interface Item {
 interface FlattenedItem extends Item {
     instance_tier: string;
     instanceId: string; // Stable Unique ID: name::tier
+    rule_index?: number;
 }
 
 interface SoundDef {
@@ -55,6 +56,8 @@ interface SoundBulkEditorProps {
   onClose: () => void;
   onSave: () => void;
   categoryRules?: any[];
+  themeData?: any;
+  fullConfig?: any;
 }
 
 // ===========================
@@ -133,7 +136,8 @@ const WorkspaceColumn = ({
     onCancel, 
     onRemoveItem,
     language,
-    stagedCount
+    stagedCount,
+    resolveCurrentSound
 }: { 
     id: string,
     sound: SoundDef, 
@@ -143,7 +147,8 @@ const WorkspaceColumn = ({
     onCancel: () => void,
     onRemoveItem: (itemName: string) => void,
     language: Language,
-    stagedCount: number
+    stagedCount: number,
+    resolveCurrentSound: (name: string, tier: string) => string | undefined
 }) => {
     const { setNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({ 
         id, 
@@ -170,21 +175,17 @@ const WorkspaceColumn = ({
             
             <SortableContext id={id} items={items.map(i => i.instanceId)} strategy={verticalListSortingStrategy}>
                 <div className="column-content">
-                    {items.map(item => {
-                        const currentSound = items.find(i => i.name === item.name)?.instance_tier; // This is not correct, sound is mapped to name
-                        // In workspace, currentSound matches id (soundPath)
-                        return (
-                            <WorkspaceItem 
-                                key={item.instanceId} 
-                                item={item} 
-                                language={language}
-                                isStaged={stagedCount > 0}
-                                containerId={id}
-                                onDelete={() => onRemoveItem(item.name)}
-                                currentSound={sound.path}
-                            />
-                        );
-                    })}
+                    {items.map(item => (
+                        <WorkspaceItem 
+                            key={item.instanceId} 
+                            item={item} 
+                            language={language}
+                            isStaged={stagedCount > 0}
+                            containerId={id}
+                            onDelete={() => onRemoveItem(item.name)}
+                            currentSound={resolveCurrentSound(item.name, item.instance_tier)}
+                        />
+                    ))}
                     {items.length === 0 && <div className="column-placeholder">Drop items here</div>}
                 </div>
             </SortableContext>
@@ -201,28 +202,96 @@ const WorkspaceColumn = ({
 // MAIN COMPONENT
 // ===========================
 
-const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, onSave, categoryRules }) => {
+const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, onSave, categoryRules, themeData, fullConfig }) => {
   const t = useTranslation(language);
+  
+  // State Hooks
   const [items, setItems] = useState<Item[]>([]);
   const [soundMap, setSoundMap] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  
   const [defaults, setDefaults] = useState<SoundDef[]>([]);
   const [sharket, setSharket] = useState<SoundDef[]>([]);
   const [catalogTab, setCatalogTab] = useState<'sharket' | 'default' | 'custom'>('sharket');
   const [customPathInput, setCustomPathInput] = useState('');
-
   const [activeColumns, setActiveColumns] = useState<SoundDef[]>([]);
   const [stagedChanges, setStagedChanges] = useState<Record<string, string>>({}); 
   const [selectedClass, setSelectedClass] = useState('All');
   const [itemClasses, setItemClasses] = useState<string[]>([]);
   const [searchTermPool, setSearchTermPool] = useState('');
   const [searchTermCatalog, setSearchTermCatalog] = useState('');
-  
   const [activeId, setActiveId] = useState<string | null>(null);
   const [activeDragData, setActiveDragData] = useState<any>(null);
 
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 5 } }));
+
+  // Sound Resolution Helper
+  const resolveCurrentSound = useCallback((itemName: string, instanceTier: string) => {
+      const isFlesh = itemName === 'Flesh and Stone';
+      
+      // 1. Staged Changes (Local)
+      if (stagedChanges[itemName] !== undefined) return stagedChanges[itemName];
+
+      // 2. Rule Overrides from categoryRules
+      if (categoryRules) {
+          const matchingRule = categoryRules.find((r: any) => {
+              const targetsItem = r.targets?.includes(itemName);
+              if (!targetsItem) return false;
+              const ruleTier = r.overrides?.Tier;
+              if (ruleTier) return ruleTier === instanceTier;
+              return true; 
+          });
+
+          if (matchingRule?.overrides) {
+              const soundKey = ["CustomAlertSound", "AlertSound", "DropSound", "PlayAlertSound"].find(k => matchingRule.overrides[k]);
+              if (soundKey) {
+                  const val = matchingRule.overrides[soundKey];
+                  return Array.isArray(val) ? val[0] : val;
+              }
+          }
+      }
+
+      // 3. Global Sound Map (Auto-Sounds)
+      const autoSound = soundMap?.basetype_sounds[itemName]?.file;
+      if (autoSound) return autoSound;
+
+      // 4. Tier Theme Fallback (from fullConfig and themeData)
+      if (fullConfig && instanceTier !== 'untiered') {
+          try {
+              const catKey = Object.keys(fullConfig).find(k => !k.startsWith('//'));
+              if (isFlesh) console.log("[DND] Flesh and Stone fallback check:", { catKey, instanceTier, hasConfig: !!fullConfig });
+
+              if (catKey && fullConfig[catKey][instanceTier]) {
+                  const tierData = fullConfig[catKey][instanceTier];
+                  const themeCategory = fullConfig[catKey]._meta?.theme_category || catKey;
+                  
+                  if (isFlesh) console.log("[DND] Flesh and Stone found in config:", { themeCategory, hasTheme: !!tierData.theme });
+
+                  // Check local tier override sound
+                  if (tierData.theme?.PlayAlertSound) {
+                      const val = tierData.theme.PlayAlertSound;
+                      return Array.isArray(val) ? val[0] : val;
+                  }
+
+                  // Check theme-level default for this tier
+                  if (themeData) {
+                      const tierMatch = instanceTier.match(/Tier (\d+)/);
+                      if (tierMatch) {
+                          const tierNameInTheme = `Tier ${tierMatch[1]}`;
+                          const style = themeData[themeCategory]?.[tierNameInTheme];
+                          
+                          if (isFlesh) console.log("[DND] Flesh and Stone theme lookup:", { themeCategory, tierNameInTheme, styleFound: !!style, soundId: style?.default_sound_id });
+
+                          if (style?.default_sound_id !== undefined && style.default_sound_id !== -1) {
+                              return `Default/AlertSound${style.default_sound_id}.mp3`;
+                          }
+                      }
+                  }
+              }
+          } catch (e) { console.error("Theme resolution failed", e); }
+      }
+
+      return undefined;
+  }, [stagedChanges, categoryRules, soundMap, themeData, fullConfig]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -257,7 +326,6 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                   );
                   if (idx !== -1) ruleIndex = idx;
               }
-
               return {
                   ...item,
                   instance_tier: tier,
@@ -280,16 +348,14 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   };
 
   const handleDragStart = (event: DragStartEvent) => {
-      const { active } = event;
-      setActiveId(active.id as string);
-      setActiveDragData(active.data.current);
+      setActiveId(event.active.id as string);
+      setActiveDragData(event.active.data.current);
   };
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
     setActiveId(null);
     setActiveDragData(null);
-
     if (!over) return;
 
     const id = active.id as string;
@@ -297,14 +363,12 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
     const activeData = active.data.current;
     const overData = over.data.current;
 
-    // 1. CATALOG SOUND -> WORKSPACE
     if (activeData?.type === 'catalog-sound') {
         const overIndex = activeColumns.findIndex(c => c.path === overId);
         addColumn(activeData.sound, overIndex === -1 ? undefined : overIndex);
         return;
     }
 
-    // 2. COLUMN -> COLUMN (REORDER)
     if (activeData?.type === 'column') {
         const oldIdx = activeColumns.findIndex(c => c.path === id);
         const newIdx = activeColumns.findIndex(c => c.path === overId);
@@ -312,7 +376,6 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
         return;
     }
 
-    // 3. ITEM -> COLUMN/POOL
     if (activeData?.type === 'item') {
         const itemName = activeData.item.name;
         let targetId: string | null = null;
@@ -328,7 +391,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
         }
 
         if (targetId === 'pool') {
-            const originalSound = soundMap?.basetype_sounds[itemName]?.file;
+            const originalSound = resolveCurrentSound(itemName, activeData.item.instance_tier);
             if (originalSound) setStagedChanges(prev => ({ ...prev, [itemName]: '' }));
             else setStagedChanges(prev => { const n = {...prev}; delete n[itemName]; return n; });
         } else if (targetId && targetId !== 'pool') {
@@ -339,25 +402,17 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
 
   const poolItemsList = useMemo(() => {
       return flattenedItems.filter(i => {
-          const currentAssignment = stagedChanges[i.name] !== undefined 
-            ? stagedChanges[i.name] 
-            : soundMap?.basetype_sounds[i.name]?.file;
-          
+          const currentAssignment = resolveCurrentSound(i.name, i.instance_tier);
           if (currentAssignment && activeColumns.some(c => c.path === currentAssignment)) return false;
           if (selectedClass !== 'All' && i.item_class !== selectedClass) return false;
           const searchLower = searchTermPool.toLowerCase();
           if (searchTermPool && !i.name.toLowerCase().includes(searchLower) && !(i.name_ch && i.name_ch.toLowerCase().includes(searchLower))) return false;
           return true;
       }).slice(0, 100);
-  }, [flattenedItems, soundMap, stagedChanges, selectedClass, searchTermPool, activeColumns]);
+  }, [flattenedItems, resolveCurrentSound, selectedClass, searchTermPool, activeColumns]);
 
   const getColumnItemsList = (path: string) => {
-      return flattenedItems.filter(i => {
-          const currentSound = stagedChanges[i.name] !== undefined 
-            ? stagedChanges[i.name] 
-            : soundMap?.basetype_sounds[i.name]?.file;
-          return currentSound === path;
-      });
+      return flattenedItems.filter(i => resolveCurrentSound(i.name, i.instance_tier) === path);
   };
 
   const collisionDetectionStrategy = (args: any) => {
@@ -393,14 +448,15 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                     <input type="text" placeholder={t.search} className="pool-search" value={searchTermPool} onChange={e => setSearchTermPool(e.target.value)} />
                 </div>
                 <div className="pool-content">
-                    {poolItemsList.map(i => {
-                        const currentSound = stagedChanges[i.name] !== undefined 
-                            ? stagedChanges[i.name] 
-                            : soundMap?.basetype_sounds[i.name]?.file;
-                        return (
-                            <PoolItem key={i.instanceId} item={i} language={language} isStaged={stagedChanges[i.name] === ''} currentSound={currentSound} />
-                        );
-                    })}
+                    {poolItemsList.map(i => (
+                        <PoolItem 
+                            key={i.instanceId} 
+                            item={i} 
+                            language={language} 
+                            isStaged={stagedChanges[i.name] === ''} 
+                            currentSound={resolveCurrentSound(i.name, i.instance_tier)} 
+                        />
+                    ))}
                 </div>
             </div>
 
@@ -422,7 +478,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                                 onSave={async () => {
                                     const assignedToThis = Object.entries(stagedChanges).filter(([_, path]) => path === sound.path);
                                     const removedFromThis = Object.entries(stagedChanges).filter(([name, path]) => {
-                                        return path === '' && soundMap?.basetype_sounds[name]?.file === sound.path;
+                                        return path === '' && resolveCurrentSound(name, '') === sound.path;
                                     });
                                     const changesToCommit = [...assignedToThis, ...removedFromThis];
                                     const newMap = JSON.parse(JSON.stringify(soundMap));
@@ -440,24 +496,18 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                                     } catch (e) { alert("Failed to save"); }
                                 }}
                                 onRemoveItem={(name) => {
-                                    const originalSound = soundMap?.basetype_sounds[name]?.file;
-                                    if (originalSound) setStagedChanges(prev => ({ ...prev, [name]: '' }));
+                                    const current = resolveCurrentSound(name, '');
+                                    if (current) setStagedChanges(prev => ({ ...prev, [name]: '' }));
                                     else setStagedChanges(prev => { const n = {...prev}; delete n[name]; return n; });
                                 }}
                                 onCancel={() => {
                                     const itemsInCol = getColumnItemsList(sound.path).map(i => i.name);
                                     const next = { ...stagedChanges };
                                     itemsInCol.forEach(name => { if(next[name] === sound.path) delete next[name]; });
-                                    Object.entries(next).forEach(([name, path]) => {
-                                        if (path === '' && soundMap?.basetype_sounds[name]?.file === sound.path) delete next[name];
-                                    });
                                     setStagedChanges(next);
                                 }}
-                                stagedCount={(() => {
-                                    const add = Object.values(stagedChanges).filter(v => v === sound.path).length;
-                                    const rem = Object.entries(stagedChanges).filter(([n, p]) => p === '' && soundMap?.basetype_sounds[n]?.file === sound.path).length;
-                                    return add + rem;
-                                })()}
+                                stagedCount={Object.values(stagedChanges).filter(v => v === sound.path).length}
+                                resolveCurrentSound={resolveCurrentSound}
                             />
                         ))
                     )}
@@ -558,6 +608,8 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
         .col-cancel-btn { background: #f5f5f5; color: #666; border: 1px solid #ddd; }
         .close-btn { background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #ff5252; padding: 0 5px; }
         .dragging { cursor: grabbing !important; }
+        .tier-context-badge { font-size: 0.65rem; background: #eee; color: #666; padding: 2px 6px; border-radius: 4px; margin-top: 4px; text-align: right; font-weight: bold; border: 1px solid #ddd; }
+        .tier-pill { color: #2196F3; font-weight: bold; }
       `}</style>
     </div>
   );
