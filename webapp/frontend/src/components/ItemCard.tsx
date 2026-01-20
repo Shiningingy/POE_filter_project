@@ -27,6 +27,8 @@ interface ItemCardProps {
   className?: string;
   style?: React.CSSProperties;
   showStagedIndicator?: boolean;
+  currentSound?: string;
+  showDetails?: boolean;
 }
 
 const ItemCard: React.FC<ItemCardProps> = ({
@@ -44,6 +46,8 @@ const ItemCard: React.FC<ItemCardProps> = ({
   className = "",
   style = {},
   showStagedIndicator = true,
+  currentSound,
+  showDetails = false,
 }) => {
   const dotBg = getSubTypeBackground(item.sub_type);
   const showChineseFirst = language === "ch";
@@ -99,14 +103,26 @@ const ItemCard: React.FC<ItemCardProps> = ({
             </div>
           )}
           {showChineseFirst && <div className="name-secondary">{item.name}</div>}
-          {(item.item_class || item.instance_tier || item.current_tier) && (
-              <div className="item-class-label">
-                  {item.item_class && (language === 'ch' ? ((translations[language] as any)[CLASS_KEY_MAP[item.item_class] || item.item_class] || item.item_class) : item.item_class)}
-                  {item.instance_tier && <span className="tier-pill"> | {item.instance_tier.match(/Tier (\d+)/)?.[1] ? `T${item.instance_tier.match(/Tier (\d+)/)?.[1]}` : item.instance_tier}</span>}
-                  {!item.instance_tier && item.current_tier && item.current_tier.length > 0 && (
-                      <span className="tier-pill"> | {item.current_tier.map((t: string) => t.match(/Tier (\d+)/)?.[1] ? `T${t.match(/Tier (\d+)/)?.[1]}` : t).join(', ')}</span>
-                  )}
-              </div>
+          
+          {showDetails && (
+              <>
+                {(item.item_class || item.instance_tier || item.current_tier) && (
+                    <div className="item-class-label">
+                        {item.item_class && (language === 'ch' ? ((translations[language] as any)[CLASS_KEY_MAP[item.item_class] || item.item_class] || item.item_class) : item.item_class)}
+                        {item.instance_tier && <span className="tier-pill"> | {item.instance_tier.match(/Tier (\d+)/)?.[1] ? `T${item.instance_tier.match(/Tier (\d+)/)?.[1]}` : item.instance_tier}</span>}
+                        {!item.instance_tier && item.current_tier && item.current_tier.length > 0 && (
+                            <span className="tier-pill"> | {item.current_tier.map((t: string) => t.match(/Tier (\d+)/)?.[1] ? `T${t.match(/Tier (\d+)/)?.[1]}` : t).join(', ')}</span>
+                        )}
+                    </div>
+                )}
+                
+                <div className="item-sound-info">
+                    <span className="sound-label">🎵 </span>
+                    <span className={`sound-path ${!currentSound ? 'none' : ''}`}>
+                        {currentSound ? currentSound.split('/').pop() : (translations[language] as any).noSoundApplied}
+                    </span>
+                </div>
+              </>
           )}
         </div>
 

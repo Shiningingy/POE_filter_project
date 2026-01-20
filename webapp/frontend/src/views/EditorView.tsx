@@ -48,8 +48,9 @@ const EditorView: React.FC<EditorViewProps> = ({
   const [fallbackMenu, setFallbackMenu] = useState<{ x: number, y: number } | null>(null);
   const [showSoundManager, setShowSoundManager] = useState(false);
 
+  const API_BASE_URL = '';
+
   useEffect(() => {
-    // Load Theme & Sound Map
     axios.get(`${API_BASE_URL}/api/themes/sharket`)
         .then(res => {
             setThemeData(res.data.theme_data);
@@ -62,16 +63,16 @@ const EditorView: React.FC<EditorViewProps> = ({
       if (pingedCondition) {
           const locName = RULE_FACTOR_LOCALIZATION[pingedCondition.conditionKey]?.[language] || pingedCondition.conditionKey;
           setToast({ 
-              message: `${translations[language].conditionAlreadyAdded}: ${locName}`, 
+              message: `${translations[language].conditionAlreadyAdded}: ${locName}`,
               timestamp: pingedCondition.timestamp 
           });
           const timer = setTimeout(() => setToast(null), 1500);
           return () => clearTimeout(timer);
       }
   }, [pingedCondition, language]);
+
   const isDirtyRef = React.useRef(false);
 
-  // Derive active tier data in real-time from configContent
   const inspectedTier = useMemo(() => {
       if (!inspectedTierKey || !configContent) return null;
       try {
@@ -85,7 +86,6 @@ const EditorView: React.FC<EditorViewProps> = ({
           
           let rules = catData.rules || catData._meta?.rules || [];
 
-          // Augment rules with Auto-Sounds (Live Preview)
           if (soundMap?.basetype_sounds) {
               const augmentedRules = [...rules];
               const tierItemNames = items.map(i => i.name);
@@ -112,7 +112,7 @@ const EditorView: React.FC<EditorViewProps> = ({
 
           return {
               key: inspectedTierKey,
-              name: inspectedTierKey, // Fallback
+              name: inspectedTierKey,
               style: resolvedStyle,
               visibility: !!tierData.hideable,
               category: themeCategory,
@@ -140,8 +140,6 @@ const EditorView: React.FC<EditorViewProps> = ({
     setEditingRuleIndex(ruleIndex);
   };
 
-  const API_BASE_URL = '';
-
   const fetchTierItems = async (keys: string[]) => {
     if (keys.length === 0) return;
     try {
@@ -162,8 +160,6 @@ const EditorView: React.FC<EditorViewProps> = ({
   useEffect(() => {
     if (selectedFile?.tier_path) {
       const ts = new Date().getTime();
-      
-      // Load BOTH Tier Definition and Base Mapping
       Promise.all([
           axios.get(`${API_BASE_URL}/api/config/${selectedFile.tier_path}?t=${ts}`),
           selectedFile.mapping_path ? axios.get(`${API_BASE_URL}/api/config/${selectedFile.mapping_path}?t=${ts}`) : Promise.resolve({ data: { content: {} } })
@@ -171,31 +167,23 @@ const EditorView: React.FC<EditorViewProps> = ({
       .then(([tierRes, mapRes]) => {
             const tierData = tierRes.data.content;
             const mapData = mapRes.data.content;
-            
-            // MERGE RULES into Tier Data for Frontend View
             const catKey = Object.keys(tierData).find(k => !k.startsWith('//'));
-            const mergedData = JSON.parse(JSON.stringify(tierData)); // Deep copy
+            const mergedData = JSON.parse(JSON.stringify(tierData));
             
             if (catKey) {
-                // Inject rules from mapping file (root level 'rules')
                 if (mapData.rules) {
                     mergedData[catKey].rules = mapData.rules;
                 }
-                
-                // Fetch items
                 const keys = Object.keys(mergedData[catKey]).filter(k => k.startsWith('Tier'));
                 fetchTierItems(keys);
             }
-            
-            // Update the VIEW
             setConfigContent(JSON.stringify(mergedData, null, 2));
-            markClean(); // Initial load is clean
+            markClean();
       })
       .catch(err => console.error("Failed to load content", err));
     }
   }, [selectedFile]);
 
-  // Override the Save function to split and save both files
   const handleSave = async () => {
       if (!selectedFile) return;
       try {
@@ -205,26 +193,20 @@ const EditorView: React.FC<EditorViewProps> = ({
           if (catKey) {
               const viewCategory = currentViewData[catKey];
               const rules = viewCategory.rules || [];
-
-              // 1. Prepare Tier Definition (remove items and rules)
               const tierToSave = JSON.parse(JSON.stringify(currentViewData));
               const saveCategory = tierToSave[catKey];
               
-              // Remove rules from Tier Definition (they live in mapping)
               delete saveCategory.rules;
               if (saveCategory._meta?.rules) delete saveCategory._meta.rules;
 
-              // 2. Prepare Base Mapping (update only rules)
               let mappingToSave: any = null;
               if (selectedFile.mapping_path) {
-                  // We need to fetch the original mapping to preserve other fields
                   const ts = new Date().getTime();
                   const mapRes = await axios.get(`${API_BASE_URL}/api/config/${selectedFile.mapping_path}?t=${ts}`);
                   mappingToSave = mapRes.data.content;
                   mappingToSave.rules = rules;
               }
 
-              // 3. Save Both
               await Promise.all([
                   axios.post(`${API_BASE_URL}/api/config/${selectedFile.tier_path}`, tierToSave),
                   selectedFile.mapping_path ? axios.post(`${API_BASE_URL}/api/config/${selectedFile.mapping_path}`, mappingToSave) : Promise.resolve()
@@ -262,7 +244,6 @@ const EditorView: React.FC<EditorViewProps> = ({
               const currentRules = parsed[catKey].rules;
 
               if (editingRuleIndex !== null) {
-                // Find rule in THIS tier
                 const currentTierItems = tierItems[tierKey]?.map(i => i.name) || [];
                 const tierRulesIndices = currentRules.map((r: any, i: number) => ({r, i})).filter(({r}: any) => 
                     !r.targets?.length || r.targets.some((t: string) => currentTierItems.includes(t))
@@ -272,10 +253,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                 if (targetEntry) {
                     const targetRule = currentRules[targetEntry.i];
                     if (!targetRule.conditions) targetRule.conditions = {};
-                    
-                    // Identify the newly added condition key before merging
                     const addedKey = Object.keys(preset.conditions || {}).find(k => !targetRule.conditions[k]);
-
                     Object.assign(targetRule.conditions, preset.conditions || {});
                     if (preset.raw) targetRule.raw = (targetRule.raw || "") + "\n" + preset.raw;
                     
@@ -326,6 +304,16 @@ const EditorView: React.FC<EditorViewProps> = ({
       setFallbackMenu({ x: e.clientX, y: e.clientY });
   };
 
+  const activeCategoryRules = useMemo(() => {
+      if (!configContent) return [];
+      try {
+          const parsed = JSON.parse(configContent);
+          const catKey = Object.keys(parsed).find(k => !k.startsWith('//'));
+          if (!catKey) return [];
+          return parsed[catKey].rules || parsed[catKey]._meta?.rules || [];
+      } catch (e) { return []; }
+  }, [configContent]);
+
   return (
     <div className="editor-view" onContextMenu={handleGlobalContextMenu}>
       <Sidebar 
@@ -357,7 +345,6 @@ const EditorView: React.FC<EditorViewProps> = ({
                 <CategoryView
                   configContent={configContent}
                   onConfigContentChange={(newContent) => {
-                    // Update the merged view
                     setConfigContent(newContent); 
                     markDirty();
                   }}
@@ -406,8 +393,8 @@ const EditorView: React.FC<EditorViewProps> = ({
           <SoundBulkEditor 
             language={language}
             onClose={() => setShowSoundManager(false)}
+            categoryRules={activeCategoryRules}
             onSave={() => {
-                // Re-fetch sound map to keep editor in sync without reload
                 axios.get('/api/themes/sharket')
                     .then(res => setSoundMap(res.data.sound_map_data))
                     .catch(err => console.error(err));
@@ -449,6 +436,26 @@ const EditorView: React.FC<EditorViewProps> = ({
         }
         .placeholder { display: flex; align-items: center; justify-content: center; height: 100%; color: #999; font-size: 1.2rem; background: #fafafa; border: 2px dashed #eee; border-radius: 8px; margin: 20px; }
         .message-bar { padding: 8px 25px; background: #e8f5e9; color: #2e7d32; font-size: 0.85rem; border-bottom: 1px solid #c8e6c9; }
+        
+        .ping-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #323232;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            z-index: 3000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            animation: fadeInOut 1.5s ease-in-out;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, 20px); }
+            15% { opacity: 1; transform: translate(-50%, 0); }
+            85% { opacity: 1; transform: translate(-50%, 0); }
+            100% { opacity: 0; transform: translate(-50%, -20px); }
+        }
       `}</style>
     </div>
   );

@@ -273,7 +273,8 @@ export const translations = {
     switchToExact: "Switch to Exact Match",
     noOptions: "No available options",
     removeFromTier: "Remove from this Tier",
-    addTo: "Add to"
+    addTo: "Add to",
+    noSoundApplied: "No sound applied"
   },
   ch: {
     appTitle: "POE 过滤器编辑器",
@@ -505,6 +506,7 @@ export const translations = {
     noOptions: "暂无可用操作",
     removeFromTier: "从此阶级移除",
     addTo: "添加至",
+    noSoundApplied: "未应用音效",
     Normal: "普通",
     Magic: "魔法",
     Rare: "稀有",

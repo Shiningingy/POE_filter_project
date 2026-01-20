@@ -125,6 +125,24 @@ button:disabled, select:disabled {
     background: #e3f2fd;
 }
 
+.item-sound-info {
+    font-size: 0.65rem;
+    color: #666;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: #fdfdfd;
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 1px solid #f0f0f0;
+}
+
+.item-sound-info .sound-path.none {
+    color: #bbb;
+    font-style: italic;
+}
+
 .item-card-base {
     position: relative;
     padding: 8px 12px;

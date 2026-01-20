@@ -15,7 +15,17 @@
     "Tier 1 Skill": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 42,
+        "TextColor": "#00ffffff",
+        "BorderColor": "#00ffffff",
+        "BackgroundColor": "#004040ff",
+        "PlayEffect": "Cyan",
+        "MinimapIcon": "CyanCircle",
+        "PlayAlertSound": [
+          "Sharket掉落音效/技能宝石.mp3",
+          100
+        ]
       },
       "sound": {
         "default_sound_id": -1,

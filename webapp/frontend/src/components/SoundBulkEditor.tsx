@@ -13,8 +13,6 @@ import {
   useDraggable,
   pointerWithin,
   closestCorners,
-  rectIntersection,
-  getFirstCollision
 } from '@dnd-kit/core';
 import { 
   SortableContext, 
@@ -56,6 +54,7 @@ interface SoundBulkEditorProps {
   language: Language;
   onClose: () => void;
   onSave: () => void;
+  categoryRules?: any[];
 }
 
 // ===========================
@@ -78,8 +77,7 @@ const CatalogSoundCard = ({ sound, onClick }: { sound: SoundDef, onClick: () => 
     );
 };
 
-const PoolItem = ({ item, language, isStaged }: { item: FlattenedItem, language: Language, isStaged: boolean }) => {
-    // Make pool items also droppable so they can catch drops from columns
+const PoolItem = ({ item, language, isStaged, currentSound }: { item: FlattenedItem, language: Language, isStaged: boolean, currentSound?: string }) => {
     const { setNodeRef: setDroppableRef } = useDroppable({
         id: `pool-drop::${item.instanceId}`,
         data: { type: 'pool-item', item, containerId: 'pool' }
@@ -99,12 +97,12 @@ const PoolItem = ({ item, language, isStaged }: { item: FlattenedItem, language:
 
     return (
         <div ref={setRefs} style={style} {...attributes} {...listeners} className={`${isDragging ? 'dragging-source' : ''} ${isStaged ? 'staged-removal' : ''}`}>
-            <ItemCard item={item} language={language} isStaged={isStaged} className={isDragging ? 'dragging' : ''} />
+            <ItemCard item={item} language={language} isStaged={isStaged} currentSound={currentSound} showDetails={true} className={isDragging ? 'dragging' : ''} />
         </div>
     );
 };
 
-const WorkspaceItem = ({ item, language, containerId, isStaged, onDelete }: { item: FlattenedItem, language: Language, containerId: string, isStaged: boolean, onDelete: () => void }) => {
+const WorkspaceItem = ({ item, language, containerId, isStaged, onDelete, currentSound }: { item: FlattenedItem, language: Language, containerId: string, isStaged: boolean, onDelete: () => void, currentSound?: string }) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ 
       id: item.instanceId,
       data: { type: 'item', item, containerId } 
@@ -117,6 +115,8 @@ const WorkspaceItem = ({ item, language, containerId, isStaged, onDelete }: { it
         item={item} 
         language={language} 
         isStaged={isStaged} 
+        currentSound={currentSound}
+        showDetails={true}
         onDelete={(e) => { e.stopPropagation(); onDelete(); }}
         className={isDragging ? 'dragging' : ''} 
       />
@@ -170,16 +170,21 @@ const WorkspaceColumn = ({
             
             <SortableContext id={id} items={items.map(i => i.instanceId)} strategy={verticalListSortingStrategy}>
                 <div className="column-content">
-                    {items.map(item => (
-                        <WorkspaceItem 
-                            key={item.instanceId} 
-                            item={item} 
-                            language={language}
-                            isStaged={stagedCount > 0}
-                            containerId={id}
-                            onDelete={() => onRemoveItem(item.name)}
-                        />
-                    ))}
+                    {items.map(item => {
+                        const currentSound = items.find(i => i.name === item.name)?.instance_tier; // This is not correct, sound is mapped to name
+                        // In workspace, currentSound matches id (soundPath)
+                        return (
+                            <WorkspaceItem 
+                                key={item.instanceId} 
+                                item={item} 
+                                language={language}
+                                isStaged={stagedCount > 0}
+                                containerId={id}
+                                onDelete={() => onRemoveItem(item.name)}
+                                currentSound={sound.path}
+                            />
+                        );
+                    })}
                     {items.length === 0 && <div className="column-placeholder">Drop items here</div>}
                 </div>
             </SortableContext>
@@ -196,7 +201,7 @@ const WorkspaceColumn = ({
 // MAIN COMPONENT
 // ===========================
 
-const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, onSave }) => {
+const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, onSave, categoryRules }) => {
   const t = useTranslation(language);
   const [items, setItems] = useState<Item[]>([]);
   const [soundMap, setSoundMap] = useState<any>(null);
@@ -243,13 +248,25 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   const flattenedItems: FlattenedItem[] = useMemo(() => {
       return items.flatMap(item => {
           const tiers = item.current_tier && item.current_tier.length > 0 ? item.current_tier : ['untiered'];
-          return tiers.map(tier => ({
-              ...item,
-              instance_tier: tier,
-              instanceId: `${item.name}::${tier}`
-          }));
+          return tiers.map(tier => {
+              let ruleIndex = undefined;
+              if (categoryRules) {
+                  const idx = categoryRules.findIndex((r: any) => 
+                      r.targets?.includes(item.name) && 
+                      (r.overrides?.Tier === tier || (!r.overrides?.Tier && tier !== 'untiered'))
+                  );
+                  if (idx !== -1) ruleIndex = idx;
+              }
+
+              return {
+                  ...item,
+                  instance_tier: tier,
+                  instanceId: `${item.name}::${tier}`,
+                  rule_index: ruleIndex
+              };
+          });
       });
-  }, [items]);
+  }, [items, categoryRules]);
 
   const addColumn = (sound: SoundDef, index?: number) => {
       if (!activeColumns.find(c => c.path === sound.path)) {
@@ -264,7 +281,6 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
 
   const handleDragStart = (event: DragStartEvent) => {
       const { active } = event;
-      console.log("[DND] Start:", active.id, active.data.current?.type);
       setActiveId(active.id as string);
       setActiveDragData(active.data.current);
   };
@@ -274,17 +290,12 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
     setActiveId(null);
     setActiveDragData(null);
 
-    if (!over) {
-        console.log("[DND] End: No drop target");
-        return;
-    }
+    if (!over) return;
 
     const id = active.id as string;
     const overId = over.id as string;
     const activeData = active.data.current;
     const overData = over.data.current;
-
-    console.log("[DND] End:", { active: id, over: overId, activeType: activeData?.type, overType: overData?.type });
 
     // 1. CATALOG SOUND -> WORKSPACE
     if (activeData?.type === 'catalog-sound') {
@@ -306,7 +317,6 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
         const itemName = activeData.item.name;
         let targetId: string | null = null;
 
-        // Determination hierarchy
         if (overId === 'pool' || overData?.type === 'pool' || overData?.containerId === 'pool') {
             targetId = 'pool';
         } else if (activeColumns.some(c => c.path === overId)) {
@@ -316,8 +326,6 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
         } else if (overData?.type === 'item' || overData?.type === 'pool-item') {
             targetId = overData.containerId;
         }
-
-        console.log("[DND] Item Move Result:", { itemName, targetId });
 
         if (targetId === 'pool') {
             const originalSound = soundMap?.basetype_sounds[itemName]?.file;
@@ -385,9 +393,14 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                     <input type="text" placeholder={t.search} className="pool-search" value={searchTermPool} onChange={e => setSearchTermPool(e.target.value)} />
                 </div>
                 <div className="pool-content">
-                    {poolItemsList.map(i => (
-                        <PoolItem key={i.instanceId} item={i} language={language} isStaged={stagedChanges[i.name] === ''} />
-                    ))}
+                    {poolItemsList.map(i => {
+                        const currentSound = stagedChanges[i.name] !== undefined 
+                            ? stagedChanges[i.name] 
+                            : soundMap?.basetype_sounds[i.name]?.file;
+                        return (
+                            <PoolItem key={i.instanceId} item={i} language={language} isStaged={stagedChanges[i.name] === ''} currentSound={currentSound} />
+                        );
+                    })}
                 </div>
             </div>
 
