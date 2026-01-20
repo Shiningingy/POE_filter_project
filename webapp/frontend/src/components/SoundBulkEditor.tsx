@@ -41,7 +41,7 @@ interface Item {
 
 interface FlattenedItem extends Item {
     instance_tier: string;
-    instanceId: string; // Stable Unique ID: name::tier
+    instanceId: string; // Stable Unique ID: name::tier::rule-X
     rule_index?: number;
 }
 
@@ -55,7 +55,7 @@ interface SoundBulkEditorProps {
   language: Language;
   onClose: () => void;
   onSave: () => void;
-  categoryRules?: any[];
+  categoryRules?: any[]; 
   themeData?: any;
   fullConfig?: any;
 }
@@ -145,13 +145,13 @@ const WorkspaceColumn = ({
     onClose: () => void, 
     onSave: () => void, 
     onCancel: () => void,
-    onRemoveItem: (itemName: string) => void,
+    onRemoveItem: (itemName: string, tier: string, ruleIdx?: number) => void,
     language: Language,
     stagedCount: number,
-    resolveCurrentSound: (name: string, tier: string) => string | undefined
+    resolveCurrentSound: (name: string, tier: string, ruleIdx?: number) => string | undefined
 }) => {
     const { setNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({ 
-        id, 
+        id: id + '-sort', 
         data: { type: 'column', sound } 
     });
     const t = useTranslation(language);
@@ -182,8 +182,8 @@ const WorkspaceColumn = ({
                             language={language}
                             isStaged={stagedCount > 0}
                             containerId={id}
-                            onDelete={() => onRemoveItem(item.name)}
-                            currentSound={resolveCurrentSound(item.name, item.instance_tier)}
+                            onDelete={() => onRemoveItem(item.name, item.instance_tier, item.rule_index)}
+                            currentSound={resolveCurrentSound(item.name, item.instance_tier, item.rule_index)}
                         />
                     ))}
                     {items.length === 0 && <div className="column-placeholder">Drop items here</div>}
@@ -202,12 +202,13 @@ const WorkspaceColumn = ({
 // MAIN COMPONENT
 // ===========================
 
-const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, onSave, categoryRules, themeData, fullConfig }) => {
+const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, onSave, themeData, fullConfig }) => {
   const t = useTranslation(language);
   
   // State Hooks
   const [items, setItems] = useState<Item[]>([]);
   const [soundMap, setSoundMap] = useState<any>(null);
+  const [globalRules, setGlobalRules] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [defaults, setDefaults] = useState<SoundDef[]>([]);
   const [sharket, setSharket] = useState<SoundDef[]>([]);
@@ -225,26 +226,17 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 5 } }));
 
   // Sound Resolution Helper
-  const resolveCurrentSound = useCallback((itemName: string, instanceTier: string) => {
-      const isFlesh = itemName === 'Flesh and Stone';
-      
+  const resolveCurrentSound = useCallback((itemName: string, instanceTier: string, ruleIndex?: number) => {
       // 1. Staged Changes (Local)
       if (stagedChanges[itemName] !== undefined) return stagedChanges[itemName];
 
-      // 2. Rule Overrides from categoryRules
-      if (categoryRules) {
-          const matchingRule = categoryRules.find((r: any) => {
-              const targetsItem = r.targets?.includes(itemName);
-              if (!targetsItem) return false;
-              const ruleTier = r.overrides?.Tier;
-              if (ruleTier) return ruleTier === instanceTier;
-              return true; 
-          });
-
-          if (matchingRule?.overrides) {
-              const soundKey = ["CustomAlertSound", "AlertSound", "DropSound", "PlayAlertSound"].find(k => matchingRule.overrides[k]);
+      // 2. Global Rule Overrides
+      if (globalRules && ruleIndex !== undefined) {
+          const rule = globalRules[ruleIndex];
+          if (rule?.overrides) {
+              const soundKey = ["CustomAlertSound", "AlertSound", "DropSound", "PlayAlertSound"].find(k => rule.overrides[k]);
               if (soundKey) {
-                  const val = matchingRule.overrides[soundKey];
+                  const val = rule.overrides[soundKey];
                   return Array.isArray(val) ? val[0] : val;
               }
           }
@@ -254,57 +246,46 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
       const autoSound = soundMap?.basetype_sounds[itemName]?.file;
       if (autoSound) return autoSound;
 
-      // 4. Tier Theme Fallback (from fullConfig and themeData)
-      if (fullConfig && instanceTier !== 'untiered') {
+      // 4. Tier Theme Fallback
+      if (fullConfig && themeData && instanceTier !== 'untiered') {
           try {
               const catKey = Object.keys(fullConfig).find(k => !k.startsWith('//'));
-              if (isFlesh) console.log("[DND] Flesh and Stone fallback check:", { catKey, instanceTier, hasConfig: !!fullConfig });
-
               if (catKey && fullConfig[catKey][instanceTier]) {
                   const tierData = fullConfig[catKey][instanceTier];
                   const themeCategory = fullConfig[catKey]._meta?.theme_category || catKey;
-                  
-                  if (isFlesh) console.log("[DND] Flesh and Stone found in config:", { themeCategory, hasTheme: !!tierData.theme });
-
-                  // Check local tier override sound
                   if (tierData.theme?.PlayAlertSound) {
                       const val = tierData.theme.PlayAlertSound;
                       return Array.isArray(val) ? val[0] : val;
                   }
-
-                  // Check theme-level default for this tier
-                  if (themeData) {
-                      const tierMatch = instanceTier.match(/Tier (\d+)/);
-                      if (tierMatch) {
-                          const tierNameInTheme = `Tier ${tierMatch[1]}`;
-                          const style = themeData[themeCategory]?.[tierNameInTheme];
-                          
-                          if (isFlesh) console.log("[DND] Flesh and Stone theme lookup:", { themeCategory, tierNameInTheme, styleFound: !!style, soundId: style?.default_sound_id });
-
-                          if (style?.default_sound_id !== undefined && style.default_sound_id !== -1) {
-                              return `Default/AlertSound${style.default_sound_id}.mp3`;
-                          }
+                  const tierMatch = instanceTier.match(/Tier (\d+)/);
+                  if (tierMatch && themeData[themeCategory]) {
+                      const tierNameInTheme = `Tier ${tierMatch[1]}`;
+                      const style = themeData[themeCategory][tierNameInTheme];
+                      if (style?.default_sound_id !== undefined && style.default_sound_id !== -1) {
+                          return `Default/AlertSound${style.default_sound_id}.mp3`;
                       }
                   }
               }
           } catch (e) { console.error("Theme resolution failed", e); }
       }
-
       return undefined;
-  }, [stagedChanges, categoryRules, soundMap, themeData, fullConfig]);
+  }, [stagedChanges, globalRules, soundMap, themeData, fullConfig]);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const [itemsRes, mapRes, listRes, classesRes] = await Promise.all([
+        const [itemsRes, mapRes, listRes, classesRes, rulesRes] = await Promise.all([
             axios.get('/api/class-items/All'),
             axios.get('/api/sound-map'),
             axios.get('/api/sounds/list'),
-            axios.get('/api/item-classes')
+            axios.get('/api/item-classes'),
+            axios.get('/api/all-rules')
         ]);
+        console.log("[DND] Raw rules response:", rulesRes.data);
         setItems(itemsRes.data.items);
         setSoundMap(mapRes.data);
+        setGlobalRules(rulesRes.data.rules || []);
         setDefaults(listRes.data.defaults.map((p: string) => ({ path: p, label: p.split('/').pop() || p, type: 'default' })));
         setSharket(listRes.data.sharket.map((p: string) => ({ path: p, label: p.split('/').pop() || p, type: 'sharket' })));
         setItemClasses(['All', ...classesRes.data.classes]);
@@ -315,26 +296,56 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   }, []);
 
   const flattenedItems: FlattenedItem[] = useMemo(() => {
-      return items.flatMap(item => {
-          const tiers = item.current_tier && item.current_tier.length > 0 ? item.current_tier : ['untiered'];
-          return tiers.map(tier => {
-              let ruleIndex = undefined;
-              if (categoryRules) {
-                  const idx = categoryRules.findIndex((r: any) => 
-                      r.targets?.includes(item.name) && 
-                      (r.overrides?.Tier === tier || (!r.overrides?.Tier && tier !== 'untiered'))
-                  );
-                  if (idx !== -1) ruleIndex = idx;
-              }
-              return {
+      if (!items.length) return [];
+      const flattened: FlattenedItem[] = [];
+      
+      console.log("[DND] Re-flattening items. globalRules count:", globalRules.length);
+
+      items.forEach(item => {
+          const isChaos = item.name === 'Chaos Orb';
+          
+          // Identify all rules targeting this item across ALL categories
+          const itemRules = globalRules ? globalRules.map((r, idx) => ({r, idx})).filter(({r}) => {
+              return r.targets?.some((target: any) => {
+                  const targetName = (typeof target === 'string') ? target : target.name;
+                  return targetName === item.name;
+              });
+          }) : [];
+          
+          if (isChaos) {
+              console.log("[DND] Flattening Chaos Orb. Matches in globalRules:", itemRules.length, itemRules.map(x => x.idx));
+          }
+
+          // 1. Create a card for every rule instance
+          itemRules.forEach(({r, idx}) => {
+              const tier = r.overrides?.Tier || (item.current_tier && item.current_tier.length > 0 ? item.current_tier[0] : 'untiered');
+              const inst = {
                   ...item,
                   instance_tier: tier,
-                  instanceId: `${item.name}::${tier}`,
-                  rule_index: ruleIndex
+                  instanceId: `${item.name}::${tier}::rule-${idx}`,
+                  rule_index: idx
               };
+              if (isChaos) console.log("[DND] Created Chaos Rule Instance:", inst.instanceId, "Index:", inst.rule_index);
+              flattened.push(inst);
+          });
+
+          // 2. Create cards for Tier Default instances
+          (item.current_tier || []).forEach(tier => {
+              const isHandledByRuleInThisTier = itemRules.some(({r}) => r.overrides?.Tier === tier);
+              if (!isHandledByRuleInThisTier) {
+                  const inst = {
+                      ...item,
+                      instance_tier: tier,
+                      instanceId: `${item.name}::${tier}::default`,
+                      rule_index: undefined
+                  };
+                  if (isChaos) console.log("[DND] Created Chaos Default Instance:", inst.instanceId);
+                  flattened.push(inst);
+              }
           });
       });
-  }, [items, categoryRules]);
+      return flattened;
+  }, [items, globalRules]);
 
   const addColumn = (sound: SoundDef, index?: number) => {
       if (!activeColumns.find(c => c.path === sound.path)) {
@@ -370,8 +381,8 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
     }
 
     if (activeData?.type === 'column') {
-        const oldIdx = activeColumns.findIndex(c => c.path === id);
-        const newIdx = activeColumns.findIndex(c => c.path === overId);
+        const oldIdx = activeColumns.findIndex(c => c.path === id.replace('-sort', ''));
+        const newIdx = activeColumns.findIndex(c => c.path === overId.replace('-sort', ''));
         if (oldIdx !== -1 && newIdx !== -1) setActiveColumns(arrayMove(activeColumns, oldIdx, newIdx));
         return;
     }
@@ -391,7 +402,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
         }
 
         if (targetId === 'pool') {
-            const originalSound = resolveCurrentSound(itemName, activeData.item.instance_tier);
+            const originalSound = resolveCurrentSound(itemName, activeData.item.instance_tier, activeData.item.rule_index);
             if (originalSound) setStagedChanges(prev => ({ ...prev, [itemName]: '' }));
             else setStagedChanges(prev => { const n = {...prev}; delete n[itemName]; return n; });
         } else if (targetId && targetId !== 'pool') {
@@ -402,7 +413,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
 
   const poolItemsList = useMemo(() => {
       return flattenedItems.filter(i => {
-          const currentAssignment = resolveCurrentSound(i.name, i.instance_tier);
+          const currentAssignment = resolveCurrentSound(i.name, i.instance_tier, i.rule_index);
           if (currentAssignment && activeColumns.some(c => c.path === currentAssignment)) return false;
           if (selectedClass !== 'All' && i.item_class !== selectedClass) return false;
           const searchLower = searchTermPool.toLowerCase();
@@ -412,7 +423,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   }, [flattenedItems, resolveCurrentSound, selectedClass, searchTermPool, activeColumns]);
 
   const getColumnItemsList = (path: string) => {
-      return flattenedItems.filter(i => resolveCurrentSound(i.name, i.instance_tier) === path);
+      return flattenedItems.filter(i => resolveCurrentSound(i.name, i.instance_tier, i.rule_index) === path);
   };
 
   const collisionDetectionStrategy = (args: any) => {
@@ -454,7 +465,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                             item={i} 
                             language={language} 
                             isStaged={stagedChanges[i.name] === ''} 
-                            currentSound={resolveCurrentSound(i.name, i.instance_tier)} 
+                            currentSound={resolveCurrentSound(i.name, i.instance_tier, i.rule_index)} 
                         />
                     ))}
                 </div>
@@ -478,7 +489,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                                 onSave={async () => {
                                     const assignedToThis = Object.entries(stagedChanges).filter(([_, path]) => path === sound.path);
                                     const removedFromThis = Object.entries(stagedChanges).filter(([name, path]) => {
-                                        return path === '' && resolveCurrentSound(name, '') === sound.path;
+                                        return path === '' && resolveCurrentSound(name, '', undefined) === sound.path; 
                                     });
                                     const changesToCommit = [...assignedToThis, ...removedFromThis];
                                     const newMap = JSON.parse(JSON.stringify(soundMap));
@@ -495,8 +506,8 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                                         onSave();
                                     } catch (e) { alert("Failed to save"); }
                                 }}
-                                onRemoveItem={(name) => {
-                                    const current = resolveCurrentSound(name, '');
+                                onRemoveItem={(name, tier, ruleIdx) => {
+                                    const current = resolveCurrentSound(name, tier, ruleIdx);
                                     if (current) setStagedChanges(prev => ({ ...prev, [name]: '' }));
                                     else setStagedChanges(prev => { const n = {...prev}; delete n[name]; return n; });
                                 }}

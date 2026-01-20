@@ -51,6 +51,36 @@ export const setupDemoAdapter = () => {
             setDemoUrl(`${baseURL}demo_data/theme_${themeName}.json`);
         } else if (path.endsWith('/api/sounds/list')) {
             setDemoUrl(`${baseURL}demo_data/sounds.json`);
+        } else if (path.endsWith('/api/sound-map')) {
+            config.adapter = async () => {
+                const bundle = await loadBundle();
+                return { data: bundle?.soundMap || {}, status: 200, statusText: 'OK', headers: {}, config };
+            };
+        } else if (path.endsWith('/api/all-rules')) {
+            config.adapter = async () => {
+                const bundle = await loadBundle();
+                console.log("DEMO ADAPTER: Intercepting /api/all-rules. Bundle present:", !!bundle);
+                if (!bundle) return { data: { rules: [] }, status: 200, statusText: 'OK', headers: {}, config };
+                
+                const allRules: any[] = [];
+                const mergedMappings = { ...bundle.mappings };
+                
+                console.log("DEMO ADAPTER: Mappings in bundle:", Object.keys(mergedMappings).length);
+// ...
+                Object.entries(mergedMappings).forEach(([fileName, content]: [string, any]) => {
+                    const catKey = Object.keys(content).find(k => !k.startsWith('//'));
+                    if (catKey) {
+                        const rules = content[catKey].rules || content[catKey]._meta?.rules || [];
+                        if (rules.length > 0) console.log(`DEMO ADAPTER: Found ${rules.length} rules in ${fileName}`);
+                        rules.forEach((r: any) => {
+                            allRules.push({ ...r, _source_file: fileName });
+                        });
+                    }
+                });
+
+                console.log("DEMO ADAPTER: Returning total rules:", allRules.length);
+                return { data: { rules: allRules }, status: 200, statusText: 'OK', headers: {}, config };
+            };
         } else if (path.endsWith('/api/item-classes')) {
             setDemoUrl(`${baseURL}demo_data/item_classes.json`);
         } else if (path.includes('/api/class-items/')) {

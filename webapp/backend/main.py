@@ -611,6 +611,36 @@ async def save_sound_map(content: dict = Body(...)):
         return {"message": "Success"}
     except Exception as e: raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/api/all-rules")
+async def get_all_rules():
+    all_rules = []
+    mapping_dir = CONFIG_DATA_DIR / "base_mapping"
+    print(f"DEBUG: Scanning rules in {mapping_dir}...")
+    files_found = 0
+    for file_path in mapping_dir.rglob("*.json"):
+        files_found += 1
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                # Rules in mapping files are at the root or inside _meta
+                rules = data.get("rules", [])
+                if not rules:
+                    # Fallback to checking inside category keys (old format)
+                    cat_key = next((k for k in data if not k.startswith("//") and k not in ["mapping", "_meta"]), None)
+                    if cat_key and isinstance(data[cat_key], dict):
+                        rules = data[cat_key].get("rules", []) or data[cat_key].get("_meta", {}).get("rules", [])
+                
+                if rules:
+                    print(f"DEBUG: Found {len(rules)} rules in {file_path.name}")
+                    for r in rules:
+                        r["_source_file"] = file_path.name
+                    all_rules.extend(rules)
+        except Exception as e: 
+            print(f"DEBUG: Error reading {file_path}: {e}")
+            continue
+    print(f"DEBUG: Scan complete. Total files: {files_found}, Total rules: {len(all_rules)}")
+    return {"rules": all_rules}
+
 @app.get("/api/themes/{theme_name}")
 def get_theme_data(theme_name: str):
     theme_dir = safe_join(CONFIG_DATA_DIR / "theme", theme_name)
