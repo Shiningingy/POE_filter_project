@@ -1,14 +1,45 @@
 {
     "Templates": {
-        "Tier 0": { "FontSize": 45, "TextColor": "#FFFFFFFF", "BorderColor": "#FF00FFFF", "BackgroundColor": "#400040FF", "PlayEffect": "Red", "MinimapIcon": "RedStar" },
-        "Tier 1": { "FontSize": 42, "TextColor": "#FF00FFFF", "BorderColor": "#FF00FFFF", "BackgroundColor": "#200020FF", "PlayEffect": "Orange", "MinimapIcon": "OrangeStar" },
-        "Tier 2": { "FontSize": 40, "TextColor": "#DDA0DDFF", "BorderColor": "#800080FF", "BackgroundColor": "#100010FF", "PlayEffect": "Yellow", "MinimapIcon": "YellowCircle" },
-        "Tier 3": { "FontSize": 38, "TextColor": "#E6E6FAFF", "BackgroundColor": "#100010FF" },
-        "Tier 4": { "FontSize": 35, "TextColor": "#AAAAAAFF", "BackgroundColor": "#000000AA" },
-        "Tier 5": { "FontSize": 32, "TextColor": "#888888FF", "BackgroundColor": "#00000088" },
-        "Tier 6": { "FontSize": 30, "TextColor": "#666666FF" },
-        "Tier 7": { "FontSize": 28, "TextColor": "#444444FF" },
-        "Tier 8": { "FontSize": 26, "TextColor": "#333333FF" },
-        "Tier 9": { "FontSize": 24, "TextColor": "#222222FF" }
+        "Tier 0": {
+            "TextColor": "#EA57DFFF",
+            "BackgroundColor": "#FFFFFFFF"
+        },
+        "Tier 1": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#C865F2FF"
+        },
+        "Tier 2": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#ACA0BCFF"
+        },
+        "Tier 3": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#000000FF"
+        },
+        "Tier 4": {
+            "FontSize": 35,
+            "TextColor": "#AAAAAAFF",
+            "BackgroundColor": "#000000AA"
+        },
+        "Tier 5": {
+            "FontSize": 32,
+            "TextColor": "#888888FF",
+            "BackgroundColor": "#00000088"
+        },
+        "Tier 6": {
+            "FontSize": 30,
+            "TextColor": "#666666FF"
+        },
+        "Tier 7": {
+            "FontSize": 28,
+            "TextColor": "#444444FF"
+        },
+        "Tier 8": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 9": {
+            "FontSize": 24,
+            "TextColor": "#222222FF"
+        }
     }
 }

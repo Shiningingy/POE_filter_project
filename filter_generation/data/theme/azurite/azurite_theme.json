@@ -1,0 +1,24 @@
+{
+    "Templates": {
+        "Tier 0": {
+            "TextColor": "#0094FFFF",
+            "BackgroundColor": "#FFFFFFFF"
+        },
+        "Tier 1": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#82D6FFFF"
+        },
+        "Tier 2": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#3D9C88FF"
+        },
+        "Tier 3": {
+            "TextColor": "#BEB287FF",
+            "BackgroundColor": "#000000FF"
+        },
+        "Tier 8": {
+            "TextColor": "#B4B4B4FF",
+            "BackgroundColor": "#000000FF"
+        }
+    }
+}
