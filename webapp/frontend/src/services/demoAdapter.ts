@@ -105,6 +105,11 @@ export const setupDemoAdapter = () => {
             setDemoUrl(`${baseURL}demo_data/item_classes.json`);
         } else if (path.includes('/api/class-items/')) {
             setDemoUrl(`${baseURL}demo_data/all_items.json`);
+        } else if (path.includes('/api/custom-overrides')) {
+            const saved = localStorage.getItem('demo_custom_overrides');
+            config.adapter = async () => {
+                return { data: saved ? JSON.parse(saved) : {}, status: 200, statusText: 'OK', headers: {}, config };
+            };
         } else if (path.includes('/api/config/')) {
             const configPath = path.split('/api/config/')[1];
             const saved = localStorage.getItem(DEMO_CONFIG_PREFIX + configPath);
@@ -172,6 +177,12 @@ export const setupDemoAdapter = () => {
 
                 localStorage.setItem('demo_generated_filter', filterText);
                 return { data: { message: "Success (Generated in Demo)", content: filterText }, status: 200, statusText: 'OK', headers: {}, config };
+            };
+        } else if (path.includes('/api/custom-overrides')) {
+            const content = typeof config.data === 'string' ? JSON.parse(config.data) : config.data;
+            localStorage.setItem('demo_custom_overrides', JSON.stringify(content));
+            config.adapter = async () => {
+                return { data: { message: "Saved Overrides" }, status: 200, statusText: 'OK', headers: {}, config };
             };
         } else if (path.includes('/api/themes/')) {
             const themeName = path.split('/').pop();

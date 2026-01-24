@@ -1,0 +1,14 @@
+{
+    "Templates": {
+        "Tier 0": { "FontSize": 45, "TextColor": "#000000FF", "BorderColor": "#FFFFFFFF", "BackgroundColor": "#FFFFFFFF", "PlayEffect": "Red", "MinimapIcon": "WhiteStar" },
+        "Tier 1": { "FontSize": 42, "TextColor": "#FFFFFFFF", "BorderColor": "#FFFFFFFF", "BackgroundColor": "#000000FF", "PlayEffect": "Orange", "MinimapIcon": "WhiteStar" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#FFFFFFFF", "BorderColor": "#888888FF", "BackgroundColor": "#202020FF", "PlayEffect": "Yellow", "MinimapIcon": "WhiteCircle" },
+        "Tier 3": { "FontSize": 38, "TextColor": "#CCCCCCFF", "BackgroundColor": "#000000FF" },
+        "Tier 4": { "FontSize": 35, "TextColor": "#AAAAAAFF", "BackgroundColor": "#00000000" },
+        "Tier 5": { "FontSize": 32, "TextColor": "#888888FF", "BackgroundColor": "#00000000" },
+        "Tier 6": { "FontSize": 30, "TextColor": "#666666FF", "BackgroundColor": "#00000000" },
+        "Tier 7": { "FontSize": 28, "TextColor": "#444444FF", "BackgroundColor": "#00000000" },
+        "Tier 8": { "FontSize": 26, "TextColor": "#333333FF", "BackgroundColor": "#00000000" },
+        "Tier 9": { "FontSize": 24, "TextColor": "#222222FF", "BackgroundColor": "#00000000" }
+    }
+}

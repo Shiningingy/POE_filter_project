@@ -53,10 +53,27 @@ const EditorView: React.FC<EditorViewProps> = ({
   useEffect(() => {
     const loadTheme = async () => {
         try {
-            const settingsRes = await axios.get(`${API_BASE_URL}/api/settings`);
-            const activeTheme = settingsRes.data.active_theme || 'sharket';
-            const themeRes = await axios.get(`${API_BASE_URL}/api/themes/${activeTheme}`);
-            setThemeData(themeRes.data.theme_data);
+            const [settingsRes, overridesRes] = await Promise.all([
+                axios.get(`${API_BASE_URL}/api/settings`),
+                axios.get(`${API_BASE_URL}/api/custom-overrides`)
+            ]);
+            
+            const baseTheme = settingsRes.data.base_theme || 'sharket';
+            const overrides = overridesRes.data || {};
+
+            const themeRes = await axios.get(`${API_BASE_URL}/api/themes/${baseTheme}`);
+            const baseThemeData = themeRes.data.theme_data;
+            
+            // Merge Base + Overrides
+            const mergedTheme = JSON.parse(JSON.stringify(baseThemeData));
+            Object.keys(overrides).forEach(cat => {
+                if (!mergedTheme[cat]) mergedTheme[cat] = {};
+                Object.keys(overrides[cat]).forEach(tier => {
+                    mergedTheme[cat][tier] = { ...mergedTheme[cat][tier], ...overrides[cat][tier] };
+                });
+            });
+
+            setThemeData(mergedTheme);
             setSoundMap(themeRes.data.sound_map_data);
         } catch (err) {
             console.error("Failed to load theme", err);

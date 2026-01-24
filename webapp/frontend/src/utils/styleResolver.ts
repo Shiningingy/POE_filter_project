@@ -23,7 +23,8 @@ export const resolveStyle = (tierData: any, themeData: any, themeCategory: strin
     const globalStyle = themeData?.[themeCategory]?.[tierKey] || 
                         themeData?.["Stackable Currency"]?.[tierKey] || 
                         themeData?.["Currency"]?.[tierKey] || 
-                        themeData?.["currency"]?.[tierKey] || {}; 
+                        themeData?.["currency"]?.[tierKey] || 
+                        themeData?.["Templates"]?.[tierKey] || {}; 
     resolved = { ...globalStyle };
   }
 
