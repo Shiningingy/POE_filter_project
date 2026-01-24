@@ -6,6 +6,8 @@ import {
   type DragStartEvent,
   DragOverlay,
   PointerSensor,
+  MouseSensor,
+  TouchSensor,
   useSensor,
   useSensors,
   defaultDropAnimationSideEffects,
@@ -55,7 +57,7 @@ interface SoundBulkEditorProps {
   language: Language;
   onClose: () => void;
   onSave: () => void;
-  categoryRules?: any[]; 
+  categoryRules?: any[];
   themeData?: any;
   fullConfig?: any;
 }
@@ -64,18 +66,43 @@ interface SoundBulkEditorProps {
 // SUB-COMPONENTS
 // ===========================
 
-const CatalogSoundCard = ({ sound, onClick }: { sound: SoundDef, onClick: () => void }) => {
-    const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({ 
-        id: `catalog::${sound.path}`,
+const CatalogSoundCard = ({ sound, onAdd, usageCount }: { sound: SoundDef, onAdd: () => void, usageCount: number }) => {
+    const safeId = `cat-${sound.path.replace(/[^a-zA-Z0-9]/g, '_')}`;
+    const { attributes, listeners, setNodeRef, isDragging } = useDraggable({ 
+        id: safeId,
         data: { type: 'catalog-sound', sound }
     });
     
-    const style = transform ? { transform: CSS.Translate.toString(transform), zIndex: 1001 } : undefined;
+    const style: React.CSSProperties = {
+        opacity: isDragging ? 0.5 : 1,
+        touchAction: 'none',
+        position: 'relative',
+        cursor: isDragging ? 'grabbing' : 'grab',
+        userSelect: 'none'
+    };
 
     return (
-        <div ref={setNodeRef} style={style} {...attributes} {...listeners} className={`sound-card-item ${isDragging ? 'dragging' : ''}`} onClick={onClick}>
-            <span className="icon">🎵</span>
-            <span className="label" title={sound.path}>{sound.label}</span>
+        <div 
+            ref={setNodeRef} 
+            style={style} 
+            className="sound-card-item"
+            {...attributes} 
+            {...listeners}
+        >
+            <div className="content-area" style={{ flex: 1, display: 'flex', alignItems: 'center', gap: '10px', padding: '10px' }}>
+                <span className="icon">🎵</span>
+                <span className="label" title={sound.path}>{sound.label}</span>
+                {usageCount > 0 && <span className="usage-badge" title={`${usageCount} items use this sound`}>{usageCount}</span>}
+            </div>
+            
+            <button 
+                className="add-btn" 
+                onPointerDown={(e) => e.stopPropagation()} 
+                onClick={(e) => { e.stopPropagation(); onAdd(); }}
+                title="Add Column"
+            >
+                +
+            </button>
         </div>
     );
 };
@@ -86,12 +113,15 @@ const PoolItem = ({ item, language, isStaged, currentSound }: { item: FlattenedI
         data: { type: 'pool-item', item, containerId: 'pool' }
     });
 
-    const { attributes, listeners, setNodeRef: setDraggableRef, transform, isDragging } = useDraggable({ 
+    const { attributes, listeners, setNodeRef: setDraggableRef, isDragging } = useDraggable({ 
         id: item.instanceId,
         data: { type: 'item', item, containerId: 'pool' } 
     });
     
-    const style = transform ? { transform: CSS.Translate.toString(transform), zIndex: 1001 } : undefined;
+    const style: React.CSSProperties = {
+        opacity: isDragging ? 0.3 : 1,
+        touchAction: 'none'
+    };
 
     const setRefs = (el: HTMLElement | null) => {
         setDroppableRef(el);
@@ -150,7 +180,12 @@ const WorkspaceColumn = ({
     stagedCount: number,
     resolveCurrentSound: (name: string, tier: string, ruleIdx?: number) => string | undefined
 }) => {
-    const { setNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({ 
+    const { setNodeRef: setDroppableRef, isOver } = useDroppable({
+        id: id,
+        data: { type: 'column', sound }
+    });
+
+    const { setNodeRef: setSortableRef, attributes, listeners, transform, transition, isDragging } = useSortable({ 
         id: id + '-sort', 
         data: { type: 'column', sound } 
     });
@@ -159,11 +194,19 @@ const WorkspaceColumn = ({
     const style = {
         transform: CSS.Translate.toString(transform),
         transition,
-        opacity: isDragging ? 0.5 : 1
+        opacity: isDragging ? 0.5 : 1,
+        borderColor: isOver ? '#2196F3' : '#ddd',
+        borderWidth: isOver ? '2px' : '1px',
+        borderStyle: isOver ? 'dashed' : 'solid'
+    };
+
+    const setRefs = (el: HTMLElement | null) => {
+        setDroppableRef(el);
+        setSortableRef(el);
     };
 
     return (
-        <div ref={setNodeRef} style={style} className="sound-workspace-column">
+        <div ref={setRefs} style={style} className="sound-workspace-column">
             <div className="column-header" {...attributes} {...listeners}>
                 <div className="title-row">
                     <span className="sound-type-badge">{sound.type}</span>
@@ -202,10 +245,9 @@ const WorkspaceColumn = ({
 // MAIN COMPONENT
 // ===========================
 
-const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, onSave, themeData, fullConfig }) => {
+const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, onSave, categoryRules, themeData, fullConfig }) => {
   const t = useTranslation(language);
   
-  // State Hooks
   const [items, setItems] = useState<Item[]>([]);
   const [soundMap, setSoundMap] = useState<any>(null);
   const [globalRules, setGlobalRules] = useState<any[]>([]);
@@ -223,15 +265,15 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   const [activeId, setActiveId] = useState<string | null>(null);
   const [activeDragData, setActiveDragData] = useState<any>(null);
 
-  const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 5 } }));
+  const sensors = useSensors(
+      useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
+      useSensor(MouseSensor, { activationConstraint: { distance: 5 } }),
+      useSensor(TouchSensor, { activationConstraint: { delay: 100, tolerance: 5 } })
+  );
 
-  // Sound Resolution Helper
   const resolveCurrentSound = useCallback((itemName: string, instanceTier: string, ruleIndex?: number) => {
-      // 1. Staged Changes (Local)
       if (stagedChanges[itemName] !== undefined) return stagedChanges[itemName];
-
-      // 2. Global Rule Overrides
-      if (globalRules && ruleIndex !== undefined) {
+      if (globalRules && ruleIndex !== undefined && ruleIndex < globalRules.length) {
           const rule = globalRules[ruleIndex];
           if (rule?.overrides) {
               const soundKey = ["CustomAlertSound", "AlertSound", "DropSound", "PlayAlertSound"].find(k => rule.overrides[k]);
@@ -241,12 +283,8 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
               }
           }
       }
-
-      // 3. Global Sound Map (Auto-Sounds)
       const autoSound = soundMap?.basetype_sounds[itemName]?.file;
       if (autoSound) return autoSound;
-
-      // 4. Tier Theme Fallback
       if (fullConfig && themeData && instanceTier !== 'untiered') {
           try {
               const catKey = Object.keys(fullConfig).find(k => !k.startsWith('//'));
@@ -282,10 +320,20 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
             axios.get('/api/item-classes'),
             axios.get('/api/all-rules')
         ]);
-        console.log("[DND] Raw rules response:", rulesRes.data);
         setItems(itemsRes.data.items);
         setSoundMap(mapRes.data);
-        setGlobalRules(rulesRes.data.rules || []);
+        
+        const uniqueRules: any[] = [];
+        const seen = new Set();
+        (rulesRes.data.rules || []).forEach((r: any) => {
+            const sig = JSON.stringify({ t: r.targets, o: r.overrides, f: r._source_file });
+            if (!seen.has(sig)) {
+                seen.add(sig);
+                uniqueRules.push(r);
+            }
+        });
+        setGlobalRules(uniqueRules);
+
         setDefaults(listRes.data.defaults.map((p: string) => ({ path: p, label: p.split('/').pop() || p, type: 'default' })));
         setSharket(listRes.data.sharket.map((p: string) => ({ path: p, label: p.split('/').pop() || p, type: 'sharket' })));
         setItemClasses(['All', ...classesRes.data.classes]);
@@ -298,54 +346,42 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   const flattenedItems: FlattenedItem[] = useMemo(() => {
       if (!items.length) return [];
       const flattened: FlattenedItem[] = [];
-      
-      console.log("[DND] Re-flattening items. globalRules count:", globalRules.length);
-
       items.forEach(item => {
-          const isChaos = item.name === 'Chaos Orb';
-          
-          // Identify all rules targeting this item across ALL categories
           const itemRules = globalRules ? globalRules.map((r, idx) => ({r, idx})).filter(({r}) => {
-              return r.targets?.some((target: any) => {
-                  const targetName = (typeof target === 'string') ? target : target.name;
-                  return targetName === item.name;
-              });
+              return r.targets?.some((target: any) => (typeof target === 'string' ? target : target.name) === item.name);
           }) : [];
-          
-          if (isChaos) {
-              console.log("[DND] Flattening Chaos Orb. Matches in globalRules:", itemRules.length, itemRules.map(x => x.idx));
-          }
-
-          // 1. Create a card for every rule instance
           itemRules.forEach(({r, idx}) => {
               const tier = r.overrides?.Tier || (item.current_tier && item.current_tier.length > 0 ? item.current_tier[0] : 'untiered');
-              const inst = {
+              flattened.push({
                   ...item,
                   instance_tier: tier,
                   instanceId: `${item.name}::${tier}::rule-${idx}`,
                   rule_index: idx
-              };
-              if (isChaos) console.log("[DND] Created Chaos Rule Instance:", inst.instanceId, "Index:", inst.rule_index);
-              flattened.push(inst);
+              });
           });
-
-          // 2. Create cards for Tier Default instances
           (item.current_tier || []).forEach(tier => {
               const isHandledByRuleInThisTier = itemRules.some(({r}) => r.overrides?.Tier === tier);
               if (!isHandledByRuleInThisTier) {
-                  const inst = {
+                  flattened.push({
                       ...item,
                       instance_tier: tier,
                       instanceId: `${item.name}::${tier}::default`,
                       rule_index: undefined
-                  };
-                  if (isChaos) console.log("[DND] Created Chaos Default Instance:", inst.instanceId);
-                  flattened.push(inst);
+                  });
               }
           });
       });
       return flattened;
   }, [items, globalRules]);
+
+  const usageCounts = useMemo(() => {
+      const counts: Record<string, number> = {};
+      flattenedItems.forEach(item => {
+          const sound = resolveCurrentSound(item.name, item.instance_tier, item.rule_index);
+          if (sound) counts[sound] = (counts[sound] || 0) + 1;
+      });
+      return counts;
+  }, [flattenedItems, resolveCurrentSound]);
 
   const addColumn = (sound: SoundDef, index?: number) => {
       if (!activeColumns.find(c => c.path === sound.path)) {
@@ -359,7 +395,9 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   };
 
   const handleDragStart = (event: DragStartEvent) => {
-      setActiveId(event.active.id as string);
+      const { active } = event;
+      console.log("[DND] DragStart:", active.id);
+      setActiveId(active.id as string);
       setActiveDragData(event.active.data.current);
   };
 
@@ -374,8 +412,10 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
     const activeData = active.data.current;
     const overData = over.data.current;
 
+    console.log("[DND] DragEnd:", { id, overId, activeType: activeData?.type, overType: overData?.type });
+
     if (activeData?.type === 'catalog-sound') {
-        const overIndex = activeColumns.findIndex(c => c.path === overId);
+        const overIndex = activeColumns.findIndex(c => c.path === overId.replace('-sort', ''));
         addColumn(activeData.sound, overIndex === -1 ? undefined : overIndex);
         return;
     }
@@ -393,19 +433,16 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
 
         if (overId === 'pool' || overData?.type === 'pool' || overData?.containerId === 'pool') {
             targetId = 'pool';
-        } else if (activeColumns.some(c => c.path === overId)) {
-            targetId = overId;
-        } else if (overData?.type === 'column') {
-            targetId = overId;
-        } else if (overData?.type === 'item' || overData?.type === 'pool-item') {
-            targetId = overData.containerId;
+        } else {
+            const col = activeColumns.find(c => c.path === overId);
+            if (col) targetId = col.path;
+            else if (overData?.type === 'column') targetId = overData.sound.path;
+            else if (overData?.type === 'item') targetId = overData.containerId;
         }
 
         if (targetId === 'pool') {
-            const originalSound = resolveCurrentSound(itemName, activeData.item.instance_tier, activeData.item.rule_index);
-            if (originalSound) setStagedChanges(prev => ({ ...prev, [itemName]: '' }));
-            else setStagedChanges(prev => { const n = {...prev}; delete n[itemName]; return n; });
-        } else if (targetId && targetId !== 'pool') {
+            setStagedChanges(prev => { const n = { ...prev }; delete n[itemName]; return n; });
+        } else if (targetId) {
             setStagedChanges(prev => ({ ...prev, [itemName]: targetId! }));
         }
     }
@@ -450,9 +487,8 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
           <button className="close-btn" onClick={onClose}>×</button>
         </div>
 
-        <div className="main-layout">
-          <DndContext sensors={sensors} collisionDetection={collisionDetectionStrategy} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-            
+        <DndContext sensors={sensors} collisionDetection={collisionDetectionStrategy} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+          <div className="main-layout">
             <div ref={setPoolRef} className="item-pool-sidebar">
                 <div className="sidebar-header">
                     <h3>{language === 'ch' ? "物品池" : "Item Pool"}</h3>
@@ -506,10 +542,8 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                                         onSave();
                                     } catch (e) { alert("Failed to save"); }
                                 }}
-                                onRemoveItem={(name, tier, ruleIdx) => {
-                                    const current = resolveCurrentSound(name, tier, ruleIdx);
-                                    if (current) setStagedChanges(prev => ({ ...prev, [name]: '' }));
-                                    else setStagedChanges(prev => { const n = {...prev}; delete n[name]; return n; });
+                                onRemoveItem={(name) => {
+                                    setStagedChanges(prev => { const n = { ...prev }; delete n[name]; return n; });
                                 }}
                                 onCancel={() => {
                                     const itemsInCol = getColumnItemsList(sound.path).map(i => i.name);
@@ -525,12 +559,46 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                 </SortableContext>
             </div>
 
+            <div className="sound-catalog-sidebar" style={{ opacity: loading ? 0.5 : 1, pointerEvents: loading ? 'none' : 'auto' }}>
+                <div className="catalog-tabs">
+                    <button className={catalogTab === 'sharket' ? 'active' : ''} onClick={() => setCatalogTab('sharket')}>{t.sharket}</button>
+                    <button className={catalogTab === 'default' ? 'active' : ''} onClick={() => setCatalogTab('default')}>{t.default}</button>
+                    <button className={catalogTab === 'custom' ? 'active' : ''} onClick={() => setCatalogTab('custom')}>{t.custom}</button>
+                </div>
+                {catalogTab !== 'custom' && (
+                    <div className="catalog-search-box">
+                        <input type="text" placeholder={t.search} value={searchTermCatalog} onChange={e => setSearchTermCatalog(e.target.value)} />
+                    </div>
+                )}
+                <div className="catalog-content">
+                    {catalogTab === 'custom' ? (
+                        <div className="custom-add">
+                            <input type="text" placeholder={language === 'ch' ? "输入路径..." : "Enter path..."} value={customPathInput} onChange={e => setCustomPathInput(e.target.value)} />
+                            <button onClick={() => { if(customPathInput) { addColumn({ path: customPathInput, label: customPathInput.split('/').pop() || customPathInput, type: 'custom' }); setCustomPathInput(''); } }}>Confirm</button>
+                        </div>
+                    ) : (
+                        (catalogTab === 'sharket' ? sharket : defaults)
+                            .filter(s => s.label.toLowerCase().includes(searchTermCatalog.toLowerCase()))
+                            .map(s => (
+                            <CatalogSoundCard 
+                                key={s.path} 
+                                sound={s} 
+                                onAdd={() => addColumn(s)}
+                                usageCount={usageCounts[s.path] || 0} 
+                            />
+                        ))
+                    )}
+                </div>
+            </div>
+
             <DragOverlay dropAnimation={{ sideEffects: defaultDropAnimationSideEffects({ styles: { active: { opacity: '0.5' } } }) }}>
                 {activeId ? (
-                    activeId.startsWith('catalog::') ? (
+                    activeId.startsWith('cat-') ? (
                         <div className="sound-card-item dragging-overlay">
-                            <span>🎵</span>
-                            <span>{activeDragData?.sound?.label}</span>
+                            <div className="content-area" style={{ padding: '10px', display: 'flex', alignItems: 'center', gap: '10px', flex: 1 }}>
+                                <span>🎵</span>
+                                <span>{activeDragData?.sound?.label}</span>
+                            </div>
                         </div>
                     ) : activeDragData?.type === 'item' ? (
                         <ItemCard item={activeDragData.item} language={language} className="dragging" style={{ width: '250px' }} />
@@ -539,35 +607,8 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                     )
                 ) : null}
             </DragOverlay>
-          </DndContext>
-
-          <div className="sound-catalog-sidebar" style={{ opacity: loading ? 0.5 : 1, pointerEvents: loading ? 'none' : 'auto' }}>
-              <div className="catalog-tabs">
-                  <button className={catalogTab === 'sharket' ? 'active' : ''} onClick={() => setCatalogTab('sharket')}>{t.sharket}</button>
-                  <button className={catalogTab === 'default' ? 'active' : ''} onClick={() => setCatalogTab('default')}>{t.default}</button>
-                  <button className={catalogTab === 'custom' ? 'active' : ''} onClick={() => setCatalogTab('custom')}>{t.custom}</button>
-              </div>
-              {catalogTab !== 'custom' && (
-                  <div className="catalog-search-box">
-                      <input type="text" placeholder={t.search} value={searchTermCatalog} onChange={e => setSearchTermCatalog(e.target.value)} />
-                  </div>
-              )}
-              <div className="catalog-content">
-                  {catalogTab === 'custom' ? (
-                      <div className="custom-add">
-                          <input type="text" placeholder={language === 'ch' ? "输入路径..." : "Enter path..."} value={customPathInput} onChange={e => setCustomPathInput(e.target.value)} />
-                          <button onClick={() => { if(customPathInput) { addColumn({ path: customPathInput, label: customPathInput.split('/').pop() || customPathInput, type: 'custom' }); setCustomPathInput(''); } }}>Confirm</button>
-                      </div>
-                  ) : (
-                      (catalogTab === 'sharket' ? sharket : defaults)
-                        .filter(s => s.label.toLowerCase().includes(searchTermCatalog.toLowerCase()))
-                        .map(s => (
-                          <CatalogSoundCard key={s.path} sound={s} onClick={() => addColumn(s)} />
-                      ))
-                  )}
-              </div>
           </div>
-        </div>
+        </DndContext>
       </div>
 
       <style>{`
@@ -581,7 +622,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
         .class-select { padding: 6px 12px; border-radius: 6px; border: 1px solid #ddd; font-weight: bold; color: #2196F3; cursor: pointer; }
         .main-layout { flex: 1; display: flex; overflow: hidden; background: #f0f2f5; }
         .item-pool-sidebar { width: 280px; display: flex; flex-direction: column; background: #fff; border-right: 1px solid #ddd; }
-        .sound-catalog-sidebar { border-right: none; border-left: 1px solid #ddd; width: 300px; }
+        .sound-catalog-sidebar { border-right: none; border-left: 1px solid #ddd; width: 300px; display: flex; flex-direction: column; background: #fff; }
         .sidebar-header { padding: 15px; border-bottom: 1px solid #eee; }
         .sidebar-header h3 { margin: 0 0 10px 0; font-size: 0.85rem; color: #666; text-transform: uppercase; }
         .pool-search { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
@@ -592,13 +633,15 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
         .catalog-tabs button.active { color: #2196F3; border-bottom-color: #2196F3; }
         .catalog-search-box { padding: 10px; border-bottom: 1px solid #eee; }
         .catalog-search-box input { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
-        .sound-card-item { background: #f8f9fa; border: 1px solid #ddd; padding: 10px; border-radius: 6px; display: flex; align-items: center; gap: 10px; cursor: pointer; transition: all 0.2s; }
+        .sound-card-item { background: #f8f9fa; border: 1px solid #ddd; padding: 0; border-radius: 6px; display: flex; align-items: stretch; gap: 0; cursor: grab; transition: all 0.2s; position: relative; min-height: 45px; }
         .sound-card-item:hover { border-color: #2196F3; background: #f0f7ff; }
-        .sound-card-item .label { font-size: 0.75rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; }
-        .sound-card-item.dragging { opacity: 0.5; border-style: dashed; }
+        .add-btn { width: 35px; border: none; background: #eee; cursor: pointer; font-size: 1.2rem; color: #666; border-left: 1px solid #ddd; border-radius: 0 6px 6px 0; display: flex; align-items: center; justify-content: center; }
+        .add-btn:hover { background: #2196F3; color: white; }
+        .usage-badge { font-size: 0.65rem; background: #2196F3; color: white; padding: 2px 6px; border-radius: 10px; font-weight: bold; margin-left: 8px; }
         .dragging-source { opacity: 0.3; }
         .staged-removal { background: #fff5f5 !important; border: 1px dashed #ff5252 !important; }
-        .dragging-overlay { box-shadow: 0 10px 25px rgba(0,0,0,0.3); transform: rotate(2deg); background: #e3f2fd; padding: 10px; border-radius: 8px; display: flex; align-items: center; gap: 10px; z-index: 2000; }
+        .dragging-overlay { box-shadow: 0 10px 25px rgba(0,0,0,0.3); transform: rotate(2deg); background: #e3f2fd; padding: 0; border-radius: 8px; display: flex; align-items: stretch; gap: 0; z-index: 2000; width: 250px; }
+        .dragging-overlay .content-area { padding: 10px; display: flex; align-items: center; gap: 10px; flex: 1; }
         .custom-add { padding: 15px; display: flex; flex-direction: column; gap: 10px; }
         .custom-add input { padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem; }
         .custom-add button { padding: 10px; background: #2196F3; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
