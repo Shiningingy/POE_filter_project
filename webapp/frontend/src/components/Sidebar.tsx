@@ -37,8 +37,7 @@ interface CategoryStructure {
 const Sidebar: React.FC<SidebarProps> = ({
   selectedFile,
   onSelect,
-  language,
-  onOpenSoundManager
+  language
 }) => {
   const [structure, setStructure] = useState<CategoryStructure | null>(null);
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
@@ -144,12 +143,6 @@ const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       <div className="sidebar-footer">
-          {onOpenSoundManager && (
-              <button className="sound-mgr-btn" onClick={onOpenSoundManager}>
-                  🎵 {language === 'ch' ? "音效管理器" : "Sound Manager"}
-              </button>
-          )}
-          
           {import.meta.env.VITE_DEMO_MODE === 'true' && (
               <button className="reset-demo-btn" onClick={() => {
                   if (confirm("Reset all changes to default? This cannot be undone.")) {
@@ -177,8 +170,6 @@ const Sidebar: React.FC<SidebarProps> = ({
         .file-item.direct-file { margin-left: 25px; }
 
         .sidebar-footer { padding: 15px; border-top: 1px solid #1a1a1a; background: #222; display: flex; flex-direction: column; gap: 10px; }
-        .sound-mgr-btn { width: 100%; background: #2196F3; color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.85rem; }
-        .sound-mgr-btn:hover { background: #1976D2; }
         .reset-demo-btn { width: 100%; background: #d32f2f; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.8rem; opacity: 0.8; }
         .reset-demo-btn:hover { opacity: 1; background: #b71c1c; }
       `}</style>

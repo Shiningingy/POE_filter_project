@@ -932,18 +932,18 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         .sound-tabs button { flex: 1; padding: 8px; font-size: 0.8rem; background: #f5f5f5; color: #222 !important; border: 1px solid #ddd; border-radius: 4px; font-weight: bold; }
         .sound-tabs button.active { background: #2196F3; color: white !important; border-color: #2196F3; }
         .sound-config { display: flex; flex-direction: column; gap: 12px; }
-        .sound-search { width: 100%; background: #fff; border: 1px solid #ddd; padding: 8px; color: #222 !important; border-radius: 4px; font-size: 0.85rem; }
+        .sound-search { width: 100%; background: #fff !important; border: 1px solid #ddd; padding: 8px; color: #222 !important; border-radius: 4px; font-size: 0.85rem; }
         .sound-list { height: 200px; overflow-y: auto; background: #f9f9f9; border: 1px solid #eee; border-radius: 4px; padding: 5px; }
         .sound-item { padding: 6px 10px; cursor: pointer; font-size: 0.8rem; color: #222 !important; border-radius: 2px; }
         .sound-item:hover { background: #e3f2fd; }
         .sound-item.active { background: #2196F3; color: white !important; font-weight: bold; }
         .custom-path-input { display: flex; flex-direction: column; gap: 8px; }
         .custom-path-input label { font-size: 0.8rem; color: #222; font-weight: bold; }
-        .custom-path-input input { background: #fff; border: 1px solid #ddd; padding: 8px; color: #222 !important; border-radius: 4px; font-size: 0.85rem; }
+        .custom-path-input input { background: #fff !important; border: 1px solid #ddd; padding: 8px; color: #222 !important; border-radius: 4px; font-size: 0.85rem; }
         .volume-control { display: flex; flex-direction: column; gap: 8px; }
         .volume-header { display: flex; justify-content: space-between; align-items: center; }
         .volume-header label { font-size: 0.8rem; color: #222; font-weight: bold; }
-        .vol-num-input { width: 60px; background: #fff; border: 1px solid #ddd; color: #222 !important; padding: 4px; border-radius: 2px; font-size: 12px; text-align: center; }
+        .vol-num-input { width: 60px; background: #fff !important; border: 1px solid #ddd; color: #222 !important; padding: 4px; border-radius: 2px; font-size: 12px; text-align: center; }
         .volume-control input[type="range"] { width: 100%; cursor: pointer; }
         .popup-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 15px; border-top: 1px solid #eee; }
         .sound-footer { flex-direction: column; gap: 15px; align-items: stretch; }

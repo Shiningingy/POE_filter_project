@@ -10,6 +10,7 @@ data/*.filter
 data/*.ruthlessfilter
 data/cache
 data/debug
+data/styles
 data/from_filter_blade/image
 filter_generation/test_*
 

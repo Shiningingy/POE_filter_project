@@ -245,7 +245,7 @@ const WorkspaceColumn = ({
 // MAIN COMPONENT
 // ===========================
 
-const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, onSave, categoryRules, themeData, fullConfig }) => {
+const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, onSave, themeData, fullConfig }) => {
   const t = useTranslation(language);
   
   const [items, setItems] = useState<Item[]>([]);
