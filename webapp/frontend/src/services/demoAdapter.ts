@@ -48,7 +48,27 @@ export const setupDemoAdapter = () => {
             setDemoUrl(`${baseURL}demo_data/themes.json`);
         } else if (path.includes('/api/themes/')) {
             const themeName = path.split('/').pop();
-            setDemoUrl(`${baseURL}demo_data/theme_${themeName}.json`);
+            const savedTheme = localStorage.getItem(`demo_theme_${themeName}`);
+            if (savedTheme) {
+                config.adapter = async () => {
+                    // Match backend structure: { theme_name, theme_data, sound_map_data }
+                    // The POST saves whatever the frontend sends. Usually frontend sends { theme_data: ... }
+                    // Let's assume content is the theme_data object itself or the wrapper.
+                    const content = JSON.parse(savedTheme);
+                    const themeData = content.theme_data || content;
+                    
+                    return { 
+                        data: { 
+                            theme_name: themeName, 
+                            theme_data: themeData,
+                            sound_map_data: {} // Mock sound map for now or load separate
+                        }, 
+                        status: 200, statusText: 'OK', headers: {}, config 
+                    };
+                };
+            } else {
+                setDemoUrl(`${baseURL}demo_data/theme_${themeName}.json`);
+            }
         } else if (path.endsWith('/api/sounds/list')) {
             setDemoUrl(`${baseURL}demo_data/sounds.json`);
         } else if (path.endsWith('/api/sound-map')) {
@@ -153,10 +173,19 @@ export const setupDemoAdapter = () => {
                 localStorage.setItem('demo_generated_filter', filterText);
                 return { data: { message: "Success (Generated in Demo)", content: filterText }, status: 200, statusText: 'OK', headers: {}, config };
             };
-        } else if (path.includes('/api/update-item-tier') || path.includes('/api/update-item-override')) {
-             config.adapter = async () => {
-                return { data: { message: "Success (Demo)" }, status: 200, statusText: 'OK', headers: {}, config };
-             };
+        } else if (path.includes('/api/themes/')) {
+            const themeName = path.split('/').pop();
+            const content = typeof config.data === 'string' ? JSON.parse(config.data) : config.data;
+            // Save theme data to localStorage
+            // The ThemePresetEditor might send { theme_data: ... } or just raw data.
+            // We should save it consistent with how we load it: as a separate file override?
+            // Actually, we load themes from static files in demo.
+            // Let's save it to a VFS key: `demo_theme_${themeName}`
+            localStorage.setItem(`demo_theme_${themeName}`, JSON.stringify(content));
+            
+            config.adapter = async () => {
+                return { data: { message: "Saved Theme to Demo Storage", theme_name: themeName }, status: 200, statusText: 'OK', headers: {}, config };
+            };
         } else if (path.includes('/api/config/')) {
             const configPath = path.split('/api/config/')[1];
             const content = typeof config.data === 'string' ? JSON.parse(config.data) : config.data;

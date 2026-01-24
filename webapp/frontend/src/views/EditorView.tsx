@@ -51,12 +51,18 @@ const EditorView: React.FC<EditorViewProps> = ({
   const API_BASE_URL = '';
 
   useEffect(() => {
-    axios.get(`${API_BASE_URL}/api/themes/sharket`)
-        .then(res => {
-            setThemeData(res.data.theme_data);
-            setSoundMap(res.data.sound_map_data);
-        })
-        .catch(err => console.error("Failed to load theme", err));
+    const loadTheme = async () => {
+        try {
+            const settingsRes = await axios.get(`${API_BASE_URL}/api/settings`);
+            const activeTheme = settingsRes.data.active_theme || 'sharket';
+            const themeRes = await axios.get(`${API_BASE_URL}/api/themes/${activeTheme}`);
+            setThemeData(themeRes.data.theme_data);
+            setSoundMap(themeRes.data.sound_map_data);
+        } catch (err) {
+            console.error("Failed to load theme", err);
+        }
+    };
+    loadTheme();
   }, []);
 
   useEffect(() => {

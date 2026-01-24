@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { Language } from '../utils/localization';
 import SoundBulkEditor from '../components/SoundBulkEditor';
+import ThemePresetEditor from '../components/ThemePresetEditor';
 
 interface ThemeViewProps {
   language: Language;
@@ -8,6 +9,7 @@ interface ThemeViewProps {
 
 const ThemeView: React.FC<ThemeViewProps> = ({ language }) => {
   const [showSoundBulkEditor, setShowSoundBulkEditor] = useState(false);
+  const [showThemePresetEditor, setShowThemePresetEditor] = useState(false);
 
   return (
     <div className="theme-view">
@@ -33,14 +35,14 @@ const ThemeView: React.FC<ThemeViewProps> = ({ language }) => {
           </div>
         </div>
 
-        {/* Theme Presets Section (Placeholder) */}
-        <div className="management-card disabled">
+        {/* Theme Presets Section */}
+        <div className="management-card">
           <div className="card-icon">🎨</div>
           <div className="card-content">
-            <h3>{language === 'ch' ? "外观预设 (开发中)" : "Theme Presets (WIP)"}</h3>
-            <p>{language === 'ch' ? "快速应用全局外观模板到特定类别。" : "Quickly apply global theme templates to specific categories."}</p>
-            <button className="manage-btn" disabled>
-              {language === 'ch' ? "尚未开放" : "Coming Soon"}
+            <h3>{language === 'ch' ? "外观预设" : "Theme Presets"}</h3>
+            <p>{language === 'ch' ? "查看和切换全局外观模板 (如: Sharket, Tytykiller)。" : "View and switch global theme templates (e.g. Sharket, Tytykiller)."}</p>
+            <button className="manage-btn" onClick={() => setShowThemePresetEditor(true)}>
+              {language === 'ch' ? "打开外观预设编辑器" : "Open Theme Editor"}
             </button>
           </div>
         </div>
@@ -53,6 +55,13 @@ const ThemeView: React.FC<ThemeViewProps> = ({ language }) => {
           onSave={() => {
             // Logic to refresh if needed
           }}
+        />
+      )}
+
+      {showThemePresetEditor && (
+        <ThemePresetEditor
+          language={language}
+          onClose={() => setShowThemePresetEditor(false)}
         />
       )}
 

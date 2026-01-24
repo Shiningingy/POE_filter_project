@@ -261,6 +261,34 @@ def get_category_structure():
     if not path.exists(): return {"categories": []}
     with open(path, "r", encoding="utf-8") as f: return json.load(f)
 
+@app.get("/api/settings")
+def get_settings():
+    path = CONFIG_DATA_DIR / "settings.json"
+    if not path.exists():
+        return {"active_theme": "sharket"}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except:
+        return {"active_theme": "sharket"}
+
+@app.post("/api/settings")
+async def save_settings(content: dict = Body(...)):
+    path = CONFIG_DATA_DIR / "settings.json"
+    try:
+        # Load existing
+        existing = {}
+        if path.exists():
+            existing = json.load(open(path, "r", encoding="utf-8"))
+        
+        existing.update(content)
+        
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(existing, f, indent=4, ensure_ascii=False)
+        return {"message": "Success"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/api/themes")
 def get_themes_list():
     themes_dir = CONFIG_DATA_DIR / "theme"
@@ -651,6 +679,25 @@ def get_theme_data(theme_name: str):
         s_data = json.load(open(sound_map[0], "r", encoding="utf-8")) if sound_map else {}
         return {"theme_name": theme_name, "theme_data": t_data, "sound_map_data": s_data}
     except Exception as e: raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/themes/{theme_name}")
+async def save_theme_data(theme_name: str, content: dict = Body(...)):
+    theme_dir = safe_join(CONFIG_DATA_DIR / "theme", theme_name)
+    theme_file = theme_dir / f"{theme_name}_theme.json"
+    
+    if not theme_dir.exists():
+        # Create new theme if it doesn't exist (Folder + File)
+        theme_dir.mkdir(parents=True, exist_ok=True)
+    
+    try:
+        # If content has 'theme_data' key, use that (wrapper), else use content directly
+        data_to_save = content.get("theme_data", content)
+        
+        with open(theme_file, "w", encoding="utf-8") as f:
+            json.dump(data_to_save, f, indent=4, ensure_ascii=False)
+        return {"message": "Success", "theme_name": theme_name}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/mapping-info/{file_name:path}")
 def get_mapping_info(file_name: str):

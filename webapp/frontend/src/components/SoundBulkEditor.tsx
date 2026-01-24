@@ -396,7 +396,6 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
 
   const handleDragStart = (event: DragStartEvent) => {
       const { active } = event;
-      console.log("[DND] DragStart:", active.id);
       setActiveId(active.id as string);
       setActiveDragData(event.active.data.current);
   };
@@ -411,8 +410,6 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
     const overId = over.id as string;
     const activeData = active.data.current;
     const overData = over.data.current;
-
-    console.log("[DND] DragEnd:", { id, overId, activeType: activeData?.type, overType: overData?.type });
 
     if (activeData?.type === 'catalog-sound') {
         const overIndex = activeColumns.findIndex(c => c.path === overId.replace('-sort', ''));
