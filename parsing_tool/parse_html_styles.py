@@ -12,25 +12,28 @@ RAW_MAPPING = [
     # --- TEMPLATES (Global Source of Truth) ---
     ("Currency God Tier 1", "Templates", "Tier 0"),
     ("Currency High Tier 2", "Templates", "Tier 1"),
-    ("Currency Mid Tier 2", "Templates", "Tier 2"),
-    ("Currency Basic Tier 1", "Templates", "Tier 3"),
-    ("Currency Basic Tier 2", "Templates", "Tier 4"),
-    ("Currency Basic Tier 4", "Templates", "Tier 5"),
-    ("Tier 2 rares", "Templates", "Tier 6"),
-    ("Tier 3 rares", "Templates", "Tier 7"),
-    ("Hide Lower Rares in High Maps 4", "Templates", "Tier 8"),
+    ("Currency High Tier 3", "Templates", "Tier 2"),
+    ("Currency Mid Tier 1", "Templates", "Tier 3"),
+    ("Currency Mid Tier 2", "Templates", "Tier 4"), 
+    ("Currency Basic Tier 1", "Templates", "Tier 5"),
+    ("Currency Basic Tier 2", "Templates", "Tier 6"),
+    ("Tier 2 rares", "Templates", "Tier 7"),
+    ("Tier 3 rares", "Templates", "Tier 8"),
 
     # --- CURRENCY ---
-    ("Currency God Tier 1", "Currency", "Tier 0"),
-    ("Currency High Tier 2", "Currency", "Tier 1"),
-    ("Currency Mid Tier 2", "Currency", "Tier 2"),
-    ("Currency Basic Tier 1", "Currency", "Tier 3"),
-    ("Currency Basic Tier 2", "Currency", "Tier 4"),
-    ("Currency Basic Tier 4", "Currency", "Tier 5"),
+    ("Currency God Tier 1", "Stackable Currency", "Tier 0"),
+    ("Currency High Tier 2", "Stackable Currency", "Tier 1"),
+    ("Currency High Tier 3", "Stackable Currency", "Tier 4"),
+    ("Currency Mid Tier 1", "Stackable Currency", "Tier 2"),
+    ("Currency Mid Tier 2", "Stackable Currency", "Tier 3"),
+    ("Currency Basic Tier 1", "Stackable Currency", "Tier 5"),
+    ("Currency Basic Tier 2", "Stackable Currency", "Tier 6"),
+    ("Currency Basic Tier 4", "Stackable Currency", "Tier 7"),
     
     # --- MAPS ---
     ("Map appearance T16", "Maps", "Tier 0"),
     ("Map appearance T12", "Maps", "Tier 1"),
+    ("Map appearance T11", "Maps", "Tier 1"),
     ("Map appearance T9", "Maps", "Tier 2"),
     ("Map appearance T7", "Maps", "Tier 3"),
     ("Map appearance T2", "Maps", "Tier 4"),
@@ -43,8 +46,8 @@ RAW_MAPPING = [
     
     # --- EQUIPMENT (Aggregated) ---
     # Uniques
-    ("Uniques Tier 1", "Equipment", "Tier 0"),
-    ("Uniques Tier 2", "Equipment", "Tier 1"),
+    ("Uniques Tier 1", "Uniques", "Tier 0"),
+    ("Uniques Tier 2", "Uniques", "Tier 1"),
     # Rares
     ("Rare rings/amulets T1", "Equipment", "Tier 2"),
     ("Rare rings/amulets T2", "Equipment", "Tier 3"),

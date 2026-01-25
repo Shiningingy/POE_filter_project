@@ -1,5 +1,3 @@
-
-
 export interface ItemProps {
     name: string; // BaseType
     class: string;
@@ -36,6 +34,7 @@ export interface SimulationResult {
     style: React.CSSProperties;
     matchedRule?: string;
     matchedTier?: string;
+    matchedFile?: string;
 }
 
 export const parseClipboardItem = (text: string): ItemProps => {
@@ -91,8 +90,9 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
     let category = "Templates";
 
     // 1. Search specific mapping & Apply Rules
+    const itemNameLower = item.name.toLowerCase();
+
     for (const [path, content] of Object.entries(context.mappings)) {
-        // A. Check Rules first (Overrides base mapping)
         const rules = content.rules || [];
         for (const rule of rules) {
             if (checkRuleMatch(item, rule, context.globalAreaLevel)) {
@@ -106,10 +106,10 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
         }
         if (matchedTier) break; 
 
-        // B. Check Base Mapping
         const mapping = content.mapping || {};
-        if (mapping[item.name]) {
-            matchedTier = mapping[item.name];
+        const matchKey = Object.keys(mapping).find(k => k.toLowerCase() === itemNameLower);
+        if (matchKey) {
+            matchedTier = mapping[matchKey];
             matchedFile = path;
             break; 
         }
@@ -125,44 +125,71 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
 
     // 2. Resolve Category
     if (matchedFile) {
-        const parts = matchedFile.split('/');
-        if (parts.length >= 2) {
-            const potentialCat = parts[parts.length - 2];
-            if (context.theme && context.theme[potentialCat]) {
-                category = potentialCat;
+        const mappingContent = context.mappings[matchedFile];
+        const metaCat = mappingContent?._meta?.theme_category;
+        
+        if (metaCat) {
+            category = metaCat;
+        } else {
+            const parts = matchedFile.split('/');
+            const relevantParts = parts.filter(p => p !== 'base_mapping' && !p.endsWith('.json'));
+            if (relevantParts.length > 0) {
+                category = relevantParts[relevantParts.length - 1];
             }
-            if (potentialCat === "Fragments") category = "Map Fragments"; 
+            if (category === "Fragments") category = "Map Fragments";
         }
     }
 
     // 3. Resolve Style from Theme
     let style: React.CSSProperties = {
         color: '#888',
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        border: '1px solid #333',
-        fontSize: '16px' 
+        backgroundColor: 'rgba(0,0,0,0.8)',
+        borderColor: '#333',
+        borderStyle: 'solid',
+        borderWidth: '1px',
+        fontSize: '14px',
+        padding: '2px 6px',
+        fontFamily: 'Fontin, sans-serif'
     };
     
     let visible = true; 
 
     let themeStyle = null;
-    if (matchedTier) {
-        if (context.overrides && context.overrides[category] && context.overrides[category][matchedTier]) {
-            themeStyle = context.overrides[category][matchedTier];
-        } else if (context.theme && context.theme[category] && context.theme[category][matchedTier]) {
-            themeStyle = context.theme[category][matchedTier];
-        } else if (context.theme && context.theme["Templates"] && context.theme["Templates"][matchedTier]) {
-             themeStyle = context.theme["Templates"][matchedTier];
-        }
+    if (matchedTier && matchedTier !== "Untiered") {
+        const tierMatch = matchedTier.match(/Tier \d+/);
+        const normalizedTier = tierMatch ? tierMatch[0] : matchedTier;
+
+        const checkStyle = (cat: string, tier: string) => {
+            if (context.overrides && context.overrides[cat] && context.overrides[cat][tier]) return context.overrides[cat][tier];
+            if (context.theme && context.theme[cat] && context.theme[cat][tier]) return context.theme[cat][tier];
+            return null;
+        };
+
+        // Priority lookup
+        themeStyle = checkStyle(category, matchedTier);
+        if (!themeStyle) themeStyle = checkStyle(category, normalizedTier);
+        if (!themeStyle) themeStyle = checkStyle("Templates", matchedTier);
+        if (!themeStyle) themeStyle = checkStyle("Templates", normalizedTier);
     }
 
     if (themeStyle) {
-        style = convertThemeStyle(themeStyle);
+        const converted = convertThemeStyle(themeStyle);
+        style = { ...style, ...converted };
+        
+        Object.keys(style).forEach(key => {
+            if ((style as any)[key] === undefined) delete (style as any)[key];
+        });
     }
 
     if (matchedTier && matchedTier.includes('Hide')) visible = false;
 
-    return { visible, style, matchedTier: matchedTier || undefined, matchedRule: matchedRuleName || undefined };
+    return { 
+        visible, 
+        style, 
+        matchedTier: matchedTier || undefined, 
+        matchedRule: matchedRuleName || undefined,
+        matchedFile: matchedFile || undefined
+    };
 };
 
 const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: number): boolean => {
@@ -217,7 +244,8 @@ const convertThemeStyle = (ts: any): React.CSSProperties => {
         color: ts.TextColor ? colorToRgb(ts.TextColor) : undefined,
         backgroundColor: ts.BackgroundColor ? colorToRgb(ts.BackgroundColor) : undefined,
         borderColor: ts.BorderColor ? colorToRgb(ts.BorderColor) : undefined,
-        fontSize: ts.FontSize ? `${ts.FontSize / 2.5}px` : undefined, 
+        // user requested to ignore theme font size for simulator or set it same
+        // fontSize: ts.FontSize ? `${ts.FontSize / 2.5}px` : undefined, 
         borderStyle: ts.BorderColor ? 'solid' : 'none',
         borderWidth: ts.BorderColor ? '1px' : '0px',
     };

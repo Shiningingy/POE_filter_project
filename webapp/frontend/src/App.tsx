@@ -33,6 +33,39 @@ function App() {
 
   const API_BASE_URL = ''; 
 
+  const handleJumpToRule = useCallback(async (filePath: string, _ruleIndex?: number) => {
+      // 1. Find the CategoryFile object for this path
+      const structureRes = await axios.get('/api/category-structure');
+      const findFile = (node: any): CategoryFile | null => {
+          if (node.files) {
+              for (const f of node.files) {
+                  if (f.path.includes(filePath) || filePath.includes(f.path)) return f;
+              }
+          }
+          if (node.categories) {
+              for (const c of node.categories) {
+                  const found = findFile(c);
+                  if (found) return found;
+              }
+          }
+          if (node.subgroups) {
+              for (const s of node.subgroups) {
+                  const found = findFile(s);
+                  if (found) return found;
+              }
+          }
+          return null;
+      };
+      
+      const fileObj = findFile(structureRes.data);
+      if (fileObj) {
+          setSelectedFile(fileObj);
+          setCurrentView('editor');
+          // Note: Scrolling to specific rule index needs support in RuleManager.
+          // For now, opening the file is a huge win.
+      }
+  }, []);
+
   const fetchConfigContent = useCallback(async (path: string) => {
     setLoading(true);
     try {
@@ -146,7 +179,7 @@ function App() {
           <ThemeView language={language} />
         )}
         {currentView === 'simulator' && (
-          <SimulatorView filterContent={filterPreview} language={language} />
+          <SimulatorView filterContent={filterPreview} language={language} onJumpToRule={handleJumpToRule} />
         )}
         {currentView === 'export' && (
           <ExportView 

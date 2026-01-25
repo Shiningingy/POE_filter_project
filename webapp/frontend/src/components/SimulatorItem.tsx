@@ -7,10 +7,11 @@ interface SimulatorItemProps {
     item: ItemProps & { id: number; x: number; y: number };
     result: SimulationResult;
     onDelete: () => void;
+    onJumpToRule?: (file: string, ruleIndex?: number) => void;
     language: Language;
 }
 
-const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, language }) => {
+const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, onJumpToRule, language }) => {
     const [contextMenu, setContextMenu] = useState<{ x: number, y: number } | null>(null);
     const [hover, setHover] = useState(false);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -34,6 +35,7 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, l
         { label: `Tier: ${result.matchedTier || 'Untiered'}`, disabled: true, onClick: () => {} },
         { label: `Rule: ${result.matchedRule || 'Base Mapping'}`, disabled: true, onClick: () => {} },
         { divider: true, label: "", onClick: () => {} },
+        { label: "Jump to Rule", disabled: !result.matchedFile, onClick: () => result.matchedFile && onJumpToRule?.(result.matchedFile) },
         { label: "Copy Item Text", onClick: copyItemText },
         { label: "Remove", onClick: onDelete, color: "#ff4444" }
     ];

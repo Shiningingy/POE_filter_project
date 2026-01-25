@@ -9,9 +9,10 @@ import SimulatorItem from './SimulatorItem';
 
 interface DropSimulatorProps {
   language: Language;
+  onJumpToRule?: (filePath: string, ruleIndex?: number) => void;
 }
 
-const DropSimulator: React.FC<DropSimulatorProps> = ({ language }) => {
+const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule }) => {
   const t = useTranslation(language);
   const [droppedItems, setDroppedItems] = useState<(ItemProps & { id: number, x: number, y: number })[]>([]);
   const [context, setContext] = useState<FilterContext | null>(null);
@@ -82,6 +83,11 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language }) => {
             mappings,
             tierDefinitions,
             globalAreaLevel
+        });
+        console.log("[Simulator] Context Loaded:", { 
+            mappingCount: Object.keys(mappings).length,
+            tierCount: Object.keys(tierDefinitions).length,
+            themeCategories: Object.keys(themeRes.data.theme_data)
         });
     } catch (e) {
         console.error("Failed to load context", e);
@@ -170,6 +176,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language }) => {
                     result={result} 
                     language={language}
                     onDelete={() => setDroppedItems(prev => prev.filter(i => i.id !== item.id))}
+                    onJumpToRule={onJumpToRule}
                 />
             );
         })}
