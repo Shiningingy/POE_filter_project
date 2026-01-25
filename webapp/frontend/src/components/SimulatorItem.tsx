@@ -40,6 +40,19 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
         { label: "Remove", onClick: onDelete, color: "#ff4444" }
     ];
 
+    const playItemSound = () => {
+        const soundData = result.style.sound; // Custom field I need to add to evaluateItem
+        if (!soundData) return;
+
+        // soundData is usually [path, volume] or just path
+        const path = Array.isArray(soundData) ? soundData[0] : soundData;
+        const vol = Array.isArray(soundData) ? soundData[1] : 100;
+
+        const audio = new Audio(`/api/sounds/proxy?path=${encodeURIComponent(path)}`);
+        audio.volume = vol / 100;
+        audio.play().catch(e => console.warn("Failed to play sound", e));
+    };
+
     if (!result.visible) return null;
 
     return (
@@ -53,6 +66,7 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
                     top: `calc(50% + ${item.y}px)`,
                     transform: 'translate(-50%, -50%)',
                 }}
+                onClick={playItemSound}
                 onContextMenu={handleContextMenu}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}

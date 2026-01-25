@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
@@ -29,12 +29,13 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
 
   // Data for Dropdowns
   const [itemClasses, setItemClasses] = useState<string[]>([]);
-  const [baseTypes, setBaseTypes] = useState<string[]>([]); // For current class
+  const [allClassItems, setAllClassItems] = useState<Record<string, string[]>>({});
+  const [classProperties, setClassProperties] = useState<any>({ classes: {} });
 
   // Creator State
   const [newItem, setNewItem] = useState<ItemProps>({ 
-      name: 'Chaos Orb', class: 'Currency', itemLevel: 80, rarity: 'Normal',
-      identified: true, dropLevel: 1
+      name: 'Chaos Orb', class: 'Stackable Currency', itemLevel: 80, rarity: 'Normal',
+      identified: true, dropLevel: 1, stackSize: 1
   });
 
   const backgrounds = [
@@ -47,15 +48,8 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
 
   useEffect(() => {
     loadContext();
-    fetchClasses();
+    fetchInitialData();
   }, []);
-
-  // Update base types when class changes
-  useEffect(() => {
-      if (newItem.class) {
-          fetchBaseTypes(newItem.class);
-      }
-  }, [newItem.class]);
 
   const loadContext = async () => {
     try {
@@ -84,11 +78,6 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
             tierDefinitions,
             globalAreaLevel
         });
-        console.log("[Simulator] Context Loaded:", { 
-            mappingCount: Object.keys(mappings).length,
-            tierCount: Object.keys(tierDefinitions).length,
-            themeCategories: Object.keys(themeRes.data.theme_data)
-        });
     } catch (e) {
         console.error("Failed to load context", e);
     } finally {
@@ -96,21 +85,31 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
     }
   };
 
-  const fetchClasses = async () => {
+  const fetchInitialData = async () => {
       try {
-          const res = await axios.get('/api/item-classes');
-          setItemClasses(res.data.classes || []);
+          const [classRes, propsRes] = await Promise.all([
+              axios.get('/api/item-classes'),
+              axios.get('/api/class-properties')
+          ]);
+          setItemClasses(classRes.data.classes || []);
+          setClassProperties(propsRes.data);
       } catch (e) {}
   };
 
   const fetchBaseTypes = async (cls: string) => {
+      if (allClassItems[cls]) return;
       try {
           const res = await axios.get(`/api/class-items/${cls}`);
-          // Extract names
           const names = res.data.items.map((i: any) => i.name).sort();
-          setBaseTypes(names);
+          setAllClassItems(prev => ({ ...prev, [cls]: names }));
       } catch (e) {}
   };
+
+  useEffect(() => {
+      if (newItem.class) {
+          fetchBaseTypes(newItem.class);
+      }
+  }, [newItem.class]);
 
   const addItemToGround = (item: ItemProps) => {
       const angle = Math.random() * Math.PI * 2;
@@ -136,6 +135,38 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
           return { backgroundColor: c === 'grey' ? '#333' : '#000' };
       }
       return { backgroundImage: `url('${getAssetUrl(`assets/item_bg/${viewerBackground}`)}')`, backgroundSize: 'cover' };
+  };
+
+  const activeProps = useMemo(() => {
+      return classProperties.classes[newItem.class] || classProperties.defaults || { properties: [], flags: [] };
+  }, [newItem.class, classProperties]);
+
+  const renderField = (key: string, label: string, type: 'number' | 'text' | 'select', options?: string[]) => {
+      const isVisible = activeProps.properties.includes(key) || activeProps.flags?.includes(key) || ['itemLevel', 'dropLevel', 'rarity'].includes(key);
+      if (!isVisible && key !== 'name' && key !== 'class') return null;
+
+      return (
+          <div className={`form-group ${['name', 'class'].includes(key) ? 'full-width' : ''}`}>
+              <label>{label}</label>
+              {type === 'select' ? (
+                  <select value={(newItem as any)[key]} onChange={e => setNewItem({...newItem, [key]: e.target.value})}>
+                      {options?.map(o => <option key={o} value={o}>{o}</option>)}
+                  </select>
+              ) : (
+                  <input 
+                    type={type} 
+                    value={(newItem as any)[key] || ''} 
+                    onChange={e => setNewItem({...newItem, [key]: type === 'number' ? parseInt(e.target.value) : e.target.value})} 
+                    list={key === 'name' ? 'base-types' : undefined}
+                  />
+              )}
+              {key === 'name' && (
+                  <datalist id="base-types">
+                      {(allClassItems[newItem.class] || []).map(b => <option key={b} value={b} />)}
+                  </datalist>
+              )}
+          </div>
+      );
   };
 
   return (
@@ -165,7 +196,6 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
         
         {droppedItems.map((item) => {
             if (!context) return null;
-            // Update context with live AreaLevel
             const liveContext = { ...context, globalAreaLevel };
             const result = evaluateItem(item, liveContext);
             
@@ -187,60 +217,32 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
               <div className="modal-content large">
                   <h3>Create Item</h3>
                   <div className="form-grid">
-                      <div className="form-group full-width">
-                          <label>Class</label>
-                          <select value={newItem.class} onChange={e => setNewItem({...newItem, class: e.target.value})}>
-                              {itemClasses.map(c => <option key={c} value={c}>{c}</option>)}
-                          </select>
-                      </div>
-                      <div className="form-group full-width">
-                          <label>Base Type</label>
-                          <input list="base-types" type="text" value={newItem.name} onChange={e => setNewItem({...newItem, name: e.target.value})} />
-                          <datalist id="base-types">
-                              {baseTypes.map(b => <option key={b} value={b} />)}
-                          </datalist>
-                      </div>
+                      {renderField('class', 'Item Class', 'select', itemClasses)}
+                      {renderField('name', 'Base Type', 'text')}
                       
-                      <div className="form-group">
-                          <label>Item Level</label>
-                          <input type="number" value={newItem.itemLevel || 0} onChange={e => setNewItem({...newItem, itemLevel: parseInt(e.target.value)})} />
-                      </div>
-                      <div className="form-group">
-                          <label>Drop Level</label>
-                          <input type="number" value={newItem.dropLevel || 0} onChange={e => setNewItem({...newItem, dropLevel: parseInt(e.target.value)})} />
-                      </div>
-                      <div className="form-group">
-                          <label>Rarity</label>
-                          <select value={newItem.rarity || 'Normal'} onChange={e => setNewItem({...newItem, rarity: e.target.value as any})}>
-                              <option>Normal</option>
-                              <option>Magic</option>
-                              <option>Rare</option>
-                              <option>Unique</option>
-                          </select>
-                      </div>
-                      <div className="form-group">
-                          <label>Quality</label>
-                          <input type="number" value={newItem.quality || 0} onChange={e => setNewItem({...newItem, quality: parseInt(e.target.value)})} />
-                      </div>
-                      <div className="form-group">
-                          <label>Sockets (e.g. R G B)</label>
-                          <input type="text" value={newItem.sockets || ''} onChange={e => setNewItem({...newItem, sockets: e.target.value})} />
-                      </div>
-                      <div className="form-group">
-                          <label>Linked Sockets</label>
-                          <input type="number" value={newItem.linkedSockets || 0} onChange={e => setNewItem({...newItem, linkedSockets: parseInt(e.target.value)})} />
-                      </div>
+                      {renderField('itemLevel', 'Item Level', 'number')}
+                      {renderField('dropLevel', 'Drop Level', 'number')}
+                      {renderField('rarity', 'Rarity', 'select', ['Normal', 'Magic', 'Rare', 'Unique'])}
+                      {renderField('quality', 'Quality', 'number')}
+                      {renderField('stackSize', 'Stack Size', 'number')}
+                      {renderField('gemLevel', 'Gem Level', 'number')}
+                      {renderField('mapTier', 'Map Tier', 'number')}
+                      {renderField('sockets', 'Sockets (e.g. R G B)', 'text')}
+                      {renderField('linkedSockets', 'Linked Sockets', 'number')}
                   </div>
                   
                   <div className="flags-section">
                       <h4>Flags</h4>
                       <div className="flags-grid">
-                          {['identified', 'corrupted', 'mirrored', 'fractured', 'synthesised', 'shaper', 'elder'].map(flag => (
-                              <label key={flag}>
-                                  <input type="checkbox" checked={!!newItem[flag]} onChange={e => setNewItem({...newItem, [flag]: e.target.checked})} />
-                                  {flag.charAt(0).toUpperCase() + flag.slice(1)}
-                              </label>
-                          ))}
+                          {['identified', 'corrupted', 'mirrored', 'fractured', 'synthesised', 'shaper', 'elder'].map(flag => {
+                              if (!activeProps.flags?.includes(flag) && !['identified', 'corrupted', 'mirrored'].includes(flag)) return null;
+                              return (
+                                <label key={flag}>
+                                    <input type="checkbox" checked={!!newItem[flag]} onChange={e => setNewItem({...newItem, [flag]: e.target.checked})} />
+                                    {flag.charAt(0).toUpperCase() + flag.slice(1)}
+                                </label>
+                              );
+                          })}
                       </div>
                   </div>
 

@@ -638,6 +638,16 @@ def generate_filter_file():
         return {"message": "Success"}
     except Exception as e: raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/api/class-properties")
+def get_class_properties():
+    import yaml
+    path = CONFIG_DATA_DIR / "class_properties.yaml"
+    if not path.exists(): return {"classes": {}}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return yaml.safe_load(f)
+    except: return {"classes": {}}
+
 @app.get("/api/simulator-bundle")
 def get_simulator_bundle():
     # Construct a bundle similar to demo bundle

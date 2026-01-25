@@ -31,7 +31,7 @@ export interface FilterContext {
 
 export interface SimulationResult {
     visible: boolean;
-    style: React.CSSProperties;
+    style: React.CSSProperties & { sound?: any };
     matchedRule?: string;
     matchedTier?: string;
     matchedFile?: string;
@@ -239,7 +239,7 @@ const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: number): b
     return true;
 };
 
-const convertThemeStyle = (ts: any): React.CSSProperties => {
+const convertThemeStyle = (ts: any): any => {
     return {
         color: ts.TextColor ? colorToRgb(ts.TextColor) : undefined,
         backgroundColor: ts.BackgroundColor ? colorToRgb(ts.BackgroundColor) : undefined,
@@ -248,6 +248,7 @@ const convertThemeStyle = (ts: any): React.CSSProperties => {
         // fontSize: ts.FontSize ? `${ts.FontSize / 2.5}px` : undefined, 
         borderStyle: ts.BorderColor ? 'solid' : 'none',
         borderWidth: ts.BorderColor ? '1px' : '0px',
+        sound: ts.PlayAlertSound || undefined
     };
 };
 
