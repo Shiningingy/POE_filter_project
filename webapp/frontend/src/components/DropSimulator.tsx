@@ -5,6 +5,7 @@ import type { Language } from '../utils/localization';
 import { evaluateItem, parseClipboardItem } from '../utils/simulatorEngine';
 import type { ItemProps, FilterContext } from '../utils/simulatorEngine';
 import { getAssetUrl } from '../utils/assetUtils';
+import SimulatorItem from './SimulatorItem';
 
 interface DropSimulatorProps {
   language: Language;
@@ -157,34 +158,19 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language }) => {
         {loading && <div className="loading-overlay">{t.loading}</div>}
         
         {droppedItems.map((item) => {
+            if (!context) return null;
             // Update context with live AreaLevel
-            const liveContext = { ...context!, globalAreaLevel };
-            const result = context ? evaluateItem(item, liveContext) : { style: {}, visible: true };
-            
-            if (!result.visible) return (
-                <div key={item.id} className="item-plate hidden" style={{ position: 'absolute', left: `calc(50% + ${item.x}px)`, top: `calc(50% + ${item.y}px)` }}>
-                    <div className="ghost-box">Hidden: {item.name}</div>
-                </div>
-            );
+            const liveContext = { ...context, globalAreaLevel };
+            const result = evaluateItem(item, liveContext);
             
             return (
-                <div 
+                <SimulatorItem 
                     key={item.id} 
-                    className="item-plate" 
-                    style={{
-                        ...result.style,
-                        position: 'absolute',
-                        left: `calc(50% + ${item.x}px)`,
-                        top: `calc(50% + ${item.y}px)`,
-                        transform: 'translate(-50%, -50%)',
-                    }}
-                    title={`${item.name}\nTier: ${result.matchedTier || 'Untiered'}\nRule: ${result.matchedRule || 'None'}`}
-                >
-                    <div className="plate-body">
-                        {item.name}
-                        {item.stackSize && item.stackSize > 1 && <span className="stack-size"> x{item.stackSize}</span>}
-                    </div>
-                </div>
+                    item={item} 
+                    result={result} 
+                    language={language}
+                    onDelete={() => setDroppedItems(prev => prev.filter(i => i.id !== item.id))}
+                />
             );
         })}
       </div>
@@ -319,6 +305,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language }) => {
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .form-group label { display: block; font-size: 0.75rem; color: #888; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
         .form-group input, .form-group select { width: 100%; padding: 8px; background: #111; border: 1px solid #444; color: white; border-radius: 4px; box-sizing: border-box; }
+        .form-group input:focus { border-color: #2196F3; outline: none; }
         .form-group.full-width { grid-column: span 2; }
         
         .flags-section h4 { border-bottom: 1px solid #333; padding-bottom: 5px; margin-bottom: 10px; color: #aaa; font-size: 0.9rem; }
