@@ -19,6 +19,7 @@ export interface ItemProps {
     elder?: boolean;
     shaper?: boolean;
     hasImplicit?: boolean;
+    stackSize?: number;
     [key: string]: any;
 }
 
@@ -63,6 +64,7 @@ export const parseClipboardItem = (text: string): ItemProps => {
                 case 'Sockets': item.sockets = val; break;
                 case 'LinkedSockets': item.linkedSockets = parseInt(val); break;
                 case 'Quality': item.quality = parseInt(val); break;
+                case 'Stack Size': item.stackSize = parseInt(val); break;
                 case 'HasImplicitMod': item.hasImplicit = val === 'True'; break;
             }
         } else {
@@ -72,6 +74,8 @@ export const parseClipboardItem = (text: string): ItemProps => {
             if (line === 'Synthesised') item.synthesised = true;
             if (line === 'Unidentified') item.identified = false; // Default true?
             if (line === 'Identified') item.identified = true;
+            if (line === 'Shaper Item') item.shaper = true;
+            if (line === 'Elder Item') item.elder = true;
         }
     });
     
@@ -81,7 +85,7 @@ export const parseClipboardItem = (text: string): ItemProps => {
 // --- Evaluation Logic ---
 
 export const evaluateItem = (item: ItemProps, context: FilterContext): SimulationResult => {
-    let matchedTier = null;
+    let matchedTier: string | null = null;
     let matchedFile = null;
     let matchedRuleName = null;
     let category = "Templates";
@@ -107,9 +111,6 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
         if (mapping[item.name]) {
             matchedTier = mapping[item.name];
             matchedFile = path;
-            // Don't break yet, check other files? No, usually first match wins or specific file wins.
-            // In Python generator, we iterate by category priority. Here we iterate by file key order (randomish).
-            // For MVP, first match is okay.
             break; 
         }
     }
@@ -128,8 +129,6 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
         // path: "base_mapping/Currency/General.json"
         const parts = matchedFile.split('/');
         if (parts.length >= 2) {
-            // "Currency" is at parts[parts.length - 2] usually? 
-            // base_mapping / Category / File.json
             const potentialCat = parts[parts.length - 2];
             
             // Check if this category exists in theme
@@ -156,12 +155,14 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
     let themeStyle = null;
     
     // Check Custom Overrides
-    if (context.overrides && context.overrides[category] && context.overrides[category][matchedTier]) {
-        themeStyle = context.overrides[category][matchedTier];
-    } else if (context.theme && context.theme[category] && context.theme[category][matchedTier]) {
-        themeStyle = context.theme[category][matchedTier];
-    } else if (context.theme && context.theme["Templates"] && context.theme["Templates"][matchedTier]) {
-         themeStyle = context.theme["Templates"][matchedTier];
+    if (matchedTier) {
+        if (context.overrides && context.overrides[category] && context.overrides[category][matchedTier]) {
+            themeStyle = context.overrides[category][matchedTier];
+        } else if (context.theme && context.theme[category] && context.theme[category][matchedTier]) {
+            themeStyle = context.theme[category][matchedTier];
+        } else if (context.theme && context.theme["Templates"] && context.theme["Templates"][matchedTier]) {
+             themeStyle = context.theme["Templates"][matchedTier];
+        }
     }
 
     if (themeStyle) {
@@ -169,14 +170,9 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
     }
 
     // 4. Check for Hide
-    if (matchedTier && typeof matchedTier === 'string') {
-        if (matchedTier.includes('Hide')) visible = false;
-        // Also check if tierDefinition says "is_hide_tier": true
-        // But we don't have tierDefinitions loaded fully in this context yet in the simple mock.
-        // Assuming string based "Hide" for MVP.
-    }
+    if (matchedTier && matchedTier.includes('Hide')) visible = false;
 
-    return { visible, style, matchedTier, matchedRule: matchedRuleName || undefined };
+    return { visible, style, matchedTier: matchedTier || undefined, matchedRule: matchedRuleName || undefined };
 };
 
 const checkRuleMatch = (item: ItemProps, rule: any): boolean => {
@@ -211,6 +207,7 @@ const checkRuleMatch = (item: ItemProps, rule: any): boolean => {
         if (key === 'LinkedSockets') itemVal = item.linkedSockets;
         if (key === 'Sockets') itemVal = item.sockets?.length || 0; // Rough count
         if (key === 'Quality') itemVal = item.quality;
+        if (key === 'StackSize') itemVal = item.stackSize;
         
         // Convert itemVal to string for comparison if needed
         if (typeof targetVal === 'string' && typeof itemVal !== 'string') itemVal = String(itemVal);

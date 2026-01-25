@@ -638,6 +638,30 @@ def generate_filter_file():
         return {"message": "Success"}
     except Exception as e: raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/api/simulator-bundle")
+def get_simulator_bundle():
+    # Construct a bundle similar to demo bundle
+    mappings = {}
+    tier_defs = {}
+    
+    # Load Mappings
+    for file_path in (CONFIG_DATA_DIR / "base_mapping").rglob("*.json"):
+        try:
+            rel_path = file_path.relative_to(CONFIG_DATA_DIR).as_posix() # "base_mapping/..."
+            with open(file_path, "r", encoding="utf-8") as f:
+                mappings[rel_path] = json.load(f)
+        except: pass
+
+    # Load Tier Defs
+    for file_path in (CONFIG_DATA_DIR / "tier_definition").rglob("*.json"):
+        try:
+            rel_path = file_path.relative_to(CONFIG_DATA_DIR).as_posix()
+            with open(file_path, "r", encoding="utf-8") as f:
+                tier_defs[rel_path] = json.load(f)
+        except: pass
+
+    return {"mappings": mappings, "tiers": tier_defs}
+
 # --- Generic Path Endpoints (Bottom Priority) ---
 
 @app.get("/api/sound-map")
