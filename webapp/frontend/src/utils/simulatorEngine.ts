@@ -28,6 +28,7 @@ export interface FilterContext {
     tierDefinitions: Record<string, any>; // FilePath -> Content
     theme: any; // Active Theme Data
     overrides: any; // Custom Overrides
+    globalAreaLevel?: number; // Environment context
 }
 
 export interface SimulationResult {
@@ -41,7 +42,6 @@ export const parseClipboardItem = (text: string): ItemProps => {
     const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l);
     const item: ItemProps = { name: "Unknown", class: "Unknown" };
     
-    // First line usually Name (if not Key: Value)
     if (lines.length > 0 && !lines[0].includes(':') && lines[0] !== '--------') {
         item.name = lines[0];
     }
@@ -95,16 +95,16 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
         // A. Check Rules first (Overrides base mapping)
         const rules = content.rules || [];
         for (const rule of rules) {
-            if (checkRuleMatch(item, rule)) {
+            if (checkRuleMatch(item, rule, context.globalAreaLevel)) {
                 if (rule.overrides && rule.overrides.Tier) {
                     matchedTier = rule.overrides.Tier;
                     matchedFile = path;
                     matchedRuleName = rule.comment || "Custom Rule";
-                    break; // Found a rule match
+                    break; 
                 }
             }
         }
-        if (matchedTier) break; // Rule matched, stop searching files
+        if (matchedTier) break; 
 
         // B. Check Base Mapping
         const mapping = content.mapping || {};
@@ -125,17 +125,12 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
 
     // 2. Resolve Category
     if (matchedFile) {
-        // Try to resolve category from file path or structure
-        // path: "base_mapping/Currency/General.json"
         const parts = matchedFile.split('/');
         if (parts.length >= 2) {
             const potentialCat = parts[parts.length - 2];
-            
-            // Check if this category exists in theme
             if (context.theme && context.theme[potentialCat]) {
                 category = potentialCat;
             }
-            // Or Map Fragments special case
             if (potentialCat === "Fragments") category = "Map Fragments"; 
         }
     }
@@ -150,11 +145,7 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
     
     let visible = true; 
 
-    // Apply Overrides
-    // Custom overrides are usually stored by "Category -> Tier"
     let themeStyle = null;
-    
-    // Check Custom Overrides
     if (matchedTier) {
         if (context.overrides && context.overrides[category] && context.overrides[category][matchedTier]) {
             themeStyle = context.overrides[category][matchedTier];
@@ -169,14 +160,13 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
         style = convertThemeStyle(themeStyle);
     }
 
-    // 4. Check for Hide
     if (matchedTier && matchedTier.includes('Hide')) visible = false;
 
     return { visible, style, matchedTier: matchedTier || undefined, matchedRule: matchedRuleName || undefined };
 };
 
-const checkRuleMatch = (item: ItemProps, rule: any): boolean => {
-    // 1. Check Targets (Name Match)
+const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: number): boolean => {
+    // 1. Check Targets
     const targets = rule.targets || [];
     if (targets.length > 0 && !targets.includes(item.name)) {
         return false;
@@ -185,8 +175,6 @@ const checkRuleMatch = (item: ItemProps, rule: any): boolean => {
     // 2. Check Conditions
     const conditions = rule.conditions || {};
     for (const [key, value] of Object.entries(conditions)) {
-        // Determine operator
-        // value can be ">= 68", "< 5", "Rare", "True"
         let operator = '=';
         let targetVal: any = value;
         
@@ -198,28 +186,26 @@ const checkRuleMatch = (item: ItemProps, rule: any): boolean => {
             else if (value.startsWith('=')) { operator = '='; targetVal = parseFloat(value.substring(1)); }
         }
 
-        // Get Item Value
-        let itemVal = item[key.charAt(0).toLowerCase() + key.slice(1)]; // itemLevel -> itemLevel
+        let itemVal = item[key.charAt(0).toLowerCase() + key.slice(1)];
         if (key === 'ItemLevel') itemVal = item.itemLevel;
         if (key === 'DropLevel') itemVal = item.dropLevel;
         if (key === 'Rarity') itemVal = item.rarity;
         if (key === 'Class') itemVal = item.class;
         if (key === 'LinkedSockets') itemVal = item.linkedSockets;
-        if (key === 'Sockets') itemVal = item.sockets?.length || 0; // Rough count
+        if (key === 'Sockets') itemVal = item.sockets?.length || 0;
         if (key === 'Quality') itemVal = item.quality;
         if (key === 'StackSize') itemVal = item.stackSize;
+        if (key === 'AreaLevel') itemVal = globalAreaLevel || 1; // Use global context
         
-        // Convert itemVal to string for comparison if needed
         if (typeof targetVal === 'string' && typeof itemVal !== 'string') itemVal = String(itemVal);
         if (typeof targetVal === 'number' && typeof itemVal !== 'number') itemVal = Number(itemVal);
 
-        // Compare
         switch (operator) {
             case '>=': if (!(itemVal >= targetVal)) return false; break;
             case '<=': if (!(itemVal <= targetVal)) return false; break;
             case '>': if (!(itemVal > targetVal)) return false; break;
             case '<': if (!(itemVal < targetVal)) return false; break;
-            case '=': if (itemVal != targetVal) return false; break; // Loose equality for "80" vs 80
+            case '=': if (itemVal != targetVal) return false; break; 
         }
     }
 
@@ -231,7 +217,7 @@ const convertThemeStyle = (ts: any): React.CSSProperties => {
         color: ts.TextColor ? colorToRgb(ts.TextColor) : undefined,
         backgroundColor: ts.BackgroundColor ? colorToRgb(ts.BackgroundColor) : undefined,
         borderColor: ts.BorderColor ? colorToRgb(ts.BorderColor) : undefined,
-        fontSize: ts.FontSize ? `${ts.FontSize / 2.5}px` : undefined, // Scale down
+        fontSize: ts.FontSize ? `${ts.FontSize / 2.5}px` : undefined, 
         borderStyle: ts.BorderColor ? 'solid' : 'none',
         borderWidth: ts.BorderColor ? '1px' : '0px',
     };
@@ -239,7 +225,7 @@ const convertThemeStyle = (ts: any): React.CSSProperties => {
 
 const colorToRgb = (hex: string) => {
     if (!hex) return 'transparent';
-    if (hex.length === 9) { // #RRGGBBAA
+    if (hex.length === 9) { 
         const r = parseInt(hex.slice(1,3), 16);
         const g = parseInt(hex.slice(3,5), 16);
         const b = parseInt(hex.slice(5,7), 16);
