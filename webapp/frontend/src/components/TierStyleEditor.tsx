@@ -73,13 +73,44 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   const [tempBeam, setTempBeam] = useState({ color: "Red", isTemp: false });
 
   const ICON_COLORS = [
-    "Blue", "Green", "Brown", "Red", "White", "Yellow", "Cyan", "Grey", "Orange", "Pink", "Purple",
+    "Blue",
+    "Green",
+    "Brown",
+    "Red",
+    "White",
+    "Yellow",
+    "Cyan",
+    "Grey",
+    "Orange",
+    "Pink",
+    "Purple",
   ];
   const ICON_SHAPES = [
-    "Circle", "Diamond", "Hexagon", "Square", "Star", "Triangle", "Cross", "Moon", "Raindrop", "Kite", "Pentagon", "UpsideDownHouse",
+    "Circle",
+    "Diamond",
+    "Hexagon",
+    "Square",
+    "Star",
+    "Triangle",
+    "Cross",
+    "Moon",
+    "Raindrop",
+    "Kite",
+    "Pentagon",
+    "UpsideDownHouse",
   ];
   const BEAM_COLORS = [
-    "Red", "Green", "Blue", "Brown", "White", "Yellow", "Cyan", "Grey", "Orange", "Pink", "Purple",
+    "Red",
+    "Green",
+    "Blue",
+    "Brown",
+    "White",
+    "Yellow",
+    "Cyan",
+    "Grey",
+    "Orange",
+    "Pink",
+    "Purple",
   ];
 
   const getIconStyle = (color: string, shape: string, scale: number = 1) => {
@@ -150,12 +181,18 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   };
 
   const applyIcon = () => {
-    handleChange("MinimapIcon", `${tempIcon.size} ${tempIcon.color} ${tempIcon.shape}`);
+    handleChange(
+      "MinimapIcon",
+      `${tempIcon.size} ${tempIcon.color} ${tempIcon.shape}`,
+    );
     setShowIconPopup(false);
   };
 
   const applyBeam = () => {
-    handleChange("PlayEffect", `${tempBeam.color}${tempBeam.isTemp ? " Temp" : ""}`);
+    handleChange(
+      "PlayEffect",
+      `${tempBeam.color}${tempBeam.isTemp ? " Temp" : ""}`,
+    );
     setShowBeamPopup(false);
   };
 
@@ -184,7 +221,9 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   }
 
   const hexToRgba = (hex: string, key: keyof StyleProps) => {
-    const currentAlpha = getAlpha(style[key] as string).toString(16).padStart(2, "0");
+    const currentAlpha = getAlpha(style[key] as string)
+      .toString(16)
+      .padStart(2, "0");
     return `${hex}${currentAlpha}`;
   };
 
@@ -195,9 +234,13 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
       if (!val) return;
       const cleanHex = val.startsWith("disabled:") ? val.split(":")[1] : val;
       const baseHex = cleanHex.substring(0, 7);
-      const alphaHex = localAlphas[key as keyof typeof localAlphas].toString(16).padStart(2, "0");
+      const alphaHex = localAlphas[key as keyof typeof localAlphas]
+        .toString(16)
+        .padStart(2, "0");
       const newVal = `${baseHex}${alphaHex}`;
-      (newStyle as any)[key] = val.startsWith("disabled:") ? `disabled:${newVal}` : newVal;
+      (newStyle as any)[key] = val.startsWith("disabled:")
+        ? `disabled:${newVal}`
+        : newVal;
     });
     onChange(newStyle, visibility);
     setShowAlphaPopup(false);
@@ -215,9 +258,13 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     }
   };
 
-  const isColorActive = (val: any) => val && (typeof val !== "string" || !val.startsWith("disabled:"));
+  const isColorActive = (val: any) =>
+    val && (typeof val !== "string" || !val.startsWith("disabled:"));
 
-  const hexToCssRgba = (hex: string | undefined, forceActive: boolean = false) => {
+  const hexToCssRgba = (
+    hex: string | undefined,
+    forceActive: boolean = false,
+  ) => {
     if (!hex) return "rgba(0,0,0,0)";
     let clean = hex.startsWith("disabled:") ? hex.split(":")[1] : hex;
     if (!clean.startsWith("#")) return clean;
@@ -234,7 +281,9 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     e.stopPropagation();
     if (isColorActive(style.PlayAlertSound)) {
       const soundData = style.PlayAlertSound;
-      const [soundFile, volume] = Array.isArray(soundData) ? soundData : [null, 0];
+      const [soundFile, volume] = Array.isArray(soundData)
+        ? soundData
+        : [null, 0];
       if (soundFile) {
         const audio = new Audio(getSoundUrl(soundFile));
         audio.volume = Math.min(1, (volume as number) / 300);
@@ -249,9 +298,14 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     else if (key === "PlayEffect") setShowBeamPopup(true);
   };
 
-  const filteredSounds = tempSound.type === "default"
-      ? availableSounds.defaults.filter((s) => s.toLowerCase().includes(soundSearch.toLowerCase()))
-      : availableSounds.sharket.filter((s) => s.toLowerCase().includes(soundSearch.toLowerCase()));
+  const filteredSounds =
+    tempSound.type === "default"
+      ? availableSounds.defaults.filter((s) =>
+          s.toLowerCase().includes(soundSearch.toLowerCase()),
+        )
+      : availableSounds.sharket.filter((s) =>
+          s.toLowerCase().includes(soundSearch.toLowerCase()),
+        );
 
   return (
     <>
@@ -260,46 +314,133 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         <div className="modal-overlay" onClick={() => setShowSoundPopup(false)}>
           <div className="sound-popup" onClick={(e) => e.stopPropagation()}>
             <div className="popup-header">
-              <h3>{t.sound} - {tierName}</h3>
-              <button className="close-x" onClick={() => setShowSoundPopup(false)}>X</button>
+              <h3>
+                {t.sound} - {tierName}
+              </h3>
+              <button
+                className="close-x"
+                onClick={() => setShowSoundPopup(false)}
+              >
+                X
+              </button>
             </div>
             <div className="sound-tabs">
-              <button className={tempSound.type === "default" ? "active" : ""} onClick={() => setTempSound({ ...tempSound, type: "default", file: availableSounds.defaults[0] })}>{t.default}</button>
-              <button className={tempSound.type === "sharket" ? "active" : ""} onClick={() => setTempSound({ ...tempSound, type: "sharket", file: availableSounds.sharket[0] })}>{t.sharket}</button>
-              <button className={tempSound.type === "custom" ? "active" : ""} onClick={() => setTempSound({ ...tempSound, type: "custom" })}>{t.custom}</button>
+              <button
+                className={tempSound.type === "default" ? "active" : ""}
+                onClick={() =>
+                  setTempSound({
+                    ...tempSound,
+                    type: "default",
+                    file: availableSounds.defaults[0],
+                  })
+                }
+              >
+                {t.default}
+              </button>
+              <button
+                className={tempSound.type === "sharket" ? "active" : ""}
+                onClick={() =>
+                  setTempSound({
+                    ...tempSound,
+                    type: "sharket",
+                    file: availableSounds.sharket[0],
+                  })
+                }
+              >
+                {t.sharket}
+              </button>
+              <button
+                className={tempSound.type === "custom" ? "active" : ""}
+                onClick={() => setTempSound({ ...tempSound, type: "custom" })}
+              >
+                {t.custom}
+              </button>
             </div>
             <div className="sound-config">
               {tempSound.type !== "custom" ? (
                 <>
-                  <input type="text" className="sound-search" placeholder={t.search} value={soundSearch} onChange={(e) => setSoundSearch(e.target.value)} />
+                  <input
+                    type="text"
+                    className="sound-search"
+                    placeholder={t.search}
+                    value={soundSearch}
+                    onChange={(e) => setSoundSearch(e.target.value)}
+                  />
                   <div className="sound-list">
                     {filteredSounds.map((s) => (
-                      <div key={s} className={`sound-item ${tempSound.file === s ? "active" : ""}`} onClick={() => setTempSound({ ...tempSound, file: s })}>{s.split("/").pop()}</div>
+                      <div
+                        key={s}
+                        className={`sound-item ${tempSound.file === s ? "active" : ""}`}
+                        onClick={() => setTempSound({ ...tempSound, file: s })}
+                      >
+                        {s.split("/").pop()}
+                      </div>
                     ))}
                   </div>
                 </>
               ) : (
                 <div className="custom-path-input">
                   <label>{t.filePath}</label>
-                  <input type="text" value={tempSound.file} onChange={(e) => setTempSound({ ...tempSound, file: e.target.value })} placeholder="C:\path\to\sound.mp3" />
+                  <input
+                    type="text"
+                    value={tempSound.file}
+                    onChange={(e) =>
+                      setTempSound({ ...tempSound, file: e.target.value })
+                    }
+                    placeholder="C:\path\to\sound.mp3"
+                  />
                 </div>
               )}
               <div className="volume-control">
                 <div className="volume-header">
                   <label>{t.volume}</label>
-                  <input type="number" min="0" max="600" className="vol-num-input" value={tempSound.vol} onChange={(e) => setTempSound({ ...tempSound, vol: Math.min(600, parseInt(e.target.value) || 0) })} />
+                  <input
+                    type="number"
+                    min="0"
+                    max="600"
+                    className="vol-num-input"
+                    value={tempSound.vol}
+                    onChange={(e) =>
+                      setTempSound({
+                        ...tempSound,
+                        vol: Math.min(600, parseInt(e.target.value) || 0),
+                      })
+                    }
+                  />
                 </div>
-                <input type="range" min="0" max="600" value={tempSound.vol} onChange={(e) => setTempSound({ ...tempSound, vol: parseInt(e.target.value) })} />
+                <input
+                  type="range"
+                  min="0"
+                  max="600"
+                  value={tempSound.vol}
+                  onChange={(e) =>
+                    setTempSound({
+                      ...tempSound,
+                      vol: parseInt(e.target.value),
+                    })
+                  }
+                />
               </div>
             </div>
             <div className="popup-footer sound-footer">
               <div className="footer-top-row">
-                <div className="current-sound-path">{tempSound.file || "No File"}</div>
-                <button className="test-btn" onClick={handleTestSound}>{t.testSound} 🔊</button>
+                <div className="current-sound-path">
+                  {tempSound.file || "No File"}
+                </div>
+                <button className="test-btn" onClick={handleTestSound}>
+                  {t.testSound} 🔊
+                </button>
               </div>
               <div className="main-actions">
-                <button className="cancel-btn" onClick={() => setShowSoundPopup(false)}>{t.cancel}</button>
-                <button className="ok-btn" onClick={applySound}>{t.ok}</button>
+                <button
+                  className="cancel-btn"
+                  onClick={() => setShowSoundPopup(false)}
+                >
+                  {t.cancel}
+                </button>
+                <button className="ok-btn" onClick={applySound}>
+                  {t.ok}
+                </button>
               </div>
             </div>
           </div>
@@ -310,15 +451,28 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         <div className="modal-overlay" onClick={() => setShowIconPopup(false)}>
           <div className="sound-popup" onClick={(e) => e.stopPropagation()}>
             <div className="popup-header">
-              <h3>{t.icon} - {tierName}</h3>
-              <button className="close-x" onClick={() => setShowIconPopup(false)}>X</button>
+              <h3>
+                {t.icon} - {tierName}
+              </h3>
+              <button
+                className="close-x"
+                onClick={() => setShowIconPopup(false)}
+              >
+                X
+              </button>
             </div>
             <div className="icon-config">
               <div className="config-section">
                 <label>{t.size}</label>
                 <div className="option-grid size-grid">
                   {[0, 1, 2].map((s) => (
-                    <button key={s} className={tempIcon.size === s ? "active" : ""} onClick={() => setTempIcon({ ...tempIcon, size: s })}>{s === 0 ? t.small : s === 1 ? t.medium : t.large}</button>
+                    <button
+                      key={s}
+                      className={tempIcon.size === s ? "active" : ""}
+                      onClick={() => setTempIcon({ ...tempIcon, size: s })}
+                    >
+                      {s === 0 ? t.small : s === 1 ? t.medium : t.large}
+                    </button>
                   ))}
                 </div>
               </div>
@@ -326,7 +480,14 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 <label>{t.color}</label>
                 <div className="option-grid color-grid">
                   {ICON_COLORS.map((c) => (
-                    <button key={c} className={tempIcon.color === c ? "active" : ""} style={{ borderColor: c.toLowerCase() }} onClick={() => setTempIcon({ ...tempIcon, color: c })}>{(t as any)[c] || c}</button>
+                    <button
+                      key={c}
+                      className={tempIcon.color === c ? "active" : ""}
+                      style={{ borderColor: c.toLowerCase() }}
+                      onClick={() => setTempIcon({ ...tempIcon, color: c })}
+                    >
+                      {(t as any)[c] || c}
+                    </button>
                   ))}
                 </div>
               </div>
@@ -334,22 +495,61 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 <label>{t.shape}</label>
                 <div className="option-grid icon-grid">
                   {ICON_SHAPES.map((sh) => (
-                    <button key={sh} className={tempIcon.shape === sh ? "active" : ""} onClick={() => setTempIcon({ ...tempIcon, shape: sh })} title={sh}><div style={getIconStyle(tempIcon.color, sh, 1.2)}></div></button>
+                    <button
+                      key={sh}
+                      className={tempIcon.shape === sh ? "active" : ""}
+                      onClick={() => setTempIcon({ ...tempIcon, shape: sh })}
+                      title={sh}
+                    >
+                      <div style={getIconStyle(tempIcon.color, sh, 1.2)}></div>
+                    </button>
                   ))}
                 </div>
               </div>
             </div>
             <div className="popup-footer">
               <div className="preview-indicator">
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <div style={getIconStyle(tempIcon.color, tempIcon.shape, 1)}></div>
-                  <span>{(t as any)[tempIcon.size === 0 ? "small" : tempIcon.size === 1 ? "medium" : "large"]} {(t as any)[tempIcon.color]} {(t as any)[tempIcon.shape] || tempIcon.shape}</span>
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "8px" }}
+                >
+                  <div
+                    style={getIconStyle(tempIcon.color, tempIcon.shape, 1)}
+                  ></div>
+                  <span>
+                    {
+                      (t as any)[
+                        tempIcon.size === 0
+                          ? "small"
+                          : tempIcon.size === 1
+                            ? "medium"
+                            : "large"
+                      ]
+                    }{" "}
+                    {(t as any)[tempIcon.color]}{" "}
+                    {(t as any)[tempIcon.shape] || tempIcon.shape}
+                  </span>
                 </div>
               </div>
               <div className="main-actions">
-                <button className="reset-btn" style={{ background: "#c62828" }} onClick={() => { handleChange("MinimapIcon", null); setShowIconPopup(false); }}>{t.none}</button>
-                <button className="cancel-btn" onClick={() => setShowIconPopup(false)}>{t.cancel}</button>
-                <button className="ok-btn" onClick={applyIcon}>{t.ok}</button>
+                <button
+                  className="reset-btn"
+                  style={{ background: "#c62828" }}
+                  onClick={() => {
+                    handleChange("MinimapIcon", null);
+                    setShowIconPopup(false);
+                  }}
+                >
+                  {t.none}
+                </button>
+                <button
+                  className="cancel-btn"
+                  onClick={() => setShowIconPopup(false)}
+                >
+                  {t.cancel}
+                </button>
+                <button className="ok-btn" onClick={applyIcon}>
+                  {t.ok}
+                </button>
               </div>
             </div>
           </div>
@@ -360,32 +560,75 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         <div className="modal-overlay" onClick={() => setShowBeamPopup(false)}>
           <div className="sound-popup" onClick={(e) => e.stopPropagation()}>
             <div className="popup-header">
-              <h3>{t.beam} - {tierName}</h3>
-              <button className="close-x" onClick={() => setShowBeamPopup(false)}>X</button>
+              <h3>
+                {t.beam} - {tierName}
+              </h3>
+              <button
+                className="close-x"
+                onClick={() => setShowBeamPopup(false)}
+              >
+                X
+              </button>
             </div>
             <div className="icon-config">
               <div className="config-section">
                 <label>{t.color}</label>
                 <div className="option-grid color-grid">
                   {BEAM_COLORS.map((c) => (
-                    <button key={c} className={tempBeam.color === c ? "active" : ""} style={{ borderColor: c.toLowerCase() }} onClick={() => setTempBeam({ ...tempBeam, color: c })}>{(t as any)[c] || c}</button>
+                    <button
+                      key={c}
+                      className={tempBeam.color === c ? "active" : ""}
+                      style={{ borderColor: c.toLowerCase() }}
+                      onClick={() => setTempBeam({ ...tempBeam, color: c })}
+                    >
+                      {(t as any)[c] || c}
+                    </button>
                   ))}
                 </div>
               </div>
               <div className="config-section">
                 <label>{t.temporary}</label>
                 <div className="toggle-box">
-                  <button className={!tempBeam.isTemp ? "active" : ""} onClick={() => setTempBeam({ ...tempBeam, isTemp: false })}>{t.permanent}</button>
-                  <button className={tempBeam.isTemp ? "active" : ""} onClick={() => setTempBeam({ ...tempBeam, isTemp: true })}>{t.temporary}</button>
+                  <button
+                    className={!tempBeam.isTemp ? "active" : ""}
+                    onClick={() => setTempBeam({ ...tempBeam, isTemp: false })}
+                  >
+                    {t.permanent}
+                  </button>
+                  <button
+                    className={tempBeam.isTemp ? "active" : ""}
+                    onClick={() => setTempBeam({ ...tempBeam, isTemp: true })}
+                  >
+                    {t.temporary}
+                  </button>
                 </div>
               </div>
             </div>
             <div className="popup-footer">
-              <div className="preview-indicator">{(t as any)[tempBeam.color]} {tempBeam.isTemp ? `(${t.temporary})` : `(${t.permanent})`}</div>
+              <div className="preview-indicator">
+                {(t as any)[tempBeam.color]}{" "}
+                {tempBeam.isTemp ? `(${t.temporary})` : `(${t.permanent})`}
+              </div>
               <div className="main-actions">
-                <button className="reset-btn" style={{ background: "#c62828" }} onClick={() => { handleChange("PlayEffect", null); setShowBeamPopup(false); }}>{t.none}</button>
-                <button className="cancel-btn" onClick={() => setShowBeamPopup(false)}>{t.cancel}</button>
-                <button className="ok-btn" onClick={applyBeam}>OK</button>
+                <button
+                  className="reset-btn"
+                  style={{ background: "#c62828" }}
+                  onClick={() => {
+                    handleChange("PlayEffect", null);
+                    setShowBeamPopup(false);
+                  }}
+                >
+                  {t.none}
+                </button>
+                <button
+                  className="cancel-btn"
+                  onClick={() => setShowBeamPopup(false)}
+                >
+                  {t.cancel}
+                </button>
+                <button className="ok-btn" onClick={applyBeam}>
+                  OK
+                </button>
               </div>
             </div>
           </div>
@@ -394,7 +637,9 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
 
       <div
         className={`VisualEditor_Container tier-style-editor ${visibility ? "hidden-tier" : ""}`}
-        style={{ backgroundImage: `url('${getAssetUrl(`assets/item_bg/${viewerBackground}`)}')` }}
+        style={{
+          backgroundImage: `url('${getAssetUrl(`assets/item_bg/${viewerBackground}`)}')`,
+        }}
         onClick={onInspect}
       >
         <div className="tier-header-bar">
@@ -407,15 +652,32 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 e.stopPropagation();
                 if (canHide) toggleVisibility();
               }}
-            >{visibility ? t.hide : t.show}</button>
-            {onReset && <button className="reset-btn" onClick={(e) => { e.stopPropagation(); onReset(); }}>RESET</button>}
+            >
+              {visibility ? t.hide : t.show}
+            </button>
+            {onReset && (
+              <button
+                className="reset-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onReset();
+                }}
+              >
+                RESET
+              </button>
+            )}
           </div>
         </div>
 
         <div className="editor-layout">
           <div className="color-controls">
             {["TextColor", "BorderColor", "BackgroundColor"].map((key) => {
-              const label = key === "TextColor" ? t.text : key === "BorderColor" ? t.border : t.background;
+              const label =
+                key === "TextColor"
+                  ? t.text
+                  : key === "BorderColor"
+                    ? t.border
+                    : t.background;
               const val = (style as any)[key];
               return (
                 <div key={key} className="color-row">
@@ -424,26 +686,70 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                     type="color"
                     className={!isColorActive(val) ? "disabled-picker" : ""}
                     value={rgbaToHex(val)}
-                    onChange={(e) => handleChange(key as keyof StyleProps, hexToRgba(e.target.value, key as keyof StyleProps))}
+                    onChange={(e) =>
+                      handleChange(
+                        key as keyof StyleProps,
+                        hexToRgba(e.target.value, key as keyof StyleProps),
+                      )
+                    }
                   />
-                  <div className={`status-check ${isColorActive(val) ? "active" : ""}`} onClick={(e) => { e.stopPropagation(); toggleColor(key as keyof StyleProps, val); }}>
+                  <div
+                    className={`status-check ${isColorActive(val) ? "active" : ""}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleColor(key as keyof StyleProps, val);
+                    }}
+                  >
                     {isColorActive(val) && "✓"}
                   </div>
                 </div>
               );
             })}
             <div className="alpha-bulk-container">
-              <button className="alpha-bulk-btn" onClick={(e) => { e.stopPropagation(); setShowAlphaPopup(!showAlphaPopup); }} title={t.transparency}>{t.transparency}</button>
+              <button
+                className="alpha-bulk-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowAlphaPopup(!showAlphaPopup);
+                }}
+                title={t.transparency}
+              >
+                {t.transparency}
+              </button>
               {showAlphaPopup && (
-                <div className="alpha-popup" onClick={(e) => e.stopPropagation()}>
+                <div
+                  className="alpha-popup"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   <div className="alpha-popup-header">{t.transparency}</div>
-                  {["TextColor", "BorderColor", "BackgroundColor"].map((key) => (
-                    <div key={key} className="alpha-input-row">
-                      <label>{key === "TextColor" ? t.text : key === "BorderColor" ? t.border : t.background}</label>
-                      <input type="number" min="0" max="255" value={localAlphas[key as keyof typeof localAlphas]} onChange={(e) => setLocalAlphas({ ...localAlphas, [key]: parseInt(e.target.value) || 0 })} />
-                    </div>
-                  ))}
-                  <button className="apply-alpha-btn" onClick={applyAlphas}>OK</button>
+                  {["TextColor", "BorderColor", "BackgroundColor"].map(
+                    (key) => (
+                      <div key={key} className="alpha-input-row">
+                        <label>
+                          {key === "TextColor"
+                            ? t.text
+                            : key === "BorderColor"
+                              ? t.border
+                              : t.background}
+                        </label>
+                        <input
+                          type="number"
+                          min="0"
+                          max="255"
+                          value={localAlphas[key as keyof typeof localAlphas]}
+                          onChange={(e) =>
+                            setLocalAlphas({
+                              ...localAlphas,
+                              [key]: parseInt(e.target.value) || 0,
+                            })
+                          }
+                        />
+                      </div>
+                    ),
+                  )}
+                  <button className="apply-alpha-btn" onClick={applyAlphas}>
+                    OK
+                  </button>
                 </div>
               )}
             </div>
@@ -454,15 +760,35 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
               className="item-plate"
               style={{
                 fontSize: `${(style.FontSize || 32) / 1.8}px`,
-                color: visibility ? "#555" : isColorActive(style.TextColor) ? hexToCssRgba(style.TextColor, true) : "#000000",
-                borderColor: visibility ? "#333" : isColorActive(style.BorderColor) ? hexToCssRgba(style.BorderColor, true) : "transparent",
-                backgroundColor: visibility ? "#1a1a1a" : isColorActive(style.BackgroundColor) ? hexToCssRgba(style.BackgroundColor, true) : "#000000",
+                color: visibility
+                  ? "#555"
+                  : isColorActive(style.TextColor)
+                    ? hexToCssRgba(style.TextColor, true)
+                    : "#000000",
+                borderColor: visibility
+                  ? "#333"
+                  : isColorActive(style.BorderColor)
+                    ? hexToCssRgba(style.BorderColor, true)
+                    : "transparent",
+                backgroundColor: visibility
+                  ? "#1a1a1a"
+                  : isColorActive(style.BackgroundColor)
+                    ? hexToCssRgba(style.BackgroundColor, true)
+                    : "#000000",
                 borderStyle: "solid",
                 borderWidth: isColorActive(style.BorderColor) ? "1px" : "0",
                 opacity: visibility ? 0.6 : 1,
               }}
             >
-              {style.MinimapIcon && <div style={getIconStyle(style.MinimapIcon.split(" ")[1], style.MinimapIcon.split(" ")[2], 0.8)}></div>}
+              {style.MinimapIcon && (
+                <div
+                  style={getIconStyle(
+                    style.MinimapIcon.split(" ")[1],
+                    style.MinimapIcon.split(" ")[2],
+                    0.8,
+                  )}
+                ></div>
+              )}
               {tierName.toUpperCase()}
             </div>
           </div>
@@ -471,18 +797,81 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
             <div className="top-row">
               <div className="font-slider-container">
                 <div className="slider-track"></div>
-                <div className="slider-thumb-visual" style={{ left: `${(((style.FontSize || 32) - 12) / (45 - 12)) * 100}%` }}>{style.FontSize || 32}</div>
-                <input type="range" min="12" max="45" className="real-range-input" value={style.FontSize || 32} onChange={(e) => handleChange("FontSize", parseInt(e.target.value))} />
+                <div
+                  className="slider-thumb-visual"
+                  style={{
+                    left: `${(((style.FontSize || 32) - 12) / (45 - 12)) * 100}%`,
+                  }}
+                >
+                  {style.FontSize || 32}
+                </div>
+                <input
+                  type="range"
+                  min="12"
+                  max="45"
+                  className="real-range-input"
+                  value={style.FontSize || 32}
+                  onChange={(e) =>
+                    handleChange("FontSize", parseInt(e.target.value))
+                  }
+                />
               </div>
             </div>
             <div className="bottom-row extra-btns">
-              <button className={`extra-toggle-btn ${style.PlayAlertSound ? "active" : ""}`} onClick={(e) => { e.stopPropagation(); toggleExtra("PlayAlertSound"); }}>{t.sound}</button>
-              <button className={`extra-toggle-btn ${style.MinimapIcon ? "active" : ""}`} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "5px" }} onClick={(e) => { e.stopPropagation(); toggleExtra("MinimapIcon"); }}>
-                {style.MinimapIcon && <div style={getIconStyle(style.MinimapIcon.split(" ")[1], style.MinimapIcon.split(" ")[2], 0.6)}></div>}
+              <button
+                className={`extra-toggle-btn ${style.PlayAlertSound ? "active" : ""}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleExtra("PlayAlertSound");
+                }}
+              >
+                {t.sound}
+              </button>
+              <button
+                className={`extra-toggle-btn ${style.MinimapIcon ? "active" : ""}`}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "5px",
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleExtra("MinimapIcon");
+                }}
+              >
+                {style.MinimapIcon && (
+                  <div
+                    style={getIconStyle(
+                      style.MinimapIcon.split(" ")[1],
+                      style.MinimapIcon.split(" ")[2],
+                      0.6,
+                    )}
+                  ></div>
+                )}
                 {t.icon}
               </button>
-              <button className={`extra-toggle-btn ${style.PlayEffect ? "active" : ""}`} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "5px" }} onClick={(e) => { e.stopPropagation(); toggleExtra("PlayEffect"); }}>
-                {style.PlayEffect && <div className={`beam-icon-mini ${style.PlayEffect.includes("Temp") ? "is-temp" : ""}`} style={{ color: style.PlayEffect.split(" ")[0].toLowerCase() }}></div>}
+              <button
+                className={`extra-toggle-btn ${style.PlayEffect ? "active" : ""}`}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "5px",
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleExtra("PlayEffect");
+                }}
+              >
+                {style.PlayEffect && (
+                  <div
+                    className={`beam-icon-mini ${style.PlayEffect.includes("Temp") ? "is-temp" : ""}`}
+                    style={{
+                      color: style.PlayEffect.split(" ")[0].toLowerCase(),
+                    }}
+                  ></div>
+                )}
                 {t.beam}
               </button>
             </div>
@@ -543,25 +932,25 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         .sound-tabs button { flex: 1; padding: 8px; font-size: 0.8rem; background: #f5f5f5; color: #222 !important; border: 1px solid #ddd; border-radius: 4px; font-weight: bold; }
         .sound-tabs button.active { background: #2196F3; color: white !important; border-color: #2196F3; }
         .sound-config { display: flex; flex-direction: column; gap: 12px; }
-        .sound-search { width: 100%; background: #fff; border: 1px solid #ddd; padding: 8px; color: #222 !important; border-radius: 4px; font-size: 0.85rem; }
+        .sound-search { width: 100%; background: #fff !important; border: 1px solid #ddd; padding: 8px; color: #222 !important; border-radius: 4px; font-size: 0.85rem; }
         .sound-list { height: 200px; overflow-y: auto; background: #f9f9f9; border: 1px solid #eee; border-radius: 4px; padding: 5px; }
         .sound-item { padding: 6px 10px; cursor: pointer; font-size: 0.8rem; color: #222 !important; border-radius: 2px; }
         .sound-item:hover { background: #e3f2fd; }
         .sound-item.active { background: #2196F3; color: white !important; font-weight: bold; }
         .custom-path-input { display: flex; flex-direction: column; gap: 8px; }
         .custom-path-input label { font-size: 0.8rem; color: #222; font-weight: bold; }
-        .custom-path-input input { background: #fff; border: 1px solid #ddd; padding: 8px; color: #222 !important; border-radius: 4px; font-size: 0.85rem; }
+        .custom-path-input input { background: #fff !important; border: 1px solid #ddd; padding: 8px; color: #222 !important; border-radius: 4px; font-size: 0.85rem; }
         .volume-control { display: flex; flex-direction: column; gap: 8px; }
         .volume-header { display: flex; justify-content: space-between; align-items: center; }
         .volume-header label { font-size: 0.8rem; color: #222; font-weight: bold; }
-        .vol-num-input { width: 60px; background: #fff; border: 1px solid #ddd; color: #222 !important; padding: 4px; border-radius: 2px; font-size: 12px; text-align: center; }
+        .vol-num-input { width: 60px; background: #fff !important; border: 1px solid #ddd; color: #222 !important; padding: 4px; border-radius: 2px; font-size: 12px; text-align: center; }
         .volume-control input[type="range"] { width: 100%; cursor: pointer; }
         .popup-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 15px; border-top: 1px solid #eee; }
         .sound-footer { flex-direction: column; gap: 15px; align-items: stretch; }
         .footer-top-row { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
         .current-sound-path { font-size: 0.75rem; color: #666; word-break: break-all; text-align: left; flex: 1; font-family: monospace; background: #f0f0f0; padding: 4px 8px; border-radius: 4px; border: 1px solid #eee; }
-        .test-btn { background: #f5f5f5; border: 1px solid #ddd; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; font-weight: bold; white-space: nowrap; }
-        .test-btn:hover { background: #eee; }
+        .test-btn { background: #2196F3; border: 1px solid #ddd; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; font-weight: bold; white-space: nowrap; }
+        .test-btn:hover { background: #1976D2; }
         .main-actions { display: flex; gap: 12px; justify-content: flex-end; }
         .ok-btn { background: #2196F3; color: #fff !important; border: none; padding: 8px 25px; border-radius: 4px; cursor: pointer; font-weight: bold; }
         .ok-btn:hover { background: #1976D2; }

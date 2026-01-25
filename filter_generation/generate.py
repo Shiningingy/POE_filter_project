@@ -102,9 +102,52 @@ def tier_num_from_label(label):
 def header_line(index, text):
     return f"\n#==[{index:05d}]-{text}=="
 
+def load_merged_theme():
+    # 1. Load Settings to find Base Theme
+    settings_path = PROJECT_ROOT / "data" / "config" / "settings.json"
+    base_theme_name = "sharket"
+    if settings_path.exists():
+        try:
+            settings = json.loads(settings_path.read_text(encoding="utf-8"))
+            base_theme_name = settings.get("base_theme", "sharket")
+        except: pass
+    
+    print(f"Using Base Theme: {base_theme_name}")
+
+    # 2. Load Base Theme
+    base_theme_file = PROJECT_ROOT / "filter_generation" / "data" / "theme" / base_theme_name / f"{base_theme_name}_theme.json"
+    if not base_theme_file.exists():
+        print(f"Warning: Base theme file not found: {base_theme_file}. Falling back to sharket.")
+        base_theme_file = PROJECT_ROOT / "filter_generation" / "data" / "theme" / "sharket" / "sharket_theme.json"
+    
+    theme_data = json.loads(base_theme_file.read_text(encoding="utf-8"))
+
+    # 3. Load Overrides
+    overrides_file = PROJECT_ROOT / "filter_generation" / "data" / "theme" / "custom_overrides.json"
+    if overrides_file.exists():
+        try:
+            overrides = json.loads(overrides_file.read_text(encoding="utf-8"))
+            # Merge Overrides
+            for cat, tiers in overrides.items():
+                if cat not in theme_data:
+                    theme_data[cat] = {}
+                for tier, style in tiers.items():
+                    # If base has style, merge. Else set.
+                    if tier in theme_data[cat]:
+                        theme_data[cat][tier].update(style)
+                    else:
+                        theme_data[cat][tier] = style
+            print("Loaded Custom Overrides.")
+        except Exception as e:
+            print(f"Error loading overrides: {e}")
+
+    return theme_data
+
 # ---------- MAIN ----------
 def generate_filter():
-    theme_data = json.loads(Path(THEME_FILE).read_text(encoding="utf-8"))
+    theme_data = load_merged_theme()
+    # SOUND_MAP_FILE is usually tied to Sharket currently, but ideally should follow theme or use a global map.
+    # For now, we assume Sound Map is consistent or handled by frontend overrides.
     sound_map = json.loads(Path(SOUND_MAP_FILE).read_text(encoding="utf-8"))
     
     overview = [

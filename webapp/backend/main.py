@@ -261,6 +261,51 @@ def get_category_structure():
     if not path.exists(): return {"categories": []}
     with open(path, "r", encoding="utf-8") as f: return json.load(f)
 
+@app.get("/api/custom-overrides")
+def get_custom_overrides():
+    path = CONFIG_DATA_DIR / "theme" / "custom_overrides.json"
+    if not path.exists(): return {}
+    try: return json.load(open(path, "r", encoding="utf-8"))
+    except: return {}
+
+@app.post("/api/custom-overrides")
+async def save_custom_overrides(content: dict = Body(...)):
+    path = CONFIG_DATA_DIR / "theme" / "custom_overrides.json"
+    try:
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(content, f, indent=4, ensure_ascii=False)
+        return {"message": "Success"}
+    except Exception as e: raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/settings")
+def get_settings():
+    path = CONFIG_DATA_DIR / "settings.json"
+    if not path.exists():
+        return {"base_theme": "sharket"} # Changed default key
+    try:
+        data = json.load(open(path, "r", encoding="utf-8"))
+        if "active_theme" in data and "base_theme" not in data:
+             data["base_theme"] = data["active_theme"] # Migration
+        return data
+    except:
+        return {"base_theme": "sharket"}
+
+@app.post("/api/settings")
+async def save_settings(content: dict = Body(...)):
+    path = CONFIG_DATA_DIR / "settings.json"
+    try:
+        existing = {}
+        if path.exists():
+            existing = json.load(open(path, "r", encoding="utf-8"))
+        
+        existing.update(content)
+        
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(existing, f, indent=4, ensure_ascii=False)
+        return {"message": "Success"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/api/themes")
 def get_themes_list():
     themes_dir = CONFIG_DATA_DIR / "theme"
@@ -595,6 +640,52 @@ def generate_filter_file():
 
 # --- Generic Path Endpoints (Bottom Priority) ---
 
+@app.get("/api/sound-map")
+def get_sound_map():
+    path = CONFIG_DATA_DIR / "theme" / "sharket" / "Sharket_sound_map.json"
+    if not path.exists(): return {"basetype_sounds": {}, "class_sounds": {}}
+    try:
+        with open(path, "r", encoding="utf-8") as f: return json.load(f)
+    except Exception as e: raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/sound-map")
+async def save_sound_map(content: dict = Body(...)):
+    path = CONFIG_DATA_DIR / "theme" / "sharket" / "Sharket_sound_map.json"
+    try:
+        with open(path, "w", encoding="utf-8") as f: json.dump(content, f, indent=2, ensure_ascii=False)
+        return {"message": "Success"}
+    except Exception as e: raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/api/all-rules")
+async def get_all_rules():
+    all_rules = []
+    mapping_dir = CONFIG_DATA_DIR / "base_mapping"
+    print(f"DEBUG: Scanning rules in {mapping_dir}...")
+    files_found = 0
+    for file_path in mapping_dir.rglob("*.json"):
+        files_found += 1
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                # Rules in mapping files are at the root or inside _meta
+                rules = data.get("rules", [])
+                if not rules:
+                    # Fallback to checking inside category keys (old format)
+                    cat_key = next((k for k in data if not k.startswith("//") and k not in ["mapping", "_meta"]), None)
+                    if cat_key and isinstance(data[cat_key], dict):
+                        rules = data[cat_key].get("rules", []) or data[cat_key].get("_meta", {}).get("rules", [])
+                
+                if rules:
+                    print(f"DEBUG: Found {len(rules)} rules in {file_path.name}")
+                    for r in rules:
+                        r["_source_file"] = file_path.name
+                    all_rules.extend(rules)
+        except Exception as e: 
+            print(f"DEBUG: Error reading {file_path}: {e}")
+            continue
+    print(f"DEBUG: Scan complete. Total files: {files_found}, Total rules: {len(all_rules)}")
+    return {"rules": all_rules}
+
 @app.get("/api/themes/{theme_name}")
 def get_theme_data(theme_name: str):
     theme_dir = safe_join(CONFIG_DATA_DIR / "theme", theme_name)
@@ -605,6 +696,25 @@ def get_theme_data(theme_name: str):
         s_data = json.load(open(sound_map[0], "r", encoding="utf-8")) if sound_map else {}
         return {"theme_name": theme_name, "theme_data": t_data, "sound_map_data": s_data}
     except Exception as e: raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/themes/{theme_name}")
+async def save_theme_data(theme_name: str, content: dict = Body(...)):
+    theme_dir = safe_join(CONFIG_DATA_DIR / "theme", theme_name)
+    theme_file = theme_dir / f"{theme_name}_theme.json"
+    
+    if not theme_dir.exists():
+        # Create new theme if it doesn't exist (Folder + File)
+        theme_dir.mkdir(parents=True, exist_ok=True)
+    
+    try:
+        # If content has 'theme_data' key, use that (wrapper), else use content directly
+        data_to_save = content.get("theme_data", content)
+        
+        with open(theme_file, "w", encoding="utf-8") as f:
+            json.dump(data_to_save, f, indent=4, ensure_ascii=False)
+        return {"message": "Success", "theme_name": theme_name}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/mapping-info/{file_name:path}")
 def get_mapping_info(file_name: str):

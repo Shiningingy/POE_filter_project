@@ -201,7 +201,9 @@
       "ch": "可堆叠通货"
     },
     "theme_category": "Stackable Currency",
-    "match_modes": {}
+    "match_modes": {
+      "Mirror of Kalandra": "exact"
+    }
   },
   "mapping": {
     "Mirror of Kalandra": "Tier 0 General",

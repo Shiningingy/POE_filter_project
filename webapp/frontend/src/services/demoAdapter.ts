@@ -48,13 +48,68 @@ export const setupDemoAdapter = () => {
             setDemoUrl(`${baseURL}demo_data/themes.json`);
         } else if (path.includes('/api/themes/')) {
             const themeName = path.split('/').pop();
-            setDemoUrl(`${baseURL}demo_data/theme_${themeName}.json`);
+            const savedTheme = localStorage.getItem(`demo_theme_${themeName}`);
+            if (savedTheme) {
+                config.adapter = async () => {
+                    // Match backend structure: { theme_name, theme_data, sound_map_data }
+                    // The POST saves whatever the frontend sends. Usually frontend sends { theme_data: ... }
+                    // Let's assume content is the theme_data object itself or the wrapper.
+                    const content = JSON.parse(savedTheme);
+                    const themeData = content.theme_data || content;
+                    
+                    return { 
+                        data: { 
+                            theme_name: themeName, 
+                            theme_data: themeData,
+                            sound_map_data: {} // Mock sound map for now or load separate
+                        }, 
+                        status: 200, statusText: 'OK', headers: {}, config 
+                    };
+                };
+            } else {
+                setDemoUrl(`${baseURL}demo_data/theme_${themeName}.json`);
+            }
         } else if (path.endsWith('/api/sounds/list')) {
             setDemoUrl(`${baseURL}demo_data/sounds.json`);
+        } else if (path.endsWith('/api/sound-map')) {
+            config.adapter = async () => {
+                const bundle = await loadBundle();
+                return { data: bundle?.soundMap || {}, status: 200, statusText: 'OK', headers: {}, config };
+            };
+        } else if (path.endsWith('/api/all-rules')) {
+            config.adapter = async () => {
+                const bundle = await loadBundle();
+                console.log("DEMO ADAPTER: Intercepting /api/all-rules. Bundle present:", !!bundle);
+                if (!bundle) return { data: { rules: [] }, status: 200, statusText: 'OK', headers: {}, config };
+                
+                const allRules: any[] = [];
+                const mergedMappings = { ...bundle.mappings };
+                
+                console.log("DEMO ADAPTER: Mappings in bundle:", Object.keys(mergedMappings).length);
+// ...
+                Object.entries(mergedMappings).forEach(([fileName, content]: [string, any]) => {
+                    const catKey = Object.keys(content).find(k => !k.startsWith('//'));
+                    if (catKey) {
+                        const rules = content[catKey].rules || content[catKey]._meta?.rules || [];
+                        if (rules.length > 0) console.log(`DEMO ADAPTER: Found ${rules.length} rules in ${fileName}`);
+                        rules.forEach((r: any) => {
+                            allRules.push({ ...r, _source_file: fileName });
+                        });
+                    }
+                });
+
+                console.log("DEMO ADAPTER: Returning total rules:", allRules.length);
+                return { data: { rules: allRules }, status: 200, statusText: 'OK', headers: {}, config };
+            };
         } else if (path.endsWith('/api/item-classes')) {
             setDemoUrl(`${baseURL}demo_data/item_classes.json`);
         } else if (path.includes('/api/class-items/')) {
             setDemoUrl(`${baseURL}demo_data/all_items.json`);
+        } else if (path.includes('/api/custom-overrides')) {
+            const saved = localStorage.getItem('demo_custom_overrides');
+            config.adapter = async () => {
+                return { data: saved ? JSON.parse(saved) : {}, status: 200, statusText: 'OK', headers: {}, config };
+            };
         } else if (path.includes('/api/config/')) {
             const configPath = path.split('/api/config/')[1];
             const saved = localStorage.getItem(DEMO_CONFIG_PREFIX + configPath);
@@ -123,10 +178,25 @@ export const setupDemoAdapter = () => {
                 localStorage.setItem('demo_generated_filter', filterText);
                 return { data: { message: "Success (Generated in Demo)", content: filterText }, status: 200, statusText: 'OK', headers: {}, config };
             };
-        } else if (path.includes('/api/update-item-tier') || path.includes('/api/update-item-override')) {
-             config.adapter = async () => {
-                return { data: { message: "Success (Demo)" }, status: 200, statusText: 'OK', headers: {}, config };
-             };
+        } else if (path.includes('/api/custom-overrides')) {
+            const content = typeof config.data === 'string' ? JSON.parse(config.data) : config.data;
+            localStorage.setItem('demo_custom_overrides', JSON.stringify(content));
+            config.adapter = async () => {
+                return { data: { message: "Saved Overrides" }, status: 200, statusText: 'OK', headers: {}, config };
+            };
+        } else if (path.includes('/api/themes/')) {
+            const themeName = path.split('/').pop();
+            const content = typeof config.data === 'string' ? JSON.parse(config.data) : config.data;
+            // Save theme data to localStorage
+            // The ThemePresetEditor might send { theme_data: ... } or just raw data.
+            // We should save it consistent with how we load it: as a separate file override?
+            // Actually, we load themes from static files in demo.
+            // Let's save it to a VFS key: `demo_theme_${themeName}`
+            localStorage.setItem(`demo_theme_${themeName}`, JSON.stringify(content));
+            
+            config.adapter = async () => {
+                return { data: { message: "Saved Theme to Demo Storage", theme_name: themeName }, status: 200, statusText: 'OK', headers: {}, config };
+            };
         } else if (path.includes('/api/config/')) {
             const configPath = path.split('/api/config/')[1];
             const content = typeof config.data === 'string' ? JSON.parse(config.data) : config.data;

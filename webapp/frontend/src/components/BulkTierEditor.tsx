@@ -637,10 +637,11 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
             x={contextMenu.x} 
             y={contextMenu.y} 
             onClose={() => setContextMenu(null)}
+            language={language}
             options={[
                 ...(contextMenu.tierKey !== 'untiered' ? [
                     { 
-                        label: language === 'ch' ? "从此阶级移除" : "Remove from this Tier", 
+                        label: (t as any).removeFromTier, 
                         onClick: () => handleModifyTierList(contextMenu.item, 'remove', contextMenu.tierKey),
                         disabled: (() => {
                             const opt = availableTiers.find(o => o.key === contextMenu.tierKey);
@@ -654,20 +655,20 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                     { divider: true, label: '', onClick: () => {} }
                 ] : []),
                 ...availableTiers
-                    .filter(t => t.key !== contextMenu.tierKey && !(stagedChanges[contextMenu.item.name] || contextMenu.item.current_tier || []).includes(t.key))
-                    .map(t => ({
-                        label: language === 'ch' ? `添加至 ${t.label}` : `Add to ${t.label}`,
-                        color: getTierColor(t.key),
+                    .filter(tOpt => tOpt.key !== contextMenu.tierKey && !(stagedChanges[contextMenu.item.name] || contextMenu.item.current_tier || []).includes(tOpt.key))
+                    .map(tOpt => ({
+                        label: `${(t as any).addTo} ${tOpt.label}`,
+                        color: getTierColor(tOpt.key),
                         onClick: () => {
                             const isT0ByOrigin = contextMenu.item.current_tier?.some(tk => {
                                 const o = availableTiers.find(x => x.key === tk);
                                 return o && o.show_in_editor === false;
                             });
-                            if (isT0ByOrigin && t.is_hide_tier) {
+                            if (isT0ByOrigin && tOpt.is_hide_tier) {
                                 const confirmMsg = (t as any).t0MoveWarning.replace("{name}", contextMenu.item.name_ch || contextMenu.item.name);
                                 if (!window.confirm(confirmMsg)) return;
                             }
-                            handleModifyTierList(contextMenu.item, 'add', t.key);
+                            handleModifyTierList(contextMenu.item, 'add', tOpt.key);
                         }
                     }))
             ]}

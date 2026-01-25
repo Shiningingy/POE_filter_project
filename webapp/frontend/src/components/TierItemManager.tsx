@@ -4,6 +4,7 @@ import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ContextMenu from './ContextMenu';
 import ItemCard from './ItemCard';
+import SoundPicker from './SoundPicker';
 
 interface TierItem {
   name: string;
@@ -36,6 +37,8 @@ interface TierItemManagerProps {
   onRuleEdit?: (tierKey: string, ruleIndex: number) => void;
   categoryRules?: any[];
   onRefresh?: () => void;
+  soundMap?: any;
+  tierStyle?: any;
 }
 
 const TierItemManager: React.FC<TierItemManagerProps> = ({
@@ -49,7 +52,9 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   language,
   onRuleEdit,
   categoryRules = [],
-  onRefresh
+  onRefresh,
+  soundMap,
+  tierStyle
 }) => {
   const t = useTranslation(language);
   const [isOpen, setIsOpen] = useState(false);
@@ -59,6 +64,71 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   const [suggestions, setSuggestions] = useState<TierItem[]>([]);
 
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: TierItem } | null>(null);
+  const [soundEditorItem, setSoundEditorItem] = useState<TierItem | null>(null);
+  const [soundEditorInitial, setSoundEditorInitial] = useState<{ path: string, volume: number, source: string }>({ path: '', volume: 300, source: '' });
+
+  // Play Sound Helper
+  const playSound = (file: string, vol: number = 300) => {
+      // Normalize path
+      let cleanPath = file;
+      if (file.includes('AlertSound')) {
+          // It's likely "Default/AlertSoundX.mp3" or "6 300" style if raw
+      }
+      
+      const url = `/sounds/${cleanPath.replace(/\\/g, '/')}`;
+      const audio = new Audio(url);
+      audio.volume = Math.min(Math.max(vol / 300, 0), 1);
+      audio.play().catch(e => console.error("Failed to play sound", e));
+  };
+
+  const resolveItemSound = (item: TierItem) => {
+      let soundFile: string | null = null;
+      let soundVol = 300;
+      let sourceLabel = "";
+
+      // 1. Check Rule Override
+      if (item.rule_index !== undefined && item.rule_index !== null) {
+          const rule = categoryRules[item.rule_index];
+          if (rule && rule.overrides) {
+              const overrideKey = ["CustomAlertSound", "AlertSound", "DropSound"].find(k => rule.overrides[k] && !rule.overrides[k].startsWith("disabled:"));
+              if (overrideKey) {
+                  const val = rule.overrides[overrideKey];
+                  if (Array.isArray(val)) { 
+                      soundFile = val[0]; 
+                      soundVol = val[1]; 
+                  } else if (typeof val === 'string') {
+                      if (val.match(/^\d+ \d+$/)) {
+                          const parts = val.split(' ');
+                          soundFile = `Default/AlertSound${parts[0]}.mp3`;
+                          soundVol = parseInt(parts[1]);
+                      } else {
+                          soundFile = val;
+                      }
+                  }
+                  sourceLabel = (t as any).fromRule || "Rule Override";
+              }
+          }
+      }
+
+      // 2. Check Auto-Sound (if no rule override AND item is not part of a rule)
+      if (!soundFile && item.rule_index == null && soundMap?.basetype_sounds?.[item.name]) {
+          const s = soundMap.basetype_sounds[item.name];
+          soundFile = s.file;
+          soundVol = s.volume;
+          sourceLabel = (t as any).fromAutoSound || "Auto-Sound";
+      }
+
+      // 3. Check Tier Default (Only for non-rule items or rules that don't override sound)
+      if (!soundFile && tierStyle?.PlayAlertSound) {
+          // resolvedStyle already parses into [file, vol] format
+          const [file, vol] = tierStyle.PlayAlertSound;
+          soundFile = file;
+          soundVol = vol;
+          sourceLabel = (t as any).fromTierDefault || "Tier Default";
+      }
+
+      return { soundFile, soundVol, sourceLabel };
+  };
 
   // Deduplicate items to prevent key errors
   const uniqueItems = useMemo(() => {
@@ -184,12 +254,17 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   };
 
   const handleSoundOverride = (item: TierItem) => {
-    const path = prompt("Enter sound file path (e.g. Sharket掉落音效/example.mp3):");
-    if (path === null) return;
-    const volStr = prompt("Enter volume (0-600):", "300");
-    if (volStr === null) return;
-    const vol = parseInt(volStr) || 300;
-    onUpdateOverride(item, { PlayAlertSound: [path, vol] });
+    const { soundFile, soundVol, sourceLabel } = resolveItemSound(item);
+    setSoundEditorItem(item);
+    setSoundEditorInitial({ path: soundFile || '', volume: soundVol, source: sourceLabel });
+    setContextMenu(null);
+  };
+
+  const onSoundConfirm = (path: string, volume: number) => {
+      if (soundEditorItem) {
+          onUpdateOverride(soundEditorItem, { PlayAlertSound: [path, volume] });
+      }
+      setSoundEditorItem(null);
   };
 
   const renderTierLabels = (tier: string | string[] | undefined | null, catCh?: string) => {
@@ -228,12 +303,20 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           localBadge = ruleBadgeMap[item.rule_index!] - 1; // 0-based for display? ItemCard adds +1
       }
 
+      // Sound Logic using Helper
+      const { soundFile, soundVol, sourceLabel } = resolveItemSound(item);
+      
+      // Show icon ONLY if explicit override or auto-sound (not tier default)
+      const hasIcon = !!soundFile && sourceLabel !== ((t as any).fromTierDefault || "Tier Default");
+
       return (
         <ItemCard 
           key={`${item.name}-${item.rule_index || 'std'}`} 
           item={isRuleItem ? { ...item, rule_index: localBadge } : item}
           language={language}
           matchMode={item.match_mode || 'exact'}
+          hasSound={hasIcon}
+          onPlaySound={() => soundFile && playSound(soundFile, soundVol)}
           onContextMenu={(e) => handleRightClick(e, item)}
           onDelete={
               isLocked 
@@ -333,6 +416,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           x={contextMenu.x}
           y={contextMenu.y}
           onClose={() => setContextMenu(null)}
+          language={language}
           options={
             contextMenu.item.rule_index !== undefined && contextMenu.item.rule_index !== null
             ? [
@@ -349,6 +433,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                 }
             ]
             : [
+                { title: true, label: (t as any).quickMove, onClick: () => {} },
                 ...allTiers.map(tOption => {
                     const isT0ByOrigin = contextMenu.item.current_tiers?.some(tk => {
                         const opt = allTiers.find(o => o.key === tk);
@@ -359,10 +444,11 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                         return opt && opt.show_in_editor === false;
                     })();
 
-                    const isLocked = isLocationLocked && isT0ByOrigin && contextMenu.item.rule_index === undefined;
+                    const isCurrent = tOption.key === tierKey;
+                    const isLocked = (isLocationLocked && isT0ByOrigin && contextMenu.item.rule_index === undefined);
 
                     return {
-                        label: tOption.label,
+                        label: isCurrent ? `${tOption.label} ${(t as any).current}` : tOption.label,
                         color: getTierColor(tOption.key),
                         onClick: () => {
                             if (isT0ByOrigin && tOption.is_hide_tier) {
@@ -371,24 +457,35 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                             }
                             onMoveItem(contextMenu.item, tOption.key, false, tierKey);
                         },
-                        disabled: isLocked
+                        disabled: isLocked || isCurrent
                     };
                 }),
-                { label: "divider", onClick: () => {}, divider: true },
+                { title: true, label: (t as any).itemSettings, onClick: () => {} },
                 { 
                     label: (contextMenu.item.match_mode || 'exact') === 'exact' 
-                        ? `≈ ${language === 'ch' ? "切换为模糊匹配" : "Switch to Partial Match"}`
-                        : `E ${language === 'ch' ? "切换为精确匹配" : "Switch to Exact Match"}`,
+                        ? `≈ ${(t as any).switchToPartial}`
+                        : `E ${(t as any).switchToExact}`,
                     onClick: () => toggleItemMode(contextMenu.item)
                 },
-                { label: "🎵 Custom Sound Override", onClick: () => handleSoundOverride(contextMenu.item) }
-            ].map((opt: any) => ({ ...opt, className: opt.label === "divider" ? "divider" : (opt.className || "") }))
+                { divider: true, label: '', onClick: () => {} },
+                { label: `🎵 ${(t as any).soundSelection || "Sound Selection"}`, onClick: () => handleSoundOverride(contextMenu.item) }
+            ].map((opt: any) => ({ ...opt, className: opt.label === "divider" || (opt.divider && !opt.label) ? "divider" : (opt.className || "") }))
           }
         />
       )}
 
-      <style>{`
-        .tier-item-manager { margin-top: 12px; border-top: 1px solid #eee; padding-top: 5px; }
+      {soundEditorItem && (
+          <SoundPicker 
+            language={language}
+            initialPath={soundEditorInitial.path}
+            initialVolume={soundEditorInitial.volume}
+            currentSource={soundEditorInitial.source}
+            onClose={() => setSoundEditorItem(null)}
+            onConfirm={onSoundConfirm}
+          />
+      )}
+
+      <style>{`        .tier-item-manager { margin-top: 12px; border-top: 1px solid #eee; padding-top: 5px; }
         .mgr-header { padding: 10px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #555; transition: color 0.2s; }
         .mgr-header:hover { color: #2196F3; }
         .mgr-title { font-size: 0.95rem; font-weight: 600; }
