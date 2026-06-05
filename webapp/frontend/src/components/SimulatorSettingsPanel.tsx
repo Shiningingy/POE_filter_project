@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
 
 interface GeneratorSettings {
@@ -39,8 +40,10 @@ const SimulatorSettingsPanel: React.FC<SimulatorSettingsPanelProps> = ({
   onGenerateDrop,
   isPrewarming,
   topLevelNodes,
+  language,
 }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const t = useTranslation(language);
 
   const raritySum =
     settings.rarityWeights.Normal +
@@ -75,7 +78,7 @@ const SimulatorSettingsPanel: React.FC<SimulatorSettingsPanelProps> = ({
 
   if (collapsed) {
     return (
-      <div className="ssp-collapsed" onClick={() => setCollapsed(false)} title="Open Settings">
+      <div className="ssp-collapsed" onClick={() => setCollapsed(false)} title={t.openSettings}>
         <span className="ssp-collapsed-icon">&#9881;</span>
         <style>{collapsedStyle}</style>
       </div>
@@ -91,16 +94,16 @@ const SimulatorSettingsPanel: React.FC<SimulatorSettingsPanelProps> = ({
   return (
     <div className="ssp-panel">
       <div className="ssp-header">
-        <span className="ssp-title">Settings</span>
-        <button className="ssp-collapse-btn" onClick={() => setCollapsed(true)} title="Collapse">&#8249;</button>
+        <span className="ssp-title">{t.simulatorSettings}</span>
+        <button className="ssp-collapse-btn" onClick={() => setCollapsed(true)} title={t.collapse}>&#8249;</button>
       </div>
 
       {/* Section 1: Scene Settings */}
       <div className="ssp-section">
-        <div className="ssp-section-title">Scene</div>
+        <div className="ssp-section-title">{t.scene}</div>
 
         <div className="ssp-row">
-          <label className="ssp-label">Area Level</label>
+          <label className="ssp-label">{t.areaLevel}</label>
           <div className="ssp-range-row">
             <input
               type="range"
@@ -115,7 +118,7 @@ const SimulatorSettingsPanel: React.FC<SimulatorSettingsPanelProps> = ({
         </div>
 
         <div className="ssp-row">
-          <label className="ssp-label">Background</label>
+          <label className="ssp-label">{t.background}</label>
           <div className="ssp-bg-row">
             {backgrounds.map(bg => (
               <button
@@ -133,10 +136,10 @@ const SimulatorSettingsPanel: React.FC<SimulatorSettingsPanelProps> = ({
 
       {/* Section 2: Random Generator */}
       <div className="ssp-section">
-        <div className="ssp-section-title">Random Generator</div>
+        <div className="ssp-section-title">{t.randomGenerator}</div>
 
         <div className="ssp-row">
-          <label className="ssp-label">Drop Count</label>
+          <label className="ssp-label">{t.dropCount}</label>
           <input
             type="number"
             min={1}
@@ -153,22 +156,22 @@ const SimulatorSettingsPanel: React.FC<SimulatorSettingsPanelProps> = ({
             onClick={() => onGenerateDrop('random')}
             disabled={isPrewarming}
           >
-            {isPrewarming ? 'Loading...' : 'Generate Drop'}
+            {isPrewarming ? t.loading : t.generateDrop}
           </button>
           <button
             className="ssp-btn ssp-btn-valuable"
             onClick={() => onGenerateDrop('valuable')}
             disabled={isPrewarming}
           >
-            {isPrewarming ? 'Loading...' : 'Generate Valuable'}
+            {isPrewarming ? t.loading : t.generateValuable}
           </button>
         </div>
 
         <div className="ssp-row">
-          <label className="ssp-label">Item Level</label>
+          <label className="ssp-label">{t.itemLevel}</label>
           <div className="ssp-dual-range">
             <div className="ssp-range-labeled">
-              <span className="ssp-range-sub-label">Min</span>
+              <span className="ssp-range-sub-label">{t.min}</span>
               <input
                 type="range"
                 min={1}
@@ -183,7 +186,7 @@ const SimulatorSettingsPanel: React.FC<SimulatorSettingsPanelProps> = ({
               <span className="ssp-range-val">{settings.itemLevelMin}</span>
             </div>
             <div className="ssp-range-labeled">
-              <span className="ssp-range-sub-label">Max</span>
+              <span className="ssp-range-sub-label">{t.max}</span>
               <input
                 type="range"
                 min={1}
@@ -200,11 +203,11 @@ const SimulatorSettingsPanel: React.FC<SimulatorSettingsPanelProps> = ({
           </div>
         </div>
 
-        <div className="ssp-subsection-title">Rarity Weights</div>
+        <div className="ssp-subsection-title">{t.rarityWeights}</div>
         <div className="ssp-rarity-grid">
           {(['Normal', 'Magic', 'Rare', 'Unique'] as const).map(key => (
             <div key={key} className="ssp-rarity-item">
-              <label className="ssp-rarity-label">{key}</label>
+              <label className="ssp-rarity-label">{(t as any)[key] || key}</label>
               <input
                 type="number"
                 min={0}
@@ -221,10 +224,10 @@ const SimulatorSettingsPanel: React.FC<SimulatorSettingsPanelProps> = ({
         </div>
         <div className="ssp-rarity-footer">
           <span className={`ssp-sum ${raritySum === 100 ? 'ok' : 'bad'}`}>Sum: {raritySum}</span>
-          <button className="ssp-normalize-btn" onClick={handleNormalize} disabled={raritySum === 0}>Normalize</button>
+          <button className="ssp-normalize-btn" onClick={handleNormalize} disabled={raritySum === 0}>{t.normalize}</button>
         </div>
 
-        <div className="ssp-subsection-title">Categories</div>
+        <div className="ssp-subsection-title">{t.categories}</div>
         <div className="ssp-category-grid">
           {categoryRows.map((row, rowIdx) => (
             <React.Fragment key={rowIdx}>

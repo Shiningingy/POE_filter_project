@@ -180,6 +180,22 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
         if (!themeStyle) themeStyle = checkStyle(category, normalizedTier);
         if (!themeStyle) themeStyle = checkStyle("Templates", matchedTier);
         if (!themeStyle) themeStyle = checkStyle("Templates", normalizedTier);
+
+        // Final fallback: use inline style overrides from the corresponding tier_definition file
+        if (!themeStyle && matchedFile && context.tierDefinitions) {
+            const tierDefPath = matchedFile.replace(/^base_mapping\//, 'tier_definition/');
+            const tierDefContent = (context.tierDefinitions as Record<string, any>)[tierDefPath];
+            if (tierDefContent) {
+                const groupKey = Object.keys(tierDefContent).find(k => k !== '_meta');
+                if (groupKey) {
+                    const tierEntry = tierDefContent[groupKey]?.[matchedTier];
+                    if (tierEntry?.theme) {
+                        const { Tier: _t, ...inlineStyle } = tierEntry.theme as Record<string, any>;
+                        if (Object.keys(inlineStyle).length > 0) themeStyle = inlineStyle;
+                    }
+                }
+            }
+        }
     }
 
     if (themeStyle) {

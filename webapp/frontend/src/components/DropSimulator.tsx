@@ -459,18 +459,18 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
         <div className="simulator-main">
           <div className="simulator-controls">
             <div className="left-controls">
-                <button className="control-btn" onClick={() => setShowCreator(true)}>+ {t.addRule || "Add Item"}</button>
+                <button className="control-btn" onClick={() => setShowCreator(true)}>+ {t.addItem}</button>
                 <button className="control-btn" onClick={() => setShowImport(true)}>📋 Import</button>
                 <button
                   className="control-btn danger"
                   onClick={() => { setDroppedItems([]); usedZones.current.clear(); }}
                 >
-                  {language === 'ch' ? `清空 (${droppedItems.length})` : `Clear (${droppedItems.length})`}
+                  {t.clearGround} ({droppedItems.length})
                 </button>
             </div>
             {isAtCap && (
               <span className="cap-notice">
-                {language === 'ch' ? `地面已满 (${MAX_GROUND_ITEMS}/${MAX_GROUND_ITEMS}) — 清空后添加更多` : `Ground full (${MAX_GROUND_ITEMS}/${MAX_GROUND_ITEMS}) — clear to add more`}
+                {language === 'ch' ? `地面已满 (${MAX_GROUND_ITEMS}/${MAX_GROUND_ITEMS}) — ${t.clearGround}后添加更多` : `Ground full (${MAX_GROUND_ITEMS}/${MAX_GROUND_ITEMS}) — ${t.clearGround} to add more`}
               </span>
             )}
           </div>
@@ -505,11 +505,11 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
       {showCreator && (
           <div className="modal-overlay">
               <div className="modal-content large">
-                  <h3>{editingItem ? 'Edit Item' : 'Create Item'}</h3>
+                  <h3>{editingItem ? t.editItem : t.createItem}</h3>
                   <div className="form-grid">
                       {/* Level-1: group selector */}
                       <div className="form-group full-width class-picker-row">
-                          <label>Class Group</label>
+                          <label>{t.classGroup}</label>
                           <select value={selectedGroup} onChange={e => {
                               setSelectedGroup(e.target.value);
                               const leaves = e.target.value ? getLeafClassesUnder(e.target.value) : flatClasses;
@@ -525,13 +525,13 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                                   ...(resetRarity ? { rarity: 'Normal' } : {}),
                               }));
                           }}>
-                              <option value="">All Classes</option>
+                              <option value="">{t.allClasses}</option>
                               {groupNodes.map(g => <option key={g.id} value={g.id}>{g.label}</option>)}
                           </select>
                       </div>
                       {/* Level-2: leaf class selector */}
                       <div className="form-group full-width">
-                          <label>Item Class</label>
+                          <label>{t.itemClass}</label>
                           <select value={newItem.class} onChange={e => {
                               const newClass = e.target.value;
                               const newProps = classPropsMap[newClass] || { properties: [], flags: [], constraints: {} };
@@ -548,10 +548,10 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                               {visibleClasses.map(c => <option key={c} value={c}>{c}</option>)}
                           </select>
                       </div>
-                      {renderField('name', 'Base Type', 'text')}
+                      {renderField('name', t.baseType, 'text')}
 
-                      {renderField('itemLevel', 'Item Level', 'number')}
-                      {renderField('dropLevel', 'Drop Level', 'number')}
+                      {renderField('itemLevel', t.itemLevel, 'number')}
+                      {renderField('dropLevel', t.dropLevel, 'number')}
                       {showRarityField && renderField('rarity', 'Rarity', 'select', ['Normal', 'Magic', 'Rare', 'Unique'])}
                       {renderField('quality', 'Quality', 'number')}
                       {renderField('stackSize', 'Stack Size', 'number')}
@@ -562,7 +562,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                   </div>
 
                   <div className="flags-section">
-                      <h4>Flags</h4>
+                      <h4>{t.flags}</h4>
                       <div className="flags-grid">
                           {['identified', 'corrupted', 'mirrored', 'fractured', 'synthesised', 'shaper', 'elder'].map(flag => {
                               if (!activeProps.flags?.includes(flag) && !['identified', 'corrupted', 'mirrored'].includes(flag)) return null;
@@ -583,7 +583,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                         onClick={handleAddItem}
                         disabled={submitDisabled}
                       >
-                        {editingItem ? 'Update Item' : t.ok}
+                        {editingItem ? t.updateItem : t.ok}
                       </button>
                   </div>
               </div>
@@ -594,7 +594,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
       {showImport && (
           <div className="modal-overlay">
               <div className="modal-content">
-                  <h3>Import from Clipboard</h3>
+                  <h3>{t.importFromClipboard}</h3>
                   <textarea
                     value={importText}
                     onChange={e => setImportText(e.target.value)}
