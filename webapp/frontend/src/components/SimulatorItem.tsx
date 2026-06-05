@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import type { ItemProps, SimulationResult } from '../utils/simulatorEngine';
 import ContextMenu from './ContextMenu';
 import type { Language } from '../utils/localization';
@@ -10,13 +10,21 @@ interface SimulatorItemProps {
     onDelete: () => void;
     onJumpToRule?: (file: string, ruleIndex?: number) => void;
     onEdit?: (item: ItemProps & { id: number }) => void;
+    onOpenMiniEditor?: (file: string, tier: string) => void;
     language: Language;
 }
 
-const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, onJumpToRule, onEdit, language }) => {
+const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, onJumpToRule, onEdit, onOpenMiniEditor, language }) => {
     const [contextMenu, setContextMenu] = useState<{ x: number, y: number } | null>(null);
     const [hover, setHover] = useState(false);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const clickTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    useEffect(() => {
+        return () => {
+            if (clickTimerRef.current !== null) clearTimeout(clickTimerRef.current);
+        };
+    }, []);
 
     const handleContextMenu = (e: React.MouseEvent) => {
         e.preventDefault();
@@ -56,6 +64,21 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
         audio.play().catch(e => console.warn("Failed to play sound", e));
     };
 
+    const handleClick = () => {
+        if (clickTimerRef.current !== null) {
+            // Second click within 300ms — double-click
+            clearTimeout(clickTimerRef.current);
+            clickTimerRef.current = null;
+            onOpenMiniEditor?.(result.matchedFile ?? '', result.matchedTier ?? '');
+        } else {
+            // First click — wait 300ms before treating as single click
+            clickTimerRef.current = setTimeout(() => {
+                clickTimerRef.current = null;
+                playItemSound();
+            }, 300);
+        }
+    };
+
     if (!result.visible) return null;
 
     return (
@@ -69,7 +92,7 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
                     top: `calc(50% + ${item.y}px)`,
                     transform: 'translate(-50%, -50%)',
                 }}
-                onClick={playItemSound}
+                onClick={handleClick}
                 onContextMenu={handleContextMenu}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
@@ -78,11 +101,37 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
                 <div className="plate-body">
                     {item.name}
                     {item.stackSize && item.stackSize > 1 && <span className="stack-size"> x{item.stackSize}</span>}
+                    {(() => {
+                        const influences: string[] = [];
+                        if (item.shaper)   influences.push('shaper');
+                        if (item.elder)    influences.push('elder');
+                        if (item.crusader) influences.push('crusader');
+                        if (item.redeemer) influences.push('redeemer');
+                        if (item.hunter)   influences.push('hunter');
+                        if (item.warlord)  influences.push('warlord');
+                        if (item.exarch)   influences.push('exarch');
+                        if (item.eater)    influences.push('eater');
+                        return [0, 1].map(i => (
+                            <span key={i} style={{ width: 16, height: 16, display: 'inline-block', verticalAlign: 'middle', marginLeft: 2 }}>
+                                {influences[i] && (
+                                    <img
+                                        src={`/influence-icons/${influences[i]}.png`}
+                                        alt={influences[i]}
+                                        onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                                        style={{ width: 16, height: 16 }}
+                                    />
+                                )}
+                            </span>
+                        ));
+                    })()}
                 </div>
             </div>
 
             {hover && !contextMenu && (
-                <div className="sim-tooltip" style={{ top: mousePos.y + 15, left: mousePos.x + 15 }}>
+                <div className="sim-tooltip" style={{
+                    top: Math.min(mousePos.y + 15, window.innerHeight - 165),
+                    left: Math.min(mousePos.x + 15, window.innerWidth - 225),
+                }}>
                     <div className="header" style={{ color: result.style.color }}>{item.name}</div>
                     <div className="sub">{item.class}</div>
                     <div className="separator"></div>
@@ -94,6 +143,11 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
                         <div>Match: <span className="val">{result.matchedTier || 'None'}</span></div>
                         <div>Rule: <span className="val">{result.matchedRule || 'Base Mapping'}</span></div>
                     </div>
+                    {item.corruptedImplicit && (
+                        <div style={{ fontStyle: 'italic', color: '#a6b0cf', fontSize: '0.8rem', marginTop: 4 }}>
+                            {item.corruptedImplicit}
+                        </div>
+                    )}
                 </div>
             )}
 

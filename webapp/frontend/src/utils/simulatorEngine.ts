@@ -1,3 +1,5 @@
+import type { CSSProperties } from 'react';
+
 export interface ItemProps {
     name: string; // BaseType
     class: string;
@@ -22,6 +24,10 @@ export interface ItemProps {
     warlord?: boolean;
     hasImplicit?: boolean;
     stackSize?: number;
+    exarch?: boolean;              // Searing Exarch eldritch influence
+    eater?: boolean;               // Eater of Worlds eldritch influence
+    gemLevel?: number;             // Gem level (1-21)
+    corruptedImplicit?: string;    // Corrupted implicit text (placeholder until real data source)
     [key: string]: any;
 }
 
@@ -35,7 +41,7 @@ export interface FilterContext {
 
 export interface SimulationResult {
     visible: boolean;
-    style: React.CSSProperties & { sound?: any };
+    style: CSSProperties & { sound?: any };
     matchedRule?: string;
     matchedTier?: string;
     matchedFile?: string;
@@ -145,7 +151,7 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
     }
 
     // 3. Resolve Style from Theme
-    let style: React.CSSProperties = {
+    let style: CSSProperties = {
         color: '#888',
         backgroundColor: 'rgba(0,0,0,0.8)',
         borderColor: '#333',
@@ -269,9 +275,21 @@ const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: number): b
                 'Redeemer': 'redeemer',
                 'Hunter':   'hunter',
                 'Warlord':  'warlord',
+                'Exarch':   'exarch',
+                'Eater':    'eater',
             };
             const influenceKey = influenceMap[(value as string).trim()];
             if (!influenceKey || !item[influenceKey]) return false;
+            continue;
+        }
+
+        // BaseType condition: split on whitespace, strip quotes, check item name
+        if (key === 'BaseType') {
+            const tokens = (value as string)
+                .split(/\s+/)
+                .map(t => t.replace(/^"|"$/g, '').toLowerCase())
+                .filter(t => t.length > 0);
+            if (!tokens.includes(item.name.toLowerCase())) return false;
             continue;
         }
 
@@ -283,7 +301,7 @@ const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: number): b
             case '<=': if (!(itemVal <= targetVal)) return false; break;
             case '>': if (!(itemVal > targetVal)) return false; break;
             case '<': if (!(itemVal < targetVal)) return false; break;
-            case '=': if (itemVal != targetVal) return false; break;
+            case '=': if (itemVal !== targetVal) return false; break;
         }
     }
 
