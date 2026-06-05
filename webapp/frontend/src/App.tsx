@@ -8,6 +8,7 @@ import SimulatorView from './views/SimulatorView';
 import ExportView from './views/ExportView';
 import ThemeView from './views/ThemeView';
 import type { CategoryFile } from './components/Sidebar';
+import { AppDataProvider } from './services/AppDataContext';
 
 function App() {
   const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export' | 'theme'>('editor');
@@ -120,6 +121,7 @@ function App() {
   }, [selectedFile, fetchConfigContent]);
 
   return (
+    <AppDataProvider>
     <div className="App">
       <div className="navbar">
         <div className="brand">{t.appTitle}</div>
@@ -219,6 +221,7 @@ function App() {
         .app-body { flex: 1; overflow: hidden; position: relative; }
       `}</style>
     </div>
+    </AppDataProvider>
   );
 }
 

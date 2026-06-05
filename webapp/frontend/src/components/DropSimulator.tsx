@@ -6,6 +6,7 @@ import { evaluateItem, parseClipboardItem } from '../utils/simulatorEngine';
 import type { ItemProps, FilterContext } from '../utils/simulatorEngine';
 import { getAssetUrl } from '../utils/assetUtils';
 import SimulatorItem from './SimulatorItem';
+import { useAppData } from '../services/AppDataContext';
 
 interface DropSimulatorProps {
   language: Language;
@@ -16,8 +17,12 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
   const t = useTranslation(language);
   const [droppedItems, setDroppedItems] = useState<(ItemProps & { id: number, x: number, y: number })[]>([]);
   const [context, setContext] = useState<FilterContext | null>(null);
-  const [loading, setLoading] = useState(true);
-  
+  const [filterLoading, setFilterLoading] = useState(true);
+
+  // AppDataContext – provides class hierarchy, flat class list and class properties
+  const { flatClasses, classPropsMap, classHierarchy, getLeafClassesUnder, loading: dataLoading } = useAppData();
+  const loading = filterLoading || dataLoading;
+
   // Environment
   const [globalAreaLevel, setGlobalAreaLevel] = useState(68);
   const [viewerBackground, setViewerBackground] = useState<string>('Item_bg_coast.jpg');
@@ -28,15 +33,19 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
   const [importText, setImportText] = useState('');
 
   // Data for Dropdowns
-  const [itemClasses, setItemClasses] = useState<string[]>([]);
   const [allClassItems, setAllClassItems] = useState<Record<string, string[]>>({});
-  const [classProperties, setClassProperties] = useState<any>({ classes: {} });
 
-  // Creator State
-  const [newItem, setNewItem] = useState<ItemProps>({ 
+  // Hierarchical class picker – level-1 group selector
+  const [selectedGroup, setSelectedGroup] = useState<string>('');
+
+  // Creator / Editor State
+  const [newItem, setNewItem] = useState<ItemProps>({
       name: 'Chaos Orb', class: 'Stackable Currency', itemLevel: 80, rarity: 'Normal',
       identified: true, dropLevel: 1, stackSize: 1
   });
+
+  // Edit mode – when non-null, the creator modal is shown in edit mode
+  const [editingItem, setEditingItem] = useState<(ItemProps & { id: number }) | null>(null);
 
   const backgrounds = [
     { id: "Item_bg_coast.jpg", name: language === 'ch' ? "海滩" : "Coast" },
@@ -48,7 +57,8 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
 
   useEffect(() => {
     loadContext();
-    fetchInitialData();
+    // loadContext is defined once and never changes — safe to omit from deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadContext = async () => {
@@ -57,7 +67,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
         const baseTheme = settingsRes.data.base_theme || 'sharket';
         const themeRes = await axios.get(`/api/themes/${baseTheme}`);
         const overridesRes = await axios.get('/api/custom-overrides');
-        
+
         let mappings = {};
         let tierDefinitions = {};
 
@@ -81,28 +91,19 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
     } catch (e) {
         console.error("Failed to load context", e);
     } finally {
-        setLoading(false);
+        setFilterLoading(false);
     }
-  };
-
-  const fetchInitialData = async () => {
-      try {
-          const [classRes, propsRes] = await Promise.all([
-              axios.get('/api/item-classes'),
-              axios.get('/api/class-properties')
-          ]);
-          setItemClasses(classRes.data.classes || []);
-          setClassProperties(propsRes.data);
-      } catch (e) {}
   };
 
   const fetchBaseTypes = async (cls: string) => {
       if (allClassItems[cls]) return;
       try {
           const res = await axios.get(`/api/class-items/${cls}`);
-          const names = res.data.items.map((i: any) => i.name).sort();
+          const names = (res.data.items as { name: string }[]).map(i => i.name).sort();
           setAllClassItems(prev => ({ ...prev, [cls]: names }));
-      } catch (e) {}
+      } catch {
+          // silently ignore — base types are optional autocomplete
+      }
   };
 
   useEffect(() => {
@@ -111,6 +112,17 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
       }
   }, [newItem.class]);
 
+  // When entering edit mode, pre-fill form fields with the item's current values
+  useEffect(() => {
+      if (editingItem) {
+          // Strip the simulator-only fields (id, x, y) that are not part of ItemProps
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const { id: _omitId, ...itemProps } = editingItem as ItemProps & { id: number; x?: number; y?: number };
+          setNewItem(itemProps);
+          setShowCreator(true);
+      }
+  }, [editingItem]);
+
   const addItemToGround = (item: ItemProps) => {
       const angle = Math.random() * Math.PI * 2;
       const dist = Math.random() * 150;
@@ -118,8 +130,21 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
   };
 
   const handleAddItem = () => {
-      addItemToGround(newItem);
+      if (editingItem) {
+          // Update the existing item in place by matching id
+          setDroppedItems(prev => prev.map(i =>
+              i.id === editingItem.id ? { ...i, ...newItem } : i
+          ));
+          setEditingItem(null);
+      } else {
+          addItemToGround(newItem);
+      }
       setShowCreator(false);
+  };
+
+  const handleCancelCreator = () => {
+      setShowCreator(false);
+      setEditingItem(null);
   };
 
   const handleImport = () => {
@@ -138,25 +163,46 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
   };
 
   const activeProps = useMemo(() => {
-      return classProperties.classes[newItem.class] || classProperties.defaults || { properties: [], flags: [] };
-  }, [newItem.class, classProperties]);
+      return classPropsMap[newItem.class] || { properties: [], flags: [], constraints: {} };
+  }, [newItem.class, classPropsMap]);
+
+  // Intermediate (non-leaf) hierarchy nodes to populate the group selector
+  const groupNodes = useMemo(() => {
+      const groups: { id: string; label: string }[] = [];
+      const walk = (node: import('../services/AppDataContext').ClassHierarchyNode) => {
+          if (!node.poe_class && node.children && node.children.length > 0) {
+              groups.push({ id: node.id, label: node.label_en });
+              for (const child of node.children) walk(child);
+          }
+      };
+      for (const root of classHierarchy) walk(root);
+      return groups;
+  }, [classHierarchy]);
+
+  // Classes shown in the level-2 picker based on the selected group
+  const visibleClasses = useMemo(() => {
+      if (!selectedGroup) return flatClasses;
+      return getLeafClassesUnder(selectedGroup);
+  }, [selectedGroup, flatClasses, getLeafClassesUnder]);
 
   const renderField = (key: string, label: string, type: 'number' | 'text' | 'select', options?: string[]) => {
       const isVisible = activeProps.properties.includes(key) || activeProps.flags?.includes(key) || ['itemLevel', 'dropLevel', 'rarity'].includes(key);
       if (!isVisible && key !== 'name' && key !== 'class') return null;
 
+      const itemRecord = newItem as Record<string, unknown>;
+
       return (
           <div className={`form-group ${['name', 'class'].includes(key) ? 'full-width' : ''}`}>
               <label>{label}</label>
               {type === 'select' ? (
-                  <select value={(newItem as any)[key]} onChange={e => setNewItem({...newItem, [key]: e.target.value})}>
+                  <select value={itemRecord[key] as string} onChange={e => setNewItem({...newItem, [key]: e.target.value})}>
                       {options?.map(o => <option key={o} value={o}>{o}</option>)}
                   </select>
               ) : (
-                  <input 
-                    type={type} 
-                    value={(newItem as any)[key] || ''} 
-                    onChange={e => setNewItem({...newItem, [key]: type === 'number' ? parseInt(e.target.value) : e.target.value})} 
+                  <input
+                    type={type}
+                    value={(itemRecord[key] as string | number) || ''}
+                    onChange={e => setNewItem({...newItem, [key]: type === 'number' ? parseInt(e.target.value) : e.target.value})}
                     list={key === 'name' ? 'base-types' : undefined}
                   />
               )}
@@ -200,13 +246,14 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
             const result = evaluateItem(item, liveContext);
             
             return (
-                <SimulatorItem 
-                    key={item.id} 
-                    item={item} 
-                    result={result} 
+                <SimulatorItem
+                    key={item.id}
+                    item={item}
+                    result={result}
                     language={language}
                     onDelete={() => setDroppedItems(prev => prev.filter(i => i.id !== item.id))}
                     onJumpToRule={onJumpToRule}
+                    onEdit={(item) => setEditingItem(item)}
                 />
             );
         })}
@@ -215,9 +262,30 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
       {showCreator && (
           <div className="modal-overlay">
               <div className="modal-content large">
-                  <h3>Create Item</h3>
+                  <h3>{editingItem ? 'Edit Item' : 'Create Item'}</h3>
                   <div className="form-grid">
-                      {renderField('class', 'Item Class', 'select', itemClasses)}
+                      {/* Level-1: group selector */}
+                      <div className="form-group full-width class-picker-row">
+                          <label>Class Group</label>
+                          <select value={selectedGroup} onChange={e => {
+                              setSelectedGroup(e.target.value);
+                              // Reset class to first available in new group
+                              const leaves = e.target.value ? getLeafClassesUnder(e.target.value) : flatClasses;
+                              if (leaves.length > 0) setNewItem(prev => ({ ...prev, class: leaves[0] }));
+                          }}>
+                              <option value="">All Classes</option>
+                              {groupNodes.map(g => <option key={g.id} value={g.id}>{g.label}</option>)}
+                          </select>
+                      </div>
+                      {/* Level-2: leaf class selector */}
+                      <div className="form-group full-width">
+                          <label>Item Class</label>
+                          <select value={newItem.class} onChange={e => {
+                              setNewItem(prev => ({ ...prev, class: e.target.value }));
+                          }}>
+                              {visibleClasses.map(c => <option key={c} value={c}>{c}</option>)}
+                          </select>
+                      </div>
                       {renderField('name', 'Base Type', 'text')}
                       
                       {renderField('itemLevel', 'Item Level', 'number')}
@@ -247,8 +315,8 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                   </div>
 
                   <div className="modal-footer">
-                      <button onClick={() => setShowCreator(false)}>{t.cancel}</button>
-                      <button className="primary" onClick={handleAddItem}>{t.ok}</button>
+                      <button onClick={handleCancelCreator}>{t.cancel}</button>
+                      <button className="primary" onClick={handleAddItem}>{editingItem ? 'Update Item' : t.ok}</button>
                   </div>
               </div>
           </div>

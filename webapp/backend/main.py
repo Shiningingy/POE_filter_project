@@ -55,6 +55,10 @@ CLASS_TO_FILE = {} # item_class -> mapping_path (relative to base_mapping)
 ITEM_SUBTYPES = {} # BaseType -> STR/DEX/INT
 ITEM_DETAILS = {} # BaseType -> {drop_level, implicit, ...}
 
+CLASS_HIERARCHY_TREE = []     # full resolved hierarchy tree
+CLASS_RESOLVED_PROPS = {}     # poe_class -> {properties, flags, constraints}
+ITEM_BONUS_INFO = {}          # item_name -> {description, tags}
+
 # --- Middleware ---
 app.add_middleware(
     CORSMiddleware,
@@ -83,7 +87,7 @@ def safe_join(base: Path, path: str):
 
 def load_base_types():
     global ITEM_CLASSES, CLASS_TO_ITEMS, ITEM_TO_CLASS, ITEM_SUBTYPES
-    csv_path = DATA_DIR / "from_filter_blade" / "BaseTypes.csv"
+    csv_path = DATA_DIR / "from_filter_blade" / "3.28" / "BaseTypes.csv"
     if not csv_path.exists():
         print("Warning: BaseTypes.csv not found.")
         return
@@ -203,6 +207,82 @@ def load_category_map():
         print(f"Loaded {len(CATEGORY_MAP)} category mappings.")
     except Exception as e:
         print(f"Error loading category map: {e}")
+
+def load_class_hierarchy():
+    global CLASS_HIERARCHY_TREE, CLASS_RESOLVED_PROPS
+    yaml_path = FILTER_GEN_DIR / "data" / "class_hierarchy.yaml"
+    if not yaml_path.exists():
+        print("Warning: class_hierarchy.yaml not found, skipping.")
+        return
+    try:
+        import yaml
+        with open(yaml_path, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f)
+
+        # Also load existing class_properties.yaml for leaf overrides
+        class_props_path = FILTER_GEN_DIR / "data" / "class_properties.yaml"
+        yaml_overrides = {}
+        if class_props_path.exists():
+            with open(class_props_path, "r", encoding="utf-8") as f:
+                cp = yaml.safe_load(f) or {}
+                yaml_overrides = cp.get("classes", {})
+
+        def resolve_node(node, inherited_props, inherited_flags):
+            own_props = node.get("properties", [])
+            own_flags = node.get("flags", [])
+            resolved_props = list(dict.fromkeys(inherited_props + own_props))
+            resolved_flags = list(dict.fromkeys(inherited_flags + own_flags))
+            result = dict(node)
+            result["resolved_properties"] = resolved_props
+            result["resolved_flags"] = resolved_flags
+            if "poe_class" in node:
+                poe_class = node["poe_class"]
+                override = yaml_overrides.get(poe_class, {})
+                CLASS_RESOLVED_PROPS[poe_class] = {
+                    "properties": override.get("properties", resolved_props),
+                    "flags": override.get("flags", resolved_flags),
+                    "constraints": node.get("constraints", {}),
+                }
+            if "children" in node:
+                result["children"] = [
+                    resolve_node(child, resolved_props, resolved_flags)
+                    for child in node["children"]
+                ]
+            return result
+
+        CLASS_HIERARCHY_TREE = [
+            resolve_node(top, [], []) for top in data.get("hierarchy", [])
+        ]
+        print(f"Loaded class hierarchy: {len(CLASS_RESOLVED_PROPS)} leaf classes.")
+    except Exception as e:
+        print(f"Error loading class hierarchy: {e}")
+
+def load_bonus_item_info():
+    global ITEM_BONUS_INFO
+    path = DATA_DIR / "from_filter_blade" / "3.28" / "bonusItemInfo.json"
+    if not path.exists():
+        print("Warning: bonusItemInfo.json not found.")
+        return
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        # The file has a "bonusItemInfo" key with sections (Currency, etc.)
+        # Each section has an "items" dict: item_name -> {text, tags, ...}
+        bonus = data.get("bonusItemInfo", {})
+        for section_name, section_data in bonus.items():
+            if isinstance(section_data, dict):
+                items = section_data.get("items", {})
+                if isinstance(items, dict):
+                    for item_name, item_info in items.items():
+                        if isinstance(item_info, dict):
+                            ITEM_BONUS_INFO[item_name] = {
+                                "description": item_info.get("text", ""),
+                                "tags": item_info.get("tags", []),
+                            }
+        print(f"Loaded bonus item info: {len(ITEM_BONUS_INFO)} entries.")
+    except Exception as e:
+        print(f"Error loading bonusItemInfo.json: {e}")
 
 # --- Specific Endpoints (Top Priority) ---
 
@@ -638,15 +718,18 @@ def generate_filter_file():
         return {"message": "Success"}
     except Exception as e: raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/api/class-hierarchy")
+def get_class_hierarchy():
+    return {"hierarchy": CLASS_HIERARCHY_TREE}
+
+@app.get("/api/item-info/{base_type}")
+def get_item_info(base_type: str):
+    info = ITEM_BONUS_INFO.get(base_type, {})
+    return info if info else {"description": "", "tags": []}
+
 @app.get("/api/class-properties")
 def get_class_properties():
-    import yaml
-    path = CONFIG_DATA_DIR / "class_properties.yaml"
-    if not path.exists(): return {"classes": {}}
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            return yaml.safe_load(f)
-    except: return {"classes": {}}
+    return {"classes": CLASS_RESOLVED_PROPS, "defaults": {}}
 
 @app.get("/api/simulator-bundle")
 def get_simulator_bundle():
@@ -805,3 +888,5 @@ async def startup_event():
     load_base_types()
     load_translations()
     load_category_map()
+    load_class_hierarchy()
+    load_bonus_item_info()

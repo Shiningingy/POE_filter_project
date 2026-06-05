@@ -1,0 +1,75 @@
+{
+  "Wombgifts": {
+    "_meta": {
+      "theme_category": "Wombgifts",
+      "localization": {
+        "en": "Wombgifts",
+        "ch": "孕育赠礼"
+      },
+      "tier_order": [
+        "Tier 0 Wombgifts",
+        "Tier 1 Wombgifts",
+        "Tier 2 Wombgifts",
+        "Tier Hide Wombgifts"
+      ]
+    },
+    "Tier 0 Wombgifts": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T0: Wombgifts",
+        "ch": "T0: 孕育赠礼"
+      }
+    },
+    "Tier 1 Wombgifts": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T1: Wombgifts",
+        "ch": "T1: 孕育赠礼"
+      }
+    },
+    "Tier 2 Wombgifts": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T2: Wombgifts",
+        "ch": "T2: 孕育赠礼"
+      }
+    },
+    "Tier Hide Wombgifts": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Tier Hide: Wombgifts",
+        "ch": "隐藏: 孕育赠礼"
+      }
+    }
+  }
+}

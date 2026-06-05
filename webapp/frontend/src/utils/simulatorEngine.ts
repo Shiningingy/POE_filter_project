@@ -16,6 +16,10 @@ export interface ItemProps {
     synthesised?: boolean;
     elder?: boolean;
     shaper?: boolean;
+    crusader?: boolean;
+    redeemer?: boolean;
+    hunter?: boolean;
+    warlord?: boolean;
     hasImplicit?: boolean;
     stackSize?: number;
     [key: string]: any;
@@ -223,7 +227,54 @@ const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: number): b
         if (key === 'Quality') itemVal = item.quality;
         if (key === 'StackSize') itemVal = item.stackSize;
         if (key === 'AreaLevel') itemVal = globalAreaLevel || 1; // Use global context
-        
+
+        // Boolean conditions
+        if (key === 'Corrupted') {
+            const expected = (value as string).trim() === 'True';
+            if (!!item.corrupted !== expected) return false;
+            continue;
+        }
+        if (key === 'Identified') {
+            const expected = (value as string).trim() === 'True';
+            if (!!item.identified !== expected) return false;
+            continue;
+        }
+        if (key === 'Mirrored') {
+            const expected = (value as string).trim() === 'True';
+            if (!!item.mirrored !== expected) return false;
+            continue;
+        }
+        if (key === 'Fractured') {
+            const expected = (value as string).trim() === 'True';
+            if (!!item.fractured !== expected) return false;
+            continue;
+        }
+        if (key === 'Synthesised') {
+            const expected = (value as string).trim() === 'True';
+            if (!!item.synthesised !== expected) return false;
+            continue;
+        }
+        if (key === 'HasImplicit') {
+            const expected = (value as string).trim() === 'True';
+            if (!!item.hasImplicit !== expected) return false;
+            continue;
+        }
+
+        // HasInfluence condition
+        if (key === 'HasInfluence') {
+            const influenceMap: Record<string, keyof ItemProps> = {
+                'Shaper':   'shaper',
+                'Elder':    'elder',
+                'Crusader': 'crusader',
+                'Redeemer': 'redeemer',
+                'Hunter':   'hunter',
+                'Warlord':  'warlord',
+            };
+            const influenceKey = influenceMap[(value as string).trim()];
+            if (!influenceKey || !item[influenceKey]) return false;
+            continue;
+        }
+
         if (typeof targetVal === 'string' && typeof itemVal !== 'string') itemVal = String(itemVal);
         if (typeof targetVal === 'number' && typeof itemVal !== 'number') itemVal = Number(itemVal);
 
@@ -232,7 +283,7 @@ const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: number): b
             case '<=': if (!(itemVal <= targetVal)) return false; break;
             case '>': if (!(itemVal > targetVal)) return false; break;
             case '<': if (!(itemVal < targetVal)) return false; break;
-            case '=': if (itemVal != targetVal) return false; break; 
+            case '=': if (itemVal != targetVal) return false; break;
         }
     }
 
@@ -240,15 +291,29 @@ const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: number): b
 };
 
 const convertThemeStyle = (ts: any): any => {
+    // Resolve sound: PlayAlertSound may be [file_path, volume] or a numeric ID or a string.
+    // Extract a usable value that SimulatorItem can pass to getSoundUrl().
+    let sound: any = undefined;
+    if (ts.PlayAlertSound !== undefined && ts.PlayAlertSound !== null) {
+        if (Array.isArray(ts.PlayAlertSound)) {
+            // [file_path, volume] — extract the file path for URL construction
+            const [file] = ts.PlayAlertSound;
+            sound = file;
+        } else {
+            // numeric ID or string — pass through as-is
+            sound = ts.PlayAlertSound;
+        }
+    }
+
     return {
         color: ts.TextColor ? colorToRgb(ts.TextColor) : undefined,
         backgroundColor: ts.BackgroundColor ? colorToRgb(ts.BackgroundColor) : undefined,
         borderColor: ts.BorderColor ? colorToRgb(ts.BorderColor) : undefined,
         // user requested to ignore theme font size for simulator or set it same
-        // fontSize: ts.FontSize ? `${ts.FontSize / 2.5}px` : undefined, 
+        // fontSize: ts.FontSize ? `${ts.FontSize / 2.5}px` : undefined,
         borderStyle: ts.BorderColor ? 'solid' : 'none',
         borderWidth: ts.BorderColor ? '1px' : '0px',
-        sound: ts.PlayAlertSound || undefined
+        sound
     };
 };
 

@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import type { ItemProps, SimulationResult } from '../utils/simulatorEngine';
 import ContextMenu from './ContextMenu';
 import type { Language } from '../utils/localization';
+import { getSoundUrl } from '../utils/soundUtils';
 
 interface SimulatorItemProps {
     item: ItemProps & { id: number; x: number; y: number };
     result: SimulationResult;
     onDelete: () => void;
     onJumpToRule?: (file: string, ruleIndex?: number) => void;
+    onEdit?: (item: ItemProps & { id: number }) => void;
     language: Language;
 }
 
-const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, onJumpToRule, language }) => {
+const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, onJumpToRule, onEdit, language }) => {
     const [contextMenu, setContextMenu] = useState<{ x: number, y: number } | null>(null);
     const [hover, setHover] = useState(false);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -35,6 +37,7 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
         { label: `Tier: ${result.matchedTier || 'Untiered'}`, disabled: true, onClick: () => {} },
         { label: `Rule: ${result.matchedRule || 'Base Mapping'}`, disabled: true, onClick: () => {} },
         { divider: true, label: "", onClick: () => {} },
+        { label: "Edit Item", onClick: () => onEdit?.(item) },
         { label: "Jump to Rule", disabled: !result.matchedFile, onClick: () => result.matchedFile && onJumpToRule?.(result.matchedFile) },
         { label: "Copy Item Text", onClick: copyItemText },
         { label: "Remove", onClick: onDelete, color: "#ff4444" }
@@ -48,7 +51,7 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
         const path = Array.isArray(soundData) ? soundData[0] : soundData;
         const vol = Array.isArray(soundData) ? soundData[1] : 100;
 
-        const audio = new Audio(`/api/sounds/proxy?path=${encodeURIComponent(path)}`);
+        const audio = new Audio(getSoundUrl(path));
         audio.volume = vol / 100;
         audio.play().catch(e => console.warn("Failed to play sound", e));
     };
