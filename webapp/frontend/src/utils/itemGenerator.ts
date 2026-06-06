@@ -293,6 +293,7 @@ export function generateRandomItem(
     // Step 15: Build and return ItemProps
     const item: ItemProps = {
         name: picked.name,
+        name_ch: picked.name_ch || undefined,
         class: picked.item_class ?? cls,
         itemLevel,
         rarity,
@@ -508,6 +509,7 @@ export function generateValuableItem(
         // Step 15: Build and return ItemProps
         const item: ItemProps = {
             name: picked.name,
+            name_ch: picked.name_ch || undefined,
             class: picked.item_class ?? cls,
             itemLevel,
             rarity,

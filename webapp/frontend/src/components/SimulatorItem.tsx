@@ -79,14 +79,44 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
         }
     };
 
-    if (!result.visible) return null;
+    const isHidden = !result.visible;
+    const displayName = language === 'ch' && item.name_ch ? item.name_ch : item.name;
+
+    const influences: string[] = [];
+    if (item.shaper)   influences.push('shaper');
+    if (item.elder)    influences.push('elder');
+    if (item.crusader) influences.push('crusader');
+    if (item.redeemer) influences.push('redeemer');
+    if (item.hunter)   influences.push('hunter');
+    if (item.warlord)  influences.push('warlord');
+    if (item.exarch)   influences.push('exarch');
+    if (item.eater)    influences.push('eater');
+
+    const leftIcons: string[] = [];
+    const rightIcons: string[] = [];
+    if (item.memoryStrands) leftIcons.push('memory_strands');
+    if (influences.length >= 2) leftIcons.push(influences[0]);
+    if (influences.length === 1) rightIcons.push(influences[0]);
+    if (influences.length >= 2) rightIcons.push(influences[1]);
+
+    const renderIcon = (name: string, side: 'left' | 'right', idx: number) => (
+        <span key={`${side}-${idx}`} style={{ width: 16, height: 16, display: 'inline-block', verticalAlign: 'middle', ...(side === 'left' ? { marginRight: 2 } : { marginLeft: 2 }) }}>
+            <img
+                src={`/influence-icons/${name}.png`}
+                alt={name}
+                onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                style={{ width: 16, height: 16 }}
+            />
+        </span>
+    );
 
     return (
         <>
-            <div 
+            <div
                 className="item-plate"
                 style={{
                     ...result.style,
+                    opacity: isHidden ? 0.5 : 1,
                     position: 'absolute',
                     left: `calc(50% + ${item.x}px)`,
                     top: `calc(50% + ${item.y}px)`,
@@ -99,32 +129,16 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
                 onMouseMove={handleMouseMove}
             >
                 <div className="plate-body">
-                    {item.name}
+                    {leftIcons.map((icon, i) => renderIcon(icon, 'left', i))}
+                    {displayName}
                     {item.stackSize && item.stackSize > 1 && <span className="stack-size"> x{item.stackSize}</span>}
-                    {(() => {
-                        const influences: string[] = [];
-                        if (item.shaper)   influences.push('shaper');
-                        if (item.elder)    influences.push('elder');
-                        if (item.crusader) influences.push('crusader');
-                        if (item.redeemer) influences.push('redeemer');
-                        if (item.hunter)   influences.push('hunter');
-                        if (item.warlord)  influences.push('warlord');
-                        if (item.exarch)   influences.push('exarch');
-                        if (item.eater)    influences.push('eater');
-                        return [0, 1].map(i => (
-                            <span key={i} style={{ width: 16, height: 16, display: 'inline-block', verticalAlign: 'middle', marginLeft: 2 }}>
-                                {influences[i] && (
-                                    <img
-                                        src={`/influence-icons/${influences[i]}.png`}
-                                        alt={influences[i]}
-                                        onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-                                        style={{ width: 16, height: 16 }}
-                                    />
-                                )}
-                            </span>
-                        ));
-                    })()}
+                    {rightIcons.map((icon, i) => renderIcon(icon, 'right', i))}
                 </div>
+                {isHidden && (
+                    <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden', borderRadius: 'inherit' }}>
+                        <div style={{ position: 'absolute', top: '50%', left: '-10%', width: '120%', height: '2px', background: '#666', transform: 'rotate(-12deg)', transformOrigin: 'center' }} />
+                    </div>
+                )}
             </div>
 
             {hover && !contextMenu && (
@@ -132,7 +146,7 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
                     top: Math.min(mousePos.y + 15, window.innerHeight - 165),
                     left: Math.min(mousePos.x + 15, window.innerWidth - 225),
                 }}>
-                    <div className="header" style={{ color: result.style.color }}>{item.name}</div>
+                    <div className="header" style={{ color: result.style.color }}>{displayName}</div>
                     <div className="sub">{item.class}</div>
                     <div className="separator"></div>
                     <div className="prop"><span>Item Level:</span> {item.itemLevel}</div>

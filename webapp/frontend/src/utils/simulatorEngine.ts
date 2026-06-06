@@ -28,6 +28,8 @@ export interface ItemProps {
     eater?: boolean;               // Eater of Worlds eldritch influence
     gemLevel?: number;             // Gem level (1-21)
     corruptedImplicit?: string;    // Corrupted implicit text (placeholder until real data source)
+    name_ch?: string;              // Chinese localized base type name
+    memoryStrands?: boolean;       // Memory strand item (left icon slot)
     [key: string]: any;
 }
 
@@ -343,8 +345,7 @@ const convertThemeStyle = (ts: any): any => {
         color: ts.TextColor ? colorToRgb(ts.TextColor) : undefined,
         backgroundColor: ts.BackgroundColor ? colorToRgb(ts.BackgroundColor) : undefined,
         borderColor: ts.BorderColor ? colorToRgb(ts.BorderColor) : undefined,
-        // user requested to ignore theme font size for simulator or set it same
-        // fontSize: ts.FontSize ? `${ts.FontSize / 2.5}px` : undefined,
+        fontSize: ts.FontSize ? `${ts.FontSize / 1.8}px` : undefined,
         borderStyle: ts.BorderColor ? 'solid' : 'none',
         borderWidth: ts.BorderColor ? '1px' : '0px',
         sound

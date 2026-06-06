@@ -352,13 +352,13 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
       const groups: { id: string; label: string }[] = [];
       const walk = (node: import('../services/AppDataContext').ClassHierarchyNode) => {
           if (!node.poe_class && node.children && node.children.length > 0) {
-              groups.push({ id: node.id, label: node.label_en });
+              groups.push({ id: node.id, label: language === 'ch' ? (node.label_ch || node.label_en) : node.label_en });
               for (const child of node.children) walk(child);
           }
       };
       for (const root of classHierarchy) walk(root);
       return groups;
-  }, [classHierarchy]);
+  }, [classHierarchy, language]);
 
   // Classes shown in the level-2 picker based on the selected group
   const visibleClasses = useMemo(() => {
@@ -370,8 +370,8 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
   const topLevelNodes = useMemo(() => {
       return classHierarchy
           .filter(n => n.children && n.children.length > 0)
-          .map(n => ({ id: n.id, label: n.label_en }));
-  }, [classHierarchy]);
+          .map(n => ({ id: n.id, label: language === 'ch' ? (n.label_ch || n.label_en) : n.label_en }));
+  }, [classHierarchy, language]);
 
   // Whether rarity field should be shown for current class
   const showRarityField = activeProps.properties.includes('rarity');
