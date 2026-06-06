@@ -1,0 +1,5 @@
+# Ruthless mode — excludes Standard-only content
+mode: ruthless
+description: Ruthless mode (subtractive — excludes files tagged mode:standard)
+exclude_modes:
+  - standard

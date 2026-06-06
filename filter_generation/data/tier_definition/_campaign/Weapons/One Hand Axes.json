@@ -1,0 +1,85 @@
+{
+    "Campaign One Hand Axes": {
+        "_meta": {
+            "tier_order": [
+                "Camp One Hand Axes Early",
+                "Camp One Hand Axes Mid",
+                "Camp One Hand Axes Late",
+                "Camp One Hand Axes PreEndgame"
+            ],
+            "localization": {
+                "en": "Campaign One Hand Axes",
+                "ch": "过渡单手斧"
+            },
+            "theme_category": "Campaign"
+        },
+        "Camp One Hand Axes Early": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 4
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Early One Hand Axes (Campaign)",
+                "ch": "早期单手斧（过渡）"
+            }
+        },
+        "Camp One Hand Axes Mid": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 3
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Mid One Hand Axes (Campaign)",
+                "ch": "中期单手斧（过渡）"
+            }
+        },
+        "Camp One Hand Axes Late": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 2
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Late One Hand Axes (Campaign)",
+                "ch": "后期单手斧（过渡）"
+            }
+        },
+        "Camp One Hand Axes PreEndgame": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": 1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Pre-Endgame One Hand Axes (Campaign)",
+                "ch": "终局前单手斧（过渡）"
+            }
+        }
+    }
+}

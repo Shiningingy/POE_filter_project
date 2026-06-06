@@ -1,0 +1,16 @@
+{
+    "Chancing Bases": {
+        "_meta": {
+            "tier_order": ["Chancing Normal"],
+            "localization": {"en": "Chancing Bases", "ch": "机会底材"},
+            "theme_category": "Chancing"
+        },
+        "Chancing Normal": {
+            "conditions": {"Rarity": "== Normal"},
+            "hideable": false,
+            "theme": {"Tier": 2},
+            "sound": {"default_sound_id": 1, "sharket_sound_id": null},
+            "localization": {"en": "Chancing Targets (Normal)", "ch": "机会目标（普通品质）"}
+        }
+    }
+}

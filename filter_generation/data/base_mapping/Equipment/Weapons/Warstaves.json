@@ -24,18 +24,18 @@
     "theme_category": "Warstaves"
   },
   "mapping": {
-    "Judgement Staff": "Tier 1 Warstaves",
+    "Judgement Staff": "Tier 0 Warstaves",
     "Ezomyte Staff": "Tier 1 Warstaves",
-    "Maelström Staff": "Tier 1 Warstaves",
-    "Iron Staff": "Tier 1 Warstaves",
-    "Coiled Staff": "Tier 1 Warstaves",
-    "Vile Staff": "Tier 1 Warstaves",
-    "Military Staff": "Tier 1 Warstaves",
-    "Serpentine Staff": "Tier 1 Warstaves",
+    "Maelström Staff": "Tier 0 Warstaves",
+    "Iron Staff": "Tier 4 Warstaves",
+    "Coiled Staff": "Tier 3 Warstaves",
+    "Vile Staff": "Tier 3 Warstaves",
+    "Military Staff": "Tier 2 Warstaves",
+    "Serpentine Staff": "Tier 2 Warstaves",
     "Foul Staff": "Tier 1 Warstaves",
-    "Capacity Rod": "Tier 1 Warstaves",
+    "Capacity Rod": "Tier 3 Warstaves",
     "Potentiality Rod": "Tier 1 Warstaves",
-    "Eventuality Rod": "Tier 1 Warstaves"
+    "Eventuality Rod": "Tier 0 Warstaves"
   },
   "rules": [
     {

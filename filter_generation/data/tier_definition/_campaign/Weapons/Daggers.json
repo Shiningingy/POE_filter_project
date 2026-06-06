@@ -1,0 +1,85 @@
+{
+    "Campaign Daggers": {
+        "_meta": {
+            "tier_order": [
+                "Camp Daggers Early",
+                "Camp Daggers Mid",
+                "Camp Daggers Late",
+                "Camp Daggers PreEndgame"
+            ],
+            "localization": {
+                "en": "Campaign Daggers",
+                "ch": "过渡匕首"
+            },
+            "theme_category": "Campaign"
+        },
+        "Camp Daggers Early": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 4
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Early Daggers (Campaign)",
+                "ch": "早期匕首（过渡）"
+            }
+        },
+        "Camp Daggers Mid": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 3
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Mid Daggers (Campaign)",
+                "ch": "中期匕首（过渡）"
+            }
+        },
+        "Camp Daggers Late": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 2
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Late Daggers (Campaign)",
+                "ch": "后期匕首（过渡）"
+            }
+        },
+        "Camp Daggers PreEndgame": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": 1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Pre-Endgame Daggers (Campaign)",
+                "ch": "终局前匕首（过渡）"
+            }
+        }
+    }
+}

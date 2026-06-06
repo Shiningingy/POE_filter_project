@@ -1,0 +1,55 @@
+{
+    "Vendor Recipes": {
+        "_meta": {
+            "tier_order": ["6-Link Recipe", "6-Socket Recipe", "Chaos Recipe", "Regal Recipe"],
+            "localization": {"en": "Vendor Recipes", "ch": "商人配方"},
+            "theme_category": "Vendor Recipes"
+        },
+        "6-Link Recipe": {
+            "class_condition": true,
+            "conditions": {
+                "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+                "LinkedSockets": ">= 6"
+            },
+            "hideable": false,
+            "theme": {"Tier": 0},
+            "sound": {"default_sound_id": 6, "sharket_sound_id": null},
+            "localization": {"en": "6-Link (6 Divine Orbs)", "ch": "六连接（6个神圣石）"}
+        },
+        "6-Socket Recipe": {
+            "class_condition": true,
+            "conditions": {
+                "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+                "Sockets": ">= 6"
+            },
+            "hideable": false,
+            "theme": {"Tier": 2},
+            "sound": {"default_sound_id": 2, "sharket_sound_id": null},
+            "localization": {"en": "6-Socket (7 Jeweller's Orbs)", "ch": "六插槽（7个珠宝匠宝珠）"}
+        },
+        "Chaos Recipe": {
+            "class_condition": true,
+            "conditions": {
+                "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Rings\" \"Amulets\" \"Belts\"",
+                "Rarity": "== Rare",
+                "ItemLevel": "RANGE >= 60 <= 74"
+            },
+            "hideable": false,
+            "theme": {"Tier": 3},
+            "sound": {"default_sound_id": -1, "sharket_sound_id": null},
+            "localization": {"en": "Chaos Recipe (ilvl 60-74 Rare)", "ch": "混沌配方（60-74级稀有）"}
+        },
+        "Regal Recipe": {
+            "class_condition": true,
+            "conditions": {
+                "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Rings\" \"Amulets\" \"Belts\"",
+                "Rarity": "== Rare",
+                "ItemLevel": ">= 75"
+            },
+            "hideable": false,
+            "theme": {"Tier": 4},
+            "sound": {"default_sound_id": -1, "sharket_sound_id": null},
+            "localization": {"en": "Regal Recipe (ilvl 75+ Rare)", "ch": "崇高配方（75+级稀有）"}
+        }
+    }
+}

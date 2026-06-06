@@ -1,0 +1,85 @@
+{
+    "Campaign Claws": {
+        "_meta": {
+            "tier_order": [
+                "Camp Claws Early",
+                "Camp Claws Mid",
+                "Camp Claws Late",
+                "Camp Claws PreEndgame"
+            ],
+            "localization": {
+                "en": "Campaign Claws",
+                "ch": "过渡爪"
+            },
+            "theme_category": "Campaign"
+        },
+        "Camp Claws Early": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 4
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Early Claws (Campaign)",
+                "ch": "早期爪（过渡）"
+            }
+        },
+        "Camp Claws Mid": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 3
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Mid Claws (Campaign)",
+                "ch": "中期爪（过渡）"
+            }
+        },
+        "Camp Claws Late": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 2
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Late Claws (Campaign)",
+                "ch": "后期爪（过渡）"
+            }
+        },
+        "Camp Claws PreEndgame": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": 1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Pre-Endgame Claws (Campaign)",
+                "ch": "终局前爪（过渡）"
+            }
+        }
+    }
+}

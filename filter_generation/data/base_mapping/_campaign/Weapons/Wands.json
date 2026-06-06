@@ -1,0 +1,41 @@
+{
+    "_meta": {
+        "item_class": {
+            "en": "Wands",
+            "ch": "法杖"
+        },
+        "localization": {
+            "en": "Campaign Wands",
+            "ch": "过渡法杖",
+            "ch_items": {}
+        },
+        "theme_category": "Campaign"
+    },
+    "mapping": {
+        "Driftwood Wand": "Camp Wands Early",
+        "Goat's Horn": "Camp Wands Early",
+        "Somatic Wand": "Camp Wands Early",
+        "Quartz Wand": "Camp Wands Early",
+        "Calling Wand": "Camp Wands Early",
+        "Spiraled Wand": "Camp Wands Early",
+        "Sage Wand": "Camp Wands Mid",
+        "Assembler Wand": "Camp Wands Mid",
+        "Pagan Wand": "Camp Wands Mid",
+        "Faun's Horn": "Camp Wands Mid",
+        "Blasting Wand": "Camp Wands Mid",
+        "Crystal Wand": "Camp Wands Late",
+        "Coiled Wand": "Camp Wands Late",
+        "Convening Wand": "Camp Wands Late",
+        "Congregator Wand": "Camp Wands Late",
+        "Omen Wand": "Camp Wands Late",
+        "Heathen Wand": "Camp Wands Late",
+        "Demon's Horn": "Camp Wands Late",
+        "Kinetic Wand": "Camp Wands Late",
+        "Opal Wand": "Camp Wands Late",
+        "Tornado Wand": "Camp Wands Late",
+        "Prophecy Wand": "Camp Wands PreEndgame",
+        "Profane Wand": "Camp Wands PreEndgame",
+        "Accumulator Wand": "Camp Wands PreEndgame",
+        "Convoking Wand": "Camp Wands PreEndgame"
+    }
+}

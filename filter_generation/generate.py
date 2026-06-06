@@ -44,11 +44,12 @@ FOLDER_LOCALIZATION = {
     "Jewellery": "首饰",
     "Flasks": "药剂",
     "Quest": "任务",
-    "Uniques": "传奇"
+    "Uniques": "传奇",
+    "_campaign": "过渡"
 }
 
 def tr(key):
-    return TERMS.get(LANG, TERMS["en"])
+    return TERMS.get(LANG, TERMS["en"]).get(key, key)
 
 # ---------- UTILITIES ----------
 def parse_rgba(value, default="255 255 255 255"):
@@ -166,11 +167,10 @@ def generate_filter():
     sub_counter = 0   # 11000, 12000...
 
     # Process all JSON files in base_mapping
-    # Sort: underscore-prefixed folders (e.g. _legacy, _unclassified) go last
+    # Sort: underscore-prefixed folders (_campaign, _legacy, _unclassified) go after all standard folders
     def _sort_key(p):
         rel = p.relative_to(BASE_MAPPING_DIR)
         parts = list(rel.parts)
-        # Push folders starting with '_' to the end by replacing '_' prefix with '~' (sorts after Z)
         parts[0] = parts[0].replace("_", "~", 1) if parts[0].startswith("_") else parts[0]
         return parts
 
@@ -271,12 +271,11 @@ def generate_filter():
             else:
                 items_by_tier[t_val].append(item_name)
 
-        # For underscore-prefix folders (e.g. _legacy), the mapping values may reference
+        # For underscore-prefix folders (_legacy, _campaign), mapping values may reference
         # cross-category tier keys that don't exist in this tier_def.
         # Remap all such items to the first non-hide tier defined in this tier_def.
         if folder.startswith("_"):
             valid_tier_keys = set(k for k in category_data if k.startswith("Tier"))
-            # Find the default show tier (lowest tier number that isn't a hide tier)
             default_show_tier = next(
                 (t for t in meta.get("tier_order", [])
                  if t in valid_tier_keys and not category_data[t].get("is_hide_tier", False)),
@@ -295,7 +294,7 @@ def generate_filter():
         tier_order = meta.get("tier_order", [])
         if not tier_order:
             tier_order = sorted(items_by_tier.keys(), key=tier_num_from_label)
-
+        
         used_tiers = set(items_by_tier.keys())
         for t in used_tiers:
             if t not in tier_order:
@@ -310,13 +309,59 @@ def generate_filter():
             tier_entry = category_data[t_lbl]
             is_hide = tier_entry.get("is_hide_tier", False)
             tnum = tier_num_from_label(t_lbl)
-            
+            # Honor explicit theme.Tier for tiers with non-standard label names (e.g. "Camp Bows Early")
+            theme_tier_override = tier_entry.get("theme", {}).get("Tier")
+            if theme_tier_override is not None:
+                tnum = theme_tier_override
             ttheme = theme_ref.get(f"Tier {tnum}", {})
             base_text_col = parse_rgba(ttheme.get("TextColor"))
             base_border_col = parse_rgba(ttheme.get("BorderColor"))
             base_background_col = parse_rgba(ttheme.get("BackgroundColor", "0 0 0 255"))
             base_play_eff = ttheme.get("PlayEffect")
             base_mini_icon = ttheme.get("MinimapIcon")
+
+            # --- Class-Condition Mode (e.g. _campaign/Armour.json) ---
+            if tier_entry.get("class_condition"):
+                tier_conditions = tier_entry.get("conditions", {})
+                if not tier_conditions:
+                    continue  # No conditions defined — skip this tier
+                # Use theme tier from tier_entry directly (label-based tnum is unreliable for custom keys)
+                theme_tnum = tier_entry.get("theme", {}).get("Tier", tnum)
+                ttheme = theme_ref.get(f"Tier {theme_tnum}", ttheme)
+                base_text_col = parse_rgba(ttheme.get("TextColor"))
+                base_border_col = parse_rgba(ttheme.get("BorderColor"))
+                base_background_col = parse_rgba(ttheme.get("BackgroundColor", "0 0 0 255"))
+                base_play_eff = ttheme.get("PlayEffect")
+                base_mini_icon = ttheme.get("MinimapIcon")
+                block_index += 1
+                out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -Tier {theme_tnum} {loc_cat} - Class Condition==")
+                cmd = "Hide" if is_hide else "Show"
+                block_lines = [f'{cmd}']
+                for key, val in tier_conditions.items():
+                    if val.startswith("RANGE "):
+                        parts = val.split()
+                        block_lines.append(f"    {key} {parts[1]} {parts[2]}")
+                        block_lines.append(f"    {key} {parts[3]} {parts[4]}")
+                    elif key == "Rarity":
+                        clean_val = val[2:].strip() if val.strip().startswith("==") else val
+                        block_lines.append(f"    {key} {clean_val}")
+                    else:
+                        block_lines.append(f"    {key} {val}")
+                block_lines += [
+                    f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}',
+                    f'    SetTextColor {base_text_col}',
+                    f'    SetBorderColor {base_border_col}',
+                    f'    SetBackgroundColor {base_background_col}'
+                ]
+                sound_line = resolve_sound(tier_entry, sound_map)
+                if sound_line:
+                    block_lines.append(f"    {sound_line}")
+                if base_play_eff:
+                    block_lines.append(f"    PlayEffect {base_play_eff}")
+                if base_mini_icon:
+                    block_lines.append(f"    MinimapIcon {base_mini_icon}")
+                out_lines.append("\n".join(block_lines) + "\n")
+                continue  # Skip normal BaseType processing for this tier
 
             all_rules = map_doc.get("rules", [])
             
@@ -418,7 +463,7 @@ def generate_filter():
                                     block_lines.append(f"    {key} {parts[1]} {parts[2]}")
                                     block_lines.append(f"    {key} {parts[3]} {parts[4]}")
                             elif key == "Rarity":
-                                clean_val = val.replace("==", "").replace("=", "").strip()
+                                clean_val = val[2:].strip() if val.strip().startswith("==") else val
                                 block_lines.append(f"    {key} {clean_val}")
                             else:
                                 block_lines.append(f"    {key} {val}")
@@ -471,12 +516,28 @@ def generate_filter():
                     block_lines = [
                         f'{cmd}',
                         f'    BaseType{bt_operator}"{joined}"',
+                    ]
+
+                    # Emit tier-level conditions (e.g. ItemLevel, Rarity, DropLevel)
+                    tier_conditions = tier_entry.get("conditions", {})
+                    for key, val in tier_conditions.items():
+                        if val.startswith("RANGE "):
+                            parts = val.split()
+                            block_lines.append(f"    {key} {parts[1]} {parts[2]}")
+                            block_lines.append(f"    {key} {parts[3]} {parts[4]}")
+                        elif key == "Rarity":
+                            clean_val = val[2:].strip() if val.strip().startswith("==") else val
+                            block_lines.append(f"    {key} {clean_val}")
+                        else:
+                            block_lines.append(f"    {key} {val}")
+
+                    block_lines += [
                         f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}',
                         f'    SetTextColor {base_text_col}',
                         f'    SetBorderColor {base_border_col}',
                         f'    SetBackgroundColor {base_background_col}'
                     ]
-                    
+
                     sound_line = resolve_sound(tier_entry, sound_map)
                     if sound_line:  block_lines.append(f"    {sound_line}")
                     if base_play_eff: block_lines.append(f"    PlayEffect {base_play_eff}")
@@ -487,7 +548,7 @@ def generate_filter():
     overview.append("#========================================\n")
     final_text = "\n".join(overview) + "\n" + "\n".join(out_lines) + "\n"
     OUTPUT_FILE.write_text(final_text, encoding="utf-8")
-    print(f"✅ Complete filter generated at {OUTPUT_FILE}")
+    print(f"[OK] Complete filter generated at {OUTPUT_FILE}")
 
 if __name__ == "__main__":
     generate_filter()

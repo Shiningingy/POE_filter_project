@@ -15,6 +15,7 @@
       ]
     },
     "Tier 0 Quivers": {
+      "conditions": {"ItemLevel": ">= 68", "Rarity": "<= Rare"},
       "hideable": false,
       "theme": {
         "Tier": 0
@@ -30,6 +31,7 @@
       "show_in_editor": false
     },
     "Tier 1 Quivers": {
+      "conditions": {"ItemLevel": ">= 68", "Rarity": "<= Rare"},
       "hideable": false,
       "theme": {
         "Tier": 1
@@ -44,6 +46,7 @@
       }
     },
     "Tier 2 Quivers": {
+      "conditions": {"Rarity": "<= Rare"},
       "hideable": false,
       "theme": {
         "Tier": 2

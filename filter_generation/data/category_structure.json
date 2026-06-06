@@ -383,6 +383,36 @@
         {
           "_meta": {
             "localization": {
+              "en": "Vendor Recipes",
+              "ch": "商人配方"
+            }
+          },
+          "files": [
+            {
+              "path": "Equipment/VendorRecipes/Recipes.json",
+              "tier_path": "tier_definition/Equipment/VendorRecipes/Recipes.json",
+              "mapping_path": "base_mapping/Equipment/VendorRecipes/Recipes.json",
+              "target_category": "Recipes",
+              "localization": {
+                "en": "Recipes",
+                "ch": "掉落配方"
+              }
+            },
+            {
+              "path": "Equipment/VendorRecipes/Chancing.json",
+              "tier_path": "tier_definition/Equipment/VendorRecipes/Chancing.json",
+              "mapping_path": "base_mapping/Equipment/VendorRecipes/Chancing.json",
+              "target_category": "Chancing Bases",
+              "localization": {
+                "en": "Chancing Bases",
+                "ch": "机会底材"
+              }
+            }
+          ]
+        },
+        {
+          "_meta": {
+            "localization": {
               "en": "Special Bases",
               "ch": "特殊底材"
             }
@@ -689,6 +719,188 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "_Campaign",
+          "ch": "过渡模式"
+        }
+      },
+      "subgroups": [
+        {
+          "_meta": {
+            "localization": {
+              "en": "Weapons",
+              "ch": "过渡武器"
+            }
+          },
+          "files": [
+            {
+              "path": "_campaign/Weapons/Bows.json",
+              "tier_path": "tier_definition/_campaign/Weapons/Bows.json",
+              "mapping_path": "base_mapping/_campaign/Weapons/Bows.json",
+              "target_category": "Bows",
+              "localization": {
+                "en": "Bows",
+                "ch": "弓（过渡）"
+              }
+            },
+            {
+              "path": "_campaign/Weapons/Wands.json",
+              "tier_path": "tier_definition/_campaign/Weapons/Wands.json",
+              "mapping_path": "base_mapping/_campaign/Weapons/Wands.json",
+              "target_category": "Wands",
+              "localization": {
+                "en": "Wands",
+                "ch": "法杖（过渡）"
+              }
+            },
+            {
+              "path": "_campaign/Weapons/Sceptres.json",
+              "tier_path": "tier_definition/_campaign/Weapons/Sceptres.json",
+              "mapping_path": "base_mapping/_campaign/Weapons/Sceptres.json",
+              "target_category": "Sceptres",
+              "localization": {
+                "en": "Sceptres",
+                "ch": "短杖（过渡）"
+              }
+            },
+            {
+              "path": "_campaign/Weapons/Claws.json",
+              "tier_path": "tier_definition/_campaign/Weapons/Claws.json",
+              "mapping_path": "base_mapping/_campaign/Weapons/Claws.json",
+              "target_category": "Claws",
+              "localization": {
+                "en": "Claws",
+                "ch": "爪（过渡）"
+              }
+            },
+            {
+              "path": "_campaign/Weapons/Daggers.json",
+              "tier_path": "tier_definition/_campaign/Weapons/Daggers.json",
+              "mapping_path": "base_mapping/_campaign/Weapons/Daggers.json",
+              "target_category": "Daggers",
+              "localization": {
+                "en": "Daggers",
+                "ch": "匕首（过渡）"
+              }
+            },
+            {
+              "path": "_campaign/Weapons/Rune Daggers.json",
+              "tier_path": "tier_definition/_campaign/Weapons/Rune Daggers.json",
+              "mapping_path": "base_mapping/_campaign/Weapons/Rune Daggers.json",
+              "target_category": "Rune Daggers",
+              "localization": {
+                "en": "Rune Daggers",
+                "ch": "符文匕首（过渡）"
+              }
+            },
+            {
+              "path": "_campaign/Weapons/Staves.json",
+              "tier_path": "tier_definition/_campaign/Weapons/Staves.json",
+              "mapping_path": "base_mapping/_campaign/Weapons/Staves.json",
+              "target_category": "Staves",
+              "localization": {
+                "en": "Staves",
+                "ch": "长杖（过渡）"
+              }
+            },
+            {
+              "path": "_campaign/Weapons/Warstaves.json",
+              "tier_path": "tier_definition/_campaign/Weapons/Warstaves.json",
+              "mapping_path": "base_mapping/_campaign/Weapons/Warstaves.json",
+              "target_category": "Warstaves",
+              "localization": {
+                "en": "Warstaves",
+                "ch": "战杖（过渡）"
+              }
+            },
+            {
+              "path": "_campaign/Weapons/One Hand Axes.json",
+              "tier_path": "tier_definition/_campaign/Weapons/One Hand Axes.json",
+              "mapping_path": "base_mapping/_campaign/Weapons/One Hand Axes.json",
+              "target_category": "One Hand Axes",
+              "localization": {
+                "en": "One Hand Axes",
+                "ch": "单手斧（过渡）"
+              }
+            },
+            {
+              "path": "_campaign/Weapons/One Hand Maces.json",
+              "tier_path": "tier_definition/_campaign/Weapons/One Hand Maces.json",
+              "mapping_path": "base_mapping/_campaign/Weapons/One Hand Maces.json",
+              "target_category": "One Hand Maces",
+              "localization": {
+                "en": "One Hand Maces",
+                "ch": "单手锤（过渡）"
+              }
+            },
+            {
+              "path": "_campaign/Weapons/One Hand Swords.json",
+              "tier_path": "tier_definition/_campaign/Weapons/One Hand Swords.json",
+              "mapping_path": "base_mapping/_campaign/Weapons/One Hand Swords.json",
+              "target_category": "One Hand Swords",
+              "localization": {
+                "en": "One Hand Swords",
+                "ch": "单手剑（过渡）"
+              }
+            },
+            {
+              "path": "_campaign/Weapons/Two Hand Axes.json",
+              "tier_path": "tier_definition/_campaign/Weapons/Two Hand Axes.json",
+              "mapping_path": "base_mapping/_campaign/Weapons/Two Hand Axes.json",
+              "target_category": "Two Hand Axes",
+              "localization": {
+                "en": "Two Hand Axes",
+                "ch": "双手斧（过渡）"
+              }
+            },
+            {
+              "path": "_campaign/Weapons/Two Hand Maces.json",
+              "tier_path": "tier_definition/_campaign/Weapons/Two Hand Maces.json",
+              "mapping_path": "base_mapping/_campaign/Weapons/Two Hand Maces.json",
+              "target_category": "Two Hand Maces",
+              "localization": {
+                "en": "Two Hand Maces",
+                "ch": "双手锤（过渡）"
+              }
+            },
+            {
+              "path": "_campaign/Weapons/Two Hand Swords.json",
+              "tier_path": "tier_definition/_campaign/Weapons/Two Hand Swords.json",
+              "mapping_path": "base_mapping/_campaign/Weapons/Two Hand Swords.json",
+              "target_category": "Two Hand Swords",
+              "localization": {
+                "en": "Two Hand Swords",
+                "ch": "双手剑（过渡）"
+              }
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "_campaign/Armour.json",
+          "tier_path": "tier_definition/_campaign/Armour.json",
+          "mapping_path": "base_mapping/_campaign/Armour.json",
+          "target_category": "Armour",
+          "localization": {
+            "en": "Armour",
+            "ch": "过渡护甲"
+          }
+        },
+        {
+          "path": "_campaign/Flasks.json",
+          "tier_path": "tier_definition/_campaign/Flasks.json",
+          "mapping_path": "base_mapping/_campaign/Flasks.json",
+          "target_category": "Flasks",
+          "localization": {
+            "en": "Flasks",
+            "ch": "过渡药剂"
+          }
         }
       ]
     },

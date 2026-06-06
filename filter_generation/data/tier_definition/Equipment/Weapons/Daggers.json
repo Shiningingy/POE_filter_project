@@ -11,10 +11,12 @@
         "Tier 1 Daggers",
         "Tier 2 Daggers",
         "Tier 3 Daggers",
+        "Tier 4 Daggers",
         "Tier Hide Daggers"
       ]
     },
     "Tier 0 Daggers": {
+      "conditions": {"ItemLevel": ">= 68", "Rarity": "<= Rare"},
       "hideable": false,
       "theme": {
         "Tier": 0
@@ -30,6 +32,7 @@
       "show_in_editor": false
     },
     "Tier 1 Daggers": {
+      "conditions": {"ItemLevel": ">= 68", "Rarity": "<= Rare"},
       "hideable": false,
       "theme": {
         "Tier": 1
@@ -44,6 +47,7 @@
       }
     },
     "Tier 2 Daggers": {
+      "conditions": {"Rarity": "<= Rare"},
       "hideable": false,
       "theme": {
         "Tier": 2
@@ -69,6 +73,20 @@
       "localization": {
         "en": "T3: Mid Tier",
         "ch": "T3: 普通匕首"
+      }
+    },
+    "Tier 4 Daggers": {
+      "hideable": false,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T4: Low Tier",
+        "ch": "T4: 低级匕首"
       }
     },
     "Tier Hide Daggers": {

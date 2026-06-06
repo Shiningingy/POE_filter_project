@@ -25,21 +25,21 @@
     "theme_category": "Rune Daggers"
   },
   "mapping": {
-    "Golden Kris": "Tier 1 Rune Daggers",
-    "Platinum Kris": "Tier 1 Rune Daggers",
-    "Copper Kris": "Tier 1 Rune Daggers",
-    "Ezomyte Dagger": "Tier 1 Rune Daggers",
-    "Fiend Dagger": "Tier 2 Rune Daggers",
-    "Imperial Skean": "Tier 2 Rune Daggers",
-    "Carving Knife": "Tier 1 Rune Daggers",
-    "Boot Knife": "Tier 1 Rune Daggers",
-    "Skean": "Tier 1 Rune Daggers",
-    "Imp Dagger": "Tier 1 Rune Daggers",
-    "Butcher Knife": "Tier 1 Rune Daggers",
-    "Boot Blade": "Tier 1 Rune Daggers",
-    "Flickerflame Blade": "Tier 1 Rune Daggers",
+    "Golden Kris": "Tier 2 Rune Daggers",
+    "Platinum Kris": "Tier 0 Rune Daggers",
+    "Copper Kris": "Tier 3 Rune Daggers",
+    "Ezomyte Dagger": "Tier 0 Rune Daggers",
+    "Fiend Dagger": "Tier 1 Rune Daggers",
+    "Imperial Skean": "Tier 0 Rune Daggers",
+    "Carving Knife": "Tier 4 Rune Daggers",
+    "Boot Knife": "Tier 4 Rune Daggers",
+    "Skean": "Tier 3 Rune Daggers",
+    "Imp Dagger": "Tier 3 Rune Daggers",
+    "Butcher Knife": "Tier 2 Rune Daggers",
+    "Boot Blade": "Tier 2 Rune Daggers",
+    "Flickerflame Blade": "Tier 3 Rune Daggers",
     "Flashfire Blade": "Tier 1 Rune Daggers",
-    "Infernal Blade": "Tier 1 Rune Daggers"
+    "Infernal Blade": "Tier 0 Rune Daggers"
   },
   "rules": [
     {

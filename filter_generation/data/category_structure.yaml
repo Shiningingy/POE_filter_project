@@ -106,6 +106,14 @@ Flasks:
 
 Equipment:
   _name: 终局装备
+  Vendor Recipes:
+    _name: 商人配方
+    Recipes:
+      name: 掉落配方
+      path: Equipment/VendorRecipes/Recipes.json
+    Chancing Bases:
+      name: 机会底材
+      path: Equipment/VendorRecipes/Chancing.json
   Special Bases:
     _name: 特殊底材
     _default_target: Body Armours
@@ -193,6 +201,59 @@ Equipment:
     Trinkets:
       name: 饰品
       target: Trinkets
+
+_Campaign:
+  _name: 过渡模式
+  Armour:
+    name: 过渡护甲
+    path: _campaign/Armour.json
+  Flasks:
+    name: 过渡药剂
+    path: _campaign/Flasks.json
+  Weapons:
+    _name: 过渡武器
+    Bows:
+      name: 弓（过渡）
+      path: _campaign/Weapons/Bows.json
+    Wands:
+      name: 法杖（过渡）
+      path: _campaign/Weapons/Wands.json
+    Sceptres:
+      name: 短杖（过渡）
+      path: _campaign/Weapons/Sceptres.json
+    Claws:
+      name: 爪（过渡）
+      path: _campaign/Weapons/Claws.json
+    Daggers:
+      name: 匕首（过渡）
+      path: _campaign/Weapons/Daggers.json
+    Rune Daggers:
+      name: 符文匕首（过渡）
+      path: _campaign/Weapons/Rune Daggers.json
+    Staves:
+      name: 长杖（过渡）
+      path: _campaign/Weapons/Staves.json
+    Warstaves:
+      name: 战杖（过渡）
+      path: _campaign/Weapons/Warstaves.json
+    One Hand Axes:
+      name: 单手斧（过渡）
+      path: _campaign/Weapons/One Hand Axes.json
+    One Hand Maces:
+      name: 单手锤（过渡）
+      path: _campaign/Weapons/One Hand Maces.json
+    One Hand Swords:
+      name: 单手剑（过渡）
+      path: _campaign/Weapons/One Hand Swords.json
+    Two Hand Axes:
+      name: 双手斧（过渡）
+      path: _campaign/Weapons/Two Hand Axes.json
+    Two Hand Maces:
+      name: 双手锤（过渡）
+      path: _campaign/Weapons/Two Hand Maces.json
+    Two Hand Swords:
+      name: 双手剑（过渡）
+      path: _campaign/Weapons/Two Hand Swords.json
 
 _Legacy:
   _name: 历史物品

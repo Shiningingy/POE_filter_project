@@ -1,0 +1,44 @@
+{
+    "_meta": {
+        "item_class": {
+            "en": "Bows",
+            "ch": "弓"
+        },
+        "localization": {
+            "en": "Campaign Bows",
+            "ch": "过渡弓",
+            "ch_items": {}
+        },
+        "theme_category": "Campaign"
+    },
+    "mapping": {
+        "Crude Bow": "Camp Bows Early",
+        "Short Bow": "Camp Bows Early",
+        "Long Bow": "Camp Bows Early",
+        "Composite Bow": "Camp Bows Early",
+        "Recurve Bow": "Camp Bows Early",
+        "Bone Bow": "Camp Bows Early",
+        "Royal Bow": "Camp Bows Mid",
+        "Hedron Bow": "Camp Bows Mid",
+        "Death Bow": "Camp Bows Mid",
+        "Grove Bow": "Camp Bows Mid",
+        "Reflex Bow": "Camp Bows Mid",
+        "Decurve Bow": "Camp Bows Mid",
+        "Compound Bow": "Camp Bows Mid",
+        "Sniper Bow": "Camp Bows Mid",
+        "Ivory Bow": "Camp Bows Late",
+        "Highborn Bow": "Camp Bows Late",
+        "Foundry Bow": "Camp Bows Late",
+        "Decimation Bow": "Camp Bows Late",
+        "Thicket Bow": "Camp Bows Late",
+        "Steelwood Bow": "Camp Bows Late",
+        "Citadel Bow": "Camp Bows Late",
+        "Ranger Bow": "Camp Bows Late",
+        "Assassin Bow": "Camp Bows Late",
+        "Spine Bow": "Camp Bows Late",
+        "Imperial Bow": "Camp Bows Late",
+        "Harbinger Bow": "Camp Bows PreEndgame",
+        "Solarine Bow": "Camp Bows PreEndgame",
+        "Maraketh Bow": "Camp Bows PreEndgame"
+    }
+}

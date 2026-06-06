@@ -1,0 +1,32 @@
+{
+    "_meta": {
+        "item_class": {
+            "en": "Staves",
+            "ch": "长杖"
+        },
+        "localization": {
+            "en": "Campaign Staves",
+            "ch": "过渡长杖",
+            "ch_items": {}
+        },
+        "theme_category": "Campaign"
+    },
+    "mapping": {
+        "Gnarled Branch": "Camp Staves Early",
+        "Primitive Staff": "Camp Staves Early",
+        "Long Staff": "Camp Staves Early",
+        "Royal Staff": "Camp Staves Mid",
+        "Transformer Staff": "Camp Staves Mid",
+        "Crescent Staff": "Camp Staves Mid",
+        "Woodful Staff": "Camp Staves Mid",
+        "Quarterstaff": "Camp Staves Late",
+        "Reciprocation Staff": "Camp Staves Late",
+        "Highborn Staff": "Camp Staves Late",
+        "Moon Staff": "Camp Staves Late",
+        "Primordial Staff": "Camp Staves Late",
+        "Lathi": "Camp Staves Late",
+        "Imperial Staff": "Camp Staves Late",
+        "Eclipse Staff": "Camp Staves PreEndgame",
+        "Battery Staff": "Camp Staves PreEndgame"
+    }
+}

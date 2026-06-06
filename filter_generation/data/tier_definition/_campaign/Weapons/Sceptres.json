@@ -1,0 +1,85 @@
+{
+    "Campaign Sceptres": {
+        "_meta": {
+            "tier_order": [
+                "Camp Sceptres Early",
+                "Camp Sceptres Mid",
+                "Camp Sceptres Late",
+                "Camp Sceptres PreEndgame"
+            ],
+            "localization": {
+                "en": "Campaign Sceptres",
+                "ch": "过渡短杖"
+            },
+            "theme_category": "Campaign"
+        },
+        "Camp Sceptres Early": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 4
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Early Sceptres (Campaign)",
+                "ch": "早期短杖（过渡）"
+            }
+        },
+        "Camp Sceptres Mid": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 3
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Mid Sceptres (Campaign)",
+                "ch": "中期短杖（过渡）"
+            }
+        },
+        "Camp Sceptres Late": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 2
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Late Sceptres (Campaign)",
+                "ch": "后期短杖（过渡）"
+            }
+        },
+        "Camp Sceptres PreEndgame": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": 1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Pre-Endgame Sceptres (Campaign)",
+                "ch": "终局前短杖（过渡）"
+            }
+        }
+    }
+}

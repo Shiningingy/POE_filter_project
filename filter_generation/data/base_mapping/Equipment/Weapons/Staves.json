@@ -28,22 +28,22 @@
     "theme_category": "Staves"
   },
   "mapping": {
-    "Imperial Staff": "Tier 1 Staves",
-    "Eclipse Staff": "Tier 1 Staves",
-    "Lathi": "Tier 1 Staves",
-    "Gnarled Branch": "Tier 1 Staves",
-    "Primitive Staff": "Tier 1 Staves",
-    "Long Staff": "Tier 1 Staves",
-    "Royal Staff": "Tier 1 Staves",
-    "Crescent Staff": "Tier 1 Staves",
-    "Woodful Staff": "Tier 1 Staves",
-    "Quarterstaff": "Tier 1 Staves",
+    "Imperial Staff": "Tier 0 Staves",
+    "Eclipse Staff": "Tier 0 Staves",
+    "Lathi": "Tier 0 Staves",
+    "Gnarled Branch": "Tier 4 Staves",
+    "Primitive Staff": "Tier 4 Staves",
+    "Long Staff": "Tier 4 Staves",
+    "Royal Staff": "Tier 3 Staves",
+    "Crescent Staff": "Tier 2 Staves",
+    "Woodful Staff": "Tier 2 Staves",
+    "Quarterstaff": "Tier 2 Staves",
     "Highborn Staff": "Tier 1 Staves",
     "Moon Staff": "Tier 1 Staves",
     "Primordial Staff": "Tier 1 Staves",
-    "Transformer Staff": "Tier 1 Staves",
+    "Transformer Staff": "Tier 3 Staves",
     "Reciprocation Staff": "Tier 1 Staves",
-    "Battery Staff": "Tier 1 Staves"
+    "Battery Staff": "Tier 0 Staves"
   },
   "rules": [
     {

@@ -23,20 +23,20 @@
     "theme_category": "Quivers"
   },
   "mapping": {
-    "Broadhead Arrow Quiver": "Tier 1 Quivers",
-    "Spike-Point Arrow Quiver": "Tier 1 Quivers",
-    "Penetrating Arrow Quiver": "Tier 1 Quivers",
+    "Broadhead Arrow Quiver": "Tier 2 Quivers",
+    "Spike-Point Arrow Quiver": "Tier 2 Quivers",
+    "Penetrating Arrow Quiver": "Tier 3 Quivers",
     "Vile Arrow Quiver": "Tier 1 Quivers",
     "Two-Point Arrow Quiver": "Tier 2 Quivers",
-    "Sharktooth Arrow Quiver": "Tier 2 Quivers",
-    "Serrated Arrow Quiver": "Tier 2 Quivers",
-    "Blunt Arrow Quiver": "Tier 1 Quivers",
-    "Fire Arrow Quiver": "Tier 1 Quivers",
-    "Artillery Quiver": "Tier 1 Quivers",
-    "Feathered Arrow Quiver": "Tier 1 Quivers",
-    "Blazing Arrow Quiver": "Tier 1 Quivers",
+    "Sharktooth Arrow Quiver": "Tier 3 Quivers",
+    "Serrated Arrow Quiver": "Tier 3 Quivers",
+    "Blunt Arrow Quiver": "Tier 3 Quivers",
+    "Fire Arrow Quiver": "Tier 3 Quivers",
+    "Artillery Quiver": "Tier 0 Quivers",
+    "Feathered Arrow Quiver": "Tier 3 Quivers",
+    "Blazing Arrow Quiver": "Tier 2 Quivers",
     "Heavy Arrow Quiver": "Tier 1 Quivers",
-    "Primal Arrow Quiver": "Tier 1 Quivers"
+    "Primal Arrow Quiver": "Tier 0 Quivers"
   },
   "rules": [
     {

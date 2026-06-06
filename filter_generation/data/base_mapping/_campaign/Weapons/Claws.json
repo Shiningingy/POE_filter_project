@@ -1,0 +1,44 @@
+{
+    "_meta": {
+        "item_class": {
+            "en": "Claws",
+            "ch": "爪"
+        },
+        "localization": {
+            "en": "Campaign Claws",
+            "ch": "过渡爪",
+            "ch_items": {}
+        },
+        "theme_category": "Campaign"
+    },
+    "mapping": {
+        "Nailed Fist": "Camp Claws Early",
+        "Sharktooth Claw": "Camp Claws Early",
+        "Awl": "Camp Claws Early",
+        "Cat's Paw": "Camp Claws Early",
+        "Blinder": "Camp Claws Early",
+        "Timeworn Claw": "Camp Claws Mid",
+        "Sparkling Claw": "Camp Claws Mid",
+        "Shadow Fangs": "Camp Claws Mid",
+        "Fright Claw": "Camp Claws Mid",
+        "Double Claw": "Camp Claws Mid",
+        "Thresher Claw": "Camp Claws Mid",
+        "Gouger": "Camp Claws Mid",
+        "Tiger's Paw": "Camp Claws Mid",
+        "Gut Ripper": "Camp Claws Late",
+        "Prehistoric Claw": "Camp Claws Late",
+        "Malign Fangs": "Camp Claws Late",
+        "Noble Claw": "Camp Claws Late",
+        "Eagle Claw": "Camp Claws Late",
+        "Twin Claw": "Camp Claws Late",
+        "Great White Claw": "Camp Claws Late",
+        "Throat Stabber": "Camp Claws Late",
+        "Hellion's Paw": "Camp Claws Late",
+        "Eye Gouger": "Camp Claws Late",
+        "Vaal Claw": "Camp Claws Late",
+        "Imperial Claw": "Camp Claws PreEndgame",
+        "Terror Claw": "Camp Claws PreEndgame",
+        "Void Fangs": "Camp Claws PreEndgame",
+        "Gemini Claw": "Camp Claws PreEndgame"
+    }
+}
