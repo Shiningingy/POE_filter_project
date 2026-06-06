@@ -162,8 +162,8 @@ function App() {
       </div>
 
       <div className="app-body">
-        {currentView === 'editor' && (
-          <EditorView 
+        <div className="view-slot" style={{ display: currentView === 'editor' ? 'flex' : 'none' }}>
+          <EditorView
             selectedFile={selectedFile}
             setSelectedFile={setSelectedFile}
             configContent={configContent}
@@ -176,18 +176,18 @@ function App() {
             viewerBackground={viewerBackground}
             setViewerBackground={setViewerBackground}
           />
-        )}
+        </div>
         {currentView === 'theme' && (
           <ThemeView language={language} />
         )}
-        {currentView === 'simulator' && (
+        <div className="view-slot" style={{ display: currentView === 'simulator' ? 'flex' : 'none' }}>
           <SimulatorView filterContent={filterPreview} language={language} onJumpToRule={handleJumpToRule} />
-        )}
+        </div>
         {currentView === 'export' && (
-          <ExportView 
-            onGenerate={generateFilter} 
-            loading={loading} 
-            message={message} 
+          <ExportView
+            onGenerate={generateFilter}
+            loading={loading}
+            message={message}
             filterContent={filterPreview}
             gameMode={gameMode}
           />
@@ -219,6 +219,7 @@ function App() {
         .language-selector select { padding: 5px; border-radius: 4px; border: none; background: #444; color: white; }
         
         .app-body { flex: 1; overflow: hidden; position: relative; }
+        .view-slot { flex: 1; overflow: hidden; flex-direction: column; min-height: 0; }
       `}</style>
     </div>
     </AppDataProvider>

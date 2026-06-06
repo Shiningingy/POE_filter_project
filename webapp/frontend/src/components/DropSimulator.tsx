@@ -60,6 +60,10 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
   // Edit mode – when non-null, the creator modal is shown in edit mode
   const [editingItem, setEditingItem] = useState<(ItemProps & { id: number }) | null>(null);
 
+  // Bilingual base type autocomplete state
+  const [baseTypeQuery, setBaseTypeQuery] = useState('');
+  const [showBaseTypeDrop, setShowBaseTypeDrop] = useState(false);
+
   // Generator settings and related state
   const [generatorSettings, setGeneratorSettings] = useState<GeneratorSettings>({
     itemLevelMin: 60,
@@ -326,6 +330,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
   const handleCancelCreator = () => {
       setShowCreator(false);
       setEditingItem(null);
+      setBaseTypeQuery('');
   };
 
   const handleImport = () => {
@@ -376,6 +381,16 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
   // Whether rarity field should be shown for current class
   const showRarityField = activeProps.properties.includes('rarity');
 
+  // Bilingual base type suggestions — filters by English or Chinese name
+  const baseTypeSuggestions = useMemo(() => {
+      if (!baseTypeQuery) return [];
+      const q = baseTypeQuery.toLowerCase();
+      return ((itemPools[newItem.class] || []) as any[]).filter((item: any) =>
+          item.name.toLowerCase().includes(q) ||
+          (item.name_ch && item.name_ch.includes(baseTypeQuery))
+      ).slice(0, 20);
+  }, [baseTypeQuery, newItem.class, itemPools]);
+
   const renderField = (key: string, label: string, type: 'number' | 'text' | 'select', options?: string[]) => {
       // Special handling: hide rarity when class doesn't support it
       if (key === 'rarity' && !showRarityField) return null;
@@ -385,23 +400,17 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
 
       const itemRecord = newItem as Record<string, unknown>;
 
-      const handleNameChange = (value: string) => {
-          // Check if value matches a known base type for this class
-          const pool = itemPools[newItem.class];
-          if (pool && pool.length > 0) {
-              const matched = pool.find((i: any) => i.name === value);
-              if (matched) {
-                  setNewItem(prev => ({
-                      ...prev,
-                      name: value,
-                      dropLevel: matched.drop_level ?? prev.dropLevel,
-                      width: matched.width ?? prev.width,
-                      height: matched.height ?? prev.height,
-                  }));
-                  return;
-              }
-          }
-          setNewItem(prev => ({ ...prev, name: value }));
+      const selectBaseType = (item: any) => {
+          setNewItem(prev => ({
+              ...prev,
+              name: item.name,
+              name_ch: item.name_ch || undefined,
+              dropLevel: item.drop_level ?? prev.dropLevel,
+              width: item.width ?? prev.width,
+              height: item.height ?? prev.height,
+          }));
+          setBaseTypeQuery('');
+          setShowBaseTypeDrop(false);
       };
 
       return (
@@ -409,26 +418,38 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
               <label>{label}</label>
               {type === 'select' ? (
                   <select value={itemRecord[key] as string} onChange={e => setNewItem({...newItem, [key]: e.target.value})}>
-                      {options?.map(o => <option key={o} value={o}>{o}</option>)}
+                      {options?.map(o => <option key={o} value={o}>{(t as any)[o] || o}</option>)}
                   </select>
+              ) : key === 'name' ? (
+                  <div style={{ position: 'relative' }}>
+                      <input
+                          type="text"
+                          value={baseTypeQuery !== '' ? baseTypeQuery : newItem.name}
+                          autoComplete="off"
+                          onChange={e => { setBaseTypeQuery(e.target.value); setShowBaseTypeDrop(true); }}
+                          onFocus={() => setShowBaseTypeDrop(true)}
+                          onBlur={() => setTimeout(() => setShowBaseTypeDrop(false), 150)}
+                      />
+                      {showBaseTypeDrop && baseTypeSuggestions.length > 0 && (
+                          <div className="base-type-dropdown">
+                              {baseTypeSuggestions.map((item: any) => (
+                                  <div
+                                      key={item.name}
+                                      className="base-type-option"
+                                      onMouseDown={() => selectBaseType(item)}
+                                  >
+                                      {item.name_ch ? `${item.name_ch}  ${item.name}` : item.name}
+                                  </div>
+                              ))}
+                          </div>
+                      )}
+                  </div>
               ) : (
                   <input
                     type={type}
                     value={(itemRecord[key] as string | number) || ''}
-                    onChange={e => {
-                        if (key === 'name') {
-                            handleNameChange(e.target.value);
-                        } else {
-                            setNewItem({...newItem, [key]: type === 'number' ? parseInt(e.target.value) : e.target.value});
-                        }
-                    }}
-                    list={key === 'name' ? 'base-types' : undefined}
+                    onChange={e => setNewItem({...newItem, [key]: type === 'number' ? parseInt(e.target.value) : e.target.value})}
                   />
-              )}
-              {key === 'name' && (
-                  <datalist id="base-types">
-                      {(allClassItems[newItem.class] || []).map(b => <option key={b} value={b} />)}
-                  </datalist>
               )}
           </div>
       );
@@ -460,7 +481,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
           <div className="simulator-controls">
             <div className="left-controls">
                 <button className="control-btn" onClick={() => setShowCreator(true)}>+ {t.addItem}</button>
-                <button className="control-btn" onClick={() => setShowImport(true)}>📋 Import</button>
+                <button className="control-btn" onClick={() => setShowImport(true)}>📋 {t.import}</button>
                 <button
                   className="control-btn danger"
                   onClick={() => { setDroppedItems([]); usedZones.current.clear(); }}
@@ -517,6 +538,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                               const newProps = classPropsMap[newClass] || { properties: [], flags: [], constraints: {} };
                               const resetSockets = (newProps.constraints?.max_sockets ?? 0) === 0;
                               const resetRarity = !newProps.properties.includes('rarity');
+                              setBaseTypeQuery('');
                               setNewItem(prev => ({
                                   ...prev,
                                   class: newClass,
@@ -537,6 +559,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                               const newProps = classPropsMap[newClass] || { properties: [], flags: [], constraints: {} };
                               const resetSockets = (newProps.constraints?.max_sockets ?? 0) === 0;
                               const resetRarity = !newProps.properties.includes('rarity');
+                              setBaseTypeQuery('');
                               setNewItem(prev => ({
                                   ...prev,
                                   class: newClass,
@@ -552,13 +575,13 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
 
                       {renderField('itemLevel', t.itemLevel, 'number')}
                       {renderField('dropLevel', t.dropLevel, 'number')}
-                      {showRarityField && renderField('rarity', 'Rarity', 'select', ['Normal', 'Magic', 'Rare', 'Unique'])}
-                      {renderField('quality', 'Quality', 'number')}
-                      {renderField('stackSize', 'Stack Size', 'number')}
-                      {renderField('gemLevel', 'Gem Level', 'number')}
-                      {renderField('mapTier', 'Map Tier', 'number')}
-                      {renderField('sockets', 'Sockets (e.g. R G B)', 'text')}
-                      {renderField('linkedSockets', 'Linked Sockets', 'number')}
+                      {showRarityField && renderField('rarity', t.rarity, 'select', ['Normal', 'Magic', 'Rare', 'Unique'])}
+                      {renderField('quality', t.quality, 'number')}
+                      {renderField('stackSize', t.stackSize, 'number')}
+                      {renderField('gemLevel', t.gemLevel, 'number')}
+                      {renderField('mapTier', t.mapTier, 'number')}
+                      {renderField('sockets', t.sockets, 'text')}
+                      {renderField('linkedSockets', t.linkedSockets, 'number')}
                   </div>
 
                   <div className="flags-section">
@@ -569,7 +592,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                               return (
                                 <label key={flag}>
                                     <input type="checkbox" checked={!!newItem[flag as keyof ItemProps]} onChange={e => setNewItem({...newItem, [flag]: e.target.checked})} />
-                                    {flag.charAt(0).toUpperCase() + flag.slice(1)}
+                                    {(t as any)[flag] || flag.charAt(0).toUpperCase() + flag.slice(1)}
                                 </label>
                               );
                           })}
@@ -598,7 +621,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                   <textarea
                     value={importText}
                     onChange={e => setImportText(e.target.value)}
-                    placeholder="Copy item info from game (Ctrl+C) and paste here..."
+                    placeholder={t.importPlaceholder}
                     rows={10}
                   />
                   <div className="modal-footer">
@@ -666,6 +689,10 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
         .form-group input, .form-group select { width: 100%; padding: 8px; background: #111; border: 1px solid #444; color: white; border-radius: 4px; box-sizing: border-box; }
         .form-group input:focus { border-color: #2196F3; outline: none; }
         .form-group.full-width { grid-column: span 2; }
+
+        .base-type-dropdown { position: absolute; top: 100%; left: 0; right: 0; background: #1a1a1a; border: 1px solid #555; border-radius: 4px; max-height: 200px; overflow-y: auto; z-index: 3000; box-shadow: 0 4px 12px rgba(0,0,0,0.6); }
+        .base-type-option { padding: 7px 10px; font-size: 0.85rem; color: #ddd; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .base-type-option:hover { background: #2a3a4a; color: #fff; }
 
         .flags-section h4 { border-bottom: 1px solid #333; padding-bottom: 5px; margin-bottom: 10px; color: #aaa; font-size: 0.9rem; }
         .flags-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 10px; background: #1a1a1a; border-radius: 4px; }

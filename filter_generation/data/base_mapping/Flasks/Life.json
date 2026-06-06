@@ -27,13 +27,16 @@
       "en": "Life Flasks",
       "ch": "生命药剂"
     },
-    "theme_category": "Life Flasks"
+    "theme_category": "Life Flasks",
+    "match_modes": {}
   },
   "mapping": {
     "Divine Life Flask": "Tier 1 Life Flasks",
     "Eternal Life Flask": "Tier 1 Life Flasks",
     "Hallowed Life Flask": "Tier 1 Life Flasks",
-    "Small Life Flask": "Tier 1 Life Flasks",
+    "Small Life Flask": [
+      "Tier Hide Life Flasks"
+    ],
     "Medium Life Flask": "Tier 1 Life Flasks",
     "Large Life Flask": "Tier 1 Life Flasks",
     "Greater Life Flask": "Tier 1 Life Flasks",

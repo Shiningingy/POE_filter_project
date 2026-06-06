@@ -319,7 +319,23 @@ export const translations = {
     flags: "Flags",
     updateItem: "Update Item",
     importFromClipboard: "Import from Clipboard",
-    itemLevel: "Item Level"
+    itemLevel: "Item Level",
+    rarity: "Rarity",
+    quality: "Quality",
+    stackSize: "Stack Size",
+    gemLevel: "Gem Level",
+    mapTier: "Map Tier",
+    sockets: "Sockets (e.g. R G B)",
+    linkedSockets: "Linked Sockets",
+    identified: "Identified",
+    corrupted: "Corrupted",
+    mirrored: "Mirrored",
+    fractured: "Fractured",
+    synthesised: "Synthesised",
+    shaper: "Shaper",
+    elder: "Elder",
+    import: "Import",
+    importPlaceholder: "Copy item info from game (Ctrl+C) and paste here..."
   },
   ch: {
     appTitle: "POE 过滤器编辑器",
@@ -641,7 +657,23 @@ export const translations = {
     flags: "标志",
     updateItem: "更新物品",
     importFromClipboard: "从剪贴板导入",
-    itemLevel: "物品等级"
+    itemLevel: "物品等级",
+    rarity: "稀有度",
+    quality: "品质",
+    stackSize: "堆叠数量",
+    gemLevel: "宝石等级",
+    mapTier: "地图阶级",
+    sockets: "插槽 (例: R G B)",
+    linkedSockets: "连接插槽",
+    identified: "已鉴定",
+    corrupted: "已污染",
+    mirrored: "已镜像",
+    fractured: "破碎",
+    synthesised: "忆境",
+    shaper: "塑界者",
+    elder: "裂界者",
+    import: "导入",
+    importPlaceholder: "从游戏复制物品信息 (Ctrl+C) 然后粘贴到这里..."
   }
 };
 
