@@ -219,7 +219,7 @@ function App() {
         .language-selector select { padding: 5px; border-radius: 4px; border: none; background: #444; color: white; }
         
         .app-body { flex: 1; overflow: hidden; position: relative; }
-        .view-slot { flex: 1; overflow: hidden; flex-direction: column; min-height: 0; }
+        .view-slot { position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; display: flex; flex-direction: column; min-height: 0; }
       `}</style>
     </div>
     </AppDataProvider>

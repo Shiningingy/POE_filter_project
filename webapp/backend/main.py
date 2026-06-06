@@ -227,31 +227,33 @@ def load_class_hierarchy():
                 cp = yaml.safe_load(f) or {}
                 yaml_overrides = cp.get("classes", {})
 
-        def resolve_node(node, inherited_props, inherited_flags):
+        def resolve_node(node, inherited_props, inherited_flags, inherited_constraints):
             own_props = node.get("properties", [])
             own_flags = node.get("flags", [])
             resolved_props = list(dict.fromkeys(inherited_props + own_props))
             resolved_flags = list(dict.fromkeys(inherited_flags + own_flags))
+            resolved_constraints = {**inherited_constraints, **node.get("constraints", {})}
             result = dict(node)
             result["resolved_properties"] = resolved_props
             result["resolved_flags"] = resolved_flags
+            result["constraints"] = resolved_constraints
             if "poe_class" in node:
                 poe_class = node["poe_class"]
                 override = yaml_overrides.get(poe_class, {})
                 CLASS_RESOLVED_PROPS[poe_class] = {
                     "properties": override.get("properties", resolved_props),
                     "flags": override.get("flags", resolved_flags),
-                    "constraints": node.get("constraints", {}),
+                    "constraints": override.get("constraints", resolved_constraints),
                 }
             if "children" in node:
                 result["children"] = [
-                    resolve_node(child, resolved_props, resolved_flags)
+                    resolve_node(child, resolved_props, resolved_flags, resolved_constraints)
                     for child in node["children"]
                 ]
             return result
 
         CLASS_HIERARCHY_TREE = [
-            resolve_node(top, [], []) for top in data.get("hierarchy", [])
+            resolve_node(top, [], [], {}) for top in data.get("hierarchy", [])
         ]
         print(f"Loaded class hierarchy: {len(CLASS_RESOLVED_PROPS)} leaf classes.")
     except Exception as e:
@@ -283,6 +285,43 @@ def load_bonus_item_info():
         print(f"Loaded bonus item info: {len(ITEM_BONUS_INFO)} entries.")
     except Exception as e:
         print(f"Error loading bonusItemInfo.json: {e}")
+
+def load_stack_sizes():
+    """Patch ITEM_DETAILS with max_stack_size from currencyitems.json."""
+    try:
+        base_path = DATA_DIR / "from_ggpk" / "baseitemtypes.json"
+        currency_path = DATA_DIR / "from_ggpk" / "currencyitems.json"
+        if not base_path.exists() or not currency_path.exists():
+            print("Warning: stack size source files not found, skipping.")
+            return
+
+        with open(base_path, "r", encoding="utf-8") as f:
+            base_data = json.load(f)
+        rid_to_name = {item["_rid"]: item["Name"] for item in base_data if "_rid" in item and "Name" in item}
+
+        with open(currency_path, "r", encoding="utf-8") as f:
+            currency_data = json.load(f)
+
+        count = 0
+        for entry in currency_data:
+            rid = entry.get("BaseItemTypesKey")
+            stack_size = entry.get("StackSize")
+            if rid is None or stack_size is None:
+                continue
+            name = rid_to_name.get(rid)
+            if not name or name not in ITEM_DETAILS:
+                continue
+            ITEM_DETAILS[name]["max_stack_size"] = stack_size
+            count += 1
+
+        # Gold is a separate class; hardcode its known max stack size
+        if "Gold" in ITEM_DETAILS:
+            ITEM_DETAILS["Gold"]["max_stack_size"] = 50000
+            count += 1
+
+        print(f"Loaded stack sizes for {count} items.")
+    except Exception as e:
+        print(f"Error loading stack sizes: {e}")
 
 # --- Specific Endpoints (Top Priority) ---
 
@@ -887,6 +926,7 @@ async def startup_event():
     print(f"Backend 1.0.3 started. Project: {PROJECT_ROOT}")
     load_base_types()
     load_translations()
+    load_stack_sizes()
     load_category_map()
     load_class_hierarchy()
     load_bonus_item_info()

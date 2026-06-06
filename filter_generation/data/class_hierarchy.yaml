@@ -23,6 +23,7 @@ hierarchy:
       - id: weapons
         label_en: "Weapons"
         label_ch: "武器"
+        flags: [fractured, synthesised, shaper, elder]
         children:
           - id: one_handed_weapons
             label_en: "One Handed Weapons"

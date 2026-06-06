@@ -168,9 +168,12 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
   }, [newItem.class]);
 
   // ---------------------------------------------------------------------------
-  // Pre-warm itemPools when enabledCategories changes
+  // Pre-warm itemPools when enabledCategories changes OR when AppDataContext finishes loading
   // ---------------------------------------------------------------------------
   useEffect(() => {
+      // Wait for the class hierarchy to be ready — getLeafClassesUnder returns [] while loading
+      if (dataLoading) return;
+
       const classesToFetch = getCategoriesToPrewarm(
           generatorSettings.enabledCategories,
           getLeafClassesUnder
@@ -194,7 +197,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
               });
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [generatorSettings.enabledCategories]);
+  }, [generatorSettings.enabledCategories, dataLoading]);
 
   // When entering edit mode, pre-fill form fields with the item's current values
   useEffect(() => {
@@ -371,6 +374,21 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
       return getLeafClassesUnder(selectedGroup);
   }, [selectedGroup, flatClasses, getLeafClassesUnder]);
 
+  // Localized label lookup for leaf classes
+  const classLabelMap = useMemo(() => {
+      const map: Record<string, string> = {};
+      const walk = (node: import('../services/AppDataContext').ClassHierarchyNode) => {
+          if (node.poe_class) {
+              map[node.poe_class] = language === 'ch'
+                  ? (node.label_ch || node.label_en || node.poe_class)
+                  : (node.label_en || node.poe_class);
+          }
+          if (node.children) node.children.forEach(walk);
+      };
+      classHierarchy.forEach(walk);
+      return map;
+  }, [classHierarchy, language]);
+
   // Top-level nodes for SimulatorSettingsPanel (nodes with children only)
   const topLevelNodes = useMemo(() => {
       return classHierarchy
@@ -381,11 +399,12 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
   // Whether rarity field should be shown for current class
   const showRarityField = activeProps.properties.includes('rarity');
 
-  // Bilingual base type suggestions — filters by English or Chinese name
+  // Bilingual base type suggestions — browse first 30 on focus, filter when typing
   const baseTypeSuggestions = useMemo(() => {
-      if (!baseTypeQuery) return [];
+      const pool = (itemPools[newItem.class] || []) as any[];
+      if (!baseTypeQuery) return pool.slice(0, 30);
       const q = baseTypeQuery.toLowerCase();
-      return ((itemPools[newItem.class] || []) as any[]).filter((item: any) =>
+      return pool.filter((item: any) =>
           item.name.toLowerCase().includes(q) ||
           (item.name_ch && item.name_ch.includes(baseTypeQuery))
       ).slice(0, 20);
@@ -568,7 +587,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                                   ...(resetRarity ? { rarity: 'Normal' } : {}),
                               }));
                           }}>
-                              {visibleClasses.map(c => <option key={c} value={c}>{c}</option>)}
+                              {visibleClasses.map(c => <option key={c} value={c}>{classLabelMap[c] || c}</option>)}
                           </select>
                       </div>
                       {renderField('name', t.baseType, 'text')}

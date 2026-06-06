@@ -138,9 +138,13 @@ export function generateRandomItem(
         Math.floor(Math.random() * (settings.itemLevelMax - settings.itemLevelMin + 1)) +
         settings.itemLevelMin;
 
-    // Step 6: Get pool, filter by drop_level
-    let pool = itemPools[cls];
-    const filtered = pool.filter(i => (i.drop_level ?? 0) <= itemLevel);
+    // Step 6: Get pool, strip cross-class items injected by the editor, filter by drop_level
+    // Items without item_class are untagged (stale pool from pre-restart backend) — exclude them too.
+    let pool: any[] = (itemPools[cls] as any[]).filter(
+        (i: any) => i.item_class === cls
+    );
+    if (pool.length === 0) pool = itemPools[cls] as any[]; // fallback: entire pool untagged (needs backend restart)
+    const filtered = pool.filter((i: any) => (i.drop_level ?? 0) <= itemLevel);
     if (filtered.length > 0) pool = filtered;
 
     // Step 7: Pick one item from pool
@@ -282,12 +286,15 @@ export function generateRandomItem(
         corruptedImplicit = 'Corrupted Implicit';
     }
 
-    // Step 14: stackSize
-    let stackSize = 1;
-    if (category === 'currency') {
-        stackSize = Math.floor(Math.random() * 20) + 1;
-    } else if (category === 'divination') {
-        stackSize = Math.floor(Math.random() * 5) + 1;
+    // Step 14: stackSize — only for classes that support it
+    const isStackable = classPropsMap[cls]?.properties.includes('stackSize') ?? false;
+    let stackSize: number | undefined;
+    if (isStackable) {
+        const maxStack: number = (picked as any).max_stack_size ?? (cls === 'Gold' ? 50000 : 20);
+        stackSize = Math.floor(Math.random() * maxStack) + 1;
+        console.log(`[ItemGen] STACKABLE  ${picked.name} | poolClass=${cls} | itemClass=${(picked as any).item_class ?? cls} | maxStack=${maxStack} | stackSize=${stackSize}`);
+    } else {
+        console.log(`[ItemGen] no-stack   ${picked.name} | poolClass=${cls} | itemClass=${(picked as any).item_class ?? cls} | props=[${classPropsMap[cls]?.properties.join(',')}]`);
     }
 
     // Step 15: Build and return ItemProps
@@ -360,9 +367,12 @@ export function generateValuableItem(
             Math.floor(Math.random() * (settings.itemLevelMax - settings.itemLevelMin + 1)) +
             settings.itemLevelMin;
 
-        // Step 6: Get pool, filter by drop_level, then filter for valuable items
-        let pool = itemPools[cls];
-        const filtered = pool.filter(i => (i.drop_level ?? 0) <= itemLevel);
+        // Step 6: Get pool, strip cross-class items, filter by drop_level, then filter for valuable items
+        let pool: any[] = (itemPools[cls] as any[]).filter(
+            (i: any) => i.item_class === cls
+        );
+        if (pool.length === 0) pool = itemPools[cls] as any[];
+        const filtered = pool.filter((i: any) => (i.drop_level ?? 0) <= itemLevel);
         if (filtered.length > 0) pool = filtered;
 
         const valuablePool = pool.filter(i => valuableSet.has(i.name));
@@ -498,12 +508,15 @@ export function generateValuableItem(
             corruptedImplicit = 'Corrupted Implicit';
         }
 
-        // Step 14: stackSize
-        let stackSize = 1;
-        if (category === 'currency') {
-            stackSize = Math.floor(Math.random() * 20) + 1;
-        } else if (category === 'divination') {
-            stackSize = Math.floor(Math.random() * 5) + 1;
+        // Step 14: stackSize — only for classes that support it
+        const isStackable = classPropsMap[cls]?.properties.includes('stackSize') ?? false;
+        let stackSize: number | undefined;
+        if (isStackable) {
+            const maxStack: number = (picked as any).max_stack_size ?? (cls === 'Gold' ? 50000 : 20);
+            stackSize = Math.floor(Math.random() * maxStack) + 1;
+            console.log(`[ItemGen] STACKABLE  ${picked.name} | poolClass=${cls} | itemClass=${(picked as any).item_class ?? cls} | maxStack=${maxStack} | stackSize=${stackSize}`);
+        } else {
+            console.log(`[ItemGen] no-stack   ${picked.name} | poolClass=${cls} | itemClass=${(picked as any).item_class ?? cls} | props=[${classPropsMap[cls]?.properties.join(',')}]`);
         }
 
         // Step 15: Build and return ItemProps
