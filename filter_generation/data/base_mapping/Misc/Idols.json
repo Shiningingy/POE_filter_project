@@ -7,8 +7,8 @@
         "Totemic Idol": "图腾神像",
         "Noble Idol": "贵族神像",
         "Burial Idol": "葬礼神像",
-        "Supremacist Idol": "至高神像",
-        "__class_name__": "神像"
+        "__class_name__": "神像",
+        "Conqueror Idol": "征服者雕像"
       }
     },
     "item_class": {
@@ -23,7 +23,7 @@
     "Totemic Idol": "Tier 3 Idols",
     "Noble Idol": "Tier 2 Idols",
     "Burial Idol": "Tier 2 Idols",
-    "Supremacist Idol": "Tier 1 Idols"
+    "Conqueror Idol": "Tier 1 Idols"
   },
   "rules": []
 }

@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "__class_name__": "可堆叠通货",
+        "Runegraft of the Angler": "渔夫之符文嵌板",
+        "Runegraft of the Bound": "束缚之符文嵌板",
+        "Runegraft of the Combatant": "战士之符文嵌板",
+        "Runegraft of the Fortress": "堡垒之符文嵌板",
+        "Runegraft of the Jeweller": "珠宝匠之符文嵌板",
+        "Runegraft of the Novamark": "新星印记之符文嵌板",
+        "Runegraft of the River": "河川之符文嵌板",
+        "Runegraft of the Sinistral": "左旋之符文嵌板",
+        "Runegraft of the Soulwick": "魂芯之符文嵌板",
+        "Runegraft of the Warp": "曲空之符文嵌板",
+        "Runegraft of the Witchmark": "女巫印记之符文嵌板",
+        "Runegraft of Bellows": "咆哮之符文嵌板",
+        "Runegraft of Blasphemy": "渎神之符文嵌板",
+        "Runegraft of Gemcraft": "宝石工艺之符文嵌板",
+        "Runegraft of Loyalty": "忠诚之符文嵌板",
+        "Runegraft of Quaffing": "畅饮之符文嵌板",
+        "Runegraft of Refraction": "折射之符文嵌板",
+        "Runegraft of Restitching": "缝合之符文嵌板",
+        "Runegraft of Stability": "稳定之符文嵌板",
+        "Runegraft of Time": "时光之符文嵌板",
+        "Runegraft of Treachery": "背叛之符文嵌板"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Runegraft of the Angler": "Tier 1 Runegrafts",
+    "Runegraft of the Bound": "Tier 1 Runegrafts",
+    "Runegraft of the Combatant": "Tier 1 Runegrafts",
+    "Runegraft of the Fortress": "Tier 1 Runegrafts",
+    "Runegraft of the Jeweller": "Tier 1 Runegrafts",
+    "Runegraft of the Novamark": "Tier 1 Runegrafts",
+    "Runegraft of the River": "Tier 1 Runegrafts",
+    "Runegraft of the Sinistral": "Tier 1 Runegrafts",
+    "Runegraft of the Soulwick": "Tier 1 Runegrafts",
+    "Runegraft of the Warp": "Tier 1 Runegrafts",
+    "Runegraft of the Witchmark": "Tier 1 Runegrafts",
+    "Runegraft of Bellows": "Tier 1 Runegrafts",
+    "Runegraft of Blasphemy": "Tier 1 Runegrafts",
+    "Runegraft of Gemcraft": "Tier 1 Runegrafts",
+    "Runegraft of Loyalty": "Tier 1 Runegrafts",
+    "Runegraft of Quaffing": "Tier 1 Runegrafts",
+    "Runegraft of Refraction": "Tier 1 Runegrafts",
+    "Runegraft of Restitching": "Tier 1 Runegrafts",
+    "Runegraft of Stability": "Tier 1 Runegrafts",
+    "Runegraft of Time": "Tier 1 Runegrafts",
+    "Runegraft of Treachery": "Tier 1 Runegrafts"
+  },
+  "rules": []
+}

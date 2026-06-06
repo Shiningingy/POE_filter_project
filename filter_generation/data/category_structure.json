@@ -117,6 +117,16 @@
               }
             },
             {
+              "path": "Currency/Omens.json",
+              "tier_path": "tier_definition/Currency/Omens.json",
+              "mapping_path": "base_mapping/Currency/Omens.json",
+              "target_category": "Stackable Currency",
+              "localization": {
+                "en": "Omens",
+                "ch": "预兆"
+              }
+            },
+            {
               "path": "Currency/Ritual.json",
               "tier_path": "tier_definition/Currency/Ritual.json",
               "mapping_path": "base_mapping/Currency/Ritual.json",
@@ -124,6 +134,26 @@
               "localization": {
                 "en": "Ritual",
                 "ch": "仪式"
+              }
+            },
+            {
+              "path": "Currency/Runegrafts.json",
+              "tier_path": "tier_definition/Currency/Runegrafts.json",
+              "mapping_path": "base_mapping/Currency/Runegrafts.json",
+              "target_category": "Stackable Currency",
+              "localization": {
+                "en": "Runegrafts",
+                "ch": "符文嫁接"
+              }
+            },
+            {
+              "path": "Currency/Splinters.json",
+              "tier_path": "tier_definition/Currency/Splinters.json",
+              "mapping_path": "base_mapping/Currency/Splinters.json",
+              "target_category": "Stackable Currency",
+              "localization": {
+                "en": "Splinters",
+                "ch": "碎片"
               }
             }
           ]
@@ -211,13 +241,23 @@
           }
         },
         {
+          "path": "Maps/Scarabs.json",
+          "tier_path": "tier_definition/Maps/Scarabs.json",
+          "mapping_path": "base_mapping/Maps/Scarabs.json",
+          "target_category": "Map Fragments",
+          "localization": {
+            "en": "Scarabs",
+            "ch": "圣甲虫"
+          }
+        },
+        {
           "path": "Maps/Fragments.json",
           "tier_path": "tier_definition/Maps/Fragments.json",
           "mapping_path": "base_mapping/Maps/Fragments.json",
           "target_category": "Map Fragments",
           "localization": {
             "en": "Fragments",
-            "ch": "碎片与圣甲虫"
+            "ch": "碎片与传送门"
           }
         }
       ]
@@ -234,7 +274,7 @@
           "path": "Gems/Skill.json",
           "tier_path": "tier_definition/Gems/Skill.json",
           "mapping_path": "base_mapping/Gems/Skill.json",
-          "target_category": "Active Skill Gems",
+          "target_category": "Skill Gems",
           "localization": {
             "en": "Skill",
             "ch": "技能宝石"
@@ -244,7 +284,7 @@
           "path": "Gems/Support.json",
           "tier_path": "tier_definition/Gems/Support.json",
           "mapping_path": "base_mapping/Gems/Support.json",
-          "target_category": "Support Skill Gems",
+          "target_category": "Support Gems",
           "localization": {
             "en": "Support",
             "ch": "辅助宝石"
@@ -649,6 +689,26 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "_Legacy",
+          "ch": "历史物品"
+        }
+      },
+      "files": [
+        {
+          "path": "_legacy/Legacy.json",
+          "tier_path": "tier_definition/_legacy/Legacy.json",
+          "mapping_path": "base_mapping/_legacy/Legacy.json",
+          "target_category": "Legacy",
+          "localization": {
+            "en": "Legacy",
+            "ch": "历史物品"
+          }
         }
       ]
     },

@@ -1,0 +1,44 @@
+{
+  "Legacy": {
+    "_meta": {
+      "theme_category": "Legacy",
+      "localization": {
+        "en": "Legacy",
+        "ch": "历史物品"
+      },
+      "tier_order": [
+        "Tier 1 Legacy",
+        "Tier Hide Legacy"
+      ]
+    },
+    "Tier 1 Legacy": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Show Legacy",
+        "ch": "显示历史物品"
+      }
+    },
+    "Tier Hide Legacy": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide Legacy",
+        "ch": "隐藏历史物品"
+      }
+    }
+  }
+}

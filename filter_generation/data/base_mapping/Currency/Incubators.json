@@ -12,7 +12,6 @@
         "Vial of Transcendence": "超越魔瓶",
         "Vial of Sacrifice": "献祭魔瓶",
         "__class_name__": "可堆叠通货",
-        "Whispering Incubator": "低语的孕育石",
         "Singular Incubator": "单一的的孕育石",
         "Cartographer's Incubator": "制图师的孕育石",
         "Otherworldly Incubator": "异界行者孕育石",
@@ -27,14 +26,12 @@
         "Ornate Incubator": "豪华孕育石",
         "Celestial Armoursmith's Incubator": "众星铸甲匠的孕育石",
         "Celestial Blacksmith's Incubator": "众星铁匠的孕育石",
-        "Obscured Incubator": "朦胧孕育石",
         "Foreboding Incubator": "预兆孕育石",
         "Thaumaturge's Incubator": "奇术师的孕育石",
         "Mysterious Incubator": "神秘孕育石",
         "Blighted Incubator": "枯化的孕育石",
         "Maddening Incubator": "狂躁的孕育石",
-        "Kalguuran Incubator": "卡古兰孕育石",
-        "Fine Incubator": "上等孕育石"
+        "Kalguuran Incubator": "卡古兰孕育石"
       }
     },
     "item_class": {
@@ -53,7 +50,6 @@
     "Vial of the Ghost": "Tier 1 Incubators",
     "Vial of Transcendence": "Tier 1 Incubators",
     "Vial of Sacrifice": "Tier 1 Incubators",
-    "Whispering Incubator": "Tier 1 Incubators",
     "Singular Incubator": "Tier 1 Incubators",
     "Cartographer's Incubator": "Tier 1 Incubators",
     "Otherworldly Incubator": "Tier 1 Incubators",
@@ -68,14 +64,12 @@
     "Ornate Incubator": "Tier 1 Incubators",
     "Celestial Armoursmith's Incubator": "Tier 1 Incubators",
     "Celestial Blacksmith's Incubator": "Tier 1 Incubators",
-    "Obscured Incubator": "Tier 1 Incubators",
     "Foreboding Incubator": "Tier 1 Incubators",
     "Thaumaturge's Incubator": "Tier 1 Incubators",
     "Mysterious Incubator": "Tier 1 Incubators",
     "Blighted Incubator": "Tier 1 Incubators",
     "Maddening Incubator": "Tier 1 Incubators",
-    "Kalguuran Incubator": "Tier 1 Incubators",
-    "Fine Incubator": "Tier 1 Incubators"
+    "Kalguuran Incubator": "Tier 1 Incubators"
   },
   "rules": []
 }

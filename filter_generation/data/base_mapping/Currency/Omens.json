@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "__class_name__": "可堆叠通货",
+        "Omen of Amelioration": "进步预兆",
+        "Omen of Return": "回返预兆",
+        "Omen of Death-dancing": "死舞预兆",
+        "Omen of Refreshment": "恢复预兆",
+        "Omen of the Soul Devourer": "噬魂预兆",
+        "Omen of Fortune": "命运预兆",
+        "Omen of the Jeweller": "珠宝商预兆",
+        "Omen of Connections": "连接预兆",
+        "Omen of Blanching": "苍白预兆",
+        "Omen of Adrenaline": "肾上腺素预兆",
+        "Omen of Death's Door": "笑傲死亡预兆",
+        "Omen of Brilliance": "才华预兆"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Omen of Fortune": "Tier 1 Omens",
+    "Omen of the Jeweller": "Tier 1 Omens",
+    "Omen of Connections": "Tier 1 Omens",
+    "Omen of Amelioration": "Tier 2 Omens",
+    "Omen of Return": "Tier 2 Omens",
+    "Omen of Death-dancing": "Tier 2 Omens",
+    "Omen of Refreshment": "Tier 2 Omens",
+    "Omen of the Soul Devourer": "Tier 2 Omens",
+    "Omen of Blanching": "Tier 2 Omens",
+    "Omen of Adrenaline": "Tier 2 Omens",
+    "Omen of Death's Door": "Tier 2 Omens",
+    "Omen of Brilliance": "Tier 2 Omens"
+  },
+  "rules": []
+}

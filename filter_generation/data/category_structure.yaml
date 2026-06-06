@@ -35,9 +35,18 @@ Currency:
     Oils:
       name: 圣油
       path: Currency/Oils.json
+    Omens:
+      name: 预兆
+      path: Currency/Omens.json
     Ritual:
       name: 仪式
       path: Currency/Ritual.json
+    Runegrafts:
+      name: 符文嫁接
+      path: Currency/Runegrafts.json
+    Splinters:
+      name: 碎片
+      path: Currency/Splinters.json
   Gold:
     name: 金币
     target: Gold
@@ -59,8 +68,12 @@ Maps & Fragments:
   Base Maps:
     name: 常规地图
     path: Maps/Base Maps.json
+  Scarabs:
+    name: 圣甲虫
+    target: Map Fragments
+    path: Maps/Scarabs.json
   Fragments:
-    name: 碎片与圣甲虫
+    name: 碎片与传送门
     target: Map Fragments
     path: Maps/Fragments.json
 
@@ -68,10 +81,10 @@ Gems:
   _name: 宝石
   Skill:
     name: 技能宝石
-    target: Active Skill Gems
+    target: Skill Gems
   Support:
     name: 辅助宝石
-    target: Support Skill Gems
+    target: Support Gems
 
 Jewels:
   _name: 珠宝
@@ -180,6 +193,12 @@ Equipment:
     Trinkets:
       name: 饰品
       target: Trinkets
+
+_Legacy:
+  _name: 历史物品
+  Legacy:
+    name: 历史物品
+    path: _legacy/Legacy.json
 
 Quest:
   _name: 任务物品

@@ -45,8 +45,7 @@ const MappingEditor: React.FC<MappingEditorProps> = ({ configPath, onSave, langu
       setLoading(true);
       setError('');
       try {
-        const fileName = configPath.split('/').pop() || configPath;
-        const response = await axios.get(`${API_BASE_URL}/api/mapping-info/${fileName}`);
+        const response = await axios.get(`${API_BASE_URL}/api/mapping-info/${configPath}`);
         setData(response.data);
         setLocalMapping(response.data.content.mapping);
       } catch (err: any) {

@@ -17,7 +17,8 @@
         "Amber Oil": "琥珀圣油",
         "Sepia Oil": "墨色圣油",
         "Clear Oil": "清澈圣油",
-        "__class_name__": "圣油"
+        "__class_name__": "圣油",
+        "Prismatic Oil": "虹彩圣油"
       }
     },
     "item_class": {
@@ -41,7 +42,8 @@
     "Verdant Oil": "Tier 3 Oils",
     "Amber Oil": "Tier 3 Oils",
     "Sepia Oil": "Tier 3 Oils",
-    "Clear Oil": "Tier 3 Oils"
+    "Clear Oil": "Tier 3 Oils",
+    "Prismatic Oil": "Tier 1 Stackable Currency"
   },
   "rules": []
 }

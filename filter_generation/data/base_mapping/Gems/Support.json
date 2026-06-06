@@ -63,7 +63,6 @@
         "Greater Multiple Projectiles Support": "高阶多重投射(辅)",
         "Hypothermia Support": "急冻(辅)",
         "Ice Bite Support": "霜咬(辅)",
-        "Lesser Multiple Projectiles Support": "低阶多重投射（辅）",
         "Mana Leech Support": "魔力偷取(辅)",
         "Multiple Traps Support": "多重陷阱(辅)",
         "Vicious Projectiles Support": "邪恶投掷(辅)",
@@ -210,11 +209,17 @@
         "Awakened Enlighten Support": "启蒙（强辅）",
         "Awakened Enhance Support": "增幅（强辅）",
         "Awakened Empower Support": "赋予（强辅）",
-        "__class_name__": "辅助宝石"
+        "__class_name__": "辅助宝石",
+        "Multiple Projectiles Support": "多重投射（辅）",
+        "Focused Channelling Support": "专注吟唱（辅）",
+        "Windburst Support": "风爆术（辅）",
+        "Kinetic Instability": "Kinetic Instability",
+        "Living Lightning Support": "活体闪电（辅）",
+        "Kinetic Instability Support": "念动失稳（辅）"
       }
     },
     "item_class": {
-      "en": "Support Skill Gems",
+      "en": "Support Gems",
       "ch": "辅助宝石"
     },
     "theme_category": "Support Gems"
@@ -281,7 +286,6 @@
     "Greater Multiple Projectiles Support": "Tier 1 Support",
     "Hypothermia Support": "Tier 1 Support",
     "Ice Bite Support": "Tier 1 Support",
-    "Lesser Multiple Projectiles Support": "Tier 1 Support",
     "Mana Leech Support": "Tier 1 Support",
     "Multiple Traps Support": "Tier 1 Support",
     "Vicious Projectiles Support": "Tier 1 Support",
@@ -427,7 +431,13 @@
     "Awakened Unleash Support": "Tier 1 Support",
     "Awakened Enlighten Support": "Tier 1 Support",
     "Awakened Enhance Support": "Tier 1 Support",
-    "Awakened Empower Support": "Tier 1 Support"
+    "Awakened Empower Support": "Tier 1 Support",
+    "Multiple Projectiles Support": "Tier 1 Support Gems",
+    "Focused Channelling Support": "Tier 1 Support Gems",
+    "Windburst Support": "Tier 1 Support Gems",
+    "Kinetic Instability": "Tier 1 Support Gems",
+    "Living Lightning Support": "Tier 1 Support Gems",
+    "Kinetic Instability Support": "Tier 1 Support Gems"
   },
   "rules": []
 }

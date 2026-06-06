@@ -879,27 +879,29 @@ def get_mapping_info(file_name: str):
         with open(path, "r", encoding="utf-8") as f: mapping_content = json.load(f)
         theme_category = mapping_content.get("_meta", {}).get("theme_category")
         available_tiers = []
-        if theme_category:
-            for tf_path in (CONFIG_DATA_DIR / "tier_definition").rglob("*.json"):
-                try:
-                    tier_defs = json.load(open(tf_path, "r", encoding="utf-8"))
-                    target_key = f"Default {theme_category}"
-                    if target_key in tier_defs:
-                        category_data = tier_defs[target_key]
-                        cat_loc = category_data.get("_meta", {}).get("localization", {})
-                        cat_en = cat_loc.get("en", theme_category); cat_ch = cat_loc.get("ch", cat_en)
-                        for k, v in category_data.items():
-                            if k.startswith("Tier"):
-                                t_num = v.get("theme", {}).get("Tier", "?")
-                                available_tiers.append({
-                                    "key": k, 
-                                    "label_en": f"Tier {t_num} {cat_en}", 
-                                    "label_ch": f"T{t_num} {cat_ch}",
-                                    "show_in_editor": v.get("show_in_editor", True),
-                                    "is_hide_tier": v.get("is_hide_tier", False)
-                                })
-                        break
-                except: continue
+        # Load tiers from the matching tier_definition file (same relative path as the mapping file)
+        tier_def_path = CONFIG_DATA_DIR / "tier_definition" / file_name
+        if tier_def_path.exists():
+            try:
+                tier_defs = json.loads(tier_def_path.read_text(encoding="utf-8"))
+                # The top-level key is the category name (e.g. "General", "Legacy", etc.)
+                category_key = next((k for k in tier_defs if not k.startswith("//")), None)
+                if category_key:
+                    category_data = tier_defs[category_key]
+                    cat_loc = category_data.get("_meta", {}).get("localization", {})
+                    cat_en = cat_loc.get("en", category_key)
+                    cat_ch = cat_loc.get("ch", cat_en)
+                    for k, v in category_data.items():
+                        if k.startswith("Tier"):
+                            t_num = v.get("theme", {}).get("Tier", "?")
+                            available_tiers.append({
+                                "key": k,
+                                "label_en": v.get("localization", {}).get("en", f"Tier {t_num} {cat_en}"),
+                                "label_ch": v.get("localization", {}).get("ch", f"T{t_num} {cat_ch}"),
+                                "show_in_editor": v.get("show_in_editor", True),
+                                "is_hide_tier": v.get("is_hide_tier", False)
+                            })
+            except Exception: pass
         available_tiers.sort(key=lambda x: int(re.search(r"Tier (\d+)", x["key"]).group(1)) if re.search(r"Tier (\d+)", x["key"]) else 999)
         return {"content": mapping_content, "theme_category": theme_category, "available_tiers": available_tiers, "item_translations": mapping_content.get("_meta", {}).get("localization", {}).get("ch", {})}
     except Exception as e: raise HTTPException(status_code=500, detail=str(e))

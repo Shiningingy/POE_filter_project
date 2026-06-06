@@ -2,7 +2,6 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Wrapped Gift": "礼物包裹",
         "__class_name__": ""
       }
     },
@@ -12,8 +11,6 @@
     },
     "theme_category": ""
   },
-  "mapping": {
-    "Wrapped Gift": "Tier 1 "
-  },
+  "mapping": {},
   "rules": []
 }

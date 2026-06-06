@@ -2,14 +2,14 @@
   "_meta": {
     "localization": {
       "ch": {
-        "__class_name__": "传奇物品"
+        "__class_name__": "待分类"
       }
     },
     "item_class": {
-      "en": "Unique Items",
-      "ch": "传奇物品"
+      "en": "Unclassified",
+      "ch": "待分类"
     },
-    "theme_category": "Uniques"
+    "theme_category": "Unclassified"
   },
   "mapping": {},
   "rules": []

@@ -8,7 +8,27 @@
     "localization": {
       "en": {},
       "ch": {
-        "City Square Map": "城中广场"
+        "Map (Tier 1)": "地图（1 阶）",
+        "Map (Tier 2)": "地图（2 阶）",
+        "Map (Tier 3)": "地图（3 阶）",
+        "Map (Tier 4)": "地图（4 阶）",
+        "Map (Tier 5)": "地图（5 阶）",
+        "Map (Tier 6)": "地图（6 阶）",
+        "Map (Tier 7)": "地图（7 阶）",
+        "Map (Tier 8)": "地图（8 阶）",
+        "Map (Tier 9)": "地图（9 阶）",
+        "Map (Tier 10)": "地图（10 阶）",
+        "Map (Tier 11)": "地图（11 阶）",
+        "Map (Tier 12)": "地图（12 阶）",
+        "Map (Tier 13)": "地图（13 阶）",
+        "Map (Tier 14)": "地图（14 阶）",
+        "Map (Tier 15)": "地图（15 阶）",
+        "Map (Tier 16)": "地图（16 阶）",
+        "Valdo Map": "瓦尔多地图",
+        "Shaper Guardian Map": "塑界守卫地图",
+        "Nightmare Map": "梦魇地图",
+        "Vaal Temple Map": "瓦尔密殿地图",
+        "Synthesised Map": "幻境地图"
       }
     },
     "match_modes": {
@@ -16,7 +36,27 @@
     }
   },
   "mapping": {
-    "City Square Map": "Tier 2 Base Maps"
+    "Map (Tier 1)": "Tier 1 Maps",
+    "Map (Tier 2)": "Tier 1 Maps",
+    "Map (Tier 3)": "Tier 1 Maps",
+    "Map (Tier 4)": "Tier 1 Maps",
+    "Map (Tier 5)": "Tier 1 Maps",
+    "Map (Tier 6)": "Tier 1 Maps",
+    "Map (Tier 7)": "Tier 1 Maps",
+    "Map (Tier 8)": "Tier 1 Maps",
+    "Map (Tier 9)": "Tier 1 Maps",
+    "Map (Tier 10)": "Tier 1 Maps",
+    "Map (Tier 11)": "Tier 1 Maps",
+    "Map (Tier 12)": "Tier 1 Maps",
+    "Map (Tier 13)": "Tier 1 Maps",
+    "Map (Tier 14)": "Tier 1 Maps",
+    "Map (Tier 15)": "Tier 1 Maps",
+    "Map (Tier 16)": "Tier 1 Maps",
+    "Valdo Map": "Tier 1 Maps",
+    "Shaper Guardian Map": "Tier 1 Maps",
+    "Nightmare Map": "Tier 1 Maps",
+    "Vaal Temple Map": "Tier 1 Maps",
+    "Synthesised Map": "Tier 1 Maps"
   },
   "rules": [
     {

@@ -166,7 +166,15 @@ def generate_filter():
     sub_counter = 0   # 11000, 12000...
 
     # Process all JSON files in base_mapping
-    for map_file in sorted(BASE_MAPPING_DIR.rglob("*.json")):
+    # Sort: underscore-prefixed folders (e.g. _legacy, _unclassified) go last
+    def _sort_key(p):
+        rel = p.relative_to(BASE_MAPPING_DIR)
+        parts = list(rel.parts)
+        # Push folders starting with '_' to the end by replacing '_' prefix with '~' (sorts after Z)
+        parts[0] = parts[0].replace("_", "~", 1) if parts[0].startswith("_") else parts[0]
+        return parts
+
+    for map_file in sorted(BASE_MAPPING_DIR.rglob("*.json"), key=_sort_key):
         rel_path = map_file.relative_to(BASE_MAPPING_DIR)
         tier_file = TIER_DEF_DIR / rel_path
         
@@ -263,11 +271,31 @@ def generate_filter():
             else:
                 items_by_tier[t_val].append(item_name)
 
+        # For underscore-prefix folders (e.g. _legacy), the mapping values may reference
+        # cross-category tier keys that don't exist in this tier_def.
+        # Remap all such items to the first non-hide tier defined in this tier_def.
+        if folder.startswith("_"):
+            valid_tier_keys = set(k for k in category_data if k.startswith("Tier"))
+            # Find the default show tier (lowest tier number that isn't a hide tier)
+            default_show_tier = next(
+                (t for t in meta.get("tier_order", [])
+                 if t in valid_tier_keys and not category_data[t].get("is_hide_tier", False)),
+                None
+            )
+            if default_show_tier:
+                remapped = defaultdict(list)
+                for t_key, item_list in items_by_tier.items():
+                    if t_key in valid_tier_keys:
+                        remapped[t_key].extend(item_list)
+                    else:
+                        remapped[default_show_tier].extend(item_list)
+                items_by_tier = remapped
+
         # Determine Tier Order
         tier_order = meta.get("tier_order", [])
         if not tier_order:
             tier_order = sorted(items_by_tier.keys(), key=tier_num_from_label)
-        
+
         used_tiers = set(items_by_tier.keys())
         for t in used_tiers:
             if t not in tier_order:
