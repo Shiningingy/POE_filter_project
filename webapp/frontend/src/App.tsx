@@ -8,6 +8,7 @@ import SimulatorView from './views/SimulatorView';
 import ExportView from './views/ExportView';
 import ThemeView from './views/ThemeView';
 import type { CategoryFile } from './components/Sidebar';
+import { AppDataProvider } from './services/AppDataContext';
 
 function App() {
   const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export' | 'theme'>('editor');
@@ -32,6 +33,39 @@ function App() {
   const [viewerBackground, setViewerBackground] = useState<string>('Item_bg_coast.jpg');
 
   const API_BASE_URL = ''; 
+
+  const handleJumpToRule = useCallback(async (filePath: string, _ruleIndex?: number) => {
+      // 1. Find the CategoryFile object for this path
+      const structureRes = await axios.get('/api/category-structure');
+      const findFile = (node: any): CategoryFile | null => {
+          if (node.files) {
+              for (const f of node.files) {
+                  if (f.path.includes(filePath) || filePath.includes(f.path)) return f;
+              }
+          }
+          if (node.categories) {
+              for (const c of node.categories) {
+                  const found = findFile(c);
+                  if (found) return found;
+              }
+          }
+          if (node.subgroups) {
+              for (const s of node.subgroups) {
+                  const found = findFile(s);
+                  if (found) return found;
+              }
+          }
+          return null;
+      };
+      
+      const fileObj = findFile(structureRes.data);
+      if (fileObj) {
+          setSelectedFile(fileObj);
+          setCurrentView('editor');
+          // Note: Scrolling to specific rule index needs support in RuleManager.
+          // For now, opening the file is a huge win.
+      }
+  }, []);
 
   const fetchConfigContent = useCallback(async (path: string) => {
     setLoading(true);
@@ -87,6 +121,7 @@ function App() {
   }, [selectedFile, fetchConfigContent]);
 
   return (
+    <AppDataProvider>
     <div className="App">
       <div className="navbar">
         <div className="brand">{t.appTitle}</div>
@@ -127,8 +162,8 @@ function App() {
       </div>
 
       <div className="app-body">
-        {currentView === 'editor' && (
-          <EditorView 
+        <div className="view-slot" style={{ display: currentView === 'editor' ? 'flex' : 'none' }}>
+          <EditorView
             selectedFile={selectedFile}
             setSelectedFile={setSelectedFile}
             configContent={configContent}
@@ -141,18 +176,18 @@ function App() {
             viewerBackground={viewerBackground}
             setViewerBackground={setViewerBackground}
           />
-        )}
+        </div>
         {currentView === 'theme' && (
           <ThemeView language={language} />
         )}
-        {currentView === 'simulator' && (
-          <SimulatorView filterContent={filterPreview} language={language} />
-        )}
+        <div className="view-slot" style={{ display: currentView === 'simulator' ? 'flex' : 'none' }}>
+          <SimulatorView filterContent={filterPreview} language={language} onJumpToRule={handleJumpToRule} />
+        </div>
         {currentView === 'export' && (
-          <ExportView 
-            onGenerate={generateFilter} 
-            loading={loading} 
-            message={message} 
+          <ExportView
+            onGenerate={generateFilter}
+            loading={loading}
+            message={message}
             filterContent={filterPreview}
             gameMode={gameMode}
           />
@@ -184,8 +219,10 @@ function App() {
         .language-selector select { padding: 5px; border-radius: 4px; border: none; background: #444; color: white; }
         
         .app-body { flex: 1; overflow: hidden; position: relative; }
+        .view-slot { position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; display: flex; flex-direction: column; min-height: 0; }
       `}</style>
     </div>
+    </AppDataProvider>
   );
 }
 

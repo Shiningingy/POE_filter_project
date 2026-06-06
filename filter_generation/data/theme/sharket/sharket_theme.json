@@ -85,6 +85,16 @@
         "Tier 1": { "FontSize": 42, "TextColor": "#00ffffff", "BorderColor": "#00ffffff", "BackgroundColor": "#004040ff", "PlayEffect": "Cyan", "MinimapIcon": "CyanCircle" },
         "Tier 2": { "FontSize": 40, "TextColor": "#00ffffff", "BackgroundColor": "#002020ff" }
     },
+    "Skill Gems": {
+        "Tier 0": { "FontSize": 45, "TextColor": "#ffffffff", "BorderColor": "#ffffffff", "BackgroundColor": "#008080ff", "PlayEffect": "Cyan", "MinimapIcon": "CyanStar" },
+        "Tier 1": { "FontSize": 42, "TextColor": "#00ffffff", "BorderColor": "#00ffffff", "BackgroundColor": "#004040ff", "PlayEffect": "Cyan", "MinimapIcon": "CyanCircle" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#00ffffff", "BackgroundColor": "#002020ff" }
+    },
+    "Support Gems": {
+        "Tier 0": { "FontSize": 45, "TextColor": "#ffffffff", "BorderColor": "#ffffffff", "BackgroundColor": "#008080ff", "PlayEffect": "Cyan", "MinimapIcon": "CyanStar" },
+        "Tier 1": { "FontSize": 42, "TextColor": "#00ffffff", "BorderColor": "#00ffffff", "BackgroundColor": "#004040ff", "PlayEffect": "Cyan", "MinimapIcon": "CyanCircle" },
+        "Tier 2": { "FontSize": 40, "TextColor": "#00ffffff", "BackgroundColor": "#002020ff" }
+    },
     "Jewels": {
         "Tier 0": { "FontSize": 45, "TextColor": "#ffffffff", "BorderColor": "#ffffffff", "BackgroundColor": "#400080ff", "PlayEffect": "Purple", "MinimapIcon": "PurpleStar" },
         "Tier 1": { "FontSize": 42, "TextColor": "#ff00ffff", "BorderColor": "#ff00ffff", "BackgroundColor": "#200040ff", "PlayEffect": "Purple", "MinimapIcon": "PurpleCircle" },
@@ -109,5 +119,12 @@
         "Tier 0": { "FontSize": 45, "TextColor": "#ffffffff", "BackgroundColor": "#004000ff", "BorderColor": "#ffffffff", "PlayEffect": "Green", "MinimapIcon": "GreenStar" },
         "Tier 1": { "FontSize": 40, "TextColor": "#ffff00ff", "BackgroundColor": "#002000ff", "BorderColor": "#ffff00ff" },
         "Tier 2": { "FontSize": 35, "TextColor": "#ffff00ff", "BackgroundColor": "#001000ff" }
+    },
+    "Templates": {
+        "Tier 0": { "TextColor": "#ffffffff", "BorderColor": "#ffaa00ff", "BackgroundColor": "#201008ff" },
+        "Tier 1": { "TextColor": "#ffff00ff", "BorderColor": "#ffff00ff", "BackgroundColor": "#181808ff" },
+        "Tier 2": { "TextColor": "#ffffffff", "BackgroundColor": "#101010ff" },
+        "Tier 3": { "TextColor": "#aaaaaaff", "BackgroundColor": "#0c0c0cff" },
+        "Tier 4": { "TextColor": "#888888ff", "BackgroundColor": "#080808ff" }
     }
 }

@@ -1,0 +1,83 @@
+# Mapping of Item Classes to their valid properties/flags
+# Used by the Simulator to hide irrelevant inputs.
+
+defaults: &defaults
+  properties: [itemLevel, dropLevel, rarity]
+  flags: [identified, corrupted, mirrored]
+
+classes:
+  "Stackable Currency":
+    properties: [stackSize]
+    flags: []
+  
+  "Maps":
+    properties: [itemLevel, dropLevel, mapTier, quality]
+    flags: [identified, corrupted, mirrored]
+  
+  "Map Fragments":
+    properties: [stackSize]
+    flags: []
+
+  "Divination Cards":
+    properties: [stackSize]
+    flags: []
+
+  "Skill Gems":
+    properties: [quality, gemLevel]
+    flags: [corrupted]
+
+  "Support Gems":
+    properties: [quality, gemLevel]
+    flags: [corrupted]
+
+  "Body Armours":
+    properties: [itemLevel, dropLevel, rarity, quality, sockets, linkedSockets]
+    flags: [identified, corrupted, mirrored, fractured, synthesised, shaper, elder]
+
+  "Helmets":
+    properties: [itemLevel, dropLevel, rarity, quality, sockets, linkedSockets]
+    flags: [identified, corrupted, mirrored, fractured, synthesised, shaper, elder]
+
+  "Boots":
+    properties: [itemLevel, dropLevel, rarity, quality, sockets, linkedSockets]
+    flags: [identified, corrupted, mirrored, fractured, synthesised, shaper, elder]
+
+  "Gloves":
+    properties: [itemLevel, dropLevel, rarity, quality, sockets, linkedSockets]
+    flags: [identified, corrupted, mirrored, fractured, synthesised, shaper, elder]
+
+  "Shields":
+    properties: [itemLevel, dropLevel, rarity, quality, sockets, linkedSockets]
+    flags: [identified, corrupted, mirrored, fractured, synthesised, shaper, elder]
+
+  "Amulets":
+    properties: [itemLevel, dropLevel, rarity]
+    flags: [identified, corrupted, mirrored, fractured, synthesised, shaper, elder]
+
+  "Rings":
+    properties: [itemLevel, dropLevel, rarity]
+    flags: [identified, corrupted, mirrored, fractured, synthesised, shaper, elder]
+
+  "Belts":
+    properties: [itemLevel, dropLevel, rarity]
+    flags: [identified, corrupted, mirrored, fractured, synthesised, shaper, elder]
+
+  "Jewels":
+    properties: [itemLevel, dropLevel, rarity]
+    flags: [identified, corrupted, mirrored, fractured, synthesised]
+
+  "Flasks":
+    properties: [itemLevel, dropLevel, rarity, quality]
+    flags: [identified, corrupted, mirrored]
+
+  "Wands":
+    properties: [itemLevel, dropLevel, rarity, quality, sockets, linkedSockets]
+    flags: [identified, corrupted, mirrored, fractured, synthesised, shaper, elder]
+
+  "Staves":
+    properties: [itemLevel, dropLevel, rarity, quality, sockets, linkedSockets]
+    flags: [identified, corrupted, mirrored, fractured, synthesised, shaper, elder]
+
+  "Bows":
+    properties: [itemLevel, dropLevel, rarity, quality, sockets, linkedSockets]
+    flags: [identified, corrupted, mirrored, fractured, synthesised, shaper, elder]

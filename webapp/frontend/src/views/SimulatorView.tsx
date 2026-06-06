@@ -5,9 +5,10 @@ import type { Language } from '../utils/localization';
 interface SimulatorViewProps {
   filterContent: string;
   language: Language;
+  onJumpToRule?: (filePath: string, ruleIndex?: number) => void;
 }
 
-const SimulatorView: React.FC<SimulatorViewProps> = ({ filterContent, language }) => {
+const SimulatorView: React.FC<SimulatorViewProps> = ({ filterContent, language, onJumpToRule }) => {
   const [mode, setMode] = useState<'visual' | 'text'>('visual');
 
   return (
@@ -32,7 +33,7 @@ const SimulatorView: React.FC<SimulatorViewProps> = ({ filterContent, language }
 
       <div className="content-area">
         {mode === 'visual' ? (
-          <DropSimulator language={language} />
+          <DropSimulator language={language} onJumpToRule={onJumpToRule} />
         ) : (
           <textarea
             className="filter-output"

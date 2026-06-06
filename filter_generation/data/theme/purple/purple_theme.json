@@ -10,32 +10,33 @@
         },
         "Tier 2": {
             "TextColor": "#140028FF",
+            "BackgroundColor": "#DFDF82FF"
+        },
+        "Tier 4": {
+            "TextColor": "#140028FF",
             "BackgroundColor": "#D2B2D2FF"
         },
-        "Tier 3": {
+        "Tier 5": {
             "TextColor": "#BEB287FF",
             "BackgroundColor": "#140028FF"
         },
-        "Tier 7": {
+        "Tier 8": {
             "TextColor": "#B4B4B4FF"
         },
-        "Tier 6": {
+        "Tier 7": {
             "TextColor": "#000000FF",
             "BackgroundColor": "#140028FF"
         },
-        "Tier 8": {
-            "TextColor": "#000000FF"
+        "Tier 3": {
+            "TextColor": "#140028FF",
+            "BackgroundColor": "#D2B2D2FF"
         },
-        "Tier 4": {
+        "Tier 6": {
             "TextColor": "#AA9E82FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 5": {
-            "TextColor": "#64321EFF",
             "BackgroundColor": "#140028FF"
         }
     },
-    "Currency": {
+    "Stackable Currency": {
         "Tier 0": {
             "TextColor": "#FF0000FF",
             "BackgroundColor": "#FFFFFFFF"
@@ -44,892 +45,32 @@
             "TextColor": "#140028FF",
             "BackgroundColor": "#F99619FF"
         },
+        "Tier 4": {
+            "TextColor": "#140028FF",
+            "BackgroundColor": "#DFDF82FF"
+        },
+        "Tier 3": {
+            "TextColor": "#140028FF",
+            "BackgroundColor": "#D2B2D2FF"
+        },
+        "Tier 5": {
+            "TextColor": "#BEB287FF",
+            "BackgroundColor": "#140028FF"
+        },
         "Tier 2": {
             "TextColor": "#140028FF",
             "BackgroundColor": "#D2B2D2FF"
         },
-        "Tier 3": {
-            "TextColor": "#BEB287FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 4": {
+        "Tier 6": {
             "TextColor": "#AA9E82FF",
             "BackgroundColor": "#140028FF"
         },
-        "Tier 5": {
+        "Tier 7": {
             "TextColor": "#64321EFF",
             "BackgroundColor": "#140028FF"
         }
     },
-    "Body Armours": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Helmets": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Boots": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Gloves": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Shields": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "One Hand Axes": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "One Hand Maces": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "One Hand Swords": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Thrusting One Hand Swords": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Sceptres": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Staves": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Warstaves": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Two Hand Axes": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Two Hand Maces": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Two Hand Swords": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Wands": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Bows": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Claws": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Daggers": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Rune Daggers": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Quivers": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Amulets": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Rings": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Belts": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
     "Uniques": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Jewels": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Abyss Jewels": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Flasks": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Life Flasks": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Mana Flasks": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Utility Flasks": {
-        "Tier 0": {
-            "TextColor": "#AF6025FF",
-            "BackgroundColor": "#FFFFFFFF"
-        },
-        "Tier 1": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#AF6025FF"
-        },
-        "Tier 5": {
-            "TextColor": "#B4B4B4FF"
-        },
-        "Tier 4": {
-            "TextColor": "#000000FF",
-            "BackgroundColor": "#140028FF"
-        },
-        "Tier 2": {
-            "TextColor": "#DCDC00FF"
-        },
-        "Tier 3": {
-            "TextColor": "#640096FF",
-            "BackgroundColor": "#3C0050FF"
-        },
-        "Tier 6": {
-            "TextColor": "#FFFFFFFF",
-            "BackgroundColor": "#878787FF"
-        }
-    },
-    "Equipment": {
         "Tier 0": {
             "TextColor": "#AF6025FF",
             "BackgroundColor": "#FFFFFFFF"
@@ -991,6 +132,626 @@
         "Tier 2": {
             "TextColor": "#DC3200FF",
             "BackgroundColor": "#140028FF"
+        }
+    },
+    "Body Armours": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Helmets": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Boots": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Gloves": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Shields": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "One Hand Axes": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "One Hand Maces": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "One Hand Swords": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Thrusting One Hand Swords": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Sceptres": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Staves": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Warstaves": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Two Hand Axes": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Two Hand Maces": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Two Hand Swords": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Wands": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Bows": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Claws": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Daggers": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Rune Daggers": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Quivers": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Amulets": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Rings": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Belts": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Jewels": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Abyss Jewels": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Flasks": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Life Flasks": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Mana Flasks": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Utility Flasks": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
+        }
+    },
+    "Equipment": {
+        "Tier 5": {
+            "TextColor": "#B4B4B4FF"
+        },
+        "Tier 4": {
+            "TextColor": "#000000FF",
+            "BackgroundColor": "#140028FF"
+        },
+        "Tier 2": {
+            "TextColor": "#DCDC00FF"
+        },
+        "Tier 3": {
+            "TextColor": "#640096FF",
+            "BackgroundColor": "#3C0050FF"
+        },
+        "Tier 6": {
+            "TextColor": "#FFFFFFFF",
+            "BackgroundColor": "#878787FF"
         }
     }
 }

@@ -1,0 +1,90 @@
+{
+  "Idols": {
+    "_meta": {
+      "theme_category": "Idols",
+      "localization": {
+        "en": "Idols",
+        "ch": "神像"
+      },
+      "tier_order": [
+        "Tier 0 Idols",
+        "Tier 1 Idols",
+        "Tier 2 Idols",
+        "Tier 3 Idols",
+        "Tier Hide Idols"
+      ]
+    },
+    "Tier 0 Idols": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T0: Idols",
+        "ch": "T0: 神像"
+      }
+    },
+    "Tier 1 Idols": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 3,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T1: Idols",
+        "ch": "T1: 神像"
+      }
+    },
+    "Tier 2 Idols": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T2: Idols",
+        "ch": "T2: 神像"
+      }
+    },
+    "Tier 3 Idols": {
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": 0,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T3: Idols",
+        "ch": "T3: 神像"
+      }
+    },
+    "Tier Hide Idols": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Tier Hide: Idols",
+        "ch": "隐藏: 神像"
+      }
+    }
+  }
+}

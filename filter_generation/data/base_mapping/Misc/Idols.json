@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Minor Idol": "次级神像",
+        "Kamasan Idol": "卡马桑神像",
+        "Totemic Idol": "图腾神像",
+        "Noble Idol": "贵族神像",
+        "Burial Idol": "葬礼神像",
+        "Supremacist Idol": "至高神像",
+        "__class_name__": "神像"
+      }
+    },
+    "item_class": {
+      "en": "Idols",
+      "ch": "神像"
+    },
+    "theme_category": "Idols"
+  },
+  "mapping": {
+    "Minor Idol": "Tier 3 Idols",
+    "Kamasan Idol": "Tier 3 Idols",
+    "Totemic Idol": "Tier 3 Idols",
+    "Noble Idol": "Tier 2 Idols",
+    "Burial Idol": "Tier 2 Idols",
+    "Supremacist Idol": "Tier 1 Idols"
+  },
+  "rules": []
+}

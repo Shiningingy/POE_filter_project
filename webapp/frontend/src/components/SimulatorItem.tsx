@@ -1,0 +1,203 @@
+import React, { useState, useRef, useEffect } from 'react';
+import type { ItemProps, SimulationResult } from '../utils/simulatorEngine';
+import ContextMenu from './ContextMenu';
+import type { Language } from '../utils/localization';
+import { getSoundUrl } from '../utils/soundUtils';
+
+interface SimulatorItemProps {
+    item: ItemProps & { id: number; x: number; y: number };
+    result: SimulationResult;
+    onDelete: () => void;
+    onJumpToRule?: (file: string, ruleIndex?: number) => void;
+    onEdit?: (item: ItemProps & { id: number }) => void;
+    onOpenMiniEditor?: (file: string, tier: string) => void;
+    language: Language;
+}
+
+const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, onJumpToRule, onEdit, onOpenMiniEditor, language }) => {
+    const [contextMenu, setContextMenu] = useState<{ x: number, y: number } | null>(null);
+    const [hover, setHover] = useState(false);
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const clickTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    useEffect(() => {
+        return () => {
+            if (clickTimerRef.current !== null) clearTimeout(clickTimerRef.current);
+        };
+    }, []);
+
+    const handleContextMenu = (e: React.MouseEvent) => {
+        e.preventDefault();
+        setContextMenu({ x: e.clientX, y: e.clientY });
+    };
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        setMousePos({ x: e.clientX, y: e.clientY });
+    };
+
+    const copyItemText = () => {
+        const text = `Class: ${item.class}\nBaseType: ${item.name}\nItemLevel: ${item.itemLevel || 1}\nRarity: ${item.rarity || 'Normal'}`;
+        navigator.clipboard.writeText(text);
+    };
+
+    const menuOptions = [
+        { label: "Info", title: true, onClick: () => {} },
+        { label: `Tier: ${result.matchedTier || 'Untiered'}`, disabled: true, onClick: () => {} },
+        { label: `Rule: ${result.matchedRule || 'Base Mapping'}`, disabled: true, onClick: () => {} },
+        { divider: true, label: "", onClick: () => {} },
+        { label: "Edit Item", onClick: () => onEdit?.(item) },
+        { label: "Jump to Rule", disabled: !result.matchedFile, onClick: () => result.matchedFile && onJumpToRule?.(result.matchedFile) },
+        { label: "Copy Item Text", onClick: copyItemText },
+        { label: "Remove", onClick: onDelete, color: "#ff4444" }
+    ];
+
+    const playItemSound = () => {
+        const soundData = result.style.sound; // Custom field I need to add to evaluateItem
+        if (!soundData) return;
+
+        // soundData is usually [path, volume] or just path
+        const path = Array.isArray(soundData) ? soundData[0] : soundData;
+        const vol = Array.isArray(soundData) ? soundData[1] : 100;
+
+        const audio = new Audio(getSoundUrl(path));
+        audio.volume = vol / 100;
+        audio.play().catch(e => console.warn("Failed to play sound", e));
+    };
+
+    const handleClick = () => {
+        if (clickTimerRef.current !== null) {
+            // Second click within 300ms — double-click
+            clearTimeout(clickTimerRef.current);
+            clickTimerRef.current = null;
+            onOpenMiniEditor?.(result.matchedFile ?? '', result.matchedTier ?? '');
+        } else {
+            // First click — wait 300ms before treating as single click
+            clickTimerRef.current = setTimeout(() => {
+                clickTimerRef.current = null;
+                playItemSound();
+            }, 300);
+        }
+    };
+
+    const isHidden = !result.visible;
+    const displayName = language === 'ch' && item.name_ch ? item.name_ch : item.name;
+
+    const influences: string[] = [];
+    if (item.shaper)   influences.push('shaper');
+    if (item.elder)    influences.push('elder');
+    if (item.crusader) influences.push('crusader');
+    if (item.redeemer) influences.push('redeemer');
+    if (item.hunter)   influences.push('hunter');
+    if (item.warlord)  influences.push('warlord');
+    if (item.exarch)   influences.push('exarch');
+    if (item.eater)    influences.push('eater');
+
+    const leftIcons: string[] = [];
+    const rightIcons: string[] = [];
+    if (item.memoryStrands) leftIcons.push('memory_strands');
+    if (influences.length >= 2) leftIcons.push(influences[0]);
+    if (influences.length === 1) rightIcons.push(influences[0]);
+    if (influences.length >= 2) rightIcons.push(influences[1]);
+
+    const renderIcon = (name: string, side: 'left' | 'right', idx: number) => (
+        <span key={`${side}-${idx}`} style={{ width: 16, height: 16, display: 'inline-block', verticalAlign: 'middle', ...(side === 'left' ? { marginRight: 2 } : { marginLeft: 2 }) }}>
+            <img
+                src={`/influence-icons/${name}.png`}
+                alt={name}
+                onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                style={{ width: 16, height: 16 }}
+            />
+        </span>
+    );
+
+    return (
+        <>
+            <div
+                className="item-plate"
+                style={{
+                    ...result.style,
+                    opacity: isHidden ? 0.5 : 1,
+                    position: 'absolute',
+                    left: `calc(50% + ${item.x}px)`,
+                    top: `calc(50% + ${item.y}px)`,
+                    transform: 'translate(-50%, -50%)',
+                }}
+                onClick={handleClick}
+                onContextMenu={handleContextMenu}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+                onMouseMove={handleMouseMove}
+            >
+                <div className="plate-body">
+                    {leftIcons.map((icon, i) => renderIcon(icon, 'left', i))}
+                    {displayName}
+                    {item.stackSize && item.stackSize > 1 && <span className="stack-size"> x{item.stackSize}</span>}
+                    {rightIcons.map((icon, i) => renderIcon(icon, 'right', i))}
+                </div>
+                {isHidden && (
+                    <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden', borderRadius: 'inherit' }}>
+                        <div style={{ position: 'absolute', top: '50%', left: '-10%', width: '120%', height: '2px', background: '#666', transform: 'rotate(-12deg)', transformOrigin: 'center' }} />
+                    </div>
+                )}
+            </div>
+
+            {hover && !contextMenu && (
+                <div className="sim-tooltip" style={{
+                    top: Math.min(mousePos.y + 15, window.innerHeight - 165),
+                    left: Math.min(mousePos.x + 15, window.innerWidth - 225),
+                }}>
+                    <div className="header" style={{ color: result.style.color }}>{displayName}</div>
+                    <div className="sub">{item.class}</div>
+                    <div className="separator"></div>
+                    <div className="prop"><span>Item Level:</span> {item.itemLevel}</div>
+                    <div className="prop"><span>Rarity:</span> {item.rarity}</div>
+                    {item.dropLevel && <div className="prop"><span>Drop Level:</span> {item.dropLevel}</div>}
+                    <div className="separator"></div>
+                    <div className="meta">
+                        <div>Match: <span className="val">{result.matchedTier || 'None'}</span></div>
+                        <div>Rule: <span className="val">{result.matchedRule || 'Base Mapping'}</span></div>
+                    </div>
+                    {item.corruptedImplicit && (
+                        <div style={{ fontStyle: 'italic', color: '#a6b0cf', fontSize: '0.8rem', marginTop: 4 }}>
+                            {item.corruptedImplicit}
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {contextMenu && (
+                <ContextMenu 
+                    x={contextMenu.x} 
+                    y={contextMenu.y} 
+                    options={menuOptions} 
+                    onClose={() => setContextMenu(null)}
+                    language={language}
+                />
+            )}
+
+            <style>{`
+                .sim-tooltip {
+                    position: fixed; z-index: 3000;
+                    background: rgba(0, 0, 0, 0.9);
+                    border: 1px solid #777;
+                    padding: 10px;
+                    border-radius: 4px;
+                    pointer-events: none;
+                    min-width: 200px;
+                    color: #ddd;
+                    font-family: 'Fontin', sans-serif;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+                }
+                .sim-tooltip .header { font-size: 1.1rem; text-align: center; margin-bottom: 2px; }
+                .sim-tooltip .sub { text-align: center; font-size: 0.8rem; color: #777; }
+                .sim-tooltip .separator { height: 1px; background: #444; margin: 8px 0; }
+                .sim-tooltip .prop { display: flex; justify-content: space-between; font-size: 0.85rem; }
+                .sim-tooltip .prop span { color: #888; }
+                .sim-tooltip .meta { font-size: 0.75rem; color: #555; margin-top: 5px; }
+                .sim-tooltip .meta .val { color: #aaa; }
+            `}</style>
+        </>
+    );
+};
+
+export default SimulatorItem;

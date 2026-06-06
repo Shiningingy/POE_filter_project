@@ -8,9 +8,6 @@ Currency:
       name: 尸体
       target: Corpses
       path: Currency/Corpses.json
-    Breach:
-      name: 裂隙
-      path: Currency/Breach.json
     Delirium Orbs:
       name: 雾魇宝珠
       path: Currency/Delirium Orbs.json
@@ -198,3 +195,11 @@ Misc:
   General:
     name: 其他杂项
     path: Misc/General.json
+  Idols:
+    name: 神像
+    target: Idols
+    path: Misc/Idols.json
+  Wombgifts:
+    name: 孕育赠礼
+    target: Wombgifts
+    path: Misc/Wombgifts.json

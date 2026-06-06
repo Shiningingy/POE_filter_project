@@ -1,7 +1,7 @@
 {
   "Skill": {
     "_meta": {
-      "theme_category": "Gems",
+      "theme_category": "Skill Gems",
       "localization": {
         "en": "Skill",
         "ch": "技能宝石"

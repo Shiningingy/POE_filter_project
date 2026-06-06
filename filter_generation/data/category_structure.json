@@ -27,16 +27,6 @@
               }
             },
             {
-              "path": "Currency/Breach.json",
-              "tier_path": "tier_definition/Currency/Breach.json",
-              "mapping_path": "base_mapping/Currency/Breach.json",
-              "target_category": "Stackable Currency",
-              "localization": {
-                "en": "Breach",
-                "ch": "裂隙"
-              }
-            },
-            {
               "path": "Currency/Delirium Orbs.json",
               "tier_path": "tier_definition/Currency/Delirium Orbs.json",
               "mapping_path": "base_mapping/Currency/Delirium Orbs.json",
@@ -708,6 +698,26 @@
           "localization": {
             "en": "General",
             "ch": "其他杂项"
+          }
+        },
+        {
+          "path": "Misc/Idols.json",
+          "tier_path": "tier_definition/Misc/Idols.json",
+          "mapping_path": "base_mapping/Misc/Idols.json",
+          "target_category": "Idols",
+          "localization": {
+            "en": "Idols",
+            "ch": "神像"
+          }
+        },
+        {
+          "path": "Misc/Wombgifts.json",
+          "tier_path": "tier_definition/Misc/Wombgifts.json",
+          "mapping_path": "base_mapping/Misc/Wombgifts.json",
+          "target_category": "Wombgifts",
+          "localization": {
+            "en": "Wombgifts",
+            "ch": "孕育赠礼"
           }
         }
       ]
