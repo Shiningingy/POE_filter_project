@@ -4487,107 +4487,107 @@
         "theme_category": "Map Fragments"
       },
       "mapping": {
-        "Breach Scarab of the Hive": "Tier 1 Map Fragments",
-        "Breach Scarab of Instability": "Tier 1 Map Fragments",
-        "Breach Scarab of the Marshal": "Tier 1 Map Fragments",
-        "Breach Scarab of the Incensed Swarm": "Tier 1 Map Fragments",
-        "Cartography Scarab of Escalation": "Tier 1 Map Fragments",
-        "Cartography Scarab of Risk": "Tier 1 Map Fragments",
-        "Cartography Scarab of Corruption": "Tier 1 Map Fragments",
-        "Cartography Scarab of the Multitude": "Tier 1 Map Fragments",
-        "Titanic Scarab": "Tier 1 Map Fragments",
-        "Titanic Scarab of Treasures": "Tier 1 Map Fragments",
-        "Titanic Scarab of Legend": "Tier 1 Map Fragments",
-        "Bestiary Scarab": "Tier 1 Map Fragments",
-        "Bestiary Scarab of the Herd": "Tier 1 Map Fragments",
-        "Bestiary Scarab of Duplicating": "Tier 1 Map Fragments",
-        "Influencing Scarab of the Shaper": "Tier 1 Map Fragments",
-        "Influencing Scarab of the Elder": "Tier 1 Map Fragments",
-        "Influencing Scarab of Hordes": "Tier 1 Map Fragments",
-        "Influencing Scarab of Interference": "Tier 1 Map Fragments",
-        "Sulphite Scarab": "Tier 1 Map Fragments",
-        "Sulphite Scarab of Fumes": "Tier 1 Map Fragments",
-        "Divination Scarab of The Cloister": "Tier 1 Map Fragments",
-        "Divination Scarab of Plenty": "Tier 1 Map Fragments",
-        "Divination Scarab of Pilfering": "Tier 1 Map Fragments",
-        "Torment Scarab": "Tier 1 Map Fragments",
-        "Torment Scarab of Peculiarity": "Tier 1 Map Fragments",
-        "Ambush Scarab": "Tier 1 Map Fragments",
-        "Ambush Scarab of Hidden Compartments": "Tier 1 Map Fragments",
-        "Ambush Scarab of Potency": "Tier 1 Map Fragments",
-        "Ambush Scarab of Containment": "Tier 1 Map Fragments",
-        "Ambush Scarab of Discernment": "Tier 1 Map Fragments",
-        "Expedition Scarab": "Tier 1 Map Fragments",
-        "Expedition Scarab of Runefinding": "Tier 1 Map Fragments",
-        "Expedition Scarab of Verisium Powder": "Tier 1 Map Fragments",
-        "Expedition Scarab of Archaeology": "Tier 1 Map Fragments",
-        "Legion Scarab": "Tier 1 Map Fragments",
-        "Legion Scarab of Officers": "Tier 1 Map Fragments",
-        "Legion Scarab of Treasures": "Tier 1 Map Fragments",
-        "Legion Scarab of Eternal Conflict": "Tier 1 Map Fragments",
-        "Abyss Scarab": "Tier 1 Map Fragments",
-        "Abyss Scarab of Multitudes": "Tier 1 Map Fragments",
-        "Abyss Scarab of Edifice": "Tier 1 Map Fragments",
-        "Anarchy Scarab": "Tier 1 Map Fragments",
-        "Anarchy Scarab of Gigantification": "Tier 1 Map Fragments",
-        "Anarchy Scarab of Partnership": "Tier 1 Map Fragments",
-        "Essence Scarab": "Tier 1 Map Fragments",
-        "Essence Scarab of Ascent": "Tier 1 Map Fragments",
-        "Essence Scarab of Stability": "Tier 1 Map Fragments",
-        "Essence Scarab of Calcification": "Tier 1 Map Fragments",
-        "Domination Scarab": "Tier 1 Map Fragments",
-        "Domination Scarab of Apparitions": "Tier 1 Map Fragments",
-        "Domination Scarab of Evolution": "Tier 1 Map Fragments",
-        "Domination Scarab of Terrors": "Tier 1 Map Fragments",
-        "Ritual Scarab of Selectiveness": "Tier 1 Map Fragments",
-        "Ritual Scarab of Wisps": "Tier 1 Map Fragments",
-        "Ritual Scarab of Abundance": "Tier 1 Map Fragments",
-        "Harvest Scarab": "Tier 1 Map Fragments",
-        "Harvest Scarab of Doubling": "Tier 1 Map Fragments",
-        "Harvest Scarab of Cornucopia": "Tier 1 Map Fragments",
-        "Incursion Scarab": "Tier 1 Map Fragments",
-        "Incursion Scarab of Invasion": "Tier 1 Map Fragments",
-        "Incursion Scarab of Champions": "Tier 1 Map Fragments",
-        "Incursion Scarab of Timelines": "Tier 1 Map Fragments",
-        "Betrayal Scarab": "Tier 1 Map Fragments",
-        "Betrayal Scarab of the Allflame": "Tier 1 Map Fragments",
-        "Betrayal Scarab of Reinforcements": "Tier 1 Map Fragments",
-        "Beyond Scarab": "Tier 1 Map Fragments",
-        "Beyond Scarab of Haemophilia": "Tier 1 Map Fragments",
-        "Beyond Scarab of Resurgence": "Tier 1 Map Fragments",
-        "Beyond Scarab of the Invasion": "Tier 1 Map Fragments",
-        "Ultimatum Scarab": "Tier 1 Map Fragments",
-        "Ultimatum Scarab of Bribing": "Tier 1 Map Fragments",
-        "Ultimatum Scarab of Dueling": "Tier 1 Map Fragments",
-        "Ultimatum Scarab of Catalysing": "Tier 1 Map Fragments",
-        "Ultimatum Scarab of Inscription": "Tier 1 Map Fragments",
-        "Delirium Scarab": "Tier 1 Map Fragments",
-        "Delirium Scarab of Mania": "Tier 1 Map Fragments",
-        "Delirium Scarab of Paranoia": "Tier 1 Map Fragments",
-        "Delirium Scarab of Neuroses": "Tier 1 Map Fragments",
-        "Delirium Scarab of Delusions": "Tier 1 Map Fragments",
-        "Blight Scarab": "Tier 1 Map Fragments",
-        "Blight Scarab of the Blightheart": "Tier 1 Map Fragments",
-        "Blight Scarab of Blooming": "Tier 1 Map Fragments",
-        "Scarab of Monstrous Lineage": "Tier 1 Map Fragments",
-        "Scarab of Adversaries": "Tier 1 Map Fragments",
-        "Scarab of Divinity": "Tier 1 Map Fragments",
-        "Scarab of Stability": "Tier 1 Map Fragments",
-        "Horned Scarab of Bloodlines": "Tier 1 Map Fragments",
-        "Horned Scarab of Nemeses": "Tier 1 Map Fragments",
-        "Horned Scarab of Preservation": "Tier 1 Map Fragments",
-        "Horned Scarab of Awakening": "Tier 1 Map Fragments",
-        "Horned Scarab of Tradition": "Tier 1 Map Fragments",
-        "Horned Scarab of Glittering": "Tier 1 Map Fragments",
-        "Horned Scarab of Pandemonium": "Tier 1 Map Fragments",
-        "Abyss Scarab of Profound Depth": "Tier 1 Map Fragments",
-        "Blight Scarab of Invigoration": "Tier 1 Map Fragments",
-        "Breach Scarab of Resonant Cascade": "Tier 1 Map Fragments",
-        "Essence Scarab of Adaptation": "Tier 1 Map Fragments",
-        "Torment Scarab of Possession": "Tier 1 Map Fragments",
-        "Scarab of Radiant Storms": "Tier 1 Map Fragments",
-        "Scarab of Wisps": "Tier 1 Map Fragments",
-        "Scarab of the Sinistral": "Tier 1 Map Fragments"
+        "Breach Scarab of the Hive": "Tier 4 Scarabs",
+        "Breach Scarab of Instability": "Tier 3 Scarabs",
+        "Breach Scarab of the Marshal": "Tier 2 Scarabs",
+        "Breach Scarab of the Incensed Swarm": "Tier 1 Scarabs",
+        "Cartography Scarab of Escalation": "Tier 4 Scarabs",
+        "Cartography Scarab of Risk": "Tier 2 Scarabs",
+        "Cartography Scarab of Corruption": "Tier 2 Scarabs",
+        "Cartography Scarab of the Multitude": "Tier 3 Scarabs",
+        "Titanic Scarab": "Tier 4 Scarabs",
+        "Titanic Scarab of Treasures": "Tier 2 Scarabs",
+        "Titanic Scarab of Legend": "Tier 1 Scarabs",
+        "Bestiary Scarab": "Tier 4 Scarabs",
+        "Bestiary Scarab of the Herd": "Tier 3 Scarabs",
+        "Bestiary Scarab of Duplicating": "Tier 4 Scarabs",
+        "Influencing Scarab of the Shaper": "Tier 4 Scarabs",
+        "Influencing Scarab of the Elder": "Tier 4 Scarabs",
+        "Influencing Scarab of Hordes": "Tier 3 Scarabs",
+        "Influencing Scarab of Interference": "Tier 2 Scarabs",
+        "Sulphite Scarab": "Tier 4 Scarabs",
+        "Sulphite Scarab of Fumes": "Tier 4 Scarabs",
+        "Divination Scarab of The Cloister": "Tier 4 Scarabs",
+        "Divination Scarab of Plenty": "Tier 3 Scarabs",
+        "Divination Scarab of Pilfering": "Tier 2 Scarabs",
+        "Torment Scarab": "Tier 4 Scarabs",
+        "Torment Scarab of Peculiarity": "Tier 3 Scarabs",
+        "Ambush Scarab": "Tier 4 Scarabs",
+        "Ambush Scarab of Hidden Compartments": "Tier 3 Scarabs",
+        "Ambush Scarab of Potency": "Tier 3 Scarabs",
+        "Ambush Scarab of Containment": "Tier 2 Scarabs",
+        "Ambush Scarab of Discernment": "Tier 2 Scarabs",
+        "Expedition Scarab": "Tier 4 Scarabs",
+        "Expedition Scarab of Runefinding": "Tier 3 Scarabs",
+        "Expedition Scarab of Verisium Powder": "Tier 3 Scarabs",
+        "Expedition Scarab of Archaeology": "Tier 2 Scarabs",
+        "Legion Scarab": "Tier 4 Scarabs",
+        "Legion Scarab of Officers": "Tier 2 Scarabs",
+        "Legion Scarab of Treasures": "Tier 2 Scarabs",
+        "Legion Scarab of Eternal Conflict": "Tier 1 Scarabs",
+        "Abyss Scarab": "Tier 4 Scarabs",
+        "Abyss Scarab of Multitudes": "Tier 3 Scarabs",
+        "Abyss Scarab of Edifice": "Tier 4 Scarabs",
+        "Anarchy Scarab": "Tier 4 Scarabs",
+        "Anarchy Scarab of Gigantification": "Tier 3 Scarabs",
+        "Anarchy Scarab of Partnership": "Tier 2 Scarabs",
+        "Essence Scarab": "Tier 4 Scarabs",
+        "Essence Scarab of Ascent": "Tier 2 Scarabs",
+        "Essence Scarab of Stability": "Tier 3 Scarabs",
+        "Essence Scarab of Calcification": "Tier 2 Scarabs",
+        "Domination Scarab": "Tier 4 Scarabs",
+        "Domination Scarab of Apparitions": "Tier 3 Scarabs",
+        "Domination Scarab of Evolution": "Tier 2 Scarabs",
+        "Domination Scarab of Terrors": "Tier 1 Scarabs",
+        "Ritual Scarab of Selectiveness": "Tier 4 Scarabs",
+        "Ritual Scarab of Wisps": "Tier 3 Scarabs",
+        "Ritual Scarab of Abundance": "Tier 2 Scarabs",
+        "Harvest Scarab": "Tier 4 Scarabs",
+        "Harvest Scarab of Doubling": "Tier 2 Scarabs",
+        "Harvest Scarab of Cornucopia": "Tier 1 Scarabs",
+        "Incursion Scarab": "Tier 4 Scarabs",
+        "Incursion Scarab of Invasion": "Tier 4 Scarabs",
+        "Incursion Scarab of Champions": "Tier 2 Scarabs",
+        "Incursion Scarab of Timelines": "Tier 2 Scarabs",
+        "Betrayal Scarab": "Tier 4 Scarabs",
+        "Betrayal Scarab of the Allflame": "Tier 2 Scarabs",
+        "Betrayal Scarab of Reinforcements": "Tier 2 Scarabs",
+        "Beyond Scarab": "Tier 4 Scarabs",
+        "Beyond Scarab of Haemophilia": "Tier 2 Scarabs",
+        "Beyond Scarab of Resurgence": "Tier 2 Scarabs",
+        "Beyond Scarab of the Invasion": "Tier 2 Scarabs",
+        "Ultimatum Scarab": "Tier 4 Scarabs",
+        "Ultimatum Scarab of Bribing": "Tier 3 Scarabs",
+        "Ultimatum Scarab of Dueling": "Tier 1 Scarabs",
+        "Ultimatum Scarab of Catalysing": "Tier 1 Scarabs",
+        "Ultimatum Scarab of Inscription": "Tier 2 Scarabs",
+        "Delirium Scarab": "Tier 4 Scarabs",
+        "Delirium Scarab of Mania": "Tier 3 Scarabs",
+        "Delirium Scarab of Paranoia": "Tier 3 Scarabs",
+        "Delirium Scarab of Neuroses": "Tier 2 Scarabs",
+        "Delirium Scarab of Delusions": "Tier 2 Scarabs",
+        "Blight Scarab": "Tier 4 Scarabs",
+        "Blight Scarab of the Blightheart": "Tier 2 Scarabs",
+        "Blight Scarab of Blooming": "Tier 1 Scarabs",
+        "Scarab of Monstrous Lineage": "Tier 4 Scarabs",
+        "Scarab of Adversaries": "Tier 4 Scarabs",
+        "Scarab of Divinity": "Tier 3 Scarabs",
+        "Scarab of Stability": "Tier 2 Scarabs",
+        "Horned Scarab of Bloodlines": "Tier 1 Scarabs",
+        "Horned Scarab of Nemeses": "Tier 2 Scarabs",
+        "Horned Scarab of Preservation": "Tier 1 Scarabs",
+        "Horned Scarab of Awakening": "Tier 1 Scarabs",
+        "Horned Scarab of Tradition": "Tier 1 Scarabs",
+        "Horned Scarab of Glittering": "Tier 1 Scarabs",
+        "Horned Scarab of Pandemonium": "Tier 1 Scarabs",
+        "Abyss Scarab of Profound Depth": "Tier 1 Scarabs",
+        "Blight Scarab of Invigoration": "Tier 1 Scarabs",
+        "Breach Scarab of Resonant Cascade": "Tier 1 Scarabs",
+        "Essence Scarab of Adaptation": "Tier 1 Scarabs",
+        "Torment Scarab of Possession": "Tier 2 Scarabs",
+        "Scarab of Radiant Storms": "Tier 1 Scarabs",
+        "Scarab of Wisps": "Tier 4 Scarabs",
+        "Scarab of the Sinistral": "Tier 2 Scarabs"
       },
       "rules": []
     },
@@ -12300,6 +12300,99 @@
           "localization": {
             "en": "T0: Absolute Top",
             "ch": "T0: 顶级/核心"
+          }
+        }
+      }
+    },
+    "Maps/Scarabs.json": {
+      "Scarabs": {
+        "_meta": {
+          "theme_category": "Map Fragments",
+          "item_class": {
+            "en": "Map Fragments",
+            "ch": "地图碎片"
+          },
+          "localization": {
+            "en": "Scarabs",
+            "ch": "圣甲虫"
+          },
+          "tier_order": [
+            "Tier 1 Scarabs",
+            "Tier 2 Scarabs",
+            "Tier 3 Scarabs",
+            "Tier 4 Scarabs",
+            "Tier Hide Scarabs"
+          ]
+        },
+        "Tier 1 Scarabs": {
+          "hideable": false,
+          "theme": {
+            "Tier": 1
+          },
+          "sound": {
+            "default_sound_id": 6,
+            "sharket_sound_id": "Sharket_Sound_6.mp3"
+          },
+          "localization": {
+            "en": "T1: Mythic / Extreme",
+            "ch": "T1: 顶级圣甲虫"
+          }
+        },
+        "Tier 2 Scarabs": {
+          "hideable": false,
+          "theme": {
+            "Tier": 2
+          },
+          "sound": {
+            "default_sound_id": 1,
+            "sharket_sound_id": "Sharket_Sound_5.mp3"
+          },
+          "localization": {
+            "en": "T2: Rare",
+            "ch": "T2: 稀有圣甲虫"
+          }
+        },
+        "Tier 3 Scarabs": {
+          "hideable": false,
+          "theme": {
+            "Tier": 3
+          },
+          "sound": {
+            "default_sound_id": 2,
+            "sharket_sound_id": "Sharket_Sound_4.mp3"
+          },
+          "localization": {
+            "en": "T3: Uncommon",
+            "ch": "T3: 少见圣甲虫"
+          }
+        },
+        "Tier 4 Scarabs": {
+          "hideable": false,
+          "theme": {
+            "Tier": 4
+          },
+          "sound": {
+            "default_sound_id": -1,
+            "sharket_sound_id": "Sharket_Sound_1.mp3"
+          },
+          "localization": {
+            "en": "T4: Common",
+            "ch": "T4: 普通圣甲虫"
+          }
+        },
+        "Tier Hide Scarabs": {
+          "hideable": true,
+          "is_hide_tier": true,
+          "theme": {
+            "Tier": 9
+          },
+          "sound": {
+            "default_sound_id": -1,
+            "sharket_sound_id": null
+          },
+          "localization": {
+            "en": "Hide",
+            "ch": "隐藏"
           }
         }
       }

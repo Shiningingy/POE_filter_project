@@ -94,6 +94,7 @@
 #  [80000] 地图 Maps
 #    [81000] 地图 Maps - 常规地图 Base Maps
 #    [82000] 地图 Maps - 碎片 Fragments
+#    [83000] 地图 Maps - 地图碎片 Scarabs
 #  [90000] 杂项 Misc
 #    [91000] 杂项 Misc - 金币 Misc
 #    [92000] 杂项 Misc - 神像 Idols
@@ -3845,6 +3846,50 @@ Show
 #==[82007]- Fragments -T4: Low Value 碎片 - 基础 - 精确==
 Show
     BaseType == "Sacrifice at Dawn" "Sacrifice at Dusk" "Sacrifice at Midnight" "Sacrifice at Noon"
+    SetFontSize 34
+    SetTextColor 172 158 130 255
+    SetBorderColor 60 50 29 255
+    SetBackgroundColor 0 0 0 0
+
+
+#==[83000]-地图 Maps - 地图碎片 Scarabs==
+
+#==[83001]- 地图碎片 -T1: Mythic / Extreme 地图碎片 - 基础 - 精确==
+Show
+    BaseType == "Abyss Scarab of Profound Depth" "Blight Scarab of Blooming" "Blight Scarab of Invigoration" "Breach Scarab of Resonant Cascade" "Breach Scarab of the Incensed Swarm" "Domination Scarab of Terrors" "Essence Scarab of Adaptation" "Harvest Scarab of Cornucopia" "Horned Scarab of Awakening" "Horned Scarab of Bloodlines" "Horned Scarab of Glittering" "Horned Scarab of Pandemonium" "Horned Scarab of Preservation" "Horned Scarab of Tradition" "Legion Scarab of Eternal Conflict" "Scarab of Radiant Storms" "Titanic Scarab of Legend" "Ultimatum Scarab of Catalysing" "Ultimatum Scarab of Dueling"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 200 168 96 255
+    SetBackgroundColor 40 34 19 255
+    PlayAlertSound 6 300
+    PlayEffect Orange
+    MinimapIcon 1 Orange Diamond
+
+
+#==[83002]- 地图碎片 -T2: Rare 地图碎片 - 基础 - 精确==
+Show
+    BaseType == "Ambush Scarab of Containment" "Ambush Scarab of Discernment" "Anarchy Scarab of Partnership" "Betrayal Scarab of Reinforcements" "Betrayal Scarab of the Allflame" "Beyond Scarab of Haemophilia" "Beyond Scarab of Resurgence" "Beyond Scarab of the Invasion" "Blight Scarab of the Blightheart" "Breach Scarab of the Marshal" "Cartography Scarab of Corruption" "Cartography Scarab of Risk" "Delirium Scarab of Delusions" "Delirium Scarab of Neuroses" "Divination Scarab of Pilfering" "Domination Scarab of Evolution" "Essence Scarab of Ascent" "Essence Scarab of Calcification" "Expedition Scarab of Archaeology" "Harvest Scarab of Doubling" "Horned Scarab of Nemeses" "Incursion Scarab of Champions" "Incursion Scarab of Timelines" "Influencing Scarab of Interference" "Legion Scarab of Officers" "Legion Scarab of Treasures" "Ritual Scarab of Abundance" "Scarab of Stability" "Scarab of the Sinistral" "Titanic Scarab of Treasures" "Torment Scarab of Possession" "Ultimatum Scarab of Inscription"
+    SetFontSize 39
+    SetTextColor 208 181 120 255
+    SetBorderColor 200 168 96 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Orange Circle
+
+
+#==[83003]- 地图碎片 -T3: Uncommon 地图碎片 - 基础 - 精确==
+Show
+    BaseType == "Abyss Scarab of Multitudes" "Ambush Scarab of Hidden Compartments" "Ambush Scarab of Potency" "Anarchy Scarab of Gigantification" "Bestiary Scarab of the Herd" "Breach Scarab of Instability" "Cartography Scarab of the Multitude" "Delirium Scarab of Mania" "Delirium Scarab of Paranoia" "Divination Scarab of Plenty" "Domination Scarab of Apparitions" "Essence Scarab of Stability" "Expedition Scarab of Runefinding" "Expedition Scarab of Verisium Powder" "Influencing Scarab of Hordes" "Ritual Scarab of Wisps" "Scarab of Divinity" "Torment Scarab of Peculiarity" "Ultimatum Scarab of Bribing"
+    SetFontSize 36
+    SetTextColor 216 194 144 255
+    SetBorderColor 110 92 53 255
+    SetBackgroundColor 10 10 13 255
+    PlayAlertSound 2 300
+
+
+#==[83004]- 地图碎片 -T4: Common 地图碎片 - 基础 - 精确==
+Show
+    BaseType == "Abyss Scarab" "Abyss Scarab of Edifice" "Ambush Scarab" "Anarchy Scarab" "Bestiary Scarab" "Bestiary Scarab of Duplicating" "Betrayal Scarab" "Beyond Scarab" "Blight Scarab" "Breach Scarab of the Hive" "Cartography Scarab of Escalation" "Delirium Scarab" "Divination Scarab of The Cloister" "Domination Scarab" "Essence Scarab" "Expedition Scarab" "Harvest Scarab" "Incursion Scarab" "Incursion Scarab of Invasion" "Influencing Scarab of the Elder" "Influencing Scarab of the Shaper" "Legion Scarab" "Ritual Scarab of Selectiveness" "Scarab of Adversaries" "Scarab of Monstrous Lineage" "Scarab of Wisps" "Sulphite Scarab" "Sulphite Scarab of Fumes" "Titanic Scarab" "Torment Scarab" "Ultimatum Scarab"
     SetFontSize 34
     SetTextColor 172 158 130 255
     SetBorderColor 60 50 29 255

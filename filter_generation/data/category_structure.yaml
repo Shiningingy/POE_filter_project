@@ -109,6 +109,7 @@ _chapter_general_gear:
 
 Armour:
   _name: 护甲
+  _dir: Equipment/Armour
   _default_target: Body Armours
   Body Armours: 胸甲
   Helmets:
@@ -129,6 +130,7 @@ Armour:
 
 Weapons:
   _name: 武器
+  _dir: Equipment/Weapons
   _default_target: Bows
   Bows: 弓
   Wands:
@@ -173,6 +175,7 @@ Weapons:
 
 Jewellery:
   _name: 首饰
+  _dir: Equipment/Jewellery
   _default_target: Amulets
   Amulets: 项链
   Rings:
