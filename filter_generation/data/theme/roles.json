@@ -1,0 +1,12 @@
+{
+  "_comment": "Role taxonomy for the role-based theme (Phase 1). Each role maps to an absolute styling tier (theme.Tier) used by generate.py. The category accent supplies the hue; the role supplies size/brightness. Phase-2 editor surfaces these labels instead of raw tier numbers; tier number is otherwise just priority (filter generated high->low->hide).",
+  "roles": [
+    { "id": "decorator", "tier": 0, "en": "Decorator", "ch": "装饰高亮", "desc": "Top per-accent spotlight; brightest + biggest. May be an empty highlight band." },
+    { "id": "high_value", "tier": 1, "en": "High Value", "ch": "高价值", "desc": "Very strong: accent border + accent fill, large font, effect." },
+    { "id": "valuable", "tier": 2, "en": "Valuable", "ch": "有价值", "desc": "Strong: accent text/border on dark fill." },
+    { "id": "notable", "tier": 3, "en": "Notable", "ch": "值得注意", "desc": "Medium: lightened accent text, muted." },
+    { "id": "useful", "tier": 4, "en": "Useful", "ch": "实用", "desc": "Desaturated accent, smaller." },
+    { "id": "bulk", "tier": 5, "en": "Bulk / Leveling", "ch": "大宗 / 过渡", "desc": "Dim grey, small, no effect." },
+    { "id": "hide", "tier": 9, "en": "Hide", "ch": "隐藏", "desc": "Quick-hide; style irrelevant." }
+  ]
+}
