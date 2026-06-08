@@ -1,0 +1,44 @@
+{
+  "Breach Rings": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Breach Rings",
+        "ch": "裂隙戒指"
+      },
+      "tier_order": [
+        "Breach Rings T1",
+        "Breach Rings Hide"
+      ]
+    },
+    "Breach Rings T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Breach Rings",
+        "ch": "裂隙戒指"
+      }
+    },
+    "Breach Rings Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

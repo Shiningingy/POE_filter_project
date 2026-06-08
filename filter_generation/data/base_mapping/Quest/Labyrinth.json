@@ -3,14 +3,12 @@
     "localization": {
       "ch": {
         "Offering to the Goddess": "女神祭品",
-        "Dedication to the Goddess": "女神献祭",
+        "Dedication to the Goddess": "女神祭献",
         "Gift to the Goddess": "女神之礼",
         "Tribute to the Goddess": "女神贡品",
-        "Divine Font": "神圣源泉",
         "Silver Key": "白银钥匙",
         "Golden Key": "黄金钥匙",
-        "Treasure Key": "宝藏钥匙",
-        "__class_name__": "迷宫物品"
+        "Treasure Key": "古铜钥匙"
       }
     },
     "item_class": {

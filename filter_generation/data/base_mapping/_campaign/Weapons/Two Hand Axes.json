@@ -1,0 +1,41 @@
+{
+    "_meta": {
+        "item_class": {
+            "en": "Two Hand Axes",
+            "ch": "双手斧"
+        },
+        "localization": {
+            "en": "Campaign Two Hand Axes",
+            "ch": "过渡双手斧",
+            "ch_items": {}
+        },
+        "theme_category": "Campaign"
+    },
+    "mapping": {
+        "Stone Axe": "Camp Two Hand Axes Early",
+        "Jade Chopper": "Camp Two Hand Axes Early",
+        "Woodsplitter": "Camp Two Hand Axes Early",
+        "Poleaxe": "Camp Two Hand Axes Early",
+        "Double Axe": "Camp Two Hand Axes Early",
+        "Gilded Axe": "Camp Two Hand Axes Mid",
+        "Prime Cleaver": "Camp Two Hand Axes Mid",
+        "Shadow Axe": "Camp Two Hand Axes Mid",
+        "Dagger Axe": "Camp Two Hand Axes Mid",
+        "Jasper Chopper": "Camp Two Hand Axes Mid",
+        "Timber Axe": "Camp Two Hand Axes Mid",
+        "Headsman Axe": "Camp Two Hand Axes Late",
+        "Labrys": "Camp Two Hand Axes Late",
+        "Honed Cleaver": "Camp Two Hand Axes Late",
+        "Noble Axe": "Camp Two Hand Axes Late",
+        "Abyssal Axe": "Camp Two Hand Axes Late",
+        "Karui Chopper": "Camp Two Hand Axes Late",
+        "Talon Axe": "Camp Two Hand Axes Late",
+        "Sundering Axe": "Camp Two Hand Axes Late",
+        "Ezomyte Axe": "Camp Two Hand Axes Late",
+        "Vaal Axe": "Camp Two Hand Axes Late",
+        "Despot Axe": "Camp Two Hand Axes Late",
+        "Void Axe": "Camp Two Hand Axes PreEndgame",
+        "Fleshripper": "Camp Two Hand Axes PreEndgame",
+        "Apex Cleaver": "Camp Two Hand Axes PreEndgame"
+    }
+}

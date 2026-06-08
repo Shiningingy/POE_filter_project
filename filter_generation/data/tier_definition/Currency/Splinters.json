@@ -1,0 +1,59 @@
+{
+  "Splinters": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Splinters",
+        "ch": "碎片"
+      },
+      "tier_order": [
+        "Tier 1 Splinters",
+        "Tier 2 Splinters",
+        "Tier Hide Splinters"
+      ]
+    },
+    "Tier 1 Splinters": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T1: Breach / Legion Splinters",
+        "ch": "T1: 破界/军团裂片"
+      }
+    },
+    "Tier 2 Splinters": {
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T2: Other Splinters",
+        "ch": "T2: 其他裂片"
+      }
+    },
+    "Tier Hide Splinters": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

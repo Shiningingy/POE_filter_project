@@ -1,0 +1,42 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Splinter of Xoph": "裂隙碎片(索伏)",
+        "Splinter of Tul": "裂隙碎片(托沃)",
+        "Splinter of Esh": "裂隙碎片(艾许)",
+        "Splinter of Uul-Netol": "裂隙碎片(乌尔尼多)",
+        "Splinter of Chayula": "裂隙碎片(夏乌拉)",
+        "Timeless Karui Splinter": "永恒卡鲁裂片",
+        "Timeless Maraketh Splinter": "永恒马拉克斯裂片",
+        "Timeless Eternal Empire Splinter": "永恒帝国裂片",
+        "Timeless Templar Splinter": "永恒圣堂裂片",
+        "Timeless Vaal Splinter": "永恒瓦尔裂片",
+        "Simulacrum Splinter": "梦魇拟像裂片",
+        "Ritual Splinter": "驱灵裂片",
+        "Crescent Splinter": "新月裂片"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Splinter of Xoph": "Tier 1 Splinters",
+    "Splinter of Tul": "Tier 1 Splinters",
+    "Splinter of Esh": "Tier 1 Splinters",
+    "Splinter of Uul-Netol": "Tier 1 Splinters",
+    "Splinter of Chayula": "Tier 1 Splinters",
+    "Timeless Karui Splinter": "Tier 1 Splinters",
+    "Timeless Maraketh Splinter": "Tier 1 Splinters",
+    "Timeless Eternal Empire Splinter": "Tier 1 Splinters",
+    "Timeless Templar Splinter": "Tier 1 Splinters",
+    "Timeless Vaal Splinter": "Tier 1 Splinters",
+    "Simulacrum Splinter": "Tier 1 Splinters",
+    "Ritual Splinter": "Tier 2 Splinters",
+    "Crescent Splinter": "Tier 2 Splinters"
+  },
+  "rules": []
+}

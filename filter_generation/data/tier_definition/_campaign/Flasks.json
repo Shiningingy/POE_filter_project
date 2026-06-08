@@ -1,0 +1,32 @@
+{
+    "Campaign Flasks": {
+        "_meta": {
+            "tier_order": ["Camp Flask Quality", "Camp Flask Normal"],
+            "localization": {"en": "Campaign Flasks", "ch": "过渡药剂"},
+            "theme_category": "Campaign"
+        },
+        "Camp Flask Quality": {
+            "class_condition": true,
+            "conditions": {
+                "Class": "\"Life Flasks\" \"Mana Flasks\" \"Utility Flasks\"",
+                "Quality": ">= 15",
+                "AreaLevel": "<= 68"
+            },
+            "hideable": false,
+            "theme": {"Tier": 1},
+            "sound": {"default_sound_id": 1, "sharket_sound_id": null},
+            "localization": {"en": "Quality Flasks (Campaign)", "ch": "品质药剂（过渡）"}
+        },
+        "Camp Flask Normal": {
+            "class_condition": true,
+            "conditions": {
+                "Class": "\"Life Flasks\" \"Mana Flasks\"",
+                "AreaLevel": "<= 68"
+            },
+            "hideable": false,
+            "theme": {"Tier": 3},
+            "sound": {"default_sound_id": -1, "sharket_sound_id": null},
+            "localization": {"en": "Normal Flasks (Campaign)", "ch": "普通药剂（过渡）"}
+        }
+    }
+}

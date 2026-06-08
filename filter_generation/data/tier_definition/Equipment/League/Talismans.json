@@ -1,0 +1,44 @@
+{
+  "Talismans": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Talismans",
+        "ch": "护身符"
+      },
+      "tier_order": [
+        "Talismans T1",
+        "Talismans Hide"
+      ]
+    },
+    "Talismans T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Talismans",
+        "ch": "护身符"
+      }
+    },
+    "Talismans Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

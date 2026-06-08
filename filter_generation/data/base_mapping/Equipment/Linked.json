@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "excluded_modes": [
+      "ruthless"
+    ],
+    "localization": {
+      "ch": {}
+    },
+    "item_class": {
+      "en": "Linked Items",
+      "ch": "高连物品"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {},
+  "rules": []
+}

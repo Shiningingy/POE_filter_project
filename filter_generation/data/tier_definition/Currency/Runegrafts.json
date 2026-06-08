@@ -1,0 +1,44 @@
+{
+  "Runegrafts": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Runegrafts",
+        "ch": "符文嫁接"
+      },
+      "tier_order": [
+        "Tier 1 Runegrafts",
+        "Tier Hide Runegrafts"
+      ]
+    },
+    "Tier 1 Runegrafts": {
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T1: Runegrafts",
+        "ch": "T1: 符文嵌板"
+      }
+    },
+    "Tier Hide Runegrafts": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

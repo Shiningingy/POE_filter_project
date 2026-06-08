@@ -1,0 +1,44 @@
+{
+  "Expedition Ward-Bases": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Expedition Ward-Bases",
+        "ch": "先祖秘藏结界底材"
+      },
+      "tier_order": [
+        "Expedition Ward-Bases T1",
+        "Expedition Ward-Bases Hide"
+      ]
+    },
+    "Expedition Ward-Bases T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Expedition Ward-Bases",
+        "ch": "先祖秘藏结界底材"
+      }
+    },
+    "Expedition Ward-Bases Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "Stygian Vise": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Stygian Vise",
+        "ch": "深渊腰带"
+      },
+      "tier_order": [
+        "Stygian Vise T1",
+        "Stygian Vise Hide"
+      ]
+    },
+    "Stygian Vise T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Stygian Vise",
+        "ch": "深渊腰带"
+      }
+    },
+    "Stygian Vise Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

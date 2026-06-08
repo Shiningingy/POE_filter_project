@@ -1,0 +1,44 @@
+{
+  "Jewellery & Armours": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Jewellery & Armours",
+        "ch": "首饰与护甲"
+      },
+      "tier_order": [
+        "Jewellery & Armours T1",
+        "Jewellery & Armours Hide"
+      ]
+    },
+    "Jewellery & Armours T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Jewellery & Armours",
+        "ch": "首饰与护甲"
+      }
+    },
+    "Jewellery & Armours Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

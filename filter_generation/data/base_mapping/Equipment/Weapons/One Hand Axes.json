@@ -3,27 +3,88 @@
     "localization": {
       "ch": {
         "Siege Axe": "破城斧",
-        "Reaver Axe": "裂魂者",
-        "Runic Hatchet": "符文战斧",
+        "Reaver Axe": "残暴之斧",
+        "Runic Hatchet": "密文之斧",
         "Vaal Hatchet": "瓦尔战斧",
-        "__class_name__": "单手斧"
+        "Rusted Hatchet": "锈斧",
+        "Jade Hatchet": "碎玉斧",
+        "Boarding Axe": "万用手斧",
+        "Cleaver": "切割者",
+        "Broad Axe": "阔斧",
+        "Arming Axe": "长柄斧",
+        "Decorative Axe": "富贵之斧",
+        "Spectral Axe": "幽魂之斧",
+        "Etched Hatchet": "蚀刻战斧",
+        "Jasper Axe": "灵玉斧",
+        "Tomahawk": "征战之斧",
+        "Wrist Chopper": "断腕之刃",
+        "War Axe": "行军斧",
+        "Chest Splitter": "开膛利刃",
+        "Ceremonial Axe": "血仪之斧",
+        "Wraith Axe": "凶灵之斧",
+        "Engraved Hatchet": "雕文战斧",
+        "Karui Axe": "卡鲁古斧",
+        "Butcher Axe": "屠戮之斧",
+        "Infernal Axe": "狱火之刃",
+        "Maltreatment Axe": "凌虐斧",
+        "Disapprobation Axe": "否认斧",
+        "Psychotic Axe": "癫狂斧",
+        "Royal Axe": "皇家之斧"
       }
     },
-    "item_class": { "en": "One Hand Axes", "ch": "单手斧" },
+    "item_class": {
+      "en": "One Hand Axes",
+      "ch": "单手斧"
+    },
     "theme_category": "One Hand Axes"
   },
   "mapping": {
     "Siege Axe": "Tier 1 Axes",
     "Reaver Axe": "Tier 1 Axes",
-    "Runic Hatchet": "Tier 1 Axes",
-    "Vaal Hatchet": "Tier 2 Axes",
-    "Royal Axe": "Tier 2 Axes"
+    "Runic Hatchet": "Tier 0 Axes",
+    "Vaal Hatchet": "Tier 0 Axes",
+    "Royal Axe": "Tier 0 Axes",
+    "Rusted Hatchet": "Tier 4 Axes",
+    "Jade Hatchet": "Tier 4 Axes",
+    "Boarding Axe": "Tier 4 Axes",
+    "Cleaver": "Tier 4 Axes",
+    "Broad Axe": "Tier 4 Axes",
+    "Arming Axe": "Tier 3 Axes",
+    "Decorative Axe": "Tier 3 Axes",
+    "Spectral Axe": "Tier 3 Axes",
+    "Etched Hatchet": "Tier 3 Axes",
+    "Jasper Axe": "Tier 2 Axes",
+    "Tomahawk": "Tier 2 Axes",
+    "Wrist Chopper": "Tier 2 Axes",
+    "War Axe": "Tier 2 Axes",
+    "Chest Splitter": "Tier 2 Axes",
+    "Ceremonial Axe": "Tier 1 Axes",
+    "Wraith Axe": "Tier 1 Axes",
+    "Engraved Hatchet": "Tier 1 Axes",
+    "Karui Axe": "Tier 1 Axes",
+    "Butcher Axe": "Tier 0 Axes",
+    "Infernal Axe": "Tier 0 Axes",
+    "Maltreatment Axe": "Tier 3 Axes",
+    "Disapprobation Axe": "Tier 1 Axes",
+    "Psychotic Axe": "Tier 0 Axes"
   },
   "rules": [
     {
-      "targets": ["Siege Axe", "Reaver Axe", "Runic Hatchet"],
-      "conditions": { "ItemLevel": ">= 83" },
-      "overrides": { "Tier": "Tier 0 Axes", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "targets": [
+        "Siege Axe",
+        "Reaver Axe",
+        "Runic Hatchet"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 83"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Axes",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
       "comment": "i83 Top Axes"
     }
   ]

@@ -30,8 +30,14 @@ interface Category {
   files?: CategoryFile[];
 }
 
+interface SeparatorEntry {
+  separator: { en: string; ch: string };
+}
+
+type CategoryEntry = Category | SeparatorEntry;
+
 interface CategoryStructure {
-  categories: Category[];
+  categories: CategoryEntry[];
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -65,6 +71,31 @@ const Sidebar: React.FC<SidebarProps> = ({
     <div className="sidebar">
       <div className="sidebar-content">
         {structure.categories.map((cat, catIdx) => {
+          if ('separator' in cat) {
+            return (
+              <div key={catIdx} className="chapter-separator">
+                {cat.separator[language]}
+              </div>
+            );
+          }
+
+          // Auto-flatten: a category with one file and no subgroups renders as a
+          // single clickable row (no redundant expand-then-single-child level).
+          const isFlat = !cat.subgroups?.length && cat.files?.length === 1;
+          if (isFlat) {
+            const file = cat.files![0];
+            const isSelected = file.path === selectedFile;
+            return (
+              <div
+                key={catIdx}
+                className={`group-header flat-category ${isSelected ? "selected" : ""}`}
+                onClick={() => onSelect(file)}
+              >
+                {cat._meta.localization[language]}
+              </div>
+            );
+          }
+
           const catName = cat._meta.localization[language];
           const isCatExpanded = expanded[`cat-${catIdx}`];
 
@@ -160,7 +191,12 @@ const Sidebar: React.FC<SidebarProps> = ({
         .sidebar.loading, .sidebar.error { align-items: center; justify-content: center; color: #888; font-style: italic; font-size: 0.9rem; }
         .sidebar.error { color: #f44336; }
         .sidebar-content { flex: 1; overflow-y: auto; padding: 10px 0; }
+        .chapter-separator { padding: 14px 15px 6px; margin-top: 6px; border-top: 1px solid #1a1a1a; color: #666; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.12em; cursor: default; user-select: none; }
+        .chapter-separator:first-child { margin-top: 0; border-top: none; }
         .group-header { padding: 10px 15px; background: #1a1a1a; cursor: pointer; font-weight: bold; font-size: 0.9rem; text-transform: uppercase; color: #888; display: flex; align-items: center; }
+        .group-header.flat-category { padding-left: 35px; color: #aaa; }
+        .group-header.flat-category:hover { color: #fff; background: #242424; }
+        .group-header.flat-category.selected { background: #2196F3; color: #fff; }
         .subgroup-header { padding: 8px 25px; cursor: pointer; font-size: 0.85rem; color: #bbb; display: flex; align-items: center; }
         .file-list { padding-left: 45px; }
         .file-item { padding: 6px 15px; cursor: pointer; font-size: 0.85rem; color: #999; border-radius: 4px 0 0 4px; margin-bottom: 1px; }

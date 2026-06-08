@@ -1,0 +1,48 @@
+{
+  "Heist Targets": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Heist Targets",
+        "ch": "赏金猎人目标"
+      },
+      "tier_order": [
+        "Heist Target T1",
+        "Heist Target Hide"
+      ]
+    },
+    "Heist Target T1": {
+      "hideable": false,
+      "class_condition": true,
+      "conditions": {
+        "Class": "\"Heist Targets\""
+      },
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Heist Target",
+        "ch": "赏金猎人目标"
+      }
+    },
+    "Heist Target Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

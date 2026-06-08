@@ -1,0 +1,88 @@
+{
+    "Campaign Warstaves": {
+        "_meta": {
+            "tier_order": [
+                "Camp Warstaves Early",
+                "Camp Warstaves Mid",
+                "Camp Warstaves Late",
+                "Camp Warstaves PreEndgame"
+            ],
+            "localization": {
+                "en": "Campaign Warstaves",
+                "ch": "过渡战杖"
+            },
+            "theme_category": "Campaign"
+        },
+        "Camp Warstaves Early": {
+            "conditions": {
+                "Rarity": "<= Rare",
+                "AreaLevel": "<= 30"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 4
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Early Warstaves (Campaign)",
+                "ch": "早期战杖（过渡）"
+            }
+        },
+        "Camp Warstaves Mid": {
+            "conditions": {
+                "Rarity": "<= Rare",
+                "AreaLevel": "<= 50"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 3
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Mid Warstaves (Campaign)",
+                "ch": "中期战杖（过渡）"
+            }
+        },
+        "Camp Warstaves Late": {
+            "conditions": {
+                "Rarity": "<= Rare",
+                "AreaLevel": "<= 63"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 2
+            },
+            "sound": {
+                "default_sound_id": -1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Late Warstaves (Campaign)",
+                "ch": "后期战杖（过渡）"
+            }
+        },
+        "Camp Warstaves PreEndgame": {
+            "conditions": {
+                "Rarity": "<= Rare"
+            },
+            "hideable": false,
+            "theme": {
+                "Tier": 1
+            },
+            "sound": {
+                "default_sound_id": 1,
+                "sharket_sound_id": null
+            },
+            "localization": {
+                "en": "Pre-Endgame Warstaves (Campaign)",
+                "ch": "终局前战杖（过渡）"
+            }
+        }
+    }
+}

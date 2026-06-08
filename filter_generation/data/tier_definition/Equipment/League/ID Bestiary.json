@@ -1,0 +1,44 @@
+{
+  "ID Mods: Bestiary": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "ID Mods: Bestiary",
+        "ch": "野兽词缀"
+      },
+      "tier_order": [
+        "ID Mods: Bestiary T1",
+        "ID Mods: Bestiary Hide"
+      ]
+    },
+    "ID Mods: Bestiary T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "ID Mods: Bestiary",
+        "ch": "野兽词缀"
+      }
+    },
+    "ID Mods: Bestiary Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

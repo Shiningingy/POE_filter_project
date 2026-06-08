@@ -2,36 +2,79 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Broadhead Arrow Quiver": "宽头箭袋",
+        "Broadhead Arrow Quiver": "宽矢箭袋",
         "Spike-Point Arrow Quiver": "刺锋箭袋",
-        "Penetrating Arrow Quiver": "穿甲箭袋",
-        "Vile Arrow Quiver": "邪恶箭袋",
-        "__class_name__": "箭袋"
+        "Penetrating Arrow Quiver": "穿射箭袋",
+        "Vile Arrow Quiver": "恶矢箭袋",
+        "Blunt Arrow Quiver": "钝矢箭袋",
+        "Fire Arrow Quiver": "火灵箭袋",
+        "Artillery Quiver": "火炮箭袋",
+        "Feathered Arrow Quiver": "飞羽箭袋",
+        "Blazing Arrow Quiver": "燃矢箭袋",
+        "Heavy Arrow Quiver": "重矢箭袋",
+        "Primal Arrow Quiver": "原矢箭袋",
+        "Two-Point Arrow Quiver": "双锋箭袋",
+        "Sharktooth Arrow Quiver": "鲨齿箭袋",
+        "Serrated Arrow Quiver": "锯齿箭袋"
       }
     },
-    "item_class": { "en": "Quivers", "ch": "箭袋" },
+    "item_class": {
+      "en": "Quivers",
+      "ch": "箭袋"
+    },
     "theme_category": "Quivers"
   },
   "mapping": {
-    "Broadhead Arrow Quiver": "Tier 1 Quivers",
-    "Spike-Point Arrow Quiver": "Tier 1 Quivers",
-    "Penetrating Arrow Quiver": "Tier 1 Quivers",
+    "Broadhead Arrow Quiver": "Tier 2 Quivers",
+    "Spike-Point Arrow Quiver": "Tier 2 Quivers",
+    "Penetrating Arrow Quiver": "Tier 3 Quivers",
     "Vile Arrow Quiver": "Tier 1 Quivers",
     "Two-Point Arrow Quiver": "Tier 2 Quivers",
-    "Sharktooth Arrow Quiver": "Tier 2 Quivers",
-    "Serrated Arrow Quiver": "Tier 2 Quivers"
+    "Sharktooth Arrow Quiver": "Tier 3 Quivers",
+    "Serrated Arrow Quiver": "Tier 3 Quivers",
+    "Blunt Arrow Quiver": "Tier 3 Quivers",
+    "Fire Arrow Quiver": "Tier 3 Quivers",
+    "Artillery Quiver": "Tier 0 Quivers",
+    "Feathered Arrow Quiver": "Tier 3 Quivers",
+    "Blazing Arrow Quiver": "Tier 2 Quivers",
+    "Heavy Arrow Quiver": "Tier 1 Quivers",
+    "Primal Arrow Quiver": "Tier 0 Quivers"
   },
   "rules": [
     {
-      "targets": ["Broadhead Arrow Quiver", "Spike-Point Arrow Quiver", "Penetrating Arrow Quiver"],
-      "conditions": { "ItemLevel": ">= 86" },
-      "overrides": { "Tier": "Tier 0 Quivers", "PlayAlertSound": ["Sharket掉落音效/顶级底材.mp3", 300] },
+      "targets": [
+        "Broadhead Arrow Quiver",
+        "Spike-Point Arrow Quiver",
+        "Penetrating Arrow Quiver"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Quivers",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
       "comment": "i86 Top Quivers"
     },
     {
-      "targets": ["Broadhead Arrow Quiver", "Spike-Point Arrow Quiver", "Penetrating Arrow Quiver"],
-      "conditions": { "ItemLevel": ">= 84" },
-      "overrides": { "Tier": "Tier 1 Quivers", "PlayAlertSound": ["Sharket掉落音效/精品装备.mp3", 300] },
+      "targets": [
+        "Broadhead Arrow Quiver",
+        "Spike-Point Arrow Quiver",
+        "Penetrating Arrow Quiver"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 84"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Quivers",
+        "PlayAlertSound": [
+          "Sharket掉落音效/精品装备.mp3",
+          300
+        ]
+      },
       "comment": "i84 Top Quivers"
     }
   ]

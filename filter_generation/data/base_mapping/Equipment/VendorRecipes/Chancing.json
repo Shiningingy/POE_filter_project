@@ -1,0 +1,24 @@
+{
+    "_meta": {
+        "item_class": {"en": "Body Armours", "ch": "机会底材"},
+        "localization": {
+            "en": "Chancing Bases",
+            "ch": "机会底材",
+            "ch_items": {}
+        },
+        "theme_category": "Chancing",
+        "excluded_modes": ["ruthless"]
+    },
+    "mapping": {
+        "Harbinger Bow": "Chancing Normal",
+        "Vaal Regalia": "Chancing Normal",
+        "Assassin's Garb": "Chancing Normal",
+        "Brine Crown": "Chancing Normal",
+        "Two-Stone Ring": "Chancing Normal",
+        "Occultist's Vestment": "Chancing Normal",
+        "Murder Mitts": "Chancing Normal",
+        "Imperial Bow": "Chancing Normal",
+        "Opal Ring": "Chancing Normal",
+        "Death's Hand": "Chancing Normal"
+    }
+}

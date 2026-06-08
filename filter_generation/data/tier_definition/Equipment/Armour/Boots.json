@@ -16,6 +16,7 @@
       ]
     },
     "Tier 0 Boots": {
+      "conditions": {"ItemLevel": ">= 68", "Rarity": "<= Rare"},
       "hideable": false,
       "theme": {
         "Tier": 0
@@ -31,6 +32,7 @@
       "show_in_editor": false
     },
     "Tier 1 Boots": {
+      "conditions": {"ItemLevel": ">= 68", "Rarity": "<= Rare"},
       "hideable": false,
       "theme": {
         "Tier": 1
@@ -45,6 +47,7 @@
       }
     },
     "Tier 2 Boots": {
+      "conditions": {"Rarity": "<= Rare"},
       "hideable": false,
       "theme": {
         "Tier": 2

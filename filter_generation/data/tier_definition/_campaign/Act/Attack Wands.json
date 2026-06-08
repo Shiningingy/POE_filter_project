@@ -1,0 +1,44 @@
+{
+  "Attack Wands": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Attack Wands",
+        "ch": "攻击手杖"
+      },
+      "tier_order": [
+        "Attack Wands T1",
+        "Attack Wands Hide"
+      ]
+    },
+    "Attack Wands T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Attack Wands",
+        "ch": "攻击手杖"
+      }
+    },
+    "Attack Wands Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

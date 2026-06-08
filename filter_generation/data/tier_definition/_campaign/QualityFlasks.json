@@ -1,0 +1,44 @@
+{
+  "Quality Flasks": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Quality Flasks",
+        "ch": "品质药剂"
+      },
+      "tier_order": [
+        "Quality Flasks T1",
+        "Quality Flasks Hide"
+      ]
+    },
+    "Quality Flasks T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Quality Flasks",
+        "ch": "品质药剂"
+      }
+    },
+    "Quality Flasks Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

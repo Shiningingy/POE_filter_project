@@ -1,0 +1,42 @@
+{
+    "Sockets Colors Links": {
+        "_meta": {
+            "tier_order": ["6-Link", "6-Socket", "RGB Linked"],
+            "localization": {"en": "Sockets Colors Links", "ch": "洞&色&连"},
+            "theme_category": "Vendor Recipes"
+        },
+        "6-Link": {
+            "class_condition": true,
+            "conditions": {
+                "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+                "LinkedSockets": ">= 6"
+            },
+            "hideable": false,
+            "theme": {"Tier": 0},
+            "sound": {"default_sound_id": 6, "sharket_sound_id": null},
+            "localization": {"en": "6-Link", "ch": "六连"}
+        },
+        "6-Socket": {
+            "class_condition": true,
+            "conditions": {
+                "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+                "Sockets": ">= 6"
+            },
+            "hideable": false,
+            "theme": {"Tier": 2},
+            "sound": {"default_sound_id": 2, "sharket_sound_id": null},
+            "localization": {"en": "6-Socket", "ch": "六孔"}
+        },
+        "RGB Linked": {
+            "class_condition": true,
+            "conditions": {
+                "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+                "SocketGroup": "RGB"
+            },
+            "hideable": false,
+            "theme": {"Tier": 3},
+            "sound": {"default_sound_id": -1, "sharket_sound_id": null},
+            "localization": {"en": "RGB Linked", "ch": "三色相连"}
+        }
+    }
+}

@@ -1,0 +1,59 @@
+{
+  "Heist Equipment": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Heist Equipment",
+        "ch": "赏金猎人装备"
+      },
+      "tier_order": [
+        "Heist Gear T1",
+        "Heist Gear T2",
+        "Heist Gear Hide"
+      ]
+    },
+    "Heist Gear T1": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Quality Gear",
+        "ch": "精品装备"
+      }
+    },
+    "Heist Gear T2": {
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Basic Gear",
+        "ch": "基础装备"
+      }
+    },
+    "Heist Gear Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

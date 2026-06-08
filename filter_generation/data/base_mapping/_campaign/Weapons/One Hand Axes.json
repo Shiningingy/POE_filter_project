@@ -1,0 +1,44 @@
+{
+    "_meta": {
+        "item_class": {
+            "en": "One Hand Axes",
+            "ch": "单手斧"
+        },
+        "localization": {
+            "en": "Campaign One Hand Axes",
+            "ch": "过渡单手斧",
+            "ch_items": {}
+        },
+        "theme_category": "Campaign"
+    },
+    "mapping": {
+        "Rusted Hatchet": "Camp One Hand Axes Early",
+        "Jade Hatchet": "Camp One Hand Axes Early",
+        "Boarding Axe": "Camp One Hand Axes Early",
+        "Cleaver": "Camp One Hand Axes Early",
+        "Broad Axe": "Camp One Hand Axes Early",
+        "Arming Axe": "Camp One Hand Axes Mid",
+        "Decorative Axe": "Camp One Hand Axes Mid",
+        "Maltreatment Axe": "Camp One Hand Axes Mid",
+        "Spectral Axe": "Camp One Hand Axes Mid",
+        "Etched Hatchet": "Camp One Hand Axes Mid",
+        "Jasper Axe": "Camp One Hand Axes Mid",
+        "Tomahawk": "Camp One Hand Axes Mid",
+        "Wrist Chopper": "Camp One Hand Axes Mid",
+        "War Axe": "Camp One Hand Axes Late",
+        "Chest Splitter": "Camp One Hand Axes Late",
+        "Disapprobation Axe": "Camp One Hand Axes Late",
+        "Ceremonial Axe": "Camp One Hand Axes Late",
+        "Wraith Axe": "Camp One Hand Axes Late",
+        "Engraved Hatchet": "Camp One Hand Axes Late",
+        "Karui Axe": "Camp One Hand Axes Late",
+        "Siege Axe": "Camp One Hand Axes Late",
+        "Reaver Axe": "Camp One Hand Axes Late",
+        "Butcher Axe": "Camp One Hand Axes Late",
+        "Vaal Hatchet": "Camp One Hand Axes Late",
+        "Royal Axe": "Camp One Hand Axes PreEndgame",
+        "Infernal Axe": "Camp One Hand Axes PreEndgame",
+        "Psychotic Axe": "Camp One Hand Axes PreEndgame",
+        "Runic Hatchet": "Camp One Hand Axes PreEndgame"
+    }
+}

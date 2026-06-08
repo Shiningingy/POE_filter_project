@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {}
+    },
+    "item_class": {
+      "en": "Unclassified",
+      "ch": "待分类"
+    },
+    "theme_category": "Unclassified"
+  },
+  "mapping": {},
+  "rules": []
+}

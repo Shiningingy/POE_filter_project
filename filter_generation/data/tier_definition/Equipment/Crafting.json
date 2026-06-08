@@ -1,0 +1,44 @@
+{
+  "Crafting Bases": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Crafting Bases",
+        "ch": "精品底材"
+      },
+      "tier_order": [
+        "Crafting Bases T1",
+        "Crafting Bases Hide"
+      ]
+    },
+    "Crafting Bases T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Crafting Bases",
+        "ch": "精品底材"
+      }
+    },
+    "Crafting Bases Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

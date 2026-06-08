@@ -10,10 +10,13 @@
         "Tier 0 Axes",
         "Tier 1 Axes",
         "Tier 2 Axes",
+        "Tier 3 Axes",
+        "Tier 4 Axes",
         "Tier Hide Axes"
       ]
     },
     "Tier 0 Axes": {
+      "conditions": {"ItemLevel": ">= 68", "Rarity": "<= Rare"},
       "hideable": false,
       "theme": {
         "Tier": 0
@@ -29,6 +32,7 @@
       "show_in_editor": false
     },
     "Tier 1 Axes": {
+      "conditions": {"ItemLevel": ">= 68", "Rarity": "<= Rare"},
       "hideable": false,
       "theme": {
         "Tier": 1
@@ -43,6 +47,7 @@
       }
     },
     "Tier 2 Axes": {
+      "conditions": {"Rarity": "<= Rare"},
       "hideable": false,
       "theme": {
         "Tier": 2
@@ -54,6 +59,34 @@
       "localization": {
         "en": "T2: Decent Bases",
         "ch": "T2: 常用底材"
+      }
+    },
+    "Tier 3 Axes": {
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": "金装.mp3"
+      },
+      "localization": {
+        "en": "T3: Mid Tier",
+        "ch": "T3: 普通装备"
+      }
+    },
+    "Tier 4 Axes": {
+      "hideable": false,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T4: Low Tier",
+        "ch": "T4: 低级装备"
       }
     },
     "Tier Hide Axes": {

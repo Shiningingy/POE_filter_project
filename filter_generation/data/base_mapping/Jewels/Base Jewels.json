@@ -7,9 +7,7 @@
         "Cobalt Jewel": "钴蓝珠宝",
         "Crimson Jewel": "赤红珠宝",
         "Viridian Jewel": "翠绿珠宝",
-        "Prismatic Jewel": "三相珠宝",
-        "Celestial Jeweller's Incubator": "众星珠宝匠的孕育石",
-        "Timeless Jewel": "永恒珠宝"
+        "Celestial Jeweller's Incubator": "众星珠宝匠的孕育石"
       }
     }
   },
@@ -18,9 +16,7 @@
     "Cobalt Jewel": "Tier 1 Base Jewels",
     "Crimson Jewel": "Tier 1 Base Jewels",
     "Viridian Jewel": "Tier 1 Base Jewels",
-    "Prismatic Jewel": "Tier 1 Base Jewels",
-    "Celestial Jeweller's Incubator": "Tier 1 Base Jewels",
-    "Timeless Jewel": "Tier 1 Base Jewels"
+    "Celestial Jeweller's Incubator": "Tier 1 Base Jewels"
   },
   "rules": []
 }

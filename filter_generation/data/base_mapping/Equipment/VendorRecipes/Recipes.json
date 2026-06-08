@@ -1,0 +1,16 @@
+{
+    "_meta": {
+        "item_class": {"en": "Body Armours", "ch": "洞&色&连"},
+        "localization": {
+            "en": "Sockets Colors Links",
+            "ch": "洞&色&连",
+            "ch_items": {}
+        },
+        "theme_category": "Vendor Recipes"
+    },
+    "mapping": {
+        "6-Link": "6-Link",
+        "6-Socket": "6-Socket",
+        "RGB Linked": "RGB Linked"
+    }
+}

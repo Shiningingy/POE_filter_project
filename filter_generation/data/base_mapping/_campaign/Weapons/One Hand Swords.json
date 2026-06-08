@@ -1,0 +1,44 @@
+{
+    "_meta": {
+        "item_class": {
+            "en": "One Hand Swords",
+            "ch": "单手剑"
+        },
+        "localization": {
+            "en": "Campaign One Hand Swords",
+            "ch": "过渡单手剑",
+            "ch_items": {}
+        },
+        "theme_category": "Campaign"
+    },
+    "mapping": {
+        "Rusted Sword": "Camp One Hand Swords Early",
+        "Copper Sword": "Camp One Hand Swords Early",
+        "Sabre": "Camp One Hand Swords Early",
+        "Broad Sword": "Camp One Hand Swords Early",
+        "War Sword": "Camp One Hand Swords Early",
+        "Ancient Sword": "Camp One Hand Swords Early",
+        "Elegant Sword": "Camp One Hand Swords Mid",
+        "Fickle Spiritblade": "Camp One Hand Swords Mid",
+        "Dusk Blade": "Camp One Hand Swords Mid",
+        "Hook Sword": "Camp One Hand Swords Mid",
+        "Variscite Blade": "Camp One Hand Swords Mid",
+        "Cutlass": "Camp One Hand Swords Mid",
+        "Baselard": "Camp One Hand Swords Mid",
+        "Battle Sword": "Camp One Hand Swords Mid",
+        "Elder Sword": "Camp One Hand Swords Late",
+        "Graceful Sword": "Camp One Hand Swords Late",
+        "Capricious Spiritblade": "Camp One Hand Swords Late",
+        "Twilight Blade": "Camp One Hand Swords Late",
+        "Grappler": "Camp One Hand Swords Late",
+        "Gemstone Sword": "Camp One Hand Swords Late",
+        "Corsair Sword": "Camp One Hand Swords Late",
+        "Gladius": "Camp One Hand Swords Late",
+        "Legion Sword": "Camp One Hand Swords Late",
+        "Vaal Blade": "Camp One Hand Swords Late",
+        "Eternal Sword": "Camp One Hand Swords Late",
+        "Midnight Blade": "Camp One Hand Swords PreEndgame",
+        "Tiger Hook": "Camp One Hand Swords PreEndgame",
+        "Anarchic Spiritblade": "Camp One Hand Swords PreEndgame"
+    }
+}
