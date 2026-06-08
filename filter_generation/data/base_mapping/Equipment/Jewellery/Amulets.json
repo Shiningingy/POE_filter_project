@@ -42,7 +42,11 @@
         "Bonespire Talisman": "脊骨魔符",
         "Astrolabe Amulet": "星盘项链",
         "Simplex Amulet": "朴实项链",
-        "Focused Amulet": "聚焦项链"
+        "Focused Amulet": "聚焦项链",
+        "Gold Amulet": "帝金护身符",
+        "Agate Amulet": "玛瑙护身符",
+        "Turquoise Amulet": "青玉护身符",
+        "Citrine Amulet": "黄晶护身符"
       }
     },
     "item_class": {

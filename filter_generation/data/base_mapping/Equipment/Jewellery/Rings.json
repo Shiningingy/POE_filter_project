@@ -5,8 +5,8 @@
         "Opal Ring": "蛋白石戒指",
         "Steel Ring": "合金戒指",
         "Vermillion Ring": "朱砂之戒",
-        "Iolite Ring": "混青石戒指",
-        "Diamond Ring": "金戒指",
+        "Iolite Ring": "青石戒指",
+        "Diamond Ring": "宝钻戒指",
         "__class_name__": "戒指",
         "Coral Ring": "珊瑚戒指",
         "Iron Ring": "锻铁戒指",
@@ -36,7 +36,10 @@
         "Synaptic Ring": "突触戒指",
         "Organic Ring": "有机戒指",
         "Fugitive Ring": "逃亡戒指",
-        "Formless Ring": "无形戒指"
+        "Formless Ring": "无形戒指",
+        "Cerulean Ring": "天蓝之戒",
+        "Two-Stone Ring": "双玉戒指",
+        "Amethyst Ring": "紫晶戒指"
       }
     },
     "item_class": {

@@ -29,6 +29,7 @@
         },
         "Chaos Recipe": {
             "class_condition": true,
+            "excluded_modes": ["ruthless"],
             "conditions": {
                 "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Rings\" \"Amulets\" \"Belts\"",
                 "Rarity": "== Rare",
@@ -41,6 +42,7 @@
         },
         "Regal Recipe": {
             "class_condition": true,
+            "excluded_modes": ["ruthless"],
             "conditions": {
                 "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Rings\" \"Amulets\" \"Belts\"",
                 "Rarity": "== Rare",

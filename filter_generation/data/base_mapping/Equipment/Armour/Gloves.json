@@ -2,7 +2,7 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Fingerless Silk Gloves": "苍指手套",
+        "Fingerless Silk Gloves": "丝绸手套",
         "Gripped Gloves": "擒拿手套",
         "Spiked Gloves": "扣钉手套",
         "Apothecary's Gloves": "药剂师手套",
@@ -78,7 +78,10 @@
         "Leyline Gloves": "雷线手套",
         "Runic Gloves": "符文手套",
         "Runic Gages": "符文笼手",
-        "Runic Gauntlets": "符文手甲"
+        "Runic Gauntlets": "符文手甲",
+        "Sorcerer Gloves": "术士手套",
+        "Slink Gloves": "迷踪手套",
+        "Titan Gauntlets": "巨人护手"
       }
     },
     "item_class": {

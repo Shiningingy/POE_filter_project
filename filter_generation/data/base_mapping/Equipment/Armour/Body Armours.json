@@ -2,11 +2,11 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Vaal Regalia": "瓦尔护甲",
-        "Astral Plate": "星辰之铠",
+        "Vaal Regalia": "瓦尔法衣",
+        "Astral Plate": "星芒战铠",
         "Zodiac Leather": "星辰皮甲",
-        "Saintly Chainmail": "圣洁锁子甲",
-        "Carnal Armour": "禁礼之衣",
+        "Saintly Chainmail": "圣洁锁甲",
+        "Carnal Armour": "禁礼之甲",
         "__class_name__": "胸甲",
         "Plate Vest": "铁制背心",
         "Chestplate": "胸甲",
@@ -118,7 +118,12 @@
         "Sacred Chainmail": "神圣锁甲",
         "Sanguine Raiment": "血痕之衣",
         "Torturer Garb": "刑罚者束衣",
-        "Necrotic Armour": "幽魂之甲"
+        "Necrotic Armour": "幽魂之甲",
+        "Glorious Plate": "荣耀战铠",
+        "Assassin's Garb": "暗影之装",
+        "Sadist Garb": "狂虐者束衣",
+        "Triumphant Lamellar": "胜利盔甲",
+        "General's Brigandine": "将军铠甲"
       }
     },
     "item_class": {

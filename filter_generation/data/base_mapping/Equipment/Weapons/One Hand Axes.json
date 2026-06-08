@@ -3,8 +3,8 @@
     "localization": {
       "ch": {
         "Siege Axe": "破城斧",
-        "Reaver Axe": "裂魂者",
-        "Runic Hatchet": "符文战斧",
+        "Reaver Axe": "残暴之斧",
+        "Runic Hatchet": "密文之斧",
         "Vaal Hatchet": "瓦尔战斧",
         "__class_name__": "单手斧",
         "Rusted Hatchet": "锈斧",
@@ -29,7 +29,8 @@
         "Infernal Axe": "狱火之刃",
         "Maltreatment Axe": "凌虐斧",
         "Disapprobation Axe": "否认斧",
-        "Psychotic Axe": "癫狂斧"
+        "Psychotic Axe": "癫狂斧",
+        "Royal Axe": "皇家之斧"
       }
     },
     "item_class": {

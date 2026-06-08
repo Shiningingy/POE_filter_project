@@ -197,7 +197,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                 if (mapData.rules) {
                     mergedData[catKey].rules = mapData.rules;
                 }
-                const keys = Object.keys(mergedData[catKey]).filter(k => k.startsWith('Tier'));
+                const keys = Object.keys(mergedData[catKey]).filter(k => !k.startsWith('//') && k !== '_meta' && k !== 'rules');
                 fetchTierItems(keys);
             }
             setConfigContent(JSON.stringify(mergedData, null, 2));

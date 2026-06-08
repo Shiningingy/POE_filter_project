@@ -1,0 +1,60 @@
+{
+  "Tinctures": {
+    "_meta": {
+      "theme_category": "Tinctures",
+      "localization": {
+        "en": "Tinctures",
+        "ch": "酊剂"
+      },
+      "tier_order": [
+        "Tier 0 Tinctures",
+        "Tier 1 Tinctures",
+        "Tier Hide Tinctures"
+      ]
+    },
+    "Tier 0 Tinctures": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: Absolute Top",
+        "ch": "T0: 顶级/核心"
+      }
+    },
+    "Tier 1 Tinctures": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "高级通货.mp3"
+      },
+      "localization": {
+        "en": "T1: Tinctures",
+        "ch": "T1: 酊剂"
+      }
+    },
+    "Tier Hide Tinctures": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

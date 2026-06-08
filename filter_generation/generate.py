@@ -1,6 +1,8 @@
 import json
 import re
 import os
+import sys
+import argparse
 from pathlib import Path
 from collections import defaultdict
 
@@ -19,6 +21,18 @@ SOUND_FILE_PATH = Path("sound_files")
 
 # Default font size if you don't carry it in the theme
 DEFAULT_FONT_SIZE = 32
+
+_args = argparse.ArgumentParser(add_help=False)
+_args.add_argument("--mode", default="standard", choices=["standard", "ruthless"])
+_args.add_argument("--game-version", default="poe1", choices=["poe1", "poe2"])
+_parsed = _args.parse_known_args()[0]
+MODE = _parsed.mode
+GAME_VERSION = _parsed.game_version
+HIDE_CMD = "Minimal" if MODE == "ruthless" else "Hide"
+
+if GAME_VERSION == "poe2":
+    print("[ERROR] POE2 filter generation is not yet supported.")
+    sys.exit(1)
 
 _rgba_re = re.compile(r"rgba?(\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?")
 
@@ -45,7 +59,8 @@ FOLDER_LOCALIZATION = {
     "Flasks": "药剂",
     "Quest": "任务",
     "Uniques": "传奇",
-    "_campaign": "过渡"
+    "_campaign": "过渡",
+    "Heist": "赏金猎人"
 }
 
 def tr(key):
@@ -205,7 +220,11 @@ def generate_filter():
 
         tier_doc = json.loads(tier_file.read_text(encoding="utf-8"))
         map_doc  = json.loads(map_file.read_text(encoding="utf-8"))
-        
+
+        # Skip files excluded for current mode (e.g. Divination Cards in ruthless)
+        if MODE in map_doc.get("_meta", {}).get("excluded_modes", []):
+            continue
+
         category_key = next((k for k in tier_doc if not k.startswith("//")), None)
         if not category_key: continue
         
@@ -303,10 +322,15 @@ def generate_filter():
         block_counter = 0
         
         for t_lbl in tier_order:
-            if t_lbl not in category_data: continue 
-            
+            if t_lbl not in category_data: continue
+
             items = items_by_tier.get(t_lbl, [])
             tier_entry = category_data[t_lbl]
+
+            # Skip tiers excluded for current mode (e.g. Chaos Recipe in ruthless)
+            if MODE in tier_entry.get("excluded_modes", []):
+                continue
+
             is_hide = tier_entry.get("is_hide_tier", False)
             tnum = tier_num_from_label(t_lbl)
             # Honor explicit theme.Tier for tiers with non-standard label names (e.g. "Camp Bows Early")
@@ -334,8 +358,9 @@ def generate_filter():
                 base_play_eff = ttheme.get("PlayEffect")
                 base_mini_icon = ttheme.get("MinimapIcon")
                 block_index += 1
-                out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -Tier {theme_tnum} {loc_cat} - Class Condition==")
-                cmd = "Hide" if is_hide else "Show"
+                tier_display = tier_entry.get("localization", {}).get("en") or t_lbl
+                out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -{tier_display} {loc_cat} - Class Condition==")
+                cmd = HIDE_CMD if is_hide else "Show"
                 block_lines = [f'{cmd}']
                 for key, val in tier_conditions.items():
                     if val.startswith("RANGE "):
@@ -443,10 +468,11 @@ def generate_filter():
                         rule_part = f"#{rule_counter} {rule_name}"
 
                     final_mode = tr(mode_label)
-                    out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -Tier {tnum} {loc_cat} - {rule_part} - {final_mode}==")
+                    tier_display_r = tier_entry.get("localization", {}).get("en") or f"Tier {tnum}"
+                    out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -{tier_display_r} {loc_cat} - {rule_part} - {final_mode}==")
                     
                     joined = '" "'.join(subgroup)
-                    cmd = "Hide" if is_hide else "Show"
+                    cmd = HIDE_CMD if is_hide else "Show"
                     bt_operator = " == " if is_strict else " "
                     
                     block_lines = [
@@ -507,10 +533,11 @@ def generate_filter():
                     block_index += 1
                     final_mode = tr(mode_label)
                     base_label = tr("Base")
-                    out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -Tier {tnum} {loc_cat} - {base_label} - {final_mode}==")
+                    tier_display = tier_entry.get("localization", {}).get("en") or f"Tier {tnum}"
+                    out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -{tier_display} {loc_cat} - {base_label} - {final_mode}==")
                     
                     joined = '" "'.join(subgroup)
-                    cmd = "Hide" if is_hide else "Show"
+                    cmd = HIDE_CMD if is_hide else "Show"
                     bt_operator = " == " if is_strict else " "
                     
                     block_lines = [

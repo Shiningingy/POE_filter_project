@@ -7,7 +7,7 @@
             "ch_items": {}
         },
         "theme_category": "Chancing",
-        "mode": "standard"
+        "excluded_modes": ["ruthless"]
     },
     "mapping": {
         "Harbinger Bow": "Chancing Normal",

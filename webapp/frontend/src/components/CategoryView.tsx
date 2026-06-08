@@ -647,7 +647,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       is_hide_tier: !!td.is_hide_tier,
     };
 
-    if (locName && (tk.startsWith("CustomTier") || typeof tNum !== "number")) {
+    if (locName) {
       return { ...baseOption, label: locName };
     }
     return {

@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "excluded_modes": ["ruthless"],
+    "localization": {
+      "ch": {
+        "__class_name__": "盗贼目标"
+      }
+    },
+    "item_class": {
+      "en": "Heist Targets",
+      "ch": "盗贼目标"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Heist Target": "Heist Target T1"
+  },
+  "rules": []
+}

@@ -3,8 +3,8 @@
     "localization": {
       "ch": {
         "Ambusher": "伏击刺刃",
-        "Imperial Skean": "帝国之匕",
-        "Demon Dagger": "魔族匕首",
+        "Imperial Skean": "帝国短匕",
+        "Demon Dagger": "魔灵短匕",
         "__class_name__": "匕首",
         "Glass Shank": "玻璃利片",
         "Skinning Knife": "剥皮刀",
@@ -17,7 +17,9 @@
         "Sai": "战叉",
         "Hollowpoint Dagger": "折叠匕首",
         "Pressurised Dagger": "冲压匕首",
-        "Pneumatic Dagger": "气动匕首"
+        "Pneumatic Dagger": "气动匕首",
+        "Slaughter Knife": "猎者之刃",
+        "Royal Skean": "皇家短匕"
       }
     },
     "item_class": {

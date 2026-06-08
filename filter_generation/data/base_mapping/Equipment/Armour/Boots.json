@@ -3,7 +3,7 @@
     "localization": {
       "ch": {
         "Sorcerer Boots": "术士长靴",
-        "Slink Boots": "蛇鳞长靴",
+        "Slink Boots": "迷踪短靴",
         "Fugitive Boots": "逃亡之靴",
         "Dragonscale Boots": "龙鳞长靴",
         "__class_name__": "鞋子",
@@ -54,7 +54,7 @@
         "Ambush Boots": "伏击之靴",
         "Carnal Boots": "禁礼之靴",
         "Assassin's Boots": "暗影之靴",
-        "Two-Toned Boots": "异色鞋 (火闪)",
+        "Two-Toned Boots": "异色鞋(冰闪)",
         "Precursor Greaves": "先驱胫甲",
         "Leviathan Greaves": "海怪胫甲",
         "Harpyskin Boots": "鹰妖皮靴",
@@ -78,7 +78,9 @@
         "Basemetal Treads": "劣金之履",
         "Runic Greaves": "符文胫甲",
         "Runic Sollerets": "符文护腿",
-        "Runic Sabatons": "符文战靴"
+        "Runic Sabatons": "符文战靴",
+        "Crusader Boots": "圣战长靴",
+        "Murder Boots": "暗影者长靴"
       }
     },
     "item_class": {

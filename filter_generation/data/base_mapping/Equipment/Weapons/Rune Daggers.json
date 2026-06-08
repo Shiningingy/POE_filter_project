@@ -2,10 +2,10 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Golden Kris": "金晶匕首",
-        "Platinum Kris": "白金匕首",
-        "Copper Kris": "青铜匕首",
-        "Ezomyte Dagger": "艾兹麦匕首",
+        "Golden Kris": "金光波刃",
+        "Platinum Kris": "白金波刃",
+        "Copper Kris": "铜锻波刃",
+        "Ezomyte Dagger": "艾兹麦之匕",
         "__class_name__": "符文匕首",
         "Carving Knife": "刻骨刀",
         "Boot Knife": "窃者短刃",
@@ -15,7 +15,9 @@
         "Boot Blade": "窃者短匕",
         "Flickerflame Blade": "火焰刀",
         "Flashfire Blade": "闪火刀",
-        "Infernal Blade": "炼狱刀"
+        "Infernal Blade": "炼狱刀",
+        "Fiend Dagger": "兽血短匕",
+        "Imperial Skean": "帝国短匕"
       }
     },
     "item_class": {

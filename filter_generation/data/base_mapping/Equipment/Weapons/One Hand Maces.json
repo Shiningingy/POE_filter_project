@@ -2,9 +2,9 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Behemoth Mace": "巨兽之锤",
+        "Behemoth Mace": "巴哈姆特",
         "Nightmare Mace": "梦魇之锤",
-        "Piledriver": "打桩机",
+        "Piledriver": "扫荡者",
         "__class_name__": "单手锤",
         "Driftwood Club": "朽木之棒",
         "Tribal Club": "祭仪之杵",
@@ -30,7 +30,8 @@
         "Pernach": "锋刃重锤",
         "Flare Mace": "明亮锤",
         "Crack Mace": "开裂锤",
-        "Boom Mace": "风雷锤"
+        "Boom Mace": "风雷锤",
+        "Auric Mace": "圣约之锤"
       }
     },
     "item_class": {

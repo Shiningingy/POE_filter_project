@@ -441,14 +441,29 @@
         "The Eye of Terror": "恐怖之眼",
         "Desecrated Virtue": "被亵渎的美德",
         "The Journey": "旅程",
-        "The Messenger": "信使"
+        "The Messenger": "信使",
+        "Seven Years Bad Luck": "七年厄运",
+        "Wealth and Power": "钱与权",
+        "The Fortunate": "垂青之运",
+        "Humility": "谦逊",
+        "The Gambler": "赌徒",
+        "The Scholar": "学者",
+        "Rain of Chaos": "混沌之雨",
+        "Her Mask": "她的面具",
+        "The Flora's Gift": "芙劳拉的赠礼",
+        "The Carrion Crow": "食腐掠鸦",
+        "Destined to Crumble": "殒落的命运",
+        "Thunderous Skies": "怒雷之空"
       }
     },
     "item_class": {
       "en": "Divination Cards",
       "ch": "命运卡"
     },
-    "theme_category": "Divination Cards"
+    "theme_category": "Divination Cards",
+    "excluded_modes": [
+      "ruthless"
+    ]
   },
   "mapping": {
     "House of Mirrors": "Tier 0 Cards",

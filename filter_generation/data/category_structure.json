@@ -87,13 +87,13 @@
               }
             },
             {
-              "path": "Currency/Heist.json",
-              "tier_path": "tier_definition/Currency/Heist.json",
-              "mapping_path": "base_mapping/Currency/Heist.json",
+              "path": "Currency/Heist Currency.json",
+              "tier_path": "tier_definition/Currency/Heist Currency.json",
+              "mapping_path": "base_mapping/Currency/Heist Currency.json",
               "target_category": "Stackable Currency",
               "localization": {
-                "en": "Heist",
-                "ch": "夺宝"
+                "en": "Heist Currency",
+                "ch": "夺宝通货"
               }
             },
             {
@@ -229,6 +229,38 @@
           "ch": "地图与碎片"
         }
       },
+      "subgroups": [
+        {
+          "_meta": {
+            "localization": {
+              "en": "Heist",
+              "ch": "赏金猎人"
+            }
+          },
+          "files": [
+            {
+              "path": "Heist/Contracts.json",
+              "tier_path": "tier_definition/Heist/Contracts.json",
+              "mapping_path": "base_mapping/Heist/Contracts.json",
+              "target_category": "Maps",
+              "localization": {
+                "en": "Contracts",
+                "ch": "委托契约"
+              }
+            },
+            {
+              "path": "Heist/Blueprints.json",
+              "tier_path": "tier_definition/Heist/Blueprints.json",
+              "mapping_path": "base_mapping/Heist/Blueprints.json",
+              "target_category": "Maps",
+              "localization": {
+                "en": "Blueprints",
+                "ch": "蓝图"
+              }
+            }
+          ]
+        }
+      ],
       "files": [
         {
           "path": "Maps/Base Maps.json",
@@ -369,6 +401,16 @@
             "en": "Utility",
             "ch": "功能药剂"
           }
+        },
+        {
+          "path": "Flasks/Tinctures.json",
+          "tier_path": "tier_definition/Flasks/Tinctures.json",
+          "mapping_path": "base_mapping/Flasks/Tinctures.json",
+          "target_category": "Life Flasks",
+          "localization": {
+            "en": "Tinctures",
+            "ch": "酊剂"
+          }
         }
       ]
     },
@@ -376,7 +418,7 @@
       "_meta": {
         "localization": {
           "en": "Equipment",
-          "ch": "终局装备"
+          "ch": "装备"
         }
       },
       "subgroups": [
@@ -725,8 +767,38 @@
     {
       "_meta": {
         "localization": {
+          "en": "Heist Gear",
+          "ch": "赏金猎人装备"
+        }
+      },
+      "files": [
+        {
+          "path": "Heist/Equipment.json",
+          "tier_path": "tier_definition/Heist/Equipment.json",
+          "mapping_path": "base_mapping/Heist/Equipment.json",
+          "target_category": "Equipment",
+          "localization": {
+            "en": "Equipment",
+            "ch": "赏金猎人装备"
+          }
+        },
+        {
+          "path": "Heist/Targets.json",
+          "tier_path": "tier_definition/Heist/Targets.json",
+          "mapping_path": "base_mapping/Heist/Targets.json",
+          "target_category": "Targets",
+          "localization": {
+            "en": "Targets",
+            "ch": "赏金猎人目标"
+          }
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
           "en": "_Campaign",
-          "ch": "过渡模式"
+          "ch": "剧情模式"
         }
       },
       "subgroups": [

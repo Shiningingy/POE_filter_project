@@ -3,9 +3,9 @@
     "localization": {
       "ch": {
         "Spine Bow": "脊弓",
-        "Thicket Bow": "灌木弓",
+        "Thicket Bow": "林野猎弓",
         "Imperial Bow": "帝国之弓",
-        "Maraketh Bow": "马拉克斯之弓",
+        "Maraketh Bow": "马拉克斯弓",
         "__class_name__": "弓",
         "Crude Bow": "粗制弓",
         "Short Bow": "短弓",
@@ -27,7 +27,10 @@
         "Assassin Bow": "暗影弓",
         "Hedron Bow": "多面弓",
         "Foundry Bow": "铸造弓",
-        "Solarine Bow": "日裔弓"
+        "Solarine Bow": "日裔弓",
+        "Harbinger Bow": "先驱者之弓",
+        "Decimation Bow": "猎魂之弓",
+        "Citadel Bow": "城塞战弓"
       }
     },
     "item_class": {

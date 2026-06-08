@@ -750,12 +750,24 @@ def get_items_by_tier(request: TierItemsRequest):
     
     return {"items": result}
 
+class GenerateRequest(BaseModel):
+    game_version: str = "poe1"
+    game_mode: str = "normal"
+
 @app.post("/api/generate")
-def generate_filter_file():
+def generate_filter_file(request: GenerateRequest = Body(default=GenerateRequest())):
+    mode_arg = "ruthless" if request.game_mode == "ruthless" else "standard"
+    cmd = [
+        PYTHON_EXECUTABLE, str(FILTER_GEN_DIR / "generate.py"),
+        "--mode", mode_arg,
+        "--game-version", request.game_version
+    ]
     try:
-        subprocess.run([PYTHON_EXECUTABLE, str(FILTER_GEN_DIR / "generate.py")], check=True, cwd=PROJECT_ROOT)
-        return {"message": "Success"}
-    except Exception as e: raise HTTPException(status_code=500, detail=str(e))
+        result = subprocess.run(cmd, check=True, cwd=PROJECT_ROOT,
+                                capture_output=True, text=True)
+        return {"message": "Success", "output": result.stdout}
+    except subprocess.CalledProcessError as e:
+        raise HTTPException(status_code=500, detail=(e.stdout or "") + (e.stderr or ""))
 
 @app.get("/api/class-hierarchy")
 def get_class_hierarchy():

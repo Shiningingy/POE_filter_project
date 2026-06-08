@@ -2,10 +2,10 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Titanium Spirit Shield": "钛金之盾",
+        "Titanium Spirit Shield": "巨人魔盾",
         "Archon Kite Shield": "威能鸢盾",
         "Champion Kite Shield": "斗士鸢盾",
-        "Harmonic Spirit Shield": "和音之盾",
+        "Harmonic Spirit Shield": "和谐魔盾",
         "__class_name__": "盾",
         "Splintered Tower Shield": "朽木塔盾",
         "Corroded Tower Shield": "斑驳塔盾",
@@ -96,7 +96,10 @@
         "Cold-attuned Buckler": "适寒型轻盾",
         "Exothermic Tower Shield": "排热型塔盾",
         "Magmatic Tower Shield": "熔岩塔盾",
-        "Heat-attuned Tower Shield": "适热型塔盾"
+        "Heat-attuned Tower Shield": "适热型塔盾",
+        "Fossilised Spirit Shield": "石化魔盾",
+        "Colossal Tower Shield": "巨型塔盾",
+        "Pinnacle Tower Shield": "坚毅塔盾"
       }
     },
     "item_class": {

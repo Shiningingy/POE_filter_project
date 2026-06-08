@@ -3,19 +3,19 @@
     "localization": {
       "ch": {
         "__class_name__": "可堆叠通货",
-        "Splinter of Xoph": "索伏裂片",
-        "Splinter of Tul": "托沃裂片",
-        "Splinter of Esh": "艾许裂片",
-        "Splinter of Uul-Netol": "乌奈托裂片",
-        "Splinter of Chayula": "恰路拉裂片",
+        "Splinter of Xoph": "裂隙碎片(索伏)",
+        "Splinter of Tul": "裂隙碎片(托沃)",
+        "Splinter of Esh": "裂隙碎片(艾许)",
+        "Splinter of Uul-Netol": "裂隙碎片(乌尔尼多)",
+        "Splinter of Chayula": "裂隙碎片(夏乌拉)",
         "Timeless Karui Splinter": "永恒卡鲁裂片",
         "Timeless Maraketh Splinter": "永恒马拉克斯裂片",
         "Timeless Eternal Empire Splinter": "永恒帝国裂片",
         "Timeless Templar Splinter": "永恒圣堂裂片",
         "Timeless Vaal Splinter": "永恒瓦尔裂片",
-        "Simulacrum Splinter": "仿像裂片",
-        "Ritual Splinter": "仪式裂片",
-        "Crescent Splinter": "月牙裂片"
+        "Simulacrum Splinter": "梦魇拟像裂片",
+        "Ritual Splinter": "驱灵裂片",
+        "Crescent Splinter": "新月裂片"
       }
     },
     "item_class": {

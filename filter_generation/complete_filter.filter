@@ -55,45 +55,51 @@
 #  [40000] 药剂 Flasks
 #    [41000] 药剂 Flasks - 生命药剂 Life Flasks
 #    [42000] 药剂 Flasks - 魔力药剂 Mana Flasks
-#    [43000] 药剂 Flasks - 功能药剂 Utility Flasks
+#    [43000] 药剂 Flasks - 酊剂 Tinctures
+#    [44000] 药剂 Flasks - 功能药剂 Utility Flasks
 #  [50000] 宝石 Gems
 #    [51000] 宝石 Gems - 技能宝石 Skill
 #    [52000] 宝石 Gems - 辅助宝石 Support
-#  [60000] Jewels Jewels
-#    [61000] Jewels Jewels - 深渊珠宝 Abyss Jewels
-#    [62000] Jewels Jewels - 基础珠宝 Base Jewels
-#    [63000] Jewels Jewels - 星团珠宝 Cluster Jewels
-#  [70000] 地图 Maps
-#    [71000] 地图 Maps - 常规地图 Base Maps
-#    [72000] 地图 Maps - 碎片 Fragments
-#  [80000] 杂项 Misc
-#    [81000] 杂项 Misc - 金币 Misc
-#    [82000] 杂项 Misc - 神像 Idols
-#    [83000] 杂项 Misc - 孕育赠礼 Wombgifts
-#  [90000] 任务 Quest
-#    [91000] 任务 Quest - 迷宫物品 Labyrinth Items
-#    [92000] 任务 Quest - 任务物品 Quest Items
-#  [100000] 传奇 Uniques
-#    [101000] 传奇 Uniques - 传奇物品 Unique Items
-#  [110000] 过渡 _campaign
-#    [111000] 过渡 _campaign - 过渡护甲 Campaign Armour
-#    [112000] 过渡 _campaign - 过渡药剂 Campaign Flasks
-#    [113000] 过渡 _campaign - 武器 Weapons - 过渡弓 Campaign Bows
-#    [114000] 过渡 _campaign - 武器 Weapons - 过渡爪 Campaign Claws
-#    [115000] 过渡 _campaign - 武器 Weapons - 过渡匕首 Campaign Daggers
-#    [116000] 过渡 _campaign - 武器 Weapons - 过渡单手斧 Campaign One Hand Axes
-#    [117000] 过渡 _campaign - 武器 Weapons - 过渡单手锤 Campaign One Hand Maces
-#    [118000] 过渡 _campaign - 武器 Weapons - 过渡单手剑 Campaign One Hand Swords
-#    [119000] 过渡 _campaign - 武器 Weapons - 过渡符文匕首 Campaign Rune Daggers
-#    [120000] 过渡 _campaign - 武器 Weapons - 过渡短杖 Campaign Sceptres
-#    [121000] 过渡 _campaign - 武器 Weapons - 过渡长杖 Campaign Staves
-#    [122000] 过渡 _campaign - 武器 Weapons - 过渡双手斧 Campaign Two Hand Axes
-#    [123000] 过渡 _campaign - 武器 Weapons - 过渡双手锤 Campaign Two Hand Maces
-#    [124000] 过渡 _campaign - 武器 Weapons - 过渡双手剑 Campaign Two Hand Swords
-#    [125000] 过渡 _campaign - 武器 Weapons - 过渡法杖 Campaign Wands
-#    [126000] 过渡 _campaign - 武器 Weapons - 过渡战杖 Campaign Warstaves
-#  [120000] _legacy _legacy
-#    [121000] _legacy _legacy - 历史物品 Legacy
+#  [60000] 赏金猎人 Heist
+#    [61000] 赏金猎人 Heist - 蓝图 Heist Blueprints
+#    [62000] 赏金猎人 Heist - 契约 Heist Contracts
+#    [63000] 赏金猎人 Heist - 盗贼装备 Heist Equipment
+#    [64000] 赏金猎人 Heist - 盗贼目标 Heist Targets
+#  [70000] Jewels Jewels
+#    [71000] Jewels Jewels - 深渊珠宝 Abyss Jewels
+#    [72000] Jewels Jewels - 基础珠宝 Base Jewels
+#    [73000] Jewels Jewels - 星团珠宝 Cluster Jewels
+#  [80000] 地图 Maps
+#    [81000] 地图 Maps - 常规地图 Base Maps
+#    [82000] 地图 Maps - 碎片 Fragments
+#  [90000] 杂项 Misc
+#    [91000] 杂项 Misc - 金币 Misc
+#    [92000] 杂项 Misc - 神像 Idols
+#    [93000] 杂项 Misc - 孕育赠礼 Wombgifts
+#  [100000] 任务 Quest
+#    [101000] 任务 Quest - 迷宫物品 Labyrinth Items
+#    [102000] 任务 Quest - 任务物品 Quest Items
+#  [110000] 传奇 Uniques
+#    [111000] 传奇 Uniques - 传奇物品 Unique Items
+#  [120000] 过渡 _campaign
+#    [121000] 过渡 _campaign - 过渡护甲 Campaign Armour
+#    [122000] 过渡 _campaign - 过渡药剂 Campaign Flasks
+#    [123000] 过渡 _campaign - 武器 Weapons - 过渡弓 Campaign Bows
+#    [124000] 过渡 _campaign - 武器 Weapons - 过渡爪 Campaign Claws
+#    [125000] 过渡 _campaign - 武器 Weapons - 过渡匕首 Campaign Daggers
+#    [126000] 过渡 _campaign - 武器 Weapons - 过渡单手斧 Campaign One Hand Axes
+#    [127000] 过渡 _campaign - 武器 Weapons - 过渡单手锤 Campaign One Hand Maces
+#    [128000] 过渡 _campaign - 武器 Weapons - 过渡单手剑 Campaign One Hand Swords
+#    [129000] 过渡 _campaign - 武器 Weapons - 过渡符文匕首 Campaign Rune Daggers
+#    [130000] 过渡 _campaign - 武器 Weapons - 过渡短杖 Campaign Sceptres
+#    [131000] 过渡 _campaign - 武器 Weapons - 过渡长杖 Campaign Staves
+#    [132000] 过渡 _campaign - 武器 Weapons - 过渡双手斧 Campaign Two Hand Axes
+#    [133000] 过渡 _campaign - 武器 Weapons - 过渡双手锤 Campaign Two Hand Maces
+#    [134000] 过渡 _campaign - 武器 Weapons - 过渡双手剑 Campaign Two Hand Swords
+#    [135000] 过渡 _campaign - 武器 Weapons - 过渡法杖 Campaign Wands
+#    [136000] 过渡 _campaign - 武器 Weapons - 过渡战杖 Campaign Warstaves
+#  [130000] _legacy _legacy
+#    [131000] _legacy _legacy - 历史物品 Legacy
 #========================================
 
 
@@ -107,7 +113,7 @@
 
 #==[11000]-通货 Currency - 尸体 Corpses==
 
-#==[11001]- Corpses -Tier 1 尸体 - 基础 - 精确==
+#==[11001]- Corpses -T1: High 尸体 - 基础 - 精确==
 Show
     BaseType == "Imperfect Blasphemer" "Imperfect Blood Demon" "Imperfect Dark Marionette" "Imperfect Dark Reaper" "Imperfect Druidic Alchemist" "Imperfect Fiery Cannibal" "Imperfect Forest Tiger" "Imperfect Forest Warrior" "Imperfect Frozen Cannibal" "Imperfect Guardian Turtle" "Imperfect Half-remembered Goliath" "Imperfect Hulking Miscreation" "Imperfect Hydra" "Imperfect Judgemental Spirit" "Imperfect Meatsack" "Imperfect Naval Officer" "Imperfect Needle Horror" "Imperfect Pain Artist" "Imperfect Primal Demiurge" "Imperfect Primal Thunderbird" "Imperfect Runic Skeleton" "Imperfect Sanguimancer Demon" "Imperfect Sawblade Horror" "Imperfect Serpent Warrior" "Imperfect Shadow Construct" "Imperfect Slashing Horror" "Imperfect Spider Matriarch" "Imperfect Spirit of Fortune" "Imperfect Warlord" "Perfect Blasphemer" "Perfect Blood Demon" "Perfect Dark Marionette" "Perfect Dark Reaper" "Perfect Druidic Alchemist" "Perfect Fiery Cannibal" "Perfect Forest Tiger" "Perfect Forest Warrior" "Perfect Frozen Cannibal" "Perfect Guardian Turtle" "Perfect Half-remembered Goliath" "Perfect Hulking Miscreation" "Perfect Hydra" "Perfect Judgemental Spirit" "Perfect Meatsack" "Perfect Naval Officer" "Perfect Needle Horror" "Perfect Pain Artist" "Perfect Primal Demiurge" "Perfect Primal Thunderbird" "Perfect Runic Skeleton" "Perfect Sanguimancer Demon" "Perfect Sawblade Horror" "Perfect Serpent Warrior" "Perfect Shadow Construct" "Perfect Slashing Horror" "Perfect Spider Matriarch" "Perfect Spirit of Fortune" "Perfect Warlord"
     SetFontSize 42
@@ -121,7 +127,7 @@ Show
 
 #==[12000]-通货 Currency - 可堆叠通货 Delirium Orbs==
 
-#==[12001]- Delirium Orbs -Tier 1 可堆叠通货 - 基础 - 精确==
+#==[12001]- Delirium Orbs -T1: High End Orbs 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Abyssal Delirium Orb" "Armoursmith's Delirium Orb" "Blacksmith's Delirium Orb" "Blighted Delirium Orb" "Cartographer's Delirium Orb" "Diviner's Delirium Orb" "Fossilised Delirium Orb" "Fragmented Delirium Orb" "Jeweller's Delirium Orb" "Simulacrum Splinter" "Skittering Delirium Orb" "Thaumaturge's Delirium Orb" "Timeless Delirium Orb" "Whispering Delirium Orb"
     SetFontSize 42
@@ -133,7 +139,7 @@ Show
     MinimapIcon WhiteCircle
 
 
-#==[12002]- Delirium Orbs -Tier 2 可堆叠通货 - 基础 - 精确==
+#==[12002]- Delirium Orbs -T2: Common Orbs 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Fine Delirium Orb" "Singular Delirium Orb"
     SetFontSize 40
@@ -145,7 +151,7 @@ Show
 
 #==[13000]-通货 Currency - 可堆叠通货 Essences==
 
-#==[13001]- Essences -Tier 1 可堆叠通货 - 基础 - 精确==
+#==[13001]- Essences -T1: Top Essences 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Deafening Essence of Anger" "Deafening Essence of Anguish" "Deafening Essence of Contempt" "Deafening Essence of Doubt" "Deafening Essence of Dread" "Deafening Essence of Envy" "Deafening Essence of Fear" "Deafening Essence of Greed" "Deafening Essence of Hatred" "Deafening Essence of Loathing" "Deafening Essence of Misery" "Deafening Essence of Rage" "Deafening Essence of Scorn" "Deafening Essence of Sorrow" "Deafening Essence of Spite" "Deafening Essence of Suffering" "Deafening Essence of Torment" "Deafening Essence of Woe" "Deafening Essence of Wrath" "Deafening Essence of Zeal" "Essence of Delirium" "Essence of Horror" "Essence of Hysteria" "Essence of Insanity" "Muttering Essence of Anger" "Muttering Essence of Contempt" "Muttering Essence of Fear" "Muttering Essence of Greed" "Muttering Essence of Hatred" "Muttering Essence of Sorrow" "Muttering Essence of Torment" "Muttering Essence of Woe" "Remnant of Corruption" "Screaming Essence of Anger" "Screaming Essence of Anguish" "Screaming Essence of Contempt" "Screaming Essence of Doubt" "Screaming Essence of Dread" "Screaming Essence of Envy" "Screaming Essence of Fear" "Screaming Essence of Greed" "Screaming Essence of Hatred" "Screaming Essence of Loathing" "Screaming Essence of Misery" "Screaming Essence of Rage" "Screaming Essence of Scorn" "Screaming Essence of Sorrow" "Screaming Essence of Spite" "Screaming Essence of Suffering" "Screaming Essence of Torment" "Screaming Essence of Woe" "Screaming Essence of Wrath" "Screaming Essence of Zeal" "Shrieking Essence of Anger" "Shrieking Essence of Anguish" "Shrieking Essence of Contempt" "Shrieking Essence of Doubt" "Shrieking Essence of Dread" "Shrieking Essence of Envy" "Shrieking Essence of Fear" "Shrieking Essence of Greed" "Shrieking Essence of Hatred" "Shrieking Essence of Loathing" "Shrieking Essence of Misery" "Shrieking Essence of Rage" "Shrieking Essence of Scorn" "Shrieking Essence of Sorrow" "Shrieking Essence of Spite" "Shrieking Essence of Suffering" "Shrieking Essence of Torment" "Shrieking Essence of Woe" "Shrieking Essence of Wrath" "Shrieking Essence of Zeal" "Wailing Essence of Anger" "Wailing Essence of Anguish" "Wailing Essence of Contempt" "Wailing Essence of Doubt" "Wailing Essence of Fear" "Wailing Essence of Greed" "Wailing Essence of Hatred" "Wailing Essence of Loathing" "Wailing Essence of Rage" "Wailing Essence of Sorrow" "Wailing Essence of Spite" "Wailing Essence of Suffering" "Wailing Essence of Torment" "Wailing Essence of Woe" "Wailing Essence of Wrath" "Wailing Essence of Zeal" "Weeping Essence of Anger" "Weeping Essence of Contempt" "Weeping Essence of Doubt" "Weeping Essence of Fear" "Weeping Essence of Greed" "Weeping Essence of Hatred" "Weeping Essence of Rage" "Weeping Essence of Sorrow" "Weeping Essence of Suffering" "Weeping Essence of Torment" "Weeping Essence of Woe" "Weeping Essence of Wrath" "Whispering Essence of Contempt" "Whispering Essence of Greed" "Whispering Essence of Hatred" "Whispering Essence of Woe"
     SetFontSize 42
@@ -208,7 +214,7 @@ Show
 
 #==[15000]-通货 Currency - 可堆叠通货 Fossils==
 
-#==[15001]- Fossils -Tier 1 可堆叠通货 - 基础 - 精确==
+#==[15001]- Fossils -T1: Rare Fossils 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Aberrant Fossil" "Aetheric Fossil" "Bloodstained Fossil" "Bound Fossil" "Corroded Fossil" "Deft Fossil" "Dense Fossil" "Faceted Fossil" "Fractured Fossil" "Frigid Fossil" "Fundamental Fossil" "Gilded Fossil" "Glyphic Fossil" "Hollow Fossil" "Jagged Fossil" "Lucent Fossil" "Metallic Fossil" "Opulent Fossil" "Potent Chaotic Resonator" "Powerful Chaotic Resonator" "Prime Chaotic Resonator" "Primitive Chaotic Resonator" "Prismatic Fossil" "Pristine Fossil" "Sanctified Fossil" "Scorched Fossil" "Serrated Fossil" "Shuddering Fossil" "Tangled Fossil"
     SetFontSize 42
@@ -222,7 +228,7 @@ Show
 
 #==[16000]-通货 Currency - 可堆叠通货 General==
 
-#==[16001]- General -Tier 0 可堆叠通货 - #1 Test Rule: Stacked Divine - 精确==
+#==[16001]- General -T0: Absolute Top 可堆叠通货 - #1 Test Rule: Stacked Divine - 精确==
 Show
     BaseType == "Chaos Orb"
     StackSize >= 100
@@ -235,7 +241,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16002]- General -Tier 0 可堆叠通货 - #2 规则 - 精确==
+#==[16002]- General -T0: Absolute Top 可堆叠通货 - #2 规则 - 精确==
 Show
     BaseType == "Eldritch Orb of Annulment" "Chaos Orb"
     StackSize >=1000
@@ -248,7 +254,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16003]- General -Tier 0 可堆叠通货 - 自动音效：卡兰德的魔镜 - 精确==
+#==[16003]- General -T0: Absolute Top 可堆叠通货 - 自动音效：卡兰德的魔镜 - 精确==
 Show
     BaseType == "Mirror of Kalandra"
     SetFontSize 45
@@ -260,7 +266,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16004]- General -Tier 0 可堆叠通货 - 自动音效：永恒宝珠 - 精确==
+#==[16004]- General -T0: Absolute Top 可堆叠通货 - 自动音效：永恒宝珠 - 精确==
 Show
     BaseType == "Eternal Orb"
     SetFontSize 45
@@ -272,7 +278,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16005]- General -Tier 0 可堆叠通货 - 自动音效：白化的羽毛 - 精确==
+#==[16005]- General -T0: Absolute Top 可堆叠通货 - 自动音效：白化的羽毛 - 精确==
 Show
     BaseType == "Albino Rhoa Feather"
     SetFontSize 45
@@ -284,7 +290,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16006]- General -Tier 0 可堆叠通货 - 基础 - 精确==
+#==[16006]- General -T0: Absolute Top 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Hinekora's Lock" "Mirror Shard"
     SetFontSize 45
@@ -296,7 +302,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16007]- General -Tier 1 可堆叠通货 - 自动音效：神圣石 - 精确==
+#==[16007]- General -T1: Divine+ 可堆叠通货 - 自动音效：神圣石 - 精确==
 Show
     BaseType == "Divine Orb"
     SetFontSize 42
@@ -308,7 +314,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16008]- General -Tier 1 可堆叠通货 - 自动音效：觉醒者之石 - 精确==
+#==[16008]- General -T1: Divine+ 可堆叠通货 - 自动音效：觉醒者之石 - 精确==
 Show
     BaseType == "Awakener's Orb"
     SetFontSize 42
@@ -320,7 +326,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16009]- General -Tier 1 可堆叠通货 - 自动音效：Fracturing Orb - 精确==
+#==[16009]- General -T1: Divine+ 可堆叠通货 - 自动音效：破溃宝珠 - 精确==
 Show
     BaseType == "Fracturing Orb"
     SetFontSize 42
@@ -332,7 +338,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16010]- General -Tier 1 可堆叠通货 - 自动音效：倒映薄雾 - 精确==
+#==[16010]- General -T1: Divine+ 可堆叠通货 - 自动音效：倒映薄雾 - 精确==
 Show
     BaseType == "Reflecting Mist"
     SetFontSize 42
@@ -344,7 +350,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16011]- General -Tier 1 可堆叠通货 - 自动音效：Tailoring Orb - 精确==
+#==[16011]- General -T1: Divine+ 可堆叠通货 - 自动音效：裁剪石 - 精确==
 Show
     BaseType == "Tailoring Orb"
     SetFontSize 42
@@ -356,7 +362,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16012]- General -Tier 1 可堆叠通货 - 自动音效：Tempering Orb - 精确==
+#==[16012]- General -T1: Divine+ 可堆叠通货 - 自动音效：回火石 - 精确==
 Show
     BaseType == "Tempering Orb"
     SetFontSize 42
@@ -368,7 +374,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16013]- General -Tier 1 可堆叠通货 - 基础 - 精确==
+#==[16013]- General -T1: Divine+ 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Exceptional Eldritch Ember" "Exceptional Eldritch Ichor" "Valdo's Puzzle Box" "Veiled Exalted Orb"
     SetFontSize 42
@@ -380,7 +386,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16014]- General -Tier 2 可堆叠通货 - 自动音效：冲突石 - 精确==
+#==[16014]- General -T2: High Value 可堆叠通货 - 自动音效：冲突石 - 精确==
 Show
     BaseType == "Orb of Conflict"
     SetFontSize 40
@@ -392,7 +398,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16015]- General -Tier 2 可堆叠通货 - 自动音效：崇神石 - 精确==
+#==[16015]- General -T2: High Value 可堆叠通货 - 自动音效：崇神石 - 精确==
 Show
     BaseType == "Sacred Orb"
     SetFontSize 40
@@ -404,7 +410,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16016]- General -Tier 2 可堆叠通货 - 自动音效：统御宝珠 - 精确==
+#==[16016]- General -T2: High Value 可堆叠通货 - 自动音效：统御宝珠 - 精确==
 Show
     BaseType == "Orb of Dominance"
     SetFontSize 40
@@ -416,7 +422,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16017]- General -Tier 2 可堆叠通货 - 自动音效：污秽崇高石 - 精确==
+#==[16017]- General -T2: High Value 可堆叠通货 - 自动音效：污秽崇高石 - 精确==
 Show
     BaseType == "Tainted Exalted Orb"
     SetFontSize 40
@@ -428,7 +434,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16018]- General -Tier 2 可堆叠通货 - 自动音效：污染神泪 - 精确==
+#==[16018]- General -T2: High Value 可堆叠通货 - 自动音效：污染神泪 - 精确==
 Show
     BaseType == "Tainted Divine Teardrop"
     SetFontSize 40
@@ -440,7 +446,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16019]- General -Tier 2 可堆叠通货 - 基础 - 精确==
+#==[16019]- General -T2: High Value 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Crusader's Exalted Orb" "Grand Eldritch Ember" "Grand Eldritch Ichor" "Hunter's Exalted Orb" "Maven's Chisel of Scarabs" "Prismatic Catalyst" "Redeemer's Exalted Orb" "Warlord's Exalted Orb"
     SetFontSize 40
@@ -452,7 +458,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[16020]- General -Tier 3 可堆叠通货 - #1 规则 - 精确==
+#==[16020]- General -T3: Exalt Level 可堆叠通货 - #1 规则 - 精确==
 Show
     BaseType == "Chaos Orb"
     StackSize >=10
@@ -463,7 +469,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\通货.mp3" 100
 
 
-#==[16021]- General -Tier 3 可堆叠通货 - 自动音效：崇高石 - 精确==
+#==[16021]- General -T3: Exalt Level 可堆叠通货 - 自动音效：崇高石 - 精确==
 Show
     BaseType == "Exalted Orb"
     SetFontSize 37
@@ -473,7 +479,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\崇高石.mp3" 300
 
 
-#==[16022]- General -Tier 3 可堆叠通货 - 自动音效：Ancient Orb - 精确==
+#==[16022]- General -T3: Exalt Level 可堆叠通货 - 自动音效：远古石 - 精确==
 Show
     BaseType == "Ancient Orb"
     SetFontSize 37
@@ -483,7 +489,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\远古石.mp3" 300
 
 
-#==[16023]- General -Tier 3 可堆叠通货 - 自动音效：古灵混沌石 - 精确==
+#==[16023]- General -T3: Exalt Level 可堆叠通货 - 自动音效：古灵混沌石 - 精确==
 Show
     BaseType == "Eldritch Chaos Orb"
     SetFontSize 37
@@ -493,7 +499,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\古灵混沌石.mp3" 300
 
 
-#==[16024]- General -Tier 3 可堆叠通货 - 自动音效：古灵崇高石 - 精确==
+#==[16024]- General -T3: Exalt Level 可堆叠通货 - 自动音效：古灵崇高石 - 精确==
 Show
     BaseType == "Eldritch Exalted Orb"
     SetFontSize 37
@@ -503,7 +509,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\古灵崇高石.mp3" 300
 
 
-#==[16025]- General -Tier 3 可堆叠通货 - 自动音效：污秽混沌石 - 精确==
+#==[16025]- General -T3: Exalt Level 可堆叠通货 - 自动音效：污秽混沌石 - 精确==
 Show
     BaseType == "Tainted Chaos Orb"
     SetFontSize 37
@@ -513,7 +519,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽混沌石.mp3" 300
 
 
-#==[16026]- General -Tier 3 可堆叠通货 - 自动音效：污秽幻色石 - 精确==
+#==[16026]- General -T3: Exalt Level 可堆叠通货 - 自动音效：污秽幻色石 - 精确==
 Show
     BaseType == "Tainted Chromatic Orb"
     SetFontSize 37
@@ -523,7 +529,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽幻色石.mp3" 300
 
 
-#==[16027]- General -Tier 3 可堆叠通货 - 自动音效：污秽链结石 - 精确==
+#==[16027]- General -T3: Exalt Level 可堆叠通货 - 自动音效：污秽链结石 - 精确==
 Show
     BaseType == "Tainted Orb of Fusing"
     SetFontSize 37
@@ -533,7 +539,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽链结石.mp3" 300
 
 
-#==[16028]- General -Tier 3 可堆叠通货 - 自动音效：污秽神秘石 - 精确==
+#==[16028]- General -T3: Exalt Level 可堆叠通货 - 自动音效：污秽神秘石 - 精确==
 Show
     BaseType == "Tainted Mythic Orb"
     SetFontSize 37
@@ -543,7 +549,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽神秘石.mp3" 300
 
 
-#==[16029]- General -Tier 3 可堆叠通货 - 基础 - 精确==
+#==[16029]- General -T3: Exalt Level 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Annulment Shard" "Eldritch Orb of Annulment" "Exalted Shard" "Fertile Catalyst" "Maven's Chisel of Avarice" "Maven's Chisel of Divination" "Maven's Chisel of Proliferation"
     SetFontSize 37
@@ -553,7 +559,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\通货.mp3" 100
 
 
-#==[16030]- General -Tier 4 可堆叠通货 - 自动音效：剥离石 - 精确==
+#==[16030]- General -T4: Chaos Level 可堆叠通货 - 自动音效：剥离石 - 精确==
 Show
     BaseType == "Orb of Annulment"
     SetFontSize 35
@@ -563,7 +569,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\剥离石.mp3" 300
 
 
-#==[16031]- General -Tier 4 可堆叠通货 - 自动音效：瓦尔宝珠 - 精确==
+#==[16031]- General -T4: Chaos Level 可堆叠通货 - 自动音效：瓦尔宝珠 - 精确==
 Show
     BaseType == "Vaal Orb"
     SetFontSize 35
@@ -573,7 +579,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\瓦尔宝珠.mp3" 300
 
 
-#==[16032]- General -Tier 4 可堆叠通货 - 自动音效：后悔石 - 精确==
+#==[16032]- General -T4: Chaos Level 可堆叠通货 - 自动音效：后悔石 - 精确==
 Show
     BaseType == "Orb of Regret"
     SetFontSize 35
@@ -583,7 +589,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\后悔石.mp3" 300
 
 
-#==[16033]- General -Tier 4 可堆叠通货 - 自动音效：粉碎石 - 精确==
+#==[16033]- General -T4: Chaos Level 可堆叠通货 - 自动音效：粉碎石 - 精确==
 Show
     BaseType == "Orb of Unmaking"
     SetFontSize 35
@@ -593,7 +599,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\粉碎石.mp3" 200
 
 
-#==[16034]- General -Tier 4 可堆叠通货 - 自动音效：重铸石 - 精确==
+#==[16034]- General -T4: Chaos Level 可堆叠通货 - 自动音效：重铸石 - 精确==
 Show
     BaseType == "Orb of Scouring"
     SetFontSize 35
@@ -603,7 +609,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\重铸石.mp3" 300
 
 
-#==[16035]- General -Tier 4 可堆叠通货 - 自动音效：污秽护甲片 - 精确==
+#==[16035]- General -T4: Chaos Level 可堆叠通货 - 自动音效：污秽护甲片 - 精确==
 Show
     BaseType == "Tainted Armourer's Scrap"
     SetFontSize 35
@@ -613,7 +619,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽护甲片.mp3" 200
 
 
-#==[16036]- General -Tier 4 可堆叠通货 - 自动音效：污秽磨刀石 - 精确==
+#==[16036]- General -T4: Chaos Level 可堆叠通货 - 自动音效：污秽磨刀石 - 精确==
 Show
     BaseType == "Tainted Blacksmith's Whetstone"
     SetFontSize 35
@@ -623,7 +629,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽磨刀石.mp3" 200
 
 
-#==[16037]- General -Tier 4 可堆叠通货 - 基础 - 精确==
+#==[16037]- General -T4: Chaos Level 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Abrasive Catalyst" "Accelerating Catalyst" "Chaos Orb" "Enkindling Orb" "Gemcutter's Prism" "Greater Eldritch Ember" "Greater Eldritch Ichor" "Imbued Catalyst" "Instilling Orb" "Intrinsic Catalyst" "Maven's Chisel of Procurement" "Noxious Catalyst" "Stacked Deck" "Tempering Catalyst" "Turbulent Catalyst" "Unstable Catalyst"
     SetFontSize 35
@@ -633,7 +639,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\通货.mp3" 100
 
 
-#==[16038]- General -Tier 5 可堆叠通货 - 自动音效：点金石 - 精确==
+#==[16038]- General -T5: Low Value 可堆叠通货 - 自动音效：点金石 - 精确==
 Show
     BaseType == "Orb of Alchemy"
     SetFontSize 32
@@ -643,7 +649,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\点金石.mp3" 300
 
 
-#==[16039]- General -Tier 5 可堆叠通货 - 自动音效：链结石 - 精确==
+#==[16039]- General -T5: Low Value 可堆叠通货 - 自动音效：链结石 - 精确==
 Show
     BaseType == "Orb of Fusing"
     SetFontSize 32
@@ -653,7 +659,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\链结石.mp3" 200
 
 
-#==[16040]- General -Tier 5 可堆叠通货 - 自动音效：玻璃弹珠 - 精确==
+#==[16040]- General -T5: Low Value 可堆叠通货 - 自动音效：玻璃弹珠 - 精确==
 Show
     BaseType == "Glassblower's Bauble"
     SetFontSize 32
@@ -663,7 +669,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\玻璃弹珠.mp3" 100
 
 
-#==[16041]- General -Tier 5 可堆叠通货 - 自动音效：改造石 - 精确==
+#==[16041]- General -T5: Low Value 可堆叠通货 - 自动音效：改造石 - 精确==
 Show
     BaseType == "Orb of Alteration"
     SetFontSize 32
@@ -673,7 +679,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\改造石.mp3" 200
 
 
-#==[16042]- General -Tier 5 可堆叠通货 - 自动音效：机会石 - 精确==
+#==[16042]- General -T5: Low Value 可堆叠通货 - 自动音效：机会石 - 精确==
 Show
     BaseType == "Orb of Chance"
     SetFontSize 32
@@ -683,7 +689,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\机会石.mp3" 200
 
 
-#==[16043]- General -Tier 5 可堆叠通货 - 自动音效：工匠石 - 精确==
+#==[16043]- General -T5: Low Value 可堆叠通货 - 自动音效：工匠石 - 精确==
 Show
     BaseType == "Jeweller's Orb"
     SetFontSize 32
@@ -693,7 +699,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\工匠石.mp3" 100
 
 
-#==[16044]- General -Tier 5 可堆叠通货 - 自动音效：幻色石 - 精确==
+#==[16044]- General -T5: Low Value 可堆叠通货 - 自动音效：幻色石 - 精确==
 Show
     BaseType == "Chromatic Orb"
     SetFontSize 32
@@ -703,7 +709,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\幻色石.mp3" 100
 
 
-#==[16045]- General -Tier 5 可堆叠通货 - 自动音效：高阶点金石 - 精确==
+#==[16045]- General -T5: Low Value 可堆叠通货 - 自动音效：高阶点金石 - 精确==
 Show
     BaseType == "Orb of Binding"
     SetFontSize 32
@@ -713,7 +719,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\高阶点金石.mp3" 300
 
 
-#==[16046]- General -Tier 5 可堆叠通货 - 自动音效：护甲片 - 精确==
+#==[16046]- General -T5: Low Value 可堆叠通货 - 自动音效：护甲片 - 精确==
 Show
     BaseType == "Armourer's Scrap"
     SetFontSize 32
@@ -723,7 +729,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\护甲片.mp3" 100
 
 
-#==[16047]- General -Tier 5 可堆叠通货 - 自动音效：磨刀石 - 精确==
+#==[16047]- General -T5: Low Value 可堆叠通货 - 自动音效：磨刀石 - 精确==
 Show
     BaseType == "Blacksmith's Whetstone"
     SetFontSize 32
@@ -733,7 +739,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\磨刀石.mp3" 100
 
 
-#==[16048]- General -Tier 5 可堆叠通货 - 自动音效：增幅石 - 精确==
+#==[16048]- General -T5: Low Value 可堆叠通货 - 自动音效：增幅石 - 精确==
 Show
     BaseType == "Orb of Augmentation"
     SetFontSize 32
@@ -743,7 +749,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\增幅石.mp3" 100
 
 
-#==[16049]- General -Tier 5 可堆叠通货 - 自动音效：蜕变石 - 精确==
+#==[16049]- General -T5: Low Value 可堆叠通货 - 自动音效：蜕变石 - 精确==
 Show
     BaseType == "Orb of Transmutation"
     SetFontSize 32
@@ -753,7 +759,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\蜕变石.mp3" 100
 
 
-#==[16050]- General -Tier 5 可堆叠通货 - 自动音效：传送卷轴 - 精确==
+#==[16050]- General -T5: Low Value 可堆叠通货 - 自动音效：传送卷轴 - 精确==
 Show
     BaseType == "Portal Scroll"
     SetFontSize 32
@@ -763,7 +769,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\传送卷轴.mp3" 100
 
 
-#==[16051]- General -Tier 5 可堆叠通货 - 自动音效：知识卷轴 - 精确==
+#==[16051]- General -T5: Low Value 可堆叠通货 - 自动音效：知识卷轴 - 精确==
 Show
     BaseType == "Scroll of Wisdom"
     SetFontSize 32
@@ -773,7 +779,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\知识卷轴.mp3" 100
 
 
-#==[16052]- General -Tier 5 可堆叠通货 - 自动音效：富豪石 - 精确==
+#==[16052]- General -T5: Low Value 可堆叠通货 - 自动音效：富豪石 - 精确==
 Show
     BaseType == "Regal Orb"
     SetFontSize 32
@@ -783,7 +789,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\富豪石.mp3" 300
 
 
-#==[16053]- General -Tier 5 可堆叠通货 - 自动音效：祝福石 - 精确==
+#==[16053]- General -T5: Low Value 可堆叠通货 - 自动音效：祝福石 - 精确==
 Show
     BaseType == "Blessed Orb"
     SetFontSize 32
@@ -793,7 +799,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\祝福石.mp3" 200
 
 
-#==[16054]- General -Tier 5 可堆叠通货 - 基础 - 精确==
+#==[16054]- General -T5: Low Value 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Alchemy Shard" "Alteration Shard" "Chaos Shard" "Lesser Eldritch Ember" "Lesser Eldritch Ichor" "Regal Shard" "Scroll Fragment" "Transmutation Shard"
     SetFontSize 32
@@ -804,7 +810,7 @@ Show
 
 #==[17000]-通货 Currency - 金币 Gold==
 
-#==[17001]- Gold -Tier 1 金币 - 基础 - 精确==
+#==[17001]- Gold -T1: High 金币 - 基础 - 精确==
 Show
     BaseType == "Gold"
     SetFontSize 40
@@ -866,7 +872,7 @@ Show
 
 #==[19000]-通货 Currency - 庄园 Harvest==
 
-#==[19001]- Harvest -Tier 0 庄园 - 基础 - 精确==
+#==[19001]- Harvest -T0: Absolute Top 庄园 - 基础 - 精确==
 Show
     BaseType == "Sacred Crystallised Lifeforce"
     SetFontSize 45
@@ -878,7 +884,7 @@ Show
     MinimapIcon BlueStar
 
 
-#==[19002]- Harvest -Tier 2 庄园 - #1 Wild (Purple) - 精确==
+#==[19002]- Harvest -T2: High Volume 庄园 - #1 Wild (Purple) - 精确==
 Show
     BaseType == "Wild Crystallised Lifeforce"
     SetFontSize 40
@@ -888,7 +894,7 @@ Show
     PlayAlertSound 2 300
 
 
-#==[19003]- Harvest -Tier 2 庄园 - #2 Vivid (Yellow) - 精确==
+#==[19003]- Harvest -T2: High Volume 庄园 - #2 Vivid (Yellow) - 精确==
 Show
     BaseType == "Vivid Crystallised Lifeforce"
     SetFontSize 40
@@ -898,7 +904,7 @@ Show
     PlayAlertSound 2 300
 
 
-#==[19004]- Harvest -Tier 2 庄园 - #3 Primal (Blue) - 精确==
+#==[19004]- Harvest -T2: High Volume 庄园 - #3 Primal (Blue) - 精确==
 Show
     BaseType == "Primal Crystallised Lifeforce"
     SetFontSize 40
@@ -910,7 +916,7 @@ Show
 
 #==[20000]-通货 Currency - 可堆叠通货 Heist Currency==
 
-#==[20001]- Heist -Tier 1 可堆叠通货 - 自动音效：回火石 - 精确==
+#==[20001]- Heist Currency -Heist Currency 可堆叠通货 - 自动音效：回火石 - 精确==
 Show
     BaseType == "Tempering Orb"
     SetFontSize 42
@@ -922,7 +928,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[20002]- Heist -Tier 1 可堆叠通货 - 自动音效：裁剪石 - 精确==
+#==[20002]- Heist Currency -Heist Currency 可堆叠通货 - 自动音效：裁剪石 - 精确==
 Show
     BaseType == "Tailoring Orb"
     SetFontSize 42
@@ -934,9 +940,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[20003]- Heist -Tier 1 可堆叠通货 - 基础 - 精确==
+#==[20003]- Heist Currency -Heist Currency 可堆叠通货 - 基础 - 精确==
 Show
-    BaseType == "Basic Disguise Kit" "Blueprint: Bunker" "Blueprint: Laboratory" "Blueprint: Mansion" "Blueprint: Prohibited Library" "Blueprint: Records Office" "Blueprint: Repository" "Blueprint: Smuggler's Den" "Blueprint: Tunnels" "Blueprint: Underbelly" "Contract: A Matter of Honour" "Contract: A Mundane Sample" "Contract: Bunker" "Contract: Credit Where Credit's Due" "Contract: Disengagement" "Contract: Enoch's Remains" "Contract: Enoch's Whereabouts" "Contract: Finding Opal" "Contract: Findings for Fidium" "Contract: Flying False Colours" "Contract: Follow the Paper Trail" "Contract: Grocery List" "Contract: Hyrri's Gift" "Contract: Isla's Designs" "Contract: Isla's Prototypes" "Contract: Karst's Revenge" "Contract: Laboratory" "Contract: Mansion" "Contract: Opal's Jewels" "Contract: Prohibited Library" "Contract: Rational Tools" "Contract: Records Office" "Contract: Repository" "Contract: Slaver's Revenge" "Contract: Smuggler's Den" "Contract: Stolen Lockpicks" "Contract: The Admiral's Records" "Contract: The Book of Jamanra" "Contract: The Finest Costumes" "Contract: The Nameless Play" "Contract: The Negotiation" "Contract: The Rescue" "Contract: The Vinderi Bomb" "Contract: The Wedding Dress" "Contract: Tunnels" "Contract: Underbelly" "Enamel Brooch" "Espionage Disguise Kit" "Familial Contract" "Fine Lockpick" "Foliate Brooch" "Golden Brooch" "Hooded Cloak" "Leather Bracers" "Master Lockpick" "Naval Contract" "Preventative Contract" "Regicide Disguise Kit" "Rogue's Marker" "Runed Bracers" "Silver Brooch" "Simple Lockpick" "Standard Lockpick" "Steel Bracers" "Studded Bracers" "Tattered Cloak" "Theatre Disguise Kit" "Torn Cloak" "Vengeful Contract" "Vigilante Contract" "Whisper-woven Cloak"
+    BaseType == "Rogue's Marker"
     SetFontSize 42
     SetTextColor 231 0 231 255
     SetBorderColor 231 0 231 255
@@ -947,7 +953,7 @@ Show
 
 #==[21000]-通货 Currency - 可堆叠通货 Incubators==
 
-#==[21001]- Incubators -Tier 1 可堆叠通货 - 基础 - 精确==
+#==[21001]- Incubators -T1: High End 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Abyssal Incubator" "Blighted Incubator" "Cartographer's Incubator" "Celestial Armoursmith's Incubator" "Celestial Blacksmith's Incubator" "Diviner's Incubator" "Foreboding Incubator" "Fossilised Incubator" "Fragmented Incubator" "Geomancer's Incubator" "Infused Incubator" "Kalguuran Incubator" "Maddening Incubator" "Mysterious Incubator" "Ornate Incubator" "Otherworldly Incubator" "Primal Incubator" "Singular Incubator" "Skittering Incubator" "Thaumaturge's Incubator" "Vial of Awakening" "Vial of Consequence" "Vial of Dominance" "Vial of Sacrifice" "Vial of Summoning" "Vial of Transcendence" "Vial of the Ghost" "Vial of the Ritual"
     SetFontSize 42
@@ -961,7 +967,7 @@ Show
 
 #==[22000]-通货 Currency - 圣油 Oils==
 
-#==[22001]- Oils -Tier 1 圣油 - 基础 - 精确==
+#==[22001]- Oils -T1: High End 圣油 - 基础 - 精确==
 Show
     BaseType == "Golden Oil" "Reflective Oil" "Silver Oil" "Tainted Oil"
     SetFontSize 42
@@ -973,7 +979,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[22002]- Oils -Tier 2 圣油 - 基础 - 精确==
+#==[22002]- Oils -T2: Mid Tier 圣油 - 基础 - 精确==
 Show
     BaseType == "Black Oil" "Crimson Oil" "Opalescent Oil"
     SetFontSize 40
@@ -985,7 +991,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[22003]- Oils -Tier 3 圣油 - 基础 - 精确==
+#==[22003]- Oils -T3: Low Tier 圣油 - 基础 - 精确==
 Show
     BaseType == "Amber Oil" "Azure Oil" "Clear Oil" "Indigo Oil" "Sepia Oil" "Teal Oil" "Verdant Oil" "Violet Oil"
     SetFontSize 37
@@ -996,7 +1002,7 @@ Show
 
 #==[23000]-通货 Currency - 可堆叠通货 Omens==
 
-#==[23001]- Omens -Tier 3 可堆叠通货 - 基础 - 精确==
+#==[23001]- Omens -T1: High Value Omens 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Omen of Connections" "Omen of Fortune" "Omen of the Jeweller"
     SetFontSize 37
@@ -1006,7 +1012,7 @@ Show
     PlayAlertSound 2 300
 
 
-#==[23002]- Omens -Tier 4 可堆叠通货 - 基础 - 精确==
+#==[23002]- Omens -T2: Standard Omens 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Omen of Adrenaline" "Omen of Amelioration" "Omen of Blanching" "Omen of Brilliance" "Omen of Death's Door" "Omen of Death-dancing" "Omen of Refreshment" "Omen of Return" "Omen of the Soul Devourer"
     SetFontSize 35
@@ -1054,7 +1060,7 @@ Show
 
 #==[25000]-通货 Currency - 可堆叠通货 Runegrafts==
 
-#==[25001]- Runegrafts -Tier 3 可堆叠通货 - 基础 - 精确==
+#==[25001]- Runegrafts -T1: Runegrafts 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Runegraft of Bellows" "Runegraft of Blasphemy" "Runegraft of Gemcraft" "Runegraft of Loyalty" "Runegraft of Quaffing" "Runegraft of Refraction" "Runegraft of Restitching" "Runegraft of Stability" "Runegraft of Time" "Runegraft of Treachery" "Runegraft of the Angler" "Runegraft of the Bound" "Runegraft of the Combatant" "Runegraft of the Fortress" "Runegraft of the Jeweller" "Runegraft of the Novamark" "Runegraft of the River" "Runegraft of the Sinistral" "Runegraft of the Soulwick" "Runegraft of the Warp" "Runegraft of the Witchmark"
     SetFontSize 37
@@ -1066,7 +1072,7 @@ Show
 
 #==[26000]-通货 Currency - 可堆叠通货 Splinters==
 
-#==[26001]- Splinters -Tier 2 可堆叠通货 - 基础 - 精确==
+#==[26001]- Splinters -T1: Breach / Legion Splinters 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Simulacrum Splinter" "Splinter of Chayula" "Splinter of Esh" "Splinter of Tul" "Splinter of Uul-Netol" "Splinter of Xoph" "Timeless Eternal Empire Splinter" "Timeless Karui Splinter" "Timeless Maraketh Splinter" "Timeless Templar Splinter" "Timeless Vaal Splinter"
     SetFontSize 40
@@ -1078,7 +1084,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[26002]- Splinters -Tier 3 可堆叠通货 - 自动音效：仪式裂片 - 精确==
+#==[26002]- Splinters -T2: Other Splinters 可堆叠通货 - 自动音效：驱灵裂片 - 精确==
 Show
     BaseType == "Ritual Splinter"
     SetFontSize 37
@@ -1088,7 +1094,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\驱灵裂片.mp3" 100
 
 
-#==[26003]- Splinters -Tier 3 可堆叠通货 - 自动音效：月牙裂片 - 精确==
+#==[26003]- Splinters -T2: Other Splinters 可堆叠通货 - 自动音效：新月裂片 - 精确==
 Show
     BaseType == "Crescent Splinter"
     SetFontSize 37
@@ -1100,7 +1106,7 @@ Show
 
 #==[27000]-通货 Currency - _archived _archived - 裂隙 Breach==
 
-#==[27001]- Breach -Tier 0 裂隙 - 基础 - 精确==
+#==[27001]- Breach -T0: Flawless/Blessing 裂隙 - 基础 - 精确==
 Show
     BaseType == "Blessing of Chayula"
     SetFontSize 45
@@ -1112,7 +1118,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[27002]- Breach -Tier 1 裂隙 - 基础 - 精确==
+#==[27002]- Breach -T1: High Breach 裂隙 - 基础 - 精确==
 Show
     BaseType == "Blessing of Uul-Netol" "Splinter of Chayula"
     SetFontSize 42
@@ -1124,7 +1130,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[27003]- Breach -Tier 2 裂隙 - 基础 - 精确==
+#==[27003]- Breach -T2: Standard Breach 裂隙 - 基础 - 精确==
 Show
     BaseType == "Splinter of Uul-Netol"
     SetFontSize 40
@@ -1136,7 +1142,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[27004]- Breach -Tier 3 裂隙 - 基础 - 精确==
+#==[27004]- Breach -T3: Splinters 裂隙 - 基础 - 精确==
 Show
     BaseType == "Splinter of Esh" "Splinter of Tul" "Splinter of Xoph"
     SetFontSize 37
@@ -1151,7 +1157,7 @@ Show
 
 #==[21000]-命运卡 Divination Cards - 命运卡 Cards==
 
-#==[21001]- Cards -Tier 0 命运卡 - #1 Doctor - 精确==
+#==[21001]- Cards -T0: Top Cards 命运卡 - #1 Doctor - 精确==
 Show
     BaseType == "The Doctor"
     SetFontSize 45
@@ -1163,7 +1169,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[21002]- Cards -Tier 0 命运卡 - #2 Apothecary - 精确==
+#==[21002]- Cards -T0: Top Cards 命运卡 - #2 Apothecary - 精确==
 Show
     BaseType == "The Apothecary"
     SetFontSize 45
@@ -1175,7 +1181,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[21003]- Cards -Tier 0 命运卡 - #3 Mirror Card - 精确==
+#==[21003]- Cards -T0: Top Cards 命运卡 - #3 Mirror Card - 精确==
 Show
     BaseType == "House of Mirrors"
     SetFontSize 45
@@ -1187,7 +1193,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[21004]- Cards -Tier 0 命运卡 - #4 Fiend - 精确==
+#==[21004]- Cards -T0: Top Cards 命运卡 - #4 Fiend - 精确==
 Show
     BaseType == "The Fiend"
     SetFontSize 45
@@ -1199,7 +1205,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[21005]- Cards -Tier 0 命运卡 - 基础 - 精确==
+#==[21005]- Cards -T0: Top Cards 命运卡 - 基础 - 精确==
 Show
     BaseType == "The Demon" "The Immortal" "Unrequited Love"
     SetFontSize 45
@@ -1211,7 +1217,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[21006]- Cards -Tier 1 命运卡 - #1 Cat - 精确==
+#==[21006]- Cards -T1: High Value 命运卡 - #1 Cat - 精确==
 Show
     BaseType == "The Insane Cat"
     SetFontSize 42
@@ -1223,7 +1229,7 @@ Show
     MinimapIcon BlueStar
 
 
-#==[21007]- Cards -Tier 1 命运卡 - 基础 - 精确==
+#==[21007]- Cards -T1: High Value 命运卡 - 基础 - 精确==
 Show
     BaseType == "Brother's Stash" "Seven Years Bad Luck" "The Dragon's Heart" "The Price of Devotion" "Wealth and Power"
     SetFontSize 42
@@ -1235,7 +1241,7 @@ Show
     MinimapIcon BlueStar
 
 
-#==[21008]- Cards -Tier 2 命运卡 - #1 Wealth - 精确==
+#==[21008]- Cards -T2: Decent Value 命运卡 - #1 Wealth - 精确==
 Show
     BaseType == "Abandoned Wealth"
     SetFontSize 40
@@ -1247,7 +1253,7 @@ Show
     MinimapIcon BlueCircle
 
 
-#==[21009]- Cards -Tier 2 命运卡 - #2 Saint - 精确==
+#==[21009]- Cards -T2: Decent Value 命运卡 - #2 Saint - 精确==
 Show
     BaseType == "The Saint's Treasure"
     SetFontSize 40
@@ -1259,7 +1265,7 @@ Show
     MinimapIcon BlueCircle
 
 
-#==[21010]- Cards -Tier 2 命运卡 - 基础 - 精确==
+#==[21010]- Cards -T2: Decent Value 命运卡 - 基础 - 精确==
 Show
     BaseType == "The Enlightened"
     SetFontSize 40
@@ -1271,7 +1277,7 @@ Show
     MinimapIcon BlueCircle
 
 
-#==[21011]- Cards -Tier 3 命运卡 - #1 Nurse - 精确==
+#==[21011]- Cards -T3: Low Value 命运卡 - #1 Nurse - 精确==
 Show
     BaseType == "The Nurse"
     SetFontSize 35
@@ -1281,7 +1287,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\照料者.mp3" 300
 
 
-#==[21012]- Cards -Tier 3 命运卡 - #2 Patient - 精确==
+#==[21012]- Cards -T3: Low Value 命运卡 - #2 Patient - 精确==
 Show
     BaseType == "The Patient"
     SetFontSize 35
@@ -1291,7 +1297,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\病患.mp3" 300
 
 
-#==[21013]- Cards -Tier 3 命运卡 - 基础 - 精确==
+#==[21013]- Cards -T3: Low Value 命运卡 - 基础 - 精确==
 Show
     BaseType == "The Fortunate" "The Hoarder" "The Scout"
     SetFontSize 35
@@ -1300,7 +1306,7 @@ Show
     SetBackgroundColor 0 8 16 255
 
 
-#==[21014]- Cards -Tier 4 命运卡 - 基础 - 精确==
+#==[21014]- Cards -T4: Common/Trash 命运卡 - 基础 - 精确==
 Show
     BaseType == "Destined to Crumble" "Her Mask" "Humility" "Rain of Chaos" "The Carrion Crow" "The Flora's Gift" "The Gambler" "The Scholar" "Thunderous Skies"
     SetFontSize 32
@@ -1315,7 +1321,7 @@ Show
 
 #==[31000]-装备 Equipment - 防具 Armour - 胸甲 Body Armours==
 
-#==[31001]- Body Armours -Tier 0 胸甲 - #1 Vaal Regalia i86 - 精确==
+#==[31001]- Body Armours -T0: Top Bases 胸甲 - #1 Vaal Regalia i86 - 精确==
 Show
     BaseType == "Vaal Regalia"
     ItemLevel >= 86
@@ -1328,7 +1334,7 @@ Show
     MinimapIcon GreenStar
 
 
-#==[31002]- Body Armours -Tier 0 胸甲 - #2 Astral Plate i86 - 精确==
+#==[31002]- Body Armours -T0: Top Bases 胸甲 - #2 Astral Plate i86 - 精确==
 Show
     BaseType == "Astral Plate"
     ItemLevel >= 86
@@ -1341,7 +1347,7 @@ Show
     MinimapIcon GreenStar
 
 
-#==[31003]- Body Armours -Tier 0 胸甲 - #3 Zodiac Leather i86 - 精确==
+#==[31003]- Body Armours -T0: Top Bases 胸甲 - #3 Zodiac Leather i86 - 精确==
 Show
     BaseType == "Zodiac Leather"
     ItemLevel >= 86
@@ -1354,7 +1360,7 @@ Show
     MinimapIcon GreenStar
 
 
-#==[31004]- Body Armours -Tier 0 胸甲 - 自动音效：祭礼束衣 - 精确==
+#==[31004]- Body Armours -T0: Top Bases 胸甲 - 自动音效：祭礼束衣 - 精确==
 Show
     BaseType == "Sacrificial Garb"
     SetFontSize 45
@@ -1366,7 +1372,7 @@ Show
     MinimapIcon GreenStar
 
 
-#==[31005]- Body Armours -Tier 0 胸甲 - 基础 - 精确==
+#==[31005]- Body Armours -T0: Top Bases 胸甲 - 基础 - 精确==
 Show
     BaseType == "Arcane Vestment" "Assassin's Garb" "Astral Leather" "Blood Raiment" "Carnal Armour" "Conquest Lamellar" "Elegant Ringmail" "Exquisite Leather" "Full Dragonscale" "Full Wyvernscale" "General's Brigandine" "Gladiator Plate" "Glorious Plate" "Grand Ringmail" "Legion Plate" "Marshall's Brigandine" "Necrotic Armour" "Nightweave Robe" "Occultist's Vestment" "Paladin's Hauberk" "Royal Plate" "Sacred Chainmail" "Sadist Garb" "Saint's Hauberk" "Saintly Chainmail" "Sanguine Raiment" "Supreme Leather" "Syndicate's Garb" "Titan Plate" "Torturer Garb" "Triumphant Lamellar" "Twilight Regalia" "Varnished Coat" "Widowsilk Robe"
     ItemLevel >= 68
@@ -1380,7 +1386,7 @@ Show
     MinimapIcon GreenStar
 
 
-#==[31006]- Body Armours -Tier 1 胸甲 - 基础 - 精确==
+#==[31006]- Body Armours -T1: High End 胸甲 - 基础 - 精确==
 Show
     BaseType == "Battle Lamellar" "Chain Hauberk" "Commander's Brigandine" "Conquest Chainmail" "Crusader Plate" "Crypt Armour" "Cutthroat's Garb" "Desert Brigandine" "Destiny Leather" "Destroyer Regalia" "Devout Chainmail" "Dragonscale Doublet" "Golden Plate" "Lacquered Garb" "Loricated Ringmail" "Majestic Plate" "Necromancer Silks" "Savant's Robe" "Sentinel Jacket" "Sharkskin Tunic"
     ItemLevel >= 68
@@ -1392,7 +1398,7 @@ Show
     PlayAlertSound 1 300
 
 
-#==[31007]- Body Armours -Tier 2 胸甲 - 基础 - 精确==
+#==[31007]- Body Armours -T2: Good Bases 胸甲 - 基础 - 精确==
 Show
     BaseType == "Battle Plate" "Bronze Plate" "Colosseum Plate" "Conjurer's Vestment" "Coronal Leather" "Crimson Raiment" "Crusader Chainmail" "Eelskin Tunic" "Frontier Leather" "Full Wyrmscale" "Glorious Leather" "Hussar Brigandine" "Latticed Ringmail" "Ornate Ringmail" "Quilted Jacket" "Sage's Robe" "Silken Wrap" "Sleek Coat" "Spidersilk Robe" "Sun Plate" "Wyrmscale Doublet"
     Rarity <= Rare
@@ -1403,7 +1409,7 @@ Show
     PlayAlertSound 2 300
 
 
-#==[31008]- Body Armours -Tier 3 胸甲 - 基础 - 精确==
+#==[31008]- Body Armours -T3: Mid Tier 胸甲 - 基础 - 精确==
 Show
     BaseType == "Arena Plate" "Bone Armour" "Cabalist Regalia" "Field Lamellar" "Full Chainmail" "Full Leather" "Full Plate" "Full Ringmail" "Full Scale Armour" "Holy Chainmail" "Lordly Plate" "Mage's Vestment" "Oiled Coat" "Scarlet Raiment" "Silk Robe" "Silken Garb" "Soldier's Brigandine" "Sun Leather" "Thief's Garb" "Waxed Garb" "Wild Leather"
     SetFontSize 32
@@ -1412,7 +1418,7 @@ Show
     SetBackgroundColor 255 255 255 255
 
 
-#==[31009]- Body Armours -Tier 4 胸甲 - 基础 - 精确==
+#==[31009]- Body Armours -T4: Low Tier 胸甲 - 基础 - 精确==
 Show
     BaseType == "Buckskin Tunic" "Chainmail Doublet" "Chainmail Tunic" "Chainmail Vest" "Chestplate" "Copper Plate" "Infantry Brigandine" "Light Brigandine" "Oiled Vest" "Padded Jacket" "Padded Vest" "Plate Vest" "Ringmail Coat" "Scale Doublet" "Scale Vest" "Scholar's Robe" "Shabby Jerkin" "Silken Vest" "Simple Robe" "Strapped Leather" "War Plate"
     SetFontSize 32
@@ -1423,7 +1429,7 @@ Show
 
 #==[32000]-装备 Equipment - 防具 Armour - 鞋子 Boots==
 
-#==[32001]- Boots -Tier 0 鞋子 - #1 i86 Top Boots - 精确==
+#==[32001]- Boots -T0: i86 Top Bases 鞋子 - #1 i86 Top Boots - 精确==
 Show
     BaseType == "Sorcerer Boots" "Slink Boots" "Titan Boots" "Two-Tone Boots" "Fugitive Boots"
     ItemLevel >= 86
@@ -1436,7 +1442,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[32002]- Boots -Tier 0 鞋子 - 基础 - 精确==
+#==[32002]- Boots -T0: i86 Top Bases 鞋子 - 基础 - 精确==
 Show
     BaseType == "Assassin's Boots" "Brimstone Treads" "Chimerascale Boots" "Crusader Boots" "Dragonscale Boots" "Dreamquest Slippers" "Harpyskin Boots" "Infiltrator Boots" "Leviathan Greaves" "Martyr Boots" "Murder Boots" "Paladin Boots" "Phantom Boots" "Precursor Greaves" "Runic Sabatons" "Sage Slippers" "Stealth Boots" "Stormrider Boots" "Titan Greaves" "Two-Toned Boots" "Vaal Greaves" "Velour Boots" "Warlock Boots" "Wyvernscale Boots"
     ItemLevel >= 68
@@ -1450,7 +1456,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[32003]- Boots -Tier 1 鞋子 - #1 i84 Top Boots - 精确==
+#==[32003]- Boots -T1: High iLvl Bases 鞋子 - #1 i84 Top Boots - 精确==
 Show
     BaseType == "Sorcerer Boots" "Slink Boots" "Titan Boots" "Two-Tone Boots" "Fugitive Boots"
     ItemLevel >= 84
@@ -1463,7 +1469,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[32004]- Boots -Tier 1 鞋子 - 基础 - 精确==
+#==[32004]- Boots -T1: High iLvl Bases 鞋子 - 基础 - 精确==
 Show
     BaseType == "Arcanist Slippers" "Carnal Boots" "Conjurer Boots" "Darksteel Treads" "Goliath Greaves" "Hydrascale Boots" "Legion Boots" "Nightwind Slippers" "Shagreen Boots" "Windbreak Boots" "Wyrmscale Boots"
     ItemLevel >= 68
@@ -1477,7 +1483,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[32005]- Boots -Tier 2 鞋子 - 基础 - 精确==
+#==[32005]- Boots -T2: Decent Bases 鞋子 - 基础 - 精确==
 Show
     BaseType == "Ambush Boots" "Ancient Greaves" "Antique Greaves" "Eelskin Boots" "Riveted Boots" "Runic Sollerets" "Samite Slippers" "Satin Slippers" "Serpentscale Boots" "Sharkskin Boots" "Soldier Boots" "Steelscale Boots" "Trapper Boots" "Zealot Boots"
     Rarity <= Rare
@@ -1490,7 +1496,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[32006]- Boots -Tier 3 鞋子 - 基础 - 精确==
+#==[32006]- Boots -T3: Mid Tier 鞋子 - 基础 - 精确==
 Show
     BaseType == "Bronzescale Boots" "Clasped Boots" "Deerskin Boots" "Mesh Boots" "Nubuck Boots" "Plated Greaves" "Reinforced Greaves" "Runic Greaves" "Scholar Boots" "Shackled Boots" "Silk Slippers"
     SetFontSize 37
@@ -1501,7 +1507,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[32007]- Boots -Tier 4 鞋子 - 基础 - 精确==
+#==[32007]- Boots -T4: Low Tier 鞋子 - 基础 - 精确==
 Show
     BaseType == "Basemetal Treads" "Chain Boots" "Cloudwhisper Boots" "Duskwalk Slippers" "Goathide Boots" "Iron Greaves" "Ironscale Boots" "Leatherscale Boots" "Rawhide Boots" "Ringmail Boots" "Steel Greaves" "Strapped Boots" "Velvet Slippers" "Wool Shoes" "Wrapped Boots"
     SetFontSize 35
@@ -1514,7 +1520,7 @@ Show
 
 #==[33000]-装备 Equipment - 防具 Armour - 手套 Gloves==
 
-#==[33001]- Gloves -Tier 0 手套 - #1 i86 Top Gloves - 精确==
+#==[33001]- Gloves -T0: i86 Top Bases 手套 - #1 i86 Top Gloves - 精确==
 Show
     BaseType == "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Apothecary's Gloves"
     ItemLevel >= 86
@@ -1527,7 +1533,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[33002]- Gloves -Tier 0 手套 - 基础 - 精确==
+#==[33002]- Gloves -T0: i86 Top Bases 手套 - 基础 - 精确==
 Show
     BaseType == "Chimerascale Gauntlets" "Crusader Gloves" "Dragonscale Gauntlets" "Harpyskin Gloves" "Infiltrator Mitts" "Leviathan Gauntlets" "Martyr Gloves" "Murder Mitts" "Nexus Gloves" "Paladin Gloves" "Phantom Mitts" "Precursor Gauntlets" "Runic Gauntlets" "Sage Gloves" "Slink Gloves" "Sorcerer Gloves" "Stealth Gloves" "Thwarting Gauntlets" "Titan Gauntlets" "Trapsetter Gloves" "Vaal Gauntlets" "Velour Gloves" "Warlock Gloves" "Wyvernscale Gauntlets"
     ItemLevel >= 68
@@ -1541,7 +1547,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[33003]- Gloves -Tier 1 手套 - #1 i84 Top Gloves - 精确==
+#==[33003]- Gloves -T1: High iLvl Bases 手套 - #1 i84 Top Gloves - 精确==
 Show
     BaseType == "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Apothecary's Gloves"
     ItemLevel >= 84
@@ -1554,7 +1560,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[33004]- Gloves -Tier 1 手套 - 基础 - 精确==
+#==[33004]- Gloves -T1: High iLvl Bases 手套 - 基础 - 精确==
 Show
     BaseType == "Arcanist Gloves" "Assassin's Mitts" "Carnal Mitts" "Conjurer Gloves" "Goliath Gauntlets" "Hydrascale Gauntlets" "Legion Gloves" "Shagreen Gloves" "Soldier Gloves"
     ItemLevel >= 68
@@ -1568,7 +1574,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[33005]- Gloves -Tier 2 手套 - 基础 - 精确==
+#==[33005]- Gloves -T2: Decent Bases 手套 - 基础 - 精确==
 Show
     BaseType == "Aetherwind Gloves" "Ambush Mitts" "Ancient Gauntlets" "Antique Gauntlets" "Apprentice Gloves" "Eelskin Gloves" "Embroidered Gloves" "Guarding Gauntlets" "Riveted Gloves" "Runic Gages" "Samite Gloves" "Satin Gloves" "Serpentscale Gauntlets" "Sharkskin Gloves" "Steelscale Gauntlets" "Trapper Mitts" "Wyrmscale Gauntlets" "Zealot Gloves"
     Rarity <= Rare
@@ -1581,7 +1587,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[33006]- Gloves -Tier 3 手套 - 基础 - 精确==
+#==[33006]- Gloves -T3: Mid Tier 手套 - 基础 - 精确==
 Show
     BaseType == "Bronze Gauntlets" "Bronzescale Gauntlets" "Clasped Mitts" "Mesh Gloves" "Nubuck Gloves" "Runic Gloves" "Silk Gloves" "Steel Gauntlets"
     SetFontSize 37
@@ -1592,7 +1598,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[33007]- Gloves -Tier 4 手套 - 基础 - 精确==
+#==[33007]- Gloves -T4: Low Tier 手套 - 基础 - 精确==
 Show
     BaseType == "Chain Gloves" "Deerskin Gloves" "Fishscale Gauntlets" "Goathide Gloves" "Iron Gauntlets" "Ironscale Gauntlets" "Leyline Gloves" "Plated Gauntlets" "Preserving Gauntlets" "Rawhide Gloves" "Ringmail Gloves" "Strapped Mitts" "Tinker Gloves" "Velvet Gloves" "Wool Gloves" "Wrapped Mitts"
     SetFontSize 35
@@ -1605,7 +1611,7 @@ Show
 
 #==[34000]-装备 Equipment - 防具 Armour - 头部 Helmets==
 
-#==[34001]- Helmets -Tier 0 头部 - #1 i86 Top Helmets - 精确==
+#==[34001]- Helmets -T0: i86 Top Bases 头部 - #1 i86 Top Helmets - 精确==
 Show
     BaseType == "Hubris Circlet" "Lion Pelt" "Royal Burgonet" "Bone Helmet"
     ItemLevel >= 86
@@ -1618,7 +1624,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[34002]- Helmets -Tier 0 头部 - 基础 - 精确==
+#==[34002]- Helmets -T0: i86 Top Bases 头部 - 基础 - 精确==
 Show
     BaseType == "Ancient Mask" "Archdemon Crown" "Blizzard Crown" "Conqueror's Helmet" "Conquest Helmet" "Deicide Mask" "Dire Pelt" "Divine Crown" "Eternal Burgonet" "Faithful Helmet" "General's Helmet" "Giantslayer Helmet" "Grizzly Pelt" "Haunted Bascinet" "Jester Mask" "Knight Helm" "Lich's Circlet" "Majestic Pelt" "Mind Cage" "Moonlit Circlet" "Nightmare Bascinet" "Paladin Crown" "Penitent Mask" "Pig-Faced Bascinet" "Praetor Crown" "Prophet Crown" "Runic Crown" "Sinner Tricorne" "Sunfire Circlet" "Torturer's Mask" "Vaal Mask"
     ItemLevel >= 68
@@ -1632,7 +1638,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[34003]- Helmets -Tier 1 头部 - #1 i84 Top Helmets - 精确==
+#==[34003]- Helmets -T1: High iLvl Bases 头部 - #1 i84 Top Helmets - 精确==
 Show
     BaseType == "Hubris Circlet" "Lion Pelt" "Royal Burgonet" "Bone Helmet"
     ItemLevel >= 84
@@ -1645,7 +1651,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[34004]- Helmets -Tier 1 头部 - 基础 - 精确==
+#==[34004]- Helmets -T1: High iLvl Bases 头部 - 基础 - 精确==
 Show
     BaseType == "Ezomyte Burgonet" "Fluted Bascinet" "Great Crown" "Harlequin Mask" "Lacquered Helmet" "Magistrate Crown" "Necromancer Circlet" "Regicide Mask" "Samnite Helmet" "Silken Hood" "Solaris Circlet" "Ursine Pelt"
     ItemLevel >= 68
@@ -1659,7 +1665,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[34005]- Helmets -Tier 2 头部 - 基础 - 精确==
+#==[34005]- Helmets -T2: Decent Bases 头部 - 基础 - 精确==
 Show
     BaseType == "Atonement Mask" "Aventail Helmet" "Callous Mask" "Demon Crown" "Fencer Helm" "Hunter Hood" "Lunaris Circlet" "Noble Tricorne" "Raven Mask" "Reaver Helmet" "Runic Crest" "Secutor Helm" "Siege Helmet" "Steel Circlet" "Winter Crown" "Zealot Helmet"
     Rarity <= Rare
@@ -1672,7 +1678,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[34006]- Helmets -Tier 3 头部 - 基础 - 精确==
+#==[34006]- Helmets -T3: Mid Tier 头部 - 基础 - 精确==
 Show
     BaseType == "Bone Circlet" "Close Helmet" "Crusader Helmet" "Festival Mask" "Gilded Sallet" "Gladiator Helmet" "Golden Mask" "Great Helmet" "Runic Helm" "Tribal Circlet" "Visored Sallet" "Wolf Pelt"
     SetFontSize 37
@@ -1683,7 +1689,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[34007]- Helmets -Tier 4 头部 - 基础 - 精确==
+#==[34007]- Helmets -T4: Low Tier 头部 - 基础 - 精确==
 Show
     BaseType == "Barbute Helmet" "Battered Helm" "Cone Helmet" "Gale Crown" "Imp Crown" "Iron Circlet" "Iron Hat" "Iron Mask" "Leather Cap" "Leather Hood" "Plague Mask" "Rusted Coif" "Sallet" "Scare Mask" "Soldier Helmet" "Sorrow Mask" "Torture Cage" "Tricorne" "Vine Circlet"
     SetFontSize 35
@@ -1696,7 +1702,7 @@ Show
 
 #==[35000]-装备 Equipment - 防具 Armour - 箭袋 Quivers==
 
-#==[35001]- Quivers -Tier 0 箭袋 - #1 i86 Top Quivers - 精确==
+#==[35001]- Quivers -T0: i86 Top Bases 箭袋 - #1 i86 Top Quivers - 精确==
 Show
     BaseType == "Broadhead Arrow Quiver" "Spike-Point Arrow Quiver" "Penetrating Arrow Quiver"
     ItemLevel >= 86
@@ -1709,7 +1715,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[35002]- Quivers -Tier 0 箭袋 - 自动音效：火炮箭袋 - 精确==
+#==[35002]- Quivers -T0: i86 Top Bases 箭袋 - 自动音效：火炮箭袋 - 精确==
 Show
     BaseType == "Artillery Quiver"
     SetFontSize 45
@@ -1721,7 +1727,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[35003]- Quivers -Tier 0 箭袋 - 基础 - 精确==
+#==[35003]- Quivers -T0: i86 Top Bases 箭袋 - 基础 - 精确==
 Show
     BaseType == "Primal Arrow Quiver"
     ItemLevel >= 68
@@ -1735,7 +1741,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[35004]- Quivers -Tier 1 箭袋 - #1 i84 Top Quivers - 精确==
+#==[35004]- Quivers -T1: High iLvl Bases 箭袋 - #1 i84 Top Quivers - 精确==
 Show
     BaseType == "Broadhead Arrow Quiver" "Spike-Point Arrow Quiver" "Penetrating Arrow Quiver"
     ItemLevel >= 84
@@ -1748,7 +1754,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[35005]- Quivers -Tier 1 箭袋 - 基础 - 精确==
+#==[35005]- Quivers -T1: High iLvl Bases 箭袋 - 基础 - 精确==
 Show
     BaseType == "Heavy Arrow Quiver" "Vile Arrow Quiver"
     ItemLevel >= 68
@@ -1762,7 +1768,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[35006]- Quivers -Tier 2 箭袋 - 基础 - 精确==
+#==[35006]- Quivers -T2: Decent Bases 箭袋 - 基础 - 精确==
 Show
     BaseType == "Blazing Arrow Quiver" "Broadhead Arrow Quiver" "Spike-Point Arrow Quiver" "Two-Point Arrow Quiver"
     Rarity <= Rare
@@ -1775,7 +1781,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[35007]- Quivers -Tier 3 箭袋 - 基础 - 精确==
+#==[35007]- Quivers -T3: Mid Tier 箭袋 - 基础 - 精确==
 Show
     BaseType == "Blunt Arrow Quiver" "Feathered Arrow Quiver" "Fire Arrow Quiver" "Penetrating Arrow Quiver" "Serrated Arrow Quiver" "Sharktooth Arrow Quiver"
     SetFontSize 37
@@ -1788,7 +1794,7 @@ Show
 
 #==[36000]-装备 Equipment - 防具 Armour - 盾 Shields==
 
-#==[36001]- Shields -Tier 0 盾 - #1 i86 Top Shields - 精确==
+#==[36001]- Shields -T0: i86 Top Bases 盾 - #1 i86 Top Shields - 精确==
 Show
     BaseType == "Titanium Spirit Shield" "Archon Kite Shield"
     ItemLevel >= 86
@@ -1801,7 +1807,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[36002]- Shields -Tier 0 盾 - 基础 - 精确==
+#==[36002]- Shields -T0: i86 Top Bases 盾 - 基础 - 精确==
 Show
     BaseType == "Cardinal Round Shield" "Champion Kite Shield" "Cold-attuned Buckler" "Colossal Tower Shield" "Crusader Buckler" "Elegant Round Shield" "Ezomyte Spiked Shield" "Ezomyte Tower Shield" "Harmonic Spirit Shield" "Heat-attuned Tower Shield" "Imperial Buckler" "Mirrored Spiked Shield" "Mosaic Kite Shield" "Pinnacle Tower Shield" "Spiny Round Shield" "Supreme Spiked Shield" "Transfer-attuned Spirit Shield" "Vaal Buckler" "Vaal Spirit Shield"
     ItemLevel >= 68
@@ -1815,7 +1821,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[36003]- Shields -Tier 1 盾 - #1 i84 Top Shields - 精确==
+#==[36003]- Shields -T1: High iLvl Bases 盾 - #1 i84 Top Shields - 精确==
 Show
     BaseType == "Titanium Spirit Shield" "Archon Kite Shield"
     ItemLevel >= 84
@@ -1828,7 +1834,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[36004]- Shields -Tier 1 盾 - 基础 - 精确==
+#==[36004]- Shields -T1: High iLvl Bases 盾 - 基础 - 精确==
 Show
     BaseType == "Alder Spiked Shield" "Angelic Kite Shield" "Baroque Round Shield" "Battle Buckler" "Branded Kite Shield" "Crested Tower Shield" "Ebony Tower Shield" "Fossilised Spirit Shield" "Girded Tower Shield" "Golden Buckler" "Ironwood Buckler" "Lacewood Spirit Shield" "Lacquered Buckler" "Laminated Kite Shield" "Magmatic Tower Shield" "Polar Buckler" "Shagreen Tower Shield" "Sovereign Spiked Shield" "Subsuming Spirit Shield" "Teak Round Shield" "Thorium Spirit Shield"
     ItemLevel >= 68
@@ -1842,7 +1848,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[36005]- Shields -Tier 2 盾 - 基础 - 精确==
+#==[36005]- Shields -T2: Decent Bases 盾 - 基础 - 精确==
 Show
     BaseType == "Ancient Spirit Shield" "Bronze Tower Shield" "Buckskin Tower Shield" "Chiming Spirit Shield" "Compound Spiked Shield" "Corrugated Buckler" "Crimson Round Shield" "Enameled Buckler" "Etched Kite Shield" "Ivory Spirit Shield" "Mahogany Tower Shield" "Maple Round Shield" "Oak Buckler" "Polished Spiked Shield" "Redwood Spiked Shield" "Spiked Round Shield" "Steel Kite Shield" "Walnut Spirit Shield"
     Rarity <= Rare
@@ -1855,7 +1861,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[36006]- Shields -Tier 3 盾 - 基础 - 精确==
+#==[36006]- Shields -T3: Mid Tier 盾 - 基础 - 精确==
 Show
     BaseType == "Brass Spirit Shield" "Burnished Spiked Shield" "Ceremonial Kite Shield" "Copper Tower Shield" "Endothermic Buckler" "Exhausting Spirit Shield" "Exothermic Tower Shield" "Gilded Buckler" "Hammered Buckler" "Jingling Spirit Shield" "Layered Kite Shield" "Ornate Spiked Shield" "Painted Tower Shield" "Reinforced Tower Shield" "Scarlet Round Shield" "Splendid Round Shield" "Tarnished Spirit Shield" "War Buckler"
     SetFontSize 37
@@ -1866,7 +1872,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[36007]- Shields -Tier 4 盾 - 基础 - 精确==
+#==[36007]- Shields -T4: Low Tier 盾 - 基础 - 精确==
 Show
     BaseType == "Alloyed Spiked Shield" "Bone Spirit Shield" "Cedar Tower Shield" "Corroded Tower Shield" "Driftwood Spiked Shield" "Fir Round Shield" "Goathide Buckler" "Linden Kite Shield" "Painted Buckler" "Pine Buckler" "Plank Kite Shield" "Rawhide Tower Shield" "Reinforced Kite Shield" "Rotted Round Shield" "Spiked Bundle" "Splintered Tower Shield" "Studded Round Shield" "Twig Spirit Shield" "Yew Spirit Shield"
     SetFontSize 35
@@ -1879,7 +1885,7 @@ Show
 
 #==[37000]-装备 Equipment - 首饰 Jewellery - 项链 Amulets==
 
-#==[37001]- Amulets -Tier 0 项链 - #1 i86 Top Amulets - 精确==
+#==[37001]- Amulets -T0: i86 Top Bases 项链 - #1 i86 Top Amulets - 精确==
 Show
     BaseType == "Blue Pearl Amulet" "Marble Amulet" "Seaglass Amulet"
     ItemLevel >= 86
@@ -1892,7 +1898,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[37002]- Amulets -Tier 0 项链 - 基础 - 精确==
+#==[37002]- Amulets -T0: i86 Top Bases 项链 - 基础 - 精确==
 Show
     BaseType == "Agate Amulet" "Citrine Amulet" "Onyx Amulet" "Turquoise Amulet"
     ItemLevel >= 68
@@ -1906,7 +1912,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[37003]- Amulets -Tier 1 项链 - #1 i84 Top Amulets - 精确==
+#==[37003]- Amulets -T1: High End 项链 - #1 i84 Top Amulets - 精确==
 Show
     BaseType == "Blue Pearl Amulet" "Marble Amulet" "Seaglass Amulet"
     ItemLevel >= 84
@@ -1919,7 +1925,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[37004]- Amulets -Tier 1 项链 - 基础 - 精确==
+#==[37004]- Amulets -T1: High End 项链 - 基础 - 精确==
 Show
     BaseType == "Amber Amulet" "Jade Amulet" "Lapis Amulet"
     ItemLevel >= 68
@@ -1933,7 +1939,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[37005]- Amulets -Tier 2 项链 - 基础 - 精确==
+#==[37005]- Amulets -T2: Good Bases 项链 - 基础 - 精确==
 Show
     BaseType == "Coral Amulet" "Gold Amulet" "Paua Amulet" "Seaglass Amulet"
     Rarity <= Rare
@@ -1946,7 +1952,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[37006]- Amulets -Tier 3 项链 - 自动音效：星盘项链 - 精确==
+#==[37006]- Amulets -T3: Mid Tier 项链 - 自动音效：星盘项链 - 精确==
 Show
     BaseType == "Astrolabe Amulet"
     SetFontSize 37
@@ -1958,7 +1964,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[37007]- Amulets -Tier 3 项链 - 自动音效：朴实项链 - 精确==
+#==[37007]- Amulets -T3: Mid Tier 项链 - 自动音效：朴实项链 - 精确==
 Show
     BaseType == "Simplex Amulet"
     SetFontSize 37
@@ -1970,7 +1976,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[37008]- Amulets -Tier 3 项链 - 基础 - 精确==
+#==[37008]- Amulets -T3: Mid Tier 项链 - 基础 - 精确==
 Show
     BaseType == "Ashscale Talisman" "Avian Twins Talisman" "Black Maw Talisman" "Bonespire Talisman" "Breakrib Talisman" "Chrysalis Talisman" "Clutching Talisman" "Deadhand Talisman" "Deep One Talisman" "Fangjaw Talisman" "Focused Amulet" "Greatwolf Talisman" "Hexclaw Talisman" "Horned Talisman" "Lone Antler Talisman" "Longtooth Talisman" "Mandible Talisman" "Monkey Paw Talisman" "Monkey Twins Talisman" "Primal Skull Talisman" "Rot Head Talisman" "Rotfeather Talisman" "Spinefuse Talisman" "Splitnewt Talisman" "Three Hands Talisman" "Three Rat Talisman" "Undying Flesh Talisman" "Wereclaw Talisman" "Writhing Talisman"
     SetFontSize 37
@@ -1983,7 +1989,7 @@ Show
 
 #==[38000]-装备 Equipment - 首饰 Jewellery - 腰带 Belts==
 
-#==[38001]- Belts -Tier 0 腰带 - #1 i86 Top Belts - 精确==
+#==[38001]- Belts -T0: i86 Top Bases 腰带 - #1 i86 Top Belts - 精确==
 Show
     BaseType == "Stygian Vise" "Crystal Belt"
     ItemLevel >= 86
@@ -1996,7 +2002,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[38002]- Belts -Tier 1 腰带 - #1 i84 Top Belts - 精确==
+#==[38002]- Belts -T1: High End 腰带 - #1 i84 Top Belts - 精确==
 Show
     BaseType == "Stygian Vise" "Crystal Belt"
     ItemLevel >= 84
@@ -2009,7 +2015,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[38003]- Belts -Tier 1 腰带 - 自动音效：先锋腰带 - 精确==
+#==[38003]- Belts -T1: High End 腰带 - 自动音效：先锋腰带 - 精确==
 Show
     BaseType == "Vanguard Belt"
     SetFontSize 42
@@ -2021,7 +2027,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[38004]- Belts -Tier 1 腰带 - 基础 - 精确==
+#==[38004]- Belts -T1: High End 腰带 - 基础 - 精确==
 Show
     BaseType == "Heavy Belt" "Leather Belt"
     ItemLevel >= 68
@@ -2035,7 +2041,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[38005]- Belts -Tier 2 腰带 - 基础 - 精确==
+#==[38005]- Belts -T2: Good Bases 腰带 - 基础 - 精确==
 Show
     BaseType == "Chain Belt" "Cloth Belt" "Rustic Sash" "Studded Belt"
     Rarity <= Rare
@@ -2048,7 +2054,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[38006]- Belts -Tier 3 腰带 - 基础 - 精确==
+#==[38006]- Belts -T3: Mid Tier 腰带 - 基础 - 精确==
 Show
     BaseType == "Mechalarm Belt" "Mechanical Belt" "Micro-Distillery Belt"
     SetFontSize 37
@@ -2061,7 +2067,7 @@ Show
 
 #==[39000]-装备 Equipment - 首饰 Jewellery - 戒指 Rings==
 
-#==[39001]- Rings -Tier 0 戒指 - #1 i86 Top Rings - 精确==
+#==[39001]- Rings -T0: i86 Top Bases 戒指 - #1 i86 Top Rings - 精确==
 Show
     BaseType == "Opal Ring" "Steel Ring" "Vermillion Ring" "Iolite Ring" "Cerulean Ring"
     ItemLevel >= 86
@@ -2074,7 +2080,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[39002]- Rings -Tier 0 戒指 - 自动音效：Amethyst Ring - 精确==
+#==[39002]- Rings -T0: i86 Top Bases 戒指 - 自动音效：紫晶戒指 - 精确==
 Show
     BaseType == "Amethyst Ring"
     SetFontSize 45
@@ -2086,7 +2092,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[39003]- Rings -Tier 0 戒指 - 基础 - 精确==
+#==[39003]- Rings -T0: i86 Top Bases 戒指 - 基础 - 精确==
 Show
     BaseType == "Prismatic Ring" "Two-Stone Ring"
     ItemLevel >= 68
@@ -2100,7 +2106,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[39004]- Rings -Tier 1 戒指 - #1 i84 Top Rings - 精确==
+#==[39004]- Rings -T1: High End 戒指 - #1 i84 Top Rings - 精确==
 Show
     BaseType == "Opal Ring" "Steel Ring" "Vermillion Ring" "Iolite Ring" "Cerulean Ring"
     ItemLevel >= 84
@@ -2113,7 +2119,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[39005]- Rings -Tier 1 戒指 - 基础 - 精确==
+#==[39005]- Rings -T1: High End 戒指 - 基础 - 精确==
 Show
     BaseType == "Bone Ring" "Diamond Ring" "Ruby Ring" "Sapphire Ring" "Topaz Ring" "Unset Ring"
     ItemLevel >= 68
@@ -2127,7 +2133,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[39006]- Rings -Tier 2 戒指 - 基础 - 精确==
+#==[39006]- Rings -T2: Good Bases 戒指 - 基础 - 精确==
 Show
     BaseType == "Gold Ring" "Iron Ring" "Moonstone Ring" "Paua Ring"
     Rarity <= Rare
@@ -2140,7 +2146,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[39007]- Rings -Tier 3 戒指 - 基础 - 精确==
+#==[39007]- Rings -T3: Mid Tier 戒指 - 基础 - 精确==
 Show
     BaseType == "Cogwork Ring" "Composite Ring" "Coral Ring" "Cryonic Ring" "Dusk Ring" "Enthalpic Ring" "Formless Ring" "Fugitive Ring" "Geodesic Ring" "Gloam Ring" "Helical Ring" "Manifold Ring" "Nameless Ring" "Organic Ring" "Penumbra Ring" "Ratcheting Ring" "Shadowed Ring" "Synaptic Ring" "Tenebrous Ring"
     SetFontSize 37
@@ -2170,7 +2176,7 @@ Show
 
 #==[42000]-装备 Equipment - 特殊 Special - 势力装备 Influenced==
 
-#==[42001]- Influenced -Tier 0 势力装备 - 自动音效：深渊腰带 - 精确==
+#==[42001]- Influenced -T0: iLvl 86+ 势力装备 - 自动音效：深渊腰带 - 精确==
 Show
     BaseType == "Stygian Vise"
     SetFontSize 45
@@ -2182,7 +2188,7 @@ Show
     MinimapIcon GreenStar
 
 
-#==[42002]- Influenced -Tier 0 势力装备 - 基础 - 精确==
+#==[42002]- Influenced -T0: iLvl 86+ 势力装备 - 基础 - 精确==
 Show
     BaseType == "Hubris Circlet" "Titanium Spirit Shield" "Vaal Regalia"
     SetFontSize 45
@@ -2194,7 +2200,7 @@ Show
     MinimapIcon GreenStar
 
 
-#==[42003]- Influenced -Tier 1 势力装备 - 自动音效：苍指手套 - 精确==
+#==[42003]- Influenced -T1: High iLvl 势力装备 - 自动音效：丝绸手套 - 精确==
 Show
     BaseType == "Fingerless Silk Gloves"
     SetFontSize 40
@@ -2204,7 +2210,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\丝绸手套.mp3" 200
 
 
-#==[42004]- Influenced -Tier 1 势力装备 - 自动音效：蛋白石戒指 - 精确==
+#==[42004]- Influenced -T1: High iLvl 势力装备 - 自动音效：蛋白石戒指 - 精确==
 Show
     BaseType == "Opal Ring"
     SetFontSize 40
@@ -2214,7 +2220,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\蛋白石戒指.mp3" 200
 
 
-#==[42005]- Influenced -Tier 1 势力装备 - 自动音效：合金戒指 - 精确==
+#==[42005]- Influenced -T1: High iLvl 势力装备 - 自动音效：合金戒指 - 精确==
 Show
     BaseType == "Steel Ring"
     SetFontSize 40
@@ -2224,7 +2230,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\合金戒指.mp3" 200
 
 
-#==[42006]- Influenced -Tier 1 势力装备 - 自动音效：碧珠护身符 - 精确==
+#==[42006]- Influenced -T1: High iLvl 势力装备 - 自动音效：碧珠护身符 - 精确==
 Show
     BaseType == "Blue Pearl Amulet"
     SetFontSize 40
@@ -2234,7 +2240,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\碧珠护身符.mp3" 200
 
 
-#==[42007]- Influenced -Tier 1 势力装备 - 自动音效：大理石护身符 - 精确==
+#==[42007]- Influenced -T1: High iLvl 势力装备 - 自动音效：大理石护身符 - 精确==
 Show
     BaseType == "Marble Amulet"
     SetFontSize 40
@@ -2244,7 +2250,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\大理石护身符.mp3" 200
 
 
-#==[42008]- Influenced -Tier 1 势力装备 - 基础 - 精确==
+#==[42008]- Influenced -T1: High iLvl 势力装备 - 基础 - 精确==
 Show
     BaseType == "Sorcerer Boots"
     SetFontSize 40
@@ -2258,7 +2264,7 @@ Show
 
 #==[44000]-装备 Equipment - VendorRecipes VendorRecipes - 机会底材 Chancing Bases==
 
-#==[44001]- Chancing Bases -Tier 2 机会底材 - 自动音效：Opal Ring - 精确==
+#==[44001]- Chancing Bases -Chancing Targets (Normal) 机会底材 - 自动音效：Opal Ring - 精确==
 Show
     BaseType == "Opal Ring"
     SetFontSize 40
@@ -2270,7 +2276,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[44002]- Chancing Bases -Tier 2 机会底材 - 基础 - 精确==
+#==[44002]- Chancing Bases -Chancing Targets (Normal) 机会底材 - 基础 - 精确==
 Show
     BaseType == "Assassin's Garb" "Brine Crown" "Death's Hand" "Harbinger Bow" "Imperial Bow" "Murder Mitts" "Occultist's Vestment" "Two-Stone Ring" "Vaal Regalia"
     Rarity Normal
@@ -2285,7 +2291,7 @@ Show
 
 #==[45000]-装备 Equipment - VendorRecipes VendorRecipes - 商人配方 Vendor Recipes==
 
-#==[45001]- Vendor Recipes -Tier 0 商人配方 - Class Condition==
+#==[45001]- Vendor Recipes -6-Link (6 Divine Orbs) 商人配方 - Class Condition==
 Show
     Class "Body Armours" "Helmets" "Gloves" "Boots" "Shields" "Bows" "Wands" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Warstaves" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords"
     LinkedSockets >= 6
@@ -2298,7 +2304,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[45002]- Vendor Recipes -Tier 2 商人配方 - Class Condition==
+#==[45002]- Vendor Recipes -6-Socket (7 Jeweller's Orbs) 商人配方 - Class Condition==
 Show
     Class "Body Armours" "Helmets" "Gloves" "Boots" "Shields" "Bows" "Wands" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Warstaves" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords"
     Sockets >= 6
@@ -2311,7 +2317,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[45003]- Vendor Recipes -Tier 3 商人配方 - Class Condition==
+#==[45003]- Vendor Recipes -Chaos Recipe (ilvl 60-74 Rare) 商人配方 - Class Condition==
 Show
     Class "Body Armours" "Helmets" "Gloves" "Boots" "Shields" "Bows" "Wands" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Warstaves" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords" "Rings" "Amulets" "Belts"
     Rarity Rare
@@ -2325,7 +2331,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[45004]- Vendor Recipes -Tier 4 商人配方 - Class Condition==
+#==[45004]- Vendor Recipes -Regal Recipe (ilvl 75+ Rare) 商人配方 - Class Condition==
 Show
     Class "Body Armours" "Helmets" "Gloves" "Boots" "Shields" "Bows" "Wands" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Warstaves" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords" "Rings" "Amulets" "Belts"
     Rarity Rare
@@ -2340,7 +2346,7 @@ Show
 
 #==[46000]-装备 Equipment - 武器 Weapons - 弓 Bows==
 
-#==[46001]- Bows -Tier 0 弓 - #1 i86 Top Bows - 精确==
+#==[46001]- Bows -T0: i86 Top Bases 弓 - #1 i86 Top Bows - 精确==
 Show
     BaseType == "Spine Bow" "Thicket Bow" "Imperial Bow"
     ItemLevel >= 86
@@ -2353,7 +2359,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[46002]- Bows -Tier 0 弓 - 基础 - 精确==
+#==[46002]- Bows -T0: i86 Top Bases 弓 - 基础 - 精确==
 Show
     BaseType == "Assassin Bow" "Harbinger Bow" "Maraketh Bow" "Solarine Bow"
     ItemLevel >= 68
@@ -2367,7 +2373,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[46003]- Bows -Tier 1 弓 - #1 i84 Top Bows - 精确==
+#==[46003]- Bows -T1: High iLvl Bases 弓 - #1 i84 Top Bows - 精确==
 Show
     BaseType == "Spine Bow" "Thicket Bow" "Imperial Bow"
     ItemLevel >= 84
@@ -2380,7 +2386,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[46004]- Bows -Tier 1 弓 - 基础 - 精确==
+#==[46004]- Bows -T1: High iLvl Bases 弓 - 基础 - 精确==
 Show
     BaseType == "Citadel Bow" "Decimation Bow" "Foundry Bow" "Highborn Bow" "Ranger Bow" "Steelwood Bow"
     ItemLevel >= 68
@@ -2394,7 +2400,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[46005]- Bows -Tier 2 弓 - 基础 - 精确==
+#==[46005]- Bows -T2: Decent Bases 弓 - 基础 - 精确==
 Show
     BaseType == "Compound Bow" "Decurve Bow" "Ivory Bow" "Reflex Bow" "Sniper Bow"
     Rarity <= Rare
@@ -2407,7 +2413,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[46006]- Bows -Tier 3 弓 - 基础 - 精确==
+#==[46006]- Bows -T3: Mid Tier 弓 - 基础 - 精确==
 Show
     BaseType == "Bone Bow" "Death Bow" "Grove Bow" "Hedron Bow" "Royal Bow"
     SetFontSize 37
@@ -2418,7 +2424,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[46007]- Bows -Tier 4 弓 - 基础 - 精确==
+#==[46007]- Bows -T4: Low Tier 弓 - 基础 - 精确==
 Show
     BaseType == "Composite Bow" "Crude Bow" "Long Bow" "Recurve Bow" "Short Bow"
     SetFontSize 35
@@ -2431,7 +2437,7 @@ Show
 
 #==[47000]-装备 Equipment - 武器 Weapons - 爪 Claws==
 
-#==[47001]- Claws -Tier 0 爪 - #1 i86 Top Claws - 精确==
+#==[47001]- Claws -T0: i86 Top Claws 爪 - #1 i86 Top Claws - 精确==
 Show
     BaseType == "Imperial Claw" "Gemini Claw" "Great White Claw"
     ItemLevel >= 86
@@ -2444,7 +2450,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[47002]- Claws -Tier 0 爪 - 基础 - 精确==
+#==[47002]- Claws -T0: i86 Top Claws 爪 - 基础 - 精确==
 Show
     BaseType == "Eye Gouger" "Hellion's Paw" "Terror Claw" "Vaal Claw" "Void Fangs"
     ItemLevel >= 68
@@ -2458,7 +2464,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[47003]- Claws -Tier 1 爪 - #1 i84 Top Claws - 精确==
+#==[47003]- Claws -T1: High iLvl Claws 爪 - #1 i84 Top Claws - 精确==
 Show
     BaseType == "Imperial Claw" "Gemini Claw" "Great White Claw"
     ItemLevel >= 84
@@ -2471,7 +2477,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[47004]- Claws -Tier 1 爪 - 基础 - 精确==
+#==[47004]- Claws -T1: High iLvl Claws 爪 - 基础 - 精确==
 Show
     BaseType == "Eagle Claw" "Malign Fangs" "Noble Claw" "Throat Stabber" "Twin Claw"
     ItemLevel >= 68
@@ -2485,7 +2491,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[47005]- Claws -Tier 2 爪 - 基础 - 精确==
+#==[47005]- Claws -T2: Decent Bases 爪 - 基础 - 精确==
 Show
     BaseType == "Double Claw" "Gouger" "Gut Ripper" "Prehistoric Claw" "Thresher Claw" "Tiger's Paw"
     Rarity <= Rare
@@ -2498,7 +2504,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[47006]- Claws -Tier 3 爪 - 基础 - 精确==
+#==[47006]- Claws -T3: Mid Tier 爪 - 基础 - 精确==
 Show
     BaseType == "Blinder" "Fright Claw" "Shadow Fangs" "Sparkling Claw" "Timeworn Claw"
     SetFontSize 37
@@ -2509,7 +2515,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[47007]- Claws -Tier 4 爪 - 基础 - 精确==
+#==[47007]- Claws -T4: Low Tier 爪 - 基础 - 精确==
 Show
     BaseType == "Awl" "Cat's Paw" "Nailed Fist" "Sharktooth Claw"
     SetFontSize 35
@@ -2522,7 +2528,7 @@ Show
 
 #==[48000]-装备 Equipment - 武器 Weapons - 匕首 Daggers==
 
-#==[48001]- Daggers -Tier 0 匕首 - #1 i86 Top Daggers - 精确==
+#==[48001]- Daggers -T0: i86 Top Daggers 匕首 - #1 i86 Top Daggers - 精确==
 Show
     BaseType == "Ambusher" "Imperial Skean" "Demon Dagger"
     ItemLevel >= 86
@@ -2535,7 +2541,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[48002]- Daggers -Tier 0 匕首 - 基础 - 精确==
+#==[48002]- Daggers -T0: i86 Top Daggers 匕首 - 基础 - 精确==
 Show
     BaseType == "Pneumatic Dagger" "Sai"
     ItemLevel >= 68
@@ -2549,7 +2555,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[48003]- Daggers -Tier 1 匕首 - #1 i84 Top Daggers - 精确==
+#==[48003]- Daggers -T1: High iLvl Daggers 匕首 - #1 i84 Top Daggers - 精确==
 Show
     BaseType == "Ambusher" "Imperial Skean" "Demon Dagger"
     ItemLevel >= 84
@@ -2562,7 +2568,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[48004]- Daggers -Tier 1 匕首 - 基础 - 精确==
+#==[48004]- Daggers -T1: High iLvl Daggers 匕首 - 基础 - 精确==
 Show
     BaseType == "Gutting Knife" "Pressurised Dagger" "Royal Skean" "Slaughter Knife" "Trisula"
     ItemLevel >= 68
@@ -2576,7 +2582,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[48005]- Daggers -Tier 2 匕首 - 基础 - 精确==
+#==[48005]- Daggers -T2: Decent Bases 匕首 - 基础 - 精确==
 Show
     BaseType == "Poignard" "Prong Dagger"
     Rarity <= Rare
@@ -2589,7 +2595,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[48006]- Daggers -Tier 3 匕首 - 基础 - 精确==
+#==[48006]- Daggers -T3: Mid Tier 匕首 - 基础 - 精确==
 Show
     BaseType == "Flaying Knife" "Hollowpoint Dagger"
     SetFontSize 37
@@ -2600,7 +2606,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[48007]- Daggers -Tier 4 匕首 - 基础 - 精确==
+#==[48007]- Daggers -T4: Low Tier 匕首 - 基础 - 精确==
 Show
     BaseType == "Glass Shank" "Skinning Knife" "Stiletto"
     SetFontSize 35
@@ -2613,7 +2619,7 @@ Show
 
 #==[49000]-装备 Equipment - 武器 Weapons - 单手斧 One Hand Axes==
 
-#==[49001]- Axes -Tier 0 单手斧 - #1 i83 Top Axes - 精确==
+#==[49001]- Axes -T0: i83+ Top Bases 单手斧 - #1 i83 Top Axes - 精确==
 Show
     BaseType == "Siege Axe" "Reaver Axe" "Runic Hatchet"
     ItemLevel >= 83
@@ -2626,7 +2632,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[49002]- Axes -Tier 0 单手斧 - 基础 - 精确==
+#==[49002]- Axes -T0: i83+ Top Bases 单手斧 - 基础 - 精确==
 Show
     BaseType == "Butcher Axe" "Infernal Axe" "Psychotic Axe" "Royal Axe" "Vaal Hatchet"
     ItemLevel >= 68
@@ -2640,7 +2646,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[49003]- Axes -Tier 1 单手斧 - 基础 - 精确==
+#==[49003]- Axes -T1: High iLvl Axes 单手斧 - 基础 - 精确==
 Show
     BaseType == "Ceremonial Axe" "Disapprobation Axe" "Engraved Hatchet" "Karui Axe" "Reaver Axe" "Siege Axe" "Wraith Axe"
     ItemLevel >= 68
@@ -2654,7 +2660,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[49004]- Axes -Tier 2 单手斧 - 基础 - 精确==
+#==[49004]- Axes -T2: Decent Bases 单手斧 - 基础 - 精确==
 Show
     BaseType == "Chest Splitter" "Jasper Axe" "Tomahawk" "War Axe" "Wrist Chopper"
     Rarity <= Rare
@@ -2667,7 +2673,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[49005]- Axes -Tier 3 单手斧 - 基础 - 精确==
+#==[49005]- Axes -T3: Mid Tier 单手斧 - 基础 - 精确==
 Show
     BaseType == "Arming Axe" "Decorative Axe" "Etched Hatchet" "Maltreatment Axe" "Spectral Axe"
     SetFontSize 37
@@ -2678,7 +2684,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[49006]- Axes -Tier 4 单手斧 - 基础 - 精确==
+#==[49006]- Axes -T4: Low Tier 单手斧 - 基础 - 精确==
 Show
     BaseType == "Boarding Axe" "Broad Axe" "Cleaver" "Jade Hatchet" "Rusted Hatchet"
     SetFontSize 35
@@ -2691,7 +2697,7 @@ Show
 
 #==[50000]-装备 Equipment - 武器 Weapons - 单手锤 One Hand Maces==
 
-#==[50001]- Maces -Tier 0 单手锤 - #1 i83 Top Maces - 精确==
+#==[50001]- Maces -T0: i83+ Top Bases 单手锤 - #1 i83 Top Maces - 精确==
 Show
     BaseType == "Behemoth Mace" "Nightmare Mace"
     ItemLevel >= 83
@@ -2704,7 +2710,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[50002]- Maces -Tier 0 单手锤 - 基础 - 精确==
+#==[50002]- Maces -T0: i83+ Top Bases 单手锤 - 基础 - 精确==
 Show
     BaseType == "Auric Mace" "Boom Mace" "Legion Hammer" "Pernach"
     ItemLevel >= 68
@@ -2718,7 +2724,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[50003]- Maces -Tier 1 单手锤 - 基础 - 精确==
+#==[50003]- Maces -T1: High iLvl Maces 单手锤 - 基础 - 精确==
 Show
     BaseType == "Ancestral Club" "Crack Mace" "Dragon Mace" "Gavel" "Ornate Mace" "Phantom Mace" "Piledriver" "Tenderizer"
     ItemLevel >= 68
@@ -2732,7 +2738,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[50004]- Maces -Tier 2 单手锤 - 基础 - 精确==
+#==[50004]- Maces -T2: Decent Bases 单手锤 - 基础 - 精确==
 Show
     BaseType == "Barbed Club" "Battle Hammer" "Flanged Mace" "Rock Breaker"
     Rarity <= Rare
@@ -2745,7 +2751,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[50005]- Maces -Tier 3 单手锤 - 基础 - 精确==
+#==[50005]- Maces -T3: Mid Tier 单手锤 - 基础 - 精确==
 Show
     BaseType == "Bladed Mace" "Ceremonial Mace" "Dream Mace" "Flare Mace" "Petrified Club" "Wyrm Mace"
     SetFontSize 37
@@ -2756,7 +2762,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[50006]- Maces -Tier 4 单手锤 - 基础 - 精确==
+#==[50006]- Maces -T4: Low Tier 单手锤 - 基础 - 精确==
 Show
     BaseType == "Driftwood Club" "Spiked Club" "Stone Hammer" "Tribal Club" "War Hammer"
     SetFontSize 35
@@ -2769,7 +2775,7 @@ Show
 
 #==[51000]-装备 Equipment - 武器 Weapons - 单手剑 One Hand Swords==
 
-#==[51001]- Swords -Tier 0 单手剑 - #1 i83 Top Swords - 精确==
+#==[51001]- Swords -T0: i83+ Top Bases 单手剑 - #1 i83 Top Swords - 精确==
 Show
     BaseType == "Jewelled Foil" "Corsair Sword" "Eternal Sword"
     ItemLevel >= 83
@@ -2782,7 +2788,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[51002]- Swords -Tier 0 单手剑 - 基础 - 精确==
+#==[51002]- Swords -T0: i83+ Top Bases 单手剑 - 基础 - 精确==
 Show
     BaseType == "Anarchic Spiritblade" "Dragoon Sword" "Harpy Rapier" "Legion Sword" "Midnight Blade" "Spiraled Foil" "Tiger Hook" "Vaal Blade" "Vaal Rapier"
     ItemLevel >= 68
@@ -2796,7 +2802,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[51003]- Swords -Tier 1 单手剑 - 基础 - 精确==
+#==[51003]- Swords -T1: High End 单手剑 - 基础 - 精确==
 Show
     BaseType == "Apex Rapier" "Capricious Spiritblade" "Corsair Sword" "Courtesan Sword" "Dragonbone Rapier" "Fancy Foil" "Gemstone Sword" "Gladius" "Graceful Sword" "Grappler" "Reaver Sword" "Tempered Foil" "Twilight Blade"
     ItemLevel >= 68
@@ -2810,7 +2816,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[51004]- Swords -Tier 2 单手剑 - 基础 - 精确==
+#==[51004]- Swords -T2: Decent Bases 单手剑 - 基础 - 精确==
 Show
     BaseType == "Baselard" "Battle Sword" "Burnished Foil" "Cutlass" "Elder Sword" "Estoc" "Primeval Rapier" "Serrated Foil" "Smallsword" "Wyrmbone Rapier"
     Rarity <= Rare
@@ -2823,7 +2829,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[51005]- Swords -Tier 3 单手剑 - 基础 - 精确==
+#==[51005]- Swords -T3: Mid Tier 单手剑 - 基础 - 精确==
 Show
     BaseType == "Ancient Sword" "Antique Rapier" "Dusk Blade" "Elegant Foil" "Elegant Sword" "Fickle Spiritblade" "Hook Sword" "Jagged Foil" "Thorn Rapier" "Variscite Blade"
     SetFontSize 37
@@ -2834,7 +2840,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[51006]- Swords -Tier 4 单手剑 - 基础 - 精确==
+#==[51006]- Swords -T4: Low Tier 单手剑 - 基础 - 精确==
 Show
     BaseType == "Basket Rapier" "Battered Foil" "Broad Sword" "Copper Sword" "Dancing Sword" "Imperfect Dancing Sword" "Maligaro's Spike" "Perfect Dancing Sword" "Rusted Spike" "Rusted Sword" "Sabre" "War Sword" "Whalebone Rapier"
     SetFontSize 35
@@ -2847,7 +2853,7 @@ Show
 
 #==[52000]-装备 Equipment - 武器 Weapons - 符文匕首 Rune Daggers==
 
-#==[52001]- Rune Daggers -Tier 0 符文匕首 - #1 i86 Top Rune Daggers - 精确==
+#==[52001]- Rune Daggers -T0: i86 Top Rune Daggers 符文匕首 - #1 i86 Top Rune Daggers - 精确==
 Show
     BaseType == "Golden Kris" "Platinum Kris" "Ezomyte Dagger"
     ItemLevel >= 86
@@ -2860,7 +2866,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[52002]- Rune Daggers -Tier 0 符文匕首 - 基础 - 精确==
+#==[52002]- Rune Daggers -T0: i86 Top Rune Daggers 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Imperial Skean" "Infernal Blade"
     ItemLevel >= 68
@@ -2874,7 +2880,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[52003]- Rune Daggers -Tier 1 符文匕首 - 基础 - 精确==
+#==[52003]- Rune Daggers -T1: High iLvl Rune Daggers 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Fiend Dagger" "Flashfire Blade"
     ItemLevel >= 68
@@ -2888,7 +2894,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[52004]- Rune Daggers -Tier 2 符文匕首 - 基础 - 精确==
+#==[52004]- Rune Daggers -T2: Decent Bases 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Boot Blade" "Butcher Knife" "Golden Kris"
     Rarity <= Rare
@@ -2901,7 +2907,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[52005]- Rune Daggers -Tier 3 符文匕首 - 基础 - 精确==
+#==[52005]- Rune Daggers -T3: Mid Tier 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Copper Kris" "Flickerflame Blade" "Imp Dagger" "Skean"
     SetFontSize 37
@@ -2912,7 +2918,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[52006]- Rune Daggers -Tier 4 符文匕首 - 基础 - 精确==
+#==[52006]- Rune Daggers -T4: Low Tier 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Boot Knife" "Carving Knife"
     SetFontSize 35
@@ -2925,7 +2931,7 @@ Show
 
 #==[53000]-装备 Equipment - 武器 Weapons - 短杖 Sceptres==
 
-#==[53001]- Sceptres -Tier 0 短杖 - #1 i83 Top Sceptres - 精确==
+#==[53001]- Sceptres -T0: i83+ Top Sceptres 短杖 - #1 i83 Top Sceptres - 精确==
 Show
     BaseType == "Void Sceptre" "Sambar Sceptre"
     ItemLevel >= 83
@@ -2938,7 +2944,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[53002]- Sceptres -Tier 0 短杖 - 基础 - 精确==
+#==[53002]- Sceptres -T0: i83+ Top Sceptres 短杖 - 基础 - 精确==
 Show
     BaseType == "Alternating Sceptre" "Carnal Sceptre" "Platinum Sceptre" "Vaal Sceptre"
     ItemLevel >= 68
@@ -2952,7 +2958,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[53003]- Sceptres -Tier 1 短杖 - 基础 - 精确==
+#==[53003]- Sceptres -T1: High End 短杖 - 基础 - 精确==
 Show
     BaseType == "Abyssal Sceptre" "Karui Sceptre" "Opal Sceptre" "Royal Sceptre" "Stabilising Sceptre" "Stag Sceptre" "Tyrant's Sekhem"
     ItemLevel >= 68
@@ -2966,7 +2972,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[53004]- Sceptres -Tier 2 短杖 - 基础 - 精确==
+#==[53004]- Sceptres -T2: Decent Bases 短杖 - 基础 - 精确==
 Show
     BaseType == "Blood Sceptre" "Crystal Sceptre" "Horned Sceptre" "Lead Sceptre" "Sekhem"
     Rarity <= Rare
@@ -2979,7 +2985,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[53005]- Sceptres -Tier 3 短杖 - 基础 - 精确==
+#==[53005]- Sceptres -T3: Mid Tier 短杖 - 基础 - 精确==
 Show
     BaseType == "Grinning Fetish" "Ochre Sceptre" "Oscillating Sceptre" "Ritual Sceptre" "Shadow Sceptre"
     SetFontSize 37
@@ -2990,7 +2996,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[53006]- Sceptres -Tier 4 短杖 - 基础 - 精确==
+#==[53006]- Sceptres -T4: Low Tier 短杖 - 基础 - 精确==
 Show
     BaseType == "Bronze Sceptre" "Darkwood Sceptre" "Driftwood Sceptre" "Iron Sceptre" "Quartz Sceptre"
     SetFontSize 35
@@ -3003,7 +3009,7 @@ Show
 
 #==[54000]-装备 Equipment - 武器 Weapons - 长杖 Staves==
 
-#==[54001]- Staves -Tier 0 长杖 - #1 i83 Top Staves - 精确==
+#==[54001]- Staves -T0: i83+ Top Staves 长杖 - #1 i83 Top Staves - 精确==
 Show
     BaseType == "Imperial Staff" "Eclipse Staff"
     ItemLevel >= 83
@@ -3016,7 +3022,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[54002]- Staves -Tier 0 长杖 - 基础 - 精确==
+#==[54002]- Staves -T0: i83+ Top Staves 长杖 - 基础 - 精确==
 Show
     BaseType == "Battery Staff" "Lathi"
     ItemLevel >= 68
@@ -3030,7 +3036,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[54003]- Staves -Tier 1 长杖 - 基础 - 精确==
+#==[54003]- Staves -T1: High End 长杖 - 基础 - 精确==
 Show
     BaseType == "Highborn Staff" "Moon Staff" "Primordial Staff" "Reciprocation Staff"
     ItemLevel >= 68
@@ -3044,7 +3050,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[54004]- Staves -Tier 2 长杖 - 基础 - 精确==
+#==[54004]- Staves -T2: Decent Bases 长杖 - 基础 - 精确==
 Show
     BaseType == "Crescent Staff" "Quarterstaff" "Woodful Staff"
     Rarity <= Rare
@@ -3057,7 +3063,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[54005]- Staves -Tier 3 长杖 - 基础 - 精确==
+#==[54005]- Staves -T3: Mid Tier 长杖 - 基础 - 精确==
 Show
     BaseType == "Royal Staff" "Transformer Staff"
     SetFontSize 37
@@ -3068,7 +3074,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[54006]- Staves -Tier 4 长杖 - 基础 - 精确==
+#==[54006]- Staves -T4: Low Tier 长杖 - 基础 - 精确==
 Show
     BaseType == "Gnarled Branch" "Long Staff" "Primitive Staff"
     SetFontSize 35
@@ -3081,7 +3087,7 @@ Show
 
 #==[55000]-装备 Equipment - 武器 Weapons - 双手斧 Two Hand Axes==
 
-#==[55001]- Two Hand Axes -Tier 0 双手斧 - #1 i83 Top 2H Axes - 精确==
+#==[55001]- Two Hand Axes -T0: i83+ Top Bases 双手斧 - #1 i83 Top 2H Axes - 精确==
 Show
     BaseType == "Despot Axe" "Vaal Axe" "Fleshripper"
     ItemLevel >= 83
@@ -3094,7 +3100,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[55002]- Two Hand Axes -Tier 0 双手斧 - 基础 - 精确==
+#==[55002]- Two Hand Axes -T0: i83+ Top Bases 双手斧 - 基础 - 精确==
 Show
     BaseType == "Apex Cleaver" "Ezomyte Axe" "Void Axe"
     ItemLevel >= 68
@@ -3108,7 +3114,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[55003]- Two Hand Axes -Tier 1 双手斧 - 基础 - 精确==
+#==[55003]- Two Hand Axes -T1: High End 双手斧 - 基础 - 精确==
 Show
     BaseType == "Abyssal Axe" "Honed Cleaver" "Karui Chopper" "Noble Axe" "Sundering Axe" "Talon Axe"
     ItemLevel >= 68
@@ -3122,7 +3128,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[55004]- Two Hand Axes -Tier 2 双手斧 - 基础 - 精确==
+#==[55004]- Two Hand Axes -T2: Decent Bases 双手斧 - 基础 - 精确==
 Show
     BaseType == "Dagger Axe" "Headsman Axe" "Jasper Chopper" "Labrys" "Timber Axe"
     Rarity <= Rare
@@ -3135,7 +3141,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[55005]- Two Hand Axes -Tier 3 双手斧 - 基础 - 精确==
+#==[55005]- Two Hand Axes -T3: Mid Tier 双手斧 - 基础 - 精确==
 Show
     BaseType == "Double Axe" "Gilded Axe" "Prime Cleaver" "Shadow Axe"
     SetFontSize 37
@@ -3146,7 +3152,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[55006]- Two Hand Axes -Tier 4 双手斧 - 基础 - 精确==
+#==[55006]- Two Hand Axes -T4: Low Tier 双手斧 - 基础 - 精确==
 Show
     BaseType == "Jade Chopper" "Poleaxe" "Stone Axe" "Woodsplitter"
     SetFontSize 35
@@ -3159,7 +3165,7 @@ Show
 
 #==[56000]-装备 Equipment - 武器 Weapons - 双手锤 Two Hand Maces==
 
-#==[56001]- Two Hand Maces -Tier 0 双手锤 - #1 i83 Top 2H Maces - 精确==
+#==[56001]- Two Hand Maces -T0: i83+ Top Bases 双手锤 - #1 i83 Top 2H Maces - 精确==
 Show
     BaseType == "Coronal Maul" "Meatgrinder"
     ItemLevel >= 83
@@ -3172,7 +3178,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[56002]- Two Hand Maces -Tier 0 双手锤 - 基础 - 精确==
+#==[56002]- Two Hand Maces -T0: i83+ Top Bases 双手锤 - 基础 - 精确==
 Show
     BaseType == "Impact Force Propagator" "Imperial Maul" "Terror Maul"
     ItemLevel >= 68
@@ -3186,7 +3192,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[56003]- Two Hand Maces -Tier 1 双手锤 - 基础 - 精确==
+#==[56003]- Two Hand Maces -T1: High End 双手锤 - 基础 - 精确==
 Show
     BaseType == "Colossus Mallet" "Crushing Force Magnifier" "Dread Maul" "Karui Maul" "Piledriver" "Plated Maul" "Solar Maul"
     ItemLevel >= 68
@@ -3200,7 +3206,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[56004]- Two Hand Maces -Tier 2 双手锤 - 基础 - 精确==
+#==[56004]- Two Hand Maces -T2: Decent Bases 双手锤 - 基础 - 精确==
 Show
     BaseType == "Great Mallet" "Spiny Maul" "Steelhead" "Totemic Maul"
     Rarity <= Rare
@@ -3213,7 +3219,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[56005]- Two Hand Maces -Tier 3 双手锤 - 基础 - 精确==
+#==[56005]- Two Hand Maces -T3: Mid Tier 双手锤 - 基础 - 精确==
 Show
     BaseType == "Blunt Force Condenser" "Brass Maul" "Fright Maul" "Jagged Maul" "Morning Star"
     SetFontSize 37
@@ -3224,7 +3230,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[56006]- Two Hand Maces -Tier 4 双手锤 - 基础 - 精确==
+#==[56006]- Two Hand Maces -T4: Low Tier 双手锤 - 基础 - 精确==
 Show
     BaseType == "Driftwood Maul" "Mallet" "Sledgehammer" "Tribal Maul"
     SetFontSize 35
@@ -3237,7 +3243,7 @@ Show
 
 #==[57000]-装备 Equipment - 武器 Weapons - 双手剑 Two Hand Swords==
 
-#==[57001]- Two Hand Swords -Tier 0 双手剑 - #1 i83 Top 2H Swords - 精确==
+#==[57001]- Two Hand Swords -T0: i83+ Top Bases 双手剑 - #1 i83 Top 2H Swords - 精确==
 Show
     BaseType == "Exquisite Blade"
     ItemLevel >= 83
@@ -3250,7 +3256,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[57002]- Two Hand Swords -Tier 0 双手剑 - 基础 - 精确==
+#==[57002]- Two Hand Swords -T0: i83+ Top Bases 双手剑 - 基础 - 精确==
 Show
     BaseType == "Banishing Blade" "Infernal Sword" "Lion Sword" "Vaal Greatsword"
     ItemLevel >= 68
@@ -3264,7 +3270,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[57003]- Two Hand Swords -Tier 1 双手剑 - 基础 - 精确==
+#==[57003]- Two Hand Swords -T1: High End 双手剑 - 基础 - 精确==
 Show
     BaseType == "Blasting Blade" "Ezomyte Blade" "Headman's Sword" "Lithe Blade" "Tiger Sword" "Wraith Sword"
     ItemLevel >= 68
@@ -3278,7 +3284,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[57004]- Two Hand Swords -Tier 2 双手剑 - 基础 - 精确==
+#==[57004]- Two Hand Swords -T2: Decent Bases 双手剑 - 基础 - 精确==
 Show
     BaseType == "Butcher Sword" "Engraved Greatsword" "Footman Sword" "Highland Blade"
     Rarity <= Rare
@@ -3291,7 +3297,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[57005]- Two Hand Swords -Tier 3 双手剑 - 基础 - 精确==
+#==[57005]- Two Hand Swords -T3: Mid Tier 双手剑 - 基础 - 精确==
 Show
     BaseType == "Curved Blade" "Etched Greatsword" "Ornate Sword" "Rebuking Blade" "Spectral Sword"
     SetFontSize 37
@@ -3302,7 +3308,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[57006]- Two Hand Swords -Tier 4 双手剑 - 基础 - 精确==
+#==[57006]- Two Hand Swords -T4: Low Tier 双手剑 - 基础 - 精确==
 Show
     BaseType == "Bastard Sword" "Corroded Blade" "Longsword" "Two-Handed Sword"
     SetFontSize 35
@@ -3315,7 +3321,7 @@ Show
 
 #==[58000]-装备 Equipment - 武器 Weapons - 法杖 Wands==
 
-#==[58001]- Wands -Tier 0 法杖 - #1 i83 Top Wands - 精确==
+#==[58001]- Wands -T0: i83+ Top Wands 法杖 - #1 i83 Top Wands - 精确==
 Show
     BaseType == "Opal Wand" "Profane Wand" "Convoking Wand"
     ItemLevel >= 83
@@ -3328,7 +3334,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[58002]- Wands -Tier 0 法杖 - 基础 - 精确==
+#==[58002]- Wands -T0: i83+ Top Wands 法杖 - 基础 - 精确==
 Show
     BaseType == "Accumulator Wand" "Prophecy Wand" "Tornado Wand"
     ItemLevel >= 68
@@ -3342,7 +3348,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[58003]- Wands -Tier 1 法杖 - 基础 - 精确==
+#==[58003]- Wands -T1: High End 法杖 - 基础 - 精确==
 Show
     BaseType == "Congregator Wand" "Convening Wand" "Demon's Horn" "Heathen Wand" "Kinetic Wand" "Omen Wand"
     ItemLevel >= 68
@@ -3356,7 +3362,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[58004]- Wands -Tier 2 法杖 - 基础 - 精确==
+#==[58004]- Wands -T2: Decent Bases 法杖 - 基础 - 精确==
 Show
     BaseType == "Blasting Wand" "Coiled Wand" "Crystal Wand"
     Rarity <= Rare
@@ -3369,7 +3375,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[58005]- Wands -Tier 3 法杖 - 基础 - 精确==
+#==[58005]- Wands -T3: Mid Tier 法杖 - 基础 - 精确==
 Show
     BaseType == "Assembler Wand" "Calling Wand" "Faun's Horn" "Pagan Wand" "Sage Wand" "Spiraled Wand"
     SetFontSize 37
@@ -3380,7 +3386,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[58006]- Wands -Tier 4 法杖 - 基础 - 精确==
+#==[58006]- Wands -T4: Low Tier 法杖 - 基础 - 精确==
 Show
     BaseType == "Driftwood Wand" "Goat's Horn" "Quartz Wand" "Somatic Wand"
     SetFontSize 35
@@ -3393,7 +3399,7 @@ Show
 
 #==[59000]-装备 Equipment - 武器 Weapons - 战杖 Warstaves==
 
-#==[59001]- Warstaves -Tier 0 战杖 - #1 i83 Top Warstaves - 精确==
+#==[59001]- Warstaves -T0: i83+ Top Warstaves 战杖 - #1 i83 Top Warstaves - 精确==
 Show
     BaseType == "Judgement Staff" "Ezomyte Staff"
     ItemLevel >= 83
@@ -3406,7 +3412,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[59002]- Warstaves -Tier 0 战杖 - 基础 - 精确==
+#==[59002]- Warstaves -T0: i83+ Top Warstaves 战杖 - 基础 - 精确==
 Show
     BaseType == "Eventuality Rod" "Maelström Staff"
     ItemLevel >= 68
@@ -3420,7 +3426,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[59003]- Warstaves -Tier 1 战杖 - 基础 - 精确==
+#==[59003]- Warstaves -T1: High End 战杖 - 基础 - 精确==
 Show
     BaseType == "Ezomyte Staff" "Foul Staff" "Potentiality Rod"
     ItemLevel >= 68
@@ -3434,7 +3440,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[59004]- Warstaves -Tier 2 战杖 - 基础 - 精确==
+#==[59004]- Warstaves -T2: Decent Bases 战杖 - 基础 - 精确==
 Show
     BaseType == "Military Staff" "Serpentine Staff"
     Rarity <= Rare
@@ -3447,7 +3453,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[59005]- Warstaves -Tier 3 战杖 - 基础 - 精确==
+#==[59005]- Warstaves -T3: Mid Tier 战杖 - 基础 - 精确==
 Show
     BaseType == "Capacity Rod" "Coiled Staff" "Vile Staff"
     SetFontSize 37
@@ -3458,7 +3464,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[59006]- Warstaves -Tier 4 战杖 - 基础 - 精确==
+#==[59006]- Warstaves -T4: Low Tier 战杖 - 基础 - 精确==
 Show
     BaseType == "Iron Staff"
     SetFontSize 35
@@ -3475,7 +3481,7 @@ Show
 
 #==[41000]-药剂 Flasks - 生命药剂 Life Flasks==
 
-#==[41001]- Life Flasks -Tier 1 生命药剂 - 基础 - 精确==
+#==[41001]- Life Flasks -T1: Divine/Eternal 生命药剂 - 基础 - 精确==
 Show
     BaseType == "Colossal Hybrid Flask" "Colossal Life Flask" "Divine Life Flask" "Eternal Life Flask" "Giant Life Flask" "Grand Life Flask" "Greater Life Flask" "Hallowed Hybrid Flask" "Hallowed Life Flask" "Large Hybrid Flask" "Large Life Flask" "Medium Hybrid Flask" "Medium Life Flask" "Sacred Hybrid Flask" "Sacred Life Flask" "Sanctified Life Flask" "Small Hybrid Flask"
     SetFontSize 40
@@ -3485,7 +3491,7 @@ Show
     PlayAlertSound 1 300
 
 
-#==[41002]- Life Flasks -Tier 9 生命药剂 - 基础 - 精确==
+#==[41002]- Life Flasks -Hide 生命药剂 - 基础 - 精确==
 Hide
     BaseType == "Small Life Flask"
     SetFontSize 32
@@ -3496,7 +3502,7 @@ Hide
 
 #==[42000]-药剂 Flasks - 魔力药剂 Mana Flasks==
 
-#==[42001]- Mana Flasks -Tier 1 魔力药剂 - 基础 - 精确==
+#==[42001]- Mana Flasks -T1: Divine/Eternal 魔力药剂 - 基础 - 精确==
 Show
     BaseType == "Colossal Mana Flask" "Divine Mana Flask" "Eternal Mana Flask" "Giant Mana Flask" "Grand Mana Flask" "Greater Mana Flask" "Hallowed Mana Flask" "Large Mana Flask" "Medium Mana Flask" "Sacred Mana Flask" "Sanctified Mana Flask" "Small Mana Flask"
     SetFontSize 40
@@ -3506,9 +3512,23 @@ Show
     PlayAlertSound 1 300
 
 
-#==[43000]-药剂 Flasks - 功能药剂 Utility Flasks==
+#==[43000]-药剂 Flasks - 酊剂 Tinctures==
 
-#==[43001]- Utility Flasks -Tier 0 功能药剂 - #1 i84 Top Utility Flasks - 精确==
+#==[43001]- Tinctures -T1: Tinctures 酊剂 - 基础 - 精确==
+Show
+    BaseType == "Ashbark Tincture" "Blood Sap Tincture" "Borealwood Tincture" "Fulgurite Tincture" "Ironwood Tincture" "Oakbranch Tincture" "Poisonberry Tincture" "Prismatic Tincture" "Rosethorn Tincture" "Sporebloom Tincture"
+    SetFontSize 42
+    SetTextColor 231 0 231 255
+    SetBorderColor 231 0 231 255
+    SetBackgroundColor 255 255 255 255
+    PlayAlertSound 1 300
+    PlayEffect Red
+    MinimapIcon RedStar
+
+
+#==[44000]-药剂 Flasks - 功能药剂 Utility Flasks==
+
+#==[44001]- Utility Flasks -T0: Absolute Top 功能药剂 - #1 i84 Top Utility Flasks - 精确==
 Show
     BaseType == "Gold Flask" "Corundum Flask" "Silver Flask" "Amethyst Flask" "Diamond Flask" "Quicksilver Flask"
     ItemLevel >= 84
@@ -3519,7 +3539,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\高级药酊.mp3" 300
 
 
-#==[43002]- Utility Flasks -Tier 1 功能药剂 - #1 i82 Utility Flasks - 精确==
+#==[44002]- Utility Flasks -T1: Top Utility 功能药剂 - #1 i82 Utility Flasks - 精确==
 Show
     BaseType == "Gold Flask" "Corundum Flask" "Silver Flask" "Amethyst Flask" "Diamond Flask" "Quicksilver Flask"
     ItemLevel >= 82
@@ -3530,7 +3550,7 @@ Show
     PlayAlertSound 1 300
 
 
-#==[43003]- Utility Flasks -Tier 1 功能药剂 - 自动音效：坚岩药剂 - 精确==
+#==[44003]- Utility Flasks -T1: Top Utility 功能药剂 - 自动音效：坚岩药剂 - 精确==
 Show
     BaseType == "Granite Flask"
     SetFontSize 40
@@ -3540,7 +3560,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\坚岩药剂.mp3" 200
 
 
-#==[43004]- Utility Flasks -Tier 1 功能药剂 - 自动音效：石英药剂 - 精确==
+#==[44004]- Utility Flasks -T1: Top Utility 功能药剂 - 自动音效：石英药剂 - 精确==
 Show
     BaseType == "Quartz Flask"
     SetFontSize 40
@@ -3550,7 +3570,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\石英药剂.mp3" 200
 
 
-#==[43005]- Utility Flasks -Tier 1 功能药剂 - 自动音效：坚铁药剂 - 精确==
+#==[44005]- Utility Flasks -T1: Top Utility 功能药剂 - 自动音效：坚铁药剂 - 精确==
 Show
     BaseType == "Iron Flask"
     SetFontSize 40
@@ -3560,7 +3580,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\坚铁药剂.mp3" 200
 
 
-#==[43006]- Utility Flasks -Tier 1 功能药剂 - 基础 - 精确==
+#==[44006]- Utility Flasks -T1: Top Utility 功能药剂 - 基础 - 精确==
 Show
     BaseType == "Aquamarine Flask" "Basalt Flask" "Bismuth Flask" "Jade Flask" "Ruby Flask" "Sapphire Flask" "Stibnite Flask" "Sulphur Flask" "Topaz Flask"
     SetFontSize 40
@@ -3637,14 +3657,91 @@ Show
 
 
 #===================================================================================================================
-# [[60000]] Jewels Jewels
+# [[60000]] 赏金猎人 Heist
 #===================================================================================================================
 
-#==[61000]-Jewels Jewels - 深渊珠宝 Abyss Jewels==
+#==[61000]-赏金猎人 Heist - 蓝图 Heist Blueprints==
 
-#==[62000]-Jewels Jewels - 基础珠宝 Base Jewels==
+#==[61001]- Heist Blueprints -Blueprints 蓝图 - 基础 - 精确==
+Show
+    BaseType == "Blueprint: Bunker" "Blueprint: Laboratory" "Blueprint: Mansion" "Blueprint: Prohibited Library" "Blueprint: Records Office" "Blueprint: Repository" "Blueprint: Smuggler's Den" "Blueprint: Tunnels" "Blueprint: Underbelly"
+    SetFontSize 42
+    SetTextColor 231 0 231 255
+    SetBorderColor 231 0 231 255
+    SetBackgroundColor 255 255 255 255
+    PlayEffect Red
+    MinimapIcon RedStar
 
-#==[62001]- Base Jewels -Tier 1 基础珠宝 - 基础 - 精确==
+
+#==[62000]-赏金猎人 Heist - 契约 Heist Contracts==
+
+#==[62001]- Heist Contracts -Named Contracts 契约 - 基础 - 精确==
+Show
+    BaseType == "Contract: A Matter of Honour" "Contract: A Mundane Sample" "Contract: Credit Where Credit's Due" "Contract: Disengagement" "Contract: Enoch's Remains" "Contract: Enoch's Whereabouts" "Contract: Finding Opal" "Contract: Findings for Fidium" "Contract: Flying False Colours" "Contract: Follow the Paper Trail" "Contract: Grocery List" "Contract: Hyrri's Gift" "Contract: Isla's Designs" "Contract: Isla's Prototypes" "Contract: Karst's Revenge" "Contract: Opal's Jewels" "Contract: Rational Tools" "Contract: Slaver's Revenge" "Contract: Stolen Lockpicks" "Contract: The Admiral's Records" "Contract: The Book of Jamanra" "Contract: The Finest Costumes" "Contract: The Nameless Play" "Contract: The Negotiation" "Contract: The Rescue" "Contract: The Vinderi Bomb" "Contract: The Wedding Dress" "Familial Contract" "Naval Contract" "Preventative Contract" "Vengeful Contract" "Vigilante Contract"
+    SetFontSize 45
+    SetTextColor 255 0 0 255
+    SetBorderColor 255 0 0 255
+    SetBackgroundColor 255 255 255 255
+    PlayAlertSound 6 300
+    PlayEffect Red
+    MinimapIcon RedStar
+
+
+#==[62002]- Heist Contracts -Area Contracts 契约 - 基础 - 精确==
+Show
+    BaseType == "Contract: Bunker" "Contract: Laboratory" "Contract: Mansion" "Contract: Prohibited Library" "Contract: Records Office" "Contract: Repository" "Contract: Smuggler's Den" "Contract: Tunnels" "Contract: Underbelly"
+    SetFontSize 40
+    SetTextColor 52 0 255 255
+    SetBorderColor 52 0 255 255
+    SetBackgroundColor 255 255 255 255
+    PlayEffect Red
+    MinimapIcon RedStar
+
+
+#==[63000]-赏金猎人 Heist - 盗贼装备 Heist Equipment==
+
+#==[63001]- Heist Equipment -Quality Gear 盗贼装备 - 基础 - 精确==
+Show
+    BaseType == "Azurite Flashpowder" "Enamel Brooch" "Espionage Disguise Kit" "Fine Lockpick" "Fine Sensing Charm" "Fine Sharpening Stone" "Flanged Drill" "Foliate Brooch" "Golden Brooch" "Hollowpoint Arrowhead" "Lustrous Ward" "Master Lockpick" "Obsidian Sharpening Stone" "Polished Sensing Charm" "Precise Arrowhead" "Regicide Disguise Kit" "Runed Bracers" "Shining Ward" "Silkweave Sole" "Steel Bracers" "Thaumaturgical Sensing Charm" "Thaumaturgical Ward" "Thaumetic Blowtorch" "Thaumetic Flashpowder" "Whisper-woven Cloak" "Winged Sole"
+    SetFontSize 40
+    SetTextColor 52 0 255 255
+    SetBorderColor 52 0 255 255
+    SetBackgroundColor 255 255 255 255
+    PlayEffect Red
+    MinimapIcon RedStar
+
+
+#==[63002]- Heist Equipment -Basic Gear 盗贼装备 - 基础 - 精确==
+Show
+    BaseType == "Basic Disguise Kit" "Crude Sensing Charm" "Crude Ward" "Eelskin Sole" "Flanged Arrowhead" "Foxhide Sole" "Fragmenting Arrowhead" "Hooded Cloak" "Leather Bracers" "Rough Sharpening Stone" "Silver Brooch" "Simple Lockpick" "Standard Lockpick" "Standard Sharpening Stone" "Steel Drill" "Studded Bracers" "Sulphur Blowtorch" "Tattered Cloak" "Theatre Disguise Kit" "Torn Cloak" "Trarthan Flashpowder" "Voltaxic Flashpowder"
+    SetFontSize 35
+    SetTextColor 0 0 0 255
+    SetBorderColor 0 0 0 255
+    SetBackgroundColor 213 159 0 255
+
+
+#==[64000]-赏金猎人 Heist - 盗贼目标 Heist Targets==
+
+#==[64001]- Heist Targets -Heist Target 盗贼目标 - Class Condition==
+Show
+    Class "Heist Targets"
+    SetFontSize 42
+    SetTextColor 231 0 231 255
+    SetBorderColor 231 0 231 255
+    SetBackgroundColor 255 255 255 255
+    PlayEffect Red
+    MinimapIcon RedStar
+
+
+#===================================================================================================================
+# [[70000]] Jewels Jewels
+#===================================================================================================================
+
+#==[71000]-Jewels Jewels - 深渊珠宝 Abyss Jewels==
+
+#==[72000]-Jewels Jewels - 基础珠宝 Base Jewels==
+
+#==[72001]- Base Jewels -T1: High Value 基础珠宝 - 基础 - 精确==
 Show
     BaseType == "Celestial Jeweller's Incubator" "Cobalt Jewel" "Crimson Jewel" "Jewelled Foil" "Viridian Jewel"
     SetFontSize 42
@@ -3656,9 +3753,9 @@ Show
     MinimapIcon PurpleCircle
 
 
-#==[63000]-Jewels Jewels - 星团珠宝 Cluster Jewels==
+#==[73000]-Jewels Jewels - 星团珠宝 Cluster Jewels==
 
-#==[63001]- Cluster Jewels -Tier 1 星团珠宝 - 基础 - 精确==
+#==[73001]- Cluster Jewels -T1: High Value 星团珠宝 - 基础 - 精确==
 Show
     BaseType == "Large Cluster Jewel" "Medium Cluster Jewel" "Small Cluster Jewel"
     SetFontSize 42
@@ -3671,12 +3768,12 @@ Show
 
 
 #===================================================================================================================
-# [[70000]] 地图 Maps
+# [[80000]] 地图 Maps
 #===================================================================================================================
 
-#==[71000]-地图 Maps - 常规地图 Base Maps==
+#==[81000]-地图 Maps - 常规地图 Base Maps==
 
-#==[71001]- Base Maps -Tier 2 常规地图 - #1 Highlight: City Square (Green Border) - 精确==
+#==[81001]- Base Maps -T2: Reds (T14-T16) 常规地图 - #1 Highlight: City Square (Green Border) - 精确==
 Show
     BaseType == "City Square Map"
     MapTier >= 14
@@ -3689,9 +3786,9 @@ Show
     MinimapIcon RedSquare
 
 
-#==[72000]-地图 Maps - 碎片 Fragments==
+#==[82000]-地图 Maps - 碎片 Fragments==
 
-#==[72001]- Fragments -Tier 1 碎片 - 自动音效：惊怖镜 - 精确==
+#==[82001]- Fragments -T1: High Value 碎片 - 自动音效：梦魇拟像 - 精确==
 Show
     BaseType == "Simulacrum"
     SetFontSize 42
@@ -3703,7 +3800,7 @@ Show
     MinimapIcon RedCircle
 
 
-#==[72002]- Fragments -Tier 1 碎片 - 自动音效：贤主的通告 - 精确==
+#==[82002]- Fragments -T1: High Value 碎片 - 自动音效：贤主敕令 - 精确==
 Show
     BaseType == "The Maven's Writ"
     SetFontSize 42
@@ -3715,7 +3812,7 @@ Show
     MinimapIcon RedCircle
 
 
-#==[72003]- Fragments -Tier 1 碎片 - 自动音效：神圣之花 - 精确==
+#==[82003]- Fragments -T1: High Value 碎片 - 自动音效：神圣之花 - 精确==
 Show
     BaseType == "Sacred Blossom"
     SetFontSize 42
@@ -3727,7 +3824,7 @@ Show
     MinimapIcon RedCircle
 
 
-#==[72004]- Fragments -Tier 2 碎片 - 基础 - 精确==
+#==[82004]- Fragments -T2: Decent Value 碎片 - 基础 - 精确==
 Show
     BaseType == "Awakening Fragment" "Cosmic Fragment" "Decaying Fragment" "Devouring Fragment" "Reality Fragment" "Synthesising Fragment"
     SetFontSize 40
@@ -3737,7 +3834,7 @@ Show
     PlayAlertSound 1 300
 
 
-#==[72005]- Fragments -Tier 3 碎片 - 基础 - 精确==
+#==[82005]- Fragments -T3: Mid Value 碎片 - 基础 - 精确==
 Show
     BaseType == "Fragment of Constriction" "Fragment of Enslavement" "Fragment of Eradication" "Fragment of Purification" "Fragment of the Chimera" "Fragment of the Hydra" "Fragment of the Minotaur" "Fragment of the Phoenix"
     SetFontSize 32
@@ -3747,7 +3844,7 @@ Show
     PlayAlertSound 2 300
 
 
-#==[72006]- Fragments -Tier 4 碎片 - 自动音效：Divine Vessel - 精确==
+#==[82006]- Fragments -T4: Low Value 碎片 - 自动音效：禁灵之瓶 - 精确==
 Show
     BaseType == "Divine Vessel"
     SetFontSize 32
@@ -3757,7 +3854,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\禁灵之瓶.mp3" 100
 
 
-#==[72007]- Fragments -Tier 4 碎片 - 基础 - 精确==
+#==[82007]- Fragments -T4: Low Value 碎片 - 基础 - 精确==
 Show
     BaseType == "Sacrifice at Dawn" "Sacrifice at Dusk" "Sacrifice at Midnight" "Sacrifice at Noon"
     SetFontSize 32
@@ -3767,12 +3864,12 @@ Show
 
 
 #===================================================================================================================
-# [[80000]] 杂项 Misc
+# [[90000]] 杂项 Misc
 #===================================================================================================================
 
-#==[81000]-杂项 Misc - 金币 Misc==
+#==[91000]-杂项 Misc - 金币 Misc==
 
-#==[81001]- Misc -Tier 3 金币 - 自动音效：医药箱 - 精确==
+#==[91001]- Misc -Tier 3 金币 - 自动音效：医药箱 - 精确==
 Show
     BaseType == "Medicine Chest"
     SetFontSize 37
@@ -3784,7 +3881,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[81002]- Misc -Tier 3 金币 - 自动音效：不灭之火 - 精确==
+#==[91002]- Misc -Tier 3 金币 - 自动音效：不灭之火 - 精确==
 Show
     BaseType == "Allflame"
     SetFontSize 37
@@ -3796,7 +3893,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[81003]- Misc -Tier 3 金币 - 自动音效：阿佐亚特编年史 - 精确==
+#==[91003]- Misc -Tier 3 金币 - 自动音效：阿佐亚特编年史 - 精确==
 Show
     BaseType == "Chronicle of Atzoatl"
     SetFontSize 37
@@ -3808,7 +3905,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[81004]- Misc -Tier 3 金币 - 自动音效：贪婪战书 - 精确==
+#==[91004]- Misc -Tier 3 金币 - 自动音效：贪婪战书 - 精确==
 Show
     BaseType == "Inscribed Ultimatum"
     SetFontSize 37
@@ -3820,9 +3917,9 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[81005]- Misc -Tier 3 金币 - 基础 - 精确==
+#==[91005]- Misc -Tier 3 金币 - 基础 - 精确==
 Show
-    BaseType == "Aggregator Charm" "Alira's Amulet" "Ashbark Tincture" "Atlas Book of Skill" "Azurite Flashpowder" "Baleful Gem" "Bane of the Loyal" "Blasphemer" "Blood Demon" "Blood Sap Tincture" "Borealwood Tincture" "Burst Band" "Cogs of Disruption" "Conduit Line" "Crude Sensing Charm" "Crude Ward" "Cube Of Absorption" "Dark Marionette" "Dark Reaper" "Decanter Spiritus" "Druidic Alchemist" "Eelskin Sole" "Fiery Cannibal" "Fine Sensing Charm" "Fine Sharpening Stone" "Fishing Rod" "Flanged Arrowhead" "Flanged Drill" "Flashpowder Keg" "Focal Stone" "Forest Tiger" "Forest Warrior" "Foxhide Sole" "Fragmenting Arrowhead" "Frozen Cannibal" "Fulgurite Tincture" "Golden Hand" "Guardian Turtle" "Half-remembered Goliath" "Hollowpoint Arrowhead" "Hulking Miscreation" "Hydra" "Infernal Talc" "Ironwood Tincture" "Judgemental Spirit" "Kraityn's Amulet" "Lustrous Ward" "Maligaro's Map" "Meatsack" "Miasmeter" "Naval Officer" "Needle Horror" "Oak's Amulet" "Oakbranch Tincture" "Obsidian Sharpening Stone" "Pain Artist" "Pecoraro" "Poisonberry Tincture" "Polished Sensing Charm" "Portal Shredder" "Precise Arrowhead" "Primal Demiurge" "Primal Thunderbird" "Prismatic Tincture" "Ribbon Spool" "Rod of Detonation" "Rosethorn Tincture" "Rough Sharpening Stone" "Runic Skeleton" "Sand of Eternity" "Sanguimancer Demon" "Sawblade Horror" "Serpent Warrior" "Shadow Construct" "Shining Ward" "Silkweave Sole" "Slashing Horror" "Spider Matriarch" "Spirit of Fortune" "Sporebloom Tincture" "Standard Sharpening Stone" "Steel Drill" "Stone of Passage" "Sulphur Blowtorch" "Thaumaturgical Sensing Charm" "Thaumaturgical Ward" "Thaumetic Blowtorch" "Thaumetic Emblem" "Thaumetic Flashpowder" "Thaumetic Sulphite" "The Apex" "The Staff of Purity" "Tolman's Bracelet" "Trarthan Flashpowder" "Urn of Farud" "Voltaxic Flashpowder" "Warlord" "Winged Sole"
+    BaseType == "Aggregator Charm" "Alira's Amulet" "Atlas Book of Skill" "Baleful Gem" "Bane of the Loyal" "Burst Band" "Cogs of Disruption" "Conduit Line" "Cube Of Absorption" "Decanter Spiritus" "Fishing Rod" "Flashpowder Keg" "Focal Stone" "Golden Hand" "Infernal Talc" "Kraityn's Amulet" "Maligaro's Map" "Miasmeter" "Oak's Amulet" "Pecoraro" "Portal Shredder" "Ribbon Spool" "Rod of Detonation" "Sand of Eternity" "Stone of Passage" "Thaumetic Emblem" "Thaumetic Sulphite" "The Apex" "The Staff of Purity" "Tolman's Bracelet" "Urn of Farud"
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -3832,9 +3929,9 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[82000]-杂项 Misc - 神像 Idols==
+#==[92000]-杂项 Misc - 神像 Idols==
 
-#==[82001]- Idols -Tier 1 神像 - 基础 - 精确==
+#==[92001]- Idols -T1: Idols 神像 - 基础 - 精确==
 Show
     BaseType == "Conqueror Idol"
     SetFontSize 42
@@ -3846,7 +3943,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[82002]- Idols -Tier 2 神像 - 基础 - 精确==
+#==[92002]- Idols -T2: Idols 神像 - 基础 - 精确==
 Show
     BaseType == "Burial Idol" "Noble Idol"
     SetFontSize 40
@@ -3858,7 +3955,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[82003]- Idols -Tier 3 神像 - 基础 - 精确==
+#==[92003]- Idols -T3: Idols 神像 - 基础 - 精确==
 Show
     BaseType == "Kamasan Idol" "Minor Idol" "Totemic Idol"
     SetFontSize 37
@@ -3870,9 +3967,9 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[83000]-杂项 Misc - 孕育赠礼 Wombgifts==
+#==[93000]-杂项 Misc - 孕育赠礼 Wombgifts==
 
-#==[83001]- Wombgifts -Tier 1 孕育赠礼 - 基础 - 精确==
+#==[93001]- Wombgifts -T1: Wombgifts 孕育赠礼 - 基础 - 精确==
 Show
     BaseType == "Ancient Wombgift" "Mysterious Wombgift"
     SetFontSize 42
@@ -3884,7 +3981,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[83002]- Wombgifts -Tier 2 孕育赠礼 - 基础 - 精确==
+#==[93002]- Wombgifts -T2: Wombgifts 孕育赠礼 - 基础 - 精确==
 Show
     BaseType == "Lavish Wombgift" "Provisioning Wombgift"
     SetFontSize 40
@@ -3897,12 +3994,12 @@ Show
 
 
 #===================================================================================================================
-# [[90000]] 任务 Quest
+# [[100000]] 任务 Quest
 #===================================================================================================================
 
-#==[91000]-任务 Quest - 迷宫物品 Labyrinth Items==
+#==[101000]-任务 Quest - 迷宫物品 Labyrinth Items==
 
-#==[91001]- Labyrinth Items -Tier 1 迷宫物品 - 自动音效：白银钥匙 - 精确==
+#==[101001]- Labyrinth Items -Labyrinth Keys 迷宫物品 - 自动音效：白银钥匙 - 精确==
 Show
     BaseType == "Silver Key"
     SetFontSize 42
@@ -3914,7 +4011,7 @@ Show
     MinimapIcon CyanCircle
 
 
-#==[91002]- Labyrinth Items -Tier 1 迷宫物品 - 自动音效：黄金钥匙 - 精确==
+#==[101002]- Labyrinth Items -Labyrinth Keys 迷宫物品 - 自动音效：黄金钥匙 - 精确==
 Show
     BaseType == "Golden Key"
     SetFontSize 42
@@ -3926,7 +4023,7 @@ Show
     MinimapIcon CyanCircle
 
 
-#==[91003]- Labyrinth Items -Tier 1 迷宫物品 - 自动音效：宝藏钥匙 - 精确==
+#==[101003]- Labyrinth Items -Labyrinth Keys 迷宫物品 - 自动音效：古铜钥匙 - 精确==
 Show
     BaseType == "Treasure Key"
     SetFontSize 42
@@ -3938,7 +4035,7 @@ Show
     MinimapIcon CyanCircle
 
 
-#==[91004]- Labyrinth Items -Tier 2 迷宫物品 - 自动音效：女神祭品 - 精确==
+#==[101004]- Labyrinth Items -Offerings 迷宫物品 - 自动音效：女神祭品 - 精确==
 Show
     BaseType == "Offering to the Goddess"
     SetFontSize 40
@@ -3948,7 +4045,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\女神祭品.mp3" 100
 
 
-#==[91005]- Labyrinth Items -Tier 2 迷宫物品 - 自动音效：女神之礼 - 精确==
+#==[101005]- Labyrinth Items -Offerings 迷宫物品 - 自动音效：女神之礼 - 精确==
 Show
     BaseType == "Gift to the Goddess"
     SetFontSize 40
@@ -3958,7 +4055,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\女神之礼.mp3" 200
 
 
-#==[91006]- Labyrinth Items -Tier 2 迷宫物品 - 自动音效：女神贡品 - 精确==
+#==[101006]- Labyrinth Items -Offerings 迷宫物品 - 自动音效：女神贡品 - 精确==
 Show
     BaseType == "Tribute to the Goddess"
     SetFontSize 40
@@ -3968,7 +4065,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\女神贡品.mp3" 200
 
 
-#==[91007]- Labyrinth Items -Tier 2 迷宫物品 - 基础 - 精确==
+#==[101007]- Labyrinth Items -Offerings 迷宫物品 - 基础 - 精确==
 Show
     BaseType == "Dedication to the Goddess"
     SetFontSize 40
@@ -3978,9 +4075,9 @@ Show
     PlayAlertSound 2 300
 
 
-#==[92000]-任务 Quest - 任务物品 Quest Items==
+#==[102000]-任务 Quest - 任务物品 Quest Items==
 
-#==[92001]- Quest Items -Tier 1 任务物品 - 自动音效：白银钥匙 - 精确==
+#==[102001]- Quest Items -Quest Items 任务物品 - 自动音效：白银钥匙 - 精确==
 Show
     BaseType == "Silver Key"
     SetFontSize 42
@@ -3992,7 +4089,7 @@ Show
     MinimapIcon GreenCircle
 
 
-#==[92002]- Quest Items -Tier 1 任务物品 - 自动音效：黄金钥匙 - 精确==
+#==[102002]- Quest Items -Quest Items 任务物品 - 自动音效：黄金钥匙 - 精确==
 Show
     BaseType == "Golden Key"
     SetFontSize 42
@@ -4004,7 +4101,7 @@ Show
     MinimapIcon GreenCircle
 
 
-#==[92003]- Quest Items -Tier 1 任务物品 - 自动音效：古铜钥匙 - 精确==
+#==[102003]- Quest Items -Quest Items 任务物品 - 自动音效：古铜钥匙 - 精确==
 Show
     BaseType == "Treasure Key"
     SetFontSize 42
@@ -4016,7 +4113,7 @@ Show
     MinimapIcon GreenCircle
 
 
-#==[92004]- Quest Items -Tier 1 任务物品 - 自动音效：镜像桌台 - 精确==
+#==[102004]- Quest Items -Quest Items 任务物品 - 自动音效：镜像桌台 - 精确==
 Show
     BaseType == "Mirrored Tablet"
     SetFontSize 42
@@ -4028,7 +4125,7 @@ Show
     MinimapIcon GreenCircle
 
 
-#==[92005]- Quest Items -Tier 1 任务物品 - 基础 - 精确==
+#==[102005]- Quest Items -Quest Items 任务物品 - 基础 - 精确==
 Show
     BaseType == "Ammonite Glyph" "Ankh of Eternity" "Archive Reliquary Key" "Bane of the Loyal" "Basilisk Acid" "Bestel's Manuscript" "Black Venom" "Bottled Storm" "Bust of Gaius Sentari" "Bust of Hector Titucius" "Bust of Marceus Lioneye" "Calendar of Fortune" "Candlestick Relic" "Censer Relic" "Ceremonial Voidstone" "Chitus' Plum" "Coffer Relic" "Cogs of Disruption" "Cosmic Reliquary Key" "Decayed Voidstone" "Decaying Reliquary Key" "Deshret's Banner" "Eldritch Eye" "Elixir of Allure" "Essential Keyring" "Eye of Conquest" "Eyes of Zeal" "Firefly" "Flesh Compass" "Forbidden Tome" "Forgotten Reliquary Key" "Ghastly Eye Jewel" "Golden Page" "Grandmaster Keyring" "Greust's Necklace" "Haliotis Glyph" "Heart of the Gargoyle" "Hinekora's Hair" "Hypnotic Eye Jewel" "Imperfect Eldritch Eye" "Incandescent Invitation" "Kishara's Star" "Luminous Astrolabe" "Malachai's Entrails" "Malachai's Heart" "Malachai's Lungs" "Moon Orb" "Murderous Eye Jewel" "Obsidian Key" "Orb of Elemental Dispersion" "Oubliette Reliquary Key" "Papyrus Relic" "Perfect Eldritch Eye" "Polaric Invitation" "Portal Shredder" "Processional Relic" "Rod of Detonation" "Roseus Glyph" "Sanctum Archives Research" "Sanctum Cathedral Research" "Sanctum Necropolis Research" "Sanctum Vaults Research" "Sand of Eternity" "Screaming Invitation" "Searching Eye Jewel" "Sekhema Feather" "Sewer Keys" "Shiny Reliquary Key" "Sign of Purity" "Silver Locket" "Skeleton Keyring" "Storm Blade" "Sun Orb" "The Black Flag" "The Eye of Desire" "The Eye of Fury" "The Teardrop" "Tome Relic" "Tower Key" "Trarthan Powder" "Tukohama's Tooth" "Urn Relic" "Vaal Aspect" "Valako's Jaw" "Versatile Keyring" "Visceral Reliquary Key" "Voidborn Reliquary Key" "Wings of Vastiri" "Writhing Invitation"
     SetFontSize 42
@@ -4041,18 +4138,18 @@ Show
 
 
 #===================================================================================================================
-# [[100000]] 传奇 Uniques
+# [[110000]] 传奇 Uniques
 #===================================================================================================================
 
-#==[101000]-传奇 Uniques - 传奇物品 Unique Items==
+#==[111000]-传奇 Uniques - 传奇物品 Unique Items==
 
 #===================================================================================================================
-# [[110000]] 过渡 _campaign
+# [[120000]] 过渡 _campaign
 #===================================================================================================================
 
-#==[111000]-过渡 _campaign - 过渡护甲 Campaign Armour==
+#==[121000]-过渡 _campaign - 过渡护甲 Campaign Armour==
 
-#==[111001]- Campaign Armour -Tier 2 过渡护甲 - Class Condition==
+#==[121001]- Campaign Armour -4-Link (Campaign) 过渡护甲 - Class Condition==
 Show
     Class "Body Armours" "Helmets" "Gloves" "Boots" "Shields"
     LinkedSockets >= 4
@@ -4066,7 +4163,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[111002]- Campaign Armour -Tier 3 过渡护甲 - Class Condition==
+#==[121002]- Campaign Armour -3-Link Early (Campaign) 过渡护甲 - Class Condition==
 Show
     Class "Body Armours" "Helmets" "Gloves" "Boots"
     LinkedSockets >= 3
@@ -4080,7 +4177,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[111003]- Campaign Armour -Tier 9 过渡护甲 - Class Condition==
+#==[121003]- Campaign Armour -Hide (Post-Campaign) 过渡护甲 - Class Condition==
 Hide
     Class "Body Armours" "Helmets" "Gloves" "Boots"
     AreaLevel >= 68
@@ -4090,9 +4187,9 @@ Hide
     SetBackgroundColor 209 209 209 255
 
 
-#==[112000]-过渡 _campaign - 过渡药剂 Campaign Flasks==
+#==[122000]-过渡 _campaign - 过渡药剂 Campaign Flasks==
 
-#==[112001]- Campaign Flasks -Tier 1 过渡药剂 - Class Condition==
+#==[122001]- Campaign Flasks -Quality Flasks (Campaign) 过渡药剂 - Class Condition==
 Show
     Class "Life Flasks" "Mana Flasks" "Utility Flasks"
     Quality >= 15
@@ -4106,7 +4203,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[112002]- Campaign Flasks -Tier 3 过渡药剂 - Class Condition==
+#==[122002]- Campaign Flasks -Normal Flasks (Campaign) 过渡药剂 - Class Condition==
 Show
     Class "Life Flasks" "Mana Flasks"
     AreaLevel <= 68
@@ -4118,12 +4215,13 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[113000]-过渡 _campaign - 武器 Weapons - 过渡弓 Campaign Bows==
+#==[123000]-过渡 _campaign - 武器 Weapons - 过渡弓 Campaign Bows==
 
-#==[113001]- Campaign Bows -Tier 4 过渡弓 - 基础 - 精确==
+#==[123001]- Campaign Bows -Early Bows (Campaign) 过渡弓 - 基础 - 精确==
 Show
     BaseType == "Bone Bow" "Composite Bow" "Crude Bow" "Long Bow" "Recurve Bow" "Short Bow"
     Rarity <= Rare
+    AreaLevel <= 30
     SetFontSize 35
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4132,10 +4230,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[113002]- Campaign Bows -Tier 3 过渡弓 - 基础 - 精确==
+#==[123002]- Campaign Bows -Mid Bows (Campaign) 过渡弓 - 基础 - 精确==
 Show
     BaseType == "Compound Bow" "Death Bow" "Decurve Bow" "Grove Bow" "Hedron Bow" "Reflex Bow" "Royal Bow" "Sniper Bow"
     Rarity <= Rare
+    AreaLevel <= 50
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4144,10 +4243,11 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[113003]- Campaign Bows -Tier 2 过渡弓 - 基础 - 精确==
+#==[123003]- Campaign Bows -Late Bows (Campaign) 过渡弓 - 基础 - 精确==
 Show
     BaseType == "Assassin Bow" "Citadel Bow" "Decimation Bow" "Foundry Bow" "Highborn Bow" "Imperial Bow" "Ivory Bow" "Ranger Bow" "Spine Bow" "Steelwood Bow" "Thicket Bow"
     Rarity <= Rare
+    AreaLevel <= 63
     SetFontSize 40
     SetTextColor 52 0 255 255
     SetBorderColor 52 0 255 255
@@ -4156,7 +4256,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[113004]- Campaign Bows -Tier 1 过渡弓 - 基础 - 精确==
+#==[123004]- Campaign Bows -Pre-Endgame Bows (Campaign) 过渡弓 - 基础 - 精确==
 Show
     BaseType == "Harbinger Bow" "Maraketh Bow" "Solarine Bow"
     Rarity <= Rare
@@ -4169,12 +4269,13 @@ Show
     MinimapIcon RedStar
 
 
-#==[114000]-过渡 _campaign - 武器 Weapons - 过渡爪 Campaign Claws==
+#==[124000]-过渡 _campaign - 武器 Weapons - 过渡爪 Campaign Claws==
 
-#==[114001]- Campaign Claws -Tier 4 过渡爪 - 基础 - 精确==
+#==[124001]- Campaign Claws -Early Claws (Campaign) 过渡爪 - 基础 - 精确==
 Show
     BaseType == "Awl" "Blinder" "Cat's Paw" "Nailed Fist" "Sharktooth Claw"
     Rarity <= Rare
+    AreaLevel <= 30
     SetFontSize 35
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4183,10 +4284,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[114002]- Campaign Claws -Tier 3 过渡爪 - 基础 - 精确==
+#==[124002]- Campaign Claws -Mid Claws (Campaign) 过渡爪 - 基础 - 精确==
 Show
     BaseType == "Double Claw" "Fright Claw" "Gouger" "Shadow Fangs" "Sparkling Claw" "Thresher Claw" "Tiger's Paw" "Timeworn Claw"
     Rarity <= Rare
+    AreaLevel <= 50
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4195,10 +4297,11 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[114003]- Campaign Claws -Tier 2 过渡爪 - 基础 - 精确==
+#==[124003]- Campaign Claws -Late Claws (Campaign) 过渡爪 - 基础 - 精确==
 Show
     BaseType == "Eagle Claw" "Eye Gouger" "Great White Claw" "Gut Ripper" "Hellion's Paw" "Malign Fangs" "Noble Claw" "Prehistoric Claw" "Throat Stabber" "Twin Claw" "Vaal Claw"
     Rarity <= Rare
+    AreaLevel <= 63
     SetFontSize 40
     SetTextColor 52 0 255 255
     SetBorderColor 52 0 255 255
@@ -4207,7 +4310,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[114004]- Campaign Claws -Tier 1 过渡爪 - 基础 - 精确==
+#==[124004]- Campaign Claws -Pre-Endgame Claws (Campaign) 过渡爪 - 基础 - 精确==
 Show
     BaseType == "Gemini Claw" "Imperial Claw" "Terror Claw" "Void Fangs"
     Rarity <= Rare
@@ -4220,12 +4323,13 @@ Show
     MinimapIcon RedStar
 
 
-#==[115000]-过渡 _campaign - 武器 Weapons - 过渡匕首 Campaign Daggers==
+#==[125000]-过渡 _campaign - 武器 Weapons - 过渡匕首 Campaign Daggers==
 
-#==[115001]- Campaign Daggers -Tier 4 过渡匕首 - 基础 - 精确==
+#==[125001]- Campaign Daggers -Early Daggers (Campaign) 过渡匕首 - 基础 - 精确==
 Show
     BaseType == "Glass Shank" "Skinning Knife" "Stiletto"
     Rarity <= Rare
+    AreaLevel <= 30
     SetFontSize 35
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4234,10 +4338,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[115002]- Campaign Daggers -Tier 3 过渡匕首 - 基础 - 精确==
+#==[125002]- Campaign Daggers -Mid Daggers (Campaign) 过渡匕首 - 基础 - 精确==
 Show
     BaseType == "Flaying Knife" "Hollowpoint Dagger" "Poignard" "Prong Dagger"
     Rarity <= Rare
+    AreaLevel <= 50
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4246,10 +4351,11 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[115003]- Campaign Daggers -Tier 2 过渡匕首 - 基础 - 精确==
+#==[125003]- Campaign Daggers -Late Daggers (Campaign) 过渡匕首 - 基础 - 精确==
 Show
     BaseType == "Ambusher" "Gutting Knife" "Pressurised Dagger" "Trisula"
     Rarity <= Rare
+    AreaLevel <= 63
     SetFontSize 40
     SetTextColor 52 0 255 255
     SetBorderColor 52 0 255 255
@@ -4258,7 +4364,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[115004]- Campaign Daggers -Tier 1 过渡匕首 - 基础 - 精确==
+#==[125004]- Campaign Daggers -Pre-Endgame Daggers (Campaign) 过渡匕首 - 基础 - 精确==
 Show
     BaseType == "Pneumatic Dagger" "Sai"
     Rarity <= Rare
@@ -4271,12 +4377,13 @@ Show
     MinimapIcon RedStar
 
 
-#==[116000]-过渡 _campaign - 武器 Weapons - 过渡单手斧 Campaign One Hand Axes==
+#==[126000]-过渡 _campaign - 武器 Weapons - 过渡单手斧 Campaign One Hand Axes==
 
-#==[116001]- Campaign One Hand Axes -Tier 4 过渡单手斧 - 基础 - 精确==
+#==[126001]- Campaign One Hand Axes -Early One Hand Axes (Campaign) 过渡单手斧 - 基础 - 精确==
 Show
     BaseType == "Boarding Axe" "Broad Axe" "Cleaver" "Jade Hatchet" "Rusted Hatchet"
     Rarity <= Rare
+    AreaLevel <= 30
     SetFontSize 35
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4285,10 +4392,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[116002]- Campaign One Hand Axes -Tier 3 过渡单手斧 - 基础 - 精确==
+#==[126002]- Campaign One Hand Axes -Mid One Hand Axes (Campaign) 过渡单手斧 - 基础 - 精确==
 Show
     BaseType == "Arming Axe" "Decorative Axe" "Etched Hatchet" "Jasper Axe" "Maltreatment Axe" "Spectral Axe" "Tomahawk" "Wrist Chopper"
     Rarity <= Rare
+    AreaLevel <= 50
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4297,10 +4405,11 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[116003]- Campaign One Hand Axes -Tier 2 过渡单手斧 - 基础 - 精确==
+#==[126003]- Campaign One Hand Axes -Late One Hand Axes (Campaign) 过渡单手斧 - 基础 - 精确==
 Show
     BaseType == "Butcher Axe" "Ceremonial Axe" "Chest Splitter" "Disapprobation Axe" "Engraved Hatchet" "Karui Axe" "Reaver Axe" "Siege Axe" "Vaal Hatchet" "War Axe" "Wraith Axe"
     Rarity <= Rare
+    AreaLevel <= 63
     SetFontSize 40
     SetTextColor 52 0 255 255
     SetBorderColor 52 0 255 255
@@ -4309,7 +4418,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[116004]- Campaign One Hand Axes -Tier 1 过渡单手斧 - 基础 - 精确==
+#==[126004]- Campaign One Hand Axes -Pre-Endgame One Hand Axes (Campaign) 过渡单手斧 - 基础 - 精确==
 Show
     BaseType == "Infernal Axe" "Psychotic Axe" "Royal Axe" "Runic Hatchet"
     Rarity <= Rare
@@ -4322,12 +4431,13 @@ Show
     MinimapIcon RedStar
 
 
-#==[117000]-过渡 _campaign - 武器 Weapons - 过渡单手锤 Campaign One Hand Maces==
+#==[127000]-过渡 _campaign - 武器 Weapons - 过渡单手锤 Campaign One Hand Maces==
 
-#==[117001]- Campaign One Hand Maces -Tier 4 过渡单手锤 - 基础 - 精确==
+#==[127001]- Campaign One Hand Maces -Early One Hand Maces (Campaign) 过渡单手锤 - 基础 - 精确==
 Show
     BaseType == "Bladed Mace" "Driftwood Club" "Spiked Club" "Stone Hammer" "Tribal Club" "War Hammer"
     Rarity <= Rare
+    AreaLevel <= 30
     SetFontSize 35
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4336,10 +4446,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[117002]- Campaign One Hand Maces -Tier 3 过渡单手锤 - 基础 - 精确==
+#==[127002]- Campaign One Hand Maces -Mid One Hand Maces (Campaign) 过渡单手锤 - 基础 - 精确==
 Show
     BaseType == "Barbed Club" "Battle Hammer" "Ceremonial Mace" "Dream Mace" "Flare Mace" "Petrified Club" "Rock Breaker" "Wyrm Mace"
     Rarity <= Rare
+    AreaLevel <= 50
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4348,10 +4459,11 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[117003]- Campaign One Hand Maces -Tier 2 过渡单手锤 - 基础 - 精确==
+#==[127003]- Campaign One Hand Maces -Late One Hand Maces (Campaign) 过渡单手锤 - 基础 - 精确==
 Show
     BaseType == "Ancestral Club" "Auric Mace" "Crack Mace" "Dragon Mace" "Flanged Mace" "Gavel" "Legion Hammer" "Ornate Mace" "Pernach" "Phantom Mace" "Tenderizer"
     Rarity <= Rare
+    AreaLevel <= 63
     SetFontSize 40
     SetTextColor 52 0 255 255
     SetBorderColor 52 0 255 255
@@ -4360,7 +4472,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[117004]- Campaign One Hand Maces -Tier 1 过渡单手锤 - 基础 - 精确==
+#==[127004]- Campaign One Hand Maces -Pre-Endgame One Hand Maces (Campaign) 过渡单手锤 - 基础 - 精确==
 Show
     BaseType == "Behemoth Mace" "Boom Mace" "Nightmare Mace"
     Rarity <= Rare
@@ -4373,12 +4485,13 @@ Show
     MinimapIcon RedStar
 
 
-#==[118000]-过渡 _campaign - 武器 Weapons - 过渡单手剑 Campaign One Hand Swords==
+#==[128000]-过渡 _campaign - 武器 Weapons - 过渡单手剑 Campaign One Hand Swords==
 
-#==[118001]- Campaign One Hand Swords -Tier 4 过渡单手剑 - 基础 - 精确==
+#==[128001]- Campaign One Hand Swords -Early One Hand Swords (Campaign) 过渡单手剑 - 基础 - 精确==
 Show
     BaseType == "Ancient Sword" "Broad Sword" "Copper Sword" "Rusted Sword" "Sabre" "War Sword"
     Rarity <= Rare
+    AreaLevel <= 30
     SetFontSize 35
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4387,10 +4500,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[118002]- Campaign One Hand Swords -Tier 3 过渡单手剑 - 基础 - 精确==
+#==[128002]- Campaign One Hand Swords -Mid One Hand Swords (Campaign) 过渡单手剑 - 基础 - 精确==
 Show
     BaseType == "Baselard" "Battle Sword" "Cutlass" "Dusk Blade" "Elegant Sword" "Fickle Spiritblade" "Hook Sword" "Variscite Blade"
     Rarity <= Rare
+    AreaLevel <= 50
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4399,10 +4513,11 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[118003]- Campaign One Hand Swords -Tier 2 过渡单手剑 - 基础 - 精确==
+#==[128003]- Campaign One Hand Swords -Late One Hand Swords (Campaign) 过渡单手剑 - 基础 - 精确==
 Show
     BaseType == "Capricious Spiritblade" "Corsair Sword" "Elder Sword" "Eternal Sword" "Gemstone Sword" "Gladius" "Graceful Sword" "Grappler" "Legion Sword" "Twilight Blade" "Vaal Blade"
     Rarity <= Rare
+    AreaLevel <= 63
     SetFontSize 40
     SetTextColor 52 0 255 255
     SetBorderColor 52 0 255 255
@@ -4411,7 +4526,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[118004]- Campaign One Hand Swords -Tier 1 过渡单手剑 - 基础 - 精确==
+#==[128004]- Campaign One Hand Swords -Pre-Endgame One Hand Swords (Campaign) 过渡单手剑 - 基础 - 精确==
 Show
     BaseType == "Anarchic Spiritblade" "Midnight Blade" "Tiger Hook"
     Rarity <= Rare
@@ -4424,12 +4539,13 @@ Show
     MinimapIcon RedStar
 
 
-#==[119000]-过渡 _campaign - 武器 Weapons - 过渡符文匕首 Campaign Rune Daggers==
+#==[129000]-过渡 _campaign - 武器 Weapons - 过渡符文匕首 Campaign Rune Daggers==
 
-#==[119001]- Campaign Rune Daggers -Tier 4 过渡符文匕首 - 基础 - 精确==
+#==[129001]- Campaign Rune Daggers -Early Rune Daggers (Campaign) 过渡符文匕首 - 基础 - 精确==
 Show
     BaseType == "Boot Knife" "Carving Knife" "Copper Kris"
     Rarity <= Rare
+    AreaLevel <= 30
     SetFontSize 35
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4438,10 +4554,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[119002]- Campaign Rune Daggers -Tier 3 过渡符文匕首 - 基础 - 精确==
+#==[129002]- Campaign Rune Daggers -Mid Rune Daggers (Campaign) 过渡符文匕首 - 基础 - 精确==
 Show
     BaseType == "Boot Blade" "Butcher Knife" "Flickerflame Blade" "Imp Dagger" "Skean"
     Rarity <= Rare
+    AreaLevel <= 50
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4450,10 +4567,11 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[119003]- Campaign Rune Daggers -Tier 2 过渡符文匕首 - 基础 - 精确==
+#==[129003]- Campaign Rune Daggers -Late Rune Daggers (Campaign) 过渡符文匕首 - 基础 - 精确==
 Show
     BaseType == "Ezomyte Dagger" "Fiend Dagger" "Flashfire Blade" "Golden Kris" "Imperial Skean" "Platinum Kris" "Royal Skean" "Slaughter Knife"
     Rarity <= Rare
+    AreaLevel <= 63
     SetFontSize 40
     SetTextColor 52 0 255 255
     SetBorderColor 52 0 255 255
@@ -4462,7 +4580,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[119004]- Campaign Rune Daggers -Tier 1 过渡符文匕首 - 基础 - 精确==
+#==[129004]- Campaign Rune Daggers -Pre-Endgame Rune Daggers (Campaign) 过渡符文匕首 - 基础 - 精确==
 Show
     BaseType == "Demon Dagger" "Infernal Blade"
     Rarity <= Rare
@@ -4475,12 +4593,13 @@ Show
     MinimapIcon RedStar
 
 
-#==[120000]-过渡 _campaign - 武器 Weapons - 过渡短杖 Campaign Sceptres==
+#==[130000]-过渡 _campaign - 武器 Weapons - 过渡短杖 Campaign Sceptres==
 
-#==[120001]- Campaign Sceptres -Tier 4 过渡短杖 - 基础 - 精确==
+#==[130001]- Campaign Sceptres -Early Sceptres (Campaign) 过渡短杖 - 基础 - 精确==
 Show
     BaseType == "Bronze Sceptre" "Darkwood Sceptre" "Driftwood Sceptre" "Iron Sceptre" "Ochre Sceptre" "Quartz Sceptre"
     Rarity <= Rare
+    AreaLevel <= 30
     SetFontSize 35
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4489,10 +4608,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[120002]- Campaign Sceptres -Tier 3 过渡短杖 - 基础 - 精确==
+#==[130002]- Campaign Sceptres -Mid Sceptres (Campaign) 过渡短杖 - 基础 - 精确==
 Show
     BaseType == "Crystal Sceptre" "Grinning Fetish" "Horned Sceptre" "Lead Sceptre" "Oscillating Sceptre" "Ritual Sceptre" "Sekhem" "Shadow Sceptre"
     Rarity <= Rare
+    AreaLevel <= 50
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4501,10 +4621,11 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[120003]- Campaign Sceptres -Tier 2 过渡短杖 - 基础 - 精确==
+#==[130003]- Campaign Sceptres -Late Sceptres (Campaign) 过渡短杖 - 基础 - 精确==
 Show
     BaseType == "Abyssal Sceptre" "Blood Sceptre" "Carnal Sceptre" "Karui Sceptre" "Opal Sceptre" "Platinum Sceptre" "Royal Sceptre" "Stabilising Sceptre" "Stag Sceptre" "Tyrant's Sekhem" "Vaal Sceptre"
     Rarity <= Rare
+    AreaLevel <= 63
     SetFontSize 40
     SetTextColor 52 0 255 255
     SetBorderColor 52 0 255 255
@@ -4513,7 +4634,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[120004]- Campaign Sceptres -Tier 1 过渡短杖 - 基础 - 精确==
+#==[130004]- Campaign Sceptres -Pre-Endgame Sceptres (Campaign) 过渡短杖 - 基础 - 精确==
 Show
     BaseType == "Alternating Sceptre" "Sambar Sceptre" "Void Sceptre"
     Rarity <= Rare
@@ -4526,12 +4647,13 @@ Show
     MinimapIcon RedStar
 
 
-#==[121000]-过渡 _campaign - 武器 Weapons - 过渡长杖 Campaign Staves==
+#==[131000]-过渡 _campaign - 武器 Weapons - 过渡长杖 Campaign Staves==
 
-#==[121001]- Campaign Staves -Tier 4 过渡长杖 - 基础 - 精确==
+#==[131001]- Campaign Staves -Early Staves (Campaign) 过渡长杖 - 基础 - 精确==
 Show
     BaseType == "Gnarled Branch" "Long Staff" "Primitive Staff"
     Rarity <= Rare
+    AreaLevel <= 30
     SetFontSize 35
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4540,10 +4662,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[121002]- Campaign Staves -Tier 3 过渡长杖 - 基础 - 精确==
+#==[131002]- Campaign Staves -Mid Staves (Campaign) 过渡长杖 - 基础 - 精确==
 Show
     BaseType == "Crescent Staff" "Royal Staff" "Transformer Staff" "Woodful Staff"
     Rarity <= Rare
+    AreaLevel <= 50
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4552,10 +4675,11 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[121003]- Campaign Staves -Tier 2 过渡长杖 - 基础 - 精确==
+#==[131003]- Campaign Staves -Late Staves (Campaign) 过渡长杖 - 基础 - 精确==
 Show
     BaseType == "Highborn Staff" "Imperial Staff" "Lathi" "Moon Staff" "Primordial Staff" "Quarterstaff" "Reciprocation Staff"
     Rarity <= Rare
+    AreaLevel <= 63
     SetFontSize 40
     SetTextColor 52 0 255 255
     SetBorderColor 52 0 255 255
@@ -4564,7 +4688,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121004]- Campaign Staves -Tier 1 过渡长杖 - 基础 - 精确==
+#==[131004]- Campaign Staves -Pre-Endgame Staves (Campaign) 过渡长杖 - 基础 - 精确==
 Show
     BaseType == "Battery Staff" "Eclipse Staff"
     Rarity <= Rare
@@ -4577,12 +4701,13 @@ Show
     MinimapIcon RedStar
 
 
-#==[122000]-过渡 _campaign - 武器 Weapons - 过渡双手斧 Campaign Two Hand Axes==
+#==[132000]-过渡 _campaign - 武器 Weapons - 过渡双手斧 Campaign Two Hand Axes==
 
-#==[122001]- Campaign Two Hand Axes -Tier 4 过渡双手斧 - 基础 - 精确==
+#==[132001]- Campaign Two Hand Axes -Early Two Hand Axes (Campaign) 过渡双手斧 - 基础 - 精确==
 Show
     BaseType == "Double Axe" "Jade Chopper" "Poleaxe" "Stone Axe" "Woodsplitter"
     Rarity <= Rare
+    AreaLevel <= 30
     SetFontSize 35
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4591,10 +4716,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[122002]- Campaign Two Hand Axes -Tier 3 过渡双手斧 - 基础 - 精确==
+#==[132002]- Campaign Two Hand Axes -Mid Two Hand Axes (Campaign) 过渡双手斧 - 基础 - 精确==
 Show
     BaseType == "Dagger Axe" "Gilded Axe" "Jasper Chopper" "Prime Cleaver" "Shadow Axe" "Timber Axe"
     Rarity <= Rare
+    AreaLevel <= 50
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4603,10 +4729,11 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[122003]- Campaign Two Hand Axes -Tier 2 过渡双手斧 - 基础 - 精确==
+#==[132003]- Campaign Two Hand Axes -Late Two Hand Axes (Campaign) 过渡双手斧 - 基础 - 精确==
 Show
     BaseType == "Abyssal Axe" "Despot Axe" "Ezomyte Axe" "Headsman Axe" "Honed Cleaver" "Karui Chopper" "Labrys" "Noble Axe" "Sundering Axe" "Talon Axe" "Vaal Axe"
     Rarity <= Rare
+    AreaLevel <= 63
     SetFontSize 40
     SetTextColor 52 0 255 255
     SetBorderColor 52 0 255 255
@@ -4615,7 +4742,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[122004]- Campaign Two Hand Axes -Tier 1 过渡双手斧 - 基础 - 精确==
+#==[132004]- Campaign Two Hand Axes -Pre-Endgame Two Hand Axes (Campaign) 过渡双手斧 - 基础 - 精确==
 Show
     BaseType == "Apex Cleaver" "Fleshripper" "Void Axe"
     Rarity <= Rare
@@ -4628,12 +4755,13 @@ Show
     MinimapIcon RedStar
 
 
-#==[123000]-过渡 _campaign - 武器 Weapons - 过渡双手锤 Campaign Two Hand Maces==
+#==[133000]-过渡 _campaign - 武器 Weapons - 过渡双手锤 Campaign Two Hand Maces==
 
-#==[123001]- Campaign Two Hand Maces -Tier 4 过渡双手锤 - 基础 - 精确==
+#==[133001]- Campaign Two Hand Maces -Early Two Hand Maces (Campaign) 过渡双手锤 - 基础 - 精确==
 Show
     BaseType == "Driftwood Maul" "Jagged Maul" "Mallet" "Sledgehammer" "Tribal Maul"
     Rarity <= Rare
+    AreaLevel <= 30
     SetFontSize 35
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4642,10 +4770,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[123002]- Campaign Two Hand Maces -Tier 3 过渡双手锤 - 基础 - 精确==
+#==[133002]- Campaign Two Hand Maces -Mid Two Hand Maces (Campaign) 过渡双手锤 - 基础 - 精确==
 Show
     BaseType == "Blunt Force Condenser" "Brass Maul" "Fright Maul" "Great Mallet" "Morning Star" "Steelhead" "Totemic Maul"
     Rarity <= Rare
+    AreaLevel <= 50
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4654,10 +4783,11 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[123003]- Campaign Two Hand Maces -Tier 2 过渡双手锤 - 基础 - 精确==
+#==[133003]- Campaign Two Hand Maces -Late Two Hand Maces (Campaign) 过渡双手锤 - 基础 - 精确==
 Show
     BaseType == "Colossus Mallet" "Crushing Force Magnifier" "Dread Maul" "Imperial Maul" "Karui Maul" "Meatgrinder" "Piledriver" "Plated Maul" "Solar Maul" "Spiny Maul"
     Rarity <= Rare
+    AreaLevel <= 63
     SetFontSize 40
     SetTextColor 52 0 255 255
     SetBorderColor 52 0 255 255
@@ -4666,7 +4796,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[123004]- Campaign Two Hand Maces -Tier 1 过渡双手锤 - 基础 - 精确==
+#==[133004]- Campaign Two Hand Maces -Pre-Endgame Two Hand Maces (Campaign) 过渡双手锤 - 基础 - 精确==
 Show
     BaseType == "Coronal Maul" "Impact Force Propagator" "Terror Maul"
     Rarity <= Rare
@@ -4679,12 +4809,13 @@ Show
     MinimapIcon RedStar
 
 
-#==[124000]-过渡 _campaign - 武器 Weapons - 过渡双手剑 Campaign Two Hand Swords==
+#==[134000]-过渡 _campaign - 武器 Weapons - 过渡双手剑 Campaign Two Hand Swords==
 
-#==[124001]- Campaign Two Hand Swords -Tier 4 过渡双手剑 - 基础 - 精确==
+#==[134001]- Campaign Two Hand Swords -Early Two Hand Swords (Campaign) 过渡双手剑 - 基础 - 精确==
 Show
     BaseType == "Bastard Sword" "Corroded Blade" "Etched Greatsword" "Longsword" "Two-Handed Sword"
     Rarity <= Rare
+    AreaLevel <= 30
     SetFontSize 35
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4693,10 +4824,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[124002]- Campaign Two Hand Swords -Tier 3 过渡双手剑 - 基础 - 精确==
+#==[134002]- Campaign Two Hand Swords -Mid Two Hand Swords (Campaign) 过渡双手剑 - 基础 - 精确==
 Show
     BaseType == "Butcher Sword" "Curved Blade" "Footman Sword" "Highland Blade" "Ornate Sword" "Rebuking Blade" "Spectral Sword"
     Rarity <= Rare
+    AreaLevel <= 50
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4705,10 +4837,11 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[124003]- Campaign Two Hand Swords -Tier 2 过渡双手剑 - 基础 - 精确==
+#==[134003]- Campaign Two Hand Swords -Late Two Hand Swords (Campaign) 过渡双手剑 - 基础 - 精确==
 Show
     BaseType == "Blasting Blade" "Engraved Greatsword" "Ezomyte Blade" "Headman's Sword" "Lion Sword" "Lithe Blade" "Reaver Sword" "Tiger Sword" "Vaal Greatsword" "Wraith Sword"
     Rarity <= Rare
+    AreaLevel <= 63
     SetFontSize 40
     SetTextColor 52 0 255 255
     SetBorderColor 52 0 255 255
@@ -4717,7 +4850,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[124004]- Campaign Two Hand Swords -Tier 1 过渡双手剑 - 基础 - 精确==
+#==[134004]- Campaign Two Hand Swords -Pre-Endgame Two Hand Swords (Campaign) 过渡双手剑 - 基础 - 精确==
 Show
     BaseType == "Banishing Blade" "Exquisite Blade" "Infernal Sword"
     Rarity <= Rare
@@ -4730,12 +4863,13 @@ Show
     MinimapIcon RedStar
 
 
-#==[125000]-过渡 _campaign - 武器 Weapons - 过渡法杖 Campaign Wands==
+#==[135000]-过渡 _campaign - 武器 Weapons - 过渡法杖 Campaign Wands==
 
-#==[125001]- Campaign Wands -Tier 4 过渡法杖 - 基础 - 精确==
+#==[135001]- Campaign Wands -Early Wands (Campaign) 过渡法杖 - 基础 - 精确==
 Show
     BaseType == "Calling Wand" "Driftwood Wand" "Goat's Horn" "Quartz Wand" "Somatic Wand" "Spiraled Wand"
     Rarity <= Rare
+    AreaLevel <= 30
     SetFontSize 35
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4744,10 +4878,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[125002]- Campaign Wands -Tier 3 过渡法杖 - 基础 - 精确==
+#==[135002]- Campaign Wands -Mid Wands (Campaign) 过渡法杖 - 基础 - 精确==
 Show
     BaseType == "Assembler Wand" "Blasting Wand" "Faun's Horn" "Pagan Wand" "Sage Wand"
     Rarity <= Rare
+    AreaLevel <= 50
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4756,10 +4891,11 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[125003]- Campaign Wands -Tier 2 过渡法杖 - 基础 - 精确==
+#==[135003]- Campaign Wands -Late Wands (Campaign) 过渡法杖 - 基础 - 精确==
 Show
     BaseType == "Coiled Wand" "Congregator Wand" "Convening Wand" "Crystal Wand" "Demon's Horn" "Heathen Wand" "Kinetic Wand" "Omen Wand" "Opal Wand" "Tornado Wand"
     Rarity <= Rare
+    AreaLevel <= 63
     SetFontSize 40
     SetTextColor 52 0 255 255
     SetBorderColor 52 0 255 255
@@ -4768,7 +4904,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[125004]- Campaign Wands -Tier 1 过渡法杖 - 自动音效：Convoking Wand - 精确==
+#==[135004]- Campaign Wands -Pre-Endgame Wands (Campaign) 过渡法杖 - 自动音效：Convoking Wand - 精确==
 Show
     BaseType == "Convoking Wand"
     SetFontSize 42
@@ -4780,7 +4916,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[125005]- Campaign Wands -Tier 1 过渡法杖 - 基础 - 精确==
+#==[135005]- Campaign Wands -Pre-Endgame Wands (Campaign) 过渡法杖 - 基础 - 精确==
 Show
     BaseType == "Accumulator Wand" "Profane Wand" "Prophecy Wand"
     Rarity <= Rare
@@ -4793,12 +4929,13 @@ Show
     MinimapIcon RedStar
 
 
-#==[126000]-过渡 _campaign - 武器 Weapons - 过渡战杖 Campaign Warstaves==
+#==[136000]-过渡 _campaign - 武器 Weapons - 过渡战杖 Campaign Warstaves==
 
-#==[126001]- Campaign Warstaves -Tier 4 过渡战杖 - 基础 - 精确==
+#==[136001]- Campaign Warstaves -Early Warstaves (Campaign) 过渡战杖 - 基础 - 精确==
 Show
     BaseType == "Coiled Staff" "Iron Staff"
     Rarity <= Rare
+    AreaLevel <= 30
     SetFontSize 35
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4807,10 +4944,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[126002]- Campaign Warstaves -Tier 3 过渡战杖 - 基础 - 精确==
+#==[136002]- Campaign Warstaves -Mid Warstaves (Campaign) 过渡战杖 - 基础 - 精确==
 Show
     BaseType == "Capacity Rod" "Military Staff" "Vile Staff"
     Rarity <= Rare
+    AreaLevel <= 50
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -4819,10 +4957,11 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[126003]- Campaign Warstaves -Tier 2 过渡战杖 - 基础 - 精确==
+#==[136003]- Campaign Warstaves -Late Warstaves (Campaign) 过渡战杖 - 基础 - 精确==
 Show
     BaseType == "Ezomyte Staff" "Foul Staff" "Maelström Staff" "Potentiality Rod" "Serpentine Staff"
     Rarity <= Rare
+    AreaLevel <= 63
     SetFontSize 40
     SetTextColor 52 0 255 255
     SetBorderColor 52 0 255 255
@@ -4831,7 +4970,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[126004]- Campaign Warstaves -Tier 1 过渡战杖 - 基础 - 精确==
+#==[136004]- Campaign Warstaves -Pre-Endgame Warstaves (Campaign) 过渡战杖 - 基础 - 精确==
 Show
     BaseType == "Eventuality Rod" "Judgement Staff"
     Rarity <= Rare
@@ -4845,12 +4984,12 @@ Show
 
 
 #===================================================================================================================
-# [[120000]] _legacy _legacy
+# [[130000]] _legacy _legacy
 #===================================================================================================================
 
-#==[121000]-_legacy _legacy - 历史物品 Legacy==
+#==[131000]-_legacy _legacy - 历史物品 Legacy==
 
-#==[121001]- Legacy -Tier 1 历史物品 - 自动音效：Harbinger's Orb - 精确==
+#==[131001]- Legacy -Show Legacy 历史物品 - 自动音效：先驱石 - 精确==
 Show
     BaseType == "Harbinger's Orb"
     SetFontSize 42
@@ -4862,7 +5001,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121002]- Legacy -Tier 1 历史物品 - 自动音效：普兰德斯金币 - 精确==
+#==[131002]- Legacy -Show Legacy 历史物品 - 自动音效：普兰德斯金币 - 精确==
 Show
     BaseType == "Perandus Coin"
     SetFontSize 42
@@ -4874,7 +5013,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121003]- Legacy -Tier 1 历史物品 - 自动音效：雾魇宝珠 - 精确==
+#==[131003]- Legacy -Show Legacy 历史物品 - 自动音效：雾魇宝珠 - 精确==
 Show
     BaseType == "Delirium Orb"
     SetFontSize 42
@@ -4886,7 +5025,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121004]- Legacy -Tier 1 历史物品 - 自动音效：污秽祝福 - 精确==
+#==[131004]- Legacy -Show Legacy 历史物品 - 自动音效：污秽祝福 - 精确==
 Show
     BaseType == "Tainted Blessing"
     SetFontSize 42
@@ -4898,7 +5037,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121005]- Legacy -Tier 1 历史物品 - 自动音效：护甲重组器 - 精确==
+#==[131005]- Legacy -Show Legacy 历史物品 - 自动音效：护甲重组器 - 精确==
 Show
     BaseType == "Armour Recombinator"
     SetFontSize 42
@@ -4910,7 +5049,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121006]- Legacy -Tier 1 历史物品 - 自动音效：武器重组器 - 精确==
+#==[131006]- Legacy -Show Legacy 历史物品 - 自动音效：武器重组器 - 精确==
 Show
     BaseType == "Weapon Recombinator"
     SetFontSize 42
@@ -4922,7 +5061,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121007]- Legacy -Tier 1 历史物品 - 自动音效：珠宝重组器 - 精确==
+#==[131007]- Legacy -Show Legacy 历史物品 - 自动音效：珠宝重组器 - 精确==
 Show
     BaseType == "Jewellery Recombinator"
     SetFontSize 42
@@ -4934,7 +5073,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121008]- Legacy -Tier 1 历史物品 - 自动音效：潜能项链 - 精确==
+#==[131008]- Legacy -Show Legacy 历史物品 - 自动音效：潜能项链 - 精确==
 Show
     BaseType == "Unset Amulet"
     SetFontSize 42
@@ -4946,7 +5085,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121009]- Legacy -Tier 1 历史物品 - 自动音效：血色护身符 - 精确==
+#==[131009]- Legacy -Show Legacy 历史物品 - 自动音效：血色护身符 - 精确==
 Show
     BaseType == "Ruby Amulet"
     SetFontSize 42
@@ -4958,7 +5097,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121010]- Legacy -Tier 1 历史物品 - 自动音效：华美箭袋 - 精确==
+#==[131010]- Legacy -Show Legacy 历史物品 - 自动音效：华美箭袋 - 精确==
 Show
     BaseType == "Ornate Quiver"
     SetFontSize 42
@@ -4970,7 +5109,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121011]- Legacy -Tier 1 历史物品 - 自动音效：裂隙戒指 - 精确==
+#==[131011]- Legacy -Show Legacy 历史物品 - 自动音效：裂隙戒指 - 精确==
 Show
     BaseType == "Breach Ring"
     SetFontSize 42
@@ -4982,7 +5121,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121012]- Legacy -Tier 1 历史物品 - 自动音效：三相珠宝 - 精确==
+#==[131012]- Legacy -Show Legacy 历史物品 - 自动音效：三相珠宝 - 精确==
 Show
     BaseType == "Prismatic Jewel"
     SetFontSize 42
@@ -4994,7 +5133,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121013]- Legacy -Tier 1 历史物品 - 自动音效：永恒珠宝 - 精确==
+#==[131013]- Legacy -Show Legacy 历史物品 - 自动音效：永恒珠宝 - 精确==
 Show
     BaseType == "Timeless Jewel"
     SetFontSize 42
@@ -5006,7 +5145,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121014]- Legacy -Tier 1 历史物品 - 自动音效：扼杀链甲 - 精确==
+#==[131014]- Legacy -Show Legacy 历史物品 - 自动音效：扼杀链甲 - 精确==
 Show
     BaseType == "Grasping Mail"
     SetFontSize 42
@@ -5018,7 +5157,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121015]- Legacy -Tier 1 历史物品 - 自动音效：圣洁遗物 - 精确==
+#==[131015]- Legacy -Show Legacy 历史物品 - 自动音效：圣洁遗物 - 精确==
 Show
     BaseType == "Sanctified Relic"
     SetFontSize 42
@@ -5030,7 +5169,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121016]- Legacy -Tier 1 历史物品 - 基础 - 精确==
+#==[131016]- Legacy -Show Legacy 历史物品 - 基础 - 精确==
 Show
     BaseType == "Abyss Scarab of Descending" "Adherent of Zarokh" "Anarchy Scarab of the Exceptional" "Ancient Reliquary Key" "Annihilation Support" "Astral Lich" "Betrayal Scarab of Unbreaking" "Binding Shard" "Birth of the Three" "Blessed Call Support" "Blessing of God" "Bloodsoaked Banner Support" "Bonespire Support" "Cast on Ward Break Support" "Chaotic Astrolabe" "Charan's Sword" "Charged Dash of Projection" "Chayula's Flawless Breachstone" "Coin of Desecration" "Coin of Knowledge" "Coin of Power" "Coin of Restoration" "Coin of Skill" "Companionship Support" "Congregation Support" "Conjuror of Rot" "Cooldown Recovery Support" "Cord Belt" "Corvine Charm" "Craicic Lure" "Creeping Frost of Floes" "Crystallised Rancour" "Cull the Weak Support" "Dextral Catalyst" "Divine Blast" "Divine Sentinel Support" "Eclipse Support" "Eldritch Blasphemy Support" "Engineer's Shard" "Engraved Ultimatum" "Enshrouded Astrolabe" "Essence of Desolation" "Excommunicate Support" "Exemplar Support" "Expedition Scarab of Infusion" "Farric Lure" "Fenumal Lure" "Fine Incubator" "Fissure Support" "Flamethrower Trap of Stability" "Flesh of Xesht" "Foulgrasp Support" "Frostmage Support" "Fruiting Astrolabe" "Fungal Astrolabe" "Gluttony Support" "Golden Blade" "Golden Bracers" "Golden Caligae" "Golden Flame" "Golden Hoop" "Golden Mantle" "Golden Obi" "Golden Visage" "Golden Wreath" "Grasping Astrolabe" "Greater Ancestral Call Support" "Greater Chain Support" "Greater Devour Support" "Greater Fork Support" "Greater Kinetic Instability Support" "Greater Multistrike Support" "Greater Spell Cascade Support" "Greater Spell Echo Support" "Greater Unleash Support" "Hallow Support" "Harbinger's Shard" "Hexpass Support" "Hextoad Support" "Hiveborn Support" "Holy Hammers" "Holy Strike" "Honoured Incubator" "Horizon Shard" "Imperfect Adherent of Zarokh" "Imperfect Astral Lich" "Imperfect Conjuror of Rot" "Imprint" "Invention Support" "Invert the Rules Support" "Journey Tattoo of the Body" "Journey Tattoo of the Mind" "Journey Tattoo of the Soul" "Kalguuran Scarab of Enriching" "Kinetic Fusillade of Detonation" "Lethal Dose Support" "Lightless Astrolabe" "Lupine Charm" "Lycia's Invocation of Acrobatics" "Lycia's Invocation of Ancestral Bond" "Lycia's Invocation of Arrow Dancing" "Lycia's Invocation of Avatar of Fire" "Lycia's Invocation of Blood Magic" "Lycia's Invocation of Call to Arms" "Lycia's Invocation of Conduit" "Lycia's Invocation of Crimson Dance" "Lycia's Invocation of Divine Shield" "Lycia's Invocation of Eldritch Battery" "Lycia's Invocation of Elemental Equilibrium" "Lycia's Invocation of Elemental Overload" "Lycia's Invocation of Eternal Youth" "Lycia's Invocation of Ghost Dance" "Lycia's Invocation of Ghost Reaver" "Lycia's Invocation of Glancing Blows" "Lycia's Invocation of Hex Master" "Lycia's Invocation of Imbalanced Guard" "Lycia's Invocation of Iron Grip" "Lycia's Invocation of Iron Reflexes" "Lycia's Invocation of Iron Will" "Lycia's Invocation of Lethe Shade" "Lycia's Invocation of Magebane" "Lycia's Invocation of Mind Over Matter" "Lycia's Invocation of Minion Instability" "Lycia's Invocation of Pain Attunement" "Lycia's Invocation of Perfect Agony" "Lycia's Invocation of Point Blank" "Lycia's Invocation of Precise Technique" "Lycia's Invocation of Resolute Technique" "Lycia's Invocation of Runebinder" "Lycia's Invocation of Solipsism" "Lycia's Invocation of Supreme Ego" "Lycia's Invocation of The Agnostic" "Lycia's Invocation of The Impaler" "Lycia's Invocation of Unwavering Stance" "Lycia's Invocation of Vaal Pact" "Lycia's Invocation of Versatile Combatant" "Lycia's Invocation of Wicked Ward" "Lycia's Invocation of Wind Dancer" "Lycia's Invocation of Zealot's Oath" "Machinations Support" "Memory of Loneliness" "Memory of Reverence" "Memory of Trauma" "Minion Pact Support" "Miraged Incubator" "Nameless Astrolabe" "Omen of Acceleration" "Omen of Bequeathal" "Omen of Resurgence" "Omen of Revenge" "Orb of Storms of Squalls" "Overheat Support" "Overloaded Intensity Support" "Pacifism Support" "Perfect Adherent of Zarokh" "Perfect Astral Lich" "Perfect Conjuror of Rot" "Potent Alchemical Resonator" "Powerful Alchemical Resonator" "Prime Alchemical Resonator" "Prime Regrading Lens" "Primeval Remnant" "Primitive Alchemical Resonator" "Primordial Remnant" "Pyre Support" "Refracting Fog" "Ring" "Ritual Scarab of Corpses" "Runegraft of Connection" "Runegraft of Consecration" "Runegraft of Fury" "Runegraft of Rallying" "Runegraft of Resurgence" "Runegraft of Rotblood" "Runegraft of Suffering" "Runegraft of the Agile" "Runegraft of the Imbued" "Runegraft of the Spellbound" "Runic Astrolabe" "Sacred Incubator" "Saqawine Lure" "Scarab of the Dextral" "Scornful Herald Support" "Secondary Regrading Lens" "Shield of Light" "Shock Nova of Procession" "Shockwave Totem of Authority" "Sinistral Catalyst" "Siphoning Trap of Pain" "Soul Quenched" "Static Strike of Gathering Lightning" "Storm Burst of Repulsion" "Tattoo of the Arohongui Moonwarden" "Tattoo of the Arohongui Scout" "Tattoo of the Arohongui Shaman" "Tattoo of the Arohongui Warmonger" "Tattoo of the Arohongui Warrior" "Tattoo of the Hinekora Deathwarden" "Tattoo of the Hinekora Shaman" "Tattoo of the Hinekora Storyteller" "Tattoo of the Hinekora Warmonger" "Tattoo of the Hinekora Warrior" "Tattoo of the Kitava Blood Drinker" "Tattoo of the Kitava Heart Eater" "Tattoo of the Kitava Rebel" "Tattoo of the Kitava Shaman" "Tattoo of the Kitava Warrior" "Tattoo of the Ngamahu Firewalker" "Tattoo of the Ngamahu Shaman" "Tattoo of the Ngamahu Warmonger" "Tattoo of the Ngamahu Warrior" "Tattoo of the Ngamahu Woodcarver" "Tattoo of the Ramako Archer" "Tattoo of the Ramako Fleetfoot" "Tattoo of the Ramako Scout" "Tattoo of the Ramako Shaman" "Tattoo of the Ramako Sniper" "Tattoo of the Rongokurai Brute" "Tattoo of the Rongokurai Goliath" "Tattoo of the Rongokurai Guard" "Tattoo of the Rongokurai Turtle" "Tattoo of the Rongokurai Warrior" "Tattoo of the Tasalio Bladedancer" "Tattoo of the Tasalio Scout" "Tattoo of the Tasalio Shaman" "Tattoo of the Tasalio Tideshifter" "Tattoo of the Tasalio Warrior" "Tattoo of the Tawhoa Herbalist" "Tattoo of the Tawhoa Naturalist" "Tattoo of the Tawhoa Scout" "Tattoo of the Tawhoa Shaman" "Tattoo of the Tawhoa Warrior" "Tattoo of the Tukohama Brawler" "Tattoo of the Tukohama Shaman" "Tattoo of the Tukohama Warcaller" "Tattoo of the Tukohama Warmonger" "Tattoo of the Tukohama Warrior" "Tattoo of the Valako Scout" "Tattoo of the Valako Shaman" "Tattoo of the Valako Shieldbearer" "Tattoo of the Valako Stormrider" "Tattoo of the Valako Warrior" "Templar Astrolabe" "The Black Barya" "The Master" "The Sustenance" "Timeless Astrolabe" "Timeworn Reliquary Key" "Transfusion Support" "Unholy Trinity Support" "Unshaping Orb" "Ursine Charm" "Vaal Breach" "Vaal Reliquary Key" "Vaal Sacrifice Support" "Vaal Temptation Support" "Void Shockwave Support" "Voidstorm Support" "Volatile Vaal Orb" "Whispering Incubator"
     SetFontSize 42

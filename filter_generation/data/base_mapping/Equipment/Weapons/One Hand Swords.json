@@ -2,8 +2,8 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Jewelled Foil": "细剑",
-        "Corsair Sword": "海盗长剑",
+        "Jewelled Foil": "宝饰细剑",
+        "Corsair Sword": "海贼长刀",
         "Eternal Sword": "永恒之剑",
         "Vaal Rapier": "瓦尔细剑",
         "__class_name__": "单手剑",
@@ -57,7 +57,9 @@
         "Tiger Hook": "虎钩",
         "Fickle Spiritblade": "无常魂刃",
         "Capricious Spiritblade": "莫测魂刃",
-        "Anarchic Spiritblade": "无序魂刃"
+        "Anarchic Spiritblade": "无序魂刃",
+        "Midnight Blade": "夜语长剑",
+        "Reaver Sword": "残暴巨剑"
       }
     },
     "item_class": {

@@ -26,9 +26,9 @@ Currency:
     Harvest:
       name: 庄园
       path: Currency/Harvest.json
-    Heist:
-      name: 夺宝
-      path: Currency/Heist.json
+    Heist Currency:
+      name: 夺宝通货
+      path: Currency/Heist Currency.json
     Incubators:
       name: 孕育石
       path: Currency/Incubators.json
@@ -76,6 +76,14 @@ Maps & Fragments:
     name: 碎片与传送门
     target: Map Fragments
     path: Maps/Fragments.json
+  Heist:
+    _name: 赏金猎人
+    Contracts:
+      name: 委托契约
+      path: Heist/Contracts.json
+    Blueprints:
+      name: 蓝图
+      path: Heist/Blueprints.json
 
 Gems:
   _name: 宝石
@@ -103,9 +111,12 @@ Flasks:
   Utility:
     name: 功能药剂
     target: Utility Flasks
+  Tinctures:
+    name: 酊剂
+    path: Flasks/Tinctures.json
 
 Equipment:
-  _name: 终局装备
+  _name: 装备
   Vendor Recipes:
     _name: 商人配方
     Recipes:
@@ -202,8 +213,17 @@ Equipment:
       name: 饰品
       target: Trinkets
 
+Heist Gear:
+  _name: 赏金猎人装备
+  Equipment:
+    name: 赏金猎人装备
+    path: Heist/Equipment.json
+  Targets:
+    name: 赏金猎人目标
+    path: Heist/Targets.json
+
 _Campaign:
-  _name: 过渡模式
+  _name: 剧情模式
   Armour:
     name: 过渡护甲
     path: _campaign/Armour.json
@@ -268,6 +288,7 @@ Quest:
   Labyrinth:
     name: 迷宫
     target: Labyrinth Items
+    path: Quest/Labyrinth.json
 
 Misc:
   _name: 杂项

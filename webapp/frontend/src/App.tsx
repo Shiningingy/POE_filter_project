@@ -87,9 +87,12 @@ function App() {
     setLoading(true);
     try {
       setMessage(t.generating);
-      const response = await axios.post(`${API_BASE_URL}/api/generate`);
+      const response = await axios.post(`${API_BASE_URL}/api/generate`, {
+        game_version: gameVersion,
+        game_mode: gameMode
+      });
       setMessage(`${t.generatedSuccess}\n${response.data.output || ''}`);
-      await fetchFilterPreview(); 
+      await fetchFilterPreview();
     } catch (error: any) {
       console.error('Error generating filter:', error);
       setMessage(`Failed: ${error.response?.data?.detail || error.message}`);

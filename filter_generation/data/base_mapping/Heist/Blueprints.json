@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "excluded_modes": ["ruthless"],
+    "localization": {
+      "ch": {
+        "__class_name__": "蓝图",
+        "Blueprint: Bunker": "蓝图：堡垒",
+        "Blueprint: Smuggler's Den": "蓝图：珍宝之地",
+        "Blueprint: Laboratory": "蓝图：实验室",
+        "Blueprint: Repository": "蓝图：储藏库",
+        "Blueprint: Prohibited Library": "蓝图：禁断书库",
+        "Blueprint: Tunnels": "蓝图：隧道",
+        "Blueprint: Underbelly": "蓝图：薄弱之地",
+        "Blueprint: Records Office": "蓝图：档案处",
+        "Blueprint: Mansion": "蓝图：豪宅"
+      }
+    },
+    "item_class": {
+      "en": "Blueprints",
+      "ch": "蓝图"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Blueprint: Bunker": "Heist Blueprint T1",
+    "Blueprint: Smuggler's Den": "Heist Blueprint T1",
+    "Blueprint: Laboratory": "Heist Blueprint T1",
+    "Blueprint: Repository": "Heist Blueprint T1",
+    "Blueprint: Prohibited Library": "Heist Blueprint T1",
+    "Blueprint: Tunnels": "Heist Blueprint T1",
+    "Blueprint: Underbelly": "Heist Blueprint T1",
+    "Blueprint: Records Office": "Heist Blueprint T1",
+    "Blueprint: Mansion": "Heist Blueprint T1"
+  },
+  "rules": []
+}

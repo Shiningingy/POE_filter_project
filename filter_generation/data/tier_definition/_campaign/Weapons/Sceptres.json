@@ -15,7 +15,8 @@
         },
         "Camp Sceptres Early": {
             "conditions": {
-                "Rarity": "<= Rare"
+                "Rarity": "<= Rare",
+                "AreaLevel": "<= 30"
             },
             "hideable": false,
             "theme": {
@@ -32,7 +33,8 @@
         },
         "Camp Sceptres Mid": {
             "conditions": {
-                "Rarity": "<= Rare"
+                "Rarity": "<= Rare",
+                "AreaLevel": "<= 50"
             },
             "hideable": false,
             "theme": {
@@ -49,7 +51,8 @@
         },
         "Camp Sceptres Late": {
             "conditions": {
-                "Rarity": "<= Rare"
+                "Rarity": "<= Rare",
+                "AreaLevel": "<= 63"
             },
             "hideable": false,
             "theme": {

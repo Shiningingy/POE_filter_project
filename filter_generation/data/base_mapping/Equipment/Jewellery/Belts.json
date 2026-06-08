@@ -11,7 +11,10 @@
         "Studded Belt": "扣钉腰带",
         "Micro-Distillery Belt": "低酿腰带",
         "Mechanical Belt": "机关腰带",
-        "Mechalarm Belt": "警戒腰带"
+        "Mechalarm Belt": "警戒腰带",
+        "Heavy Belt": "重革腰带",
+        "Chain Belt": "扣链腰带",
+        "Cloth Belt": "饰布腰带"
       }
     },
     "item_class": {

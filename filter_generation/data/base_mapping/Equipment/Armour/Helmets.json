@@ -2,9 +2,9 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Hubris Circlet": "枢枢冠",
-        "Lion Pelt": "狮鹫头盔",
-        "Royal Burgonet": "皇家之冠",
+        "Hubris Circlet": "灵主之环",
+        "Lion Pelt": "狮首皮盔",
+        "Royal Burgonet": "皇室坚盔",
         "Bone Helmet": "唤骨头盔",
         "__class_name__": "头部",
         "Iron Hat": "粗铁盔",
@@ -93,7 +93,10 @@
         "Sorrow Mask": "悲伤面具",
         "Runic Helm": "符文头盔",
         "Runic Crest": "符文之冠",
-        "Runic Crown": "符文王冠"
+        "Runic Crown": "符文王冠",
+        "Deicide Mask": "弑神之面",
+        "Sinner Tricorne": "罪者之帽",
+        "Eternal Burgonet": "永恒坚盔"
       }
     },
     "item_class": {

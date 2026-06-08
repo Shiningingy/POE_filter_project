@@ -2,10 +2,10 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Broadhead Arrow Quiver": "宽头箭袋",
+        "Broadhead Arrow Quiver": "宽矢箭袋",
         "Spike-Point Arrow Quiver": "刺锋箭袋",
-        "Penetrating Arrow Quiver": "穿甲箭袋",
-        "Vile Arrow Quiver": "邪恶箭袋",
+        "Penetrating Arrow Quiver": "穿射箭袋",
+        "Vile Arrow Quiver": "恶矢箭袋",
         "__class_name__": "箭袋",
         "Blunt Arrow Quiver": "钝矢箭袋",
         "Fire Arrow Quiver": "火灵箭袋",
@@ -13,7 +13,10 @@
         "Feathered Arrow Quiver": "飞羽箭袋",
         "Blazing Arrow Quiver": "燃矢箭袋",
         "Heavy Arrow Quiver": "重矢箭袋",
-        "Primal Arrow Quiver": "原矢箭袋"
+        "Primal Arrow Quiver": "原矢箭袋",
+        "Two-Point Arrow Quiver": "双锋箭袋",
+        "Sharktooth Arrow Quiver": "鲨齿箭袋",
+        "Serrated Arrow Quiver": "锯齿箭袋"
       }
     },
     "item_class": {

@@ -2,11 +2,11 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Vaal Regalia": "瓦尔护甲",
-        "Hubris Circlet": "枢枢冠",
-        "Titanium Spirit Shield": "钛金之盾",
+        "Vaal Regalia": "瓦尔法衣",
+        "Hubris Circlet": "灵主之环",
+        "Titanium Spirit Shield": "巨人魔盾",
         "Sorcerer Boots": "术士长靴",
-        "Fingerless Silk Gloves": "苍指手套",
+        "Fingerless Silk Gloves": "丝绸手套",
         "Stygian Vise": "深渊腰带",
         "Opal Ring": "蛋白石戒指",
         "Steel Ring": "合金戒指",
@@ -40,7 +40,9 @@
         "HasInfluence": "Shaper Elder Crusader Redeemer Hunter Warlord",
         "ItemLevel": ">= 86"
       },
-      "overrides": { "Tier": "Tier 0 Influenced" },
+      "overrides": {
+        "Tier": "Tier 0 Influenced"
+      },
       "comment": "iLvl 86+ Influenced Bases"
     }
   ]
