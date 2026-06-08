@@ -20,7 +20,13 @@ def parse_group(group_key, group_data, path_prefix="", parent_default_target=Non
     loc_ch = group_data.get("_name", group_key)
     
     default_target = group_data.get("_default_target", parent_default_target)
-    
+
+    # Disk-path base for shorthand children. Defaults to the display key chain
+    # (path_prefix), but `_dir:` overrides it so a category can be displayed at a
+    # different level than where its files physically live (e.g. gear is shown as
+    # top-level Armour/Weapons/Jewellery but stored under Equipment/...).
+    dir_base = group_data.get("_dir", path_prefix)
+
     group_obj = {
         "_meta": {
             "localization": {
@@ -50,7 +56,8 @@ def parse_group(group_key, group_data, path_prefix="", parent_default_target=Non
             # Value can be string (ch name) or dict ({name: ch, target: ...})
             file_name_ch = value
             target_cat = default_target
-            file_path = f"{current_path}.json"
+            # Path derives from the disk-path base, not the display key chain.
+            file_path = f"{dir_base}/{key}.json" if dir_base else f"{key}.json"
             
             if isinstance(value, dict):
                 file_name_ch = value.get("name", key)

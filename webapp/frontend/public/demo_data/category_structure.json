@@ -339,9 +339,9 @@
       },
       "files": [
         {
-          "path": "Armour/Body Armours.json",
-          "tier_path": "tier_definition/Armour/Body Armours.json",
-          "mapping_path": "base_mapping/Armour/Body Armours.json",
+          "path": "Equipment/Armour/Body Armours.json",
+          "tier_path": "tier_definition/Equipment/Armour/Body Armours.json",
+          "mapping_path": "base_mapping/Equipment/Armour/Body Armours.json",
           "target_category": "Body Armours",
           "localization": {
             "en": "Body Armours",
@@ -349,9 +349,9 @@
           }
         },
         {
-          "path": "Armour/Helmets.json",
-          "tier_path": "tier_definition/Armour/Helmets.json",
-          "mapping_path": "base_mapping/Armour/Helmets.json",
+          "path": "Equipment/Armour/Helmets.json",
+          "tier_path": "tier_definition/Equipment/Armour/Helmets.json",
+          "mapping_path": "base_mapping/Equipment/Armour/Helmets.json",
           "target_category": "Helmets",
           "localization": {
             "en": "Helmets",
@@ -359,9 +359,9 @@
           }
         },
         {
-          "path": "Armour/Gloves.json",
-          "tier_path": "tier_definition/Armour/Gloves.json",
-          "mapping_path": "base_mapping/Armour/Gloves.json",
+          "path": "Equipment/Armour/Gloves.json",
+          "tier_path": "tier_definition/Equipment/Armour/Gloves.json",
+          "mapping_path": "base_mapping/Equipment/Armour/Gloves.json",
           "target_category": "Gloves",
           "localization": {
             "en": "Gloves",
@@ -369,9 +369,9 @@
           }
         },
         {
-          "path": "Armour/Boots.json",
-          "tier_path": "tier_definition/Armour/Boots.json",
-          "mapping_path": "base_mapping/Armour/Boots.json",
+          "path": "Equipment/Armour/Boots.json",
+          "tier_path": "tier_definition/Equipment/Armour/Boots.json",
+          "mapping_path": "base_mapping/Equipment/Armour/Boots.json",
           "target_category": "Boots",
           "localization": {
             "en": "Boots",
@@ -379,9 +379,9 @@
           }
         },
         {
-          "path": "Armour/Shields.json",
-          "tier_path": "tier_definition/Armour/Shields.json",
-          "mapping_path": "base_mapping/Armour/Shields.json",
+          "path": "Equipment/Armour/Shields.json",
+          "tier_path": "tier_definition/Equipment/Armour/Shields.json",
+          "mapping_path": "base_mapping/Equipment/Armour/Shields.json",
           "target_category": "Shields",
           "localization": {
             "en": "Shields",
@@ -389,9 +389,9 @@
           }
         },
         {
-          "path": "Armour/Quivers.json",
-          "tier_path": "tier_definition/Armour/Quivers.json",
-          "mapping_path": "base_mapping/Armour/Quivers.json",
+          "path": "Equipment/Armour/Quivers.json",
+          "tier_path": "tier_definition/Equipment/Armour/Quivers.json",
+          "mapping_path": "base_mapping/Equipment/Armour/Quivers.json",
           "target_category": "Quivers",
           "localization": {
             "en": "Quivers",
@@ -409,9 +409,9 @@
       },
       "files": [
         {
-          "path": "Weapons/Bows.json",
-          "tier_path": "tier_definition/Weapons/Bows.json",
-          "mapping_path": "base_mapping/Weapons/Bows.json",
+          "path": "Equipment/Weapons/Bows.json",
+          "tier_path": "tier_definition/Equipment/Weapons/Bows.json",
+          "mapping_path": "base_mapping/Equipment/Weapons/Bows.json",
           "target_category": "Bows",
           "localization": {
             "en": "Bows",
@@ -419,9 +419,9 @@
           }
         },
         {
-          "path": "Weapons/Wands.json",
-          "tier_path": "tier_definition/Weapons/Wands.json",
-          "mapping_path": "base_mapping/Weapons/Wands.json",
+          "path": "Equipment/Weapons/Wands.json",
+          "tier_path": "tier_definition/Equipment/Weapons/Wands.json",
+          "mapping_path": "base_mapping/Equipment/Weapons/Wands.json",
           "target_category": "Wands",
           "localization": {
             "en": "Wands",
@@ -429,9 +429,9 @@
           }
         },
         {
-          "path": "Weapons/Claws.json",
-          "tier_path": "tier_definition/Weapons/Claws.json",
-          "mapping_path": "base_mapping/Weapons/Claws.json",
+          "path": "Equipment/Weapons/Claws.json",
+          "tier_path": "tier_definition/Equipment/Weapons/Claws.json",
+          "mapping_path": "base_mapping/Equipment/Weapons/Claws.json",
           "target_category": "Claws",
           "localization": {
             "en": "Claws",
@@ -439,9 +439,9 @@
           }
         },
         {
-          "path": "Weapons/Daggers.json",
-          "tier_path": "tier_definition/Weapons/Daggers.json",
-          "mapping_path": "base_mapping/Weapons/Daggers.json",
+          "path": "Equipment/Weapons/Daggers.json",
+          "tier_path": "tier_definition/Equipment/Weapons/Daggers.json",
+          "mapping_path": "base_mapping/Equipment/Weapons/Daggers.json",
           "target_category": "Daggers",
           "localization": {
             "en": "Daggers",
@@ -449,9 +449,9 @@
           }
         },
         {
-          "path": "Weapons/Rune Daggers.json",
-          "tier_path": "tier_definition/Weapons/Rune Daggers.json",
-          "mapping_path": "base_mapping/Weapons/Rune Daggers.json",
+          "path": "Equipment/Weapons/Rune Daggers.json",
+          "tier_path": "tier_definition/Equipment/Weapons/Rune Daggers.json",
+          "mapping_path": "base_mapping/Equipment/Weapons/Rune Daggers.json",
           "target_category": "Rune Daggers",
           "localization": {
             "en": "Rune Daggers",
@@ -459,9 +459,9 @@
           }
         },
         {
-          "path": "Weapons/Sceptres.json",
-          "tier_path": "tier_definition/Weapons/Sceptres.json",
-          "mapping_path": "base_mapping/Weapons/Sceptres.json",
+          "path": "Equipment/Weapons/Sceptres.json",
+          "tier_path": "tier_definition/Equipment/Weapons/Sceptres.json",
+          "mapping_path": "base_mapping/Equipment/Weapons/Sceptres.json",
           "target_category": "Sceptres",
           "localization": {
             "en": "Sceptres",
@@ -469,9 +469,9 @@
           }
         },
         {
-          "path": "Weapons/Staves.json",
-          "tier_path": "tier_definition/Weapons/Staves.json",
-          "mapping_path": "base_mapping/Weapons/Staves.json",
+          "path": "Equipment/Weapons/Staves.json",
+          "tier_path": "tier_definition/Equipment/Weapons/Staves.json",
+          "mapping_path": "base_mapping/Equipment/Weapons/Staves.json",
           "target_category": "Staves",
           "localization": {
             "en": "Staves",
@@ -479,9 +479,9 @@
           }
         },
         {
-          "path": "Weapons/Warstaves.json",
-          "tier_path": "tier_definition/Weapons/Warstaves.json",
-          "mapping_path": "base_mapping/Weapons/Warstaves.json",
+          "path": "Equipment/Weapons/Warstaves.json",
+          "tier_path": "tier_definition/Equipment/Weapons/Warstaves.json",
+          "mapping_path": "base_mapping/Equipment/Weapons/Warstaves.json",
           "target_category": "Warstaves",
           "localization": {
             "en": "Warstaves",
@@ -489,9 +489,9 @@
           }
         },
         {
-          "path": "Weapons/One Hand Axes.json",
-          "tier_path": "tier_definition/Weapons/One Hand Axes.json",
-          "mapping_path": "base_mapping/Weapons/One Hand Axes.json",
+          "path": "Equipment/Weapons/One Hand Axes.json",
+          "tier_path": "tier_definition/Equipment/Weapons/One Hand Axes.json",
+          "mapping_path": "base_mapping/Equipment/Weapons/One Hand Axes.json",
           "target_category": "One Hand Axes",
           "localization": {
             "en": "One Hand Axes",
@@ -499,9 +499,9 @@
           }
         },
         {
-          "path": "Weapons/One Hand Maces.json",
-          "tier_path": "tier_definition/Weapons/One Hand Maces.json",
-          "mapping_path": "base_mapping/Weapons/One Hand Maces.json",
+          "path": "Equipment/Weapons/One Hand Maces.json",
+          "tier_path": "tier_definition/Equipment/Weapons/One Hand Maces.json",
+          "mapping_path": "base_mapping/Equipment/Weapons/One Hand Maces.json",
           "target_category": "One Hand Maces",
           "localization": {
             "en": "One Hand Maces",
@@ -509,9 +509,9 @@
           }
         },
         {
-          "path": "Weapons/One Hand Swords.json",
-          "tier_path": "tier_definition/Weapons/One Hand Swords.json",
-          "mapping_path": "base_mapping/Weapons/One Hand Swords.json",
+          "path": "Equipment/Weapons/One Hand Swords.json",
+          "tier_path": "tier_definition/Equipment/Weapons/One Hand Swords.json",
+          "mapping_path": "base_mapping/Equipment/Weapons/One Hand Swords.json",
           "target_category": "One Hand Swords",
           "localization": {
             "en": "One Hand Swords",
@@ -519,9 +519,9 @@
           }
         },
         {
-          "path": "Weapons/Two Hand Axes.json",
-          "tier_path": "tier_definition/Weapons/Two Hand Axes.json",
-          "mapping_path": "base_mapping/Weapons/Two Hand Axes.json",
+          "path": "Equipment/Weapons/Two Hand Axes.json",
+          "tier_path": "tier_definition/Equipment/Weapons/Two Hand Axes.json",
+          "mapping_path": "base_mapping/Equipment/Weapons/Two Hand Axes.json",
           "target_category": "Two Hand Axes",
           "localization": {
             "en": "Two Hand Axes",
@@ -529,9 +529,9 @@
           }
         },
         {
-          "path": "Weapons/Two Hand Maces.json",
-          "tier_path": "tier_definition/Weapons/Two Hand Maces.json",
-          "mapping_path": "base_mapping/Weapons/Two Hand Maces.json",
+          "path": "Equipment/Weapons/Two Hand Maces.json",
+          "tier_path": "tier_definition/Equipment/Weapons/Two Hand Maces.json",
+          "mapping_path": "base_mapping/Equipment/Weapons/Two Hand Maces.json",
           "target_category": "Two Hand Maces",
           "localization": {
             "en": "Two Hand Maces",
@@ -539,9 +539,9 @@
           }
         },
         {
-          "path": "Weapons/Two Hand Swords.json",
-          "tier_path": "tier_definition/Weapons/Two Hand Swords.json",
-          "mapping_path": "base_mapping/Weapons/Two Hand Swords.json",
+          "path": "Equipment/Weapons/Two Hand Swords.json",
+          "tier_path": "tier_definition/Equipment/Weapons/Two Hand Swords.json",
+          "mapping_path": "base_mapping/Equipment/Weapons/Two Hand Swords.json",
           "target_category": "Two Hand Swords",
           "localization": {
             "en": "Two Hand Swords",
@@ -559,9 +559,9 @@
       },
       "files": [
         {
-          "path": "Jewellery/Amulets.json",
-          "tier_path": "tier_definition/Jewellery/Amulets.json",
-          "mapping_path": "base_mapping/Jewellery/Amulets.json",
+          "path": "Equipment/Jewellery/Amulets.json",
+          "tier_path": "tier_definition/Equipment/Jewellery/Amulets.json",
+          "mapping_path": "base_mapping/Equipment/Jewellery/Amulets.json",
           "target_category": "Amulets",
           "localization": {
             "en": "Amulets",
@@ -569,9 +569,9 @@
           }
         },
         {
-          "path": "Jewellery/Rings.json",
-          "tier_path": "tier_definition/Jewellery/Rings.json",
-          "mapping_path": "base_mapping/Jewellery/Rings.json",
+          "path": "Equipment/Jewellery/Rings.json",
+          "tier_path": "tier_definition/Equipment/Jewellery/Rings.json",
+          "mapping_path": "base_mapping/Equipment/Jewellery/Rings.json",
           "target_category": "Rings",
           "localization": {
             "en": "Rings",
@@ -579,9 +579,9 @@
           }
         },
         {
-          "path": "Jewellery/Belts.json",
-          "tier_path": "tier_definition/Jewellery/Belts.json",
-          "mapping_path": "base_mapping/Jewellery/Belts.json",
+          "path": "Equipment/Jewellery/Belts.json",
+          "tier_path": "tier_definition/Equipment/Jewellery/Belts.json",
+          "mapping_path": "base_mapping/Equipment/Jewellery/Belts.json",
           "target_category": "Belts",
           "localization": {
             "en": "Belts",
