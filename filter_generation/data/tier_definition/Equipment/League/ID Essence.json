@@ -1,0 +1,44 @@
+{
+  "ID Mods: Essence": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "ID Mods: Essence",
+        "ch": "精华"
+      },
+      "tier_order": [
+        "ID Mods: Essence T1",
+        "ID Mods: Essence Hide"
+      ]
+    },
+    "ID Mods: Essence T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "ID Mods: Essence",
+        "ch": "精华"
+      }
+    },
+    "ID Mods: Essence Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

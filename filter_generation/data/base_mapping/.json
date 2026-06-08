@@ -1,12 +1,10 @@
 {
   "_meta": {
     "localization": {
-      "ch": {
-        "__class_name__": ""
-      }
+      "ch": {}
     },
     "item_class": {
-      "en": "",
+      "en": ".json",
       "ch": ""
     },
     "theme_category": ""

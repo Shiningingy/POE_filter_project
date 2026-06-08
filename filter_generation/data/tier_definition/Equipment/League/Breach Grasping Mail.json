@@ -1,0 +1,44 @@
+{
+  "Breach Grasping Mail": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Breach Grasping Mail",
+        "ch": "扼杀链甲"
+      },
+      "tier_order": [
+        "Breach Grasping Mail T1",
+        "Breach Grasping Mail Hide"
+      ]
+    },
+    "Breach Grasping Mail T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Breach Grasping Mail",
+        "ch": "扼杀链甲"
+      }
+    },
+    "Breach Grasping Mail Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

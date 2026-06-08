@@ -1,9 +1,7 @@
 {
   "_meta": {
     "localization": {
-      "ch": {
-        "__class_name__": "待分类"
-      }
+      "ch": {}
     },
     "item_class": {
       "en": "Unclassified",

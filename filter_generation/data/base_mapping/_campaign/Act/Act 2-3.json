@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {}
+    },
+    "item_class": {
+      "en": "Act 2/3",
+      "ch": "第二、三章"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {},
+  "rules": []
+}

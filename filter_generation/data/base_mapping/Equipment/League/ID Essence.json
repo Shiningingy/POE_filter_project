@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {}
+    },
+    "item_class": {
+      "en": "ID Mods: Essence",
+      "ch": "精华"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {},
+  "rules": []
+}

@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {}
+    },
+    "item_class": {
+      "en": "Mirror of Kalandra Ring Bases",
+      "ch": "魔镜戒指底材"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {},
+  "rules": []
+}

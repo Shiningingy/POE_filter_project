@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "excluded_modes": [
+      "ruthless"
+    ],
+    "localization": {
+      "ch": {}
+    },
+    "item_class": {
+      "en": "ID Mods: Incursion",
+      "ch": "穿越"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {},
+  "rules": []
+}

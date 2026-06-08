@@ -130,7 +130,7 @@ def sync_base_types(en2ch, dry_run):
 
 
 def sync_classes(cls_en2ch, dry_run):
-    """Secondary pass: sync _meta.item_class.ch + localization.ch.__class_name__."""
+    """Secondary pass: sync the canonical class label _meta.item_class.ch."""
     changed = 0
     for path in iter_mapping_files():
         rel = path.relative_to(BASE_MAPPING).as_posix()
@@ -148,11 +148,6 @@ def sync_classes(cls_en2ch, dry_run):
         if ic.get("ch") != official:
             print(f"  {rel}: item_class.ch {ic.get('ch')} -> {official}")
             ic["ch"] = official
-            touched = True
-        loc = meta.get("localization", {}).get("ch")
-        if isinstance(loc, dict) and "__class_name__" in loc and loc["__class_name__"] != official:
-            print(f"  {rel}: __class_name__ {loc['__class_name__']} -> {official}")
-            loc["__class_name__"] = official
             touched = True
 
         if touched:

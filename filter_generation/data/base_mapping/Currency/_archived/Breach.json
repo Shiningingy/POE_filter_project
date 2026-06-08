@@ -8,13 +8,12 @@
         "Splinter of Uul-Netol": "乌尔尼多裂片",
         "Splinter of Esh": "艾许裂片",
         "Splinter of Tul": "图利裂片",
-        "Splinter of Xoph": "索伏裂片",
-        "__class_name__": "裂隙"
+        "Splinter of Xoph": "索伏裂片"
       }
     },
     "item_class": {
       "en": "Stackable Currency",
-      "ch": "可堆叠通货"
+      "ch": "裂隙"
     },
     "theme_category": "Stackable Currency"
   },

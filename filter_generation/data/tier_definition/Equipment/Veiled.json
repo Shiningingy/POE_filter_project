@@ -1,0 +1,44 @@
+{
+  "Veiled Items": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Veiled Items",
+        "ch": "隐匿物品"
+      },
+      "tier_order": [
+        "Veiled Items T1",
+        "Veiled Items Hide"
+      ]
+    },
+    "Veiled Items T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Veiled Items",
+        "ch": "隐匿物品"
+      }
+    },
+    "Veiled Items Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

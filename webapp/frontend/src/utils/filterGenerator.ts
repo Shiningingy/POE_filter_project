@@ -162,7 +162,8 @@ export const generateFilter = (data: GeneratorData): string => {
     let itemTrans: Record<string, string> = {};
 
     if (typeof locData === 'object') {
-      locCat = locData.__class_name__ || meta.localization?.ch || locEn;
+      // Class label now lives canonically in _meta.item_class (was localization.ch.__class_name__).
+      locCat = mapMeta.item_class?.[language] || mapMeta.item_class?.ch || meta.localization?.ch || locEn;
       itemTrans = locData;
     } else {
       locCat = locData || locEn;

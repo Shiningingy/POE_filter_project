@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {}
+    },
+    "item_class": {
+      "en": "Quivers",
+      "ch": "箭袋"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {},
+  "rules": []
+}

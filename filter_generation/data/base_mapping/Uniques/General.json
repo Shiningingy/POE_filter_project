@@ -1,9 +1,7 @@
 {
   "_meta": {
     "localization": {
-      "ch": {
-        "__class_name__": "传奇物品"
-      }
+      "ch": {}
     },
     "item_class": {
       "en": "Unique Items",

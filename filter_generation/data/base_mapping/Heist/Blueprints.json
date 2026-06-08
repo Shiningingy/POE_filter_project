@@ -1,9 +1,10 @@
 {
   "_meta": {
-    "excluded_modes": ["ruthless"],
+    "excluded_modes": [
+      "ruthless"
+    ],
     "localization": {
       "ch": {
-        "__class_name__": "蓝图",
         "Blueprint: Bunker": "蓝图：堡垒",
         "Blueprint: Smuggler's Den": "蓝图：珍宝之地",
         "Blueprint: Laboratory": "蓝图：实验室",

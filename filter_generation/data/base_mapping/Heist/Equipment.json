@@ -1,9 +1,10 @@
 {
   "_meta": {
-    "excluded_modes": ["ruthless"],
+    "excluded_modes": [
+      "ruthless"
+    ],
     "localization": {
       "ch": {
-        "__class_name__": "盗贼装备",
         "Torn Cloak": "破旧披风",
         "Tattered Cloak": "破烂披风",
         "Hooded Cloak": "连帽披风",
@@ -56,7 +57,7 @@
     },
     "item_class": {
       "en": "Heist Tools",
-      "ch": "盗贼工具"
+      "ch": "盗贼装备"
     },
     "theme_category": "Stackable Currency"
   },

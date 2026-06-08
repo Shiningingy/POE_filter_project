@@ -1,0 +1,44 @@
+{
+  "Heist Experimented": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Heist Experimented",
+        "ch": "夺宝奇兵实验底材"
+      },
+      "tier_order": [
+        "Heist Experimented T1",
+        "Heist Experimented Hide"
+      ]
+    },
+    "Heist Experimented T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Heist Experimented",
+        "ch": "夺宝奇兵实验底材"
+      }
+    },
+    "Heist Experimented Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

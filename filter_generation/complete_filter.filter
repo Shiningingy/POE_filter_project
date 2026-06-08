@@ -29,29 +29,51 @@
 #    [34000] 装备 Equipment - 防具 Armour - 头部 Helmets
 #    [35000] 装备 Equipment - 防具 Armour - 箭袋 Quivers
 #    [36000] 装备 Equipment - 防具 Armour - 盾 Shields
-#    [37000] 装备 Equipment - 首饰 Jewellery - 项链 Amulets
-#    [38000] 装备 Equipment - 首饰 Jewellery - 腰带 Belts
-#    [39000] 装备 Equipment - 首饰 Jewellery - 戒指 Rings
-#    [40000] 装备 Equipment - 首饰 Jewellery - 饰品 Trinkets
-#    [41000] 装备 Equipment - 特殊 Special - 破碎装备 Fractured
-#    [42000] 装备 Equipment - 特殊 Special - 势力装备 Influenced
-#    [43000] 装备 Equipment - 特殊 Special - 合成装备 Synthesised
-#    [44000] 装备 Equipment - VendorRecipes VendorRecipes - 机会底材 Chancing Bases
-#    [45000] 装备 Equipment - VendorRecipes VendorRecipes - 商人配方 Vendor Recipes
-#    [46000] 装备 Equipment - 武器 Weapons - 弓 Bows
-#    [47000] 装备 Equipment - 武器 Weapons - 爪 Claws
-#    [48000] 装备 Equipment - 武器 Weapons - 匕首 Daggers
-#    [49000] 装备 Equipment - 武器 Weapons - 单手斧 One Hand Axes
-#    [50000] 装备 Equipment - 武器 Weapons - 单手锤 One Hand Maces
-#    [51000] 装备 Equipment - 武器 Weapons - 单手剑 One Hand Swords
-#    [52000] 装备 Equipment - 武器 Weapons - 符文匕首 Rune Daggers
-#    [53000] 装备 Equipment - 武器 Weapons - 短杖 Sceptres
-#    [54000] 装备 Equipment - 武器 Weapons - 长杖 Staves
-#    [55000] 装备 Equipment - 武器 Weapons - 双手斧 Two Hand Axes
-#    [56000] 装备 Equipment - 武器 Weapons - 双手锤 Two Hand Maces
-#    [57000] 装备 Equipment - 武器 Weapons - 双手剑 Two Hand Swords
-#    [58000] 装备 Equipment - 武器 Weapons - 法杖 Wands
-#    [59000] 装备 Equipment - 武器 Weapons - 战杖 Warstaves
+#    [37000] 装备 Equipment - 精品底材 Crafting Bases
+#    [38000] 装备 Equipment - 首饰 Jewellery - 项链 Amulets
+#    [39000] 装备 Equipment - 首饰 Jewellery - 腰带 Belts
+#    [40000] 装备 Equipment - 首饰 Jewellery - 戒指 Rings
+#    [41000] 装备 Equipment - 首饰 Jewellery - 饰品 Trinkets
+#    [42000] 装备 Equipment - League League - 深渊插槽道具 Abyss Socketed Items
+#    [43000] 装备 Equipment - League League - 菌潮附魔道具 Blight Anointed Items
+#    [44000] 装备 Equipment - League League - 扼杀链甲 Breach Grasping Mail
+#    [45000] 装备 Equipment - League League - 裂隙戒指 Breach Rings
+#    [46000] 装备 Equipment - League League - 先祖秘藏结界底材 Expedition Ward-Bases
+#    [47000] 装备 Equipment - League League - 夺宝奇兵实验底材 Heist Experimented
+#    [48000] 装备 Equipment - League League - 野兽词缀 ID Mods: Bestiary
+#    [49000] 装备 Equipment - League League - 地心 ID Mods: Delve
+#    [50000] 装备 Equipment - League League - 精华 ID Mods: Essence
+#    [51000] 装备 Equipment - League League - 穿越 ID Mods: Incursion
+#    [52000] 装备 Equipment - League League - 恶名词缀 ID Mods: Mercenaries
+#    [53000] 装备 Equipment - League League - 战团装备 ID Mods: Warband
+#    [54000] 装备 Equipment - League League - 魔镜戒指底材 Mirror of Kalandra Ring Bases
+#    [55000] 装备 Equipment - League League - 仪式底材 Ritual BaseTypes
+#    [56000] 装备 Equipment - League League - 祭礼束衣 Sacrificial Garbs
+#    [57000] 装备 Equipment - League League - 深渊腰带 Stygian Vise
+#    [58000] 装备 Equipment - League League - 护身符 Talismans
+#    [59000] 装备 Equipment - 高连物品 Linked Items
+#    [60000] 装备 Equipment - 追忆物品 Memory-Stranded
+#    [61000] 装备 Equipment - 遗物 Relics
+#    [62000] 装备 Equipment - 特殊 Special - 破碎装备 Fractured
+#    [63000] 装备 Equipment - 特殊 Special - 势力装备 Influenced
+#    [64000] 装备 Equipment - 特殊 Special - 合成装备 Synthesised
+#    [65000] 装备 Equipment - 隐匿物品 Veiled Items
+#    [66000] 装备 Equipment - VendorRecipes VendorRecipes - 机会底材 Chancing Bases
+#    [67000] 装备 Equipment - VendorRecipes VendorRecipes - 洞&色&连 Sockets Colors Links
+#    [68000] 装备 Equipment - 武器 Weapons - 弓 Bows
+#    [69000] 装备 Equipment - 武器 Weapons - 爪 Claws
+#    [70000] 装备 Equipment - 武器 Weapons - 匕首 Daggers
+#    [71000] 装备 Equipment - 武器 Weapons - 单手斧 One Hand Axes
+#    [72000] 装备 Equipment - 武器 Weapons - 单手锤 One Hand Maces
+#    [73000] 装备 Equipment - 武器 Weapons - 单手剑 One Hand Swords
+#    [74000] 装备 Equipment - 武器 Weapons - 符文匕首 Rune Daggers
+#    [75000] 装备 Equipment - 武器 Weapons - 短杖 Sceptres
+#    [76000] 装备 Equipment - 武器 Weapons - 长杖 Staves
+#    [77000] 装备 Equipment - 武器 Weapons - 双手斧 Two Hand Axes
+#    [78000] 装备 Equipment - 武器 Weapons - 双手锤 Two Hand Maces
+#    [79000] 装备 Equipment - 武器 Weapons - 双手剑 Two Hand Swords
+#    [80000] 装备 Equipment - 武器 Weapons - 法杖 Wands
+#    [81000] 装备 Equipment - 武器 Weapons - 战杖 Warstaves
 #  [40000] 药剂 Flasks
 #    [41000] 药剂 Flasks - 生命药剂 Life Flasks
 #    [42000] 药剂 Flasks - 魔力药剂 Mana Flasks
@@ -82,22 +104,38 @@
 #  [110000] 传奇 Uniques
 #    [111000] 传奇 Uniques - 传奇物品 Unique Items
 #  [120000] 过渡 _campaign
-#    [121000] 过渡 _campaign - 过渡护甲 Campaign Armour
-#    [122000] 过渡 _campaign - 过渡药剂 Campaign Flasks
-#    [123000] 过渡 _campaign - 武器 Weapons - 过渡弓 Campaign Bows
-#    [124000] 过渡 _campaign - 武器 Weapons - 过渡爪 Campaign Claws
-#    [125000] 过渡 _campaign - 武器 Weapons - 过渡匕首 Campaign Daggers
-#    [126000] 过渡 _campaign - 武器 Weapons - 过渡单手斧 Campaign One Hand Axes
-#    [127000] 过渡 _campaign - 武器 Weapons - 过渡单手锤 Campaign One Hand Maces
-#    [128000] 过渡 _campaign - 武器 Weapons - 过渡单手剑 Campaign One Hand Swords
-#    [129000] 过渡 _campaign - 武器 Weapons - 过渡符文匕首 Campaign Rune Daggers
-#    [130000] 过渡 _campaign - 武器 Weapons - 过渡短杖 Campaign Sceptres
-#    [131000] 过渡 _campaign - 武器 Weapons - 过渡长杖 Campaign Staves
-#    [132000] 过渡 _campaign - 武器 Weapons - 过渡双手斧 Campaign Two Hand Axes
-#    [133000] 过渡 _campaign - 武器 Weapons - 过渡双手锤 Campaign Two Hand Maces
-#    [134000] 过渡 _campaign - 武器 Weapons - 过渡双手剑 Campaign Two Hand Swords
-#    [135000] 过渡 _campaign - 武器 Weapons - 过渡法杖 Campaign Wands
-#    [136000] 过渡 _campaign - 武器 Weapons - 过渡战杖 Campaign Warstaves
+#    [121000] 过渡 _campaign - Act Act - 第一章 Act 1
+#    [122000] 过渡 _campaign - Act Act - 第二、三章 Act 2/3
+#    [123000] 过渡 _campaign - Act Act - 第四至六章 Act 4/5/6
+#    [124000] 过渡 _campaign - Act Act - 攻击手杖 Attack Wands
+#    [125000] 过渡 _campaign - Act Act - 珠宝 Jewels
+#    [126000] 过渡 _campaign - Act Act - 箭袋 Quivers
+#    [127000] 过渡 _campaign - Act Act - 召唤流装备 Summoner Gear
+#    [128000] 过渡 _campaign - 过渡护甲 Campaign Armour
+#    [129000] 过渡 _campaign - 色卡配方物品 Chromatic Recipe Items
+#    [130000] 过渡 _campaign - 过渡药剂 Campaign Flasks
+#    [131000] 过渡 _campaign - 魔法物品 Magic Items
+#    [132000] 过渡 _campaign - 早期普通物品 Normal Items - Early
+#    [133000] 过渡 _campaign - 品质药剂 Quality Flasks
+#    [134000] 过渡 _campaign - Rare Rare - 首饰与护甲 Jewellery & Armours
+#    [135000] 过渡 _campaign - Rare Rare - 特殊瞩目掉落 Special Noteworthy Drops
+#    [136000] 过渡 _campaign - Rare Rare - 其余稀有 Remaining Rares
+#    [137000] 过渡 _campaign - Rare Rare - 武器突显 Weapon Highlight
+#    [138000] 过渡 _campaign - 酊剂 Tinctures
+#    [139000] 过渡 _campaign - 武器 Weapons - 过渡弓 Campaign Bows
+#    [140000] 过渡 _campaign - 武器 Weapons - 过渡爪 Campaign Claws
+#    [141000] 过渡 _campaign - 武器 Weapons - 过渡匕首 Campaign Daggers
+#    [142000] 过渡 _campaign - 武器 Weapons - 过渡单手斧 Campaign One Hand Axes
+#    [143000] 过渡 _campaign - 武器 Weapons - 过渡单手锤 Campaign One Hand Maces
+#    [144000] 过渡 _campaign - 武器 Weapons - 过渡单手剑 Campaign One Hand Swords
+#    [145000] 过渡 _campaign - 武器 Weapons - 过渡符文匕首 Campaign Rune Daggers
+#    [146000] 过渡 _campaign - 武器 Weapons - 过渡短杖 Campaign Sceptres
+#    [147000] 过渡 _campaign - 武器 Weapons - 过渡长杖 Campaign Staves
+#    [148000] 过渡 _campaign - 武器 Weapons - 过渡双手斧 Campaign Two Hand Axes
+#    [149000] 过渡 _campaign - 武器 Weapons - 过渡双手锤 Campaign Two Hand Maces
+#    [150000] 过渡 _campaign - 武器 Weapons - 过渡双手剑 Campaign Two Hand Swords
+#    [151000] 过渡 _campaign - 武器 Weapons - 过渡法杖 Campaign Wands
+#    [152000] 过渡 _campaign - 武器 Weapons - 过渡战杖 Campaign Warstaves
 #  [130000] _legacy _legacy
 #    [131000] _legacy _legacy - 历史物品 Legacy
 #========================================
@@ -1883,9 +1921,11 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[37000]-装备 Equipment - 首饰 Jewellery - 项链 Amulets==
+#==[37000]-装备 Equipment - 精品底材 Crafting Bases==
 
-#==[37001]- Amulets -T0: i86 Top Bases 项链 - #1 i86 Top Amulets - 精确==
+#==[38000]-装备 Equipment - 首饰 Jewellery - 项链 Amulets==
+
+#==[38001]- Amulets -T0: i86 Top Bases 项链 - #1 i86 Top Amulets - 精确==
 Show
     BaseType == "Blue Pearl Amulet" "Marble Amulet" "Seaglass Amulet"
     ItemLevel >= 86
@@ -1898,7 +1938,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[37002]- Amulets -T0: i86 Top Bases 项链 - 基础 - 精确==
+#==[38002]- Amulets -T0: i86 Top Bases 项链 - 基础 - 精确==
 Show
     BaseType == "Agate Amulet" "Citrine Amulet" "Onyx Amulet" "Turquoise Amulet"
     ItemLevel >= 68
@@ -1912,7 +1952,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[37003]- Amulets -T1: High End 项链 - #1 i84 Top Amulets - 精确==
+#==[38003]- Amulets -T1: High End 项链 - #1 i84 Top Amulets - 精确==
 Show
     BaseType == "Blue Pearl Amulet" "Marble Amulet" "Seaglass Amulet"
     ItemLevel >= 84
@@ -1925,7 +1965,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[37004]- Amulets -T1: High End 项链 - 基础 - 精确==
+#==[38004]- Amulets -T1: High End 项链 - 基础 - 精确==
 Show
     BaseType == "Amber Amulet" "Jade Amulet" "Lapis Amulet"
     ItemLevel >= 68
@@ -1939,7 +1979,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[37005]- Amulets -T2: Good Bases 项链 - 基础 - 精确==
+#==[38005]- Amulets -T2: Good Bases 项链 - 基础 - 精确==
 Show
     BaseType == "Coral Amulet" "Gold Amulet" "Paua Amulet" "Seaglass Amulet"
     Rarity <= Rare
@@ -1952,7 +1992,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[37006]- Amulets -T3: Mid Tier 项链 - 自动音效：星盘项链 - 精确==
+#==[38006]- Amulets -T3: Mid Tier 项链 - 自动音效：星盘项链 - 精确==
 Show
     BaseType == "Astrolabe Amulet"
     SetFontSize 37
@@ -1964,7 +2004,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[37007]- Amulets -T3: Mid Tier 项链 - 自动音效：朴实项链 - 精确==
+#==[38007]- Amulets -T3: Mid Tier 项链 - 自动音效：朴实项链 - 精确==
 Show
     BaseType == "Simplex Amulet"
     SetFontSize 37
@@ -1976,7 +2016,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[37008]- Amulets -T3: Mid Tier 项链 - 基础 - 精确==
+#==[38008]- Amulets -T3: Mid Tier 项链 - 基础 - 精确==
 Show
     BaseType == "Ashscale Talisman" "Avian Twins Talisman" "Black Maw Talisman" "Bonespire Talisman" "Breakrib Talisman" "Chrysalis Talisman" "Clutching Talisman" "Deadhand Talisman" "Deep One Talisman" "Fangjaw Talisman" "Focused Amulet" "Greatwolf Talisman" "Hexclaw Talisman" "Horned Talisman" "Lone Antler Talisman" "Longtooth Talisman" "Mandible Talisman" "Monkey Paw Talisman" "Monkey Twins Talisman" "Primal Skull Talisman" "Rot Head Talisman" "Rotfeather Talisman" "Spinefuse Talisman" "Splitnewt Talisman" "Three Hands Talisman" "Three Rat Talisman" "Undying Flesh Talisman" "Wereclaw Talisman" "Writhing Talisman"
     SetFontSize 37
@@ -1987,9 +2027,9 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[38000]-装备 Equipment - 首饰 Jewellery - 腰带 Belts==
+#==[39000]-装备 Equipment - 首饰 Jewellery - 腰带 Belts==
 
-#==[38001]- Belts -T0: i86 Top Bases 腰带 - #1 i86 Top Belts - 精确==
+#==[39001]- Belts -T0: i86 Top Bases 腰带 - #1 i86 Top Belts - 精确==
 Show
     BaseType == "Stygian Vise" "Crystal Belt"
     ItemLevel >= 86
@@ -2002,7 +2042,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[38002]- Belts -T1: High End 腰带 - #1 i84 Top Belts - 精确==
+#==[39002]- Belts -T1: High End 腰带 - #1 i84 Top Belts - 精确==
 Show
     BaseType == "Stygian Vise" "Crystal Belt"
     ItemLevel >= 84
@@ -2015,7 +2055,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[38003]- Belts -T1: High End 腰带 - 自动音效：先锋腰带 - 精确==
+#==[39003]- Belts -T1: High End 腰带 - 自动音效：先锋腰带 - 精确==
 Show
     BaseType == "Vanguard Belt"
     SetFontSize 42
@@ -2027,7 +2067,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[38004]- Belts -T1: High End 腰带 - 基础 - 精确==
+#==[39004]- Belts -T1: High End 腰带 - 基础 - 精确==
 Show
     BaseType == "Heavy Belt" "Leather Belt"
     ItemLevel >= 68
@@ -2041,7 +2081,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[38005]- Belts -T2: Good Bases 腰带 - 基础 - 精确==
+#==[39005]- Belts -T2: Good Bases 腰带 - 基础 - 精确==
 Show
     BaseType == "Chain Belt" "Cloth Belt" "Rustic Sash" "Studded Belt"
     Rarity <= Rare
@@ -2054,7 +2094,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[38006]- Belts -T3: Mid Tier 腰带 - 基础 - 精确==
+#==[39006]- Belts -T3: Mid Tier 腰带 - 基础 - 精确==
 Show
     BaseType == "Mechalarm Belt" "Mechanical Belt" "Micro-Distillery Belt"
     SetFontSize 37
@@ -2065,9 +2105,9 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[39000]-装备 Equipment - 首饰 Jewellery - 戒指 Rings==
+#==[40000]-装备 Equipment - 首饰 Jewellery - 戒指 Rings==
 
-#==[39001]- Rings -T0: i86 Top Bases 戒指 - #1 i86 Top Rings - 精确==
+#==[40001]- Rings -T0: i86 Top Bases 戒指 - #1 i86 Top Rings - 精确==
 Show
     BaseType == "Opal Ring" "Steel Ring" "Vermillion Ring" "Iolite Ring" "Cerulean Ring"
     ItemLevel >= 86
@@ -2080,7 +2120,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[39002]- Rings -T0: i86 Top Bases 戒指 - 自动音效：紫晶戒指 - 精确==
+#==[40002]- Rings -T0: i86 Top Bases 戒指 - 自动音效：紫晶戒指 - 精确==
 Show
     BaseType == "Amethyst Ring"
     SetFontSize 45
@@ -2092,7 +2132,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[39003]- Rings -T0: i86 Top Bases 戒指 - 基础 - 精确==
+#==[40003]- Rings -T0: i86 Top Bases 戒指 - 基础 - 精确==
 Show
     BaseType == "Prismatic Ring" "Two-Stone Ring"
     ItemLevel >= 68
@@ -2106,7 +2146,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[39004]- Rings -T1: High End 戒指 - #1 i84 Top Rings - 精确==
+#==[40004]- Rings -T1: High End 戒指 - #1 i84 Top Rings - 精确==
 Show
     BaseType == "Opal Ring" "Steel Ring" "Vermillion Ring" "Iolite Ring" "Cerulean Ring"
     ItemLevel >= 84
@@ -2119,7 +2159,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[39005]- Rings -T1: High End 戒指 - 基础 - 精确==
+#==[40005]- Rings -T1: High End 戒指 - 基础 - 精确==
 Show
     BaseType == "Bone Ring" "Diamond Ring" "Ruby Ring" "Sapphire Ring" "Topaz Ring" "Unset Ring"
     ItemLevel >= 68
@@ -2133,7 +2173,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[39006]- Rings -T2: Good Bases 戒指 - 基础 - 精确==
+#==[40006]- Rings -T2: Good Bases 戒指 - 基础 - 精确==
 Show
     BaseType == "Gold Ring" "Iron Ring" "Moonstone Ring" "Paua Ring"
     Rarity <= Rare
@@ -2146,7 +2186,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[39007]- Rings -T3: Mid Tier 戒指 - 基础 - 精确==
+#==[40007]- Rings -T3: Mid Tier 戒指 - 基础 - 精确==
 Show
     BaseType == "Cogwork Ring" "Composite Ring" "Coral Ring" "Cryonic Ring" "Dusk Ring" "Enthalpic Ring" "Formless Ring" "Fugitive Ring" "Geodesic Ring" "Gloam Ring" "Helical Ring" "Manifold Ring" "Nameless Ring" "Organic Ring" "Penumbra Ring" "Ratcheting Ring" "Shadowed Ring" "Synaptic Ring" "Tenebrous Ring"
     SetFontSize 37
@@ -2157,9 +2197,9 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[40000]-装备 Equipment - 首饰 Jewellery - 饰品 Trinkets==
+#==[41000]-装备 Equipment - 首饰 Jewellery - 饰品 Trinkets==
 
-#==[40001]- Trinkets -Tier 1 饰品 - 基础 - 精确==
+#==[41001]- Trinkets -Tier 1 饰品 - 基础 - 精确==
 Show
     BaseType == "Thief's Trinket"
     ItemLevel >= 68
@@ -2172,11 +2212,62 @@ Show
     MinimapIcon RedStar
 
 
-#==[41000]-装备 Equipment - 特殊 Special - 破碎装备 Fractured==
+#==[42000]-装备 Equipment - League League - 深渊插槽道具 Abyss Socketed Items==
 
-#==[42000]-装备 Equipment - 特殊 Special - 势力装备 Influenced==
+#==[43000]-装备 Equipment - League League - 菌潮附魔道具 Blight Anointed Items==
 
-#==[42001]- Influenced -T0: iLvl 86+ 势力装备 - 自动音效：深渊腰带 - 精确==
+#==[44000]-装备 Equipment - League League - 扼杀链甲 Breach Grasping Mail==
+
+#==[45000]-装备 Equipment - League League - 裂隙戒指 Breach Rings==
+
+#==[46000]-装备 Equipment - League League - 先祖秘藏结界底材 Expedition Ward-Bases==
+
+#==[47000]-装备 Equipment - League League - 夺宝奇兵实验底材 Heist Experimented==
+
+#==[48000]-装备 Equipment - League League - 野兽词缀 ID Mods: Bestiary==
+
+#==[49000]-装备 Equipment - League League - 地心 ID Mods: Delve==
+
+#==[50000]-装备 Equipment - League League - 精华 ID Mods: Essence==
+
+#==[51000]-装备 Equipment - League League - 穿越 ID Mods: Incursion==
+
+#==[52000]-装备 Equipment - League League - 恶名词缀 ID Mods: Mercenaries==
+
+#==[53000]-装备 Equipment - League League - 战团装备 ID Mods: Warband==
+
+#==[54000]-装备 Equipment - League League - 魔镜戒指底材 Mirror of Kalandra Ring Bases==
+
+#==[55000]-装备 Equipment - League League - 仪式底材 Ritual BaseTypes==
+
+#==[56000]-装备 Equipment - League League - 祭礼束衣 Sacrificial Garbs==
+
+#==[57000]-装备 Equipment - League League - 深渊腰带 Stygian Vise==
+
+#==[58000]-装备 Equipment - League League - 护身符 Talismans==
+
+#==[59000]-装备 Equipment - 高连物品 Linked Items==
+
+#==[60000]-装备 Equipment - 追忆物品 Memory-Stranded==
+
+#==[61000]-装备 Equipment - 遗物 Relics==
+
+#==[61001]- Relics -Relics 遗物 - Class Condition==
+Show
+    Class "Relics" "Small Relics" "Medium Relics" "Large Relics" "Sanctified Relics"
+    SetFontSize 40
+    SetTextColor 52 0 255 255
+    SetBorderColor 52 0 255 255
+    SetBackgroundColor 255 255 255 255
+    PlayEffect Red
+    MinimapIcon RedStar
+
+
+#==[62000]-装备 Equipment - 特殊 Special - 破碎装备 Fractured==
+
+#==[63000]-装备 Equipment - 特殊 Special - 势力装备 Influenced==
+
+#==[63001]- Influenced -T0: iLvl 86+ 势力装备 - 自动音效：深渊腰带 - 精确==
 Show
     BaseType == "Stygian Vise"
     SetFontSize 45
@@ -2188,7 +2279,7 @@ Show
     MinimapIcon GreenStar
 
 
-#==[42002]- Influenced -T0: iLvl 86+ 势力装备 - 基础 - 精确==
+#==[63002]- Influenced -T0: iLvl 86+ 势力装备 - 基础 - 精确==
 Show
     BaseType == "Hubris Circlet" "Titanium Spirit Shield" "Vaal Regalia"
     SetFontSize 45
@@ -2200,7 +2291,7 @@ Show
     MinimapIcon GreenStar
 
 
-#==[42003]- Influenced -T1: High iLvl 势力装备 - 自动音效：丝绸手套 - 精确==
+#==[63003]- Influenced -T1: High iLvl 势力装备 - 自动音效：丝绸手套 - 精确==
 Show
     BaseType == "Fingerless Silk Gloves"
     SetFontSize 40
@@ -2210,7 +2301,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\丝绸手套.mp3" 200
 
 
-#==[42004]- Influenced -T1: High iLvl 势力装备 - 自动音效：蛋白石戒指 - 精确==
+#==[63004]- Influenced -T1: High iLvl 势力装备 - 自动音效：蛋白石戒指 - 精确==
 Show
     BaseType == "Opal Ring"
     SetFontSize 40
@@ -2220,7 +2311,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\蛋白石戒指.mp3" 200
 
 
-#==[42005]- Influenced -T1: High iLvl 势力装备 - 自动音效：合金戒指 - 精确==
+#==[63005]- Influenced -T1: High iLvl 势力装备 - 自动音效：合金戒指 - 精确==
 Show
     BaseType == "Steel Ring"
     SetFontSize 40
@@ -2230,7 +2321,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\合金戒指.mp3" 200
 
 
-#==[42006]- Influenced -T1: High iLvl 势力装备 - 自动音效：碧珠护身符 - 精确==
+#==[63006]- Influenced -T1: High iLvl 势力装备 - 自动音效：碧珠护身符 - 精确==
 Show
     BaseType == "Blue Pearl Amulet"
     SetFontSize 40
@@ -2240,7 +2331,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\碧珠护身符.mp3" 200
 
 
-#==[42007]- Influenced -T1: High iLvl 势力装备 - 自动音效：大理石护身符 - 精确==
+#==[63007]- Influenced -T1: High iLvl 势力装备 - 自动音效：大理石护身符 - 精确==
 Show
     BaseType == "Marble Amulet"
     SetFontSize 40
@@ -2250,7 +2341,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\大理石护身符.mp3" 200
 
 
-#==[42008]- Influenced -T1: High iLvl 势力装备 - 基础 - 精确==
+#==[63008]- Influenced -T1: High iLvl 势力装备 - 基础 - 精确==
 Show
     BaseType == "Sorcerer Boots"
     SetFontSize 40
@@ -2260,11 +2351,13 @@ Show
     PlayAlertSound 1 300
 
 
-#==[43000]-装备 Equipment - 特殊 Special - 合成装备 Synthesised==
+#==[64000]-装备 Equipment - 特殊 Special - 合成装备 Synthesised==
 
-#==[44000]-装备 Equipment - VendorRecipes VendorRecipes - 机会底材 Chancing Bases==
+#==[65000]-装备 Equipment - 隐匿物品 Veiled Items==
 
-#==[44001]- Chancing Bases -Chancing Targets (Normal) 机会底材 - 自动音效：Opal Ring - 精确==
+#==[66000]-装备 Equipment - VendorRecipes VendorRecipes - 机会底材 Chancing Bases==
+
+#==[66001]- Chancing Bases -Chancing Targets (Normal) 机会底材 - 自动音效：Opal Ring - 精确==
 Show
     BaseType == "Opal Ring"
     SetFontSize 40
@@ -2276,7 +2369,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[44002]- Chancing Bases -Chancing Targets (Normal) 机会底材 - 基础 - 精确==
+#==[66002]- Chancing Bases -Chancing Targets (Normal) 机会底材 - 基础 - 精确==
 Show
     BaseType == "Assassin's Garb" "Brine Crown" "Death's Hand" "Harbinger Bow" "Imperial Bow" "Murder Mitts" "Occultist's Vestment" "Two-Stone Ring" "Vaal Regalia"
     Rarity Normal
@@ -2289,9 +2382,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[45000]-装备 Equipment - VendorRecipes VendorRecipes - 商人配方 Vendor Recipes==
+#==[67000]-装备 Equipment - VendorRecipes VendorRecipes - 洞&色&连 Sockets Colors Links==
 
-#==[45001]- Vendor Recipes -6-Link (6 Divine Orbs) 商人配方 - Class Condition==
+#==[67001]- Sockets Colors Links -6-Link 洞&色&连 - Class Condition==
 Show
     Class "Body Armours" "Helmets" "Gloves" "Boots" "Shields" "Bows" "Wands" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Warstaves" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords"
     LinkedSockets >= 6
@@ -2304,7 +2397,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[45002]- Vendor Recipes -6-Socket (7 Jeweller's Orbs) 商人配方 - Class Condition==
+#==[67002]- Sockets Colors Links -6-Socket 洞&色&连 - Class Condition==
 Show
     Class "Body Armours" "Helmets" "Gloves" "Boots" "Shields" "Bows" "Wands" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Warstaves" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords"
     Sockets >= 6
@@ -2317,12 +2410,10 @@ Show
     MinimapIcon RedStar
 
 
-#==[45003]- Vendor Recipes -Chaos Recipe (ilvl 60-74 Rare) 商人配方 - Class Condition==
+#==[67003]- Sockets Colors Links -RGB Linked 洞&色&连 - Class Condition==
 Show
-    Class "Body Armours" "Helmets" "Gloves" "Boots" "Shields" "Bows" "Wands" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Warstaves" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords" "Rings" "Amulets" "Belts"
-    Rarity Rare
-    ItemLevel >= 60
-    ItemLevel <= 74
+    Class "Body Armours" "Helmets" "Gloves" "Boots" "Shields" "Bows" "Wands" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Warstaves" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords"
+    SocketGroup RGB
     SetFontSize 37
     SetTextColor 0 0 0 255
     SetBorderColor 0 0 0 255
@@ -2331,22 +2422,9 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[45004]- Vendor Recipes -Regal Recipe (ilvl 75+ Rare) 商人配方 - Class Condition==
-Show
-    Class "Body Armours" "Helmets" "Gloves" "Boots" "Shields" "Bows" "Wands" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Warstaves" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords" "Rings" "Amulets" "Belts"
-    Rarity Rare
-    ItemLevel >= 75
-    SetFontSize 35
-    SetTextColor 0 0 0 255
-    SetBorderColor 0 0 0 255
-    SetBackgroundColor 213 159 0 255
-    PlayEffect Yellow
-    MinimapIcon YellowCircle
+#==[68000]-装备 Equipment - 武器 Weapons - 弓 Bows==
 
-
-#==[46000]-装备 Equipment - 武器 Weapons - 弓 Bows==
-
-#==[46001]- Bows -T0: i86 Top Bases 弓 - #1 i86 Top Bows - 精确==
+#==[68001]- Bows -T0: i86 Top Bases 弓 - #1 i86 Top Bows - 精确==
 Show
     BaseType == "Spine Bow" "Thicket Bow" "Imperial Bow"
     ItemLevel >= 86
@@ -2359,7 +2437,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[46002]- Bows -T0: i86 Top Bases 弓 - 基础 - 精确==
+#==[68002]- Bows -T0: i86 Top Bases 弓 - 基础 - 精确==
 Show
     BaseType == "Assassin Bow" "Harbinger Bow" "Maraketh Bow" "Solarine Bow"
     ItemLevel >= 68
@@ -2373,7 +2451,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[46003]- Bows -T1: High iLvl Bases 弓 - #1 i84 Top Bows - 精确==
+#==[68003]- Bows -T1: High iLvl Bases 弓 - #1 i84 Top Bows - 精确==
 Show
     BaseType == "Spine Bow" "Thicket Bow" "Imperial Bow"
     ItemLevel >= 84
@@ -2386,7 +2464,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[46004]- Bows -T1: High iLvl Bases 弓 - 基础 - 精确==
+#==[68004]- Bows -T1: High iLvl Bases 弓 - 基础 - 精确==
 Show
     BaseType == "Citadel Bow" "Decimation Bow" "Foundry Bow" "Highborn Bow" "Ranger Bow" "Steelwood Bow"
     ItemLevel >= 68
@@ -2400,7 +2478,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[46005]- Bows -T2: Decent Bases 弓 - 基础 - 精确==
+#==[68005]- Bows -T2: Decent Bases 弓 - 基础 - 精确==
 Show
     BaseType == "Compound Bow" "Decurve Bow" "Ivory Bow" "Reflex Bow" "Sniper Bow"
     Rarity <= Rare
@@ -2413,7 +2491,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[46006]- Bows -T3: Mid Tier 弓 - 基础 - 精确==
+#==[68006]- Bows -T3: Mid Tier 弓 - 基础 - 精确==
 Show
     BaseType == "Bone Bow" "Death Bow" "Grove Bow" "Hedron Bow" "Royal Bow"
     SetFontSize 37
@@ -2424,7 +2502,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[46007]- Bows -T4: Low Tier 弓 - 基础 - 精确==
+#==[68007]- Bows -T4: Low Tier 弓 - 基础 - 精确==
 Show
     BaseType == "Composite Bow" "Crude Bow" "Long Bow" "Recurve Bow" "Short Bow"
     SetFontSize 35
@@ -2435,9 +2513,9 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[47000]-装备 Equipment - 武器 Weapons - 爪 Claws==
+#==[69000]-装备 Equipment - 武器 Weapons - 爪 Claws==
 
-#==[47001]- Claws -T0: i86 Top Claws 爪 - #1 i86 Top Claws - 精确==
+#==[69001]- Claws -T0: i86 Top Claws 爪 - #1 i86 Top Claws - 精确==
 Show
     BaseType == "Imperial Claw" "Gemini Claw" "Great White Claw"
     ItemLevel >= 86
@@ -2450,7 +2528,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[47002]- Claws -T0: i86 Top Claws 爪 - 基础 - 精确==
+#==[69002]- Claws -T0: i86 Top Claws 爪 - 基础 - 精确==
 Show
     BaseType == "Eye Gouger" "Hellion's Paw" "Terror Claw" "Vaal Claw" "Void Fangs"
     ItemLevel >= 68
@@ -2464,7 +2542,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[47003]- Claws -T1: High iLvl Claws 爪 - #1 i84 Top Claws - 精确==
+#==[69003]- Claws -T1: High iLvl Claws 爪 - #1 i84 Top Claws - 精确==
 Show
     BaseType == "Imperial Claw" "Gemini Claw" "Great White Claw"
     ItemLevel >= 84
@@ -2477,7 +2555,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[47004]- Claws -T1: High iLvl Claws 爪 - 基础 - 精确==
+#==[69004]- Claws -T1: High iLvl Claws 爪 - 基础 - 精确==
 Show
     BaseType == "Eagle Claw" "Malign Fangs" "Noble Claw" "Throat Stabber" "Twin Claw"
     ItemLevel >= 68
@@ -2491,7 +2569,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[47005]- Claws -T2: Decent Bases 爪 - 基础 - 精确==
+#==[69005]- Claws -T2: Decent Bases 爪 - 基础 - 精确==
 Show
     BaseType == "Double Claw" "Gouger" "Gut Ripper" "Prehistoric Claw" "Thresher Claw" "Tiger's Paw"
     Rarity <= Rare
@@ -2504,7 +2582,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[47006]- Claws -T3: Mid Tier 爪 - 基础 - 精确==
+#==[69006]- Claws -T3: Mid Tier 爪 - 基础 - 精确==
 Show
     BaseType == "Blinder" "Fright Claw" "Shadow Fangs" "Sparkling Claw" "Timeworn Claw"
     SetFontSize 37
@@ -2515,7 +2593,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[47007]- Claws -T4: Low Tier 爪 - 基础 - 精确==
+#==[69007]- Claws -T4: Low Tier 爪 - 基础 - 精确==
 Show
     BaseType == "Awl" "Cat's Paw" "Nailed Fist" "Sharktooth Claw"
     SetFontSize 35
@@ -2526,9 +2604,9 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[48000]-装备 Equipment - 武器 Weapons - 匕首 Daggers==
+#==[70000]-装备 Equipment - 武器 Weapons - 匕首 Daggers==
 
-#==[48001]- Daggers -T0: i86 Top Daggers 匕首 - #1 i86 Top Daggers - 精确==
+#==[70001]- Daggers -T0: i86 Top Daggers 匕首 - #1 i86 Top Daggers - 精确==
 Show
     BaseType == "Ambusher" "Imperial Skean" "Demon Dagger"
     ItemLevel >= 86
@@ -2541,7 +2619,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[48002]- Daggers -T0: i86 Top Daggers 匕首 - 基础 - 精确==
+#==[70002]- Daggers -T0: i86 Top Daggers 匕首 - 基础 - 精确==
 Show
     BaseType == "Pneumatic Dagger" "Sai"
     ItemLevel >= 68
@@ -2555,7 +2633,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[48003]- Daggers -T1: High iLvl Daggers 匕首 - #1 i84 Top Daggers - 精确==
+#==[70003]- Daggers -T1: High iLvl Daggers 匕首 - #1 i84 Top Daggers - 精确==
 Show
     BaseType == "Ambusher" "Imperial Skean" "Demon Dagger"
     ItemLevel >= 84
@@ -2568,7 +2646,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[48004]- Daggers -T1: High iLvl Daggers 匕首 - 基础 - 精确==
+#==[70004]- Daggers -T1: High iLvl Daggers 匕首 - 基础 - 精确==
 Show
     BaseType == "Gutting Knife" "Pressurised Dagger" "Royal Skean" "Slaughter Knife" "Trisula"
     ItemLevel >= 68
@@ -2582,7 +2660,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[48005]- Daggers -T2: Decent Bases 匕首 - 基础 - 精确==
+#==[70005]- Daggers -T2: Decent Bases 匕首 - 基础 - 精确==
 Show
     BaseType == "Poignard" "Prong Dagger"
     Rarity <= Rare
@@ -2595,7 +2673,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[48006]- Daggers -T3: Mid Tier 匕首 - 基础 - 精确==
+#==[70006]- Daggers -T3: Mid Tier 匕首 - 基础 - 精确==
 Show
     BaseType == "Flaying Knife" "Hollowpoint Dagger"
     SetFontSize 37
@@ -2606,7 +2684,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[48007]- Daggers -T4: Low Tier 匕首 - 基础 - 精确==
+#==[70007]- Daggers -T4: Low Tier 匕首 - 基础 - 精确==
 Show
     BaseType == "Glass Shank" "Skinning Knife" "Stiletto"
     SetFontSize 35
@@ -2617,9 +2695,9 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[49000]-装备 Equipment - 武器 Weapons - 单手斧 One Hand Axes==
+#==[71000]-装备 Equipment - 武器 Weapons - 单手斧 One Hand Axes==
 
-#==[49001]- Axes -T0: i83+ Top Bases 单手斧 - #1 i83 Top Axes - 精确==
+#==[71001]- Axes -T0: i83+ Top Bases 单手斧 - #1 i83 Top Axes - 精确==
 Show
     BaseType == "Siege Axe" "Reaver Axe" "Runic Hatchet"
     ItemLevel >= 83
@@ -2632,7 +2710,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[49002]- Axes -T0: i83+ Top Bases 单手斧 - 基础 - 精确==
+#==[71002]- Axes -T0: i83+ Top Bases 单手斧 - 基础 - 精确==
 Show
     BaseType == "Butcher Axe" "Infernal Axe" "Psychotic Axe" "Royal Axe" "Vaal Hatchet"
     ItemLevel >= 68
@@ -2646,7 +2724,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[49003]- Axes -T1: High iLvl Axes 单手斧 - 基础 - 精确==
+#==[71003]- Axes -T1: High iLvl Axes 单手斧 - 基础 - 精确==
 Show
     BaseType == "Ceremonial Axe" "Disapprobation Axe" "Engraved Hatchet" "Karui Axe" "Reaver Axe" "Siege Axe" "Wraith Axe"
     ItemLevel >= 68
@@ -2660,7 +2738,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[49004]- Axes -T2: Decent Bases 单手斧 - 基础 - 精确==
+#==[71004]- Axes -T2: Decent Bases 单手斧 - 基础 - 精确==
 Show
     BaseType == "Chest Splitter" "Jasper Axe" "Tomahawk" "War Axe" "Wrist Chopper"
     Rarity <= Rare
@@ -2673,7 +2751,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[49005]- Axes -T3: Mid Tier 单手斧 - 基础 - 精确==
+#==[71005]- Axes -T3: Mid Tier 单手斧 - 基础 - 精确==
 Show
     BaseType == "Arming Axe" "Decorative Axe" "Etched Hatchet" "Maltreatment Axe" "Spectral Axe"
     SetFontSize 37
@@ -2684,7 +2762,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[49006]- Axes -T4: Low Tier 单手斧 - 基础 - 精确==
+#==[71006]- Axes -T4: Low Tier 单手斧 - 基础 - 精确==
 Show
     BaseType == "Boarding Axe" "Broad Axe" "Cleaver" "Jade Hatchet" "Rusted Hatchet"
     SetFontSize 35
@@ -2695,9 +2773,9 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[50000]-装备 Equipment - 武器 Weapons - 单手锤 One Hand Maces==
+#==[72000]-装备 Equipment - 武器 Weapons - 单手锤 One Hand Maces==
 
-#==[50001]- Maces -T0: i83+ Top Bases 单手锤 - #1 i83 Top Maces - 精确==
+#==[72001]- Maces -T0: i83+ Top Bases 单手锤 - #1 i83 Top Maces - 精确==
 Show
     BaseType == "Behemoth Mace" "Nightmare Mace"
     ItemLevel >= 83
@@ -2710,7 +2788,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[50002]- Maces -T0: i83+ Top Bases 单手锤 - 基础 - 精确==
+#==[72002]- Maces -T0: i83+ Top Bases 单手锤 - 基础 - 精确==
 Show
     BaseType == "Auric Mace" "Boom Mace" "Legion Hammer" "Pernach"
     ItemLevel >= 68
@@ -2724,7 +2802,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[50003]- Maces -T1: High iLvl Maces 单手锤 - 基础 - 精确==
+#==[72003]- Maces -T1: High iLvl Maces 单手锤 - 基础 - 精确==
 Show
     BaseType == "Ancestral Club" "Crack Mace" "Dragon Mace" "Gavel" "Ornate Mace" "Phantom Mace" "Piledriver" "Tenderizer"
     ItemLevel >= 68
@@ -2738,7 +2816,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[50004]- Maces -T2: Decent Bases 单手锤 - 基础 - 精确==
+#==[72004]- Maces -T2: Decent Bases 单手锤 - 基础 - 精确==
 Show
     BaseType == "Barbed Club" "Battle Hammer" "Flanged Mace" "Rock Breaker"
     Rarity <= Rare
@@ -2751,7 +2829,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[50005]- Maces -T3: Mid Tier 单手锤 - 基础 - 精确==
+#==[72005]- Maces -T3: Mid Tier 单手锤 - 基础 - 精确==
 Show
     BaseType == "Bladed Mace" "Ceremonial Mace" "Dream Mace" "Flare Mace" "Petrified Club" "Wyrm Mace"
     SetFontSize 37
@@ -2762,7 +2840,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[50006]- Maces -T4: Low Tier 单手锤 - 基础 - 精确==
+#==[72006]- Maces -T4: Low Tier 单手锤 - 基础 - 精确==
 Show
     BaseType == "Driftwood Club" "Spiked Club" "Stone Hammer" "Tribal Club" "War Hammer"
     SetFontSize 35
@@ -2773,9 +2851,9 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[51000]-装备 Equipment - 武器 Weapons - 单手剑 One Hand Swords==
+#==[73000]-装备 Equipment - 武器 Weapons - 单手剑 One Hand Swords==
 
-#==[51001]- Swords -T0: i83+ Top Bases 单手剑 - #1 i83 Top Swords - 精确==
+#==[73001]- Swords -T0: i83+ Top Bases 单手剑 - #1 i83 Top Swords - 精确==
 Show
     BaseType == "Jewelled Foil" "Corsair Sword" "Eternal Sword"
     ItemLevel >= 83
@@ -2788,7 +2866,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[51002]- Swords -T0: i83+ Top Bases 单手剑 - 基础 - 精确==
+#==[73002]- Swords -T0: i83+ Top Bases 单手剑 - 基础 - 精确==
 Show
     BaseType == "Anarchic Spiritblade" "Dragoon Sword" "Harpy Rapier" "Legion Sword" "Midnight Blade" "Spiraled Foil" "Tiger Hook" "Vaal Blade" "Vaal Rapier"
     ItemLevel >= 68
@@ -2802,7 +2880,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[51003]- Swords -T1: High End 单手剑 - 基础 - 精确==
+#==[73003]- Swords -T1: High End 单手剑 - 基础 - 精确==
 Show
     BaseType == "Apex Rapier" "Capricious Spiritblade" "Corsair Sword" "Courtesan Sword" "Dragonbone Rapier" "Fancy Foil" "Gemstone Sword" "Gladius" "Graceful Sword" "Grappler" "Reaver Sword" "Tempered Foil" "Twilight Blade"
     ItemLevel >= 68
@@ -2816,7 +2894,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[51004]- Swords -T2: Decent Bases 单手剑 - 基础 - 精确==
+#==[73004]- Swords -T2: Decent Bases 单手剑 - 基础 - 精确==
 Show
     BaseType == "Baselard" "Battle Sword" "Burnished Foil" "Cutlass" "Elder Sword" "Estoc" "Primeval Rapier" "Serrated Foil" "Smallsword" "Wyrmbone Rapier"
     Rarity <= Rare
@@ -2829,7 +2907,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[51005]- Swords -T3: Mid Tier 单手剑 - 基础 - 精确==
+#==[73005]- Swords -T3: Mid Tier 单手剑 - 基础 - 精确==
 Show
     BaseType == "Ancient Sword" "Antique Rapier" "Dusk Blade" "Elegant Foil" "Elegant Sword" "Fickle Spiritblade" "Hook Sword" "Jagged Foil" "Thorn Rapier" "Variscite Blade"
     SetFontSize 37
@@ -2840,7 +2918,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[51006]- Swords -T4: Low Tier 单手剑 - 基础 - 精确==
+#==[73006]- Swords -T4: Low Tier 单手剑 - 基础 - 精确==
 Show
     BaseType == "Basket Rapier" "Battered Foil" "Broad Sword" "Copper Sword" "Dancing Sword" "Imperfect Dancing Sword" "Maligaro's Spike" "Perfect Dancing Sword" "Rusted Spike" "Rusted Sword" "Sabre" "War Sword" "Whalebone Rapier"
     SetFontSize 35
@@ -2851,9 +2929,9 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[52000]-装备 Equipment - 武器 Weapons - 符文匕首 Rune Daggers==
+#==[74000]-装备 Equipment - 武器 Weapons - 符文匕首 Rune Daggers==
 
-#==[52001]- Rune Daggers -T0: i86 Top Rune Daggers 符文匕首 - #1 i86 Top Rune Daggers - 精确==
+#==[74001]- Rune Daggers -T0: i86 Top Rune Daggers 符文匕首 - #1 i86 Top Rune Daggers - 精确==
 Show
     BaseType == "Golden Kris" "Platinum Kris" "Ezomyte Dagger"
     ItemLevel >= 86
@@ -2866,7 +2944,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[52002]- Rune Daggers -T0: i86 Top Rune Daggers 符文匕首 - 基础 - 精确==
+#==[74002]- Rune Daggers -T0: i86 Top Rune Daggers 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Imperial Skean" "Infernal Blade"
     ItemLevel >= 68
@@ -2880,7 +2958,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[52003]- Rune Daggers -T1: High iLvl Rune Daggers 符文匕首 - 基础 - 精确==
+#==[74003]- Rune Daggers -T1: High iLvl Rune Daggers 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Fiend Dagger" "Flashfire Blade"
     ItemLevel >= 68
@@ -2894,7 +2972,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[52004]- Rune Daggers -T2: Decent Bases 符文匕首 - 基础 - 精确==
+#==[74004]- Rune Daggers -T2: Decent Bases 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Boot Blade" "Butcher Knife" "Golden Kris"
     Rarity <= Rare
@@ -2907,7 +2985,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[52005]- Rune Daggers -T3: Mid Tier 符文匕首 - 基础 - 精确==
+#==[74005]- Rune Daggers -T3: Mid Tier 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Copper Kris" "Flickerflame Blade" "Imp Dagger" "Skean"
     SetFontSize 37
@@ -2918,7 +2996,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[52006]- Rune Daggers -T4: Low Tier 符文匕首 - 基础 - 精确==
+#==[74006]- Rune Daggers -T4: Low Tier 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Boot Knife" "Carving Knife"
     SetFontSize 35
@@ -2929,9 +3007,9 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[53000]-装备 Equipment - 武器 Weapons - 短杖 Sceptres==
+#==[75000]-装备 Equipment - 武器 Weapons - 短杖 Sceptres==
 
-#==[53001]- Sceptres -T0: i83+ Top Sceptres 短杖 - #1 i83 Top Sceptres - 精确==
+#==[75001]- Sceptres -T0: i83+ Top Sceptres 短杖 - #1 i83 Top Sceptres - 精确==
 Show
     BaseType == "Void Sceptre" "Sambar Sceptre"
     ItemLevel >= 83
@@ -2944,7 +3022,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[53002]- Sceptres -T0: i83+ Top Sceptres 短杖 - 基础 - 精确==
+#==[75002]- Sceptres -T0: i83+ Top Sceptres 短杖 - 基础 - 精确==
 Show
     BaseType == "Alternating Sceptre" "Carnal Sceptre" "Platinum Sceptre" "Vaal Sceptre"
     ItemLevel >= 68
@@ -2958,7 +3036,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[53003]- Sceptres -T1: High End 短杖 - 基础 - 精确==
+#==[75003]- Sceptres -T1: High End 短杖 - 基础 - 精确==
 Show
     BaseType == "Abyssal Sceptre" "Karui Sceptre" "Opal Sceptre" "Royal Sceptre" "Stabilising Sceptre" "Stag Sceptre" "Tyrant's Sekhem"
     ItemLevel >= 68
@@ -2972,7 +3050,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[53004]- Sceptres -T2: Decent Bases 短杖 - 基础 - 精确==
+#==[75004]- Sceptres -T2: Decent Bases 短杖 - 基础 - 精确==
 Show
     BaseType == "Blood Sceptre" "Crystal Sceptre" "Horned Sceptre" "Lead Sceptre" "Sekhem"
     Rarity <= Rare
@@ -2985,7 +3063,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[53005]- Sceptres -T3: Mid Tier 短杖 - 基础 - 精确==
+#==[75005]- Sceptres -T3: Mid Tier 短杖 - 基础 - 精确==
 Show
     BaseType == "Grinning Fetish" "Ochre Sceptre" "Oscillating Sceptre" "Ritual Sceptre" "Shadow Sceptre"
     SetFontSize 37
@@ -2996,7 +3074,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[53006]- Sceptres -T4: Low Tier 短杖 - 基础 - 精确==
+#==[75006]- Sceptres -T4: Low Tier 短杖 - 基础 - 精确==
 Show
     BaseType == "Bronze Sceptre" "Darkwood Sceptre" "Driftwood Sceptre" "Iron Sceptre" "Quartz Sceptre"
     SetFontSize 35
@@ -3007,9 +3085,9 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[54000]-装备 Equipment - 武器 Weapons - 长杖 Staves==
+#==[76000]-装备 Equipment - 武器 Weapons - 长杖 Staves==
 
-#==[54001]- Staves -T0: i83+ Top Staves 长杖 - #1 i83 Top Staves - 精确==
+#==[76001]- Staves -T0: i83+ Top Staves 长杖 - #1 i83 Top Staves - 精确==
 Show
     BaseType == "Imperial Staff" "Eclipse Staff"
     ItemLevel >= 83
@@ -3022,7 +3100,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[54002]- Staves -T0: i83+ Top Staves 长杖 - 基础 - 精确==
+#==[76002]- Staves -T0: i83+ Top Staves 长杖 - 基础 - 精确==
 Show
     BaseType == "Battery Staff" "Lathi"
     ItemLevel >= 68
@@ -3036,7 +3114,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[54003]- Staves -T1: High End 长杖 - 基础 - 精确==
+#==[76003]- Staves -T1: High End 长杖 - 基础 - 精确==
 Show
     BaseType == "Highborn Staff" "Moon Staff" "Primordial Staff" "Reciprocation Staff"
     ItemLevel >= 68
@@ -3050,7 +3128,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[54004]- Staves -T2: Decent Bases 长杖 - 基础 - 精确==
+#==[76004]- Staves -T2: Decent Bases 长杖 - 基础 - 精确==
 Show
     BaseType == "Crescent Staff" "Quarterstaff" "Woodful Staff"
     Rarity <= Rare
@@ -3063,7 +3141,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[54005]- Staves -T3: Mid Tier 长杖 - 基础 - 精确==
+#==[76005]- Staves -T3: Mid Tier 长杖 - 基础 - 精确==
 Show
     BaseType == "Royal Staff" "Transformer Staff"
     SetFontSize 37
@@ -3074,7 +3152,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[54006]- Staves -T4: Low Tier 长杖 - 基础 - 精确==
+#==[76006]- Staves -T4: Low Tier 长杖 - 基础 - 精确==
 Show
     BaseType == "Gnarled Branch" "Long Staff" "Primitive Staff"
     SetFontSize 35
@@ -3085,9 +3163,9 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[55000]-装备 Equipment - 武器 Weapons - 双手斧 Two Hand Axes==
+#==[77000]-装备 Equipment - 武器 Weapons - 双手斧 Two Hand Axes==
 
-#==[55001]- Two Hand Axes -T0: i83+ Top Bases 双手斧 - #1 i83 Top 2H Axes - 精确==
+#==[77001]- Two Hand Axes -T0: i83+ Top Bases 双手斧 - #1 i83 Top 2H Axes - 精确==
 Show
     BaseType == "Despot Axe" "Vaal Axe" "Fleshripper"
     ItemLevel >= 83
@@ -3100,7 +3178,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[55002]- Two Hand Axes -T0: i83+ Top Bases 双手斧 - 基础 - 精确==
+#==[77002]- Two Hand Axes -T0: i83+ Top Bases 双手斧 - 基础 - 精确==
 Show
     BaseType == "Apex Cleaver" "Ezomyte Axe" "Void Axe"
     ItemLevel >= 68
@@ -3114,7 +3192,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[55003]- Two Hand Axes -T1: High End 双手斧 - 基础 - 精确==
+#==[77003]- Two Hand Axes -T1: High End 双手斧 - 基础 - 精确==
 Show
     BaseType == "Abyssal Axe" "Honed Cleaver" "Karui Chopper" "Noble Axe" "Sundering Axe" "Talon Axe"
     ItemLevel >= 68
@@ -3128,7 +3206,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[55004]- Two Hand Axes -T2: Decent Bases 双手斧 - 基础 - 精确==
+#==[77004]- Two Hand Axes -T2: Decent Bases 双手斧 - 基础 - 精确==
 Show
     BaseType == "Dagger Axe" "Headsman Axe" "Jasper Chopper" "Labrys" "Timber Axe"
     Rarity <= Rare
@@ -3141,7 +3219,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[55005]- Two Hand Axes -T3: Mid Tier 双手斧 - 基础 - 精确==
+#==[77005]- Two Hand Axes -T3: Mid Tier 双手斧 - 基础 - 精确==
 Show
     BaseType == "Double Axe" "Gilded Axe" "Prime Cleaver" "Shadow Axe"
     SetFontSize 37
@@ -3152,7 +3230,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[55006]- Two Hand Axes -T4: Low Tier 双手斧 - 基础 - 精确==
+#==[77006]- Two Hand Axes -T4: Low Tier 双手斧 - 基础 - 精确==
 Show
     BaseType == "Jade Chopper" "Poleaxe" "Stone Axe" "Woodsplitter"
     SetFontSize 35
@@ -3163,9 +3241,9 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[56000]-装备 Equipment - 武器 Weapons - 双手锤 Two Hand Maces==
+#==[78000]-装备 Equipment - 武器 Weapons - 双手锤 Two Hand Maces==
 
-#==[56001]- Two Hand Maces -T0: i83+ Top Bases 双手锤 - #1 i83 Top 2H Maces - 精确==
+#==[78001]- Two Hand Maces -T0: i83+ Top Bases 双手锤 - #1 i83 Top 2H Maces - 精确==
 Show
     BaseType == "Coronal Maul" "Meatgrinder"
     ItemLevel >= 83
@@ -3178,7 +3256,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[56002]- Two Hand Maces -T0: i83+ Top Bases 双手锤 - 基础 - 精确==
+#==[78002]- Two Hand Maces -T0: i83+ Top Bases 双手锤 - 基础 - 精确==
 Show
     BaseType == "Impact Force Propagator" "Imperial Maul" "Terror Maul"
     ItemLevel >= 68
@@ -3192,7 +3270,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[56003]- Two Hand Maces -T1: High End 双手锤 - 基础 - 精确==
+#==[78003]- Two Hand Maces -T1: High End 双手锤 - 基础 - 精确==
 Show
     BaseType == "Colossus Mallet" "Crushing Force Magnifier" "Dread Maul" "Karui Maul" "Piledriver" "Plated Maul" "Solar Maul"
     ItemLevel >= 68
@@ -3206,7 +3284,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[56004]- Two Hand Maces -T2: Decent Bases 双手锤 - 基础 - 精确==
+#==[78004]- Two Hand Maces -T2: Decent Bases 双手锤 - 基础 - 精确==
 Show
     BaseType == "Great Mallet" "Spiny Maul" "Steelhead" "Totemic Maul"
     Rarity <= Rare
@@ -3219,7 +3297,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[56005]- Two Hand Maces -T3: Mid Tier 双手锤 - 基础 - 精确==
+#==[78005]- Two Hand Maces -T3: Mid Tier 双手锤 - 基础 - 精确==
 Show
     BaseType == "Blunt Force Condenser" "Brass Maul" "Fright Maul" "Jagged Maul" "Morning Star"
     SetFontSize 37
@@ -3230,7 +3308,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[56006]- Two Hand Maces -T4: Low Tier 双手锤 - 基础 - 精确==
+#==[78006]- Two Hand Maces -T4: Low Tier 双手锤 - 基础 - 精确==
 Show
     BaseType == "Driftwood Maul" "Mallet" "Sledgehammer" "Tribal Maul"
     SetFontSize 35
@@ -3241,9 +3319,9 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[57000]-装备 Equipment - 武器 Weapons - 双手剑 Two Hand Swords==
+#==[79000]-装备 Equipment - 武器 Weapons - 双手剑 Two Hand Swords==
 
-#==[57001]- Two Hand Swords -T0: i83+ Top Bases 双手剑 - #1 i83 Top 2H Swords - 精确==
+#==[79001]- Two Hand Swords -T0: i83+ Top Bases 双手剑 - #1 i83 Top 2H Swords - 精确==
 Show
     BaseType == "Exquisite Blade"
     ItemLevel >= 83
@@ -3256,7 +3334,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[57002]- Two Hand Swords -T0: i83+ Top Bases 双手剑 - 基础 - 精确==
+#==[79002]- Two Hand Swords -T0: i83+ Top Bases 双手剑 - 基础 - 精确==
 Show
     BaseType == "Banishing Blade" "Infernal Sword" "Lion Sword" "Vaal Greatsword"
     ItemLevel >= 68
@@ -3270,7 +3348,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[57003]- Two Hand Swords -T1: High End 双手剑 - 基础 - 精确==
+#==[79003]- Two Hand Swords -T1: High End 双手剑 - 基础 - 精确==
 Show
     BaseType == "Blasting Blade" "Ezomyte Blade" "Headman's Sword" "Lithe Blade" "Tiger Sword" "Wraith Sword"
     ItemLevel >= 68
@@ -3284,7 +3362,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[57004]- Two Hand Swords -T2: Decent Bases 双手剑 - 基础 - 精确==
+#==[79004]- Two Hand Swords -T2: Decent Bases 双手剑 - 基础 - 精确==
 Show
     BaseType == "Butcher Sword" "Engraved Greatsword" "Footman Sword" "Highland Blade"
     Rarity <= Rare
@@ -3297,7 +3375,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[57005]- Two Hand Swords -T3: Mid Tier 双手剑 - 基础 - 精确==
+#==[79005]- Two Hand Swords -T3: Mid Tier 双手剑 - 基础 - 精确==
 Show
     BaseType == "Curved Blade" "Etched Greatsword" "Ornate Sword" "Rebuking Blade" "Spectral Sword"
     SetFontSize 37
@@ -3308,7 +3386,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[57006]- Two Hand Swords -T4: Low Tier 双手剑 - 基础 - 精确==
+#==[79006]- Two Hand Swords -T4: Low Tier 双手剑 - 基础 - 精确==
 Show
     BaseType == "Bastard Sword" "Corroded Blade" "Longsword" "Two-Handed Sword"
     SetFontSize 35
@@ -3319,9 +3397,9 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[58000]-装备 Equipment - 武器 Weapons - 法杖 Wands==
+#==[80000]-装备 Equipment - 武器 Weapons - 法杖 Wands==
 
-#==[58001]- Wands -T0: i83+ Top Wands 法杖 - #1 i83 Top Wands - 精确==
+#==[80001]- Wands -T0: i83+ Top Wands 法杖 - #1 i83 Top Wands - 精确==
 Show
     BaseType == "Opal Wand" "Profane Wand" "Convoking Wand"
     ItemLevel >= 83
@@ -3334,7 +3412,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[58002]- Wands -T0: i83+ Top Wands 法杖 - 基础 - 精确==
+#==[80002]- Wands -T0: i83+ Top Wands 法杖 - 基础 - 精确==
 Show
     BaseType == "Accumulator Wand" "Prophecy Wand" "Tornado Wand"
     ItemLevel >= 68
@@ -3348,7 +3426,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[58003]- Wands -T1: High End 法杖 - 基础 - 精确==
+#==[80003]- Wands -T1: High End 法杖 - 基础 - 精确==
 Show
     BaseType == "Congregator Wand" "Convening Wand" "Demon's Horn" "Heathen Wand" "Kinetic Wand" "Omen Wand"
     ItemLevel >= 68
@@ -3362,7 +3440,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[58004]- Wands -T2: Decent Bases 法杖 - 基础 - 精确==
+#==[80004]- Wands -T2: Decent Bases 法杖 - 基础 - 精确==
 Show
     BaseType == "Blasting Wand" "Coiled Wand" "Crystal Wand"
     Rarity <= Rare
@@ -3375,7 +3453,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[58005]- Wands -T3: Mid Tier 法杖 - 基础 - 精确==
+#==[80005]- Wands -T3: Mid Tier 法杖 - 基础 - 精确==
 Show
     BaseType == "Assembler Wand" "Calling Wand" "Faun's Horn" "Pagan Wand" "Sage Wand" "Spiraled Wand"
     SetFontSize 37
@@ -3386,7 +3464,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[58006]- Wands -T4: Low Tier 法杖 - 基础 - 精确==
+#==[80006]- Wands -T4: Low Tier 法杖 - 基础 - 精确==
 Show
     BaseType == "Driftwood Wand" "Goat's Horn" "Quartz Wand" "Somatic Wand"
     SetFontSize 35
@@ -3397,9 +3475,9 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[59000]-装备 Equipment - 武器 Weapons - 战杖 Warstaves==
+#==[81000]-装备 Equipment - 武器 Weapons - 战杖 Warstaves==
 
-#==[59001]- Warstaves -T0: i83+ Top Warstaves 战杖 - #1 i83 Top Warstaves - 精确==
+#==[81001]- Warstaves -T0: i83+ Top Warstaves 战杖 - #1 i83 Top Warstaves - 精确==
 Show
     BaseType == "Judgement Staff" "Ezomyte Staff"
     ItemLevel >= 83
@@ -3412,7 +3490,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[59002]- Warstaves -T0: i83+ Top Warstaves 战杖 - 基础 - 精确==
+#==[81002]- Warstaves -T0: i83+ Top Warstaves 战杖 - 基础 - 精确==
 Show
     BaseType == "Eventuality Rod" "Maelström Staff"
     ItemLevel >= 68
@@ -3426,7 +3504,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[59003]- Warstaves -T1: High End 战杖 - 基础 - 精确==
+#==[81003]- Warstaves -T1: High End 战杖 - 基础 - 精确==
 Show
     BaseType == "Ezomyte Staff" "Foul Staff" "Potentiality Rod"
     ItemLevel >= 68
@@ -3440,7 +3518,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[59004]- Warstaves -T2: Decent Bases 战杖 - 基础 - 精确==
+#==[81004]- Warstaves -T2: Decent Bases 战杖 - 基础 - 精确==
 Show
     BaseType == "Military Staff" "Serpentine Staff"
     Rarity <= Rare
@@ -3453,7 +3531,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[59005]- Warstaves -T3: Mid Tier 战杖 - 基础 - 精确==
+#==[81005]- Warstaves -T3: Mid Tier 战杖 - 基础 - 精确==
 Show
     BaseType == "Capacity Rod" "Coiled Staff" "Vile Staff"
     SetFontSize 37
@@ -3464,7 +3542,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[59006]- Warstaves -T4: Low Tier 战杖 - 基础 - 精确==
+#==[81006]- Warstaves -T4: Low Tier 战杖 - 基础 - 精确==
 Show
     BaseType == "Iron Staff"
     SetFontSize 35
@@ -4147,9 +4225,23 @@ Show
 # [[120000]] 过渡 _campaign
 #===================================================================================================================
 
-#==[121000]-过渡 _campaign - 过渡护甲 Campaign Armour==
+#==[121000]-过渡 _campaign - Act Act - 第一章 Act 1==
 
-#==[121001]- Campaign Armour -4-Link (Campaign) 过渡护甲 - Class Condition==
+#==[122000]-过渡 _campaign - Act Act - 第二、三章 Act 2/3==
+
+#==[123000]-过渡 _campaign - Act Act - 第四至六章 Act 4/5/6==
+
+#==[124000]-过渡 _campaign - Act Act - 攻击手杖 Attack Wands==
+
+#==[125000]-过渡 _campaign - Act Act - 珠宝 Jewels==
+
+#==[126000]-过渡 _campaign - Act Act - 箭袋 Quivers==
+
+#==[127000]-过渡 _campaign - Act Act - 召唤流装备 Summoner Gear==
+
+#==[128000]-过渡 _campaign - 过渡护甲 Campaign Armour==
+
+#==[128001]- Campaign Armour -4-Link (Campaign) 过渡护甲 - Class Condition==
 Show
     Class "Body Armours" "Helmets" "Gloves" "Boots" "Shields"
     LinkedSockets >= 4
@@ -4163,7 +4255,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[121002]- Campaign Armour -3-Link Early (Campaign) 过渡护甲 - Class Condition==
+#==[128002]- Campaign Armour -3-Link Early (Campaign) 过渡护甲 - Class Condition==
 Show
     Class "Body Armours" "Helmets" "Gloves" "Boots"
     LinkedSockets >= 3
@@ -4177,7 +4269,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[121003]- Campaign Armour -Hide (Post-Campaign) 过渡护甲 - Class Condition==
+#==[128003]- Campaign Armour -Hide (Post-Campaign) 过渡护甲 - Class Condition==
 Hide
     Class "Body Armours" "Helmets" "Gloves" "Boots"
     AreaLevel >= 68
@@ -4187,9 +4279,11 @@ Hide
     SetBackgroundColor 209 209 209 255
 
 
-#==[122000]-过渡 _campaign - 过渡药剂 Campaign Flasks==
+#==[129000]-过渡 _campaign - 色卡配方物品 Chromatic Recipe Items==
 
-#==[122001]- Campaign Flasks -Quality Flasks (Campaign) 过渡药剂 - Class Condition==
+#==[130000]-过渡 _campaign - 过渡药剂 Campaign Flasks==
+
+#==[130001]- Campaign Flasks -Quality Flasks (Campaign) 过渡药剂 - Class Condition==
 Show
     Class "Life Flasks" "Mana Flasks" "Utility Flasks"
     Quality >= 15
@@ -4203,7 +4297,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[122002]- Campaign Flasks -Normal Flasks (Campaign) 过渡药剂 - Class Condition==
+#==[130002]- Campaign Flasks -Normal Flasks (Campaign) 过渡药剂 - Class Condition==
 Show
     Class "Life Flasks" "Mana Flasks"
     AreaLevel <= 68
@@ -4215,9 +4309,25 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[123000]-过渡 _campaign - 武器 Weapons - 过渡弓 Campaign Bows==
+#==[131000]-过渡 _campaign - 魔法物品 Magic Items==
 
-#==[123001]- Campaign Bows -Early Bows (Campaign) 过渡弓 - 基础 - 精确==
+#==[132000]-过渡 _campaign - 早期普通物品 Normal Items - Early==
+
+#==[133000]-过渡 _campaign - 品质药剂 Quality Flasks==
+
+#==[134000]-过渡 _campaign - Rare Rare - 首饰与护甲 Jewellery & Armours==
+
+#==[135000]-过渡 _campaign - Rare Rare - 特殊瞩目掉落 Special Noteworthy Drops==
+
+#==[136000]-过渡 _campaign - Rare Rare - 其余稀有 Remaining Rares==
+
+#==[137000]-过渡 _campaign - Rare Rare - 武器突显 Weapon Highlight==
+
+#==[138000]-过渡 _campaign - 酊剂 Tinctures==
+
+#==[139000]-过渡 _campaign - 武器 Weapons - 过渡弓 Campaign Bows==
+
+#==[139001]- Campaign Bows -Early Bows (Campaign) 过渡弓 - 基础 - 精确==
 Show
     BaseType == "Bone Bow" "Composite Bow" "Crude Bow" "Long Bow" "Recurve Bow" "Short Bow"
     Rarity <= Rare
@@ -4230,7 +4340,7 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[123002]- Campaign Bows -Mid Bows (Campaign) 过渡弓 - 基础 - 精确==
+#==[139002]- Campaign Bows -Mid Bows (Campaign) 过渡弓 - 基础 - 精确==
 Show
     BaseType == "Compound Bow" "Death Bow" "Decurve Bow" "Grove Bow" "Hedron Bow" "Reflex Bow" "Royal Bow" "Sniper Bow"
     Rarity <= Rare
@@ -4243,7 +4353,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[123003]- Campaign Bows -Late Bows (Campaign) 过渡弓 - 基础 - 精确==
+#==[139003]- Campaign Bows -Late Bows (Campaign) 过渡弓 - 基础 - 精确==
 Show
     BaseType == "Assassin Bow" "Citadel Bow" "Decimation Bow" "Foundry Bow" "Highborn Bow" "Imperial Bow" "Ivory Bow" "Ranger Bow" "Spine Bow" "Steelwood Bow" "Thicket Bow"
     Rarity <= Rare
@@ -4256,7 +4366,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[123004]- Campaign Bows -Pre-Endgame Bows (Campaign) 过渡弓 - 基础 - 精确==
+#==[139004]- Campaign Bows -Pre-Endgame Bows (Campaign) 过渡弓 - 基础 - 精确==
 Show
     BaseType == "Harbinger Bow" "Maraketh Bow" "Solarine Bow"
     Rarity <= Rare
@@ -4269,9 +4379,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[124000]-过渡 _campaign - 武器 Weapons - 过渡爪 Campaign Claws==
+#==[140000]-过渡 _campaign - 武器 Weapons - 过渡爪 Campaign Claws==
 
-#==[124001]- Campaign Claws -Early Claws (Campaign) 过渡爪 - 基础 - 精确==
+#==[140001]- Campaign Claws -Early Claws (Campaign) 过渡爪 - 基础 - 精确==
 Show
     BaseType == "Awl" "Blinder" "Cat's Paw" "Nailed Fist" "Sharktooth Claw"
     Rarity <= Rare
@@ -4284,7 +4394,7 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[124002]- Campaign Claws -Mid Claws (Campaign) 过渡爪 - 基础 - 精确==
+#==[140002]- Campaign Claws -Mid Claws (Campaign) 过渡爪 - 基础 - 精确==
 Show
     BaseType == "Double Claw" "Fright Claw" "Gouger" "Shadow Fangs" "Sparkling Claw" "Thresher Claw" "Tiger's Paw" "Timeworn Claw"
     Rarity <= Rare
@@ -4297,7 +4407,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[124003]- Campaign Claws -Late Claws (Campaign) 过渡爪 - 基础 - 精确==
+#==[140003]- Campaign Claws -Late Claws (Campaign) 过渡爪 - 基础 - 精确==
 Show
     BaseType == "Eagle Claw" "Eye Gouger" "Great White Claw" "Gut Ripper" "Hellion's Paw" "Malign Fangs" "Noble Claw" "Prehistoric Claw" "Throat Stabber" "Twin Claw" "Vaal Claw"
     Rarity <= Rare
@@ -4310,7 +4420,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[124004]- Campaign Claws -Pre-Endgame Claws (Campaign) 过渡爪 - 基础 - 精确==
+#==[140004]- Campaign Claws -Pre-Endgame Claws (Campaign) 过渡爪 - 基础 - 精确==
 Show
     BaseType == "Gemini Claw" "Imperial Claw" "Terror Claw" "Void Fangs"
     Rarity <= Rare
@@ -4323,9 +4433,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[125000]-过渡 _campaign - 武器 Weapons - 过渡匕首 Campaign Daggers==
+#==[141000]-过渡 _campaign - 武器 Weapons - 过渡匕首 Campaign Daggers==
 
-#==[125001]- Campaign Daggers -Early Daggers (Campaign) 过渡匕首 - 基础 - 精确==
+#==[141001]- Campaign Daggers -Early Daggers (Campaign) 过渡匕首 - 基础 - 精确==
 Show
     BaseType == "Glass Shank" "Skinning Knife" "Stiletto"
     Rarity <= Rare
@@ -4338,7 +4448,7 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[125002]- Campaign Daggers -Mid Daggers (Campaign) 过渡匕首 - 基础 - 精确==
+#==[141002]- Campaign Daggers -Mid Daggers (Campaign) 过渡匕首 - 基础 - 精确==
 Show
     BaseType == "Flaying Knife" "Hollowpoint Dagger" "Poignard" "Prong Dagger"
     Rarity <= Rare
@@ -4351,7 +4461,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[125003]- Campaign Daggers -Late Daggers (Campaign) 过渡匕首 - 基础 - 精确==
+#==[141003]- Campaign Daggers -Late Daggers (Campaign) 过渡匕首 - 基础 - 精确==
 Show
     BaseType == "Ambusher" "Gutting Knife" "Pressurised Dagger" "Trisula"
     Rarity <= Rare
@@ -4364,7 +4474,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[125004]- Campaign Daggers -Pre-Endgame Daggers (Campaign) 过渡匕首 - 基础 - 精确==
+#==[141004]- Campaign Daggers -Pre-Endgame Daggers (Campaign) 过渡匕首 - 基础 - 精确==
 Show
     BaseType == "Pneumatic Dagger" "Sai"
     Rarity <= Rare
@@ -4377,9 +4487,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[126000]-过渡 _campaign - 武器 Weapons - 过渡单手斧 Campaign One Hand Axes==
+#==[142000]-过渡 _campaign - 武器 Weapons - 过渡单手斧 Campaign One Hand Axes==
 
-#==[126001]- Campaign One Hand Axes -Early One Hand Axes (Campaign) 过渡单手斧 - 基础 - 精确==
+#==[142001]- Campaign One Hand Axes -Early One Hand Axes (Campaign) 过渡单手斧 - 基础 - 精确==
 Show
     BaseType == "Boarding Axe" "Broad Axe" "Cleaver" "Jade Hatchet" "Rusted Hatchet"
     Rarity <= Rare
@@ -4392,7 +4502,7 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[126002]- Campaign One Hand Axes -Mid One Hand Axes (Campaign) 过渡单手斧 - 基础 - 精确==
+#==[142002]- Campaign One Hand Axes -Mid One Hand Axes (Campaign) 过渡单手斧 - 基础 - 精确==
 Show
     BaseType == "Arming Axe" "Decorative Axe" "Etched Hatchet" "Jasper Axe" "Maltreatment Axe" "Spectral Axe" "Tomahawk" "Wrist Chopper"
     Rarity <= Rare
@@ -4405,7 +4515,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[126003]- Campaign One Hand Axes -Late One Hand Axes (Campaign) 过渡单手斧 - 基础 - 精确==
+#==[142003]- Campaign One Hand Axes -Late One Hand Axes (Campaign) 过渡单手斧 - 基础 - 精确==
 Show
     BaseType == "Butcher Axe" "Ceremonial Axe" "Chest Splitter" "Disapprobation Axe" "Engraved Hatchet" "Karui Axe" "Reaver Axe" "Siege Axe" "Vaal Hatchet" "War Axe" "Wraith Axe"
     Rarity <= Rare
@@ -4418,7 +4528,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[126004]- Campaign One Hand Axes -Pre-Endgame One Hand Axes (Campaign) 过渡单手斧 - 基础 - 精确==
+#==[142004]- Campaign One Hand Axes -Pre-Endgame One Hand Axes (Campaign) 过渡单手斧 - 基础 - 精确==
 Show
     BaseType == "Infernal Axe" "Psychotic Axe" "Royal Axe" "Runic Hatchet"
     Rarity <= Rare
@@ -4431,9 +4541,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[127000]-过渡 _campaign - 武器 Weapons - 过渡单手锤 Campaign One Hand Maces==
+#==[143000]-过渡 _campaign - 武器 Weapons - 过渡单手锤 Campaign One Hand Maces==
 
-#==[127001]- Campaign One Hand Maces -Early One Hand Maces (Campaign) 过渡单手锤 - 基础 - 精确==
+#==[143001]- Campaign One Hand Maces -Early One Hand Maces (Campaign) 过渡单手锤 - 基础 - 精确==
 Show
     BaseType == "Bladed Mace" "Driftwood Club" "Spiked Club" "Stone Hammer" "Tribal Club" "War Hammer"
     Rarity <= Rare
@@ -4446,7 +4556,7 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[127002]- Campaign One Hand Maces -Mid One Hand Maces (Campaign) 过渡单手锤 - 基础 - 精确==
+#==[143002]- Campaign One Hand Maces -Mid One Hand Maces (Campaign) 过渡单手锤 - 基础 - 精确==
 Show
     BaseType == "Barbed Club" "Battle Hammer" "Ceremonial Mace" "Dream Mace" "Flare Mace" "Petrified Club" "Rock Breaker" "Wyrm Mace"
     Rarity <= Rare
@@ -4459,7 +4569,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[127003]- Campaign One Hand Maces -Late One Hand Maces (Campaign) 过渡单手锤 - 基础 - 精确==
+#==[143003]- Campaign One Hand Maces -Late One Hand Maces (Campaign) 过渡单手锤 - 基础 - 精确==
 Show
     BaseType == "Ancestral Club" "Auric Mace" "Crack Mace" "Dragon Mace" "Flanged Mace" "Gavel" "Legion Hammer" "Ornate Mace" "Pernach" "Phantom Mace" "Tenderizer"
     Rarity <= Rare
@@ -4472,7 +4582,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[127004]- Campaign One Hand Maces -Pre-Endgame One Hand Maces (Campaign) 过渡单手锤 - 基础 - 精确==
+#==[143004]- Campaign One Hand Maces -Pre-Endgame One Hand Maces (Campaign) 过渡单手锤 - 基础 - 精确==
 Show
     BaseType == "Behemoth Mace" "Boom Mace" "Nightmare Mace"
     Rarity <= Rare
@@ -4485,9 +4595,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[128000]-过渡 _campaign - 武器 Weapons - 过渡单手剑 Campaign One Hand Swords==
+#==[144000]-过渡 _campaign - 武器 Weapons - 过渡单手剑 Campaign One Hand Swords==
 
-#==[128001]- Campaign One Hand Swords -Early One Hand Swords (Campaign) 过渡单手剑 - 基础 - 精确==
+#==[144001]- Campaign One Hand Swords -Early One Hand Swords (Campaign) 过渡单手剑 - 基础 - 精确==
 Show
     BaseType == "Ancient Sword" "Broad Sword" "Copper Sword" "Rusted Sword" "Sabre" "War Sword"
     Rarity <= Rare
@@ -4500,7 +4610,7 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[128002]- Campaign One Hand Swords -Mid One Hand Swords (Campaign) 过渡单手剑 - 基础 - 精确==
+#==[144002]- Campaign One Hand Swords -Mid One Hand Swords (Campaign) 过渡单手剑 - 基础 - 精确==
 Show
     BaseType == "Baselard" "Battle Sword" "Cutlass" "Dusk Blade" "Elegant Sword" "Fickle Spiritblade" "Hook Sword" "Variscite Blade"
     Rarity <= Rare
@@ -4513,7 +4623,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[128003]- Campaign One Hand Swords -Late One Hand Swords (Campaign) 过渡单手剑 - 基础 - 精确==
+#==[144003]- Campaign One Hand Swords -Late One Hand Swords (Campaign) 过渡单手剑 - 基础 - 精确==
 Show
     BaseType == "Capricious Spiritblade" "Corsair Sword" "Elder Sword" "Eternal Sword" "Gemstone Sword" "Gladius" "Graceful Sword" "Grappler" "Legion Sword" "Twilight Blade" "Vaal Blade"
     Rarity <= Rare
@@ -4526,7 +4636,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[128004]- Campaign One Hand Swords -Pre-Endgame One Hand Swords (Campaign) 过渡单手剑 - 基础 - 精确==
+#==[144004]- Campaign One Hand Swords -Pre-Endgame One Hand Swords (Campaign) 过渡单手剑 - 基础 - 精确==
 Show
     BaseType == "Anarchic Spiritblade" "Midnight Blade" "Tiger Hook"
     Rarity <= Rare
@@ -4539,9 +4649,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[129000]-过渡 _campaign - 武器 Weapons - 过渡符文匕首 Campaign Rune Daggers==
+#==[145000]-过渡 _campaign - 武器 Weapons - 过渡符文匕首 Campaign Rune Daggers==
 
-#==[129001]- Campaign Rune Daggers -Early Rune Daggers (Campaign) 过渡符文匕首 - 基础 - 精确==
+#==[145001]- Campaign Rune Daggers -Early Rune Daggers (Campaign) 过渡符文匕首 - 基础 - 精确==
 Show
     BaseType == "Boot Knife" "Carving Knife" "Copper Kris"
     Rarity <= Rare
@@ -4554,7 +4664,7 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[129002]- Campaign Rune Daggers -Mid Rune Daggers (Campaign) 过渡符文匕首 - 基础 - 精确==
+#==[145002]- Campaign Rune Daggers -Mid Rune Daggers (Campaign) 过渡符文匕首 - 基础 - 精确==
 Show
     BaseType == "Boot Blade" "Butcher Knife" "Flickerflame Blade" "Imp Dagger" "Skean"
     Rarity <= Rare
@@ -4567,7 +4677,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[129003]- Campaign Rune Daggers -Late Rune Daggers (Campaign) 过渡符文匕首 - 基础 - 精确==
+#==[145003]- Campaign Rune Daggers -Late Rune Daggers (Campaign) 过渡符文匕首 - 基础 - 精确==
 Show
     BaseType == "Ezomyte Dagger" "Fiend Dagger" "Flashfire Blade" "Golden Kris" "Imperial Skean" "Platinum Kris" "Royal Skean" "Slaughter Knife"
     Rarity <= Rare
@@ -4580,7 +4690,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[129004]- Campaign Rune Daggers -Pre-Endgame Rune Daggers (Campaign) 过渡符文匕首 - 基础 - 精确==
+#==[145004]- Campaign Rune Daggers -Pre-Endgame Rune Daggers (Campaign) 过渡符文匕首 - 基础 - 精确==
 Show
     BaseType == "Demon Dagger" "Infernal Blade"
     Rarity <= Rare
@@ -4593,9 +4703,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[130000]-过渡 _campaign - 武器 Weapons - 过渡短杖 Campaign Sceptres==
+#==[146000]-过渡 _campaign - 武器 Weapons - 过渡短杖 Campaign Sceptres==
 
-#==[130001]- Campaign Sceptres -Early Sceptres (Campaign) 过渡短杖 - 基础 - 精确==
+#==[146001]- Campaign Sceptres -Early Sceptres (Campaign) 过渡短杖 - 基础 - 精确==
 Show
     BaseType == "Bronze Sceptre" "Darkwood Sceptre" "Driftwood Sceptre" "Iron Sceptre" "Ochre Sceptre" "Quartz Sceptre"
     Rarity <= Rare
@@ -4608,7 +4718,7 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[130002]- Campaign Sceptres -Mid Sceptres (Campaign) 过渡短杖 - 基础 - 精确==
+#==[146002]- Campaign Sceptres -Mid Sceptres (Campaign) 过渡短杖 - 基础 - 精确==
 Show
     BaseType == "Crystal Sceptre" "Grinning Fetish" "Horned Sceptre" "Lead Sceptre" "Oscillating Sceptre" "Ritual Sceptre" "Sekhem" "Shadow Sceptre"
     Rarity <= Rare
@@ -4621,7 +4731,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[130003]- Campaign Sceptres -Late Sceptres (Campaign) 过渡短杖 - 基础 - 精确==
+#==[146003]- Campaign Sceptres -Late Sceptres (Campaign) 过渡短杖 - 基础 - 精确==
 Show
     BaseType == "Abyssal Sceptre" "Blood Sceptre" "Carnal Sceptre" "Karui Sceptre" "Opal Sceptre" "Platinum Sceptre" "Royal Sceptre" "Stabilising Sceptre" "Stag Sceptre" "Tyrant's Sekhem" "Vaal Sceptre"
     Rarity <= Rare
@@ -4634,7 +4744,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[130004]- Campaign Sceptres -Pre-Endgame Sceptres (Campaign) 过渡短杖 - 基础 - 精确==
+#==[146004]- Campaign Sceptres -Pre-Endgame Sceptres (Campaign) 过渡短杖 - 基础 - 精确==
 Show
     BaseType == "Alternating Sceptre" "Sambar Sceptre" "Void Sceptre"
     Rarity <= Rare
@@ -4647,9 +4757,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[131000]-过渡 _campaign - 武器 Weapons - 过渡长杖 Campaign Staves==
+#==[147000]-过渡 _campaign - 武器 Weapons - 过渡长杖 Campaign Staves==
 
-#==[131001]- Campaign Staves -Early Staves (Campaign) 过渡长杖 - 基础 - 精确==
+#==[147001]- Campaign Staves -Early Staves (Campaign) 过渡长杖 - 基础 - 精确==
 Show
     BaseType == "Gnarled Branch" "Long Staff" "Primitive Staff"
     Rarity <= Rare
@@ -4662,7 +4772,7 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[131002]- Campaign Staves -Mid Staves (Campaign) 过渡长杖 - 基础 - 精确==
+#==[147002]- Campaign Staves -Mid Staves (Campaign) 过渡长杖 - 基础 - 精确==
 Show
     BaseType == "Crescent Staff" "Royal Staff" "Transformer Staff" "Woodful Staff"
     Rarity <= Rare
@@ -4675,7 +4785,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[131003]- Campaign Staves -Late Staves (Campaign) 过渡长杖 - 基础 - 精确==
+#==[147003]- Campaign Staves -Late Staves (Campaign) 过渡长杖 - 基础 - 精确==
 Show
     BaseType == "Highborn Staff" "Imperial Staff" "Lathi" "Moon Staff" "Primordial Staff" "Quarterstaff" "Reciprocation Staff"
     Rarity <= Rare
@@ -4688,7 +4798,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[131004]- Campaign Staves -Pre-Endgame Staves (Campaign) 过渡长杖 - 基础 - 精确==
+#==[147004]- Campaign Staves -Pre-Endgame Staves (Campaign) 过渡长杖 - 基础 - 精确==
 Show
     BaseType == "Battery Staff" "Eclipse Staff"
     Rarity <= Rare
@@ -4701,9 +4811,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[132000]-过渡 _campaign - 武器 Weapons - 过渡双手斧 Campaign Two Hand Axes==
+#==[148000]-过渡 _campaign - 武器 Weapons - 过渡双手斧 Campaign Two Hand Axes==
 
-#==[132001]- Campaign Two Hand Axes -Early Two Hand Axes (Campaign) 过渡双手斧 - 基础 - 精确==
+#==[148001]- Campaign Two Hand Axes -Early Two Hand Axes (Campaign) 过渡双手斧 - 基础 - 精确==
 Show
     BaseType == "Double Axe" "Jade Chopper" "Poleaxe" "Stone Axe" "Woodsplitter"
     Rarity <= Rare
@@ -4716,7 +4826,7 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[132002]- Campaign Two Hand Axes -Mid Two Hand Axes (Campaign) 过渡双手斧 - 基础 - 精确==
+#==[148002]- Campaign Two Hand Axes -Mid Two Hand Axes (Campaign) 过渡双手斧 - 基础 - 精确==
 Show
     BaseType == "Dagger Axe" "Gilded Axe" "Jasper Chopper" "Prime Cleaver" "Shadow Axe" "Timber Axe"
     Rarity <= Rare
@@ -4729,7 +4839,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[132003]- Campaign Two Hand Axes -Late Two Hand Axes (Campaign) 过渡双手斧 - 基础 - 精确==
+#==[148003]- Campaign Two Hand Axes -Late Two Hand Axes (Campaign) 过渡双手斧 - 基础 - 精确==
 Show
     BaseType == "Abyssal Axe" "Despot Axe" "Ezomyte Axe" "Headsman Axe" "Honed Cleaver" "Karui Chopper" "Labrys" "Noble Axe" "Sundering Axe" "Talon Axe" "Vaal Axe"
     Rarity <= Rare
@@ -4742,7 +4852,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[132004]- Campaign Two Hand Axes -Pre-Endgame Two Hand Axes (Campaign) 过渡双手斧 - 基础 - 精确==
+#==[148004]- Campaign Two Hand Axes -Pre-Endgame Two Hand Axes (Campaign) 过渡双手斧 - 基础 - 精确==
 Show
     BaseType == "Apex Cleaver" "Fleshripper" "Void Axe"
     Rarity <= Rare
@@ -4755,9 +4865,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[133000]-过渡 _campaign - 武器 Weapons - 过渡双手锤 Campaign Two Hand Maces==
+#==[149000]-过渡 _campaign - 武器 Weapons - 过渡双手锤 Campaign Two Hand Maces==
 
-#==[133001]- Campaign Two Hand Maces -Early Two Hand Maces (Campaign) 过渡双手锤 - 基础 - 精确==
+#==[149001]- Campaign Two Hand Maces -Early Two Hand Maces (Campaign) 过渡双手锤 - 基础 - 精确==
 Show
     BaseType == "Driftwood Maul" "Jagged Maul" "Mallet" "Sledgehammer" "Tribal Maul"
     Rarity <= Rare
@@ -4770,7 +4880,7 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[133002]- Campaign Two Hand Maces -Mid Two Hand Maces (Campaign) 过渡双手锤 - 基础 - 精确==
+#==[149002]- Campaign Two Hand Maces -Mid Two Hand Maces (Campaign) 过渡双手锤 - 基础 - 精确==
 Show
     BaseType == "Blunt Force Condenser" "Brass Maul" "Fright Maul" "Great Mallet" "Morning Star" "Steelhead" "Totemic Maul"
     Rarity <= Rare
@@ -4783,7 +4893,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[133003]- Campaign Two Hand Maces -Late Two Hand Maces (Campaign) 过渡双手锤 - 基础 - 精确==
+#==[149003]- Campaign Two Hand Maces -Late Two Hand Maces (Campaign) 过渡双手锤 - 基础 - 精确==
 Show
     BaseType == "Colossus Mallet" "Crushing Force Magnifier" "Dread Maul" "Imperial Maul" "Karui Maul" "Meatgrinder" "Piledriver" "Plated Maul" "Solar Maul" "Spiny Maul"
     Rarity <= Rare
@@ -4796,7 +4906,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[133004]- Campaign Two Hand Maces -Pre-Endgame Two Hand Maces (Campaign) 过渡双手锤 - 基础 - 精确==
+#==[149004]- Campaign Two Hand Maces -Pre-Endgame Two Hand Maces (Campaign) 过渡双手锤 - 基础 - 精确==
 Show
     BaseType == "Coronal Maul" "Impact Force Propagator" "Terror Maul"
     Rarity <= Rare
@@ -4809,9 +4919,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[134000]-过渡 _campaign - 武器 Weapons - 过渡双手剑 Campaign Two Hand Swords==
+#==[150000]-过渡 _campaign - 武器 Weapons - 过渡双手剑 Campaign Two Hand Swords==
 
-#==[134001]- Campaign Two Hand Swords -Early Two Hand Swords (Campaign) 过渡双手剑 - 基础 - 精确==
+#==[150001]- Campaign Two Hand Swords -Early Two Hand Swords (Campaign) 过渡双手剑 - 基础 - 精确==
 Show
     BaseType == "Bastard Sword" "Corroded Blade" "Etched Greatsword" "Longsword" "Two-Handed Sword"
     Rarity <= Rare
@@ -4824,7 +4934,7 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[134002]- Campaign Two Hand Swords -Mid Two Hand Swords (Campaign) 过渡双手剑 - 基础 - 精确==
+#==[150002]- Campaign Two Hand Swords -Mid Two Hand Swords (Campaign) 过渡双手剑 - 基础 - 精确==
 Show
     BaseType == "Butcher Sword" "Curved Blade" "Footman Sword" "Highland Blade" "Ornate Sword" "Rebuking Blade" "Spectral Sword"
     Rarity <= Rare
@@ -4837,7 +4947,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[134003]- Campaign Two Hand Swords -Late Two Hand Swords (Campaign) 过渡双手剑 - 基础 - 精确==
+#==[150003]- Campaign Two Hand Swords -Late Two Hand Swords (Campaign) 过渡双手剑 - 基础 - 精确==
 Show
     BaseType == "Blasting Blade" "Engraved Greatsword" "Ezomyte Blade" "Headman's Sword" "Lion Sword" "Lithe Blade" "Reaver Sword" "Tiger Sword" "Vaal Greatsword" "Wraith Sword"
     Rarity <= Rare
@@ -4850,7 +4960,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[134004]- Campaign Two Hand Swords -Pre-Endgame Two Hand Swords (Campaign) 过渡双手剑 - 基础 - 精确==
+#==[150004]- Campaign Two Hand Swords -Pre-Endgame Two Hand Swords (Campaign) 过渡双手剑 - 基础 - 精确==
 Show
     BaseType == "Banishing Blade" "Exquisite Blade" "Infernal Sword"
     Rarity <= Rare
@@ -4863,9 +4973,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[135000]-过渡 _campaign - 武器 Weapons - 过渡法杖 Campaign Wands==
+#==[151000]-过渡 _campaign - 武器 Weapons - 过渡法杖 Campaign Wands==
 
-#==[135001]- Campaign Wands -Early Wands (Campaign) 过渡法杖 - 基础 - 精确==
+#==[151001]- Campaign Wands -Early Wands (Campaign) 过渡法杖 - 基础 - 精确==
 Show
     BaseType == "Calling Wand" "Driftwood Wand" "Goat's Horn" "Quartz Wand" "Somatic Wand" "Spiraled Wand"
     Rarity <= Rare
@@ -4878,7 +4988,7 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[135002]- Campaign Wands -Mid Wands (Campaign) 过渡法杖 - 基础 - 精确==
+#==[151002]- Campaign Wands -Mid Wands (Campaign) 过渡法杖 - 基础 - 精确==
 Show
     BaseType == "Assembler Wand" "Blasting Wand" "Faun's Horn" "Pagan Wand" "Sage Wand"
     Rarity <= Rare
@@ -4891,7 +5001,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[135003]- Campaign Wands -Late Wands (Campaign) 过渡法杖 - 基础 - 精确==
+#==[151003]- Campaign Wands -Late Wands (Campaign) 过渡法杖 - 基础 - 精确==
 Show
     BaseType == "Coiled Wand" "Congregator Wand" "Convening Wand" "Crystal Wand" "Demon's Horn" "Heathen Wand" "Kinetic Wand" "Omen Wand" "Opal Wand" "Tornado Wand"
     Rarity <= Rare
@@ -4904,7 +5014,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[135004]- Campaign Wands -Pre-Endgame Wands (Campaign) 过渡法杖 - 自动音效：Convoking Wand - 精确==
+#==[151004]- Campaign Wands -Pre-Endgame Wands (Campaign) 过渡法杖 - 自动音效：Convoking Wand - 精确==
 Show
     BaseType == "Convoking Wand"
     SetFontSize 42
@@ -4916,7 +5026,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[135005]- Campaign Wands -Pre-Endgame Wands (Campaign) 过渡法杖 - 基础 - 精确==
+#==[151005]- Campaign Wands -Pre-Endgame Wands (Campaign) 过渡法杖 - 基础 - 精确==
 Show
     BaseType == "Accumulator Wand" "Profane Wand" "Prophecy Wand"
     Rarity <= Rare
@@ -4929,9 +5039,9 @@ Show
     MinimapIcon RedStar
 
 
-#==[136000]-过渡 _campaign - 武器 Weapons - 过渡战杖 Campaign Warstaves==
+#==[152000]-过渡 _campaign - 武器 Weapons - 过渡战杖 Campaign Warstaves==
 
-#==[136001]- Campaign Warstaves -Early Warstaves (Campaign) 过渡战杖 - 基础 - 精确==
+#==[152001]- Campaign Warstaves -Early Warstaves (Campaign) 过渡战杖 - 基础 - 精确==
 Show
     BaseType == "Coiled Staff" "Iron Staff"
     Rarity <= Rare
@@ -4944,7 +5054,7 @@ Show
     MinimapIcon YellowCircle
 
 
-#==[136002]- Campaign Warstaves -Mid Warstaves (Campaign) 过渡战杖 - 基础 - 精确==
+#==[152002]- Campaign Warstaves -Mid Warstaves (Campaign) 过渡战杖 - 基础 - 精确==
 Show
     BaseType == "Capacity Rod" "Military Staff" "Vile Staff"
     Rarity <= Rare
@@ -4957,7 +5067,7 @@ Show
     MinimapIcon OrangeCircle
 
 
-#==[136003]- Campaign Warstaves -Late Warstaves (Campaign) 过渡战杖 - 基础 - 精确==
+#==[152003]- Campaign Warstaves -Late Warstaves (Campaign) 过渡战杖 - 基础 - 精确==
 Show
     BaseType == "Ezomyte Staff" "Foul Staff" "Maelström Staff" "Potentiality Rod" "Serpentine Staff"
     Rarity <= Rare
@@ -4970,7 +5080,7 @@ Show
     MinimapIcon RedStar
 
 
-#==[136004]- Campaign Warstaves -Pre-Endgame Warstaves (Campaign) 过渡战杖 - 基础 - 精确==
+#==[152004]- Campaign Warstaves -Pre-Endgame Warstaves (Campaign) 过渡战杖 - 基础 - 精确==
 Show
     BaseType == "Eventuality Rod" "Judgement Staff"
     Rarity <= Rare

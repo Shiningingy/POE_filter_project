@@ -1,0 +1,44 @@
+{
+  "Act 4/5/6": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Act 4/5/6",
+        "ch": "第四至六章"
+      },
+      "tier_order": [
+        "Act 4/5/6 T1",
+        "Act 4/5/6 Hide"
+      ]
+    },
+    "Act 4/5/6 T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Act 4/5/6",
+        "ch": "第四至六章"
+      }
+    },
+    "Act 4/5/6 Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

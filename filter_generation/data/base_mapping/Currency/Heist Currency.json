@@ -1,12 +1,13 @@
 {
   "_meta": {
-    "excluded_modes": ["ruthless"],
+    "excluded_modes": [
+      "ruthless"
+    ],
     "localization": {
       "ch": {
         "Rogue's Marker": "赏金猎人印记",
         "Tempering Orb": "回火石",
-        "Tailoring Orb": "裁剪石",
-        "__class_name__": "可堆叠通货"
+        "Tailoring Orb": "裁剪石"
       }
     },
     "item_class": {

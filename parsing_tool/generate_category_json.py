@@ -91,6 +91,10 @@ def main():
         
     categories = []
     for cat_key, cat_data in yaml_data.items():
+        # Chapter separator marker: a non-clickable heading row in the sidebar.
+        if isinstance(cat_data, dict) and "_separator" in cat_data:
+            categories.append({"separator": cat_data["_separator"]})
+            continue
         categories.append(parse_group(cat_key, cat_data, path_prefix=cat_key))
         
     output = {"categories": categories}

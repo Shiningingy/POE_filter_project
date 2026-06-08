@@ -17,13 +17,12 @@
         "Amber Oil": "琥珀圣油",
         "Sepia Oil": "墨色圣油",
         "Clear Oil": "清澈圣油",
-        "__class_name__": "圣油",
         "Prismatic Oil": "虹彩圣油"
       }
     },
     "item_class": {
       "en": "Stackable Currency",
-      "ch": "可堆叠通货"
+      "ch": "圣油"
     },
     "theme_category": "Stackable Currency"
   },

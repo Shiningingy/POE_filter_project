@@ -1,0 +1,44 @@
+{
+  "ID Mods: Warband": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "ID Mods: Warband",
+        "ch": "战团装备"
+      },
+      "tier_order": [
+        "ID Mods: Warband T1",
+        "ID Mods: Warband Hide"
+      ]
+    },
+    "ID Mods: Warband T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "ID Mods: Warband",
+        "ch": "战团装备"
+      }
+    },
+    "ID Mods: Warband Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

@@ -239,8 +239,9 @@ def generate_filter():
         loc_data = map_meta.get("localization", {}).get(LANG, {})
         
         if isinstance(loc_data, dict):
-            # It's a dictionary (like 'ch' with items and class name)
-            loc_cat = loc_data.get("__class_name__", meta.get("localization", {}).get("ch", loc_en))
+            # It's a dictionary of baseType -> translation. The class label now lives
+            # canonically in _meta.item_class (was the magic localization.ch.__class_name__ key).
+            loc_cat = map_meta.get("item_class", {}).get(LANG) or meta.get("localization", {}).get("ch", loc_en)
             item_trans = loc_data # The whole dict is the translation map
         else:
             # It's a string (like 'en' usually is) or missing

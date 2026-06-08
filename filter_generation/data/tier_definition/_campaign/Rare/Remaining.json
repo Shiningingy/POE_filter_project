@@ -1,0 +1,44 @@
+{
+  "Remaining Rares": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Remaining Rares",
+        "ch": "其余稀有"
+      },
+      "tier_order": [
+        "Remaining Rares T1",
+        "Remaining Rares Hide"
+      ]
+    },
+    "Remaining Rares T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Remaining Rares",
+        "ch": "其余稀有"
+      }
+    },
+    "Remaining Rares Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

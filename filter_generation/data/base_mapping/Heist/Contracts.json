@@ -1,9 +1,10 @@
 {
   "_meta": {
-    "excluded_modes": ["ruthless"],
+    "excluded_modes": [
+      "ruthless"
+    ],
     "localization": {
       "ch": {
-        "__class_name__": "契约",
         "Contract: Bunker": "契约：堡垒",
         "Contract: Smuggler's Den": "契约：珍宝之地",
         "Contract: Laboratory": "契约：实验室",

@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {}
+    },
+    "item_class": {
+      "en": "Relics",
+      "ch": "遗物"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Relics": "Relics T1"
+  },
+  "rules": []
+}

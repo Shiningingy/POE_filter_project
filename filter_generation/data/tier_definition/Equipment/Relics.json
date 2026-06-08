@@ -1,0 +1,48 @@
+{
+  "Relics": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Relics",
+        "ch": "遗物"
+      },
+      "tier_order": [
+        "Relics T1",
+        "Relics Hide"
+      ]
+    },
+    "Relics T1": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Relics",
+        "ch": "遗物"
+      },
+      "class_condition": true,
+      "conditions": {
+        "Class": "\"Relics\" \"Small Relics\" \"Medium Relics\" \"Large Relics\" \"Sanctified Relics\""
+      }
+    },
+    "Relics Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

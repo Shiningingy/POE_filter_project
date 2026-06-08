@@ -1,0 +1,44 @@
+{
+  "ID Mods: Mercenaries": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "ID Mods: Mercenaries",
+        "ch": "恶名词缀"
+      },
+      "tier_order": [
+        "ID Mods: Mercenaries T1",
+        "ID Mods: Mercenaries Hide"
+      ]
+    },
+    "ID Mods: Mercenaries T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "ID Mods: Mercenaries",
+        "ch": "恶名词缀"
+      }
+    },
+    "ID Mods: Mercenaries Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

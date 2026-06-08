@@ -1,66 +1,83 @@
+_chapter_general:
+  _separator:
+    en: General
+    ch: 通用
+
 Currency:
   _name: 通货
   _default_target: Stackable Currency
   General: 通用通货
-  Special Currency:
-    _name: 特殊通货
-    Corpses:
-      name: 尸体
-      target: Corpses
-      path: Currency/Corpses.json
-    Delirium Orbs:
-      name: 雾魇宝珠
-      path: Currency/Delirium Orbs.json
-    Essences:
-      name: 精华
-      path: Currency/Essences.json
-    Expedition:
-      name: 探险
-      path: Currency/Expedition.json
-    Fossils:
-      name: 化石
-      path: Currency/Fossils.json
-    Harbinger:
-      name: 先驱
-      path: Currency/Harbinger.json
-    Harvest:
-      name: 庄园
-      path: Currency/Harvest.json
-    Heist Currency:
-      name: 夺宝通货
-      path: Currency/Heist Currency.json
-    Incubators:
-      name: 孕育石
-      path: Currency/Incubators.json
-    Oils:
-      name: 圣油
-      path: Currency/Oils.json
-    Omens:
-      name: 预兆
-      path: Currency/Omens.json
-    Ritual:
-      name: 仪式
-      path: Currency/Ritual.json
-    Runegrafts:
-      name: 符文嫁接
-      path: Currency/Runegrafts.json
-    Splinters:
-      name: 碎片
-      path: Currency/Splinters.json
   Gold:
     name: 金币
     target: Gold
     path: Currency/Gold.json
+
+League Currency:
+  _name: 联盟通货
+  _default_target: Stackable Currency
+  Delirium Orbs:
+    name: 雾魇宝珠
+    path: Currency/Delirium Orbs.json
+  Essences:
+    name: 精华
+    path: Currency/Essences.json
+  Expedition:
+    name: 探险
+    path: Currency/Expedition.json
+  Fossils:
+    name: 化石
+    path: Currency/Fossils.json
+  Harbinger:
+    name: 先驱
+    path: Currency/Harbinger.json
+  Harvest:
+    name: 庄园
+    path: Currency/Harvest.json
+  Heist Currency:
+    name: 夺宝通货
+    path: Currency/Heist Currency.json
+  Incubators:
+    name: 孕育石
+    path: Currency/Incubators.json
+  Oils:
+    name: 圣油
+    path: Currency/Oils.json
+  Omens:
+    name: 预兆
+    path: Currency/Omens.json
+  Ritual:
+    name: 仪式
+    path: Currency/Ritual.json
+  Runegrafts:
+    name: 符文嫁接
+    path: Currency/Runegrafts.json
+  Splinters:
+    name: 碎片
+    path: Currency/Splinters.json
+
+Divination Cards:
+  _name: 命运卡
+  _default_target: Divination Cards
+  Cards: 命运卡
 
 Uniques:
   _name: 传奇物品
   _default_target: Unique Items
   General: 传奇物品
 
-Divination Cards:
-  _name: 命运卡
-  _default_target: Divination Cards
-  Cards: 命运卡
+Gems:
+  _name: 宝石
+  Skill:
+    name: 技能宝石
+    target: Skill Gems
+  Support:
+    name: 辅助宝石
+    target: Support Gems
+
+_chapter_maps:
+  _separator:
+    en: Maps & Fragments
+    ch: 地图与碎片
 
 Maps & Fragments:
   _name: 地图与碎片
@@ -73,33 +90,97 @@ Maps & Fragments:
     target: Map Fragments
     path: Maps/Scarabs.json
   Fragments:
-    name: 碎片与传送门
+    name: 地图碎片与邀请
     target: Map Fragments
     path: Maps/Fragments.json
   Heist:
     _name: 赏金猎人
     Contracts:
-      name: 委托契约
+      name: 契约
       path: Heist/Contracts.json
     Blueprints:
       name: 蓝图
       path: Heist/Blueprints.json
 
-Gems:
-  _name: 宝石
-  Skill:
-    name: 技能宝石
-    target: Skill Gems
-  Support:
-    name: 辅助宝石
-    target: Support Gems
+_chapter_general_gear:
+  _separator:
+    en: General Gear
+    ch: 常规装备
 
-Jewels:
-  _name: 珠宝
-  _default_target: Jewels
-  Base Jewels: 基础珠宝
-  Cluster Jewels: 星团珠宝
-  Abyss Jewels: 深渊珠宝
+Armour:
+  _name: 护甲
+  _default_target: Body Armours
+  Body Armours: 胸甲
+  Helmets:
+    name: 头部
+    target: Helmets
+  Gloves:
+    name: 手套
+    target: Gloves
+  Boots:
+    name: 鞋子
+    target: Boots
+  Shields:
+    name: 盾
+    target: Shields
+  Quivers:
+    name: 箭袋
+    target: Quivers
+
+Weapons:
+  _name: 武器
+  _default_target: Bows
+  Bows: 弓
+  Wands:
+    name: 法杖
+    target: Wands
+  Claws:
+    name: 爪
+    target: Claws
+  Daggers:
+    name: 匕首
+    target: Daggers
+  Rune Daggers:
+    name: 符文匕首
+    target: Rune Daggers
+  Sceptres:
+    name: 短杖
+    target: Sceptres
+  Staves:
+    name: 长杖
+    target: Staves
+  Warstaves:
+    name: 战杖
+    target: Warstaves
+  One Hand Axes:
+    name: 单手斧
+    target: One Hand Axes
+  One Hand Maces:
+    name: 单手锤
+    target: One Hand Maces
+  One Hand Swords:
+    name: 单手剑
+    target: One Hand Swords
+  Two Hand Axes:
+    name: 双手斧
+    target: Two Hand Axes
+  Two Hand Maces:
+    name: 双手锤
+    target: Two Hand Maces
+  Two Hand Swords:
+    name: 双手剑
+    target: Two Hand Swords
+
+Jewellery:
+  _name: 首饰
+  _default_target: Amulets
+  Amulets: 项链
+  Rings:
+    name: 戒指
+    target: Rings
+  Belts:
+    name: 腰带
+    target: Belts
 
 Flasks:
   _name: 药剂
@@ -115,103 +196,262 @@ Flasks:
     name: 酊剂
     path: Flasks/Tinctures.json
 
-Equipment:
-  _name: 装备
-  Vendor Recipes:
-    _name: 商人配方
-    Recipes:
-      name: 掉落配方
-      path: Equipment/VendorRecipes/Recipes.json
-    Chancing Bases:
-      name: 机会底材
-      path: Equipment/VendorRecipes/Chancing.json
-  Special Bases:
-    _name: 特殊底材
-    _default_target: Body Armours
-    Influenced:
-      name: 势力物品
-      path: Equipment/Special/Influenced.json
-    Fractured:
-      name: 破碎物品
-      path: Equipment/Special/Fractured.json
-    Synthesised:
-      name: 合成物品
-      path: Equipment/Special/Synthesised.json
-  Armour:
-    _name: 护甲
-    _default_target: Body Armours
-    Body Armours: 胸甲
-    Helmets:
-      name: 头部
-      target: Helmets
-    Gloves:
-      name: 手套
-      target: Gloves
-    Boots:
-      name: 鞋子
-      target: Boots
-    Shields:
-      name: 盾
-      target: Shields
-    Quivers:
-      name: 箭袋
-      target: Quivers
-  Weapons:
-    _name: 武器
-    _default_target: Bows
-    Bows: 弓
-    Wands:
-      name: 法杖
-      target: Wands
-    Claws:
-      name: 爪
-      target: Claws
-    Daggers:
-      name: 匕首
-      target: Daggers
-    Rune Daggers:
-      name: 符文匕首
-      target: Rune Daggers
-    Sceptres:
-      name: 短杖
-      target: Sceptres
-    Staves:
-      name: 长杖
-      target: Staves
-    Warstaves:
-      name: 战杖
-      target: Warstaves
-    One Hand Axes:
-      name: 单手斧
-      target: One Hand Axes
-    One Hand Maces:
-      name: 单手锤
-      target: One Hand Maces
-    One Hand Swords:
-      name: 单手剑
-      target: One Hand Swords
-    Two Hand Axes:
-      name: 双手斧
-      target: Two Hand Axes
-    Two Hand Maces:
-      name: 双手锤
-      target: Two Hand Maces
-    Two Hand Swords:
-      name: 双手剑
-      target: Two Hand Swords
-  Jewellery:
-    _name: 饰品
-    _default_target: Amulets
-    Amulets: 项链
-    Rings:
-      name: 戒指
-      target: Rings
-    Belts:
-      name: 腰带
-      target: Belts
-    Trinkets:
-      name: 饰品
-      target: Trinkets
+Jewels:
+  _name: 珠宝
+  _default_target: Jewels
+  Base Jewels: 基础珠宝
+  Cluster Jewels: 星团珠宝
+  Abyss Jewels: 深渊珠宝
+
+Trinkets & Relics:
+  _name: 饰品与遗物
+  Trinkets:
+    name: 饰品
+    path: Equipment/Jewellery/Trinkets.json
+  Relics:
+    name: 遗物
+    path: Equipment/Relics.json
+
+Sockets Colors Links:
+  _name: 洞&色&连
+  Sockets Colors Links:
+    name: 洞&色&连
+    path: Equipment/VendorRecipes/Recipes.json
+
+Chancing Bases:
+  _name: 机会底材
+  Chancing:
+    name: 机会底材
+    path: Equipment/VendorRecipes/Chancing.json
+
+_chapter_endgame:
+  _separator:
+    en: Endgame Gear
+    ch: 终局装备
+
+Crafting Bases:
+  _name: 精品底材
+  Crafting:
+    name: 精品底材
+    path: Equipment/Crafting.json
+
+Influenced:
+  _name: 势力物品
+  Influenced:
+    name: 势力物品
+    path: Equipment/Special/Influenced.json
+
+Fractured:
+  _name: 破碎物品
+  Fractured:
+    name: 破碎物品
+    path: Equipment/Special/Fractured.json
+
+Synthesised:
+  _name: 合成物品
+  Synthesised:
+    name: 合成物品
+    path: Equipment/Special/Synthesised.json
+
+Memory-Stranded:
+  _name: 追忆物品
+  Memory-Stranded:
+    name: 追忆物品
+    path: Equipment/MemoryStranded.json
+
+Veiled Items:
+  _name: 隐匿物品
+  Veiled:
+    name: 隐匿物品
+    path: Equipment/Veiled.json
+
+Linked Items:
+  _name: 高连物品
+  Linked:
+    name: 高连物品
+    path: Equipment/Linked.json
+
+League-Specific:
+  _name: 联盟专属
+  Exotic Bases:
+    _name: 异域底材
+    Breach Rings:
+      name: 裂隙戒指
+      path: Equipment/League/Breach Rings.json
+    Talismans:
+      name: 护身符
+      path: Equipment/League/Talismans.json
+    Expedition Ward-Bases:
+      name: 先祖秘藏结界底材
+      path: Equipment/League/Expedition Ward-Bases.json
+    Breach Grasping Mail:
+      name: 扼杀链甲
+      path: Equipment/League/Breach Grasping Mail.json
+    Stygian Vise:
+      name: 深渊腰带
+      path: Equipment/League/Stygian Vise.json
+    Sacrificial Garbs:
+      name: 祭礼束衣
+      path: Equipment/League/Sacrificial Garbs.json
+    Ritual BaseTypes:
+      name: 仪式底材
+      path: Equipment/League/Ritual BaseTypes.json
+    Corpses for Spectres:
+      name: 祭祀尸体
+      path: Currency/Corpses.json
+    Heist Experimented:
+      name: 夺宝奇兵实验底材
+      path: Equipment/League/Heist Experimented.json
+    Mirror Ring Bases:
+      name: 魔镜戒指底材
+      path: Equipment/League/Mirror Ring Bases.json
+  Special Properties:
+    _name: 特殊属性
+    Abyss Socketed:
+      name: 深渊插槽道具
+      path: Equipment/League/Abyss Socketed.json
+    Blight Anointed:
+      name: 菌潮附魔道具
+      path: Equipment/League/Blight Anointed.json
+  Exotic Identified Mods:
+    _name: 异域鉴定词缀
+    ID Incursion:
+      name: 穿越
+      path: Equipment/League/ID Incursion.json
+    ID Delve:
+      name: 地心
+      path: Equipment/League/ID Delve.json
+    ID Essence:
+      name: 精华
+      path: Equipment/League/ID Essence.json
+    ID Mercenaries:
+      name: 恶名词缀
+      path: Equipment/League/ID Mercenaries.json
+    ID Bestiary:
+      name: 野兽词缀
+      path: Equipment/League/ID Bestiary.json
+    ID Warband:
+      name: 战团装备
+      path: Equipment/League/ID Warband.json
+
+_chapter_campaign:
+  _separator:
+    en: Campaign
+    ch: 剧情模式
+
+Colors & Links:
+  _name: 色与连
+  Chromatic Recipe Items:
+    name: 色卡配方物品
+    path: _campaign/ChromaticRecipe.json
+  Linked Gear:
+    name: 连接装备
+    path: _campaign/Armour.json
+Campaign Flasks:
+  _name: 药剂
+  Flask Progression:
+    name: 药剂进度
+    path: _campaign/Flasks.json
+  Quality Flasks:
+    name: 品质药剂
+    path: _campaign/QualityFlasks.json
+  Tinctures:
+    name: 酊剂
+    path: _campaign/Tinctures.json
+Rare Items:
+  _name: 稀有物品
+  Special Noteworthy Drops:
+    name: 特殊瞩目掉落
+    path: _campaign/Rare/Noteworthy.json
+  Jewellery & Armours:
+    name: 首饰与护甲
+    path: _campaign/Rare/Jewellery Armours.json
+  Weapon Highlight:
+    name: 武器突显
+    path: _campaign/Rare/Weapon Highlight.json
+  Remaining Rares:
+    name: 其余稀有
+    path: _campaign/Rare/Remaining.json
+Act & Build-Specific:
+  _name: 章节与流派
+  Act 1:
+    name: 第一章
+    path: _campaign/Act/Act 1.json
+  Act 2/3:
+    name: 第二、三章
+    path: _campaign/Act/Act 2-3.json
+  Act 4/5/6:
+    name: 第四至六章
+    path: _campaign/Act/Act 4-6.json
+  Jewels:
+    name: 珠宝
+    path: _campaign/Act/Jewels.json
+  Quivers:
+    name: 箭袋
+    path: _campaign/Act/Quivers.json
+  Summoner Gear:
+    name: 召唤流装备
+    path: _campaign/Act/Summoner.json
+  Attack Wands:
+    name: 攻击手杖
+    path: _campaign/Act/Attack Wands.json
+Item Progression:
+  _name: 物品进度
+  Bows:
+    name: 弓（过渡）
+    path: _campaign/Weapons/Bows.json
+  Wands:
+    name: 法杖（过渡）
+    path: _campaign/Weapons/Wands.json
+  Sceptres:
+    name: 短杖（过渡）
+    path: _campaign/Weapons/Sceptres.json
+  Claws:
+    name: 爪（过渡）
+    path: _campaign/Weapons/Claws.json
+  Daggers:
+    name: 匕首（过渡）
+    path: _campaign/Weapons/Daggers.json
+  Rune Daggers:
+    name: 符文匕首（过渡）
+    path: _campaign/Weapons/Rune Daggers.json
+  Staves:
+    name: 长杖（过渡）
+    path: _campaign/Weapons/Staves.json
+  Warstaves:
+    name: 战杖（过渡）
+    path: _campaign/Weapons/Warstaves.json
+  One Hand Axes:
+    name: 单手斧（过渡）
+    path: _campaign/Weapons/One Hand Axes.json
+  One Hand Maces:
+    name: 单手锤（过渡）
+    path: _campaign/Weapons/One Hand Maces.json
+  One Hand Swords:
+    name: 单手剑（过渡）
+    path: _campaign/Weapons/One Hand Swords.json
+  Two Hand Axes:
+    name: 双手斧（过渡）
+    path: _campaign/Weapons/Two Hand Axes.json
+  Two Hand Maces:
+    name: 双手锤（过渡）
+    path: _campaign/Weapons/Two Hand Maces.json
+  Two Hand Swords:
+    name: 双手剑（过渡）
+    path: _campaign/Weapons/Two Hand Swords.json
+Other Normal & Magic:
+  _name: 普通与魔法
+  Magic Items:
+    name: 魔法物品
+    path: _campaign/Magic.json
+  Normal Items - Early:
+    name: 早期普通物品
+    path: _campaign/Normal Early.json
+
+_chapter_misc:
+  _separator:
+    en: Miscellaneous
+    ch: 杂项
 
 Heist Gear:
   _name: 赏金猎人装备
@@ -221,65 +461,6 @@ Heist Gear:
   Targets:
     name: 赏金猎人目标
     path: Heist/Targets.json
-
-_Campaign:
-  _name: 剧情模式
-  Armour:
-    name: 过渡护甲
-    path: _campaign/Armour.json
-  Flasks:
-    name: 过渡药剂
-    path: _campaign/Flasks.json
-  Weapons:
-    _name: 过渡武器
-    Bows:
-      name: 弓（过渡）
-      path: _campaign/Weapons/Bows.json
-    Wands:
-      name: 法杖（过渡）
-      path: _campaign/Weapons/Wands.json
-    Sceptres:
-      name: 短杖（过渡）
-      path: _campaign/Weapons/Sceptres.json
-    Claws:
-      name: 爪（过渡）
-      path: _campaign/Weapons/Claws.json
-    Daggers:
-      name: 匕首（过渡）
-      path: _campaign/Weapons/Daggers.json
-    Rune Daggers:
-      name: 符文匕首（过渡）
-      path: _campaign/Weapons/Rune Daggers.json
-    Staves:
-      name: 长杖（过渡）
-      path: _campaign/Weapons/Staves.json
-    Warstaves:
-      name: 战杖（过渡）
-      path: _campaign/Weapons/Warstaves.json
-    One Hand Axes:
-      name: 单手斧（过渡）
-      path: _campaign/Weapons/One Hand Axes.json
-    One Hand Maces:
-      name: 单手锤（过渡）
-      path: _campaign/Weapons/One Hand Maces.json
-    One Hand Swords:
-      name: 单手剑（过渡）
-      path: _campaign/Weapons/One Hand Swords.json
-    Two Hand Axes:
-      name: 双手斧（过渡）
-      path: _campaign/Weapons/Two Hand Axes.json
-    Two Hand Maces:
-      name: 双手锤（过渡）
-      path: _campaign/Weapons/Two Hand Maces.json
-    Two Hand Swords:
-      name: 双手剑（过渡）
-      path: _campaign/Weapons/Two Hand Swords.json
-
-_Legacy:
-  _name: 历史物品
-  Legacy:
-    name: 历史物品
-    path: _legacy/Legacy.json
 
 Quest:
   _name: 任务物品
@@ -304,3 +485,9 @@ Misc:
     name: 孕育赠礼
     target: Wombgifts
     path: Misc/Wombgifts.json
+
+_Legacy:
+  _name: 历史物品
+  Legacy:
+    name: 历史物品
+    path: _legacy/Legacy.json

@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "excluded_modes": ["ruthless"],
+    "excluded_modes": [
+      "ruthless"
+    ],
     "localization": {
-      "ch": {
-        "__class_name__": "盗贼目标"
-      }
+      "ch": {}
     },
     "item_class": {
       "en": "Heist Targets",
