@@ -169,21 +169,30 @@ const resolveStyle = (
     matchedTier: string,
     context: FilterContext
 ): { style: CSSProperties & { sound?: any }; visible: boolean; category: string } => {
-    // 2. Resolve Category
-    let category = "Templates";
+    // 2. Resolve Category from the tier_definition's theme_category (matches the
+    // Python/frontend generators). Falls back to the tier_definition's top-level key
+    // (self), then to "Default".
+    let category = "Default";
     if (matchedFile) {
-        const mappingContent = context.mappings[matchedFile];
-        const metaCat = mappingContent?._meta?.theme_category;
-
-        if (metaCat) {
-            category = metaCat;
-        } else {
-            const parts = matchedFile.split('/');
-            const relevantParts = parts.filter(p => p !== 'base_mapping' && !p.endsWith('.json'));
-            if (relevantParts.length > 0) {
-                category = relevantParts[relevantParts.length - 1];
+        const tierDefPath = matchedFile.replace(/^base_mapping\//, 'tier_definition/');
+        const tierDefContent = (context.tierDefinitions as Record<string, any>)?.[tierDefPath];
+        if (tierDefContent) {
+            const groupKey = Object.keys(tierDefContent).find(k => k !== '_meta' && !k.startsWith('//'));
+            if (groupKey) {
+                category = tierDefContent[groupKey]?._meta?.theme_category || groupKey;
             }
-            if (category === "Fragments") category = "Map Fragments";
+        } else {
+            // Tier def not loaded — fall back to base_mapping meta / path inference.
+            const mappingContent = context.mappings[matchedFile];
+            const metaCat = mappingContent?._meta?.theme_category;
+            if (metaCat) {
+                category = metaCat;
+            } else {
+                const parts = matchedFile.split('/');
+                const relevantParts = parts.filter(p => p !== 'base_mapping' && !p.endsWith('.json'));
+                if (relevantParts.length > 0) category = relevantParts[relevantParts.length - 1];
+                if (category === "Fragments") category = "Map Fragments";
+            }
         }
     }
 
@@ -215,8 +224,8 @@ const resolveStyle = (
         // Priority lookup
         themeStyle = checkStyle(category, matchedTier);
         if (!themeStyle) themeStyle = checkStyle(category, normalizedTier);
-        if (!themeStyle) themeStyle = checkStyle("Templates", matchedTier);
-        if (!themeStyle) themeStyle = checkStyle("Templates", normalizedTier);
+        if (!themeStyle) themeStyle = checkStyle("Default", matchedTier);
+        if (!themeStyle) themeStyle = checkStyle("Default", normalizedTier);
 
         // Final fallback: use inline style overrides from the corresponding tier_definition file
         if (!themeStyle && matchedFile && context.tierDefinitions) {

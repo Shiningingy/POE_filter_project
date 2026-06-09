@@ -3,8 +3,8 @@ import axios from 'axios';
 import { useTranslation, CLASS_KEY_MAP, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import SoundPicker from './SoundPicker';
-import MinimapIconPicker, { getIconStyle } from './MinimapIconPicker';
-import PlayEffectPicker from './PlayEffectPicker';
+import MinimapIconPicker, { getIconStyle, formatMinimapIcon } from './MinimapIconPicker';
+import PlayEffectPicker, { formatPlayEffect } from './PlayEffectPicker';
 import { getAssetUrl } from '../utils/assetUtils';
 
 interface ThemePresetEditorProps {
@@ -25,8 +25,11 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   
   const [baseThemeData, setBaseThemeData] = useState<any>(null);
   const [overridesData, setOverridesData] = useState<any>({});
-  
-  const [selectedCategory, setSelectedCategory] = useState<string>('Currency');
+  const [navGroups, setNavGroups] = useState<any[]>([]);
+
+  // selectedCategory holds the THEME RESOLUTION KEY (target_category / theme_category),
+  // not the display name. "Default" is the global fallback bucket.
+  const [selectedCategory, setSelectedCategory] = useState<string>('Default');
   
   const [editingTier, setEditingTier] = useState<string | null>(null);
   const [isBulkEditing, setIsBulkEditing] = useState(false);
@@ -54,16 +57,18 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [themesRes, settingsRes, overridesRes] = await Promise.all([
+        const [themesRes, settingsRes, overridesRes, navRes] = await Promise.all([
             axios.get('/api/themes'),
             axios.get('/api/settings'),
-            axios.get('/api/custom-overrides')
+            axios.get('/api/custom-overrides'),
+            axios.get('/api/category-structure')
         ]);
         setThemes(themesRes.data.themes || []);
         const base = settingsRes.data.base_theme || 'sharket';
         setCurrentThemeInUse(base);
-        setActiveTheme(base); 
+        setActiveTheme(base);
         setOverridesData(overridesRes.data || {});
+        setNavGroups(navRes.data.categories || []);
       } catch (e) { console.error(e); }
     };
     fetchData();
@@ -75,62 +80,75 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
     const fetchBaseTheme = async () => {
       try {
         const res = await axios.get(`/api/themes/${activeTheme}`);
-        let data = res.data.theme_data;
-        if (!data['Templates']) {
-            const source = data['Currency'] || data['Stackable Currency'] || {};
-            data['Templates'] = JSON.parse(JSON.stringify(source));
+        const data = res.data.theme_data || {};
+        // Ensure the global fallback bucket exists (seeded from a sane default if absent).
+        if (!data['Default']) {
+            data['Default'] = JSON.parse(JSON.stringify(data['Stackable Currency'] || {}));
             for (let i = 0; i <= 9; i++) {
-                if (!data['Templates'][`Tier ${i}`]) data['Templates'][`Tier ${i}`] = { FontSize: 32, TextColor: '#ffffff', BackgroundColor: '#000000aa' };
+                if (!data['Default'][`Tier ${i}`]) data['Default'][`Tier ${i}`] = { FontSize: 32, TextColor: '#ffffffff', BackgroundColor: '#000000aa' };
             }
         }
         setBaseThemeData(data);
-      } catch (e) { console.error(e); } 
+      } catch (e) { console.error(e); }
     };
     fetchBaseTheme();
   }, [activeTheme]);
-
-  // Compute Merged Data
-  const mergedThemeData = useMemo(() => {
-      if (!baseThemeData) return null;
-      const merged = JSON.parse(JSON.stringify(baseThemeData));
-      Object.keys(overridesData).forEach(cat => {
-          if (!merged[cat]) merged[cat] = {};
-          Object.keys(overridesData[cat]).forEach(tier => {
-              merged[cat][tier] = { ...merged[cat][tier], ...overridesData[cat][tier] };
-          });
-      });
-      return merged;
-  }, [baseThemeData, overridesData]);
 
   // Helpers
   const getLocalizedCategory = (cat: string) =>
     (language === 'ch' && CLASS_CH[cat]) || (t as any)[CLASS_KEY_MAP[cat] || cat] || cat;
 
-  const getTiers = (data: any, cat: string) => {
-      if (!data || !data[cat]) return [];
-      return Object.keys(data[cat]).filter(k => k.startsWith('Tier')).sort((a, b) => {
+  const sortTierKeys = (obj: any) =>
+      Object.keys(obj || {}).filter(k => k.startsWith('Tier')).sort((a, b) => {
           const nA = parseInt(a.match(/Tier (\d+)/)?.[1] || '99');
           const nB = parseInt(b.match(/Tier (\d+)/)?.[1] || '99');
           return nA - nB;
       });
+
+  const getTiers = (data: any, cat: string) => sortTierKeys(data?.[cat]);
+
+  // Flat nav leaves keyed by resolution key (target_category), for label lookup + initial select.
+  const navLeaves = useMemo(() => {
+      const out: { key: string; label_en: string; label: string }[] = [];
+      navGroups.forEach((g: any) => (g.files || []).forEach((f: any) => {
+          const key = f.target_category || f.localization?.en;
+          if (!key) return;
+          out.push({ key, label_en: f.localization?.en || key, label: f.localization?.[language] || f.localization?.en || key });
+      }));
+      return out;
+  }, [navGroups, language]);
+
+  const catLabel = (cat: string) => {
+      if (cat === 'Default') return language === 'ch' ? '默认 (后备样式)' : 'Default (fallback)';
+      const leaf = navLeaves.find(l => l.key === cat);
+      return leaf?.label || getLocalizedCategory(cat);
   };
 
+  // Effective per-tier styles for the selected category: its own base (or "Default"
+  // fallback) merged with any overrides — mirrors how the generator resolves styling.
+  const effectiveTiers = useMemo(() => {
+      if (!baseThemeData) return {};
+      const base = JSON.parse(JSON.stringify(baseThemeData[selectedCategory] || baseThemeData['Default'] || {}));
+      const ov = overridesData[selectedCategory] || {};
+      Object.keys(ov).forEach(tier => { base[tier] = { ...base[tier], ...ov[tier] }; });
+      return base;
+  }, [baseThemeData, overridesData, selectedCategory]);
+
   const previewItems = useMemo(() => {
-    if (!mergedThemeData || !mergedThemeData[selectedCategory]) return [];
-    return getTiers(mergedThemeData, selectedCategory).map(tier => ({
-        name: `${getLocalizedCategory(selectedCategory)} ${tier}`,
+    return sortTierKeys(effectiveTiers).map(tier => ({
+        name: `${catLabel(selectedCategory)} ${tier}`,
         tierKey: tier,
-        style: mergedThemeData[selectedCategory][tier],
+        style: effectiveTiers[tier],
         isOverridden: overridesData[selectedCategory]?.[tier] !== undefined
     }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mergedThemeData, selectedCategory, overridesData, language]);
+  }, [effectiveTiers, selectedCategory, overridesData, language]);
 
   const activeStyle = useMemo(() => {
-      if (isBulkEditing && previewItems.length > 0) return previewItems[0].style; 
-      else if (editingTier && mergedThemeData && mergedThemeData[selectedCategory]) return mergedThemeData[selectedCategory][editingTier];
+      if (isBulkEditing && previewItems.length > 0) return previewItems[0].style;
+      else if (editingTier) return effectiveTiers[editingTier] || null;
       return null;
-  }, [isBulkEditing, previewItems, editingTier, mergedThemeData, selectedCategory]);
+  }, [isBulkEditing, previewItems, editingTier, effectiveTiers]);
 
   // Actions
   const updateOverride = (cat: string, tier: string, key: string, value: any) => {
@@ -146,8 +164,8 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
   const handleUpdateStyle = (key: string, value: any) => {
       if (isBulkEditing) {
-          if (!selectedCategory || !mergedThemeData) return;
-          getTiers(mergedThemeData, selectedCategory).forEach(tier => updateOverride(selectedCategory, tier, key, value));
+          if (!selectedCategory) return;
+          sortTierKeys(effectiveTiers).forEach(tier => updateOverride(selectedCategory, tier, key, value));
       } else {
           if (!editingTier || !selectedCategory) return;
           updateOverride(selectedCategory, editingTier, key, value);
@@ -171,8 +189,8 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
       const sourceStyles = previewImportData[importState.sourceCategory] || previewImportData['Templates'];
       if (!sourceStyles) return;
 
-      const targetTiers = getTiers(mergedThemeData, selectedCategory).length > 0 
-          ? getTiers(mergedThemeData, selectedCategory)
+      const targetTiers = sortTierKeys(effectiveTiers).length > 0
+          ? sortTierKeys(effectiveTiers)
           : getTiers(previewImportData, importState.sourceCategory);
 
       setOverridesData((prev: any) => {
@@ -246,22 +264,44 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
         <div className="editor-layout">
           <div className="category-sidebar">
             <div className="category-list">
-              {mergedThemeData && Object.keys(mergedThemeData).sort((a, b) => (a === 'Templates' ? -1 : b === 'Templates' ? 1 : a.localeCompare(b))).map(cat => (
-                <div 
-                  key={cat} 
-                  className={`category-item ${selectedCategory === cat ? 'active' : ''} ${cat === 'Templates' ? 'template-category' : ''}`}
-                  onClick={() => { setSelectedCategory(cat); setEditingTier(null); setIsBulkEditing(false); }}
-                >
-                  {cat === 'Templates' ? t.globalTemplates : getLocalizedCategory(cat)}
-                  {overridesData[cat] && <span className="override-dot">•</span>}
-                </div>
+              {/* Global fallback bucket */}
+              <div
+                className={`category-item template-category ${selectedCategory === 'Default' ? 'active' : ''}`}
+                onClick={() => { setSelectedCategory('Default'); setEditingTier(null); setIsBulkEditing(false); }}
+              >
+                ★ {catLabel('Default')}
+                {overridesData['Default'] && <span className="override-dot">•</span>}
+              </div>
+              {/* Nav-mirrored categories (grouped by separator) */}
+              {navGroups.map((group: any, gi: number) => (
+                group.separator ? (
+                  <div key={`sep-${gi}`} className="category-separator">
+                    {group.separator[language] || group.separator.en}
+                  </div>
+                ) : (
+                  (group.files || []).map((f: any) => {
+                    const key = f.target_category || f.localization?.en;
+                    if (!key) return null;
+                    const label = f.localization?.[language] || f.localization?.en || key;
+                    return (
+                      <div
+                        key={f.path || key}
+                        className={`category-item ${selectedCategory === key ? 'active' : ''}`}
+                        onClick={() => { setSelectedCategory(key); setEditingTier(null); setIsBulkEditing(false); }}
+                      >
+                        {label}
+                        {overridesData[key] && <span className="override-dot">•</span>}
+                      </div>
+                    );
+                  })
+                )
               ))}
             </div>
           </div>
 
           <div className="preview-area" onClick={() => { setEditingTier(null); setIsBulkEditing(false); }} style={getBackgroundStyle()}>
             <div className="preview-header">
-              <h3>{getLocalizedCategory(selectedCategory)}</h3>
+              <h3>{catLabel(selectedCategory)}</h3>
               <BackgroundSwitcher />
               <button className={`bulk-edit-btn primary-action-btn ${isBulkEditing ? 'active' : ''}`} onClick={(e) => { e.stopPropagation(); setIsBulkEditing(!isBulkEditing); setEditingTier(null); }}>
                 {t.bulkEditImport}
@@ -279,8 +319,21 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                         color: item.style.TextColor || '#fff',
                         backgroundColor: item.style.BackgroundColor || 'transparent',
                         borderColor: item.style.BorderColor || 'transparent',
-                        borderWidth: '1px', borderStyle: 'solid', padding: '5px 10px'
-                    }}>{item.name}</div>
+                        borderWidth: '1px', borderStyle: 'solid', padding: '5px 10px',
+                        display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px'
+                    }}>
+                        {item.style.MinimapIcon && (
+                            <div style={getIconStyle(item.style.MinimapIcon.split(' ')[1], item.style.MinimapIcon.split(' ')[2], 0.8)}></div>
+                        )}
+                        <span>{item.name}</span>
+                        {item.style.PlayEffect && (
+                            <span
+                                className={`beam-mini ${item.style.PlayEffect.includes('Temp') ? 'is-temp' : ''}`}
+                                style={{ color: item.style.PlayEffect.split(' ')[0].toLowerCase() }}
+                                title={item.style.PlayEffect}
+                            ></span>
+                        )}
+                    </div>
                   </div>
                 ))}
             </div>
@@ -333,7 +386,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                                 <span className="sound-icon">📍</span>
                             )}
                             <span className="sound-name">
-                                {activeStyle.MinimapIcon || t.none}
+                                {activeStyle.MinimapIcon ? formatMinimapIcon(activeStyle.MinimapIcon, t) : t.none}
                             </span>
                         </div>
                     </div>
@@ -346,7 +399,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                                 <span className="sound-icon">✨</span>
                             )}
                             <span className="sound-name">
-                                {activeStyle.PlayEffect || t.none}
+                                {activeStyle.PlayEffect ? formatPlayEffect(activeStyle.PlayEffect, t) : t.none}
                             </span>
                         </div>
                     </div>
@@ -477,6 +530,8 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
       <style>{`
         .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 1000; display: flex; align-items: center; justify-content: center; }
         .effect-swatch { width: 14px; height: 14px; border-radius: 50%; display: inline-block; flex-shrink: 0; box-shadow: 0 0 5px currentColor; border: 1px solid rgba(0,0,0,0.2); }
+        .beam-mini { width: 5px; height: 18px; border-radius: 2px; background: currentColor; box-shadow: 0 0 6px currentColor; flex-shrink: 0; display: inline-block; }
+        .beam-mini.is-temp { background: repeating-linear-gradient(to bottom, currentColor, currentColor 3px, transparent 3px, transparent 6px); }
         
         .theme-editor-modal .modal-content { background: #fff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
         .theme-editor-modal .main-content-frame { width: 95%; height: 95%; }
@@ -500,6 +555,8 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
         .category-item:hover { background: #f5f5f5; }
         .category-item.active { background: #2196F3; color: white; }
         .template-category { color: #d32f2f; font-weight: bold; background: #fff8f8; border-left: 4px solid #d32f2f; }
+        .category-separator { padding: 12px 15px 4px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; color: #999; letter-spacing: 0.05em; border-top: 1px solid #f0f0f0; margin-top: 6px; }
+        .category-separator:first-child { border-top: none; margin-top: 0; }
         .override-dot { color: #ff9800; font-weight: bold; font-size: 1.5rem; line-height: 0.5; }
         
         .preview-area { flex: 1; padding: 30px; overflow-y: auto; background-color: #111; color: #eee; display: flex; flex-direction: column; align-items: center; background-size: cover; background-position: center; transition: background 0.3s; }

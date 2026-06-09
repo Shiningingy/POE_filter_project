@@ -27,6 +27,13 @@ export const BEAM_COLORS = [
   "Purple",
 ];
 
+/** Localize a stored "color [Temp]" PlayEffect string for display. */
+export const formatPlayEffect = (value: string, t: any): string => {
+  const [color, temp] = value.split(" ");
+  const colorLabel = t[color] || color;
+  return temp === "Temp" ? `${colorLabel} (${t.temporary})` : colorLabel;
+};
+
 const PlayEffectPicker: React.FC<PlayEffectPickerProps> = ({
   value,
   title,

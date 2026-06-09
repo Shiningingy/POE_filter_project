@@ -294,7 +294,19 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[16003]- General -T0: Absolute Top 可堆叠通货 - 自动音效：卡兰德的魔镜 - 精确==
+#==[16003]- General -T0: Absolute Top 可堆叠通货 - #3 规则 - 精确==
+Show
+    BaseType == "Gift to the Goddess"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\超级通货.mp3" 300
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[16004]- General -T0: Absolute Top 可堆叠通货 - 自动音效：卡兰德的魔镜 - 精确==
 Show
     BaseType == "Mirror of Kalandra"
     SetFontSize 45
@@ -306,7 +318,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[16004]- General -T0: Absolute Top 可堆叠通货 - 自动音效：永恒宝珠 - 精确==
+#==[16005]- General -T0: Absolute Top 可堆叠通货 - 自动音效：永恒宝珠 - 精确==
 Show
     BaseType == "Eternal Orb"
     SetFontSize 45
@@ -318,7 +330,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[16005]- General -T0: Absolute Top 可堆叠通货 - 自动音效：白化的羽毛 - 精确==
+#==[16006]- General -T0: Absolute Top 可堆叠通货 - 自动音效：白化的羽毛 - 精确==
 Show
     BaseType == "Albino Rhoa Feather"
     SetFontSize 45
@@ -330,7 +342,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[16006]- General -T0: Absolute Top 可堆叠通货 - 基础 - 精确==
+#==[16007]- General -T0: Absolute Top 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Hinekora's Lock" "Mirror Shard"
     SetFontSize 45
@@ -342,7 +354,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[16007]- General -T1: Divine+ 可堆叠通货 - 自动音效：神圣石 - 精确==
+#==[16008]- General -T1: Divine+ 可堆叠通货 - 自动音效：神圣石 - 精确==
 Show
     BaseType == "Divine Orb"
     SetFontSize 42
@@ -354,7 +366,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[16008]- General -T1: Divine+ 可堆叠通货 - 自动音效：觉醒者之石 - 精确==
+#==[16009]- General -T1: Divine+ 可堆叠通货 - 自动音效：觉醒者之石 - 精确==
 Show
     BaseType == "Awakener's Orb"
     SetFontSize 42
@@ -366,7 +378,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[16009]- General -T1: Divine+ 可堆叠通货 - 自动音效：破溃宝珠 - 精确==
+#==[16010]- General -T1: Divine+ 可堆叠通货 - 自动音效：破溃宝珠 - 精确==
 Show
     BaseType == "Fracturing Orb"
     SetFontSize 42
@@ -378,7 +390,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[16010]- General -T1: Divine+ 可堆叠通货 - 自动音效：倒映薄雾 - 精确==
+#==[16011]- General -T1: Divine+ 可堆叠通货 - 自动音效：倒映薄雾 - 精确==
 Show
     BaseType == "Reflecting Mist"
     SetFontSize 42
@@ -390,7 +402,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[16011]- General -T1: Divine+ 可堆叠通货 - 自动音效：裁剪石 - 精确==
+#==[16012]- General -T1: Divine+ 可堆叠通货 - 自动音效：裁剪石 - 精确==
 Show
     BaseType == "Tailoring Orb"
     SetFontSize 42
@@ -402,7 +414,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[16012]- General -T1: Divine+ 可堆叠通货 - 自动音效：回火石 - 精确==
+#==[16013]- General -T1: Divine+ 可堆叠通货 - 自动音效：回火石 - 精确==
 Show
     BaseType == "Tempering Orb"
     SetFontSize 42
@@ -414,7 +426,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[16013]- General -T1: Divine+ 可堆叠通货 - 基础 - 精确==
+#==[16014]- General -T1: Divine+ 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Exceptional Eldritch Ember" "Exceptional Eldritch Ichor" "Valdo's Puzzle Box" "Veiled Exalted Orb"
     SetFontSize 42
@@ -426,7 +438,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[16014]- General -T2: High Value 可堆叠通货 - 自动音效：冲突石 - 精确==
+#==[16015]- General -T2: High Value 可堆叠通货 - 自动音效：冲突石 - 精确==
 Show
     BaseType == "Orb of Conflict"
     SetFontSize 39
@@ -437,7 +449,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[16015]- General -T2: High Value 可堆叠通货 - 自动音效：崇神石 - 精确==
+#==[16016]- General -T2: High Value 可堆叠通货 - 自动音效：崇神石 - 精确==
 Show
     BaseType == "Sacred Orb"
     SetFontSize 39
@@ -448,7 +460,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[16016]- General -T2: High Value 可堆叠通货 - 自动音效：统御宝珠 - 精确==
+#==[16017]- General -T2: High Value 可堆叠通货 - 自动音效：统御宝珠 - 精确==
 Show
     BaseType == "Orb of Dominance"
     SetFontSize 39
@@ -459,7 +471,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[16017]- General -T2: High Value 可堆叠通货 - 自动音效：污秽崇高石 - 精确==
+#==[16018]- General -T2: High Value 可堆叠通货 - 自动音效：污秽崇高石 - 精确==
 Show
     BaseType == "Tainted Exalted Orb"
     SetFontSize 39
@@ -470,7 +482,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[16018]- General -T2: High Value 可堆叠通货 - 自动音效：污染神泪 - 精确==
+#==[16019]- General -T2: High Value 可堆叠通货 - 自动音效：污染神泪 - 精确==
 Show
     BaseType == "Tainted Divine Teardrop"
     SetFontSize 39
@@ -481,7 +493,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[16019]- General -T2: High Value 可堆叠通货 - 基础 - 精确==
+#==[16020]- General -T2: High Value 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Crusader's Exalted Orb" "Grand Eldritch Ember" "Grand Eldritch Ichor" "Hunter's Exalted Orb" "Maven's Chisel of Scarabs" "Prismatic Catalyst" "Redeemer's Exalted Orb" "Warlord's Exalted Orb"
     SetFontSize 39
@@ -492,7 +504,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[16020]- General -T3: Exalt Level 可堆叠通货 - #1 规则 - 精确==
+#==[16021]- General -T3: Exalt Level 可堆叠通货 - #1 规则 - 精确==
 Show
     BaseType == "Chaos Orb"
     StackSize >=10
@@ -503,7 +515,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\通货.mp3" 100
 
 
-#==[16021]- General -T3: Exalt Level 可堆叠通货 - 自动音效：崇高石 - 精确==
+#==[16022]- General -T3: Exalt Level 可堆叠通货 - 自动音效：崇高石 - 精确==
 Show
     BaseType == "Exalted Orb"
     SetFontSize 36
@@ -513,7 +525,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\崇高石.mp3" 300
 
 
-#==[16022]- General -T3: Exalt Level 可堆叠通货 - 自动音效：远古石 - 精确==
+#==[16023]- General -T3: Exalt Level 可堆叠通货 - 自动音效：远古石 - 精确==
 Show
     BaseType == "Ancient Orb"
     SetFontSize 36
@@ -523,7 +535,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\远古石.mp3" 300
 
 
-#==[16023]- General -T3: Exalt Level 可堆叠通货 - 自动音效：古灵混沌石 - 精确==
+#==[16024]- General -T3: Exalt Level 可堆叠通货 - 自动音效：古灵混沌石 - 精确==
 Show
     BaseType == "Eldritch Chaos Orb"
     SetFontSize 36
@@ -533,7 +545,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\古灵混沌石.mp3" 300
 
 
-#==[16024]- General -T3: Exalt Level 可堆叠通货 - 自动音效：古灵崇高石 - 精确==
+#==[16025]- General -T3: Exalt Level 可堆叠通货 - 自动音效：古灵崇高石 - 精确==
 Show
     BaseType == "Eldritch Exalted Orb"
     SetFontSize 36
@@ -543,7 +555,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\古灵崇高石.mp3" 300
 
 
-#==[16025]- General -T3: Exalt Level 可堆叠通货 - 自动音效：污秽混沌石 - 精确==
+#==[16026]- General -T3: Exalt Level 可堆叠通货 - 自动音效：污秽混沌石 - 精确==
 Show
     BaseType == "Tainted Chaos Orb"
     SetFontSize 36
@@ -553,7 +565,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽混沌石.mp3" 300
 
 
-#==[16026]- General -T3: Exalt Level 可堆叠通货 - 自动音效：污秽幻色石 - 精确==
+#==[16027]- General -T3: Exalt Level 可堆叠通货 - 自动音效：污秽幻色石 - 精确==
 Show
     BaseType == "Tainted Chromatic Orb"
     SetFontSize 36
@@ -563,7 +575,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽幻色石.mp3" 300
 
 
-#==[16027]- General -T3: Exalt Level 可堆叠通货 - 自动音效：污秽链结石 - 精确==
+#==[16028]- General -T3: Exalt Level 可堆叠通货 - 自动音效：污秽链结石 - 精确==
 Show
     BaseType == "Tainted Orb of Fusing"
     SetFontSize 36
@@ -573,7 +585,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽链结石.mp3" 300
 
 
-#==[16028]- General -T3: Exalt Level 可堆叠通货 - 自动音效：污秽神秘石 - 精确==
+#==[16029]- General -T3: Exalt Level 可堆叠通货 - 自动音效：污秽神秘石 - 精确==
 Show
     BaseType == "Tainted Mythic Orb"
     SetFontSize 36
@@ -583,7 +595,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽神秘石.mp3" 300
 
 
-#==[16029]- General -T3: Exalt Level 可堆叠通货 - 基础 - 精确==
+#==[16030]- General -T3: Exalt Level 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Annulment Shard" "Eldritch Orb of Annulment" "Exalted Shard" "Fertile Catalyst" "Maven's Chisel of Avarice" "Maven's Chisel of Divination" "Maven's Chisel of Proliferation"
     SetFontSize 36
@@ -593,7 +605,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\通货.mp3" 100
 
 
-#==[16030]- General -T4: Chaos Level 可堆叠通货 - 自动音效：剥离石 - 精确==
+#==[16031]- General -T4: Chaos Level 可堆叠通货 - 自动音效：剥离石 - 精确==
 Show
     BaseType == "Orb of Annulment"
     SetFontSize 34
@@ -603,7 +615,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\剥离石.mp3" 300
 
 
-#==[16031]- General -T4: Chaos Level 可堆叠通货 - 自动音效：瓦尔宝珠 - 精确==
+#==[16032]- General -T4: Chaos Level 可堆叠通货 - 自动音效：瓦尔宝珠 - 精确==
 Show
     BaseType == "Vaal Orb"
     SetFontSize 34
@@ -613,7 +625,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\瓦尔宝珠.mp3" 300
 
 
-#==[16032]- General -T4: Chaos Level 可堆叠通货 - 自动音效：后悔石 - 精确==
+#==[16033]- General -T4: Chaos Level 可堆叠通货 - 自动音效：后悔石 - 精确==
 Show
     BaseType == "Orb of Regret"
     SetFontSize 34
@@ -623,7 +635,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\后悔石.mp3" 300
 
 
-#==[16033]- General -T4: Chaos Level 可堆叠通货 - 自动音效：粉碎石 - 精确==
+#==[16034]- General -T4: Chaos Level 可堆叠通货 - 自动音效：粉碎石 - 精确==
 Show
     BaseType == "Orb of Unmaking"
     SetFontSize 34
@@ -633,7 +645,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\粉碎石.mp3" 200
 
 
-#==[16034]- General -T4: Chaos Level 可堆叠通货 - 自动音效：重铸石 - 精确==
+#==[16035]- General -T4: Chaos Level 可堆叠通货 - 自动音效：重铸石 - 精确==
 Show
     BaseType == "Orb of Scouring"
     SetFontSize 34
@@ -643,7 +655,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\重铸石.mp3" 300
 
 
-#==[16035]- General -T4: Chaos Level 可堆叠通货 - 自动音效：污秽护甲片 - 精确==
+#==[16036]- General -T4: Chaos Level 可堆叠通货 - 自动音效：污秽护甲片 - 精确==
 Show
     BaseType == "Tainted Armourer's Scrap"
     SetFontSize 34
@@ -653,7 +665,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽护甲片.mp3" 200
 
 
-#==[16036]- General -T4: Chaos Level 可堆叠通货 - 自动音效：污秽磨刀石 - 精确==
+#==[16037]- General -T4: Chaos Level 可堆叠通货 - 自动音效：污秽磨刀石 - 精确==
 Show
     BaseType == "Tainted Blacksmith's Whetstone"
     SetFontSize 34
@@ -663,7 +675,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽磨刀石.mp3" 200
 
 
-#==[16037]- General -T4: Chaos Level 可堆叠通货 - 基础 - 精确==
+#==[16038]- General -T4: Chaos Level 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Abrasive Catalyst" "Accelerating Catalyst" "Chaos Orb" "Enkindling Orb" "Gemcutter's Prism" "Greater Eldritch Ember" "Greater Eldritch Ichor" "Imbued Catalyst" "Instilling Orb" "Intrinsic Catalyst" "Maven's Chisel of Procurement" "Noxious Catalyst" "Stacked Deck" "Tempering Catalyst" "Turbulent Catalyst" "Unstable Catalyst"
     SetFontSize 34
@@ -673,7 +685,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\通货.mp3" 100
 
 
-#==[16038]- General -T5: Low Value 可堆叠通货 - 自动音效：点金石 - 精确==
+#==[16039]- General -T5: Low Value 可堆叠通货 - 自动音效：点金石 - 精确==
 Show
     BaseType == "Orb of Alchemy"
     SetFontSize 31
@@ -683,7 +695,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\点金石.mp3" 300
 
 
-#==[16039]- General -T5: Low Value 可堆叠通货 - 自动音效：链结石 - 精确==
+#==[16040]- General -T5: Low Value 可堆叠通货 - 自动音效：链结石 - 精确==
 Show
     BaseType == "Orb of Fusing"
     SetFontSize 31
@@ -693,7 +705,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\链结石.mp3" 200
 
 
-#==[16040]- General -T5: Low Value 可堆叠通货 - 自动音效：玻璃弹珠 - 精确==
+#==[16041]- General -T5: Low Value 可堆叠通货 - 自动音效：玻璃弹珠 - 精确==
 Show
     BaseType == "Glassblower's Bauble"
     SetFontSize 31
@@ -703,7 +715,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\玻璃弹珠.mp3" 100
 
 
-#==[16041]- General -T5: Low Value 可堆叠通货 - 自动音效：改造石 - 精确==
+#==[16042]- General -T5: Low Value 可堆叠通货 - 自动音效：改造石 - 精确==
 Show
     BaseType == "Orb of Alteration"
     SetFontSize 31
@@ -713,7 +725,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\改造石.mp3" 200
 
 
-#==[16042]- General -T5: Low Value 可堆叠通货 - 自动音效：机会石 - 精确==
+#==[16043]- General -T5: Low Value 可堆叠通货 - 自动音效：机会石 - 精确==
 Show
     BaseType == "Orb of Chance"
     SetFontSize 31
@@ -723,7 +735,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\机会石.mp3" 200
 
 
-#==[16043]- General -T5: Low Value 可堆叠通货 - 自动音效：工匠石 - 精确==
+#==[16044]- General -T5: Low Value 可堆叠通货 - 自动音效：工匠石 - 精确==
 Show
     BaseType == "Jeweller's Orb"
     SetFontSize 31
@@ -733,7 +745,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\工匠石.mp3" 100
 
 
-#==[16044]- General -T5: Low Value 可堆叠通货 - 自动音效：幻色石 - 精确==
+#==[16045]- General -T5: Low Value 可堆叠通货 - 自动音效：幻色石 - 精确==
 Show
     BaseType == "Chromatic Orb"
     SetFontSize 31
@@ -743,7 +755,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\幻色石.mp3" 100
 
 
-#==[16045]- General -T5: Low Value 可堆叠通货 - 自动音效：高阶点金石 - 精确==
+#==[16046]- General -T5: Low Value 可堆叠通货 - 自动音效：高阶点金石 - 精确==
 Show
     BaseType == "Orb of Binding"
     SetFontSize 31
@@ -753,7 +765,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\高阶点金石.mp3" 300
 
 
-#==[16046]- General -T5: Low Value 可堆叠通货 - 自动音效：护甲片 - 精确==
+#==[16047]- General -T5: Low Value 可堆叠通货 - 自动音效：护甲片 - 精确==
 Show
     BaseType == "Armourer's Scrap"
     SetFontSize 31
@@ -763,7 +775,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\护甲片.mp3" 100
 
 
-#==[16047]- General -T5: Low Value 可堆叠通货 - 自动音效：磨刀石 - 精确==
+#==[16048]- General -T5: Low Value 可堆叠通货 - 自动音效：磨刀石 - 精确==
 Show
     BaseType == "Blacksmith's Whetstone"
     SetFontSize 31
@@ -773,7 +785,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\磨刀石.mp3" 100
 
 
-#==[16048]- General -T5: Low Value 可堆叠通货 - 自动音效：增幅石 - 精确==
+#==[16049]- General -T5: Low Value 可堆叠通货 - 自动音效：增幅石 - 精确==
 Show
     BaseType == "Orb of Augmentation"
     SetFontSize 31
@@ -783,7 +795,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\增幅石.mp3" 100
 
 
-#==[16049]- General -T5: Low Value 可堆叠通货 - 自动音效：蜕变石 - 精确==
+#==[16050]- General -T5: Low Value 可堆叠通货 - 自动音效：蜕变石 - 精确==
 Show
     BaseType == "Orb of Transmutation"
     SetFontSize 31
@@ -793,7 +805,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\蜕变石.mp3" 100
 
 
-#==[16050]- General -T5: Low Value 可堆叠通货 - 自动音效：传送卷轴 - 精确==
+#==[16051]- General -T5: Low Value 可堆叠通货 - 自动音效：传送卷轴 - 精确==
 Show
     BaseType == "Portal Scroll"
     SetFontSize 31
@@ -803,7 +815,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\传送卷轴.mp3" 100
 
 
-#==[16051]- General -T5: Low Value 可堆叠通货 - 自动音效：知识卷轴 - 精确==
+#==[16052]- General -T5: Low Value 可堆叠通货 - 自动音效：知识卷轴 - 精确==
 Show
     BaseType == "Scroll of Wisdom"
     SetFontSize 31
@@ -813,7 +825,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\知识卷轴.mp3" 100
 
 
-#==[16052]- General -T5: Low Value 可堆叠通货 - 自动音效：富豪石 - 精确==
+#==[16053]- General -T5: Low Value 可堆叠通货 - 自动音效：富豪石 - 精确==
 Show
     BaseType == "Regal Orb"
     SetFontSize 31
@@ -823,7 +835,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\富豪石.mp3" 300
 
 
-#==[16053]- General -T5: Low Value 可堆叠通货 - 自动音效：祝福石 - 精确==
+#==[16054]- General -T5: Low Value 可堆叠通货 - 自动音效：祝福石 - 精确==
 Show
     BaseType == "Blessed Orb"
     SetFontSize 31
@@ -833,7 +845,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\祝福石.mp3" 200
 
 
-#==[16054]- General -T5: Low Value 可堆叠通货 - 基础 - 精确==
+#==[16055]- General -T5: Low Value 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Alchemy Shard" "Alteration Shard" "Chaos Shard" "Lesser Eldritch Ember" "Lesser Eldritch Ichor" "Regal Shard" "Scroll Fragment" "Transmutation Shard"
     SetFontSize 31

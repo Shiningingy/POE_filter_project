@@ -10,8 +10,8 @@ import type { Language } from "../utils/localization";
 import ItemCard from "./ItemCard";
 import ContextMenu from "./ContextMenu";
 import SoundPicker from "./SoundPicker";
-import MinimapIconPicker, { getIconStyle } from "./MinimapIconPicker";
-import PlayEffectPicker from "./PlayEffectPicker";
+import MinimapIconPicker, { getIconStyle, formatMinimapIcon } from "./MinimapIconPicker";
+import PlayEffectPicker, { formatPlayEffect } from "./PlayEffectPicker";
 
 interface Item {
   name: string;
@@ -1103,7 +1103,9 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                           <span className="override-icon">📍</span>
                         )}
                         <span className="override-name">
-                          {rule.overrides?.MinimapIcon || t.none}
+                          {rule.overrides?.MinimapIcon
+                            ? formatMinimapIcon(rule.overrides.MinimapIcon, t)
+                            : t.none}
                         </span>
                       </div>
                     </div>
@@ -1130,7 +1132,9 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                           <span className="override-icon">✨</span>
                         )}
                         <span className="override-name">
-                          {rule.overrides?.PlayEffect || t.none}
+                          {rule.overrides?.PlayEffect
+                            ? formatPlayEffect(rule.overrides.PlayEffect, t)
+                            : t.none}
                         </span>
                       </div>
                     </div>

@@ -43,6 +43,15 @@ export const ICON_SHAPES = [
   "UpsideDownHouse",
 ];
 
+/** Localize a stored "size color shape" MinimapIcon string for display. */
+export const formatMinimapIcon = (value: string, t: any): string => {
+  const [size, color, shape] = value.split(" ");
+  const sizeKey = size === "0" ? "small" : size === "1" ? "medium" : "large";
+  return [t[sizeKey], t[color] || color, t[shape] || shape]
+    .filter(Boolean)
+    .join(" ");
+};
+
 /** Build the sprite-sheet background style for a given icon color + shape. */
 export const getIconStyle = (
   color: string,

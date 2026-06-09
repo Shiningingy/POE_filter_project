@@ -262,7 +262,7 @@ def generate_filter():
             item_class_header = item_class
 
         theme_cat_key = meta.get("theme_category", category_key)
-        theme_ref = theme_data.get(theme_cat_key, theme_data.get("Currency", {})) 
+        theme_ref = theme_data.get(theme_cat_key, theme_data.get("Default", {}))
 
         # --- Construct Full Hierarchy Header ---
         breadcrumbs = []
