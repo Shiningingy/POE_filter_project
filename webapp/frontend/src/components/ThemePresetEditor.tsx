@@ -30,7 +30,13 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   // selectedCategory holds the THEME RESOLUTION KEY (target_category / theme_category),
   // not the display name. "Default" is the global fallback bucket.
   const [selectedCategory, setSelectedCategory] = useState<string>('Default');
-  
+  // selectedLeaf tracks the clicked nav leaf by its unique path (or '__default__')
+  // so the active highlight is per-leaf — several leaves can share one resolution key.
+  const [selectedLeaf, setSelectedLeaf] = useState<string>('__default__');
+  // Collapsible nav groups/subgroups, mirroring the editor Sidebar.
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const toggle = (id: string) => setExpanded(p => ({ ...p, [id]: !p[id] }));
+
   const [editingTier, setEditingTier] = useState<string | null>(null);
   const [isBulkEditing, setIsBulkEditing] = useState(false);
   const [unsavedOverrides, setUnsavedOverrides] = useState(false);
@@ -122,6 +128,33 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
       if (cat === 'Default') return language === 'ch' ? '默认 (后备样式)' : 'Default (fallback)';
       const leaf = navLeaves.find(l => l.key === cat);
       return leaf?.label || getLocalizedCategory(cat);
+  };
+
+  // Select a nav leaf: edits the leaf's resolution key but highlights only this leaf.
+  const selectLeaf = (f: any) => {
+      const key = f.target_category || f.localization?.en;
+      if (!key) return;
+      setSelectedCategory(key);
+      setSelectedLeaf(f.path || key);
+      setEditingTier(null);
+      setIsBulkEditing(false);
+  };
+
+  const renderLeaf = (f: any) => {
+      const key = f.target_category || f.localization?.en;
+      if (!key) return null;
+      const label = f.localization?.[language] || f.localization?.en || key;
+      const id = f.path || key;
+      return (
+          <div
+              key={id}
+              className={`category-item file-leaf ${selectedLeaf === id ? 'active' : ''}`}
+              onClick={() => selectLeaf(f)}
+          >
+              {label}
+              {overridesData[key] && <span className="override-dot">•</span>}
+          </div>
+      );
   };
 
   // Effective per-tier styles for the selected category: its own base (or "Default"
@@ -266,36 +299,69 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
             <div className="category-list">
               {/* Global fallback bucket */}
               <div
-                className={`category-item template-category ${selectedCategory === 'Default' ? 'active' : ''}`}
-                onClick={() => { setSelectedCategory('Default'); setEditingTier(null); setIsBulkEditing(false); }}
+                className={`category-item template-category ${selectedLeaf === '__default__' ? 'active' : ''}`}
+                onClick={() => { setSelectedCategory('Default'); setSelectedLeaf('__default__'); setEditingTier(null); setIsBulkEditing(false); }}
               >
                 ★ {catLabel('Default')}
                 {overridesData['Default'] && <span className="override-dot">•</span>}
               </div>
-              {/* Nav-mirrored categories (grouped by separator) */}
-              {navGroups.map((group: any, gi: number) => (
-                group.separator ? (
-                  <div key={`sep-${gi}`} className="category-separator">
-                    {group.separator[language] || group.separator.en}
+              {/* Nav-mirrored categories: separators, collapsible groups, subgroups, leaves */}
+              {navGroups.map((group: any, gi: number) => {
+                if (group.separator) {
+                  return (
+                    <div key={`sep-${gi}`} className="category-separator">
+                      {group.separator[language] || group.separator.en}
+                    </div>
+                  );
+                }
+                const directFiles = group.files || [];
+                const hasSub = (group.subgroups || []).length > 0;
+                // Auto-flatten a single-file, no-subgroup group into one clickable row.
+                if (!hasSub && directFiles.length === 1) {
+                  const f = directFiles[0];
+                  const key = f.target_category || f.localization?.en;
+                  const id = f.path || key;
+                  const gLabel = group._meta?.localization?.[language] || group._meta?.localization?.en || f.localization?.[language] || key;
+                  return (
+                    <div
+                      key={`g-${gi}`}
+                      className={`category-item group-flat ${selectedLeaf === id ? 'active' : ''}`}
+                      onClick={() => selectLeaf(f)}
+                    >
+                      {gLabel}
+                      {overridesData[key] && <span className="override-dot">•</span>}
+                    </div>
+                  );
+                }
+                const gid = `g-${gi}`;
+                const gOpen = expanded[gid];
+                const gName = group._meta?.localization?.[language] || group._meta?.localization?.en || '';
+                return (
+                  <div key={gid} className="cat-group">
+                    <div className="cat-group-header" onClick={() => toggle(gid)}>
+                      <span className="arrow">{gOpen ? '▼' : '▶'}</span>{gName}
+                    </div>
+                    {gOpen && (
+                      <>
+                        {(group.subgroups || []).map((sub: any, si: number) => {
+                          const sid = `${gid}-s-${si}`;
+                          const sOpen = expanded[sid];
+                          const sName = sub._meta?.localization?.[language] || sub._meta?.localization?.en || '';
+                          return (
+                            <div key={sid} className="cat-subgroup">
+                              <div className="cat-subgroup-header" onClick={() => toggle(sid)}>
+                                <span className="arrow">{sOpen ? '▼' : '▶'}</span>{sName}
+                              </div>
+                              {sOpen && (sub.files || []).map(renderLeaf)}
+                            </div>
+                          );
+                        })}
+                        {directFiles.map(renderLeaf)}
+                      </>
+                    )}
                   </div>
-                ) : (
-                  (group.files || []).map((f: any) => {
-                    const key = f.target_category || f.localization?.en;
-                    if (!key) return null;
-                    const label = f.localization?.[language] || f.localization?.en || key;
-                    return (
-                      <div
-                        key={f.path || key}
-                        className={`category-item ${selectedCategory === key ? 'active' : ''}`}
-                        onClick={() => { setSelectedCategory(key); setEditingTier(null); setIsBulkEditing(false); }}
-                      >
-                        {label}
-                        {overridesData[key] && <span className="override-dot">•</span>}
-                      </div>
-                    );
-                  })
-                )
-              ))}
+                );
+              })}
             </div>
           </div>
 
@@ -549,11 +615,19 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
         .editor-layout { display: flex; flex: 1; overflow: hidden; background: #f0f2f5; }
         
-        .category-sidebar { width: 220px; border-right: 1px solid #ddd; display: flex; flex-direction: column; background: #fff; }
-        .category-list { flex: 1; overflow-y: auto; padding: 10px; }
+        .category-sidebar { width: 220px; border-right: 1px solid #ddd; display: flex; flex-direction: column; background: #fff; min-height: 0; }
+        .category-list { flex: 1; min-height: 0; overflow-y: auto; padding: 10px; }
         .category-item { padding: 10px 15px; cursor: pointer; border-radius: 6px; margin-bottom: 2px; color: #444; font-weight: 500; font-size: 0.9rem; display: flex; justify-content: space-between; transition: background 0.2s; }
         .category-item:hover { background: #f5f5f5; }
         .category-item.active { background: #2196F3; color: white; }
+        .cat-group-header { padding: 9px 12px; cursor: pointer; font-weight: bold; color: #333; font-size: 0.9rem; border-radius: 6px; display: flex; align-items: center; gap: 6px; }
+        .cat-group-header:hover { background: #f5f5f5; }
+        .cat-subgroup-header { padding: 7px 12px 7px 22px; cursor: pointer; font-weight: 600; color: #666; font-size: 0.82rem; display: flex; align-items: center; gap: 6px; border-radius: 6px; }
+        .cat-subgroup-header:hover { background: #f5f5f5; }
+        .arrow { font-size: 0.6rem; color: #999; width: 10px; display: inline-block; flex-shrink: 0; }
+        .group-flat { font-weight: bold; color: #333; }
+        .cat-group .file-leaf { padding-left: 28px; }
+        .cat-subgroup .file-leaf { padding-left: 38px; }
         .template-category { color: #d32f2f; font-weight: bold; background: #fff8f8; border-left: 4px solid #d32f2f; }
         .category-separator { padding: 12px 15px 4px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; color: #999; letter-spacing: 0.05em; border-top: 1px solid #f0f0f0; margin-top: 6px; }
         .category-separator:first-child { border-top: none; margin-top: 0; }
