@@ -22,6 +22,7 @@ interface EditorViewProps {
   setStyleClipboard: (style: any) => void;
   viewerBackground: string;
   setViewerBackground: (bg: string) => void;
+  onJumpToRule?: (filePath: string, ruleIndex?: number) => void;
 }
 
 const EditorView: React.FC<EditorViewProps> = ({
@@ -35,7 +36,8 @@ const EditorView: React.FC<EditorViewProps> = ({
   styleClipboard,
   setStyleClipboard,
   viewerBackground,
-  setViewerBackground
+  setViewerBackground,
+  onJumpToRule
 }) => {
   const t = useTranslation(language);
   const [inspectedTierKey, setInspectedTierKey] = useState<string | null>(null);
@@ -427,9 +429,10 @@ const EditorView: React.FC<EditorViewProps> = ({
       )}
 
       {showSoundManager && (
-          <SoundBulkEditor 
+          <SoundBulkEditor
             language={language}
             onClose={() => setShowSoundManager(false)}
+            onJumpToRule={onJumpToRule}
             categoryRules={activeCategoryRules}
             themeData={themeData}
             fullConfig={configContent ? JSON.parse(configContent) : null}

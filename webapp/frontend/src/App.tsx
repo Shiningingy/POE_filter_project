@@ -178,10 +178,11 @@ function App() {
             setStyleClipboard={setStyleClipboard}
             viewerBackground={viewerBackground}
             setViewerBackground={setViewerBackground}
+            onJumpToRule={handleJumpToRule}
           />
         </div>
         {currentView === 'theme' && (
-          <ThemeView language={language} />
+          <ThemeView language={language} onJumpToRule={handleJumpToRule} />
         )}
         <div className="view-slot" style={{ display: currentView === 'simulator' ? 'flex' : 'none' }}>
           <SimulatorView filterContent={filterPreview} language={language} onJumpToRule={handleJumpToRule} />

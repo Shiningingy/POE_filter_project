@@ -5,9 +5,10 @@ import ThemePresetEditor from '../components/ThemePresetEditor';
 
 interface ThemeViewProps {
   language: Language;
+  onJumpToRule?: (filePath: string, ruleIndex?: number) => void;
 }
 
-const ThemeView: React.FC<ThemeViewProps> = ({ language }) => {
+const ThemeView: React.FC<ThemeViewProps> = ({ language, onJumpToRule }) => {
   const [showSoundBulkEditor, setShowSoundBulkEditor] = useState(false);
   const [showThemePresetEditor, setShowThemePresetEditor] = useState(false);
 
@@ -49,9 +50,10 @@ const ThemeView: React.FC<ThemeViewProps> = ({ language }) => {
       </div>
 
       {showSoundBulkEditor && (
-        <SoundBulkEditor 
+        <SoundBulkEditor
           language={language}
           onClose={() => setShowSoundBulkEditor(false)}
+          onJumpToRule={onJumpToRule}
           onSave={() => {
             // Logic to refresh if needed
           }}

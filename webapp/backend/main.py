@@ -647,8 +647,9 @@ def get_items_by_class(item_class: str):
             "name_ch": ITEM_TRANSLATIONS.get(name, name),
             "sub_type": ITEM_SUBTYPES.get(name, "Other"),
             **details,
-            "current_tier": [], 
-            "source_file": None
+            "current_tier": [],
+            "source_file": None,
+            "occurrences": []
         }
 
     # Scan all mappings to find current tiers AND include tiered items from other classes
@@ -681,11 +682,15 @@ def get_items_by_class(item_class: str):
                             "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
                             **details,
                             "current_tier": [],
-                            "source_file": None
+                            "source_file": None,
+                            "occurrences": []
                         }
-                    
+
                     current_list = item_data[item_name]["current_tier"]
-                    
+                    rel_file = file_path.relative_to(mappings_dir).as_posix()
+                    # Tiers this item occupies WITHIN this specific file (for the occurrence).
+                    file_tiers: list[str] = []
+
                     # Add base mapping tier
                     if item_name in mapping:
                         t_val = mapping[item_name]
@@ -693,16 +698,34 @@ def get_items_by_class(item_class: str):
                         for t in tiers:
                             if t not in current_list:
                                 current_list.append(t)
-                    
-                    # Add rule tiers
+                            if t not in file_tiers:
+                                file_tiers.append(t)
+
+                    # Add rule tiers + detect an existing per-file sound rule for this item
+                    file_sound = None
                     for r in rules:
                         r_targets = r.get("targets", [])
                         if r_targets and item_name in r_targets:
-                            tier_override = r.get("overrides", {}).get("Tier")
+                            r_over = r.get("overrides", {})
+                            tier_override = r_over.get("Tier")
                             if tier_override and tier_override not in current_list:
                                 current_list.append(tier_override)
+                            if tier_override and tier_override not in file_tiers:
+                                file_tiers.append(tier_override)
+                            if file_sound is None:
+                                sound_key = next((k for k in ("CustomAlertSound", "AlertSound", "DropSound", "PlayAlertSound") if k in r_over), None)
+                                if sound_key:
+                                    sval = r_over[sound_key]
+                                    file_sound = sval[0] if isinstance(sval, list) and sval else sval
 
-                    item_data[item_name]["source_file"] = file_path.relative_to(mappings_dir).as_posix()
+                    item_data[item_name]["source_file"] = rel_file
+                    # Record one occurrence per (item, file) so the editor can target each
+                    # repeated basetype independently (per-file rule overrides).
+                    item_data[item_name]["occurrences"].append({
+                        "file": rel_file,
+                        "tiers": file_tiers,
+                        "sound": file_sound
+                    })
                     if item_name in trans:
                         item_data[item_name]["name_ch"] = trans[item_name]
         except: continue

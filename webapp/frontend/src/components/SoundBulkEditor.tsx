@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import axios from 'axios';
-import { 
-  DndContext, 
-  type DragEndEvent, 
+import {
+  DndContext,
+  type DragEndEvent,
   type DragStartEvent,
   DragOverlay,
   PointerSensor,
@@ -16,8 +16,8 @@ import {
   pointerWithin,
   closestCorners,
 } from '@dnd-kit/core';
-import { 
-  SortableContext, 
+import {
+  SortableContext,
   verticalListSortingStrategy,
   horizontalListSortingStrategy,
   useSortable,
@@ -27,10 +27,23 @@ import { CSS } from '@dnd-kit/utilities';
 import { useTranslation, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ItemCard from './ItemCard';
+import OccurrencePicker, { type OccurrenceRow } from './OccurrencePicker';
+import OccurrenceRuleList, { type OccurrenceRuleRow } from './OccurrenceRuleList';
+import SimulatorRulePanel from './SimulatorRulePanel';
+import type { FilterContext } from '../utils/simulatorEngine';
+import { loadSoundEditorSession, saveSoundEditorSession, clearSoundEditorSession } from '../utils/soundEditorSession';
 
 // ===========================
 // TYPES
 // ===========================
+
+// One place a basetype appears: a specific base_mapping file (with the tiers it
+// occupies there and any sound currently set by a per-file rule in that file).
+interface Occurrence {
+  file: string;            // relative path under base_mapping (e.g. "Equipment/Weapons/One Hand Swords.json")
+  tiers: string[];
+  sound: string | null;    // current per-file rule sound, if any
+}
 
 interface Item {
   name: string;
@@ -38,19 +51,23 @@ interface Item {
   current_tier: string[] | null;
   item_class?: string;
   sub_type?: string;
+  occurrences?: Occurrence[];
   [key: string]: any;
-}
-
-interface FlattenedItem extends Item {
-    instance_tier: string;
-    instanceId: string; // Stable Unique ID: name::tier::rule-X
-    rule_index?: number;
 }
 
 interface SoundDef {
   path: string;
   label: string;
   type: 'sharket' | 'default' | 'custom';
+}
+
+interface PickerState {
+  item: Item;
+  mode: 'assign' | 'remove';
+  targetSound: string;     // sound path being assigned ('' for remove)
+  targetLabel?: string;
+  rows: OccurrenceRow[];
+  preChecked: string[];
 }
 
 interface SoundBulkEditorProps {
@@ -60,7 +77,28 @@ interface SoundBulkEditorProps {
   categoryRules?: any[];
   themeData?: any;
   fullConfig?: any;
+  onJumpToRule?: (filePath: string, ruleIndex?: number) => void;
 }
+
+// occurrence staging key = basetype name + its file
+const occId = (name: string, file: string) => `${name}::${file}`;
+
+const fileLabel = (file: string) => {
+  const clean = file.replace(/\.json$/, '');
+  const parts = clean.split('/').filter(Boolean);
+  const leaf = parts.pop() || clean;
+  const ctx = parts.join(' / ');
+  return ctx ? `${ctx} / ${leaf}` : leaf;
+};
+
+const SOUND_KEYS = ['CustomAlertSound', 'AlertSound', 'DropSound', 'PlayAlertSound'] as const;
+const ruleSoundValue = (overrides: any): string | null => {
+  if (!overrides) return null;
+  const k = SOUND_KEYS.find(key => key in overrides);
+  if (!k) return null;
+  const v = overrides[k];
+  return Array.isArray(v) ? (v[0] ?? null) : v;
+};
 
 // ===========================
 // SUB-COMPONENTS
@@ -68,11 +106,11 @@ interface SoundBulkEditorProps {
 
 const CatalogSoundCard = ({ sound, onAdd, usageCount }: { sound: SoundDef, onAdd: () => void, usageCount: number }) => {
     const safeId = `cat-${sound.path.replace(/[^a-zA-Z0-9]/g, '_')}`;
-    const { attributes, listeners, setNodeRef, isDragging } = useDraggable({ 
+    const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
         id: safeId,
         data: { type: 'catalog-sound', sound }
     });
-    
+
     const style: React.CSSProperties = {
         opacity: isDragging ? 0.5 : 1,
         touchAction: 'none',
@@ -82,11 +120,11 @@ const CatalogSoundCard = ({ sound, onAdd, usageCount }: { sound: SoundDef, onAdd
     };
 
     return (
-        <div 
-            ref={setNodeRef} 
-            style={style} 
+        <div
+            ref={setNodeRef}
+            style={style}
             className="sound-card-item"
-            {...attributes} 
+            {...attributes}
             {...listeners}
         >
             <div className="content-area" style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px', padding: '10px' }}>
@@ -94,10 +132,10 @@ const CatalogSoundCard = ({ sound, onAdd, usageCount }: { sound: SoundDef, onAdd
                 <span className="label" title={sound.path} style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', color: '#333', fontSize: '0.85rem' }}>{sound.label}</span>
                 {usageCount > 0 && <span className="usage-badge" title={`${usageCount} items use this sound`}>{usageCount}</span>}
             </div>
-            
-            <button 
-                className="add-btn" 
-                onPointerDown={(e) => e.stopPropagation()} 
+
+            <button
+                className="add-btn"
+                onPointerDown={(e) => e.stopPropagation()}
                 onClick={(e) => { e.stopPropagation(); onAdd(); }}
                 title="Add Column"
             >
@@ -107,87 +145,87 @@ const CatalogSoundCard = ({ sound, onAdd, usageCount }: { sound: SoundDef, onAdd
     );
 };
 
-const PoolItem = ({ item, language, isStaged, currentSound }: { item: FlattenedItem, language: Language, isStaged: boolean, currentSound?: string }) => {
-    const { setNodeRef: setDroppableRef } = useDroppable({
-        id: `pool-drop::${item.instanceId}`,
-        data: { type: 'pool-item', item, containerId: 'pool' }
+const PoolItem = ({ item, language, currentSound, badge, rules, onRulesClick }: { item: Item, language: Language, currentSound?: string, badge?: string, rules?: { label: string }[], onRulesClick?: () => void }) => {
+    const dndId = `pool|${item.name}`;
+    const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
+        id: dndId,
+        data: { type: 'item', item, containerId: 'pool' }
     });
 
-    const { attributes, listeners, setNodeRef: setDraggableRef, isDragging } = useDraggable({ 
-        id: item.instanceId,
-        data: { type: 'item', item, containerId: 'pool' } 
-    });
-    
     const style: React.CSSProperties = {
         opacity: isDragging ? 0.3 : 1,
-        touchAction: 'none'
-    };
-
-    const setRefs = (el: HTMLElement | null) => {
-        setDroppableRef(el);
-        setDraggableRef(el);
+        touchAction: 'none',
+        position: 'relative'
     };
 
     return (
-        <div ref={setRefs} style={style} {...attributes} {...listeners} className={`${isDragging ? 'dragging-source' : ''} ${isStaged ? 'staged-removal' : ''}`}>
-            <ItemCard item={item} language={language} isStaged={isStaged} currentSound={currentSound} showDetails={true} className={isDragging ? 'dragging' : ''} />
+        <div ref={setNodeRef} style={style} {...attributes} {...listeners} className={isDragging ? 'dragging-source' : ''}>
+            <ItemCard item={item} language={language} currentSound={currentSound} showDetails={true} rules={rules} onRulesClick={() => onRulesClick?.()} className={isDragging ? 'dragging' : ''} />
+            {badge && <div className="occ-frac" title="occurrences with this sound">{badge}</div>}
         </div>
     );
 };
 
-const WorkspaceItem = ({ item, language, containerId, isStaged, onDelete, currentSound }: { item: FlattenedItem, language: Language, containerId: string, isStaged: boolean, onDelete: () => void, currentSound?: string }) => {
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ 
-      id: item.instanceId,
-      data: { type: 'item', item, containerId } 
+const WorkspaceItem = ({ item, language, containerId, onDelete, currentSound, badge, rules, onRulesClick }: { item: Item, language: Language, containerId: string, onDelete: () => void, currentSound?: string, badge?: string, rules?: { label: string }[], onRulesClick?: () => void }) => {
+  const dndId = `${containerId}|${item.name}`;
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+      id: dndId,
+      data: { type: 'item', item, containerId }
   });
-  const style = { transform: CSS.Translate.toString(transform), transition, opacity: isDragging ? 0.5 : 1 };
+  const style = { transform: CSS.Translate.toString(transform), transition, opacity: isDragging ? 0.5 : 1, position: 'relative' as const };
 
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <ItemCard 
-        item={item} 
-        language={language} 
-        isStaged={isStaged} 
+      <ItemCard
+        item={item}
+        language={language}
         currentSound={currentSound}
         showDetails={true}
+        rules={rules}
+        onRulesClick={() => onRulesClick?.()}
         onDelete={(e) => { e.stopPropagation(); onDelete(); }}
-        className={isDragging ? 'dragging' : ''} 
+        className={isDragging ? 'dragging' : ''}
       />
+      {badge && <div className="occ-frac" title="occurrences on this sound">{badge}</div>}
     </div>
   );
 };
 
-const WorkspaceColumn = ({ 
+const WorkspaceColumn = ({
     id,
-    sound, 
-    items, 
-    onClose, 
-    onSave, 
-    onCancel, 
+    sound,
+    items,
+    onClose,
+    onSave,
+    onCancel,
     onRemoveItem,
     language,
     stagedCount,
-    resolveCurrentSound
-}: { 
+    getBadge,
+    getRules,
+    onRulesClick
+}: {
     id: string,
-    sound: SoundDef, 
-    items: FlattenedItem[], 
-    onClose: () => void, 
-    onSave: () => void, 
+    sound: SoundDef,
+    items: Item[],
+    onClose: () => void,
+    onSave: () => void,
     onCancel: () => void,
-    onRemoveItem: (itemName: string, tier: string, ruleIdx?: number) => void,
+    onRemoveItem: (itemName: string) => void,
     language: Language,
     stagedCount: number,
-    resolveCurrentSound: (name: string, tier: string, ruleIdx?: number) => string | undefined
+    getBadge: (it: Item) => string | undefined,
+    getRules: (it: Item) => { label: string }[],
+    onRulesClick: (it: Item) => void
 }) => {
     const { setNodeRef: setDroppableRef, isOver } = useDroppable({
         id: id,
         data: { type: 'column', sound }
     });
 
-    const { setNodeRef: setSortableRef, attributes, listeners, transform, transition, isDragging } = useSortable({ 
-        id: id + '-sort', 
-        data: { type: 'column', sound } 
+    const { setNodeRef: setSortableRef, attributes, listeners, transform, transition, isDragging } = useSortable({
+        id: id + '-sort',
+        data: { type: 'column', sound }
     });
     const t = useTranslation(language);
 
@@ -215,21 +253,23 @@ const WorkspaceColumn = ({
                 </div>
                 <div className="column-stats">{items.length} cards</div>
             </div>
-            
-            <SortableContext id={id} items={items.map(i => i.instanceId)} strategy={verticalListSortingStrategy}>
+
+            <SortableContext id={id} items={items.map(i => `${id}|${i.name}`)} strategy={verticalListSortingStrategy}>
                 <div className="column-content">
                     {items.map(item => (
-                        <WorkspaceItem 
-                            key={item.instanceId} 
-                            item={item} 
+                        <WorkspaceItem
+                            key={item.name}
+                            item={item}
                             language={language}
-                            isStaged={stagedCount > 0}
                             containerId={id}
-                            onDelete={() => onRemoveItem(item.name, item.instance_tier, item.rule_index)}
-                            currentSound={resolveCurrentSound(item.name, item.instance_tier, item.rule_index)}
+                            onDelete={() => onRemoveItem(item.name)}
+                            currentSound={sound.path}
+                            badge={getBadge(item)}
+                            rules={getRules(item)}
+                            onRulesClick={() => onRulesClick(item)}
                         />
                     ))}
-                    {items.length === 0 && <div className="column-placeholder">Drop items here</div>}
+                    {items.length === 0 && <div className="column-placeholder">{language === 'ch' ? '将物品拖放到此处' : 'Drop items here'}</div>}
                 </div>
             </SortableContext>
 
@@ -245,25 +285,42 @@ const WorkspaceColumn = ({
 // MAIN COMPONENT
 // ===========================
 
-const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, onSave, themeData, fullConfig }) => {
+const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, onSave, onJumpToRule }) => {
   const t = useTranslation(language);
-  
+
   const [items, setItems] = useState<Item[]>([]);
   const [soundMap, setSoundMap] = useState<any>(null);
-  const [globalRules, setGlobalRules] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [defaults, setDefaults] = useState<SoundDef[]>([]);
   const [sharket, setSharket] = useState<SoundDef[]>([]);
   const [catalogTab, setCatalogTab] = useState<'sharket' | 'default' | 'custom'>('sharket');
   const [customPathInput, setCustomPathInput] = useState('');
-  const [activeColumns, setActiveColumns] = useState<SoundDef[]>([]);
-  const [stagedChanges, setStagedChanges] = useState<Record<string, string>>({}); 
+  // Hydrate the workspace from the session store so a "jump to editor" round-trip
+  // restores columns + staged changes.
+  const [activeColumns, setActiveColumns] = useState<SoundDef[]>(() => (loadSoundEditorSession()?.activeColumns as SoundDef[]) || []);
+  // occurrence staging: occId(name,file) -> sound path ('' = clear)
+  const [stagedChanges, setStagedChanges] = useState<Record<string, string>>(() => loadSoundEditorSession()?.stagedChanges || {});
   const [selectedClass, setSelectedClass] = useState('All');
   const [itemClasses, setItemClasses] = useState<string[]>([]);
   const [searchTermPool, setSearchTermPool] = useState('');
   const [searchTermCatalog, setSearchTermCatalog] = useState('');
   const [activeId, setActiveId] = useState<string | null>(null);
   const [activeDragData, setActiveDragData] = useState<any>(null);
+  const [picker, setPicker] = useState<PickerState | null>(null);
+  // Rule-block drill-in (reuses the simulator's panel + a lazily-built FilterContext)
+  const [ruleContext, setRuleContext] = useState<FilterContext | null>(null);
+  const [rulesFor, setRulesFor] = useState<Item | null>(null);     // occurrence list modal
+  const [rulePanelFile, setRulePanelFile] = useState<string | null>(null); // base_mapping/<rel>
+
+  // Persist workspace to the module session store on change (so a "jump to editor"
+  // unmount/remount restores it).
+  useEffect(() => {
+      saveSoundEditorSession({ activeColumns, stagedChanges });
+  }, [activeColumns, stagedChanges]);
+
+  // Explicit close clears the session (a jump unmounts WITHOUT calling this, so it
+  // survives the round-trip; a deliberate close starts fresh next time).
+  const handleClose = () => { clearSoundEditorSession(); onClose(); };
 
   const sensors = useSensors(
       useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
@@ -271,69 +328,27 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
       useSensor(TouchSensor, { activationConstraint: { delay: 100, tolerance: 5 } })
   );
 
-  const resolveCurrentSound = useCallback((itemName: string, instanceTier: string, ruleIndex?: number) => {
-      if (stagedChanges[itemName] !== undefined) return stagedChanges[itemName];
-      if (globalRules && ruleIndex !== undefined && ruleIndex < globalRules.length) {
-          const rule = globalRules[ruleIndex];
-          if (rule?.overrides) {
-              const soundKey = ["CustomAlertSound", "AlertSound", "DropSound", "PlayAlertSound"].find(k => rule.overrides[k]);
-              if (soundKey) {
-                  const val = rule.overrides[soundKey];
-                  return Array.isArray(val) ? val[0] : val;
-              }
-          }
-      }
-      const autoSound = soundMap?.basetype_sounds[itemName]?.file;
-      if (autoSound) return autoSound;
-      if (fullConfig && themeData && instanceTier !== 'untiered') {
-          try {
-              const catKey = Object.keys(fullConfig).find(k => !k.startsWith('//'));
-              if (catKey && fullConfig[catKey][instanceTier]) {
-                  const tierData = fullConfig[catKey][instanceTier];
-                  const themeCategory = fullConfig[catKey]._meta?.theme_category || catKey;
-                  if (tierData.theme?.PlayAlertSound) {
-                      const val = tierData.theme.PlayAlertSound;
-                      return Array.isArray(val) ? val[0] : val;
-                  }
-                  const tierMatch = instanceTier.match(/Tier (\d+)/);
-                  if (tierMatch && themeData[themeCategory]) {
-                      const tierNameInTheme = `Tier ${tierMatch[1]}`;
-                      const style = themeData[themeCategory][tierNameInTheme];
-                      if (style?.default_sound_id !== undefined && style.default_sound_id !== -1) {
-                          return `Default/AlertSound${style.default_sound_id}.mp3`;
-                      }
-                  }
-              }
-          } catch (e) { console.error("Theme resolution failed", e); }
-      }
-      return undefined;
-  }, [stagedChanges, globalRules, soundMap, themeData, fullConfig]);
+  // Resolve the effective sound for a single occurrence:
+  // staged change -> per-file rule sound -> global basetype_sounds.
+  const resolveOccSound = useCallback((name: string, occ: Occurrence): string | undefined => {
+      const st = stagedChanges[occId(name, occ.file)];
+      if (st !== undefined) return st === '' ? undefined : st;
+      if (occ.sound) return occ.sound;
+      return soundMap?.basetype_sounds?.[name]?.file || undefined;
+  }, [stagedChanges, soundMap]);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const [itemsRes, mapRes, listRes, classesRes, rulesRes] = await Promise.all([
+        const [itemsRes, mapRes, listRes, classesRes] = await Promise.all([
             axios.get('/api/class-items/All'),
             axios.get('/api/sound-map'),
             axios.get('/api/sounds/list'),
-            axios.get('/api/item-classes'),
-            axios.get('/api/all-rules')
+            axios.get('/api/item-classes')
         ]);
         setItems(itemsRes.data.items);
         setSoundMap(mapRes.data);
-        
-        const uniqueRules: any[] = [];
-        const seen = new Set();
-        (rulesRes.data.rules || []).forEach((r: any) => {
-            const sig = JSON.stringify({ t: r.targets, o: r.overrides, f: r._source_file });
-            if (!seen.has(sig)) {
-                seen.add(sig);
-                uniqueRules.push(r);
-            }
-        });
-        setGlobalRules(uniqueRules);
-
         setDefaults(listRes.data.defaults.map((p: string) => ({ path: p, label: p.split('/').pop() || p, type: 'default' })));
         setSharket(listRes.data.sharket.map((p: string) => ({ path: p, label: p.split('/').pop() || p, type: 'sharket' })));
         setItemClasses(['All', ...classesRes.data.classes]);
@@ -343,45 +358,14 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
     fetchData();
   }, []);
 
-  const flattenedItems: FlattenedItem[] = useMemo(() => {
-      if (!items.length) return [];
-      const flattened: FlattenedItem[] = [];
-      items.forEach(item => {
-          const itemRules = globalRules ? globalRules.map((r, idx) => ({r, idx})).filter(({r}) => {
-              return r.targets?.some((target: any) => (typeof target === 'string' ? target : target.name) === item.name);
-          }) : [];
-          itemRules.forEach(({r, idx}) => {
-              const tier = r.overrides?.Tier || (item.current_tier && item.current_tier.length > 0 ? item.current_tier[0] : 'untiered');
-              flattened.push({
-                  ...item,
-                  instance_tier: tier,
-                  instanceId: `${item.name}::${tier}::rule-${idx}`,
-                  rule_index: idx
-              });
-          });
-          (item.current_tier || []).forEach(tier => {
-              const isHandledByRuleInThisTier = itemRules.some(({r}) => r.overrides?.Tier === tier);
-              if (!isHandledByRuleInThisTier) {
-                  flattened.push({
-                      ...item,
-                      instance_tier: tier,
-                      instanceId: `${item.name}::${tier}::default`,
-                      rule_index: undefined
-                  });
-              }
-          });
-      });
-      return flattened;
-  }, [items, globalRules]);
-
   const usageCounts = useMemo(() => {
       const counts: Record<string, number> = {};
-      flattenedItems.forEach(item => {
-          const sound = resolveCurrentSound(item.name, item.instance_tier, item.rule_index);
-          if (sound) counts[sound] = (counts[sound] || 0) + 1;
-      });
+      items.forEach(it => (it.occurrences || []).forEach(o => {
+          const s = resolveOccSound(it.name, o);
+          if (s) counts[s] = (counts[s] || 0) + 1;
+      }));
       return counts;
-  }, [flattenedItems, resolveCurrentSound]);
+  }, [items, resolveOccSound]);
 
   const addColumn = (sound: SoundDef, index?: number) => {
       if (!activeColumns.find(c => c.path === sound.path)) {
@@ -394,6 +378,62 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
       }
   };
 
+  // ---- occurrence helpers ----
+  const stageOcc = (name: string, files: string[], sound: string) => {
+      if (!files.length) return;
+      setStagedChanges(prev => {
+          const n = { ...prev };
+          files.forEach(f => { n[occId(name, f)] = sound; });
+          return n;
+      });
+  };
+
+  const buildRows = (it: Item, files: string[]): OccurrenceRow[] =>
+      files.map(f => {
+          const o = (it.occurrences || []).find(x => x.file === f)!;
+          return { file: f, label: fileLabel(f), tiers: o?.tiers || [], currentSound: resolveOccSound(it.name, o) || null };
+      });
+
+  const openAssign = (it: Item, path: string, label?: string) => {
+      const occs = it.occurrences || [];
+      if (occs.length <= 1) { if (occs.length === 1) stageOcc(it.name, [occs[0].file], path); return; }
+      setPicker({
+          item: it, mode: 'assign', targetSound: path, targetLabel: label,
+          rows: buildRows(it, occs.map(o => o.file)),
+          preChecked: occs.filter(o => resolveOccSound(it.name, o) === path).map(o => o.file)
+      });
+  };
+
+  const openRemove = (it: Item, sourcePath: string | null) => {
+      const occs = it.occurrences || [];
+      const candidates = occs.filter(o => sourcePath ? resolveOccSound(it.name, o) === sourcePath : !!resolveOccSound(it.name, o));
+      if (candidates.length <= 1) { if (candidates.length === 1) stageOcc(it.name, [candidates[0].file], ''); return; }
+      setPicker({
+          item: it, mode: 'remove', targetSound: '',
+          rows: buildRows(it, candidates.map(o => o.file)),
+          preChecked: candidates.map(o => o.file)
+      });
+  };
+
+  const handlePickerConfirm = (selectedFiles: string[]) => {
+      if (!picker) return;
+      const { item, mode, targetSound } = picker;
+      setStagedChanges(prev => {
+          const n = { ...prev };
+          if (mode === 'assign') {
+              (item.occurrences || []).forEach(o => {
+                  const id = occId(item.name, o.file);
+                  if (selectedFiles.includes(o.file)) n[id] = targetSound;
+                  else if (resolveOccSound(item.name, o) === targetSound) n[id] = ''; // unchecked but was on it -> clear
+              });
+          } else {
+              selectedFiles.forEach(f => { n[occId(item.name, f)] = ''; });
+          }
+          return n;
+      });
+      setPicker(null);
+  };
+
   const handleDragStart = (event: DragStartEvent) => {
       const { active } = event;
       setActiveId(active.id as string);
@@ -404,20 +444,25 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
     const { active, over } = event;
     setActiveId(null);
     setActiveDragData(null);
-    if (!over) return;
 
-    const id = active.id as string;
-    const overId = over.id as string;
     const activeData = active.data.current;
-    const overData = over.data.current;
 
+    // Catalog sound -> create/insert a column. Handled BEFORE the `over` guard so a
+    // sound dropped anywhere in the editor (incl. dead space over the empty
+    // workspace, where `over` can be null) still opens a column.
     if (activeData?.type === 'catalog-sound') {
-        const overIndex = activeColumns.findIndex(c => c.path === overId.replace('-sort', ''));
+        const ov = (over?.id as string) || '';
+        const overIndex = ov ? activeColumns.findIndex(c => c.path === ov.replace('-sort', '')) : -1;
         addColumn(activeData.sound, overIndex === -1 ? undefined : overIndex);
         return;
     }
 
+    const id = active.id as string;
+    const overId = (over?.id as string) || '';
+    const overData = over?.data.current as any;
+
     if (activeData?.type === 'column') {
+        if (!over) return;
         const oldIdx = activeColumns.findIndex(c => c.path === id.replace('-sort', ''));
         const newIdx = activeColumns.findIndex(c => c.path === overId.replace('-sort', ''));
         if (oldIdx !== -1 && newIdx !== -1) setActiveColumns(arrayMove(activeColumns, oldIdx, newIdx));
@@ -425,48 +470,217 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
     }
 
     if (activeData?.type === 'item') {
-        const itemName = activeData.item.name;
-        let targetId: string | null = null;
+        const it = activeData.item as Item;
+        const source = activeData.containerId as string; // 'pool' or a column path
 
-        if (overId === 'pool' || overData?.type === 'pool' || overData?.containerId === 'pool') {
-            targetId = 'pool';
-        } else {
+        // Resolve a *target column* only (not the pool). Dropping anywhere that is
+        // not a column counts as "off a column" -> removal from the source column.
+        let targetCol: string | null = null;
+        const overIsPool = overId === 'pool' || overData?.type === 'pool' || overData?.containerId === 'pool';
+        if (!overIsPool) {
             const col = activeColumns.find(c => c.path === overId);
-            if (col) targetId = col.path;
-            else if (overData?.type === 'column') targetId = overData.sound.path;
-            else if (overData?.type === 'item') targetId = overData.containerId;
+            if (col) targetCol = col.path;
+            else if (overData?.type === 'column') targetCol = overData.sound.path;
+            else if (overData?.type === 'item' && overData.containerId !== 'pool') targetCol = overData.containerId;
         }
 
-        if (targetId === 'pool') {
-            setStagedChanges(prev => { const n = { ...prev }; delete n[itemName]; return n; });
-        } else if (targetId) {
-            setStagedChanges(prev => ({ ...prev, [itemName]: targetId! }));
+        if (targetCol && targetCol !== source) {
+            // dropped on a *different* column -> assign / reassign there
+            openAssign(it, targetCol, activeColumns.find(c => c.path === targetCol)?.label);
+        } else if (source !== 'pool') {
+            // a column-sourced card released anywhere that isn't another column
+            // (pool / workspace / empty / back on its own column) -> remove it.
+            // openRemove opens the multi-select picker when >1 occurrence is on it.
+            openRemove(it, source);
         }
     }
   };
 
+  // Collect committed changes that belong to one column's sound (assignments to it
+  // + removals whose prior sound was it).
+  const collectColumnChanges = useCallback((path: string) => {
+      const changes: { name: string; file: string; sound: string }[] = [];
+      Object.entries(stagedChanges).forEach(([oid, val]) => {
+          const sep = oid.lastIndexOf('::');
+          const name = oid.slice(0, sep);
+          const file = oid.slice(sep + 2);
+          if (val === path) {
+              changes.push({ name, file, sound: path });
+          } else if (val === '') {
+              const it = items.find(i => i.name === name);
+              const o = it?.occurrences?.find(x => x.file === file);
+              const prior = o?.sound || soundMap?.basetype_sounds?.[name]?.file;
+              if (prior === path) changes.push({ name, file, sound: '' });
+          }
+      });
+      return changes;
+  }, [stagedChanges, items, soundMap]);
+
+  const saveColumn = async (sound: SoundDef) => {
+      const changes = collectColumnChanges(sound.path);
+      if (!changes.length) return;
+      const byFile = new Map<string, { name: string; sound: string }[]>();
+      changes.forEach(c => {
+          const arr = byFile.get(c.file) || [];
+          arr.push({ name: c.name, sound: c.sound });
+          byFile.set(c.file, arr);
+      });
+      try {
+          for (const [file, list] of byFile) {
+              const res = await axios.get(`/api/config/base_mapping/${file}`);
+              const data = res.data.content || {};
+              if (!Array.isArray(data.rules)) data.rules = [];
+              list.forEach(({ name, sound: s }) => {
+                  const idx = data.rules.findIndex((r: any) => r && r.comment === `__SOUND__:${name}`);
+                  if (s === '') {
+                      if (idx !== -1) data.rules.splice(idx, 1);
+                  } else {
+                      const rule = { targets: [name], overrides: { PlayAlertSound: [s, 300] }, comment: `__SOUND__:${name}` };
+                      if (idx !== -1) data.rules[idx] = rule; else data.rules.push(rule);
+                  }
+              });
+              await axios.post(`/api/config/base_mapping/${file}`, data);
+          }
+          // optimistic occurrence update + clear committed staged entries
+          setItems(prev => prev.map(it => {
+              const rel = changes.filter(c => c.name === it.name);
+              if (!rel.length) return it;
+              const occs = (it.occurrences || []).map(o => {
+                  const c = rel.find(x => x.file === o.file);
+                  return c ? { ...o, sound: c.sound === '' ? null : c.sound } : o;
+              });
+              return { ...it, occurrences: occs };
+          }));
+          setStagedChanges(prev => {
+              const n = { ...prev };
+              changes.forEach(c => delete n[occId(c.name, c.file)]);
+              return n;
+          });
+          onSave();
+      } catch (e) { alert("Failed to save"); }
+  };
+
+  const cancelColumn = (path: string) => {
+      const changes = collectColumnChanges(path);
+      setStagedChanges(prev => {
+          const n = { ...prev };
+          changes.forEach(c => delete n[occId(c.name, c.file)]);
+          return n;
+      });
+  };
+
+  const removeFromColumn = (name: string, path: string) => {
+      const it = items.find(i => i.name === name);
+      if (!it) return;
+      // openRemove handles single vs multi: >1 occurrence on this sound opens the
+      // multi-select picker so the user can partially delete.
+      openRemove(it, path);
+  };
+
+  // ---- pool / column lists ----
   const poolItemsList = useMemo(() => {
-      return flattenedItems.filter(i => {
-          const currentAssignment = resolveCurrentSound(i.name, i.instance_tier, i.rule_index);
-          if (currentAssignment && activeColumns.some(c => c.path === currentAssignment)) return false;
-          if (selectedClass !== 'All' && i.item_class !== selectedClass) return false;
-          const searchLower = searchTermPool.toLowerCase();
-          if (searchTermPool && !i.name.toLowerCase().includes(searchLower) && !(i.name_ch && i.name_ch.toLowerCase().includes(searchLower))) return false;
+      const searchLower = searchTermPool.toLowerCase();
+      return items.filter(it => {
+          const occs = it.occurrences || [];
+          if (!occs.length) return false;
+          // show while at least one occurrence is unassigned to an active column
+          const hasFree = occs.some(o => {
+              const s = resolveOccSound(it.name, o);
+              return !s || !activeColumns.some(c => c.path === s);
+          });
+          if (!hasFree) return false;
+          if (selectedClass !== 'All' && it.item_class !== selectedClass) return false;
+          if (searchTermPool && !it.name.toLowerCase().includes(searchLower) && !(it.name_ch && it.name_ch.toLowerCase().includes(searchLower))) return false;
           return true;
       }).slice(0, 100);
-  }, [flattenedItems, resolveCurrentSound, selectedClass, searchTermPool, activeColumns]);
+  }, [items, resolveOccSound, selectedClass, searchTermPool, activeColumns]);
 
-  const getColumnItemsList = (path: string) => {
-      return flattenedItems.filter(i => resolveCurrentSound(i.name, i.instance_tier, i.rule_index) === path);
+  const getColumnItems = useCallback((path: string) =>
+      items.filter(it => (it.occurrences || []).some(o => resolveOccSound(it.name, o) === path)),
+  [items, resolveOccSound]);
+
+  // badge "k/n" = how many of a basetype's n occurrences resolve to `path`
+  // (shown whenever the basetype spans more than one occurrence, incl. n/n).
+  const columnBadge = (it: Item, path: string): string | undefined => {
+      const occs = it.occurrences || [];
+      if (occs.length <= 1) return undefined;
+      const k = occs.filter(o => resolveOccSound(it.name, o) === path).length;
+      return `${k}/${occs.length}`;
+  };
+
+  // for a pool card: the shared sound (if all occurrences agree) + a multi marker
+  const poolCardSound = (it: Item): { sound?: string; badge?: string } => {
+      const occs = it.occurrences || [];
+      const sset = new Set(occs.map(o => resolveOccSound(it.name, o) || ''));
+      const sound = sset.size === 1 ? ([...sset][0] || undefined) : undefined;
+      const badge = occs.length > 1 ? `×${occs.length}` : undefined;
+      return { sound, badge };
+  };
+
+  // ---- rule-block drill-in ----
+  // A card's "rule" chips = the occurrences (tier blocks) relevant to its context:
+  //  - pool card: occurrences not yet on an active sound column (still assignable)
+  //  - column card: only the occurrence(s) actually on that column's sound (selected)
+  // Label = the tier block (the rule), falling back to the file label if untiered.
+  const occLabel = (o: Occurrence) => (o.tiers && o.tiers.length) ? o.tiers.join(', ') : fileLabel(o.file);
+  const chipsOf = (occs: Occurrence[]) => occs.map(o => ({ label: occLabel(o) }));
+  const freeOccs = (it: Item) => (it.occurrences || []).filter(o => {
+      const s = resolveOccSound(it.name, o);
+      return !s || !activeColumns.some(c => c.path === s);
+  });
+  const occsOnColumn = (it: Item, path: string) => (it.occurrences || []).filter(o => resolveOccSound(it.name, o) === path);
+
+  // Lazily build a FilterContext (mappings + tier defs + theme + overrides), same
+  // shape/source the simulator uses, so we can reuse SimulatorRulePanel.
+  const ensureContext = useCallback(async (): Promise<FilterContext | null> => {
+      if (ruleContext) return ruleContext;
+      try {
+          const settingsRes = await axios.get('/api/settings');
+          const baseTheme = settingsRes.data.base_theme || 'sharket';
+          const [themeRes, overridesRes] = await Promise.all([
+              axios.get(`/api/themes/${baseTheme}`),
+              axios.get('/api/custom-overrides'),
+          ]);
+          let mappings: any = {}, tierDefinitions: any = {};
+          if (import.meta.env.VITE_DEMO_MODE === 'true') {
+              const b = await axios.get('demo_data/bundle.json');
+              mappings = b.data.mappings; tierDefinitions = b.data.tiers;
+          } else {
+              const b = await axios.get('/api/simulator-bundle');
+              mappings = b.data.mappings; tierDefinitions = b.data.tiers;
+          }
+          const ctx: FilterContext = { theme: themeRes.data.theme_data, overrides: overridesRes.data, mappings, tierDefinitions };
+          setRuleContext(ctx);
+          return ctx;
+      } catch (e) { console.error('Failed to load rule context', e); return null; }
+  }, [ruleContext]);
+
+  const openRulesList = (it: Item) => { setRulesFor(it); ensureContext(); };
+
+  // After the rule panel saves a file, patch the cached context and refresh the
+  // affected basetypes' occurrence sound from the saved rules.
+  const handlePanelSaved = (mappingsKey: string, mappingContent: any, tierKey: string, tierContent: any) => {
+      setRuleContext(prev => prev ? {
+          ...prev,
+          mappings: { ...prev.mappings, [mappingsKey]: mappingContent },
+          tierDefinitions: { ...prev.tierDefinitions, [tierKey]: tierContent },
+      } : prev);
+      const rel = mappingsKey.replace(/^base_mapping\//, '');
+      const rules = mappingContent?.rules || [];
+      setItems(prev => prev.map(it => {
+          if (!(it.occurrences || []).some(o => o.file === rel)) return it;
+          const r = rules.find((x: any) => Array.isArray(x.targets) && x.targets.includes(it.name) && ruleSoundValue(x.overrides));
+          const snd = r ? ruleSoundValue(r.overrides) : null;
+          return { ...it, occurrences: (it.occurrences || []).map(o => o.file === rel ? { ...o, sound: snd } : o) };
+      }));
   };
 
   const collisionDetectionStrategy = (args: any) => {
       const collisions = pointerWithin(args);
       if (collisions.length > 0) {
-          // The broad 'workspace' droppable wraps the columns; prefer a more
-          // specific target (column/item) when the pointer is over one, so it
-          // only resolves to 'workspace' over empty gaps (e.g. dropping a
-          // catalog sound into the empty workspace to create the first column).
+          // Prefer a specific target (column/item) over the broad 'workspace' droppable,
+          // which only wins over empty gaps (e.g. dropping a catalog sound to create the
+          // first column).
           const specific = collisions.filter((c: any) => c.id !== 'workspace');
           return specific.length > 0 ? specific : collisions;
       }
@@ -489,7 +703,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                 </select>
             </div>
           </div>
-          <button className="close-btn" onClick={onClose}>×</button>
+          <button className="close-btn" onClick={handleClose}>×</button>
         </div>
 
         <DndContext sensors={sensors} collisionDetection={collisionDetectionStrategy} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
@@ -500,15 +714,20 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                     <input type="text" placeholder={t.search} className="pool-search" value={searchTermPool} onChange={e => setSearchTermPool(e.target.value)} />
                 </div>
                 <div className="pool-content">
-                    {poolItemsList.map(i => (
-                        <PoolItem 
-                            key={i.instanceId} 
-                            item={i} 
-                            language={language} 
-                            isStaged={stagedChanges[i.name] === ''} 
-                            currentSound={resolveCurrentSound(i.name, i.instance_tier, i.rule_index)} 
-                        />
-                    ))}
+                    {poolItemsList.map(it => {
+                        const { sound, badge } = poolCardSound(it);
+                        return (
+                            <PoolItem
+                                key={it.name}
+                                item={it}
+                                language={language}
+                                currentSound={sound}
+                                badge={badge}
+                                rules={chipsOf(freeOccs(it))}
+                                onRulesClick={() => openRulesList(it)}
+                            />
+                        );
+                    })}
                 </div>
             </div>
 
@@ -520,44 +739,20 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                         </div>
                     ) : (
                         activeColumns.map(sound => (
-                            <WorkspaceColumn 
+                            <WorkspaceColumn
                                 key={sound.path}
                                 id={sound.path}
                                 sound={sound}
-                                items={getColumnItemsList(sound.path)}
+                                items={getColumnItems(sound.path)}
                                 language={language}
                                 onClose={() => setActiveColumns(prev => prev.filter(c => c.path !== sound.path))}
-                                onSave={async () => {
-                                    const assignedToThis = Object.entries(stagedChanges).filter(([_, path]) => path === sound.path);
-                                    const removedFromThis = Object.entries(stagedChanges).filter(([name, path]) => {
-                                        return path === '' && resolveCurrentSound(name, '', undefined) === sound.path; 
-                                    });
-                                    const changesToCommit = [...assignedToThis, ...removedFromThis];
-                                    const newMap = JSON.parse(JSON.stringify(soundMap));
-                                    changesToCommit.forEach(([name, path]) => {
-                                        if (path === '') delete newMap.basetype_sounds[name];
-                                        else newMap.basetype_sounds[name] = { type: 'custom', file: path, volume: 300 };
-                                    });
-                                    try {
-                                        await axios.post('/api/sound-map', newMap);
-                                        setSoundMap(newMap);
-                                        const nextStaged = { ...stagedChanges };
-                                        changesToCommit.forEach(([name]) => delete nextStaged[name]);
-                                        setStagedChanges(nextStaged);
-                                        onSave();
-                                    } catch (e) { alert("Failed to save"); }
-                                }}
-                                onRemoveItem={(name) => {
-                                    setStagedChanges(prev => { const n = { ...prev }; delete n[name]; return n; });
-                                }}
-                                onCancel={() => {
-                                    const itemsInCol = getColumnItemsList(sound.path).map(i => i.name);
-                                    const next = { ...stagedChanges };
-                                    itemsInCol.forEach(name => { if(next[name] === sound.path) delete next[name]; });
-                                    setStagedChanges(next);
-                                }}
-                                stagedCount={Object.values(stagedChanges).filter(v => v === sound.path).length}
-                                resolveCurrentSound={resolveCurrentSound}
+                                onSave={() => saveColumn(sound)}
+                                onRemoveItem={(name) => removeFromColumn(name, sound.path)}
+                                onCancel={() => cancelColumn(sound.path)}
+                                stagedCount={collectColumnChanges(sound.path).length}
+                                getBadge={(it) => columnBadge(it, sound.path)}
+                                getRules={(it) => chipsOf(occsOnColumn(it, sound.path))}
+                                onRulesClick={openRulesList}
                             />
                         ))
                     )}
@@ -585,11 +780,11 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                         (catalogTab === 'sharket' ? sharket : defaults)
                             .filter(s => s.label.toLowerCase().includes(searchTermCatalog.toLowerCase()))
                             .map(s => (
-                            <CatalogSoundCard 
-                                key={s.path} 
-                                sound={s} 
+                            <CatalogSoundCard
+                                key={s.path}
+                                sound={s}
                                 onAdd={() => addColumn(s)}
-                                usageCount={usageCounts[s.path] || 0} 
+                                usageCount={usageCounts[s.path] || 0}
                             />
                         ))
                     )}
@@ -615,6 +810,53 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
           </div>
         </DndContext>
       </div>
+
+      {picker && (
+          <OccurrencePicker
+              itemName={picker.item.name}
+              itemNameCh={picker.item.name_ch}
+              rows={picker.rows}
+              preChecked={picker.preChecked}
+              language={language}
+              mode={picker.mode}
+              targetSoundLabel={picker.targetLabel}
+              onConfirm={handlePickerConfirm}
+              onClose={() => setPicker(null)}
+          />
+      )}
+
+      {/* Occurrence / rule list for a basetype (opened from the card's rule chips) */}
+      {rulesFor && (
+          <OccurrenceRuleList
+              itemName={rulesFor.name}
+              itemNameCh={rulesFor.name_ch}
+              itemClass={rulesFor.item_class}
+              language={language}
+              rows={(rulesFor.occurrences || []).map((o): OccurrenceRuleRow => ({
+                  file: o.file,
+                  label: fileLabel(o.file),
+                  tiers: o.tiers || [],
+                  currentSound: resolveOccSound(rulesFor.name, o) || null,
+              }))}
+              onEditRules={(file) => setRulePanelFile(`base_mapping/${file}`)}
+              onJumpToEditor={onJumpToRule ? (file) => { onJumpToRule(`base_mapping/${file}`); } : undefined}
+              onClose={() => setRulesFor(null)}
+          />
+      )}
+
+      {/* Ported rule-block (same panel the simulator uses) for the chosen file */}
+      {rulePanelFile && ruleContext && rulesFor && (
+          <SimulatorRulePanel
+              item={{ name: rulesFor.name, name_ch: rulesFor.name_ch, class: rulesFor.item_class || '' } as any}
+              context={ruleContext}
+              language={language}
+              viewerBackground="Item_bg_coast.jpg"
+              file={rulePanelFile}
+              onClose={() => setRulePanelFile(null)}
+              onJumpToRule={onJumpToRule}
+              onSaved={handlePanelSaved}
+          />
+      )}
 
       <style>{`
         .sound-bulk-editor { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 1000; display: flex; align-items: center; justify-content: center; }
@@ -645,8 +887,8 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
         .add-btn { width: 35px; border: none; background: #eee; cursor: pointer; font-size: 1.2rem; color: #666; border-left: 1px solid #ddd; border-radius: 0 6px 6px 0; display: flex; align-items: center; justify-content: center; }
         .add-btn:hover { background: #2196F3; color: white; }
         .usage-badge { font-size: 0.65rem; background: #2196F3; color: white; padding: 2px 6px; border-radius: 10px; font-weight: bold; margin-left: 8px; }
+        .occ-frac { position: absolute; top: 4px; right: 24px; font-size: 0.6rem; font-weight: bold; background: #ff9800; color: #fff; padding: 1px 6px; border-radius: 10px; pointer-events: none; }
         .dragging-source { opacity: 0.3; }
-        .staged-removal { background: #fff5f5 !important; border: 1px dashed #ff5252 !important; }
         .dragging-overlay { box-shadow: 0 10px 25px rgba(0,0,0,0.3); transform: rotate(2deg); background: #e3f2fd; padding: 0; border-radius: 8px; display: flex; align-items: stretch; gap: 0; z-index: 2000; width: 250px; }
         .dragging-overlay .content-area { padding: 10px; display: flex; align-items: center; gap: 10px; flex: 1; }
         .custom-add { padding: 15px; display: flex; flex-direction: column; gap: 10px; }
