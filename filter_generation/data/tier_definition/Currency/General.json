@@ -115,45 +115,6 @@
         "en": "Hide",
         "ch": "隐藏"
       }
-    },
-    "rules": [
-      {
-        "targets": [
-          "Chaos Orb"
-        ],
-        "conditions": {
-          "StackSize": ">= 100"
-        },
-        "overrides": {
-          "Tier": "Tier 0 General"
-        },
-        "comment": "Test Rule: Stacked Divine"
-      },
-      {
-        "targets": [
-          "Chaos Orb"
-        ],
-        "conditions": {
-          "StackSize": ">=10"
-        },
-        "overrides": {
-          "Tier": "Tier 3 General"
-        },
-        "comment": ""
-      },
-      {
-        "targets": [
-          "Eldritch Orb of Annulment",
-          "Chaos Orb"
-        ],
-        "conditions": {
-          "StackSize": ">=1000"
-        },
-        "overrides": {
-          "Tier": "Tier 0 General"
-        },
-        "comment": ""
-      }
-    ]
+    }
   }
 }

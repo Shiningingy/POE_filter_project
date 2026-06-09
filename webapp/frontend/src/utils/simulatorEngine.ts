@@ -49,6 +49,17 @@ export interface SimulationResult {
     matchedFile?: string;
 }
 
+export interface RuleMatch {
+    file: string;            // base_mapping path
+    ruleIndex: number | null; // index into the file's rules[]; null = matched via base mapping
+    tier: string;
+    ruleComment?: string;
+    conditionsSummary?: string;
+    isBaseMapping: boolean;
+    style: CSSProperties & { sound?: any };
+    visible: boolean;
+}
+
 export const parseClipboardItem = (text: string): ItemProps => {
     const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l);
     const item: ItemProps = { name: "Unknown", class: "Unknown" };
@@ -99,7 +110,6 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
     let matchedTier: string | null = null;
     let matchedFile = null;
     let matchedRuleName = null;
-    let category = "Templates";
 
     // 1. Search specific mapping & Apply Rules
     const itemNameLower = item.name.toLowerCase();
@@ -135,11 +145,31 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
         matchedTier = "Untiered";
     }
 
+    // 2 + 3. Resolve category + style from theme (shared with getMatchingRules)
+    const { style, visible } = resolveStyle(matchedFile, matchedTier, context);
+
+    return {
+        visible,
+        style,
+        matchedTier: matchedTier || undefined,
+        matchedRule: matchedRuleName || undefined,
+        matchedFile: matchedFile || undefined
+    };
+};
+
+// Resolve the category + rendered style for a (file, tier) pair. Extracted from
+// evaluateItem so the rule-inspector (getMatchingRules) renders identical styles.
+const resolveStyle = (
+    matchedFile: string | null,
+    matchedTier: string,
+    context: FilterContext
+): { style: CSSProperties & { sound?: any }; visible: boolean; category: string } => {
     // 2. Resolve Category
+    let category = "Templates";
     if (matchedFile) {
         const mappingContent = context.mappings[matchedFile];
         const metaCat = mappingContent?._meta?.theme_category;
-        
+
         if (metaCat) {
             category = metaCat;
         } else {
@@ -163,8 +193,8 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
         padding: '2px 6px',
         fontFamily: 'Fontin, sans-serif'
     };
-    
-    let visible = true; 
+
+    let visible = true;
 
     let themeStyle = null;
     if (matchedTier && matchedTier !== "Untiered") {
@@ -203,7 +233,7 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
     if (themeStyle) {
         const converted = convertThemeStyle(themeStyle);
         style = { ...style, ...converted };
-        
+
         Object.keys(style).forEach(key => {
             if ((style as any)[key] === undefined) delete (style as any)[key];
         });
@@ -211,16 +241,76 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
 
     if (matchedTier && matchedTier.includes('Hide')) visible = false;
 
-    return { 
-        visible, 
-        style, 
-        matchedTier: matchedTier || undefined, 
-        matchedRule: matchedRuleName || undefined,
-        matchedFile: matchedFile || undefined
-    };
+    return { style, visible, category };
 };
 
-const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: number): boolean => {
+// Short human-readable summary of a rule's targets + conditions, for the inspector.
+const summarizeConditions = (rule: any): string => {
+    const parts: string[] = [];
+    const targets = rule.targets || [];
+    if (targets.length > 0) {
+        const names = targets.map((t: any) => (typeof t === 'string' ? t : t?.name)).filter(Boolean);
+        if (names.length > 0) parts.push(names.length <= 3 ? names.join(', ') : `${names.slice(0, 3).join(', ')} +${names.length - 3}`);
+    }
+    const conditions = rule.conditions || {};
+    for (const [key, value] of Object.entries(conditions)) {
+        parts.push(`${key} ${value}`);
+    }
+    return parts.join('  ·  ');
+};
+
+// Collect the top-N matches for an item in the same priority order evaluateItem
+// uses, WITHOUT breaking at the first — so callers can show the winner plus the
+// "next winners" that would apply if earlier ones were removed. The first entry
+// equals evaluateItem's winning match.
+export const getMatchingRules = (item: ItemProps, context: FilterContext, limit = 3): RuleMatch[] => {
+    const matches: RuleMatch[] = [];
+    const itemNameLower = item.name.toLowerCase();
+
+    for (const [path, content] of Object.entries(context.mappings)) {
+        const rules = content.rules || [];
+        for (let i = 0; i < rules.length; i++) {
+            const rule = rules[i];
+            if (checkRuleMatch(item, rule, context.globalAreaLevel) && rule.overrides && rule.overrides.Tier) {
+                let tier = rule.overrides.Tier;
+                if (Array.isArray(tier)) tier = tier[0];
+                const { style, visible } = resolveStyle(path, tier, context);
+                matches.push({
+                    file: path,
+                    ruleIndex: i,
+                    tier,
+                    ruleComment: rule.comment || 'Custom Rule',
+                    conditionsSummary: summarizeConditions(rule),
+                    isBaseMapping: false,
+                    style,
+                    visible,
+                });
+                if (matches.length >= limit) return matches;
+            }
+        }
+
+        const mapping = content.mapping || {};
+        const matchKey = Object.keys(mapping).find(k => k.toLowerCase() === itemNameLower);
+        if (matchKey) {
+            let tier = mapping[matchKey];
+            if (Array.isArray(tier)) tier = tier[0];
+            const { style, visible } = resolveStyle(path, tier, context);
+            matches.push({
+                file: path,
+                ruleIndex: null,
+                tier,
+                isBaseMapping: true,
+                style,
+                visible,
+            });
+            if (matches.length >= limit) return matches;
+        }
+    }
+
+    return matches;
+};
+
+export const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: number): boolean => {
     // 1. Check Targets
     const targets = rule.targets || [];
     if (targets.length > 0 && !targets.includes(item.name)) {

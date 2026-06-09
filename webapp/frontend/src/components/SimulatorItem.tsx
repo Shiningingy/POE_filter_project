@@ -10,11 +10,11 @@ interface SimulatorItemProps {
     onDelete: () => void;
     onJumpToRule?: (file: string, ruleIndex?: number) => void;
     onEdit?: (item: ItemProps & { id: number }) => void;
-    onOpenMiniEditor?: (file: string, tier: string) => void;
+    onShowRules?: (item: ItemProps & { id: number }) => void;
     language: Language;
 }
 
-const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, onJumpToRule, onEdit, onOpenMiniEditor, language }) => {
+const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, onJumpToRule, onEdit, onShowRules, language }) => {
     const [contextMenu, setContextMenu] = useState<{ x: number, y: number } | null>(null);
     const [hover, setHover] = useState(false);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -69,7 +69,7 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
             // Second click within 300ms — double-click
             clearTimeout(clickTimerRef.current);
             clickTimerRef.current = null;
-            onOpenMiniEditor?.(result.matchedFile ?? '', result.matchedTier ?? '');
+            onShowRules?.(item);
         } else {
             // First click — wait 300ms before treating as single click
             clickTimerRef.current = setTimeout(() => {

@@ -2,10 +2,12 @@ import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import axios from 'axios';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
-import { evaluateItem, parseClipboardItem } from '../utils/simulatorEngine';
-import type { ItemProps, FilterContext } from '../utils/simulatorEngine';
+import { evaluateItem, parseClipboardItem, getMatchingRules } from '../utils/simulatorEngine';
+import type { ItemProps, FilterContext, RuleMatch } from '../utils/simulatorEngine';
 import { getAssetUrl } from '../utils/assetUtils';
 import SimulatorItem from './SimulatorItem';
+import SimulatorRulePanel from './SimulatorRulePanel';
+import SimulatorMatchPicker from './SimulatorMatchPicker';
 import { useAppData } from '../services/AppDataContext';
 import SimulatorSettingsPanel from './SimulatorSettingsPanel';
 import {
@@ -43,7 +45,24 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
   const [importText, setImportText] = useState('');
 
   // Mini editor modal state
-  const [miniEditorItem, setMiniEditorItem] = useState<{ matchedFile: string; matchedTier: string } | null>(null);
+  // Double-click → inspect/edit the rules & styles affecting a drop. When the
+  // effective matches span multiple files we can't open them all, so a picker
+  // (pickerState) lets the user choose; otherwise we open the editor directly.
+  const [pickerState, setPickerState] = useState<{ item: ItemProps; matches: RuleMatch[] } | null>(null);
+  const [editTarget, setEditTarget] = useState<{ item: ItemProps; file: string; tier?: string; ruleIndex: number | null } | null>(null);
+
+  const handleShowRules = (clicked: ItemProps) => {
+    if (!context) return;
+    const matches = getMatchingRules(clicked, { ...context, globalAreaLevel }, 3);
+    if (matches.length === 0) return; // untiered drop — nothing to edit
+    const distinctFiles = Array.from(new Set(matches.map(m => m.file)));
+    if (distinctFiles.length <= 1) {
+      const m = matches[0];
+      setEditTarget({ item: clicked, file: m.file, tier: m.tier, ruleIndex: m.ruleIndex });
+    } else {
+      setPickerState({ item: clicked, matches });
+    }
+  };
 
   // Data for Dropdowns
   const [allClassItems, setAllClassItems] = useState<Record<string, string[]>>({});
@@ -533,7 +552,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                         onDelete={() => setDroppedItems(prev => prev.filter(i => i.id !== item.id))}
                         onJumpToRule={onJumpToRule}
                         onEdit={(item) => setEditingItem(item)}
-                        onOpenMiniEditor={(file, tier) => setMiniEditorItem({ matchedFile: file, matchedTier: tier })}
+                        onShowRules={handleShowRules}
                     />
                 );
             })}
@@ -651,18 +670,42 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
           </div>
       )}
 
-      {/* Mini editor modal */}
-      {miniEditorItem && (
-          <div className="modal-overlay">
-              <div className="modal-content">
-                  <h3>Tier Editor: {miniEditorItem.matchedTier}</h3>
-                  <p className="mini-editor-subtitle">{miniEditorItem.matchedFile}</p>
-                  <p>Mini tier editor — style customization coming soon</p>
-                  <div className="modal-footer">
-                      <button onClick={() => setMiniEditorItem(null)}>{t.cancel || 'Close'}</button>
-                  </div>
-              </div>
-          </div>
+      {/* In-between picker when a drop is affected by rules across multiple files */}
+      {pickerState && context && (
+          <SimulatorMatchPicker
+              item={pickerState.item}
+              matches={pickerState.matches}
+              context={{ ...context, globalAreaLevel }}
+              language={language}
+              onClose={() => setPickerState(null)}
+              onJumpToRule={onJumpToRule}
+              onPick={(m) => {
+                  setEditTarget({ item: pickerState.item, file: m.file, tier: m.tier, ruleIndex: m.ruleIndex });
+                  setPickerState(null);
+              }}
+          />
+      )}
+
+      {/* Tier-block editor (styles + rules) for the chosen match */}
+      {editTarget && context && (
+          <SimulatorRulePanel
+              item={editTarget.item}
+              context={{ ...context, globalAreaLevel }}
+              language={language}
+              viewerBackground={viewerBackground}
+              file={editTarget.file}
+              matchedTier={editTarget.tier}
+              matchedRuleIndex={editTarget.ruleIndex}
+              onClose={() => setEditTarget(null)}
+              onJumpToRule={onJumpToRule}
+              onSaved={(mappingsKey, mappingContent, tierKey, tierContent) =>
+                  setContext(prev => prev ? {
+                      ...prev,
+                      mappings: { ...prev.mappings, [mappingsKey]: mappingContent },
+                      tierDefinitions: { ...prev.tierDefinitions, [tierKey]: tierContent },
+                  } : prev)
+              }
+          />
       )}
 
       <style>{`
@@ -688,19 +731,19 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
         }
         .center-marker { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); color: rgba(255,255,255,0.1); font-size: 3rem; pointer-events: none; }
 
-        .item-plate {
+        .drop-simulator .item-plate {
             cursor: pointer; user-select: none; transition: transform 0.1s;
             box-shadow: 0 2px 8px rgba(0,0,0,0.8);
             z-index: 1; white-space: nowrap;
         }
-        .item-plate:hover { transform: translate(-50%, -50%) scale(1.1); z-index: 100; border-color: white !important; }
-        .item-plate.hidden { opacity: 0.3; filter: grayscale(1); border: 1px dashed #555 !important; background: transparent !important; }
+        .drop-simulator .item-plate:hover { transform: translate(-50%, -50%) scale(1.1); z-index: 100; border-color: white !important; }
+        .drop-simulator .item-plate.hidden { opacity: 0.3; filter: grayscale(1); border: 1px dashed #555 !important; background: transparent !important; }
         .ghost-box { font-size: 0.7rem; color: #777; padding: 2px 5px; }
 
-        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 2000; }
-        .modal-content { background: #222; color: #eee; padding: 25px; border-radius: 8px; width: 400px; border: 1px solid #444; box-shadow: 0 10px 25px rgba(0,0,0,0.8); }
-        .modal-content.large { width: 600px; }
-        .modal-content h3 { margin-top: 0; border-bottom: 1px solid #444; padding-bottom: 15px; margin-bottom: 20px; }
+        .drop-simulator .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 2000; }
+        .drop-simulator .modal-content { background: #222; color: #eee; padding: 25px; border-radius: 8px; width: 400px; border: 1px solid #444; box-shadow: 0 10px 25px rgba(0,0,0,0.8); }
+        .drop-simulator .modal-content.large { width: 600px; }
+        .drop-simulator .modal-content h3 { margin-top: 0; border-bottom: 1px solid #444; padding-bottom: 15px; margin-bottom: 20px; }
         .mini-editor-subtitle { font-size: 0.8rem; color: #777; margin-top: -12px; margin-bottom: 16px; word-break: break-all; }
 
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }

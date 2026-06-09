@@ -417,8 +417,8 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
       <style>{`
         .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 1000; display: flex; align-items: center; justify-content: center; }
         
-        .modal-content { background: #fff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-        .main-content-frame { width: 95%; height: 95%; }
+        .theme-editor-modal .modal-content { background: #fff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .theme-editor-modal .main-content-frame { width: 95%; height: 95%; }
         
         .modal-header { padding: 15px 25px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; background: #fff; flex-shrink: 0; }
         .header-left { display: flex; align-items: center; gap: 20px; }

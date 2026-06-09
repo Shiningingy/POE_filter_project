@@ -262,6 +262,16 @@
         "Tier": "Tier 0 General"
       },
       "comment": ""
+    },
+    {
+      "targets": [
+        "Gift to the Goddess"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 0 General"
+      },
+      "comment": ""
     }
   ]
 }

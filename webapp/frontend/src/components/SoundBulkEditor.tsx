@@ -24,7 +24,7 @@ import {
   arrayMove
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { useTranslation, CLASS_KEY_MAP } from '../utils/localization';
+import { useTranslation, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ItemCard from './ItemCard';
 
@@ -89,9 +89,9 @@ const CatalogSoundCard = ({ sound, onAdd, usageCount }: { sound: SoundDef, onAdd
             {...attributes} 
             {...listeners}
         >
-            <div className="content-area" style={{ flex: 1, display: 'flex', alignItems: 'center', gap: '10px', padding: '10px' }}>
-                <span className="icon">🎵</span>
-                <span className="label" title={sound.path}>{sound.label}</span>
+            <div className="content-area" style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px', padding: '10px' }}>
+                <span className="icon" style={{ flexShrink: 0 }}>🎵</span>
+                <span className="label" title={sound.path} style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', color: '#333', fontSize: '0.85rem' }}>{sound.label}</span>
                 {usageCount > 0 && <span className="usage-badge" title={`${usageCount} items use this sound`}>{usageCount}</span>}
             </div>
             
@@ -462,11 +462,19 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
 
   const collisionDetectionStrategy = (args: any) => {
       const collisions = pointerWithin(args);
-      if (collisions.length > 0) return collisions;
+      if (collisions.length > 0) {
+          // The broad 'workspace' droppable wraps the columns; prefer a more
+          // specific target (column/item) when the pointer is over one, so it
+          // only resolves to 'workspace' over empty gaps (e.g. dropping a
+          // catalog sound into the empty workspace to create the first column).
+          const specific = collisions.filter((c: any) => c.id !== 'workspace');
+          return specific.length > 0 ? specific : collisions;
+      }
       return closestCorners(args);
   };
 
   const { setNodeRef: setPoolRef } = useDroppable({ id: 'pool', data: { type: 'pool' } });
+  const { setNodeRef: setWorkspaceRef } = useDroppable({ id: 'workspace', data: { type: 'workspace' } });
 
   return (
     <div className="sound-bulk-editor modal-overlay">
@@ -477,7 +485,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
             <div className="class-nav">
                 <span className="label">{(t as any).itemClass}:</span>
                 <select value={selectedClass} onChange={e => setSelectedClass(e.target.value)} className="class-select">
-                    {itemClasses.map(c => <option key={c} value={c}>{language === 'ch' ? ((t as any)[CLASS_KEY_MAP[c] || c] || c) : c}</option>)}
+                    {itemClasses.map(c => <option key={c} value={c}>{language === 'ch' ? (CLASS_CH[c] || c) : c}</option>)}
                 </select>
             </div>
           </div>
@@ -504,7 +512,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                 </div>
             </div>
 
-            <div className="columns-workspace">
+            <div className="columns-workspace" ref={setWorkspaceRef}>
                 <SortableContext items={activeColumns.map(c => c.path)} strategy={horizontalListSortingStrategy}>
                     {activeColumns.length === 0 ? (
                         <div className="empty-workspace">
@@ -610,13 +618,15 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
 
       <style>{`
         .sound-bulk-editor { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 1000; display: flex; align-items: center; justify-content: center; }
-        .modal-content { background: #fff; width: 98%; height: 95%; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; }
+        .sound-bulk-editor .modal-content { background: #fff; width: 98%; height: 95%; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; }
         .modal-header { padding: 15px 25px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; background: #fff; }
         .header-left { display: flex; align-items: center; gap: 30px; }
         .header-left h2 { margin: 0; font-size: 1.2rem; }
         .class-nav { display: flex; align-items: center; gap: 10px; }
         .class-nav .label { font-size: 0.85rem; font-weight: bold; color: #666; }
-        .class-select { padding: 6px 12px; border-radius: 6px; border: 1px solid #ddd; font-weight: bold; color: #2196F3; cursor: pointer; }
+        .class-select { padding: 6px 30px 6px 12px; border-radius: 6px; border: 1px solid #ccc; background: #fff; font-weight: 600; color: #2196F3; cursor: pointer; font-size: 0.85rem; max-width: 220px; transition: border-color 0.15s, box-shadow 0.15s; }
+        .class-select:hover { border-color: #2196F3; }
+        .class-select:focus { outline: none; border-color: #2196F3; box-shadow: 0 0 0 2px rgba(33,150,243,0.2); }
         .main-layout { flex: 1; display: flex; overflow: hidden; background: #f0f2f5; }
         .item-pool-sidebar { width: 280px; display: flex; flex-direction: column; background: #fff; border-right: 1px solid #ddd; }
         .sound-catalog-sidebar { border-right: none; border-left: 1px solid #ddd; width: 300px; display: flex; flex-direction: column; background: #fff; }
