@@ -60,6 +60,7 @@ interface CategoryViewProps {
   } | null;
   soundMap?: any;
   themeData?: any;
+  categoryClass?: string | null;
 }
 
 const CategoryView: React.FC<CategoryViewProps> = ({
@@ -77,6 +78,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   pingedCondition,
   soundMap,
   themeData,
+  categoryClass,
 }) => {
   const t = useTranslation(language);
   // const [themeData, setThemeData] = useState<any>(null); // Lifted to EditorView
@@ -514,6 +516,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     return cache;
   }, [tierItems]);
 
+  // Translations for base types added this session (from search suggestions),
+  // so freshly-added items localize immediately instead of falling back to English.
+  const [addedTranslations, setAddedTranslations] = useState<Record<string, string>>({});
+
   const itemTranslationCache = useMemo(() => {
     const cache: Record<string, string> = {};
     Object.values(tierItems).forEach((items) => {
@@ -521,8 +527,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         if (i.name_ch) cache[i.name] = i.name_ch;
       });
     });
-    return cache;
-  }, [tierItems]);
+    return { ...cache, ...addedTranslations };
+  }, [tierItems, addedTranslations]);
 
   const derivedTierItems = useMemo(() => {
     // If we have tier keys but no items yet, we are likely loading.
@@ -813,6 +819,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     }
                     onRuleEdit={onRuleEdit}
                     onPingCondition={onPingCondition}
+                    onRegisterTranslation={(name, nameCh) =>
+                      nameCh && setAddedTranslations((p) => (p[name] === nameCh ? p : { ...p, [name]: nameCh }))
+                    }
+                    categoryClass={categoryClass}
                     language={language}
                     availableItems={items}
                     translationCache={itemTranslationCache}

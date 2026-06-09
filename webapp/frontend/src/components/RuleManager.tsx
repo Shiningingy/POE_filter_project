@@ -9,6 +9,9 @@ import {
 import type { Language } from "../utils/localization";
 import ItemCard from "./ItemCard";
 import ContextMenu from "./ContextMenu";
+import SoundPicker from "./SoundPicker";
+import MinimapIconPicker, { getIconStyle, formatMinimapIcon } from "./MinimapIconPicker";
+import PlayEffectPicker, { formatPlayEffect } from "./PlayEffectPicker";
 
 interface Item {
   name: string;
@@ -44,6 +47,8 @@ interface RuleManagerProps {
   availableTiers?: TierOption[];
   activeRuleIndex?: number | null;
   onPingCondition?: (tierKey: string, ruleIndex: number, conditionKey: string) => void;
+  onRegisterTranslation?: (name: string, name_ch?: string) => void;
+  categoryClass?: string | null;
   pingedCondition?: {
     tierKey: string;
     ruleIndex: number;
@@ -107,6 +112,8 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   availableTiers,
   activeRuleIndex,
   onPingCondition,
+  onRegisterTranslation,
+  categoryClass,
   pingedCondition
 }) => {
   const t = useTranslation(language);
@@ -129,6 +136,12 @@ const RuleManager: React.FC<RuleManagerProps> = ({
 
   // Specialized Picker States
   const [ruleTemplates, setRuleTemplates] = useState<any[]>([]);
+
+  // Per-rule style-override picker (sound / icon / drop effect)
+  const [stylePicker, setStylePicker] = useState<{
+    index: number;
+    type: "sound" | "icon" | "effect";
+  } | null>(null);
 
   const [localPing, setLocalPing] = useState<{
     ruleIndex: number;
@@ -373,31 +386,34 @@ const RuleManager: React.FC<RuleManagerProps> = ({
     updateCondition(globalIndex, key, val);
   };
 
+  // Partition conditions into "recommended" (universal or applicable to this
+  // category's class) and "others" (everything else), de-duplicated.
   const getRelevantFactors = () => {
-    if (ruleTemplates.length === 0) return [];
-    // Show all templates as requested
-    const combined: any[] = [];
+    if (ruleTemplates.length === 0) return { recommended: [], others: [] };
+    const seen = new Set<string>();
+    const recommended: any[] = [];
+    const others: any[] = [];
+    const isRecommended = (tmp: any) =>
+      tmp.universal === true ||
+      (categoryClass && Array.isArray(tmp.classes) && tmp.classes.includes(categoryClass)) ||
+      // Schema not loaded (no class metadata): treat everything as recommended.
+      (tmp.universal === undefined && tmp.classes === undefined);
 
-    ruleTemplates.forEach((category) => {
+    ruleTemplates.forEach((category: any) => {
       category.templates.forEach((tmp: any) => {
-        if (
-          !combined.some((existing) => existing.condition === tmp.condition)
-        ) {
-          combined.push(tmp);
-        }
+        if (seen.has(tmp.condition)) return;
+        seen.add(tmp.condition);
+        const entry = { key: tmp.condition, label: tmp.label[language], template: tmp };
+        (isRecommended(tmp) ? recommended : others).push(entry);
       });
     });
-
-    return combined.map((t) => ({
-      key: t.condition,
-      label: t.label[language],
-      template: t,
-    }));
+    return { recommended, others };
   };
 
   const relevantFactors = useMemo(getRelevantFactors, [
     ruleTemplates,
     language,
+    categoryClass,
   ]);
 
   return (
@@ -579,7 +595,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                             {suggestions.map((s) => (
                               <li
                                 key={s.name}
-                                onClick={() => addTarget(globalIndex, s.name)}
+                                onClick={() => { onRegisterTranslation?.(s.name, s.name_ch); addTarget(globalIndex, s.name); }}
                               >
                                 <ItemCard
                                   item={s}
@@ -912,14 +928,29 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                         <option value="" disabled>
                           {t.addItemTarget}
                         </option>
-                        {relevantFactors
-                          .filter((f) => rule.conditions[f.key] === undefined)
-                          .map((f) => (
+                        {(() => {
+                          const opt = (f: any) => (
                             <option key={f.key} value={f.key}>
-                              {RULE_FACTOR_LOCALIZATION[f.key]?.[language] ||
-                                f.label}
+                              {RULE_FACTOR_LOCALIZATION[f.key]?.[language] || f.label}
                             </option>
-                          ))}
+                          );
+                          const rec = relevantFactors.recommended.filter((f) => rule.conditions[f.key] === undefined);
+                          const oth = relevantFactors.others.filter((f) => rule.conditions[f.key] === undefined);
+                          return (
+                            <>
+                              {rec.length > 0 && (
+                                <optgroup label={language === 'ch' ? '推荐 (本类别)' : 'Recommended'}>
+                                  {rec.map(opt)}
+                                </optgroup>
+                              )}
+                              {oth.length > 0 && (
+                                <optgroup label={language === 'ch' ? '其他全部' : 'All others'}>
+                                  {oth.map(opt)}
+                                </optgroup>
+                              )}
+                            </>
+                          );
+                        })()}
                       </select>
                     </div>
                   </div>
@@ -987,6 +1018,126 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                         );
                       },
                     )}
+
+                    {/* Font Size override */}
+                    {(() => {
+                      const active =
+                        rule.overrides?.FontSize !== undefined &&
+                        rule.overrides?.FontSize !== null;
+                      const setFont = (next: number | null) => {
+                        const nextOverrides = { ...rule.overrides };
+                        if (next === null) delete nextOverrides.FontSize;
+                        else nextOverrides.FontSize = next;
+                        handleUpdateRule(globalIndex, {
+                          ...rule,
+                          overrides: nextOverrides,
+                        });
+                      };
+                      return (
+                        <div className="color-override-item">
+                          <label>{t.fontSize}</label>
+                          <div className="color-input-group">
+                            <input
+                              type="range"
+                              min="12"
+                              max="45"
+                              disabled={!active}
+                              value={rule.overrides?.FontSize ?? 32}
+                              onChange={(e) =>
+                                setFont(parseInt(e.target.value))
+                              }
+                              style={{ flex: 1 }}
+                            />
+                            <span className="font-val">
+                              {active ? rule.overrides.FontSize : "—"}
+                            </span>
+                            <button
+                              className={`toggle-override-btn ${active ? "active" : ""}`}
+                              onClick={() => setFont(active ? null : 32)}
+                            >
+                              {active ? "ON" : "OFF"}
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })()}
+
+                    {/* Sound override */}
+                    <div className="color-override-item">
+                      <label>{t.sound}</label>
+                      <div
+                        className="override-picker-box"
+                        onClick={() =>
+                          setStylePicker({ index: globalIndex, type: "sound" })
+                        }
+                      >
+                        <span className="override-icon">🎵</span>
+                        <span className="override-name">
+                          {Array.isArray(rule.overrides?.PlayAlertSound)
+                            ? rule.overrides.PlayAlertSound[0]
+                                .split("/")
+                                .pop()
+                            : t.none}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Minimap Icon override */}
+                    <div className="color-override-item">
+                      <label>{t.minimapIcon}</label>
+                      <div
+                        className="override-picker-box"
+                        onClick={() =>
+                          setStylePicker({ index: globalIndex, type: "icon" })
+                        }
+                      >
+                        {rule.overrides?.MinimapIcon ? (
+                          <div
+                            style={getIconStyle(
+                              rule.overrides.MinimapIcon.split(" ")[1],
+                              rule.overrides.MinimapIcon.split(" ")[2],
+                              0.7,
+                            )}
+                          ></div>
+                        ) : (
+                          <span className="override-icon">📍</span>
+                        )}
+                        <span className="override-name">
+                          {rule.overrides?.MinimapIcon
+                            ? formatMinimapIcon(rule.overrides.MinimapIcon, t)
+                            : t.none}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Drop Effect override */}
+                    <div className="color-override-item">
+                      <label>{t.dropEffect}</label>
+                      <div
+                        className="override-picker-box"
+                        onClick={() =>
+                          setStylePicker({ index: globalIndex, type: "effect" })
+                        }
+                      >
+                        {rule.overrides?.PlayEffect ? (
+                          <span
+                            className="effect-swatch"
+                            style={{
+                              background: rule.overrides.PlayEffect.split(
+                                " ",
+                              )[0].toLowerCase(),
+                            }}
+                          ></span>
+                        ) : (
+                          <span className="override-icon">✨</span>
+                        )}
+                        <span className="override-name">
+                          {rule.overrides?.PlayEffect
+                            ? formatPlayEffect(rule.overrides.PlayEffect, t)
+                            : t.none}
+                        </span>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="section-divider">
@@ -1036,8 +1187,73 @@ const RuleManager: React.FC<RuleManagerProps> = ({
         })}
       </div>
 
+      {/* Per-rule style-override pickers */}
+      {stylePicker?.type === "sound" && (
+        <SoundPicker
+          language={language}
+          initialPath={
+            Array.isArray(allRules[stylePicker.index]?.overrides?.PlayAlertSound)
+              ? allRules[stylePicker.index].overrides.PlayAlertSound[0]
+              : undefined
+          }
+          initialVolume={
+            Array.isArray(allRules[stylePicker.index]?.overrides?.PlayAlertSound)
+              ? allRules[stylePicker.index].overrides.PlayAlertSound[1]
+              : undefined
+          }
+          onClose={() => setStylePicker(null)}
+          onConfirm={(path, vol) => {
+            const idx = stylePicker.index;
+            const rule = allRules[idx];
+            handleUpdateRule(idx, {
+              ...rule,
+              overrides: { ...rule.overrides, PlayAlertSound: [path, vol] },
+            });
+            setStylePicker(null);
+          }}
+        />
+      )}
+      {stylePicker?.type === "icon" && (
+        <MinimapIconPicker
+          value={allRules[stylePicker.index]?.overrides?.MinimapIcon}
+          language={language}
+          onClose={() => setStylePicker(null)}
+          onConfirm={(v) => {
+            const idx = stylePicker.index;
+            const rule = allRules[idx];
+            const next = { ...rule.overrides };
+            if (v === null) delete next.MinimapIcon;
+            else next.MinimapIcon = v;
+            handleUpdateRule(idx, { ...rule, overrides: next });
+            setStylePicker(null);
+          }}
+        />
+      )}
+      {stylePicker?.type === "effect" && (
+        <PlayEffectPicker
+          value={allRules[stylePicker.index]?.overrides?.PlayEffect}
+          language={language}
+          onClose={() => setStylePicker(null)}
+          onConfirm={(v) => {
+            const idx = stylePicker.index;
+            const rule = allRules[idx];
+            const next = { ...rule.overrides };
+            if (v === null) delete next.PlayEffect;
+            else next.PlayEffect = v;
+            handleUpdateRule(idx, { ...rule, overrides: next });
+            setStylePicker(null);
+          }}
+        />
+      )}
+
       <style>{`
         .tier-rule-manager { margin-top: 15px; padding-top: 10px; border-top: 1px dashed #ddd; }
+        .override-picker-box { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; cursor: pointer; transition: background 0.2s; min-height: 28px; }
+        .override-picker-box:hover { background: #f0f7ff; border-color: #2196F3; }
+        .override-name { font-size: 0.78rem; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .override-icon { font-size: 0.85rem; flex-shrink: 0; }
+        .font-val { font-size: 0.78rem; color: #555; font-weight: bold; min-width: 22px; text-align: center; }
+        .effect-swatch { width: 14px; height: 14px; border-radius: 50%; display: inline-block; flex-shrink: 0; box-shadow: 0 0 5px currentColor; border: 1px solid rgba(0,0,0,0.2); }
         .rule-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .mini-add-btn { background: #e3f2fd; color: #222 !important; border: 1px solid #2196F3; padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; font-weight: bold; }
         

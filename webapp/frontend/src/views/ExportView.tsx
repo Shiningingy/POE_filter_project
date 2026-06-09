@@ -57,7 +57,7 @@ const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, f
         .export-view { display: flex; flex-direction: column; height: 100%; flex: 1; }
         .top-bar { padding: 10px 20px; background: white; border-bottom: 1px solid #ddd; }
         .top-bar h2 { margin: 0; font-size: 1.2rem; }
-        .content-area { padding: 40px; background: #f0f0f0; flex: 1; }
+        .export-view .content-area { padding: 40px; background: #f0f0f0; flex: 1; }
         .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto; text-align: center; }
         .btn-group { display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 20px; }
         .generate-btn { background-color: #4CAF50; color: white; border: none; padding: 12px 24px; font-size: 1rem; border-radius: 4px; cursor: pointer; width: 250px; font-weight: bold; }

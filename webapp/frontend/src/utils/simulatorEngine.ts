@@ -47,6 +47,19 @@ export interface SimulationResult {
     matchedRule?: string;
     matchedTier?: string;
     matchedFile?: string;
+    partial?: boolean; // matched a rule with conditions the sim can't fully evaluate
+}
+
+export interface RuleMatch {
+    file: string;            // base_mapping path
+    ruleIndex: number | null; // index into the file's rules[]; null = matched via base mapping
+    tier: string;
+    ruleComment?: string;
+    conditionsSummary?: string;
+    isBaseMapping: boolean;
+    style: CSSProperties & { sound?: any };
+    visible: boolean;
+    partial?: boolean;
 }
 
 export const parseClipboardItem = (text: string): ItemProps => {
@@ -99,7 +112,7 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
     let matchedTier: string | null = null;
     let matchedFile = null;
     let matchedRuleName = null;
-    let category = "Templates";
+    let matchedPartial = false;
 
     // 1. Search specific mapping & Apply Rules
     const itemNameLower = item.name.toLowerCase();
@@ -112,7 +125,8 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
                     matchedTier = rule.overrides.Tier;
                     matchedFile = path;
                     matchedRuleName = rule.comment || "Custom Rule";
-                    break; 
+                    matchedPartial = ruleIsPartial(rule);
+                    break;
                 }
             }
         }
@@ -135,20 +149,50 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
         matchedTier = "Untiered";
     }
 
-    // 2. Resolve Category
+    // 2 + 3. Resolve category + style from theme (shared with getMatchingRules)
+    const { style, visible } = resolveStyle(matchedFile, matchedTier, context);
+
+    return {
+        visible,
+        style,
+        matchedTier: matchedTier || undefined,
+        matchedRule: matchedRuleName || undefined,
+        matchedFile: matchedFile || undefined,
+        partial: matchedPartial || undefined
+    };
+};
+
+// Resolve the category + rendered style for a (file, tier) pair. Extracted from
+// evaluateItem so the rule-inspector (getMatchingRules) renders identical styles.
+const resolveStyle = (
+    matchedFile: string | null,
+    matchedTier: string,
+    context: FilterContext
+): { style: CSSProperties & { sound?: any }; visible: boolean; category: string } => {
+    // 2. Resolve Category from the tier_definition's theme_category (matches the
+    // Python/frontend generators). Falls back to the tier_definition's top-level key
+    // (self), then to "Default".
+    let category = "Default";
     if (matchedFile) {
-        const mappingContent = context.mappings[matchedFile];
-        const metaCat = mappingContent?._meta?.theme_category;
-        
-        if (metaCat) {
-            category = metaCat;
-        } else {
-            const parts = matchedFile.split('/');
-            const relevantParts = parts.filter(p => p !== 'base_mapping' && !p.endsWith('.json'));
-            if (relevantParts.length > 0) {
-                category = relevantParts[relevantParts.length - 1];
+        const tierDefPath = matchedFile.replace(/^base_mapping\//, 'tier_definition/');
+        const tierDefContent = (context.tierDefinitions as Record<string, any>)?.[tierDefPath];
+        if (tierDefContent) {
+            const groupKey = Object.keys(tierDefContent).find(k => k !== '_meta' && !k.startsWith('//'));
+            if (groupKey) {
+                category = tierDefContent[groupKey]?._meta?.theme_category || groupKey;
             }
-            if (category === "Fragments") category = "Map Fragments";
+        } else {
+            // Tier def not loaded — fall back to base_mapping meta / path inference.
+            const mappingContent = context.mappings[matchedFile];
+            const metaCat = mappingContent?._meta?.theme_category;
+            if (metaCat) {
+                category = metaCat;
+            } else {
+                const parts = matchedFile.split('/');
+                const relevantParts = parts.filter(p => p !== 'base_mapping' && !p.endsWith('.json'));
+                if (relevantParts.length > 0) category = relevantParts[relevantParts.length - 1];
+                if (category === "Fragments") category = "Map Fragments";
+            }
         }
     }
 
@@ -163,8 +207,8 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
         padding: '2px 6px',
         fontFamily: 'Fontin, sans-serif'
     };
-    
-    let visible = true; 
+
+    let visible = true;
 
     let themeStyle = null;
     if (matchedTier && matchedTier !== "Untiered") {
@@ -180,8 +224,8 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
         // Priority lookup
         themeStyle = checkStyle(category, matchedTier);
         if (!themeStyle) themeStyle = checkStyle(category, normalizedTier);
-        if (!themeStyle) themeStyle = checkStyle("Templates", matchedTier);
-        if (!themeStyle) themeStyle = checkStyle("Templates", normalizedTier);
+        if (!themeStyle) themeStyle = checkStyle("Default", matchedTier);
+        if (!themeStyle) themeStyle = checkStyle("Default", normalizedTier);
 
         // Final fallback: use inline style overrides from the corresponding tier_definition file
         if (!themeStyle && matchedFile && context.tierDefinitions) {
@@ -203,7 +247,7 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
     if (themeStyle) {
         const converted = convertThemeStyle(themeStyle);
         style = { ...style, ...converted };
-        
+
         Object.keys(style).forEach(key => {
             if ((style as any)[key] === undefined) delete (style as any)[key];
         });
@@ -211,16 +255,101 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
 
     if (matchedTier && matchedTier.includes('Hide')) visible = false;
 
-    return { 
-        visible, 
-        style, 
-        matchedTier: matchedTier || undefined, 
-        matchedRule: matchedRuleName || undefined,
-        matchedFile: matchedFile || undefined
-    };
+    return { style, visible, category };
 };
 
-const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: number): boolean => {
+// Short human-readable summary of a rule's targets + conditions, for the inspector.
+const summarizeConditions = (rule: any): string => {
+    const parts: string[] = [];
+    const targets = rule.targets || [];
+    if (targets.length > 0) {
+        const names = targets.map((t: any) => (typeof t === 'string' ? t : t?.name)).filter(Boolean);
+        if (names.length > 0) parts.push(names.length <= 3 ? names.join(', ') : `${names.slice(0, 3).join(', ')} +${names.length - 3}`);
+    }
+    const conditions = rule.conditions || {};
+    for (const [key, value] of Object.entries(conditions)) {
+        parts.push(`${key} ${value}`);
+    }
+    return parts.join('  ·  ');
+};
+
+// Collect the top-N matches for an item in the same priority order evaluateItem
+// uses, WITHOUT breaking at the first — so callers can show the winner plus the
+// "next winners" that would apply if earlier ones were removed. The first entry
+// equals evaluateItem's winning match.
+export const getMatchingRules = (item: ItemProps, context: FilterContext, limit = 3): RuleMatch[] => {
+    const matches: RuleMatch[] = [];
+    const itemNameLower = item.name.toLowerCase();
+
+    for (const [path, content] of Object.entries(context.mappings)) {
+        const rules = content.rules || [];
+        for (let i = 0; i < rules.length; i++) {
+            const rule = rules[i];
+            if (checkRuleMatch(item, rule, context.globalAreaLevel) && rule.overrides && rule.overrides.Tier) {
+                let tier = rule.overrides.Tier;
+                if (Array.isArray(tier)) tier = tier[0];
+                const { style, visible } = resolveStyle(path, tier, context);
+                matches.push({
+                    file: path,
+                    ruleIndex: i,
+                    tier,
+                    ruleComment: rule.comment || 'Custom Rule',
+                    conditionsSummary: summarizeConditions(rule),
+                    isBaseMapping: false,
+                    style,
+                    visible,
+                    partial: ruleIsPartial(rule),
+                });
+                if (matches.length >= limit) return matches;
+            }
+        }
+
+        const mapping = content.mapping || {};
+        const matchKey = Object.keys(mapping).find(k => k.toLowerCase() === itemNameLower);
+        if (matchKey) {
+            let tier = mapping[matchKey];
+            if (Array.isArray(tier)) tier = tier[0];
+            const { style, visible } = resolveStyle(path, tier, context);
+            matches.push({
+                file: path,
+                ruleIndex: null,
+                tier,
+                isBaseMapping: true,
+                style,
+                visible,
+            });
+            if (matches.length >= limit) return matches;
+        }
+    }
+
+    return matches;
+};
+
+// Conditions the simulator cannot model (mods / enchants / derived stats / actions).
+// In the sim these are ignored (treated as satisfied) so the structural part of a
+// rule still resolves; results carrying one are flagged `partial`.
+export const NON_SIMULATABLE = new Set<string>([
+    'CorruptedMods', 'HasExplicitMod', 'HasImplicitMod', 'AnyEnchantment', 'HasEnchantment',
+    'HasSearingExarchImplicit', 'HasEaterOfWorldsImplicit', 'HasCruciblePassiveTree',
+    'BaseDefencePercentile', 'BaseArmour', 'BaseEvasion', 'BaseEnergyShield', 'BaseWard',
+    'EnchantmentPassiveNum', 'EnchantmentPassiveNode', 'Foulborn',
+    'DisableDropSound', 'EnableDropSound',
+]);
+
+// Schema boolean condition keys → the item attribute they test.
+const BOOL_FIELD: Record<string, string> = {
+    FracturedItem: 'fractured', SynthesisedItem: 'synthesised',
+    ShaperItem: 'shaper', ElderItem: 'elder',
+    Scourged: 'scourged', Replica: 'replica', Imbued: 'imbued', TransfiguredGem: 'transfigured',
+    BlightedMap: 'blightedMap', BlightRavagedMap: 'blightRavagedMap',
+    ShapedMap: 'shapedMap', ElderMap: 'elderMap', ZanasMemory: 'zanasMemory',
+};
+
+// True if a rule contains any condition the simulator can't fully evaluate.
+export const ruleIsPartial = (rule: any): boolean =>
+    Object.keys(rule?.conditions || {}).some(k => NON_SIMULATABLE.has(k));
+
+export const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: number): boolean => {
     // 1. Check Targets
     const targets = rule.targets || [];
     if (targets.length > 0 && !targets.includes(item.name)) {
@@ -241,16 +370,38 @@ const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: number): b
             else if (value.startsWith('=')) { operator = '='; targetVal = parseFloat(value.substring(1)); }
         }
 
+        // Lenient: ignore conditions the simulator can't model (mods/enchants/etc.).
+        if (NON_SIMULATABLE.has(key)) continue;
+
         let itemVal = item[key.charAt(0).toLowerCase() + key.slice(1)];
         if (key === 'ItemLevel') itemVal = item.itemLevel;
         if (key === 'DropLevel') itemVal = item.dropLevel;
         if (key === 'Rarity') itemVal = item.rarity;
         if (key === 'Class') itemVal = item.class;
         if (key === 'LinkedSockets') itemVal = item.linkedSockets;
-        if (key === 'Sockets') itemVal = item.sockets?.length || 0;
+        if (key === 'Sockets') itemVal = (item.sockets || '').replace(/[^RGBAWD]/gi, '').length; // colour-letter count
         if (key === 'Quality') itemVal = item.quality;
         if (key === 'StackSize') itemVal = item.stackSize;
+        if (key === 'MapTier') itemVal = item.mapTier;
+        if (key === 'GemLevel') itemVal = item.gemLevel;
+        if (key === 'MemoryStrands') itemVal = item.memoryStrands;
         if (key === 'AreaLevel') itemVal = globalAreaLevel || 1; // Use global context
+
+        // SocketGroup: the item's colours must contain all requested colours (multiset).
+        if (key === 'SocketGroup') {
+            const want = (value as string).replace(/[^RGBAWD]/gi, '').toUpperCase().split('');
+            const have = (item.sockets || '').replace(/[^RGBAWD]/gi, '').toUpperCase().split('');
+            const ok = want.every(c => { const i = have.indexOf(c); if (i < 0) return false; have.splice(i, 1); return true; });
+            if (!ok) return false;
+            continue;
+        }
+
+        // Generic boolean conditions (schema keys → item attribute)
+        if (BOOL_FIELD[key]) {
+            const expected = (value as string).trim() === 'True';
+            if (!!item[BOOL_FIELD[key]] !== expected) return false;
+            continue;
+        }
 
         // Boolean conditions
         if (key === 'Corrupted') {

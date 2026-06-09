@@ -52,7 +52,7 @@ const SimulatorView: React.FC<SimulatorViewProps> = ({ filterContent, language, 
         .toggle-group button.active { background: #2196F3; color: white; border-color: #2196F3; }
         .toggle-group button:first-child { border-radius: 4px 0 0 4px; }
         .toggle-group button:last-child { border-radius: 0 4px 4px 0; }
-        .content-area { flex: 1; padding: 20px; background: #f0f0f0; overflow: hidden; display: flex; flex-direction: column; }
+        .simulator-view .content-area { flex: 1; padding: 20px; background: #f0f0f0; overflow: hidden; display: flex; flex-direction: column; }
         .filter-output { flex: 1; width: 100%; resize: none; padding: 10px; font-family: monospace; border: 1px solid #ccc; border-radius: 4px; }
       `}</style>
     </div>

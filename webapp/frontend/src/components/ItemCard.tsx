@@ -29,6 +29,8 @@ interface ItemCardProps {
   showStagedIndicator?: boolean;
   currentSound?: string;
   showDetails?: boolean;
+  rules?: { label: string }[];
+  onRulesClick?: (e: React.MouseEvent) => void;
 }
 
 const ItemCard: React.FC<ItemCardProps> = ({
@@ -48,9 +50,15 @@ const ItemCard: React.FC<ItemCardProps> = ({
   showStagedIndicator = true,
   currentSound,
   showDetails = false,
+  rules,
+  onRulesClick,
 }) => {
   const dotBg = getSubTypeBackground(item.sub_type);
   const showChineseFirst = language === "ch";
+
+  // Up to 3 rule chips + a "+N more" overflow chip (clicking opens the full list).
+  const visibleRules = rules ? rules.slice(0, 3) : [];
+  const overflowRules = rules ? rules.length - visibleRules.length : 0;
 
   // Render logic
   return (
@@ -106,11 +114,11 @@ const ItemCard: React.FC<ItemCardProps> = ({
           
           {showDetails && (
               <>
-                {(item.item_class || item.instance_tier || item.current_tier) && (
+                {(item.item_class || (!rules && (item.instance_tier || item.current_tier))) && (
                     <div className="item-class-label">
                         {item.item_class && (language === 'ch' ? ((translations[language] as any)[CLASS_KEY_MAP[item.item_class] || item.item_class] || item.item_class) : item.item_class)}
-                        {item.instance_tier && <span className="tier-pill"> | {item.instance_tier.match(/Tier (\d+)/)?.[1] ? `T${item.instance_tier.match(/Tier (\d+)/)?.[1]}` : item.instance_tier}</span>}
-                        {!item.instance_tier && item.current_tier && item.current_tier.length > 0 && (
+                        {!rules && item.instance_tier && <span className="tier-pill"> | {item.instance_tier.match(/Tier (\d+)/)?.[1] ? `T${item.instance_tier.match(/Tier (\d+)/)?.[1]}` : item.instance_tier}</span>}
+                        {!rules && !item.instance_tier && item.current_tier && item.current_tier.length > 0 && (
                             <span className="tier-pill"> | {item.current_tier.map((t: string) => t.match(/Tier (\d+)/)?.[1] ? `T${t.match(/Tier (\d+)/)?.[1]}` : t).join(', ')}</span>
                         )}
                     </div>
@@ -122,6 +130,27 @@ const ItemCard: React.FC<ItemCardProps> = ({
                         {currentSound ? currentSound.split('/').pop() : (translations[language] as any).noSoundApplied}
                     </span>
                 </div>
+
+                {rules && rules.length > 0 && (
+                    <div
+                        className="item-rule-chips"
+                        onPointerDown={(e) => e.stopPropagation()}
+                        onClick={(e) => { e.stopPropagation(); onRulesClick?.(e); }}
+                        style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '4px', marginTop: '6px', cursor: onRulesClick ? 'pointer' : 'default' }}
+                        title={rules.map(r => r.label).join('\n')}
+                    >
+                        {visibleRules.map((r, i) => (
+                            <span key={i} style={{ fontSize: '0.6rem', background: '#eef2f7', color: '#42566b', border: '1px solid #d6dee7', borderRadius: '4px', padding: '1px 6px', maxWidth: '110px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                {r.label}
+                            </span>
+                        ))}
+                        {overflowRules > 0 && (
+                            <span style={{ fontSize: '0.6rem', background: '#2196F3', color: '#fff', borderRadius: '4px', padding: '1px 6px', fontWeight: 'bold' }}>
+                                +{overflowRules} {language === 'ch' ? '更多' : 'more'}
+                            </span>
+                        )}
+                    </div>
+                )}
               </>
           )}
         </div>

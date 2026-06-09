@@ -10,11 +10,11 @@ interface SimulatorItemProps {
     onDelete: () => void;
     onJumpToRule?: (file: string, ruleIndex?: number) => void;
     onEdit?: (item: ItemProps & { id: number }) => void;
-    onOpenMiniEditor?: (file: string, tier: string) => void;
+    onShowRules?: (item: ItemProps & { id: number }) => void;
     language: Language;
 }
 
-const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, onJumpToRule, onEdit, onOpenMiniEditor, language }) => {
+const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, onJumpToRule, onEdit, onShowRules, language }) => {
     const [contextMenu, setContextMenu] = useState<{ x: number, y: number } | null>(null);
     const [hover, setHover] = useState(false);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -69,7 +69,7 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
             // Second click within 300ms — double-click
             clearTimeout(clickTimerRef.current);
             clickTimerRef.current = null;
-            onOpenMiniEditor?.(result.matchedFile ?? '', result.matchedTier ?? '');
+            onShowRules?.(item);
         } else {
             // First click — wait 300ms before treating as single click
             clickTimerRef.current = setTimeout(() => {
@@ -156,6 +156,11 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
                     <div className="meta">
                         <div>Match: <span className="val">{result.matchedTier || 'None'}</span></div>
                         <div>Rule: <span className="val">{result.matchedRule || 'Base Mapping'}</span></div>
+                        {result.partial && (
+                            <div style={{ color: '#ffb74d', fontStyle: 'italic', marginTop: 2 }}>
+                                ⚠ {language === 'ch' ? '含未模拟条件 (词缀/附魔)' : 'partial — mod/enchant conditions not simulated'}
+                            </div>
+                        )}
                     </div>
                     {item.corruptedImplicit && (
                         <div style={{ fontStyle: 'italic', color: '#a6b0cf', fontSize: '0.8rem', marginTop: 4 }}>

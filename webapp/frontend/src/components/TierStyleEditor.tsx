@@ -4,6 +4,8 @@ import { useTranslation } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import { getSoundUrl } from "../utils/soundUtils";
 import { getAssetUrl } from "../utils/assetUtils";
+import MinimapIconPicker, { getIconStyle } from "./MinimapIconPicker";
+import PlayEffectPicker from "./PlayEffectPicker";
 
 interface StyleProps {
   FontSize?: number;
@@ -44,6 +46,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   const [showIconPopup, setShowIconPopup] = useState(false);
   const [showBeamPopup, setShowBeamPopup] = useState(false);
   const [showAlphaPopup, setShowAlphaPopup] = useState(false);
+  // Icon/Beam editing state now lives inside MinimapIconPicker / PlayEffectPicker.
   const [soundSearch, setSoundSearch] = useState("");
   const [availableSounds, setAvailableSounds] = useState<{
     defaults: string[];
@@ -64,76 +67,6 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     file: string;
     vol: number;
   }>({ type: "default", file: "Default/AlertSound1.mp3", vol: 100 });
-
-  const [tempIcon, setTempIcon] = useState({
-    size: 0,
-    color: "Red",
-    shape: "Circle",
-  });
-  const [tempBeam, setTempBeam] = useState({ color: "Red", isTemp: false });
-
-  const ICON_COLORS = [
-    "Blue",
-    "Green",
-    "Brown",
-    "Red",
-    "White",
-    "Yellow",
-    "Cyan",
-    "Grey",
-    "Orange",
-    "Pink",
-    "Purple",
-  ];
-  const ICON_SHAPES = [
-    "Circle",
-    "Diamond",
-    "Hexagon",
-    "Square",
-    "Star",
-    "Triangle",
-    "Cross",
-    "Moon",
-    "Raindrop",
-    "Kite",
-    "Pentagon",
-    "UpsideDownHouse",
-  ];
-  const BEAM_COLORS = [
-    "Red",
-    "Green",
-    "Blue",
-    "Brown",
-    "White",
-    "Yellow",
-    "Cyan",
-    "Grey",
-    "Orange",
-    "Pink",
-    "Purple",
-  ];
-
-  const getIconStyle = (color: string, shape: string, scale: number = 1) => {
-    const shapeIdx = ICON_SHAPES.indexOf(shape);
-    const colorIdx = ICON_COLORS.indexOf(color);
-    if (shapeIdx === -1 || colorIdx === -1) return {};
-    const baseSize = 26;
-    const logicalWidth = 969.8;
-    const stepX = 85.2;
-    const stepY = 28.45;
-    const offset = 2;
-    return {
-      width: `${baseSize * scale}px`,
-      height: `${baseSize * scale}px`,
-      backgroundImage: `url('${getAssetUrl("assets/Icon/MiniMapIcon_FullSpriteV2.png")}')`,
-      backgroundPosition: `-${(colorIdx * stepX + offset) * scale}px -${(shapeIdx * stepY + offset) * scale}px`,
-      backgroundSize: `${logicalWidth * scale}px auto`,
-      backgroundRepeat: "no-repeat",
-      display: "inline-block",
-      flexShrink: 0,
-      verticalAlign: "middle",
-    };
-  };
 
   useEffect(() => {
     if (showSoundPopup && availableSounds.defaults.length === 0) {
@@ -157,20 +90,6 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     }
   }, [showSoundPopup, style.PlayAlertSound]);
 
-  useEffect(() => {
-    if (showIconPopup && style.MinimapIcon) {
-      const [size, color, shape] = style.MinimapIcon.split(" ");
-      setTempIcon({ size: parseInt(size) || 0, color, shape });
-    }
-  }, [showIconPopup, style.MinimapIcon]);
-
-  useEffect(() => {
-    if (showBeamPopup && style.PlayEffect) {
-      const [color, temp] = style.PlayEffect.split(" ");
-      setTempBeam({ color, isTemp: temp === "Temp" });
-    }
-  }, [showBeamPopup, style.PlayEffect]);
-
   const handleChange = (key: keyof StyleProps, value: any) => {
     onChange({ ...style, [key]: value }, visibility);
   };
@@ -178,22 +97,6 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   const applySound = () => {
     handleChange("PlayAlertSound", [tempSound.file, tempSound.vol]);
     setShowSoundPopup(false);
-  };
-
-  const applyIcon = () => {
-    handleChange(
-      "MinimapIcon",
-      `${tempIcon.size} ${tempIcon.color} ${tempIcon.shape}`,
-    );
-    setShowIconPopup(false);
-  };
-
-  const applyBeam = () => {
-    handleChange(
-      "PlayEffect",
-      `${tempBeam.color}${tempBeam.isTemp ? " Temp" : ""}`,
-    );
-    setShowBeamPopup(false);
   };
 
   const handleTestSound = () => {
@@ -448,191 +351,29 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
       )}
 
       {showIconPopup && (
-        <div className="modal-overlay" onClick={() => setShowIconPopup(false)}>
-          <div className="sound-popup" onClick={(e) => e.stopPropagation()}>
-            <div className="popup-header">
-              <h3>
-                {t.icon} - {tierName}
-              </h3>
-              <button
-                className="close-x"
-                onClick={() => setShowIconPopup(false)}
-              >
-                X
-              </button>
-            </div>
-            <div className="icon-config">
-              <div className="config-section">
-                <label>{t.size}</label>
-                <div className="option-grid size-grid">
-                  {[0, 1, 2].map((s) => (
-                    <button
-                      key={s}
-                      className={tempIcon.size === s ? "active" : ""}
-                      onClick={() => setTempIcon({ ...tempIcon, size: s })}
-                    >
-                      {s === 0 ? t.small : s === 1 ? t.medium : t.large}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="config-section">
-                <label>{t.color}</label>
-                <div className="option-grid color-grid">
-                  {ICON_COLORS.map((c) => (
-                    <button
-                      key={c}
-                      className={tempIcon.color === c ? "active" : ""}
-                      style={{ borderColor: c.toLowerCase() }}
-                      onClick={() => setTempIcon({ ...tempIcon, color: c })}
-                    >
-                      {(t as any)[c] || c}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="config-section">
-                <label>{t.shape}</label>
-                <div className="option-grid icon-grid">
-                  {ICON_SHAPES.map((sh) => (
-                    <button
-                      key={sh}
-                      className={tempIcon.shape === sh ? "active" : ""}
-                      onClick={() => setTempIcon({ ...tempIcon, shape: sh })}
-                      title={sh}
-                    >
-                      <div style={getIconStyle(tempIcon.color, sh, 1.2)}></div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="popup-footer">
-              <div className="preview-indicator">
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: "8px" }}
-                >
-                  <div
-                    style={getIconStyle(tempIcon.color, tempIcon.shape, 1)}
-                  ></div>
-                  <span>
-                    {
-                      (t as any)[
-                        tempIcon.size === 0
-                          ? "small"
-                          : tempIcon.size === 1
-                            ? "medium"
-                            : "large"
-                      ]
-                    }{" "}
-                    {(t as any)[tempIcon.color]}{" "}
-                    {(t as any)[tempIcon.shape] || tempIcon.shape}
-                  </span>
-                </div>
-              </div>
-              <div className="main-actions">
-                <button
-                  className="reset-btn"
-                  style={{ background: "#c62828" }}
-                  onClick={() => {
-                    handleChange("MinimapIcon", null);
-                    setShowIconPopup(false);
-                  }}
-                >
-                  {t.none}
-                </button>
-                <button
-                  className="cancel-btn"
-                  onClick={() => setShowIconPopup(false)}
-                >
-                  {t.cancel}
-                </button>
-                <button className="ok-btn" onClick={applyIcon}>
-                  {t.ok}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <MinimapIconPicker
+          value={style.MinimapIcon}
+          title={tierName}
+          language={language}
+          onClose={() => setShowIconPopup(false)}
+          onConfirm={(v) => {
+            handleChange("MinimapIcon", v);
+            setShowIconPopup(false);
+          }}
+        />
       )}
 
       {showBeamPopup && (
-        <div className="modal-overlay" onClick={() => setShowBeamPopup(false)}>
-          <div className="sound-popup" onClick={(e) => e.stopPropagation()}>
-            <div className="popup-header">
-              <h3>
-                {t.beam} - {tierName}
-              </h3>
-              <button
-                className="close-x"
-                onClick={() => setShowBeamPopup(false)}
-              >
-                X
-              </button>
-            </div>
-            <div className="icon-config">
-              <div className="config-section">
-                <label>{t.color}</label>
-                <div className="option-grid color-grid">
-                  {BEAM_COLORS.map((c) => (
-                    <button
-                      key={c}
-                      className={tempBeam.color === c ? "active" : ""}
-                      style={{ borderColor: c.toLowerCase() }}
-                      onClick={() => setTempBeam({ ...tempBeam, color: c })}
-                    >
-                      {(t as any)[c] || c}
-                    </button>
-                  ))}
-                </div>
-              </div>
-              <div className="config-section">
-                <label>{t.temporary}</label>
-                <div className="toggle-box">
-                  <button
-                    className={!tempBeam.isTemp ? "active" : ""}
-                    onClick={() => setTempBeam({ ...tempBeam, isTemp: false })}
-                  >
-                    {t.permanent}
-                  </button>
-                  <button
-                    className={tempBeam.isTemp ? "active" : ""}
-                    onClick={() => setTempBeam({ ...tempBeam, isTemp: true })}
-                  >
-                    {t.temporary}
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="popup-footer">
-              <div className="preview-indicator">
-                {(t as any)[tempBeam.color]}{" "}
-                {tempBeam.isTemp ? `(${t.temporary})` : `(${t.permanent})`}
-              </div>
-              <div className="main-actions">
-                <button
-                  className="reset-btn"
-                  style={{ background: "#c62828" }}
-                  onClick={() => {
-                    handleChange("PlayEffect", null);
-                    setShowBeamPopup(false);
-                  }}
-                >
-                  {t.none}
-                </button>
-                <button
-                  className="cancel-btn"
-                  onClick={() => setShowBeamPopup(false)}
-                >
-                  {t.cancel}
-                </button>
-                <button className="ok-btn" onClick={applyBeam}>
-                  OK
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PlayEffectPicker
+          value={style.PlayEffect}
+          title={tierName}
+          language={language}
+          onClose={() => setShowBeamPopup(false)}
+          onConfirm={(v) => {
+            handleChange("PlayEffect", v);
+            setShowBeamPopup(false);
+          }}
+        />
       )}
 
       <div
@@ -955,20 +696,6 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         .ok-btn { background: #2196F3; color: #fff !important; border: none; padding: 8px 25px; border-radius: 4px; cursor: pointer; font-weight: bold; }
         .ok-btn:hover { background: #1976D2; }
         .cancel-btn { background: #eee; color: #222 !important; border: 1px solid #ddd; padding: 8px 25px; border-radius: 4px; cursor: pointer; font-weight: bold; }
-        .icon-config { display: flex; flex-direction: column; gap: 15px; }
-        .config-section { display: flex; flex-direction: column; gap: 8px; }
-        .config-section label { font-size: 0.85rem; color: #222; font-weight: bold; }
-        .option-grid { display: flex; flex-wrap: wrap; gap: 5px; }
-        .option-grid button { background: #f5f5f5; border: 1px solid #ddd; color: #222 !important; padding: 5px 10px; font-size: 0.75rem; border-radius: 2px; min-width: 35px; font-weight: bold; }
-        .option-grid button:hover { background: #eee; border-color: #ccc; }
-        .option-grid button.active { background: #2196F3; color: white !important; border-color: #2196F3; }
-        .color-grid button { border-left-width: 4px; }
-        .icon-grid button { flex: 0 0 calc(16.66% - 5px); display: flex; align-items: center; justify-content: center; padding: 8px 0; background: #fcfcfc; }
-        .size-grid button { flex: 1; }
-        .toggle-box { display: flex; gap: 5px; }
-        .toggle-box button { flex: 1; padding: 10px; background: #f5f5f5; border: 1px solid #ddd; color: #222 !important; border-radius: 4px; cursor: pointer; font-weight: bold; }
-        .toggle-box button.active { background: #2196F3; color: white !important; border-color: #2196F3; }
-        .preview-indicator { font-size: 0.85rem; color: #2196F3; font-weight: bold; background: #f5f5f5; padding: 5px 15px; border-radius: 20px; border: 1px solid #ddd; }
         .visual-beam { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 100%; z-index: 1; pointer-events: none; filter: blur(8px); background: linear-gradient(to top, transparent, var(--beam-color), transparent); }
         .visual-beam.is-temp { background: repeating-linear-gradient(to top, transparent, transparent 10px, var(--beam-color) 10px, var(--beam-color) 20px); }
         .beam-icon-mini { width: 4px; height: 14px; border-radius: 2px; background: currentColor; box-shadow: 0 0 5px currentColor; }

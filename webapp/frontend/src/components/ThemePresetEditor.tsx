@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
-import { useTranslation, CLASS_KEY_MAP } from '../utils/localization';
+import { useTranslation, CLASS_KEY_MAP, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import SoundPicker from './SoundPicker';
+import MinimapIconPicker, { getIconStyle, formatMinimapIcon } from './MinimapIconPicker';
+import PlayEffectPicker, { formatPlayEffect } from './PlayEffectPicker';
 import { getAssetUrl } from '../utils/assetUtils';
 
 interface ThemePresetEditorProps {
@@ -23,9 +25,18 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   
   const [baseThemeData, setBaseThemeData] = useState<any>(null);
   const [overridesData, setOverridesData] = useState<any>({});
-  
-  const [selectedCategory, setSelectedCategory] = useState<string>('Currency');
-  
+  const [navGroups, setNavGroups] = useState<any[]>([]);
+
+  // selectedCategory holds the THEME RESOLUTION KEY (target_category / theme_category),
+  // not the display name. "Default" is the global fallback bucket.
+  const [selectedCategory, setSelectedCategory] = useState<string>('Default');
+  // selectedLeaf tracks the clicked nav leaf by its unique path (or '__default__')
+  // so the active highlight is per-leaf — several leaves can share one resolution key.
+  const [selectedLeaf, setSelectedLeaf] = useState<string>('__default__');
+  // Collapsible nav groups/subgroups, mirroring the editor Sidebar.
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const toggle = (id: string) => setExpanded(p => ({ ...p, [id]: !p[id] }));
+
   const [editingTier, setEditingTier] = useState<string | null>(null);
   const [isBulkEditing, setIsBulkEditing] = useState(false);
   const [unsavedOverrides, setUnsavedOverrides] = useState(false);
@@ -34,32 +45,36 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   const [importState, setImportState] = useState<ImportModalState>({ sourceTheme: '', sourceCategory: 'Templates' });
   const [previewImportData, setPreviewImportData] = useState<any>(null);
   const [showSoundPicker, setShowSoundPicker] = useState(false);
-  
+  const [showIconPicker, setShowIconPicker] = useState(false);
+  const [showEffectPicker, setShowEffectPicker] = useState(false);
+
   const [viewerBackground, setViewerBackground] = useState<string>('Item_bg_coast.jpg');
 
   const backgrounds = [
-    { id: "Item_bg_coast.jpg", name: language === 'ch' ? "海滩" : "Coast" },
-    { id: "Item_bg_forest.jpg", name: language === 'ch' ? "丛林" : "Forest" },
-    { id: "Item_bg_sand.jpg", name: language === 'ch' ? "沙漠" : "Sand" },
-    { id: "color_black", name: language === 'ch' ? "黑" : "Black" },
-    { id: "color_white", name: language === 'ch' ? "白" : "White" },
-    { id: "color_grey", name: language === 'ch' ? "灰" : "Grey" }
+    { id: "Item_bg_coast.jpg", name: t.coast },
+    { id: "Item_bg_forest.jpg", name: t.forest },
+    { id: "Item_bg_sand.jpg", name: t.sand },
+    { id: "color_black", name: t.black },
+    { id: "color_white", name: t.white },
+    { id: "color_grey", name: t.grey }
   ];
 
   // Initial Load
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [themesRes, settingsRes, overridesRes] = await Promise.all([
+        const [themesRes, settingsRes, overridesRes, navRes] = await Promise.all([
             axios.get('/api/themes'),
             axios.get('/api/settings'),
-            axios.get('/api/custom-overrides')
+            axios.get('/api/custom-overrides'),
+            axios.get('/api/category-structure')
         ]);
         setThemes(themesRes.data.themes || []);
         const base = settingsRes.data.base_theme || 'sharket';
         setCurrentThemeInUse(base);
-        setActiveTheme(base); 
+        setActiveTheme(base);
         setOverridesData(overridesRes.data || {});
+        setNavGroups(navRes.data.categories || []);
       } catch (e) { console.error(e); }
     };
     fetchData();
@@ -71,60 +86,102 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
     const fetchBaseTheme = async () => {
       try {
         const res = await axios.get(`/api/themes/${activeTheme}`);
-        let data = res.data.theme_data;
-        if (!data['Templates']) {
-            const source = data['Currency'] || data['Stackable Currency'] || {};
-            data['Templates'] = JSON.parse(JSON.stringify(source));
+        const data = res.data.theme_data || {};
+        // Ensure the global fallback bucket exists (seeded from a sane default if absent).
+        if (!data['Default']) {
+            data['Default'] = JSON.parse(JSON.stringify(data['Stackable Currency'] || {}));
             for (let i = 0; i <= 9; i++) {
-                if (!data['Templates'][`Tier ${i}`]) data['Templates'][`Tier ${i}`] = { FontSize: 32, TextColor: '#ffffff', BackgroundColor: '#000000aa' };
+                if (!data['Default'][`Tier ${i}`]) data['Default'][`Tier ${i}`] = { FontSize: 32, TextColor: '#ffffffff', BackgroundColor: '#000000aa' };
             }
         }
         setBaseThemeData(data);
-      } catch (e) { console.error(e); } 
+      } catch (e) { console.error(e); }
     };
     fetchBaseTheme();
   }, [activeTheme]);
 
-  // Compute Merged Data
-  const mergedThemeData = useMemo(() => {
-      if (!baseThemeData) return null;
-      const merged = JSON.parse(JSON.stringify(baseThemeData));
-      Object.keys(overridesData).forEach(cat => {
-          if (!merged[cat]) merged[cat] = {};
-          Object.keys(overridesData[cat]).forEach(tier => {
-              merged[cat][tier] = { ...merged[cat][tier], ...overridesData[cat][tier] };
-          });
-      });
-      return merged;
-  }, [baseThemeData, overridesData]);
-
   // Helpers
-  const getLocalizedCategory = (cat: string) => (t as any)[CLASS_KEY_MAP[cat] || cat] || cat;
+  const getLocalizedCategory = (cat: string) =>
+    (language === 'ch' && CLASS_CH[cat]) || (t as any)[CLASS_KEY_MAP[cat] || cat] || cat;
 
-  const getTiers = (data: any, cat: string) => {
-      if (!data || !data[cat]) return [];
-      return Object.keys(data[cat]).filter(k => k.startsWith('Tier')).sort((a, b) => {
+  const sortTierKeys = (obj: any) =>
+      Object.keys(obj || {}).filter(k => k.startsWith('Tier')).sort((a, b) => {
           const nA = parseInt(a.match(/Tier (\d+)/)?.[1] || '99');
           const nB = parseInt(b.match(/Tier (\d+)/)?.[1] || '99');
           return nA - nB;
       });
+
+  const getTiers = (data: any, cat: string) => sortTierKeys(data?.[cat]);
+
+  // Flat nav leaves keyed by resolution key (target_category), for label lookup + initial select.
+  const navLeaves = useMemo(() => {
+      const out: { key: string; label_en: string; label: string }[] = [];
+      navGroups.forEach((g: any) => (g.files || []).forEach((f: any) => {
+          const key = f.target_category || f.localization?.en;
+          if (!key) return;
+          out.push({ key, label_en: f.localization?.en || key, label: f.localization?.[language] || f.localization?.en || key });
+      }));
+      return out;
+  }, [navGroups, language]);
+
+  const catLabel = (cat: string) => {
+      if (cat === 'Default') return language === 'ch' ? '默认 (后备样式)' : 'Default (fallback)';
+      const leaf = navLeaves.find(l => l.key === cat);
+      return leaf?.label || getLocalizedCategory(cat);
   };
 
+  // Select a nav leaf: edits the leaf's resolution key but highlights only this leaf.
+  const selectLeaf = (f: any) => {
+      const key = f.target_category || f.localization?.en;
+      if (!key) return;
+      setSelectedCategory(key);
+      setSelectedLeaf(f.path || key);
+      setEditingTier(null);
+      setIsBulkEditing(false);
+  };
+
+  const renderLeaf = (f: any) => {
+      const key = f.target_category || f.localization?.en;
+      if (!key) return null;
+      const label = f.localization?.[language] || f.localization?.en || key;
+      const id = f.path || key;
+      return (
+          <div
+              key={id}
+              className={`category-item file-leaf ${selectedLeaf === id ? 'active' : ''}`}
+              onClick={() => selectLeaf(f)}
+          >
+              {label}
+              {overridesData[key] && <span className="override-dot">•</span>}
+          </div>
+      );
+  };
+
+  // Effective per-tier styles for the selected category: its own base (or "Default"
+  // fallback) merged with any overrides — mirrors how the generator resolves styling.
+  const effectiveTiers = useMemo(() => {
+      if (!baseThemeData) return {};
+      const base = JSON.parse(JSON.stringify(baseThemeData[selectedCategory] || baseThemeData['Default'] || {}));
+      const ov = overridesData[selectedCategory] || {};
+      Object.keys(ov).forEach(tier => { base[tier] = { ...base[tier], ...ov[tier] }; });
+      return base;
+  }, [baseThemeData, overridesData, selectedCategory]);
+
   const previewItems = useMemo(() => {
-    if (!mergedThemeData || !mergedThemeData[selectedCategory]) return [];
-    return getTiers(mergedThemeData, selectedCategory).map(tier => ({
-        name: `${selectedCategory} ${tier}`,
+    return sortTierKeys(effectiveTiers).map(tier => ({
+        name: `${catLabel(selectedCategory)} ${tier}`,
         tierKey: tier,
-        style: mergedThemeData[selectedCategory][tier],
+        style: effectiveTiers[tier],
         isOverridden: overridesData[selectedCategory]?.[tier] !== undefined
     }));
-  }, [mergedThemeData, selectedCategory, overridesData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [effectiveTiers, selectedCategory, overridesData, language]);
 
   const activeStyle = useMemo(() => {
-      if (isBulkEditing && previewItems.length > 0) return previewItems[0].style; 
-      else if (editingTier && mergedThemeData && mergedThemeData[selectedCategory]) return mergedThemeData[selectedCategory][editingTier];
+      if (isBulkEditing && previewItems.length > 0) return previewItems[0].style;
+      else if (editingTier) return effectiveTiers[editingTier] || null;
       return null;
-  }, [isBulkEditing, previewItems, editingTier, mergedThemeData, selectedCategory]);
+  }, [isBulkEditing, previewItems, editingTier, effectiveTiers]);
 
   // Actions
   const updateOverride = (cat: string, tier: string, key: string, value: any) => {
@@ -140,8 +197,8 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
   const handleUpdateStyle = (key: string, value: any) => {
       if (isBulkEditing) {
-          if (!selectedCategory || !mergedThemeData) return;
-          getTiers(mergedThemeData, selectedCategory).forEach(tier => updateOverride(selectedCategory, tier, key, value));
+          if (!selectedCategory) return;
+          sortTierKeys(effectiveTiers).forEach(tier => updateOverride(selectedCategory, tier, key, value));
       } else {
           if (!editingTier || !selectedCategory) return;
           updateOverride(selectedCategory, editingTier, key, value);
@@ -165,8 +222,8 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
       const sourceStyles = previewImportData[importState.sourceCategory] || previewImportData['Templates'];
       if (!sourceStyles) return;
 
-      const targetTiers = getTiers(mergedThemeData, selectedCategory).length > 0 
-          ? getTiers(mergedThemeData, selectedCategory)
+      const targetTiers = sortTierKeys(effectiveTiers).length > 0
+          ? sortTierKeys(effectiveTiers)
           : getTiers(previewImportData, importState.sourceCategory);
 
       setOverridesData((prev: any) => {
@@ -213,26 +270,26 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
       <div className="modal-content main-content-frame">
         <div className="modal-header">
           <div className="header-left">
-            <h2>🎨 {language === 'ch' ? "外观预设编辑器" : "Theme Editor"}</h2>
+            <h2>🎨 {t.themeEditorTitle}</h2>
             <div className="theme-selector-wrap">
-                <span className="label">{language === 'ch' ? "基础主题:" : "Base Theme:"}</span>
+                <span className="label">{t.baseThemeLabel}</span>
                 <select className="theme-select" value={activeTheme} onChange={(e) => setActiveTheme(e.target.value)}>
-                    {themes.map(t => <option key={t} value={t}>{t}</option>)}
+                    {themes.map(th => <option key={th} value={th}>{th}</option>)}
                 </select>
                 <button className="apply-btn primary-action-btn" onClick={async () => {
                     await axios.post('/api/settings', { base_theme: activeTheme });
                     setCurrentThemeInUse(activeTheme);
-                    alert("Base Theme Applied!");
-                }}>{activeTheme === currentThemeInUse ? '✅' : (language === 'ch' ? "应用基础" : "Apply Base")}</button>
+                    alert(t.baseThemeApplied);
+                }}>{activeTheme === currentThemeInUse ? '✅' : t.applyBase}</button>
             </div>
-            {unsavedOverrides && <span className="unsaved-badge">● {language === 'ch' ? "未保存的修改" : "Unsaved Overrides"}</span>}
+            {unsavedOverrides && <span className="unsaved-badge">● {t.unsavedOverrides}</span>}
           </div>
           <div className="header-actions">
              <button className="save-btn primary-action-btn" disabled={!unsavedOverrides} onClick={async () => {
                  await axios.post('/api/custom-overrides', overridesData);
                  setUnsavedOverrides(false);
-                 alert("Saved!");
-             }}>💾 {language === 'ch' ? "保存覆盖" : "Save Overrides"}</button>
+                 alert(t.overridesSaved);
+             }}>💾 {t.saveOverrides}</button>
              <button className="close-btn" onClick={onClose}>×</button>
           </div>
         </div>
@@ -240,25 +297,80 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
         <div className="editor-layout">
           <div className="category-sidebar">
             <div className="category-list">
-              {mergedThemeData && Object.keys(mergedThemeData).sort((a, b) => (a === 'Templates' ? -1 : b === 'Templates' ? 1 : a.localeCompare(b))).map(cat => (
-                <div 
-                  key={cat} 
-                  className={`category-item ${selectedCategory === cat ? 'active' : ''} ${cat === 'Templates' ? 'template-category' : ''}`}
-                  onClick={() => { setSelectedCategory(cat); setEditingTier(null); setIsBulkEditing(false); }}
-                >
-                  {cat === 'Templates' ? (language === 'ch' ? "★ 全局模板" : "★ Global Templates") : getLocalizedCategory(cat)}
-                  {overridesData[cat] && <span className="override-dot">•</span>}
-                </div>
-              ))}
+              {/* Global fallback bucket */}
+              <div
+                className={`category-item template-category ${selectedLeaf === '__default__' ? 'active' : ''}`}
+                onClick={() => { setSelectedCategory('Default'); setSelectedLeaf('__default__'); setEditingTier(null); setIsBulkEditing(false); }}
+              >
+                ★ {catLabel('Default')}
+                {overridesData['Default'] && <span className="override-dot">•</span>}
+              </div>
+              {/* Nav-mirrored categories: separators, collapsible groups, subgroups, leaves */}
+              {navGroups.map((group: any, gi: number) => {
+                if (group.separator) {
+                  return (
+                    <div key={`sep-${gi}`} className="category-separator">
+                      {group.separator[language] || group.separator.en}
+                    </div>
+                  );
+                }
+                const directFiles = group.files || [];
+                const hasSub = (group.subgroups || []).length > 0;
+                // Auto-flatten a single-file, no-subgroup group into one clickable row.
+                if (!hasSub && directFiles.length === 1) {
+                  const f = directFiles[0];
+                  const key = f.target_category || f.localization?.en;
+                  const id = f.path || key;
+                  const gLabel = group._meta?.localization?.[language] || group._meta?.localization?.en || f.localization?.[language] || key;
+                  return (
+                    <div
+                      key={`g-${gi}`}
+                      className={`category-item group-flat ${selectedLeaf === id ? 'active' : ''}`}
+                      onClick={() => selectLeaf(f)}
+                    >
+                      {gLabel}
+                      {overridesData[key] && <span className="override-dot">•</span>}
+                    </div>
+                  );
+                }
+                const gid = `g-${gi}`;
+                const gOpen = expanded[gid];
+                const gName = group._meta?.localization?.[language] || group._meta?.localization?.en || '';
+                return (
+                  <div key={gid} className="cat-group">
+                    <div className="cat-group-header" onClick={() => toggle(gid)}>
+                      <span className="arrow">{gOpen ? '▼' : '▶'}</span>{gName}
+                    </div>
+                    {gOpen && (
+                      <>
+                        {(group.subgroups || []).map((sub: any, si: number) => {
+                          const sid = `${gid}-s-${si}`;
+                          const sOpen = expanded[sid];
+                          const sName = sub._meta?.localization?.[language] || sub._meta?.localization?.en || '';
+                          return (
+                            <div key={sid} className="cat-subgroup">
+                              <div className="cat-subgroup-header" onClick={() => toggle(sid)}>
+                                <span className="arrow">{sOpen ? '▼' : '▶'}</span>{sName}
+                              </div>
+                              {sOpen && (sub.files || []).map(renderLeaf)}
+                            </div>
+                          );
+                        })}
+                        {directFiles.map(renderLeaf)}
+                      </>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           <div className="preview-area" onClick={() => { setEditingTier(null); setIsBulkEditing(false); }} style={getBackgroundStyle()}>
             <div className="preview-header">
-              <h3>{getLocalizedCategory(selectedCategory)}</h3>
+              <h3>{catLabel(selectedCategory)}</h3>
               <BackgroundSwitcher />
               <button className={`bulk-edit-btn primary-action-btn ${isBulkEditing ? 'active' : ''}`} onClick={(e) => { e.stopPropagation(); setIsBulkEditing(!isBulkEditing); setEditingTier(null); }}>
-                {language === 'ch' ? "批量编辑 / 导入" : "Bulk Edit / Import"}
+                {t.bulkEditImport}
               </button>
             </div>
             
@@ -273,8 +385,21 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                         color: item.style.TextColor || '#fff',
                         backgroundColor: item.style.BackgroundColor || 'transparent',
                         borderColor: item.style.BorderColor || 'transparent',
-                        borderWidth: '1px', borderStyle: 'solid', padding: '5px 10px'
-                    }}>{item.name}</div>
+                        borderWidth: '1px', borderStyle: 'solid', padding: '5px 10px',
+                        display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px'
+                    }}>
+                        {item.style.MinimapIcon && (
+                            <div style={getIconStyle(item.style.MinimapIcon.split(' ')[1], item.style.MinimapIcon.split(' ')[2], 0.8)}></div>
+                        )}
+                        <span>{item.name}</span>
+                        {item.style.PlayEffect && (
+                            <span
+                                className={`beam-mini ${item.style.PlayEffect.includes('Temp') ? 'is-temp' : ''}`}
+                                style={{ color: item.style.PlayEffect.split(' ')[0].toLowerCase() }}
+                                title={item.style.PlayEffect}
+                            ></span>
+                        )}
+                    </div>
                   </div>
                 ))}
             </div>
@@ -283,13 +408,13 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
           {activeStyle && (
             <div className="style-editor-panel" onClick={e => e.stopPropagation()}>
               <div className="panel-header">
-                <h3>{isBulkEditing ? (language === 'ch' ? "批量编辑" : "Bulk Edit") : (language === 'ch' ? `编辑: ${editingTier}` : `Editing: ${editingTier}`)}</h3>
+                <h3>{isBulkEditing ? t.bulkEdit : `${t.editingLabel}: ${editingTier}`}</h3>
               </div>
-              
+
               {isBulkEditing && (
                   <div className="bulk-actions">
                       <button className="import-modal-btn" onClick={() => setShowImportModal(true)}>
-                          📥 {language === 'ch' ? "从其他主题导入系列..." : "Import Series from Theme..."}
+                          📥 {t.importSeriesFromTheme}
                       </button>
                   </div>
               )}
@@ -314,7 +439,33 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                         <div className="sound-display-box" onClick={() => setShowSoundPicker(true)}>
                             <span className="sound-icon">🎵</span>
                             <span className="sound-name">
-                                {activeStyle.PlayAlertSound ? (activeStyle.PlayAlertSound[0].split('/').pop()) : (language === 'ch' ? "未指定" : "None")}
+                                {activeStyle.PlayAlertSound ? (activeStyle.PlayAlertSound[0].split('/').pop()) : t.none}
+                            </span>
+                        </div>
+                    </div>
+                    <div className="control-group">
+                        <label>{t.minimapIcon}</label>
+                        <div className="sound-display-box" onClick={() => setShowIconPicker(true)}>
+                            {activeStyle.MinimapIcon ? (
+                                <div style={getIconStyle(activeStyle.MinimapIcon.split(' ')[1], activeStyle.MinimapIcon.split(' ')[2], 0.8)}></div>
+                            ) : (
+                                <span className="sound-icon">📍</span>
+                            )}
+                            <span className="sound-name">
+                                {activeStyle.MinimapIcon ? formatMinimapIcon(activeStyle.MinimapIcon, t) : t.none}
+                            </span>
+                        </div>
+                    </div>
+                    <div className="control-group">
+                        <label>{t.dropEffect}</label>
+                        <div className="sound-display-box" onClick={() => setShowEffectPicker(true)}>
+                            {activeStyle.PlayEffect ? (
+                                <span className="effect-swatch" style={{ background: activeStyle.PlayEffect.split(' ')[0].toLowerCase() }}></span>
+                            ) : (
+                                <span className="sound-icon">✨</span>
+                            )}
+                            <span className="sound-name">
+                                {activeStyle.PlayEffect ? formatPlayEffect(activeStyle.PlayEffect, t) : t.none}
                             </span>
                         </div>
                     </div>
@@ -331,25 +482,25 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
               <div className="modal-content import-content" onClick={e => e.stopPropagation()}>
                   <div className="modal-header">
                     <div className="header-left">
-                        <h3>{language === 'ch' ? "导入样式系列" : "Import Style Series"}</h3>
+                        <h3>{t.importStyleSeries}</h3>
                         <BackgroundSwitcher />
                     </div>
                     <button className="close-x" onClick={() => setShowImportModal(false)}>×</button>
                   </div>
-                  
+
                   <div className="import-body">
                     <div className="import-controls">
                         <div className="control-col">
-                            <label>{language === 'ch' ? "来源主题" : "Source Theme"}</label>
+                            <label>{t.sourceTheme}</label>
                             <select value={importState.sourceTheme} onChange={e => setImportState({...importState, sourceTheme: e.target.value})}>
-                                <option value="">-- Select Theme --</option>
-                                {themes.map(t => <option key={t} value={t}>{t}</option>)}
+                                <option value="">{t.selectThemeOption}</option>
+                                {themes.map(th => <option key={th} value={th}>{th}</option>)}
                             </select>
                         </div>
                         <div className="control-col">
-                            <label>{language === 'ch' ? "来源分类" : "Source Category"}</label>
+                            <label>{t.sourceCategory}</label>
                             <select value={importState.sourceCategory} onChange={e => setImportState({...importState, sourceCategory: e.target.value})}>
-                                <option value="Templates">{language === 'ch' ? "★ 全局模板" : "★ Global Templates"}</option>
+                                <option value="Templates">{t.globalTemplates}</option>
                                 {previewImportData && Object.keys(previewImportData).sort().filter(c => c !== 'Templates').map(c => (
                                     <option key={c} value={c}>{getLocalizedCategory(c)}</option>
                                 ))}
@@ -359,7 +510,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
                     <div className="preview-compare">
                         <div className="col" style={getBackgroundStyle()}>
-                            <h4>Current ({activeTheme})</h4>
+                            <h4>{t.currentLabel} ({activeTheme})</h4>
                             <div className="mini-list">
                                 {previewItems.map(i => (
                                     <div key={i.tierKey} className="mini-preview" style={{
@@ -370,19 +521,19 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                         </div>
                         <div className="col arrow">➔</div>
                         <div className="col" style={getBackgroundStyle()}>
-                            <h4>New ({importState.sourceTheme || '...'})</h4>
+                            <h4>{t.newLabel} ({importState.sourceTheme || '...'})</h4>
                             <div className="mini-list">
                                 {previewImportData && (previewImportData[importState.sourceCategory] || previewImportData['Templates']) ? (
-                                    getTiers(previewImportData, importState.sourceCategory).map(t => {
-                                        const s = (previewImportData[importState.sourceCategory] || previewImportData['Templates'])[t];
+                                    getTiers(previewImportData, importState.sourceCategory).map(tier => {
+                                        const s = (previewImportData[importState.sourceCategory] || previewImportData['Templates'])[tier];
                                         return (
-                                            <div key={t} className="mini-preview" style={{
+                                            <div key={tier} className="mini-preview" style={{
                                                 color: s.TextColor, backgroundColor: s.BackgroundColor, borderColor: s.BorderColor
-                                            }}>{t}</div>
+                                            }}>{tier}</div>
                                         );
                                     })
                                 ) : (
-                                    <div className="missing-notice">{language === 'ch' ? "请选择来源主题" : "Select a source theme"}</div>
+                                    <div className="missing-notice">{t.selectSourceTheme}</div>
                                 )}
                             </div>
                         </div>
@@ -391,7 +542,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
                   <div className="modal-footer">
                       <button className="cancel-btn" onClick={() => setShowImportModal(false)}>{t.cancel}</button>
-                      <button className="confirm-btn primary-action-btn" onClick={handleConfirmImport} disabled={!importState.sourceTheme}>{language === 'ch' ? "确认应用" : "Confirm Import"}</button>
+                      <button className="confirm-btn primary-action-btn" onClick={handleConfirmImport} disabled={!importState.sourceTheme}>{t.confirmImport}</button>
                   </div>
               </div>
           </div>
@@ -414,11 +565,42 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
           </div>
       )}
 
+      {/* Minimap Icon Picker */}
+      {showIconPicker && (
+          <MinimapIconPicker
+              value={activeStyle?.MinimapIcon}
+              title={editingTier || undefined}
+              language={language}
+              onClose={() => setShowIconPicker(false)}
+              onConfirm={(v) => {
+                  handleUpdateStyle('MinimapIcon', v);
+                  setShowIconPicker(false);
+              }}
+          />
+      )}
+
+      {/* Drop Effect Picker */}
+      {showEffectPicker && (
+          <PlayEffectPicker
+              value={activeStyle?.PlayEffect}
+              title={editingTier || undefined}
+              language={language}
+              onClose={() => setShowEffectPicker(false)}
+              onConfirm={(v) => {
+                  handleUpdateStyle('PlayEffect', v);
+                  setShowEffectPicker(false);
+              }}
+          />
+      )}
+
       <style>{`
         .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+        .effect-swatch { width: 14px; height: 14px; border-radius: 50%; display: inline-block; flex-shrink: 0; box-shadow: 0 0 5px currentColor; border: 1px solid rgba(0,0,0,0.2); }
+        .beam-mini { width: 5px; height: 18px; border-radius: 2px; background: currentColor; box-shadow: 0 0 6px currentColor; flex-shrink: 0; display: inline-block; }
+        .beam-mini.is-temp { background: repeating-linear-gradient(to bottom, currentColor, currentColor 3px, transparent 3px, transparent 6px); }
         
-        .modal-content { background: #fff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
-        .main-content-frame { width: 95%; height: 95%; }
+        .theme-editor-modal .modal-content { background: #fff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .theme-editor-modal .main-content-frame { width: 95%; height: 95%; }
         
         .modal-header { padding: 15px 25px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; background: #fff; flex-shrink: 0; }
         .header-left { display: flex; align-items: center; gap: 20px; }
@@ -433,12 +615,22 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
         .editor-layout { display: flex; flex: 1; overflow: hidden; background: #f0f2f5; }
         
-        .category-sidebar { width: 220px; border-right: 1px solid #ddd; display: flex; flex-direction: column; background: #fff; }
-        .category-list { flex: 1; overflow-y: auto; padding: 10px; }
+        .category-sidebar { width: 220px; border-right: 1px solid #ddd; display: flex; flex-direction: column; background: #fff; min-height: 0; }
+        .category-list { flex: 1; min-height: 0; overflow-y: auto; padding: 10px; }
         .category-item { padding: 10px 15px; cursor: pointer; border-radius: 6px; margin-bottom: 2px; color: #444; font-weight: 500; font-size: 0.9rem; display: flex; justify-content: space-between; transition: background 0.2s; }
         .category-item:hover { background: #f5f5f5; }
         .category-item.active { background: #2196F3; color: white; }
+        .cat-group-header { padding: 9px 12px; cursor: pointer; font-weight: bold; color: #333; font-size: 0.9rem; border-radius: 6px; display: flex; align-items: center; gap: 6px; }
+        .cat-group-header:hover { background: #f5f5f5; }
+        .cat-subgroup-header { padding: 7px 12px 7px 22px; cursor: pointer; font-weight: 600; color: #666; font-size: 0.82rem; display: flex; align-items: center; gap: 6px; border-radius: 6px; }
+        .cat-subgroup-header:hover { background: #f5f5f5; }
+        .arrow { font-size: 0.6rem; color: #999; width: 10px; display: inline-block; flex-shrink: 0; }
+        .group-flat { font-weight: bold; color: #333; }
+        .cat-group .file-leaf { padding-left: 28px; }
+        .cat-subgroup .file-leaf { padding-left: 38px; }
         .template-category { color: #d32f2f; font-weight: bold; background: #fff8f8; border-left: 4px solid #d32f2f; }
+        .category-separator { padding: 12px 15px 4px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; color: #999; letter-spacing: 0.05em; border-top: 1px solid #f0f0f0; margin-top: 6px; }
+        .category-separator:first-child { border-top: none; margin-top: 0; }
         .override-dot { color: #ff9800; font-weight: bold; font-size: 1.5rem; line-height: 0.5; }
         
         .preview-area { flex: 1; padding: 30px; overflow-y: auto; background-color: #111; color: #eee; display: flex; flex-direction: column; align-items: center; background-size: cover; background-position: center; transition: background 0.3s; }

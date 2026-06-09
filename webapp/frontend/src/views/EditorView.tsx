@@ -22,6 +22,7 @@ interface EditorViewProps {
   setStyleClipboard: (style: any) => void;
   viewerBackground: string;
   setViewerBackground: (bg: string) => void;
+  onJumpToRule?: (filePath: string, ruleIndex?: number) => void;
 }
 
 const EditorView: React.FC<EditorViewProps> = ({
@@ -35,7 +36,8 @@ const EditorView: React.FC<EditorViewProps> = ({
   styleClipboard,
   setStyleClipboard,
   viewerBackground,
-  setViewerBackground
+  setViewerBackground,
+  onJumpToRule
 }) => {
   const t = useTranslation(language);
   const [inspectedTierKey, setInspectedTierKey] = useState<string | null>(null);
@@ -337,6 +339,18 @@ const EditorView: React.FC<EditorViewProps> = ({
       } catch (e) { return []; }
   }, [configContent]);
 
+  // The editing category's item class (EN) — used to recommend class-applicable
+  // conditions in the rule editor.
+  const categoryClass = useMemo<string | null>(() => {
+      if (!configContent) return null;
+      try {
+          const parsed = JSON.parse(configContent);
+          const catKey = Object.keys(parsed).find(k => !k.startsWith('//'));
+          const ic = catKey ? parsed[catKey]?._meta?.item_class : null;
+          return typeof ic === 'string' ? ic : (ic?.en ?? null);
+      } catch { return null; }
+  }, [configContent]);
+
   return (
     <div className="editor-view" onContextMenu={handleGlobalContextMenu}>
       <Sidebar 
@@ -379,6 +393,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                   tierItems={tierItems}
                   fetchTierItems={fetchTierItems}
                   defaultMappingPath={selectedFile.mapping_path}
+                  categoryClass={categoryClass}
                   onUpdateTierItems={handleManualItemUpdate}
                   pingedCondition={pingedCondition}
                   soundMap={soundMap}
@@ -404,6 +419,7 @@ const EditorView: React.FC<EditorViewProps> = ({
         setViewerBackground={setViewerBackground}
         onPingCondition={(tierKey, ruleIdx, condKey) => setPingedCondition({ tierKey, ruleIndex: ruleIdx, conditionKey: condKey, timestamp: Date.now() })}
         soundMap={soundMap}
+        categoryClass={categoryClass}
       />
 
       {toast && (
@@ -413,9 +429,10 @@ const EditorView: React.FC<EditorViewProps> = ({
       )}
 
       {showSoundManager && (
-          <SoundBulkEditor 
+          <SoundBulkEditor
             language={language}
             onClose={() => setShowSoundManager(false)}
+            onJumpToRule={onJumpToRule}
             categoryRules={activeCategoryRules}
             themeData={themeData}
             fullConfig={configContent ? JSON.parse(configContent) : null}

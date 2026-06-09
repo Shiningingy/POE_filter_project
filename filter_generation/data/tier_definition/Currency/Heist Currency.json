@@ -1,7 +1,7 @@
 {
   "Heist Currency": {
     "_meta": {
-      "theme_category": "Stackable Currency",
+      "theme_category": "Heist Currency",
       "localization": {
         "en": "Heist Currency",
         "ch": "赏金猎人通货"

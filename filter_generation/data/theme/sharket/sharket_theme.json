@@ -391,55 +391,6 @@
       "BackgroundColor": "#00000000"
     }
   },
-  "Currency": {
-    "Tier 0": {
-      "FontSize": 45,
-      "TextColor": "#000000ff",
-      "BorderColor": "#ffffffff",
-      "BackgroundColor": "#d4af37ff",
-      "PlayEffect": "Orange",
-      "MinimapIcon": "0 Orange Star"
-    },
-    "Tier 1": {
-      "FontSize": 42,
-      "TextColor": "#ffffffff",
-      "BorderColor": "#d4af37ff",
-      "BackgroundColor": "#2a230bff",
-      "PlayEffect": "Orange",
-      "MinimapIcon": "1 Orange Diamond"
-    },
-    "Tier 2": {
-      "FontSize": 39,
-      "TextColor": "#dabb55ff",
-      "BorderColor": "#d4af37ff",
-      "BackgroundColor": "#101016ff",
-      "MinimapIcon": "1 Orange Circle"
-    },
-    "Tier 3": {
-      "FontSize": 36,
-      "TextColor": "#e1c773ff",
-      "BorderColor": "#75601eff",
-      "BackgroundColor": "#0a0a0dff"
-    },
-    "Tier 4": {
-      "FontSize": 34,
-      "TextColor": "#b2a170ff",
-      "BorderColor": "#403410ff",
-      "BackgroundColor": "#00000000"
-    },
-    "Tier 5": {
-      "FontSize": 31,
-      "TextColor": "#9696a0ff",
-      "BorderColor": "#3c3c46ff",
-      "BackgroundColor": "#00000000"
-    },
-    "Tier 9": {
-      "FontSize": 18,
-      "TextColor": "#5a5a64aa",
-      "BorderColor": "#2d2d3478",
-      "BackgroundColor": "#00000000"
-    }
-  },
   "Daggers": {
     "Tier 0": {
       "FontSize": 45,
@@ -1763,7 +1714,7 @@
       "BackgroundColor": "#00000000"
     }
   },
-  "Stackable Currency": {
+  "Default": {
     "Tier 0": {
       "FontSize": 45,
       "TextColor": "#000000ff",

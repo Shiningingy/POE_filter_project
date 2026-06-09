@@ -18,7 +18,7 @@
           "path": "Currency/General.json",
           "tier_path": "tier_definition/Currency/General.json",
           "mapping_path": "base_mapping/Currency/General.json",
-          "target_category": "Stackable Currency",
+          "target_category": "General",
           "localization": {
             "en": "General",
             "ch": "通用通货"
@@ -48,7 +48,7 @@
           "path": "Currency/Delirium Orbs.json",
           "tier_path": "tier_definition/Currency/Delirium Orbs.json",
           "mapping_path": "base_mapping/Currency/Delirium Orbs.json",
-          "target_category": "Stackable Currency",
+          "target_category": "Delirium Orbs",
           "localization": {
             "en": "Delirium Orbs",
             "ch": "雾魇宝珠"
@@ -58,7 +58,7 @@
           "path": "Currency/Essences.json",
           "tier_path": "tier_definition/Currency/Essences.json",
           "mapping_path": "base_mapping/Currency/Essences.json",
-          "target_category": "Stackable Currency",
+          "target_category": "Essences",
           "localization": {
             "en": "Essences",
             "ch": "精华"
@@ -68,7 +68,7 @@
           "path": "Currency/Expedition.json",
           "tier_path": "tier_definition/Currency/Expedition.json",
           "mapping_path": "base_mapping/Currency/Expedition.json",
-          "target_category": "Stackable Currency",
+          "target_category": "Expedition",
           "localization": {
             "en": "Expedition",
             "ch": "探险"
@@ -78,7 +78,7 @@
           "path": "Currency/Fossils.json",
           "tier_path": "tier_definition/Currency/Fossils.json",
           "mapping_path": "base_mapping/Currency/Fossils.json",
-          "target_category": "Stackable Currency",
+          "target_category": "Fossils",
           "localization": {
             "en": "Fossils",
             "ch": "化石"
@@ -88,7 +88,7 @@
           "path": "Currency/Harbinger.json",
           "tier_path": "tier_definition/Currency/Harbinger.json",
           "mapping_path": "base_mapping/Currency/Harbinger.json",
-          "target_category": "Stackable Currency",
+          "target_category": "Harbinger",
           "localization": {
             "en": "Harbinger",
             "ch": "先驱"
@@ -98,7 +98,7 @@
           "path": "Currency/Harvest.json",
           "tier_path": "tier_definition/Currency/Harvest.json",
           "mapping_path": "base_mapping/Currency/Harvest.json",
-          "target_category": "Stackable Currency",
+          "target_category": "Harvest",
           "localization": {
             "en": "Harvest",
             "ch": "庄园"
@@ -108,7 +108,7 @@
           "path": "Currency/Heist Currency.json",
           "tier_path": "tier_definition/Currency/Heist Currency.json",
           "mapping_path": "base_mapping/Currency/Heist Currency.json",
-          "target_category": "Stackable Currency",
+          "target_category": "Heist Currency",
           "localization": {
             "en": "Heist Currency",
             "ch": "夺宝通货"
@@ -118,7 +118,7 @@
           "path": "Currency/Incubators.json",
           "tier_path": "tier_definition/Currency/Incubators.json",
           "mapping_path": "base_mapping/Currency/Incubators.json",
-          "target_category": "Stackable Currency",
+          "target_category": "Incubators",
           "localization": {
             "en": "Incubators",
             "ch": "孕育石"
@@ -128,7 +128,7 @@
           "path": "Currency/Oils.json",
           "tier_path": "tier_definition/Currency/Oils.json",
           "mapping_path": "base_mapping/Currency/Oils.json",
-          "target_category": "Stackable Currency",
+          "target_category": "Oils",
           "localization": {
             "en": "Oils",
             "ch": "圣油"
@@ -138,7 +138,7 @@
           "path": "Currency/Omens.json",
           "tier_path": "tier_definition/Currency/Omens.json",
           "mapping_path": "base_mapping/Currency/Omens.json",
-          "target_category": "Stackable Currency",
+          "target_category": "Omens",
           "localization": {
             "en": "Omens",
             "ch": "预兆"
@@ -148,7 +148,7 @@
           "path": "Currency/Ritual.json",
           "tier_path": "tier_definition/Currency/Ritual.json",
           "mapping_path": "base_mapping/Currency/Ritual.json",
-          "target_category": "Stackable Currency",
+          "target_category": "Ritual",
           "localization": {
             "en": "Ritual",
             "ch": "仪式"
@@ -158,7 +158,7 @@
           "path": "Currency/Runegrafts.json",
           "tier_path": "tier_definition/Currency/Runegrafts.json",
           "mapping_path": "base_mapping/Currency/Runegrafts.json",
-          "target_category": "Stackable Currency",
+          "target_category": "Runegrafts",
           "localization": {
             "en": "Runegrafts",
             "ch": "符文嫁接"
@@ -168,7 +168,7 @@
           "path": "Currency/Splinters.json",
           "tier_path": "tier_definition/Currency/Splinters.json",
           "mapping_path": "base_mapping/Currency/Splinters.json",
-          "target_category": "Stackable Currency",
+          "target_category": "Splinters",
           "localization": {
             "en": "Splinters",
             "ch": "碎片"
@@ -208,7 +208,7 @@
           "path": "Uniques/General.json",
           "tier_path": "tier_definition/Uniques/General.json",
           "mapping_path": "base_mapping/Uniques/General.json",
-          "target_category": "Unique Items",
+          "target_category": "Uniques",
           "localization": {
             "en": "General",
             "ch": "传奇物品"
@@ -632,7 +632,7 @@
           "path": "Flasks/Tinctures.json",
           "tier_path": "tier_definition/Flasks/Tinctures.json",
           "mapping_path": "base_mapping/Flasks/Tinctures.json",
-          "target_category": "Life Flasks",
+          "target_category": "Tinctures",
           "localization": {
             "en": "Tinctures",
             "ch": "酊剂"
@@ -722,7 +722,7 @@
           "path": "Equipment/VendorRecipes/Recipes.json",
           "tier_path": "tier_definition/Equipment/VendorRecipes/Recipes.json",
           "mapping_path": "base_mapping/Equipment/VendorRecipes/Recipes.json",
-          "target_category": "Sockets Colors Links",
+          "target_category": "Vendor Recipes",
           "localization": {
             "en": "Sockets Colors Links",
             "ch": "洞&色&连"
@@ -768,7 +768,7 @@
           "path": "Equipment/Crafting.json",
           "tier_path": "tier_definition/Equipment/Crafting.json",
           "mapping_path": "base_mapping/Equipment/Crafting.json",
-          "target_category": "Crafting",
+          "target_category": "Crafting Bases",
           "localization": {
             "en": "Crafting",
             "ch": "精品底材"
@@ -788,7 +788,7 @@
           "path": "Equipment/Special/Influenced.json",
           "tier_path": "tier_definition/Equipment/Special/Influenced.json",
           "mapping_path": "base_mapping/Equipment/Special/Influenced.json",
-          "target_category": "Influenced",
+          "target_category": "Body Armours",
           "localization": {
             "en": "Influenced",
             "ch": "势力物品"
@@ -808,7 +808,7 @@
           "path": "Equipment/Special/Fractured.json",
           "tier_path": "tier_definition/Equipment/Special/Fractured.json",
           "mapping_path": "base_mapping/Equipment/Special/Fractured.json",
-          "target_category": "Fractured",
+          "target_category": "Body Armours",
           "localization": {
             "en": "Fractured",
             "ch": "破碎物品"
@@ -828,7 +828,7 @@
           "path": "Equipment/Special/Synthesised.json",
           "tier_path": "tier_definition/Equipment/Special/Synthesised.json",
           "mapping_path": "base_mapping/Equipment/Special/Synthesised.json",
-          "target_category": "Synthesised",
+          "target_category": "Body Armours",
           "localization": {
             "en": "Synthesised",
             "ch": "合成物品"
@@ -868,7 +868,7 @@
           "path": "Equipment/Veiled.json",
           "tier_path": "tier_definition/Equipment/Veiled.json",
           "mapping_path": "base_mapping/Equipment/Veiled.json",
-          "target_category": "Veiled",
+          "target_category": "Veiled Items",
           "localization": {
             "en": "Veiled",
             "ch": "隐匿物品"
@@ -888,10 +888,190 @@
           "path": "Equipment/Linked.json",
           "tier_path": "tier_definition/Equipment/Linked.json",
           "mapping_path": "base_mapping/Equipment/Linked.json",
-          "target_category": "Linked",
+          "target_category": "Linked Items",
           "localization": {
             "en": "Linked",
             "ch": "高连物品"
+          }
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "League Bases",
+          "ch": "联盟基底"
+        }
+      },
+      "files": [
+        {
+          "path": "Equipment/League/Abyss Socketed.json",
+          "tier_path": "tier_definition/Equipment/League/Abyss Socketed.json",
+          "mapping_path": "base_mapping/Equipment/League/Abyss Socketed.json",
+          "target_category": "Abyss Socketed Items",
+          "localization": {
+            "en": "Abyss Socketed Items",
+            "ch": "深渊插槽道具"
+          }
+        },
+        {
+          "path": "Equipment/League/Blight Anointed.json",
+          "tier_path": "tier_definition/Equipment/League/Blight Anointed.json",
+          "mapping_path": "base_mapping/Equipment/League/Blight Anointed.json",
+          "target_category": "Blight Anointed Items",
+          "localization": {
+            "en": "Blight Anointed Items",
+            "ch": "菌潮附魔道具"
+          }
+        },
+        {
+          "path": "Equipment/League/Breach Grasping Mail.json",
+          "tier_path": "tier_definition/Equipment/League/Breach Grasping Mail.json",
+          "mapping_path": "base_mapping/Equipment/League/Breach Grasping Mail.json",
+          "target_category": "Breach Grasping Mail",
+          "localization": {
+            "en": "Breach Grasping Mail",
+            "ch": "扼杀链甲"
+          }
+        },
+        {
+          "path": "Equipment/League/Breach Rings.json",
+          "tier_path": "tier_definition/Equipment/League/Breach Rings.json",
+          "mapping_path": "base_mapping/Equipment/League/Breach Rings.json",
+          "target_category": "Breach Rings",
+          "localization": {
+            "en": "Breach Rings",
+            "ch": "裂隙戒指"
+          }
+        },
+        {
+          "path": "Equipment/League/Expedition Ward-Bases.json",
+          "tier_path": "tier_definition/Equipment/League/Expedition Ward-Bases.json",
+          "mapping_path": "base_mapping/Equipment/League/Expedition Ward-Bases.json",
+          "target_category": "Expedition Ward-Bases",
+          "localization": {
+            "en": "Expedition Ward-Bases",
+            "ch": "先祖秘藏结界底材"
+          }
+        },
+        {
+          "path": "Equipment/League/Heist Experimented.json",
+          "tier_path": "tier_definition/Equipment/League/Heist Experimented.json",
+          "mapping_path": "base_mapping/Equipment/League/Heist Experimented.json",
+          "target_category": "Heist Experimented",
+          "localization": {
+            "en": "Heist Experimented",
+            "ch": "夺宝奇兵实验底材"
+          }
+        },
+        {
+          "path": "Equipment/League/ID Bestiary.json",
+          "tier_path": "tier_definition/Equipment/League/ID Bestiary.json",
+          "mapping_path": "base_mapping/Equipment/League/ID Bestiary.json",
+          "target_category": "ID Mods: Bestiary",
+          "localization": {
+            "en": "ID Mods: Bestiary",
+            "ch": "野兽词缀"
+          }
+        },
+        {
+          "path": "Equipment/League/ID Delve.json",
+          "tier_path": "tier_definition/Equipment/League/ID Delve.json",
+          "mapping_path": "base_mapping/Equipment/League/ID Delve.json",
+          "target_category": "ID Mods: Delve",
+          "localization": {
+            "en": "ID Mods: Delve",
+            "ch": "地心"
+          }
+        },
+        {
+          "path": "Equipment/League/ID Essence.json",
+          "tier_path": "tier_definition/Equipment/League/ID Essence.json",
+          "mapping_path": "base_mapping/Equipment/League/ID Essence.json",
+          "target_category": "ID Mods: Essence",
+          "localization": {
+            "en": "ID Mods: Essence",
+            "ch": "精华"
+          }
+        },
+        {
+          "path": "Equipment/League/ID Incursion.json",
+          "tier_path": "tier_definition/Equipment/League/ID Incursion.json",
+          "mapping_path": "base_mapping/Equipment/League/ID Incursion.json",
+          "target_category": "ID Mods: Incursion",
+          "localization": {
+            "en": "ID Mods: Incursion",
+            "ch": "穿越"
+          }
+        },
+        {
+          "path": "Equipment/League/ID Mercenaries.json",
+          "tier_path": "tier_definition/Equipment/League/ID Mercenaries.json",
+          "mapping_path": "base_mapping/Equipment/League/ID Mercenaries.json",
+          "target_category": "ID Mods: Mercenaries",
+          "localization": {
+            "en": "ID Mods: Mercenaries",
+            "ch": "恶名词缀"
+          }
+        },
+        {
+          "path": "Equipment/League/ID Warband.json",
+          "tier_path": "tier_definition/Equipment/League/ID Warband.json",
+          "mapping_path": "base_mapping/Equipment/League/ID Warband.json",
+          "target_category": "ID Mods: Warband",
+          "localization": {
+            "en": "ID Mods: Warband",
+            "ch": "战团装备"
+          }
+        },
+        {
+          "path": "Equipment/League/Mirror Ring Bases.json",
+          "tier_path": "tier_definition/Equipment/League/Mirror Ring Bases.json",
+          "mapping_path": "base_mapping/Equipment/League/Mirror Ring Bases.json",
+          "target_category": "Mirror of Kalandra Ring Bases",
+          "localization": {
+            "en": "Mirror of Kalandra Ring Bases",
+            "ch": "魔镜戒指底材"
+          }
+        },
+        {
+          "path": "Equipment/League/Ritual BaseTypes.json",
+          "tier_path": "tier_definition/Equipment/League/Ritual BaseTypes.json",
+          "mapping_path": "base_mapping/Equipment/League/Ritual BaseTypes.json",
+          "target_category": "Ritual BaseTypes",
+          "localization": {
+            "en": "Ritual BaseTypes",
+            "ch": "仪式底材"
+          }
+        },
+        {
+          "path": "Equipment/League/Sacrificial Garbs.json",
+          "tier_path": "tier_definition/Equipment/League/Sacrificial Garbs.json",
+          "mapping_path": "base_mapping/Equipment/League/Sacrificial Garbs.json",
+          "target_category": "Sacrificial Garbs",
+          "localization": {
+            "en": "Sacrificial Garbs",
+            "ch": "祭礼束衣"
+          }
+        },
+        {
+          "path": "Equipment/League/Stygian Vise.json",
+          "tier_path": "tier_definition/Equipment/League/Stygian Vise.json",
+          "mapping_path": "base_mapping/Equipment/League/Stygian Vise.json",
+          "target_category": "Stygian Vise",
+          "localization": {
+            "en": "Stygian Vise",
+            "ch": "深渊腰带"
+          }
+        },
+        {
+          "path": "Equipment/League/Talismans.json",
+          "tier_path": "tier_definition/Equipment/League/Talismans.json",
+          "mapping_path": "base_mapping/Equipment/League/Talismans.json",
+          "target_category": "Talismans",
+          "localization": {
+            "en": "Talismans",
+            "ch": "护身符"
           }
         }
       ]
@@ -1144,7 +1324,7 @@
           "path": "_campaign/Armour.json",
           "tier_path": "tier_definition/_campaign/Armour.json",
           "mapping_path": "base_mapping/_campaign/Armour.json",
-          "target_category": "Linked Gear",
+          "target_category": "Campaign",
           "localization": {
             "en": "Linked Gear",
             "ch": "连接装备"
@@ -1164,7 +1344,7 @@
           "path": "_campaign/Flasks.json",
           "tier_path": "tier_definition/_campaign/Flasks.json",
           "mapping_path": "base_mapping/_campaign/Flasks.json",
-          "target_category": "Flask Progression",
+          "target_category": "Campaign",
           "localization": {
             "en": "Flask Progression",
             "ch": "药剂进度"
@@ -1184,7 +1364,7 @@
           "path": "_campaign/Tinctures.json",
           "tier_path": "tier_definition/_campaign/Tinctures.json",
           "mapping_path": "base_mapping/_campaign/Tinctures.json",
-          "target_category": "Tinctures",
+          "target_category": "Campaign Tinctures",
           "localization": {
             "en": "Tinctures",
             "ch": "酊剂"
@@ -1284,7 +1464,7 @@
           "path": "_campaign/Act/Jewels.json",
           "tier_path": "tier_definition/_campaign/Act/Jewels.json",
           "mapping_path": "base_mapping/_campaign/Act/Jewels.json",
-          "target_category": "Jewels",
+          "target_category": "Campaign Jewels",
           "localization": {
             "en": "Jewels",
             "ch": "珠宝"
@@ -1294,7 +1474,7 @@
           "path": "_campaign/Act/Quivers.json",
           "tier_path": "tier_definition/_campaign/Act/Quivers.json",
           "mapping_path": "base_mapping/_campaign/Act/Quivers.json",
-          "target_category": "Quivers",
+          "target_category": "Campaign Quivers",
           "localization": {
             "en": "Quivers",
             "ch": "箭袋"
@@ -1334,7 +1514,7 @@
           "path": "_campaign/Weapons/Bows.json",
           "tier_path": "tier_definition/_campaign/Weapons/Bows.json",
           "mapping_path": "base_mapping/_campaign/Weapons/Bows.json",
-          "target_category": "Bows",
+          "target_category": "Campaign",
           "localization": {
             "en": "Bows",
             "ch": "弓（过渡）"
@@ -1344,7 +1524,7 @@
           "path": "_campaign/Weapons/Wands.json",
           "tier_path": "tier_definition/_campaign/Weapons/Wands.json",
           "mapping_path": "base_mapping/_campaign/Weapons/Wands.json",
-          "target_category": "Wands",
+          "target_category": "Campaign",
           "localization": {
             "en": "Wands",
             "ch": "法杖（过渡）"
@@ -1354,7 +1534,7 @@
           "path": "_campaign/Weapons/Sceptres.json",
           "tier_path": "tier_definition/_campaign/Weapons/Sceptres.json",
           "mapping_path": "base_mapping/_campaign/Weapons/Sceptres.json",
-          "target_category": "Sceptres",
+          "target_category": "Campaign",
           "localization": {
             "en": "Sceptres",
             "ch": "短杖（过渡）"
@@ -1364,7 +1544,7 @@
           "path": "_campaign/Weapons/Claws.json",
           "tier_path": "tier_definition/_campaign/Weapons/Claws.json",
           "mapping_path": "base_mapping/_campaign/Weapons/Claws.json",
-          "target_category": "Claws",
+          "target_category": "Campaign",
           "localization": {
             "en": "Claws",
             "ch": "爪（过渡）"
@@ -1374,7 +1554,7 @@
           "path": "_campaign/Weapons/Daggers.json",
           "tier_path": "tier_definition/_campaign/Weapons/Daggers.json",
           "mapping_path": "base_mapping/_campaign/Weapons/Daggers.json",
-          "target_category": "Daggers",
+          "target_category": "Campaign",
           "localization": {
             "en": "Daggers",
             "ch": "匕首（过渡）"
@@ -1384,7 +1564,7 @@
           "path": "_campaign/Weapons/Rune Daggers.json",
           "tier_path": "tier_definition/_campaign/Weapons/Rune Daggers.json",
           "mapping_path": "base_mapping/_campaign/Weapons/Rune Daggers.json",
-          "target_category": "Rune Daggers",
+          "target_category": "Campaign",
           "localization": {
             "en": "Rune Daggers",
             "ch": "符文匕首（过渡）"
@@ -1394,7 +1574,7 @@
           "path": "_campaign/Weapons/Staves.json",
           "tier_path": "tier_definition/_campaign/Weapons/Staves.json",
           "mapping_path": "base_mapping/_campaign/Weapons/Staves.json",
-          "target_category": "Staves",
+          "target_category": "Campaign",
           "localization": {
             "en": "Staves",
             "ch": "长杖（过渡）"
@@ -1404,7 +1584,7 @@
           "path": "_campaign/Weapons/Warstaves.json",
           "tier_path": "tier_definition/_campaign/Weapons/Warstaves.json",
           "mapping_path": "base_mapping/_campaign/Weapons/Warstaves.json",
-          "target_category": "Warstaves",
+          "target_category": "Campaign",
           "localization": {
             "en": "Warstaves",
             "ch": "战杖（过渡）"
@@ -1414,7 +1594,7 @@
           "path": "_campaign/Weapons/One Hand Axes.json",
           "tier_path": "tier_definition/_campaign/Weapons/One Hand Axes.json",
           "mapping_path": "base_mapping/_campaign/Weapons/One Hand Axes.json",
-          "target_category": "One Hand Axes",
+          "target_category": "Campaign",
           "localization": {
             "en": "One Hand Axes",
             "ch": "单手斧（过渡）"
@@ -1424,7 +1604,7 @@
           "path": "_campaign/Weapons/One Hand Maces.json",
           "tier_path": "tier_definition/_campaign/Weapons/One Hand Maces.json",
           "mapping_path": "base_mapping/_campaign/Weapons/One Hand Maces.json",
-          "target_category": "One Hand Maces",
+          "target_category": "Campaign",
           "localization": {
             "en": "One Hand Maces",
             "ch": "单手锤（过渡）"
@@ -1434,7 +1614,7 @@
           "path": "_campaign/Weapons/One Hand Swords.json",
           "tier_path": "tier_definition/_campaign/Weapons/One Hand Swords.json",
           "mapping_path": "base_mapping/_campaign/Weapons/One Hand Swords.json",
-          "target_category": "One Hand Swords",
+          "target_category": "Campaign",
           "localization": {
             "en": "One Hand Swords",
             "ch": "单手剑（过渡）"
@@ -1444,7 +1624,7 @@
           "path": "_campaign/Weapons/Two Hand Axes.json",
           "tier_path": "tier_definition/_campaign/Weapons/Two Hand Axes.json",
           "mapping_path": "base_mapping/_campaign/Weapons/Two Hand Axes.json",
-          "target_category": "Two Hand Axes",
+          "target_category": "Campaign",
           "localization": {
             "en": "Two Hand Axes",
             "ch": "双手斧（过渡）"
@@ -1454,7 +1634,7 @@
           "path": "_campaign/Weapons/Two Hand Maces.json",
           "tier_path": "tier_definition/_campaign/Weapons/Two Hand Maces.json",
           "mapping_path": "base_mapping/_campaign/Weapons/Two Hand Maces.json",
-          "target_category": "Two Hand Maces",
+          "target_category": "Campaign",
           "localization": {
             "en": "Two Hand Maces",
             "ch": "双手锤（过渡）"
@@ -1464,7 +1644,7 @@
           "path": "_campaign/Weapons/Two Hand Swords.json",
           "tier_path": "tier_definition/_campaign/Weapons/Two Hand Swords.json",
           "mapping_path": "base_mapping/_campaign/Weapons/Two Hand Swords.json",
-          "target_category": "Two Hand Swords",
+          "target_category": "Campaign",
           "localization": {
             "en": "Two Hand Swords",
             "ch": "双手剑（过渡）"
@@ -1520,7 +1700,7 @@
           "path": "Heist/Equipment.json",
           "tier_path": "tier_definition/Heist/Equipment.json",
           "mapping_path": "base_mapping/Heist/Equipment.json",
-          "target_category": "Equipment",
+          "target_category": "Heist Equipment",
           "localization": {
             "en": "Equipment",
             "ch": "赏金猎人装备"
@@ -1530,10 +1710,30 @@
           "path": "Heist/Targets.json",
           "tier_path": "tier_definition/Heist/Targets.json",
           "mapping_path": "base_mapping/Heist/Targets.json",
-          "target_category": "Targets",
+          "target_category": "Heist Targets",
           "localization": {
             "en": "Targets",
             "ch": "赏金猎人目标"
+          }
+        },
+        {
+          "path": "Heist/Blueprints.json",
+          "tier_path": "tier_definition/Heist/Blueprints.json",
+          "mapping_path": "base_mapping/Heist/Blueprints.json",
+          "target_category": "Heist Blueprints",
+          "localization": {
+            "en": "Heist Blueprints",
+            "ch": "赏金猎人蓝图"
+          }
+        },
+        {
+          "path": "Heist/Contracts.json",
+          "tier_path": "tier_definition/Heist/Contracts.json",
+          "mapping_path": "base_mapping/Heist/Contracts.json",
+          "target_category": "Heist Contracts",
+          "localization": {
+            "en": "Heist Contracts",
+            "ch": "赏金猎人契约"
           }
         }
       ]
@@ -1580,7 +1780,7 @@
           "path": "Misc/General.json",
           "tier_path": "tier_definition/Misc/General.json",
           "mapping_path": "base_mapping/Misc/General.json",
-          "target_category": "Misc",
+          "target_category": "Thrusting One Hand Swords",
           "localization": {
             "en": "General",
             "ch": "其他杂项"
@@ -1604,6 +1804,16 @@
           "localization": {
             "en": "Wombgifts",
             "ch": "孕育赠礼"
+          }
+        },
+        {
+          "path": "Currency/Corpses.json",
+          "tier_path": "tier_definition/Currency/Corpses.json",
+          "mapping_path": "base_mapping/Currency/Corpses.json",
+          "target_category": "Corpses",
+          "localization": {
+            "en": "Corpses",
+            "ch": "尸体"
           }
         }
       ]

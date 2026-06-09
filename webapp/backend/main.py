@@ -57,7 +57,11 @@ ITEM_DETAILS = {} # BaseType -> {drop_level, implicit, ...}
 
 CLASS_HIERARCHY_TREE = []     # full resolved hierarchy tree
 CLASS_RESOLVED_PROPS = {}     # poe_class -> {properties, flags, constraints}
+NODE_TO_CLASSES = {}          # hierarchy node id / poe_class -> set(poe_class)
 ITEM_BONUS_INFO = {}          # item_name -> {description, tags}
+
+FILTER_CONDITIONS = []        # resolved condition schema (flat, with `classes`)
+RULE_TEMPLATE_CATEGORIES = [] # grouped condition templates for /api/rule-templates
 
 # --- Middleware ---
 app.add_middleware(
@@ -255,9 +259,123 @@ def load_class_hierarchy():
         CLASS_HIERARCHY_TREE = [
             resolve_node(top, [], [], {}) for top in data.get("hierarchy", [])
         ]
-        print(f"Loaded class hierarchy: {len(CLASS_RESOLVED_PROPS)} leaf classes.")
+
+        # Build NODE_TO_CLASSES: each node id -> set of descendant poe_classes;
+        # each poe_class -> {itself}. Used to resolve condition `applies` tokens.
+        global NODE_TO_CLASSES
+        NODE_TO_CLASSES = {}
+        def collect(node):
+            classes = set()
+            if "poe_class" in node:
+                classes.add(node["poe_class"])
+            for child in node.get("children", []):
+                classes |= collect(child)
+            if node.get("id"):
+                NODE_TO_CLASSES[node["id"]] = NODE_TO_CLASSES.get(node["id"], set()) | classes
+            if node.get("poe_class"):
+                NODE_TO_CLASSES[node["poe_class"]] = {node["poe_class"]}
+            return classes
+        for top in data.get("hierarchy", []):
+            collect(top)
+
+        print(f"Loaded class hierarchy: {len(CLASS_RESOLVED_PROPS)} leaf classes, {len(NODE_TO_CLASSES)} nodes.")
     except Exception as e:
         print(f"Error loading class hierarchy: {e}")
+
+def load_filter_conditions():
+    """Load the unified condition schema; resolve class applicability; build the
+    rule-template categories and derive per-class simulator props. Single source
+    for the rule editor + the Drop Simulator form."""
+    global FILTER_CONDITIONS, RULE_TEMPLATE_CATEGORIES, CLASS_RESOLVED_PROPS
+    path = FILTER_GEN_DIR / "data" / "filter_conditions.yaml"
+    if not path.exists():
+        print("Warning: filter_conditions.yaml not found, skipping.")
+        return
+    try:
+        import yaml
+        with open(path, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+        cat_labels = data.get("categories", {})
+        conds = data.get("conditions", [])
+        all_classes = set(CLASS_RESOLVED_PROPS.keys())
+
+        def resolve_applies(tokens):
+            if "universal" in tokens:
+                return set(all_classes)
+            result = set()
+            for tok in tokens:
+                result |= NODE_TO_CLASSES.get(tok, {tok})  # node id or exact class
+            return result
+
+        resolved = []
+        for c in conds:
+            applies = c.get("applies", [])
+            resolved.append({
+                "key": c["key"], "condition": c["key"],
+                "label": c.get("label", {"en": c["key"], "ch": c["key"]}),
+                "type": c.get("type", "text"),
+                "options": c.get("options"), "default": c.get("default"),
+                "placeholder": c.get("placeholder"),
+                "category": c.get("category", "general"),
+                "simulatable": bool(c.get("simulatable", False)),
+                "universal": "universal" in applies,
+                "classes": sorted(resolve_applies(applies)),
+            })
+        FILTER_CONDITIONS = resolved
+
+        # Grouped templates for /api/rule-templates (declared category order)
+        cats = []
+        for cat_id in (list(cat_labels.keys()) or list(dict.fromkeys(e["category"] for e in resolved))):
+            tmpls = []
+            for e in resolved:
+                if e["category"] != cat_id:
+                    continue
+                t = {"id": e["key"].lower(), "label": e["label"], "condition": e["condition"],
+                     "type": e["type"], "classes": e["classes"], "universal": e["universal"],
+                     "simulatable": e["simulatable"]}
+                for k in ("options", "default", "placeholder"):
+                    if e[k] is not None:
+                        t[k] = e[k]
+                tmpls.append(t)
+            if tmpls:
+                cats.append({"id": cat_id, "name": cat_labels.get(cat_id, {"en": cat_id, "ch": cat_id}), "templates": tmpls})
+        RULE_TEMPLATE_CATEGORIES = cats
+
+        # Derive per-class simulator props (camelCase sim fields) from simulatable conditions.
+        SIM_FIELD = {
+            "ItemLevel": "itemLevel", "DropLevel": "dropLevel", "Rarity": "rarity",
+            "Quality": "quality", "Width": "width", "Height": "height",
+            "Sockets": "sockets", "LinkedSockets": "linkedSockets", "SocketGroup": "socketGroup",
+            "StackSize": "stackSize", "GemLevel": "gemLevel", "MapTier": "mapTier",
+            "MemoryStrands": "memoryStrands",
+            "Identified": "identified", "Corrupted": "corrupted", "Mirrored": "mirrored",
+            "FracturedItem": "fractured", "SynthesisedItem": "synthesised",
+            "ShaperItem": "shaper", "ElderItem": "elder", "Scourged": "scourged",
+            "Replica": "replica", "Imbued": "imbued", "TransfiguredGem": "transfigured",
+            "BlightedMap": "blightedMap", "BlightRavagedMap": "blightRavagedMap",
+            "ShapedMap": "shapedMap", "ElderMap": "elderMap", "ZanasMemory": "zanasMemory",
+        }
+        INFLUENCE_FLAGS = ["shaper", "elder", "crusader", "hunter", "redeemer", "warlord"]
+        SKIP = {"AreaLevel", "Class"}  # global / implicit — not per-item form fields
+        for cls in all_classes:
+            props, flags = ["itemLevel", "dropLevel"], []
+            for e in resolved:
+                if not e["simulatable"] or cls not in e["classes"] or e["key"] in SKIP:
+                    continue
+                if e["key"] == "HasInfluence":
+                    flags.extend(INFLUENCE_FLAGS); continue
+                field = SIM_FIELD.get(e["key"], e["key"][0].lower() + e["key"][1:])
+                (flags if e["type"] == "bool" else props).append(field)
+            CLASS_RESOLVED_PROPS[cls] = {
+                "properties": list(dict.fromkeys(props)),
+                "flags": list(dict.fromkeys(flags)),
+                "constraints": CLASS_RESOLVED_PROPS.get(cls, {}).get("constraints", {}),
+            }
+
+        print(f"Loaded filter conditions: {len(resolved)} conditions, {len(cats)} categories.")
+    except Exception as e:
+        print(f"Error loading filter_conditions.yaml: {e}")
+
 
 def load_bonus_item_info():
     global ITEM_BONUS_INFO
@@ -432,9 +550,19 @@ def get_themes_list():
 
 @app.get("/api/rule-templates")
 def get_rule_templates():
+    # Served from the unified filter_conditions.yaml (with classes/universal/simulatable).
+    if RULE_TEMPLATE_CATEGORIES:
+        return {"categories": RULE_TEMPLATE_CATEGORIES}
+    # Fallback to the legacy static file if the schema failed to load.
     path = CONFIG_DATA_DIR / "rule_templates.json"
     if not path.exists(): return {"categories": []}
     with open(path, "r", encoding="utf-8") as f: return json.load(f)
+
+@app.get("/api/filter-conditions")
+def get_filter_conditions():
+    # Flat resolved condition schema (key, type, options, classes, universal,
+    # simulatable) — consumed by the simulator form + engine (lenient handling).
+    return {"conditions": FILTER_CONDITIONS}
 
 @app.get("/api/search-items")
 def search_items(q: str):
@@ -519,8 +647,9 @@ def get_items_by_class(item_class: str):
             "name_ch": ITEM_TRANSLATIONS.get(name, name),
             "sub_type": ITEM_SUBTYPES.get(name, "Other"),
             **details,
-            "current_tier": [], 
-            "source_file": None
+            "current_tier": [],
+            "source_file": None,
+            "occurrences": []
         }
 
     # Scan all mappings to find current tiers AND include tiered items from other classes
@@ -541,6 +670,11 @@ def get_items_by_class(item_class: str):
                 for item_name in all_possible_items:
                     # If item is not in requested_items but is in a mapping/rule, we still want it!
                     if item_name not in item_data:
+                        # ...but only when viewing "All". For a specific class, don't inject
+                        # tiered items that belong to other classes (e.g. Corpses tiered in
+                        # Currency/Corpses.json must not leak into every class's list).
+                        if item_class != "All" and ITEM_TO_CLASS.get(item_name) != item_class:
+                            continue
                         details = ITEM_DETAILS.get(item_name, {})
                         item_data[item_name] = {
                             "name": item_name,
@@ -548,11 +682,15 @@ def get_items_by_class(item_class: str):
                             "sub_type": ITEM_SUBTYPES.get(item_name, "Other"),
                             **details,
                             "current_tier": [],
-                            "source_file": None
+                            "source_file": None,
+                            "occurrences": []
                         }
-                    
+
                     current_list = item_data[item_name]["current_tier"]
-                    
+                    rel_file = file_path.relative_to(mappings_dir).as_posix()
+                    # Tiers this item occupies WITHIN this specific file (for the occurrence).
+                    file_tiers: list[str] = []
+
                     # Add base mapping tier
                     if item_name in mapping:
                         t_val = mapping[item_name]
@@ -560,16 +698,34 @@ def get_items_by_class(item_class: str):
                         for t in tiers:
                             if t not in current_list:
                                 current_list.append(t)
-                    
-                    # Add rule tiers
+                            if t not in file_tiers:
+                                file_tiers.append(t)
+
+                    # Add rule tiers + detect an existing per-file sound rule for this item
+                    file_sound = None
                     for r in rules:
                         r_targets = r.get("targets", [])
                         if r_targets and item_name in r_targets:
-                            tier_override = r.get("overrides", {}).get("Tier")
+                            r_over = r.get("overrides", {})
+                            tier_override = r_over.get("Tier")
                             if tier_override and tier_override not in current_list:
                                 current_list.append(tier_override)
+                            if tier_override and tier_override not in file_tiers:
+                                file_tiers.append(tier_override)
+                            if file_sound is None:
+                                sound_key = next((k for k in ("CustomAlertSound", "AlertSound", "DropSound", "PlayAlertSound") if k in r_over), None)
+                                if sound_key:
+                                    sval = r_over[sound_key]
+                                    file_sound = sval[0] if isinstance(sval, list) and sval else sval
 
-                    item_data[item_name]["source_file"] = file_path.relative_to(mappings_dir).as_posix()
+                    item_data[item_name]["source_file"] = rel_file
+                    # Record one occurrence per (item, file) so the editor can target each
+                    # repeated basetype independently (per-file rule overrides).
+                    item_data[item_name]["occurrences"].append({
+                        "file": rel_file,
+                        "tiers": file_tiers,
+                        "sound": file_sound
+                    })
                     if item_name in trans:
                         item_data[item_name]["name_ch"] = trans[item_name]
         except: continue
@@ -943,4 +1099,5 @@ async def startup_event():
     load_stack_sizes()
     load_category_map()
     load_class_hierarchy()
+    load_filter_conditions()
     load_bonus_item_info()

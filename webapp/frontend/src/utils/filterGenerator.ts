@@ -182,7 +182,7 @@ export const generateFilter = (data: GeneratorData): string => {
     }
 
     const themeCatKey = meta.theme_category || categoryKey;
-    const themeRef = (themeData || {})[themeCatKey] || (themeData || {})["Currency"] || {};
+    const themeRef = (themeData || {})[themeCatKey] || (themeData || {})["Default"] || {};
 
     // --- Breadcrumbs ---
     const breadcrumbs: string[] = [];
