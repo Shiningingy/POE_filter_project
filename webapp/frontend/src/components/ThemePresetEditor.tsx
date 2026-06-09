@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useTranslation, CLASS_KEY_MAP, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import SoundPicker from './SoundPicker';
+import MinimapIconPicker, { getIconStyle } from './MinimapIconPicker';
+import PlayEffectPicker from './PlayEffectPicker';
 import { getAssetUrl } from '../utils/assetUtils';
 
 interface ThemePresetEditorProps {
@@ -34,16 +36,18 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   const [importState, setImportState] = useState<ImportModalState>({ sourceTheme: '', sourceCategory: 'Templates' });
   const [previewImportData, setPreviewImportData] = useState<any>(null);
   const [showSoundPicker, setShowSoundPicker] = useState(false);
-  
+  const [showIconPicker, setShowIconPicker] = useState(false);
+  const [showEffectPicker, setShowEffectPicker] = useState(false);
+
   const [viewerBackground, setViewerBackground] = useState<string>('Item_bg_coast.jpg');
 
   const backgrounds = [
-    { id: "Item_bg_coast.jpg", name: language === 'ch' ? "海滩" : "Coast" },
-    { id: "Item_bg_forest.jpg", name: language === 'ch' ? "丛林" : "Forest" },
-    { id: "Item_bg_sand.jpg", name: language === 'ch' ? "沙漠" : "Sand" },
-    { id: "color_black", name: language === 'ch' ? "黑" : "Black" },
-    { id: "color_white", name: language === 'ch' ? "白" : "White" },
-    { id: "color_grey", name: language === 'ch' ? "灰" : "Grey" }
+    { id: "Item_bg_coast.jpg", name: t.coast },
+    { id: "Item_bg_forest.jpg", name: t.forest },
+    { id: "Item_bg_sand.jpg", name: t.sand },
+    { id: "color_black", name: t.black },
+    { id: "color_white", name: t.white },
+    { id: "color_grey", name: t.grey }
   ];
 
   // Initial Load
@@ -215,26 +219,26 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
       <div className="modal-content main-content-frame">
         <div className="modal-header">
           <div className="header-left">
-            <h2>🎨 {language === 'ch' ? "外观预设编辑器" : "Theme Editor"}</h2>
+            <h2>🎨 {t.themeEditorTitle}</h2>
             <div className="theme-selector-wrap">
-                <span className="label">{language === 'ch' ? "基础主题:" : "Base Theme:"}</span>
+                <span className="label">{t.baseThemeLabel}</span>
                 <select className="theme-select" value={activeTheme} onChange={(e) => setActiveTheme(e.target.value)}>
-                    {themes.map(t => <option key={t} value={t}>{t}</option>)}
+                    {themes.map(th => <option key={th} value={th}>{th}</option>)}
                 </select>
                 <button className="apply-btn primary-action-btn" onClick={async () => {
                     await axios.post('/api/settings', { base_theme: activeTheme });
                     setCurrentThemeInUse(activeTheme);
-                    alert("Base Theme Applied!");
-                }}>{activeTheme === currentThemeInUse ? '✅' : (language === 'ch' ? "应用基础" : "Apply Base")}</button>
+                    alert(t.baseThemeApplied);
+                }}>{activeTheme === currentThemeInUse ? '✅' : t.applyBase}</button>
             </div>
-            {unsavedOverrides && <span className="unsaved-badge">● {language === 'ch' ? "未保存的修改" : "Unsaved Overrides"}</span>}
+            {unsavedOverrides && <span className="unsaved-badge">● {t.unsavedOverrides}</span>}
           </div>
           <div className="header-actions">
              <button className="save-btn primary-action-btn" disabled={!unsavedOverrides} onClick={async () => {
                  await axios.post('/api/custom-overrides', overridesData);
                  setUnsavedOverrides(false);
-                 alert("Saved!");
-             }}>💾 {language === 'ch' ? "保存覆盖" : "Save Overrides"}</button>
+                 alert(t.overridesSaved);
+             }}>💾 {t.saveOverrides}</button>
              <button className="close-btn" onClick={onClose}>×</button>
           </div>
         </div>
@@ -248,7 +252,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                   className={`category-item ${selectedCategory === cat ? 'active' : ''} ${cat === 'Templates' ? 'template-category' : ''}`}
                   onClick={() => { setSelectedCategory(cat); setEditingTier(null); setIsBulkEditing(false); }}
                 >
-                  {cat === 'Templates' ? (language === 'ch' ? "★ 全局模板" : "★ Global Templates") : getLocalizedCategory(cat)}
+                  {cat === 'Templates' ? t.globalTemplates : getLocalizedCategory(cat)}
                   {overridesData[cat] && <span className="override-dot">•</span>}
                 </div>
               ))}
@@ -260,7 +264,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
               <h3>{getLocalizedCategory(selectedCategory)}</h3>
               <BackgroundSwitcher />
               <button className={`bulk-edit-btn primary-action-btn ${isBulkEditing ? 'active' : ''}`} onClick={(e) => { e.stopPropagation(); setIsBulkEditing(!isBulkEditing); setEditingTier(null); }}>
-                {language === 'ch' ? "批量编辑 / 导入" : "Bulk Edit / Import"}
+                {t.bulkEditImport}
               </button>
             </div>
             
@@ -285,13 +289,13 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
           {activeStyle && (
             <div className="style-editor-panel" onClick={e => e.stopPropagation()}>
               <div className="panel-header">
-                <h3>{isBulkEditing ? (language === 'ch' ? "批量编辑" : "Bulk Edit") : (language === 'ch' ? `编辑: ${editingTier}` : `Editing: ${editingTier}`)}</h3>
+                <h3>{isBulkEditing ? t.bulkEdit : `${t.editingLabel}: ${editingTier}`}</h3>
               </div>
-              
+
               {isBulkEditing && (
                   <div className="bulk-actions">
                       <button className="import-modal-btn" onClick={() => setShowImportModal(true)}>
-                          📥 {language === 'ch' ? "从其他主题导入系列..." : "Import Series from Theme..."}
+                          📥 {t.importSeriesFromTheme}
                       </button>
                   </div>
               )}
@@ -316,7 +320,33 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                         <div className="sound-display-box" onClick={() => setShowSoundPicker(true)}>
                             <span className="sound-icon">🎵</span>
                             <span className="sound-name">
-                                {activeStyle.PlayAlertSound ? (activeStyle.PlayAlertSound[0].split('/').pop()) : (language === 'ch' ? "未指定" : "None")}
+                                {activeStyle.PlayAlertSound ? (activeStyle.PlayAlertSound[0].split('/').pop()) : t.none}
+                            </span>
+                        </div>
+                    </div>
+                    <div className="control-group">
+                        <label>{t.minimapIcon}</label>
+                        <div className="sound-display-box" onClick={() => setShowIconPicker(true)}>
+                            {activeStyle.MinimapIcon ? (
+                                <div style={getIconStyle(activeStyle.MinimapIcon.split(' ')[1], activeStyle.MinimapIcon.split(' ')[2], 0.8)}></div>
+                            ) : (
+                                <span className="sound-icon">📍</span>
+                            )}
+                            <span className="sound-name">
+                                {activeStyle.MinimapIcon || t.none}
+                            </span>
+                        </div>
+                    </div>
+                    <div className="control-group">
+                        <label>{t.dropEffect}</label>
+                        <div className="sound-display-box" onClick={() => setShowEffectPicker(true)}>
+                            {activeStyle.PlayEffect ? (
+                                <span className="effect-swatch" style={{ background: activeStyle.PlayEffect.split(' ')[0].toLowerCase() }}></span>
+                            ) : (
+                                <span className="sound-icon">✨</span>
+                            )}
+                            <span className="sound-name">
+                                {activeStyle.PlayEffect || t.none}
                             </span>
                         </div>
                     </div>
@@ -333,25 +363,25 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
               <div className="modal-content import-content" onClick={e => e.stopPropagation()}>
                   <div className="modal-header">
                     <div className="header-left">
-                        <h3>{language === 'ch' ? "导入样式系列" : "Import Style Series"}</h3>
+                        <h3>{t.importStyleSeries}</h3>
                         <BackgroundSwitcher />
                     </div>
                     <button className="close-x" onClick={() => setShowImportModal(false)}>×</button>
                   </div>
-                  
+
                   <div className="import-body">
                     <div className="import-controls">
                         <div className="control-col">
-                            <label>{language === 'ch' ? "来源主题" : "Source Theme"}</label>
+                            <label>{t.sourceTheme}</label>
                             <select value={importState.sourceTheme} onChange={e => setImportState({...importState, sourceTheme: e.target.value})}>
-                                <option value="">-- Select Theme --</option>
-                                {themes.map(t => <option key={t} value={t}>{t}</option>)}
+                                <option value="">{t.selectThemeOption}</option>
+                                {themes.map(th => <option key={th} value={th}>{th}</option>)}
                             </select>
                         </div>
                         <div className="control-col">
-                            <label>{language === 'ch' ? "来源分类" : "Source Category"}</label>
+                            <label>{t.sourceCategory}</label>
                             <select value={importState.sourceCategory} onChange={e => setImportState({...importState, sourceCategory: e.target.value})}>
-                                <option value="Templates">{language === 'ch' ? "★ 全局模板" : "★ Global Templates"}</option>
+                                <option value="Templates">{t.globalTemplates}</option>
                                 {previewImportData && Object.keys(previewImportData).sort().filter(c => c !== 'Templates').map(c => (
                                     <option key={c} value={c}>{getLocalizedCategory(c)}</option>
                                 ))}
@@ -361,7 +391,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
                     <div className="preview-compare">
                         <div className="col" style={getBackgroundStyle()}>
-                            <h4>Current ({activeTheme})</h4>
+                            <h4>{t.currentLabel} ({activeTheme})</h4>
                             <div className="mini-list">
                                 {previewItems.map(i => (
                                     <div key={i.tierKey} className="mini-preview" style={{
@@ -372,19 +402,19 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                         </div>
                         <div className="col arrow">➔</div>
                         <div className="col" style={getBackgroundStyle()}>
-                            <h4>New ({importState.sourceTheme || '...'})</h4>
+                            <h4>{t.newLabel} ({importState.sourceTheme || '...'})</h4>
                             <div className="mini-list">
                                 {previewImportData && (previewImportData[importState.sourceCategory] || previewImportData['Templates']) ? (
-                                    getTiers(previewImportData, importState.sourceCategory).map(t => {
-                                        const s = (previewImportData[importState.sourceCategory] || previewImportData['Templates'])[t];
+                                    getTiers(previewImportData, importState.sourceCategory).map(tier => {
+                                        const s = (previewImportData[importState.sourceCategory] || previewImportData['Templates'])[tier];
                                         return (
-                                            <div key={t} className="mini-preview" style={{
+                                            <div key={tier} className="mini-preview" style={{
                                                 color: s.TextColor, backgroundColor: s.BackgroundColor, borderColor: s.BorderColor
-                                            }}>{t}</div>
+                                            }}>{tier}</div>
                                         );
                                     })
                                 ) : (
-                                    <div className="missing-notice">{language === 'ch' ? "请选择来源主题" : "Select a source theme"}</div>
+                                    <div className="missing-notice">{t.selectSourceTheme}</div>
                                 )}
                             </div>
                         </div>
@@ -393,7 +423,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
                   <div className="modal-footer">
                       <button className="cancel-btn" onClick={() => setShowImportModal(false)}>{t.cancel}</button>
-                      <button className="confirm-btn primary-action-btn" onClick={handleConfirmImport} disabled={!importState.sourceTheme}>{language === 'ch' ? "确认应用" : "Confirm Import"}</button>
+                      <button className="confirm-btn primary-action-btn" onClick={handleConfirmImport} disabled={!importState.sourceTheme}>{t.confirmImport}</button>
                   </div>
               </div>
           </div>
@@ -416,8 +446,37 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
           </div>
       )}
 
+      {/* Minimap Icon Picker */}
+      {showIconPicker && (
+          <MinimapIconPicker
+              value={activeStyle?.MinimapIcon}
+              title={editingTier || undefined}
+              language={language}
+              onClose={() => setShowIconPicker(false)}
+              onConfirm={(v) => {
+                  handleUpdateStyle('MinimapIcon', v);
+                  setShowIconPicker(false);
+              }}
+          />
+      )}
+
+      {/* Drop Effect Picker */}
+      {showEffectPicker && (
+          <PlayEffectPicker
+              value={activeStyle?.PlayEffect}
+              title={editingTier || undefined}
+              language={language}
+              onClose={() => setShowEffectPicker(false)}
+              onConfirm={(v) => {
+                  handleUpdateStyle('PlayEffect', v);
+                  setShowEffectPicker(false);
+              }}
+          />
+      )}
+
       <style>{`
         .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+        .effect-swatch { width: 14px; height: 14px; border-radius: 50%; display: inline-block; flex-shrink: 0; box-shadow: 0 0 5px currentColor; border: 1px solid rgba(0,0,0,0.2); }
         
         .theme-editor-modal .modal-content { background: #fff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
         .theme-editor-modal .main-content-frame { width: 95%; height: 95%; }
