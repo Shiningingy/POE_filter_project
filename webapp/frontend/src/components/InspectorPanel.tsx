@@ -27,6 +27,7 @@ interface InspectorPanelProps {
   viewerBackground: string;
   setViewerBackground: (bg: string) => void;
   soundMap?: any;
+  categoryClass?: string | null;
 }
 
 const InspectorPanel: React.FC<InspectorPanelProps> = ({
@@ -41,7 +42,8 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
   onPingCondition,
   language,
   viewerBackground,
-  setViewerBackground
+  setViewerBackground,
+  categoryClass
 }) => {
   const t = useTranslation(language);
   const [ruleTemplates, setRuleTemplates] = useState<any[]>([]);
@@ -133,6 +135,27 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
       }))
       .filter((cat) => cat.templates.length > 0);
   }, [ruleTemplates, templateSearch]);
+
+  // Split the (search-filtered) templates into class-recommended vs others.
+  const { recommended, others } = useMemo(() => {
+    const seen = new Set<string>();
+    const rec: any[] = [];
+    const oth: any[] = [];
+    const isRec = (tmp: any) =>
+      tmp.universal === true ||
+      (categoryClass && Array.isArray(tmp.classes) && tmp.classes.includes(categoryClass)) ||
+      (tmp.universal === undefined && tmp.classes === undefined);
+    filteredTemplates.forEach((cat: any) =>
+      cat.templates.forEach((tmp: any) => {
+        if (seen.has(tmp.condition)) return;
+        seen.add(tmp.condition);
+        (isRec(tmp) ? rec : oth).push(tmp);
+      })
+    );
+    return { recommended: rec, others: oth };
+  }, [filteredTemplates, categoryClass]);
+
+  const [showOthers, setShowOthers] = useState(false);
 
   const filterText = inspectedTier 
     ? generateFilterText(
@@ -270,30 +293,50 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
               <input type="text" className="lib-search" placeholder={t.search} value={templateSearch} onChange={(e) => setTemplateSearch(e.target.value)} />
             </div>
             <div className="library-scroll-area">
-              {filteredTemplates.map((cat) => (
-                <div key={cat.id} className="lib-cat">
-                  <span className="lib-cat-title">{cat.name[language]}</span>
-                  <div className="template-grid">
-                    {cat.templates.map((tmp: any) => (
-                      <button
-                        key={tmp.id}
-                        className="template-btn"
-                        disabled={!inspectedTier}
-                        onClick={() => {
-                            if (editingRuleIndex !== null) handleAddConditionToCurrent(tmp);
-                            else onAddRulePreset(inspectedTier!.key, { 
-                                targets: [],
-                                conditions: { [tmp.condition]: tmp.type === 'number' ? ">= 0" : (tmp.type === 'bool' ? "True" : (tmp.type === 'select' ? tmp.options[0] : (tmp.type === 'text' ? "" : ""))) },
-                                comment: tmp.label[language] 
-                            });
-                        }}
-                      >
-                        {tmp.label[language]}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ))}
+              {(() => {
+                const btn = (tmp: any) => (
+                  <button
+                    key={tmp.id || tmp.condition}
+                    className="template-btn"
+                    disabled={!inspectedTier}
+                    onClick={() => {
+                        if (editingRuleIndex !== null) handleAddConditionToCurrent(tmp);
+                        else onAddRulePreset(inspectedTier!.key, {
+                            targets: [],
+                            conditions: { [tmp.condition]: tmp.type === 'number' ? ">= 0" : (tmp.type === 'bool' ? "True" : (tmp.type === 'select' ? tmp.options[0] : (tmp.type === 'text' ? "" : ""))) },
+                            comment: tmp.label[language]
+                        });
+                    }}
+                  >
+                    {tmp.label[language]}
+                  </button>
+                );
+                return (
+                  <>
+                    <div className="lib-cat">
+                      <span className="lib-cat-title">
+                        {language === 'ch' ? '推荐 (本类别)' : 'Recommended'}
+                      </span>
+                      <div className="template-grid">
+                        {recommended.length > 0
+                          ? recommended.map(btn)
+                          : <span className="lib-empty">{language === 'ch' ? '无' : '—'}</span>}
+                      </div>
+                    </div>
+                    {others.length > 0 && (
+                      <div className="lib-cat">
+                        <span
+                          className="lib-cat-title lib-cat-toggle"
+                          onClick={() => setShowOthers((v) => !v)}
+                        >
+                          {showOthers ? '▼' : '▶'} {language === 'ch' ? `其他全部 (${others.length})` : `All others (${others.length})`}
+                        </span>
+                        {showOthers && <div className="template-grid">{others.map(btn)}</div>}
+                      </div>
+                    )}
+                  </>
+                );
+              })()}
             </div>
             {editingRuleIndex === null && (
                 <button className="custom-raw-btn" disabled={!inspectedTier} onClick={() => inspectedTier && onAddRulePreset(inspectedTier.key, { conditions: {}, raw: "# Add raw code here", comment: "Custom Rule" })}>
@@ -330,6 +373,9 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
         .sub-label { font-size: 0.75rem; color: #999; font-weight: bold; text-transform: uppercase; margin-bottom: 8px; display: block; }
         .library-scroll-area { max-height: 450px; overflow-y: auto; background: #fafafa; border: 1px solid #f0f0f0; padding: 10px; border-radius: 6px; }
         .lib-cat-title { font-size: 0.7rem; color: #666; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 8px; padding: 4px 8px; background: #eee; border-radius: 4px; }
+        .lib-cat-toggle { cursor: pointer; user-select: none; }
+        .lib-cat-toggle:hover { background: #e3f2fd; color: #1976D2; }
+        .lib-empty { font-size: 0.75rem; color: #999; font-style: italic; }
         .template-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-bottom: 15px; }
         .template-btn { background: #fff; border: 1px solid #ddd; padding: 6px 8px; font-size: 0.75rem; border-radius: 4px; cursor: pointer; text-align: left; color: #333; }
         .template-btn:hover:not(:disabled) { border-color: #2196F3; color: #2196F3; }

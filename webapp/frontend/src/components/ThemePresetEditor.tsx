@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
-import { useTranslation, CLASS_KEY_MAP } from '../utils/localization';
+import { useTranslation, CLASS_KEY_MAP, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import SoundPicker from './SoundPicker';
 import { getAssetUrl } from '../utils/assetUtils';
@@ -99,7 +99,8 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   }, [baseThemeData, overridesData]);
 
   // Helpers
-  const getLocalizedCategory = (cat: string) => (t as any)[CLASS_KEY_MAP[cat] || cat] || cat;
+  const getLocalizedCategory = (cat: string) =>
+    (language === 'ch' && CLASS_CH[cat]) || (t as any)[CLASS_KEY_MAP[cat] || cat] || cat;
 
   const getTiers = (data: any, cat: string) => {
       if (!data || !data[cat]) return [];
@@ -113,12 +114,13 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   const previewItems = useMemo(() => {
     if (!mergedThemeData || !mergedThemeData[selectedCategory]) return [];
     return getTiers(mergedThemeData, selectedCategory).map(tier => ({
-        name: `${selectedCategory} ${tier}`,
+        name: `${getLocalizedCategory(selectedCategory)} ${tier}`,
         tierKey: tier,
         style: mergedThemeData[selectedCategory][tier],
         isOverridden: overridesData[selectedCategory]?.[tier] !== undefined
     }));
-  }, [mergedThemeData, selectedCategory, overridesData]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mergedThemeData, selectedCategory, overridesData, language]);
 
   const activeStyle = useMemo(() => {
       if (isBulkEditing && previewItems.length > 0) return previewItems[0].style; 

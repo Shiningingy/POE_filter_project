@@ -72,7 +72,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
 
   // Creator / Editor State
   const [newItem, setNewItem] = useState<ItemProps>({
-      name: 'Chaos Orb', class: 'Stackable Currency', itemLevel: 80, rarity: 'Normal',
+      name: '', class: 'Stackable Currency', itemLevel: 80, rarity: 'Normal',
       identified: true, dropLevel: 1, stackSize: 1
   });
 
@@ -463,6 +463,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                       <input
                           type="text"
                           value={baseTypeQuery !== '' ? baseTypeQuery : newItem.name}
+                          placeholder={language === 'ch' ? "点击选择底材" : "Click to select base type"}
                           autoComplete="off"
                           onChange={e => { setBaseTypeQuery(e.target.value); setShowBaseTypeDrop(true); }}
                           onFocus={() => setShowBaseTypeDrop(true)}
@@ -518,7 +519,12 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
         <div className="simulator-main">
           <div className="simulator-controls">
             <div className="left-controls">
-                <button className="control-btn" onClick={() => setShowCreator(true)}>+ {t.addItem}</button>
+                <button className="control-btn" onClick={() => {
+                    setEditingItem(null);
+                    setNewItem({ name: '', class: 'Stackable Currency', itemLevel: 80, rarity: 'Normal', identified: true, dropLevel: 1, stackSize: 1 });
+                    setBaseTypeQuery('');
+                    setShowCreator(true);
+                }}>+ {t.addItem}</button>
                 <button className="control-btn" onClick={() => setShowImport(true)}>📋 {t.import}</button>
                 <button
                   className="control-btn danger"
@@ -618,22 +624,23 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                       {renderField('stackSize', t.stackSize, 'number')}
                       {renderField('gemLevel', t.gemLevel, 'number')}
                       {renderField('mapTier', t.mapTier, 'number')}
+                      {renderField('memoryStrands', (t as any).memoryStrands || 'Memory Strands', 'number')}
                       {renderField('sockets', t.sockets, 'text')}
                       {renderField('linkedSockets', t.linkedSockets, 'number')}
+                      {renderField('socketGroup', (t as any).socketGroup || 'Socket Group', 'text')}
+                      {renderField('width', (t as any).width || 'Width', 'number')}
+                      {renderField('height', (t as any).height || 'Height', 'number')}
                   </div>
 
                   <div className="flags-section">
                       <h4>{t.flags}</h4>
                       <div className="flags-grid">
-                          {['identified', 'corrupted', 'mirrored', 'fractured', 'synthesised', 'shaper', 'elder'].map(flag => {
-                              if (!activeProps.flags?.includes(flag) && !['identified', 'corrupted', 'mirrored'].includes(flag)) return null;
-                              return (
+                          {Array.from(new Set(['identified', 'corrupted', 'mirrored', ...(activeProps.flags || [])])).map(flag => (
                                 <label key={flag}>
                                     <input type="checkbox" checked={!!newItem[flag as keyof ItemProps]} onChange={e => setNewItem({...newItem, [flag]: e.target.checked})} />
                                     {(t as any)[flag] || flag.charAt(0).toUpperCase() + flag.slice(1)}
                                 </label>
-                              );
-                          })}
+                          ))}
                       </div>
                   </div>
 

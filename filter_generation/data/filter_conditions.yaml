@@ -1,0 +1,118 @@
+# Unified item-filter condition schema  (PoE1 3.28)
+# =================================================================
+# Single source of truth for BOTH:
+#   - the Rule Editor condition library (recommended-for-class + others)
+#   - the Drop Simulator "Add Item" form (structural conditions only)
+#
+# Per condition:
+#   key          exact filter keyword (what gets written to the .filter)
+#   label        {en, ch} display label
+#   type         number | bool | select | text | class_picker | sockets
+#   options      allowed values (for select)
+#   default      seed value for number conditions in the rule editor
+#   placeholder  hint for text conditions
+#   category     display grouping id (see `categories:` below)
+#   applies      WHO can use it. Each entry is one of:
+#                  - "universal"                  (every class)
+#                  - a class_hierarchy.yaml node id (equipment, weapons, armour,
+#                    jewellery, gems, maps, flasks, jewels, currency, …) → resolves
+#                    to every descendant poe_class
+#                  - an exact poe_class name ("Jewels", "Map Fragments", …)
+#   simulatable  true  → also shown in the Drop Simulator form and evaluated by
+#                        the sim engine (structural attribute the item models)
+#                false → rule-editor only (mods/enchants/text/derived stats)
+#
+# EXCLUDED on purpose (do not re-add without checking):
+#   AlwaysShow, WaystoneTier, UnidentifiedItemTier, TwiceCorrupted  → PoE2 only
+#   GemQualityType                                  → removed by GGG
+#   AlternateQuality                                → gems-only legacy
+
+categories:
+  general:        { en: "General",            ch: "常规" }
+  status:         { en: "Item Status",        ch: "物品状态" }
+  equipment_mods: { en: "Equipment & Mods",   ch: "装备与词缀" }
+  defences:       { en: "Base Defences",      ch: "基础防御" }
+  sockets:        { en: "Sockets & Links",    ch: "插槽与连线" }
+  gems:           { en: "Gems",               ch: "宝石" }
+  stackable:      { en: "Stackable",          ch: "可叠加" }
+  maps:           { en: "Maps & Endgame",     ch: "地图与异界" }
+  jewels:         { en: "Cluster Jewels",     ch: "星团珠宝" }
+  uniques:        { en: "Unique Items",       ch: "传奇物品" }
+  actions:        { en: "Actions (Overrides)", ch: "动作 (覆盖)" }
+
+conditions:
+  # ---- General / universal ------------------------------------------------
+  - { key: Rarity,    type: select, options: [Normal, Magic, Rare, Unique], category: general, applies: [universal], simulatable: true,  label: { en: "Rarity",     ch: "稀有度" } }
+  - { key: ItemLevel, type: number, default: ">= 0", category: general, applies: [universal], simulatable: true,  label: { en: "Item Level", ch: "物品等级" } }
+  - { key: DropLevel, type: number, default: ">= 0", category: general, applies: [universal], simulatable: true,  label: { en: "Drop Level", ch: "掉落等级" } }
+  - { key: AreaLevel, type: number, default: ">= 0", category: general, applies: [universal], simulatable: true,  label: { en: "Area Level", ch: "地区等级" } }
+  - { key: Class,     type: class_picker,            category: general, applies: [universal], simulatable: true,  label: { en: "Item Class", ch: "物品类别" } }
+  - { key: Width,     type: number, default: ">= 1", category: general, applies: [universal], simulatable: true,  label: { en: "Width",      ch: "宽度" } }
+  - { key: Height,    type: number, default: ">= 1", category: general, applies: [universal], simulatable: true,  label: { en: "Height",     ch: "高度" } }
+  - { key: Quality,   type: number, default: ">= 0", category: general, applies: [equipment, gems, maps, flasks], simulatable: true, label: { en: "Quality", ch: "品质" } }
+
+  # ---- Item status --------------------------------------------------------
+  - { key: Identified,      type: bool, category: status, applies: [universal],          simulatable: true, label: { en: "Identified",  ch: "已鉴定" } }
+  - { key: Corrupted,       type: bool, category: status, applies: [universal],          simulatable: true, label: { en: "Corrupted",   ch: "已污染" } }
+  - { key: Mirrored,        type: bool, category: status, applies: [universal],          simulatable: true, label: { en: "Mirrored",    ch: "已复制" } }
+  - { key: FracturedItem,   type: bool, category: status, applies: [equipment],          simulatable: true, label: { en: "Fractured",   ch: "破碎物品" } }
+  - { key: SynthesisedItem, type: bool, category: status, applies: [equipment],          simulatable: true, label: { en: "Synthesised", ch: "合成物品" } }
+  - { key: Scourged,        type: bool, category: status, applies: [equipment, maps],    simulatable: true, label: { en: "Scourged",    ch: "腐化扭曲" } }
+
+  # ---- Equipment & mods ---------------------------------------------------
+  - { key: HasInfluence,             type: select, options: [Shaper, Elder, Crusader, Hunter, Redeemer, Warlord, None], category: equipment_mods, applies: [equipment], simulatable: true,  label: { en: "Influence",        ch: "势力影响" } }
+  - { key: ShaperItem,               type: bool, category: equipment_mods, applies: [equipment], simulatable: true,  label: { en: "Shaper Item",      ch: "塑界者物品" } }
+  - { key: ElderItem,                type: bool, category: equipment_mods, applies: [equipment], simulatable: true,  label: { en: "Elder Item",       ch: "裂界者物品" } }
+  - { key: MemoryStrands,            type: number, default: ">= 1", category: equipment_mods, applies: [equipment], simulatable: true,  label: { en: "Memory Strands",   ch: "记忆丝线" } }
+  - { key: CorruptedMods,            type: number, default: ">= 1", category: equipment_mods, applies: [equipment], simulatable: false, label: { en: "Corrupted Mods",   ch: "污染词缀数量" } }
+  - { key: HasExplicitMod,           type: text, placeholder: 'e.g. "Tyrannical"', category: equipment_mods, applies: [equipment, jewels, maps], simulatable: false, label: { en: "Has Explicit Mod", ch: "含有词缀" } }
+  - { key: HasImplicitMod,           type: text, category: equipment_mods, applies: [equipment], simulatable: false, label: { en: "Has Implicit Mod", ch: "含有基底词缀" } }
+  - { key: AnyEnchantment,           type: bool, category: equipment_mods, applies: [armour], simulatable: false, label: { en: "Any Enchantment",  ch: "含有任意附魔" } }
+  - { key: HasEnchantment,           type: text, category: equipment_mods, applies: [armour], simulatable: false, label: { en: "Has Enchantment",  ch: "含有指定附魔" } }
+  - { key: HasSearingExarchImplicit, type: number, default: ">= 1", category: equipment_mods, applies: [armour], simulatable: false, label: { en: "Searing Exarch Implicit", ch: "焚界基底词缀" } }
+  - { key: HasEaterOfWorldsImplicit, type: number, default: ">= 1", category: equipment_mods, applies: [armour], simulatable: false, label: { en: "Eater of Worlds Implicit", ch: "灭界基底词缀" } }
+  - { key: HasCruciblePassiveTree,   type: bool, category: equipment_mods, applies: [weapons], simulatable: false, label: { en: "Has Crucible Tree", ch: "含有熔炉天赋树" } }
+
+  # ---- Base defences (armour) --------------------------------------------
+  - { key: BaseDefencePercentile, type: number, default: ">= 0", category: defences, applies: [armour], simulatable: false, label: { en: "Base Defence %",  ch: "基础防御百分比" } }
+  - { key: BaseArmour,            type: number, default: ">= 0", category: defences, applies: [armour], simulatable: false, label: { en: "Base Armour",     ch: "基础护甲" } }
+  - { key: BaseEvasion,          type: number, default: ">= 0", category: defences, applies: [armour], simulatable: false, label: { en: "Base Evasion",    ch: "基础闪避" } }
+  - { key: BaseEnergyShield,     type: number, default: ">= 0", category: defences, applies: [armour], simulatable: false, label: { en: "Base Energy Shield", ch: "基础能量护盾" } }
+  - { key: BaseWard,             type: number, default: ">= 0", category: defences, applies: [armour], simulatable: false, label: { en: "Base Ward",       ch: "基础守护" } }
+
+  # ---- Sockets & links (weapons + armour) --------------------------------
+  - { key: Sockets,       type: sockets, default: ">= 0", category: sockets, applies: [weapons, armour], simulatable: true, label: { en: "Sockets",        ch: "插槽数量" } }
+  - { key: LinkedSockets, type: number,  default: ">= 0", category: sockets, applies: [weapons, armour], simulatable: true, label: { en: "Linked Sockets", ch: "连线数量" } }
+  - { key: SocketGroup,   type: text, placeholder: "e.g. RGB", category: sockets, applies: [weapons, armour], simulatable: true, label: { en: "Socket Group", ch: "插槽组合" } }
+
+  # ---- Gems ---------------------------------------------------------------
+  - { key: GemLevel,       type: number, default: ">= 1", category: gems, applies: [gems], simulatable: true, label: { en: "Gem Level",       ch: "宝石等级" } }
+  - { key: Imbued,         type: bool,                    category: gems, applies: [gems], simulatable: true, label: { en: "Imbued",          ch: "灌注" } }
+  - { key: TransfiguredGem, type: bool,                   category: gems, applies: [gems], simulatable: true, label: { en: "Transfigured Gem", ch: "改造技能石" } }
+
+  # ---- Stackable ----------------------------------------------------------
+  - { key: StackSize, type: number, default: ">= 1", category: stackable, applies: [currency, "Map Fragments", "Divination Cards", "Expedition Logbooks"], simulatable: true, label: { en: "Stack Size", ch: "堆叠数量" } }
+
+  # ---- Maps & endgame -----------------------------------------------------
+  - { key: MapTier,           type: number, default: ">= 1", category: maps, applies: [maps], simulatable: true, label: { en: "Map Tier",          ch: "地图阶级" } }
+  - { key: BlightedMap,       type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Blighted Map",       ch: "菌潮地图" } }
+  - { key: BlightRavagedMap,  type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Blight-ravaged Map", ch: "菌潮灭绝地图" } }
+  - { key: ShapedMap,         type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Shaped Map",         ch: "塑界地图" } }
+  - { key: ElderMap,          type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Elder Map",          ch: "裂界地图" } }
+  - { key: ZanasMemory,       type: bool, category: maps, applies: [maps, "Map Fragments"], simulatable: true, label: { en: "Zana's Memory", ch: "扎娜的记忆" } }
+
+  # ---- Cluster jewels -----------------------------------------------------
+  - { key: EnchantmentPassiveNum,  type: number, default: ">= 1", category: jewels, applies: ["Jewels"], simulatable: false, label: { en: "Passive Count", ch: "天赋数量" } }
+  - { key: EnchantmentPassiveNode, type: select, category: jewels, applies: ["Jewels"], simulatable: false, label: { en: "Passive Type", ch: "天赋类型" },
+      options: ["Added Small Passive Skills also grant", "Fire Resistance", "Cold Resistance", "Lightning Resistance",
+                "Chaos Resistance", "Life", "Energy Shield", "Mana", "Armour", "Evasion", "Attack Damage", "Spell Damage",
+                "Elemental Damage", "Physical Damage", "Minion Damage", "Damage over Time", "Critical Chance",
+                "Area Damage", "Projectile Damage", "Aura Effect", "Curse Effect", "Flask Duration"] }
+
+  # ---- Unique items -------------------------------------------------------
+  - { key: Replica,  type: bool, category: uniques, applies: [equipment, jewels, flasks], simulatable: true,  label: { en: "Replica Item",   ch: "仿品传奇" } }
+  - { key: Foulborn, type: bool, category: uniques, applies: [equipment, jewels, flasks], simulatable: false, label: { en: "Foulborn Unique", ch: "秽生传奇物品" } }  # still obtainable in 3.28 via other sources
+
+  # ---- Actions (overrides, not real conditions; rule-editor only) ---------
+  - { key: DisableDropSound, type: bool, category: actions, applies: [universal], simulatable: false, label: { en: "Disable Drop Sound", ch: "禁用掉落声音" } }
+  - { key: EnableDropSound,  type: bool, category: actions, applies: [universal], simulatable: false, label: { en: "Enable Drop Sound",  ch: "启用掉落声音" } }

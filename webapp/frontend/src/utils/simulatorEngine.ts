@@ -47,6 +47,7 @@ export interface SimulationResult {
     matchedRule?: string;
     matchedTier?: string;
     matchedFile?: string;
+    partial?: boolean; // matched a rule with conditions the sim can't fully evaluate
 }
 
 export interface RuleMatch {
@@ -58,6 +59,7 @@ export interface RuleMatch {
     isBaseMapping: boolean;
     style: CSSProperties & { sound?: any };
     visible: boolean;
+    partial?: boolean;
 }
 
 export const parseClipboardItem = (text: string): ItemProps => {
@@ -110,6 +112,7 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
     let matchedTier: string | null = null;
     let matchedFile = null;
     let matchedRuleName = null;
+    let matchedPartial = false;
 
     // 1. Search specific mapping & Apply Rules
     const itemNameLower = item.name.toLowerCase();
@@ -122,7 +125,8 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
                     matchedTier = rule.overrides.Tier;
                     matchedFile = path;
                     matchedRuleName = rule.comment || "Custom Rule";
-                    break; 
+                    matchedPartial = ruleIsPartial(rule);
+                    break;
                 }
             }
         }
@@ -153,7 +157,8 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
         style,
         matchedTier: matchedTier || undefined,
         matchedRule: matchedRuleName || undefined,
-        matchedFile: matchedFile || undefined
+        matchedFile: matchedFile || undefined,
+        partial: matchedPartial || undefined
     };
 };
 
@@ -284,6 +289,7 @@ export const getMatchingRules = (item: ItemProps, context: FilterContext, limit 
                     isBaseMapping: false,
                     style,
                     visible,
+                    partial: ruleIsPartial(rule),
                 });
                 if (matches.length >= limit) return matches;
             }
@@ -310,6 +316,30 @@ export const getMatchingRules = (item: ItemProps, context: FilterContext, limit 
     return matches;
 };
 
+// Conditions the simulator cannot model (mods / enchants / derived stats / actions).
+// In the sim these are ignored (treated as satisfied) so the structural part of a
+// rule still resolves; results carrying one are flagged `partial`.
+export const NON_SIMULATABLE = new Set<string>([
+    'CorruptedMods', 'HasExplicitMod', 'HasImplicitMod', 'AnyEnchantment', 'HasEnchantment',
+    'HasSearingExarchImplicit', 'HasEaterOfWorldsImplicit', 'HasCruciblePassiveTree',
+    'BaseDefencePercentile', 'BaseArmour', 'BaseEvasion', 'BaseEnergyShield', 'BaseWard',
+    'EnchantmentPassiveNum', 'EnchantmentPassiveNode', 'Foulborn',
+    'DisableDropSound', 'EnableDropSound',
+]);
+
+// Schema boolean condition keys → the item attribute they test.
+const BOOL_FIELD: Record<string, string> = {
+    FracturedItem: 'fractured', SynthesisedItem: 'synthesised',
+    ShaperItem: 'shaper', ElderItem: 'elder',
+    Scourged: 'scourged', Replica: 'replica', Imbued: 'imbued', TransfiguredGem: 'transfigured',
+    BlightedMap: 'blightedMap', BlightRavagedMap: 'blightRavagedMap',
+    ShapedMap: 'shapedMap', ElderMap: 'elderMap', ZanasMemory: 'zanasMemory',
+};
+
+// True if a rule contains any condition the simulator can't fully evaluate.
+export const ruleIsPartial = (rule: any): boolean =>
+    Object.keys(rule?.conditions || {}).some(k => NON_SIMULATABLE.has(k));
+
 export const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: number): boolean => {
     // 1. Check Targets
     const targets = rule.targets || [];
@@ -331,16 +361,38 @@ export const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: num
             else if (value.startsWith('=')) { operator = '='; targetVal = parseFloat(value.substring(1)); }
         }
 
+        // Lenient: ignore conditions the simulator can't model (mods/enchants/etc.).
+        if (NON_SIMULATABLE.has(key)) continue;
+
         let itemVal = item[key.charAt(0).toLowerCase() + key.slice(1)];
         if (key === 'ItemLevel') itemVal = item.itemLevel;
         if (key === 'DropLevel') itemVal = item.dropLevel;
         if (key === 'Rarity') itemVal = item.rarity;
         if (key === 'Class') itemVal = item.class;
         if (key === 'LinkedSockets') itemVal = item.linkedSockets;
-        if (key === 'Sockets') itemVal = item.sockets?.length || 0;
+        if (key === 'Sockets') itemVal = (item.sockets || '').replace(/[^RGBAWD]/gi, '').length; // colour-letter count
         if (key === 'Quality') itemVal = item.quality;
         if (key === 'StackSize') itemVal = item.stackSize;
+        if (key === 'MapTier') itemVal = item.mapTier;
+        if (key === 'GemLevel') itemVal = item.gemLevel;
+        if (key === 'MemoryStrands') itemVal = item.memoryStrands;
         if (key === 'AreaLevel') itemVal = globalAreaLevel || 1; // Use global context
+
+        // SocketGroup: the item's colours must contain all requested colours (multiset).
+        if (key === 'SocketGroup') {
+            const want = (value as string).replace(/[^RGBAWD]/gi, '').toUpperCase().split('');
+            const have = (item.sockets || '').replace(/[^RGBAWD]/gi, '').toUpperCase().split('');
+            const ok = want.every(c => { const i = have.indexOf(c); if (i < 0) return false; have.splice(i, 1); return true; });
+            if (!ok) return false;
+            continue;
+        }
+
+        // Generic boolean conditions (schema keys → item attribute)
+        if (BOOL_FIELD[key]) {
+            const expected = (value as string).trim() === 'True';
+            if (!!item[BOOL_FIELD[key]] !== expected) return false;
+            continue;
+        }
 
         // Boolean conditions
         if (key === 'Corrupted') {

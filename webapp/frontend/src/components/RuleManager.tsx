@@ -44,6 +44,8 @@ interface RuleManagerProps {
   availableTiers?: TierOption[];
   activeRuleIndex?: number | null;
   onPingCondition?: (tierKey: string, ruleIndex: number, conditionKey: string) => void;
+  onRegisterTranslation?: (name: string, name_ch?: string) => void;
+  categoryClass?: string | null;
   pingedCondition?: {
     tierKey: string;
     ruleIndex: number;
@@ -107,6 +109,8 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   availableTiers,
   activeRuleIndex,
   onPingCondition,
+  onRegisterTranslation,
+  categoryClass,
   pingedCondition
 }) => {
   const t = useTranslation(language);
@@ -373,31 +377,34 @@ const RuleManager: React.FC<RuleManagerProps> = ({
     updateCondition(globalIndex, key, val);
   };
 
+  // Partition conditions into "recommended" (universal or applicable to this
+  // category's class) and "others" (everything else), de-duplicated.
   const getRelevantFactors = () => {
-    if (ruleTemplates.length === 0) return [];
-    // Show all templates as requested
-    const combined: any[] = [];
+    if (ruleTemplates.length === 0) return { recommended: [], others: [] };
+    const seen = new Set<string>();
+    const recommended: any[] = [];
+    const others: any[] = [];
+    const isRecommended = (tmp: any) =>
+      tmp.universal === true ||
+      (categoryClass && Array.isArray(tmp.classes) && tmp.classes.includes(categoryClass)) ||
+      // Schema not loaded (no class metadata): treat everything as recommended.
+      (tmp.universal === undefined && tmp.classes === undefined);
 
-    ruleTemplates.forEach((category) => {
+    ruleTemplates.forEach((category: any) => {
       category.templates.forEach((tmp: any) => {
-        if (
-          !combined.some((existing) => existing.condition === tmp.condition)
-        ) {
-          combined.push(tmp);
-        }
+        if (seen.has(tmp.condition)) return;
+        seen.add(tmp.condition);
+        const entry = { key: tmp.condition, label: tmp.label[language], template: tmp };
+        (isRecommended(tmp) ? recommended : others).push(entry);
       });
     });
-
-    return combined.map((t) => ({
-      key: t.condition,
-      label: t.label[language],
-      template: t,
-    }));
+    return { recommended, others };
   };
 
   const relevantFactors = useMemo(getRelevantFactors, [
     ruleTemplates,
     language,
+    categoryClass,
   ]);
 
   return (
@@ -579,7 +586,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                             {suggestions.map((s) => (
                               <li
                                 key={s.name}
-                                onClick={() => addTarget(globalIndex, s.name)}
+                                onClick={() => { onRegisterTranslation?.(s.name, s.name_ch); addTarget(globalIndex, s.name); }}
                               >
                                 <ItemCard
                                   item={s}
@@ -912,14 +919,29 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                         <option value="" disabled>
                           {t.addItemTarget}
                         </option>
-                        {relevantFactors
-                          .filter((f) => rule.conditions[f.key] === undefined)
-                          .map((f) => (
+                        {(() => {
+                          const opt = (f: any) => (
                             <option key={f.key} value={f.key}>
-                              {RULE_FACTOR_LOCALIZATION[f.key]?.[language] ||
-                                f.label}
+                              {RULE_FACTOR_LOCALIZATION[f.key]?.[language] || f.label}
                             </option>
-                          ))}
+                          );
+                          const rec = relevantFactors.recommended.filter((f) => rule.conditions[f.key] === undefined);
+                          const oth = relevantFactors.others.filter((f) => rule.conditions[f.key] === undefined);
+                          return (
+                            <>
+                              {rec.length > 0 && (
+                                <optgroup label={language === 'ch' ? '推荐 (本类别)' : 'Recommended'}>
+                                  {rec.map(opt)}
+                                </optgroup>
+                              )}
+                              {oth.length > 0 && (
+                                <optgroup label={language === 'ch' ? '其他全部' : 'All others'}>
+                                  {oth.map(opt)}
+                                </optgroup>
+                              )}
+                            </>
+                          );
+                        })()}
                       </select>
                     </div>
                   </div>
