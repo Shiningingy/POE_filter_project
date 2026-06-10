@@ -7,8 +7,1355 @@
       "en": "Unique Items",
       "ch": "传奇物品"
     },
-    "theme_category": "Uniques"
+    "theme_category": "Uniques",
+    "multi_unique_bases": [
+      "Amber Amulet",
+      "Ambush Mitts",
+      "Amethyst Flask",
+      "Amethyst Ring",
+      "Ancient Gauntlets",
+      "Antique Gauntlets",
+      "Archon Kite Shield",
+      "Assassin's Boots",
+      "Assassin's Mitts",
+      "Blood Raiment",
+      "Bone Circlet",
+      "Carnal Armour",
+      "Carnal Boots",
+      "Carnal Mitts",
+      "Censer Relic",
+      "Chain Belt",
+      "Citadel Bow",
+      "Cloth Belt",
+      "Cobalt Jewel",
+      "Coronal Maul",
+      "Crimson Jewel",
+      "Crusader Gloves",
+      "Cutlass",
+      "Exquisite Blade",
+      "Ezomyte Burgonet",
+      "Ezomyte Tower Shield",
+      "Foul Staff",
+      "Gemstone Sword",
+      "Goliath Greaves",
+      "Great Crown",
+      "Heavy Belt",
+      "Hydrascale Boots",
+      "Hydrascale Gauntlets",
+      "Imperial Claw",
+      "Infernal Sword",
+      "Iron Flask",
+      "Jade Amulet",
+      "Judgement Staff",
+      "Lapis Amulet",
+      "Leather Belt",
+      "Maelström Staff",
+      "Magistrate Crown",
+      "Maraketh Bow",
+      "Murder Boots",
+      "Necromancer Circlet",
+      "Onyx Amulet",
+      "Opal Ring",
+      "Opal Wand",
+      "Paua Amulet",
+      "Prismatic Jewel",
+      "Prismatic Ring",
+      "Processional Relic",
+      "Quartz Flask",
+      "Royal Burgonet",
+      "Ruby Flask",
+      "Ruby Ring",
+      "Sapphire Ring",
+      "Savant's Robe",
+      "Silken Hood",
+      "Slink Boots",
+      "Sorcerer Boots",
+      "Steel Ring",
+      "Titan Greaves",
+      "Tome Relic",
+      "Topaz Ring",
+      "Unset Ring",
+      "Vaal Axe",
+      "Vaal Sceptre",
+      "Vaal Spirit Shield",
+      "Vanguard Belt",
+      "Viridian Jewel",
+      "Zodiac Leather"
+    ]
   },
-  "mapping": {},
+  "mapping": {
+    "Abyssal Axe": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Agate Amulet": [
+      "Multi (Foulborn)",
+      "T3 Boss"
+    ],
+    "Amber Amulet": [
+      "Multi (Foulborn)",
+      "T3 Boss"
+    ],
+    "Ambush Mitts": "T3 Boss",
+    "Ambusher": "T3 Boss",
+    "Amethyst Flask": "Multi-Unique High",
+    "Amethyst Ring": [
+      "Multi (Foulborn)",
+      "Synthesis Implicits",
+      "Multi-Unique 2"
+    ],
+    "Ancient Gauntlets": "T3 Boss",
+    "Ancient Greaves": "Low",
+    "Ancient Spirit Shield": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Antique Gauntlets": "Multi-Unique High",
+    "Antique Greaves": "Low",
+    "Antique Rapier": "Low",
+    "Arcanist Gloves": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Arcanist Slippers": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Archon Kite Shield": [
+      "T3 (Foulborn)",
+      "Multi-Unique 2"
+    ],
+    "Ashbark Tincture": "Low",
+    "Assassin Bow": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Assassin's Boots": [
+      "T1 (Replica)",
+      "Multi-Unique High"
+    ],
+    "Assassin's Garb": [
+      "T2 (Foulborn)",
+      "Low"
+    ],
+    "Assassin's Mitts": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Astral Plate": [
+      "T1 (Foulborn)",
+      "Multi-Unique 2"
+    ],
+    "Astrolabe Amulet": "T2",
+    "Auric Mace": "Low",
+    "Aventail Helmet": "Low",
+    "Awl": "Low",
+    "Barbute Helmet": "Low",
+    "Baroque Round Shield": "Low",
+    "Basket Rapier": "Low",
+    "Bastard Sword": "Low",
+    "Bismuth Flask": "T3 Boss",
+    "Black Maw Talisman": "Low",
+    "Blasting Wand": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Blazing Arrow Quiver": "Low",
+    "Blood Raiment": [
+      "T1 (Replica)",
+      "T2"
+    ],
+    "Blood Sceptre": "T3 Boss",
+    "Blue Pearl Amulet": "T3",
+    "Blunt Arrow Quiver": [
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Bone Armour": "Low",
+    "Bone Circlet": [
+      "4x Abyss Helmet",
+      "T3 Boss"
+    ],
+    "Bone Helmet": "T3",
+    "Boot Blade": "Low",
+    "Boot Knife": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Branded Kite Shield": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Brass Maul": "Low",
+    "Brass Spirit Shield": "Low",
+    "Broadhead Arrow Quiver": "T3 Boss",
+    "Bronze Gauntlets": "Low",
+    "Bronze Sceptre": "Low",
+    "Bronzescale Boots": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Bronzescale Gauntlets": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Buckskin Tunic": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Butcher Axe": "T2",
+    "Cabalist Regalia": "T1",
+    "Calling Wand": [
+      "T3 (Replica)",
+      "Multi (Foulborn)",
+      "Low"
+    ],
+    "Callous Mask": "T3",
+    "Candlestick Relic": "T2",
+    "Cardinal Round Shield": "T3 Boss",
+    "Carnal Armour": [
+      "Multi (Replica)",
+      "3x Abyss",
+      "T3 Boss"
+    ],
+    "Carnal Boots": "T3",
+    "Carnal Mitts": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Carnal Sceptre": "Low",
+    "Cedar Tower Shield": "Low",
+    "Censer Relic": "T3 Boss",
+    "Chain Belt": [
+      "T1 (Replica)",
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Chain Gloves": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Champion Kite Shield": [
+      "T1 (Foulborn)",
+      "T2"
+    ],
+    "Chiming Spirit Shield": "T3 Boss",
+    "Citadel Bow": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Citrine Amulet": "T3",
+    "Clasped Boots": "Low",
+    "Clasped Mitts": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Cleaver": "Low",
+    "Close Helmet": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Cloth Belt": [
+      "T3 (Replica)",
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Clutching Talisman": "Low",
+    "Cobalt Jewel": [
+      "T3 (Replica)",
+      "Multi (Foulborn)",
+      "Rational Doctrine",
+      "Corrupted Jewels",
+      "Jewels"
+    ],
+    "Coffer Relic": "T3 Boss",
+    "Coiled Staff": "T3 Boss",
+    "Colossal Mana Flask": "T3 Boss",
+    "Colossal Tower Shield": "T3 Boss",
+    "Colosseum Plate": "T3 Boss",
+    "Compound Spiked Shield": "Low",
+    "Conjurer Boots": "Low",
+    "Conjurer Gloves": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Conquest Chainmail": "Low",
+    "Copper Plate": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Coral Amulet": "Low+",
+    "Coral Ring": "Low+",
+    "Coronal Maul": [
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Corrugated Buckler": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Corsair Sword": "Low",
+    "Crimson Jewel": [
+      "T3 (Replica)",
+      "Multi (Foulborn)",
+      "Corrupted Jewels",
+      "Jewels"
+    ],
+    "Crimson Round Shield": "T2",
+    "Crude Bow": "Multi-Unique 2",
+    "Crusader Boots": "T1",
+    "Crusader Chainmail": [
+      "T3 (Replica)",
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Crusader Gloves": [
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Crusader Plate": [
+      "Multi (Foulborn)",
+      "T3"
+    ],
+    "Cryonic Ring": "T3 Boss",
+    "Crystal Belt": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Crystal Sceptre": "Low",
+    "Cutlass": [
+      "Multi (Foulborn)",
+      "T3 Boss"
+    ],
+    "Cutthroat's Garb": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Death Bow": [
+      "T3 (Replica)",
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Decimation Bow": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Decorative Axe": "Low",
+    "Deerskin Boots": "Low",
+    "Deerskin Gloves": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Deicide Mask": "T3",
+    "Demon Dagger": "T3 Boss",
+    "Desert Brigandine": [
+      "T1 (Foulborn)",
+      "Low"
+    ],
+    "Despot Axe": "Low+",
+    "Destiny Leather": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Destroyer Regalia": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Devout Chainmail": [
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Diamond Flask": "Low",
+    "Diamond Ring": [
+      "T3 (Replica)",
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Dragonscale Boots": [
+      "T2 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Dragonscale Gauntlets": "Low",
+    "Dread Maul": "Low",
+    "Dream Mace": "Low",
+    "Driftwood Wand": "Low",
+    "Dusk Blade": "T1",
+    "Ebony Tower Shield": [
+      "T1 (Replica)",
+      "Multi-Unique 2"
+    ],
+    "Eelskin Boots": "Low",
+    "Eelskin Gloves": "Low",
+    "Elder Sword": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Elegant Ringmail": [
+      "T3 (Replica)",
+      "Low+"
+    ],
+    "Elegant Round Shield": [
+      "Multi (Foulborn)",
+      "The Squire",
+      "Low"
+    ],
+    "Elegant Sword": "Low+",
+    "Embroidered Gloves": "T3",
+    "Enameled Buckler": "Low",
+    "Engraved Greatsword": "T1",
+    "Enthalpic Ring": "T3 Boss",
+    "Estoc": "Low",
+    "Etched Greatsword": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Eternal Burgonet": "Low",
+    "Eternal Sword": [
+      "T2 (Replica)",
+      "T2 (Foulborn)",
+      "Low"
+    ],
+    "Exquisite Blade": "T3",
+    "Exquisite Leather": [
+      "T2 (Foulborn)",
+      "Low"
+    ],
+    "Ezomyte Axe": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Ezomyte Blade": "Low",
+    "Ezomyte Burgonet": [
+      "T2 (Replica)",
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Ezomyte Dagger": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Ezomyte Spiked Shield": "T3 Boss",
+    "Ezomyte Staff": "T3 Boss",
+    "Ezomyte Tower Shield": [
+      "Multi (Foulborn)",
+      "T3 Boss"
+    ],
+    "Faithful Helmet": "T3 Boss",
+    "Faun's Horn": "T2",
+    "Feathered Arrow Quiver": "Low",
+    "Festival Mask": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Fiend Dagger": [
+      "T3 (Foulborn)",
+      "Multi-Unique 2"
+    ],
+    "Fingerless Silk Gloves": "T3 Boss",
+    "Fishing Rod": "T1 (Foulborn)",
+    "Flaying Knife": "Low",
+    "Fluted Bascinet": "T1",
+    "Formless Ring": "T1",
+    "Foul Staff": "Multi-Unique High",
+    "Fright Claw": "Low",
+    "Fugitive Boots": "T3 Boss",
+    "Fugitive Ring": "T1",
+    "Full Dragonscale": "Low",
+    "Full Wyrmscale": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Gavel": [
+      "T1 (Foulborn)",
+      "T3"
+    ],
+    "Gemstone Sword": "T3",
+    "General's Brigandine": "T3",
+    "Ghastly Eye Jewel": "T1",
+    "Gilded Sallet": [
+      "Multi (Foulborn)",
+      "Low"
+    ],
+    "Girded Tower Shield": "T1",
+    "Gladiator Plate": [
+      "T2 (Foulborn)",
+      "T3"
+    ],
+    "Gladius": "T3 Boss",
+    "Glorious Plate": [
+      "T3 (Replica)",
+      "Kaom's Heart",
+      "Low"
+    ],
+    "Gnarled Branch": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Goat's Horn": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Goathide Boots": [
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Goathide Gloves": "Low",
+    "Gold Amulet": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Gold Flask": "T1",
+    "Gold Ring": [
+      "Multi (Foulborn)",
+      "Multi-Unique 2"
+    ],
+    "Golden Buckler": "T3 Boss",
+    "Golden Mask": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Golden Plate": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Goliath Gauntlets": "T3 Boss",
+    "Goliath Greaves": "T3 Boss",
+    "Graceful Sword": "T3",
+    "Grand Mana Flask": "T3",
+    "Granite Flask": [
+      "T3 (Replica)",
+      "T3"
+    ],
+    "Great Crown": [
+      "T1 (Replica)",
+      "2x Abyss",
+      "T3 Boss"
+    ],
+    "Great Helmet": [
+      "T3 (Replica)",
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Great Mallet": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Greater Mana Flask": "Low",
+    "Greatwolf Talisman": "T1",
+    "Grinning Fetish": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Gut Ripper": [
+      "T2 (Replica)",
+      "Low"
+    ],
+    "Hallowed Hybrid Flask": "Low",
+    "Harbinger Bow": "Low",
+    "Harlequin Mask": [
+      "T1 (Foulborn)",
+      "Low"
+    ],
+    "Harmonic Spirit Shield": [
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Headsman Axe": "Low",
+    "Heavy Arrow Quiver": "Low",
+    "Heavy Belt": [
+      "T3 (Replica)",
+      "Multi (Foulborn)",
+      "Multi-Unique High"
+    ],
+    "Hellion's Paw": "Multi-Unique High",
+    "Highborn Staff": "Multi-Unique 2",
+    "Highland Blade": "Low",
+    "Holy Chainmail": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Hubris Circlet": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Hydrascale Boots": "T3 Boss",
+    "Hydrascale Gauntlets": "Multi-Unique 2",
+    "Hypnotic Eye Jewel": "T3 Boss",
+    "Imperial Bow": [
+      "T2 (Replica)",
+      "Multi-Unique High"
+    ],
+    "Imperial Claw": [
+      "Multi (Foulborn)",
+      "Low"
+    ],
+    "Imperial Maul": "T2",
+    "Imperial Skean": "Multi-Unique High",
+    "Imperial Staff": "Multi-Unique High",
+    "Infernal Axe": "Low",
+    "Infernal Sword": [
+      "T3 (Replica)",
+      "Forge Sword",
+      "T3 Boss"
+    ],
+    "Iron Circlet": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Iron Flask": "T2",
+    "Iron Gauntlets": "Low",
+    "Iron Hat": "Low",
+    "Iron Mask": "Low",
+    "Iron Ring": [
+      "Multi (Foulborn)",
+      "Synthesis Implicits",
+      "T3"
+    ],
+    "Iron Staff": "Low",
+    "Ironscale Boots": "Low",
+    "Ironscale Gauntlets": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Ironwood Buckler": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Ironwood Tincture": "Low",
+    "Jade Amulet": [
+      "T3 (Replica)",
+      "Multi (Foulborn)",
+      "T3"
+    ],
+    "Jade Hatchet": "Low",
+    "Jagged Foil": "Low",
+    "Jagged Maul": "Low",
+    "Jasper Chopper": [
+      "T3 (Replica)",
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Jewelled Foil": [
+      "T1 (Foulborn)",
+      "T3"
+    ],
+    "Jingling Spirit Shield": "T2",
+    "Judgement Staff": "T3 Boss",
+    "Karui Chopper": [
+      "T1 (Foulborn)",
+      "T3"
+    ],
+    "Karui Maul": "T1",
+    "Karui Sceptre": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Kinetic Wand": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Lacewood Spirit Shield": "T1",
+    "Lacquered Buckler": [
+      "T3 (Replica)",
+      "T3"
+    ],
+    "Lacquered Garb": [
+      "Multi (Foulborn)",
+      "T3"
+    ],
+    "Lacquered Helmet": "T3 Boss",
+    "Laminated Kite Shield": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Lapis Amulet": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Large Cluster Jewel": "T1",
+    "Large Hybrid Flask": "T3",
+    "Lathi": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Latticed Ringmail": "Low",
+    "Leather Belt": [
+      "T1 (Replica)",
+      "Multi (Foulborn)",
+      "Multi-Unique High"
+    ],
+    "Leather Cap": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Leather Hood": [
+      "T1 (Replica)",
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Legion Boots": [
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Legion Gloves": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Legion Sword": "T3 Boss",
+    "Lich's Circlet": "T2",
+    "Lion Pelt": "Low",
+    "Lion Sword": [
+      "Multi (Foulborn)",
+      "T3 Boss"
+    ],
+    "Long Bow": "Low",
+    "Lunaris Circlet": [
+      "T2 (Foulborn)",
+      "Low"
+    ],
+    "Maelström Staff": [
+      "T1 (Replica)",
+      "T3 Boss"
+    ],
+    "Magistrate Crown": "Multi-Unique High",
+    "Majestic Plate": [
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Map (Tier 11)": "T3 (Replica)",
+    "Map (Tier 13)": "T1 (Replica)",
+    "Map (Tier 14)": "T3 (Replica)",
+    "Map (Tier 16)": "T1 (Replica)",
+    "Maple Round Shield": "T2",
+    "Maraketh Bow": [
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Marble Amulet": "T3 Boss",
+    "Martyr Gloves": "T2",
+    "Meatgrinder": "Low",
+    "Medium Cluster Jewel": "T2",
+    "Mesh Boots": "Low",
+    "Mesh Gloves": [
+      "Triad Grip",
+      "Low"
+    ],
+    "Midnight Blade": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Military Staff": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Mind Cage": [
+      "T3 (Foulborn)",
+      "2x Abyss",
+      "Low"
+    ],
+    "Mirrored Spiked Shield": "T3 Boss",
+    "Moonstone Ring": [
+      "Multi (Foulborn)",
+      "Multi-Unique 2"
+    ],
+    "Mosaic Kite Shield": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Murder Boots": [
+      "T3 (Replica)",
+      "2x Abyss",
+      "Multi-Unique High"
+    ],
+    "Murder Mitts": [
+      "T2 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Murderous Eye Jewel": "T2",
+    "Nailed Fist": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Nameless Ring": "Low+",
+    "Necromancer Circlet": "T3 Boss",
+    "Necromancer Silks": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Nightmare Bascinet": [
+      "Multi (Foulborn)",
+      "Low"
+    ],
+    "Nightmare Mace": "T3 Boss",
+    "Nubuck Boots": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Nubuck Gloves": "Low",
+    "Oakbranch Tincture": "Low",
+    "Occultist's Vestment": [
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Omen Wand": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Onyx Amulet": [
+      "T3 (Replica)",
+      "Multi (Foulborn)",
+      "Uber Impresence",
+      "Multi-Unique 2"
+    ],
+    "Opal Ring": "T3 Boss",
+    "Opal Sceptre": "Low",
+    "Opal Wand": [
+      "T3 (Replica)",
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Organic Ring": "T3 Boss",
+    "Ornate Mace": [
+      "T3 (Replica)",
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Ornate Quiver": [
+      "T2 (Replica)",
+      "T1 (Foulborn)",
+      "T2"
+    ],
+    "Ornate Ringmail": "Low",
+    "Ornate Sword": "Low",
+    "Pagan Wand": "Low",
+    "Painted Buckler": "Low",
+    "Painted Tower Shield": "T3",
+    "Paladin Crown": "T3 Boss",
+    "Papyrus Relic": "T1",
+    "Paua Amulet": [
+      "T3 (Replica)",
+      "T1 (Foulborn)",
+      "Multi-Unique High"
+    ],
+    "Paua Ring": [
+      "T3 (Replica)",
+      "T3 Boss"
+    ],
+    "Penetrating Arrow Quiver": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Phantom Mace": "Low+",
+    "Pig-Faced Bascinet": "T3 Boss",
+    "Piledriver": "T2",
+    "Pine Buckler": "Low",
+    "Pinnacle Tower Shield": [
+      "T3 (Foulborn)",
+      "Low+"
+    ],
+    "Plague Mask": "Low",
+    "Plank Kite Shield": "Low",
+    "Plate Vest": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Plated Greaves": "T3",
+    "Platinum Kris": "Low",
+    "Platinum Sceptre": [
+      "T3 (Foulborn)",
+      "Low+"
+    ],
+    "Poleaxe": "Low",
+    "Polished Spiked Shield": "Low",
+    "Praetor Crown": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Primal Arrow Quiver": "T3 Boss",
+    "Primordial Staff": "T3",
+    "Prismatic Jewel": "T1",
+    "Prismatic Ring": [
+      "T3 (Foulborn)",
+      "Synthesis Implicits",
+      "Low"
+    ],
+    "Prismatic Tincture": "Low",
+    "Processional Relic": "T2",
+    "Prophecy Wand": [
+      "T1 (Foulborn)",
+      "T2"
+    ],
+    "Prophet Crown": "Multi-Unique 2",
+    "Quarterstaff": "T2",
+    "Quartz Flask": "Low",
+    "Quicksilver Flask": "Low",
+    "Ranger Bow": [
+      "Multi (Foulborn)",
+      "Low"
+    ],
+    "Raven Mask": [
+      "T1 (Foulborn)",
+      "T1"
+    ],
+    "Rawhide Boots": [
+      "T1 (Foulborn)",
+      "T2"
+    ],
+    "Rawhide Tower Shield": "Low",
+    "Reaver Helmet": "Low",
+    "Reaver Sword": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Recurve Bow": "Low",
+    "Regicide Mask": [
+      "T3 (Foulborn)",
+      "Multi-Unique 2"
+    ],
+    "Reinforced Greaves": [
+      "T2 (Foulborn)",
+      "T3"
+    ],
+    "Reinforced Tower Shield": "Low",
+    "Ring": "T1",
+    "Ritual Sceptre": "Low",
+    "Riveted Boots": "T2",
+    "Riveted Gloves": [
+      "T2",
+      "2x Abyss"
+    ],
+    "Rock Breaker": "Low",
+    "Rotfeather Talisman": "Low",
+    "Rotted Round Shield": "Low",
+    "Royal Axe": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Royal Bow": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Royal Burgonet": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Royal Sceptre": "Low",
+    "Royal Skean": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Royal Staff": "Low",
+    "Ruby Flask": "T1",
+    "Ruby Ring": [
+      "T3 (Replica)",
+      "Multi (Foulborn)",
+      "Synthesis Implicits",
+      "T3 Boss"
+    ],
+    "Runic Crown": "T1",
+    "Runic Gages": "T1",
+    "Runic Gauntlets": "T3 Boss",
+    "Runic Helm": "T1",
+    "Runic Sabatons": "T3 Boss",
+    "Runic Sollerets": "T1",
+    "Rusted Sword": "Low",
+    "Rustic Sash": [
+      "T3 (Replica)",
+      "Low+"
+    ],
+    "Sabre": "Low",
+    "Sacrificial Garb": "T3 Boss",
+    "Sadist Garb": [
+      "Multi (Foulborn)",
+      "T3 Boss"
+    ],
+    "Sage Wand": [
+      "T2 (Replica)",
+      "Multi-Unique 2"
+    ],
+    "Sage's Robe": [
+      "Multi (Foulborn)",
+      "Multi-Unique 2"
+    ],
+    "Saint's Hauberk": "Multi-Unique 2",
+    "Saintly Chainmail": [
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Samite Gloves": [
+      "T3 (Replica)",
+      "Multi (Foulborn)",
+      "Low"
+    ],
+    "Samnite Helmet": "Low",
+    "Sanctified Life Flask": "Low",
+    "Sanctified Mana Flask": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Sapphire Flask": "T3",
+    "Sapphire Ring": [
+      "T3 (Replica)",
+      "T3 (Foulborn)",
+      "Synthesis Implicits",
+      "T3 Boss"
+    ],
+    "Satin Gloves": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Satin Slippers": "Low",
+    "Savant's Robe": "T1",
+    "Scholar Boots": "Low",
+    "Scholar's Robe": [
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Seaglass Amulet": "T1",
+    "Searching Eye Jewel": "T3 Boss",
+    "Secutor Helm": "Low",
+    "Sentinel Jacket": "T3 Boss",
+    "Serpentine Staff": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Serpentscale Boots": "Low",
+    "Serpentscale Gauntlets": "T3",
+    "Serrated Arrow Quiver": "Low",
+    "Shackled Boots": "Low",
+    "Shadow Axe": "Low",
+    "Shadow Sceptre": [
+      "T3 (Replica)",
+      "T3 Boss"
+    ],
+    "Shagreen Boots": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Shagreen Gloves": "Low",
+    "Sharkskin Boots": "Low",
+    "Sharkskin Tunic": "Low",
+    "Sharktooth Arrow Quiver": "Low",
+    "Short Bow": [
+      "T3 (Replica)",
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Siege Axe": [
+      "T2 (Replica)",
+      "T1"
+    ],
+    "Siege Helmet": "T2",
+    "Silk Gloves": [
+      "T2 (Foulborn)",
+      "T3"
+    ],
+    "Silk Slippers": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Silken Hood": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Silken Vest": [
+      "Multi (Foulborn)",
+      "Low"
+    ],
+    "Silver Flask": "T3 Boss",
+    "Simple Robe": [
+      "Tabula Rasa",
+      "Low"
+    ],
+    "Sinner Tricorne": [
+      "T3 (Replica)",
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Skinning Knife": "Low",
+    "Slaughter Knife": "T1",
+    "Sledgehammer": "Low",
+    "Slink Boots": "T3 Boss",
+    "Slink Gloves": "Low",
+    "Small Cluster Jewel": "Multi-Unique High",
+    "Solaris Circlet": "T3 Boss",
+    "Soldier Boots": [
+      "T1 (Replica)",
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Soldier Gloves": "T3 Boss",
+    "Soldier Helmet": "Low",
+    "Somatic Wand": [
+      "T1 (Foulborn)",
+      "T2"
+    ],
+    "Sorcerer Boots": [
+      "T1 (Foulborn)",
+      "T3"
+    ],
+    "Sorcerer Gloves": "T2 (Replica)",
+    "Sovereign Spiked Shield": "Low+",
+    "Spectral Axe": "T1",
+    "Spidersilk Robe": [
+      "T1 (Replica)",
+      "Multi (Foulborn)",
+      "Multi-Unique 2"
+    ],
+    "Spike-Point Arrow Quiver": [
+      "T3 (Replica)",
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Spiked Club": "Low",
+    "Spiked Gloves": "T3 Boss",
+    "Spine Bow": "Multi-Unique High",
+    "Spiny Round Shield": "T3 Boss",
+    "Spiraled Wand": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Sporebloom Tincture": "Low",
+    "Stealth Boots": "Multi-Unique 2",
+    "Steel Circlet": "Low",
+    "Steel Gauntlets": [
+      "T2 (Foulborn)",
+      "Low"
+    ],
+    "Steel Kite Shield": [
+      "T1 (Foulborn)",
+      "T3"
+    ],
+    "Steel Ring": "T3 Boss",
+    "Steelhead": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Steelscale Gauntlets": [
+      "T3 (Foulborn)",
+      "2x Abyss",
+      "T3 Boss"
+    ],
+    "Steelwood Bow": "T3 Boss",
+    "Stibnite Flask": [
+      "T2 (Replica)",
+      "T3"
+    ],
+    "Stiletto": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Strapped Boots": "Low",
+    "Strapped Mitts": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Studded Belt": [
+      "T3 (Foulborn)",
+      "Multi-Unique 2"
+    ],
+    "Studded Round Shield": "Low",
+    "Stygian Vise": "T3 Boss",
+    "Sulphur Flask": [
+      "T3 (Replica)",
+      "T3 Boss"
+    ],
+    "Sun Leather": "Low",
+    "Supreme Spiked Shield": "Low",
+    "Synaptic Ring": "T3 Boss",
+    "Synthesised Map": "T2 (Replica)",
+    "Tarnished Spirit Shield": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Teak Round Shield": "Low",
+    "Terror Claw": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Terror Maul": [
+      "T1 (Replica)",
+      "Multi (Foulborn)",
+      "Low"
+    ],
+    "Thresher Claw": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Throat Stabber": "Low",
+    "Tiger Sword": "Low",
+    "Timeless Jewel": "T2",
+    "Timeworn Claw": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Titan Gauntlets": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Titan Greaves": [
+      "T3 (Replica)",
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Titanium Spirit Shield": [
+      "T2 (Foulborn)",
+      "T2"
+    ],
+    "Tomahawk": [
+      "T2 (Foulborn)",
+      "Low"
+    ],
+    "Tome Relic": "T1",
+    "Topaz Flask": "T3 Boss",
+    "Topaz Ring": [
+      "Multi (Foulborn)",
+      "Synthesis Implicits",
+      "T3 Boss"
+    ],
+    "Tornado Wand": [
+      "T2 (Replica)",
+      "T3 Boss"
+    ],
+    "Torturer Garb": "T3 Boss",
+    "Trapper Boots": "Low",
+    "Tribal Circlet": "Low",
+    "Tricorne": "Low",
+    "Triumphant Lamellar": [
+      "T1 (Replica)",
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Turquoise Amulet": [
+      "T1 (Replica)",
+      "Multi (Foulborn)",
+      "Multi-Unique 2"
+    ],
+    "Twilight Blade": "Low",
+    "Two-Point Arrow Quiver": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Two-Stone Ring": [
+      "Multi (Foulborn)",
+      "Low"
+    ],
+    "Two-Toned Boots": "T3",
+    "Tyrant's Sekhem": "Low",
+    "Unset Amulet": "T1",
+    "Unset Ring": [
+      "T3 (Replica)",
+      "T3 Boss"
+    ],
+    "Urn Relic": "T3 Boss",
+    "Ursine Pelt": "Low",
+    "Vaal Axe": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Vaal Blade": [
+      "T3 (Foulborn)",
+      "Multi-Unique High"
+    ],
+    "Vaal Buckler": "Low",
+    "Vaal Claw": [
+      "T3 (Replica)",
+      "Multi-Unique High"
+    ],
+    "Vaal Gauntlets": [
+      "T1 (Replica)",
+      "T2 (Foulborn)",
+      "T3"
+    ],
+    "Vaal Greaves": "T3 Boss",
+    "Vaal Hatchet": "Low",
+    "Vaal Mask": "T3 Boss",
+    "Vaal Rapier": [
+      "T2 (Replica)",
+      "T1"
+    ],
+    "Vaal Regalia": "T3 Boss",
+    "Vaal Sceptre": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Vaal Spirit Shield": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Vanguard Belt": "Multi-Unique 2",
+    "Varnished Coat": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Velvet Gloves": "Low",
+    "Velvet Slippers": "Low",
+    "Vermillion Ring": "T1",
+    "Vile Arrow Quiver": "T3 Boss",
+    "Vile Staff": [
+      "T1 (Foulborn)",
+      "Low"
+    ],
+    "Vine Circlet": "Low",
+    "Viridian Jewel": [
+      "T3 (Replica)",
+      "Multi (Foulborn)",
+      "Corrupted Jewels",
+      "Jewels"
+    ],
+    "Visored Sallet": "T3",
+    "Void Axe": "T2",
+    "Void Sceptre": [
+      "T1 (Replica)",
+      "T3 Boss"
+    ],
+    "War Buckler": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "War Hammer": "Low",
+    "War Sword": [
+      "T3 (Replica)",
+      "Low"
+    ],
+    "Waxed Garb": "Multi-Unique High",
+    "Wereclaw Talisman": "Low",
+    "Whalebone Rapier": "Low",
+    "Widowsilk Robe": [
+      "T3 (Foulborn)",
+      "T3"
+    ],
+    "Wild Leather": "Low",
+    "Wolf Pelt": "T3",
+    "Woodsplitter": "Low",
+    "Wool Gloves": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Wool Shoes": "Low",
+    "Wrapped Mitts": "Low",
+    "Wyrmscale Boots": "T3 Boss",
+    "Wyrmscale Doublet": [
+      "T1 (Foulborn)",
+      "T2"
+    ],
+    "Wyrmscale Gauntlets": [
+      "T3 (Foulborn)",
+      "Low"
+    ],
+    "Zealot Gloves": [
+      "T3 (Replica)",
+      "Low+"
+    ],
+    "Zealot Helmet": [
+      "T3 (Foulborn)",
+      "T3 Boss"
+    ],
+    "Zodiac Leather": [
+      "T2 (Replica)",
+      "Multi (Foulborn)",
+      "T3"
+    ]
+  },
   "rules": []
 }

@@ -4178,6 +4178,860 @@ Show
 
 #==[111000]-传奇 Uniques - 传奇物品 Unique Items==
 
+#==[111001]- Unique Items -T1 (Replica) 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Assassin's Boots" "Blood Raiment" "Chain Belt" "Ebony Tower Shield" "Great Crown" "Leather Belt" "Leather Hood" "Maelström Staff" "Map (Tier 13)" "Map (Tier 16)" "Soldier Boots" "Spidersilk Robe" "Terror Maul" "Triumphant Lamellar" "Turquoise Amulet" "Vaal Gauntlets" "Void Sceptre"
+    Rarity Unique
+    Replica True
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    PlayAlertSound 6 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111002]- Unique Items -T2 (Replica) 传奇物品 - 自动音效：Ornate Quiver - 精确==
+Show
+    BaseType == "Ornate Quiver"
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\华美箭袋.mp3" 200
+    MinimapIcon 1 Brown Circle
+
+
+#==[111003]- Unique Items -T2 (Replica) 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Eternal Sword" "Ezomyte Burgonet" "Gut Ripper" "Imperial Bow" "Sage Wand" "Siege Axe" "Sorcerer Gloves" "Stibnite Flask" "Synthesised Map" "Tornado Wand" "Vaal Rapier" "Zodiac Leather"
+    Rarity Unique
+    Replica True
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111004]- Unique Items -Multi (Replica) 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Carnal Armour"
+    Rarity Unique
+    Replica True
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    PlayAlertSound 1 300
+
+
+#==[111005]- Unique Items -T3 (Replica) 传奇物品 - 自动音效：Granite Flask - 精确==
+Show
+    BaseType == "Granite Flask"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\坚岩药剂.mp3" 200
+
+
+#==[111006]- Unique Items -T3 (Replica) 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Arcanist Gloves" "Arcanist Slippers" "Blasting Wand" "Boot Knife" "Bronzescale Boots" "Calling Wand" "Cloth Belt" "Cobalt Jewel" "Crimson Jewel" "Crusader Chainmail" "Death Bow" "Decimation Bow" "Diamond Ring" "Elder Sword" "Elegant Ringmail" "Ezomyte Axe" "Ezomyte Dagger" "Festival Mask" "Glorious Plate" "Gnarled Branch" "Gold Amulet" "Great Helmet" "Great Mallet" "Grinning Fetish" "Heavy Belt" "Infernal Sword" "Jade Amulet" "Jasper Chopper" "Lacquered Buckler" "Laminated Kite Shield" "Map (Tier 11)" "Map (Tier 14)" "Murder Boots" "Nailed Fist" "Onyx Amulet" "Opal Wand" "Ornate Mace" "Paua Amulet" "Paua Ring" "Royal Skean" "Ruby Ring" "Rustic Sash" "Samite Gloves" "Sanctified Mana Flask" "Sapphire Ring" "Satin Gloves" "Shadow Sceptre" "Shagreen Boots" "Short Bow" "Silk Slippers" "Sinner Tricorne" "Spike-Point Arrow Quiver" "Stiletto" "Sulphur Flask" "Titan Greaves" "Unset Ring" "Vaal Claw" "Viridian Jewel" "War Sword" "Zealot Gloves"
+    Rarity Unique
+    Replica True
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    PlayAlertSound 1 300
+
+
+#==[111007]- Unique Items -Other (Replica) 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    Replica True
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
+
+
+#==[111008]- Unique Items -T1 (Foulborn) 传奇物品 - 自动音效：Ornate Quiver - 精确==
+Show
+    BaseType == "Ornate Quiver"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    CustomAlertSound "sound_files\Sharket掉落音效\华美箭袋.mp3" 200
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111009]- Unique Items -T1 (Foulborn) 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Astral Plate" "Champion Kite Shield" "Desert Brigandine" "Fishing Rod" "Gavel" "Harlequin Mask" "Jewelled Foil" "Karui Chopper" "Paua Amulet" "Prophecy Wand" "Raven Mask" "Rawhide Boots" "Somatic Wand" "Sorcerer Boots" "Steel Kite Shield" "Vile Staff" "Wyrmscale Doublet"
+    Rarity Unique
+    Foulborn True
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    PlayAlertSound 6 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111010]- Unique Items -T2 (Foulborn) 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Assassin's Garb" "Dragonscale Boots" "Eternal Sword" "Exquisite Leather" "Gladiator Plate" "Lunaris Circlet" "Murder Mitts" "Reinforced Greaves" "Silk Gloves" "Steel Gauntlets" "Titanium Spirit Shield" "Tomahawk" "Vaal Gauntlets"
+    Rarity Unique
+    Foulborn True
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111011]- Unique Items -Multi (Foulborn) 传奇物品 - 自动音效：Amethyst Ring - 精确==
+Show
+    BaseType == "Amethyst Ring"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\紫晶戒指.mp3" 200
+
+
+#==[111012]- Unique Items -Multi (Foulborn) 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Agate Amulet" "Amber Amulet" "Calling Wand" "Cobalt Jewel" "Crimson Jewel" "Crusader Plate" "Cutlass" "Elegant Round Shield" "Ezomyte Tower Shield" "Gilded Sallet" "Gold Ring" "Heavy Belt" "Imperial Claw" "Iron Ring" "Jade Amulet" "Lacquered Garb" "Leather Belt" "Lion Sword" "Moonstone Ring" "Nightmare Bascinet" "Onyx Amulet" "Ranger Bow" "Ruby Ring" "Sadist Garb" "Sage's Robe" "Samite Gloves" "Silken Vest" "Spidersilk Robe" "Terror Maul" "Topaz Ring" "Turquoise Amulet" "Two-Stone Ring" "Viridian Jewel" "Zodiac Leather"
+    Rarity Unique
+    Foulborn True
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    PlayAlertSound 1 300
+
+
+#==[111013]- Unique Items -T3 (Foulborn) 传奇物品 - 自动音效：Crystal Belt - 精确==
+Show
+    BaseType == "Crystal Belt"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\水晶腰带.mp3" 200
+
+
+#==[111014]- Unique Items -T3 (Foulborn) 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Abyssal Axe" "Ancient Spirit Shield" "Archon Kite Shield" "Assassin Bow" "Assassin's Mitts" "Blunt Arrow Quiver" "Branded Kite Shield" "Bronzescale Gauntlets" "Buckskin Tunic" "Carnal Mitts" "Chain Belt" "Chain Gloves" "Citadel Bow" "Clasped Mitts" "Close Helmet" "Cloth Belt" "Conjurer Gloves" "Copper Plate" "Coronal Maul" "Corrugated Buckler" "Crusader Chainmail" "Crusader Gloves" "Cutthroat's Garb" "Death Bow" "Deerskin Gloves" "Destiny Leather" "Destroyer Regalia" "Devout Chainmail" "Diamond Ring" "Etched Greatsword" "Ezomyte Burgonet" "Fiend Dagger" "Full Wyrmscale" "Goat's Horn" "Goathide Boots" "Golden Mask" "Golden Plate" "Great Helmet" "Harmonic Spirit Shield" "Holy Chainmail" "Hubris Circlet" "Iron Circlet" "Ironscale Gauntlets" "Ironwood Buckler" "Jasper Chopper" "Karui Sceptre" "Kinetic Wand" "Lapis Amulet" "Lathi" "Leather Cap" "Leather Hood" "Legion Boots" "Legion Gloves" "Majestic Plate" "Maraketh Bow" "Midnight Blade" "Military Staff" "Mind Cage" "Mosaic Kite Shield" "Necromancer Silks" "Nubuck Boots" "Occultist's Vestment" "Omen Wand" "Opal Wand" "Ornate Mace" "Penetrating Arrow Quiver" "Pinnacle Tower Shield" "Plate Vest" "Platinum Sceptre" "Praetor Crown" "Prismatic Ring" "Reaver Sword" "Regicide Mask" "Royal Axe" "Royal Bow" "Royal Burgonet" "Saintly Chainmail" "Sapphire Ring" "Scholar's Robe" "Serpentine Staff" "Short Bow" "Silken Hood" "Sinner Tricorne" "Soldier Boots" "Spike-Point Arrow Quiver" "Spiraled Wand" "Steelhead" "Steelscale Gauntlets" "Strapped Mitts" "Studded Belt" "Tarnished Spirit Shield" "Terror Claw" "Thresher Claw" "Timeworn Claw" "Titan Gauntlets" "Titan Greaves" "Triumphant Lamellar" "Two-Point Arrow Quiver" "Vaal Axe" "Vaal Blade" "Vaal Sceptre" "Vaal Spirit Shield" "Varnished Coat" "War Buckler" "Widowsilk Robe" "Wool Gloves" "Wyrmscale Gauntlets" "Zealot Helmet"
+    Rarity Unique
+    Foulborn True
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    PlayAlertSound 1 300
+
+
+#==[111015]- Unique Items -Other (Foulborn) 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    Foulborn True
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
+
+
+#==[111016]- Unique Items -Multi-Unique 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    Class == "Maps"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    PlayAlertSound 1 300
+
+
+#==[111017]- Unique Items -Other 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    Class == "Maps"
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
+
+
+#==[111018]- Unique Items -Other (Class) 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    Class == "Blueprints" "Contracts"
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
+
+
+#==[111019]- Unique Items -Uber Impresence 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Onyx Amulet"
+    Rarity Unique
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    PlayAlertSound 6 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111020]- Unique Items -Kaom's Heart 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Glorious Plate"
+    Rarity Unique
+    Sockets < 1
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    PlayAlertSound 6 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111021]- Unique Items -The Squire 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Elegant Round Shield"
+    Rarity Unique
+    Sockets >= 3WWW
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    PlayAlertSound 6 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111022]- Unique Items -Tabula Rasa 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Simple Robe"
+    Rarity Unique
+    LinkedSockets 6
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    PlayAlertSound 6 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111023]- Unique Items -Triad Grip 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Mesh Gloves"
+    Rarity Unique
+    Sockets >= 4WWWW
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    PlayAlertSound 6 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111024]- Unique Items -Forge Sword 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Infernal Sword"
+    Rarity Unique
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    PlayAlertSound 6 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111025]- Unique Items -Rational Doctrine 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Cobalt Jewel"
+    Rarity Unique
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    PlayAlertSound 6 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111026]- Unique Items -Synthesis Implicits 传奇物品 - 自动音效：Amethyst Ring - 精确==
+Show
+    BaseType == "Amethyst Ring"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    CustomAlertSound "sound_files\Sharket掉落音效\紫晶戒指.mp3" 200
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111027]- Unique Items -Synthesis Implicits 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Iron Ring" "Prismatic Ring" "Ruby Ring" "Sapphire Ring" "Topaz Ring"
+    Rarity Unique
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    PlayAlertSound 6 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111028]- Unique Items -6-Link 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    LinkedSockets 6
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    PlayAlertSound 6 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111029]- Unique Items -4x Abyss Helmet 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Bone Circlet"
+    Rarity Unique
+    Sockets >= AAAA
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111030]- Unique Items -3x Abyss 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Carnal Armour"
+    Rarity Unique
+    Sockets >= AAA
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111031]- Unique Items -T1 传奇物品 - 自动音效：Prismatic Jewel - 精确==
+Show
+    BaseType == "Prismatic Jewel"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    CustomAlertSound "sound_files\Sharket掉落音效\三相珠宝.mp3" 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111032]- Unique Items -T1 传奇物品 - 自动音效：Seaglass Amulet - 精确==
+Show
+    BaseType == "Seaglass Amulet"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    CustomAlertSound "sound_files\Sharket掉落音效\海晶护符.mp3" 200
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111033]- Unique Items -T1 传奇物品 - 自动音效：Unset Amulet - 精确==
+Show
+    BaseType == "Unset Amulet"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    CustomAlertSound "sound_files\Sharket掉落音效\潜能项链.mp3" 200
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111034]- Unique Items -T1 传奇物品 - 自动音效：Vermillion Ring - 精确==
+Show
+    BaseType == "Vermillion Ring"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    CustomAlertSound "sound_files\Sharket掉落音效\朱砂之戒.mp3" 200
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111035]- Unique Items -T1 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Cabalist Regalia" "Crusader Boots" "Dusk Blade" "Engraved Greatsword" "Fluted Bascinet" "Formless Ring" "Fugitive Ring" "Ghastly Eye Jewel" "Girded Tower Shield" "Gold Flask" "Greatwolf Talisman" "Karui Maul" "Lacewood Spirit Shield" "Large Cluster Jewel" "Papyrus Relic" "Raven Mask" "Ring" "Ruby Flask" "Runic Crown" "Runic Gages" "Runic Helm" "Runic Sollerets" "Savant's Robe" "Siege Axe" "Slaughter Knife" "Spectral Axe" "Tome Relic" "Vaal Rapier"
+    Rarity Unique
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    PlayAlertSound 6 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111036]- Unique Items -T2 传奇物品 - 自动音效：Ornate Quiver - 精确==
+Show
+    BaseType == "Ornate Quiver"
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\华美箭袋.mp3" 200
+    MinimapIcon 1 Brown Circle
+
+
+#==[111037]- Unique Items -T2 传奇物品 - 自动音效：Astrolabe Amulet - 精确==
+Show
+    BaseType == "Astrolabe Amulet"
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\星盘项链.mp3" 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111038]- Unique Items -T2 传奇物品 - 自动音效：Iron Flask - 精确==
+Show
+    BaseType == "Iron Flask"
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\坚铁药剂.mp3" 200
+    MinimapIcon 1 Brown Circle
+
+
+#==[111039]- Unique Items -T2 传奇物品 - 自动音效：Timeless Jewel - 精确==
+Show
+    BaseType == "Timeless Jewel"
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\永恒珠宝.mp3" 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111040]- Unique Items -T2 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Blood Raiment" "Butcher Axe" "Candlestick Relic" "Champion Kite Shield" "Crimson Round Shield" "Faun's Horn" "Imperial Maul" "Jingling Spirit Shield" "Lich's Circlet" "Maple Round Shield" "Martyr Gloves" "Medium Cluster Jewel" "Murderous Eye Jewel" "Piledriver" "Processional Relic" "Prophecy Wand" "Quarterstaff" "Rawhide Boots" "Riveted Boots" "Riveted Gloves" "Siege Helmet" "Somatic Wand" "Titanium Spirit Shield" "Void Axe" "Wyrmscale Doublet"
+    Rarity Unique
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111041]- Unique Items -Idols 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    Class == "Idols"
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111042]- Unique Items -2x Corrupted 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    Corrupted True
+    CorruptedMods >= 2
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111043]- Unique Items -2x Abyss 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Great Crown" "Mind Cage" "Murder Boots" "Riveted Gloves" "Steelscale Gauntlets"
+    Rarity Unique
+    Sockets >= AA
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111044]- Unique Items -Crucible Tree 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    HasCruciblePassiveTree True
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111045]- Unique Items -Multi-Unique High 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Amethyst Flask" "Antique Gauntlets" "Assassin's Boots" "Foul Staff" "Heavy Belt" "Hellion's Paw" "Imperial Bow" "Imperial Skean" "Imperial Staff" "Leather Belt" "Magistrate Crown" "Murder Boots" "Paua Amulet" "Small Cluster Jewel" "Spine Bow" "Vaal Blade" "Vaal Claw" "Waxed Garb"
+    Rarity Unique
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111046]- Unique Items -Foulborn (Foulborn) 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    Foulborn True
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111047]- Unique Items -Multi-Unique 2 传奇物品 - 自动音效：Amethyst Ring - 精确==
+Show
+    BaseType == "Amethyst Ring"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\紫晶戒指.mp3" 200
+
+
+#==[111048]- Unique Items -Multi-Unique 2 传奇物品 - 自动音效：Vanguard Belt - 精确==
+Show
+    BaseType == "Vanguard Belt"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\先锋腰带.mp3" 200
+
+
+#==[111049]- Unique Items -Multi-Unique 2 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Archon Kite Shield" "Astral Plate" "Crude Bow" "Ebony Tower Shield" "Fiend Dagger" "Gold Ring" "Highborn Staff" "Hydrascale Gauntlets" "Moonstone Ring" "Onyx Amulet" "Prophet Crown" "Regicide Mask" "Sage Wand" "Sage's Robe" "Saint's Hauberk" "Spidersilk Robe" "Stealth Boots" "Studded Belt" "Turquoise Amulet"
+    Rarity Unique
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    PlayAlertSound 1 300
+
+
+#==[111050]- Unique Items -Over-Quality 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    Quality >= 27
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111051]- Unique Items -5-Link 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    LinkedSockets 5
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111052]- Unique Items -6-Socket 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    Sockets >= 6
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111053]- Unique Items -Corrupted Jewels 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Cobalt Jewel" "Crimson Jewel" "Viridian Jewel"
+    Rarity Unique
+    Corrupted True
+    CorruptedMods 0
+    SetFontSize 39
+    SetTextColor 200 128 72 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 1 300
+    MinimapIcon 1 Brown Circle
+
+
+#==[111054]- Unique Items -Jewels 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Cobalt Jewel" "Crimson Jewel" "Viridian Jewel"
+    Rarity Unique
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    PlayAlertSound 6 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111055]- Unique Items -Corrupted Gear 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    Corrupted True
+    CorruptedMods >= 1
+    Class == "Amulets" "Belts" "Boots" "Gloves" "Helmets" "Quivers" "Rings" "Shields"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    PlayAlertSound 1 300
+
+
+#==[111056]- Unique Items -T3 Boss 传奇物品 - 自动音效：Fingerless Silk Gloves - 精确==
+Show
+    BaseType == "Fingerless Silk Gloves"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\丝绸手套.mp3" 200
+
+
+#==[111057]- Unique Items -T3 Boss 传奇物品 - 自动音效：Fugitive Boots - 精确==
+Show
+    BaseType == "Fugitive Boots"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\逃亡之靴.mp3" 200
+
+
+#==[111058]- Unique Items -T3 Boss 传奇物品 - 自动音效：Marble Amulet - 精确==
+Show
+    BaseType == "Marble Amulet"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\大理石护身符.mp3" 200
+
+
+#==[111059]- Unique Items -T3 Boss 传奇物品 - 自动音效：Opal Ring - 精确==
+Show
+    BaseType == "Opal Ring"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\蛋白石戒指.mp3" 200
+
+
+#==[111060]- Unique Items -T3 Boss 传奇物品 - 自动音效：Sacrificial Garb - 精确==
+Show
+    BaseType == "Sacrificial Garb"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\祭礼束衣.mp3" 200
+
+
+#==[111061]- Unique Items -T3 Boss 传奇物品 - 自动音效：Spiked Gloves - 精确==
+Show
+    BaseType == "Spiked Gloves"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\扣钉手套.mp3" 200
+
+
+#==[111062]- Unique Items -T3 Boss 传奇物品 - 自动音效：Steel Ring - 精确==
+Show
+    BaseType == "Steel Ring"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\合金戒指.mp3" 200
+
+
+#==[111063]- Unique Items -T3 Boss 传奇物品 - 自动音效：Stygian Vise - 精确==
+Show
+    BaseType == "Stygian Vise"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\深渊腰带.mp3" 200
+
+
+#==[111064]- Unique Items -T3 Boss 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Abyssal Axe" "Agate Amulet" "Amber Amulet" "Ambush Mitts" "Ambusher" "Ancient Gauntlets" "Assassin's Mitts" "Bismuth Flask" "Blood Sceptre" "Bone Circlet" "Broadhead Arrow Quiver" "Cardinal Round Shield" "Carnal Armour" "Carnal Mitts" "Censer Relic" "Chain Belt" "Chiming Spirit Shield" "Citadel Bow" "Coffer Relic" "Coiled Staff" "Colossal Mana Flask" "Colossal Tower Shield" "Colosseum Plate" "Cryonic Ring" "Cutlass" "Demon Dagger" "Dragonscale Boots" "Enthalpic Ring" "Ezomyte Burgonet" "Ezomyte Spiked Shield" "Ezomyte Staff" "Ezomyte Tower Shield" "Faithful Helmet" "Gladius" "Golden Buckler" "Golden Plate" "Goliath Gauntlets" "Goliath Greaves" "Great Crown" "Hubris Circlet" "Hydrascale Boots" "Hypnotic Eye Jewel" "Infernal Sword" "Judgement Staff" "Lacquered Helmet" "Lapis Amulet" "Legion Sword" "Lion Sword" "Maelström Staff" "Mirrored Spiked Shield" "Murder Mitts" "Necromancer Circlet" "Nightmare Mace" "Opal Wand" "Organic Ring" "Paladin Crown" "Paua Ring" "Pig-Faced Bascinet" "Praetor Crown" "Primal Arrow Quiver" "Royal Burgonet" "Ruby Ring" "Runic Gauntlets" "Runic Sabatons" "Sadist Garb" "Sapphire Ring" "Searching Eye Jewel" "Sentinel Jacket" "Serpentine Staff" "Shadow Sceptre" "Silken Hood" "Silver Flask" "Slink Boots" "Solaris Circlet" "Soldier Gloves" "Spiny Round Shield" "Steelscale Gauntlets" "Steelwood Bow" "Sulphur Flask" "Synaptic Ring" "Topaz Flask" "Topaz Ring" "Tornado Wand" "Torturer Garb" "Unset Ring" "Urn Relic" "Vaal Axe" "Vaal Greaves" "Vaal Mask" "Vaal Regalia" "Vaal Spirit Shield" "Varnished Coat" "Vile Arrow Quiver" "Void Sceptre" "Wyrmscale Boots" "Zealot Helmet"
+    Rarity Unique
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    PlayAlertSound 1 300
+
+
+#==[111065]- Unique Items -T3 传奇物品 - 自动音效：Granite Flask - 精确==
+Show
+    BaseType == "Granite Flask"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\坚岩药剂.mp3" 200
+
+
+#==[111066]- Unique Items -T3 传奇物品 - 自动音效：Blue Pearl Amulet - 精确==
+Show
+    BaseType == "Blue Pearl Amulet"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\碧珠护身符.mp3" 200
+
+
+#==[111067]- Unique Items -T3 传奇物品 - 自动音效：Bone Helmet - 精确==
+Show
+    BaseType == "Bone Helmet"
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\唤骨头盔.mp3" 200
+
+
+#==[111068]- Unique Items -T3 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Blunt Arrow Quiver" "Callous Mask" "Carnal Boots" "Citrine Amulet" "Cloth Belt" "Coronal Maul" "Crusader Gloves" "Crusader Plate" "Deicide Mask" "Devout Chainmail" "Embroidered Gloves" "Exquisite Blade" "Gavel" "Gemstone Sword" "General's Brigandine" "Gladiator Plate" "Goathide Boots" "Graceful Sword" "Grand Mana Flask" "Harmonic Spirit Shield" "Iron Ring" "Jade Amulet" "Jewelled Foil" "Karui Chopper" "Lacquered Buckler" "Lacquered Garb" "Large Hybrid Flask" "Leather Hood" "Legion Boots" "Majestic Plate" "Maraketh Bow" "Occultist's Vestment" "Painted Tower Shield" "Plated Greaves" "Primordial Staff" "Reinforced Greaves" "Saintly Chainmail" "Sapphire Flask" "Scholar's Robe" "Serpentscale Gauntlets" "Silk Gloves" "Sorcerer Boots" "Steel Kite Shield" "Stibnite Flask" "Triumphant Lamellar" "Two-Toned Boots" "Vaal Gauntlets" "Visored Sallet" "Widowsilk Robe" "Wolf Pelt" "Zodiac Leather"
+    Rarity Unique
+    SetFontSize 36
+    SetTextColor 210 150 104 255
+    SetBorderColor 105 58 22 255
+    SetBackgroundColor 10 10 13 255
+    PlayAlertSound 1 300
+
+
+#==[111069]- Unique Items -Low+ 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Coral Amulet" "Coral Ring" "Despot Axe" "Elegant Ringmail" "Elegant Sword" "Nameless Ring" "Phantom Mace" "Pinnacle Tower Shield" "Platinum Sceptre" "Rustic Sash" "Sovereign Spiked Shield" "Zealot Gloves"
+    Rarity Unique
+    SetFontSize 34
+    SetTextColor 168 130 105 255
+    SetBorderColor 57 32 12 255
+    SetBackgroundColor 0 0 0 0
+
+
+#==[111070]- Unique Items -Low 传奇物品 - 自动音效：Crystal Belt - 精确==
+Show
+    BaseType == "Crystal Belt"
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
+    CustomAlertSound "sound_files\Sharket掉落音效\水晶腰带.mp3" 200
+
+
+#==[111071]- Unique Items -Low 传奇物品 - 自动音效：Quartz Flask - 精确==
+Show
+    BaseType == "Quartz Flask"
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
+    CustomAlertSound "sound_files\Sharket掉落音效\石英药剂.mp3" 200
+
+
+#==[111072]- Unique Items -Low 传奇物品 - 自动音效：Quicksilver Flask - 精确==
+Show
+    BaseType == "Quicksilver Flask"
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
+    CustomAlertSound "sound_files\Sharket掉落音效\水银药剂.mp3" 200
+
+
+#==[111073]- Unique Items -Low 传奇物品 - 基础 - 精确==
+Show
+    BaseType == "Ancient Greaves" "Ancient Spirit Shield" "Antique Greaves" "Antique Rapier" "Arcanist Gloves" "Arcanist Slippers" "Ashbark Tincture" "Assassin Bow" "Assassin's Garb" "Auric Mace" "Aventail Helmet" "Awl" "Barbute Helmet" "Baroque Round Shield" "Basket Rapier" "Bastard Sword" "Black Maw Talisman" "Blasting Wand" "Blazing Arrow Quiver" "Bone Armour" "Boot Blade" "Boot Knife" "Branded Kite Shield" "Brass Maul" "Brass Spirit Shield" "Bronze Gauntlets" "Bronze Sceptre" "Bronzescale Boots" "Bronzescale Gauntlets" "Buckskin Tunic" "Calling Wand" "Carnal Sceptre" "Cedar Tower Shield" "Chain Gloves" "Clasped Boots" "Clasped Mitts" "Cleaver" "Close Helmet" "Clutching Talisman" "Compound Spiked Shield" "Conjurer Boots" "Conjurer Gloves" "Conquest Chainmail" "Copper Plate" "Corrugated Buckler" "Corsair Sword" "Crusader Chainmail" "Crystal Sceptre" "Cutthroat's Garb" "Death Bow" "Decimation Bow" "Decorative Axe" "Deerskin Boots" "Deerskin Gloves" "Desert Brigandine" "Destiny Leather" "Destroyer Regalia" "Diamond Flask" "Diamond Ring" "Dragonscale Gauntlets" "Dread Maul" "Dream Mace" "Driftwood Wand" "Eelskin Boots" "Eelskin Gloves" "Elder Sword" "Elegant Round Shield" "Enameled Buckler" "Estoc" "Etched Greatsword" "Eternal Burgonet" "Eternal Sword" "Exquisite Leather" "Ezomyte Axe" "Ezomyte Blade" "Ezomyte Dagger" "Feathered Arrow Quiver" "Festival Mask" "Flaying Knife" "Fright Claw" "Full Dragonscale" "Full Wyrmscale" "Gilded Sallet" "Glorious Plate" "Gnarled Branch" "Goat's Horn" "Goathide Gloves" "Gold Amulet" "Golden Mask" "Great Helmet" "Great Mallet" "Greater Mana Flask" "Grinning Fetish" "Gut Ripper" "Hallowed Hybrid Flask" "Harbinger Bow" "Harlequin Mask" "Headsman Axe" "Heavy Arrow Quiver" "Highland Blade" "Holy Chainmail" "Imperial Claw" "Infernal Axe" "Iron Circlet" "Iron Gauntlets" "Iron Hat" "Iron Mask" "Iron Staff" "Ironscale Boots" "Ironscale Gauntlets" "Ironwood Buckler" "Ironwood Tincture" "Jade Hatchet" "Jagged Foil" "Jagged Maul" "Jasper Chopper" "Karui Sceptre" "Kinetic Wand" "Laminated Kite Shield" "Lathi" "Latticed Ringmail" "Leather Cap" "Legion Gloves" "Lion Pelt" "Long Bow" "Lunaris Circlet" "Meatgrinder" "Mesh Boots" "Mesh Gloves" "Midnight Blade" "Military Staff" "Mind Cage" "Mosaic Kite Shield" "Nailed Fist" "Necromancer Silks" "Nightmare Bascinet" "Nubuck Boots" "Nubuck Gloves" "Oakbranch Tincture" "Omen Wand" "Opal Sceptre" "Ornate Mace" "Ornate Ringmail" "Ornate Sword" "Pagan Wand" "Painted Buckler" "Penetrating Arrow Quiver" "Pine Buckler" "Plague Mask" "Plank Kite Shield" "Plate Vest" "Platinum Kris" "Poleaxe" "Polished Spiked Shield" "Prismatic Ring" "Prismatic Tincture" "Ranger Bow" "Rawhide Tower Shield" "Reaver Helmet" "Reaver Sword" "Recurve Bow" "Reinforced Tower Shield" "Ritual Sceptre" "Rock Breaker" "Rotfeather Talisman" "Rotted Round Shield" "Royal Axe" "Royal Bow" "Royal Sceptre" "Royal Skean" "Royal Staff" "Rusted Sword" "Sabre" "Samite Gloves" "Samnite Helmet" "Sanctified Life Flask" "Sanctified Mana Flask" "Satin Gloves" "Satin Slippers" "Scholar Boots" "Secutor Helm" "Serpentscale Boots" "Serrated Arrow Quiver" "Shackled Boots" "Shadow Axe" "Shagreen Boots" "Shagreen Gloves" "Sharkskin Boots" "Sharkskin Tunic" "Sharktooth Arrow Quiver" "Short Bow" "Silk Slippers" "Silken Vest" "Simple Robe" "Sinner Tricorne" "Skinning Knife" "Sledgehammer" "Slink Gloves" "Soldier Boots" "Soldier Helmet" "Spike-Point Arrow Quiver" "Spiked Club" "Spiraled Wand" "Sporebloom Tincture" "Steel Circlet" "Steel Gauntlets" "Steelhead" "Stiletto" "Strapped Boots" "Strapped Mitts" "Studded Round Shield" "Sun Leather" "Supreme Spiked Shield" "Tarnished Spirit Shield" "Teak Round Shield" "Terror Claw" "Terror Maul" "Thresher Claw" "Throat Stabber" "Tiger Sword" "Timeworn Claw" "Titan Gauntlets" "Titan Greaves" "Tomahawk" "Trapper Boots" "Tribal Circlet" "Tricorne" "Twilight Blade" "Two-Point Arrow Quiver" "Two-Stone Ring" "Tyrant's Sekhem" "Ursine Pelt" "Vaal Buckler" "Vaal Hatchet" "Vaal Sceptre" "Velvet Gloves" "Velvet Slippers" "Vile Staff" "Vine Circlet" "War Buckler" "War Hammer" "War Sword" "Wereclaw Talisman" "Whalebone Rapier" "Wild Leather" "Woodsplitter" "Wool Gloves" "Wool Shoes" "Wrapped Mitts" "Wyrmscale Gauntlets"
+    Rarity Unique
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
+
+
+#==[111074]- Unique Items -Other 2 传奇物品 - Class Condition==
+Show
+    Rarity Unique
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
+
+
 #===================================================================================================================
 # [[120000]] 过渡 _campaign
 #===================================================================================================================

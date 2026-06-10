@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation, CLASS_KEY_MAP } from "../utils/localization";
+import { useBonusInfo } from "../utils/bonusInfo";
 
 interface ItemDetails {
   drop_level?: number;
@@ -38,6 +39,7 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
   language = "en",
 }) => {
   const t = useTranslation(language);
+  const bonusInfo = useBonusInfo();
   const [visible, setVisible] = useState(false);
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
@@ -74,7 +76,20 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
   const hasImplicit = item.implicit && item.implicit.length > 0;
 
   const isEquipment = hasWeaponStats || ar || ev || es || hasReqs;
-  const hasContent = item.item_class || isEquipment || hasImplicit;
+
+  // --- FilterBlade-style bonus / "could be" hover data ---
+  const baseType = (item.base_type as string) || item.name || "";
+  const flatBonus = bonusInfo.items[item.name || ""] || bonusInfo.items[baseType];
+  const uniqueBase = bonusInfo.uniques[baseType];
+  const candidates = (uniqueBase?.uniques || []).filter((u) => !u.hideInHoverBox);
+  const MAX_CANDIDATES = 6;
+  const flatLines = flatBonus?.description
+    ? flatBonus.description.split(/<br\s*\/?>/i).map((s) => s.trim()).filter(Boolean)
+    : [];
+  const flatTags = flatBonus?.tags || [];
+  const hasBonus = flatLines.length > 0 || flatTags.length > 0 || candidates.length > 0;
+
+  const hasContent = item.item_class || isEquipment || hasImplicit || hasBonus;
 
   if (!hasContent) return children;
 
@@ -215,6 +230,49 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
                     {imp}
                   </div>
                 ))}
+              </div>
+            </>
+          )}
+
+          {/* Bonus / "Could be" Section (FilterBlade hover info) */}
+          {hasBonus && (
+            <>
+              <div className="separator" />
+              <div className="bonus-block">
+                {flatLines.map((line, i) => (
+                  <div key={i} className="bonus-text">{line}</div>
+                ))}
+                {flatTags.length > 0 && (
+                  <div className="bonus-tags">
+                    {flatTags.map((tag) => (
+                      <span key={tag} className="bonus-tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+                {candidates.length === 1 && (
+                  <div className="bonus-could-be">
+                    <span className="bonus-label">{t.bonusDropsAs}:</span>{" "}
+                    <span className="bonus-unique single">{candidates[0].unique}</span>
+                  </div>
+                )}
+                {candidates.length > 1 && (
+                  <div className="bonus-could-be">
+                    <div className="bonus-label">{t.bonusCouldBe}:</div>
+                    {candidates.slice(0, MAX_CANDIDATES).map((c) => (
+                      <div key={c.unique} className="bonus-unique">
+                        • {c.unique}
+                        {c.ruleLink?.entryName && (
+                          <span className="bonus-rule-link"> ⚑</span>
+                        )}
+                      </div>
+                    ))}
+                    {candidates.length > MAX_CANDIDATES && (
+                      <div className="bonus-more">
+                        +{candidates.length - MAX_CANDIDATES} {t.bonusAndMore}
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </>
           )}
