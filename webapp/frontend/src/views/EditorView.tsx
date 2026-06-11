@@ -5,6 +5,7 @@ import CategoryView from '../components/CategoryView';
 import InspectorPanel from '../components/InspectorPanel'; 
 import ContextMenu from '../components/ContextMenu';
 import SoundBulkEditor from '../components/SoundBulkEditor';
+import VisibilityOverview from '../components/VisibilityOverview';
 import axios from 'axios';
 import { useTranslation, translations, RULE_FACTOR_LOCALIZATION } from '../utils/localization';
 import type { Language } from '../utils/localization';
@@ -49,6 +50,7 @@ const EditorView: React.FC<EditorViewProps> = ({
   const [themeData, setThemeData] = useState<any>(null);
   const [fallbackMenu, setFallbackMenu] = useState<{ x: number, y: number } | null>(null);
   const [showSoundManager, setShowSoundManager] = useState(false);
+  const [showVisibilityOverview, setShowVisibilityOverview] = useState(false);
 
   const API_BASE_URL = '';
 
@@ -364,6 +366,9 @@ const EditorView: React.FC<EditorViewProps> = ({
         <div className="top-bar">
           <h2>Editor: {selectedFile?.localization[language] || '...'} <small style={{fontSize: '0.7em', color: '#999'}}>({selectedFile?.mapping_path || 'No Mapping'})</small></h2>
           <div className="actions">
+             <button className="visibility-btn" onClick={() => setShowVisibilityOverview(true)}>
+                 👁 {t.showHideEditor}
+             </button>
              {selectedFile && (
                 <button className="save-btn" onClick={handleSave} disabled={loading}>
                     💾 {t.saveConfig}
@@ -428,6 +433,22 @@ const EditorView: React.FC<EditorViewProps> = ({
           </div>
       )}
 
+      {showVisibilityOverview && (
+          <VisibilityOverview
+            language={language}
+            onClose={() => setShowVisibilityOverview(false)}
+            onApplied={(touchedFiles) => {
+                // Refresh the open file if its visibility was changed
+                const currentRel = selectedFile?.tier_path?.replace(/^tier_definition\//, '');
+                if (currentRel && touchedFiles.includes(currentRel)) {
+                    axios.get(`/api/config/${selectedFile!.tier_path}`)
+                        .then(res => setConfigContent(JSON.stringify(res.data.content, null, 2)))
+                        .catch(err => console.error(err));
+                }
+            }}
+          />
+      )}
+
       {showSoundManager && (
           <SoundBulkEditor
             language={language}
@@ -467,6 +488,12 @@ const EditorView: React.FC<EditorViewProps> = ({
         }
         .save-btn:hover { background: #43a047; }
         .save-btn:disabled { background: #ccc; cursor: not-allowed; }
+        .actions { display: flex; gap: 10px; }
+        .visibility-btn {
+            background: white; color: #333; border: 1px solid #ccc; padding: 8px 16px;
+            border-radius: 4px; cursor: pointer; font-size: 0.9rem;
+        }
+        .visibility-btn:hover { border-color: #4CAF50; color: #2e7d32; }
 
         .workspace { flex: 1; padding: 0; overflow: hidden; display: flex; }
         .editor-pane { 

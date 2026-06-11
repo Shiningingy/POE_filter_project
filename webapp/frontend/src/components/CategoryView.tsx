@@ -23,6 +23,7 @@ import RuleManager from "./RuleManager";
 import SortableTierBlock from "./SortableTierBlock";
 import ContextMenu from "./ContextMenu";
 import LoadingOverlay from "./LoadingOverlay";
+import { invalidateTierLabelMap } from "../utils/tierLabels";
 import { resolveStyle } from "../utils/styleResolver";
 import { useTranslation, translations } from "../utils/localization";
 import type { Language } from "../utils/localization";
@@ -320,6 +321,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     if (Object.keys(loc).length) tier.localization = loc;
     else delete tier.localization;
     updateConfig(newConfig);
+    invalidateTierLabelMap(); // style picker / theme editor labels refresh next fetch
     setRenameModal(null);
   };
 
@@ -792,6 +794,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     style={resolved}
                     visibility={!!tierData.hideable}
                     canHide={tierData.show_in_editor !== false}
+                    themeData={themeData}
+                    themeCategory={themeCategory}
                     onChange={(newStyle, newVis) =>
                       handleTierUpdate(tierKey, newStyle, newVis, themeCategory)
                     }
@@ -834,6 +838,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                                   />
                   <RuleManager
                     tierKey={tierKey}
+                    themeData={themeData}
+                    themeCategory={themeCategory}
                     allRules={
                       activeCategoryData.rules ||
                       activeCategoryData._meta?.rules ||

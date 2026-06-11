@@ -6,6 +6,7 @@ import { getSoundUrl } from "../utils/soundUtils";
 import { getAssetUrl } from "../utils/assetUtils";
 import MinimapIconPicker, { getIconStyle } from "./MinimapIconPicker";
 import PlayEffectPicker from "./PlayEffectPicker";
+import StylePresetPicker from "./StylePresetPicker";
 
 interface StyleProps {
   FontSize?: number;
@@ -28,6 +29,9 @@ interface TierStyleEditorProps {
   onReset?: () => void;
   language: Language;
   viewerBackground: string;
+  // Quick style apply: theme styles available as presets (source = active theme)
+  themeData?: any;
+  themeCategory?: string;
 }
 
 const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
@@ -40,8 +44,11 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   onReset,
   language,
   viewerBackground,
+  themeData,
+  themeCategory,
 }) => {
   const t = useTranslation(language);
+  const [showPresetPicker, setShowPresetPicker] = useState(false);
   const [showSoundPopup, setShowSoundPopup] = useState(false);
   const [showIconPopup, setShowIconPopup] = useState(false);
   const [showBeamPopup, setShowBeamPopup] = useState(false);
@@ -363,6 +370,16 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         />
       )}
 
+      {showPresetPicker && themeData && (
+        <StylePresetPicker
+          themeData={themeData}
+          initialCategory={themeCategory}
+          language={language}
+          onClose={() => setShowPresetPicker(false)}
+          onSelect={(presetStyle) => onChange({ ...style, ...presetStyle }, visibility)}
+        />
+      )}
+
       {showBeamPopup && (
         <PlayEffectPicker
           value={style.PlayEffect}
@@ -386,6 +403,18 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         <div className="tier-header-bar">
           <h4 className="tier-title">{tierName}</h4>
           <div className="header-actions">
+            {themeData && (
+              <button
+                className="preset-btn"
+                title={t.applyStylePreset}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowPresetPicker(true);
+                }}
+              >
+                🎨
+              </button>
+            )}
             <button
               className={`vis-btn ${visibility ? "is-hidden" : "is-shown"} ${!canHide ? "disabled-vis" : ""}`}
               disabled={!canHide}
@@ -624,6 +653,8 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         .VisualEditor_Container { width: 100%; position: relative; border: 1px solid #61523e; border-radius: 1px; display: block; z-index: 5; background-color: #1e1e1e; background-repeat: no-repeat; background-position: top center; background-size: cover; margin-bottom: 15px; cursor: pointer; }
         .tier-header-bar { background: rgba(37, 37, 37, 0.8); padding: 8px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #111; }
         .tier-title { margin: 0; font-size: 0.95rem; font-weight: bold; text-transform: uppercase; color: #aaa; }
+        .preset-btn { background: #333; border: 1px solid #444; padding: 4px 8px; border-radius: 2px; cursor: pointer; font-size: 0.75rem; }
+        .preset-btn:hover { border-color: #4CAF50; }
         .vis-btn { background: #333; color: #fff; border: 1px solid #444; padding: 4px 12px; border-radius: 2px; cursor: pointer; font-size: 0.75rem; }
         .vis-btn.is-shown { color: #4CAF50; border-color: #2e7d32; }
         .vis-btn.is-hidden { color: #f44336; border-color: #c62828; }

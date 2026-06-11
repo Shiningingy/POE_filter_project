@@ -12,6 +12,7 @@ import ContextMenu from "./ContextMenu";
 import SoundPicker from "./SoundPicker";
 import MinimapIconPicker, { getIconStyle, formatMinimapIcon } from "./MinimapIconPicker";
 import PlayEffectPicker, { formatPlayEffect } from "./PlayEffectPicker";
+import StylePresetPicker from "./StylePresetPicker";
 
 interface Item {
   name: string;
@@ -49,6 +50,8 @@ interface RuleManagerProps {
   onPingCondition?: (tierKey: string, ruleIndex: number, conditionKey: string) => void;
   onRegisterTranslation?: (name: string, name_ch?: string) => void;
   categoryClass?: string | null;
+  themeData?: any;
+  themeCategory?: string;
   pingedCondition?: {
     tierKey: string;
     ruleIndex: number;
@@ -114,6 +117,8 @@ const RuleManager: React.FC<RuleManagerProps> = ({
   onPingCondition,
   onRegisterTranslation,
   categoryClass,
+  themeData,
+  themeCategory,
   pingedCondition
 }) => {
   const t = useTranslation(language);
@@ -142,6 +147,19 @@ const RuleManager: React.FC<RuleManagerProps> = ({
     index: number;
     type: "sound" | "icon" | "effect";
   } | null>(null);
+
+  // Quick style apply (rule whose overrides receive a theme preset style)
+  const [presetPickerIndex, setPresetPickerIndex] = useState<number | null>(null);
+
+  const applyPresetToRule = (globalIndex: number, presetStyle: Record<string, any>) => {
+    const rule = allRules[globalIndex];
+    if (!rule) return;
+    // Only style keys land; Tier / conditions / sound stay untouched.
+    handleUpdateRule(globalIndex, {
+      ...rule,
+      overrides: { ...(rule.overrides || {}), ...presetStyle },
+    });
+  };
 
   const [localPing, setLocalPing] = useState<{
     ruleIndex: number;
@@ -957,6 +975,15 @@ const RuleManager: React.FC<RuleManagerProps> = ({
 
                   <div className="section-divider">
                     <span>{t.themeOverrides}</span>
+                    {themeData && (
+                      <button
+                        className="rule-preset-btn"
+                        title={t.applyStylePreset}
+                        onClick={() => setPresetPickerIndex(globalIndex)}
+                      >
+                        🎨 {t.applyStylePreset}
+                      </button>
+                    )}
                   </div>
 
                   <div className="theme-overrides-grid">
@@ -1246,8 +1273,20 @@ const RuleManager: React.FC<RuleManagerProps> = ({
         />
       )}
 
+      {presetPickerIndex !== null && themeData && (
+        <StylePresetPicker
+          themeData={themeData}
+          initialCategory={themeCategory}
+          language={language}
+          onClose={() => setPresetPickerIndex(null)}
+          onSelect={(presetStyle) => applyPresetToRule(presetPickerIndex, presetStyle)}
+        />
+      )}
+
       <style>{`
         .tier-rule-manager { margin-top: 15px; padding-top: 10px; border-top: 1px dashed #ddd; }
+        .rule-preset-btn { margin-left: auto; background: #fafafa; border: 1px solid #ddd; border-radius: 4px; padding: 2px 10px; font-size: 0.72rem; cursor: pointer; }
+        .rule-preset-btn:hover { border-color: #4CAF50; color: #2e7d32; }
         .override-picker-box { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border: 1px solid #ddd; border-radius: 4px; background: #fafafa; cursor: pointer; transition: background 0.2s; min-height: 28px; }
         .override-picker-box:hover { background: #f0f7ff; border-color: #2196F3; }
         .override-name { font-size: 0.78rem; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
