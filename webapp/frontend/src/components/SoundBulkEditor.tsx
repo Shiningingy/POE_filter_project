@@ -656,14 +656,10 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
               axios.get(`/api/themes/${baseTheme}`),
               axios.get('/api/custom-overrides'),
           ]);
-          let mappings: any = {}, tierDefinitions: any = {};
-          if (import.meta.env.VITE_DEMO_MODE === 'true') {
-              const b = await axios.get('demo_data/bundle.json');
-              mappings = b.data.mappings; tierDefinitions = b.data.tiers;
-          } else {
-              const b = await axios.get('/api/simulator-bundle');
-              mappings = b.data.mappings; tierDefinitions = b.data.tiers;
-          }
+          // Served live in both modes (the demo adapter computes it from the
+          // bundle + the user's in-browser edits).
+          const b = await axios.get('/api/simulator-bundle');
+          const mappings = b.data.mappings, tierDefinitions = b.data.tiers;
           const ctx: FilterContext = { theme: themeRes.data.theme_data, overrides: overridesRes.data, mappings, tierDefinitions };
           setRuleContext(ctx);
           return ctx;

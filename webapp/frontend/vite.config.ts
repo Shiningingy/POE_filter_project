@@ -3,8 +3,10 @@ import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 
 // https://vite.dev/config/
+// Base path: '/' for Cloudflare Pages / custom domain (sharketfilter.xyz);
+// the GitHub Pages preview workflow sets VITE_BASE_PATH=/POE_filter_project/.
 export default defineConfig({
-  base: '/POE_filter_project/',
+  base: process.env.VITE_BASE_PATH || '/',
   plugins: [react()],
   resolve: {
     alias: {

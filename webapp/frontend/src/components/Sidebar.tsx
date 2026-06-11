@@ -176,12 +176,19 @@ const Sidebar: React.FC<SidebarProps> = ({
       <div className="sidebar-footer">
           {import.meta.env.VITE_DEMO_MODE === 'true' && (
               <button className="reset-demo-btn" onClick={() => {
-                  if (confirm("Reset all changes to default? This cannot be undone.")) {
-                      Object.keys(localStorage).forEach(k => k.startsWith('demo_vfs_') && localStorage.removeItem(k));
+                  if (confirm(language === 'ch'
+                      ? "将所有更改重置为默认？此操作无法撤销。"
+                      : "Reset all changes to default? This cannot be undone.")) {
+                      Object.keys(localStorage).forEach(k => {
+                          if (k.startsWith('demo_vfs_') || k.startsWith('demo_theme_')
+                              || k === 'demo_custom_overrides' || k === 'demo_generated_filter') {
+                              localStorage.removeItem(k);
+                          }
+                      });
                       window.location.reload();
                   }
               }}>
-                  ⚠ {language === 'ch' ? "重置演示数据" : "Reset Demo Data"}
+                  ⚠ {language === 'ch' ? "重置所有更改" : "Reset All Changes"}
               </button>
           )}
       </div>
