@@ -10,6 +10,7 @@ import SimulatorRulePanel from './SimulatorRulePanel';
 import SimulatorMatchPicker from './SimulatorMatchPicker';
 import { useAppData } from '../services/AppDataContext';
 import SimulatorSettingsPanel from './SimulatorSettingsPanel';
+import LoadingOverlay from './LoadingOverlay';
 import {
   generateRandomItem,
   generateValuableItem,
@@ -493,6 +494,14 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
 
   const isAtCap = droppedItems.length >= MAX_GROUND_ITEMS;
   const submitDisabled = !newItem.name?.trim() || !newItem.class || (isAtCap && !editingItem);
+
+  if (loading) {
+    return (
+      <div className="drop-simulator">
+        <LoadingOverlay language={language} />
+      </div>
+    );
+  }
 
   return (
     <div className="drop-simulator">

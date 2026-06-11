@@ -585,6 +585,14 @@ def generate_filter():
                     
                     out_lines.append("\n".join(block_lines) + "\n")
 
+    # Footer (data/footer.filter): appended verbatim at the very end —
+    # the unknown-items catch-all block lives there (hand-maintained).
+    footer_file = PROJECT_ROOT / "filter_generation" / "data" / "footer.filter"
+    if footer_file.exists():
+        footer_text = footer_file.read_text(encoding="utf-8").strip()
+        if footer_text:
+            out_lines.append("\n" + footer_text + "\n")
+
     overview.append("#========================================\n")
     final_text = "\n".join(overview) + "\n" + "\n".join(out_lines) + "\n"
     OUTPUT_FILE.write_text(final_text, encoding="utf-8")

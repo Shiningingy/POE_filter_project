@@ -159,12 +159,14 @@ export const setupDemoAdapter = () => {
       } else if (path.endsWith('/api/generate')) {
         respond(config, async () => {
           const merged = await data.getMergedState();
+          const bundle = await data.loadBundle();
           const filterText = generateFilter({
             themeData: await data.getMergedTheme(),
             soundMap: await data.getSoundMap(),
             allMappings: merged.mappings,
             allTierDefinitions: merged.tiers,
             language: 'ch',
+            footer: bundle?.footer || '',
           });
           localStorage.setItem('demo_generated_filter', filterText);
           return { message: 'Success (generated in browser)', content: filterText };

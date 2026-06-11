@@ -54,6 +54,36 @@
         "en": "Hide",
         "ch": "隐藏"
       }
+    },
+    "Tier 0 Heist Equipment": {
+      "theme": {
+        "Tier": 0
+      },
+      "localization": {
+        "en": "T0: Heist Equipment",
+        "ch": "T0: 赏金猎人装备"
+      },
+      "show_in_editor": true
+    },
+    "Tier 1 Heist Equipment": {
+      "theme": {
+        "Tier": 1
+      },
+      "localization": {
+        "en": "T1: Heist Equipment",
+        "ch": "T1: 赏金猎人装备"
+      },
+      "show_in_editor": true
+    },
+    "Tier 3 Heist Equipment": {
+      "theme": {
+        "Tier": 3
+      },
+      "localization": {
+        "en": "T3: Heist Equipment",
+        "ch": "T3: 赏金猎人装备"
+      },
+      "show_in_editor": true
     }
   }
 }

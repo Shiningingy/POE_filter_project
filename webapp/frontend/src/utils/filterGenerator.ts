@@ -10,6 +10,7 @@ interface GeneratorData {
   allMappings: Record<string, any>; // path -> content
   allTierDefinitions: Record<string, any>; // path -> content
   language: Language;
+  footer?: string; // verbatim tail (unknown-items catch-all block)
 }
 
 // ===========================
@@ -385,6 +386,11 @@ export const generateFilter = (data: GeneratorData): string => {
       }
     }
   }
+
+  // Footer: appended verbatim — the unknown-items catch-all block
+  // (data/footer.filter, hand-maintained). Mirrors generate.py.
+  const footerText = (data.footer || '').trim();
+  if (footerText) outLines.push('\n' + footerText + '\n');
 
   overview.push("#========================================\n");
   return overview.join('\n') + '\n' + outLines.join('\n') + '\n';

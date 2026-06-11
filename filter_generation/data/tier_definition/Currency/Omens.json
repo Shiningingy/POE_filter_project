@@ -15,7 +15,7 @@
     "Tier 1 Omens": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 1
       },
       "sound": {
         "default_sound_id": 2,
@@ -29,7 +29,7 @@
     "Tier 2 Omens": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 2
       },
       "sound": {
         "default_sound_id": -1,
@@ -54,6 +54,16 @@
         "en": "Hide",
         "ch": "隐藏"
       }
+    },
+    "Tier 0 Omens": {
+      "theme": {
+        "Tier": 0
+      },
+      "localization": {
+        "en": "T0: Omens",
+        "ch": "T0: 预兆"
+      },
+      "show_in_editor": true
     }
   }
 }

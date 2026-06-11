@@ -82,8 +82,8 @@
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "Tier Hide: Idols",
-        "ch": "隐藏: 神像"
+        "en": "Hide",
+        "ch": "隐藏"
       }
     }
   }

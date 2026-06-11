@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useTranslation, CLASS_KEY_MAP, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import SoundPicker from './SoundPicker';
+import LoadingOverlay from './LoadingOverlay';
 import MinimapIconPicker, { getIconStyle, formatMinimapIcon } from './MinimapIconPicker';
 import PlayEffectPicker, { formatPlayEffect } from './PlayEffectPicker';
 import { getAssetUrl } from '../utils/assetUtils';
@@ -59,6 +60,10 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
   const [viewerBackground, setViewerBackground] = useState<string>('Item_bg_coast.jpg');
 
+  // theme-category -> tier number -> {en, ch} display names from the tier
+  // definitions, so this editor mirrors the editor's (renameable) tier names.
+  const [tierLabelMap, setTierLabelMap] = useState<Record<string, Record<number, { en?: string; ch?: string }>>>({});
+
   const backgrounds = [
     { id: "Item_bg_coast.jpg", name: t.coast },
     { id: "Item_bg_forest.jpg", name: t.forest },
@@ -87,6 +92,34 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
       } catch (e) { console.error(e); }
     };
     fetchData();
+  }, []);
+
+  // Build the tier-name map from the tier definitions (merged state in the
+  // deployed build, live files in local dev).
+  useEffect(() => {
+    const fetchTierLabels = async () => {
+      try {
+        const res = await axios.get('/api/simulator-bundle');
+        const map: Record<string, Record<number, { en?: string; ch?: string }>> = {};
+        Object.values(res.data?.tiers || {}).forEach((fileContent: any) => {
+          const catKey = Object.keys(fileContent || {}).find(k => !k.startsWith('//'));
+          if (!catKey) return;
+          const cat = fileContent[catKey];
+          const themeCategory = cat?._meta?.theme_category || catKey;
+          if (!map[themeCategory]) map[themeCategory] = {};
+          Object.entries<any>(cat).forEach(([key, val]) => {
+            if (key === '_meta' || !val || typeof val !== 'object') return;
+            const num = val.theme?.Tier;
+            if (typeof num !== 'number' || map[themeCategory][num]) return; // first file wins
+            if (val.localization?.en || val.localization?.ch) {
+              map[themeCategory][num] = { en: val.localization.en, ch: val.localization.ch };
+            }
+          });
+        });
+        setTierLabelMap(map);
+      } catch (e) { console.error('Failed to load tier labels', e); }
+    };
+    fetchTierLabels();
   }, []);
 
   // Fetch Base Theme Data
@@ -176,15 +209,26 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
       return base;
   }, [baseThemeData, overridesData, selectedCategory]);
 
+  // Hide tier (Tier 9) is excluded: its style never shows in game.
+  const visibleTierKeys = (obj: any) =>
+      sortTierKeys(obj).filter(k => k !== 'Tier 9');
+
+  const tierDisplayName = (tier: string) => {
+      const num = parseInt(tier.match(/Tier (\d+)/)?.[1] || '');
+      const loc = Number.isNaN(num) ? undefined : tierLabelMap[selectedCategory]?.[num];
+      const label = loc?.[language] || loc?.en;
+      return label || `${catLabel(selectedCategory)} ${tier}`;
+  };
+
   const previewItems = useMemo(() => {
-    return sortTierKeys(effectiveTiers).map(tier => ({
-        name: `${catLabel(selectedCategory)} ${tier}`,
+    return visibleTierKeys(effectiveTiers).map(tier => ({
+        name: tierDisplayName(tier),
         tierKey: tier,
         style: effectiveTiers[tier],
         isOverridden: overridesData[selectedCategory]?.[tier] !== undefined
     }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [effectiveTiers, selectedCategory, overridesData, language]);
+  }, [effectiveTiers, selectedCategory, overridesData, language, tierLabelMap]);
 
   const activeStyle = useMemo(() => {
       if (isBulkEditing && previewItems.length > 0) return previewItems[0].style;
@@ -207,7 +251,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   const handleUpdateStyle = (key: string, value: any) => {
       if (isBulkEditing) {
           if (!selectedCategory) return;
-          sortTierKeys(effectiveTiers).forEach(tier => updateOverride(selectedCategory, tier, key, value));
+          visibleTierKeys(effectiveTiers).forEach(tier => updateOverride(selectedCategory, tier, key, value));
       } else {
           if (!editingTier || !selectedCategory) return;
           updateOverride(selectedCategory, editingTier, key, value);
@@ -319,6 +363,16 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
         ))}
     </div>
   );
+
+  if (!baseThemeData) {
+    return (
+      <div className="theme-editor-modal modal-overlay">
+        <div className="modal-content main-content-frame">
+          <LoadingOverlay language={language} />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="theme-editor-modal modal-overlay">

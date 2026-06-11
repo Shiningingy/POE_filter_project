@@ -1,0 +1,7 @@
+#==[99999]-未知物品 Unknown Items==
+# Catch-all for anything no rule above matched (new league items, unmapped basetypes).
+# PLACEHOLDER — the real block will be hand-written here.
+Show
+    SetFontSize 32
+    SetTextColor 255 0 255 255
+    SetBorderColor 255 0 255 255

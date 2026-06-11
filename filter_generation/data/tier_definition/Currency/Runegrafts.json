@@ -14,7 +14,7 @@
     "Tier 1 Runegrafts": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 1
       },
       "sound": {
         "default_sound_id": 2,
@@ -39,6 +39,26 @@
         "en": "Hide",
         "ch": "隐藏"
       }
+    },
+    "Tier 0 Runegrafts": {
+      "theme": {
+        "Tier": 0
+      },
+      "localization": {
+        "en": "T0: Runegrafts",
+        "ch": "T0: 符文嫁接"
+      },
+      "show_in_editor": true
+    },
+    "Tier 2 Runegrafts": {
+      "theme": {
+        "Tier": 2
+      },
+      "localization": {
+        "en": "T2: Runegrafts",
+        "ch": "T2: 符文嫁接"
+      },
+      "show_in_editor": true
     }
   }
 }

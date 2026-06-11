@@ -8,8 +8,16 @@ import SimulatorView from './views/SimulatorView';
 import ExportView from './views/ExportView';
 import ThemeView from './views/ThemeView';
 import type { CategoryFile } from './components/Sidebar';
-import { AppDataProvider } from './services/AppDataContext';
+import { AppDataProvider, useAppData } from './services/AppDataContext';
 import AdminPanel from './components/AdminPanel';
+import LoadingOverlay from './components/LoadingOverlay';
+
+// App-start splash: covers the UI until the shared base data
+// (class hierarchy/properties) is in. Must live inside AppDataProvider.
+const StartupSplash = ({ language }: { language: Language }) => {
+  const { loading } = useAppData();
+  return loading ? <LoadingOverlay language={language} fullscreen /> : null;
+};
 
 function App() {
   const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export' | 'theme'>('editor');
@@ -119,7 +127,11 @@ function App() {
 
   useEffect(() => {
     fetchFilterPreview();
-  }, [fetchFilterPreview]); 
+  }, [fetchFilterPreview]);
+
+  useEffect(() => {
+    document.title = t.appTitle;
+  }, [t.appTitle]);
 
   useEffect(() => {
     if (selectedFile && !selectedFile.tier_path.includes('tier_definition')) {
@@ -129,6 +141,7 @@ function App() {
 
   return (
     <AppDataProvider>
+    <StartupSplash language={language} />
     <div className="App">
       <div className="navbar">
         <div className="brand">{t.appTitle}</div>

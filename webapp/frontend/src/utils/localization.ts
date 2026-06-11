@@ -150,7 +150,7 @@ export const CLASS_CH: Record<string, string> = {
 
 export const translations = {
   en: {
-    appTitle: "POE Filter Editor",
+    appTitle: "Sharket POE Filter",
     editor: "Editor",
     simulator: "Simulator",
     saveExport: "Save & Export",
@@ -493,6 +493,12 @@ export const translations = {
     rarityWeights: "Rarity Weights",
     normalize: "Normalize",
     categories: "Categories",
+    save: "Save",
+    loadingData: "Loading data…",
+    renameTier: "Rename tier",
+    tierNameEn: "Display name (English)",
+    tierNameCh: "Display name (中文)",
+    renameTierHint: "Only the display name changes — the internal tier key and styling stay the same. Leave empty to restore the default name.",
     openSettings: "Open Settings",
     collapse: "Collapse",
     addItem: "Add Item",
@@ -569,7 +575,7 @@ export const translations = {
     BorderColor: "Border Color"
   },
   ch: {
-    appTitle: "POE 过滤器编辑器",
+    appTitle: "Sharket POE 过滤编辑器",
     editor: "编辑器",
     simulator: "模拟器",
     saveExport: "保存与导出",
@@ -973,6 +979,12 @@ export const translations = {
     rarityWeights: "稀有度权重",
     normalize: "归一化",
     categories: "类别",
+    save: "保存",
+    loadingData: "数据加载中…",
+    renameTier: "重命名层级",
+    tierNameEn: "显示名称（English）",
+    tierNameCh: "显示名称（中文）",
+    renameTierHint: "仅修改显示名称 —— 内部层级标识与样式保持不变。留空则恢复默认名称。",
     openSettings: "打开设置",
     collapse: "折叠",
     addItem: "添加物品",

@@ -1217,6 +1217,12 @@
       "BorderColor": "#3c3c46ff",
       "BackgroundColor": "#00000000"
     },
+    "Tier 6": {
+      "FontSize": 36,
+      "TextColor": "#7eabdcff",
+      "BorderColor": "#264a71ff",
+      "BackgroundColor": "#0a0a0dff"
+    },
     "Tier 9": {
       "FontSize": 18,
       "TextColor": "#5a5a64aa",

@@ -16,7 +16,7 @@
       "hideable": false,
       "min_value": 4,
       "theme": {
-        "Tier": 3
+        "Tier": 1
       },
       "sound": {
         "default_sound_id": 2,
