@@ -110,7 +110,7 @@ export const parseClipboardItem = (text: string): ItemProps => {
 
 export const evaluateItem = (item: ItemProps, context: FilterContext): SimulationResult => {
     let matchedTier: string | null = null;
-    let matchedFile = null;
+    let matchedFile: string | null = null;
     let matchedRuleName = null;
     let matchedPartial = false;
 
@@ -148,9 +148,11 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
     } else {
         matchedTier = "Untiered";
     }
+    const tierKey: string = matchedTier ?? 'Untiered';
 
-    // 2 + 3. Resolve category + style from theme (shared with getMatchingRules)
-    const { style, visible } = resolveStyle(matchedFile, matchedTier, context);
+    // 2 + 3. Resolve category + style from theme (shared with getMatchingRules).
+    // No matched file -> empty key resolves to the Default theme bucket.
+    const { style, visible } = resolveStyle(matchedFile ?? '', tierKey, context);
 
     return {
         visible,
