@@ -32,6 +32,11 @@ import OccurrenceRuleList, { type OccurrenceRuleRow } from './OccurrenceRuleList
 import SimulatorRulePanel from './SimulatorRulePanel';
 import type { FilterContext } from '../utils/simulatorEngine';
 import { loadSoundEditorSession, saveSoundEditorSession, clearSoundEditorSession } from '../utils/soundEditorSession';
+import {
+  buildSoundExport, parseSoundExport, collectSoundRules,
+  matchSoundRule, applySoundRule, referencedSoundPaths, downloadJson,
+} from '../utils/themeSoundExport';
+import type { SoundExportRule, SkipReason } from '../utils/themeSoundExport';
 
 // ===========================
 // TYPES
@@ -309,6 +314,16 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   const [picker, setPicker] = useState<PickerState | null>(null);
   // Rule-block drill-in (reuses the simulator's panel + a lazily-built FilterContext)
   const [ruleContext, setRuleContext] = useState<FilterContext | null>(null);
+  // Standalone sound export/import
+  const soundFileInputRef = React.useRef<HTMLInputElement>(null);
+  const [soundIO, setSoundIO] = useState(false); // busy flag
+  const [importReport, setImportReport] = useState<{
+      mapMerged: number;
+      updated: SoundExportRule[];
+      created: SoundExportRule[];
+      skipped: { rule: SoundExportRule; reason: SkipReason }[];
+      missingAudio: string[];
+  } | null>(null);
   const [rulesFor, setRulesFor] = useState<Item | null>(null);     // occurrence list modal
   const [rulePanelFile, setRulePanelFile] = useState<string | null>(null); // base_mapping/<rel>
 
@@ -657,6 +672,88 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
 
   const openRulesList = (it: Item) => { setRulesFor(it); ensureContext(); };
 
+  // ---- standalone sound export/import ----
+  const handleExportSounds = async () => {
+      setSoundIO(true);
+      try {
+          const ctx = await ensureContext();
+          const rules = ctx ? collectSoundRules(ctx.mappings) : [];
+          downloadJson(buildSoundExport(soundMap || {}, rules), 'Sharket_Sounds.sounds.json');
+      } finally { setSoundIO(false); }
+  };
+
+  const handleImportSoundsFile = async (file: File) => {
+      const parsed = parseSoundExport(await file.text());
+      if (parsed === null) { alert(t.tsInvalidSoundFile); return; }
+      if (parsed === 'newer') { alert(t.tsNewerVersion); return; }
+      setSoundIO(true);
+      try {
+          // 1. Global sound map: merge key-by-key, incoming wins.
+          const incomingBase = parsed.sound_map.basetype_sounds || {};
+          const incomingClass = parsed.sound_map.class_sounds || {};
+          const mapMerged = Object.keys(incomingBase).length + Object.keys(incomingClass).length;
+          if (mapMerged > 0) {
+              const merged = {
+                  ...(soundMap || {}),
+                  basetype_sounds: { ...(soundMap?.basetype_sounds || {}), ...incomingBase },
+                  class_sounds: { ...(soundMap?.class_sounds || {}), ...incomingClass },
+              };
+              await axios.post('/api/sound-map', merged);
+              setSoundMap(merged);
+          }
+
+          // 2. Rules: per file, apply exact matches only; skip + report the rest.
+          const updated: SoundExportRule[] = [];
+          const created: SoundExportRule[] = [];
+          const skipped: { rule: SoundExportRule; reason: SkipReason }[] = [];
+          const byFile = new Map<string, SoundExportRule[]>();
+          parsed.rules.forEach(r => {
+              const arr = byFile.get(r.file) || [];
+              arr.push(r);
+              byFile.set(r.file, arr);
+          });
+          for (const [filePath, rules] of byFile) {
+              let content: any = null;
+              try {
+                  const res = await axios.get(`/api/config/${filePath}`);
+                  content = res.data.content;
+              } catch { /* missing file */ }
+              if (!content) {
+                  rules.forEach(rule => skipped.push({ rule, reason: 'file-missing' }));
+                  continue;
+              }
+              let touched = false;
+              for (const rule of rules) {
+                  const match = matchSoundRule(rule, content);
+                  if (match.action === 'skip') {
+                      skipped.push({ rule, reason: match.reason! });
+                      continue;
+                  }
+                  applySoundRule(rule, content, match);
+                  touched = true;
+                  (match.action === 'update' ? updated : created).push(rule);
+              }
+              if (touched) await axios.post(`/api/config/${filePath}`, content);
+          }
+
+          // 3. Missing-audio warning (list endpoints cover Default/ + sharket dirs).
+          const available = new Set([...defaults, ...sharket].map(s => s.path));
+          const missingAudio = referencedSoundPaths(parsed).filter(p => !available.has(p));
+
+          setImportReport({ mapMerged, updated, created, skipped, missingAudio });
+
+          // 4. Refresh occurrence data (per-file rule sounds changed on disk).
+          if (updated.length || created.length) {
+              setRuleContext(null);
+              try {
+                  const itemsRes = await axios.get('/api/class-items/All');
+                  setItems(itemsRes.data.items);
+              } catch { /* keep stale view */ }
+              onSave();
+          }
+      } finally { setSoundIO(false); }
+  };
+
   // After the rule panel saves a file, patch the cached context and refresh the
   // affected basetypes' occurrence sound from the saved rules.
   const handlePanelSaved = (mappingsKey: string, mappingContent: any, tierKey: string, tierContent: any) => {
@@ -701,6 +798,21 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                 <select value={selectedClass} onChange={e => setSelectedClass(e.target.value)} className="class-select">
                     {itemClasses.map(c => <option key={c} value={c}>{language === 'ch' ? (CLASS_CH[c] || c) : c}</option>)}
                 </select>
+            </div>
+            <div className="file-io-btns">
+                <button className="file-io-btn" onClick={handleExportSounds} disabled={soundIO || loading}>⬆ {t.tsExportSounds}</button>
+                <button className="file-io-btn" onClick={() => soundFileInputRef.current?.click()} disabled={soundIO || loading}>⬇ {t.tsImportSounds}</button>
+                <input
+                    ref={soundFileInputRef}
+                    type="file"
+                    accept=".json"
+                    style={{ display: 'none' }}
+                    onChange={(e) => {
+                        const f = e.target.files?.[0];
+                        if (f) handleImportSoundsFile(f);
+                        e.target.value = '';
+                    }}
+                />
             </div>
           </div>
           <button className="close-btn" onClick={handleClose}>×</button>
@@ -844,6 +956,51 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
           />
       )}
 
+      {/* Sound-import result report */}
+      {importReport && (
+          <div className="modal-overlay report-overlay" onClick={() => setImportReport(null)}>
+              <div className="import-report" onClick={e => e.stopPropagation()}>
+                  <div className="report-header">
+                      <h3>{t.tsImportReport}</h3>
+                      <button className="close-btn" onClick={() => setImportReport(null)}>×</button>
+                  </div>
+                  <div className="report-body">
+                      <div className="report-summary">
+                          {importReport.mapMerged > 0 && <span className="pill pill-map">{importReport.mapMerged} {t.tsMapEntriesMerged}</span>}
+                          <span className="pill pill-ok">{importReport.updated.length} {t.tsApplied}</span>
+                          <span className="pill pill-new">{importReport.created.length} {t.tsCreated}</span>
+                          <span className="pill pill-skip">{importReport.skipped.length} {t.tsSkipped}</span>
+                      </div>
+                      {importReport.skipped.length > 0 && (
+                          <div className="report-section">
+                              <h4>{t.tsSkipped}</h4>
+                              {importReport.skipped.map((s, i) => (
+                                  <div key={i} className="report-row">
+                                      <span className="row-main">{s.rule.comment || s.rule.targets.join(', ')}</span>
+                                      <span className="row-file">{s.rule.file.replace(/^base_mapping\//, '')}</span>
+                                      <span className="row-reason">
+                                          {s.reason === 'file-missing' ? t.tsSkipFileMissing
+                                            : s.reason === 'target-not-in-file' ? t.tsSkipTargetMissing
+                                            : t.tsSkipNoMatch}
+                                      </span>
+                                  </div>
+                              ))}
+                          </div>
+                      )}
+                      {importReport.missingAudio.length > 0 && (
+                          <div className="report-section warn">
+                              <h4>⚠ {t.tsMissingAudio}</h4>
+                              {importReport.missingAudio.map(p => <div key={p} className="report-row"><span className="row-main">{p}</span></div>)}
+                          </div>
+                      )}
+                  </div>
+                  <div className="report-footer">
+                      <button className="col-save-btn report-close" onClick={() => setImportReport(null)}>OK</button>
+                  </div>
+              </div>
+          </div>
+      )}
+
       {/* Ported rule-block (same panel the simulator uses) for the chosen file */}
       {rulePanelFile && ruleContext && rulesFor && (
           <SimulatorRulePanel
@@ -913,6 +1070,31 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
         .dragging { cursor: grabbing !important; }
         .tier-context-badge { font-size: 0.65rem; background: #eee; color: #666; padding: 2px 6px; border-radius: 4px; margin-top: 4px; text-align: right; font-weight: bold; border: 1px solid #ddd; }
         .tier-pill { color: #2196F3; font-weight: bold; }
+        .file-io-btns { display: flex; gap: 6px; }
+        .file-io-btn { padding: 6px 14px; font-size: 0.8rem; font-weight: bold; background: #f5f5f5; color: #444; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; }
+        .file-io-btn:hover { border-color: #2196F3; color: #2196F3; background: #f0f7ff; }
+        .file-io-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .report-overlay { z-index: 1100; }
+        .import-report { background: #fff; width: 560px; max-height: 80vh; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; }
+        .report-header { padding: 15px 20px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .report-header h3 { margin: 0; font-size: 1.05rem; }
+        .report-body { padding: 15px 20px; overflow-y: auto; flex: 1; }
+        .report-summary { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+        .pill { font-size: 0.78rem; font-weight: bold; padding: 4px 10px; border-radius: 12px; }
+        .pill-map { background: #e3f2fd; color: #1565C0; }
+        .pill-ok { background: #e8f5e9; color: #2e7d32; }
+        .pill-new { background: #fff8e1; color: #b07c00; }
+        .pill-skip { background: #fdecea; color: #b71c1c; }
+        .report-section { margin-top: 10px; }
+        .report-section h4 { margin: 0 0 6px; font-size: 0.85rem; color: #555; }
+        .report-section.warn h4 { color: #b07c00; }
+        .report-row { display: flex; gap: 8px; align-items: baseline; padding: 4px 6px; border-radius: 4px; font-size: 0.8rem; }
+        .report-row:nth-child(even) { background: #fafafa; }
+        .report-row .row-main { font-weight: 600; color: #333; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .report-row .row-file { color: #888; font-size: 0.72rem; }
+        .report-row .row-reason { color: #b71c1c; font-size: 0.72rem; white-space: nowrap; }
+        .report-footer { padding: 12px 20px; border-top: 1px solid #eee; display: flex; justify-content: flex-end; }
+        .report-close { padding: 8px 28px; border-radius: 6px; border: none; cursor: pointer; font-weight: bold; }
       `}</style>
     </div>
   );
