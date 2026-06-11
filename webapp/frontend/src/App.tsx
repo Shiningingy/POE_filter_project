@@ -83,7 +83,7 @@ function App() {
     }
   }, [t.loadFailed]);
 
-  const generateFilter = async () => {
+  const generateFilter = async (): Promise<string | null> => {
     setLoading(true);
     try {
       setMessage(t.generating);
@@ -92,22 +92,25 @@ function App() {
         game_mode: gameMode
       });
       setMessage(`${t.generatedSuccess}\n${response.data.output || ''}`);
-      await fetchFilterPreview();
+      return await fetchFilterPreview();
     } catch (error: any) {
       console.error('Error generating filter:', error);
       setMessage(`Failed: ${error.response?.data?.detail || error.message}`);
+      return null;
     } finally {
       setLoading(false);
     }
   };
 
-  const fetchFilterPreview = useCallback(async () => {
+  const fetchFilterPreview = useCallback(async (): Promise<string | null> => {
     try {
       const response = await axios.get(`${API_BASE_URL}/api/generated-filter`);
       setFilterPreview(response.data);
+      return response.data;
     } catch (error) {
       console.error('Error fetching filter preview:', error);
       setFilterPreview('Error loading filter preview.');
+      return null;
     } finally {
       setLoading(false);
     }
@@ -192,8 +195,8 @@ function App() {
             onGenerate={generateFilter}
             loading={loading}
             message={message}
-            filterContent={filterPreview}
             gameMode={gameMode}
+            language={language}
           />
         )}
       </div>

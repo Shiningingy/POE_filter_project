@@ -13,6 +13,7 @@ data/debug
 data/styles
 data/from_filter_blade/image
 filter_generation/test_*
+filter_generation/data/_import_backup/
 
 
 # Virtual env

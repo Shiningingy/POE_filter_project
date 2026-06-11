@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import axios from 'axios';
 import { useTranslation, CLASS_KEY_MAP, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
@@ -6,6 +6,8 @@ import SoundPicker from './SoundPicker';
 import MinimapIconPicker, { getIconStyle, formatMinimapIcon } from './MinimapIconPicker';
 import PlayEffectPicker, { formatPlayEffect } from './PlayEffectPicker';
 import { getAssetUrl } from '../utils/assetUtils';
+import { buildThemeExport, parseThemeExport, downloadJson } from '../utils/themeSoundExport';
+import type { ThemeExport } from '../utils/themeSoundExport';
 
 interface ThemePresetEditorProps {
   language: Language;
@@ -47,6 +49,13 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   const [showSoundPicker, setShowSoundPicker] = useState(false);
   const [showIconPicker, setShowIconPicker] = useState(false);
   const [showEffectPicker, setShowEffectPicker] = useState(false);
+
+  // Standalone theme-file import (a preset shared by another user)
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [pendingThemeFile, setPendingThemeFile] = useState<ThemeExport | null>(null);
+  const [fileImportMode, setFileImportMode] = useState<'new' | 'overwrite'>('new');
+  const [fileImportName, setFileImportName] = useState('');
+  const [fileImportTarget, setFileImportTarget] = useState('');
 
   const [viewerBackground, setViewerBackground] = useState<string>('Item_bg_coast.jpg');
 
@@ -240,6 +249,52 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
       setShowImportModal(false);
   };
 
+  // ---- standalone theme-file export/import ----
+  const handleExportTheme = () => {
+      if (!baseThemeData) return;
+      downloadJson(buildThemeExport(activeTheme, baseThemeData), `${activeTheme}.theme.json`);
+  };
+
+  const suggestPresetName = (wanted: string) => {
+      let name = wanted || 'imported';
+      if (!themes.includes(name)) return name;
+      name = `${name}-imported`;
+      let i = 2;
+      let candidate = name;
+      while (themes.includes(candidate)) candidate = `${name}-${i++}`;
+      return candidate;
+  };
+
+  const handleThemeFile = async (file: File) => {
+      const parsed = parseThemeExport(await file.text());
+      if (parsed === null) { alert(t.tsInvalidThemeFile); return; }
+      if (parsed === 'newer') { alert(t.tsNewerVersion); return; }
+      setPendingThemeFile(parsed);
+      setFileImportMode('new');
+      setFileImportName(suggestPresetName(parsed.name));
+      setFileImportTarget(activeTheme);
+  };
+
+  const confirmThemeFileImport = async () => {
+      if (!pendingThemeFile) return;
+      const target = fileImportMode === 'new' ? fileImportName.trim() : fileImportTarget;
+      if (!target) return;
+      if (fileImportMode === 'overwrite' && !window.confirm(t.tsOverwriteConfirm)) return;
+      try {
+          await axios.post(`/api/themes/${target}`, { theme_data: pendingThemeFile.theme_data });
+          if (!themes.includes(target)) setThemes(prev => [...prev, target]);
+          // Switching activeTheme reloads via effect; overwriting the open one won't
+          // retrigger it, so update the local data directly in that case.
+          if (target === activeTheme) setBaseThemeData(JSON.parse(JSON.stringify(pendingThemeFile.theme_data)));
+          else setActiveTheme(target);
+          setPendingThemeFile(null);
+          alert(`${t.tsImportedAsPreset}: ${target}`);
+      } catch (e) {
+          console.error(e);
+          alert('Import failed');
+      }
+  };
+
   const getBackgroundStyle = () => {
       if (viewerBackground.startsWith('color_')) {
           const c = viewerBackground.split('_')[1];
@@ -281,6 +336,21 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                     setCurrentThemeInUse(activeTheme);
                     alert(t.baseThemeApplied);
                 }}>{activeTheme === currentThemeInUse ? '✅' : t.applyBase}</button>
+            </div>
+            <div className="file-io-btns">
+                <button className="file-io-btn" onClick={handleExportTheme} title={`${t.tsExport} ${activeTheme}.theme.json`}>⬆ {t.tsExport}</button>
+                <button className="file-io-btn" onClick={() => fileInputRef.current?.click()}>⬇ {t.tsImport}</button>
+                <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept=".json"
+                    style={{ display: 'none' }}
+                    onChange={(e) => {
+                        const f = e.target.files?.[0];
+                        if (f) handleThemeFile(f);
+                        e.target.value = '';
+                    }}
+                />
             </div>
             {unsavedOverrides && <span className="unsaved-badge">● {t.unsavedOverrides}</span>}
           </div>
@@ -548,6 +618,49 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
           </div>
       )}
 
+      {/* Theme-file import choice dialog */}
+      {pendingThemeFile && (
+          <div className="modal-overlay import-overlay" onClick={() => setPendingThemeFile(null)}>
+              <div className="modal-content theme-file-import" onClick={e => e.stopPropagation()}>
+                  <div className="modal-header">
+                      <h3>{t.tsImportTheme}: {pendingThemeFile.name}</h3>
+                      <button className="close-x" onClick={() => setPendingThemeFile(null)}>×</button>
+                  </div>
+                  <div className="theme-file-body">
+                      <label className="mode-option">
+                          <input type="radio" name="theme-import-mode" checked={fileImportMode === 'new'} onChange={() => setFileImportMode('new')} />
+                          <span>{t.tsImportAsNew}</span>
+                      </label>
+                      {fileImportMode === 'new' && (
+                          <div className="mode-detail">
+                              <label>{t.tsPresetName}</label>
+                              <input type="text" value={fileImportName} onChange={e => setFileImportName(e.target.value)} />
+                          </div>
+                      )}
+                      <label className="mode-option">
+                          <input type="radio" name="theme-import-mode" checked={fileImportMode === 'overwrite'} onChange={() => setFileImportMode('overwrite')} />
+                          <span>{t.tsOverwriteExisting}</span>
+                      </label>
+                      {fileImportMode === 'overwrite' && (
+                          <div className="mode-detail">
+                              <select value={fileImportTarget} onChange={e => setFileImportTarget(e.target.value)}>
+                                  {themes.map(th => <option key={th} value={th}>{th}</option>)}
+                              </select>
+                          </div>
+                      )}
+                  </div>
+                  <div className="modal-footer">
+                      <button className="cancel-btn" onClick={() => setPendingThemeFile(null)}>{t.cancel}</button>
+                      <button
+                          className="confirm-btn primary-action-btn"
+                          disabled={fileImportMode === 'new' ? !fileImportName.trim() || themes.includes(fileImportName.trim()) : !fileImportTarget}
+                          onClick={confirmThemeFileImport}
+                      >{t.tsImport}</button>
+                  </div>
+              </div>
+          </div>
+      )}
+
       {/* Centered Sound Picker */}
       {showSoundPicker && (
           <div className="modal-overlay sound-overlay" onClick={() => setShowSoundPicker(false)}>
@@ -683,6 +796,15 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
         .close-x { background: none; border: none; font-size: 1.8rem; color: #999; cursor: pointer; }
         .unsaved-badge { color: #ff9800; font-weight: bold; font-size: 0.8rem; margin-left: 10px; }
         .import-modal-btn { width: 100%; padding: 12px; background: #e3f2fd; color: #1565C0; border: 1px dashed #1565C0; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .file-io-btns { display: flex; gap: 6px; }
+        .file-io-btn { padding: 6px 14px; font-size: 0.8rem; font-weight: bold; background: #f5f5f5; color: #444; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; }
+        .file-io-btn:hover { border-color: #2196F3; color: #2196F3; background: #f0f7ff; }
+        .theme-file-import { width: 440px; }
+        .theme-file-body { padding: 20px 25px; display: flex; flex-direction: column; gap: 12px; }
+        .mode-option { display: flex; align-items: center; gap: 10px; font-weight: 600; color: #333; cursor: pointer; }
+        .mode-detail { margin-left: 26px; display: flex; flex-direction: column; gap: 6px; }
+        .mode-detail label { font-size: 0.75rem; font-weight: bold; color: #888; text-transform: uppercase; }
+        .mode-detail input, .mode-detail select { padding: 9px; border: 1px solid #ddd; border-radius: 6px; background: white !important; color: black !important; }
       `}</style>
     </div>
   );

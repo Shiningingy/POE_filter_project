@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { generateFilter } from '../utils/filterGenerator';
+import { SNAPSHOT_FORMAT, SNAPSHOT_VERSION } from '../utils/snapshot';
 
 const DEMO_CONFIG_PREFIX = 'demo_vfs_';
 
@@ -73,6 +74,9 @@ export const setupDemoAdapter = () => {
             setDemoUrl(`${baseURL}demo_data/sounds.json`);
         } else if (path.endsWith('/api/sound-map')) {
             config.adapter = async () => {
+                // VFS-saved map (e.g. from a sound import) shadows the bundled one
+                const saved = localStorage.getItem(DEMO_CONFIG_PREFIX + 'theme/sharket/Sharket_sound_map.json');
+                if (saved) return { data: JSON.parse(saved), status: 200, statusText: 'OK', headers: {}, config };
                 const bundle = await loadBundle();
                 return { data: bundle?.soundMap || {}, status: 200, statusText: 'OK', headers: {}, config };
             };
@@ -129,11 +133,51 @@ export const setupDemoAdapter = () => {
                 const content = localStorage.getItem('demo_generated_filter') || "# No filter generated yet.";
                 return { data: content, status: 200, statusText: 'OK', headers: {}, config };
             };
+        } else if (path.endsWith('/api/export-snapshot')) {
+            config.adapter = async () => {
+                const bundle = await loadBundle();
+                const files: Record<string, any> = {};
+                // Static bundle first (keys are relative to their roots), VFS edits overlay it
+                Object.entries(bundle?.mappings || {}).forEach(([rel, content]) => {
+                    files[`base_mapping/${rel}`] = content;
+                });
+                Object.entries(bundle?.tiers || {}).forEach(([rel, content]) => {
+                    files[`tier_definition/${rel}`] = content;
+                });
+                if (bundle?.theme) files['theme/sharket/sharket_theme.json'] = bundle.theme;
+                if (bundle?.soundMap) files['theme/sharket/Sharket_sound_map.json'] = bundle.soundMap;
+                Object.keys(localStorage).forEach(key => {
+                    try {
+                        if (key.startsWith(DEMO_CONFIG_PREFIX)) {
+                            files[key.replace(DEMO_CONFIG_PREFIX, '')] = JSON.parse(localStorage.getItem(key)!);
+                        } else if (key === 'demo_custom_overrides') {
+                            files['theme/custom_overrides.json'] = JSON.parse(localStorage.getItem(key)!);
+                        } else if (key.startsWith('demo_theme_')) {
+                            const name = key.replace('demo_theme_', '');
+                            const content = JSON.parse(localStorage.getItem(key)!);
+                            files[`theme/${name}/${name}_theme.json`] = content.theme_data || content;
+                        }
+                    } catch { /* skip unparsable keys */ }
+                });
+                const snapshot = {
+                    format: SNAPSHOT_FORMAT,
+                    version: SNAPSHOT_VERSION,
+                    created: new Date().toISOString().replace(/\.\d+Z$/, 'Z'),
+                    files,
+                };
+                return { data: snapshot, status: 200, statusText: 'OK', headers: {}, config };
+            };
         }
     }
 
     if (config.method === 'post') {
-        if (path.endsWith('/api/tier-items')) {
+        if (path.endsWith('/api/sound-map')) {
+            const content = typeof config.data === 'string' ? JSON.parse(config.data) : config.data;
+            localStorage.setItem(DEMO_CONFIG_PREFIX + 'theme/sharket/Sharket_sound_map.json', JSON.stringify(content));
+            config.adapter = async () => {
+                return { data: { message: "Saved Sound Map to Demo Storage" }, status: 200, statusText: 'OK', headers: {}, config };
+            };
+        } else if (path.endsWith('/api/tier-items')) {
             config.method = 'get';
             setDemoUrl(`${baseURL}demo_data/tier_items.json`);
             
@@ -167,9 +211,10 @@ export const setupDemoAdapter = () => {
                     }
                 });
 
+                const savedSoundMap = localStorage.getItem(DEMO_CONFIG_PREFIX + 'theme/sharket/Sharket_sound_map.json');
                 const filterText = generateFilter({
                     themeData: bundle.theme,
-                    soundMap: bundle.soundMap,
+                    soundMap: savedSoundMap ? JSON.parse(savedSoundMap) : bundle.soundMap,
                     allMappings: mergedMappings,
                     allTierDefinitions: mergedTiers,
                     language: 'ch'
@@ -203,6 +248,46 @@ export const setupDemoAdapter = () => {
             localStorage.setItem(DEMO_CONFIG_PREFIX + configPath, JSON.stringify(content));
             config.adapter = async () => {
                 return { data: { message: "Saved to Demo Storage" }, status: 200, statusText: 'OK', headers: {}, config };
+            };
+        } else if (path.endsWith('/api/import-snapshot')) {
+            config.adapter = async () => {
+                const body = typeof config.data === 'string' ? JSON.parse(config.data) : config.data;
+                const files: Record<string, any> = body?.files || {};
+                const syncPrefixes: string[] = body?.sync_prefixes || [];
+
+                // Limitation: files baked into the static bundle can only be
+                // shadowed by VFS keys, never truly deleted.
+                const deleted: string[] = [];
+                syncPrefixes.forEach(prefix => {
+                    Object.keys(localStorage).forEach(key => {
+                        if (!key.startsWith(DEMO_CONFIG_PREFIX)) return;
+                        const rel = key.replace(DEMO_CONFIG_PREFIX, '');
+                        if (rel.startsWith(prefix) && !(rel in files)) {
+                            localStorage.removeItem(key);
+                            deleted.push(rel);
+                        }
+                    });
+                });
+
+                const written: string[] = [];
+                Object.entries(files).forEach(([rel, content]) => {
+                    if (rel === 'theme/custom_overrides.json') {
+                        localStorage.setItem('demo_custom_overrides', JSON.stringify(content));
+                    } else {
+                        const themeMatch = rel.match(/^theme\/([^/]+)\/\1_theme\.json$/);
+                        if (themeMatch) {
+                            localStorage.setItem(`demo_theme_${themeMatch[1]}`, JSON.stringify(content));
+                        } else {
+                            localStorage.setItem(DEMO_CONFIG_PREFIX + rel, JSON.stringify(content));
+                        }
+                    }
+                    written.push(rel);
+                });
+
+                return {
+                    data: { written: written.sort(), deleted: deleted.sort(), backed_up_to: null },
+                    status: 200, statusText: 'OK', headers: {}, config,
+                };
             };
         }
     }

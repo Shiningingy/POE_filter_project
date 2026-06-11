@@ -4,11 +4,13 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import os
 import json
+import shutil
 import subprocess
 import sys
 import time
 import re
 import csv
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Dict, Optional
 from pydantic import BaseModel
@@ -1114,6 +1116,137 @@ def get_simulator_bundle():
         except: pass
 
     return {"mappings": mappings, "tiers": tier_defs}
+
+# --- Snapshot Export / Import (lossless filter round-trip) ---
+
+SNAPSHOT_FORMAT = "sharket-filter-snapshot"
+SNAPSHOT_VERSION = 1
+# Roots (relative to CONFIG_DATA_DIR) captured in a snapshot and writable on import.
+SNAPSHOT_DIR_ROOTS = ("tier_definition", "base_mapping", "theme")
+IMPORT_BACKUP_DIR = CONFIG_DATA_DIR / "_import_backup"
+
+class ImportSnapshotRequest(BaseModel):
+    files: Dict[str, dict]
+    # Directory prefixes within which local files absent from `files` are deleted,
+    # so a checked category exactly matches the snapshot. tier_definition/ and
+    # base_mapping/ only — theme presets added locally are never deleted.
+    sync_prefixes: List[str] = []
+
+@app.get("/api/export-snapshot")
+def export_snapshot():
+    """Full user-editable data tree as a versioned bundle, used by the export
+    sidecar/embedded snapshot. Walks the real directories so future additions
+    (e.g. variant overlay folders) are captured automatically."""
+    files = {}
+    for root in SNAPSHOT_DIR_ROOTS:
+        root_dir = CONFIG_DATA_DIR / root
+        if not root_dir.is_dir():
+            continue
+        for file_path in sorted(root_dir.rglob("*.json")):
+            try:
+                rel_path = file_path.relative_to(CONFIG_DATA_DIR).as_posix()
+                with open(file_path, "r", encoding="utf-8") as f:
+                    files[rel_path] = json.load(f)
+            except Exception as e:
+                print(f"WARN: snapshot skipped {file_path}: {e}")
+    settings_path = CONFIG_DATA_DIR / "settings.json"
+    if settings_path.exists():
+        try:
+            with open(settings_path, "r", encoding="utf-8") as f:
+                files["settings.json"] = json.load(f)
+        except Exception as e:
+            print(f"WARN: snapshot skipped settings.json: {e}")
+    return {
+        "format": SNAPSHOT_FORMAT,
+        "version": SNAPSHOT_VERSION,
+        "created": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "files": files,
+    }
+
+def _validate_snapshot_relpath(relpath: str, allow_settings: bool = True) -> str:
+    rel = relpath.replace("\\", "/").strip()
+    if allow_settings and rel == "settings.json":
+        return rel
+    parts = rel.split("/")
+    if (
+        not rel
+        or rel.startswith("/")
+        or ":" in rel
+        or ".." in parts
+        or parts[0] not in SNAPSHOT_DIR_ROOTS
+        or len(parts) < 2
+        or not rel.endswith(".json")
+    ):
+        raise HTTPException(status_code=400, detail=f"Invalid snapshot path: {relpath}")
+    safe_join(CONFIG_DATA_DIR, rel)  # final traversal guard
+    return rel
+
+@app.post("/api/import-snapshot")
+def import_snapshot(request: ImportSnapshotRequest):
+    # Validate everything up front — nothing is written if any path is bad.
+    files = {_validate_snapshot_relpath(p): content for p, content in request.files.items()}
+    prefixes = []
+    for prefix in request.sync_prefixes:
+        rel = prefix.replace("\\", "/").strip().rstrip("/")
+        parts = rel.split("/")
+        if not rel or ".." in parts or ":" in rel or parts[0] not in ("tier_definition", "base_mapping"):
+            raise HTTPException(status_code=400, detail=f"Invalid sync prefix: {prefix}")
+        safe_join(CONFIG_DATA_DIR, rel)
+        prefixes.append(rel)
+
+    # Local files under a synced prefix that the snapshot doesn't have get deleted,
+    # so the imported category exactly matches the export.
+    to_delete = []
+    for rel in prefixes:
+        prefix_dir = CONFIG_DATA_DIR / rel
+        if not prefix_dir.is_dir():
+            continue
+        for file_path in prefix_dir.rglob("*.json"):
+            rel_path = file_path.relative_to(CONFIG_DATA_DIR).as_posix()
+            if rel_path not in files:
+                to_delete.append(rel_path)
+
+    # Files whose parsed content already matches are skipped entirely, so a
+    # restore only touches (and only backs up) what actually changed.
+    to_write = {}
+    unchanged = []
+    for rel_path, content in files.items():
+        path = CONFIG_DATA_DIR / rel_path
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                if json.load(f) == content:
+                    unchanged.append(rel_path)
+                    continue
+        except Exception:
+            pass
+        to_write[rel_path] = content
+
+    backup_stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    backup_dir = IMPORT_BACKUP_DIR / backup_stamp
+    backed_up = False
+    for rel_path in list(to_write.keys()) + to_delete:
+        src = CONFIG_DATA_DIR / rel_path
+        if src.exists():
+            dest = backup_dir / rel_path
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, dest)
+            backed_up = True
+
+    for rel_path in to_delete:
+        (CONFIG_DATA_DIR / rel_path).unlink(missing_ok=True)
+    for rel_path, content in to_write.items():
+        path = CONFIG_DATA_DIR / rel_path
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(content, f, indent=2, ensure_ascii=False)
+            f.write("\n")
+
+    return {
+        "written": sorted(to_write.keys()),
+        "unchanged": sorted(unchanged),
+        "deleted": sorted(to_delete),
+        "backed_up_to": backup_dir.relative_to(CONFIG_DATA_DIR).as_posix() if backed_up else None,
+    }
 
 # --- Generic Path Endpoints (Bottom Priority) ---
 
