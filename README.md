@@ -70,7 +70,10 @@ We also use [poe-dat-viewer](https://github.com/SnosMe/poe-dat-viewer) to extrac
 
 Path of Exile is a registered trademark of Grinding Gear Games. This is an unofficial fan-made tool.
 
-License
-Copyright © 2026 Shiningingy. All rights reserved.
+## License
 
-This source code is published for reference only. No permission is granted to use, copy, modify, or distribute this software, in whole or in part, for any purpose.
+Copyright © 2026 Shiningingy. **All rights reserved.**
+
+This source code is published for reference only. No permission is granted to
+use, copy, modify, or distribute this software, in whole or in part, for any
+purpose.
