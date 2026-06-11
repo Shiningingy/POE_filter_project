@@ -504,6 +504,37 @@ def load_bonus_item_info():
     except Exception as e:
         print(f"Error loading bonusItemInfo.json: {e}")
 
+    # Official GGPK usage descriptions (EN + zh-simplified), extracted from the
+    # raw tables by parsing_tool/extract_zh_currency_descriptions.py. zh gives
+    # the tooltip a localized description; the official EN text lets the
+    # frontend dedup FilterBlade lines (FilterBlade text = drop-source hint
+    # lines + the official description). Items without a FilterBlade entry get
+    # a plain official-description entry so their hovers aren't empty.
+    desc_path = DATA_DIR / "from_ggpk" / "ch_simplified" / "currency_descriptions.json"
+    if desc_path.exists():
+        try:
+            with open(desc_path, "r", encoding="utf-8") as f:
+                official = json.load(f)
+            n_attached = n_added = 0
+            for name, d in official.items():
+                entry = ITEM_BONUS_INFO.get(name)
+                if entry is None:
+                    if not d.get("en") and not d.get("ch"):
+                        continue
+                    entry = ITEM_BONUS_INFO[name] = {
+                        "description": d.get("en", ""),
+                        "tags": [],
+                    }
+                    n_added += 1
+                else:
+                    n_attached += 1
+                entry["description_en"] = d.get("en", "")
+                entry["description_ch"] = d.get("ch", "")
+            print(f"Merged official GGPK descriptions: {n_attached} localized, "
+                  f"{n_added} new entries.")
+        except Exception as e:
+            print(f"Error merging currency_descriptions.json: {e}")
+
     # Merge the COMPLETE unique->base map (GGG trade data via
     # parsing_tool/build_unique_base_db.py). FilterBlade's curated entries keep
     # their drop-source text and priority; trade-data extras are appended after
