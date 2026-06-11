@@ -88,6 +88,16 @@
         "en": "Hide",
         "ch": "隐藏"
       }
+    },
+    "Tier 0 Scarabs": {
+      "theme": {
+        "Tier": 0
+      },
+      "localization": {
+        "en": "T0: Scarabs",
+        "ch": "T0: 圣甲虫"
+      },
+      "show_in_editor": true
     }
   }
 }

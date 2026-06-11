@@ -27,6 +27,7 @@ import { CSS } from '@dnd-kit/utilities';
 import { useTranslation, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ItemCard from './ItemCard';
+import LoadingOverlay from './LoadingOverlay';
 import OccurrencePicker, { type OccurrenceRow } from './OccurrencePicker';
 import OccurrenceRuleList, { type OccurrenceRuleRow } from './OccurrenceRuleList';
 import SimulatorRulePanel from './SimulatorRulePanel';
@@ -782,6 +783,16 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
 
   const { setNodeRef: setPoolRef } = useDroppable({ id: 'pool', data: { type: 'pool' } });
   const { setNodeRef: setWorkspaceRef } = useDroppable({ id: 'workspace', data: { type: 'workspace' } });
+
+  if (loading && items.length === 0) {
+    return (
+      <div className="sound-bulk-editor modal-overlay">
+        <div className="modal-content">
+          <LoadingOverlay language={language} />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="sound-bulk-editor modal-overlay">

@@ -1054,20 +1054,23 @@ Show
 #==[23001]- Omens -T1: High Value Omens 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Omen of Connections" "Omen of Fortune" "Omen of the Jeweller"
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 42 35 11 255
     PlayAlertSound 2 300
+    PlayEffect Orange
+    MinimapIcon 1 Orange Diamond
 
 
 #==[23002]- Omens -T2: Standard Omens 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Omen of Adrenaline" "Omen of Amelioration" "Omen of Blanching" "Omen of Brilliance" "Omen of Death's Door" "Omen of Death-dancing" "Omen of Refreshment" "Omen of Return" "Omen of the Soul Devourer"
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    MinimapIcon 1 Orange Circle
 
 
 #==[24000]-通货 Currency - 可堆叠通货 Ritual==
@@ -1112,11 +1115,13 @@ Show
 #==[25001]- Runegrafts -T1: Runegrafts 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Runegraft of Bellows" "Runegraft of Blasphemy" "Runegraft of Gemcraft" "Runegraft of Loyalty" "Runegraft of Quaffing" "Runegraft of Refraction" "Runegraft of Restitching" "Runegraft of Stability" "Runegraft of Time" "Runegraft of Treachery" "Runegraft of the Angler" "Runegraft of the Bound" "Runegraft of the Combatant" "Runegraft of the Fortress" "Runegraft of the Jeweller" "Runegraft of the Novamark" "Runegraft of the River" "Runegraft of the Sinistral" "Runegraft of the Soulwick" "Runegraft of the Warp" "Runegraft of the Witchmark"
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 42 35 11 255
     PlayAlertSound 2 300
+    PlayEffect Orange
+    MinimapIcon 1 Orange Diamond
 
 
 #==[26000]-通货 Currency - 可堆叠通货 Splinters==
@@ -1124,32 +1129,35 @@ Show
 #==[26001]- Splinters -T1: Breach / Legion Splinters 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Simulacrum Splinter" "Splinter of Chayula" "Splinter of Esh" "Splinter of Tul" "Splinter of Uul-Netol" "Splinter of Xoph" "Timeless Eternal Empire Splinter" "Timeless Karui Splinter" "Timeless Maraketh Splinter" "Timeless Templar Splinter" "Timeless Vaal Splinter"
-    SetFontSize 39
-    SetTextColor 218 187 85 255
+    SetFontSize 42
+    SetTextColor 255 255 255 255
     SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
+    SetBackgroundColor 42 35 11 255
     PlayAlertSound 2 300
-    MinimapIcon 1 Orange Circle
+    PlayEffect Orange
+    MinimapIcon 1 Orange Diamond
 
 
 #==[26002]- Splinters -T2: Other Splinters 可堆叠通货 - 自动音效：驱灵裂片 - 精确==
 Show
     BaseType == "Ritual Splinter"
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
     CustomAlertSound "sound_files\Sharket掉落音效\驱灵裂片.mp3" 100
+    MinimapIcon 1 Orange Circle
 
 
 #==[26003]- Splinters -T2: Other Splinters 可堆叠通货 - 自动音效：新月裂片 - 精确==
 Show
     BaseType == "Crescent Splinter"
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
     CustomAlertSound "sound_files\Sharket掉落音效\新月裂片.mp3" 300
+    MinimapIcon 1 Orange Circle
 
 
 #==[27000]-通货 Currency - _archived _archived - 裂隙 Breach==
@@ -3938,54 +3946,64 @@ Show
 
 #==[91000]-杂项 Misc - 金币 Misc==
 
-#==[91001]- Misc -Tier 3 金币 - 自动音效：医药箱 - 精确==
+#==[91001]- Misc -Tier 1 金币 - 自动音效：医药箱 - 精确==
 Show
     BaseType == "Medicine Chest"
-    SetFontSize 36
-    SetTextColor 168 182 199 255
-    SetBorderColor 72 82 96 255
-    SetBackgroundColor 10 10 13 255
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 130 150 175 255
+    SetBackgroundColor 26 30 35 255
     CustomAlertSound "sound_files\Sharket掉落音效\医药箱.mp3" 200
+    PlayEffect Grey
+    MinimapIcon 1 Grey Diamond
 
 
-#==[91002]- Misc -Tier 3 金币 - 自动音效：不灭之火 - 精确==
+#==[91002]- Misc -Tier 1 金币 - 自动音效：不灭之火 - 精确==
 Show
     BaseType == "Allflame"
-    SetFontSize 36
-    SetTextColor 168 182 199 255
-    SetBorderColor 72 82 96 255
-    SetBackgroundColor 10 10 13 255
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 130 150 175 255
+    SetBackgroundColor 26 30 35 255
     CustomAlertSound "sound_files\Sharket掉落音效\不灭之火.mp3" 300
+    PlayEffect Grey
+    MinimapIcon 1 Grey Diamond
 
 
-#==[91003]- Misc -Tier 3 金币 - 自动音效：阿佐亚特编年史 - 精确==
+#==[91003]- Misc -Tier 1 金币 - 自动音效：阿佐亚特编年史 - 精确==
 Show
     BaseType == "Chronicle of Atzoatl"
-    SetFontSize 36
-    SetTextColor 168 182 199 255
-    SetBorderColor 72 82 96 255
-    SetBackgroundColor 10 10 13 255
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 130 150 175 255
+    SetBackgroundColor 26 30 35 255
     CustomAlertSound "sound_files\Sharket掉落音效\阿佐亚特编年史.mp3" 300
+    PlayEffect Grey
+    MinimapIcon 1 Grey Diamond
 
 
-#==[91004]- Misc -Tier 3 金币 - 自动音效：贪婪战书 - 精确==
+#==[91004]- Misc -Tier 1 金币 - 自动音效：贪婪战书 - 精确==
 Show
     BaseType == "Inscribed Ultimatum"
-    SetFontSize 36
-    SetTextColor 168 182 199 255
-    SetBorderColor 72 82 96 255
-    SetBackgroundColor 10 10 13 255
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 130 150 175 255
+    SetBackgroundColor 26 30 35 255
     CustomAlertSound "sound_files\Sharket掉落音效\贪婪战书.mp3" 300
+    PlayEffect Grey
+    MinimapIcon 1 Grey Diamond
 
 
-#==[91005]- Misc -Tier 3 金币 - 基础 - 精确==
+#==[91005]- Misc -Tier 1 金币 - 基础 - 精确==
 Show
     BaseType == "Aggregator Charm" "Alira's Amulet" "Atlas Book of Skill" "Baleful Gem" "Bane of the Loyal" "Burst Band" "Cogs of Disruption" "Conduit Line" "Cube Of Absorption" "Decanter Spiritus" "Fishing Rod" "Flashpowder Keg" "Focal Stone" "Golden Hand" "Infernal Talc" "Kraityn's Amulet" "Maligaro's Map" "Miasmeter" "Oak's Amulet" "Pecoraro" "Portal Shredder" "Ribbon Spool" "Rod of Detonation" "Sand of Eternity" "Stone of Passage" "Thaumetic Emblem" "Thaumetic Sulphite" "The Apex" "The Staff of Purity" "Tolman's Bracelet" "Urn of Farud"
-    SetFontSize 36
-    SetTextColor 168 182 199 255
-    SetBorderColor 72 82 96 255
-    SetBackgroundColor 10 10 13 255
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 130 150 175 255
+    SetBackgroundColor 26 30 35 255
     PlayAlertSound 2 300
+    PlayEffect Grey
+    MinimapIcon 1 Grey Diamond
 
 
 #==[92000]-杂项 Misc - 神像 Idols==
@@ -4202,7 +4220,7 @@ Show
 
 #==[111000]-传奇 Uniques - 传奇物品 Unique Items==
 
-#==[111001]- Unique Items -T0: Chase Uniques 传奇物品 - #1 Uber Impresence (Shaper+Elder influence) - 精确==
+#==[111001]- Unique Items -T0: Chase Uniques 传奇物品 - #1 隐逝 Uber Impresence（塑界+裂界双重影响） - 精确==
 Show
     BaseType == "Onyx Amulet"
     Rarity Unique
@@ -4217,7 +4235,7 @@ Show
     MinimapIcon 0 Brown Star
 
 
-#==[111002]- Unique Items -T0: Chase Uniques 传奇物品 - #2 Kaom's Heart (0 sockets) - 精确==
+#==[111002]- Unique Items -T0: Chase Uniques 传奇物品 - #2 冈姆的壮志 Kaom's Heart（无插槽） - 精确==
 Show
     BaseType == "Glorious Plate"
     Rarity Unique
@@ -4231,7 +4249,7 @@ Show
     MinimapIcon 0 Brown Star
 
 
-#==[111003]- Unique Items -T0: Chase Uniques 传奇物品 - #3 The Squire (3 white sockets) - 精确==
+#==[111003]- Unique Items -T0: Chase Uniques 传奇物品 - #3 侍从 The Squire（三白孔） - 精确==
 Show
     BaseType == "Elegant Round Shield"
     Rarity Unique
@@ -4245,7 +4263,7 @@ Show
     MinimapIcon 0 Brown Star
 
 
-#==[111004]- Unique Items -T0: Chase Uniques 传奇物品 - #4 Triad Grip (4 white sockets) - 精确==
+#==[111004]- Unique Items -T0: Chase Uniques 传奇物品 - #4 三重扣 Triad Grip（四白孔） - 精确==
 Show
     BaseType == "Mesh Gloves"
     Rarity Unique
@@ -4259,7 +4277,7 @@ Show
     MinimapIcon 0 Brown Star
 
 
-#==[111005]- Unique Items -T0: Chase Uniques 传奇物品 - #5 Oni-Goroshi (influenced Charan's Sword) - 精确==
+#==[111005]- Unique Items -T0: Chase Uniques 传奇物品 - #5 鬼弑 Oni-Goroshi（受影响基底） - 精确==
 Show
     BaseType == "Infernal Sword"
     Rarity Unique
@@ -4273,7 +4291,7 @@ Show
     MinimapIcon 0 Brown Star
 
 
-#==[111006]- Unique Items -T0: Chase Uniques 传奇物品 - #6 Rational Doctrine (synthesised) - 精确==
+#==[111006]- Unique Items -T0: Chase Uniques 传奇物品 - #6 理性主义 Rational Doctrine（忆境物品） - 精确==
 Show
     BaseType == "Cobalt Jewel"
     Rarity Unique
@@ -4287,7 +4305,7 @@ Show
     MinimapIcon 0 Brown Star
 
 
-#==[111007]- Unique Items -T1: High Value 传奇物品 - #1 Replica T1 - 精确==
+#==[111007]- Unique Items -T1: High Value 传奇物品 - #1 仿品 Replica T1 - 精确==
 Show
     BaseType == "Assassin's Boots" "Blood Raiment" "Chain Belt" "Ebony Tower Shield" "Great Crown" "Leather Belt" "Leather Hood" "Maelström Staff" "Soldier Boots" "Spidersilk Robe" "Terror Maul" "Triumphant Lamellar" "Turquoise Amulet" "Vaal Gauntlets" "Void Sceptre"
     Rarity Unique
@@ -4301,7 +4319,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[111008]- Unique Items -T1: High Value 传奇物品 - #2 Foulborn T1 - 精确==
+#==[111008]- Unique Items -T1: High Value 传奇物品 - #2 秽生 Foulborn T1 - 精确==
 Show
     BaseType == "Astral Plate" "Champion Kite Shield" "Desert Brigandine" "Fishing Rod" "Gavel" "Harlequin Mask" "Jewelled Foil" "Karui Chopper" "Ornate Quiver" "Paua Amulet" "Prophecy Wand" "Raven Mask" "Rawhide Boots" "Somatic Wand" "Sorcerer Boots" "Steel Kite Shield" "Vile Staff" "Wyrmscale Doublet"
     Rarity Unique
@@ -4315,7 +4333,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[111009]- Unique Items -T1: High Value 传奇物品 - #3 Tabula Rasa (6-link, all white) - 精确==
+#==[111009]- Unique Items -T1: High Value 传奇物品 - #3 无尽之衣 Tabula Rasa（六连全白） - 精确==
 Show
     BaseType == "Simple Robe"
     Rarity Unique
@@ -4330,7 +4348,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[111010]- Unique Items -T1: High Value 传奇物品 - #4 Synthesis Implicit Bases - 精确==
+#==[111010]- Unique Items -T1: High Value 传奇物品 - #4 忆境基底 Synthesis Bases - 精确==
 Show
     BaseType == "Amethyst Ring" "Iron Ring" "Prismatic Ring" "Ruby Ring" "Sapphire Ring" "Topaz Ring"
     Rarity Unique
@@ -4344,7 +4362,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[111011]- Unique Items -T1: High Value 传奇物品 - #5 Unique Jewels - 精确==
+#==[111011]- Unique Items -T1: High Value 传奇物品 - #5 传奇珠宝 Unique Jewels - 精确==
 Show
     BaseType == "Cobalt Jewel" "Crimson Jewel" "Viridian Jewel"
     Rarity Unique
@@ -4418,7 +4436,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[111017]- Unique Items -T2: Good Value 传奇物品 - #1 Replica T2 - 精确==
+#==[111017]- Unique Items -T2: Good Value 传奇物品 - #1 仿品 Replica T2 - 精确==
 Show
     BaseType == "Eternal Sword" "Ezomyte Burgonet" "Gut Ripper" "Imperial Bow" "Ornate Quiver" "Sage Wand" "Siege Axe" "Sorcerer Gloves" "Stibnite Flask" "Tornado Wand" "Vaal Rapier" "Zodiac Leather"
     Rarity Unique
@@ -4431,7 +4449,7 @@ Show
     MinimapIcon 1 Brown Circle
 
 
-#==[111018]- Unique Items -T2: Good Value 传奇物品 - #2 Foulborn T2 - 精确==
+#==[111018]- Unique Items -T2: Good Value 传奇物品 - #2 秽生 Foulborn T2 - 精确==
 Show
     BaseType == "Assassin's Garb" "Dragonscale Boots" "Eternal Sword" "Exquisite Leather" "Gladiator Plate" "Lunaris Circlet" "Murder Mitts" "Reinforced Greaves" "Silk Gloves" "Steel Gauntlets" "Titanium Spirit Shield" "Tomahawk" "Vaal Gauntlets"
     Rarity Unique
@@ -4444,7 +4462,7 @@ Show
     MinimapIcon 1 Brown Circle
 
 
-#==[111019]- Unique Items -T2: Good Value 传奇物品 - #3 4x Abyss Sockets Helmet - 精确==
+#==[111019]- Unique Items -T2: Good Value 传奇物品 - #3 四深渊孔头盔 4x Abyss Helmet - 精确==
 Show
     BaseType == "Bone Circlet"
     Rarity Unique
@@ -4457,7 +4475,7 @@ Show
     MinimapIcon 1 Brown Circle
 
 
-#==[111020]- Unique Items -T2: Good Value 传奇物品 - #4 3x Abyss Sockets - 精确==
+#==[111020]- Unique Items -T2: Good Value 传奇物品 - #4 三深渊孔 3x Abyss - 精确==
 Show
     BaseType == "Carnal Armour"
     Rarity Unique
@@ -4470,7 +4488,7 @@ Show
     MinimapIcon 1 Brown Circle
 
 
-#==[111021]- Unique Items -T2: Good Value 传奇物品 - #5 2x Abyss Sockets - 精确==
+#==[111021]- Unique Items -T2: Good Value 传奇物品 - #5 双深渊孔 2x Abyss - 精确==
 Show
     BaseType == "Great Crown" "Mind Cage" "Murder Boots" "Riveted Gloves" "Steelscale Gauntlets"
     Rarity Unique
@@ -4483,7 +4501,7 @@ Show
     MinimapIcon 1 Brown Circle
 
 
-#==[111022]- Unique Items -T2: Good Value 传奇物品 - #6 Corrupted Unique Jewels - 精确==
+#==[111022]- Unique Items -T2: Good Value 传奇物品 - #6 已腐化传奇珠宝 Corrupted Jewels - 精确==
 Show
     BaseType == "Cobalt Jewel" "Crimson Jewel" "Viridian Jewel"
     Rarity Unique
@@ -5847,4 +5865,13 @@ Show
     PlayAlertSound 2 300
     PlayEffect Brown
     MinimapIcon 1 Brown Diamond
+
+
+#==[99999]-未知物品 Unknown Items==
+# Catch-all for anything no rule above matched (new league items, unmapped basetypes).
+# PLACEHOLDER — the real block will be hand-written here.
+Show
+    SetFontSize 32
+    SetTextColor 255 0 255 255
+    SetBorderColor 255 0 255 255
 

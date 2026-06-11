@@ -22,6 +22,7 @@ import { useTranslation, CLASS_KEY_MAP } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ContextMenu from './ContextMenu';
 import ItemCard from './ItemCard';
+import LoadingOverlay from './LoadingOverlay';
 
 interface Item {
   name: string;
@@ -531,8 +532,9 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
           </button>
         </div>
 
-        <div className="kanban-board">
-          <DndContext 
+        {loading && <LoadingOverlay language={language} />}
+        <div className="kanban-board" style={loading ? { display: 'none' } : undefined}>
+          <DndContext
             sensors={sensors}
             collisionDetection={pointerWithin}
             onDragStart={handleDragStart}

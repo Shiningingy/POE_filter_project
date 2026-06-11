@@ -22,6 +22,7 @@ import BulkTierEditor from "./BulkTierEditor";
 import RuleManager from "./RuleManager";
 import SortableTierBlock from "./SortableTierBlock";
 import ContextMenu from "./ContextMenu";
+import LoadingOverlay from "./LoadingOverlay";
 import { resolveStyle } from "../utils/styleResolver";
 import { useTranslation, translations } from "../utils/localization";
 import type { Language } from "../utils/localization";
@@ -99,6 +100,11 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   }>({ visible: false, x: 0, y: 0 });
 
   const [tierClipboard, setTierClipboard] = useState<any>(null);
+  const [renameModal, setRenameModal] = useState<{
+    tierKey: string;
+    en: string;
+    ch: string;
+  } | null>(null);
   const [activeRuleIndex, setActiveRuleIndex] = useState<{
     tierKey: string;
     index: number;
@@ -262,9 +268,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     updateConfig(newConfig);
 
     const displayTierName =
-      language === "ch"
+      newConfig[activeCategoryKey][tierKey].localization?.[language] ||
+      (language === "ch"
         ? `T${newStyle.Tier ?? "?"} ${newConfig[activeCategoryKey]._meta?.localization?.ch ?? activeCategoryKey}`
-        : `Tier ${newStyle.Tier ?? "?"} ${newConfig[activeCategoryKey]._meta?.localization?.en ?? activeCategoryKey}`;
+        : `Tier ${newStyle.Tier ?? "?"} ${newConfig[activeCategoryKey]._meta?.localization?.en ?? activeCategoryKey}`);
 
     const items = derivedTierItems[tierKey] || [];
     const baseRules =
@@ -286,6 +293,34 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       rules: getAugmentedRules(baseRules, items),
       baseTypes: items.map((i) => i.name),
     });
+  };
+
+  const openRenameModal = (tierKey: string) => {
+    const td = activeCategoryData?.[tierKey];
+    if (!td) return;
+    setRenameModal({
+      tierKey,
+      en: td.localization?.en || "",
+      ch: td.localization?.ch || "",
+    });
+  };
+
+  // Saves per-tier display names into the tier file's localization.
+  // Internal keys + theme.Tier are untouched, so theme/generation are unaffected.
+  const saveRename = () => {
+    if (!renameModal || !activeCategoryKey) return;
+    const newConfig = JSON.parse(JSON.stringify(parsedConfig));
+    const tier = newConfig[activeCategoryKey][renameModal.tierKey];
+    if (!tier) return;
+    const loc = { ...(tier.localization || {}) };
+    const en = renameModal.en.trim();
+    const ch = renameModal.ch.trim();
+    if (en) loc.en = en; else delete loc.en;
+    if (ch) loc.ch = ch; else delete loc.ch;
+    if (Object.keys(loc).length) tier.localization = loc;
+    else delete tier.localization;
+    updateConfig(newConfig);
+    setRenameModal(null);
   };
 
   const handleMoveItem = async (
@@ -635,7 +670,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   };
 
   if (!themeData || !parsedConfig || !activeCategoryKey)
-    return <div>{t.loading}</div>;
+    return <LoadingOverlay language={language} />;
 
   const catName =
     activeCategoryData._meta?.localization?.[language] || activeCategoryKey;
@@ -701,18 +736,14 @@ const CategoryView: React.FC<CategoryViewProps> = ({
               const tierNum =
                 tierData.theme?.Tier !== undefined ? tierData.theme.Tier : "?";
 
-              let displayTierName =
-                language === "ch"
-                  ? `T${tierNum} ${catName}`
-                  : `Tier ${tierNum} ${catName}`;
+              // Display name: per-tier localization always wins (renameable);
+              // fallback is the generated "T{n} {category}" label.
               const locName = tierData.localization?.[language];
-              if (
-                locName &&
-                (tierKey.startsWith("CustomTier") ||
-                  typeof tierNum !== "number")
-              ) {
-                displayTierName = locName;
-              }
+              const displayTierName =
+                locName ||
+                (language === "ch"
+                  ? `T${tierNum} ${catName}`
+                  : `Tier ${tierNum} ${catName}`);
 
               return (
                 <SortableTierBlock
@@ -868,6 +899,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
             ...(contextMenu.tierKey
               ? [
                   {
+                    label: `✎ ${t.renameTier}`,
+                    onClick: () => openRenameModal(contextMenu.tierKey!),
+                  },
+                  {
                     label: t.copyTier,
                     onClick: () => {
                       const data = activeCategoryData[contextMenu.tierKey!];
@@ -915,8 +950,59 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         />
       )}
 
+      {renameModal && (
+        <div className="rename-overlay" onClick={() => setRenameModal(null)}>
+          <div className="rename-modal" onClick={(e) => e.stopPropagation()}>
+            <h4>{t.renameTier}</h4>
+            <div className="rename-key">{renameModal.tierKey}</div>
+            <label>
+              <span>{t.tierNameEn}</span>
+              <input
+                type="text"
+                value={renameModal.en}
+                onChange={(e) =>
+                  setRenameModal({ ...renameModal, en: e.target.value })
+                }
+                placeholder="e.g. Extremely valuable currency"
+              />
+            </label>
+            <label>
+              <span>{t.tierNameCh}</span>
+              <input
+                type="text"
+                value={renameModal.ch}
+                onChange={(e) =>
+                  setRenameModal({ ...renameModal, ch: e.target.value })
+                }
+                placeholder="例如：极高价值通货"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") saveRename();
+                }}
+              />
+            </label>
+            <div className="rename-hint">{t.renameTierHint}</div>
+            <div className="rename-actions">
+              <button onClick={() => setRenameModal(null)}>{t.cancel}</button>
+              <button className="rename-save" onClick={saveRename}>
+                {t.save}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
         .category-view { padding-bottom: 50px; max-width: 1200px; margin: 0 auto; width: 100%; min-height: 400px; }
+        .rename-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 1500; display: flex; align-items: center; justify-content: center; }
+        .rename-modal { background: white; border-radius: 8px; padding: 18px 22px; width: 380px; max-width: 90vw; display: flex; flex-direction: column; gap: 10px; }
+        .rename-modal h4 { margin: 0; font-size: 1rem; }
+        .rename-key { font-family: monospace; font-size: 0.75rem; color: #888; background: #f5f5f5; padding: 3px 8px; border-radius: 4px; }
+        .rename-modal label { display: flex; flex-direction: column; gap: 4px; font-size: 0.8rem; color: #555; }
+        .rename-modal input { padding: 7px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.88rem; }
+        .rename-hint { font-size: 0.74rem; color: #999; }
+        .rename-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px; }
+        .rename-actions button { padding: 6px 16px; border-radius: 4px; border: 1px solid #ccc; background: #fafafa; cursor: pointer; }
+        .rename-actions .rename-save { background: #4CAF50; border-color: #4CAF50; color: white; font-weight: bold; }
         .category-section { margin-bottom: 30px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); padding: 20px; }
         .category-header { 
             display: flex; 
