@@ -977,7 +977,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
             />
             <div className="rename-hint">{t.renameTierHint}</div>
             <div className="rename-actions">
-              <button onClick={() => setRenameModal(null)}>{t.cancel}</button>
+              <button className="rename-cancel" onClick={() => setRenameModal(null)}>{t.cancel}</button>
               <button className="rename-save" onClick={saveRename}>
                 {t.save}
               </button>
@@ -997,6 +997,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         .rename-hint { font-size: 0.74rem; color: #999; }
         .rename-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px; }
         .rename-actions button { padding: 6px 16px; border-radius: 4px; border: 1px solid #ccc; background: #fafafa; cursor: pointer; }
+        .rename-actions .rename-cancel { background: #b05050; border-color: #b05050; color: white; }
+        .rename-actions .rename-cancel:hover { background: #9c4444; }
         .rename-actions .rename-save { background: #4CAF50; border-color: #4CAF50; color: white; font-weight: bold; }
         .category-section { margin-bottom: 30px; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); padding: 20px; }
         .category-header { 

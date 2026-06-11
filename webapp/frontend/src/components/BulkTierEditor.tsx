@@ -18,7 +18,7 @@ import {
   useSortable
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { useTranslation, CLASS_KEY_MAP } from '../utils/localization';
+import { useTranslation, CLASS_KEY_MAP, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ContextMenu from './ContextMenu';
 import ItemCard from './ItemCard';
@@ -196,9 +196,11 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         // Fetch all items to support global search across all classes
         const res = await axios.get(`${API_BASE_URL}/api/class-items/All`);
         setItems(res.data.items);
-        setStagedChanges({}); 
+        setStagedChanges({});
       } catch (err) {
         console.error(err);
+      } finally {
+        setLoading(false);
       }
     };
     fetchItems();
@@ -462,6 +464,9 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     return colors[num % colors.length] || '#f0f0f0';
   };
 
+  const classLabel = (c: string) =>
+    language === 'ch' ? (CLASS_CH[c] || (t as any)[CLASS_KEY_MAP[c]] || c) : c;
+
   const stagedCount = Object.keys(stagedChanges).length;
   const activeItem = activeId ? items.find(i => i.name === activeId.split('::')[0]) : null;
   const activeSourceTier = activeId ? activeId.split('::')[1] : null;
@@ -471,7 +476,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       <div className="modal-content">
         <div className="modal-header">
           <div className="header-left">
-            <h2>{t.bulkEdit}: {language === 'ch' ? ((t as any)[CLASS_KEY_MAP[selectedClass] || selectedClass] || selectedClass) : selectedClass}</h2>
+            <h2>{t.bulkEdit}: {classLabel(selectedClass)}</h2>
             <div className="class-select-wrapper">
                 <span className="label">{t.itemClass}:</span>
                 <select 
@@ -481,7 +486,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                 >
                     {itemClasses.map(c => (
                         <option key={c} value={c}>
-                            {language === 'ch' ? ((t as any)[CLASS_KEY_MAP[c] || c] || c) : c}
+                            {classLabel(c)}
                         </option>
                     ))}
                 </select>
@@ -686,7 +691,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         .header-left h2 { margin: 0; font-size: 1.2rem; color: #333; }
         .class-select-wrapper { display: flex; align-items: center; gap: 10px; }
         .class-select-wrapper .label { font-size: 0.9rem; font-weight: bold; color: #555; }
-        .class-select { padding: 6px 12px; border-radius: 6px; border: 1px solid #ddd; font-weight: bold; font-size: 0.95rem; cursor: pointer; color: #2196F3; max-width: 250px; }
+        .class-select { padding: 6px 12px; border-radius: 6px; border: 1px solid #ddd; font-weight: bold; font-size: 0.95rem; cursor: pointer; color: #333; background: white; max-width: 250px; }
         
         .header-meta { display: flex; align-items: center; gap: 20px; }
         .staged-badge { background: #2196F3; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }

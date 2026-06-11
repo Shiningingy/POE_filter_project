@@ -364,7 +364,7 @@ const EditorView: React.FC<EditorViewProps> = ({
       
       <div className="main-content">
         <div className="top-bar">
-          <h2>Editor: {selectedFile?.localization[language] || '...'} <small style={{fontSize: '0.7em', color: '#999'}}>({selectedFile?.mapping_path || 'No Mapping'})</small></h2>
+          <h2>{t.toolbar}</h2>
           <div className="actions">
              <button className="visibility-btn" onClick={() => setShowVisibilityOverview(true)}>
                  👁 {t.showHideEditor}
