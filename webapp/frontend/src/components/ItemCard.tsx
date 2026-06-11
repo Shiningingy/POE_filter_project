@@ -70,10 +70,6 @@ const ItemCard: React.FC<ItemCardProps> = ({
         onClick={onClick}
         onDoubleClick={onDoubleClick}
       >
-        {dotBg && (
-          <div className="defense-indicator" style={{ background: dotBg }} />
-        )}
-
         {/* <div className="item-icon-mini">
             <img 
                 src={iconUrl} 
@@ -86,6 +82,9 @@ const ItemCard: React.FC<ItemCardProps> = ({
           {showChineseFirst ? (
             <div className="name-container">
               <span className="name-primary">{item.name_ch || item.name}</span>
+              {dotBg && (
+                <span className="defense-indicator" style={{ background: dotBg }} title={item.sub_type} />
+              )}
               {hasSound && (
                 <span 
                     className="sound-icon" 
@@ -99,6 +98,9 @@ const ItemCard: React.FC<ItemCardProps> = ({
           ) : (
              <div className="name-container">
               <span className="name-primary">{item.name}</span>
+              {dotBg && (
+                <span className="defense-indicator" style={{ background: dotBg }} title={item.sub_type} />
+              )}
               {hasSound && (
                 <span 
                     className="sound-icon" 

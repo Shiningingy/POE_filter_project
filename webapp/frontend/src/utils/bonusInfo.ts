@@ -12,10 +12,29 @@ export interface BonusFlatInfo {
 
 export interface UniqueCandidate {
   unique: string;
+  name_ch?: string; // from the GGPK words.json dump
   text: string;
   priority: number;
   ruleLink?: { entryName?: string; text?: string } | null;
   hideInHoverBox?: boolean;
+  legacy?: boolean; // drop-disabled per poewiki (fated/legacy/league-removed)
+}
+
+// Where a unique drops, derived from FilterBlade's hover text keywords.
+export type DropSource = "global" | "boss" | "league" | "nodrop";
+
+const NODROP_RE =
+  /does not drop|vendor recipe|created (?:with|from|by)|upgraded (?:with|from|by)|corrupting|fated|prophecy/i;
+const LEAGUE_RE =
+  /heist|blueprint|contract|safehouse|catarina|delve|delirium|blight|breach|legion|incursion|temple of atzoatl|ritual|expedition|logbook|synthesis|betrayal|abyss|sanctum|ultimatum|harbinger|beyond|warband|talisman|essence|perandus|ambush|domination|anarchy|torment|bestiary|harvest|metamorph|crucible|affliction|necropolis|settlers|kalguur|ancestor|incubat|labyrinth|rogue exile/i;
+const BOSS_RE = /drops? from|drops? exclusively|boss|guardian|conqueror|pinnacle/i;
+
+export function deriveDropSource(text: string | null | undefined): DropSource {
+  if (!text) return "global";
+  if (NODROP_RE.test(text)) return "nodrop";
+  if (LEAGUE_RE.test(text)) return "league";
+  if (BOSS_RE.test(text)) return "boss";
+  return "global";
 }
 
 export interface UniqueBaseInfo {

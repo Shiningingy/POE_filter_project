@@ -337,14 +337,18 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
   }, [context, generatorSettings, itemPools, classPropsMap, getLeafClassesUnder, getScatterPosition]);
 
   const handleAddItem = () => {
+      // Replica/Foulborn only exist on unique items — strip them for other rarities.
+      const sanitized = newItem.rarity === 'Unique'
+          ? newItem
+          : { ...newItem, replica: false, foulborn: false };
       if (editingItem) {
           // Update the existing item in place by matching id
           setDroppedItems(prev => prev.map(i =>
-              i.id === editingItem.id ? { ...i, ...newItem } : i
+              i.id === editingItem.id ? { ...i, ...sanitized } : i
           ));
           setEditingItem(null);
       } else {
-          addItemToGround(newItem);
+          addItemToGround(sanitized);
       }
       setShowCreator(false);
   };
@@ -635,7 +639,9 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                   <div className="flags-section">
                       <h4>{t.flags}</h4>
                       <div className="flags-grid">
-                          {Array.from(new Set(['identified', 'corrupted', 'mirrored', ...(activeProps.flags || [])])).map(flag => (
+                          {Array.from(new Set(['identified', 'corrupted', 'mirrored', ...(activeProps.flags || [])]))
+                            .filter(flag => !['replica', 'foulborn'].includes(flag) || newItem.rarity === 'Unique')
+                            .map(flag => (
                                 <label key={flag}>
                                     <input type="checkbox" checked={!!newItem[flag as keyof ItemProps]} onChange={e => setNewItem({...newItem, [flag]: e.target.checked})} />
                                     {(t as any)[flag] || flag.charAt(0).toUpperCase() + flag.slice(1)}

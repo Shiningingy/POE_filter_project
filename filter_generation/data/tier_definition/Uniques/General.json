@@ -8,50 +8,22 @@
       },
       "tier_order": [
         "T0 Chase",
-        "T1 (Replica)",
-        "T2 (Replica)",
-        "Multi (Replica)",
-        "T3 (Replica)",
-        "Other (Replica)",
-        "T1 (Foulborn)",
-        "T2 (Foulborn)",
-        "Multi (Foulborn)",
-        "T3 (Foulborn)",
-        "Other (Foulborn)",
-        "Multi-Unique",
-        "Other",
-        "Other (Class)",
-        "Uber Impresence",
-        "Kaom's Heart",
-        "The Squire",
-        "Tabula Rasa",
-        "Triad Grip",
-        "Forge Sword",
-        "Rational Doctrine",
-        "Synthesis Implicits",
-        "6-Link",
-        "4x Abyss Helmet",
-        "3x Abyss",
         "T1",
         "T2",
+        "Replica Mid",
+        "Foulborn Mid",
+        "6-Link",
         "Idols",
         "2x Corrupted",
-        "2x Abyss",
         "Crucible Tree",
-        "Multi-Unique High",
-        "Foulborn (Foulborn)",
-        "Multi-Unique 2",
         "Over-Quality",
         "5-Link",
         "6-Socket",
-        "Corrupted Jewels",
-        "Jewels",
         "Corrupted Gear",
-        "T3 Boss",
         "T3",
         "Low+",
         "Low",
-        "Other 2",
+        "Other",
         "Hide"
       ],
       "multi_unique_bases": [
@@ -148,440 +120,6 @@
       },
       "comment": "Hand-picked chase uniques (add bases in the editor)."
     },
-    "T1 (Replica)": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Replica": "True"
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "T1 (Replica)",
-        "ch": "T1 (Replica)"
-      }
-    },
-    "T2 (Replica)": {
-      "hideable": false,
-      "theme": {
-        "Tier": 2
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Replica": "True"
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "T2 (Replica)",
-        "ch": "T2 (Replica)"
-      }
-    },
-    "Multi (Replica)": {
-      "hideable": false,
-      "theme": {
-        "Tier": 3
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Replica": "True"
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Multi (Replica)",
-        "ch": "Multi (Replica)"
-      }
-    },
-    "T3 (Replica)": {
-      "hideable": false,
-      "theme": {
-        "Tier": 3
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Replica": "True"
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "T3 (Replica)",
-        "ch": "T3 (Replica)"
-      }
-    },
-    "Other (Replica)": {
-      "hideable": true,
-      "theme": {
-        "Tier": 5
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Replica": "True"
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Other (Replica)",
-        "ch": "Other (Replica)"
-      },
-      "class_condition": true
-    },
-    "T1 (Foulborn)": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Foulborn": "True"
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "T1 (Foulborn)",
-        "ch": "T1 (Foulborn)"
-      }
-    },
-    "T2 (Foulborn)": {
-      "hideable": false,
-      "theme": {
-        "Tier": 2
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Foulborn": "True"
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "T2 (Foulborn)",
-        "ch": "T2 (Foulborn)"
-      }
-    },
-    "Multi (Foulborn)": {
-      "hideable": false,
-      "theme": {
-        "Tier": 3
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Foulborn": "True"
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Multi (Foulborn)",
-        "ch": "Multi (Foulborn)"
-      }
-    },
-    "T3 (Foulborn)": {
-      "hideable": false,
-      "theme": {
-        "Tier": 3
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Foulborn": "True"
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "T3 (Foulborn)",
-        "ch": "T3 (Foulborn)"
-      }
-    },
-    "Other (Foulborn)": {
-      "hideable": true,
-      "theme": {
-        "Tier": 5
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Foulborn": "True"
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Other (Foulborn)",
-        "ch": "Other (Foulborn)"
-      },
-      "class_condition": true
-    },
-    "Multi-Unique": {
-      "hideable": false,
-      "theme": {
-        "Tier": 3
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Class": "== \"Maps\""
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Multi-Unique",
-        "ch": "Multi-Unique"
-      },
-      "class_condition": true
-    },
-    "Other": {
-      "hideable": true,
-      "theme": {
-        "Tier": 5
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Class": "== \"Maps\""
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Other",
-        "ch": "Other"
-      },
-      "class_condition": true
-    },
-    "Other (Class)": {
-      "hideable": true,
-      "theme": {
-        "Tier": 5
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Class": "== \"Blueprints\" \"Contracts\""
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Other (Class)",
-        "ch": "Other (Class)"
-      },
-      "class_condition": true
-    },
-    "Uber Impresence": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "conditions": {
-        "Rarity": "Unique"
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Uber Impresence",
-        "ch": "Uber Impresence"
-      }
-    },
-    "Kaom's Heart": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Sockets": "< 1"
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Kaom's Heart",
-        "ch": "Kaom's Heart"
-      }
-    },
-    "The Squire": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Sockets": ">= 3WWW"
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "The Squire",
-        "ch": "The Squire"
-      }
-    },
-    "Tabula Rasa": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "LinkedSockets": "6"
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Tabula Rasa",
-        "ch": "Tabula Rasa"
-      }
-    },
-    "Triad Grip": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Sockets": ">= 4WWWW"
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Triad Grip",
-        "ch": "Triad Grip"
-      }
-    },
-    "Forge Sword": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "conditions": {
-        "Rarity": "Unique"
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Forge Sword",
-        "ch": "Forge Sword"
-      }
-    },
-    "Rational Doctrine": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "conditions": {
-        "Rarity": "Unique"
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Rational Doctrine",
-        "ch": "Rational Doctrine"
-      }
-    },
-    "Synthesis Implicits": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "conditions": {
-        "Rarity": "Unique"
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Synthesis Implicits",
-        "ch": "Synthesis Implicits"
-      }
-    },
-    "6-Link": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "LinkedSockets": "6"
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "6-Link",
-        "ch": "6-Link"
-      },
-      "class_condition": true
-    },
-    "4x Abyss Helmet": {
-      "hideable": false,
-      "theme": {
-        "Tier": 2
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Sockets": ">= AAAA"
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "4x Abyss Helmet",
-        "ch": "4x Abyss Helmet"
-      }
-    },
-    "3x Abyss": {
-      "hideable": false,
-      "theme": {
-        "Tier": 2
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Sockets": ">= AAA"
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "3x Abyss",
-        "ch": "3x Abyss"
-      }
-    },
     "T1": {
       "hideable": false,
       "theme": {
@@ -595,8 +133,8 @@
         "sharket_sound_id": "传奇.mp3"
       },
       "localization": {
-        "en": "T1",
-        "ch": "T1"
+        "en": "T1: High Value",
+        "ch": "T1: 高价值"
       }
     },
     "T2": {
@@ -612,11 +150,69 @@
         "sharket_sound_id": "传奇.mp3"
       },
       "localization": {
-        "en": "T2",
-        "ch": "T2"
+        "en": "T2: Good Value",
+        "ch": "T2: 优质"
+      }
+    },
+    "Replica Mid": {
+      "class_condition": true,
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "conditions": {
+        "Rarity": "Unique",
+        "Replica": "True"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "Replica (Other)",
+        "ch": "仿品（其他）"
+      }
+    },
+    "Foulborn Mid": {
+      "class_condition": true,
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "conditions": {
+        "Rarity": "Unique",
+        "Foulborn": "True"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "Foulborn (Other)",
+        "ch": "秽生（其他）"
+      }
+    },
+    "6-Link": {
+      "class_condition": true,
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "conditions": {
+        "Rarity": "Unique",
+        "LinkedSockets": "6"
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "6-Link",
+        "ch": "六连"
       }
     },
     "Idols": {
+      "class_condition": true,
       "hideable": false,
       "theme": {
         "Tier": 2
@@ -631,11 +227,11 @@
       },
       "localization": {
         "en": "Idols",
-        "ch": "Idols"
-      },
-      "class_condition": true
+        "ch": "神像"
+      }
     },
     "2x Corrupted": {
+      "class_condition": true,
       "hideable": false,
       "theme": {
         "Tier": 2
@@ -651,29 +247,11 @@
       },
       "localization": {
         "en": "2x Corrupted",
-        "ch": "2x Corrupted"
-      },
-      "class_condition": true
-    },
-    "2x Abyss": {
-      "hideable": false,
-      "theme": {
-        "Tier": 2
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Sockets": ">= AA"
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "2x Abyss",
-        "ch": "2x Abyss"
+        "ch": "双重腐化"
       }
     },
     "Crucible Tree": {
+      "class_condition": true,
       "hideable": false,
       "theme": {
         "Tier": 2
@@ -688,64 +266,11 @@
       },
       "localization": {
         "en": "Crucible Tree",
-        "ch": "Crucible Tree"
-      },
-      "class_condition": true
-    },
-    "Multi-Unique High": {
-      "hideable": false,
-      "theme": {
-        "Tier": 2
-      },
-      "conditions": {
-        "Rarity": "Unique"
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Multi-Unique High",
-        "ch": "Multi-Unique High"
-      }
-    },
-    "Foulborn (Foulborn)": {
-      "hideable": false,
-      "theme": {
-        "Tier": 2
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Foulborn": "True"
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Foulborn (Foulborn)",
-        "ch": "Foulborn (Foulborn)"
-      },
-      "class_condition": true
-    },
-    "Multi-Unique 2": {
-      "hideable": false,
-      "theme": {
-        "Tier": 3
-      },
-      "conditions": {
-        "Rarity": "Unique"
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Multi-Unique 2",
-        "ch": "Multi-Unique 2"
+        "ch": "坩埚天赋"
       }
     },
     "Over-Quality": {
+      "class_condition": true,
       "hideable": false,
       "theme": {
         "Tier": 2
@@ -760,11 +285,11 @@
       },
       "localization": {
         "en": "Over-Quality",
-        "ch": "Over-Quality"
-      },
-      "class_condition": true
+        "ch": "超额品质"
+      }
     },
     "5-Link": {
+      "class_condition": true,
       "hideable": false,
       "theme": {
         "Tier": 2
@@ -779,11 +304,11 @@
       },
       "localization": {
         "en": "5-Link",
-        "ch": "5-Link"
-      },
-      "class_condition": true
+        "ch": "五连"
+      }
     },
     "6-Socket": {
+      "class_condition": true,
       "hideable": false,
       "theme": {
         "Tier": 2
@@ -798,47 +323,11 @@
       },
       "localization": {
         "en": "6-Socket",
-        "ch": "6-Socket"
-      },
-      "class_condition": true
-    },
-    "Corrupted Jewels": {
-      "hideable": false,
-      "theme": {
-        "Tier": 2
-      },
-      "conditions": {
-        "Rarity": "Unique",
-        "Corrupted": "True",
-        "CorruptedMods": "0"
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Corrupted Jewels",
-        "ch": "Corrupted Jewels"
-      }
-    },
-    "Jewels": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "conditions": {
-        "Rarity": "Unique"
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "Jewels",
-        "ch": "Jewels"
+        "ch": "六孔"
       }
     },
     "Corrupted Gear": {
+      "class_condition": true,
       "hideable": false,
       "theme": {
         "Tier": 3
@@ -855,25 +344,7 @@
       },
       "localization": {
         "en": "Corrupted Gear",
-        "ch": "Corrupted Gear"
-      },
-      "class_condition": true
-    },
-    "T3 Boss": {
-      "hideable": false,
-      "theme": {
-        "Tier": 3
-      },
-      "conditions": {
-        "Rarity": "Unique"
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "传奇.mp3"
-      },
-      "localization": {
-        "en": "T3 Boss",
-        "ch": "T3 Boss"
+        "ch": "腐化装备"
       }
     },
     "T3": {
@@ -889,8 +360,8 @@
         "sharket_sound_id": "传奇.mp3"
       },
       "localization": {
-        "en": "T3",
-        "ch": "T3"
+        "en": "T3: Regular",
+        "ch": "T3: 普通"
       }
     },
     "Low+": {
@@ -906,8 +377,8 @@
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "Low+",
-        "ch": "Low+"
+        "en": "T4: Low",
+        "ch": "T4: 低价值"
       }
     },
     "Low": {
@@ -923,27 +394,27 @@
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "Low",
-        "ch": "Low"
+        "en": "T5: Lowest",
+        "ch": "T5: 最低价值"
       }
     },
-    "Other 2": {
-      "hideable": true,
+    "Other": {
+      "class_condition": true,
+      "hideable": false,
       "theme": {
-        "Tier": 5
+        "Tier": 3
       },
       "conditions": {
         "Rarity": "Unique"
       },
       "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
+        "default_sound_id": 1,
+        "sharket_sound_id": "传奇.mp3"
       },
       "localization": {
-        "en": "Other 2",
-        "ch": "Other 2"
-      },
-      "class_condition": true
+        "en": "Other Uniques",
+        "ch": "其他传奇"
+      }
     },
     "Hide": {
       "hideable": true,

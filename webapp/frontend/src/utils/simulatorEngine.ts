@@ -268,7 +268,7 @@ const summarizeConditions = (rule: any): string => {
     }
     const conditions = rule.conditions || {};
     for (const [key, value] of Object.entries(conditions)) {
-        parts.push(`${key} ${value}`);
+        parts.push(`${key} ${Array.isArray(value) ? value.join(' & ') : value}`);
     }
     return parts.join('  ·  ');
 };
@@ -359,9 +359,29 @@ export const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: num
     // 2. Check Conditions
     const conditions = rule.conditions || {};
     for (const [key, value] of Object.entries(conditions)) {
+        // List value = the same condition repeated on several lines (AND),
+        // e.g. HasInfluence "Shaper" + HasInfluence "Elder" (uber-elder items).
+        if (Array.isArray(value)) {
+            if (key === 'HasInfluence') {
+                const infMap: Record<string, keyof ItemProps> = {
+                    shaper: 'shaper', elder: 'elder', crusader: 'crusader',
+                    redeemer: 'redeemer', hunter: 'hunter', warlord: 'warlord',
+                    exarch: 'exarch', eater: 'eater',
+                };
+                for (const v of value) {
+                    for (const inf of String(v).replace(/"/g, '').trim().toLowerCase().split(/\s+/)) {
+                        const k = infMap[inf];
+                        if (!k || !item[k]) return false;
+                    }
+                }
+            }
+            // Other repeated keys: not modeled — lenient skip.
+            continue;
+        }
+
         let operator = '=';
         let targetVal: any = value;
-        
+
         if (typeof value === 'string') {
             if (value.startsWith('>=')) { operator = '>='; targetVal = parseFloat(value.substring(2)); }
             else if (value.startsWith('<=')) { operator = '<='; targetVal = parseFloat(value.substring(2)); }
@@ -447,8 +467,13 @@ export const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: num
                 'Exarch':   'exarch',
                 'Eater':    'eater',
             };
-            const influenceKey = influenceMap[(value as string).trim()];
-            if (!influenceKey || !item[influenceKey]) return false;
+            // Single line may list several influences (EITHER matches); strip quotes.
+            const wanted = (value as string).replace(/"/g, '').trim().split(/\s+/).filter(Boolean);
+            const hasAny = wanted.some(w => {
+                const k = influenceMap[w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()];
+                return k && !!item[k];
+            });
+            if (!hasAny) return false;
             continue;
         }
 

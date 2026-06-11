@@ -24,6 +24,17 @@ only see a unique's *base type*, never its name. We mirror that faithfully:
     unique (from bonusItemInfo) so the editor/hover can say "= <unique>" (precise
     pin) vs "could be ...".
 
+  * Replica / Foulborn gated tierlists are SIMPLIFIED (user decision): keep
+    FilterBlade's small t1/t2 highlight base-lists, drop the big multi/t3 lists,
+    and let everything else fall into one mid-tier condition catch-all per gate
+    (FB's own `restex` block, restyled Tier 3). This keeps the editor mapping
+    clean (a base no longer sits in 3+ tiers) while still highlighting the
+    valuable replicas/foulborns.
+
+  * The mapping `_meta.localization.ch` is filled for every mapped base via the
+    GGPK EN->CH join (baseitemtypes.json x ch_simplified/baseitemtypes.json),
+    mirroring the backend's load_translations().
+
 Idempotent: re-running fully regenerates both files. Run from the project root:
     python parsing_tool/import_uniques_from_filterblade.py
 """
@@ -36,46 +47,110 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 FILTER_PATH = PROJECT_ROOT / "data" / "from_filter_blade" / "3.28" / "FilterBlade_2_Semi-Strict.filter"
 BONUS_PATH = PROJECT_ROOT / "data" / "from_filter_blade" / "3.28" / "bonusItemInfo.json"
+GGPK_EN = PROJECT_ROOT / "data" / "from_ggpk" / "baseitemtypes.json"
+GGPK_CH = PROJECT_ROOT / "data" / "from_ggpk" / "ch_simplified" / "baseitemtypes.json"
 TIER_OUT = PROJECT_ROOT / "filter_generation" / "data" / "tier_definition" / "Uniques" / "General.json"
 MAP_OUT = PROJECT_ROOT / "filter_generation" / "data" / "base_mapping" / "Uniques" / "General.json"
 
-# Conditions we carry through verbatim (besides BaseType, handled separately).
-CARRY_CONDS = (
-    "Rarity", "Class", "Sockets", "Corrupted", "CorruptedMods", "Quality",
-    "LinkedSockets", "Foulborn", "Replica", "HasCruciblePassiveTree",
-    "ItemLevel", "AnyEnchantment", "SocketGroup", "Mirrored",
+BASETYPES_CSV = PROJECT_ROOT / "data" / "from_filter_blade" / "3.28" / "BaseTypes.csv"
+
+# Style/action lines (everything else inside a block is a CONDITION — no
+# whitelist: an early whitelist silently dropped HasInfluence/SynthesisedItem
+# and made several detections over-match).
+STYLE_PREFIXES = (
+    "SetFontSize", "SetTextColor", "SetBorderColor", "SetBackgroundColor",
+    "PlayAlertSound", "PlayEffect", "MinimapIcon", "CustomAlertSound",
+    "DisableDropSound", "EnableDropSound", "Continue",
 )
 
-# Friendly display name per FilterBlade tier token.
-FRIENDLY = {
-    "t1": "T1", "t2": "T2", "t3": "T3", "t3boss": "T3 Boss",
-    "multi": "Multi", "multispecial": "Multi-Unique", "multispecialhigh": "Multi-Unique High",
-    "hideable": "Low", "hideable2": "Low+", "restex": "Other", "any": "Other (Class)",
-    "5link": "5-Link", "6s": "6-Socket", "ex6link": "6-Link", "overqual": "Over-Quality",
-    "foulborn": "Foulborn", "exjewels": "Jewels", "exjewelscorrupted": "Corrupted Jewels",
-    "2xabyss": "2x Abyss", "3xabyss": "3x Abyss", "4xabysshelmet": "4x Abyss Helmet",
-    "2xcorrupteduniques": "2x Corrupted", "corrupteduniques": "Corrupted Gear",
-    "excrucibleunique": "Crucible Tree", "exuniqueidols": "Idols",
-    "exsquire": "The Squire", "extabula": "Tabula Rasa", "exkaom": "Kaom's Heart",
-    "extriadgrip": "Triad Grip", "exforgesword": "Forge Sword",
-    "exrationaljewel": "Rational Doctrine", "exsynth": "Synthesis Implicits",
-    "exuberimpresence": "Uber Impresence", "earlyleague": "Early League",
-    "recipeuniquerings": "Recipe Rings", "highvinktar": "High Vinktar",
-    "2xcorrupted": "2x Corrupted", "exdust1": "Dust 1", "exdust2": "Dust 2", "exdust3": "Dust 3",
+# Bases of these classes are stripped from the unique mapping/rules: they are
+# caught wholesale by class-level tiers in their own categories ("Unique Maps"
+# in Maps/Base Maps.json, "Unique Contracts" in Heist/Contracts.json).
+EXCLUDED_CLASSES = {"Maps", "Contracts", "Blueprints"}
+
+# Hand corrections on top of FilterBlade's detections (user QA).
+# Tabula: FB only checks LinkedSockets 6, which also matches Skin of the
+# Loyal/Lords on the same base — require the 6 linked sockets to be WHITE.
+EXTRA_RULE_CONDS = {
+    "extabula": {"SocketGroup": "WWWWWW"},
 }
 
-# theme.Tier bucket per token (styling). Falls back to 3.
-THEME_TIER = {
-    "t1": 1, "t2": 2, "t3": 3, "t3boss": 3,
-    "multi": 3, "multispecial": 3, "multispecialhigh": 2,
-    "hideable": 5, "hideable2": 4, "restex": 5, "any": 5,
-    "5link": 2, "6s": 2, "ex6link": 1, "overqual": 2, "foulborn": 2,
-    "exjewels": 1, "exjewelscorrupted": 2,
-    "2xabyss": 2, "3xabyss": 2, "4xabysshelmet": 2,
-    "2xcorrupteduniques": 2, "corrupteduniques": 3, "excrucibleunique": 2,
-    "exuniqueidols": 2,
-    "exsquire": 1, "extabula": 1, "exkaom": 1, "extriadgrip": 1,
-    "exforgesword": 1, "exrationaljewel": 1, "exsynth": 1, "exuberimpresence": 1,
+# ---------------------------------------------------------------------------
+# Single ladder + rules (user decision): instead of one tier per FB block (which
+# yielded duplicate-looking "Replica T1" / "T1" / "Foulborn T1" tiers), FB blocks
+# that HAVE a BaseType list become RULES inside the matching ladder tier
+# (editable in RuleManager; the rule carries the extra conditions and a Tier
+# override). Only condition-only blocks (no BaseType possible) remain as
+# class_condition catch tiers. The Mid catch-alls sit AFTER T2 so the T1/T2
+# replica/foulborn rules fire first.
+# ---------------------------------------------------------------------------
+
+TIER_ORDER = [
+    "T0 Chase", "T1", "T2",
+    "Replica Mid", "Foulborn Mid",
+    "6-Link", "Idols", "2x Corrupted", "Crucible Tree",
+    "Over-Quality", "5-Link", "6-Socket", "Corrupted Gear",
+    "T3", "Low+", "Low", "Other", "Hide",
+]
+
+# Plain ladder tiers: regular base-list tokens map straight into the mapping.
+MAPPING_TIER = {
+    "t1": "T1", "t2": "T2", "multispecialhigh": "T2",
+    "multispecial": "T3", "t3boss": "T3", "t3": "T3",
+    "hideable2": "Low+", "hideable": "Low",
+}
+
+# Base-list blocks that become RULES: token -> (ladder tier, rule comment).
+# The precisely-pinned chase detections go to T0 Chase (user decision).
+# Comments are bilingual (zh + EN) since the rule comment is one free-text
+# field shown as-is in RuleManager for both languages.
+RULE_SPEC = {
+    "exuberimpresence": ("T0 Chase", "隐逝 Uber Impresence（塑界+裂界双重影响）"),
+    "exkaom": ("T0 Chase", "冈姆的壮志 Kaom's Heart（无插槽）"),
+    "exsquire": ("T0 Chase", "侍从 The Squire（三白孔）"),
+    "extriadgrip": ("T0 Chase", "三重扣 Triad Grip（四白孔）"),
+    "exforgesword": ("T0 Chase", "鬼弑 Oni-Goroshi（受影响基底）"),
+    "exrationaljewel": ("T0 Chase", "理性主义 Rational Doctrine（忆境物品）"),
+    "extabula": ("T1", "无尽之衣 Tabula Rasa（六连全白）"),
+    "exsynth": ("T1", "忆境基底 Synthesis Bases"),
+    "exjewels": ("T1", "传奇珠宝 Unique Jewels"),
+    "exjewelscorrupted": ("T2", "已腐化传奇珠宝 Corrupted Jewels"),
+    "4xabysshelmet": ("T2", "四深渊孔头盔 4x Abyss Helmet"),
+    "3xabyss": ("T2", "三深渊孔 3x Abyss"),
+    "2xabyss": ("T2", "双深渊孔 2x Abyss"),
+}
+# Gated (Replica/Foulborn) t1/t2 highlight lists also become rules:
+GATED_RULE_TIER = {"t1": "T1", "t2": "T2"}
+GATE_CH = {"Replica": "仿品", "Foulborn": "秽生"}
+
+# Condition-only blocks -> catch tier label (class_condition tiers).
+COND_TIER = {
+    "ex6link": "6-Link", "exuniqueidols": "Idols",
+    "2xcorrupteduniques": "2x Corrupted", "excrucibleunique": "Crucible Tree",
+    "overqual": "Over-Quality", "5link": "5-Link", "6s": "6-Socket",
+    "corrupteduniques": "Corrupted Gear", "restex": "Other",
+}
+
+# Ladder tier definitions: theme bucket, hideable, localization.
+LADDER = {
+    "T1": (1, False, {"en": "T1: High Value", "ch": "T1: 高价值"}),
+    "T2": (2, False, {"en": "T2: Good Value", "ch": "T2: 优质"}),
+    "T3": (3, False, {"en": "T3: Regular", "ch": "T3: 普通"}),
+    "Low+": (4, True, {"en": "T4: Low", "ch": "T4: 低价值"}),
+    "Low": (5, True, {"en": "T5: Lowest", "ch": "T5: 最低价值"}),
+}
+COND_TIER_DEFS = {
+    "Replica Mid": (3, {"en": "Replica (Other)", "ch": "仿品（其他）"}, {"Replica": "True"}),
+    "Foulborn Mid": (3, {"en": "Foulborn (Other)", "ch": "秽生（其他）"}, {"Foulborn": "True"}),
+    "6-Link": (1, {"en": "6-Link", "ch": "六连"}, None),
+    "Idols": (2, {"en": "Idols", "ch": "神像"}, None),
+    "2x Corrupted": (2, {"en": "2x Corrupted", "ch": "双重腐化"}, None),
+    "Crucible Tree": (2, {"en": "Crucible Tree", "ch": "坩埚天赋"}, None),
+    "Over-Quality": (2, {"en": "Over-Quality", "ch": "超额品质"}, None),
+    "5-Link": (2, {"en": "5-Link", "ch": "五连"}, None),
+    "6-Socket": (2, {"en": "6-Socket", "ch": "六孔"}, None),
+    "Corrupted Gear": (3, {"en": "Corrupted Gear", "ch": "腐化装备"}, None),
+    "Other": (3, {"en": "Other Uniques", "ch": "其他传奇"}, None),
 }
 
 # default_sound_id / sharket sound per theme tier.
@@ -84,7 +159,12 @@ SOUND_BY_TIER = {
     3: (1, "传奇.mp3"), 4: (-1, None), 5: (-1, None), 9: (-1, None),
 }
 
-BLOCK_RE = re.compile(r"^(Show|Hide)\b.*\$type->uniques.*\$tier->(\S+)")
+# Subtype chapters: ->replicas / ->foulborn are part of the unique tierlist and
+# ARE imported. ->maps / ->heist are intentionally NOT: in our generation order
+# the Maps/Heist sections come BEFORE Uniques, so those catches live as
+# class_condition tiers in their own ladders ("Unique Maps" in Maps/Base Maps.json,
+# "Unique Contracts" in Heist/Contracts.json).
+BLOCK_RE = re.compile(r"^(Show|Hide)\b.*\$type->uniques(?:->(?:replicas|foulborn))?\s.*\$tier->(\S+)")
 QUOTED_RE = re.compile(r'"([^"]+)"')
 
 
@@ -104,34 +184,67 @@ def parse_blocks(text):
         j = i + 1
         while j < len(lines) and (lines[j].startswith("\t") or lines[j].startswith("    ")):
             s = lines[j].strip()
-            for c in CARRY_CONDS:
-                if s == c or s.startswith(c + " ") or s.startswith(c + "="):
-                    val = s[len(c):].strip()
-                    if c == "BaseType":
-                        break
-                    conds[c] = val
-                    break
-            if s.startswith("BaseType"):
-                bases = QUOTED_RE.findall(s)
+            if s and not s.startswith("#") and not any(s.startswith(p) for p in STYLE_PREFIXES):
+                key, _, val = s.partition(" ")
+                val = val.strip()
+                if key == "BaseType":
+                    bases = QUOTED_RE.findall(s)
+                elif key in conds:
+                    # Repeated condition key (e.g. two HasInfluence lines = AND)
+                    prev = conds[key]
+                    conds[key] = (prev if isinstance(prev, list) else [prev]) + [val]
+                else:
+                    conds[key] = val
             j += 1
         blocks.append({"cmd": cmd, "token": token, "conds": conds, "bases": bases, "order": len(blocks)})
         i = j
     return blocks
 
 
-def gate_suffix(conds):
-    if conds.get("Replica", "").lower().startswith("true"):
-        return " (Replica)"
-    if conds.get("Foulborn", "").lower().startswith("true"):
-        return " (Foulborn)"
-    return ""
+def gate_of(conds):
+    """'Replica' / 'Foulborn' for gated tierlist blocks, else None."""
+    if str(conds.get("Replica", "")).lower().startswith("true"):
+        return "Replica"
+    if str(conds.get("Foulborn", "")).lower().startswith("true"):
+        return "Foulborn"
+    return None
 
 
-def build(blocks, multi_bases):
+def load_base_classes():
+    """BaseType -> Class from FilterBlade's BaseTypes.csv."""
+    import csv
+    cls = {}
+    try:
+        with open(BASETYPES_CSV, encoding="utf-8") as f:
+            for row in csv.DictReader(f):
+                cls[row["BaseType"]] = row["Class"]
+    except Exception as e:
+        print(f"[warn] BaseTypes.csv unavailable: {e}")
+    return cls
+
+
+def load_zh_basetype_map():
+    """GGPK EN->CH base type name join (mirrors backend load_translations)."""
+    try:
+        en_map = {}
+        for item in json.loads(GGPK_EN.read_text(encoding="utf-8")):
+            if "Id" in item and "Name" in item:
+                en_map[item["Id"]] = item["Name"]
+        zh = {}
+        for item in json.loads(GGPK_CH.read_text(encoding="utf-8")):
+            en_name = en_map.get(item.get("Id"))
+            if en_name and item.get("Name"):
+                zh[en_name] = item["Name"]
+        return zh
+    except Exception as e:
+        print(f"[warn] GGPK zh join unavailable: {e}")
+        return {}
+
+
+def build(blocks, multi_bases, zh_map, base_classes):
     tier_def = OrderedDict()
     tier_order = []
     mapping = defaultdict(list)
-    used_labels = set()
 
     # Keep our hand-curated chase tier at the very top (highest priority).
     tier_order.append("T0 Chase")
@@ -145,47 +258,98 @@ def build(blocks, multi_bases):
         "comment": "Hand-picked chase uniques (add bases in the editor).",
     }
 
+    rules = []
+    cond_conds = {}  # catch-tier label -> conditions captured from the FB block
+    stripped = []
+
     for b in blocks:
         token = b["token"]
-        theme_tier = THEME_TIER.get(token, 3)
-        friendly = FRIENDLY.get(token, token)
-        label = (friendly + gate_suffix(b["conds"])).strip()
-        # ensure uniqueness
-        base_label = label
-        n = 2
-        while label in used_labels:
-            label = f"{base_label} {n}"
-            n += 1
-        used_labels.add(label)
+        gate = gate_of(b["conds"])
+
+        # Bases of class-caught categories (unique maps/contracts/blueprints)
+        # are handled by their own categories' class-level tiers.
+        kept_bases = []
+        for base in b["bases"]:
+            if base_classes.get(base) in EXCLUDED_CLASSES:
+                stripped.append(base)
+            else:
+                kept_bases.append(base)
+        b = {**b, "bases": kept_bases}
 
         conds = OrderedDict()
         conds["Rarity"] = "Unique"
         for k, v in b["conds"].items():
-            if k == "Rarity":
-                continue
+            if k != "Rarity":
+                conds[k] = v
+        for k, v in EXTRA_RULE_CONDS.get(token, {}).items():
             conds[k] = v
 
-        sound_id, sharket = SOUND_BY_TIER.get(theme_tier, (-1, None))
-        entry = {
-            "hideable": theme_tier >= 4,
-            "theme": {"Tier": theme_tier},
-            "conditions": conds,
-            "sound": {"default_sound_id": sound_id, "sharket_sound_id": sharket},
-            "localization": {"en": label, "ch": label},
-        }
-        if b["cmd"] == "Hide":
-            entry["is_hide_tier"] = True
+        if gate:
+            # Gated tierlists: t1/t2 highlight lists -> rules in T1/T2; restex
+            # -> "<gate> Mid" catch tier; the big multi/t3 lists are dropped
+            # (their bases fall through to the Mid catch-all). FB's dead
+            # regular-tierlist `foulborn` block is skipped too.
+            if token in GATED_RULE_TIER and b["bases"]:
+                tier = GATED_RULE_TIER[token]
+                rules.append({
+                    "comment": f"{GATE_CH.get(gate, '')} {gate} {tier}".strip(),
+                    "targets": b["bases"],
+                    "conditions": dict(conds),
+                    "overrides": {"Tier": tier},
+                })
+            elif token == "restex":
+                cond_conds[f"{gate} Mid"] = dict(conds)
+            continue
 
-        if b["bases"]:
-            # Plain tier: bases go to mapping, conditions emitted in the base block.
+        if token in RULE_SPEC and b["bases"]:
+            tier, comment = RULE_SPEC[token]
+            rules.append({
+                "comment": comment,
+                "targets": b["bases"],
+                "conditions": dict(conds),
+                "overrides": {"Tier": tier},
+            })
+        elif token in MAPPING_TIER and b["bases"]:
+            t = MAPPING_TIER[token]
             for base in b["bases"]:
-                if label not in mapping[base]:
-                    mapping[base].append(label)
+                if t not in mapping[base]:
+                    mapping[base].append(t)
+        elif token in COND_TIER and not b["bases"]:
+            cond_conds[COND_TIER[token]] = dict(conds)
         else:
-            # Condition-only tier: emit conditions, no BaseType (reuse class_condition).
-            entry["class_condition"] = True
+            print(f"[warn] unhandled block: token={token} gate={gate} bases={len(b['bases'])}")
 
-        tier_def[label] = entry
+    if stripped:
+        print(f"[ok] stripped {len(stripped)} class-caught bases (maps/contracts/blueprints): {stripped}")
+
+    # Materialize the fixed ladder + catch tiers in TIER_ORDER.
+    for label in TIER_ORDER:
+        if label in ("T0 Chase", "Hide"):
+            continue
+        if label in LADDER:
+            theme_tier, hideable, loc = LADDER[label]
+            sound_id, sharket = SOUND_BY_TIER.get(theme_tier, (-1, None))
+            tier_def[label] = {
+                "hideable": hideable,
+                "theme": {"Tier": theme_tier},
+                "conditions": {"Rarity": "Unique"},
+                "sound": {"default_sound_id": sound_id, "sharket_sound_id": sharket},
+                "localization": dict(loc),
+            }
+        else:
+            theme_tier, loc, fallback_conds = COND_TIER_DEFS[label]
+            conds = cond_conds.get(label)
+            if conds is None:
+                conds = {"Rarity": "Unique", **(fallback_conds or {})}
+            sound_id, sharket = SOUND_BY_TIER.get(theme_tier, (-1, None))
+            tier_def[label] = {
+                "class_condition": True,
+                "hideable": False,
+                "theme": {"Tier": theme_tier},
+                "conditions": conds,
+                "sound": {"default_sound_id": sound_id, "sharket_sound_id": sharket},
+                "localization": dict(loc),
+            }
         tier_order.append(label)
 
     # Explicit Hide bucket (empty by default; user can route bases here).
@@ -217,15 +381,17 @@ def build(blocks, multi_bases):
         }
     }
 
+    # zh names for every base we reference (mapping keys AND rule targets).
+    all_bases = set(final_map) | {t for r in rules for t in r["targets"]}
     map_doc = {
         "_meta": {
-            "localization": {"ch": {}},
+            "localization": {"ch": {b: zh_map[b] for b in sorted(all_bases) if b in zh_map}},
             "item_class": {"en": "Unique Items", "ch": "传奇物品"},
             "theme_category": "Uniques",
             "multi_unique_bases": sorted(multi_bases),
         },
         "mapping": final_map,
-        "rules": [],
+        "rules": rules,
     }
     return tier_doc, map_doc
 
@@ -249,15 +415,18 @@ def main():
     text = FILTER_PATH.read_text(encoding="utf-8")
     blocks = parse_blocks(text)
     multi = load_multi_unique_bases()
-    tier_doc, map_doc = build(blocks, multi)
+    zh_map = load_zh_basetype_map()
+    base_classes = load_base_classes()
+    tier_doc, map_doc = build(blocks, multi, zh_map, base_classes)
 
     TIER_OUT.write_text(json.dumps(tier_doc, ensure_ascii=False, indent=2), encoding="utf-8")
     MAP_OUT.write_text(json.dumps(map_doc, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    n_plain = sum(1 for b in blocks if b["bases"])
-    n_cond = sum(1 for b in blocks if not b["bases"])
-    print(f"[ok] parsed {len(blocks)} unique rules: {n_plain} base-list tiers, {n_cond} condition-only tiers")
-    print(f"[ok] {len(map_doc['mapping'])} base types mapped; {len(multi)} multi-unique bases flagged")
+    n_tiers = len(tier_doc["Unique Items"]["_meta"]["tier_order"])
+    n_rules = len(map_doc["rules"])
+    n_zh = len(map_doc["_meta"]["localization"]["ch"])
+    print(f"[ok] parsed {len(blocks)} FB blocks -> {n_tiers} tiers + {n_rules} rules")
+    print(f"[ok] {len(map_doc['mapping'])} base types mapped ({n_zh} zh-localized); {len(multi)} multi-unique bases flagged")
     print(f"[ok] wrote {TIER_OUT.relative_to(PROJECT_ROOT)} and {MAP_OUT.relative_to(PROJECT_ROOT)}")
 
 

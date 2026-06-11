@@ -1,0 +1,13 @@
+{
+ "_meta": "Hand-maintained EN->zh unique names missing from the GGPK words.json dump. Merged over the words map at backend startup (empty values are skipped). These 10 were derived from poe.game.qq.com trade data (data/cache/trade_items_cn.json) by per-base elimination against known translations, 2026-06-10.",
+ "The Broken Elegy": "破碎挽歌",
+ "Ikiaho's Promise": "伊基阿霍之诺言",
+ "Binds of Bloody Vengeance": "铁心复仇的束带",
+ "Fortified Legion": "坚守军团",
+ "Seething Fury": "怒火中烧",
+ "Hotheaded": "鲁莽",
+ "The Goddess Unleashed": "女神的束缚",
+ "Victario's Flight": "维多里奥的飞升",
+ "Rigwald's Charge": "瑞佛的奋战长剑",
+ "Utula's Hunger": "尤图拉之贪噬"
+}
