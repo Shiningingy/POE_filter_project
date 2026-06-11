@@ -128,6 +128,18 @@ create policy "owner update" on public.submissions
    Without these variables the build still works — the Admin button is simply
    hidden (that's also why local dev and the GH Pages preview show no admin UI).
 
+### Web Analytics (visits, countries — free, cookieless)
+
+Cloudflare dashboard → **Web Analytics** → **Add a site** → choose the Pages
+project / enter `sharketfilter.xyz`. For Pages projects Cloudflare can inject
+the measurement beacon automatically (Pages project → **Settings → Web
+Analytics → Enable**) — no code change needed. Stats appear under Web
+Analytics in the dashboard after the next visits.
+
+If auto-injection isn't available for the setup, copy the site's beacon token
+and add the snippet to `webapp/frontend/index.html` instead:
+`<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "<TOKEN>"}'></script>`
+
 ## The contribution loop
 
 1. Admin edits the filter on sharketfilter.xyz (their edits live in their browser).

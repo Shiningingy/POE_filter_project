@@ -4,6 +4,7 @@ import { useTranslation, CLASS_KEY_MAP, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import SoundPicker from './SoundPicker';
 import LoadingOverlay from './LoadingOverlay';
+import { fetchTierLabelMap } from '../utils/tierLabels';
 import MinimapIconPicker, { getIconStyle, formatMinimapIcon } from './MinimapIconPicker';
 import PlayEffectPicker, { formatPlayEffect } from './PlayEffectPicker';
 import { getAssetUrl } from '../utils/assetUtils';
@@ -94,33 +95,8 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
     fetchData();
   }, []);
 
-  // Build the tier-name map from the tier definitions (merged state in the
-  // deployed build, live files in local dev).
-  useEffect(() => {
-    const fetchTierLabels = async () => {
-      try {
-        const res = await axios.get('/api/simulator-bundle');
-        const map: Record<string, Record<number, { en?: string; ch?: string }>> = {};
-        Object.values(res.data?.tiers || {}).forEach((fileContent: any) => {
-          const catKey = Object.keys(fileContent || {}).find(k => !k.startsWith('//'));
-          if (!catKey) return;
-          const cat = fileContent[catKey];
-          const themeCategory = cat?._meta?.theme_category || catKey;
-          if (!map[themeCategory]) map[themeCategory] = {};
-          Object.entries<any>(cat).forEach(([key, val]) => {
-            if (key === '_meta' || !val || typeof val !== 'object') return;
-            const num = val.theme?.Tier;
-            if (typeof num !== 'number' || map[themeCategory][num]) return; // first file wins
-            if (val.localization?.en || val.localization?.ch) {
-              map[themeCategory][num] = { en: val.localization.en, ch: val.localization.ch };
-            }
-          });
-        });
-        setTierLabelMap(map);
-      } catch (e) { console.error('Failed to load tier labels', e); }
-    };
-    fetchTierLabels();
-  }, []);
+  // Tier display names from the tier definitions (shared module cache).
+  useEffect(() => { fetchTierLabelMap().then(setTierLabelMap); }, []);
 
   // Fetch Base Theme Data
   useEffect(() => {

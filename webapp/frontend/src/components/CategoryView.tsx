@@ -23,6 +23,7 @@ import RuleManager from "./RuleManager";
 import SortableTierBlock from "./SortableTierBlock";
 import ContextMenu from "./ContextMenu";
 import LoadingOverlay from "./LoadingOverlay";
+import { invalidateTierLabelMap } from "../utils/tierLabels";
 import { resolveStyle } from "../utils/styleResolver";
 import { useTranslation, translations } from "../utils/localization";
 import type { Language } from "../utils/localization";
@@ -102,8 +103,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   const [tierClipboard, setTierClipboard] = useState<any>(null);
   const [renameModal, setRenameModal] = useState<{
     tierKey: string;
-    en: string;
-    ch: string;
+    name: string;
   } | null>(null);
   const [activeRuleIndex, setActiveRuleIndex] = useState<{
     tierKey: string;
@@ -300,26 +300,23 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     if (!td) return;
     setRenameModal({
       tierKey,
-      en: td.localization?.en || "",
-      ch: td.localization?.ch || "",
+      name: td.localization?.[language] || "",
     });
   };
 
-  // Saves per-tier display names into the tier file's localization.
-  // Internal keys + theme.Tier are untouched, so theme/generation are unaffected.
+  // Saves the per-tier display name into the tier file's localization. One
+  // name for both languages — renamers type their native language, so the
+  // custom name needs no translation. Internal keys + theme.Tier untouched.
   const saveRename = () => {
     if (!renameModal || !activeCategoryKey) return;
     const newConfig = JSON.parse(JSON.stringify(parsedConfig));
     const tier = newConfig[activeCategoryKey][renameModal.tierKey];
     if (!tier) return;
-    const loc = { ...(tier.localization || {}) };
-    const en = renameModal.en.trim();
-    const ch = renameModal.ch.trim();
-    if (en) loc.en = en; else delete loc.en;
-    if (ch) loc.ch = ch; else delete loc.ch;
-    if (Object.keys(loc).length) tier.localization = loc;
-    else delete tier.localization;
+    const name = renameModal.name.trim();
+    if (name) tier.localization = { en: name, ch: name };
+    else delete tier.localization; // empty = restore default generated name
     updateConfig(newConfig);
+    invalidateTierLabelMap(); // style picker / theme editor labels refresh next fetch
     setRenameModal(null);
   };
 
@@ -792,6 +789,9 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     style={resolved}
                     visibility={!!tierData.hideable}
                     canHide={tierData.show_in_editor !== false}
+                    themeData={themeData}
+                    themeCategory={themeCategory}
+                    onRename={() => openRenameModal(tierKey)}
                     onChange={(newStyle, newVis) =>
                       handleTierUpdate(tierKey, newStyle, newVis, themeCategory)
                     }
@@ -834,6 +834,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                                   />
                   <RuleManager
                     tierKey={tierKey}
+                    themeData={themeData}
+                    themeCategory={themeCategory}
                     allRules={
                       activeCategoryData.rules ||
                       activeCategoryData._meta?.rules ||
@@ -955,31 +957,24 @@ const CategoryView: React.FC<CategoryViewProps> = ({
           <div className="rename-modal" onClick={(e) => e.stopPropagation()}>
             <h4>{t.renameTier}</h4>
             <div className="rename-key">{renameModal.tierKey}</div>
-            <label>
-              <span>{t.tierNameEn}</span>
-              <input
-                type="text"
-                value={renameModal.en}
-                onChange={(e) =>
-                  setRenameModal({ ...renameModal, en: e.target.value })
-                }
-                placeholder="e.g. Extremely valuable currency"
-              />
-            </label>
-            <label>
-              <span>{t.tierNameCh}</span>
-              <input
-                type="text"
-                value={renameModal.ch}
-                onChange={(e) =>
-                  setRenameModal({ ...renameModal, ch: e.target.value })
-                }
-                placeholder="例如：极高价值通货"
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") saveRename();
-                }}
-              />
-            </label>
+            <input
+              type="text"
+              autoFocus
+              value={renameModal.name}
+              onChange={(e) =>
+                setRenameModal({ ...renameModal, name: e.target.value })
+              }
+              placeholder={(() => {
+                const td = activeCategoryData?.[renameModal.tierKey];
+                const tNum = td?.theme?.Tier ?? "?";
+                return language === "ch"
+                  ? `T${tNum} ${catName}`
+                  : `Tier ${tNum} ${catName}`;
+              })()}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") saveRename();
+              }}
+            />
             <div className="rename-hint">{t.renameTierHint}</div>
             <div className="rename-actions">
               <button onClick={() => setRenameModal(null)}>{t.cancel}</button>
