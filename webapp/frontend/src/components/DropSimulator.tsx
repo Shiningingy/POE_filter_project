@@ -122,18 +122,11 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
         const themeRes = await axios.get(`/api/themes/${baseTheme}`);
         const overridesRes = await axios.get('/api/custom-overrides');
 
-        let mappings = {};
-        let tierDefinitions = {};
-
-        if (import.meta.env.VITE_DEMO_MODE === 'true') {
-             const bundleRes = await axios.get('demo_data/bundle.json');
-             mappings = bundleRes.data.mappings;
-             tierDefinitions = bundleRes.data.tiers;
-        } else {
-             const bundleRes = await axios.get('/api/simulator-bundle');
-             mappings = bundleRes.data.mappings;
-             tierDefinitions = bundleRes.data.tiers;
-        }
+        // Served live in both modes (the demo adapter computes it from the
+        // bundle + the user's in-browser edits).
+        const bundleRes = await axios.get('/api/simulator-bundle');
+        const mappings = bundleRes.data.mappings;
+        const tierDefinitions = bundleRes.data.tiers;
 
         setContext({
             theme: themeRes.data.theme_data,

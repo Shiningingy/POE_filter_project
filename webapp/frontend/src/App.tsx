@@ -9,6 +9,7 @@ import ExportView from './views/ExportView';
 import ThemeView from './views/ThemeView';
 import type { CategoryFile } from './components/Sidebar';
 import { AppDataProvider } from './services/AppDataContext';
+import AdminPanel from './components/AdminPanel';
 
 function App() {
   const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export' | 'theme'>('editor');
@@ -158,6 +159,8 @@ function App() {
           <button className={currentView === 'simulator' ? 'active' : ''} onClick={() => setCurrentView('simulator')}>{t.simulator}</button>
           <button className={currentView === 'export' ? 'active' : ''} onClick={() => setCurrentView('export')}>{t.saveExport}</button>
         </div>
+
+        <AdminPanel language={language} />
 
         <div className="language-selector">
             <select value={language} onChange={(e) => setLanguage(e.target.value as Language)}>

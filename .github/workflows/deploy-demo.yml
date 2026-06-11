@@ -24,6 +24,8 @@ jobs:
           cache-dependency-path: webapp/frontend/package-lock.json
 
       - name: Install and Build
+        env:
+          VITE_BASE_PATH: /POE_filter_project/
         run: |
           cd webapp/frontend
           npm ci
