@@ -7,18 +7,108 @@
         "ch": "传奇物品"
       },
       "tier_order": [
-        "Tier 0 Unique Items",
-        "Tier 1 Unique Items",
-        "Tier 2 Unique Items",
-        "Tier 3 Unique Items",
-        "Tier Hide Unique Items"
+        "T0 Chase",
+        "T1",
+        "T2",
+        "Replica Mid",
+        "Foulborn Mid",
+        "6-Link",
+        "Idols",
+        "2x Corrupted",
+        "Crucible Tree",
+        "Over-Quality",
+        "5-Link",
+        "6-Socket",
+        "Corrupted Gear",
+        "T3",
+        "Low+",
+        "Low",
+        "Other",
+        "Hide"
+      ],
+      "multi_unique_bases": [
+        "Amber Amulet",
+        "Ambush Mitts",
+        "Amethyst Flask",
+        "Amethyst Ring",
+        "Ancient Gauntlets",
+        "Antique Gauntlets",
+        "Archon Kite Shield",
+        "Assassin's Boots",
+        "Assassin's Mitts",
+        "Blood Raiment",
+        "Bone Circlet",
+        "Carnal Armour",
+        "Carnal Boots",
+        "Carnal Mitts",
+        "Censer Relic",
+        "Chain Belt",
+        "Citadel Bow",
+        "Cloth Belt",
+        "Cobalt Jewel",
+        "Coronal Maul",
+        "Crimson Jewel",
+        "Crusader Gloves",
+        "Cutlass",
+        "Exquisite Blade",
+        "Ezomyte Burgonet",
+        "Ezomyte Tower Shield",
+        "Foul Staff",
+        "Gemstone Sword",
+        "Goliath Greaves",
+        "Great Crown",
+        "Heavy Belt",
+        "Hydrascale Boots",
+        "Hydrascale Gauntlets",
+        "Imperial Claw",
+        "Infernal Sword",
+        "Iron Flask",
+        "Jade Amulet",
+        "Judgement Staff",
+        "Lapis Amulet",
+        "Leather Belt",
+        "Maelström Staff",
+        "Magistrate Crown",
+        "Maraketh Bow",
+        "Murder Boots",
+        "Necromancer Circlet",
+        "Onyx Amulet",
+        "Opal Ring",
+        "Opal Wand",
+        "Paua Amulet",
+        "Prismatic Jewel",
+        "Prismatic Ring",
+        "Processional Relic",
+        "Quartz Flask",
+        "Royal Burgonet",
+        "Ruby Flask",
+        "Ruby Ring",
+        "Sapphire Ring",
+        "Savant's Robe",
+        "Silken Hood",
+        "Slink Boots",
+        "Sorcerer Boots",
+        "Steel Ring",
+        "Titan Greaves",
+        "Tome Relic",
+        "Topaz Ring",
+        "Unset Ring",
+        "Vaal Axe",
+        "Vaal Sceptre",
+        "Vaal Spirit Shield",
+        "Vanguard Belt",
+        "Viridian Jewel",
+        "Zodiac Leather"
       ]
     },
-    "Tier 0 Unique Items": {
+    "T0 Chase": {
       "hideable": false,
-      "show_in_editor": false,
+      "show_in_editor": true,
       "theme": {
         "Tier": 0
+      },
+      "conditions": {
+        "Rarity": "Unique"
       },
       "sound": {
         "default_sound_id": 6,
@@ -27,12 +117,16 @@
       "localization": {
         "en": "T0: Chase Uniques",
         "ch": "T0: 顶级传奇"
-      }
+      },
+      "comment": "Hand-picked chase uniques (add bases in the editor)."
     },
-    "Tier 1 Unique Items": {
+    "T1": {
       "hideable": false,
       "theme": {
         "Tier": 1
+      },
+      "conditions": {
+        "Rarity": "Unique"
       },
       "sound": {
         "default_sound_id": 6,
@@ -40,13 +134,16 @@
       },
       "localization": {
         "en": "T1: High Value",
-        "ch": "T1: 高级传奇"
+        "ch": "T1: 高价值"
       }
     },
-    "Tier 2 Unique Items": {
+    "T2": {
       "hideable": false,
       "theme": {
         "Tier": 2
+      },
+      "conditions": {
+        "Rarity": "Unique"
       },
       "sound": {
         "default_sound_id": 1,
@@ -54,28 +151,279 @@
       },
       "localization": {
         "en": "T2: Good Value",
-        "ch": "T2: 优质传奇"
+        "ch": "T2: 优质"
       }
     },
-    "Tier 3 Unique Items": {
-      "hideable": true,
+    "Replica Mid": {
+      "class_condition": true,
+      "hideable": false,
       "theme": {
         "Tier": 3
+      },
+      "conditions": {
+        "Rarity": "Unique",
+        "Replica": "True"
       },
       "sound": {
         "default_sound_id": 1,
         "sharket_sound_id": "传奇.mp3"
       },
       "localization": {
-        "en": "T3: Decent",
-        "ch": "T3: 常用传奇"
+        "en": "Replica (Other)",
+        "ch": "仿品（其他）"
       }
     },
-    "Tier Hide Unique Items": {
+    "Foulborn Mid": {
+      "class_condition": true,
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "conditions": {
+        "Rarity": "Unique",
+        "Foulborn": "True"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "Foulborn (Other)",
+        "ch": "秽生（其他）"
+      }
+    },
+    "6-Link": {
+      "class_condition": true,
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "conditions": {
+        "Rarity": "Unique",
+        "LinkedSockets": "6"
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "6-Link",
+        "ch": "六连"
+      }
+    },
+    "Idols": {
+      "class_condition": true,
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "conditions": {
+        "Rarity": "Unique",
+        "Class": "== \"Idols\""
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "Idols",
+        "ch": "神像"
+      }
+    },
+    "2x Corrupted": {
+      "class_condition": true,
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "conditions": {
+        "Rarity": "Unique",
+        "Corrupted": "True",
+        "CorruptedMods": ">= 2"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "2x Corrupted",
+        "ch": "双重腐化"
+      }
+    },
+    "Crucible Tree": {
+      "class_condition": true,
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "conditions": {
+        "Rarity": "Unique",
+        "HasCruciblePassiveTree": "True"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "Crucible Tree",
+        "ch": "坩埚天赋"
+      }
+    },
+    "Over-Quality": {
+      "class_condition": true,
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "conditions": {
+        "Rarity": "Unique",
+        "Quality": ">= 27"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "Over-Quality",
+        "ch": "超额品质"
+      }
+    },
+    "5-Link": {
+      "class_condition": true,
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "conditions": {
+        "Rarity": "Unique",
+        "LinkedSockets": "5"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "5-Link",
+        "ch": "五连"
+      }
+    },
+    "6-Socket": {
+      "class_condition": true,
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "conditions": {
+        "Rarity": "Unique",
+        "Sockets": ">= 6"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "6-Socket",
+        "ch": "六孔"
+      }
+    },
+    "Corrupted Gear": {
+      "class_condition": true,
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "conditions": {
+        "Rarity": "Unique",
+        "Corrupted": "True",
+        "CorruptedMods": ">= 1",
+        "Class": "== \"Amulets\" \"Belts\" \"Boots\" \"Gloves\" \"Helmets\" \"Quivers\" \"Rings\" \"Shields\""
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "Corrupted Gear",
+        "ch": "腐化装备"
+      }
+    },
+    "T3": {
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "conditions": {
+        "Rarity": "Unique"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "T3: Regular",
+        "ch": "T3: 普通"
+      }
+    },
+    "Low+": {
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "conditions": {
+        "Rarity": "Unique"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T4: Low",
+        "ch": "T4: 低价值"
+      }
+    },
+    "Low": {
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "conditions": {
+        "Rarity": "Unique"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T5: Lowest",
+        "ch": "T5: 最低价值"
+      }
+    },
+    "Other": {
+      "class_condition": true,
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "conditions": {
+        "Rarity": "Unique"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "Other Uniques",
+        "ch": "其他传奇"
+      }
+    },
+    "Hide": {
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
         "Tier": 9
+      },
+      "conditions": {
+        "Rarity": "Unique"
       },
       "sound": {
         "default_sound_id": -1,

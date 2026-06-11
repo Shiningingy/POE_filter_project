@@ -58,7 +58,8 @@ ITEM_DETAILS = {} # BaseType -> {drop_level, implicit, ...}
 CLASS_HIERARCHY_TREE = []     # full resolved hierarchy tree
 CLASS_RESOLVED_PROPS = {}     # poe_class -> {properties, flags, constraints}
 NODE_TO_CLASSES = {}          # hierarchy node id / poe_class -> set(poe_class)
-ITEM_BONUS_INFO = {}          # item_name -> {description, tags}
+ITEM_BONUS_INFO = {}          # item_name -> {description, tags}  (flat sections: currency/scarab/...)
+UNIQUE_BASE_INFO = {}         # base_type -> [{unique, text, priority, ruleLink, hideInHoverBox}]
 
 FILTER_CONDITIONS = []        # resolved condition schema (flat, with `classes`)
 RULE_TEMPLATE_CATEGORIES = [] # grouped condition templates for /api/rule-templates
@@ -377,8 +378,71 @@ def load_filter_conditions():
         print(f"Error loading filter_conditions.yaml: {e}")
 
 
+def _norm_unique_name(name: str) -> str:
+    """Join key for unique names: the GGPK Words rows differ from trade-data
+    names by curly apostrophes (Tasalio’s), casing (Jack, The Axe) and stray
+    whitespace (Demigod's Immortality<space>)."""
+    return " ".join(name.replace("’", "'").split()).lower()
+
+
+def load_unique_name_translations():
+    """EN->CH unique item names, normalized-keyed (see _norm_unique_name).
+
+    Sources: GGPK `words` dump (ch_simplified alone suffices: "Text"=EN,
+    "Text2"=zh, Wordlist 6 = unique names) + the hand-maintained supplement
+    data/unique_name_zh_extra.json for names absent from the dump (fill the
+    empty values there as translations are found). Fails soft if absent.
+    """
+    trans = {}
+    ch_path = DATA_DIR / "from_ggpk" / "ch_simplified" / "words.json"
+    if ch_path.exists():
+        try:
+            with open(ch_path, "r", encoding="utf-8") as f:
+                ch_data = json.load(f)
+            for row in ch_data:
+                if row.get("Wordlist") != 6:
+                    continue
+                en_name = row.get("Text")
+                ch_name = row.get("Text2")
+                if en_name and ch_name and ch_name.strip() != en_name.strip():
+                    trans[_norm_unique_name(en_name)] = ch_name.strip()
+            print(f"Loaded {len(trans)} unique-name translations from words.json.")
+        except Exception as e:
+            print(f"Error loading words.json translations: {e}")
+
+    extra_path = DATA_DIR / "unique_name_zh_extra.json"
+    if extra_path.exists():
+        try:
+            with open(extra_path, "r", encoding="utf-8") as f:
+                extra = json.load(f)
+            n = 0
+            for en_name, ch_name in extra.items():
+                if en_name.startswith("_") or not ch_name:
+                    continue  # meta keys / not-yet-filled entries
+                trans[_norm_unique_name(en_name)] = ch_name
+                n += 1
+            if n:
+                print(f"Merged {n} supplemental unique-name translations.")
+        except Exception as e:
+            print(f"Error loading unique_name_zh_extra.json: {e}")
+    return trans
+
+
 def load_bonus_item_info():
-    global ITEM_BONUS_INFO
+    """Load FilterBlade's bonusItemInfo hover data.
+
+    Two shapes share one file under "bonusItemInfo":
+      * Flat sections (Currency, Fossil, Oil, Scarab, Fragment, ...): `items` is
+        keyed by the item's OWN name -> {text, tags}. Hovering that item shows it.
+      * The "Uniques" section is NESTED: `items` is keyed by BASE TYPE -> {text,
+        items:{unique_name -> {text, priority, ruleLink, hideInHoverBox}}}. This
+        is the "which valuable uniques could this base be" data. We index it by
+        base type so the tooltip can list candidate uniques.
+    """
+    global ITEM_BONUS_INFO, UNIQUE_BASE_INFO
+    ITEM_BONUS_INFO = {}
+    UNIQUE_BASE_INFO = {}
+    unique_trans = load_unique_name_translations()
     path = DATA_DIR / "from_filter_blade" / "3.28" / "bonusItemInfo.json"
     if not path.exists():
         print("Warning: bonusItemInfo.json not found.")
@@ -387,22 +451,99 @@ def load_bonus_item_info():
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
 
-        # The file has a "bonusItemInfo" key with sections (Currency, etc.)
-        # Each section has an "items" dict: item_name -> {text, tags, ...}
         bonus = data.get("bonusItemInfo", {})
         for section_name, section_data in bonus.items():
-            if isinstance(section_data, dict):
-                items = section_data.get("items", {})
-                if isinstance(items, dict):
-                    for item_name, item_info in items.items():
-                        if isinstance(item_info, dict):
-                            ITEM_BONUS_INFO[item_name] = {
-                                "description": item_info.get("text", ""),
-                                "tags": item_info.get("tags", []),
+            if not isinstance(section_data, dict):
+                continue
+            items = section_data.get("items", {})
+            if not isinstance(items, dict):
+                continue
+
+            if section_name == "Uniques":
+                # Nested: base -> {text, items:{unique -> {...}}}
+                for base_type, base_info in items.items():
+                    if not isinstance(base_info, dict):
+                        continue
+                    candidates = []
+                    base_text = base_info.get("text")
+                    inner = base_info.get("items", {})
+                    if isinstance(inner, dict):
+                        for uname, uinfo in inner.items():
+                            if not isinstance(uinfo, dict):
+                                continue
+                            cand = {
+                                "unique": uname,
+                                "text": uinfo.get("text", ""),
+                                "priority": uinfo.get("priority", 0),
+                                "ruleLink": uinfo.get("ruleLink"),
+                                "hideInHoverBox": uinfo.get("hideInHoverBox", False),
                             }
-        print(f"Loaded bonus item info: {len(ITEM_BONUS_INFO)} entries.")
+                            uname_key = _norm_unique_name(uname)
+                            if uname_key in unique_trans:
+                                cand["name_ch"] = unique_trans[uname_key]
+                            candidates.append(cand)
+                    # Lower priority number = more notable -> sort ascending.
+                    candidates.sort(key=lambda c: c.get("priority", 0))
+                    if candidates or base_text:
+                        UNIQUE_BASE_INFO[base_type] = {
+                            "text": base_text,
+                            "uniques": candidates,
+                        }
+            else:
+                # Flat: item's own name -> {text, tags}
+                for item_name, item_info in items.items():
+                    if isinstance(item_info, dict):
+                        ITEM_BONUS_INFO[item_name] = {
+                            "description": item_info.get("text", ""),
+                            "tags": item_info.get("tags", []),
+                        }
+        print(f"Loaded bonus item info: {len(ITEM_BONUS_INFO)} flat entries, "
+              f"{len(UNIQUE_BASE_INFO)} unique bases.")
     except Exception as e:
         print(f"Error loading bonusItemInfo.json: {e}")
+
+    # Merge the COMPLETE unique->base map (GGG trade data via
+    # parsing_tool/build_unique_base_db.py). FilterBlade's curated entries keep
+    # their drop-source text and priority; trade-data extras are appended after
+    # them with no text (the hover shows no source badge for those).
+    db_path = DATA_DIR / "unique_base_db.json"
+    if db_path.exists():
+        try:
+            with open(db_path, "r", encoding="utf-8") as f:
+                db = json.load(f)
+            db_bases = db.get("bases", {})
+            legacy = set(db.get("legacy", []))
+            added = 0
+            for base, names in db_bases.items():
+                entry = UNIQUE_BASE_INFO.setdefault(base, {"text": None, "uniques": []})
+                existing = {c["unique"] for c in entry["uniques"]}
+                for name in names:
+                    if name in existing:
+                        continue
+                    cand = {
+                        "unique": name,
+                        "text": "",
+                        "priority": 50,
+                        "ruleLink": None,
+                        "hideInHoverBox": False,
+                    }
+                    name_key = _norm_unique_name(name)
+                    if name_key in unique_trans:
+                        cand["name_ch"] = unique_trans[name_key]
+                    entry["uniques"].append(cand)
+                    added += 1
+            # Drop-disabled (fated/legacy/league-removed) per poewiki — applies
+            # to FilterBlade-curated candidates too (e.g. Frostferno).
+            n_legacy = 0
+            for entry in UNIQUE_BASE_INFO.values():
+                for cand in entry["uniques"]:
+                    if cand["unique"] in legacy:
+                        cand["legacy"] = True
+                        n_legacy += 1
+            print(f"Merged unique_base_db: +{added} uniques "
+                  f"({n_legacy} legacy-flagged), {len(UNIQUE_BASE_INFO)} bases total.")
+        except Exception as e:
+            print(f"Error merging unique_base_db.json: {e}")
 
 def load_stack_sizes():
     """Patch ITEM_DETAILS with max_stack_size from currencyitems.json."""
@@ -932,7 +1073,19 @@ def get_class_hierarchy():
 @app.get("/api/item-info/{base_type}")
 def get_item_info(base_type: str):
     info = ITEM_BONUS_INFO.get(base_type, {})
-    return info if info else {"description": "", "tags": []}
+    unique = UNIQUE_BASE_INFO.get(base_type, {})
+    return {
+        "description": info.get("description", ""),
+        "tags": info.get("tags", []),
+        "baseText": unique.get("text"),
+        "uniques": unique.get("uniques", []),
+    }
+
+@app.get("/api/bonus-info")
+def get_bonus_info():
+    """Bulk hover data: flat item descriptions + per-base unique candidate lists.
+    Loaded once by the frontend tooltip layer."""
+    return {"items": ITEM_BONUS_INFO, "uniques": UNIQUE_BASE_INFO}
 
 @app.get("/api/class-properties")
 def get_class_properties():

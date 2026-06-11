@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useTranslation, CLASS_KEY_MAP } from "../utils/localization";
+import { useBonusInfo, deriveDropSource } from "../utils/bonusInfo";
+import type { UniqueCandidate } from "../utils/bonusInfo";
 
 interface ItemDetails {
   drop_level?: number;
@@ -38,20 +40,38 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
   language = "en",
 }) => {
   const t = useTranslation(language);
+  const bonusInfo = useBonusInfo();
   const [visible, setVisible] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const [pos, setPos] = useState({ x: 0, y: 0 });
+  const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleMouseEnter = (e: React.MouseEvent) => {
+  // The tooltip is anchored at the enter point (not mouse-following) and stays
+  // open while hovering the card OR the tooltip itself (short grace period),
+  // so the "+N more" unique-list expansion inside it is clickable.
+  const show = () => {
+    if (hideTimer.current) {
+      clearTimeout(hideTimer.current);
+      hideTimer.current = null;
+    }
     setVisible(true);
-    setPos({ x: e.clientX, y: e.clientY });
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const scheduleHide = () => {
+    if (hideTimer.current) clearTimeout(hideTimer.current);
+    hideTimer.current = setTimeout(() => {
+      setVisible(false);
+      setExpanded(false);
+    }, 150);
+  };
+
+  const handleMouseEnter = (e: React.MouseEvent) => {
     setPos({ x: e.clientX, y: e.clientY });
+    show();
   };
 
   const handleMouseLeave = () => {
-    setVisible(false);
+    scheduleHide();
   };
 
   const formatRange = (min?: number, max?: number) => {
@@ -74,11 +94,54 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
   const hasImplicit = item.implicit && item.implicit.length > 0;
 
   const isEquipment = hasWeaponStats || ar || ev || es || hasReqs;
-  const hasContent = item.item_class || isEquipment || hasImplicit;
+
+  // --- FilterBlade-style bonus / "could be" hover data ---
+  const baseType = (item.base_type as string) || item.name || "";
+  const flatBonus = bonusInfo.items[item.name || ""] || bonusInfo.items[baseType];
+  const uniqueBase = bonusInfo.uniques[baseType];
+  const candidates = (uniqueBase?.uniques || []).filter((u) => !u.hideInHoverBox);
+  const MAX_CANDIDATES = 6;
+  const flatLines = flatBonus?.description
+    ? flatBonus.description.split(/<br\s*\/?>/i).map((s) => s.trim()).filter(Boolean)
+    : [];
+  const flatTags = flatBonus?.tags || [];
+  const hasBonus = flatLines.length > 0 || flatTags.length > 0 || candidates.length > 0;
+
+  // Unique-base hover: the point is WHICH uniques the base can be and WHERE
+  // they drop — basic item stats just add noise, so they're skipped.
+  const uniqueFocus = candidates.length > 0;
+
+  const hasContent = item.item_class || isEquipment || hasImplicit || hasBonus;
 
   if (!hasContent) return children;
 
   const nameColor = "#c8c8c8";
+
+  // One "could be" unique: zh name when available, a drop-source badge derived
+  // from the FilterBlade text, and the source text itself underneath.
+  const SRC_LABEL: Record<string, string> = {
+    global: t.srcGlobal,
+    boss: t.srcBoss,
+    league: t.srcLeague,
+    nodrop: t.srcNoDrop,
+  };
+  const renderCandidate = (c: UniqueCandidate) => {
+    const displayName = language === "ch" && c.name_ch ? `${c.name_ch} ${c.unique}` : c.unique;
+    const textLine = (c.text || "").split(/<br\s*\/?>/i).map((s) => s.trim()).filter(Boolean).join(" ");
+    // Legacy (drop-disabled per poewiki) wins over the derived source badge;
+    // no source text (trade-data extras) -> no badge rather than a wrong "Global".
+    const src = c.legacy ? null : c.text ? deriveDropSource(c.text) : null;
+    return (
+      <div key={c.unique} className="bonus-unique">
+        <span className="bonus-uname">{displayName}</span>
+        {c.legacy && <span className="bonus-src src-legacy">{t.srcLegacy}</span>}
+        {src && <span className={`bonus-src src-${src}`}>{SRC_LABEL[src]}</span>}
+        {c.ruleLink?.entryName && <span className="bonus-rule-link"> ⚑</span>}
+        {textLine && <div className="bonus-utext">{textLine}</div>}
+      </div>
+    );
+  };
+
   const displayClass = (() => {
     if (!item.item_class) return "";
     const key = (CLASS_KEY_MAP as Record<string, string>)[item.item_class] || item.item_class;
@@ -89,13 +152,14 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
     <>
       {React.cloneElement(children as React.ReactElement<React.HTMLAttributes<HTMLElement>>, {
         onMouseEnter: handleMouseEnter,
-        onMouseMove: handleMouseMove,
         onMouseLeave: handleMouseLeave,
       })}
       {visible && (
         <div
-          className="poe-tooltip"
+          className={`poe-tooltip ${candidates.length > MAX_CANDIDATES ? "interactive" : ""}`}
           style={{ top: pos.y + 15, left: pos.x + 15 }}
+          onMouseEnter={show}
+          onMouseLeave={scheduleHide}
         >
           <div className="tooltip-header">
             {language === "ch" ? (
@@ -114,8 +178,9 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
             {displayClass && <div className="item-class">{displayClass}</div>}
           </div>
 
-          {/* Properties Section (Weapon / Defence / Drop Level) */}
-          {(hasWeaponStats ||
+          {/* Properties Section (Weapon / Defence / Drop Level) — skipped for
+              unique bases, where the candidate list is what matters */}
+          {!uniqueFocus && (hasWeaponStats ||
             ar ||
             ev ||
             es ||
@@ -170,7 +235,7 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
           )}
 
           {/* Requirements Section */}
-          {isEquipment && hasReqs && (
+          {!uniqueFocus && isEquipment && hasReqs && (
             <>
               <div className="separator" />
               <div className="reqs-block">
@@ -206,7 +271,7 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
           )}
 
           {/* Implicit Section */}
-          {hasImplicit && (
+          {!uniqueFocus && hasImplicit && (
             <>
               <div className="separator" />
               <div className="implicit-block">
@@ -215,6 +280,48 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
                     {imp}
                   </div>
                 ))}
+              </div>
+            </>
+          )}
+
+          {/* Bonus / "Could be" Section (FilterBlade hover info) */}
+          {hasBonus && (
+            <>
+              <div className="separator" />
+              <div className="bonus-block">
+                {flatLines.map((line, i) => (
+                  <div key={i} className="bonus-text">{line}</div>
+                ))}
+                {flatTags.length > 0 && (
+                  <div className="bonus-tags">
+                    {flatTags.map((tag) => (
+                      <span key={tag} className="bonus-tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+                {candidates.length > 0 && (
+                  <div className="bonus-could-be">
+                    <div className="bonus-label">
+                      {candidates.length === 1 ? t.bonusDropsAs : t.bonusCouldBe}:
+                    </div>
+                    <div className={expanded ? "bonus-all-list" : undefined}>
+                      {(expanded ? candidates : candidates.slice(0, MAX_CANDIDATES)).map(renderCandidate)}
+                    </div>
+                    {candidates.length > MAX_CANDIDATES && (
+                      <div
+                        className="bonus-more clickable"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setExpanded((v) => !v);
+                        }}
+                      >
+                        {expanded
+                          ? `▲ ${language === "ch" ? "收起" : "less"}`
+                          : `+${candidates.length - MAX_CANDIDATES} ${t.bonusAndMore} ▼`}
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </>
           )}

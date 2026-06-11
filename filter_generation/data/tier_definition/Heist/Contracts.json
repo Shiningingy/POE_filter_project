@@ -7,10 +7,30 @@
         "ch": "赏金猎人契约"
       },
       "tier_order": [
+        "Unique Contracts",
         "Heist Contract T0",
         "Heist Contract T1",
         "Heist Contract Hide"
       ]
+    },
+    "Unique Contracts": {
+      "class_condition": true,
+      "hideable": false,
+      "conditions": {
+        "Class": "== \"Contracts\"",
+        "Rarity": "Unique"
+      },
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Unique Contracts",
+        "ch": "传奇契约"
+      }
     },
     "Heist Contract T0": {
       "hideable": false,

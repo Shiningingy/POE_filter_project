@@ -312,7 +312,10 @@ export const generateFilter = (data: GeneratorData): string => {
 
           if (rule.conditions) {
             Object.entries(rule.conditions).forEach(([key, val]: [string, any]) => {
-              if (typeof val === 'string' && val.startsWith("RANGE ")) {
+              if (Array.isArray(val)) {
+                // Repeated condition lines (AND), e.g. two HasInfluence lines
+                val.forEach((v: string) => blockLines.push(`    ${key} ${v}`));
+              } else if (typeof val === 'string' && val.startsWith("RANGE ")) {
                 const parts = val.split(" ");
                 if (parts.length >= 5) {
                   blockLines.push(`    ${key} ${parts[1]} ${parts[2]}`);

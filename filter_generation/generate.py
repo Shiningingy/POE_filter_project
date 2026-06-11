@@ -364,7 +364,11 @@ def generate_filter():
                 cmd = HIDE_CMD if is_hide else "Show"
                 block_lines = [f'{cmd}']
                 for key, val in tier_conditions.items():
-                    if val.startswith("RANGE "):
+                    if isinstance(val, list):
+                        # Repeated condition lines (AND), e.g. two HasInfluence lines
+                        for v in val:
+                            block_lines.append(f"    {key} {v}")
+                    elif val.startswith("RANGE "):
                         parts = val.split()
                         block_lines.append(f"    {key} {parts[1]} {parts[2]}")
                         block_lines.append(f"    {key} {parts[3]} {parts[4]}")
@@ -484,7 +488,11 @@ def generate_filter():
                     extra_conditions = rule.get("conditions")
                     if extra_conditions:
                         for key, val in extra_conditions.items():
-                            if val.startswith("RANGE "):
+                            if isinstance(val, list):
+                                # Repeated condition lines (AND), e.g. two HasInfluence lines
+                                for v in val:
+                                    block_lines.append(f"    {key} {v}")
+                            elif val.startswith("RANGE "):
                                 parts = val.split(" ")
                                 if len(parts) >= 5:
                                     block_lines.append(f"    {key} {parts[1]} {parts[2]}")
@@ -549,7 +557,11 @@ def generate_filter():
                     # Emit tier-level conditions (e.g. ItemLevel, Rarity, DropLevel)
                     tier_conditions = tier_entry.get("conditions", {})
                     for key, val in tier_conditions.items():
-                        if val.startswith("RANGE "):
+                        if isinstance(val, list):
+                            # Repeated condition lines (AND), e.g. two HasInfluence lines
+                            for v in val:
+                                block_lines.append(f"    {key} {v}")
+                        elif val.startswith("RANGE "):
                             parts = val.split()
                             block_lines.append(f"    {key} {parts[1]} {parts[2]}")
                             block_lines.append(f"    {key} {parts[3]} {parts[4]}")
