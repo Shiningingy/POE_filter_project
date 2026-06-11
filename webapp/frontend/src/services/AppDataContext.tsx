@@ -93,8 +93,6 @@ export const AppDataProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const isDemo = import.meta.env.VITE_DEMO_MODE === 'true';
-
     const fetchData = async () => {
       try {
         // In demo mode the demoAdapter intercepts /api/* routes automatically,

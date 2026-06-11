@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 import type { ItemProps, FilterContext } from '../utils/simulatorEngine';
 import type { Language } from '../utils/localization';
-import { useTranslation } from '../utils/localization';
 import CategoryView from './CategoryView';
 
 interface SimulatorRulePanelProps {
@@ -29,7 +28,6 @@ const SimulatorRulePanel: React.FC<SimulatorRulePanelProps> = ({
   item, context, language, viewerBackground, file, matchedTier, matchedRuleIndex,
   onClose, onJumpToRule, onSaved,
 }) => {
-  const t = useTranslation(language);
   const ch = language === 'ch';
 
   const [configContent, setConfigContent] = useState<string>('');
@@ -153,7 +151,7 @@ const SimulatorRulePanel: React.FC<SimulatorRulePanelProps> = ({
           <div className="stb-spacer" />
           <button className="stb-cancel" onClick={onClose}>{ch ? '关闭' : 'Close'}</button>
           <button className="stb-save" disabled={!dirty || saving} onClick={handleSave}>
-            {saving ? (ch ? '保存中…' : 'Saving…') : (t.save || (ch ? '保存' : 'Save'))}
+            {saving ? (ch ? '保存中…' : 'Saving…') : (ch ? '保存' : 'Save')}
           </button>
         </div>
       </div>
