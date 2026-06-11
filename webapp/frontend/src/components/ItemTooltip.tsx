@@ -1,5 +1,5 @@
-import React, { useRef, useState } from "react";
-import { useTranslation, CLASS_KEY_MAP } from "../utils/localization";
+import React, { useEffect, useRef, useState } from "react";
+import { useTranslation, CLASS_KEY_MAP, BONUS_TAG_CH } from "../utils/localization";
 import { useBonusInfo, deriveDropSource } from "../utils/bonusInfo";
 import type { UniqueCandidate } from "../utils/bonusInfo";
 
@@ -45,34 +45,15 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
   const [expanded, setExpanded] = useState(false);
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const showTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // The tooltip is anchored at the enter point (not mouse-following) and stays
-  // open while hovering the card OR the tooltip itself (short grace period),
-  // so the "+N more" unique-list expansion inside it is clickable.
-  const show = () => {
-    if (hideTimer.current) {
-      clearTimeout(hideTimer.current);
-      hideTimer.current = null;
-    }
-    setVisible(true);
-  };
-
-  const scheduleHide = () => {
-    if (hideTimer.current) clearTimeout(hideTimer.current);
-    hideTimer.current = setTimeout(() => {
-      setVisible(false);
-      setExpanded(false);
-    }, 150);
-  };
-
-  const handleMouseEnter = (e: React.MouseEvent) => {
-    setPos({ x: e.clientX, y: e.clientY });
-    show();
-  };
-
-  const handleMouseLeave = () => {
-    scheduleHide();
-  };
+  useEffect(
+    () => () => {
+      if (hideTimer.current) clearTimeout(hideTimer.current);
+      if (showTimer.current) clearTimeout(showTimer.current);
+    },
+    []
+  );
 
   const formatRange = (min?: number, max?: number) => {
     if (!min && !max) return null;
@@ -101,15 +82,92 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
   const uniqueBase = bonusInfo.uniques[baseType];
   const candidates = (uniqueBase?.uniques || []).filter((u) => !u.hideInHoverBox);
   const MAX_CANDIDATES = 6;
-  const flatLines = flatBonus?.description
+  let flatLines = flatBonus?.description
     ? flatBonus.description.split(/<br\s*\/?>/i).map((s) => s.trim()).filter(Boolean)
     : [];
+  // CH mode: swap the official-description part of the FilterBlade text for
+  // the official zh translation, keeping FilterBlade's extra sentences (drop
+  // hints, value notes). FilterBlade often paraphrases the official text
+  // rather than quoting it, so a sentence is treated as "the description" —
+  // and dropped — when most of its words appear in the official EN text, or
+  // when it's the incubator "Awards ..." template (a heavy paraphrase that
+  // word overlap can't catch). Audited against all 1181 covered items.
+  if (language === "ch" && flatBonus?.description_ch) {
+    const words = (s: string) =>
+      (s.toLowerCase().match(/[a-z0-9]+/g) || []).map((w) => w.replace(/s$/, ""));
+    const official = new Set(words(flatBonus.description_en || ""));
+    const extras = flatLines
+      .map((line) =>
+        line
+          .split(/(?<=[.!?])\s+/)
+          .filter((sent) => {
+            const w = words(sent);
+            if (!w.length) return false;
+            if (/^awards?\b/i.test(sent.trim())) return false;
+            if (!official.size) return true;
+            const hits = w.filter((x) => official.has(x)).length;
+            return hits / w.length < 0.65;
+          })
+          .join(" ")
+      )
+      .filter(Boolean);
+    const zhLines = flatBonus.description_ch.split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
+    flatLines = [...extras, ...zhLines];
+  }
   const flatTags = flatBonus?.tags || [];
   const hasBonus = flatLines.length > 0 || flatTags.length > 0 || candidates.length > 0;
 
   // Unique-base hover: the point is WHICH uniques the base can be and WHERE
   // they drop — basic item stats just add noise, so they're skipped.
   const uniqueFocus = candidates.length > 0;
+
+  // Only tooltips with an expandable unique list need to stay open while the
+  // mouse travels into them; ordinary ones are pointer-events:none anyway.
+  const interactive = candidates.length > MAX_CANDIDATES;
+
+  // Anchored at the enter point (not mouse-following). The short show delay
+  // means sweeping the cursor across a column never flashes tooltips, and
+  // non-interactive tooltips hide instantly on leave — no after-image trail.
+  const handleMouseEnter = (e: React.MouseEvent) => {
+    if (hideTimer.current) {
+      clearTimeout(hideTimer.current);
+      hideTimer.current = null;
+    }
+    if (visible || showTimer.current) return;
+    const x = e.clientX;
+    const y = e.clientY;
+    showTimer.current = setTimeout(() => {
+      showTimer.current = null;
+      setPos({ x, y });
+      setVisible(true);
+    }, 120);
+  };
+
+  const hideNow = () => {
+    setVisible(false);
+    setExpanded(false);
+  };
+
+  const handleMouseLeave = () => {
+    if (showTimer.current) {
+      clearTimeout(showTimer.current);
+      showTimer.current = null;
+    }
+    if (!interactive) {
+      hideNow();
+      return;
+    }
+    if (hideTimer.current) clearTimeout(hideTimer.current);
+    hideTimer.current = setTimeout(hideNow, 150);
+  };
+
+  // Hovering the (interactive) tooltip itself keeps it open.
+  const cancelHide = () => {
+    if (hideTimer.current) {
+      clearTimeout(hideTimer.current);
+      hideTimer.current = null;
+    }
+  };
 
   const hasContent = item.item_class || isEquipment || hasImplicit || hasBonus;
 
@@ -156,10 +214,10 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
       })}
       {visible && (
         <div
-          className={`poe-tooltip ${candidates.length > MAX_CANDIDATES ? "interactive" : ""}`}
+          className={`poe-tooltip ${interactive ? "interactive" : ""}`}
           style={{ top: pos.y + 15, left: pos.x + 15 }}
-          onMouseEnter={show}
-          onMouseLeave={scheduleHide}
+          onMouseEnter={cancelHide}
+          onMouseLeave={handleMouseLeave}
         >
           <div className="tooltip-header">
             {language === "ch" ? (
@@ -295,7 +353,9 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
                 {flatTags.length > 0 && (
                   <div className="bonus-tags">
                     {flatTags.map((tag) => (
-                      <span key={tag} className="bonus-tag">{tag}</span>
+                      <span key={tag} className="bonus-tag">
+                        {language === "ch" ? BONUS_TAG_CH[tag] || tag : tag}
+                      </span>
                     ))}
                   </div>
                 )}

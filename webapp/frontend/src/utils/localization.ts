@@ -53,6 +53,32 @@ export const CLASS_KEY_MAP: Record<string, string> = {
     "Gems": "Gems"
 };
 
+// zh labels for the FilterBlade bonus-info hover tags (en mode shows the raw
+// tag). Community/official league terms — adjust freely if a term reads off.
+export const BONUS_TAG_CH: Record<string, string> = {
+  Generic: "通用",
+  LeagueDrop: "赛季掉落",
+  BossDrop: "首领掉落",
+  NonDrop: "特殊获取",
+  Heist: "夺宝",
+  Beyond: "超越",
+  Harvest: "收获",
+  Lab: "迷宫",
+  Eldritch: "异魔",
+  Catalyst: "催化剂",
+  Expedition: "远征",
+  Blight: "菌潮",
+  Ancestors: "先祖",
+  Meme: "趣味",
+  RuthlessOnly: "仅无情模式",
+  GemOutcome: "宝石产出",
+  CurrencyOutcome: "通货产出",
+  UniqueOutcome: "传奇产出",
+  SixLinkOutcome: "六连产出",
+  MapOutcome: "地图产出",
+  InfluencedOutcome: "势力产出",
+};
+
 // Official zh-CN item-class names, sourced from the GGPK client dump
 // (data/from_ggpk/ch_simplified/itemclasses.json joined on Id with the EN dump).
 // Used to localize the full set of item classes the backend returns. en mode shows

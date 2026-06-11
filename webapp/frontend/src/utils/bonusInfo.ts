@@ -8,6 +8,10 @@ import { useEffect, useState } from "react";
 export interface BonusFlatInfo {
   description: string;
   tags: string[];
+  // Official GGPK usage description (currency-like items): zh for CH-mode
+  // display, en so the tooltip can dedup FilterBlade lines against it.
+  description_ch?: string;
+  description_en?: string;
 }
 
 export interface UniqueCandidate {
