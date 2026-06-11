@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useTranslation, CLASS_KEY_MAP, BONUS_TAG_CH } from "../utils/localization";
+import { useTranslation, CLASS_KEY_MAP, BONUS_TAG_CH, BONUS_HINT_CH } from "../utils/localization";
 import { useBonusInfo, deriveDropSource } from "../utils/bonusInfo";
 import type { UniqueCandidate } from "../utils/bonusInfo";
 
@@ -113,6 +113,17 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
       .filter(Boolean);
     const zhLines = flatBonus.description_ch.split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
     flatLines = [...extras, ...zhLines];
+  }
+  // Translate the surviving EN hint sentences via BONUS_HINT_CH (applies to
+  // items without an official zh description too — anything not in the map
+  // just stays English).
+  if (language === "ch") {
+    flatLines = flatLines.map((line) =>
+      line
+        .split(/(?<=[.!?])\s+/)
+        .map((s) => BONUS_HINT_CH[s.trim()] || s)
+        .join(" ")
+    );
   }
   const flatTags = flatBonus?.tags || [];
   const hasBonus = flatLines.length > 0 || flatTags.length > 0 || candidates.length > 0;
