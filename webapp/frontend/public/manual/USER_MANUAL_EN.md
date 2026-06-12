@@ -168,4 +168,4 @@ Load a `.snapshot.json` (or a filter with an embedded snapshot). You'll see the 
 
 ---
 
-*Screenshots in this manual were captured automatically from the live site (see `capture_screenshots.mjs` in this folder). Re-run it after UI changes to refresh them.*
+*Screenshots in this manual were captured automatically from the live site (see `docs/manual/capture_screenshots.mjs` in the repository). Re-run it after UI changes to refresh them.*

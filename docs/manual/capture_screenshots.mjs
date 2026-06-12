@@ -12,7 +12,7 @@ const puppeteer = require('puppeteer-core');
 
 const CHROME = 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe';
 const SITE = 'https://sharketfilter.xyz';
-const OUT = join(HERE, 'images');
+const OUT = join(HERE, '..', '..', 'webapp', 'frontend', 'public', 'manual', 'images');
 const LANGS = ['en', 'ch'];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
