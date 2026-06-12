@@ -10,6 +10,8 @@ import PlayEffectPicker, { formatPlayEffect } from './PlayEffectPicker';
 import { getAssetUrl } from '../utils/assetUtils';
 import { buildThemeExport, parseThemeExport, downloadJson } from '../utils/themeSoundExport';
 import type { ThemeExport } from '../utils/themeSoundExport';
+import ThemeHueGenerator from './ThemeHueGenerator';
+import type { GeneratedTierStyle } from '../utils/themeGenerator';
 
 interface ThemePresetEditorProps {
   language: Language;
@@ -51,6 +53,11 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   const [showSoundPicker, setShowSoundPicker] = useState(false);
   const [showIconPicker, setShowIconPicker] = useState(false);
   const [showEffectPicker, setShowEffectPicker] = useState(false);
+
+  // Hue generator + save-merged-as-preset
+  const [showHueGenerator, setShowHueGenerator] = useState(false);
+  const [showSavePreset, setShowSavePreset] = useState(false);
+  const [savePresetName, setSavePresetName] = useState('');
 
   // Standalone theme-file import (a preset shared by another user)
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -269,6 +276,54 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
       setShowImportModal(false);
   };
 
+  // ---- hue generator ----
+  // Per-property spread keeps any existing override props the generator doesn't
+  // emit (notably PlayAlertSound) intact.
+  const handleGeneratorApply = (styles: Record<string, GeneratedTierStyle>) => {
+      setOverridesData((prev: any) => {
+          const next = { ...prev, [selectedCategory]: { ...(prev[selectedCategory] || {}) } };
+          Object.entries(styles).forEach(([tier, style]) => {
+              next[selectedCategory][tier] = { ...(next[selectedCategory][tier] || {}), ...style };
+          });
+          return next;
+      });
+      setUnsavedOverrides(true);
+      setShowHueGenerator(false);
+  };
+
+  // ---- save merged (base + overrides, incl. unsaved) as a new preset ----
+  const handleSaveAsPreset = async () => {
+      const name = savePresetName.trim();
+      if (!name || themes.includes(name) || !baseThemeData) return;
+      const merged = JSON.parse(JSON.stringify(baseThemeData));
+      Object.entries(overridesData as Record<string, any>).forEach(([cat, tiers]) => {
+          if (!merged[cat]) merged[cat] = {};
+          Object.entries(tiers as Record<string, any>).forEach(([tier, style]) => {
+              merged[cat][tier] = { ...(merged[cat][tier] || {}), ...style };
+          });
+      });
+      try {
+          await axios.post(`/api/themes/${name}`, { theme_data: merged });
+          setThemes(prev => prev.includes(name) ? prev : [...prev, name]);
+          setShowSavePreset(false);
+          // Opt-in: make the new preset the base theme and reset the override
+          // layer (visually identical — the overrides were baked into the preset).
+          if (window.confirm(t.hueGenSwitchConfirm)) {
+              await axios.post('/api/settings', { base_theme: name });
+              await axios.post('/api/custom-overrides', {});
+              setOverridesData({});
+              setUnsavedOverrides(false);
+              setActiveTheme(name);
+              setCurrentThemeInUse(name);
+          } else {
+              alert(`${t.hueGenPresetSaved}: ${name}`);
+          }
+      } catch (e) {
+          console.error(e);
+          alert('Save failed');
+      }
+  };
+
   // ---- standalone theme-file export/import ----
   const handleExportTheme = () => {
       if (!baseThemeData) return;
@@ -370,6 +425,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
             <div className="file-io-btns">
                 <button className="file-io-btn" onClick={handleExportTheme} title={`${t.tsExport} ${activeTheme}.theme.json`}>⬆ {t.tsExport}</button>
                 <button className="file-io-btn" onClick={() => fileInputRef.current?.click()}>⬇ {t.tsImport}</button>
+                <button className="file-io-btn" onClick={() => { setSavePresetName(suggestPresetName(`${activeTheme}-custom`)); setShowSavePreset(true); }}>💾 {t.hueGenSaveAsPreset}</button>
                 <input
                     ref={fileInputRef}
                     type="file"
@@ -469,6 +525,9 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
             <div className="preview-header">
               <h3>{catLabel(selectedCategory)}</h3>
               <BackgroundSwitcher />
+              <button className="hue-gen-btn primary-action-btn" onClick={(e) => { e.stopPropagation(); setShowHueGenerator(true); }}>
+                🎛 {t.hueGenOpen}
+              </button>
               <button className={`bulk-edit-btn primary-action-btn ${isBulkEditing ? 'active' : ''}`} onClick={(e) => { e.stopPropagation(); setIsBulkEditing(!isBulkEditing); setEditingTier(null); }}>
                 {t.bulkEditImport}
               </button>
@@ -691,6 +750,45 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
           </div>
       )}
 
+      {/* Hue generator (mix-match matrix) */}
+      {showHueGenerator && (
+          <ThemeHueGenerator
+              language={language}
+              categoryLabel={catLabel(selectedCategory)}
+              tierName={tierDisplayName}
+              backgroundStyle={getBackgroundStyle()}
+              onApply={handleGeneratorApply}
+              onClose={() => setShowHueGenerator(false)}
+          />
+      )}
+
+      {/* Save merged theme as a new preset */}
+      {showSavePreset && (
+          <div className="modal-overlay import-overlay" onClick={() => setShowSavePreset(false)}>
+              <div className="modal-content theme-file-import" onClick={e => e.stopPropagation()}>
+                  <div className="modal-header">
+                      <h3>💾 {t.hueGenSaveAsPreset}</h3>
+                      <button className="close-x" onClick={() => setShowSavePreset(false)}>×</button>
+                  </div>
+                  <div className="theme-file-body">
+                      <p className="save-preset-desc">{t.hueGenSavePresetDesc}</p>
+                      <div className="mode-detail" style={{ marginLeft: 0 }}>
+                          <label>{t.hueGenPresetName}</label>
+                          <input type="text" value={savePresetName} onChange={e => setSavePresetName(e.target.value)} />
+                      </div>
+                  </div>
+                  <div className="modal-footer">
+                      <button className="cancel-btn" onClick={() => setShowSavePreset(false)}>{t.cancel}</button>
+                      <button
+                          className="confirm-btn primary-action-btn"
+                          disabled={!savePresetName.trim() || themes.includes(savePresetName.trim())}
+                          onClick={handleSaveAsPreset}
+                      >💾 {t.hueGenSaveAsPreset}</button>
+                  </div>
+              </div>
+          </div>
+      )}
+
       {/* Centered Sound Picker */}
       {showSoundPicker && (
           <div className="modal-overlay sound-overlay" onClick={() => setShowSoundPicker(false)}>
@@ -830,6 +928,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
         .file-io-btn { padding: 6px 14px; font-size: 0.8rem; font-weight: bold; background: #f5f5f5; color: #444; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; }
         .file-io-btn:hover { border-color: #2196F3; color: #2196F3; background: #f0f7ff; }
         .theme-file-import { width: 440px; }
+        .save-preset-desc { margin: 0; font-size: 0.85rem; color: #666; line-height: 1.5; }
         .theme-file-body { padding: 20px 25px; display: flex; flex-direction: column; gap: 12px; }
         .mode-option { display: flex; align-items: center; gap: 10px; font-weight: 600; color: #333; cursor: pointer; }
         .mode-detail { margin-left: 26px; display: flex; flex-direction: column; gap: 6px; }
