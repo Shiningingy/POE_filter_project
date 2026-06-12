@@ -6,6 +6,8 @@ A visual editor, simulator, and generator for Path of Exile loot filters, with f
 
 No account, no install — open the site, customize, and download your `.filter`. All your edits are saved in your own browser.
 
+**📖 User manual: [English](docs/manual/USER_MANUAL_EN.md) · [中文](docs/manual/USER_MANUAL_CH.md)**
+
 ## Features
 
 - **Tier Editor** — drag-and-drop items between tiers across 50+ categories (currency, gear, uniques, maps, league content...), with per-category tier ladders mirroring the structure filter players already know.
