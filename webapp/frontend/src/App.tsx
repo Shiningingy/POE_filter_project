@@ -11,6 +11,8 @@ import type { CategoryFile } from './components/Sidebar';
 import { AppDataProvider, useAppData } from './services/AppDataContext';
 import AdminPanel from './components/AdminPanel';
 import LoadingOverlay from './components/LoadingOverlay';
+import WelcomeModal from './components/WelcomeModal';
+import ManualViewer from './components/ManualViewer';
 
 // App-start splash: covers the UI until the shared base data
 // (class hierarchy/properties) is in. Must live inside AppDataProvider.
@@ -25,6 +27,17 @@ function App() {
   const [gameVersion, setGameVersion] = useState<'poe1' | 'poe2'>('poe1');
   const [gameMode, setGameMode] = useState<'normal' | 'ruthless'>('ruthless');
   const t = useTranslation(language);
+
+  // First-visit welcome + in-app manual reader
+  const [showWelcome, setShowWelcome] = useState<boolean>(
+    () => !localStorage.getItem('sharket_welcome_seen')
+  );
+  const [showManual, setShowManual] = useState<boolean>(false);
+  const dismissWelcome = (openManual: boolean) => {
+    localStorage.setItem('sharket_welcome_seen', '1');
+    setShowWelcome(false);
+    if (openManual) setShowManual(true);
+  };
 
   // Selection state
   const [selectedFile, setSelectedFile] = useState<CategoryFile | null>(null);
@@ -175,6 +188,14 @@ function App() {
 
         <AdminPanel language={language} />
 
+        <button
+          className="manual-btn"
+          title={language === 'ch' ? '用户手册' : 'User Manual'}
+          onClick={() => setShowManual(true)}
+        >
+          📖
+        </button>
+
         <div className="language-selector">
             <select value={language} onChange={(e) => setLanguage(e.target.value as Language)}>
                 <option value="ch">中文</option>
@@ -217,6 +238,18 @@ function App() {
         )}
       </div>
 
+      {showWelcome && (
+        <WelcomeModal
+          language={language}
+          setLanguage={setLanguage}
+          onClose={() => dismissWelcome(false)}
+          onOpenManual={() => dismissWelcome(true)}
+        />
+      )}
+      {showManual && (
+        <ManualViewer language={language} onClose={() => setShowManual(false)} />
+      )}
+
       <style>{`
         .App { display: flex; flex-direction: column; height: 100vh; font-family: 'Segoe UI', sans-serif; }
         .navbar { 
@@ -240,6 +273,8 @@ function App() {
         .nav-links button.active { color: white; border-bottom-color: #2196F3; background: #2a2a2a; }
         
         .language-selector select { padding: 5px; border-radius: 4px; border: none; background: #444; color: white; }
+        .manual-btn { background: #444; border: none; border-radius: 4px; padding: 5px 10px; font-size: 1rem; cursor: pointer; line-height: 1; }
+        .manual-btn:hover { background: #555; }
         
         .app-body { flex: 1; overflow: hidden; position: relative; }
         .view-slot { position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; display: flex; flex-direction: column; min-height: 0; }
