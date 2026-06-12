@@ -1,0 +1,4726 @@
+{
+  "A Chilling Wind": {
+    "ch": "<gemitem>{21级瓦尔：霜暴}\r\n<default>{品质：} <augmented>{+20%}\r\n<corrupted>{腐化}",
+    "en": "<gemitem>{Level 21 Vaal Cold Snap}\r\n<default>{Quality:} <augmented>{+20%}\r\n<corrupted>{Corrupted}"
+  },
+  "A Dab of Ink": {
+    "ch": "<uniqueitem>{诗人的笔}",
+    "en": "<uniqueitem>{The Poet's Pen}"
+  },
+  "A Dusty Memory": {
+    "ch": "<rareitem>{物品}\r\n<default>{物品等级：}<normal>{100}\r\n<fractured>{分裂}",
+    "en": "<rareitem>{Item}\r\n<default>{Item Level:} <normal>{100}\r\n<fractured>{Fractured}"
+  },
+  "A Familiar Call": {
+    "ch": "<magicitem>{法瑞尔珠宝}\r\n<default>{物品等级：} <normal>{100}\r\n<default>{塑界者和狩猎者物品}",
+    "en": "<magicitem>{Jewellery of Farrul}\r\n<default>{Item Level:} <normal>{100}\r\n<default>{Shaper + Hunter Item}"
+  },
+  "A Fate Worse Than Death": {
+    "ch": "<uniqueitem>{脑层}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Cortex}\r\n<corrupted>{Corrupted}"
+  },
+  "A Modest Request": {
+    "ch": "<uniqueitem>{妄想症}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Megalomaniac}\r\n<corrupted>{Corrupted}"
+  },
+  "A Mother's Parting Gift": {
+    "ch": "<uniqueitem>{丰富心灵}\r\n<corrupted>{腐化}",
+    "en": "<uniqueitem>{Fertile Mind}\r\n<corrupted>{Corrupted}"
+  },
+  "A Note in the Wind": {
+    "ch": "<uniqueitem>{安赛娜丝的迅敏之冠}",
+    "en": "<uniqueitem>{Asenath's Mark}"
+  },
+  "A Sea of Blue": {
+    "ch": "<currencyitem>{13x 改造石}",
+    "en": "<currencyitem>{13x Orb of Alteration}"
+  },
+  "A Stone Perfected": {
+    "ch": "<uniqueitem>{珠宝}\r\n<magicitem>{起源}\r\n<corrupted>{1-2 个基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Jewel}\r\n<magicitem>{Primordial}\r\n<corrupted>{1-2 Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "Abandoned Wealth": {
+    "ch": "<currencyitem>{3 X 崇高石}",
+    "en": "<currencyitem>{3x Exalted Orb}"
+  },
+  "Aberrant Fossil": {
+    "ch": "更多混沌属性\r\n无闪电属性",
+    "en": "More Chaos modifiers\r\nNo Lightning modifiers"
+  },
+  "Abrasive Catalyst": {
+    "ch": "给戒指、项链、腰带添加品质，强化攻击类词缀。\r\n取代其它品质类型。",
+    "en": "Adds quality that enhances Attack modifiers on a ring, amulet or belt\r\nReplaces other quality types"
+  },
+  "Abyss Scarab": {
+    "ch": "区域内有一个额外的深渊",
+    "en": "Area contains an additional Abyss"
+  },
+  "Abyss Scarab of Descending": {
+    "ch": "区域内有 1 个绝望深渊",
+    "en": "Area contains an Abyssal Depths"
+  },
+  "Abyss Scarab of Edifice": {
+    "ch": "区域内未通向绝望深渊的深渊会通向深渊之尖\n区域中未通向绝望深渊或产生深渊保险箱的深渊巨坑，会产生小型深渊之尖",
+    "en": "Abysses in Area that do not lead to an Abyssal Depths lead to a Stygian Spire\nAbyss pits in Area that do not lead to an Abyssal Depths or spawn an Abyssal Trove will spawn Minor Stygian Spires"
+  },
+  "Abyss Scarab of Multitudes": {
+    "ch": "区域内深渊产生的怪物提高 50%",
+    "en": "Abysses in Area spawn 50% increased Monsters"
+  },
+  "Abyss Scarab of Profound Depth": {
+    "ch": "区域内的深渊里此前每有一个巨坑\n深渊怪物的难度和奖励都会提高",
+    "en": "Monsters from Abysses in Areas have increased Difficulty and Reward for\neach prior Pit in that Abyss"
+  },
+  "Abyssal Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励深渊物品。",
+    "en": "Modifies a Map item adding layers of Delirium with the Abyss Items reward type"
+  },
+  "Abyssal Incubator": {
+    "ch": "用一件可装备物品来孕育一张稀有深渊物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Rare Abyss item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Accelerating Catalyst": {
+    "ch": "给戒指、项链、添加品质，强化速度词缀。\r\n取代其它品质类型。",
+    "en": "Adds quality that enhances Speed modifiers on a ring, amulet or belt\r\nReplaces other quality types"
+  },
+  "Acclimatisation": {
+    "ch": "<currencyitem>{20x 改造石}",
+    "en": "<currencyitem>{20x Orb of Alteration}"
+  },
+  "Aetheric Fossil": {
+    "ch": "更多施法属性\r\n更少攻击属性",
+    "en": "More Caster modifiers\r\nFewer Attack modifiers"
+  },
+  "Akil's Prophecy": {
+    "ch": "<uniqueitem>{权贵圆盾}\r\n<corrupted>{二重基底}\r\n<corrupted>{腐化}",
+    "en": "<uniqueitem>{Elegant Round Shield}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "Alivia's Grace": {
+    "ch": "<uniqueitem>{森林之后}",
+    "en": "<uniqueitem>{Queen of the Forest}"
+  },
+  "Allflame Ember of Flesh": {
+    "ch": "替换区域中的怪物群\n怪物群只有单个怪物\n怪物生命值大幅提高",
+    "en": "Substitutes Monster Packs in Area\nPack has single Monster\nMonster has greatly increased Life"
+  },
+  "Allflame Ember of Kulemak": {
+    "ch": "替换区域中的怪物群\n怪物群头目为随机辛迪加成员\n可以装备随机辛迪加装备\n怪物群的怪物在最终地图首领被击败后复活",
+    "en": "Substitutes Monster Packs in Area\nPack Leaders are random Syndicate Members which\ncan have random Syndicate Gear equipped\nPack Monsters revive after Final Map Boss has been slain"
+  },
+  "Allflame Ember of Propagation": {
+    "ch": "替换区域中的怪物群\n稀有怪物被击败时\n将其词缀扩散给区域内其他稀有怪物",
+    "en": "Substitutes Monster Packs in Area\nPack Monsters that die when Rare spread\nModifiers to other Rare Monsters in Area"
+  },
+  "Allflame Ember of Resplendence": {
+    "ch": "替换区域中的怪物群\n怪物群的怪物不掉落物品\n怪物群的怪物被击败时最多提高 400% 物品稀有度\n随时间衰减",
+    "en": "Substitutes Monster Packs in Area\nPack Monsters do not drop items\nPack Monsters grant increased Item Rarity when slain, up to\n400%, decaying over time"
+  },
+  "Allflame Ember of Toads": {
+    "ch": "替换区域中的怪物群\n怪物群的怪物为无害的蟾蜍",
+    "en": "Substitutes Monster Packs in Area\nPack Monsters are Harmless Toads"
+  },
+  "Allflame Ember of the Ethereal": {
+    "ch": "替换区域中的怪物群\n怪物群无法掉落\n装备、药剂和酊剂",
+    "en": "Substitutes Monster Packs in Area\nPack Monsters cannot drop\nEquipment, Flasks or Tinctures"
+  },
+  "Allflame Ember of the Gilded": {
+    "ch": "替换区域中的怪物群\n怪物群的怪物掉落的装备转化为金币",
+    "en": "Substitutes Monster Packs in Area\nPack Monster Equipment Drops are converted to Gold"
+  },
+  "Allflame Ember of the Wildwood": {
+    "ch": "替换区域中的怪物群\n怪物群头目被击败时\n会以荒林鬼灵强化地图首领",
+    "en": "Substitutes Monster Packs in Area\nPack Leader Empowers Map Bosses\nwith Wildwood Wisps when slain"
+  },
+  "Alluring Bounty": {
+    "ch": "<currencyitem>{10x 崇高石}",
+    "en": "<currencyitem>{10x Exalted Orb}"
+  },
+  "Alone in the Darkness": {
+    "ch": "<uniqueitem>{地心探索物品}",
+    "en": "<uniqueitem>{Delve Item}"
+  },
+  "Altered Perception": {
+    "ch": "<currencyitem>{梦魇拟像}",
+    "en": "<currencyitem>{Simulacrum}"
+  },
+  "Ambitious Obsession": {
+    "ch": "<currencyitem>{迷踪的雾魇宝珠}",
+    "en": "<currencyitem>{Skittering Delirium Orb}"
+  },
+  "Ambush Scarab": {
+    "ch": "该区域会出现额外 4 个保险箱",
+    "en": "Area contains 4 additional Strongboxes"
+  },
+  "Ambush Scarab of Containment": {
+    "ch": "区域包含额外的保险箱\n区域内的住民在其中伏击",
+    "en": "Area contains many additional Strongboxes\nArea's inhabitants are lying in ambush"
+  },
+  "Ambush Scarab of Discernment": {
+    "ch": "区域内的保险箱更有可能为稀有类型",
+    "en": "Strongboxes in Area are more likely to be rarer varieties"
+  },
+  "Ambush Scarab of Hidden Compartments": {
+    "ch": "区域内保险箱有 15% 的几率可以再次打开",
+    "en": "15% Chance for Strongboxes in Area to be openable again"
+  },
+  "Ambush Scarab of Potency": {
+    "ch": "区域内保险箱的外延词缀效果提高 75%",
+    "en": "75% Increased effect of Explicit Modifiers on Strongboxes in Area"
+  },
+  "Amplifying Power Core": {
+    "ch": "消灭两名护卫，创造一名结合了两者属性的完全充能的护卫。有时，结果物品会被不可预测地修改，有更多机会升级词缀级别。",
+    "en": "Destroys two Sentinels to create a fully-charged Sentinel with a combination of their properties. Sometimes, the resultant item is modified unpredictably, with a higher chance of a upgrading the tier of modifiers"
+  },
+  "Anarchy Scarab": {
+    "ch": "区域内有 5 个额外的盗贼流放者",
+    "en": "Area contains 5 additional Rogue Exiles"
+  },
+  "Anarchy Scarab of Gigantification": {
+    "ch": "区域内的荒野盗贼流放者有 30% 的几率被替换为离群巨人",
+    "en": "Wild Rogue Exiles in Area have a 30% chance to be replaced with a Rogue Giant"
+  },
+  "Anarchy Scarab of Partnership": {
+    "ch": "区域内的荒野盗贼流放者有 50% 的几率成对出现",
+    "en": "Wild Rogue Exiles in Area have a 50% chance to appear in pairs"
+  },
+  "Anarchy Scarab of the Exceptional": {
+    "ch": "区域内有 1 个额外的卓越盗贼流放者",
+    "en": "Area contains an additional Exceptional Rogue Exile"
+  },
+  "Anarchy's Price": {
+    "ch": "<uniqueitem>{魔暴之痕}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Voltaxic Rift}\r\n<corrupted>{Corrupted}"
+  },
+  "Ancient Orb": {
+    "ch": "将传奇装备重铸为同一部位的其他传奇物品",
+    "en": "Reforges a unique equipment as another of the same item class"
+  },
+  "Ancient Wombgift": {
+    "ch": "可在起源之树上培育为传奇物品",
+    "en": "Can grow into a Unique item on the Genesis Tree"
+  },
+  "Apocalypse": {
+    "ch": "<uniqueitem>{巨狼之眼}\r\n<default>{物品等级：} <normal>{82}\r\n<corrupted>{一条腐化基底}",
+    "en": "<uniqueitem>{Eyes of the Greatwolf}\r\n<default>{Item Level:} <normal>{82}\r\n<corrupted>{One Corruption Implicit}"
+  },
+  "Apprentice Cartographer's Seal": {
+    "ch": "重新封印异界地图上的一个白色地图点(1-5阶)",
+    "en": "Uncompletes a white map on the Atlas"
+  },
+  "Armour Recombinator": {
+    "ch": "摧毁两个护甲，打造一个结合了两者属性的新护甲。有时，结果物品会被不可预测地修改。",
+    "en": "Destroys two Armours to create a new Armour with a combination of their properties. Sometimes, the resultant item is modified unpredictably"
+  },
+  "Armourer's Scrap": {
+    "ch": "提升护甲品质",
+    "en": "Improves the quality of an armour"
+  },
+  "Armoursmith's Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励护甲。",
+    "en": "Modifies a Map item adding layers of Delirium with the Armour reward type"
+  },
+  "Arrogance of the Vaal": {
+    "ch": "<uniqueitem>{物品}\r\n <corrupted>{双基底}\r\n <corrupted>{腐化}",
+    "en": "<uniqueitem>{Item}\r\n <corrupted>{Two-Implicit}\r\n <corrupted>{Corrupted}"
+  },
+  "Assassin's Favour": {
+    "ch": "<uniqueitem>{匕首}",
+    "en": "<uniqueitem>{Dagger}"
+  },
+  "Assassin's Gift": {
+    "ch": "<uniqueitem>{戒律之影}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化d}",
+    "en": "<uniqueitem>{Divinarius}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "Astral Protection": {
+    "ch": "<whiteitem>{护盾} <default>{塑界者物品}",
+    "en": "<whiteitem>{Shield}\r\n<default>{Shaper Item}"
+  },
+  "Atziri's Arsenal": {
+    "ch": "<uniqueitem>{武器}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Weapon}\r\n<corrupted>{Corrupted}"
+  },
+  "Audacity": {
+    "ch": "<uniqueitem>{多里亚尼之拳}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Doryani's Fist}\r\n<corrupted>{Corrupted}"
+  },
+  "Augmentation Implant": {
+    "ch": "为魔法嫁接物新增 1 条随机词缀",
+    "en": "Augments a magic Graft with a new random modifier"
+  },
+  "Augmenting Power Core": {
+    "ch": "消灭两名护卫，创造一名结合了两者属性的完全充能的护卫。有时，结果物品会被不可预测地修改，有更多机会得到新的随机词缀。",
+    "en": "Destroys two Sentinels to create a fully-charged Sentinel with a combination of their properties. Sometimes, the resultant item is modified unpredictably, with a higher chance of new random modifiers"
+  },
+  "Auspicious Ambitions": {
+    "ch": "<whiteitem>{实验物品}\r\n<default>{物品等级：}<normal>{100}\r\n<default>{双重影响物品}",
+    "en": "<whiteitem>{Experimented Item}\r\n<default>{Item Level:} <normal>{100}\r\n<default>{Double-Influenced Item}"
+  },
+  "Avian Pursuit": {
+    "ch": "<currencyitem>{1500 x 活性黄晶命能}",
+    "en": "<currencyitem>{1,500x Vivid Crystallised Lifeforce}"
+  },
+  "Awakened Sextant": {
+    "ch": "给一个虚空石添加或重置一个词缀",
+    "en": "Adds or rerolls a modifier on a Voidstone"
+  },
+  "Awakener's Orb": {
+    "ch": "摧毁一件物品，将它的影响效果添加给另一件同类物品\r\n后者会重铸为一件稀有物品，并兼有两者的影响效果和新词缀。",
+    "en": "Destroys an item, applying its influence to another of the same item class\r\nThe second item is reforged as a rare item with both influence types and new modifiers"
+  },
+  "Awakening Fragment": {
+    "ch": "风暴之眼为 85 级\r\n希鲁斯会在风暴之眼中释放全部实力",
+    "en": "The Eye of the Storm is level 85\r\nSirus' full power is unleashed in The Eye of the Storm"
+  },
+  "Azure Rage": {
+    "ch": "<magicitem>{惩罚地图} <default>{地图等级：} <normal>{16}",
+    "en": "<magicitem>{Punishing Map}\r\n<default>{Map Tier:} <normal>{16}"
+  },
+  "Azyran's Reward": {
+    "ch": "<uniqueitem>{三相珠宝}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Prismatic Jewel}\r\n<corrupted>{Corrupted}"
+  },
+  "Baited Expectations": {
+    "ch": "<uniqueitem>{渔具}",
+    "en": "<uniqueitem>{Fishing Item}"
+  },
+  "Bane of the Loyal": {
+    "ch": "你下次攻击的将军将立即死亡。",
+    "en": "The next Lieutenant you hit will be killed instantly"
+  },
+  "Beauty Through Death": {
+    "ch": "<uniqueitem>{阿兹里的反击}",
+    "en": "<uniqueitem>{Atziri's Reflection}"
+  },
+  "Bestiary Orb": {
+    "ch": "将魔物转化为物品。",
+    "en": "Stores a Beast in an item"
+  },
+  "Bestiary Scarab": {
+    "ch": "区域内有伊恩哈尔",
+    "en": "Area contains Einhar"
+  },
+  "Bestiary Scarab of Duplicating": {
+    "ch": "复制在区域内捕获的魔物",
+    "en": "Create a copy of Beasts captured in Area"
+  },
+  "Bestiary Scarab of the Herd": {
+    "ch": "区域内若有伊恩哈尔，额外包含 5 个红魔物",
+    "en": "Area contains 5 additional Red Beasts if it contains Einhar"
+  },
+  "Bestiary Scarab of the Shadowed Crow": {
+    "ch": "区域内若有伊恩哈尔，则包含黑羽之莫丽根",
+    "en": "Area contains The Black Mórrigan if it contains Einhar"
+  },
+  "Betrayal Scarab": {
+    "ch": "区域内包含琼",
+    "en": "Area contains Jun"
+  },
+  "Betrayal Scarab of Reinforcements": {
+    "ch": "区域内的不朽辛迪加成员有增援陪伴的几率提高 50%",
+    "en": "Immortal Syndicate Members in Area have 50% increased chance to be accompanied by reinforcements"
+  },
+  "Betrayal Scarab of Unbreaking": {
+    "ch": "在区域内审讯不朽辛迪加目标\n有 50% 的几率在完成审讯时不会降低等阶",
+    "en": "Interrogated Immortal Syndicate targets in Area have a 50% chance to\nnot lose Rank upon completing Interrogation"
+  },
+  "Betrayal Scarab of the Allflame": {
+    "ch": "区域内由不灭余烬替换的怪物群数量提高 75%",
+    "en": "75% Increased number of Monster Packs Substituted by Allflame Embers in Area"
+  },
+  "Beyond Scarab": {
+    "ch": "在区域内击败聚集的敌人可能吸引来自超越之界的怪物",
+    "en": "Slaying enemies close together in Area can attract monsters from Beyond this realm"
+  },
+  "Beyond Scarab of Corruption": {
+    "ch": "区域内的超越恶魔掉落的物品被腐化",
+    "en": "Items dropped by Beyond Demons in Area are Corrupted"
+  },
+  "Beyond Scarab of Haemophilia": {
+    "ch": "区域内的超越时空之门的融合范围扩大 50%\n在该区域内击杀稀有超越怪物的角色，有 30% 的几率获得其词缀，持续时间 20 秒",
+    "en": "Beyond Portals in Area have 50% increased Merging Radius\nCharacters that Kill Beyond Rare Monsters in Area have a 30% chance to gain their Modifiers for 20 seconds"
+  },
+  "Beyond Scarab of Resurgence": {
+    "ch": "区域内生成的超越首领会伴有其他派系的超越首领\n区域内的超越首领掉落的污秽通货数量提高 20%\n区域内的超越时空之门生成传奇首领的几率提高 30%",
+    "en": "Beyond Bosses Spawned in Area are accompanied by Beyond Bosses of other Factions\nBeyond Bosses in Area drop 20% increased Tainted Currency\nBeyond Portals in Area have 30% increased chance to spawn a Unique Boss"
+  },
+  "Beyond Scarab of the Invasion": {
+    "ch": "区域内消灭的稀有和传奇怪物额外产生 8-12 个超越时空之门",
+    "en": "Rare and Unique Monsters slain in Area create 8 to 12 additional Beyond Portals"
+  },
+  "Bijoux": {
+    "ch": "<rareitem>{星团珠宝}\r\n<default>{物品等级：}<normal>{84}",
+    "en": "<rareitem>{Cluster Jewel}\r\n<default>{Item Level:} <normal>{84}"
+  },
+  "Birth of the Three": {
+    "ch": "<uniqueitem>{女神的灵缚}",
+    "en": "<uniqueitem>{The Goddess Bound}"
+  },
+  "Black Rose of Anarchy": {
+    "ch": "不再使用。",
+    "en": "NO LONGER USED"
+  },
+  "Blacksmith's Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励武器。",
+    "en": "Modifies a Map item adding layers of Delirium with the Weapons reward type"
+  },
+  "Blacksmith's Whetstone": {
+    "ch": "提升武器品质",
+    "en": "Improves the quality of a weapon"
+  },
+  "Blazing Fragment": {
+    "ch": "无耐亦无智为 85 级\r\n焚界者会在无耐亦无智中释放全部实力",
+    "en": "The Absence of Patience and Wisdom is level 85\r\nThe Searing Exarch's full power is unleashed in The Absence of Patience and Wisdom"
+  },
+  "Blessed Orb": {
+    "ch": "重置一件物品上基底词缀的数值",
+    "en": "Randomises the values of the implicit modifiers of an item"
+  },
+  "Blessing of Chayula": {
+    "ch": "将夏乌拉裂隙石升级为更强大的版本",
+    "en": "Upgrades Chayula's Breachstone to a more powerful version"
+  },
+  "Blessing of Esh": {
+    "ch": "将艾许裂隙石升级为更强大的版本",
+    "en": "Upgrades Esh's Breachstone to a more powerful version"
+  },
+  "Blessing of God": {
+    "ch": "<magicitem>{艾尔雷恩的饰品}\r\n<default>{物品等级:}<normal>{85}",
+    "en": "<magicitem>{Elreon's Jewellery}\r\n<default>{Item Level:} <normal>{85}"
+  },
+  "Blessing of Tul": {
+    "ch": "将托沃裂隙石升级为更强大的版本",
+    "en": "Upgrades Tul's Breachstone to a more powerful version"
+  },
+  "Blessing of Uul-Netol": {
+    "ch": "将乌尔尼多裂隙石升级为更强大的版本",
+    "en": "Upgrades Uul-Netol's Breachstone to a more powerful version"
+  },
+  "Blessing of Xoph": {
+    "ch": "将索伏裂隙石升级为更强大的版本",
+    "en": "Upgrades Xoph's Breachstone to a more powerful version"
+  },
+  "Blight Scarab": {
+    "ch": "区域内有一场菌潮遭遇战",
+    "en": "Area contains a Blight Encounter"
+  },
+  "Blight Scarab of Blooming": {
+    "ch": "区域内的菌潮遭遇战最多拥有 3 个额外的传奇首领\n菌潮遭遇战的传奇敌人的生命值提高 100%\n区域内发现的 14+ 阶菌潮地图改为掉落菌潮灭绝地图",
+    "en": "Blight Encounters in Area have up to 3 additional Unique Bosses\nUnique enemies in Blight Encounters have 100% increased life\nTier 14+ Blighted Maps found in Area drop as Blight-Ravaged Maps instead"
+  },
+  "Blight Scarab of Bounty": {
+    "ch": "区域内的菌潮宝箱有 20% 的几率可以再次打开",
+    "en": "Blight Chests in Area have a 20% chance to be openable again"
+  },
+  "Blight Scarab of Invigoration": {
+    "ch": "区域内每有一个赋能之塔\n范围内的菌潮怪物的难度和奖励都会提高",
+    "en": "Each Empowering Tower in Areas grants Blighted Monsters in\nrange increased Difficulty and Reward"
+  },
+  "Blight Scarab of the Blightheart": {
+    "ch": "区域内的菌潮遭遇战有一个菌潮宝箱\n区域内的菌潮遭遇战会生成额外波次的敌人\n击败越多菌潮敌人\n区域内的菌潮宝箱就会变得越大，奖励越多",
+    "en": "Blight Encounters in Area have one Blighted Chest\nBlight Encounters in Area spawn additional waves of Enemies\nBlighted Chests in Area grow larger and more\nrewarding the more Blighted Enemies are slain"
+  },
+  "Blighted Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励菌潮物品。",
+    "en": "Modifies a Map item adding layers of Delirium with the Blight reward type"
+  },
+  "Blighted Incubator": {
+    "ch": "用一件可装备物品来孕育一件菌潮物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Blight item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Blighted Scouting Report": {
+    "ch": "曾经可重置所有奇拉克异界图鉴任务，新任务中至少有一张菌潮地图",
+    "en": "Formally used to reroll all of Kirac's Atlas Missions, including at least one Blighted Map"
+  },
+  "Blind Venture": {
+    "ch": "<uniqueitem>{戒指}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Ring}\r\n<corrupted>{Corrupted}"
+  },
+  "Bloodstained Fossil": {
+    "ch": "已腐化\r\n有已腐化的基底词缀",
+    "en": "Corrupted\r\nHas a Corrupted implicit modifier"
+  },
+  "Boon of Justice": {
+    "ch": "<whiteitem>{女神祭品}",
+    "en": "<whiteitem>{Offering to the Goddess}"
+  },
+  "Boon of the First Ones": {
+    "ch": "<uniqueitem>{猎魔笔记物品}",
+    "en": "<uniqueitem>{Bestiary Item}"
+  },
+  "Bound Fossil": {
+    "ch": "更多召唤生物、光环或诅咒词缀",
+    "en": "More Minion, Aura or Curse modifiers"
+  },
+  "Bound by Flame": {
+    "ch": "<gemitem>{21级烈焰羁绊}\r\n<default>{品质：} <augmented>{+20%}",
+    "en": "<gemitem>{Level 21 Flame Link}\r\n<default>{Quality:} <augmented>{+20%}"
+  },
+  "Boundless Realms": {
+    "ch": "<whiteitem>{地图}",
+    "en": "<whiteitem>{Map}"
+  },
+  "Bowyer's Dream": {
+    "ch": "<whiteitem>{六连先驱者之弓}\r\n<default>{物品等级:} <normal>{91}",
+    "en": "<whiteitem>{Six-Link Harbinger Bow}\r\n<default>{Item Level:} <normal>{91}"
+  },
+  "Breach Scarab of Instability": {
+    "ch": "该区域包含两个额外的不稳定裂隙",
+    "en": "Area contains 2 additional Unstable Breaches"
+  },
+  "Breach Scarab of Resonant Cascade": {
+    "ch": "每有一个已开启的不稳定裂隙，区域内的不稳定裂隙扩展速度就加快 10%\n每有一个已开启的不稳定裂隙\n区域内的不稳定裂隙怪物的难度和奖励提高",
+    "en": "Unstable Breaches in Areas are 10% faster for each Unstable Breach already opened\nMonsters from Unstable Breaches in Areas have increased Difficulty and Reward for\neach Unstable Breach already opened"
+  },
+  "Breach Scarab of the Dreamer": {
+    "ch": "区域中的裂隙必定属于夏乌拉",
+    "en": "Breaches in Area will always belong to Chayula"
+  },
+  "Breach Scarab of the Hive": {
+    "ch": "该区域包含一个裂隙巢穴",
+    "en": "Area contains a Breach Hive"
+  },
+  "Breach Scarab of the Incensed Swarm": {
+    "ch": "艾莉丝在该区域内的技能会激怒巢穴，提升后续波次的难度与奖励",
+    "en": "Ailith's skills in Area instead enrage the Hive, increasing the Difficulty\nand Reward of subsequent waves"
+  },
+  "Breach Scarab of the Marshal": {
+    "ch": "该区域内的不稳定裂隙包含一位首领\r\n区域内的裂隙巢穴通往裂隙巢穴堡垒",
+    "en": "Unstable Breaches in Area contain a Boss\r\nBreach Hives in Area lead to a Hive Fortress"
+  },
+  "Broken Promises": {
+    "ch": "<whiteitem>{宝钻戒指}\r\n<default>{物品等级：} <normal>{87}\r\n<enchanted>{二重基底}",
+    "en": "<whiteitem>{Diamond Ring}\r\n<default>{Item Level:} <normal>{87}\r\n<enchanted>{Two-Implicit}\r\n<enchanted>{Synthesised}"
+  },
+  "Broken Truce": {
+    "ch": "<uniqueitem>{寒铁刃}",
+    "en": "<uniqueitem>{Cold Iron Point}"
+  },
+  "Brother's Gift": {
+    "ch": "<currencyitem>{5x 神圣石}",
+    "en": "<currencyitem>{5x Divine Orb}"
+  },
+  "Brother's Stash": {
+    "ch": "<currencyitem>{5x 崇高石}",
+    "en": "<currencyitem>{5x Exalted Orb}"
+  },
+  "Brotherhood in Exile": {
+    "ch": "<uniqueitem>{徒手空拳}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{One With Nothing}\r\n<corrupted>{Corrupted}"
+  },
+  "Brush, Paint and Palette": {
+    "ch": "<divination>{艺者}",
+    "en": "<divination>{The Artist}"
+  },
+  "Buried Treasure": {
+    "ch": "<whiteitem>{亚硫酸圣甲虫}",
+    "en": "<whiteitem>{Sulphite Scarab}"
+  },
+  "Burning Blood": {
+    "ch": "<uniqueitem>{索伏之血}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Xoph's Blood}\r\n<corrupted>{Corrupted}"
+  },
+  "Call to the First Ones": {
+    "ch": "<rareitem>{1阶魔符}\r\n<corrupted>{已腐化}",
+    "en": "<rareitem>{Tier 1 Talisman}\r\n<corrupted>{Corrupted}"
+  },
+  "Cameria's Cut": {
+    "ch": "<whiteitem>{圣甲虫}",
+    "en": "<whiteitem>{Scarab}"
+  },
+  "Cartographer's Chisel": {
+    "ch": "提升地图品质，增强物品稀有度\r\n取代其他品质类型",
+    "en": "Improves the quality of a map enhancing Item Quantity\r\nReplaces other quality types"
+  },
+  "Cartographer's Delight": {
+    "ch": "<normal>{地图}\r\n<default>{地图阶级:}<normal>{5}",
+    "en": "<normal>{Map}\r\n<default>{Map Tier:} <normal>{5}"
+  },
+  "Cartographer's Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励地图。",
+    "en": "Modifies a Map item adding layers of Delirium with the Map Items reward type"
+  },
+  "Cartographer's Incubator": {
+    "ch": "用一件可装备物品来孕育一张地图\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Map item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Cartography Scarab of Corruption": {
+    "ch": "区域内找到的非传奇地图被腐化，并具有 8 个词缀",
+    "en": "Non-Unique Maps found in Area are Corrupted with 8 Modifiers"
+  },
+  "Cartography Scarab of Escalation": {
+    "ch": "每个影响区域的地图词缀使区域内发现的异界地图数量提高 10%",
+    "en": "10% increased Maps found in Area for each Map Modifier affecting Area"
+  },
+  "Cartography Scarab of Risk": {
+    "ch": "区域额外有 2 个随机词缀",
+    "en": "Area has 2 additional random Modifiers"
+  },
+  "Cartography Scarab of Singularity": {
+    "ch": "地图最终首领会掉落一张传奇地图",
+    "en": "A Unique Map will drop from the Final Map Boss"
+  },
+  "Cartography Scarab of the Multitude": {
+    "ch": "区域内有 8 到 12 个额外的\n高难度和高奖励怪物群，它们掉落的地图数量提高 300%",
+    "en": "Area contains 8 to 12 additional packs of\nDifficult and Rewarding Monsters which drop 300% increased Maps"
+  },
+  "Celestial Armoursmith's Incubator": {
+    "ch": "用一件可装备物品来孕育一件裂界者护甲或塑界者护甲\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Shaper or Elder Armour item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Celestial Blacksmith's Incubator": {
+    "ch": "用一件可装备物品来孕育一件裂界者武器或塑界者武器\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Shaper or Elder Weapon item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Celestial Jeweller's Incubator": {
+    "ch": "用一件可装备物品来孕育一件裂界者饰品或塑界者饰品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Shaper or Elder Trinket item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Challenging Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励致命贪婪物品。",
+    "en": "Modifies a Map item adding layers of Delirium with the Ultimatum reward type"
+  },
+  "Challenging Incubator": {
+    "ch": "用一件可装备物品来孕育一件致命贪婪物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Ultimatum item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Chaos Orb": {
+    "ch": "重置一件稀有物品上的所有属性",
+    "en": "Reforges a rare item with new random modifiers"
+  },
+  "Chaotic Astrolabe": {
+    "ch": "在异界图鉴的象限上添加包含致命贪婪遭遇战的塑造之域",
+    "en": "Adds a Shaped Region containing Ultimatum encounters to a quadrant of the Atlas"
+  },
+  "Chaotic Disposition": {
+    "ch": "<currencyitem>{ 5 X 混沌石}",
+    "en": "<currencyitem>{5x Chaos Orb}"
+  },
+  "Chasing Risk": {
+    "ch": "<uniqueitem>{忆境物品}",
+    "en": "<uniqueitem>{Synthesis Item}"
+  },
+  "Chayula's Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 200%\r\n怪物等级：83",
+    "en": ""
+  },
+  "Chayula's Charged Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 200%\r\n该区域获取物品的稀有度提高 20%\r\n怪物群规模提高 20%\r\n怪物等级：81",
+    "en": ""
+  },
+  "Chayula's Enriched Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 200%\r\n该区域获取物品的稀有度提高 40%\r\n怪物群规模提高 40%\r\n怪物等级：82",
+    "en": ""
+  },
+  "Chayula's Pure Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 200%\r\n该区域获取物品的稀有度提高 60%\r\n怪物群规模提高 60%\r\n怪物等级：83",
+    "en": ""
+  },
+  "Checkmate": {
+    "ch": "<currencyitem>{76x 梦魇拟像碎片}",
+    "en": "<currencyitem>{76x Simulacrum Splinter}"
+  },
+  "Choking Guilt": {
+    "ch": "<uniqueitem>{黑曜护身符}",
+    "en": "<uniqueitem>{Stranglegasp}"
+  },
+  "Chromatic Orb": {
+    "ch": "重置一件物品上插槽的颜色",
+    "en": "Reforges the colour of sockets on an item"
+  },
+  "Cogs of Disruption": {
+    "ch": "你下一次使用的电极阻断器在短暂的持续时间后会重新启动。",
+    "en": "The next Charge Disruptor you use will reactivate after a short duration"
+  },
+  "Coin of Desecration": {
+    "ch": "将一件马拉克斯传奇物品扭曲成阿法鲁德形态\n将其腐化并添加一条基底词缀",
+    "en": "Twists a Maraketh Unique item into its Afarud form,\nCorrupting it and adding an Implicit Modifier"
+  },
+  "Coin of Knowledge": {
+    "ch": "腐化一颗 20 级技能宝石，为其注入一个随机的智慧辅助效果。",
+    "en": "Corrupts a level 20 Skill Gem, Imbuing it with a random Intelligence Support effect"
+  },
+  "Coin of Power": {
+    "ch": "腐化一颗 20 级技能宝石，为其注入一个随机的力量辅助效果。",
+    "en": "Corrupts a level 20 Skill Gem, Imbuing it with a random Strength Support effect"
+  },
+  "Coin of Restoration": {
+    "ch": "将一件阿法鲁德传奇物品恢复至之前的马拉克斯形态",
+    "en": "Restores an Afarud Unique item to its past Maraketh form"
+  },
+  "Coin of Skill": {
+    "ch": "腐化一颗 20 级技能宝石，为其注入一个随机的敏捷辅助效果。",
+    "en": "Corrupts a level 20 Skill Gem, Imbuing it with a random Dexterity Support effect"
+  },
+  "Comprehensive Scouting Report": {
+    "ch": "曾经可重置所有奇拉克异界图鉴任务，同时添加额外任务选项",
+    "en": "Formally used to reroll all of Kirac's Atlas Missions, adding additional mission options"
+  },
+  "Corroded Fossil": {
+    "ch": "更多物理异常状态或混沌异常状态词缀\r\n无元素词缀",
+    "en": "More Physical Ailment or Chaos Ailment modifiers\r\nNo Elemental modifiers"
+  },
+  "Cosmic Fragment": {
+    "ch": "创世之境为 85 级\r\n塑界者会在创世之境中释放全部实力",
+    "en": "The Shaper's Realm is level 85\r\nThe Shaper's full power is unleashed in The Shaper's Realm"
+  },
+  "Costly Curio": {
+    "ch": "<uniqueitem>{物品}\r\n<default>{二重基底}",
+    "en": "<uniqueitem>{Item}\r\n<default>{Double-Influenced Item}"
+  },
+  "Council of Cats": {
+    "ch": "<uniqueitem>{法瑞尔物品}",
+    "en": "<uniqueitem>{Farrul Item}"
+  },
+  "Coveted Possession": {
+    "ch": "<currencyitem>{5 X 富豪石}",
+    "en": "<currencyitem>{5x Regal Orb}"
+  },
+  "Craicic Lure": {
+    "ch": "该区域会出现伊恩哈尔\r\n该区域会出现 4 个来自深渊的额外红野兽\r\n不能跟猎魔圣甲虫同时使用",
+    "en": "Area contains Einhar\r\nArea contains 4 additional Red Beasts from The Deep\r\nCannot be used alongside a Bestiary Scarab"
+  },
+  "Crusader's Exalted Orb": {
+    "ch": "给一件稀有物品添加圣战者效果和一个新的圣战者词缀",
+    "en": "Adds Crusader influence and a new Crusader modifier to a rare item"
+  },
+  "Cube Of Absorption": {
+    "ch": "你下次处碰的通道将会被永久封闭。",
+    "en": "The next Conduit you interact with will be disabled permanently"
+  },
+  "Cursed Words": {
+    "ch": "<uniqueitem>{害人之口}",
+    "en": "<uniqueitem>{Maw of Mischief}"
+  },
+  "Damnation": {
+    "ch": "<uniqueitem>{原初经书}\r\n<default>{物品等级：} <normal>{83}",
+    "en": "<uniqueitem>{The Original Scripture}\r\n<default>{Item Level:} <normal>{83}"
+  },
+  "Dark Dreams": {
+    "ch": "<rareitem>{唤骨头盔}\r\n<default>{裂界者物品}",
+    "en": "<rareitem>{Bone Helmet}\r\n<default>{Elder Item}"
+  },
+  "Dark Temptation": {
+    "ch": "<uniqueitem>{抹灭}",
+    "en": "<uniqueitem>{Obliteration}"
+  },
+  "Darker Half": {
+    "ch": "<currencyitem>{5x古灵混沌石}",
+    "en": "<currencyitem>{5x Eldritch Chaos Orb}"
+  },
+  "Deadly Joy": {
+    "ch": "<uniqueitem>{沧海桑田}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Torrent's Reclamation}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "Deafening Essence of Anger": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Anguish": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Contempt": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Doubt": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Dread": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Envy": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Fear": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Greed": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Hatred": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Loathing": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Misery": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Rage": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Scorn": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Sorrow": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Spite": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Suffering": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Torment": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Woe": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Wrath": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Deafening Essence of Zeal": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Death": {
+    "ch": "<uniqueitem>{凋零魔爪}",
+    "en": "<uniqueitem>{Mon'tregul's Grasp}"
+  },
+  "Deathly Designs": {
+    "ch": "<gemitem>{21 级陷阱宝石}\r\n<default>{品质：} <augmented>{+23%}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 21 Trap Gem}\r\n<default>{Quality:} <augmented>{+23%}\r\n<corrupted>{Corrupted}"
+  },
+  "Decaying Fragment": {
+    "ch": "创世之境为 85 级\r\n塑界者和裂界者会在创世之境中释放全部实力",
+    "en": "The Shaper's Realm is level 85\r\nThe Shaper's and The Elder's full power are unleashed in The Shaper's Realm"
+  },
+  "Dedication to the Goddess": {
+    "ch": "神圣之泉会额外提供腐化宝石的工艺选项。",
+    "en": "The Divine Font will offer additional Corrupted Gem crafting options."
+  },
+  "Deft Fossil": {
+    "ch": "更多暴击词缀\r\n没有属性词缀",
+    "en": "More Critical modifiers\r\nNo Attribute modifiers"
+  },
+  "Delirious Scouting Report": {
+    "ch": "曾经可重置所有奇拉克异界图鉴任务，给所有非传奇地图添加惊悸迷雾",
+    "en": "Formally used to reroll all of Kirac's Atlas Missions, adding layers of Delirium to all non-Unique Maps"
+  },
+  "Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数",
+    "en": "Modifies a Map item adding layers of Delirium"
+  },
+  "Delirium Scarab": {
+    "ch": "区域包含一个惊悸迷雾之镜",
+    "en": "Area contains a Mirror of Delirium"
+  },
+  "Delirium Scarab of Delusions": {
+    "ch": "区域内发现的地图包含惊悸迷雾层数",
+    "en": "Maps found in Area have layers of Delirium"
+  },
+  "Delirium Scarab of Mania": {
+    "ch": "区域内的惊悸迷雾奖励表填充速度加快 100%\n根据与镜子的距离，区域内的惊悸迷雾提高速度加快 50%",
+    "en": "Delirium Reward Meters fill 100% faster in Area\nDelirium in Area increases 50% faster with distance from the mirror"
+  },
+  "Delirium Scarab of Neuroses": {
+    "ch": "区域内的惊悸迷雾遭遇战包含所有传奇惊悸迷雾首领\n击败传奇惊悸迷雾首领后，区域内的惊悸迷雾奖励类型计数 +1\n只能对 11+ 等阶地图使用",
+    "en": "Delirium Encounters in Area contain all Unique Delirium Bosses\nDelirium Reward Types in Area gain +1 to count on defeating a Unique Delirium Boss\nCan only be used with Tier 11+ Maps"
+  },
+  "Delirium Scarab of Paranoia": {
+    "ch": "区域内的惊悸迷雾遭遇战额外产生 2 种奖励类型",
+    "en": "Delirium Encounters in Area generate 2 additional Reward types"
+  },
+  "Dementophobia": {
+    "ch": "<currencyitem>{10x 雾魇宝珠}",
+    "en": "<currencyitem>{10x Delirium Orb}"
+  },
+  "Demigod's Wager": {
+    "ch": "<currencyitem>{剥离石}",
+    "en": "<currencyitem>{Orb of Annulment}"
+  },
+  "Dense Fossil": {
+    "ch": "更多防御词缀\r\n无生命词缀",
+    "en": "More Defence modifiers\r\nNo Life Modifiers"
+  },
+  "Deregulation Scroll": {
+    "ch": "将【风暴拘束】升级到更强力的版本",
+    "en": "Upgrades The Tempest's Binding to a more powerful version"
+  },
+  "Desecrated Virtue": {
+    "ch": "<gemitem>{等级 4 卓越辅助宝石}\r\n<default>{品质：} <augmented>{+23%}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 4 Exceptional Support Gem}\r\n<default>{Quality:} <augmented>{+23%}\r\n<corrupted>{Corrupted}"
+  },
+  "Desperate Crusade": {
+    "ch": "<uniqueitem>{元素的庇护}",
+    "en": "<uniqueitem>{Prism Guardian}"
+  },
+  "Destined to Crumble": {
+    "ch": "<rareitem>{身体护具}\r\n<default>{物品等级:}<normal>{100}",
+    "en": "<rareitem>{Body Armour}\r\n<default>{Item Level:} <normal>{100}"
+  },
+  "Devouring Fragment": {
+    "ch": "无和亦无谐为 85 级\r\n灭界者会在无和亦无谐中释放全部实力",
+    "en": "The Absence of Symmetry and Harmony is level 85\r\nThe Eater of Worlds' full power is unleashed in The Absence of Symmetry and Harmony"
+  },
+  "Dextral Catalyst": {
+    "ch": "为戒指、项链或腰带添加可增强后缀的品质\r\n替换其他品质类型",
+    "en": "Adds quality that enhances Suffix modifiers on a ring, amulet or belt\r\nReplaces other quality types"
+  },
+  "Dialla's Subjugation": {
+    "ch": "<size:31>{<gemitem>{辅助宝石}\r\n<default>{品质：} <augmented>{+23%}\r\n<corrupted>{已腐化}}",
+    "en": "<size:31>{<gemitem>{Support Gem}\r\n<default>{Quality:} <augmented>{+23%}\r\n<corrupted>{Corrupted}}"
+  },
+  "Disdain": {
+    "ch": "<currencyitem>{雾魇宝珠}",
+    "en": "<currencyitem>{Delirium Orb}"
+  },
+  "Divination Scarab of Pilfering": {
+    "ch": "区域内掉落的命运卡被一个地图最终首领窃取\n该地图最终首领窃取的命运卡越多\n其难度越高，伤害越高\n该地图最终首领被击败时复制所有窃取的命运卡",
+    "en": "Divination Cards which drop in Area are stolen by a Final Map Boss\nThat Final Map Boss becomes more Difficult and deals\nincreased Damage the more Divination Cards they have stolen\nThat Final Map Boss duplicates all stolen Divination Cards when defeated"
+  },
+  "Divination Scarab of Plenty": {
+    "ch": "区域内有 6-10 个额外的命运触碰的魔法怪物群\n掉落命运卡的几率提高 1000%",
+    "en": "Area contains 6 to 10 additional Packs of Divination Touched Magic Monsters that\nhave 1000% increased chance to drop Divination Cards"
+  },
+  "Divination Scarab of The Cloister": {
+    "ch": "区域内有 8 到 12 个额外的敬奉德瑞怪物群\n敬奉德瑞的怪物有额外 1% 的几率掉落未知命运卡",
+    "en": "Area contains 8 to 12 additional packs of Doedre's Devoted\nDoedre's Devoted have 1% additional chance to drop a Stacked Deck"
+  },
+  "Divine Beauty": {
+    "ch": "<currencyitem>{7x 神圣石}",
+    "en": "<currencyitem>{7x Divine Orb}"
+  },
+  "Divine Justice": {
+    "ch": "<uniqueitem>{聚光之石}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Grand Spectrum}\r\n<corrupted>{Corrupted}"
+  },
+  "Divine Orb": {
+    "ch": "重置一件物品上随机词缀的数值",
+    "en": "Randomises the values of the random modifiers on an item"
+  },
+  "Divine Vessel": {
+    "ch": "传奇首领伤害增加 10%\r\n传奇首领攻击速度和施法速度提升 10%\r\n传奇首领生命值提升 10%\r\n传奇首领范围伤害效果提高 20%",
+    "en": "Unique Boss deals 10% increased Damage\r\nUnique Boss has 10% increased Attack and Cast Speed\r\nUnique Boss has 10% increased Life\r\nUnique Boss has 20% increased Area of Effect"
+  },
+  "Diviner's Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励命运卡。",
+    "en": "Modifies a Map item adding layers of Delirium with the Divination Cards reward type"
+  },
+  "Diviner's Incubator": {
+    "ch": "用一件可装备物品来孕育一件未知命运物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds incubated Stacked Decks to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Djinn-Touched Vaal Orb": {
+    "ch": "腐化一个传奇物品，不可预测地修改其属性\n可修改已腐化的物品\n以此方式腐化的物品最多可以有 2 个基底词缀",
+    "en": "Corrupts a Unique item, modifying it unpredictably\nCan Modify Corrupted Items\nItems Corrupted this way can have up to 2 Implicit Modifiers"
+  },
+  "Doedre's Madness": {
+    "ch": "<uniqueitem>{德瑞物品}",
+    "en": "<uniqueitem>{Doedre Item}"
+  },
+  "Domination Scarab": {
+    "ch": "区域内包含 3 个额外的神龛",
+    "en": "Area contains 3 additional Shrines"
+  },
+  "Domination Scarab of Apparitions": {
+    "ch": "区域包含 2 个额外的幽灵神龛",
+    "en": "Area contains 2 additional Apparition Shrines"
+  },
+  "Domination Scarab of Evolution": {
+    "ch": "该区域包含一个额外的进化神龛",
+    "en": "Area contains an additional Evolving Shrine"
+  },
+  "Domination Scarab of Terrors": {
+    "ch": "区域内的神龛额外被一个异界首领守卫\n地图最终首领词缀也对这些异界首领生效",
+    "en": "Shrines in Area are guarded by an Atlas Boss\nModifiers to the Final Map Boss also apply to these Atlas Bosses"
+  },
+  "Doryani's Epiphany": {
+    "ch": "<gemitem>{21 级改造宝石}\r\n<default>{品质：} <augmented>{+20%}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 21 Transfigured Gem}\r\n<default>{Quality:} <augmented>{+20%}\r\n<corrupted>{Corrupted}"
+  },
+  "Draped in Dreams": {
+    "ch": "<whiteitem>{六连星芒战铠}\r\n<default>{物品等级：} <normal>{100}\r\n<default>{影响效果物品}",
+    "en": "<whiteitem>{Six-Link Astral Plate}\r\n<default>{Item Level:} <normal>{100}\r\n<default>{Influenced Item}"
+  },
+  "Duality": {
+    "ch": "<whiteitem>{身体护甲}\r\n<default>{物品等级：} <normal>{100}\r\n<default>{双重影响效果物品}",
+    "en": "<whiteitem>{Body Armour}\r\n<default>{Item Level:} <normal>{100}\r\n<default>{Double-Influenced Item}"
+  },
+  "Dying Anguish": {
+    "ch": "<gemitem>{19 级改造宝石}\r\n<default>{品质：} <augmented>{+19%}",
+    "en": "<gemitem>{Level 19 Transfigured Gem}\r\n<default>{Quality:} <augmented>{+19%}"
+  },
+  "Dying Light": {
+    "ch": "<rareitem>{宝钻戒指}\r\n<default>{物品等级：} <normal>{100}\r\n<default>{塑界者+裂界者物品}",
+    "en": "<rareitem>{Diamond Ring}\r\n<default>{Item Level:} <normal>{100}\r\n<default>{Shaper + Elder Item}"
+  },
+  "Earth Drinker": {
+    "ch": "<uniqueitem>{坚岩药剂}",
+    "en": "<uniqueitem>{Granite Flask}"
+  },
+  "Echoes of Love": {
+    "ch": "<uniqueitem>{费德利塔斯的尖刺}\r\n <corrupted>{双基底}\r\n <corrupted>{已腐化}",
+    "en": "<uniqueitem>{Fidelitas' Spike}\r\n <corrupted>{Two-Implicit}\r\n <corrupted>{Corrupted}"
+  },
+  "Elder's Exalted Orb": {
+    "ch": "为一件稀有物品添加裂界者影响和一个新的裂界者词缀。",
+    "en": "Adds Elder influence and a new Elder modifier to a rare item"
+  },
+  "Eldritch Chaos Orb": {
+    "ch": "如果首要为焚界者，则重置前缀\r\n如果首要为灭界者，则重置后缀",
+    "en": "If The Searing Exarch is dominant, reroll prefix modifiers\r\nIf The Eater of Worlds is dominant, reroll suffix modifiers"
+  },
+  "Eldritch Exalted Orb": {
+    "ch": "如果首要为焚界者，则添加一个前缀\r\n如果首要为灭界者，则添加一个后缀",
+    "en": "If The Searing Exarch is dominant, add a prefix modifier\r\nIf The Eater of Worlds is dominant, add a suffix modifier"
+  },
+  "Eldritch Incubator": {
+    "ch": "用一件可装备物品来孕育一件裂界者地图\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Elder Map item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Eldritch Orb of Annulment": {
+    "ch": "如果首要为焚界者，则移除一个前缀\r\n如果首要为灭界者，则移除一个后缀",
+    "en": "If The Searing Exarch is dominant, remove a prefix modifier\r\nIf The Eater of Worlds is dominant, remove a suffix modifier"
+  },
+  "Eldritch Perfection": {
+    "ch": "<whiteitem>{物品}\r\n<default>{物品等级：} <normal>{100}\r\n<enchanted>{完美古灵基底词缀}",
+    "en": "<whiteitem>{Item}\r\n<default>{Item Level:} <normal>{100}\r\n<enchanted>{Perfect Eldritch Implicit Modifier}"
+  },
+  "Electroshock Scroll": {
+    "ch": "将【秘法君临】升级到更强力的版本",
+    "en": "Upgrades The Rippling Thoughts to a more powerful version"
+  },
+  "Elevated Sextant": {
+    "ch": "给一个虚空石添加或重置一个词缀",
+    "en": "Adds or rerolls a modifier on a Voidstone"
+  },
+  "Emperor of Purity": {
+    "ch": "<whiteitem>{六连的圣语锁甲}\r\n<default>{物品等级:}<normal>{60}",
+    "en": "<whiteitem>{Six-Link Holy Chainmail}\r\n<default>{Item Level:} <normal>{60}"
+  },
+  "Emperor's Luck": {
+    "ch": "<currencyitem>{5 X 通货物品}",
+    "en": "<currencyitem>{5x Currency}"
+  },
+  "Empty Coffin": {
+    "ch": "将一个灵柩存放于物品中",
+    "en": "Stores a Corpse in an item"
+  },
+  "Enchant": {
+    "ch": "替换物品上的固定词缀",
+    "en": "Adds an enchantment to an item, or replaces an existing enchantment"
+  },
+  "Enchanted Incubator": {
+    "ch": "用一件可装备物品来孕育一件帝王迷宫物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Labyrinth item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Endless Night": {
+    "ch": "<uniqueitem>{马洛尼的技巧}",
+    "en": "<uniqueitem>{Maloney's Mechanism}"
+  },
+  "Engineer's Orb": {
+    "ch": "原先可提高保险箱的品质",
+    "en": "Formerly improved the quality of a Strongbox"
+  },
+  "Enkindling Orb": {
+    "ch": "给非恢复类药剂增加一个附魔，强化它的效能\r\n但在药剂作用期间无法获得充能\r\n替换任何现有附魔",
+    "en": "Adds an enchantment to a utility flask that will improve it\r\nbut prevent it from gaining charges during its effect\r\nReplaces any existing enchantment"
+  },
+  "Enshrouded Astrolabe": {
+    "ch": "在异界图鉴的象限上添加包含惊悸迷雾之镜的塑造之域",
+    "en": "Adds a Shaped Region containing Mirrors of Delirium to a quadrant of the Atlas"
+  },
+  "Esh's Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 100%\r\n怪物等级：81",
+    "en": ""
+  },
+  "Esh's Charged Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 100%\r\n该区域获取物品的稀有度提高 20%\r\n怪物群规模提高 20%\r\n怪物等级：74",
+    "en": ""
+  },
+  "Esh's Enriched Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 100%\r\n该区域获取物品的稀有度提高 40%\r\n怪物群规模提高 40%\r\n怪物等级：79",
+    "en": ""
+  },
+  "Esh's Flawless Breachstone": {
+    "ch": "稀有怪物额外掉落 2 种奖励类型\r\n该区域有额外 4 种随机词缀\r\n经验值提高 200%\r\n\r\n怪物生命总增 250%\r\n该区域获取物品的稀有度提高 60%\r\n怪物群规模提高 60%\r\n怪物等级：84",
+    "en": ""
+  },
+  "Esh's Pure Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 100%\r\n该区域获取物品的稀有度提高 60%\r\n怪物群规模提高 60%\r\n怪物等级：81",
+    "en": ""
+  },
+  "Essence Scarab": {
+    "ch": "区域内有 3 个额外的禁锢怪物",
+    "en": "Area contains 3 additional Imprisoned Monsters"
+  },
+  "Essence Scarab of Adaptation": {
+    "ch": "释放区域内被禁锢的怪物会使区域内的另一个被禁锢的怪物获得一个随机精华词缀\n区域内被禁锢的怪物每有一个精华词缀\n难度和奖励都会提高",
+    "en": "Imprisoned Monsters released in Areas grant a random Essence Modifier to another Imprisoned Monster in the Area\nImprisoned Monsters in Areas have increased Difficulty and Reward for\neach Essence Modifier"
+  },
+  "Essence Scarab of Ascent": {
+    "ch": "区域内发现的精华提高一个等阶",
+    "en": "Essences found in Area are a tier higher"
+  },
+  "Essence Scarab of Calcification": {
+    "ch": "区域内源生的稀有怪物被精华禁锢",
+    "en": "Rare monsters that are natural inhabitants of the Area are imprisoned by Essences"
+  },
+  "Essence Scarab of Stability": {
+    "ch": "在区域内腐化精华只会将精华\n升级或转变",
+    "en": "Corrupting an Essence in Area can only result in\nupgrading or transforming Essences"
+  },
+  "Essence of Delirium": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Essence of Desolation": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Essence of Horror": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Essence of Hysteria": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Essence of Insanity": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Etched in Blood": {
+    "ch": "<uniqueitem>{瑞弗之羽}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Rigwald's Quills}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "Eternal Bonds": {
+    "ch": "<uniqueitem>{脑层}",
+    "en": "<uniqueitem>{Replica Cortex}"
+  },
+  "Eternal Orb": {
+    "ch": "为一件物品制造拓印供日后还原之用\r\n分裂的物品不能使用拓印",
+    "en": "Creates an imprint of an item for later restoration\r\nThe imprint can't be applied to Fractured Items"
+  },
+  "Ever-Changing": {
+    "ch": "<currencyitem>{10x 粉碎石}",
+    "en": "<currencyitem>{10x Orb of Unmaking}"
+  },
+  "Exalted Implant": {
+    "ch": "为稀有嫁接物添加 1 条随机词缀",
+    "en": "Augments a rare Graft with a new random modifier"
+  },
+  "Exalted Orb": {
+    "ch": "用一个新随机词缀强化一个稀有物品",
+    "en": "Augments a rare item with a new random modifier"
+  },
+  "Exceptional Eldritch Ember": {
+    "ch": "给身体装备、脚部装备、手部装备、头部装备\r\n添加一个卓越焚界者基底词缀\r\n它会替换除灭界者基底词缀外的所有原有基底词缀",
+    "en": "Adds an Exceptional Searing Exarch implicit modifier to\r\na Body Armour, Boots, Gloves or Helmet\r\nThis replaces any existing implicit modifiers other than Eater of Worlds implicit modifiers"
+  },
+  "Exceptional Eldritch Ichor": {
+    "ch": "给身体装备、脚部装备、手部装备、头部装备\r\n添加一个卓越灭界者基底词缀\r\n它会替换除焚界者基底词缀外的所有原有基底词缀",
+    "en": "Adds an Exceptional Eater of Worlds implicit modifier to\r\na Body Armour, Boots, Gloves or Helmet\r\nThis replaces any existing implicit modifiers other than Searing Exarch implicit modifiers"
+  },
+  "Expedition Scarab": {
+    "ch": "区域内有一场先祖秘藏遭遇战",
+    "en": "Area contains an Expedition Encounter"
+  },
+  "Expedition Scarab of Archaeology": {
+    "ch": "区域内的先祖秘藏遭遇战残骸有 2 个额外的前缀和后缀",
+    "en": "Remnants in Expedition Encounters in Area have 2 additional Suffixes and Prefixes"
+  },
+  "Expedition Scarab of Infusion": {
+    "ch": "该区域中发现的日志总是拥有 4 条基底词缀\n每引爆 1 个残骸，先祖秘藏怪物的难度与奖励就会提高",
+    "en": "Logbooks found in Area always have 4 Implicits\nExpedition Monsters gain increased Difficulty and Reward for each Remnant detonated"
+  },
+  "Expedition Scarab of Runefinding": {
+    "ch": "区域内的先祖秘藏遭遇战\n符纹怪物之印的数量提高 100%",
+    "en": "Expedition Encounters in Area have 100% increased\nnumber of Runic Monster Markers"
+  },
+  "Expedition Scarab of Verisium Powder": {
+    "ch": "区域内的先祖秘藏遭遇战爆炸物数量提高 50%\n爆炸范围提高 80%",
+    "en": "Expedition Encounters in Area have 50% increased number of Explosives\n80% increased Explosive Radius"
+  },
+  "Explorer's Scouting Report": {
+    "ch": "曾经可重置所有奇拉克异界图鉴任务，尽可能使用未完成的非传奇地图",
+    "en": "Formally used to reroll all of Kirac's Atlas Missions, using uncompleted non-Unique Maps where possible"
+  },
+  "Faceted Fossil": {
+    "ch": "更多宝石词缀",
+    "en": "More Gem modifiers"
+  },
+  "Facetor's Lens": {
+    "ch": "给宝石增加储存的经验，最多能达到它的最高等级",
+    "en": "Adds stored experience to a gem, up to its maximum level"
+  },
+  "Fading Reflecting Mist": {
+    "ch": "不可预测地镜像一个稀有项链或戒指，\n将其分解为两个带有镜像词缀的镜像品",
+    "en": "Unpredictably reflects a rare amulet or ring, breaking it\ninto two mirrored halves with reflected modifiers"
+  },
+  "Farric Lure": {
+    "ch": "该区域会出现伊恩哈尔\r\n该区域会出现 4 个来自沙漠的额外红野兽\r\n不能跟猎魔圣甲虫同时使用",
+    "en": "Area contains Einhar\r\nArea contains 4 additional Red Beasts from The Wilds\r\nCannot be used alongside a Bestiary Scarab"
+  },
+  "Fateful Meeting": {
+    "ch": "<uniqueitem>{赛季专属物品}\r\n<default>{双重影响效果物品}\r\n\r\n<default>{物品等级：} <normal>{97}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{League-Specific Item}\r\n<default>{Double-Influenced Item}\r\n<default>{Item Level:} <normal>{97}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "Father's Love": {
+    "ch": "<uniqueitem>{崇高愿景}",
+    "en": "<uniqueitem>{Sublime Vision}"
+  },
+  "Fenumal Lure": {
+    "ch": "该区域会出现伊恩哈尔\r\n该区域会出现 4 个来自洞窟的额外红野兽\r\n不能跟猎魔圣甲虫同时使用",
+    "en": "Area contains Einhar\r\nArea contains 4 additional Red Beasts from The Caverns\r\nCannot be used alongside a Bestiary Scarab"
+  },
+  "Feral Incubator": {
+    "ch": "用一件可装备物品来孕育一件猎魔物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Bestiary item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Fertile Catalyst": {
+    "ch": "给戒指、项链、添加品质，强化生命和魔力类词缀。\r\n取代其它品质类型。",
+    "en": "Adds quality that enhances Life and Mana modifiers on a ring, amulet or belt\r\nReplaces other quality types"
+  },
+  "Fine Delirium Orb": {
+    "ch": "调整地图上的惊悚迷雾层数，使其奖励通货物品。",
+    "en": "Modifies a Map item adding layers of Delirium with the Currency Items reward type"
+  },
+  "Fine Incubator": {
+    "ch": "用一件可装备物品来孕育一件通货物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Currency item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Fire Of Unknown Origin": {
+    "ch": "<uniqueitem>{尼米斯}",
+    "en": "<uniqueitem>{Nimis}"
+  },
+  "Flesh of Xesht": {
+    "ch": "将一件裂隙传奇物品转化为其替代形态",
+    "en": "Transforms a Breach Unique item to its alternate form"
+  },
+  "Forbidden Power": {
+    "ch": "<uniqueitem>{苍白烈火}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Balefire}\r\n<corrupted>{Corrupted}"
+  },
+  "Foreboding Incubator": {
+    "ch": "用一件可装备物品来孕育一件通货物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds incubated Currency items to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Fossilised Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励化石。",
+    "en": "Modifies a Map item adding layers of Delirium with the Fossils reward type"
+  },
+  "Fossilised Incubator": {
+    "ch": "用一件可装备物品来孕育一件化石物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Fossil item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Foulborn Exalted Orb": {
+    "ch": "为稀有装备添加一条随机词缀\n且更高词缀等级的词缀出现几率更高",
+    "en": "Augments a rare item with a new random modifier with\nhigher level modifiers being more likely"
+  },
+  "Foulborn Orb of Augmentation": {
+    "ch": "为魔法装备新增一条随机词缀\n且更高词缀等级的词缀出现几率更高",
+    "en": "Augments a magic item with a new random modifier with\nhigher level modifiers being more likely"
+  },
+  "Foulborn Regal Orb": {
+    "ch": "将魔法装备升级为稀有装备\n且更高词缀等级的词缀出现几率更高",
+    "en": "Upgrades a magic item to a rare item with higher level\nmodifiers being more likely"
+  },
+  "Fractured Fossil": {
+    "ch": "产生一个分裂副本\r\n不能用于分裂影响效果物品、\r\n虚空忆境物品、分裂的物品和附魔物品",
+    "en": "Creates a split copy\r\nCannot be used to split Influenced,\r\nEnchanted, Fractured, or Synthesised items"
+  },
+  "Fracturing Orb": {
+    "ch": "分裂一件具有至少 4 个词缀的稀有物品的一个随机词缀，使其锁定",
+    "en": "Fracture a random modifier on a rare item with at least 4 modifiers, locking it in place"
+  },
+  "Fragmentation Scroll": {
+    "ch": "将【爆裂之射】升级到更强力的版本",
+    "en": "Upgrades The Fracturing Spinner to a more powerful version"
+  },
+  "Fragmented Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励碎片。",
+    "en": "Modifies a Map item adding layers of Delirium with the Fragments reward type"
+  },
+  "Fragmented Incubator": {
+    "ch": "用一件可装备物品来孕育一件碎片物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Fragment item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Friendship": {
+    "ch": "<uniqueitem>{奥尔之兴}",
+    "en": "<uniqueitem>{Aul's Uprising}"
+  },
+  "Frigid Fossil": {
+    "ch": "更多冰霜属性\r\n无火焰属性",
+    "en": "More Cold modifiers\r\nNo Fire modifiers"
+  },
+  "From Bone to Ashes": {
+    "ch": "<uniqueitem>{努葛玛呼之耀}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Ngamahu's Flame}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "Fruiting Astrolabe": {
+    "ch": "在异界图鉴的象限上添加包含古灵庄园的塑造之域",
+    "en": "Adds a Shaped Region containing the Sacred Grove to a quadrant of the Atlas"
+  },
+  "Fundamental Fossil": {
+    "ch": "更多属性词缀\r\n没有暴击词缀",
+    "en": "More Attribute modifiers\r\nNo Critical modifiers"
+  },
+  "Fungal Astrolabe": {
+    "ch": "在异界图鉴的象限上添加包含菌潮遭遇战的塑造之域",
+    "en": "Adds a Shaped Region containing Blight encounters to a quadrant of the Atlas"
+  },
+  "Further Invention": {
+    "ch": "<magicitem>{头部}\r\n<default>{双重影响物品}\r\n<default>{物品等级：}<normal>{100}",
+    "en": "<magicitem>{Helmet}\r\n<default>{Double-Influenced Item}\r\n<default>{Item Level:} <normal>{100}"
+  },
+  "Gemcutter's Incubator": {
+    "ch": "用一件可装备物品来孕育一件品质宝石\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Quality Gem item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Gemcutter's Mercy": {
+    "ch": "<gemitem>{赋予、增幅或启蒙}",
+    "en": "<gemitem>{Empower, Enhance or Enlighten}"
+  },
+  "Gemcutter's Prism": {
+    "ch": "提升技能宝石品质",
+    "en": "Improves the quality of a gem"
+  },
+  "Gemcutter's Promise": {
+    "ch": "<gemitem>{宝石}\r\n<default>{品质：} <augmented>{+20%}",
+    "en": "<gemitem>{Gem}\r\n<default>{Quality:} <augmented>{+20%}"
+  },
+  "Gemcutters Lens": {
+    "ch": "将一个辅助或技能宝石改为同类型的另一个宝石\n保留宝石等级、品质和经验",
+    "en": "Changes a Support or Skill Gem into another of the same type\nRetains Gem Level, Quality and Experience"
+  },
+  "Geomancer's Incubator": {
+    "ch": "用一件可装备物品来孕育一件六连护甲物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated 6-Linked Armour item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Gift of Asenath": {
+    "ch": "<uniqueitem>{安赛娜丝的安抚之语}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Asenath's Gentle Touch}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "Gift of the Gemling Queen": {
+    "ch": "<gemitem>{等级 20 辅助宝石}",
+    "en": "<gemitem>{Level 20 Support Gem}"
+  },
+  "Gift to the Goddess": {
+    "ch": "神圣之泉可以额外使用多次。",
+    "en": "The Divine Font can be used additional times."
+  },
+  "Gilded Abyss Scarab": {
+    "ch": "区域内有1个额外的深渊\r\n区域内深渊产生的怪物提高50%\r\n区域内未通向绝望深渊的深渊会通向深渊之尖",
+    "en": "Area contains an additional Abyss\r\nAbysses in Area spawn 50% increased Monsters\r\nAbysses in Area that do not lead to an Abyssal Depths lead to a Stygian Spire"
+  },
+  "Gilded Ambush Scarab": {
+    "ch": "该区域会出现额外 5 个保险箱",
+    "en": "Area contains 5 additional Strongboxes"
+  },
+  "Gilded Bestiary Scarab": {
+    "ch": "该区域会出现伊恩哈尔\r\n该区域会出现 3 个额外的红野兽",
+    "en": "Area contains Einhar\r\nArea contains 3 additional Red Beasts"
+  },
+  "Gilded Blight Scarab": {
+    "ch": "区域内有一场菌潮遭遇战\r\n菌潮遭遇战有一个额外的菌潮首领\r\n菌潮宝箱有 50的几率有一个额外奖励",
+    "en": "Area contains a Blight Encounter\r\nBlight Encounters contain an additional Blight Boss\r\n50% chance for Blight Chests to contain an additional Reward"
+  },
+  "Gilded Breach Scarab": {
+    "ch": "区域会出现1个额外裂隙\r\n区域内的裂隙包含1个额外的裂隙首领的紧握之手\r\n区域内的裂隙之手会掉落两倍的裂隙碎片",
+    "en": "Area contains an additional Breach\r\nBreaches in Area contain an additional Breach Boss' Clasped Hand\r\nBreach Hands in Area drop double Breach Splinters"
+  },
+  "Gilded Cartography Scarab": {
+    "ch": "该区域可找到的异界地图数量提高 50%",
+    "en": "50% increased Maps found in Area"
+  },
+  "Gilded Divination Scarab": {
+    "ch": "区域可找到的命运卡数量提高 150%",
+    "en": "150% more Divination Cards found in Area"
+  },
+  "Gilded Elder Scarab": {
+    "ch": "给地图区域添加裂界者影响\r\n在区域里找到稀有裂界者物品的几率提高 90%",
+    "en": "Adds Elder Influence outcome to Map Area\r\n90% more Rare Elder Items found in Area"
+  },
+  "Gilded Expedition Scarab": {
+    "ch": "区域内额外有一场先祖秘藏遭遇战\r\n区域内符纹怪物之印的数量提高 50%\r\n爆炸物数量提高 20%",
+    "en": "Area contains an additional Expedition Encounter\r\nArea contains 50% increased number of Runic Monster Markers\r\n20% increased number of Explosives"
+  },
+  "Gilded Fossil": {
+    "ch": "物品会被商贩高价购买",
+    "en": "Item is overvalued by vendors"
+  },
+  "Gilded Harbinger Scarab": {
+    "ch": "该区域会出现额外 4 个先驱者",
+    "en": "Area contains 4 additional Harbingers"
+  },
+  "Gilded Legion Scarab": {
+    "ch": "该区域会出现 1 场额外的战乱之殇遭遇战\r\n每个军团会有一个战争秘术箱\r\n每个军团都有一名将军",
+    "en": "Area contains an additional Legion Encounter\r\nEach Legion contains a War Hoard\r\nEach Legion is accompanied by a General"
+  },
+  "Gilded Reliquary Scarab": {
+    "ch": "区域内发现的传奇物品数量提高 150%",
+    "en": "150% increased Unique Items found in Area"
+  },
+  "Gilded Shaper Scarab": {
+    "ch": "给地图区域添加塑界者影响\r\n在区域里找到稀有塑界者物品的几率提高 90%",
+    "en": "Adds Shaper Influence outcome to Map Area\r\n90% more Rare Shaper Items found in Area"
+  },
+  "Gilded Sulphite Scarab": {
+    "ch": "该区域会出现尼克\r\n地图拥有者获得的亚硫酸数量提高 60%",
+    "en": "Area contains Niko\r\nMap owner gains 60% more Sulphite"
+  },
+  "Gilded Torment Scarab": {
+    "ch": "该区域额外被 7 个罪魂纠缠",
+    "en": "Area is haunted by 7 additional Tormented Spirits"
+  },
+  "Gilded Ultimatum Scarab": {
+    "ch": "区域内有致命贪婪遭遇战\r\n致命贪婪怪物提供的经验值提高 100%\r\n致命贪婪遭遇战提供的奖励视作你额外完成了一轮",
+    "en": "Area contains an Ultimatum Encounter\r\nUltimatum Monsters grant 100% increased Experience\r\nUltimatum Encounters grant rewards as though you completed an additional Round"
+  },
+  "Glassblower's Bauble": {
+    "ch": "提升药剂或酊剂品质",
+    "en": "Improves the quality of a flask or tincture"
+  },
+  "Glimmer of Hope": {
+    "ch": "<uniqueitem>{金光戒指}",
+    "en": "<uniqueitem>{Gold Ring}"
+  },
+  "Glyphic Fossil": {
+    "ch": "具有腐化的精华属性",
+    "en": "Has a Corrupt Essence modifier"
+  },
+  "Gold": {
+    "ch": "可在商贩处消费",
+    "en": "Can be spent at Vendors"
+  },
+  "Grand Eldritch Ember": {
+    "ch": "给身体装备、脚部装备、手部装备、头部装备\r\n添加一个上级焚界者基底词缀\r\n它会替换除灭界者基底词缀外的所有原有基底词缀",
+    "en": "Adds a Grand Searing Exarch implicit modifier to\r\na Body Armour, Boots, Gloves or Helmet\r\nThis replaces any existing implicit modifiers other than Eater of Worlds implicit modifiers"
+  },
+  "Grand Eldritch Ichor": {
+    "ch": "给身体装备、脚部装备、手部装备、头部装备\r\n添加一个上级灭界者基底词缀\r\n它会替换除焚界者基底词缀外的所有原有基底词缀",
+    "en": "Adds a Grand Eater of Worlds implicit modifier to\r\na Body Armour, Boots, Gloves or Helmet\r\nThis replaces any existing implicit modifiers other than Searing Exarch implicit modifiers"
+  },
+  "Grasping Astrolabe": {
+    "ch": "在异界图鉴的象限上添加包含裂隙的塑造之域",
+    "en": "Adds a Shaped Region containing Breaches to a quadrant of the Atlas"
+  },
+  "Grave Knowledge": {
+    "ch": "<gemitem>{召唤愤怒狂灵}\r\n<default>{品质} <augmented>{+20%}",
+    "en": "<gemitem>{Summon Raging Spirit}\r\n<default>{Quality:} <augmented>{+20%}"
+  },
+  "Greater Eldritch Ember": {
+    "ch": "给身体装备、脚部装备、手部装备、头部装备\r\n添加一个高级焚界者基底词缀\r\n它会替换除灭界者基底词缀外的所有原有基底词缀",
+    "en": "Adds a Greater Searing Exarch implicit modifier to\r\na Body Armour, Boots, Gloves or Helmet\r\nThis replaces any existing implicit modifiers other than Eater of Worlds implicit modifiers"
+  },
+  "Greater Eldritch Ichor": {
+    "ch": "给身体装备、脚部装备、手部装备、头部装备\r\n添加一个高级灭界者基底词缀\r\n它会替换除焚界者基底词缀外的所有原有基底词缀",
+    "en": "Adds a Greater Eater of Worlds implicit modifier to\r\na Body Armour, Boots, Gloves or Helmet\r\nThis replaces any existing implicit modifiers other than Searing Exarch implicit modifiers"
+  },
+  "Growing Wombgift": {
+    "ch": "可在起源之树上培育为嫁接物",
+    "en": "Can grow into a Graft item on the Genesis Tree"
+  },
+  "Guardian's Challenge": {
+    "ch": "<whiteitem>{塑界守卫地图}",
+    "en": "<whiteitem>{Shaper Guardian Map}"
+  },
+  "Haemocombustion Scroll": {
+    "ch": "将【圣恶之喻】升级到更强力的版本",
+    "en": "Upgrades The Enmity Divine to a more powerful version"
+  },
+  "Harbinger Scarab": {
+    "ch": "该区域会出现额外 3 个先驱者",
+    "en": "Area contains 3 additional Harbingers"
+  },
+  "Harbinger Scarab of Obelisks": {
+    "ch": "区域内的先驱者生成强化方尖碑\n强化方尖碑被击败时会掉落通货碎片",
+    "en": "Harbingers in Area spawn Empowered Obelisks\nEmpowered Obelisks drop Currency Shards when defeated"
+  },
+  "Harbinger Scarab of Regency": {
+    "ch": "区域内的先驱者有 50% 的几率被强大的先驱者首领取代",
+    "en": "Harbingers in Area have a 50% chance to be replaced by a powerful Harbinger Boss"
+  },
+  "Harbinger Scarab of Warhoards": {
+    "ch": "区域内的先驱者掉落的通货碎片被复制",
+    "en": "Currency shards dropped by Harbingers in Area are duplicated"
+  },
+  "Harbinger's Orb": {
+    "ch": "原先可将地图重铸为高一阶的其他地图",
+    "en": "Formerly reforged a map item as another of a higher tier"
+  },
+  "Harmony of Souls": {
+    "ch": "<currencyitem>{9x 尖啸精华}",
+    "en": "<currencyitem>{9x Shrieking Essence}"
+  },
+  "Harvest Scarab": {
+    "ch": "区域内包含古灵庄园",
+    "en": "Area contains the Sacred Grove"
+  },
+  "Harvest Scarab of Cornucopia": {
+    "ch": "若区域包含古灵庄园，尽可能额外包含全部类型的 4 级种子各最多 1个",
+    "en": "If Area contains the Sacred Grove, it will contain up to 1 additional Tier 4 seed of each type, if possible"
+  },
+  "Harvest Scarab of Doubling": {
+    "ch": "区域内的古灵庄园怪物掉落的命能被复制\n区域内的古灵庄园怪物的生命总增 100%",
+    "en": "Lifeforce dropped by Harvest Monsters in Area is duplicated\nHarvest Monsters in Area have 100% more Life"
+  },
+  "Haunting Shadows": {
+    "ch": "<uniqueitem>{灾变物品}",
+    "en": "<uniqueitem>{Metamorph Item}"
+  },
+  "Heart of the Gargoyle": {
+    "ch": "你下次攻击的石像将立即死亡。",
+    "en": "The next Gargoyle you hit will be killed instantly"
+  },
+  "Her Mask": {
+    "ch": "<whiteitem>{奉献碎片}",
+    "en": "<whiteitem>{Sacrifice Fragment}"
+  },
+  "Heterochromia": {
+    "ch": "<uniqueitem>{双玉戒指}",
+    "en": "<uniqueitem>{Two-Stone Ring}"
+  },
+  "Hinekora's Lock": {
+    "ch": "允许物品预示对其使用的下一个通货物品的结果\n任何对物品的修改会移除该预示能力",
+    "en": "Allows an item to foresee the result of the next Currency item used on it\nModifying the item in any way removes the ability to foresee"
+  },
+  "History": {
+    "ch": "<currencyitem>{2 x 辛格拉的发辫}",
+    "en": "<currencyitem>{2x Hinekora's Lock}"
+  },
+  "Hivebrain Gland": {
+    "ch": "该区域内的裂隙遭遇将为裂隙领主虫群",
+    "en": ""
+  },
+  "Hollow Fossil": {
+    "ch": "具有深渊插槽",
+    "en": "Has an Abyssal socket"
+  },
+  "Home": {
+    "ch": "<gemitem>{赋予、增幅或启蒙}\r\n<default>{品质：}<augmented>{+1-20%}",
+    "en": "<gemitem>{Empower, Enhance or Enlighten}\r\n<default>{Quality:} <augmented>{+1-20%}"
+  },
+  "Honoured Incubator": {
+    "ch": "用一件可装备物品来孕育硬币物品或金币\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Coin item or Gold to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Honoured Tattoo of the Hatungo": {
+    "ch": "取代一个小型属性天赋\n获得“技能保留效能提高 1%”",
+    "en": ""
+  },
+  "Honoured Tattoo of the Wise": {
+    "ch": "取代一个 +30 智慧的核心天赋\n获得“+1 所有智慧技能宝石等级”\n每种属性的核心文身仅限 1 个",
+    "en": ""
+  },
+  "Hope": {
+    "ch": "<uniqueitem>{三相戒指}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Prismatic Ring}\r\n<corrupted>{Corrupted}"
+  },
+  "Horned Scarab of Awakening": {
+    "ch": "16 等阶以上的区域将包含一组随机贤主之邀首领",
+    "en": "Tier 16+ Areas contain the Bosses from a random Maven Invitation"
+  },
+  "Horned Scarab of Bloodlines": {
+    "ch": "区域内的魔法怪物数量提高 150%\n区域内的魔法怪物拥有额外一条词缀",
+    "en": "Area has 150% increased Magic Monsters\nMagic Monsters in area have an additional Modifier"
+  },
+  "Horned Scarab of Glittering": {
+    "ch": "每击败一个怪物，区域内玩家的物品稀有度提高，最多提高 400% ，随时间衰减",
+    "en": "Players in Area gain increased Item Rarity for each Monster\nslain, up to 400%, decaying over time"
+  },
+  "Horned Scarab of Nemeses": {
+    "ch": "区域内的稀有怪物额外具有 2 个词缀",
+    "en": "Rare Monsters in Area have 2 additional Modifiers"
+  },
+  "Horned Scarab of Pandemonium": {
+    "ch": "区域内的怪物群有 15% 的几率被一个随机异界首领所取代\n地图最终首领的词缀也会作用于这些异界首领",
+    "en": "Monster packs in Area have a 15% chance to be replaced by a random Atlas Boss\nModifiers to the Final Map Boss also apply to these Atlas Bosses"
+  },
+  "Horned Scarab of Preservation": {
+    "ch": "其他圣甲虫使用时不被消耗",
+    "en": "Other Scarabs are not consumed on use"
+  },
+  "Horned Scarab of Tradition": {
+    "ch": "区域内的全部稀有和传奇怪物掉落的物品\n被随机奖励词缀转化",
+    "en": "All Rare and Unique Monsters in Area have dropped items\ntransformed by a Reward Modifier"
+  },
+  "House of Mirrors": {
+    "ch": "<currencyitem>{卡兰德的魔镜}",
+    "en": "<currencyitem>{Mirror of Kalandra}"
+  },
+  "Hubris": {
+    "ch": "<uniqueitem>{戒指}",
+    "en": "<uniqueitem>{Ring}"
+  },
+  "Humility": {
+    "ch": "<uniqueitem>{无尽之衣}",
+    "en": "<uniqueitem>{Tabula Rasa}"
+  },
+  "Hunter's Exalted Orb": {
+    "ch": "给一件稀有物品添加狩猎者影响效果和一个新狩猎者词缀",
+    "en": "Adds Hunter influence and a new Hunter modifier to a rare item"
+  },
+  "Hunter's Resolve": {
+    "ch": "<uniqueitem>{弓}",
+    "en": "<uniqueitem>{Bow}"
+  },
+  "Hunter's Reward": {
+    "ch": "<uniqueitem>{元素之章}",
+    "en": "<uniqueitem>{The Taming}"
+  },
+  "I See Brothers": {
+    "ch": "<currencyitem>{2x 破溃宝珠}",
+    "en": "<currencyitem>{2x Fracturing Orb}"
+  },
+  "Imbued Catalyst": {
+    "ch": "给戒指、项链、腰带添加品质，强化施法类词缀。\r\n取代其它品质类型",
+    "en": "Adds quality that enhances Caster modifiers on a ring, amulet or belt\r\nReplaces other quality types"
+  },
+  "Immortal Resolve": {
+    "ch": "<whiteitem>{六连身体护甲}\r\n<default>{影响效果物品}",
+    "en": "<whiteitem>{Six-Linked Body Armour}\r\n<default>{Influenced Item}"
+  },
+  "Imperfect Memories": {
+    "ch": "<rareitem>{饰品}\r\n<default>{物品等级：} <normal>{100}\r\n<enchanted>{三重基底}\r\n<enchanted>{忆境}",
+    "en": "<rareitem>{Jewellery}\r\n<default>{Item Level:} <normal>{100}\r\n<enchanted>{Three-Implicit}\r\n<enchanted>{Synthesised}"
+  },
+  "Imperial Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励迷宫物品。",
+    "en": "Modifies a Map item adding layers of Delirium with the Labyrinth Items reward type"
+  },
+  "Imperial Legacy": {
+    "ch": "<whiteitem>{六连帝国弓}\r\n<default>{物品等级：} <normal>{100}",
+    "en": "<whiteitem>{Six-Link Imperial Bow}\r\n<default>{Item Level:} <normal>{100}"
+  },
+  "Imprint": {
+    "ch": "还原指定装备至拓印时的状态\r\n分裂的物品不能使用拓印",
+    "en": "Restores an imprinted item onto the original\r\nCan't be applied to Fractured Items"
+  },
+  "Incursion Scarab": {
+    "ch": "区域内包含阿尔瓦",
+    "en": "Area contains Alva"
+  },
+  "Incursion Scarab of Champions": {
+    "ch": "区域内的时空穿越有 35% 的几率使所有怪物至少为魔法怪物\n区域内的时空穿越的怪物群规模提高 15%",
+    "en": "Incursions in Area have a 35% chance for all Monsters to be at least Magic\nIncursions in Area have 15% increased Pack Size"
+  },
+  "Incursion Scarab of Invasion": {
+    "ch": "区域内包含 12-16 个额外的穿越怪物群",
+    "en": "Area contains 12 to 16 additional packs of Incursion Monsters"
+  },
+  "Incursion Scarab of Timelines": {
+    "ch": "区域内最后消灭的建筑师会掉落一个物品化的神庙\n区域内掉落的物品化神庙根据当前神庙布局生成，但房间等级随机",
+    "en": "Final Architect slain in Area will drop an Itemised Temple\n Itemised Temples dropped in Area are generated based on current Temple layout, but with randomised room tiers"
+  },
+  "Influenced Scouting Report": {
+    "ch": "曾经可重置所有奇拉克异界图鉴任务，新任务中至少有一张塑界守卫地图、裂界守卫地图或裂界屠杀者地图",
+    "en": "Formally used to reroll all of Kirac's Atlas Missions, including at least one Shaper Guardian, Elder Guardian, or Elderslayer Map"
+  },
+  "Influencing Scarab of Hordes": {
+    "ch": "区域内受影响的怪物群的规模提高 40%",
+    "en": "Influenced Monster Packs in Area have 40% increased Pack Size"
+  },
+  "Influencing Scarab of Interference": {
+    "ch": "地图首领出现时会伴随一名随机的塑界守卫、裂界守卫、征服者或合成首领\r\n仅可用于 14 阶及以上的地图",
+    "en": "A Map Boss is accompanied by a random Shaper Guardian, Elder Guardian, Conqueror or Synthesis Boss\r\nCan only be used with Tier 14+ Maps"
+  },
+  "Influencing Scarab of the Elder": {
+    "ch": "为区域添加裂界者影响结果",
+    "en": "Adds Elder Influence outcome to Area"
+  },
+  "Influencing Scarab of the Shaper": {
+    "ch": "为区域添加塑界者影响结果",
+    "en": "Adds Shaper Influence outcome to Area"
+  },
+  "Infused Engineer's Orb": {
+    "ch": "原先可大幅提高保险箱的品质，增强它的守护者",
+    "en": "Formerly greatly improved the quality and rewards of a Strongbox and strengthened its defenders"
+  },
+  "Infused Incubator": {
+    "ch": "用一件可装备物品来孕育一件精华物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Essence item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Instilling Orb": {
+    "ch": "给非恢复类药剂增加一个附魔\r\n在符合条件的情况下自动生效\r\n替换任何现有附魔",
+    "en": "Adds an enchantment to a utility flask that will cause\r\nit to be used when certain conditions are met\r\nReplaces any existing enchantment"
+  },
+  "Intrinsic Catalyst": {
+    "ch": "给戒指、项链、添加品质，强化属性类词缀。\r\n取代其它品质类型。",
+    "en": "Adds quality that enhances Attribute modifiers on a ring, amulet or belt\r\nReplaces other quality types"
+  },
+  "Jack in the Box": {
+    "ch": "<uniqueitem>{物品}",
+    "en": "<uniqueitem>{Item}"
+  },
+  "Jagged Fossil": {
+    "ch": "更多物理属性\r\n无混沌属性",
+    "en": "More Physical modifiers\r\nNo Chaos modifiers"
+  },
+  "Jeweller's Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励饰品。",
+    "en": "Modifies a Map item adding layers of Delirium with the Trinkets reward type"
+  },
+  "Jeweller's Orb": {
+    "ch": "重置一件物品上插槽的数量",
+    "en": "Reforges the number of sockets on an item"
+  },
+  "Jewellery Recombinator": {
+    "ch": "摧毁两件宝石物品，打造一件结合了两者属性的新宝石物品。有时，结果物品会被不可预测地修改。",
+    "en": "Destroys two Jewellery items to create a new Jewellery item with a combination of their properties. Sometimes, the resultant item is modified unpredictably"
+  },
+  "Journeyman Cartographer's Seal": {
+    "ch": "重新封印异界地图上的一个黄色地图点(6-10阶)",
+    "en": "Uncompletes a yellow or white map on the Atlas"
+  },
+  "Judging Voices": {
+    "ch": "<uniqueitem>{禁断的军帽}",
+    "en": "<uniqueitem>{Forbidden Shako}"
+  },
+  "Justified Ambition": {
+    "ch": "<uniqueitem>{忆境地图}",
+    "en": "<uniqueitem>{Synthesis Map}"
+  },
+  "Kalguuran Delirium Orb": {
+    "ch": "调整地图上的惊悚迷雾层数，使其奖励先祖秘藏物品。",
+    "en": "Modifies a Map item adding layers of Delirium with the Expedition Items reward type"
+  },
+  "Kalguuran Incubator": {
+    "ch": "用一件可装备物品来孕育一件先祖秘藏物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Expedition item to an equippable item \r\nItem drops after killing {0} monsters"
+  },
+  "Kalguuran Scarab": {
+    "ch": "区域内包含 2 个额外的矿脉",
+    "en": "Area contains 2 additional Ore Deposits"
+  },
+  "Kalguuran Scarab of Enriching": {
+    "ch": "看护矿脉的怪物拥有更高的难度与奖励\n区域内每完成一个矿脉\n矿脉的矿石含量就提高 15%",
+    "en": "Monsters guarding Ore Deposits have increased Difficulty and\nReward and Ore Deposits contain 15% increased Ore\nfor each Ore Deposit completed in Area "
+  },
+  "Kalguuran Scarab of Guarded Riches": {
+    "ch": "区域内看守矿脉的怪物至少为魔法怪物",
+    "en": "Monsters guarding Ore Deposits in Area are at least Magic"
+  },
+  "Kalguuran Scarab of Refinement": {
+    "ch": "区域内的矿脉提供冶炼金属锭，而非标记的矿石",
+    "en": "Ore Deposits in Area grant Smelted Bars instead of Marking Ore"
+  },
+  "Keeper's Corruption": {
+    "ch": "<magicitem>{古神的唤骨头盔 (集中效应效果)}\r\n<default>{物品等级：} <normal>{89}\r\n<default>{裂界者物品}",
+    "en": "<magicitem>{Eldritch Bone Helmet (Concentrated Effect)}\r\n<default>{Item Level:} <normal>{89}\r\n<default>{Elder Item}"
+  },
+  "Lachrymal Necrosis": {
+    "ch": "<rareitem>{珠宝}\r\n<enchanted>{基底词缀：} \r\n<magicitem>{腐化之血影响不了你}\r\n<corrupted>{已腐化}",
+    "en": "<rareitem>{Jewel}\r\n<enchanted>{Implicit Modifier:} \r\n<magicitem>{Corrupted Blood cannot be inflicted on you}\r\n<corrupted>{Corrupted}"
+  },
+  "Lantador's Lost Love": {
+    "ch": "<rareitem>{双玉戒指}",
+    "en": "<rareitem>{Two-Stone Ring}"
+  },
+  "Last Hope": {
+    "ch": "<whiteitem>{凡人的希望}",
+    "en": "<whiteitem>{Mortal Hope}"
+  },
+  "Last Stand": {
+    "ch": "<uniqueitem>{降伏}",
+    "en": "<uniqueitem>{The Surrender}"
+  },
+  "Lavish Wombgift": {
+    "ch": "可在起源之树上培育为通货",
+    "en": "Can grow into a Currency item on the Genesis Tree"
+  },
+  "Left to Fate": {
+    "ch": "<rareitem>{地图}\r\n<default>{地图阶级:}<normal>{16}\r\n<corrupted>{未鉴定 已腐化}",
+    "en": "<rareitem>{Map}\r\n<default>{Map Tier:} <normal>{16}\r\n<corrupted>{Unidentified Corrupted}"
+  },
+  "Legion Scarab": {
+    "ch": "该区域会出现 1 场额外的战乱之殇遭遇战",
+    "en": "Area contains an additional Legion Encounter"
+  },
+  "Legion Scarab of Eternal Conflict": {
+    "ch": "区域内的战乱之殇怪物可以打破静滞多次\n区域内的战乱之殇怪物每次打破静滞时难度和奖励都会提高",
+    "en": "Legion Monsters in Area can be broken out of Stasis multiple times\nLegion Monsters in Area gain increased Difficulty and Reward for each time they are broken out"
+  },
+  "Legion Scarab of Officers": {
+    "ch": "区域内的军团派系有 5 名额外的中士",
+    "en": "Legion Factions in Area have 5 additional Sergeants"
+  },
+  "Legion Scarab of The Sekhema": {
+    "ch": "区域内的战乱之殇遭遇战必定包含马拉克斯派系",
+    "en": "Legion Encounters in Area always contain the Maraketh Faction"
+  },
+  "Legion Scarab of Treasures": {
+    "ch": "该区域中的军团宝箱被击破时\n有 20% 的几率将其奖励扩散至从静滞状态中释放出的军团怪物身上\n获得了奖励的军团怪物将拥有更高的难度",
+    "en": "Legion Chests in Area have a 20% chance to spread their Rewards\n to Legion Monsters they release from stasis when they are broken out\nLegion Monsters that have gained Rewards have increased Difficulty"
+  },
+  "Lesser Eldritch Ember": {
+    "ch": "给身体装备、脚部装备、手部装备、头部装备\r\n添加一个次级焚界者基底词缀\r\n它会替换除灭界者基底词缀外的所有原有基底词缀",
+    "en": "Adds a Lesser Searing Exarch implicit modifier to\r\na Body Armour, Boots, Gloves or Helmet\r\nThis replaces any existing implicit modifiers other than Eater of Worlds implicit modifiers"
+  },
+  "Lesser Eldritch Ichor": {
+    "ch": "给身体装备、脚部装备、手部装备、头部装备\r\n添加一个次级灭界者基底词缀\r\n它会替换除焚界者基底词缀外的所有原有基底词缀",
+    "en": "Adds a Lesser Eater of Worlds implicit modifier to\r\na Body Armour, Boots, Gloves or Helmet\r\nThis replaces any existing implicit modifiers other than Searing Exarch implicit modifiers"
+  },
+  "Lethean Temptation": {
+    "ch": "<uniqueitem>{内布利斯}",
+    "en": "<uniqueitem>{Nebulis}"
+  },
+  "Light and Truth": {
+    "ch": "<uniqueitem>{水晶短杖}",
+    "en": "<uniqueitem>{Crystal Sceptre}"
+  },
+  "Lightless Astrolabe": {
+    "ch": "在异界图鉴的象限上添加包含深渊的塑造之域",
+    "en": "Adds a Shaped Region containing Abysses to a quadrant of the Atlas"
+  },
+  "Lingering Remnants": {
+    "ch": "<rareitem>{瓦尔密殿}\r\n<corrupted>{已腐化}",
+    "en": "<rareitem>{Vaal Temple Map}\r\n<corrupted>{Corrupted}"
+  },
+  "Lonely Fragment": {
+    "ch": "孤寂之时为等级 85 区域\r\n漠视化形会在孤寂之时中释放全部实力",
+    "en": "The Moment of Loneliness is level 85\r\nThe Incarnation of Neglect's full power is unleashed in The Moment of Loneliness"
+  },
+  "Lonely Warrior": {
+    "ch": "<uniqueitem>{命运之抗争}",
+    "en": "<uniqueitem>{Defiance of Destiny}"
+  },
+  "Lost Worlds": {
+    "ch": "<whiteitem>{地图}\r\n<default>{地图阶级:} <normal>{15}",
+    "en": "<whiteitem>{Map}\r\n<default>{Map Tier:} <normal>{15}"
+  },
+  "Love Through Ice": {
+    "ch": "<uniqueitem>{超自然本能}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Unnatural Instinct}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "Loyalty": {
+    "ch": "<currencyitem>{3x 链结石}",
+    "en": "<currencyitem>{3x Orb of Fusing}"
+  },
+  "Lucent Fossil": {
+    "ch": "更多魔力属性\r\n无速度属性",
+    "en": "More Mana modifiers\r\nNo Speed modifiers"
+  },
+  "Luck of the Vaal": {
+    "ch": "<uniqueitem>{瓦尔护手}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Vaal Gauntlets}\r\n<corrupted>{Corrupted}"
+  },
+  "Lucky Bastion": {
+    "ch": "<uniqueitem>{斯瓦林}",
+    "en": "<uniqueitem>{Svalinn}"
+  },
+  "Lucky Connections": {
+    "ch": "<currencyitem>{20 X 链结石}",
+    "en": "<currencyitem>{20x Orb of Fusing}"
+  },
+  "Lucky Deck": {
+    "ch": "<currencyitem>{10x 未知的命运卡}",
+    "en": "<currencyitem>{10x Stacked Deck}"
+  },
+  "Luminous Trove": {
+    "ch": "<uniqueitem>{天神之音}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Voices}\r\n<corrupted>{Corrupted}"
+  },
+  "Lycia's Invocation of Acrobatics": {
+    "ch": "将移形换影添加到圣洁遗物中",
+    "en": "Adds Acrobatics to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Ancestral Bond": {
+    "ch": "将先祖魂约添加到圣洁遗物中",
+    "en": "Adds Ancestral Bond to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Arrow Dancing": {
+    "ch": "将箭矢闪跃添加到圣洁遗物中",
+    "en": "Adds Arrow Dancing to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Avatar of Fire": {
+    "ch": "将火之化身添加到圣洁遗物中",
+    "en": "Adds Avatar of Fire to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Blood Magic": {
+    "ch": "将祭血术添加到圣洁遗物中",
+    "en": "Adds Blood Magic to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Call to Arms": {
+    "ch": "将召集部队添加到圣洁遗物中",
+    "en": "Adds Call To Arms to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Conduit": {
+    "ch": "将能量连接添加到圣洁遗物中",
+    "en": "Adds Conduit to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Crimson Dance": {
+    "ch": "将玫红之舞添加到圣洁遗物中",
+    "en": "Adds Crimson Dance to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Divine Shield": {
+    "ch": "将神威之盾添加到圣洁遗物中",
+    "en": "Adds Divine Shield to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Eldritch Battery": {
+    "ch": "将异能魔力添加到圣洁遗物中",
+    "en": "Adds Eldritch Battery to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Elemental Equilibrium": {
+    "ch": "将元素之相添加到圣洁遗物中",
+    "en": "Adds Elemental Equilibrium to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Elemental Overload": {
+    "ch": "将元素超载添加到圣洁遗物中",
+    "en": "Adds Elemental Overload to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Eternal Youth": {
+    "ch": "将青春永驻添加到圣洁遗物中",
+    "en": "Adds Eternal Youth to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Ghost Dance": {
+    "ch": "将幽灵舞步添加到圣洁遗物中",
+    "en": "Adds Ghost Dance to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Ghost Reaver": {
+    "ch": "将灵能护体添加到圣洁遗物中",
+    "en": "Adds Ghost Reaver to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Glancing Blows": {
+    "ch": "将斗转星移添加到圣洁遗物中",
+    "en": "Adds Glancing Blows to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Hex Master": {
+    "ch": "将邪法宗师添加到圣洁遗物中",
+    "en": "Adds Hex Master to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Imbalanced Guard": {
+    "ch": "将失衡卫士添加到圣洁遗物中",
+    "en": "Adds Imbalanced Guard to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Iron Grip": {
+    "ch": "将钢铁之握添加到圣洁遗物中",
+    "en": "Adds Iron Grip to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Iron Reflexes": {
+    "ch": "将霸体添加到圣洁遗物中",
+    "en": "Adds Iron Reflexes to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Iron Will": {
+    "ch": "将钢铁意志添加到圣洁遗物中",
+    "en": "Adds Iron Will to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Lethe Shade": {
+    "ch": "将忘川之影添加到圣洁遗物中",
+    "en": "Adds Lethe Shade to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Magebane": {
+    "ch": "将法师克星添加到圣洁遗物中",
+    "en": "Adds Magebane to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Mind over Matter": {
+    "ch": "将心灵升华添加到圣洁遗物中",
+    "en": "Adds Mind over Matter to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Minion Instability": {
+    "ch": "将复仇之灵添加到圣洁遗物中",
+    "en": "Adds Minion Instability to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Pain Attunement": {
+    "ch": "将苦痛灵曲添加到圣洁遗物中",
+    "en": "Adds Pain Attunement to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Perfect Agony": {
+    "ch": "将完美苦痛添加到圣洁遗物中",
+    "en": "Adds Perfect Agony to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Point Blank": {
+    "ch": "将零点射击添加到圣洁遗物中",
+    "en": "Adds Point Blank to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Precise Technique": {
+    "ch": "将技艺精湛添加到圣洁遗物中",
+    "en": "Adds Precise Technique to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Resolute Technique": {
+    "ch": "将坚毅之心添加到圣洁遗物中",
+    "en": "Adds Resolute Technique to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Runebinder": {
+    "ch": "将符文绑定者添加到圣洁遗物中",
+    "en": "Adds Runebinder to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Solipsism": {
+    "ch": "将唯我独尊添加到圣洁遗物中",
+    "en": "Adds Solipsism to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Supreme Ego": {
+    "ch": "将无上自我添加到圣洁遗物中",
+    "en": "Adds Supreme Ego to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Unwavering Stance": {
+    "ch": "将烈士意志添加到圣洁遗物中",
+    "en": "Adds Unwavering Stance to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Vaal Pact": {
+    "ch": "将瓦尔冥约添加到圣洁遗物中",
+    "en": "Adds Vaal Pact to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Versatile Combatant": {
+    "ch": "将多面好手添加到圣洁遗物中",
+    "en": "Adds Versatile Combatant to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Wicked Ward": {
+    "ch": "将恶毒结界添加到圣洁遗物中",
+    "en": "Adds Wicked Ward to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Wind Dancer": {
+    "ch": "将风舞者添加到圣洁遗物中",
+    "en": "Adds Wind Dancer to a Sanctified Relic"
+  },
+  "Lycia's Invocation of Zealot's Oath": {
+    "ch": "将狂热誓言添加到圣洁遗物中",
+    "en": "Adds Zealot's Oath to a Sanctified Relic"
+  },
+  "Lycia's Invocation of the Agnostic": {
+    "ch": "将惘信者添加到圣洁遗物中",
+    "en": "Adds the Agnostic to a Sanctified Relic"
+  },
+  "Lycia's Invocation of the Impaler": {
+    "ch": "将穿刺者添加到圣洁遗物中",
+    "en": "Adds The Impaler to a Sanctified Relic"
+  },
+  "Lysah's Respite": {
+    "ch": "<uniqueitem>{玛瑙护身符}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Agate Amulet}\r\n<corrupted>{Corrupted}"
+  },
+  "Maddening Incubator": {
+    "ch": "用一件可装备物品来孕育一件惊悸迷雾物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Delirium item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Magmatic Ore": {
+    "ch": "向物品中添加已储存的熔炉经验值",
+    "en": "Adds stored Crucible experience to an item"
+  },
+  "Magnum Opus": {
+    "ch": "<whiteitem>{物品}\r\n<default>{物品等级：}<normal>{100}\r\n<enchanted>{三重基底}\r\n<enchanted>{忆境}",
+    "en": "<whiteitem>{Item}\r\n<default>{Item Level:} <normal>{100}\r\n<enchanted>{Three-Implicit}\r\n<enchanted>{Synthesised}"
+  },
+  "Man With Bear": {
+    "ch": "<whiteitem>{魔圣甲虫}",
+    "en": "<whiteitem>{Bestiary Scarab}"
+  },
+  "Master Cartographer's Seal": {
+    "ch": "重新封印异界地图上的一个红色地图点(11阶及以上)",
+    "en": "Uncompletes any map on the Atlas"
+  },
+  "Matryoshka": {
+    "ch": "<rareitem> {黑曜护身符}\r\n<size:25>{<default>{物品等级：} <normal>{85}\r\n<default>{品质：} <augmented>{+20%}\r\n<default>{受影响物品}\r\n<enchanted>{4圣油}\r\n<enchanted>{魔符孕育物品}\r\n<corrupted>{腐化}}",
+    "en": "<rareitem> {Onyx Amulet}\r\n<size:25>{<default>{Item Level:} <normal>{85}\r\n<default>{Quality:} <augmented>{+20%}\r\n<default>{Influenced Item}\r\n<enchanted>{Four Anointments}\r\n<enchanted>{Incubating Talisman Item}\r\n<corrupted>{Corrupted}}"
+  },
+  "Maven's Chisel of Avarice": {
+    "ch": "提升地图品质，增强发现的通货物品\r\n取代其他品质类型",
+    "en": "Improves the quality of a map enhancing Currency found\r\nReplaces other quality types"
+  },
+  "Maven's Chisel of Divination": {
+    "ch": "提升地图品质，增强发现的命运卡\r\n取代其他品质类型",
+    "en": "Improves the quality of a map enhancing Divination Cards found\r\nReplaces other quality types"
+  },
+  "Maven's Chisel of Procurement": {
+    "ch": "提升地图品质，增强物品稀有度\r\n取代其他品质类型",
+    "en": "Improves the quality of a map enhancing Item Rarity\r\nReplaces other quality types"
+  },
+  "Maven's Chisel of Proliferation": {
+    "ch": "提升地图品质，增强怪物群规模\r\n取代其他品质类型",
+    "en": "Improves the quality of a map enhancing Pack Size\r\nReplaces other quality types"
+  },
+  "Maven's Chisel of Scarabs": {
+    "ch": "提升地图品质，增强发现的圣甲虫\r\n取代其他品质类型",
+    "en": "Improves the quality of a map enhancing Scarabs found\r\nReplaces other quality types"
+  },
+  "Mawr Blaidd": {
+    "ch": "<uniqueitem>{巨狼之眼}",
+    "en": "<uniqueitem>{Eyes of the Greatwolf}"
+  },
+  "Memory of Loneliness": {
+    "ch": "为你的异界图鉴添加回忆丝缕，通往漠视化形。",
+    "en": "Adds a Memory Thread to the Atlas leading to the Incarnation of Neglect"
+  },
+  "Memory of Reverence": {
+    "ch": "为你的异界图鉴添加回忆丝缕，通往惊怖化形。",
+    "en": "Adds a Memory Thread to the Atlas leading to the Incarnation of Dread"
+  },
+  "Memory of Trauma": {
+    "ch": "为你的异界图鉴添加回忆丝缕，通往畏惧化形。",
+    "en": "Adds a Memory Thread to the Atlas leading to the Incarnation of Fear"
+  },
+  "Merciless Armament": {
+    "ch": "<size:31>{<magicitem>{无情的 双手武器}\r\n<default>{物品等级:} <normal>{100}}",
+    "en": "<size:31>{<magicitem>{Merciless Two-Hand Weapon}\r\n<default>{Item Level:} <normal>{100}}"
+  },
+  "Metallic Fossil": {
+    "ch": "更多闪电属性\r\n无物理属性",
+    "en": "More Lightning modifiers\r\nNo Physical modifiers"
+  },
+  "Might is Right": {
+    "ch": "<uniqueitem>{裂颅}",
+    "en": "<uniqueitem>{Trypanon}"
+  },
+  "Miraged Incubator": {
+    "ch": "用一件可装备物品来孕育强化的沙海幻境地图\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Empowered Mirage Map item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Mirror of Kalandra": {
+    "ch": "复制一件指定物品",
+    "en": "Creates a mirrored copy of an item"
+  },
+  "Misery in Darkness": {
+    "ch": "<uniqueitem>{泯光寿衣}",
+    "en": "<uniqueitem>{Shroud of the Lightless}"
+  },
+  "Mitts": {
+    "ch": "<uniqueitem>{手套}",
+    "en": "<uniqueitem>{Gloves}"
+  },
+  "Monochrome": {
+    "ch": "<currencyitem>{瓦尔多的谜之匣}",
+    "en": "<currencyitem>{Valdo's Puzzle Box}"
+  },
+  "More is Never Enough": {
+    "ch": "<whiteitem>{4x 圣甲虫}",
+    "en": "<whiteitem>{4x Scarab}"
+  },
+  "Mortal Grief": {
+    "ch": "该区域包含一个腐化区域\r\n该区域物品数量提高 10%",
+    "en": "Area contains a Vaal Side Area\r\n10% increased Quantity of Items found in Area"
+  },
+  "Mortal Hope": {
+    "ch": "该区域包含一个腐化区域\r\n该区域物品数量提高 10%",
+    "en": "Area contains a Vaal Side Area\r\n10% increased Quantity of Items found in Area"
+  },
+  "Mortal Ignorance": {
+    "ch": "该区域包含一个腐化区域\r\n该区域物品数量提高 10%",
+    "en": "Area contains a Vaal Side Area\r\n10% increased Quantity of Items found in Area"
+  },
+  "Mortal Rage": {
+    "ch": "该区域包含一个腐化区域\r\n该区域物品数量提高 10%",
+    "en": "Area contains a Vaal Side Area\r\n10% increased Quantity of Items found in Area"
+  },
+  "Muttering Essence of Anger": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Muttering Essence of Contempt": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Muttering Essence of Fear": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Muttering Essence of Greed": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Muttering Essence of Hatred": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Muttering Essence of Sorrow": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Muttering Essence of Torment": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Muttering Essence of Woe": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Mysterious Incubator": {
+    "ch": "用一件可装备物品来孕育一件孕育物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Mysterious Wombgift": {
+    "ch": "可在起源之树上培育为一件物品",
+    "en": "Can grow into an item on the Genesis Tree"
+  },
+  "Mystery Leaguestone": {
+    "ch": "内含一个随机赛季石。",
+    "en": "Contains an unknown Leaguestone."
+  },
+  "Nameless Astrolabe": {
+    "ch": "在异界图鉴的象限上添加包含驱灵祭坛的塑造之域",
+    "en": "Adds a Shaped Region containing Ritual Altars to a quadrant of the Atlas"
+  },
+  "Necromancy Net": {
+    "ch": "可以被用在死去魔物的灵盒上。\r\n可以设置后通过该猎魔夹捕获魔物。",
+    "en": "Can be used on Beast corpses of all levels.\r\nActivate to use this type of Net when capturing Beasts."
+  },
+  "No Traces": {
+    "ch": "<currencyitem>{30x 重铸石}",
+    "en": "<currencyitem>{30x Orb of Scouring}"
+  },
+  "Nook's Crown": {
+    "ch": "<rareitem>{唤骨头盔}\r\n<default>{物品等级：} <normal>{100}\r\n<default>{裂界者物品}",
+    "en": "<rareitem>{Bone Helmet}\r\n<default>{Item Level:} <normal>{100}\r\n<default>{Elder Item}"
+  },
+  "Noxious Catalyst": {
+    "ch": "给戒指、项链、腰带添加品质，强化物理伤害和混沌伤害词缀。\r\n取代其它品质类型",
+    "en": "Adds quality that enhances Physical and Chaos Damage modifiers on a ring, amulet or belt\r\nReplaces other quality types"
+  },
+  "Obscured Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励裂隙物品。",
+    "en": "Modifies a Map item adding layers of Delirium with the Breach Items reward type"
+  },
+  "Obscured Incubator": {
+    "ch": "用一件可装备物品来孕育一件裂隙物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Breach item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Oil Extractor": {
+    "ch": "摧毁一件涂膏的物品，回收圣油。",
+    "en": "Destroys an Anointed Item to recover one of the Oils that was used to apply that Anointment"
+  },
+  "Omen of Acceleration": {
+    "ch": "将在你升级时消耗\n创建一座迅速神龛",
+    "en": "Will be Consumed when you level up\nto create an Acceleration Shrine"
+  },
+  "Omen of Adrenaline": {
+    "ch": "将在你生命值低至 25% 时消耗\n获得肾上腺素 10 秒",
+    "en": "Will be Consumed when you reach 25% of Life\nto grant Adrenaline for 10 seconds"
+  },
+  "Omen of Amelioration": {
+    "ch": "将在你被击败时消耗\n防止 75% 的经验值损失",
+    "en": "Will be Consumed when you Die\nto prevent 75% of Experience loss"
+  },
+  "Omen of Bequeathal": {
+    "ch": "将在你被击败时消耗\n将损失经验值的 300% 添加到宝石中",
+    "en": "Will be Consumed when you Die\nto add 300% of lost Experience to Gems"
+  },
+  "Omen of Blanching": {
+    "ch": "将在你使用幻色石时消耗\n使 1-3 个插槽变为白色",
+    "en": "Will be Consumed when you use a Chromatic Orb\non an item to make 1-3 Sockets become White"
+  },
+  "Omen of Brilliance": {
+    "ch": "将在你升级时消耗\n使经验值获得提高 100%，持续 60 秒",
+    "en": "Will be Consumed when you level up\nto grant 100% increased Experience gained for 60 seconds"
+  },
+  "Omen of Connections": {
+    "ch": "将在你使用链结石时消耗\n必定获取最多的连接",
+    "en": "Will be Consumed when you use an Orb of Fusing\non an item to ensure maximum Links"
+  },
+  "Omen of Death's Door": {
+    "ch": "将在你生命值低至 25% 时消耗\n获得 3 秒暗影姿态",
+    "en": "Will be Consumed when you reach 25% of Life\nto grant Shade Form for 3 seconds"
+  },
+  "Omen of Death-dancing": {
+    "ch": "将在你生命值低至 25% 时消耗\n使你有 75% 的几率避免受到击中伤害，持续 4 秒",
+    "en": "Will be Consumed when you reach 25% of Life\nto grant 75% chance to Avoid Damage from Hits for 4 seconds"
+  },
+  "Omen of Fortune": {
+    "ch": "将在你使用机会石时消耗\n可能成为传奇的物品必定变为传奇物品",
+    "en": "Will be Consumed when you use an Orb of Chance\non an item which can become Unique to ensure it does so"
+  },
+  "Omen of Refreshment": {
+    "ch": "将在你生命值低至 25% 时消耗\n补充所有药剂",
+    "en": "Will be Consumed when you reach 25% of Life\nto Refill all Flasks"
+  },
+  "Omen of Resurgence": {
+    "ch": "将在你生命值低至 25% 时消耗\n使你将所受伤害的 100% 吸纳为生命，持续 4 秒",
+    "en": "Will be Consumed when you reach 25% of Life\nto cause 100% of Damage taken to be Recouped as Life for 4 seconds"
+  },
+  "Omen of Return": {
+    "ch": "将在你被击败时消耗\n开启一道返回城镇的时空之门",
+    "en": "Will be Consumed when you Die\nto create a Portal to Town"
+  },
+  "Omen of Revenge": {
+    "ch": "将在你被击败时消耗\n使附近所有敌人受到的伤害永久总增 25%",
+    "en": "Will be Consumed when you Die\nto make each nearby enemy permanently take 25% more Damage"
+  },
+  "Omen of the Jeweller": {
+    "ch": "将在你使用工匠石时消耗\n必定获取最大数量的插槽",
+    "en": "Will be Consumed when you use a Jeweller's Orb\non an item to ensure maximum Sockets"
+  },
+  "Omen of the Soul Devourer": {
+    "ch": "将在你升级时消耗\n获得灵魂吞食，持续 5 分钟",
+    "en": "Will be Consumed when you level up\nto grant Soul Eater for 5 minutes"
+  },
+  "One Last Score": {
+    "ch": "<whiteitem>{实验珠宝}\r\n<default>{物品等级：} <normal>{86}",
+    "en": "<whiteitem>{Experimented Jewellery}\r\n<default>{Item Level:} <normal>{86}"
+  },
+  "Operative's Scouting Report": {
+    "ch": "曾经可重置所有奇拉克异界图鉴任务，提供有基底词缀奖励的新任务",
+    "en": "Formally used to reroll all of Kirac's Atlas Missions, granting missions with rewarding implicit modifiers"
+  },
+  "Opulent Fossil": {
+    "ch": "更多掉落属性\r\n无非标签属性",
+    "en": "More Drop modifiers\r\nNo Tagless modifiers"
+  },
+  "Orb of Alchemy": {
+    "ch": "将一件普通物品升级成稀有物品",
+    "en": "Upgrades a normal item to a rare item"
+  },
+  "Orb of Alteration": {
+    "ch": "重置一件魔法物品上的所有属性",
+    "en": "Reforges a magic item with new random modifiers"
+  },
+  "Orb of Annulment": {
+    "ch": "随机移除物品上的一条属性",
+    "en": "Removes a random modifier from an item"
+  },
+  "Orb of Augmentation": {
+    "ch": "用一个新随机词缀强化一个魔法物品",
+    "en": "Augments a magic item with a new random modifier"
+  },
+  "Orb of Binding": {
+    "ch": "将一个普通物品升级为稀有物品并重置插槽数为至多四个并全部连接",
+    "en": "Upgrades a normal item to a rare item with up to four linked sockets"
+  },
+  "Orb of Chance": {
+    "ch": "将一件普通物品随机升级成魔法，稀有或传奇物品",
+    "en": "Upgrades a normal item to a random rarity"
+  },
+  "Orb of Conflict": {
+    "ch": "随机提高一件物品上焚界者或灭界者词缀的强度，同时降低另外一个\r\n被降低的次级词缀会被移除",
+    "en": "Unpredictably raise the strength of one Searing Exarch or Eater of Worlds modifier on an item and lower the strength of another\r\nLesser modifiers that have their strength lowered will be removed"
+  },
+  "Orb of Dominance": {
+    "ch": "从至少有两种影响效果词缀的物品上移除一个影响效果词缀\r\n并升级另外一个影响效果词缀\r\n升级最高阶的词缀会将它转为尊崇词缀\r\n升级尊崇词缀会重置它的数值\r\n可以用于身体装备、脚部装备、手部装备和头部装备",
+    "en": "Removes one Influenced Modifier from an item with at least two Influenced\r\nModifiers and upgrades another Influenced Modifier\r\nUpgrading a modifier of the highest tier transforms the\r\nmodifier into an Elevated Modifier\r\nAttempting to upgrade an Elevated Modifier rerolls its values\r\nCan be used on Body Armours, Boots, Gloves and Helmets"
+  },
+  "Orb of Elemental Dispersion": {
+    "ch": "你下次攻击的元素核心将立即死亡。",
+    "en": "The next Essence you hit will be killed instantly"
+  },
+  "Orb of Fusing": {
+    "ch": "重置一件物品上插槽的连接",
+    "en": "Reforges the links between sockets on an item"
+  },
+  "Orb of Horizons": {
+    "ch": "原先可将地图重铸为相同等阶的其他地图",
+    "en": "Formerly reforged a map item as another of the same tier"
+  },
+  "Orb of Intention": {
+    "ch": "可以修改一张回忆影响的地图，使掉落的\r\n物品减少，但找到的物品会含有更多回忆束丝。",
+    "en": "Modifies a Memory Influenced Map, causing items found to\r\nhave more Memory Strands, but fewer items drop"
+  },
+  "Orb of Regret": {
+    "ch": "获得一点天赋重置点数",
+    "en": "Grants a passive skill refund point"
+  },
+  "Orb of Remembrance": {
+    "ch": "使一件普通装备物品上的回忆束丝数值随机化",
+    "en": "Randomises the number of Memory Strands on a normal equipment item"
+  },
+  "Orb of Scouring": {
+    "ch": "将一件物品上的所有属性删除，变回普通物品",
+    "en": "Removes all modifiers from an item"
+  },
+  "Orb of Transmutation": {
+    "ch": "将一件普通物品升级成魔法物品",
+    "en": "Upgrades a normal item to a magic item"
+  },
+  "Orb of Unmaking": {
+    "ch": "获得一个异界图鉴洗天赋点数",
+    "en": "Grants an atlas passive skill refund point"
+  },
+  "Orb of Unravelling": {
+    "ch": "消耗一件物品上剩余的全部回忆束丝，\r\n根据消耗的回忆束丝数量，尝试升级外延词缀的等阶",
+    "en": "Consumes all Memory Strands on an item to attempt to upgrade the tier\r\nof explicit modifiers based on the number of Memory Strands consumed"
+  },
+  "Ornate Incubator": {
+    "ch": "用一件可装备物品来孕育一件通货物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Currency item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Otherworldly Incubator": {
+    "ch": "用一件可装备物品来孕育一张传奇地图物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Unique Map item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Otherworldly Scouting Report": {
+    "ch": "曾经可重置所有奇拉克异界图鉴任务，新任务中至少有一个裂隙石",
+    "en": "Formally used to reroll all of Kirac's Atlas Missions, including at least one Breachstone"
+  },
+  "Outfoxed": {
+    "ch": "<currencyitem>{加密崇高石}",
+    "en": "<currencyitem>{Veiled Exalted Orb}"
+  },
+  "Parasitic Passengers": {
+    "ch": "<currencyitem>{10x 孕育石}\r\n<default>{物品等级：} <normal>{84}",
+    "en": "<currencyitem>{10x Incubator}\r\n<default>{Item Level:} <normal>{84}"
+  },
+  "Peaceful Moments": {
+    "ch": "<uniqueitem>{永恒珠宝}",
+    "en": "<uniqueitem>{Timeless Jewel}"
+  },
+  "Perfection": {
+    "ch": "<rareitem>{饰品}\r\n<default>{物品等级：} <normal>{100}\r\n<default>{塑界者物品}",
+    "en": "<rareitem>{Jewellery}\r\n<default>{Item Level:} <normal>{100}\r\n<default>{Shaper Item}"
+  },
+  "Poisoned Faith": {
+    "ch": "<uniqueitem>{阿拉卡力之牙}\r\n<corrupted>{腐化}",
+    "en": "<uniqueitem>{Arakaali's Fang}\r\n<corrupted>{Corrupted}"
+  },
+  "Polished Abyss Scarab": {
+    "ch": "区域内有1个额外的深渊\r\n区域内深渊产生的怪物提高50%",
+    "en": "Area contains an additional Abyss\r\nAbysses in Area spawn 50% increased Monsters"
+  },
+  "Polished Ambush Scarab": {
+    "ch": "该区域会出现额外 4 个保险箱",
+    "en": "Area contains 4 additional Strongboxes"
+  },
+  "Polished Bestiary Scarab": {
+    "ch": "该区域会出现伊恩哈尔\r\n该区域会出现 2 个额外的红野兽",
+    "en": "Area contains Einhar\r\nArea contains 2 additional Red Beasts"
+  },
+  "Polished Blight Scarab": {
+    "ch": "区域内有一场菌潮遭遇战\r\n菌潮遭遇战有一个额外的菌潮首领",
+    "en": "Area contains a Blight Encounter\r\nBlight Encounters contain an additional Blight Boss"
+  },
+  "Polished Breach Scarab": {
+    "ch": "区域会出现1个额外裂隙\r\n区域内的裂隙包含1个额外的裂隙首领的紧握之手",
+    "en": "Area contains an additional Breach\r\nBreaches in Area contain an additional Breach Boss' Clasped Hand"
+  },
+  "Polished Cartography Scarab": {
+    "ch": "该区域可找到的异界地图数量提高 35%",
+    "en": "35% increased Maps found in Area"
+  },
+  "Polished Divination Scarab": {
+    "ch": "区域可找到的命运卡数量提高 100%",
+    "en": "100% more Divination Cards found in Area"
+  },
+  "Polished Elder Scarab": {
+    "ch": "给地图区域添加裂界者影响\r\n在区域里找到稀有裂界者物品的几率提高 60%",
+    "en": "Adds Elder Influence outcome to Map Area\r\n60% more Rare Elder Items found in Area"
+  },
+  "Polished Expedition Scarab": {
+    "ch": "区域内额外有一场先祖秘藏遭遇战\r\n区域内符纹怪物之印的数量提高 25%\r\n爆炸物数量提高 20%",
+    "en": "Area contains an additional Expedition Encounter\r\nArea contains 25% increased number of Runic Monster Markers\r\n20% increased number of Explosives"
+  },
+  "Polished Harbinger Scarab": {
+    "ch": "该区域会出现额外 3 个先驱者",
+    "en": "Area contains 3 additional Harbingers"
+  },
+  "Polished Legion Scarab": {
+    "ch": "该区域会出现 1 场额外的战乱之殇遭遇战\r\n每个军团会有一个战争秘术箱",
+    "en": "Area contains an additional Legion Encounter\r\nEach Legion contains a War Hoard"
+  },
+  "Polished Reliquary Scarab": {
+    "ch": "区域内发现的传奇物品数量提高 100%",
+    "en": "100% increased Unique Items found in Area"
+  },
+  "Polished Shaper Scarab": {
+    "ch": "给地图区域添加塑界者影响\r\n在区域里找到稀有塑界者物品的几率提高 60%",
+    "en": "Adds Shaper Influence outcome to Map Area\r\n60% more Rare Shaper Items found in Area"
+  },
+  "Polished Sulphite Scarab": {
+    "ch": "该区域会出现尼克\r\n地图拥有者获得的亚硫酸数量提高 40%",
+    "en": "Area contains Niko\r\nMap owner gains 40% more Sulphite"
+  },
+  "Polished Torment Scarab": {
+    "ch": "该区域额外被 5 个罪魂纠缠",
+    "en": "Area is haunted by 5 additional Tormented Spirits"
+  },
+  "Polished Ultimatum Scarab": {
+    "ch": "区域内有致命贪婪遭遇战\r\n致命贪婪怪物提供的经验值提高 100%",
+    "en": "Area contains an Ultimatum Encounter\r\nUltimatum Monsters grant 100% increased Experience"
+  },
+  "Portal Scroll": {
+    "ch": "开启一道返回城镇的传送门",
+    "en": "Creates a portal to town"
+  },
+  "Portal Shredder": {
+    "ch": "你下次所点击的时空之门将立即被摧毁。",
+    "en": "The next Portal you hit will be killed instantly"
+  },
+  "Potent Alchemical Resonator": {
+    "ch": "将一个普通物品升级为稀有物品",
+    "en": "Upgrades a normal item to a rare item"
+  },
+  "Potent Chaotic Resonator": {
+    "ch": "用新的随机属性来重铸一个稀有物品",
+    "en": "Reforges a rare item with new random modifiers"
+  },
+  "Power Core": {
+    "ch": "消灭两名护卫，创造一名结合了两者属性的完全充能的护卫。有时，结果物品会被不可预测地修改。",
+    "en": "Destroys two Sentinels to create a fully-charged Sentinel with a combination of their properties. Sometimes, the resultant item is modified unpredictably"
+  },
+  "Powerful Alchemical Resonator": {
+    "ch": "将一个普通物品升级为稀有物品",
+    "en": "Upgrades a normal item to a rare item"
+  },
+  "Powerful Chaotic Resonator": {
+    "ch": "用新的随机属性来重铸一个稀有物品",
+    "en": "Reforges a rare item with new random modifiers"
+  },
+  "Prejudice": {
+    "ch": "<uniqueitem>{物品}\r\n<default>{影响效果物品}",
+    "en": "<uniqueitem>{Item}\r\n<default>{Influenced Item}"
+  },
+  "Pride Before the Fall": {
+    "ch": "<uniqueitem>{冈姆的壮志}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Kaom's Heart}\r\n<corrupted>{Corrupted}"
+  },
+  "Pride of the First Ones": {
+    "ch": "<uniqueitem>{大地之护}",
+    "en": "<uniqueitem>{Farrul's Fur}"
+  },
+  "Primal Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励魔符。",
+    "en": "Modifies a Map item adding layers of Delirium with the Talismans reward type"
+  },
+  "Primal Incubator": {
+    "ch": "用一件可装备物品来孕育一件魔符物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Talisman item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Prime Alchemical Resonator": {
+    "ch": "将一个普通物品升级为稀有物品",
+    "en": "Upgrades a normal item to a rare item"
+  },
+  "Prime Chaotic Resonator": {
+    "ch": "用新的随机属性来重铸一个稀有物品",
+    "en": "Reforges a rare item with new random modifiers"
+  },
+  "Prime Regrading Lens": {
+    "ch": "将技能石的品质类型改变成另一种随机品质",
+    "en": "Change the type of quality of a skill gem with quality to another random quality"
+  },
+  "Prime Sextant": {
+    "ch": "给一个虚空石添加或重置一个词缀",
+    "en": "Adds or rerolls a modifier on a Voidstone"
+  },
+  "Primitive Alchemical Resonator": {
+    "ch": "将一个普通物品升级为稀有物品",
+    "en": "Upgrades a normal item to a rare item"
+  },
+  "Primitive Chaotic Resonator": {
+    "ch": "用新的随机属性来重铸一个稀有物品",
+    "en": "Reforges a rare item with new random modifiers"
+  },
+  "Prismatic Catalyst": {
+    "ch": "给戒指、项链、添加品质，强化抗性类词缀。\r\n取代其它品质类型。",
+    "en": "Adds quality that enhances Resistance modifiers on a ring, amulet or belt\r\nReplaces other quality types"
+  },
+  "Prismatic Fossil": {
+    "ch": "更多元素词缀\r\n无物理异常状态或混沌异常状态词缀",
+    "en": "More Elemental modifiers\r\nNo Physical Ailment or Chaos Ailment modifiers"
+  },
+  "Pristine Fossil": {
+    "ch": "更多生命词缀\r\n无防御词缀",
+    "en": "More Life modifiers\r\nNo Defence modifiers"
+  },
+  "Prometheus' Armoury": {
+    "ch": "<rareitem>{单手武器}\r\n<default>{物品等级：} <normal>{100}\r\n<default>{双重影响物品}",
+    "en": "<rareitem>{One-Hand Weapon}\r\n<default>{Item Level:} <normal>{100}\r\n<default>{Double-Influenced Item}"
+  },
+  "Prospecting Astrolabe": {
+    "ch": "在异界图鉴的象限上添加包含矿脉的塑造之域",
+    "en": "Adds a Shaped Region containing Ore Deposits to a quadrant of the Atlas"
+  },
+  "Prosperity": {
+    "ch": "<magicitem>{普兰德斯的 金光戒指}",
+    "en": "<magicitem>{Perandus' Gold Ring}"
+  },
+  "Provisioning Wombgift": {
+    "ch": "可在起源之树上培育为护甲或饰品",
+    "en": "Can grow into an Armour or Jewellery item on the Genesis Tree"
+  },
+  "Rain Tempter": {
+    "ch": "<whiteitem>{地图}\r\n<default>{地图位阶：} <normal>{6}",
+    "en": "<whiteitem>{Map}\r\n<default>{Map Tier:} <normal>{6}"
+  },
+  "Rain of Chaos": {
+    "ch": "<currencyitem>{混沌石}",
+    "en": "<currencyitem>{Chaos Orb}"
+  },
+  "Rats": {
+    "ch": "<uniqueitem>{鼠巢}",
+    "en": "<uniqueitem>{Rat's Nest}"
+  },
+  "Reality Fragment": {
+    "ch": "断情绝境为 85 级\r\n贤主会在断情绝境中释放全部实力",
+    "en": "The Absence of Mercy and Empathy is level 85\r\nThe Maven's full power is unleashed in The Absence of Mercy and Empathy"
+  },
+  "Rebirth": {
+    "ch": "<uniqueitem>{查兰之剑}",
+    "en": "<uniqueitem>{Charan's Sword}"
+  },
+  "Rebirth and Renewal": {
+    "ch": "<whiteitem>{犄角圣甲虫}",
+    "en": "<whiteitem>{Horned Scarab}"
+  },
+  "Reckless Ambition": {
+    "ch": "<uniqueitem>{至高天堂}",
+    "en": "<uniqueitem>{Omeyocan}"
+  },
+  "Red Packet": {
+    "ch": "右键使用，活动专属道具\r\n使用时间：2026年2月9日至3月1日23:59\r\n可在背包页查看红包总量\r\n用于官网「金马送福 欢度春节」活动抽奖",
+    "en": "Grants an Event Point."
+  },
+  "Redeemer's Exalted Orb": {
+    "ch": "给一件稀有物品添加救赎者影响效果和一个新救赎者词缀",
+    "en": "Adds Redeemer influence and a new Redeemer modifier to a rare item"
+  },
+  "Reflecting Mist": {
+    "ch": "以无法预测的方式映像一个稀有项链或戒指，使其分裂城\n两件镜像物品，并拥有反转的词缀",
+    "en": "Unpredictably reflects a rare amulet or ring, breaking it\ninto two mirrored halves with reflected modifiers"
+  },
+  "Reflection of the Heart": {
+    "ch": "<uniqueitem>{卡兰德之触}",
+    "en": "<uniqueitem>{Kalandra's Touch}"
+  },
+  "Refracting Fog": {
+    "ch": "替换一颗星团珠宝上的小型天赋技能附魔",
+    "en": "Replaces the Small Passive Skill Enchantment of a Cluster Jewel"
+  },
+  "Regal Implant": {
+    "ch": "将魔法嫁接物升级为稀有嫁接物",
+    "en": "Upgrades a magic Graft to a rare Graft"
+  },
+  "Regal Orb": {
+    "ch": "将一件魔法物品升级成稀有物品",
+    "en": "Upgrades a magic item to a rare item"
+  },
+  "Reinforced Iron Net": {
+    "ch": "更适合捕获 37 至 56 级的魔物。\r\n可以设置后通过该猎魔夹捕获魔物。",
+    "en": "Effective against Beasts of levels 37 to 56.\r\nActivate to use this type of Net when capturing Beasts."
+  },
+  "Reinforced Rope Net": {
+    "ch": "更适合捕获 7 至 23 级的魔物。\r\n可以设置后通过该猎魔夹捕获魔物。",
+    "en": "Effective against Beasts of levels 7 to 23.\r\nActivate to use this type of Net when capturing Beasts."
+  },
+  "Reinforced Steel Net": {
+    "ch": "更适合捕获 60 至 75 级的魔物。\r\n可以设置后通过该猎魔夹捕获魔物。",
+    "en": "Effective against Beasts of levels 60 to 75.\r\nActivate to use this type of Net when capturing Beasts."
+  },
+  "Remembrance": {
+    "ch": "<uniqueitem>{先驱的纹章}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Precursor's Emblem}\r\n<corrupted>{Corrupted}"
+  },
+  "Remnant of Corruption": {
+    "ch": "腐化禁锢怪物的精华, 随机修改其属性. ",
+    "en": "Corrupts the Essences trapping a monster, modifying them unpredictably"
+  },
+  "Reverent Fragment": {
+    "ch": "敬仰之时为等级 85 区域\r\n惊怖化形会在敬仰之时中释放全部实力",
+    "en": "The Moment of Reverence is level 85\r\nThe Incarnation of Dread's full power is unleashed in The Moment of Reverence"
+  },
+  "Ritual Scarab of Abundance": {
+    "ch": "区域内的驱灵仪式提供的恩典数量提高 100%",
+    "en": "Rituals in Area offer 100% increased Favours"
+  },
+  "Ritual Scarab of Corpses": {
+    "ch": "区域内的驱灵仪式包含 1 个额外的稀有物品尸体怪物",
+    "en": "Rituals in Area contain an additional Rare Itemised Corpse Monster"
+  },
+  "Ritual Scarab of Selectiveness": {
+    "ch": "区域内的驱灵祭坛前 2 次重置恩典没有成本\n区域内驱灵祭坛可以额外重置 2 次恩典",
+    "en": "Rerolling Favours at Ritual Altars in Area has no cost the first 2 times\nRitual Altars in Area allow rerolling Favours 2 additional times"
+  },
+  "Ritual Scarab of Wisps": {
+    "ch": "区域内的驱灵祭坛生成一个荒林鬼灵\n荒林鬼灵会使周围玩家获得的贡品提高 100%",
+    "en": "Ritual Altars in Area spawn a Wildwood Wisp\nWildwood Wisps grant 100% increased Tribute Gained to nearby Players"
+  },
+  "Ritual Vessel": {
+    "ch": "从完成的驱灵祭坛中将首次击败的怪物储存起来供日后使用。",
+    "en": "Stores the monsters slain for the first time from a completed Ritual Altar for future use"
+  },
+  "Rod of Detonation": {
+    "ch": "你下次攻击的水晶塔将立即被摧毁。",
+    "en": "The next Font you hit will be killed instantly"
+  },
+  "Rogue's Marker": {
+    "ch": "在城镇或藏身处产生一个前往黄金港的传送门\n可以在黄金港当作通货物品使用。",
+    "en": "Creates a portal to the Rogue Harbour from a Town or Hideout\nUsed as Currency for services in the Rogue Harbour"
+  },
+  "Runic Astrolabe": {
+    "ch": "在异界图鉴的象限上添加包含先祖秘藏遭遇战的塑造之域",
+    "en": "Adds a Shaped Region containing Expedition encounters to a quadrant of the Atlas"
+  },
+  "Runic Luck": {
+    "ch": "<currencyitem>{10 x 商人刷新通货}",
+    "en": "<currencyitem>{10x Vendor Refresh Currency}"
+  },
+  "Rusted Abyss Scarab": {
+    "ch": "区域内有一个额外的深渊",
+    "en": "Area contains an additional Abyss"
+  },
+  "Rusted Ambush Scarab": {
+    "ch": "该区域会出现额外 3 个保险箱",
+    "en": "Area contains 3 additional Strongboxes"
+  },
+  "Rusted Bestiary Scarab": {
+    "ch": "该区域会出现伊恩哈尔\r\n该区域会出现 1 个额外的红野兽",
+    "en": "Area contains Einhar\r\nArea contains an additional Red Beast"
+  },
+  "Rusted Blight Scarab": {
+    "ch": "区域内有一场菌潮遭遇战",
+    "en": "Area contains a Blight Encounter"
+  },
+  "Rusted Breach Scarab": {
+    "ch": "该区域会出现额外 1 个裂隙",
+    "en": "Area contains an additional Breach"
+  },
+  "Rusted Cartography Scarab": {
+    "ch": "该区域可找到的异界地图数量提高 20%",
+    "en": "20% increased Maps found in Area"
+  },
+  "Rusted Divination Scarab": {
+    "ch": "区域可找到的命运卡数量提高 50%",
+    "en": "50% more Divination Cards found in Area"
+  },
+  "Rusted Elder Scarab": {
+    "ch": "给地图区域添加裂界者影响\r\n在区域里找到稀有裂界者物品的几率提高 30%",
+    "en": "Adds Elder Influence outcome to Map Area\r\n30% more Rare Elder Items found in Area"
+  },
+  "Rusted Expedition Scarab": {
+    "ch": "区域内额外有一场先祖秘藏遭遇战",
+    "en": "Area contains an additional Expedition Encounter"
+  },
+  "Rusted Harbinger Scarab": {
+    "ch": "该区域会出现额外 2 个先驱者",
+    "en": "Area contains 2 additional Harbingers"
+  },
+  "Rusted Legion Scarab": {
+    "ch": "该区域会出现 1 场额外的战乱之殇遭遇战",
+    "en": "Area contains an additional Legion Encounter"
+  },
+  "Rusted Reliquary Scarab": {
+    "ch": "区域内发现的传奇物品数量提高 50%",
+    "en": "50% increased Unique Items found in Area"
+  },
+  "Rusted Shaper Scarab": {
+    "ch": "给地图区域添加塑界者影响\r\n在区域里找到稀有塑界者物品的几率提高 30%",
+    "en": "Adds Shaper Influence outcome to Map Area\r\n30% more Rare Shaper Items found in Area"
+  },
+  "Rusted Sulphite Scarab": {
+    "ch": "该区域会出现尼克\r\n地图拥有者获得的亚硫酸数量提高 20%",
+    "en": "Area contains Niko\r\nMap owner gains 20% more Sulphite"
+  },
+  "Rusted Torment Scarab": {
+    "ch": "该区域额外被 3 个罪魂纠缠",
+    "en": "Area is haunted by 3 additional Tormented Spirits"
+  },
+  "Rusted Ultimatum Scarab": {
+    "ch": "区域内有致命贪婪遭遇战",
+    "en": "Area contains an Ultimatum Encounter"
+  },
+  "Sacred Incubator": {
+    "ch": "用一件可装备物品来孕育珍贵的巨灵硬币\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Valuable Djinn Coin item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Sacred Orb": {
+    "ch": "根据护甲上的基础防御随机化防御属性数值。",
+    "en": "Randomises the numeric values of base defences on an armour"
+  },
+  "Sacrifice at Dawn": {
+    "ch": "该区域包含一个腐化区域\r\n该区域物品数量提高 5%",
+    "en": "Area contains a Vaal Side Area\r\n5% increased Quantity of Items found in Area"
+  },
+  "Sacrifice at Dusk": {
+    "ch": "该区域包含一个腐化区域\r\n该区域物品数量提高 5%",
+    "en": "Area contains a Vaal Side Area\r\n5% increased Quantity of Items found in Area"
+  },
+  "Sacrifice at Midnight": {
+    "ch": "该区域包含一个腐化区域\r\n该区域物品数量提高 5%",
+    "en": "Area contains a Vaal Side Area\r\n5% increased Quantity of Items found in Area"
+  },
+  "Sacrifice at Noon": {
+    "ch": "该区域包含一个腐化区域\r\n该区域物品数量提高 5%",
+    "en": "Area contains a Vaal Side Area\r\n5% increased Quantity of Items found in Area"
+  },
+  "Sambodhi's Vow": {
+    "ch": "<whiteitem>{凡人碎片}",
+    "en": "<whiteitem>{Mortal Fragment}"
+  },
+  "Sambodhi's Wisdom": {
+    "ch": "<uniqueitem>{无尽之衣}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Tabula Rasa}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "Sanctified Fossil": {
+    "ch": "数字属性值特别幸运\r\n高等级属性变得更普通",
+    "en": "Numeric modifier values are lucky\r\nHigh Level modifiers are more common"
+  },
+  "Sand of Eternity": {
+    "ch": "你击中的下一个魔偶不再再生生命。",
+    "en": "The next Idol you hit will no longer regenerate life"
+  },
+  "Saqawine Lure": {
+    "ch": "该区域会出现伊恩哈尔\r\n该区域会出现 4 个来自沙漠的额外红野兽\r\n不能跟猎魔圣甲虫同时使用",
+    "en": "Area contains Einhar\r\nArea contains 4 additional Red Beasts from The Sands\r\nCannot be used alongside a Bestiary Scarab"
+  },
+  "Scarab of Adversaries": {
+    "ch": "区域内包含 4 个额外的镜像稀有怪物群",
+    "en": "Area contains 4 additional Packs with Mirrored Rare Monsters"
+  },
+  "Scarab of Divinity": {
+    "ch": "区域内最多额外出现 3 个万神殿之触的稀有怪物\n万神殿之触的怪物生成的幽灵造成的伤害提高 100%",
+    "en": "Up to 3 additional Rare Monsters in Area will be Pantheon-Touched\nApparitions spawned by Pantheon-Touched Monsters deal 100% increased damage"
+  },
+  "Scarab of Evolution": {
+    "ch": "区域内的 10 个怪物群被升级为魔法怪物",
+    "en": "10 Monster Packs in Area are upgraded to Magic"
+  },
+  "Scarab of Hunted Traitors": {
+    "ch": "区域内包含许多背叛者",
+    "en": "Area contains Hunted Traitors"
+  },
+  "Scarab of Monstrous Lineage": {
+    "ch": "魔法怪物群规模提高 40%",
+    "en": "40% increased Magic Pack Size"
+  },
+  "Scarab of Radiant Storms": {
+    "ch": "区域内包含一场炫灿风暴",
+    "en": "Area contains a Resplendent Tempest"
+  },
+  "Scarab of Stability": {
+    "ch": "区域内的时空之门有 50% 的几率使用时不被消耗",
+    "en": "Portals to Area have a 50% chance to not be consumed on use"
+  },
+  "Scarab of Wisps": {
+    "ch": "区域内的怪物有几率被 2000 个荒林鬼灵强化",
+    "en": "Monsters in Area have a chance to be Empowered by 2000 Wildwood Wisps"
+  },
+  "Scarab of the Commander": {
+    "ch": "在地图完成时额外获得一个奇拉克任务",
+    "en": "Grants an additional Kirac Mission on Map Completion"
+  },
+  "Scarab of the Dextral": {
+    "ch": "区域后缀效果提高 100%\n区域前缀无效",
+    "en": "100% increased effect of Area Suffix Modifiers\nArea Prefix Modifiers have no effect"
+  },
+  "Scarab of the Sinistral": {
+    "ch": "区域前缀效果提高 100%\n区域后缀无效",
+    "en": "100% increased effect of Area Prefix Modifiers\nArea Suffix Modifiers have no effect"
+  },
+  "Scholar of the Seas": {
+    "ch": "<uniqueitem>{贼窝}",
+    "en": "<uniqueitem>{Mao Kun}"
+  },
+  "Scorched Fossil": {
+    "ch": "更多火焰属性\r\n无冰霜属性",
+    "en": "More Fire modifiers\r\nNo Cold modifiers"
+  },
+  "Screaming Essence of Anger": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Anguish": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Contempt": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Doubt": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Dread": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Envy": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Fear": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Greed": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Hatred": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Loathing": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Misery": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Rage": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Scorn": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Sorrow": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Spite": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Suffering": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Torment": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Woe": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Wrath": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Screaming Essence of Zeal": {
+    "ch": "把一件普通物品升级为稀有物品，或者重铸一件稀有物品并保留一项属性",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Scroll of Wisdom": {
+    "ch": "鉴定一件指定物品",
+    "en": "Identifies an item"
+  },
+  "Secondary Regrading Lens": {
+    "ch": "将辅助宝石的品质类型改变成另一种随机品质",
+    "en": "Change the type of quality of a support gem with quality to another random quality"
+  },
+  "Serpent Extract": {
+    "ch": "多喝巨蛇萃取物的流放者，才是理智又清醒的流放者。 ",
+    "en": "Exiles that consume Serpent Extract daily are sane exiles. "
+  },
+  "Serrated Fossil": {
+    "ch": "更多攻击属性\r\n更少施法属性",
+    "en": "More Attack modifiers\r\nFewer Caster modifiers"
+  },
+  "Seven Years Bad Luck": {
+    "ch": "<currencyitem>{镜之残片}",
+    "en": "<currencyitem>{Mirror Shard}"
+  },
+  "Shaper's Exalted Orb": {
+    "ch": "为一件稀有物品添加塑界者影响和一个新的塑界者词缀。",
+    "en": "Adds Shaper influence and a new Shaper modifier to a rare item"
+  },
+  "Shard of Fate": {
+    "ch": "<magicitem>{生机的 珠宝}",
+    "en": "<magicitem>{Vivid Jewel}"
+  },
+  "Shrieking Essence of Anger": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Anguish": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Contempt": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Doubt": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Dread": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Envy": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Fear": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Greed": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Hatred": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Loathing": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Misery": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Rage": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Scorn": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Sorrow": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Spite": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Suffering": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Torment": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Woe": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Wrath": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shrieking Essence of Zeal": {
+    "ch": "确保一项特定属性, 升级一件普通物品至稀有物品或者重置一件稀有物品的属性. ",
+    "en": "Upgrades a normal item to rare or reforges a rare item, guaranteeing one property"
+  },
+  "Shuddering Fossil": {
+    "ch": "更多速度属性\r\n无魔力属性",
+    "en": "More Speed modifiers\r\nNo Mana modifiers"
+  },
+  "Silence and Frost": {
+    "ch": "<uniqueitem>{群魔殿}",
+    "en": "<uniqueitem>{The Pandemonius}"
+  },
+  "Silver Coin": {
+    "ch": "在城镇或藏身处创造一个通往亡者之境的时空之门\n可在亡者之境作为通货使用以参加命运试炼",
+    "en": "Creates a portal to the Halls of the Dead from a Town or Hideout\nUsed as Currency in the Halls of the Dead to participate in the Trial of the Ancestors"
+  },
+  "Simple Iron Net": {
+    "ch": "更适合捕获 25 至 46 级的魔物。\r\n可以设置后通过该猎魔夹捕获魔物。",
+    "en": "Effective against Beasts of levels 25 to 46.\r\nActivate to use this type of Net when capturing Beasts."
+  },
+  "Simple Rope Net": {
+    "ch": "更适合捕获 1 至 13 级的魔物。\r\n可以设置后通过该猎魔夹捕获魔物。",
+    "en": "Effective against Beasts of levels 1 to 13.\r\nActivate to use this type of Net when capturing Beasts."
+  },
+  "Simple Sextant": {
+    "ch": "给一个虚空石添加或重置一个词缀",
+    "en": "Adds or rerolls a modifier on a Voidstone"
+  },
+  "Simple Steel Net": {
+    "ch": "更适合捕获 58 至 70 级的魔物。\r\n可以设置后通过该猎魔夹捕获魔物。",
+    "en": "Effective against Beasts of levels 58 to 70.\r\nActivate to use this type of Net when capturing Beasts."
+  },
+  "Singular Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励传奇物品。",
+    "en": "Modifies a Map item adding layers of Delirium with the Unique Items reward type"
+  },
+  "Singular Incubator": {
+    "ch": "用一件可装备物品来孕育一件传奇物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Unique item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Singular Scouting Report": {
+    "ch": "曾经可重置所有奇拉克异界图鉴任务，新任务中至少有一张传奇地图",
+    "en": "Formally used to reroll all of Kirac's Atlas Missions, including at least one Unique map"
+  },
+  "Sinistral Catalyst": {
+    "ch": "为戒指、项链或腰带添加可增强前缀的品质\r\n替换其他品质类型",
+    "en": "Adds quality that enhances Prefix modifiers on a ring, amulet or belt\r\nReplaces other quality types"
+  },
+  "Skittering Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励圣甲虫。",
+    "en": "Modifies a Map item adding layers of Delirium with the Scarabs reward type"
+  },
+  "Skittering Incubator": {
+    "ch": "用一件可装备物品来孕育一件圣甲虫物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Scarab item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Society's Remorse": {
+    "ch": "<currencyitem>{10x 改造石}",
+    "en": "<currencyitem>{10x Orb of Alteration}"
+  },
+  "Something Dark": {
+    "ch": "<whiteitem>{蓝图} <default>{区域等级：} <normal>{83} <default>{完全显示}",
+    "en": "<whiteitem>{Blueprint}\r\n<default>{Area Level:} <normal>{83}\r\n<default>{Fully Revealed}"
+  },
+  "Soul Quenched": {
+    "ch": "禁用",
+    "en": "Disabled"
+  },
+  "Specularity Scroll": {
+    "ch": "将【不屈之志】升级到更强力的版本",
+    "en": "Upgrades The Unshattered Will to a more powerful version"
+  },
+  "Squandered Prosperity": {
+    "ch": "<uniqueitem>{意义的光辉}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{The Light of Meaning}\r\n<corrupted>{Corrupted}"
+  },
+  "Stacked Deck": {
+    "ch": "一组未知的命运卡",
+    "en": "A stack of unknown divination cards"
+  },
+  "Strong Iron Net": {
+    "ch": "更适合捕获 48 至 66 级的魔物。\r\n可以设置后通过该猎魔夹捕获魔物。",
+    "en": "Effective against Beasts of levels 48 to 66.\r\nActivate to use this type of Net when capturing Beasts."
+  },
+  "Strong Rope Net": {
+    "ch": "更适合捕获 15 至 35 级的魔物。\r\n可以设置后通过该猎魔夹捕获魔物。",
+    "en": "Effective against Beasts of levels 15 to 35.\r\nActivate to use this type of Net when capturing Beasts."
+  },
+  "Strong Steel Net": {
+    "ch": "更适合捕获 64 级及以上魔物。\r\n可以设置后通过该猎魔夹捕获魔物。",
+    "en": "Effective against Beasts of levels 64 and above.\r\nActivate to use this type of Net when capturing Beasts."
+  },
+  "Struck by Lightning": {
+    "ch": "<magicitem>{电切宝石}\r\n<default>{物品等级：} <normal>{76}",
+    "en": "<magicitem>{Electrocuting Jewellery}\r\n<default>{Item Level:} <normal>{76}"
+  },
+  "Succor of the Sinless": {
+    "ch": "<uniqueitem>{瓶中信仰}",
+    "en": "<uniqueitem>{Bottled Faith}"
+  },
+  "Sulphite Scarab": {
+    "ch": "该区域会出现尼克",
+    "en": "Area contains Niko"
+  },
+  "Sulphite Scarab of Fumes": {
+    "ch": "区域内的亚硫酸会释放出激怒烟尘\n受激怒烟尘影响的怪物物品掉落数量增加 50%\n地图内的亚硫酸由蓝晶矿坑的怪物守卫",
+    "en": "Sulphite found in Map Area releases Enraging Fumes\nMonsters affected by Enraging Fumes have 50% increased Item Quantity\nSulphite in your maps is guarded by Monsters from the Azurite Mine"
+  },
+  "Sulphite Scarab of Greed": {
+    "ch": "地图拥有者获得的亚硫酸数量提高 150%",
+    "en": "Map owner gains 150% more Sulphite"
+  },
+  "Surveyor's Compass": {
+    "ch": "储存一个物品上的六分仪词缀",
+    "en": "Stores a Sextant Modifier in an item"
+  },
+  "Synthesising Fragment": {
+    "ch": "脑层为 85 级\r\n维纳留斯会在脑层中释放全部实力",
+    "en": "The Cortex is level 85\r\nVenarius' full power is unleashed in the Cortex"
+  },
+  "Tailoring Orb": {
+    "ch": "给身体护甲添加一种附魔，或替换一种现有附魔\r\n这会重铸身体护甲插槽",
+    "en": "Adds or replaces an enchantment on a body armour\r\nThis may reforge the body armour's sockets"
+  },
+  "Tainted Armourer's Scrap": {
+    "ch": "随机化腐化护甲的品质",
+    "en": "Randomises the quality of a corrupted armour"
+  },
+  "Tainted Blacksmith's Whetstone": {
+    "ch": "随机化腐化武器的品质",
+    "en": "Randomises the quality of a corrupted weapon"
+  },
+  "Tainted Catalyst": {
+    "ch": "为一个已腐化的戒指、项链或腰带添加随机的品质类型和品质值\r\n取代其它品质类型",
+    "en": "Applies a random quality type and amount of quality to a Corrupted ring, amulet or belt\r\nReplaces other quality types"
+  },
+  "Tainted Chaos Orb": {
+    "ch": "用新随机属性重铸一个腐化稀有物品，或者移除它的所有词缀，不可预料结果",
+    "en": "Unpredictably either reforges a corrupted rare item with new random modifiers or removes all of its modifiers"
+  },
+  "Tainted Chromatic Orb": {
+    "ch": "重铸腐化物品上一个插槽的颜色，不可预料结果",
+    "en": "Unpredictably reforges the colour of sockets on a corrupted item"
+  },
+  "Tainted Divine Teardrop": {
+    "ch": "给腐化稀有物品提升或降低一个位阶，不可预料结果",
+    "en": "Unpredictably raises or lowers the tier of each modifier on a corrupted rare item"
+  },
+  "Tainted Exalted Orb": {
+    "ch": "给腐化稀有物品增加或移除一个词缀，不可预料结果",
+    "en": "Unpredictably adds or removes a modifier on a corrupted rare item"
+  },
+  "Tainted Jeweller's Orb": {
+    "ch": "增加或移除腐化物品上的一个插槽",
+    "en": "Unpredictably adds or removes a socket on a corrupted item"
+  },
+  "Tainted Mythic Orb": {
+    "ch": "把腐化物品升级为传奇物品，或者将其摧毁，不可预料结果",
+    "en": "Unpredictably either upgrades a corrupted item to unique rarity or destroys it"
+  },
+  "Tainted Orb of Fusing": {
+    "ch": "增加或移除腐化物品上最大一组已连接插槽之间的一个连接，不可预料结果",
+    "en": "Unpredictably adds or removes a link to the largest group of linked sockets on a corrupted item"
+  },
+  "Tangled Fossil": {
+    "ch": "大幅增加一种随机词缀出现的几率\r\n并阻止另一种随机词缀出现\r\n插满共振器就会解开它们的效果",
+    "en": "Makes a random modifier type much more likely and prevents \r\nanother random modifier type\r\nEffects revealed once resonator is fully socketed"
+  },
+  "Tattoo of the Ramako Fleetfoot": {
+    "ch": "取代一个小型敏捷天赋\n获得“移动速度提高 2%”",
+    "en": ""
+  },
+  "Tattoo of the Valako Warrior": {
+    "ch": "取代一个小型智慧天赋\n获得“附加 1 - 7 闪电伤害”",
+    "en": ""
+  },
+  "Temperance": {
+    "ch": "<uniqueitem>{遗物}\r\n<default>{物品等级：}<normal>{83}",
+    "en": "<uniqueitem>{Relic}\r\n<default>{Item Level:} <normal>{83}"
+  },
+  "Tempering Catalyst": {
+    "ch": "给戒指、项链、添加品质，强化防御类词缀。\r\n取代其它品质类型。",
+    "en": "Adds quality that enhances Defence modifiers on a ring, amulet or belt\r\nReplaces other quality types"
+  },
+  "Tempering Orb": {
+    "ch": "给武器添加一种附魔，或替换一种现有附魔\r\n这会重铸武器插槽",
+    "en": "Adds or replaces an enchantment on a weapon\r\nThis may reforge the weapon's sockets"
+  },
+  "Templar Astrolabe": {
+    "ch": "在异界图鉴的象限上添加塑造之域",
+    "en": "Adds a Shaped Region to a quadrant of the Atlas"
+  },
+  "Terrible Secret of Space": {
+    "ch": "<gemitem>{21 级 改造魔像宝石}\r\n<default>{品质：} <augmented>{+23%}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 21 Transfigured Golem Gem}\r\n<default>{Quality:} <augmented>{+23%}\r\n<corrupted>{Corrupted}"
+  },
+  "Thaumaturge's Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励宝石。",
+    "en": "Modifies a Map item adding layers of Delirium with the Gems reward type"
+  },
+  "Thaumaturge's Incubator": {
+    "ch": "用一件可装备物品来孕育一件高级腐化宝石或珍贵宝石物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated high level Corrupted Gem or valuable Gem item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Thaumaturgical Net": {
+    "ch": "更适合捕获 68 级及以上魔物。\r\n可以设置后通过该猎魔夹捕获魔物。",
+    "en": "Effective against Beasts of levels 68 and above.\r\nActivate to use this type of Net when capturing Beasts."
+  },
+  "The Academic": {
+    "ch": "<uniqueitem>{求知的热情}",
+    "en": "<uniqueitem>{Inspired Learning}"
+  },
+  "The Admirer": {
+    "ch": "<uniqueitem>{阿兹里物品}",
+    "en": "<uniqueitem>{Atziri Item}"
+  },
+  "The Adventuring Spirit": {
+    "ch": "<uniqueitem>{维多里奥之绝响}",
+    "en": "<uniqueitem>{Victario's Influence}"
+  },
+  "The Aesthete": {
+    "ch": "<uniqueitem>{薛朗物品}",
+    "en": "<uniqueitem>{Shavronne Item}"
+  },
+  "The Apothecary": {
+    "ch": "<uniqueitem>{法师之血}",
+    "en": "<uniqueitem>{Mageblood}"
+  },
+  "The Archmage's Right Hand": {
+    "ch": "<magicitem>{雕纹箴言法杖}\r\n<default>{物品等级：} <normal>{100}",
+    "en": "<magicitem>{Glyphic Prophecy Wand}\r\n<default>{Item Level:} <normal>{100}"
+  },
+  "The Arena Champion": {
+    "ch": "<whiteitem>{地图}\r\n<default>{地图位阶：} <normal>{12}",
+    "en": "<whiteitem>{Map}\r\n<default>{Map Tier:} <normal>{12}"
+  },
+  "The Army of Blood": {
+    "ch": "<uniqueitem>{血脉相连}",
+    "en": "<uniqueitem>{Bloodbond}"
+  },
+  "The Artist": {
+    "ch": "<gemitem>{等级 4 增幅}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 4 Enhance}\r\n<corrupted>{Corrupted}"
+  },
+  "The Aspirant": {
+    "ch": "<magicitem>{物品}\r\n<default>{尊崇物品}\r\n<default>{影响效果物品}",
+    "en": "<magicitem>{Item}\r\n<default>{Elevated Item}\r\n<default>{Influenced Item}"
+  },
+  "The Astromancer": {
+    "ch": "<size:27><uniqueitem>{永恒幽影}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<size:27>{<uniqueitem>{The Eternity Shroud}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}}"
+  },
+  "The Avenger": {
+    "ch": "<uniqueitem>{沉默之雷}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Mjölner}\r\n<corrupted>{Corrupted}"
+  },
+  "The Awakened": {
+    "ch": "<rareitem>{珠宝}\r\n<default>{物品等级：} <normal>{86}\r\n<default>{双重影响物品}",
+    "en": "<rareitem>{Jewellery}\r\n<default>{Item Level:} <normal>{86}\r\n<default>{Double-Influenced Item}"
+  },
+  "The Bargain": {
+    "ch": "已失效",
+    "en": "Disabled"
+  },
+  "The Battle Born": {
+    "ch": "<uniqueitem>{斧}",
+    "en": "<uniqueitem>{Axe}"
+  },
+  "The Bear Woman": {
+    "ch": "<magicitem>{丰饶的熊首皮盔}\r\n<default>{督军物品}",
+    "en": "<magicitem>{Fecund Ursine Pelt}\r\n<default>{Warlord Item}"
+  },
+  "The Beast": {
+    "ch": "<uniqueitem>{兽腹}",
+    "en": "<uniqueitem>{Belly of the Beast}"
+  },
+  "The Betrayal": {
+    "ch": "<uniqueitem>{马雷格罗的玫红手套}",
+    "en": "<uniqueitem>{Maligaro's Virtuosity}"
+  },
+  "The Bitter Blossom": {
+    "ch": "<gemitem>{21 级混沌宝石 }<default>{品质：} <augmented>{+23%}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 21 Chaos Gem}\r\n<default>{Quality:} <augmented>{+23%}\r\n<corrupted>{Corrupted}"
+  },
+  "The Blazing Fire": {
+    "ch": "<uniqueitem>{乱矢之弦}",
+    "en": "<uniqueitem>{Chin Sol}"
+  },
+  "The Blessing of Moosh": {
+    "ch": "<gemitem>{21 级改造宝石}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 21 Transfigured Gem}\r\n<corrupted>{Corrupted}"
+  },
+  "The Body": {
+    "ch": "<uniqueitem>{护甲}",
+    "en": "<uniqueitem>{Body Armour}"
+  },
+  "The Bones": {
+    "ch": "<gemitem>{21 瓦尔召唤魔侍}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 21 Vaal Summon Skeletons}\r\n<corrupted>{Corrupted}"
+  },
+  "The Brawny Battle Mage": {
+    "ch": "<magicitem>{无情狂风法杖}\r\n<default>{物品等级：}<normal>{100}",
+    "en": "<magicitem>{Merciless Tornado Wand}\r\n<default>{Item Level:} <normal>{100}"
+  },
+  "The Breach": {
+    "ch": "<uniqueitem>{裂隙物品}",
+    "en": "<uniqueitem>{Breach Item}"
+  },
+  "The Brittle Emperor": {
+    "ch": "<uniqueitem>{福尔的忠诚之符}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Voll's Devotion}\r\n<corrupted>{Corrupted}"
+  },
+  "The Cache": {
+    "ch": "<uniqueitem>{饰品}",
+    "en": "<uniqueitem>{Jewellery}"
+  },
+  "The Cacophony": {
+    "ch": "<currencyitem>{3x 破空精华}",
+    "en": "<currencyitem>{3x Deafening Essence}"
+  },
+  "The Calling": {
+    "ch": "<uniqueitem>{超越词缀物品}",
+    "en": "<uniqueitem>{Beyond Item}"
+  },
+  "The Card Sharp": {
+    "ch": "<whiteitem>{神恩圣甲虫}",
+    "en": "<whiteitem>{Divination Scarab}"
+  },
+  "The Carrion Crow": {
+    "ch": "<magicitem>{附有生命词缀的护具}",
+    "en": "<magicitem>{Life Armour}"
+  },
+  "The Cartographer": {
+    "ch": "已失效",
+    "en": "Disabled"
+  },
+  "The Cataclysm": {
+    "ch": "<gemitem>{等级 21 法术宝石}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 21 Spell Gem}\r\n<corrupted>{Corrupted}"
+  },
+  "The Catalyst": {
+    "ch": "<currencyitem>{瓦尔宝珠}",
+    "en": "<currencyitem>{Vaal Orb}"
+  },
+  "The Catch": {
+    "ch": "<whiteitem>{鱼竿}\r\n<enchanted>{已孕育}\r\n<default>{物品等级：} <normal>{99}",
+    "en": "<whiteitem>{Fishing Rod}\r\n<enchanted>{Incubated}\r\n<default>{Item Level:} <normal>{99}"
+  },
+  "The Celestial Justicar": {
+    "ch": "<whiteitem>{六连星芒战铠}",
+    "en": "<whiteitem>{Six-Link Astral Plate}"
+  },
+  "The Celestial Stone": {
+    "ch": "<whiteitem>{蛋白石戒指}\r\n<default>{物品等级：} <normal>{100}\r\n<default>{塑界者物品}",
+    "en": "<whiteitem>{Opal Ring}\r\n<default>{Item Level:} <normal>{100}\r\n<default>{Shaper Item}"
+  },
+  "The Chains that Bind": {
+    "ch": "<whiteitem>{六连护具}",
+    "en": "<whiteitem>{Six-Link Body Armour}"
+  },
+  "The Cheater": {
+    "ch": "已失效",
+    "en": "Disabled"
+  },
+  "The Chosen": {
+    "ch": "<uniqueitem>{君主之肤}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Skin of the Lords}\r\n<corrupted>{Corrupted}"
+  },
+  "The Coming Storm": {
+    "ch": "<uniqueitem>{雷语}",
+    "en": "<uniqueitem>{Lightning Coil}"
+  },
+  "The Conduit": {
+    "ch": "<uniqueitem>{多里亚尼之拳}",
+    "en": "<uniqueitem>{Doryani's Fist}"
+  },
+  "The Craving": {
+    "ch": "<uniqueitem>{无尽渴望}",
+    "en": "<uniqueitem>{Unending Hunger}"
+  },
+  "The Cursed King": {
+    "ch": "<uniqueitem>{瑞佛诅咒}",
+    "en": "<uniqueitem>{Rigwald's Curse}"
+  },
+  "The Damned": {
+    "ch": "<uniqueitem>{裂魂者}",
+    "en": "<uniqueitem>{Soul Ripper}"
+  },
+  "The Dapper Prodigy": {
+    "ch": "<whiteitem>{六连护甲}\r\n<default>{物品等级:} <normal>{100}",
+    "en": "<whiteitem>{Six-Link Body Armour}\r\n<default>{Item Level:} <normal>{100}"
+  },
+  "The Dark Mage": {
+    "ch": "<whiteitem>{六连长杖}\r\n<default>{物品等级:} <normal>{55}",
+    "en": "<whiteitem>{Six-Link Staff}\r\n<default>{Item Level:} <normal>{55}"
+  },
+  "The Darkest Dream": {
+    "ch": "<uniqueitem>{离异梦寐}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Severed in Sleep}\r\n<corrupted>{Corrupted}"
+  },
+  "The Deal": {
+    "ch": "<whiteitem>{制图者圣甲虫}",
+    "en": "<whiteitem>{Cartography Scarab}"
+  },
+  "The Deceiver": {
+    "ch": "<uniqueitem>{狡徒束腰}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Belt of the Deceiver}\r\n<corrupted>{Corrupted}"
+  },
+  "The Deep Ones": {
+    "ch": "<uniqueitem>{局势逆转者}",
+    "en": "<uniqueitem>{Tidebreaker}"
+  },
+  "The Demon": {
+    "ch": "<uniqueitem>{猎首}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Headhunter}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "The Demoness": {
+    "ch": "<uniqueitem>{死神之手}",
+    "en": "<uniqueitem>{Death's Hand}"
+  },
+  "The Destination": {
+    "ch": "<uniqueitem>{守望之眼}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Watcher's Eye}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "The Devastator": {
+    "ch": "<uniqueitem>{阿兹里的刑刃}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Atziri's Disfavour}\r\n<corrupted>{Corrupted}"
+  },
+  "The Doctor": {
+    "ch": "<uniqueitem>{猎首}",
+    "en": "<uniqueitem>{Headhunter}"
+  },
+  "The Doppelganger": {
+    "ch": "<gemitem>{魅影射击}\r\n<default>{品质：} <augmented>{+20%}",
+    "en": "<gemitem>{Mirror Arrow}\r\n<default>{Quality:} <augmented>{+20%}"
+  },
+  "The Dragon": {
+    "ch": "<uniqueitem>{闪耀精华}",
+    "en": "<uniqueitem>{Coruscating Elixir}"
+  },
+  "The Dragon's Heart": {
+    "ch": "<gemitem>{等级 4 赋予}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 4 Empower}\r\n<corrupted>{Corrupted}"
+  },
+  "The Dreamer": {
+    "ch": "<uniqueitem>{夏乌拉物品}",
+    "en": "<uniqueitem>{Chayula Item}"
+  },
+  "The Dreamland": {
+    "ch": "<uniqueitem>{沉沦之间}",
+    "en": "<uniqueitem>{Poorjoy's Asylum}"
+  },
+  "The Drunken Aristocrat": {
+    "ch": "<uniqueitem>{宝视精华}",
+    "en": "<uniqueitem>{Divination Distillate}"
+  },
+  "The Dungeon Master": {
+    "ch": "<uniqueitem>{腰带}\r\n<default>{双重影响物品}",
+    "en": "<uniqueitem>{Belt}\r\n<default>{Double-Influenced Item}"
+  },
+  "The Easy Stroll": {
+    "ch": "<rareitem>{地图}\r\n<default>{地图位阶：} <normal>{15}\r\n<default>{词缀：} <normal>{8}\r\n<corrupted>{已腐化}",
+    "en": "<rareitem>{Map}\r\n<default>{Map Tier:} <normal>{15}\r\n<default>{Modifiers:} <normal>{8}\r\n<corrupted>{Corrupted}"
+  },
+  "The Eldritch Decay": {
+    "ch": "<whiteitem>{至高裂界者碎片}",
+    "en": "<whiteitem>{Uber Elder Fragment}"
+  },
+  "The Emptiness": {
+    "ch": "已失效",
+    "en": "Disabled"
+  },
+  "The Encroaching Darkness": {
+    "ch": "<uniqueitem>{地图}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Map}\r\n<corrupted>{Corrupted}"
+  },
+  "The Endless Darkness": {
+    "ch": "<uniqueitem>{裂空者}",
+    "en": "<uniqueitem>{Voidforge}"
+  },
+  "The Endurance": {
+    "ch": "<magicitem>{生机的 赤红珠宝}",
+    "en": "<magicitem>{Vivid Crimson Jewel}"
+  },
+  "The Enforcer": {
+    "ch": "<magicitem>{征服尖刺手部护甲（终结）} <default>{物品等级：} <normal>{86} <default>{大军阀物品}",
+    "en": "<magicitem>{Spiked Gloves of the Conquest (Culling Strike)}\r\n<default>{Item Level:} <normal>{86}\r\n<default>{Warlord Item}"
+  },
+  "The Enlightened": {
+    "ch": "<gemitem>{等级 3 启蒙}",
+    "en": "<gemitem>{Level 3 Enlighten}"
+  },
+  "The Enthusiasts": {
+    "ch": "<uniqueitem>{维多里奥之绝响}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Victario's Influence}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "The Escape": {
+    "ch": "<uniqueitem>{神行靴}",
+    "en": "<uniqueitem>{Seven-League Step}"
+  },
+  "The Eternal War": {
+    "ch": "<uniqueitem>{永恒珠宝}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Timeless Jewel}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "The Ethereal": {
+    "ch": "<whiteitem>{六连 瓦尔法衣}",
+    "en": "<whiteitem>{Six-Link Vaal Regalia}"
+  },
+  "The Everlasting": {
+    "ch": "<uniqueitem>{起源者化身物品}",
+    "en": "<uniqueitem>{Originator Incarnation Item}"
+  },
+  "The Explorer": {
+    "ch": "<rareitem>{地图}\r\n<corrupted>{已腐化}",
+    "en": "<rareitem>{Map}\r\n<corrupted>{Corrupted}"
+  },
+  "The Eye of Terror": {
+    "ch": "<uniqueitem>{法师之血}\r\n<brequelmutated> {秽生}",
+    "en": "<uniqueitem>{Mageblood}\r\n<brequelmutated> {Foulborn}"
+  },
+  "The Eye of the Dragon": {
+    "ch": "<uniqueitem>{珠宝}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Jewel}\r\n<corrupted>{Corrupted}"
+  },
+  "The Fathomless Depths": {
+    "ch": "<uniqueitem>{光明偷猎者}",
+    "en": "<uniqueitem>{Lightpoacher}"
+  },
+  "The Feast": {
+    "ch": "<uniqueitem>{罗米拉的潜力之环}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Romira's Banquet}\r\n<corrupted>{Corrupted}"
+  },
+  "The Fiend": {
+    "ch": "<uniqueitem>{猎首}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Headhunter}\r\n<corrupted>{Corrupted}"
+  },
+  "The Finishing Touch": {
+    "ch": "<currencyitem>{1x 丰沃催化剂}",
+    "en": "<currencyitem>{1x Fertile Catalyst}"
+  },
+  "The Fishmonger": {
+    "ch": "<whiteitem>{白化的羽毛}",
+    "en": "<whiteitem>{Albino Rhoa Feather}"
+  },
+  "The Fletcher": {
+    "ch": "<uniqueitem>{穿心}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Drillneck}\r\n<corrupted>{Corrupted}"
+  },
+  "The Flora's Gift": {
+    "ch": "<whiteitem>{五连长杖}\r\n<default>{物品等级:} <normal>{66}",
+    "en": "<whiteitem>{Five-Link Staff}\r\n<default>{Item Level:} <normal>{66}"
+  },
+  "The Fool": {
+    "ch": "<currencyitem>{20x 机会石}",
+    "en": "<currencyitem>{20x Orb of Chance}"
+  },
+  "The Forbidden Fruit": {
+    "ch": "<whiteitem>{至高巅峰碎片}",
+    "en": "<whiteitem>{Uber Pinnacle Fragment}"
+  },
+  "The Forgotten Treasure": {
+    "ch": "<uniqueitem>{皮革腰带}\r\n<default>{双重影响物品}",
+    "en": "<uniqueitem>{Leather Belt}\r\n<default>{Double-Influenced Item}"
+  },
+  "The Formless Sea": {
+    "ch": "<uniqueitem>{黑鲨}",
+    "en": "<uniqueitem>{Varunastra}"
+  },
+  "The Forsaken": {
+    "ch": "<uniqueitem>{不朽系命}",
+    "en": "<uniqueitem>{Umbilicus Immortalis}"
+  },
+  "The Fortunate": {
+    "ch": "<currencyitem>{2x 神圣石}",
+    "en": "<currencyitem>{2x Divine Orb}"
+  },
+  "The Forward Gaze": {
+    "ch": "<uniqueitem>{仿品}",
+    "en": "<uniqueitem>{Replica Item}"
+  },
+  "The Fox": {
+    "ch": "<gemitem>{等级 20 技能宝石}",
+    "en": "<gemitem>{Level 20 Gem}"
+  },
+  "The Fox in the Brambles": {
+    "ch": "<uniqueitem>{刺棘宝甲}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Bramblejack}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "The Gambler": {
+    "ch": "<divination>{命运卡}",
+    "en": "<divination>{Divination Card}"
+  },
+  "The Garish Power": {
+    "ch": "<uniqueitem>{珠宝}",
+    "en": "<uniqueitem>{Jewel}"
+  },
+  "The Gemcutter": {
+    "ch": "<currencyitem>{珠宝匠的棱镜}",
+    "en": "<currencyitem>{Gemcutter's Prism}"
+  },
+  "The Gentleman": {
+    "ch": "<uniqueitem>{剑}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Sword}\r\n<corrupted>{Corrupted}"
+  },
+  "The Gladiator": {
+    "ch": "<uniqueitem>{梦魇战盔}",
+    "en": "<uniqueitem>{Nightmare Bascinet}"
+  },
+  "The Golden Era": {
+    "ch": "<magicitem>{迸出的月蚀长杖}\r\n<default>{物品等级：} <normal>{100}",
+    "en": "<magicitem>{Flaring Eclipse Staff}\r\n<default>{Item Level:} <normal>{100}"
+  },
+  "The Greatest Intentions": {
+    "ch": "<uniqueitem>{救世者}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{The Saviour}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "The Gulf": {
+    "ch": "<uniqueitem>{希望之线}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Thread of Hope}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "The Hale Heart": {
+    "ch": "<rareitem>{物品}\r\n<default>{物品等级：} <normal>{100}\r\n<default>{裂界者物品}",
+    "en": "<rareitem>{Item}\r\n<default>{Item Level:} <normal>{100}\r\n<default>{Elder Item}"
+  },
+  "The Harvester": {
+    "ch": "<uniqueitem>{收割者}",
+    "en": "<uniqueitem>{The Harvest}"
+  },
+  "The Hermit": {
+    "ch": "<uniqueitem>{生机之记}",
+    "en": "<uniqueitem>{Lifesprig}"
+  },
+  "The Heroic Shot": {
+    "ch": "<currencyitem>{17x 幻色石}",
+    "en": "<currencyitem>{17x Chromatic Orb}"
+  },
+  "The Hive of Knowledge": {
+    "ch": "<uniqueitem>{马奇纳护手}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Machina Mitts}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "The Hoarder": {
+    "ch": "<currencyitem>{崇高石}",
+    "en": "<currencyitem>{Exalted Orb}"
+  },
+  "The Hook": {
+    "ch": "<gemitem>{21 级改造宝石}\r\n<default>{品质：} <augmented>{+23%}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 21 Transfigured Gem}\r\n<default>{Quality:} <augmented>{+23%}\r\n<corrupted>{Corrupted}"
+  },
+  "The Hunger": {
+    "ch": "<uniqueitem>{恨意}",
+    "en": "<uniqueitem>{Taste of Hate}"
+  },
+  "The Immortal": {
+    "ch": "<divination>{明镜}",
+    "en": "<divination>{House of Mirrors}"
+  },
+  "The Incantation": {
+    "ch": "<uniqueitem>{冰点低语}",
+    "en": "<uniqueitem>{The Whispering Ice}"
+  },
+  "The Innocent": {
+    "ch": "<currencyitem>{40x 后悔石}",
+    "en": "<currencyitem>{40x Orb of Regret}"
+  },
+  "The Inoculated": {
+    "ch": "<magicitem>{【六翼天使的】护甲}",
+    "en": "<magicitem>{Seraphim's Armour}"
+  },
+  "The Insane Cat": {
+    "ch": "<uniqueitem>{法师之血}\r\n<default>{物品等级：}<normal>{84}\r\n<corrupted>{腐化}",
+    "en": "<uniqueitem>{Mageblood}\r\n<default>{Item Level:} <normal>{84}\r\n<corrupted>{Corrupted}"
+  },
+  "The Insatiable": {
+    "ch": "<uniqueitem>{收割者}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{The Harvest}\r\n<corrupted>{Corrupted}"
+  },
+  "The Inventor": {
+    "ch": "<currencyitem>{10 X 瓦尔宝珠}",
+    "en": "<currencyitem>{10x Vaal Orb}"
+  },
+  "The Jester": {
+    "ch": "<size:31>{<magicitem>{【无情的】单手武器}\r\n<default>{物品等级:} <normal>{100}}",
+    "en": "<size:31>{<magicitem>{Merciless One-Hand Weapon}\r\n<default>{Item Level:} <normal>{100}}"
+  },
+  "The Jeweller's Boon": {
+    "ch": "<whiteitem>{五连身体护甲}\r\n<default>{影响效果物品}",
+    "en": "<whiteitem>{Five-Linked Body Armour}\r\n<default>{Influenced Item}"
+  },
+  "The Journalist": {
+    "ch": "<rareitem>{头盔}\r\n<default>{双重解密物品}",
+    "en": "<rareitem>{Helmet}\r\n<default>{Double-Veiled Item}"
+  },
+  "The Journey": {
+    "ch": "<currencyitem>{旅途文身}",
+    "en": "<currencyitem>{Journey Tattoo}"
+  },
+  "The King's Blade": {
+    "ch": "<size:31>{<magicitem>{【嗜血的】永恒之剑}\r\n<default>{物品等级:} <normal>{66}}",
+    "en": "<size:31>{<magicitem>{Bloodthirsty Eternal Sword}\r\n<default>{Item Level:} <normal>{66}}"
+  },
+  "The King's Heart": {
+    "ch": "<uniqueitem>{冈姆的壮志}",
+    "en": "<uniqueitem>{Kaom's Heart}"
+  },
+  "The Lake": {
+    "ch": "<currencyitem>{倒映迷雾}",
+    "en": "<currencyitem>{Reflecting Mist}"
+  },
+  "The Landing": {
+    "ch": "已失效",
+    "en": "Disabled"
+  },
+  "The Last Laugh": {
+    "ch": "<uniqueitem>{龙牙之翔【仿品】}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Replica Dragonfang's Flight}\r\n<corrupted>{Corrupted}"
+  },
+  "The Last One Standing": {
+    "ch": "<uniqueitem>{阿兹里的刑刃}",
+    "en": "<uniqueitem>{Atziri's Disfavour}"
+  },
+  "The Last Supper": {
+    "ch": "<uniqueitem>{比诺的厨刀}",
+    "en": "<uniqueitem>{Bino's Kitchen Knife}"
+  },
+  "The Leviathan": {
+    "ch": "<uniqueitem>{贤主物品} <corrupted>{二重基底} <corrupted>{腐化}",
+    "en": "<uniqueitem>{Maven Item}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "The Lich": {
+    "ch": "<uniqueitem>{冥约}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Midnight Bargain}\r\n<corrupted>{Corrupted}"
+  },
+  "The Life Thief": {
+    "ch": "<uniqueitem>{泽佛伊之心}",
+    "en": "<uniqueitem>{Zerphi's Heart}"
+  },
+  "The Lion": {
+    "ch": "<uniqueitem>{狮眼 物品}",
+    "en": "<uniqueitem>{Lioneye Item}"
+  },
+  "The Long Con": {
+    "ch": "<currencyitem>{裂界毁灭者的崇高石}",
+    "en": "<currencyitem>{Elderslayer's Exalted Orb}"
+  },
+  "The Long Watch": {
+    "ch": "<uniqueitem>{第四誓言}",
+    "en": "<uniqueitem>{The Fourth Vow}"
+  },
+  "The Lord in Black": {
+    "ch": "<magicitem>{巴曼斯之 戒指}\r\n<default>{物品等级:} <normal>{83}",
+    "en": "<magicitem>{Ring of Bameth}\r\n<default>{Item Level:} <normal>{83}"
+  },
+  "The Lord of Celebration": {
+    "ch": "<magicitem>{庆祝节杖}\r\n<default>{塑界者物品}",
+    "en": "<magicitem>{Sceptre of Celebration}\r\n<default>{Shaper Item}"
+  },
+  "The Lover": {
+    "ch": "<rareitem>{饰品}\r\n<default>{物品等级:} <normal>{79}",
+    "en": "<rareitem>{Jewellery}\r\n<default>{Item Level:} <normal>{79}"
+  },
+  "The Lunaris Priestess": {
+    "ch": "<uniqueitem>{破碎传承者}",
+    "en": "<uniqueitem>{Sire of Shards}"
+  },
+  "The Mad King": {
+    "ch": "<uniqueitem>{瓦尔之相}",
+    "en": "<uniqueitem>{Vaal Aspect}"
+  },
+  "The Magma Crab": {
+    "ch": "<gemitem>{21 级瓦尔熔岩护盾}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 21 Vaal Molten Shell}\r\n<corrupted>{Corrupted}"
+  },
+  "The Master": {
+    "ch": "禁用",
+    "en": "Disabled"
+  },
+  "The Master Artisan": {
+    "ch": "<currencyitem>{20x 品质通货}",
+    "en": "<currencyitem>{20x Quality Currency}"
+  },
+  "The Mayor": {
+    "ch": "<uniqueitem>{意义的光辉}",
+    "en": "<uniqueitem>{The Light of Meaning}"
+  },
+  "The Mercenary": {
+    "ch": "<uniqueitem>{盾}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Shield}\r\n<corrupted>{Corrupted}"
+  },
+  "The Messenger": {
+    "ch": "<uniqueitem>{先驱者物品}",
+    "en": "<uniqueitem>{Harbinger Item}"
+  },
+  "The Metalsmith's Gift": {
+    "ch": "<whiteitem>{三相戒指}",
+    "en": "<whiteitem>{Prismatic Ring}"
+  },
+  "The Mind's Eyes": {
+    "ch": "<uniqueitem>{星界投影}",
+    "en": "<uniqueitem>{Astral Projector}"
+  },
+  "The Miracle": {
+    "ch": "<gemitem>{觉醒卓越宝石}",
+    "en": "<gemitem>{Awakened Exceptional Gem}"
+  },
+  "The Mountain": {
+    "ch": "<magicitem>{强力之珠宝}",
+    "en": "<magicitem>{Jewel of Potency}"
+  },
+  "The Nurse": {
+    "ch": "<divination>{疯医}",
+    "en": "<divination>{The Doctor}"
+  },
+  "The Oath": {
+    "ch": "<uniqueitem>{冥使之体}",
+    "en": "<uniqueitem>{Death's Oath}"
+  },
+  "The Obscured": {
+    "ch": "已失效",
+    "en": "Disabled"
+  },
+  "The Offering": {
+    "ch": "<uniqueitem>{薛朗的护身长袍}",
+    "en": "<uniqueitem>{Shavronne's Wrappings}"
+  },
+  "The Offspring": {
+    "ch": "<uniqueitem>{瑞斯拉萨的线圈}",
+    "en": "<uniqueitem>{Ryslatha's Coil}"
+  },
+  "The Old Man": {
+    "ch": "<rareitem>{鱼竿}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<rareitem>{Fishing Rod}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "The One That Got Away": {
+    "ch": "<uniqueitem>{凝息【仿品】}",
+    "en": "<uniqueitem>{Replica Bated Breath}"
+  },
+  "The One With All": {
+    "ch": "<uniqueitem>{英灵宝环}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Le Heup of All}\r\n<corrupted>{Corrupted}"
+  },
+  "The Opulent": {
+    "ch": "<rareitem>{戒指}\r\n<default>{物品等级：} <normal>{100}",
+    "en": "<rareitem>{Ring}\r\n<default>{Item Level:} <normal>{100}"
+  },
+  "The Pack Leader": {
+    "ch": "<uniqueitem>{极地之眼}",
+    "en": "<uniqueitem>{Alpha's Howl}"
+  },
+  "The Pact": {
+    "ch": "<uniqueitem>{誓约}",
+    "en": "<uniqueitem>{Pledge of Hands}"
+  },
+  "The Patient": {
+    "ch": "<divination>{照料者}",
+    "en": "<divination>{The Nurse}"
+  },
+  "The Penitent": {
+    "ch": "<uniqueitem>{潜能之戒}",
+    "en": "<uniqueitem>{Unset Ring}"
+  },
+  "The Poet": {
+    "ch": "<uniqueitem>{堕落之血}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Blood of Corruption}\r\n<corrupted>{Corrupted}"
+  },
+  "The Polymath": {
+    "ch": "<uniqueitem>{均衡之符}",
+    "en": "<uniqueitem>{Astramentis}"
+  },
+  "The Porcupine": {
+    "ch": "<whiteitem>{六连短弓}\r\n<default>{物品等级:}<normal>{50}",
+    "en": "<whiteitem>{Six-Link Short Bow}\r\n<default>{Item Level:} <normal>{50}"
+  },
+  "The Price of Devotion": {
+    "ch": "<uniqueitem>{法师之血} <default>{质量：} <augmented>{+20%} <corrupted>{二重基底} <corrupted>{腐化}",
+    "en": "<uniqueitem>{Mageblood}\r\n<default>{Quality:} <augmented>{+20%}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "The Price of Loyalty": {
+    "ch": "<uniqueitem>{忠诚之肤}\r\n<size:26>{<default>{物品等级：} <normal>{25}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}}",
+    "en": "<uniqueitem>{Skin of the Loyal}\r\n<size:26>{<default>{Item Level:} <normal>{25}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}}"
+  },
+  "The Price of Prescience": {
+    "ch": "<rareitem>{瓦尔密殿}\r\n<default>{惊悸迷雾：} <normal>{100%}\r\n<corrupted>{已腐化}",
+    "en": "<rareitem>{Vaal Temple Map}\r\n<default>{Delirium:} <normal>{100%}\r\n<corrupted>{Corrupted}"
+  },
+  "The Price of Protection": {
+    "ch": "<size:28>{<rareitem>{裂界守卫占据的地图}\r\n<default>{词缀：}<normal>{8}\r\n<corrupted>{已腐化}}",
+    "en": "<size:28>{<rareitem>{Elder Guardian Occupied Map}\r\n<default>{Modifiers:} <normal>{8}\r\n<corrupted>{Corrupted}}"
+  },
+  "The Primordial": {
+    "ch": "<uniqueitem>{珠宝}\r\n<magicitem>{远古}",
+    "en": "<uniqueitem>{Jewel}\r\n<magicitem>{Primordial}"
+  },
+  "The Prince of Darkness": {
+    "ch": "<uniqueitem>{优雅的狂妄}",
+    "en": "<uniqueitem>{Elegant Hubris}"
+  },
+  "The Professor": {
+    "ch": "<uniqueitem>{幽秘博物馆}",
+    "en": "<uniqueitem>{The Putrid Cloister}"
+  },
+  "The Progeny of Lunaris": {
+    "ch": "<uniqueitem>{逝日}",
+    "en": "<uniqueitem>{Dying Sun}"
+  },
+  "The Puzzle": {
+    "ch": "已失效",
+    "en": "Disabled"
+  },
+  "The Queen": {
+    "ch": "<uniqueitem>{阿兹里的捷思}",
+    "en": "<uniqueitem>{Atziri's Acuity}"
+  },
+  "The Rabbit's Foot": {
+    "ch": "<currencyitem>{10x 穿越魔瓶}",
+    "en": "<currencyitem>{10x Incursion Vial}"
+  },
+  "The Rabid Rhoa": {
+    "ch": "<magicitem>{恶意的 双子战爪}\r\n<default>{物品等级:} <normal>{83}",
+    "en": "<magicitem>{Malicious Gemini Claw}\r\n<default>{Item Level:} <normal>{83}"
+  },
+  "The Realm": {
+    "ch": "<gemitem>{时空之门}\r\n<default>{品质：} <augmented>{+1-20%}",
+    "en": "<gemitem>{Portal}\r\n<default>{Quality:} <augmented>{+1-20%}"
+  },
+  "The Return of the Rat": {
+    "ch": "<uniqueitem>{圣令}",
+    "en": "<uniqueitem>{Tavukai}"
+  },
+  "The Risk": {
+    "ch": "<uniqueitem>{赌神芬多}",
+    "en": "<uniqueitem>{Ventor's Gamble}"
+  },
+  "The Rite of Elements": {
+    "ch": "<gemitem>{等级 21 魔像宝石}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 21 Golem Gem}\r\n<corrupted>{Corrupted}"
+  },
+  "The Road to Power": {
+    "ch": "<magicitem>{密文单手武器}\r\n<default>{物品等级:} <normal>{100}",
+    "en": "<magicitem>{Runic One-Hand Weapon}\r\n<default>{Item Level:} <normal>{100}"
+  },
+  "The Rusted Bard": {
+    "ch": "<currencyitem>{4x 污秽神秘石}",
+    "en": "<currencyitem>{4x Tainted Mythic Orb}"
+  },
+  "The Ruthless Ceinture": {
+    "ch": "<uniqueitem>{梅吉诺德的力量泉源}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Meginord's Girdle}\r\n<corrupted>{Corrupted}"
+  },
+  "The Sacrifice": {
+    "ch": "<whiteitem>{六连祭礼束衣}\r\n<default>{物品等级：} <normal>{100}",
+    "en": "<whiteitem>{Six-Link Sacrificial Garb}\r\n<default>{Item Level:} <normal>{100}"
+  },
+  "The Saint's Treasure": {
+    "ch": "<currencyitem>{2x 崇高石}",
+    "en": "<currencyitem>{2x Exalted Orb}"
+  },
+  "The Samurai's Eye": {
+    "ch": "<uniqueitem>{守望之眼}",
+    "en": "<uniqueitem>{Watcher's Eye}"
+  },
+  "The Scarred Meadow": {
+    "ch": "<uniqueitem>{覆灭之兆}",
+    "en": "<uniqueitem>{Wake of Destruction}"
+  },
+  "The Scavenger": {
+    "ch": "<uniqueitem>{致命之体}",
+    "en": "<uniqueitem>{Carcass Jack}"
+  },
+  "The Scholar": {
+    "ch": "<currencyitem>{知识卷轴 X 40}",
+    "en": "<currencyitem>{40x Scroll of Wisdom}"
+  },
+  "The Scout": {
+    "ch": "<currencyitem>{7x 崇高石}",
+    "en": "<currencyitem>{7x Exalted Orb}"
+  },
+  "The Seeker": {
+    "ch": "<currencyitem>{3x 剥离石}",
+    "en": "<currencyitem>{3x Orb of Annulment}"
+  },
+  "The Sephirot": {
+    "ch": "<currencyitem>{10x 神圣石}",
+    "en": "<currencyitem>{10x Divine Orb}"
+  },
+  "The Shepherd's Sandals": {
+    "ch": "<uniqueitem>{靴子} <default>{物品等级} <normal>{100} <corrupted>{二重基底} <corrupted>{腐化}",
+    "en": "<uniqueitem>{Boots}\r\n<default>{Item Level:} <normal>{100}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "The Shieldbearer": {
+    "ch": "<uniqueitem>{侍从}",
+    "en": "<uniqueitem>{The Squire}"
+  },
+  "The Shortcut": {
+    "ch": "<magicitem>{猎豹之水银药剂}\r\n<default>{物品等级：}<normal>{100}",
+    "en": "<magicitem>{Quicksilver Flask of the Cheetah}\r\n<default>{Item Level:} <normal>{100}"
+  },
+  "The Side Quest": {
+    "ch": "<whiteitem>{化形回声}",
+    "en": "<whiteitem>{Incarnation Echo}"
+  },
+  "The Sigil": {
+    "ch": "<magicitem>{坚不可摧的 项链}",
+    "en": "<magicitem>{Unassailable Amulet}"
+  },
+  "The Silly Boy": {
+    "ch": "<whiteitem>{6x 犄角圣甲虫}",
+    "en": "<whiteitem>{6x Horned Scarab}"
+  },
+  "The Siren": {
+    "ch": "<uniqueitem>{冰点低语}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{The Whispering Ice}\r\n<corrupted>{Corrupted}"
+  },
+  "The Skeleton": {
+    "ch": "<gemitem>{1 级召唤魔侍}\r\n<default>{品质：} <augmented>{+23%}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 1 Summon Skeletons}\r\n<default>{Quality:} <augmented>{+23%}\r\n<corrupted>{Corrupted}"
+  },
+  "The Slumbering Beast": {
+    "ch": "<currencyitem>{辛格拉的发辫}",
+    "en": "<currencyitem>{Hinekora's Lock}"
+  },
+  "The Soul": {
+    "ch": "<uniqueitem>{开膛斧}",
+    "en": "<uniqueitem>{Soul Taker}"
+  },
+  "The Spark and the Flame": {
+    "ch": "<uniqueitem>{贝雷克的火与雷之乐}",
+    "en": "<uniqueitem>{Berek's Respite}"
+  },
+  "The Spoiled Prince": {
+    "ch": "<magicitem>{独裁者预言法杖}\r\n<default>{物品等级:} <normal>{100}",
+    "en": "<magicitem>{Dictator's Prophecy Wand}\r\n<default>{Item Level:} <normal>{100}"
+  },
+  "The Standoff": {
+    "ch": "<uniqueitem>{素布腰带}",
+    "en": "<uniqueitem>{Rustic Sash}"
+  },
+  "The Stormcaller": {
+    "ch": "<uniqueitem>{雷霆圣杖}",
+    "en": "<uniqueitem>{Agnerod Staff}"
+  },
+  "The Strategist": {
+    "ch": "<uniqueitem>{求知的热情}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Inspired Learning}\r\n<corrupted>{Corrupted}"
+  },
+  "The Summoner": {
+    "ch": "<gemitem>{召唤生物宝石}\r\n<default>{品质：} <augmented>{+20%}",
+    "en": "<gemitem>{Minion Gem}\r\n<default>{Quality:} <augmented>{+20%}"
+  },
+  "The Sun": {
+    "ch": "<uniqueitem>{烈炎之翼}",
+    "en": "<uniqueitem>{Rise of the Phoenix}"
+  },
+  "The Surgeon": {
+    "ch": "<magicitem>{外科医生的 药剂}",
+    "en": "<magicitem>{Surgeon's Flask}"
+  },
+  "The Surveyor": {
+    "ch": "<whiteitem>{地图}\r\n<default>{地图阶级:} <normal>{14}",
+    "en": "<whiteitem>{Map}\r\n<default>{Map Tier:} <normal>{14}"
+  },
+  "The Survivalist": {
+    "ch": "<currencyitem>{7x 点金石}",
+    "en": "<currencyitem>{7x Orb of Alchemy}"
+  },
+  "The Sustenance": {
+    "ch": "有缺陷的",
+    "en": "Disabled"
+  },
+  "The Sword King's Salute": {
+    "ch": "<uniqueitem>{德瑞索的战礼}",
+    "en": "<uniqueitem>{Daresso's Salute}"
+  },
+  "The Thaumaturgist": {
+    "ch": "<uniqueitem>{薛朗的启示之环}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Shavronne's Revelation}\r\n<corrupted>{Corrupted}"
+  },
+  "The Throne": {
+    "ch": "<uniqueitem>{冈姆的稳重之靴}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Kaom's Roots}\r\n<corrupted>{Corrupted}"
+  },
+  "The Tinkerer's Table": {
+    "ch": "<currencyitem>{5x 化石}",
+    "en": "<currencyitem>{5x Fossil}"
+  },
+  "The Tireless Extractor": {
+    "ch": "<currencyitem>{10x 圣油}",
+    "en": "<currencyitem>{10x Oil}"
+  },
+  "The Tower": {
+    "ch": "<uniqueitem>{长杖}",
+    "en": "<uniqueitem>{Staff}"
+  },
+  "The Traitor": {
+    "ch": "<uniqueitem>{法杖}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Wand}\r\n<corrupted>{Corrupted}"
+  },
+  "The Transformation": {
+    "ch": "<currencyitem>{污秽神秘石}",
+    "en": "<currencyitem>{Tainted Mythic Orb}"
+  },
+  "The Trial": {
+    "ch": "<rareitem>{地图}\r\n<default>{地图阶级:} <normal>{15}\r\n<corrupted>{已腐化}",
+    "en": "<rareitem>{Map}\r\n<default>{Map Tier:} <normal>{15}\r\n<corrupted>{Corrupted}"
+  },
+  "The Tumbleweed": {
+    "ch": "<size:30>{<magicitem>{救赎之宝钻戒指}\r\n<default>{物品等级：}<normal>{100}\r\n<default>{救赎者物品}}",
+    "en": "<size:30>{<magicitem>{Diamond Ring of Redemption}\r\n<default>{Item Level:} <normal>{100}\r\n<default>{Redeemer Item}}"
+  },
+  "The Twilight Moon": {
+    "ch": "<uniqueitem>{暮光古庙}",
+    "en": "<uniqueitem>{The Twilight Temple}"
+  },
+  "The Twins": {
+    "ch": "<magicitem>{庆祝之双子战爪}\r\n<default>{物品等级:}<normal>{83}",
+    "en": "<magicitem>{Gemini Claw of Celebration}\r\n<default>{Item Level:} <normal>{83}"
+  },
+  "The Tyrant": {
+    "ch": "<magicitem>{无情的武器}\r\n<default>{物品等级:}<normal>{100}",
+    "en": "<magicitem>{Merciless Weapon}\r\n<default>{Item Level:} <normal>{100}"
+  },
+  "The Undaunted": {
+    "ch": "<uniqueitem>{复仇词缀物品}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Nemesis Item}\r\n<corrupted>{Corrupted}"
+  },
+  "The Undisputed": {
+    "ch": "<magicitem>{无情的瓦尔巨斧}\r\n<default>{物品等级：} <normal>{100}\r\n<default>{裂界者物品}",
+    "en": "<magicitem>{Merciless Vaal Axe}\r\n<default>{Item Level:} <normal>{100}\r\n<default>{Elder Item}"
+  },
+  "The Unexpected Prize": {
+    "ch": "<size:29>{<uniqueitem>{属性变化珠宝}}\r\n<size:29>{<corrupted>{腐化}}",
+    "en": "<size:29>{<uniqueitem>{Attribute Transforming Jewel}}\r\n<size:29>{<corrupted>{Corrupted}}"
+  },
+  "The Union": {
+    "ch": "<currencyitem>{10 X 珠宝匠的棱镜}",
+    "en": "<currencyitem>{10x Gemcutter's Prism}"
+  },
+  "The Valkyrie": {
+    "ch": "<uniqueitem>{复仇词缀物品}",
+    "en": "<uniqueitem>{Nemesis Item}"
+  },
+  "The Valley of Steel Boxes": {
+    "ch": "禁用",
+    "en": "Disabled"
+  },
+  "The Vast": {
+    "ch": "<uniqueitem>{海妖魅曲}",
+    "en": "<uniqueitem>{Song of the Sirens}"
+  },
+  "The Visionary": {
+    "ch": "<uniqueitem>{狮眼的视线}",
+    "en": "<uniqueitem>{Lioneye's Vision}"
+  },
+  "The Void": {
+    "ch": " ",
+    "en": " "
+  },
+  "The Warden": {
+    "ch": "<rareitem>{项链}\r\n<corrupted>{已腐化}",
+    "en": "<rareitem>{Amulet}\r\n<corrupted>{Corrupted}"
+  },
+  "The Warlord": {
+    "ch": "<whiteitem>{六连 花冠重锤}\r\n<default>{物品等级:} <normal>{83}",
+    "en": "<whiteitem>{Six-Link Coronal Maul}\r\n<default>{Item Level:} <normal>{83}"
+  },
+  "The Watcher": {
+    "ch": "<uniqueitem>{邪眼之冠}",
+    "en": "<uniqueitem>{Crown of Eyes}"
+  },
+  "The Web": {
+    "ch": "<magicitem>{工艺打造武器}",
+    "en": "<magicitem>{Weapon of Crafting}"
+  },
+  "The Wedding Gift": {
+    "ch": "<uniqueitem>{阿拉卡力之牙}",
+    "en": "<uniqueitem>{Arakaali's Fang}"
+  },
+  "The White Knight": {
+    "ch": "<whiteitem>{六连星芒战铠}\r\n<default>{物品等级：} <normal>{100}\r\n<default>{圣战者物品}",
+    "en": "<whiteitem>{Six-Link Astral Plate}\r\n<default>{Item Level:} <normal>{100}\r\n<default>{Crusader Item}"
+  },
+  "The Whiteout": {
+    "ch": "<uniqueitem>{卡斯普里怨恨}",
+    "en": "<uniqueitem>{Cospri's Malice}"
+  },
+  "The Wilted Rose": {
+    "ch": "<gemitem>{21 级光环宝石}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 21 Aura Gem}\r\n<corrupted>{Corrupted}"
+  },
+  "The Wind": {
+    "ch": "<uniqueitem>{裂风}",
+    "en": "<uniqueitem>{Windripper}"
+  },
+  "The Witch": {
+    "ch": "<uniqueitem>{奇亚拉的决心}",
+    "en": "<uniqueitem>{Kiara's Determination}"
+  },
+  "The Wolf": {
+    "ch": "<uniqueitem>{瑞佛物品}",
+    "en": "<uniqueitem>{Rigwald Item}"
+  },
+  "The Wolf's Legacy": {
+    "ch": "<uniqueitem>{阿兹里的秘宝库}",
+    "en": "<uniqueitem>{Vaults of Atziri}"
+  },
+  "The Wolf's Shadow": {
+    "ch": "<uniqueitem>{海昂的狂怒}",
+    "en": "<uniqueitem>{Hyaon's Fury}"
+  },
+  "The Wolven King's Bite": {
+    "ch": "<uniqueitem>{瑞佛之羽}",
+    "en": "<uniqueitem>{Rigwald's Quills}"
+  },
+  "The Wolverine": {
+    "ch": "<uniqueitem>{爪}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Claw}\r\n<corrupted>{Corrupted}"
+  },
+  "The World Eater": {
+    "ch": "<uniqueitem>{塑星者}",
+    "en": "<uniqueitem>{Starforge}"
+  },
+  "The Wrath": {
+    "ch": "<currencyitem>{10 X 混沌石}",
+    "en": "<currencyitem>{10x Chaos Orb}"
+  },
+  "The Wretched": {
+    "ch": "<uniqueitem>{腰带}",
+    "en": "<uniqueitem>{Belt}"
+  },
+  "Thirst for Knowledge": {
+    "ch": "<uniqueitem>{暴食}",
+    "en": "<uniqueitem>{Gluttony}"
+  },
+  "Three Faces in the Dark": {
+    "ch": "<currencyitem>{混沌石 X 3}",
+    "en": "<currencyitem>{3x Chaos Orb}"
+  },
+  "Three Voices": {
+    "ch": "<currencyitem>{3x 精华}",
+    "en": "<currencyitem>{3x Essence}"
+  },
+  "Thunderous Skies": {
+    "ch": "<uniqueitem>{暴雨之弦}",
+    "en": "<uniqueitem>{Storm Cloud}"
+  },
+  "Time-Lost Incubator": {
+    "ch": "用一件可装备物品来孕育一件赛季专属传奇物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated League-specific Unique item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Time-Lost Relic": {
+    "ch": "<uniqueitem>{赛季限定物品}",
+    "en": "<uniqueitem>{League-Specific Item}"
+  },
+  "Time-light Scroll": {
+    "ch": "将【流逝之时】升级到更强力的版本",
+    "en": "Upgrades The Flow Untethered to a more powerful version"
+  },
+  "Timeless Astrolabe": {
+    "ch": "在异界图鉴的象限上添加包含战乱之殇遭遇战的塑造之域",
+    "en": "Adds a Shaped Region containing Legion encounters to a quadrant of the Atlas"
+  },
+  "Timeless Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励战乱之殇物品。",
+    "en": "Modifies a Map item adding layers of Delirium with the Legion reward type"
+  },
+  "Titanic Scarab": {
+    "ch": "区域怪物群规模每提高 1%，传奇怪物的韧性、伤害、物品稀有度和物品掉落数量就提高 1%",
+    "en": "Unique Monsters have 1% increased Toughness, Damage, Rarity and Quantity of items dropped per 1% increased Pack Size of Area"
+  },
+  "Titanic Scarab of Legend": {
+    "ch": "区域内的传奇怪物额外具有 4 个怪物词缀",
+    "en": "Unique Monsters in Area have 4 additional Monster Modifiers"
+  },
+  "Titanic Scarab of Treasures": {
+    "ch": "区域内的传奇怪物有一个额外奖励\n区域内的传奇怪物的韧性提高 30%",
+    "en": "Unique Monsters in Area have an additional Reward\nUnique Monsters in Area have 30% increased Toughness"
+  },
+  "Torment Scarab": {
+    "ch": "区域被 4 个额外的罪魂纠缠\n击败区域内被附身的怪物时\n有 10% 的几率释放罪魂\n并掘出一个被附身的怪物",
+    "en": "Area is haunted by 4 additional Tormented Spirits\nTormented Spirits in Area have a 10% chance to\nbe set free when Possessed Monsters are slain\n and dig up a Possessed Monster"
+  },
+  "Torment Scarab of Peculiarity": {
+    "ch": "区域内罪魂被替换为不寻常的变种",
+    "en": "Tormented Spirits in Area are replaced with unusual variants"
+  },
+  "Torment Scarab of Possession": {
+    "ch": "区域内的稀有怪物有四分之一的几率被最多 3 个罪魂附身",
+    "en": "Rare Monsters in Area have a quarter chance to be Possessed by up to 3 Tormented Spirits"
+  },
+  "Torment Scarab of Release": {
+    "ch": "击败区域内被附身的怪物时\n有 25% 的几率释放罪魂",
+    "en": "Tormented Spirits in Area have a 25% chance to\nbe set free when Possessed Monsters are slain"
+  },
+  "Toxic Tidings": {
+    "ch": "<uniqueitem>{箭丽毒蛙}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Dendrobate}\r\n <corrupted>{Two-Implicit}\r\n <corrupted>{Corrupted}"
+  },
+  "Tranquillity": {
+    "ch": "<uniqueitem>{魔暴之痕}",
+    "en": "<uniqueitem>{Voltaxic Rift}"
+  },
+  "Transforming Power Core": {
+    "ch": "消灭两名护卫，创造一名结合了两者属性的完全充能的护卫。有时，结果物品会被不可预测地修改，有更多机会得到特殊基础类型。",
+    "en": "Destroys two Sentinels to create a fully-charged Sentinel with a combination of their properties. Sometimes, the resultant item is modified unpredictably, with a higher chance of a special base type"
+  },
+  "Traumatic Fragment": {
+    "ch": "创伤之时为等级 85 区域\r\n畏惧化形会在创伤之时中释放全部实力",
+    "en": "The Moment of Trauma is level 85\r\nThe Incarnation of Fear's full power is unleashed in The Moment of Trauma"
+  },
+  "Treasure Hunter": {
+    "ch": "<uniqueitem>{阿兹里的秘宝库}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Vaults of Atziri}\r\n<corrupted>{Corrupted}"
+  },
+  "Treasures of the Vaal": {
+    "ch": "<uniqueitem>{瓦尔珠宝}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Vaal Jewel}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "Tribute to the Goddess": {
+    "ch": "帝王迷宫的奖励更为丰厚。",
+    "en": "The Labyrinth's rewards have been enriched."
+  },
+  "Triskaidekaphobia": {
+    "ch": "<size:26>{<rareitem>{地图}}\r\n<size:26>{<default>{地图位阶：} <normal>{13}\r\n<default>{惊悸迷雾：} <normal>{100%}\r\n<default>{词缀：} <normal>{8}\r\n<corrupted>{已腐化}}",
+    "en": "<size:26>{<rareitem>{Map}}\r\n<size:26>{<default>{Map Tier:} <normal>{13}\r\n<default>{Delirium:} <normal>{100%}\r\n<default>{Modifiers:} <normal>{8}\r\n<corrupted>{Corrupted}}"
+  },
+  "Tul's Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 100%\r\n怪物等级：81",
+    "en": ""
+  },
+  "Tul's Charged Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 100%\r\n该区域获取物品的稀有度提高 20%\r\n怪物群规模提高 20%\r\n怪物等级：74",
+    "en": ""
+  },
+  "Tul's Enriched Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 100%\r\n该区域获取物品的稀有度提高 40%\r\n怪物群规模提高 40%\r\n怪物等级：79",
+    "en": ""
+  },
+  "Tul's Flawless Breachstone": {
+    "ch": "稀有怪物额外掉落 2 种奖励类型\r\n该区域有额外 4 种随机词缀\r\n经验值提高 200%\r\n\r\n怪物生命总增 250%\r\n该区域获取物品的稀有度提高 60%\r\n怪物群规模提高 60%\r\n怪物等级：84",
+    "en": ""
+  },
+  "Tul's Pure Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 100%\r\n该区域获取物品的稀有度提高 60%\r\n怪物群规模提高 60%\r\n怪物等级：81",
+    "en": ""
+  },
+  "Turbulent Catalyst": {
+    "ch": "给戒指、项链、腰带添加品质，强化元素伤害类词缀。\r\n取代其它品质类型",
+    "en": "Adds quality that enhances Elemental Damage modifiers on a ring, amulet or belt\r\nReplaces other quality types"
+  },
+  "Turn the Other Cheek": {
+    "ch": "<uniqueitem>{和平主义}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Pacifism}\r\n<corrupted>{Corrupted}"
+  },
+  "Ultimatum Scarab": {
+    "ch": "区域内有致命贪婪遭遇战",
+    "en": "Area contains an Ultimatum Encounter"
+  },
+  "Ultimatum Scarab of Bribing": {
+    "ch": "致命贪婪怪物提供的经验值提高 150%\n致命贪婪遭遇战提供的奖励视作你额外完成了 2 轮",
+    "en": "Ultimatum Monsters grant 150% increased Experience\nUltimatum Encounters grant rewards as though you completed 2 additional Rounds"
+  },
+  "Ultimatum Scarab of Catalysing": {
+    "ch": "区域内的致命贪婪遭遇战仅向地图拥有者\n提供催化剂奖励",
+    "en": "Ultimatum Encounters in Area will only offer Catalysts\nas Rewards to the Map Owner"
+  },
+  "Ultimatum Scarab of Dueling": {
+    "ch": "区域内的致命贪婪遭遇战尽可能通向传奇首领",
+    "en": "Ultimatum Encounters in Area will always lead to a Unique Boss if possible"
+  },
+  "Ultimatum Scarab of Inscription": {
+    "ch": "区域内的致命贪婪遭遇战向地图拥有者提供的催化剂奖励\n改为提供贪婪战书",
+    "en": "Ultimatum Encounter rewards in Area offering Catalysts\nwill offer Inscribed Ultimatums to the Map Owner instead"
+  },
+  "Unchained": {
+    "ch": "<uniqueitem>{毁面者}\r\n<corrupted>{二重基底}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Facebreaker}\r\n<corrupted>{Two-Implicit}\r\n<corrupted>{Corrupted}"
+  },
+  "Underground Forest": {
+    "ch": "<currencyitem>{10x 上级古灵溶液}",
+    "en": "<currencyitem>{10x Grand Eldritch Ichor}"
+  },
+  "Unrelenting Timeless Eternal Emblem": {
+    "ch": "怪物在每次复活时生命上限提高 10%\r\n怪物在每次复活时暴击几率提高 50%\r\n怪物在每次复活时暴击伤害加成提高 3%\r\n经验值提高 10%\r\n奖励提高 10%",
+    "en": "Monsters gain 10% increased Maximum Life each time they are Revived\r\nMonsters gain 50% increased Critical Strike Chance each time they are Revived\r\nMonsters gain 3% additional Critical Strike Multiplier each time they are Revived\r\n10% increased Experience Gain\r\n10% improved Rewards"
+  },
+  "Unrelenting Timeless Karui Emblem": {
+    "ch": "怪物在每次复活时生命上限提高 10%\r\n怪物在每次复活时都每秒再生 1% 生命\r\n怪物在每次复活时避免眩晕的几率 +20%\r\n经验值提高 10%\r\n奖励提高 10%",
+    "en": "Monsters gain 10% increased Maximum Life each time they are Revived\r\nMonsters Regenerate 1% of Life per second for each time they have been Revived\r\nMonsters gain +20% chance to Avoid being Stunned for each time they are Revived\r\n10% increased Experience Gain\r\n10% improved Rewards"
+  },
+  "Unrelenting Timeless Maraketh Emblem": {
+    "ch": "怪物在每次复活时生命上限提高 10%\r\n怪物在每次复活时攻击和施法速度提高 10%\r\n怪物在每次复活时移动速度提高 10%\r\n经验值提高 10%\r\n奖励提高 10%",
+    "en": "Monsters gain 10% increased Maximum Life each time they are Revived\r\nMonsters gain 10% increased Attack and Cast Speed each time they are Revived\r\nMonsters gain 10% increased Movement Speed each time they are Revived\r\n10% increased Experience Gain\r\n10% improved Rewards"
+  },
+  "Unrelenting Timeless Templar Emblem": {
+    "ch": "怪物在每次复活时生命上限提高 10%\r\n怪物在每次复活时额外获得 4% 的物理伤害减免\r\n怪物在每次复活时额外获得 4% 的抗性\r\n经验值提高 10%\r\n奖励提高 10%",
+    "en": "Monsters gain 10% increased Maximum Life each time they are Revived\r\nMonsters gain 4% additional Physical Damage Reduction each time they are Revived\r\nMonsters gain 4% additional Resistances each time they are Revived\r\n10% increased Experience Gain\r\n10% improved Rewards"
+  },
+  "Unrelenting Timeless Vaal Emblem": {
+    "ch": "怪物在每次复活时生命上限提高 10%\r\n怪物在每次复活时伤害提高 10%\r\n经验值提高 10%\r\n奖励提高 10%",
+    "en": "Monsters gain 10% increased Maximum Life each time they are Revived\r\nMonsters deal 10% increased Damage for each time they have been Revived\r\n10% increased Experience Gain\r\n10% improved Rewards"
+  },
+  "Unrequited Love": {
+    "ch": "<currencyitem>{19x 镜子碎片}",
+    "en": "<currencyitem>{19x Mirror Shard}"
+  },
+  "Unshaping Orb": {
+    "ch": "将异界图鉴上的一个地图降阶.",
+    "en": "Downgrades a map on the Atlas"
+  },
+  "Unstable Catalyst": {
+    "ch": "给戒指、项链、添加品质，强化暴击词缀。\r\n取代其它品质类型。",
+    "en": "Adds quality that enhances Critical modifiers on a ring, amulet or belt\r\nReplaces other quality types"
+  },
+  "Unstable Implant": {
+    "ch": "腐化一个嫁接物，可能将其完全摧毁，也可能将其基底词缀替换为 1 条强力词缀。此操作不会替换嫁接物将使用的技能。",
+    "en": "Corrupts a Graft, either destroying it entirely or replacing the implicit with a powerful modifier. This does not replace the Skill the Graft will use."
+  },
+  "Uul-Netol's Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 150%\r\n怪物等级：82",
+    "en": ""
+  },
+  "Uul-Netol's Charged Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 150%\r\n该区域获取物品的稀有度提高 20%\r\n怪物群规模提高 20%\r\n怪物等级：78",
+    "en": ""
+  },
+  "Uul-Netol's Enriched Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 150%\r\n该区域获取物品的稀有度提高 40%\r\n怪物群规模提高 40%\r\n怪物等级：81",
+    "en": ""
+  },
+  "Uul-Netol's Flawless Breachstone": {
+    "ch": "稀有怪物额外掉落 2 种奖励类型\r\n该区域有额外 4 种随机词缀\r\n经验值提高 200%\r\n\r\n怪物生命总增 250%\r\n该区域获取物品的稀有度提高 60%\r\n怪物群规模提高 60%\r\n怪物等级：84",
+    "en": ""
+  },
+  "Uul-Netol's Pure Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 150%\r\n该区域获取物品的稀有度提高 60%\r\n怪物群规模提高 60%\r\n怪物等级：82",
+    "en": ""
+  },
+  "Vaal Orb": {
+    "ch": "腐化一件装备并随机修改其属性",
+    "en": "Corrupts an item, modifying it unpredictably"
+  },
+  "Vaal Scouting Report": {
+    "ch": "曾经可重置所有奇拉克异界图鉴任务，腐化所有非传奇地图",
+    "en": "Formally used to reroll all of Kirac's Atlas Missions, corrupting all non-Unique Maps"
+  },
+  "Valdo's Puzzle Box": {
+    "ch": "包含一个奖励烫金传奇物品的神秘地图。",
+    "en": "Contains a Mysterious Map with a Foil Unique Reward"
+  },
+  "Vanity": {
+    "ch": "<uniqueitem>{无尽之衣}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Tabula Rasa}\r\n<corrupted>{Corrupted}"
+  },
+  "Veiled Chaos Orb": {
+    "ch": "重置一件稀有物品上的所有词缀，并包含一个随机的加密词缀",
+    "en": "Reforges a rare item with new random modifiers including a random Veiled modifier"
+  },
+  "Veiled Exalted Orb": {
+    "ch": "为一个稀有物品移除一个随机词缀，并添加一个随机加密词缀",
+    "en": "Removes a random modifier and adds a random Veiled modifier to a rare item"
+  },
+  "Veiled Scarab": {
+    "ch": "一组未知的圣甲虫",
+    "en": "A collection of unknown Scarabs"
+  },
+  "Vial Of Power": {
+    "ch": "不再使用。",
+    "en": "NO LONGER USED"
+  },
+  "Vile Power": {
+    "ch": "<uniqueitem>{灭世}",
+    "en": "<uniqueitem>{Doomfletch}"
+  },
+  "Vinia's Token": {
+    "ch": "<currencyitem>{后悔石 X 10}",
+    "en": "<currencyitem>{10x Orb of Regret}"
+  },
+  "Void of the Elements": {
+    "ch": "<magicitem>{强盛的蛋白石戒指}\r\n<default>{物品等级：} <normal>{100}\r\n<default>{裂界者物品}",
+    "en": "<magicitem>{Overpowering Opal Ring}\r\n<default>{Item Level:} <normal>{100}\r\n<default>{Elder Item}"
+  },
+  "Volatile Power": {
+    "ch": "<gemitem>{瓦尔宝石}\r\n<default>{品质：} <augmented>{+20%}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Vaal Gem}\r\n<default>{Quality:} <augmented>{+20%}\r\n<corrupted>{Corrupted}"
+  },
+  "Volatile Vaal Orb": {
+    "ch": "随机化一件传奇装备上的随机词缀数值并将其腐化\n或者直接将其摧毁，不可预料结果",
+    "en": "Unpredictably either randomises the values of random modifiers on a\nunique equipment and corrupts it, or destroys it"
+  },
+  "Wailing Essence of Anger": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Anguish": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Contempt": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Doubt": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Fear": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Greed": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Hatred": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Loathing": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Rage": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Sorrow": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Spite": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Suffering": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Torment": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Woe": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Wrath": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Wailing Essence of Zeal": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Warlord's Exalted Orb": {
+    "ch": "给一件稀有物品添加督军影响效果和一个新督军词缀",
+    "en": "Adds Warlord influence and a new Warlord modifier to a rare item"
+  },
+  "Wealth and Power": {
+    "ch": "<gemitem>{等级 4 启蒙}\r\n<corrupted>{已腐化}",
+    "en": "<gemitem>{Level 4 Enlighten}\r\n<corrupted>{Corrupted}"
+  },
+  "Weapon Recombinator": {
+    "ch": "摧毁两个武器或箭袋，打造一个结合了两者属性的新武器或箭袋。有时，结果物品会被不可预测地修改。",
+    "en": "Destroys two Weapons or Quivers to create a new Weapon or Quiver with a combination of their properties. Sometimes, the resultant item is modified unpredictably"
+  },
+  "Weeping Essence of Anger": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Weeping Essence of Contempt": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Weeping Essence of Doubt": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Weeping Essence of Fear": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Weeping Essence of Greed": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Weeping Essence of Hatred": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Weeping Essence of Rage": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Weeping Essence of Sorrow": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Weeping Essence of Suffering": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Weeping Essence of Torment": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Weeping Essence of Woe": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Weeping Essence of Wrath": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "When Currents Blaze": {
+    "ch": "<uniqueitem>{风暴之炎}\r\n<default>{品质：} <augmented>{+20%}\r\n<corrupted>{已腐化}",
+    "en": "<uniqueitem>{Stormfire}\r\n<default>{Quality:} <augmented>{+20%}\r\n<corrupted>{Corrupted}"
+  },
+  "Whispering Delirium Orb": {
+    "ch": "调整地图上的惊悸迷雾层数，使其奖励精华。",
+    "en": "Modifies a Map item adding layers of Delirium with the Essences reward type"
+  },
+  "Whispering Essence of Contempt": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Whispering Essence of Greed": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Whispering Essence of Hatred": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Whispering Essence of Woe": {
+    "ch": "升级一件普通物品至稀有物品并且确保一项特定属性。",
+    "en": "Upgrades a normal item to rare with one guaranteed property"
+  },
+  "Whispering Incubator": {
+    "ch": "用一件可装备物品来孕育一件精华物品\r\n击败 {0} 个怪物后掉落",
+    "en": "Adds an incubated Essence item to an equippable item\r\nItem drops after killing {0} monsters"
+  },
+  "Who Asked": {
+    "ch": "<magicitem>{独裁者的武器}\r\n<default>{物品等级：} <normal>{83}\r\n<fractured>{分裂}",
+    "en": "<magicitem>{Dictator's Weapon}\r\n<default>{Item Level:} <normal>{83}\r\n<fractured>{Fractured}"
+  },
+  "Winged Abyss Scarab": {
+    "ch": "区域内有2个额外的深渊\r\n区域内深渊产生的怪物提高50%\r\n区域内未通向绝望深渊的深渊会通向深渊之尖",
+    "en": "Area contains 2 additional Abysses\r\nAbysses in Area spawn 50% increased Monsters\r\nAbysses in Area that do not lead to an Abyssal Depths lead to a Stygian Spire"
+  },
+  "Winged Ambush Scarab": {
+    "ch": "该区域会出现 9 个额外保险箱",
+    "en": "Area contains 9 additional Strongboxes"
+  },
+  "Winged Bestiary Scarab": {
+    "ch": "区域内有伊恩哈尔\r\n区域内有 5 头额外的红野兽",
+    "en": "Area contains Einhar\r\nArea contains 5 additional Red Beasts"
+  },
+  "Winged Blight Scarab": {
+    "ch": "区域内有一场菌潮遭遇战\r\n菌潮遭遇战有一个额外的菌潮首领\r\n菌潮宝箱有 50的几率有一个额外奖励\r\n区域内菌潮遭遇战的菌潮通道有一个额外的宝箱",
+    "en": "Area contains a Blight Encounter\r\nBlight Encounters contain an additional Blight Boss\r\n50% chance for Blight Chests to contain an additional Reward\r\nLanes of Blight Encounters in Areas have an additional Reward Chest"
+  },
+  "Winged Breach Scarab": {
+    "ch": "区域会出现2个额外裂隙\r\n区域内的裂隙包含1个额外的裂隙首领的紧握之手\r\n区域中的裂隙之手会掉落两倍的裂隙碎片",
+    "en": "Area contains 2 additional Breaches\r\nBreaches in Area contain an additional Breach Boss' Clasped Hand\r\nBreach Hands in Area drop double Breach Splinters"
+  },
+  "Winged Cartography Scarab": {
+    "ch": "该区域可找到的异界地图数量提高 85%",
+    "en": "85% increased Maps found in Area"
+  },
+  "Winged Divination Scarab": {
+    "ch": "区域可找到的命运卡数量提高 250%",
+    "en": "250% more Divination Cards found in Area"
+  },
+  "Winged Elder Scarab": {
+    "ch": "给地图区域添加裂界者影响效果\r\n在区域里找到稀有裂界者物品的几率提高 150%",
+    "en": "Adds Elder Influence outcome to Map Area\r\n150% more Rare Elder Items found in Area"
+  },
+  "Winged Expedition Scarab": {
+    "ch": "区域内额外有一场先祖秘藏遭遇战\r\n区域内符纹怪物之印的数量提高 50%\r\n爆炸物数量提高 20%\r\n区域内的残骸有一个额外后缀",
+    "en": "Area contains an additional Expedition Encounter\r\nArea contains 50% increased number of Runic Monster Markers\r\n20% increased number of Explosives\r\nRemnants in area have an additional Suffix"
+  },
+  "Winged Harbinger Scarab": {
+    "ch": "该区域会出现 7 个额外先驱者",
+    "en": "Area contains 7 additional Harbingers"
+  },
+  "Winged Legion Scarab": {
+    "ch": "该区域会出现 2 场额外的战乱之殇遭遇战\r\n每个军团会有一个战争秘术箱\r\n每个军团都有一名将军",
+    "en": "Area contains 2 additional Legion Encounters\r\nEach Legion contains a War Hoard\r\nEach Legion is accompanied by a General"
+  },
+  "Winged Reliquary Scarab": {
+    "ch": "区域内发现的传奇物品数量提高 250%",
+    "en": "250% increased Unique Items found in Area"
+  },
+  "Winged Shaper Scarab": {
+    "ch": "给地图区域添加塑界者影响效果\r\n在区域里找到稀有塑界者物品的几率提高 150%",
+    "en": "Adds Shaper Influence outcome to Map Area\r\n150% more Rare Shaper Items found in Area"
+  },
+  "Winged Sulphite Scarab": {
+    "ch": "该区域会出现尼克\r\n地图拥有者获得的亚硫酸数量提高 100%",
+    "en": "Area contains Niko\r\nMap owner gains 100% more Sulphite"
+  },
+  "Winged Torment Scarab": {
+    "ch": "该区域额外被 12 个罪魂纠缠",
+    "en": "Area is haunted by 12 additional Tormented Spirits"
+  },
+  "Winged Ultimatum Scarab": {
+    "ch": "区域内有致命贪婪遭遇战\r\n致命贪婪怪物提供的经验值提高 200%\r\n致命贪婪遭遇战提供的奖励视作你额外完成了 2 轮",
+    "en": "Area contains an Ultimatum Encounter\r\nUltimatum Monsters grant 200% increased Experience\r\nUltimatum Encounters grant rewards as though you completed 2 additional Rounds"
+  },
+  "Winter's Embrace": {
+    "ch": "<uniqueitem>{恐惧之环}\r\n<enchanted>{三重基底}",
+    "en": "<uniqueitem>{Circle of Fear}\r\n<enchanted>{Three-Implicit}\r\n<enchanted>{Synthesised}"
+  },
+  "Xoph's Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 100%\r\n怪物等级：81",
+    "en": ""
+  },
+  "Xoph's Charged Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 100%\r\n该区域获取物品的稀有度提高 20%\r\n怪物群规模提高 20%\r\n怪物等级：74",
+    "en": ""
+  },
+  "Xoph's Enriched Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 100%\r\n该区域获取物品的稀有度提高 40%\r\n怪物群规模提高 40%\r\n怪物等级：79",
+    "en": ""
+  },
+  "Xoph's Flawless Breachstone": {
+    "ch": "稀有怪物额外掉落 2 种奖励类型\r\n该区域有额外 4 种随机词缀\r\n经验值提高 200%\r\n\r\n怪物生命总增 250%\r\n该区域获取物品的稀有度提高 60%\r\n怪物群规模提高 60%\r\n怪物等级：84",
+    "en": ""
+  },
+  "Xoph's Pure Breachstone": {
+    "ch": "稀有怪物额外掉落一种奖励类型\r\n该区域有额外 2 种随机词缀\r\n经验值提高 100%\r\n该区域获取物品的稀有度提高 60%\r\n怪物群规模提高 60%\r\n怪物等级：81",
+    "en": ""
+  }
+}
