@@ -103,6 +103,29 @@ Browse every category's tier styles in one place, edit them, bulk-edit several t
 
 The left list mirrors the Editor's categories; **Default (fallback)** is the style used by any category without its own override.
 
+### Hue Generator
+
+Instead of hand-editing every tier's colors, let the app design the whole ladder for you. Select a category, press **🎛 Hue Generator**, and pick an accent color — the generator instantly proposes **5 complete style series** for that category, side by side:
+
+![Hue Generator](images/en/05d-hue-generator.png)
+
+| Series | Look |
+|---|---|
+| Sharket Default | The site's standard look — accent text/border on dark backgrounds |
+| Bold Fill | Solid accent-filled backgrounds at every tier, loud and unmissable |
+| Outline | No backgrounds at all — just accent text and a thin border, minimal noise |
+| Light | Pale bright backgrounds with dark accent text ("white tag" style) |
+| Neon | Glowing saturated colors on black |
+
+- **Mix & match** — click a series' header button to use the whole column, or click individual cells to combine series per tier (e.g. Bold Fill for the top tier, Outline for the bulk tiers).
+- **Second hue** — tick *Use a second hue* to give the top tiers one color and the lower tiers another; the **Balance** slider decides where the handoff happens.
+- **Smooth gradient** — tick this and the two hues blend smoothly down the ladder instead of switching in bands. **Balance** then shifts the blend midpoint, and the **Gradient curve (γ)** slider makes the transition softer or sharper.
+- **Apply Selection** writes the result into your overrides for that category (your alert **sounds are never touched**) — save with the normal 💾 button.
+
+### Save your look as a preset
+
+The **💾 Save as Preset** button (next to Export/Import in the Theme Editor header) snapshots the current base theme **plus all your edits** into a new named preset. Untouched categories are copied from the base theme, so the preset is always complete. After saving you can optionally switch your base theme to the new preset — the look stays identical, and your override layer is cleared for a fresh start.
+
 ### Sound Bulk Editor
 
 Map alert sounds to items with drag & drop: the **item pool** on the left (filterable by item class), **sound cards** on the right (Sharket pack / game Default sounds / your Custom sounds). Drop a sound onto an item — or an item onto a sound — to bind them. Sound mappings can also be **exported / imported** as a file.
