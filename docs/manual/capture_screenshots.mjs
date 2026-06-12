@@ -109,6 +109,19 @@ async function captureLang(browser, lang) {
     await page.waitForSelector('.theme-editor-modal', { timeout: 30000 });
     await sleep(3000);
     await shot(page, lang, '05b-theme-editor');
+    // 5d. Hue generator: pick a category, open the matrix with a second hue enabled
+    await page.evaluate(() => document.querySelector('.theme-editor-modal .cat-group-header')?.click());
+    await sleep(400);
+    await page.evaluate(() => document.querySelector('.theme-editor-modal .file-leaf')?.click());
+    await sleep(400);
+    if (await page.$('.hue-gen-btn')) {
+      await page.click('.hue-gen-btn');
+      await page.waitForSelector('.hue-gen-content', { timeout: 30000 });
+      await sleep(400);
+      await page.evaluate(() => document.querySelectorAll('.hue-check input')[0]?.click()); // second hue
+      await sleep(600);
+      await shot(page, lang, '05d-hue-generator');
+    }
     await page.goto(SITE, { waitUntil: 'networkidle2', timeout: 60000 });
     await page.waitForSelector('.sidebar .group-header', { timeout: 60000 });
     await sleep(800);

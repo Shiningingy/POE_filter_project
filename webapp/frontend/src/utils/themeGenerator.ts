@@ -19,13 +19,13 @@ export interface GeneratedTierStyle {
   MinimapIcon?: string;
 }
 
-export type SeriesId = 'standard' | 'boldFill' | 'minimalOutline' | 'gradient' | 'neon';
+export type SeriesId = 'standard' | 'boldFill' | 'minimalOutline' | 'light' | 'neon';
 
 export const SERIES_META: { id: SeriesId; en: string; ch: string }[] = [
-  { id: 'standard', en: 'Sharket', ch: '鲨市标准' },
+  { id: 'standard', en: 'Sharket Default', ch: 'Sharket标准' },
   { id: 'boldFill', en: 'Bold Fill', ch: '浓重填充' },
   { id: 'minimalOutline', en: 'Outline', ch: '简约描边' },
-  { id: 'gradient', en: 'Gradient', ch: '双色渐变' },
+  { id: 'light', en: 'Light', ch: '浅色亮底' },
   { id: 'neon', en: 'Neon', ch: '霓虹' },
 ];
 
@@ -36,7 +36,7 @@ export const ROLE_LABELS: Record<number, { en: string; ch: string }> = {
   2: { en: 'Valuable', ch: '有价值' },
   3: { en: 'Notable', ch: '值得注意' },
   4: { en: 'Useful', ch: '实用' },
-  5: { en: 'Bulk / Leveling', ch: '大宗 / 过渡' },
+  5: { en: 'Bulk / Leveling', ch: '大批量 / 过渡' },
   9: { en: 'Hide', ch: '隐藏' },
 };
 
@@ -46,6 +46,8 @@ export interface GenParams {
   hueA: RGB;
   hueB: RGB | null;
   balance: number; // 0-100; how much of the ladder hue A claims (top -> bottom)
+  gradient: boolean; // false = band split at `balance`; true = smooth blend A -> B
+  gamma: number; // gradient-mode handoff sharpness: >1 steeper around the midpoint, <1 softer
 }
 
 // ---- color math (ported from build_standard_theme.py) -------------------------
@@ -134,19 +136,23 @@ const hslToRgb = (h: number, s: number, l: number): RGB => {
 
 // ---- hue assignment across the ladder ------------------------------------------
 
-// Band split (standard/boldFill/minimalOutline/neon): hue A claims the top
-// `aCount` of the 6 visible tiers, hue B the rest; both always appear.
-const bandAccent = (p: GenParams, tier: number): RGB => {
+// Resolve the accent each tier renders in. Band mode: hue A claims the top
+// `aCount` of the 6 visible tiers, hue B the rest (both always appear).
+// Gradient mode: smooth blend A -> B (single hue fades toward neutral grey);
+// `balance` shifts the blend midpoint (high = A dominates, like band mode) and
+// `gamma` sharpens (>1) or softens (<1) the handoff around that midpoint.
+const accentFor = (p: GenParams, tier: number): RGB => {
+  if (p.gradient) {
+    const b = p.hueB ?? mix(p.hueA, [150, 150, 160], 0.75);
+    const x = tier / 5;
+    const m = Math.min(0.92, Math.max(0.08, p.balance / 100));
+    const tm = x === 0 ? 0 : x ** (Math.log(0.5) / Math.log(m)); // blend = 0.5 at x = m
+    const t = tm < 0.5 ? 0.5 * (2 * tm) ** p.gamma : 1 - 0.5 * (2 * (1 - tm)) ** p.gamma;
+    return mix(p.hueA, b, t);
+  }
   if (!p.hueB) return p.hueA;
   const aCount = Math.max(1, Math.min(5, Math.round((p.balance / 100) * 6)));
   return tier < aCount ? p.hueA : p.hueB;
-};
-
-// Gradient: smooth blend A -> B; balance biases the curve toward A (high) or B (low).
-const gradientColor = (p: GenParams, tier: number): RGB => {
-  const b = p.hueB ?? mix(p.hueA, [150, 150, 160], 0.75);
-  const gamma = 2 ** ((p.balance - 50) / 25);
-  return mix(p.hueA, b, (tier / 5) ** gamma);
 };
 
 // ---- shared pieces ---------------------------------------------------------------
@@ -237,34 +243,21 @@ const minimalOutlineTier = (A: RGB, tier: number): GeneratedTierStyle => {
   };
 };
 
-// Hue from the gradient curve, intensity ladder mirroring the standard series.
-const gradientTier = (c: RGB, tier: number): GeneratedTierStyle => {
-  switch (tier) {
-    case 0: return {
-      FontSize: 45, TextColor: hx(lum(c) > 0.6 ? BLACK : WHITE),
-      BorderColor: hx(WHITE), BackgroundColor: hx(c), ...extras(c, 0),
-    };
-    case 1: return {
-      FontSize: 42, TextColor: hx(mix(c, WHITE, 0.25)), BorderColor: hx(c),
-      BackgroundColor: hx(scale(c, 0.25)), ...extras(c, 1),
-    };
-    case 2: return {
-      FontSize: 39, TextColor: hx(mix(c, WHITE, 0.15)), BorderColor: hx(c),
-      BackgroundColor: hx([16, 16, 22]), ...extras(c, 2),
-    };
-    case 3: return {
-      FontSize: 36, TextColor: hx(mix(c, WHITE, 0.25)),
-      BorderColor: hx(scale(c, 0.55)), BackgroundColor: hx([10, 10, 13]),
-    };
-    case 4: return {
-      FontSize: 34, TextColor: hx(mix(c, NEUTRAL, 0.40)),
-      BorderColor: hx(scale(c, 0.30)), BackgroundColor: hx(BLACK, 0),
-    };
-    default: return {
-      FontSize: 31, TextColor: hx(mix(c, NEUTRAL, 0.60)),
-      BorderColor: hx(scale(c, 0.20)), BackgroundColor: hx(BLACK, 0),
-    };
-  }
+// Light "white tag" look: pale accent-tinted backgrounds with dark accent text,
+// fading out via alpha down the ladder.
+const LIGHT_BG_MIX = [0.82, 0.72, 0.62, 0.55, 0.50, 0.45];
+const LIGHT_BG_ALPHA = [255, 255, 238, 221, 187, 153];
+const LIGHT_TEXT_F = [0.45, 0.42, 0.40, 0.36, 0.33, 0.30];
+
+const lightTier = (A: RGB, tier: number): GeneratedTierStyle => {
+  const border = tier <= 1 ? A : tier <= 3 ? scale(A, 0.75) : scale(A, 0.55);
+  return {
+    FontSize: FONT[tier],
+    TextColor: hx(scale(A, LIGHT_TEXT_F[tier])),
+    BorderColor: hx(border),
+    BackgroundColor: hx(mix(A, WHITE, LIGHT_BG_MIX[tier]), LIGHT_BG_ALPHA[tier]),
+    ...extras(A, tier),
+  };
 };
 
 const NEON_BG_ALPHA = [0, 230, 230, 200, 200, 160];
@@ -294,16 +287,13 @@ const neonTier = (A: RGB, tier: number): GeneratedTierStyle => {
 export const generateSeries = (id: SeriesId, p: GenParams): Record<string, GeneratedTierStyle> => {
   const out: Record<string, GeneratedTierStyle> = {};
   for (const tier of GENERATOR_TIERS) {
-    if (id === 'gradient') {
-      out[`Tier ${tier}`] = gradientTier(gradientColor(p, tier), tier);
-    } else {
-      const A = bandAccent(p, tier);
-      out[`Tier ${tier}`] =
-        id === 'standard' ? standardTier(A, tier) :
-        id === 'boldFill' ? boldFillTier(A, tier) :
-        id === 'minimalOutline' ? minimalOutlineTier(A, tier) :
-        neonTier(A, tier);
-    }
+    const A = accentFor(p, tier);
+    out[`Tier ${tier}`] =
+      id === 'standard' ? standardTier(A, tier) :
+      id === 'boldFill' ? boldFillTier(A, tier) :
+      id === 'minimalOutline' ? minimalOutlineTier(A, tier) :
+      id === 'light' ? lightTier(A, tier) :
+      neonTier(A, tier);
   }
   out['Tier 9'] = { ...HIDE_STYLE };
   return out;
@@ -313,6 +303,6 @@ export const generateAllSeries = (p: GenParams): Record<SeriesId, Record<string,
   standard: generateSeries('standard', p),
   boldFill: generateSeries('boldFill', p),
   minimalOutline: generateSeries('minimalOutline', p),
-  gradient: generateSeries('gradient', p),
+  light: generateSeries('light', p),
   neon: generateSeries('neon', p),
 });

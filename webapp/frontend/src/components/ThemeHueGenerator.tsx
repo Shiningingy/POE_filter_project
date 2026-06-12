@@ -9,8 +9,10 @@ import {
 import type { SeriesId, GeneratedTierStyle } from '../utils/themeGenerator';
 
 // Hue-generator modal: pick 1-2 accent hues, preview 5 generated style series
-// side by side (rows = tiers), mix-match per tier, apply into the category's
-// custom overrides via the parent.
+// side by side (one card per series), mix-match per tier, apply into the
+// category's custom overrides via the parent. "Gradient" is a fundamental
+// option: it swaps the band-split hue assignment for a smooth A->B blend
+// (curve slider) across ALL series.
 
 interface ThemeHueGeneratorProps {
   language: Language;
@@ -29,13 +31,22 @@ const ThemeHueGenerator: React.FC<ThemeHueGeneratorProps> = ({
   const [useHueB, setUseHueB] = useState(false);
   const [hueB, setHueB] = useState('#4d7dff');
   const [balance, setBalance] = useState(50);
+  const [gradient, setGradient] = useState(false);
+  // Curve slider 0..100 -> gamma 0.25..4 (50 = even handoff around the midpoint).
+  const [curve, setCurve] = useState(50);
   const [selection, setSelection] = useState<Record<number, SeriesId>>(
     () => Object.fromEntries(GENERATOR_TIERS.map(tier => [tier, 'standard'])) as Record<number, SeriesId>
   );
 
   const allSeries = useMemo(
-    () => generateAllSeries({ hueA: hexToRgb(hueA), hueB: useHueB ? hexToRgb(hueB) : null, balance }),
-    [hueA, hueB, useHueB, balance]
+    () => generateAllSeries({
+      hueA: hexToRgb(hueA),
+      hueB: useHueB ? hexToRgb(hueB) : null,
+      balance,
+      gradient,
+      gamma: 2 ** ((curve - 50) / 25),
+    }),
+    [hueA, hueB, useHueB, balance, gradient, curve]
   );
 
   const selectColumn = (id: SeriesId) =>
@@ -52,12 +63,16 @@ const ThemeHueGenerator: React.FC<ThemeHueGeneratorProps> = ({
     onApply(styles);
   };
 
+  // Balance matters with a second hue (band split) or in gradient mode
+  // (midpoint of the blend, even single-hue). Curve only shapes gradients.
+  const balanceDisabled = !useHueB && !gradient;
+
   const renderCell = (id: SeriesId, tier: number) => {
     const style = allSeries[id][`Tier ${tier}`];
     const selected = selection[tier] === id;
     return (
       <div
-        key={id}
+        key={tier}
         className={`hue-cell ${selected ? 'sel' : ''}`}
         onClick={() => setSelection(prev => ({ ...prev, [tier]: id }))}
       >
@@ -97,7 +112,7 @@ const ThemeHueGenerator: React.FC<ThemeHueGeneratorProps> = ({
               <input type="text" value={hueA} onChange={e => setHueA(e.target.value)} />
             </div>
           </div>
-          <label className="hue-b-toggle">
+          <label className="hue-check">
             <input type="checkbox" checked={useHueB} onChange={e => setUseHueB(e.target.checked)} />
             <span>{t.hueGenUseSecondHue}</span>
           </label>
@@ -110,15 +125,30 @@ const ThemeHueGenerator: React.FC<ThemeHueGeneratorProps> = ({
               </div>
             </div>
           )}
-          <div className={`hue-control balance-control ${useHueB ? '' : 'disabled'}`}>
+          <label className="hue-check">
+            <input type="checkbox" checked={gradient} onChange={e => setGradient(e.target.checked)} />
+            <span>{t.hueGenGradient}</span>
+          </label>
+          <div className={`hue-control balance-control ${balanceDisabled ? 'disabled' : ''}`}>
             <label>{t.hueGenBalance}</label>
             <div className="balance-row">
               <span className="balance-end" style={{ background: useHueB ? hueB : '#888' }}>B</span>
               <input
-                type="range" min="0" max="100" value={balance} disabled={!useHueB}
+                type="range" min="0" max="100" value={balance} disabled={balanceDisabled}
                 onChange={e => setBalance(parseInt(e.target.value))}
               />
               <span className="balance-end" style={{ background: hueA }}>A</span>
+            </div>
+          </div>
+          <div className={`hue-control balance-control ${gradient ? '' : 'disabled'}`}>
+            <label>{t.hueGenGamma}</label>
+            <div className="balance-row">
+              <span className="curve-end">{t.hueGenCurveSoft}</span>
+              <input
+                type="range" min="0" max="100" value={curve} disabled={!gradient}
+                onChange={e => setCurve(parseInt(e.target.value))}
+              />
+              <span className="curve-end">{t.hueGenCurveSharp}</span>
             </div>
           </div>
         </div>
@@ -126,25 +156,24 @@ const ThemeHueGenerator: React.FC<ThemeHueGeneratorProps> = ({
         <div className="hue-gen-hint">{t.hueGenHint}</div>
 
         <div className="hue-gen-matrix" style={backgroundStyle}>
-          <div className="hue-matrix-row hue-matrix-head">
-            <div className="hue-row-label"></div>
-            {SERIES_META.map(s => (
+          <div className="hue-label-col">
+            <div className="hue-label-spacer"></div>
+            {GENERATOR_TIERS.map(tier => (
+              <div key={tier} className="hue-row-label">
+                <span className="role-name">{ROLE_LABELS[tier][language === 'ch' ? 'ch' : 'en']}</span>
+                <span className="tier-num">Tier {tier}</span>
+              </div>
+            ))}
+          </div>
+          {SERIES_META.map(s => (
+            <div key={s.id} className={`hue-series-card ${columnFullySelected(s.id) ? 'active' : ''}`}>
               <button
-                key={s.id}
                 className={`hue-col-btn ${columnFullySelected(s.id) ? 'active' : ''}`}
                 onClick={() => selectColumn(s.id)}
               >
                 {language === 'ch' ? s.ch : s.en}
               </button>
-            ))}
-          </div>
-          {GENERATOR_TIERS.map(tier => (
-            <div key={tier} className="hue-matrix-row">
-              <div className="hue-row-label">
-                <span className="role-name">{ROLE_LABELS[tier][language === 'ch' ? 'ch' : 'en']}</span>
-                <span className="tier-num">Tier {tier}</span>
-              </div>
-              {SERIES_META.map(s => renderCell(s.id, tier))}
+              {GENERATOR_TIERS.map(tier => renderCell(s.id, tier))}
             </div>
           ))}
         </div>
@@ -155,7 +184,7 @@ const ThemeHueGenerator: React.FC<ThemeHueGeneratorProps> = ({
         </div>
 
         <style>{`
-          .hue-gen-content { width: min(1100px, 96vw); max-height: 94vh; display: flex; flex-direction: column; }
+          .hue-gen-content { width: min(1320px, 97vw); max-height: 94vh; display: flex; flex-direction: column; }
 
           .hue-gen-controls {
             display: flex; align-items: flex-end; gap: 25px; flex-wrap: wrap;
@@ -166,7 +195,7 @@ const ThemeHueGenerator: React.FC<ThemeHueGeneratorProps> = ({
           .hue-input-row { display: flex; gap: 8px; align-items: center; }
           .hue-input-row input[type="color"] { width: 42px; height: 36px; padding: 0; border: none; background: none; cursor: pointer; }
           .hue-input-row input[type="text"] { width: 90px; padding: 8px; border: 1px solid #ddd; border-radius: 6px; background: white !important; color: black !important; font-family: monospace; }
-          .hue-b-toggle { display: flex; align-items: center; gap: 8px; font-weight: 600; color: #333; cursor: pointer; padding-bottom: 8px; }
+          .hue-check { display: flex; align-items: center; gap: 8px; font-weight: 600; color: #333; cursor: pointer; padding-bottom: 8px; }
           .balance-control { min-width: 220px; }
           .balance-control.disabled { opacity: 0.4; }
           .balance-row { display: flex; align-items: center; gap: 8px; }
@@ -176,36 +205,47 @@ const ThemeHueGenerator: React.FC<ThemeHueGeneratorProps> = ({
             display: inline-flex; align-items: center; justify-content: center; text-shadow: 0 0 3px rgba(0,0,0,0.7);
             border: 1px solid rgba(0,0,0,0.2); flex-shrink: 0;
           }
+          .curve-end { font-size: 0.7rem; color: #888; font-weight: bold; flex-shrink: 0; }
 
           .hue-gen-hint { padding: 8px 25px; font-size: 0.8rem; color: #888; background: #fff; flex-shrink: 0; }
 
           .hue-gen-matrix {
-            flex: 1; overflow-y: auto; padding: 15px 25px;
-            background-color: #111; background-size: cover; background-position: center;
+            flex: 1; overflow-y: auto; padding: 18px 25px; display: flex; gap: 10px;
+            align-items: flex-start; background-color: #111; background-size: cover; background-position: center;
           }
-          .hue-matrix-row { display: grid; grid-template-columns: 150px repeat(5, 1fr); gap: 8px; margin-bottom: 8px; align-items: stretch; }
-          .hue-matrix-head { position: sticky; top: -15px; z-index: 2; padding: 15px 0 4px; margin-top: -15px; background: rgba(0,0,0,0.55); backdrop-filter: blur(3px); border-radius: 0 0 8px 8px; }
+          .hue-label-col { display: flex; flex-direction: column; flex-shrink: 0; width: 86px; }
+          .hue-label-spacer { height: 36px; margin-bottom: 10px; }
+          .hue-row-label {
+            height: 56px; display: flex; flex-direction: column; justify-content: center;
+            align-items: flex-end; padding-right: 6px; text-shadow: 1px 1px 2px black; text-align: right;
+          }
+          .hue-row-label .role-name { color: #eee; font-weight: bold; font-size: 0.76rem; line-height: 1.15; }
+          .hue-row-label .tier-num { color: #999; font-family: monospace; font-size: 0.7rem; }
+
+          .hue-series-card {
+            flex: 1; min-width: 0; display: flex; flex-direction: column;
+            background: rgba(0,0,0,0.40); border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 10px; padding: 6px; backdrop-filter: blur(2px);
+            transition: border-color 0.15s;
+          }
+          .hue-series-card.active { border-color: #2196F3; box-shadow: 0 0 0 1px #2196F3; }
           .hue-col-btn {
-            padding: 8px 4px; border-radius: 6px; border: 1px solid #555; background: rgba(40,40,40,0.9);
-            color: #ccc; font-weight: bold; font-size: 0.82rem; cursor: pointer;
+            height: 36px; margin-bottom: 10px; border-radius: 6px; border: 1px solid #555;
+            background: rgba(40,40,40,0.9); color: #ccc; font-weight: bold; font-size: 0.82rem; cursor: pointer;
           }
           .hue-col-btn:hover { border-color: #2196F3; color: white; }
           .hue-col-btn.active { background: #2196F3; border-color: #2196F3; color: white; }
-          .hue-row-label {
-            display: flex; flex-direction: column; justify-content: center; align-items: flex-end;
-            padding-right: 6px; text-shadow: 1px 1px 2px black;
-          }
-          .hue-row-label .role-name { color: #eee; font-weight: bold; font-size: 0.82rem; }
-          .hue-row-label .tier-num { color: #999; font-family: monospace; font-size: 0.72rem; }
+
           .hue-cell {
-            position: relative; border: 2px solid transparent; border-radius: 8px; padding: 5px;
+            position: relative; height: 56px; box-sizing: border-box;
+            border: 2px solid transparent; border-radius: 8px; padding: 4px;
             cursor: pointer; display: flex; align-items: center; justify-content: center;
-            transition: border-color 0.15s, background 0.15s; min-height: 44px;
+            transition: border-color 0.15s, background 0.15s;
           }
           .hue-cell:hover { background: rgba(255,255,255,0.08); border-color: rgba(33,150,243,0.5); }
           .hue-cell.sel { border-color: #2196F3; background: rgba(33,150,243,0.12); }
           .sel-badge {
-            position: absolute; top: -7px; right: -7px; width: 18px; height: 18px; border-radius: 50%;
+            position: absolute; top: -6px; right: -6px; width: 18px; height: 18px; border-radius: 50%;
             background: #2196F3; color: white; font-size: 0.65rem; font-weight: bold;
             display: flex; align-items: center; justify-content: center; z-index: 1;
           }
