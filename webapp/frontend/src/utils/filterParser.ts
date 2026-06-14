@@ -160,7 +160,7 @@ function tokenizeValues(s: string): { tokens: FilterToken[]; comment: string | n
   return { tokens, comment };
 }
 
-function parseStatement(rawLine: string): FilterStatement {
+export function parseStatement(rawLine: string): FilterStatement {
   const indent = (rawLine.match(/^(\s*)/) as RegExpMatchArray)[1];
   const content = rawLine.trim();
   const m = content.match(/^(\S+)\s*([\s\S]*)$/);

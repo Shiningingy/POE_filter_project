@@ -2,9 +2,11 @@ import { useState, useMemo, useRef, useEffect } from 'react';
 import type { ReactElement } from 'react';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
+import { loadItemsDb } from '../services/clientData';
 import {
   parseFilter,
   serializeFilter,
+  parseStatement,
   extractOutline,
   type ParsedFilter,
   type FilterBlock,
@@ -52,6 +54,14 @@ const hexToRgb = (hex: string): string[] => {
   ];
 };
 
+// Render a statement back to an editable one-line string (re-quoting as needed).
+const condText = (s: FilterStatement): string => {
+  const vals = s.values
+    .map((v) => (v.quoted || v.value === '' || /\s/.test(v.value) ? `"${v.value}"` : v.value))
+    .join(' ');
+  return `${s.keyword}${s.operator ? ` ${s.operator}` : ''}${vals ? ` ${vals}` : ''}`;
+};
+
 const ACTION_COLORS: Record<string, string> = {
   Show: '#3da35d',
   Hide: '#b3473f',
@@ -72,6 +82,16 @@ const ImportForeignFilterView = ({ language }: Props) => {
   const [error, setError] = useState<string>('');
   const [query, setQuery] = useState<string>('');
   const [expanded, setExpanded] = useState<Set<number>>(new Set());
+  // BaseType -> item class, for grouping filters that lack section banners.
+  const [classMap, setClassMap] = useState<Record<string, string>>({});
+
+  // Condition editing: which (block element index, statement index) is open.
+  // stmt === -1 means "adding a new condition to this block". The input is
+  // UNCONTROLLED (defaultValue + read-on-blur) so typing doesn't re-render
+  // the whole block list.
+  const [edit, setEdit] = useState<{ block: number; stmt: number } | null>(null);
+  const editInitRef = useRef<string>('');
+  const cancelRef = useRef<boolean>(false);
 
   // Restore a previously imported filter on mount.
   useEffect(() => {
@@ -82,6 +102,22 @@ const ImportForeignFilterView = ({ language }: Props) => {
         setFileName(localStorage.getItem(LS_NAME) || 'imported.filter');
       }
     } catch { /* ignore corrupt cache */ }
+  }, []);
+
+  // Load the BaseType->class map (deployed demo build serves it statically;
+  // degrades to {} under a bare local backend, where we fall back to Class
+  // conditions for grouping).
+  useEffect(() => {
+    loadItemsDb()
+      .then((db) => {
+        const m: Record<string, string> = {};
+        for (const [name, info] of Object.entries(db.items || {})) {
+          const cls = (info as any)?.item_class;
+          if (cls) m[name] = cls;
+        }
+        setClassMap(m);
+      })
+      .catch(() => { /* grouping falls back to Class conditions */ });
   }, []);
 
   const persist = (pf: ParsedFilter | null, name: string) => {
@@ -97,7 +133,7 @@ const ImportForeignFilterView = ({ language }: Props) => {
   };
 
   const outline = useMemo(() => (parsed ? extractOutline(parsed) : []), [parsed]);
-  const outlineIdx = useMemo(() => new Set(outline.map((o) => o.elementIndex)), [outline]);
+  const autoGrouped = !!parsed && outline.length === 0;
 
   const stats = useMemo(() => {
     if (!parsed) return { total: 0, show: 0, hide: 0 };
@@ -109,6 +145,56 @@ const ImportForeignFilterView = ({ language }: Props) => {
     }
     return { total, show, hide };
   }, [parsed]);
+
+  // Group key for the auto-grouping (undocumented) path: prefer an explicit
+  // Class condition, else the class of the first BaseType, else "Other".
+  const groupKeyOf = (b: FilterBlock): string => {
+    const cls = valsOf(b, 'Class')[0];
+    if (cls) return cls;
+    const base = valsOf(b, 'BaseType')[0];
+    if (base && classMap[base]) return classMap[base];
+    return isCh ? '其他' : 'Other';
+  };
+
+  // Element index -> section header to render before that element.
+  const headerAt = useMemo(() => {
+    const m = new Map<number, { level: number; title: string }>();
+    if (!parsed) return m;
+    if (!autoGrouped) {
+      for (const o of outline) {
+        m.set(o.elementIndex, { level: o.level, title: (o.code ? `[${o.code}] ` : '') + o.title });
+      }
+    } else {
+      let prev: string | null = null;
+      parsed.elements.forEach((el, i) => {
+        if (el.type !== 'block') return;
+        const k = groupKeyOf(el);
+        if (k !== prev) { m.set(i, { level: 1, title: k }); prev = k; }
+      });
+    }
+    return m;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [parsed, outline, autoGrouped, classMap, isCh]);
+
+  // Sidebar navigation entries.
+  const navEntries = useMemo(() => {
+    if (!parsed) return [] as { title: string; elementIndex: number; level: number }[];
+    if (!autoGrouped) {
+      return outline.map((o) => ({ title: o.title, elementIndex: o.elementIndex, level: o.level }));
+    }
+    const first = new Map<string, number>();
+    const count = new Map<string, number>();
+    parsed.elements.forEach((el, i) => {
+      if (el.type !== 'block') return;
+      const k = groupKeyOf(el);
+      if (!first.has(k)) first.set(k, i);
+      count.set(k, (count.get(k) || 0) + 1);
+    });
+    return [...first.entries()]
+      .sort((a, b) => a[1] - b[1])
+      .map(([k, idx]) => ({ title: `${k} (${count.get(k)})`, elementIndex: idx, level: 1 }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [parsed, outline, autoGrouped, classMap, isCh]);
 
   // -------------------------------------------------------------------------
   // Import / clear / export
@@ -127,6 +213,7 @@ const ImportForeignFilterView = ({ language }: Props) => {
       setParsed(pf);
       setFileName(file.name || 'imported.filter');
       setExpanded(new Set());
+      setEdit(null);
       setQuery('');
       persist(pf, file.name || 'imported.filter');
     } catch (e) {
@@ -139,6 +226,7 @@ const ImportForeignFilterView = ({ language }: Props) => {
     setParsed(null);
     setError('');
     setExpanded(new Set());
+    setEdit(null);
     persist(null, '');
   };
 
@@ -204,12 +292,78 @@ const ImportForeignFilterView = ({ language }: Props) => {
     });
   };
 
+  const blockIndent = (b: FilterBlock): string =>
+    b.statements.find((s) => s.kind !== 'comment')?.indent ?? '\t';
+
+  const replaceStmt = (elemIndex: number, si: number, text: string) => {
+    mutateBlock(elemIndex, (b) => {
+      const statements = b.statements.slice();
+      const old = statements[si];
+      const ns = parseStatement(text);
+      statements[si] = { ...ns, indent: old?.indent ?? blockIndent(b) };
+      return { ...b, statements };
+    });
+  };
+
+  const deleteStmt = (elemIndex: number, si: number) => {
+    mutateBlock(elemIndex, (b) => {
+      const statements = b.statements.slice();
+      statements.splice(si, 1);
+      return { ...b, statements };
+    });
+  };
+
+  const addConditionTo = (elemIndex: number, text: string) => {
+    mutateBlock(elemIndex, (b) => {
+      const statements = b.statements.slice();
+      const ns: FilterStatement = { ...parseStatement(text), indent: blockIndent(b) };
+      // Conditions belong before style actions / Continue.
+      let pos = statements.findIndex((s) => s.kind === 'action' || s.kind === 'flow');
+      if (pos < 0) pos = statements.length;
+      statements.splice(pos, 0, ns);
+      return { ...b, statements };
+    });
+  };
+
   const toggleExpand = (i: number) => {
     setExpanded((prev) => {
       const next = new Set(prev);
       if (next.has(i)) next.delete(i); else next.add(i);
       return next;
     });
+  };
+
+  // -------------------------------------------------------------------------
+  // Condition edit lifecycle (uncontrolled input)
+  // -------------------------------------------------------------------------
+
+  const startEdit = (block: number, stmt: number, text: string) => {
+    editInitRef.current = text;
+    cancelRef.current = false;
+    setEdit({ block, stmt });
+  };
+  const startAdd = (block: number) => {
+    editInitRef.current = '';
+    cancelRef.current = false;
+    setEdit({ block, stmt: -1 });
+  };
+  const commitEdit = (value: string) => {
+    if (cancelRef.current) { cancelRef.current = false; setEdit(null); return; }
+    const e = edit;
+    if (!e) return;
+    const text = value.trim();
+    if (e.stmt === -1) {
+      if (text) addConditionTo(e.block, text);
+    } else if (!text) {
+      deleteStmt(e.block, e.stmt);
+    } else {
+      replaceStmt(e.block, e.stmt, text);
+    }
+    setEdit(null);
+  };
+  const onEditKey = (ev: React.KeyboardEvent<HTMLInputElement>) => {
+    if (ev.key === 'Enter') { ev.preventDefault(); ev.currentTarget.blur(); }
+    else if (ev.key === 'Escape') { cancelRef.current = true; ev.currentTarget.blur(); }
   };
 
   // -------------------------------------------------------------------------
@@ -235,21 +389,59 @@ const ImportForeignFilterView = ({ language }: Props) => {
   // Render helpers
   // -------------------------------------------------------------------------
 
-  const renderConditions = (b: FilterBlock) => {
-    const conds = b.statements.filter((s) => s.kind === 'condition');
-    if (!conds.length) return null;
+  const renderConditions = (b: FilterBlock, i: number) => {
+    const addingNew = edit?.block === i && edit.stmt === -1;
     return (
       <div className="iff-conds">
-        {conds.map((s, k) => {
+        {b.statements.map((s, si) => {
+          if (s.kind !== 'condition') return null;
+          if (edit?.block === i && edit.stmt === si) {
+            return (
+              <input
+                key={si}
+                className="iff-cond-edit"
+                autoFocus
+                defaultValue={editInitRef.current}
+                onKeyDown={onEditKey}
+                onBlur={(e) => commitEdit(e.target.value)}
+              />
+            );
+          }
           const vals = s.values.map((v) => v.value);
           const shown = vals.slice(0, 6).join(' ');
           const more = vals.length > 6 ? ` +${vals.length - 6}` : '';
+          const rest = `${s.operator ? ' ' + s.operator : ''} ${shown}${more}`;
           return (
-            <span className="iff-cond" key={k}>
-              <b>{s.keyword}</b>{s.operator ? ` ${s.operator}` : ''} {shown}{more}
+            <span
+              key={si}
+              className="iff-cond"
+              onClick={() => startEdit(i, si, condText(s))}
+              title={isCh ? '点击编辑' : 'Click to edit'}
+            >
+              <span className="iff-cond-kw">{s.keyword}</span>
+              <span className="iff-cond-val">{rest}</span>
+              <button
+                className="iff-cond-x"
+                title={isCh ? '删除条件' : 'Delete condition'}
+                onClick={(e) => { e.stopPropagation(); deleteStmt(i, si); }}
+              >×</button>
             </span>
           );
         })}
+        {addingNew ? (
+          <input
+            className="iff-cond-edit"
+            autoFocus
+            defaultValue=""
+            placeholder={isCh ? '例如 ItemLevel >= 84' : 'e.g. ItemLevel >= 84'}
+            onKeyDown={onEditKey}
+            onBlur={(e) => commitEdit(e.target.value)}
+          />
+        ) : (
+          <button className="iff-cond-add" onClick={() => startAdd(i)}>
+            + {isCh ? '条件' : 'condition'}
+          </button>
+        )}
       </div>
     );
   };
@@ -333,10 +525,10 @@ const ImportForeignFilterView = ({ language }: Props) => {
           <div className="iff-spacer" />
           {renderPreview(b)}
           <button className="iff-expand" onClick={() => toggleExpand(i)}>
-            {open ? '▾ ' : '▸ '}{t.textColor ? (isCh ? '样式' : 'Style') : 'Style'}
+            {open ? '▾ ' : '▸ '}{isCh ? '样式' : 'Style'}
           </button>
         </div>
-        {renderConditions(b)}
+        {renderConditions(b, i)}
         {open && (
           <div className="iff-style">
             <ColorRow b={b} i={i} keyword="SetTextColor" label={t.textColor || 'Text'} />
@@ -356,22 +548,20 @@ const ImportForeignFilterView = ({ language }: Props) => {
     );
   };
 
-  // Build the ordered render stream: section headers (from outline) + matching blocks.
+  // Ordered render stream: section headers (outline or auto-group) + blocks.
   const renderBody = () => {
     if (!parsed) return null;
     const searching = query.trim().length > 0;
     const nodes: ReactElement[] = [];
     parsed.elements.forEach((el, i) => {
+      const hdr = !searching ? headerAt.get(i) : undefined;
+      if (hdr) {
+        nodes.push(
+          <div className={`iff-sec lvl${hdr.level}`} id={`iff-sec-${i}`} key={`s${i}`}>{hdr.title}</div>
+        );
+      }
       if (el.type === 'comment') {
-        if (searching) return;
-        if (outlineIdx.has(i)) {
-          const entry = outline.find((o) => o.elementIndex === i)!;
-          nodes.push(
-            <div className={`iff-sec lvl${entry.level}`} id={`iff-sec-${i}`} key={`s${i}`}>
-              {entry.code ? <span className="iff-code">[{entry.code}]</span> : null} {entry.title}
-            </div>
-          );
-        } else if (el.containsDisabledBlock) {
+        if (!searching && el.containsDisabledBlock && !hdr) {
           nodes.push(
             <div className="iff-disabled" key={`d${i}`}>
               {isCh ? '（已禁用规则，导出时原样保留）' : '(disabled rule — preserved verbatim on export)'}
@@ -415,8 +605,8 @@ const ImportForeignFilterView = ({ language }: Props) => {
         <div className="iff-empty">
           <h2>{isCh ? '导入外来过滤器' : 'Import a Foreign Filter'}</h2>
           <p>{isCh
-            ? '选择任意 .filter 文件（NeverSink / FilterBlade / 手写均可）。我们会按其原本的结构解析，并尽量原样保留，可在此查看、微调显示/隐藏与颜色，然后重新导出。'
-            : 'Pick any .filter file (NeverSink / FilterBlade / hand-written). We parse it in its own structure, preserve it faithfully, and let you inspect, tweak Show/Hide and colors, then re-export.'}</p>
+            ? '选择任意 .filter 文件（NeverSink / FilterBlade / 手写均可）。我们会按其原本的结构解析，并尽量原样保留，可在此查看、编辑条件、微调显示/隐藏与颜色，然后重新导出。'
+            : 'Pick any .filter file (NeverSink / FilterBlade / hand-written). We parse it in its own structure, preserve it faithfully, and let you inspect, edit conditions, tweak Show/Hide and colors, then re-export.'}</p>
           <button className="iff-import-btn" onClick={() => fileInputRef.current?.click()}>
             {isCh ? '选择 .filter 文件' : 'Choose .filter file'}
           </button>
@@ -449,13 +639,15 @@ const ImportForeignFilterView = ({ language }: Props) => {
 
           <div className="iff-main">
             <div className="iff-outline">
-              <div className="iff-outline-title">{isCh ? '章节' : 'Sections'}</div>
-              {outline.length === 0 && (
+              <div className="iff-outline-title">
+                {autoGrouped ? (isCh ? '按类别分组' : 'Grouped by class') : (isCh ? '章节' : 'Sections')}
+              </div>
+              {autoGrouped && (
                 <div className="iff-outline-empty">
-                  {isCh ? '该过滤器没有章节标记。' : 'No section markers in this filter.'}
+                  {isCh ? '该过滤器无章节标记，已按物品类别自动分组。' : 'No section markers — auto-grouped by item class.'}
                 </div>
               )}
-              {outline.map((o, k) => (
+              {navEntries.map((o, k) => (
                 <button
                   key={k}
                   className={`iff-onav lvl${o.level}`}
@@ -515,7 +707,7 @@ const ImportForeignFilterView = ({ language }: Props) => {
           border-right: 1px solid #383838; padding: 10px 6px;
         }
         .iff-outline-title { font-size: 0.75rem; text-transform: uppercase; color: #888; padding: 4px 8px 8px; letter-spacing: 0.05em; }
-        .iff-outline-empty { font-size: 0.8rem; color: #777; padding: 8px; }
+        .iff-outline-empty { font-size: 0.78rem; color: #777; padding: 4px 8px 10px; line-height: 1.4; }
         .iff-onav {
           display: block; width: 100%; text-align: left; background: none; color: #bbb;
           padding: 5px 8px; font-size: 0.82rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
@@ -527,7 +719,6 @@ const ImportForeignFilterView = ({ language }: Props) => {
         .iff-list { flex: 1; overflow-y: auto; padding: 14px 18px; min-width: 0; }
         .iff-sec { font-weight: 700; color: #7fd1ff; padding: 16px 0 8px; border-bottom: 1px solid #333; margin-bottom: 10px; }
         .iff-sec.lvl2 { font-size: 0.9rem; color: #9ab; padding-left: 12px; }
-        .iff-code { color: #666; font-weight: 400; font-size: 0.8rem; }
         .iff-disabled { color: #666; font-size: 0.78rem; font-style: italic; padding: 4px 0 4px 12px; }
 
         .iff-block { background: #262626; border: 1px solid #353535; border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; }
@@ -547,13 +738,27 @@ const ImportForeignFilterView = ({ language }: Props) => {
         }
         .iff-icon { width: 12px; height: 12px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
 
-        .iff-conds { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+        .iff-conds { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; align-items: center; }
         .iff-cond {
+          display: inline-flex; align-items: center; cursor: pointer;
           font-size: 0.72rem; font-family: 'Consolas', monospace; color: #aab;
-          background: #1d1d1d; border: 1px solid #333; border-radius: 4px; padding: 2px 7px;
+          background: #1d1d1d; border: 1px solid #333; border-radius: 4px; padding: 2px 4px 2px 7px;
           max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
         }
-        .iff-cond b { color: #cdd; }
+        .iff-cond:hover { border-color: #557; background: #23232b; color: #cce; }
+        .iff-cond-kw { font-weight: 700; color: #cdd; }
+        .iff-cond-val { white-space: pre; }
+        .iff-cond-x { background: none; border: none; color: #966; cursor: pointer; font-size: 0.9rem; line-height: 1; padding: 0 0 0 5px; }
+        .iff-cond-x:hover { color: #ff8a80; }
+        .iff-cond-add {
+          font-size: 0.72rem; font-family: inherit; color: #8ab; background: none;
+          border: 1px dashed #456; border-radius: 4px; padding: 2px 9px; cursor: pointer;
+        }
+        .iff-cond-add:hover { color: #fff; border-color: #68a; }
+        .iff-cond-edit {
+          font-size: 0.72rem; font-family: 'Consolas', monospace; background: #15151a;
+          border: 1px solid #68a; color: #dde; border-radius: 4px; padding: 2px 7px; min-width: 220px;
+        }
 
         .iff-style { margin-top: 10px; padding-top: 10px; border-top: 1px solid #333; display: flex; flex-direction: column; gap: 8px; max-width: 420px; }
         .iff-srow { display: flex; align-items: center; gap: 10px; }

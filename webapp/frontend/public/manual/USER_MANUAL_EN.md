@@ -20,8 +20,9 @@ No account or installation is needed. Everything you change is saved automatical
 3. [Theme & Sound](#3-theme--sound)
 4. [Simulator](#4-simulator)
 5. [Save & Export](#5-save--export)
-6. [Installing the filter in the game](#6-installing-the-filter-in-the-game)
-7. [Tips & FAQ](#7-tips--faq)
+6. [Import a foreign filter (advanced)](#6-import-a-foreign-filter-advanced)
+7. [Installing the filter in the game](#7-installing-the-filter-in-the-game)
+8. [Tips & FAQ](#8-tips--faq)
 
 ---
 
@@ -31,7 +32,7 @@ The dark bar at the very top is always visible:
 
 - **Game Version** — POE 1 / POE 2.
 - **Game Mode** — Normal or Ruthless. This decides the exported file extension: `.filter` for Normal, `.ruthlessfilter` for Ruthless.
-- **View tabs** — **Editor**, **Theme & Sound**, **Simulator**, **Save & Export**. These are the four main pages described below.
+- **View tabs** — **Editor**, **Theme & Sound**, **Simulator**, **Save & Export**, **Import Filter**. These are the main pages described below.
 - **Language selector** (far right) — switch the whole UI between **中文** and **English** at any time.
 
 ## 2. Editor
@@ -166,7 +167,23 @@ The **snapshot** is a lossless backup: importing it later restores every tier, s
 
 Load a `.snapshot.json` (or a filter with an embedded snapshot). You'll see the list of detected files and can **select exactly which parts to apply** — e.g. restore only your Currency edits, or only the theme.
 
-## 6. Installing the filter in the game
+## 6. Import a foreign filter (advanced)
+
+> ⚠️ **This is not the recommended workflow.** This page lets you import someone else's `.filter` file (NeverSink / FilterBlade / hand-written) and edit it directly. Even after re-exporting it as a standard `.filter`, an imported filter lives **outside** our preset system — our themes, the Hue Generator, item tooltips and the Simulator's tier matching do not apply to it, and it is harder to keep up to date each league. Prefer building your filter from scratch on the other pages. Use this only if you specifically need to tweak an existing third-party filter.
+
+![Import a foreign filter](images/en/08-import-foreign.png)
+
+Press **Choose .filter file** and pick any filter. The app parses it **in its own structure** and preserves everything faithfully — comments, disabled rules and block order all survive a re-export.
+
+- **Sections sidebar** — if the filter has section markers (like NeverSink's `[[NNNN]]` headers) they become a clickable outline. Filters without markers are **auto-grouped by item class** instead, so you always have a way to navigate.
+- **Block cards** — each rule shows a Show/Hide badge (click to toggle), its conditions, and a live preview of the in-game label.
+- **Edit conditions** — click any condition to edit it as text, press the **×** to remove it, or **+ condition** to add one (e.g. `ItemLevel >= 84`).
+- **Edit style** — the **Style** button expands text / border / background color pickers and a font-size slider.
+- **Export .filter** re-exports the (edited) filter, ready to drop into the game.
+
+Your imported filter is kept in your browser until you press **Clear** or import another one.
+
+## 7. Installing the filter in the game
 
 1. Download the filter from **Save & Export**.
 2. Move the file into your Path of Exile filter folder:
@@ -175,7 +192,7 @@ Load a `.snapshot.json` (or a filter with an embedded snapshot). You'll see the 
 3. In game: **Options → Game → UI → List of Item Filters**, select *Sharket_Custom* and confirm.
 4. After re-downloading an updated filter, re-select it (or press the refresh icon next to the filter list) to reload.
 
-## 7. Tips & FAQ
+## 8. Tips & FAQ
 
 **Where is my work saved?** In your browser. Same computer + same browser = your edits are there. For anything you care about, export **Filter + snapshot file** as a backup.
 
