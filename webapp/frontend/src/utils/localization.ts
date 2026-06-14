@@ -687,7 +687,8 @@ export const translations = {
     dropEffect: "Drop Effect",
     TextColor: "Text Color",
     BackgroundColor: "Background Color",
-    BorderColor: "Border Color"
+    BorderColor: "Border Color",
+    importForeign: "Import Filter"
   },
   ch: {
     appTitle: "Sharket POE 过滤编辑器",
@@ -1199,7 +1200,8 @@ export const translations = {
     dropEffect: "掉落光效",
     TextColor: "文本颜色",
     BackgroundColor: "背景颜色",
-    BorderColor: "边框颜色"
+    BorderColor: "边框颜色",
+    importForeign: "导入过滤器"
   }
 };
 

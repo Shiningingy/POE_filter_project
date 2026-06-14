@@ -7,6 +7,7 @@ import EditorView from './views/EditorView';
 import SimulatorView from './views/SimulatorView';
 import ExportView from './views/ExportView';
 import ThemeView from './views/ThemeView';
+import ImportForeignFilterView from './views/ImportForeignFilterView';
 import type { CategoryFile } from './components/Sidebar';
 import { AppDataProvider, useAppData } from './services/AppDataContext';
 import AdminPanel from './components/AdminPanel';
@@ -22,7 +23,7 @@ const StartupSplash = ({ language }: { language: Language }) => {
 };
 
 function App() {
-  const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export' | 'theme'>('editor');
+  const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export' | 'theme' | 'import-foreign'>('editor');
   const [language, setLanguage] = useState<Language>('ch');
   const [gameVersion, setGameVersion] = useState<'poe1' | 'poe2'>('poe1');
   const [gameMode, setGameMode] = useState<'normal' | 'ruthless'>('ruthless');
@@ -184,6 +185,7 @@ function App() {
           <button className={currentView === 'theme' ? 'active' : ''} onClick={() => setCurrentView('theme')}>{language === 'ch' ? "外观与音效" : "Theme & Sound"}</button>
           <button className={currentView === 'simulator' ? 'active' : ''} onClick={() => setCurrentView('simulator')}>{t.simulator}</button>
           <button className={currentView === 'export' ? 'active' : ''} onClick={() => setCurrentView('export')}>{t.saveExport}</button>
+          <button className={currentView === 'import-foreign' ? 'active' : ''} onClick={() => setCurrentView('import-foreign')}>{t.importForeign}</button>
         </div>
 
         <AdminPanel language={language} />
@@ -235,6 +237,9 @@ function App() {
             gameMode={gameMode}
             language={language}
           />
+        )}
+        {currentView === 'import-foreign' && (
+          <ImportForeignFilterView language={language} />
         )}
       </div>
 
