@@ -173,9 +173,15 @@ async function captureLang(browser, lang) {
       try {
         await page.waitForSelector('.iff-block', { timeout: 15000 });
         await sleep(700);
-        await page.evaluate(() => document.querySelector('.iff-expand')?.click()); // open one style editor
+        await page.evaluate(() => document.querySelector('.iff-expand')?.click()); // open one style editor (sound/icon/beam)
         await sleep(300);
         await shot(page, lang, '08-import-foreign');
+        // 8b. Drop simulator
+        await page.evaluate(() => [...document.querySelectorAll('.iff-btn')].find((b) => /Simulate|模拟/.test(b.textContent))?.click());
+        await sleep(1800); // generate drops
+        await shot(page, lang, '08b-import-simulator');
+        await page.evaluate(() => [...document.querySelectorAll('.iff-btn')].find((b) => /Simulate|模拟/.test(b.textContent))?.click()); // back to list
+        await sleep(300);
       } catch { console.log('  (import view not ready — skipping 08)'); }
     }
   }

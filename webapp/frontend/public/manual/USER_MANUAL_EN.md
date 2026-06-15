@@ -178,10 +178,22 @@ Press **Choose .filter file** and pick any filter. The app parses it **in its ow
 - **Sections sidebar** — if the filter has section markers (like NeverSink's `[[NNNN]]` headers) they become a clickable outline. Filters without markers are **auto-grouped by item class** instead, so you always have a way to navigate.
 - **Block cards** — each rule shows a Show/Hide badge (click to toggle), its conditions, and a live preview of the in-game label.
 - **Edit conditions** — click any condition to edit it as text, press the **×** to remove it, or **+ condition** to add one (e.g. `ItemLevel >= 84`).
-- **Edit style** — the **Style** button expands text / border / background color pickers and a font-size slider.
+- **Edit style** — the **Style** button expands text / border / background color pickers, a font-size slider, and **sound, minimap-icon and beam pickers** (the same ones used elsewhere in the app).
+- **Add / remove rules** — **+ Rule** adds a new block at the top; each card has **＋** (insert a rule below) and **🗑** (delete).
+- **Bulk restyle** — press **Select**, tick several rules, then apply Show/Hide, a colour, or a sound / icon / beam to all of them at once.
 - **Export .filter** re-exports the (edited) filter, ready to drop into the game.
 
 Your imported filter is kept in your browser until you press **Clear** or import another one.
+
+### Simulator
+
+Press **▶ Simulate** to see how the imported filter renders real drops. It generates random items and styles each one with the **first Show/Hide block it matches** — exactly as the game would. Set the **Area Level** and number of **Drops**, then press **Generate**.
+
+![Foreign filter simulator](images/en/08b-import-simulator.png)
+
+At least ~30% of the ground is guaranteed to be visible drops; the rest are random, with **hidden** items shown greyed-out so you can see what the filter suppresses. **Click any drop** to jump straight to the rule that styled it.
+
+> The simulator evaluates conditions like BaseType, Class, Rarity, item level, sockets and stack size. Rules gated on things it can't model (specific mods or enchantments) are skipped, so those items fall through to a rule it *can* verify.
 
 ## 7. Installing the filter in the game
 
