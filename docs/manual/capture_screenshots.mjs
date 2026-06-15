@@ -162,6 +162,24 @@ async function captureLang(browser, lang) {
   await sleep(1200);
   await shot(page, lang, '07-export');
 
+  // --- 8. Import foreign filter (advanced) — guarded: only after deploy ---
+  const navCount = await page.evaluate(() => document.querySelectorAll('.nav-links button').length);
+  if (navCount >= 5) {
+    await page.evaluate(() => document.querySelectorAll('.nav-links button')[4].click());
+    await sleep(800);
+    const fi = await page.$('input[type=file]');
+    if (fi) {
+      await fi.uploadFile(join(HERE, '..', '..', 'data', 'from_filter_blade', '3.28', 'FilterBlade_3_Strict.filter'));
+      try {
+        await page.waitForSelector('.iff-block', { timeout: 15000 });
+        await sleep(700);
+        await page.evaluate(() => document.querySelector('.iff-expand')?.click()); // open one style editor
+        await sleep(300);
+        await shot(page, lang, '08-import-foreign');
+      } catch { console.log('  (import view not ready — skipping 08)'); }
+    }
+  }
+
   await page.close();
 }
 
