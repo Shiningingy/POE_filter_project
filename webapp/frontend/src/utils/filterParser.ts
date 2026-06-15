@@ -101,9 +101,9 @@ const CONDITION_KEYWORDS = new Set([
   'GemLevel', 'GemQualityType', 'HasCruciblePassiveTree', 'HasEaterOfWorldsImplicit',
   'HasEnchantment', 'HasExplicitMod', 'HasImplicitMod', 'HasInfluence',
   'HasSearingExarchImplicit', 'Height', 'Identified', 'ItemLevel', 'LinkedSockets',
-  'MapTier', 'Memoryitem', 'Mirrored', 'Quality', 'Rarity', 'Replica', 'Scourged',
+  'MapTier', 'Memoryitem', 'MemoryStrands', 'Mirrored', 'Quality', 'Rarity', 'Replica', 'Scourged',
   'ShapedMap', 'ShaperItem', 'SocketGroup', 'Sockets', 'StackSize', 'SynthesisedItem',
-  'TransfiguredGem', 'UberBlightedMap', 'Width', 'ZanaMemory',
+  'TransfiguredGem', 'UberBlightedMap', 'UnidentifiedItemTier', 'WaystoneTier', 'Width', 'ZanaMemory',
 ]);
 
 const ACTION_KEYWORDS = new Set([

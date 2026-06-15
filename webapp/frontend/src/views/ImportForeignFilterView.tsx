@@ -3,6 +3,11 @@ import type { ReactElement } from 'react';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import { loadItemsDb } from '../services/clientData';
+import { useAppData } from '../services/AppDataContext';
+import { generateRandomItem } from '../utils/itemGenerator';
+import type { GeneratorSettings } from '../utils/itemGenerator';
+import { evaluateForeignItem, type ForeignMatch } from '../utils/foreignSimulator';
+import type { ItemProps } from '../utils/simulatorEngine';
 import SoundPicker from '../components/SoundPicker';
 import MinimapIconPicker, { getIconStyle } from '../components/MinimapIconPicker';
 import PlayEffectPicker from '../components/PlayEffectPicker';
@@ -135,6 +140,7 @@ const ImportForeignFilterView = ({ language }: Props) => {
   const t = useTranslation(language) as any;
   const isCh = language === 'ch';
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { classPropsMap, getLeafClassesUnder, loading: dataLoading } = useAppData();
 
   const [parsed, setParsed] = useState<ParsedFilter | null>(null);
   const [fileName, setFileName] = useState<string>('imported.filter');
@@ -155,6 +161,14 @@ const ImportForeignFilterView = ({ language }: Props) => {
   const [selectMode, setSelectMode] = useState(false);
   const [selected, setSelected] = useState<Set<number>>(new Set());
 
+  // Simulator (foreign-filter preview).
+  const [itemPools, setItemPools] = useState<Record<string, any[]>>({});
+  const [simOpen, setSimOpen] = useState(false);
+  const [areaLevel, setAreaLevel] = useState(83);
+  const [dropCount, setDropCount] = useState(14);
+  const [drops, setDrops] = useState<{ item: ItemProps; match: ForeignMatch | null; elementIndex: number | null; x: number; y: number }[]>([]);
+  const [hiddenCount, setHiddenCount] = useState(0);
+
   // Restore a previously imported filter on mount.
   useEffect(() => {
     try {
@@ -166,16 +180,26 @@ const ImportForeignFilterView = ({ language }: Props) => {
     } catch { /* ignore corrupt cache */ }
   }, []);
 
-  // BaseType -> class map (for grouping filters without section banners).
+  // BaseType -> class map (grouping) + per-class item pools (simulator), both
+  // built from the same items_db load.
   useEffect(() => {
     loadItemsDb()
       .then((db) => {
         const m: Record<string, string> = {};
+        const pools: Record<string, any[]> = {};
         for (const [name, info] of Object.entries(db.items || {})) {
           const cls = (info as any)?.item_class;
-          if (cls) m[name] = cls;
+          if (!cls) continue;
+          m[name] = cls;
+          (pools[cls] ||= []).push({
+            name, item_class: cls,
+            drop_level: (info as any).drop_level ?? 0,
+            max_stack_size: (info as any).max_stack_size,
+            name_ch: (info as any).name_ch,
+          });
         }
         setClassMap(m);
+        setItemPools(pools);
       })
       .catch(() => { /* falls back to Class conditions */ });
   }, []);
@@ -253,6 +277,78 @@ const ImportForeignFilterView = ({ language }: Props) => {
   }, [parsed, outline, autoGrouped, classMap, isCh]);
 
   // -------------------------------------------------------------------------
+  // Simulator (foreign-filter preview)
+  // -------------------------------------------------------------------------
+
+  const liveBlocks = useMemo(() => {
+    const arr: { block: FilterBlock; elementIndex: number }[] = [];
+    if (parsed) parsed.elements.forEach((el, i) => { if (el.type === 'block') arr.push({ block: el, elementIndex: i }); });
+    return arr;
+  }, [parsed]);
+
+  const simSettings = (): GeneratorSettings => ({
+    itemLevelMin: Math.max(1, areaLevel - 12),
+    itemLevelMax: areaLevel,
+    rarityWeights: { Normal: 45, Magic: 30, Rare: 22, Unique: 3 },
+    enabledCategories: new Set(['equipment', 'currency', 'gems', 'maps', 'flasks', 'jewels', 'divination']),
+    dropCount,
+  });
+
+  const generateDrops = () => {
+    const blocks = liveBlocks.map((x) => x.block);
+    const roll = () => {
+      const it = generateRandomItem(simSettings(), itemPools, classPropsMap, getLeafClassesUnder);
+      if (!it) return null;
+      const m = evaluateForeignItem(it, blocks, areaLevel);
+      return { item: it, match: m, elementIndex: m ? liveBlocks[m.index].elementIndex : null, x: 4 + Math.random() * 90, y: 6 + Math.random() * 86 };
+    };
+    const out: typeof drops = [];
+    let guard = 0;
+    // Phase 1: fill `dropCount` slots with purely random drops (in a strict
+    // filter most of these will be hidden — shown faded — which is fine).
+    while (out.length < dropCount && guard < dropCount * 40) {
+      guard++;
+      const d = roll();
+      if (!d) break;
+      out.push(d);
+    }
+    // Phase 2: guarantee at least ~30% visible — re-roll hidden slots into
+    // visible drops until the quota is met (keeping each slot's position).
+    const quota = Math.ceil(dropCount * 0.3);
+    let visible = out.filter((d) => !d.match?.hidden).length;
+    for (let i = 0; i < out.length && visible < quota && guard < dropCount * 80; i++) {
+      if (!out[i].match?.hidden) continue;
+      for (let tries = 0; tries < 80; tries++) {
+        guard++;
+        const d = roll();
+        if (!d) break;
+        if (!d.match?.hidden) { out[i] = { ...d, x: out[i].x, y: out[i].y }; visible++; break; }
+      }
+    }
+    setDrops(out);
+    setHiddenCount(out.filter((d) => d.match?.hidden).length);
+  };
+
+  // Auto-generate once when the simulator opens and the item data is ready.
+  useEffect(() => {
+    if (simOpen && !drops.length && !dataLoading && liveBlocks.length && Object.keys(itemPools).length) generateDrops();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [simOpen, dataLoading, itemPools]);
+
+  // CSS plate style for a dropped item from its matched block (or default).
+  const dropPlateStyle = (b: FilterBlock | null) => {
+    if (!b) return { color: '#fff', borderColor: 'rgba(255,255,255,0.45)', background: 'rgba(0,0,0,0.55)', fontSize: '15px' };
+    const fs = valsOf(b, 'SetFontSize');
+    const fontSize = Math.max(11, Math.min(34, (fs.length ? parseInt(fs[0], 10) || 32 : 32) * 0.5));
+    return {
+      color: toCssRgba(valsOf(b, 'SetTextColor'), 'rgba(220,220,220,1)'),
+      borderColor: toCssRgba(valsOf(b, 'SetBorderColor'), 'rgba(0,0,0,0)'),
+      background: toCssRgba(valsOf(b, 'SetBackgroundColor'), 'rgba(0,0,0,0.5)'),
+      fontSize: `${fontSize}px`,
+    };
+  };
+
+  // -------------------------------------------------------------------------
   // Import / clear / export
   // -------------------------------------------------------------------------
 
@@ -262,6 +358,7 @@ const ImportForeignFilterView = ({ language }: Props) => {
     setPicker(null);
     setSelectMode(false);
     setSelected(new Set());
+    setDrops([]);
   };
 
   const handleFile = async (file: File) => {
@@ -672,6 +769,7 @@ const ImportForeignFilterView = ({ language }: Props) => {
             <span className="iff-stat hide">▾ {stats.hide}</span>
             <input className="iff-search" placeholder={isCh ? '筛选规则…' : 'Filter blocks…'} value={query} onChange={(e) => setQuery(e.target.value)} />
             <div className="iff-spacer" />
+            <button className={`iff-btn ${simOpen ? 'primary' : ''}`} onClick={() => setSimOpen((v) => !v)}>▶ {isCh ? '模拟' : 'Simulate'}</button>
             <button className="iff-btn" onClick={() => addBlockAt(0)}>+ {isCh ? '规则' : 'Rule'}</button>
             <button className={`iff-btn ${selectMode ? 'primary' : ''}`} onClick={() => { setSelectMode((v) => !v); setSelected(new Set()); }}>
               {selectMode ? (isCh ? '退出选择' : 'Done') : (isCh ? '选择' : 'Select')}
@@ -699,7 +797,48 @@ const ImportForeignFilterView = ({ language }: Props) => {
             </div>
           )}
 
-          <div className="iff-main">
+          {simOpen && (
+            <div className="iff-sim">
+              <div className="iff-sim-controls">
+                <label className="iff-sim-lbl">{isCh ? '区域等级' : 'Area Level'}
+                  <input type="number" min={1} max={100} value={areaLevel}
+                    onChange={(e) => setAreaLevel(Math.max(1, Math.min(100, parseInt(e.target.value) || 1)))} />
+                </label>
+                <label className="iff-sim-lbl">{isCh ? '数量' : 'Drops'}
+                  <input type="number" min={1} max={60} value={dropCount}
+                    onChange={(e) => setDropCount(Math.max(1, Math.min(60, parseInt(e.target.value) || 1)))} />
+                </label>
+                <button className="iff-btn primary" disabled={dataLoading || !liveBlocks.length} onClick={generateDrops}>{isCh ? '生成掉落' : 'Generate'}</button>
+                <button className="iff-btn" onClick={() => setDrops([])}>{isCh ? '清空' : 'Clear'}</button>
+                <div className="iff-spacer" />
+                {dataLoading
+                  ? <span className="iff-sim-note">{isCh ? '物品数据加载中…' : 'loading item data…'}</span>
+                  : <span className="iff-sim-note">{drops.length - hiddenCount} {isCh ? '可见' : 'visible'} · {hiddenCount} {isCh ? '隐藏（灰显）' : 'hidden (greyed)'} · {isCh ? '点击物品跳到规则' : 'click an item to jump to its rule'}</span>}
+              </div>
+              <div className="iff-ground">
+                {drops.map((d, k) => {
+                  const hidden = !!d.match?.hidden;
+                  const ic = !hidden && d.match ? valsOf(d.match.block, 'MinimapIcon') : [];
+                  return (
+                    <div key={k} className={`iff-drop ${hidden ? 'is-hidden' : ''}`} style={{ left: `${d.x}%`, top: `${d.y}%` }}
+                      title={hidden
+                        ? (isCh ? '此物品会被过滤器隐藏' : 'hidden by the filter')
+                        : (d.match ? `${d.match.block.action} — ${(d.match.block.inlineComment || '').trim()}` : (isCh ? '无匹配（默认样式）' : 'no match (default style)'))}
+                      onClick={() => { if (d.elementIndex != null) { setSimOpen(false); setTimeout(() => scrollTo(d.elementIndex!), 60); } }}>
+                      <div className="iff-plate" style={hidden
+                        ? { color: '#8a8a8a', borderColor: 'rgba(120,120,120,0.25)', background: 'rgba(0,0,0,0.3)', fontSize: '12px' }
+                        : dropPlateStyle(d.match?.block ?? null)}>
+                        {ic.length >= 2 && <span style={getIconStyle(ic[1] || 'Grey', ic[2] || 'Circle', 0.6)} />}
+                        {language === 'ch' ? (d.item.name_ch || d.item.name) : d.item.name}
+                      </div>
+                    </div>
+                  );
+                })}
+                {!drops.length && <div className="iff-ground-empty">{isCh ? '点击“生成掉落”，查看该过滤器如何渲染随机掉落物。' : 'Press Generate to see how this filter renders random drops.'}</div>}
+              </div>
+            </div>
+          )}
+          <div className="iff-main" style={{ display: simOpen ? 'none' : 'flex' }}>
             <div className="iff-outline">
               <div className="iff-outline-title">{autoGrouped ? (isCh ? '按类别分组' : 'Grouped by class') : (isCh ? '章节' : 'Sections')}</div>
               {autoGrouped && <div className="iff-outline-empty">{isCh ? '该过滤器无章节标记，已按物品类别自动分组。' : 'No section markers — auto-grouped by item class.'}</div>}
@@ -761,6 +900,22 @@ const ImportForeignFilterView = ({ language }: Props) => {
         .iff-bulk-sep { width: 1px; align-self: stretch; background: #2f5d80; }
         .iff-bulk-color { display: flex; align-items: center; gap: 5px; font-size: 0.8rem; color: #bdf; }
         .iff-bulk-color input[type=color] { width: 30px; height: 24px; border: none; background: none; padding: 0; cursor: pointer; }
+
+        .iff-sim { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+        .iff-sim-controls { display: flex; align-items: center; gap: 12px; flex-shrink: 0; padding: 10px 18px; background: #232323; border-bottom: 1px solid #383838; }
+        .iff-sim-lbl { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #bbb; }
+        .iff-sim-lbl input { width: 58px; background: #1a1a1a; border: 1px solid #444; color: #ddd; padding: 4px 6px; border-radius: 4px; }
+        .iff-sim-note { font-size: 0.8rem; color: #888; }
+        .iff-ground { position: relative; flex: 1; overflow: hidden; background:
+          radial-gradient(ellipse at 50% 30%, #2c2a26 0%, #1a1916 70%, #141312 100%); }
+        .iff-ground-empty { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: #777; font-size: 0.9rem; text-align: center; }
+        .iff-drop { position: absolute; transform: translate(-50%,-50%); cursor: pointer; }
+        .iff-drop .iff-plate { max-width: 260px; box-shadow: 0 2px 6px rgba(0,0,0,0.5); }
+        .iff-drop.is-hidden { opacity: 0.34; }
+        .iff-drop.is-hidden .iff-plate { box-shadow: none; border-style: dashed; }
+        .iff-drop:hover { z-index: 5; }
+        .iff-drop.is-hidden:hover { opacity: 0.7; }
+        .iff-drop:hover .iff-plate { outline: 2px solid rgba(255,255,255,0.4); }
 
         .iff-main { display: flex; flex: 1; min-height: 0; }
         .iff-outline { width: 240px; flex-shrink: 0; overflow-y: auto; background: #232323; border-right: 1px solid #383838; padding: 10px 6px; }
