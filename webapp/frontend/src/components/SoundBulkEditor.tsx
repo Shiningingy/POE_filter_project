@@ -12,21 +12,19 @@ import {
   useSensors,
   defaultDropAnimationSideEffects,
   useDroppable,
-  useDraggable,
   pointerWithin,
   closestCorners,
 } from '@dnd-kit/core';
 import {
   SortableContext,
-  verticalListSortingStrategy,
   horizontalListSortingStrategy,
-  useSortable,
   arrayMove
 } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
 import { useTranslation, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ItemCard from './ItemCard';
+import { CatalogSoundCard, PoolItem, WorkspaceColumn } from './SoundWorkspaceCards';
+import SoundImportReportModal from './SoundImportReportModal';
 import LoadingOverlay from './LoadingOverlay';
 import OccurrencePicker, { type OccurrenceRow } from './OccurrencePicker';
 import OccurrenceRuleList, { type OccurrenceRuleRow } from './OccurrenceRuleList';
@@ -104,187 +102,6 @@ const ruleSoundValue = (overrides: any): string | null => {
   if (!k) return null;
   const v = overrides[k];
   return Array.isArray(v) ? (v[0] ?? null) : v;
-};
-
-// ===========================
-// SUB-COMPONENTS
-// ===========================
-
-const CatalogSoundCard = ({ sound, onAdd, usageCount }: { sound: SoundDef, onAdd: () => void, usageCount: number }) => {
-    const safeId = `cat-${sound.path.replace(/[^a-zA-Z0-9]/g, '_')}`;
-    const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
-        id: safeId,
-        data: { type: 'catalog-sound', sound }
-    });
-
-    const style: React.CSSProperties = {
-        opacity: isDragging ? 0.5 : 1,
-        touchAction: 'none',
-        position: 'relative',
-        cursor: isDragging ? 'grabbing' : 'grab',
-        userSelect: 'none'
-    };
-
-    return (
-        <div
-            ref={setNodeRef}
-            style={style}
-            className="sound-card-item"
-            {...attributes}
-            {...listeners}
-        >
-            <div className="content-area" style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px', padding: '10px' }}>
-                <span className="icon" style={{ flexShrink: 0 }}>🎵</span>
-                <span className="label" title={sound.path} style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', color: '#333', fontSize: '0.85rem' }}>{sound.label}</span>
-                {usageCount > 0 && <span className="usage-badge" title={`${usageCount} items use this sound`}>{usageCount}</span>}
-            </div>
-
-            <button
-                className="add-btn"
-                onPointerDown={(e) => e.stopPropagation()}
-                onClick={(e) => { e.stopPropagation(); onAdd(); }}
-                title="Add Column"
-            >
-                +
-            </button>
-        </div>
-    );
-};
-
-const PoolItem = ({ item, language, currentSound, badge, rules, onRulesClick }: { item: Item, language: Language, currentSound?: string, badge?: string, rules?: { label: string }[], onRulesClick?: () => void }) => {
-    const dndId = `pool|${item.name}`;
-    const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
-        id: dndId,
-        data: { type: 'item', item, containerId: 'pool' }
-    });
-
-    const style: React.CSSProperties = {
-        opacity: isDragging ? 0.3 : 1,
-        touchAction: 'none',
-        position: 'relative'
-    };
-
-    return (
-        <div ref={setNodeRef} style={style} {...attributes} {...listeners} className={isDragging ? 'dragging-source' : ''}>
-            <ItemCard item={item} language={language} currentSound={currentSound} showDetails={true} rules={rules} onRulesClick={() => onRulesClick?.()} className={isDragging ? 'dragging' : ''} />
-            {badge && <div className="occ-frac" title="occurrences with this sound">{badge}</div>}
-        </div>
-    );
-};
-
-const WorkspaceItem = ({ item, language, containerId, onDelete, currentSound, badge, rules, onRulesClick }: { item: Item, language: Language, containerId: string, onDelete: () => void, currentSound?: string, badge?: string, rules?: { label: string }[], onRulesClick?: () => void }) => {
-  const dndId = `${containerId}|${item.name}`;
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
-      id: dndId,
-      data: { type: 'item', item, containerId }
-  });
-  const style = { transform: CSS.Translate.toString(transform), transition, opacity: isDragging ? 0.5 : 1, position: 'relative' as const };
-
-  return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <ItemCard
-        item={item}
-        language={language}
-        currentSound={currentSound}
-        showDetails={true}
-        rules={rules}
-        onRulesClick={() => onRulesClick?.()}
-        onDelete={(e) => { e.stopPropagation(); onDelete(); }}
-        className={isDragging ? 'dragging' : ''}
-      />
-      {badge && <div className="occ-frac" title="occurrences on this sound">{badge}</div>}
-    </div>
-  );
-};
-
-const WorkspaceColumn = ({
-    id,
-    sound,
-    items,
-    onClose,
-    onSave,
-    onCancel,
-    onRemoveItem,
-    language,
-    stagedCount,
-    getBadge,
-    getRules,
-    onRulesClick
-}: {
-    id: string,
-    sound: SoundDef,
-    items: Item[],
-    onClose: () => void,
-    onSave: () => void,
-    onCancel: () => void,
-    onRemoveItem: (itemName: string) => void,
-    language: Language,
-    stagedCount: number,
-    getBadge: (it: Item) => string | undefined,
-    getRules: (it: Item) => { label: string }[],
-    onRulesClick: (it: Item) => void
-}) => {
-    const { setNodeRef: setDroppableRef, isOver } = useDroppable({
-        id: id,
-        data: { type: 'column', sound }
-    });
-
-    const { setNodeRef: setSortableRef, attributes, listeners, transform, transition, isDragging } = useSortable({
-        id: id + '-sort',
-        data: { type: 'column', sound }
-    });
-    const t = useTranslation(language);
-
-    const style = {
-        transform: CSS.Translate.toString(transform),
-        transition,
-        opacity: isDragging ? 0.5 : 1,
-        borderColor: isOver ? '#2196F3' : '#ddd',
-        borderWidth: isOver ? '2px' : '1px',
-        borderStyle: isOver ? 'dashed' : 'solid'
-    };
-
-    const setRefs = (el: HTMLElement | null) => {
-        setDroppableRef(el);
-        setSortableRef(el);
-    };
-
-    return (
-        <div ref={setRefs} style={style} className="sound-workspace-column">
-            <div className="column-header" {...attributes} {...listeners}>
-                <div className="title-row">
-                    <span className="sound-type-badge">{sound.type}</span>
-                    <span className="sound-name" title={sound.path}>{sound.label}</span>
-                    <button className="close-btn" onClick={(e) => { e.stopPropagation(); onClose(); }}>×</button>
-                </div>
-                <div className="column-stats">{items.length} cards</div>
-            </div>
-
-            <SortableContext id={id} items={items.map(i => `${id}|${i.name}`)} strategy={verticalListSortingStrategy}>
-                <div className="column-content">
-                    {items.map(item => (
-                        <WorkspaceItem
-                            key={item.name}
-                            item={item}
-                            language={language}
-                            containerId={id}
-                            onDelete={() => onRemoveItem(item.name)}
-                            currentSound={sound.path}
-                            badge={getBadge(item)}
-                            rules={getRules(item)}
-                            onRulesClick={() => onRulesClick(item)}
-                        />
-                    ))}
-                    {items.length === 0 && <div className="column-placeholder">{language === 'ch' ? '将物品拖放到此处' : 'Drop items here'}</div>}
-                </div>
-            </SortableContext>
-
-            <div className="column-footer">
-                <button className="col-cancel-btn" disabled={stagedCount === 0} onClick={onCancel}>{t.cancel}</button>
-                <button className="col-save-btn" disabled={stagedCount === 0} onClick={onSave}>{t.ok}</button>
-            </div>
-        </div>
-    );
 };
 
 // ===========================
@@ -965,47 +782,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
 
       {/* Sound-import result report */}
       {importReport && (
-          <div className="modal-overlay report-overlay" onClick={() => setImportReport(null)}>
-              <div className="import-report" onClick={e => e.stopPropagation()}>
-                  <div className="report-header">
-                      <h3>{t.tsImportReport}</h3>
-                      <button className="close-btn" onClick={() => setImportReport(null)}>×</button>
-                  </div>
-                  <div className="report-body">
-                      <div className="report-summary">
-                          {importReport.mapMerged > 0 && <span className="pill pill-map">{importReport.mapMerged} {t.tsMapEntriesMerged}</span>}
-                          <span className="pill pill-ok">{importReport.updated.length} {t.tsApplied}</span>
-                          <span className="pill pill-new">{importReport.created.length} {t.tsCreated}</span>
-                          <span className="pill pill-skip">{importReport.skipped.length} {t.tsSkipped}</span>
-                      </div>
-                      {importReport.skipped.length > 0 && (
-                          <div className="report-section">
-                              <h4>{t.tsSkipped}</h4>
-                              {importReport.skipped.map((s, i) => (
-                                  <div key={i} className="report-row">
-                                      <span className="row-main">{s.rule.comment || s.rule.targets.join(', ')}</span>
-                                      <span className="row-file">{s.rule.file.replace(/^base_mapping\//, '')}</span>
-                                      <span className="row-reason">
-                                          {s.reason === 'file-missing' ? t.tsSkipFileMissing
-                                            : s.reason === 'target-not-in-file' ? t.tsSkipTargetMissing
-                                            : t.tsSkipNoMatch}
-                                      </span>
-                                  </div>
-                              ))}
-                          </div>
-                      )}
-                      {importReport.missingAudio.length > 0 && (
-                          <div className="report-section warn">
-                              <h4>⚠ {t.tsMissingAudio}</h4>
-                              {importReport.missingAudio.map(p => <div key={p} className="report-row"><span className="row-main">{p}</span></div>)}
-                          </div>
-                      )}
-                  </div>
-                  <div className="report-footer">
-                      <button className="col-save-btn report-close" onClick={() => setImportReport(null)}>OK</button>
-                  </div>
-              </div>
-          </div>
+          <SoundImportReportModal report={importReport} language={language} onClose={() => setImportReport(null)} />
       )}
 
       {/* Ported rule-block (same panel the simulator uses) for the chosen file */}

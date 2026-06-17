@@ -1,4 +1,4 @@
-import { translations, type Language } from './localization';
+import { type Language } from './localization';
 
 // ===========================
 // TYPES
@@ -19,6 +19,16 @@ interface GeneratorData {
 
 const DEFAULT_FONT_SIZE = 32;
 
+// Generator-output vocabulary (terms that appear in filter comments). Co-located
+// with the generator and mirrored EXACTLY in filter_generation/generate.py
+// (TERMS) — the parity test (test_generator_parity.mjs) guards them. Deliberately
+// NOT in localization.ts, which is the UI translation table; these are
+// filter-artifact domain strings, a different concern.
+const TERMS: Record<string, Record<string, string>> = {
+  en: { Rule: "Rule", Base: "Base", "Auto-Sound": "Auto-Sound", Exact: "Exact", Partial: "Partial" },
+  ch: { Rule: "规则", Base: "基础", "Auto-Sound": "自动音效", Exact: "精确", Partial: "模糊" },
+};
+
 const FOLDER_LOCALIZATION: Record<string, string> = {
   "Currency": "通货",
   "Equipment": "装备",
@@ -32,7 +42,9 @@ const FOLDER_LOCALIZATION: Record<string, string> = {
   "Jewellery": "首饰",
   "Flasks": "药剂",
   "Quest": "任务",
-  "Uniques": "传奇"
+  "Uniques": "传奇",
+  "_campaign": "过渡",
+  "Heist": "赏金猎人"
 };
 
 // ===========================
@@ -101,8 +113,38 @@ const headerLine = (index: number, text: string): string => {
 
 export const generateFilter = (data: GeneratorData): string => {
   const { themeData, soundMap, allMappings, allTierDefinitions, language } = data;
-  const t = translations[language] as any;
+  const term = (key: string): string => (TERMS[language] || TERMS.en)[key] || key;
   const isCh = language === 'ch';
+
+  // The deployed generator is mode-less ≈ generate.py --mode standard. MODE
+  // gates excluded_modes and HIDE_CMD exactly as the Python side does; when the
+  // Ruthless milestone lands, this becomes a parameter.
+  const MODE = 'standard';
+  const HIDE_CMD = 'Hide';
+
+  // Emit condition lines for a block. Mirrors generate.py: list → repeated AND
+  // lines, "RANGE a b c d" → two lines, Rarity → strip a leading "==", else
+  // "key value".
+  const emitConditions = (lines: string[], conditions: any): void => {
+    if (!conditions) return;
+    Object.entries(conditions).forEach(([key, val]: [string, any]) => {
+      if (Array.isArray(val)) {
+        val.forEach((v: string) => lines.push(`    ${key} ${v}`));
+      } else if (typeof val === 'string' && val.startsWith("RANGE ")) {
+        const parts = val.split(" ");
+        if (parts.length >= 5) {
+          lines.push(`    ${key} ${parts[1]} ${parts[2]}`);
+          lines.push(`    ${key} ${parts[3]} ${parts[4]}`);
+        }
+      } else if (key === "Rarity") {
+        const clean = typeof val === 'string' && val.trim().startsWith("==")
+          ? val.trim().slice(2).trim() : val;
+        lines.push(`    ${key} ${clean}`);
+      } else {
+        lines.push(`    ${key} ${val}`);
+      }
+    });
+  };
 
   const overview: string[] = [
     "#========================================",
@@ -126,6 +168,9 @@ export const generateFilter = (data: GeneratorData): string => {
     const mapDoc = allMappings[relPath];
     const tierDoc = allTierDefinitions[relPath];
     if (!tierDoc) continue;
+
+    // Skip files excluded for the current mode (mirrors generate.py).
+    if (((mapDoc._meta || {}).excluded_modes || []).includes(MODE)) continue;
 
     const pathParts = relPath.split('/');
     const folder = pathParts[0];
@@ -202,7 +247,7 @@ export const generateFilter = (data: GeneratorData): string => {
 
     // --- Mapping Items ---
     const mapping = mapDoc.mapping || {};
-    const itemsByTier: Record<string, string[]> = {};
+    let itemsByTier: Record<string, string[]> = {};
     Object.entries(mapping).forEach(([item, tVal]) => {
       const tiers = Array.isArray(tVal) ? tVal : [tVal];
       tiers.forEach(t => {
@@ -211,7 +256,28 @@ export const generateFilter = (data: GeneratorData): string => {
       });
     });
 
-    let tierOrder = meta.tier_order || [];
+    // Underscore-prefixed folders (_campaign, _legacy…) may map items to
+    // cross-category tier keys absent from this tier_def. Remap those to the
+    // first non-hide tier defined here (mirrors generate.py).
+    if (folder.startsWith("_")) {
+      const validTierKeys = new Set(Object.keys(categoryData).filter(k => k.startsWith("Tier")));
+      const defaultShowTier = (meta.tier_order || []).find(
+        (tk: string) => validTierKeys.has(tk) && !categoryData[tk]?.is_hide_tier
+      );
+      if (defaultShowTier) {
+        const remapped: Record<string, string[]> = {};
+        for (const [tKey, list] of Object.entries(itemsByTier)) {
+          const dest = validTierKeys.has(tKey) ? tKey : defaultShowTier;
+          (remapped[dest] = remapped[dest] || []).push(...list);
+        }
+        itemsByTier = remapped;
+      }
+    }
+
+    let tierOrder: string[] = meta.tier_order || [];
+    if (tierOrder.length === 0) {
+      tierOrder = Object.keys(itemsByTier).sort((a, b) => tierNumFromLabel(a) - tierNumFromLabel(b));
+    }
     const usedTiers = Object.keys(itemsByTier);
     usedTiers.forEach(t => {
       if (!tierOrder.includes(t)) tierOrder.push(t);
@@ -222,15 +288,56 @@ export const generateFilter = (data: GeneratorData): string => {
 
       const items = itemsByTier[tLbl] || [];
       const tierEntry = categoryData[tLbl];
-      const isHideTier = !!tierEntry.is_hide_tier;
-      const tnum = tierNumFromLabel(tLbl);
 
-      const ttheme = themeRef[`Tier ${tnum}`] || {};
-      const baseTextCol = parseRgba(ttheme.TextColor);
-      const baseBorderCol = parseRgba(ttheme.BorderColor);
-      const baseBgCol = parseRgba(ttheme.BackgroundColor, "0 0 0 255");
-      const basePlayEff = ttheme.PlayEffect;
-      const baseMiniIcon = ttheme.MinimapIcon;
+      // Skip tiers excluded for the current mode (mirrors generate.py).
+      if ((tierEntry.excluded_modes || []).includes(MODE)) continue;
+
+      const isHideTier = !!tierEntry.is_hide_tier;
+      let tnum = tierNumFromLabel(tLbl);
+      // Honor an explicit theme.Tier for tiers with non-standard label names.
+      const themeTierOverride = tierEntry.theme?.Tier;
+      if (themeTierOverride !== undefined && themeTierOverride !== null) tnum = themeTierOverride;
+
+      let ttheme = themeRef[`Tier ${tnum}`] || {};
+      let baseTextCol = parseRgba(ttheme.TextColor);
+      let baseBorderCol = parseRgba(ttheme.BorderColor);
+      let baseBgCol = parseRgba(ttheme.BackgroundColor, "0 0 0 255");
+      let basePlayEff = ttheme.PlayEffect;
+      let baseMiniIcon = ttheme.MinimapIcon;
+
+      // Tier label shown in comment headers (e.g. "T1: High End"); the filter
+      // command + theme lookup still key off tnum above.
+      const tierDisplay = tierEntry.localization?.en || `Tier ${tnum}`;
+
+      // --- Class-Condition tiers (e.g. _campaign/Armour.json) ---
+      // Emit one Class-gated block (no BaseType enumeration) and skip normal
+      // BaseType processing. Mirrors generate.py.
+      if (tierEntry.class_condition) {
+        const tierConditions = tierEntry.conditions || {};
+        if (Object.keys(tierConditions).length === 0) continue;
+        const themeTnum = tierEntry.theme?.Tier ?? tnum;
+        ttheme = themeRef[`Tier ${themeTnum}`] || ttheme;
+        baseTextCol = parseRgba(ttheme.TextColor);
+        baseBorderCol = parseRgba(ttheme.BorderColor);
+        baseBgCol = parseRgba(ttheme.BackgroundColor, "0 0 0 255");
+        basePlayEff = ttheme.PlayEffect;
+        baseMiniIcon = ttheme.MinimapIcon;
+        blockIndex++;
+        const ccDisplay = tierEntry.localization?.en || tLbl;
+        outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${ccDisplay} ${locCat} - Class Condition==`);
+        const ccLines = [`${isHideTier ? HIDE_CMD : "Show"}`];
+        emitConditions(ccLines, tierConditions);
+        ccLines.push(`    SetFontSize ${ttheme.FontSize || DEFAULT_FONT_SIZE}`);
+        ccLines.push(`    SetTextColor ${baseTextCol}`);
+        ccLines.push(`    SetBorderColor ${baseBorderCol}`);
+        ccLines.push(`    SetBackgroundColor ${baseBgCol}`);
+        const ccSound = resolveSound(tierEntry, soundMap);
+        if (ccSound) ccLines.push(`    ${ccSound}`);
+        if (basePlayEff) ccLines.push(`    PlayEffect ${basePlayEff}`);
+        if (baseMiniIcon) ccLines.push(`    MinimapIcon ${baseMiniIcon}`);
+        outLines.push(ccLines.join('\n') + '\n');
+        continue;
+      }
 
       // Create a fresh deep copy of rules for this tier
       const allRules = JSON.parse(JSON.stringify(mapDoc.rules || []));
@@ -242,7 +349,6 @@ export const generateFilter = (data: GeneratorData): string => {
           const sData = btSounds[item];
           const handled = allRules.some((r: any) => r.targets?.includes(item));
           if (!handled) {
-            console.log(`TS GENERATOR: Injecting auto-sound for ${item}`);
             allRules.push({
               targets: [item],
               overrides: { PlayAlertSound: [sData.file, sData.volume] },
@@ -295,41 +401,23 @@ export const generateFilter = (data: GeneratorData): string => {
           if (rawComment.startsWith("__AUTO_SOUND__:")) {
             const itemKey = rawComment.split(":")[1].trim();
             const itemLocal = itemTrans[itemKey] || itemKey;
-            rulePart = `${t.autoSounds || 'Auto-Sound'}：${itemLocal}`;
+            rulePart = `${term('Auto-Sound')}：${itemLocal}`;
           } else {
             ruleCounter++;
-            rulePart = `#${ruleCounter} ${rawComment || (t.rule || 'Rule')}`;
+            rulePart = `#${ruleCounter} ${rawComment || term('Rule')}`;
           }
 
-          const finalMode = t[modeLabel] || modeLabel;
-          outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -Tier ${tnum} ${locCat} - ${rulePart} - ${finalMode}==`);
+          const finalMode = term(modeLabel);
+          outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${tierDisplay} ${locCat} - ${rulePart} - ${finalMode}==`);
 
-          const cmd = isHideTier ? "Hide" : "Show";
+          const cmd = isHideTier ? HIDE_CMD : "Show";
           const btOp = isStrict ? " == " : " ";
           const blockLines = [
             `${cmd}`,
             `    BaseType${btOp}"${subgroup.join('" "')}"`
           ];
 
-          if (rule.conditions) {
-            Object.entries(rule.conditions).forEach(([key, val]: [string, any]) => {
-              if (Array.isArray(val)) {
-                // Repeated condition lines (AND), e.g. two HasInfluence lines
-                val.forEach((v: string) => blockLines.push(`    ${key} ${v}`));
-              } else if (typeof val === 'string' && val.startsWith("RANGE ")) {
-                const parts = val.split(" ");
-                if (parts.length >= 5) {
-                  blockLines.push(`    ${key} ${parts[1]} ${parts[2]}`);
-                  blockLines.push(`    ${key} ${parts[3]} ${parts[4]}`);
-                }
-              } else if (key === "Rarity") {
-                const cleanVal = val.replace(/==|=/g, "").trim();
-                blockLines.push(`    ${key} ${cleanVal}`);
-              } else {
-                blockLines.push(`    ${key} ${val}`);
-              }
-            });
-          }
+          emitConditions(blockLines, rule.conditions);
 
           if (rule.raw) {
             rule.raw.split('\n').forEach((l: string) => { if (l.trim()) blockLines.push(`    ${l.trim()}`); });
@@ -361,20 +449,25 @@ export const generateFilter = (data: GeneratorData): string => {
           if (subgroup.length === 0) continue;
 
           blockIndex++;
-          const finalMode = t[modeLabel] || modeLabel;
-          const baseLabel = t.Base || "Base";
-          outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -Tier ${tnum} ${locCat} - ${baseLabel} - ${finalMode}==`);
+          const finalMode = term(modeLabel);
+          const baseLabel = term('Base');
+          outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${tierDisplay} ${locCat} - ${baseLabel} - ${finalMode}==`);
 
-          const cmd = isHideTier ? "Hide" : "Show";
+          const cmd = isHideTier ? HIDE_CMD : "Show";
           const btOp = isStrict ? " == " : " ";
           const blockLines = [
             `${cmd}`,
-            `    BaseType${btOp}"${subgroup.join('" "')}"`, 
-            `    SetFontSize ${ttheme.FontSize || DEFAULT_FONT_SIZE}`,
-            `    SetTextColor ${baseTextCol}`,
-            `    SetBorderColor ${baseBorderCol}`,
-            `    SetBackgroundColor ${baseBgCol}`
+            `    BaseType${btOp}"${subgroup.join('" "')}"`
           ];
+
+          // Tier-level conditions (e.g. ItemLevel, Rarity, AreaLevel) — mirrors
+          // generate.py's base block. (Previously omitted on the TS side.)
+          emitConditions(blockLines, tierEntry.conditions);
+
+          blockLines.push(`    SetFontSize ${ttheme.FontSize || DEFAULT_FONT_SIZE}`);
+          blockLines.push(`    SetTextColor ${baseTextCol}`);
+          blockLines.push(`    SetBorderColor ${baseBorderCol}`);
+          blockLines.push(`    SetBackgroundColor ${baseBgCol}`);
 
           const soundLine = resolveSound(tierEntry, soundMap);
           if (soundLine) blockLines.push(`    ${soundLine}`);
