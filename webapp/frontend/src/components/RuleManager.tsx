@@ -1,17 +1,14 @@
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import axios from "axios";
-import {
-  useTranslation,
-  RULE_FACTOR_LOCALIZATION,
-  translations,
-  CLASS_KEY_MAP,
-} from "../utils/localization";
+import { useTranslation } from "../utils/localization";
 import type { Language } from "../utils/localization";
-import ItemCard from "./ItemCard";
+import RuleConditionEditor from "./RuleConditionEditor";
+import RuleThemeOverridesEditor from "./RuleThemeOverridesEditor";
+import RuleTargetManager from "./RuleTargetManager";
 import ContextMenu from "./ContextMenu";
 import SoundPicker from "./SoundPicker";
-import MinimapIconPicker, { getIconStyle, formatMinimapIcon } from "./MinimapIconPicker";
-import PlayEffectPicker, { formatPlayEffect } from "./PlayEffectPicker";
+import MinimapIconPicker from "./MinimapIconPicker";
+import PlayEffectPicker from "./PlayEffectPicker";
 import StylePresetPicker from "./StylePresetPicker";
 
 interface Item {
@@ -60,49 +57,6 @@ interface RuleManagerProps {
   } | null;
   soundMap?: any;
 }
-
-const ITEM_CLASSES = [
-  "Stackable Currency",
-  "Maps",
-  "Divination Cards",
-  "Skill Gems",
-  "Support Gems",
-  "Body Armours",
-  "Boots",
-  "Gloves",
-  "Helmets",
-  "Shields",
-  "Quivers",
-  "Amulets",
-  "Rings",
-  "Belts",
-  "Jewels",
-  "Abyss Jewels",
-  "Claws",
-  "Daggers",
-  "Rune Daggers",
-  "Wands",
-  "One Hand Swords",
-  "Thrusting One Hand Swords",
-  "One Hand Axes",
-  "One Hand Maces",
-  "Sceptres",
-  "Bows",
-  "Staves",
-  "Warstaves",
-  "Two Hand Swords",
-  "Two Hand Axes",
-  "Two Hand Maces",
-  "Life Flasks",
-  "Mana Flasks",
-  "Utility Flasks",
-  "Map Fragments",
-  "Scarabs",
-  "Expedition Logbooks",
-  "Contract",
-  "Blueprint",
-  "Relic",
-];
 
 const RuleManager: React.FC<RuleManagerProps> = ({
   tierKey,
@@ -528,450 +482,38 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                   </div>
 
                   {!rule.applyToTier && (
-                    <div className="target-manager">
-                      <div className="target-grid">
-                        {rule.targets.map((tName) => {
-                          const item = availableItems.find(
-                            (i) => i.name === tName,
-                          ) || {
-                            name: tName,
-                            name_ch: translationCache[tName],
-                          };
-                          const displayItem = {
-                            ...item,
-                            rule_index: undefined,
-                          };
-                          const matchMode =
-                            rule.targetMatchModes?.[tName] || "exact";
-                          
-                          // Check for sound overrides
-                          const soundKeys = ["CustomAlertSound", "AlertSound", "DropSound"];
-                          const soundOverrideKey = soundKeys.find(k => rule.overrides?.[k] && !rule.overrides[k].startsWith("disabled:"));
-                          const hasExplicitSound = !!soundOverrideKey;
-                          
-                          const handlePlaySound = () => {
-                              let file: string | null = null;
-                              let vol = 300;
-
-                              if (hasExplicitSound) {
-                                  const val = rule.overrides?.[soundOverrideKey!];
-                                  if (typeof val === 'string') {
-                                      if (val.match(/^\d+ \d+$/)) {
-                                          const parts = val.split(' ');
-                                          file = `Default/AlertSound${parts[0]}.mp3`;
-                                          vol = parseInt(parts[1]);
-                                      } else {
-                                          file = val;
-                                      }
-                                  } else if (Array.isArray(val)) {
-                                      file = val[0];
-                                      vol = val[1];
-                                  }
-                              }
-
-                              if (file) {
-                                  const url = `/sounds/${file.replace(/\\/g, '/')}`;
-                                  const audio = new Audio(url);
-                                  audio.volume = Math.min(Math.max(vol / 300, 0), 1);
-                                  audio.play().catch(e => console.error("Play failed", e));
-                              }
-                          };
-
-                          return (
-                            <ItemCard
-                              key={tName}
-                              item={displayItem}
-                              language={language}
-                              onDelete={() => removeTarget(globalIndex, tName)}
-                              onContextMenu={(e) =>
-                                handleItemRightClick(e, globalIndex, tName)
-                              }
-                              matchMode={matchMode}
-                              hasSound={hasExplicitSound}
-                              onPlaySound={handlePlaySound}
-                              className="compact-card"
-                            />
-                          );
-                        })}
-
-                        {rule.targets.length === 0 && (
-                          <div className="target-empty-hint">
-                            {t.targetTooltip}
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="add-target-box">
-                        <input
-                          type="text"
-                          placeholder={t.addItemTarget}
-                          value={targetSearch}
-                          onChange={(e) => setTargetSearch(e.target.value)}
-                        />
-                        {suggestions.length > 0 && (
-                          <ul className="suggestions-pop">
-                            {suggestions.map((s) => (
-                              <li
-                                key={s.name}
-                                onClick={() => { onRegisterTranslation?.(s.name, s.name_ch); addTarget(globalIndex, s.name); }}
-                              >
-                                <ItemCard
-                                  item={s}
-                                  language={language}
-                                  showStagedIndicator={false}
-                                />
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                    </div>
+                    <RuleTargetManager
+                      rule={rule}
+                      globalIndex={globalIndex}
+                      availableItems={availableItems}
+                      translationCache={translationCache}
+                      language={language}
+                      t={t}
+                      targetSearch={targetSearch}
+                      suggestions={suggestions}
+                      setTargetSearch={setTargetSearch}
+                      removeTarget={removeTarget}
+                      addTarget={addTarget}
+                      handleItemRightClick={handleItemRightClick}
+                      onRegisterTranslation={onRegisterTranslation}
+                    />
                   )}
 
                   <div className="section-divider">
                     <span>{t.conditions}</span>
                   </div>
 
-                  <div className="factors-mini-grid">
-                    {Object.entries(rule.conditions).map(
-                      ([key, currentVal]) => {
-                        const isRange = currentVal?.startsWith("RANGE ");
-                        const parts = isRange ? currentVal.split(" ") : [];
-                        const op1 = isRange
-                          ? parts[1]
-                          : currentVal?.match(/^[>=<!]+/)?.[0] || "";
-                        const v1 = isRange
-                          ? parts[2]
-                          : currentVal?.replace(/^[>=<!]+/, "");
-                        const op2 = isRange ? parts[3] : "";
-                        const v2 = isRange ? parts[4] : "";
-
-                        const tmp = ruleTemplates
-                          .flatMap((c) => c.templates)
-                          .find((t) => t.condition === key);
-
-                        const isBool =
-                          tmp?.type === "bool" ||
-                          (["True", "False"].includes(currentVal) &&
-                            [
-                              "corrupted",
-                              "mirrored",
-                              "identified",
-                              "fractureditem",
-                              "synthesiseditem",
-                              "blightedmap",
-                              "blightravagedmap",
-                              "vaalgem",
-                              "transfiguredgem",
-                            ].includes(key.toLowerCase()));
-
-                        const label =
-                          tmp?.label[language] ||
-                          RULE_FACTOR_LOCALIZATION[key]?.[language] ||
-                          key;
-                        const isSelect = tmp?.type === "select";
-                        const isClass = tmp?.type === "class_picker";
-                        const isText = tmp?.type === "text";
-
-                        const isPinging =
-                          localPing?.ruleIndex === globalIndex &&
-                          localPing?.conditionKey === key;
-
-                        return (
-                          <div
-                            key={`${key}-${localPing?.timestamp || "static"}`}
-                            className={`mini-factor ${isRange ? "range-factor" : ""} ${isPinging ? "pinging" : ""}`}
-                          >
-                            <div className="factor-header">
-                              <span>{label}</span>
-                              <button
-                                className="remove-factor-btn"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  updateCondition(
-                                    globalIndex,
-                                    key,
-                                    null as any,
-                                  );
-                                }}
-                              >
-                                ×
-                              </button>
-                            </div>
-                            <div className="inputs">
-                              {isBool ? (
-                                <select
-                                  value={currentVal || ""}
-                                  onChange={(e) =>
-                                    updateCondition(
-                                      globalIndex,
-                                      key,
-                                      e.target.value,
-                                    )
-                                  }
-                                  style={{ width: "100%" }}
-                                >
-                                  <option value="True">
-                                    {(translations[language] as any).true}
-                                  </option>
-                                  <option value="False">
-                                    {(translations[language] as any).false}
-                                  </option>
-                                </select>
-                              ) : isSelect ? (
-                                <select
-                                  value={currentVal}
-                                  onChange={(e) =>
-                                    updateCondition(
-                                      globalIndex,
-                                      key,
-                                      e.target.value,
-                                    )
-                                  }
-                                  style={{ width: "100%" }}
-                                >
-                                  {tmp.options.map((opt: string) => {
-                                    const locKey = opt.replace(/ /g, "_");
-                                    const locName =
-                                      (translations[language] as any)[opt] ||
-                                      (translations[language] as any)[locKey] ||
-                                      opt;
-                                    return (
-                                      <option key={opt} value={opt}>
-                                        {locName}
-                                      </option>
-                                    );
-                                  })}
-                                </select>
-                              ) : isText ? (
-                                <input
-                                  type="text"
-                                  value={currentVal}
-                                  placeholder={tmp.placeholder || ""}
-                                  onChange={(e) =>
-                                    updateCondition(
-                                      globalIndex,
-                                      key,
-                                      e.target.value,
-                                    )
-                                  }
-                                />
-                              ) : isClass ? (
-                                <div className="class-picker-ui">
-                                  <select
-                                    value={
-                                      ITEM_CLASSES.includes(currentVal)
-                                        ? currentVal
-                                        : "custom"
-                                    }
-                                    onChange={(e) =>
-                                      updateCondition(
-                                        globalIndex,
-                                        key,
-                                        e.target.value,
-                                      )
-                                    }
-                                  >
-                                    {ITEM_CLASSES.map((cls) => {
-                                      const locKey =
-                                        CLASS_KEY_MAP[cls] ||
-                                        cls.replace(/ /g, "_");
-                                      const locName =
-                                        (translations[language] as any)[
-                                          locKey
-                                        ] || cls;
-                                      return (
-                                        <option key={cls} value={cls}>
-                                          {locName}
-                                        </option>
-                                      );
-                                    })}
-                                    <option value="custom">
-                                      --{" "}
-                                      {(translations[language] as any).custom}{" "}
-                                      --
-                                    </option>
-                                  </select>
-                                  {!ITEM_CLASSES.includes(currentVal) && (
-                                    <input
-                                      type="text"
-                                      value={
-                                        currentVal === "custom"
-                                          ? ""
-                                          : currentVal
-                                      }
-                                      placeholder={
-                                        (translations[language] as any).search
-                                      }
-                                      onChange={(e) =>
-                                        updateCondition(
-                                          globalIndex,
-                                          key,
-                                          e.target.value,
-                                        )
-                                      }
-                                      className="mt-5"
-                                    />
-                                  )}
-                                </div>
-                              ) : (
-                                <div className="op-val-pair">
-                                  {!isRange ? (
-                                    <>
-                                      <select
-                                        value={op1}
-                                        onChange={(e) => {
-                                          const newOp = e.target.value;
-                                          if (newOp === "RANGE")
-                                            updateCondition(
-                                              globalIndex,
-                                              key,
-                                              `RANGE >= ${v1} <= 100`,
-                                            );
-                                          else
-                                            updateCondition(
-                                              globalIndex,
-                                              key,
-                                              `${newOp}${v1}`,
-                                            );
-                                        }}
-                                      >
-                                        <option value=">=">&gt;=</option>
-                                        <option value="<=">&lt;=</option>
-                                        <option value="==">==</option>
-                                        <option value=">">&gt;</option>
-                                        <option value="<">&lt;</option>
-                                        <option value="RANGE">
-                                          {t.rangeBetween}
-                                        </option>
-                                      </select>
-                                      <input
-                                        type="text"
-                                        value={v1}
-                                        onChange={(e) =>
-                                          updateCondition(
-                                            globalIndex,
-                                            key,
-                                            `${op1}${e.target.value}`,
-                                          )
-                                        }
-                                      />
-                                    </>
-                                  ) : (
-                                    <div className="range-controls-row">
-                                      <div className="range-half">
-                                        <select
-                                          value={op1}
-                                          onChange={(e) =>
-                                            updateCondition(
-                                              globalIndex,
-                                              key,
-                                              `RANGE ${e.target.value} ${v1} ${op2} ${v2}`,
-                                            )
-                                          }
-                                        >
-                                          <option value=">=">&gt;=</option>
-                                          <option value=">">&gt;</option>
-                                        </select>
-                                        <input
-                                          type="text"
-                                          value={v1}
-                                          onChange={(e) =>
-                                            updateCondition(
-                                              globalIndex,
-                                              key,
-                                              `RANGE ${op1} ${e.target.value} ${op2} ${v2}`,
-                                            )
-                                          }
-                                        />
-                                      </div>
-                                      <span className="range-sep">AND</span>
-                                      <div className="range-half">
-                                        <select
-                                          value={op2}
-                                          onChange={(e) =>
-                                            updateCondition(
-                                              globalIndex,
-                                              key,
-                                              `RANGE ${op1} ${v1} ${e.target.value} ${v2}`,
-                                            )
-                                          }
-                                        >
-                                          <option value="<=">&lt;=</option>
-                                          <option value="<">&lt;</option>
-                                        </select>
-                                        <input
-                                          type="text"
-                                          value={v2}
-                                          onChange={(e) =>
-                                            updateCondition(
-                                              globalIndex,
-                                              key,
-                                              `RANGE ${op1} ${v1} ${op2} ${e.target.value}`,
-                                            )
-                                          }
-                                        />
-                                      </div>
-                                      <button
-                                        className="range-back-btn"
-                                        onClick={() =>
-                                          updateCondition(
-                                            globalIndex,
-                                            key,
-                                            `>= ${v1}`,
-                                          )
-                                        }
-                                      >
-                                        ×
-                                      </button>
-                                    </div>
-                                  )}
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        );
-                      },
-                    )}
-
-                    <div className="mini-factor add-condition-card">
-                      <span>+ {t.conditions}</span>
-                      <select
-                        value=""
-                        onChange={(e) =>
-                          addCondition(globalIndex, e.target.value)
-                        }
-                        className="add-cond-select"
-                      >
-                        <option value="" disabled>
-                          {t.addItemTarget}
-                        </option>
-                        {(() => {
-                          const opt = (f: any) => (
-                            <option key={f.key} value={f.key}>
-                              {RULE_FACTOR_LOCALIZATION[f.key]?.[language] || f.label}
-                            </option>
-                          );
-                          const rec = relevantFactors.recommended.filter((f) => rule.conditions[f.key] === undefined);
-                          const oth = relevantFactors.others.filter((f) => rule.conditions[f.key] === undefined);
-                          return (
-                            <>
-                              {rec.length > 0 && (
-                                <optgroup label={language === 'ch' ? '推荐 (本类别)' : 'Recommended'}>
-                                  {rec.map(opt)}
-                                </optgroup>
-                              )}
-                              {oth.length > 0 && (
-                                <optgroup label={language === 'ch' ? '其他全部' : 'All others'}>
-                                  {oth.map(opt)}
-                                </optgroup>
-                              )}
-                            </>
-                          );
-                        })()}
-                      </select>
-                    </div>
-                  </div>
+                  <RuleConditionEditor
+                    rule={rule}
+                    globalIndex={globalIndex}
+                    language={language}
+                    t={t}
+                    ruleTemplates={ruleTemplates}
+                    relevantFactors={relevantFactors}
+                    localPing={localPing}
+                    updateCondition={updateCondition}
+                    addCondition={addCondition}
+                  />
 
                   <div className="section-divider">
                     <span>{t.themeOverrides}</span>
@@ -986,186 +528,13 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                     )}
                   </div>
 
-                  <div className="theme-overrides-grid">
-                    {["TextColor", "BackgroundColor", "BorderColor"].map(
-                      (key) => {
-                        const label =
-                          key === "TextColor"
-                            ? t.text
-                            : key === "BackgroundColor"
-                              ? t.background
-                              : t.border;
-                        const hexToRgba = (hex: string) => `${hex}ff`;
-                        const rgbaToHex = (rgba: string) =>
-                          rgba?.startsWith("disabled:")
-                            ? rgba.split(":")[1].substring(0, 7)
-                            : rgba?.substring(0, 7) || "#000000";
-                        const val = rule.overrides?.[key];
-                        const isActive = !!val && !val.startsWith("disabled:");
-
-                        return (
-                          <div key={key} className="color-override-item">
-                            <label>{label}</label>
-                            <div className="color-input-group">
-                              <input
-                                type="color"
-                                value={rgbaToHex(val)}
-                                disabled={!isActive}
-                                onChange={(e) => {
-                                  const newOverrides = {
-                                    ...rule.overrides,
-                                    [key]: hexToRgba(e.target.value),
-                                  };
-                                  handleUpdateRule(globalIndex, {
-                                    ...rule,
-                                    overrides: newOverrides,
-                                  });
-                                }}
-                              />
-                              <button
-                                className={`toggle-override-btn ${isActive ? "active" : ""}`}
-                                onClick={() => {
-                                  const nextOverrides = { ...rule.overrides };
-                                  if (isActive) delete nextOverrides[key];
-                                  else
-                                    nextOverrides[key] =
-                                      key === "BackgroundColor"
-                                        ? "#000000ff"
-                                        : "#ffffffff";
-                                  handleUpdateRule(globalIndex, {
-                                    ...rule,
-                                    overrides: nextOverrides,
-                                  });
-                                }}
-                              >
-                                {isActive ? "ON" : "OFF"}
-                              </button>
-                            </div>
-                          </div>
-                        );
-                      },
-                    )}
-
-                    {/* Font Size override */}
-                    {(() => {
-                      const active =
-                        rule.overrides?.FontSize !== undefined &&
-                        rule.overrides?.FontSize !== null;
-                      const setFont = (next: number | null) => {
-                        const nextOverrides = { ...rule.overrides };
-                        if (next === null) delete nextOverrides.FontSize;
-                        else nextOverrides.FontSize = next;
-                        handleUpdateRule(globalIndex, {
-                          ...rule,
-                          overrides: nextOverrides,
-                        });
-                      };
-                      return (
-                        <div className="color-override-item">
-                          <label>{t.fontSize}</label>
-                          <div className="color-input-group">
-                            <input
-                              type="range"
-                              min="12"
-                              max="45"
-                              disabled={!active}
-                              value={rule.overrides?.FontSize ?? 32}
-                              onChange={(e) =>
-                                setFont(parseInt(e.target.value))
-                              }
-                              style={{ flex: 1 }}
-                            />
-                            <span className="font-val">
-                              {active ? rule.overrides.FontSize : "—"}
-                            </span>
-                            <button
-                              className={`toggle-override-btn ${active ? "active" : ""}`}
-                              onClick={() => setFont(active ? null : 32)}
-                            >
-                              {active ? "ON" : "OFF"}
-                            </button>
-                          </div>
-                        </div>
-                      );
-                    })()}
-
-                    {/* Sound override */}
-                    <div className="color-override-item">
-                      <label>{t.sound}</label>
-                      <div
-                        className="override-picker-box"
-                        onClick={() =>
-                          setStylePicker({ index: globalIndex, type: "sound" })
-                        }
-                      >
-                        <span className="override-icon">🎵</span>
-                        <span className="override-name">
-                          {Array.isArray(rule.overrides?.PlayAlertSound)
-                            ? rule.overrides.PlayAlertSound[0]
-                                .split("/")
-                                .pop()
-                            : t.none}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Minimap Icon override */}
-                    <div className="color-override-item">
-                      <label>{t.minimapIcon}</label>
-                      <div
-                        className="override-picker-box"
-                        onClick={() =>
-                          setStylePicker({ index: globalIndex, type: "icon" })
-                        }
-                      >
-                        {rule.overrides?.MinimapIcon ? (
-                          <div
-                            style={getIconStyle(
-                              rule.overrides.MinimapIcon.split(" ")[1],
-                              rule.overrides.MinimapIcon.split(" ")[2],
-                              0.7,
-                            )}
-                          ></div>
-                        ) : (
-                          <span className="override-icon">📍</span>
-                        )}
-                        <span className="override-name">
-                          {rule.overrides?.MinimapIcon
-                            ? formatMinimapIcon(rule.overrides.MinimapIcon, t)
-                            : t.none}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Drop Effect override */}
-                    <div className="color-override-item">
-                      <label>{t.dropEffect}</label>
-                      <div
-                        className="override-picker-box"
-                        onClick={() =>
-                          setStylePicker({ index: globalIndex, type: "effect" })
-                        }
-                      >
-                        {rule.overrides?.PlayEffect ? (
-                          <span
-                            className="effect-swatch"
-                            style={{
-                              background: rule.overrides.PlayEffect.split(
-                                " ",
-                              )[0].toLowerCase(),
-                            }}
-                          ></span>
-                        ) : (
-                          <span className="override-icon">✨</span>
-                        )}
-                        <span className="override-name">
-                          {rule.overrides?.PlayEffect
-                            ? formatPlayEffect(rule.overrides.PlayEffect, t)
-                            : t.none}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                  <RuleThemeOverridesEditor
+                    rule={rule}
+                    globalIndex={globalIndex}
+                    t={t}
+                    handleUpdateRule={handleUpdateRule}
+                    setStylePicker={setStylePicker}
+                  />
 
                   <div className="section-divider">
                     <span>{t.rawText}</span>
