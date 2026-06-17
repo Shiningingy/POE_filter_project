@@ -21,7 +21,8 @@ import TierItemManager from "./TierItemManager";
 import BulkTierEditor from "./BulkTierEditor";
 import RuleManager from "./RuleManager";
 import SortableTierBlock from "./SortableTierBlock";
-import ContextMenu from "./ContextMenu";
+import TierContextMenu from "./TierContextMenu";
+import CategoryRenameModal from "./CategoryRenameModal";
 import LoadingOverlay from "./LoadingOverlay";
 import { invalidateTierLabelMap } from "../utils/tierLabels";
 import { resolveStyle } from "../utils/styleResolver";
@@ -892,98 +893,50 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       )}
 
       {contextMenu.visible && (
-        <ContextMenu
+        <TierContextMenu
           x={contextMenu.x}
           y={contextMenu.y}
-          onClose={() => setContextMenu({ ...contextMenu, visible: false })}
+          tierKey={contextMenu.tierKey}
+          hasClipboard={!!tierClipboard}
           language={language}
-          options={[
-            ...(contextMenu.tierKey
-              ? [
-                  {
-                    label: `✎ ${t.renameTier}`,
-                    onClick: () => openRenameModal(contextMenu.tierKey!),
-                  },
-                  {
-                    label: t.copyTier,
-                    onClick: () => {
-                      const data = activeCategoryData[contextMenu.tierKey!];
-                      setTierClipboard(data);
-                    },
-                  },
-                  {
-                    label: t.deleteTier,
-                    onClick: () => handleDeleteTier(contextMenu.tierKey!),
-                  },
-                  { divider: true, label: "", onClick: () => {} },
-                ]
-              : []),
-            {
-              label: t.insertBefore,
-              onClick: () =>
-                contextMenu.index !== undefined
-                  ? handleInsertTier(contextMenu.index, "before")
-                  : handleInsertTier(0, "before"),
-            },
-            {
-              label: t.insertAfter,
-              onClick: () =>
-                contextMenu.index !== undefined
-                  ? handleInsertTier(contextMenu.index, "after")
-                  : handleInsertTier(sortedTierKeys.length, "after"),
-            },
-            {
-              label: t.pasteTier,
-              onClick: () =>
-                contextMenu.index !== undefined
-                  ? handleInsertTier(
-                      contextMenu.index + 1,
-                      "before",
-                      tierClipboard,
-                    )
-                  : handleInsertTier(
-                      sortedTierKeys.length,
-                      "after",
-                      tierClipboard,
-                    ),
-              className: !tierClipboard ? "disabled" : "",
-            },
-          ]}
+          onClose={() => setContextMenu({ ...contextMenu, visible: false })}
+          onRename={(tk) => openRenameModal(tk)}
+          onCopy={(tk) => setTierClipboard(activeCategoryData[tk])}
+          onDelete={(tk) => handleDeleteTier(tk)}
+          onInsertBefore={() =>
+            contextMenu.index !== undefined
+              ? handleInsertTier(contextMenu.index, "before")
+              : handleInsertTier(0, "before")
+          }
+          onInsertAfter={() =>
+            contextMenu.index !== undefined
+              ? handleInsertTier(contextMenu.index, "after")
+              : handleInsertTier(sortedTierKeys.length, "after")
+          }
+          onPaste={() =>
+            contextMenu.index !== undefined
+              ? handleInsertTier(contextMenu.index + 1, "before", tierClipboard)
+              : handleInsertTier(sortedTierKeys.length, "after", tierClipboard)
+          }
         />
       )}
 
       {renameModal && (
-        <div className="rename-overlay" onClick={() => setRenameModal(null)}>
-          <div className="rename-modal" onClick={(e) => e.stopPropagation()}>
-            <h4>{t.renameTier}</h4>
-            <div className="rename-key">{renameModal.tierKey}</div>
-            <input
-              type="text"
-              autoFocus
-              value={renameModal.name}
-              onChange={(e) =>
-                setRenameModal({ ...renameModal, name: e.target.value })
-              }
-              placeholder={(() => {
-                const td = activeCategoryData?.[renameModal.tierKey];
-                const tNum = td?.theme?.Tier ?? "?";
-                return language === "ch"
-                  ? `T${tNum} ${catName}`
-                  : `Tier ${tNum} ${catName}`;
-              })()}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") saveRename();
-              }}
-            />
-            <div className="rename-hint">{t.renameTierHint}</div>
-            <div className="rename-actions">
-              <button className="rename-cancel" onClick={() => setRenameModal(null)}>{t.cancel}</button>
-              <button className="rename-save" onClick={saveRename}>
-                {t.save}
-              </button>
-            </div>
-          </div>
-        </div>
+        <CategoryRenameModal
+          tierKey={renameModal.tierKey}
+          name={renameModal.name}
+          placeholder={(() => {
+            const td = activeCategoryData?.[renameModal.tierKey];
+            const tNum = td?.theme?.Tier ?? "?";
+            return language === "ch"
+              ? `T${tNum} ${catName}`
+              : `Tier ${tNum} ${catName}`;
+          })()}
+          language={language}
+          onNameChange={(name) => setRenameModal({ ...renameModal, name })}
+          onSave={saveRename}
+          onCancel={() => setRenameModal(null)}
+        />
       )}
 
       <style>{`

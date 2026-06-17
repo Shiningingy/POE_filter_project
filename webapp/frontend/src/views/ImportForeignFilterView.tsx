@@ -11,6 +11,9 @@ import type { ItemProps } from '../utils/simulatorEngine';
 import SoundPicker from '../components/SoundPicker';
 import MinimapIconPicker, { getIconStyle } from '../components/MinimapIconPicker';
 import PlayEffectPicker from '../components/PlayEffectPicker';
+import FilterToolbar from './iff/FilterToolbar';
+import BulkActionBar from './iff/BulkActionBar';
+import FilterSimulator from './iff/FilterSimulator';
 import {
   parseFilter,
   serializeFilter,
@@ -334,19 +337,6 @@ const ImportForeignFilterView = ({ language }: Props) => {
     if (simOpen && !drops.length && !dataLoading && liveBlocks.length && Object.keys(itemPools).length) generateDrops();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [simOpen, dataLoading, itemPools]);
-
-  // CSS plate style for a dropped item from its matched block (or default).
-  const dropPlateStyle = (b: FilterBlock | null) => {
-    if (!b) return { color: '#fff', borderColor: 'rgba(255,255,255,0.45)', background: 'rgba(0,0,0,0.55)', fontSize: '15px' };
-    const fs = valsOf(b, 'SetFontSize');
-    const fontSize = Math.max(11, Math.min(34, (fs.length ? parseInt(fs[0], 10) || 32 : 32) * 0.5));
-    return {
-      color: toCssRgba(valsOf(b, 'SetTextColor'), 'rgba(220,220,220,1)'),
-      borderColor: toCssRgba(valsOf(b, 'SetBorderColor'), 'rgba(0,0,0,0)'),
-      background: toCssRgba(valsOf(b, 'SetBackgroundColor'), 'rgba(0,0,0,0.5)'),
-      fontSize: `${fontSize}px`,
-    };
-  };
 
   // -------------------------------------------------------------------------
   // Import / clear / export
@@ -762,81 +752,51 @@ const ImportForeignFilterView = ({ language }: Props) => {
         </div>
       ) : (
         <>
-          <div className="iff-toolbar">
-            <span className="iff-fname" title={fileName}>{fileName}</span>
-            <span className="iff-stat">{stats.total} {isCh ? '条规则' : 'blocks'}</span>
-            <span className="iff-stat show">▸ {stats.show}</span>
-            <span className="iff-stat hide">▾ {stats.hide}</span>
-            <input className="iff-search" placeholder={isCh ? '筛选规则…' : 'Filter blocks…'} value={query} onChange={(e) => setQuery(e.target.value)} />
-            <div className="iff-spacer" />
-            <button className={`iff-btn ${simOpen ? 'primary' : ''}`} onClick={() => setSimOpen((v) => !v)}>▶ {isCh ? '模拟' : 'Simulate'}</button>
-            <button className="iff-btn" onClick={() => addBlockAt(0)}>+ {isCh ? '规则' : 'Rule'}</button>
-            <button className={`iff-btn ${selectMode ? 'primary' : ''}`} onClick={() => { setSelectMode((v) => !v); setSelected(new Set()); }}>
-              {selectMode ? (isCh ? '退出选择' : 'Done') : (isCh ? '选择' : 'Select')}
-            </button>
-            <button className="iff-btn" onClick={() => fileInputRef.current?.click()}>{isCh ? '重新选择' : 'Replace'}</button>
-            <button className="iff-btn primary" onClick={reExport}>{isCh ? '导出 .filter' : 'Export .filter'}</button>
-            <button className="iff-btn danger" onClick={clearAll}>{isCh ? '清除' : 'Clear'}</button>
-          </div>
+          <FilterToolbar
+            fileName={fileName}
+            stats={stats}
+            query={query}
+            simOpen={simOpen}
+            selectMode={selectMode}
+            language={language}
+            onQueryChange={setQuery}
+            onToggleSim={() => setSimOpen((v) => !v)}
+            onAddRule={() => addBlockAt(0)}
+            onToggleSelect={() => { setSelectMode((v) => !v); setSelected(new Set()); }}
+            onReplace={() => fileInputRef.current?.click()}
+            onExport={reExport}
+            onClear={clearAll}
+          />
 
           {selectMode && (
-            <div className="iff-bulkbar">
-              <span className="iff-bulk-count">{selected.size} {isCh ? '已选' : 'selected'}</span>
-              <button className="iff-bulk-act" onClick={() => bulkAction('Show')}>{isCh ? '显示' : 'Show'}</button>
-              <button className="iff-bulk-act" onClick={() => bulkAction('Hide')}>{isCh ? '隐藏' : 'Hide'}</button>
-              <span className="iff-bulk-sep" />
-              <label className="iff-bulk-color">{isCh ? '文字' : 'Text'}<input type="color" onChange={(e) => bulkStyle('SetTextColor', [...hexToRgb(e.target.value), '255'])} /></label>
-              <label className="iff-bulk-color">{isCh ? '边框' : 'Border'}<input type="color" onChange={(e) => bulkStyle('SetBorderColor', [...hexToRgb(e.target.value), '255'])} /></label>
-              <label className="iff-bulk-color">{isCh ? '背景' : 'BG'}<input type="color" onChange={(e) => bulkStyle('SetBackgroundColor', [...hexToRgb(e.target.value), '255'])} /></label>
-              <span className="iff-bulk-sep" />
-              <button className="iff-bulk-act" disabled={!selected.size} onClick={() => setPicker({ kind: 'sound', target: 'bulk' })}>{isCh ? '音效' : 'Sound'}</button>
-              <button className="iff-bulk-act" disabled={!selected.size} onClick={() => setPicker({ kind: 'icon', target: 'bulk' })}>{isCh ? '图标' : 'Icon'}</button>
-              <button className="iff-bulk-act" disabled={!selected.size} onClick={() => setPicker({ kind: 'beam', target: 'bulk' })}>{isCh ? '光柱' : 'Beam'}</button>
-              <span className="iff-bulk-sep" />
-              <button className="iff-bulk-act danger" disabled={!selected.size} onClick={deleteSelected}>{isCh ? '删除' : 'Delete'}</button>
-            </div>
+            <BulkActionBar
+              selectedCount={selected.size}
+              language={language}
+              onShow={() => bulkAction('Show')}
+              onHide={() => bulkAction('Hide')}
+              onColor={(keyword, hex) => bulkStyle(keyword, [...hexToRgb(hex), '255'])}
+              onSound={() => setPicker({ kind: 'sound', target: 'bulk' })}
+              onIcon={() => setPicker({ kind: 'icon', target: 'bulk' })}
+              onBeam={() => setPicker({ kind: 'beam', target: 'bulk' })}
+              onDelete={deleteSelected}
+            />
           )}
 
           {simOpen && (
-            <div className="iff-sim">
-              <div className="iff-sim-controls">
-                <label className="iff-sim-lbl">{isCh ? '区域等级' : 'Area Level'}
-                  <input type="number" min={1} max={100} value={areaLevel}
-                    onChange={(e) => setAreaLevel(Math.max(1, Math.min(100, parseInt(e.target.value) || 1)))} />
-                </label>
-                <label className="iff-sim-lbl">{isCh ? '数量' : 'Drops'}
-                  <input type="number" min={1} max={60} value={dropCount}
-                    onChange={(e) => setDropCount(Math.max(1, Math.min(60, parseInt(e.target.value) || 1)))} />
-                </label>
-                <button className="iff-btn primary" disabled={dataLoading || !liveBlocks.length} onClick={generateDrops}>{isCh ? '生成掉落' : 'Generate'}</button>
-                <button className="iff-btn" onClick={() => setDrops([])}>{isCh ? '清空' : 'Clear'}</button>
-                <div className="iff-spacer" />
-                {dataLoading
-                  ? <span className="iff-sim-note">{isCh ? '物品数据加载中…' : 'loading item data…'}</span>
-                  : <span className="iff-sim-note">{drops.length - hiddenCount} {isCh ? '可见' : 'visible'} · {hiddenCount} {isCh ? '隐藏（灰显）' : 'hidden (greyed)'} · {isCh ? '点击物品跳到规则' : 'click an item to jump to its rule'}</span>}
-              </div>
-              <div className="iff-ground">
-                {drops.map((d, k) => {
-                  const hidden = !!d.match?.hidden;
-                  const ic = !hidden && d.match ? valsOf(d.match.block, 'MinimapIcon') : [];
-                  return (
-                    <div key={k} className={`iff-drop ${hidden ? 'is-hidden' : ''}`} style={{ left: `${d.x}%`, top: `${d.y}%` }}
-                      title={hidden
-                        ? (isCh ? '此物品会被过滤器隐藏' : 'hidden by the filter')
-                        : (d.match ? `${d.match.block.action} — ${(d.match.block.inlineComment || '').trim()}` : (isCh ? '无匹配（默认样式）' : 'no match (default style)'))}
-                      onClick={() => { if (d.elementIndex != null) { setSimOpen(false); setTimeout(() => scrollTo(d.elementIndex!), 60); } }}>
-                      <div className="iff-plate" style={hidden
-                        ? { color: '#8a8a8a', borderColor: 'rgba(120,120,120,0.25)', background: 'rgba(0,0,0,0.3)', fontSize: '12px' }
-                        : dropPlateStyle(d.match?.block ?? null)}>
-                        {ic.length >= 2 && <span style={getIconStyle(ic[1] || 'Grey', ic[2] || 'Circle', 0.6)} />}
-                        {language === 'ch' ? (d.item.name_ch || d.item.name) : d.item.name}
-                      </div>
-                    </div>
-                  );
-                })}
-                {!drops.length && <div className="iff-ground-empty">{isCh ? '点击“生成掉落”，查看该过滤器如何渲染随机掉落物。' : 'Press Generate to see how this filter renders random drops.'}</div>}
-              </div>
-            </div>
+            <FilterSimulator
+              areaLevel={areaLevel}
+              dropCount={dropCount}
+              drops={drops}
+              hiddenCount={hiddenCount}
+              dataLoading={dataLoading}
+              canGenerate={!!liveBlocks.length}
+              language={language}
+              onAreaLevelChange={setAreaLevel}
+              onDropCountChange={setDropCount}
+              onGenerate={generateDrops}
+              onClear={() => setDrops([])}
+              onJumpToBlock={(elementIndex) => { setSimOpen(false); setTimeout(() => scrollTo(elementIndex), 60); }}
+            />
           )}
           <div className="iff-main" style={{ display: simOpen ? 'none' : 'flex' }}>
             <div className="iff-outline">
