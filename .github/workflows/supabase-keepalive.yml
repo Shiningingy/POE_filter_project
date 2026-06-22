@@ -1,0 +1,49 @@
+name: Supabase keep-alive
+
+# Free-tier Supabase pauses a project after ~7 days without external API
+# traffic. This makes a tiny REST request every 3 days so the project stays
+# warm. Internal pg_cron jobs do NOT count as activity — the ping must come
+# from outside, which is why this lives in GitHub Actions, not the database.
+#
+# Reuses the same repo *Variables* the deploy uses (Settings → Secrets and
+# variables → Actions → Variables): VITE_SUPABASE_URL + VITE_SUPABASE_ANON_KEY.
+# The anon/publishable key is public-by-design (it ships in the frontend
+# bundle), so it's fine to reference here.
+#
+# NOTE: scheduled workflows only run from the repository's DEFAULT branch
+# (main). This file must be committed to main to fire on schedule.
+
+on:
+  schedule:
+    # 07:00 UTC every 3 days — comfortably inside the ~7-day pause window.
+    - cron: '0 7 */3 * *'
+  workflow_dispatch: {}   # lets you run it on demand from the Actions tab
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        env:
+          SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "::error::VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY repo Variables are not set."
+            exit 1
+          fi
+          # A real DB round-trip through PostgREST. Under RLS the anon role
+          # sees no rows and gets 200 with [], which is all we need — it still
+          # counts as project traffic and proves the database is reachable.
+          code=$(curl -sS -o /dev/null -w '%{http_code}' \
+            --retry 3 --retry-delay 10 --max-time 30 \
+            "$SUPABASE_URL/rest/v1/submissions?select=id&limit=1" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY")
+          echo "HTTP $code"
+          # 200 = ok. Treat any 2xx as success; fail otherwise so a broken
+          # key or a still-paused project surfaces as a red run.
+          case "$code" in
+            2*) echo "Supabase is awake."; exit 0 ;;
+            *)  echo "::error::Unexpected status $code from Supabase."; exit 1 ;;
+          esac
