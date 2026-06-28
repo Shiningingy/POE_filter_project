@@ -29,6 +29,7 @@ import { resolveStyle } from "../utils/styleResolver";
 import { useTranslation, translations } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import tierTemplate from "../config/tierTemplate.json";
+import { STRICTNESS_LEVELS, type StrictnessLevel } from "../utils/filterGenerator";
 
 interface TierItem {
   name: string;
@@ -64,6 +65,7 @@ interface CategoryViewProps {
   soundMap?: any;
   themeData?: any;
   categoryClass?: string | null;
+  strictness?: StrictnessLevel;
 }
 
 const CategoryView: React.FC<CategoryViewProps> = ({
@@ -82,8 +84,15 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   soundMap,
   themeData,
   categoryClass,
+  strictness,
 }) => {
   const t = useTranslation(language);
+  const strictnessIdx = Math.max(0, (STRICTNESS_LEVELS as readonly string[]).indexOf(strictness ?? 'soft'));
+  // Effective hidden state at the currently-selected strictness (preview only):
+  // a dedicated hide bucket, or a strictness gate that the current level reaches.
+  const tierHidden = (td: any): boolean =>
+    !!td?.is_hide_tier ||
+    (typeof td?.hide_at_strictness === 'number' && strictnessIdx >= td.hide_at_strictness);
   // const [themeData, setThemeData] = useState<any>(null); // Lifted to EditorView
   // const [soundMap, setSoundMap] = useState<any>(null); // Lifted
   const [parsedConfig, setParsedConfig] = useState<any>(null);
@@ -255,7 +264,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   const handleTierUpdate = (
     tierKey: string,
     newStyle: any,
-    newVisibility: boolean,
+    gate: number | null,
     themeCategory: string,
   ) => {
     if (!activeCategoryKey) return;
@@ -265,7 +274,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       ...currentTheme,
       ...newStyle,
     };
-    newConfig[activeCategoryKey][tierKey].hideable = newVisibility;
+    if (gate === null) delete newConfig[activeCategoryKey][tierKey].hide_at_strictness;
+    else newConfig[activeCategoryKey][tierKey].hide_at_strictness = gate;
     updateConfig(newConfig);
 
     const displayTierName =
@@ -289,7 +299,37 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         themeCategory,
         soundMap,
       ),
-      visibility: newVisibility,
+      visibility: tierHidden(newConfig[activeCategoryKey][tierKey]),
+      category: themeCategory,
+      rules: getAugmentedRules(baseRules, items),
+      baseTypes: items.map((i) => i.name),
+    });
+  };
+
+  // Toggle the hideable guard. Protecting a tier also clears any strictness gate,
+  // so a protected tier can never be hidden (guard is enforced here, in authoring).
+  const handleToggleProtect = (tierKey: string, themeCategory: string) => {
+    if (!activeCategoryKey) return;
+    const newConfig = JSON.parse(JSON.stringify(parsedConfig));
+    const td = newConfig[activeCategoryKey][tierKey];
+    if (td.hideable === false) {
+      td.hideable = true;             // unprotect → tier becomes gateable
+    } else {
+      td.hideable = false;            // protect → never hide
+      delete td.hide_at_strictness;   // drop any gate so it can't hide
+    }
+    updateConfig(newConfig);
+
+    const items = derivedTierItems[tierKey] || [];
+    const baseRules =
+      newConfig[activeCategoryKey].rules ||
+      newConfig[activeCategoryKey]._meta?.rules ||
+      [];
+    onInspectTier({
+      key: tierKey,
+      name: td.localization?.[language] || tierKey,
+      style: resolveStyle(td, themeData, themeCategory, soundMap),
+      visibility: tierHidden(td),
       category: themeCategory,
       rules: getAugmentedRules(baseRules, items),
       baseTypes: items.map((i) => i.name),
@@ -525,7 +565,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         key: tierKey,
         name: tierName,
         style: resolveStyle(tierData, themeData, themeCategory, soundMap),
-        visibility: !!tierData.hideable,
+        visibility: tierHidden(tierData),
         category: themeCategory,
         rules: newRules.filter(
           (r: any) =>
@@ -765,7 +805,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                       key: tierKey,
                       name: displayTierName,
                       style: resolved,
-                      visibility: !!tierData.hideable,
+                      visibility: tierHidden(tierData),
                       category: themeCategory,
                       rules: getAugmentedRules(
                         activeCategoryData.rules ||
@@ -788,21 +828,24 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                   <TierStyleEditor
                     tierName={displayTierName}
                     style={resolved}
-                    visibility={!!tierData.hideable}
+                    visibility={tierHidden(tierData)}
+                    gate={tierData.hide_at_strictness ?? null}
                     canHide={tierData.show_in_editor !== false}
+                    isProtected={tierData.hideable === false}
                     themeData={themeData}
                     themeCategory={themeCategory}
                     onRename={() => openRenameModal(tierKey)}
-                    onChange={(newStyle, newVis) =>
-                      handleTierUpdate(tierKey, newStyle, newVis, themeCategory)
+                    onChange={(newStyle, gate) =>
+                      handleTierUpdate(tierKey, newStyle, gate, themeCategory)
                     }
+                    onToggleProtect={() => handleToggleProtect(tierKey, themeCategory)}
                     language={language}
                     onInspect={() =>
                       onInspectTier({
                         key: tierKey,
                         name: displayTierName,
                         style: resolved,
-                        visibility: !!tierData.hideable,
+                        visibility: tierHidden(tierData),
                         category: themeCategory,
                         rules: getAugmentedRules(
                           activeCategoryData.rules ||

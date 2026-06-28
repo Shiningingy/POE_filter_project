@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import { useTranslation } from './utils/localization';
 import type { Language } from './utils/localization';
+import { STRICTNESS_LEVELS, type StrictnessLevel } from './utils/filterGenerator';
 import EditorView from './views/EditorView';
 import SimulatorView from './views/SimulatorView';
 import ExportView from './views/ExportView';
@@ -27,6 +28,7 @@ function App() {
   const [language, setLanguage] = useState<Language>('ch');
   const [gameVersion, setGameVersion] = useState<'poe1' | 'poe2'>('poe1');
   const [gameMode, setGameMode] = useState<'normal' | 'ruthless'>('ruthless');
+  const [strictness, setStrictness] = useState<StrictnessLevel>('soft');
   const t = useTranslation(language);
 
   // First-visit welcome + in-app manual reader
@@ -112,7 +114,8 @@ function App() {
       setMessage(t.generating);
       const response = await axios.post(`${API_BASE_URL}/api/generate`, {
         game_version: gameVersion,
-        game_mode: gameMode
+        game_mode: gameMode,
+        strictness
       });
       setMessage(`${t.generatedSuccess}\n${response.data.output || ''}`);
       return await fetchFilterPreview();
@@ -178,6 +181,17 @@ function App() {
                     </select>
                 </div>
             )}
+
+            {gameVersion === 'poe1' && (
+                <div className="switch-group">
+                    <label>{t.strictness}:</label>
+                    <select value={strictness} onChange={(e) => setStrictness(e.target.value as StrictnessLevel)}>
+                        {STRICTNESS_LEVELS.map((lvl) => (
+                            <option key={lvl} value={lvl}>{t.strictnessLevels[lvl]}</option>
+                        ))}
+                    </select>
+                </div>
+            )}
         </div>
 
         <div className="nav-links">
@@ -216,6 +230,7 @@ function App() {
             loading={loading}
             message={message}
             language={language}
+            strictness={strictness}
             styleClipboard={styleClipboard}
             setStyleClipboard={setStyleClipboard}
             viewerBackground={viewerBackground}
@@ -235,6 +250,7 @@ function App() {
             loading={loading}
             message={message}
             gameMode={gameMode}
+            strictness={strictness}
             language={language}
           />
         )}

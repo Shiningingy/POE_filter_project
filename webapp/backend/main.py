@@ -1083,6 +1083,7 @@ def get_items_by_tier(request: TierItemsRequest):
 class GenerateRequest(BaseModel):
     game_version: str = "poe1"
     game_mode: str = "normal"
+    strictness: str = "soft"
 
 @app.post("/api/generate")
 def generate_filter_file(request: GenerateRequest = Body(default=GenerateRequest())):
@@ -1090,7 +1091,8 @@ def generate_filter_file(request: GenerateRequest = Body(default=GenerateRequest
     cmd = [
         PYTHON_EXECUTABLE, str(FILTER_GEN_DIR / "generate.py"),
         "--mode", mode_arg,
-        "--game-version", request.game_version
+        "--game-version", request.game_version,
+        "--strictness", request.strictness
     ]
     try:
         result = subprocess.run(cmd, check=True, cwd=PROJECT_ROOT,

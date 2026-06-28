@@ -7,6 +7,7 @@ import { getAssetUrl } from "../utils/assetUtils";
 import MinimapIconPicker, { getIconStyle } from "./MinimapIconPicker";
 import PlayEffectPicker from "./PlayEffectPicker";
 import StylePresetPicker from "./StylePresetPicker";
+import { STRICTNESS_LEVELS } from "../utils/filterGenerator";
 
 interface StyleProps {
   FontSize?: number;
@@ -22,9 +23,12 @@ interface StyleProps {
 interface TierStyleEditorProps {
   tierName: string;
   style: StyleProps;
-  visibility: boolean;
-  canHide: boolean;
-  onChange: (style: StyleProps, visibility: boolean) => void;
+  visibility: boolean;            // effective-hidden at the current strictness (dimming/preview only)
+  gate: number | null;           // configured hide_at_strictness (null = always show)
+  canHide: boolean;              // show_in_editor !== false (hard lock for T0 caps)
+  isProtected: boolean;          // hideable === false → guard: cannot be gated/hidden
+  onChange: (style: StyleProps, gate: number | null) => void;
+  onToggleProtect: () => void;   // flip the hideable guard
   onInspect: () => void;
   onReset?: () => void;
   onRename?: () => void;
@@ -39,8 +43,11 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   tierName,
   style,
   visibility,
+  gate,
   canHide,
+  isProtected,
   onChange,
+  onToggleProtect,
   onInspect,
   onReset,
   onRename,
@@ -100,7 +107,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
   }, [showSoundPopup, style.PlayAlertSound]);
 
   const handleChange = (key: keyof StyleProps, value: any) => {
-    onChange({ ...style, [key]: value }, visibility);
+    onChange({ ...style, [key]: value }, gate);
   };
 
   const applySound = () => {
@@ -114,8 +121,8 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     audio.play().catch((err) => alert("Play failed: " + err.message));
   };
 
-  const toggleVisibility = () => {
-    onChange(style, !visibility);
+  const setGate = (g: number | null) => {
+    onChange(style, g);
   };
 
   const rgbaToHex = (rgba: string | null | undefined) => {
@@ -154,7 +161,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         ? `disabled:${newVal}`
         : newVal;
     });
-    onChange(newStyle, visibility);
+    onChange(newStyle, gate);
     setShowAlphaPopup(false);
   };
 
@@ -378,7 +385,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
           initialCategory={themeCategory}
           language={language}
           onClose={() => setShowPresetPicker(false)}
-          onSelect={(presetStyle) => onChange({ ...style, ...presetStyle }, visibility)}
+          onSelect={(presetStyle) => onChange({ ...style, ...presetStyle }, gate)}
         />
       )}
 
@@ -431,16 +438,32 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 🎨
               </button>
             )}
-            <button
-              className={`vis-btn ${visibility ? "is-hidden" : "is-shown"} ${!canHide ? "disabled-vis" : ""}`}
-              disabled={!canHide}
-              onClick={(e) => {
+            {canHide && (
+              <button
+                className={`protect-btn ${isProtected ? "is-protected" : ""}`}
+                title={isProtected ? t.unprotectTier : t.protectTier}
+                onClick={(e) => { e.stopPropagation(); onToggleProtect(); }}
+              >
+                {isProtected ? "🔒" : "🔓"}
+              </button>
+            )}
+            <select
+              className={`gate-select ${visibility ? "is-hidden" : "is-shown"} ${(!canHide || isProtected) ? "disabled-vis" : ""}`}
+              disabled={!canHide || isProtected}
+              value={isProtected ? "" : (gate ?? "")}
+              title={isProtected ? t.unprotectTier : t.strictness}
+              onClick={(e) => e.stopPropagation()}
+              onChange={(e) => {
                 e.stopPropagation();
-                if (canHide) toggleVisibility();
+                const v = e.target.value;
+                setGate(v === "" ? null : parseInt(v, 10));
               }}
             >
-              {visibility ? t.hide : t.show}
-            </button>
+              <option value="">{t.gateAlways}</option>
+              {STRICTNESS_LEVELS.map((lvl, i) => (
+                <option key={lvl} value={i}>{`${t.hide} ≥ ${t.strictnessLevels[lvl]}`}</option>
+              ))}
+            </select>
             {onReset && (
               <button
                 className="reset-btn"
@@ -673,10 +696,12 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         .rename-pen-btn:hover { color: #4CAF50; }
         .preset-btn { background: #333; border: 1px solid #444; padding: 4px 8px; border-radius: 2px; cursor: pointer; font-size: 0.75rem; }
         .preset-btn:hover { border-color: #4CAF50; }
-        .vis-btn { background: #333; color: #fff; border: 1px solid #444; padding: 4px 12px; border-radius: 2px; cursor: pointer; font-size: 0.75rem; }
-        .vis-btn.is-shown { color: #4CAF50; border-color: #2e7d32; }
-        .vis-btn.is-hidden { color: #f44336; border-color: #c62828; }
-        .vis-btn.disabled-vis { opacity: 0.3; cursor: not-allowed; grayscale: 1; }
+        .protect-btn { background: #333; border: 1px solid #444; border-radius: 2px; cursor: pointer; font-size: 0.8rem; padding: 2px 5px; margin-right: 4px; }
+        .protect-btn.is-protected { border-color: #b8860b; }
+        .gate-select { background: #333; color: #fff; border: 1px solid #444; padding: 3px 6px; border-radius: 2px; cursor: pointer; font-size: 0.7rem; max-width: 150px; }
+        .gate-select.is-shown { color: #4CAF50; border-color: #2e7d32; }
+        .gate-select.is-hidden { color: #f44336; border-color: #c62828; }
+        .gate-select.disabled-vis { opacity: 0.3; cursor: not-allowed; }
         .reset-btn { background: #1a237e; color: #fff; border: none; padding: 4px 12px; border-radius: 2px; cursor: pointer; font-size: 0.75rem; }
         .editor-layout { display: flex; padding: 15px 20px; align-items: center; justify-content: space-between; min-height: 120px; background: rgba(0,0,0,0.4); }
         .color-controls { display: flex; flex-direction: column; gap: 6px; width: 130px; }

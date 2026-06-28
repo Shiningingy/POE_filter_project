@@ -157,6 +157,7 @@ export const setupDemoAdapter = () => {
         const content = parseBody(config);
         respond(config, () => data.saveSettings(content));
       } else if (path.endsWith('/api/generate')) {
+        const genBody = parseBody(config) || {};
         respond(config, async () => {
           const merged = await data.getMergedState();
           const bundle = await data.loadBundle();
@@ -167,6 +168,7 @@ export const setupDemoAdapter = () => {
             allTierDefinitions: merged.tiers,
             language: 'ch',
             footer: bundle?.footer || '',
+            strictness: genBody.strictness || 'soft',
           });
           localStorage.setItem('demo_generated_filter', filterText);
           return { message: 'Success (generated in browser)', content: filterText };

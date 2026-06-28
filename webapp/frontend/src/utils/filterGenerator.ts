@@ -1,5 +1,13 @@
 import { type Language } from './localization';
 
+// Strictness ladder (loosest -> strictest). A tier with `hide_at_strictness: N`
+// flips to Hide once the selected level's index >= N. Orthogonal to MODE. Kept
+// byte-identical to STRICTNESS_LEVELS in filter_generation/generate.py
+// (parity-guarded by test_generator_parity.mjs). Single source of truth for the
+// UI too — import from here so the ordered list (its index = the threshold) can't drift.
+export const STRICTNESS_LEVELS = ['soft', 'regular', 'semistrict', 'strict', 'verystrict', 'uber', 'uberplus'] as const;
+export type StrictnessLevel = typeof STRICTNESS_LEVELS[number];
+
 // ===========================
 // TYPES
 // ===========================
@@ -11,6 +19,7 @@ interface GeneratorData {
   allTierDefinitions: Record<string, any>; // path -> content
   language: Language;
   footer?: string; // verbatim tail (unknown-items catch-all block)
+  strictness?: string; // strictness ladder level (default 'soft' = loosest)
 }
 
 // ===========================
@@ -121,6 +130,9 @@ export const generateFilter = (data: GeneratorData): string => {
   // Ruthless milestone lands, this becomes a parameter.
   const MODE = 'standard';
   const HIDE_CMD = 'Hide';
+
+  // Strictness gate threshold index; an absent/unknown level clamps to 'soft'.
+  const STRICTNESS_IDX = Math.max(0, (STRICTNESS_LEVELS as readonly string[]).indexOf(data.strictness ?? 'soft'));
 
   // Emit condition lines for a block. Mirrors generate.py: list → repeated AND
   // lines, "RANGE a b c d" → two lines, Rarity → strip a leading "==", else
@@ -293,6 +305,11 @@ export const generateFilter = (data: GeneratorData): string => {
       if ((tierEntry.excluded_modes || []).includes(MODE)) continue;
 
       const isHideTier = !!tierEntry.is_hide_tier;
+      // Strictness gate: flip a normally-shown tier to Hide at/above its threshold.
+      // (Mirrors generate.py.) MODE still drives HIDE_CMD (Hide vs Minimal).
+      let isHide = isHideTier;
+      const hideAt = tierEntry.hide_at_strictness;
+      if (typeof hideAt === 'number' && STRICTNESS_IDX >= hideAt) isHide = true;
       let tnum = tierNumFromLabel(tLbl);
       // Honor an explicit theme.Tier for tiers with non-standard label names.
       const themeTierOverride = tierEntry.theme?.Tier;
@@ -325,7 +342,7 @@ export const generateFilter = (data: GeneratorData): string => {
         blockIndex++;
         const ccDisplay = tierEntry.localization?.en || tLbl;
         outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${ccDisplay} ${locCat} - Class Condition==`);
-        const ccLines = [`${isHideTier ? HIDE_CMD : "Show"}`];
+        const ccLines = [`${isHide ? HIDE_CMD : "Show"}`];
         emitConditions(ccLines, tierConditions);
         ccLines.push(`    SetFontSize ${ttheme.FontSize || DEFAULT_FONT_SIZE}`);
         ccLines.push(`    SetTextColor ${baseTextCol}`);
@@ -410,7 +427,7 @@ export const generateFilter = (data: GeneratorData): string => {
           const finalMode = term(modeLabel);
           outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${tierDisplay} ${locCat} - ${rulePart} - ${finalMode}==`);
 
-          const cmd = isHideTier ? HIDE_CMD : "Show";
+          const cmd = isHide ? HIDE_CMD : "Show";
           const btOp = isStrict ? " == " : " ";
           const blockLines = [
             `${cmd}`,
@@ -453,7 +470,7 @@ export const generateFilter = (data: GeneratorData): string => {
           const baseLabel = term('Base');
           outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${tierDisplay} ${locCat} - ${baseLabel} - ${finalMode}==`);
 
-          const cmd = isHideTier ? HIDE_CMD : "Show";
+          const cmd = isHide ? HIDE_CMD : "Show";
           const btOp = isStrict ? " == " : " ";
           const blockLines = [
             `${cmd}`,
