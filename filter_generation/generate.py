@@ -22,12 +22,21 @@ SOUND_FILE_PATH = Path("sound_files")
 # Default font size if you don't carry it in the theme
 DEFAULT_FONT_SIZE = 32
 
+# Strictness ladder (loosest -> strictest). A tier with `hide_at_strictness: N`
+# flips to Hide once the selected level's index >= N. Orthogonal to MODE. Kept
+# byte-identical to the same list in webapp/frontend/src/utils/filterGenerator.ts
+# (parity-guarded by test_generator_parity.mjs).
+STRICTNESS_LEVELS = ["soft", "regular", "semistrict", "strict", "verystrict", "uber", "uberplus"]
+
 _args = argparse.ArgumentParser(add_help=False)
 _args.add_argument("--mode", default="standard", choices=["standard", "ruthless"])
 _args.add_argument("--game-version", default="poe1", choices=["poe1", "poe2"])
+_args.add_argument("--strictness", default="soft", choices=STRICTNESS_LEVELS)
 _parsed = _args.parse_known_args()[0]
 MODE = _parsed.mode
 GAME_VERSION = _parsed.game_version
+STRICTNESS = _parsed.strictness
+STRICTNESS_IDX = STRICTNESS_LEVELS.index(STRICTNESS)
 HIDE_CMD = "Minimal" if MODE == "ruthless" else "Hide"
 
 if GAME_VERSION == "poe2":
@@ -333,6 +342,12 @@ def generate_filter():
                 continue
 
             is_hide = tier_entry.get("is_hide_tier", False)
+            # Strictness gate: flip a normally-shown tier to Hide once the selected
+            # strictness reaches its threshold. Mode-independent — HIDE_CMD already
+            # resolves to "Minimal" under ruthless. (Mirrors filterGenerator.ts.)
+            hide_at = tier_entry.get("hide_at_strictness")
+            if hide_at is not None and STRICTNESS_IDX >= hide_at:
+                is_hide = True
             tnum = tier_num_from_label(t_lbl)
             # Honor explicit theme.Tier for tiers with non-standard label names (e.g. "Camp Bows Early")
             theme_tier_override = tier_entry.get("theme", {}).get("Tier")

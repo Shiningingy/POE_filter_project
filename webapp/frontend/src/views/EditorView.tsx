@@ -10,6 +10,7 @@ import axios from 'axios';
 import { useTranslation, translations, RULE_FACTOR_LOCALIZATION } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import { resolveStyle } from '../utils/styleResolver';
+import { STRICTNESS_LEVELS, type StrictnessLevel } from '../utils/filterGenerator';
 
 interface EditorViewProps {
   selectedFile: CategoryFile | null;
@@ -24,6 +25,7 @@ interface EditorViewProps {
   viewerBackground: string;
   setViewerBackground: (bg: string) => void;
   onJumpToRule?: (filePath: string, ruleIndex?: number) => void;
+  strictness?: StrictnessLevel;
 }
 
 const EditorView: React.FC<EditorViewProps> = ({
@@ -38,9 +40,14 @@ const EditorView: React.FC<EditorViewProps> = ({
   setStyleClipboard,
   viewerBackground,
   setViewerBackground,
-  onJumpToRule
+  onJumpToRule,
+  strictness
 }) => {
   const t = useTranslation(language);
+  const strictnessIdx = Math.max(0, (STRICTNESS_LEVELS as readonly string[]).indexOf(strictness ?? 'soft'));
+  const tierHidden = (td: any): boolean =>
+    !!td?.is_hide_tier ||
+    (typeof td?.hide_at_strictness === 'number' && strictnessIdx >= td.hide_at_strictness);
   const [inspectedTierKey, setInspectedTierKey] = useState<string | null>(null);
   const [editingRuleIndex, setEditingRuleIndex] = useState<number | null>(null);
   const [pingedCondition, setPingedCondition] = useState<{ tierKey: string, ruleIndex: number, conditionKey: string, timestamp: number } | null>(null);
@@ -141,7 +148,7 @@ const EditorView: React.FC<EditorViewProps> = ({
               key: inspectedTierKey,
               name: inspectedTierKey,
               style: resolvedStyle,
-              visibility: !!tierData.hideable,
+              visibility: tierHidden(tierData),
               category: themeCategory,
               rules: rules,
               baseTypes: items.map(i => i.name)
@@ -367,7 +374,7 @@ const EditorView: React.FC<EditorViewProps> = ({
           <h2>{t.toolbar}</h2>
           <div className="actions">
              <button className="visibility-btn" onClick={() => setShowVisibilityOverview(true)}>
-                 👁 {t.showHideEditor}
+                 🎚 {t.strictnessGates}
              </button>
              {selectedFile && (
                 <button className="save-btn" onClick={handleSave} disabled={loading}>
@@ -403,6 +410,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                   pingedCondition={pingedCondition}
                   soundMap={soundMap}
                   themeData={themeData}
+                  strictness={strictness}
                 />
             )}
           </div>

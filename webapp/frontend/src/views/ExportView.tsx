@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
+import type { StrictnessLevel } from '../utils/filterGenerator';
 import { buildEmbeddedBlock } from '../utils/snapshot';
 import type { Snapshot } from '../utils/snapshot';
 import ImportPanel from '../components/ImportPanel';
@@ -13,6 +14,7 @@ interface ExportViewProps {
   loading: boolean;
   message: string;
   gameMode?: 'normal' | 'ruthless';
+  strictness?: StrictnessLevel;
   language: Language;
 }
 
@@ -22,7 +24,7 @@ interface ExportResult {
   snapshotJson: string | null;
 }
 
-const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, gameMode, language }) => {
+const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, gameMode, strictness, language }) => {
   const t = useTranslation(language);
   const [exportFormat, setExportFormat] = useState<ExportFormat>('sidecar');
   const [snapshotError, setSnapshotError] = useState(false);
@@ -98,6 +100,7 @@ const ExportView: React.FC<ExportViewProps> = ({ onGenerate, loading, message, g
         <div className="card">
           <h3>{t.exportCardTitle}</h3>
           <p>{t.exportCardDesc.replace('{ext}', extensionLabel)}</p>
+          {strictness && <p className="strictness-note">{t.strictness}: <b>{t.strictnessLevels[strictness]}</b></p>}
           <div className="format-options">
             <div className="format-title">{t.exportFormat}</div>
             {FORMAT_OPTIONS.map(opt => (
