@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useTranslation } from "../utils/localization";
 import type { Language } from "../utils/localization";
@@ -19,6 +19,23 @@ interface StyleProps {
   PlayAlertSound?: [string, number];
   [key: string]: any;
 }
+
+// Sentinel style values mean "write NO line" — the game supplies the look instead
+// (see style_off in generate.py): "inherit" = the item's rarity colour,
+// "default" = the game's default label background.
+const isSentinel = (v: any): boolean => v === "inherit" || v === "default";
+
+// The game's default label text colours per rarity (what "inherit" resolves to
+// in-game). Used to SIMULATE the inherited colour in the preview plate.
+const RARITY_COLORS: Record<string, string> = {
+  normal: "#c8c8c8",
+  magic: "#8888ff",
+  rare: "#ffff77",
+  unique: "#af6025",
+};
+// The game's default label background: black at alpha 190/255 (per bschug/poedit's
+// applyDefaultStyle, the reference mimic of PoE's default label rendering).
+const DEFAULT_LABEL_BG = "rgba(0,0,0,0.745)";
 
 interface TierStyleEditorProps {
   tierName: string;
@@ -125,15 +142,21 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     onChange(style, g);
   };
 
+  // Which rarity the preview simulates when TextColor is inherited (no override).
+  const [previewRarity, setPreviewRarity] = useState<keyof typeof RARITY_COLORS>("rare");
+  // Remembers a sentinel ("inherit"/"default") while its colour is toggled on, so
+  // toggling back off restores the sentinel instead of rewriting it as disabled:hex.
+  const sentinelMemory = useRef<Record<string, string>>({});
+
   const rgbaToHex = (rgba: string | null | undefined) => {
-    if (!rgba) return "#000000";
+    if (!rgba || isSentinel(rgba)) return "#000000";
     const clean = rgba.startsWith("disabled:") ? rgba.split(":")[1] : rgba;
     if (clean.startsWith("#")) return clean.substring(0, 7);
     return "#000000";
   };
 
   function getAlpha(rgba: string | null | undefined) {
-    if (!rgba) return 255;
+    if (!rgba || isSentinel(rgba)) return 255;
     const clean = rgba.startsWith("disabled:") ? rgba.split(":")[1] : rgba;
     if (clean.length === 9) return parseInt(clean.substring(7, 9), 16);
     return 255;
@@ -150,7 +173,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     const newStyle = { ...style };
     ["TextColor", "BorderColor", "BackgroundColor"].forEach((key) => {
       const val = (style as any)[key] as string;
-      if (!val) return;
+      if (!val || isSentinel(val)) return; // sentinels carry no alpha — leave untouched
       const cleanHex = val.startsWith("disabled:") ? val.split(":")[1] : val;
       const baseHex = cleanHex.substring(0, 7);
       const alphaHex = localAlphas[key as keyof typeof localAlphas]
@@ -170,21 +193,30 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
       handleChange(key, "#ffffffFF");
       return;
     }
+    if (isSentinel(val)) {
+      // Enabling a sentinel: remember it so toggling back off restores it.
+      sentinelMemory.current[key as string] = val;
+      handleChange(key, "#ffffffFF");
+      return;
+    }
     if (typeof val === "string" && val.startsWith("disabled:")) {
       handleChange(key, val.replace("disabled:", ""));
     } else {
-      handleChange(key, `disabled:${val}`);
+      // Turning off: restore a remembered sentinel, else use the disabled: prefix.
+      const mem = sentinelMemory.current[key as string];
+      if (mem) handleChange(key, mem);
+      else handleChange(key, `disabled:${val}`);
     }
   };
 
   const isColorActive = (val: any) =>
-    val && (typeof val !== "string" || !val.startsWith("disabled:"));
+    val && (typeof val !== "string" || (!val.startsWith("disabled:") && !isSentinel(val)));
 
   const hexToCssRgba = (
     hex: string | undefined,
     forceActive: boolean = false,
   ) => {
-    if (!hex) return "rgba(0,0,0,0)";
+    if (!hex || isSentinel(hex)) return "rgba(0,0,0,0)";
     let clean = hex.startsWith("disabled:") ? hex.split(":")[1] : hex;
     if (!clean.startsWith("#")) return clean;
     const r = parseInt(clean.substring(1, 3), 16);
@@ -491,17 +523,28 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
               return (
                 <div key={key} className="color-row">
                   <span className="color-label">{label}</span>
-                  <input
-                    type="color"
-                    className={!isColorActive(val) ? "disabled-picker" : ""}
-                    value={rgbaToHex(val)}
-                    onChange={(e) =>
-                      handleChange(
-                        key as keyof StyleProps,
-                        hexToRgba(e.target.value, key as keyof StyleProps),
-                      )
-                    }
-                  />
+                  {isSentinel(val) ? (
+                    // Sentinel = no line written; the game supplies the look. Show a
+                    // labeled chip instead of a misleading black swatch.
+                    <span
+                      className="sentinel-chip"
+                      title={val === "inherit" ? t.sentinelInheritHint : t.sentinelDefaultHint}
+                    >
+                      {val === "inherit" ? t.sentinelInherit : t.sentinelDefault}
+                    </span>
+                  ) : (
+                    <input
+                      type="color"
+                      className={!isColorActive(val) ? "disabled-picker" : ""}
+                      value={rgbaToHex(val)}
+                      onChange={(e) =>
+                        handleChange(
+                          key as keyof StyleProps,
+                          hexToRgba(e.target.value, key as keyof StyleProps),
+                        )
+                      }
+                    />
+                  )}
                   <div
                     className={`status-check ${isColorActive(val) ? "active" : ""}`}
                     onClick={(e) => {
@@ -569,11 +612,13 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
               className="item-plate"
               style={{
                 fontSize: `${(style.FontSize || 32) / 1.8}px`,
+                // Inherited/off text simulates the game default: the RARITY colour
+                // (selectable below). Off background = the game's default label bg.
                 color: visibility
                   ? "#555"
                   : isColorActive(style.TextColor)
                     ? hexToCssRgba(style.TextColor, true)
-                    : "#000000",
+                    : RARITY_COLORS[previewRarity],
                 borderColor: visibility
                   ? "#333"
                   : isColorActive(style.BorderColor)
@@ -583,7 +628,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                   ? "#1a1a1a"
                   : isColorActive(style.BackgroundColor)
                     ? hexToCssRgba(style.BackgroundColor, true)
-                    : "#000000",
+                    : DEFAULT_LABEL_BG,
                 borderStyle: "solid",
                 borderWidth: isColorActive(style.BorderColor) ? "1px" : "0",
                 opacity: visibility ? 0.6 : 1,
@@ -600,6 +645,19 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
               )}
               {tierName.toUpperCase()}
             </div>
+            {!isColorActive(style.TextColor) && (
+              <div className="rarity-preview-set" title={t.previewAsRarity}>
+                {(Object.keys(RARITY_COLORS) as Array<keyof typeof RARITY_COLORS>).map((r) => (
+                  <button
+                    key={r}
+                    className={`rarity-dot ${previewRarity === r ? "active" : ""}`}
+                    style={{ background: RARITY_COLORS[r] }}
+                    title={(t.rarityNames as any)[r]}
+                    onClick={(e) => { e.stopPropagation(); setPreviewRarity(r); }}
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="right-controls">
@@ -709,6 +767,10 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
         .color-label { font-size: 0.75rem; font-weight: bold; color: #888; width: 40px; text-align: left; }
         .color-controls input[type="color"] { background: none; border: 1px solid #444; width: 40px; height: 24px; cursor: pointer; padding: 0; transition: opacity 0.2s; }
         .disabled-picker { opacity: 0.3; pointer-events: none; }
+        .sentinel-chip { width: 40px; height: 24px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.58rem; color: #9fd49f; background: #1d2a1d; border: 1px dashed #4a7a4a; border-radius: 3px; cursor: help; white-space: nowrap; }
+        .rarity-preview-set { position: absolute; right: 6px; bottom: 4px; display: flex; gap: 4px; }
+        .rarity-dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid #333; cursor: pointer; padding: 0; }
+        .rarity-dot.active { border: 2px solid #fff; box-shadow: 0 0 4px rgba(255,255,255,0.6); }
         .alpha-bulk-container { position: relative; margin-top: 10px; display: flex; justify-content: flex-start; }
         .alpha-bulk-btn { height: 24px; background: #e0e0e0; color: #222; border: 1px solid #ccc; border-radius: 2px; font-size: 11px; cursor: pointer; font-weight: bold; padding: 0 12px; text-transform: uppercase; transition: background 0.2s; }
         .alpha-bulk-btn:hover { background: #fff; }
