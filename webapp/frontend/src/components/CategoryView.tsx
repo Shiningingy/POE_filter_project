@@ -29,7 +29,7 @@ import { resolveStyle } from "../utils/styleResolver";
 import { useTranslation, translations } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import tierTemplate from "../config/tierTemplate.json";
-import { STRICTNESS_LEVELS, type StrictnessLevel } from "../utils/filterGenerator";
+import { STRICTNESS_LEVELS, type StrictnessLevel, type LevelingSelection, isLevelingSelected } from "../utils/filterGenerator";
 
 interface TierItem {
   name: string;
@@ -66,6 +66,7 @@ interface CategoryViewProps {
   themeData?: any;
   categoryClass?: string | null;
   strictness?: StrictnessLevel;
+  levelingSelection?: LevelingSelection;
 }
 
 const CategoryView: React.FC<CategoryViewProps> = ({
@@ -85,14 +86,16 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   themeData,
   categoryClass,
   strictness,
+  levelingSelection,
 }) => {
   const t = useTranslation(language);
   const strictnessIdx = Math.max(0, (STRICTNESS_LEVELS as readonly string[]).indexOf(strictness ?? 'soft'));
-  // Effective hidden state at the currently-selected strictness (preview only):
-  // a dedicated hide bucket, or a strictness gate that the current level reaches.
+  // Effective hidden state for the preview: a permanent hide bucket, a strictness gate
+  // the current level reaches, OR a leveling tier deselected by the Campaign picker.
   const tierHidden = (td: any): boolean =>
     !!td?.is_hide_tier ||
-    (typeof td?.hide_at_strictness === 'number' && strictnessIdx >= td.hide_at_strictness);
+    (typeof td?.hide_at_strictness === 'number' && strictnessIdx >= td.hide_at_strictness) ||
+    !isLevelingSelected(td?.lv_group, levelingSelection);
   // const [themeData, setThemeData] = useState<any>(null); // Lifted to EditorView
   // const [soundMap, setSoundMap] = useState<any>(null); // Lifted
   const [parsedConfig, setParsedConfig] = useState<any>(null);

@@ -1,0 +1,42 @@
+name: Generator parity
+
+# Guards the dual generator (ADR-0001): filter_generation/generate.py (Python, the
+# reference/oracle) must stay BYTE-FOR-BYTE identical to
+# webapp/frontend/src/utils/filterGenerator.ts (TypeScript, the engine that ships to
+# browsers). A divergence once shipped silently — a SetBackgroundColor mismatch — because
+# this test wasn't run after a commit. Running it on every PR makes that unmissable.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      # create_demo_bundle.py (run inside the parity test) imports the FastAPI backend.
+      - name: Install backend deps
+        run: pip install -r webapp/backend/requirements.txt
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install frontend deps
+        working-directory: webapp/frontend
+        run: npm ci
+
+      - name: Typecheck
+        working-directory: webapp/frontend
+        run: npx tsc -b
+
+      # Bakes demo data, runs generate.py + filterGenerator.ts on identical inputs, and
+      # asserts byte-for-byte agreement (standard mode + strictness gate + leveling gate).
+      - name: Generator parity (generate.py == filterGenerator.ts)
+        working-directory: webapp/frontend
+        run: node test_generator_parity.mjs

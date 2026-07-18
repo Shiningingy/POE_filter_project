@@ -20,6 +20,22 @@ export interface LevelingSelection {
   preset?: string;
 }
 
+// Is a leveling tier's group selected under a Campaign selection? Untagged tiers and
+// axis 'always' are always selected; an empty/absent selection selects everything.
+// Shared by the generator (below) and the editor preview (dimming), so the two can't
+// drift. Mirrors lv_selected() in filter_generation/generate.py.
+export const isLevelingSelected = (lvGroup: any, selection?: LevelingSelection): boolean => {
+  if (!lvGroup) return true;
+  if (!selection || Object.keys(selection).length === 0) return true;
+  switch (lvGroup.axis) {
+    case 'weapon': return (selection.weapons || []).includes(lvGroup.key);
+    case 'armour': return (selection.armour_defense || []).includes(lvGroup.key);
+    case 'vendor': return (selection.vendor_bands || []).includes(lvGroup.key);
+    case 'minion': return !!selection.minion_focused;
+    default: return true; // 'always' or unknown axis
+  }
+};
+
 // ===========================
 // TYPES
 // ===========================
@@ -150,18 +166,7 @@ export const generateFilter = (data: GeneratorData): string => {
   // Leveling module selection. An empty object selects everything (default; parity
   // with pre-module output). Mirrors lv_selected() in generate.py.
   const LV_SEL: LevelingSelection = data.leveling_selection || {};
-  const lvHasSelection = Object.keys(LV_SEL).length > 0;
-  const lvSelected = (tierEntry: any): boolean => {
-    const lv = tierEntry.lv_group;
-    if (!lv || !lvHasSelection) return true;
-    switch (lv.axis) {
-      case 'weapon': return (LV_SEL.weapons || []).includes(lv.key);
-      case 'armour': return (LV_SEL.armour_defense || []).includes(lv.key);
-      case 'vendor': return (LV_SEL.vendor_bands || []).includes(lv.key);
-      case 'minion': return !!LV_SEL.minion_focused;
-      default: return true; // 'always' or unknown axis
-    }
-  };
+  const lvSelected = (tierEntry: any): boolean => isLevelingSelected(tierEntry.lv_group, LV_SEL);
 
   // Emit condition lines for a block. Mirrors generate.py: list → repeated AND
   // lines, "RANGE a b c d" → two lines, Rarity → strip a leading "==", else

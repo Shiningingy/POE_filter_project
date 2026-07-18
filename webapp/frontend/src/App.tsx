@@ -4,6 +4,7 @@ import './App.css';
 import { useTranslation } from './utils/localization';
 import type { Language } from './utils/localization';
 import { STRICTNESS_LEVELS, type StrictnessLevel, type LevelingSelection } from './utils/filterGenerator';
+import OverviewView from './views/OverviewView';
 import EditorView from './views/EditorView';
 import SimulatorView from './views/SimulatorView';
 import ExportView from './views/ExportView';
@@ -24,22 +25,30 @@ const StartupSplash = ({ language }: { language: Language }) => {
   return loading ? <LoadingOverlay language={language} fullscreen /> : null;
 };
 
+type ViewName = 'overview' | 'editor' | 'simulator' | 'export' | 'theme' | 'import-foreign';
+
 function App() {
-  const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export' | 'theme' | 'import-foreign'>('editor');
+  const [currentView, setCurrentView] = useState<ViewName>('overview');
   const [language, setLanguage] = useState<Language>('ch');
-  const [gameVersion, setGameVersion] = useState<'poe1' | 'poe2'>('poe1');
+  // PoE 2 isn't supported yet, so the game version is fixed to poe1 (no navbar selector).
+  const [gameVersion] = useState<'poe1' | 'poe2'>('poe1');
   const [gameMode, setGameMode] = useState<'normal' | 'ruthless'>('ruthless');
   const [strictness, setStrictness] = useState<StrictnessLevel>('soft');
   // Campaign/leveling picker selection (persisted setting; {} = show all leveling)
   const [levelingSelection, setLevelingSelection] = useState<LevelingSelection>({});
   const [showCampaign, setShowCampaign] = useState<boolean>(false);
+  const [baseTheme, setBaseTheme] = useState<string>('sharket');
   const t = useTranslation(language);
 
-  // Load the persisted Campaign selection once, so generation and the picker
-  // reflect the saved choice (both local backend and the demo VFS serve settings).
+  // Load persisted settings once (Campaign selection + active theme) so the
+  // Overview cards and generation reflect the saved state. Both the local backend
+  // and the demo VFS serve /api/settings.
   useEffect(() => {
     axios.get('/api/settings')
-      .then(res => { if (res.data?.leveling_selection) setLevelingSelection(res.data.leveling_selection); })
+      .then(res => {
+        if (res.data?.leveling_selection) setLevelingSelection(res.data.leveling_selection);
+        if (res.data?.base_theme) setBaseTheme(res.data.base_theme);
+      })
       .catch(() => {});
   }, []);
 
@@ -141,13 +150,15 @@ function App() {
     }
   };
 
-  // Campaign picker Apply: persist the selection, then regenerate with it (pass the
-  // fresh selection directly to avoid a stale-state read on the immediate generate).
+  // Campaign picker Apply: this is a *customization*, not a generation trigger — it
+  // updates the working selection + persists it (like the strictness selector), and
+  // the change is captured at the next explicit Export/generate. It does NOT auto-
+  // generate the output filter.
   const handleApplyCampaign = async (sel: LevelingSelection) => {
     setLevelingSelection(sel);
     setShowCampaign(false);
     try { await axios.post(`${API_BASE_URL}/api/settings`, { leveling_selection: sel }); } catch { /* demo VFS / offline */ }
-    await generateFilter(sel);
+    setMessage(t.campaignApplied);
   };
 
   const fetchFilterPreview = useCallback(async (): Promise<string | null> => {
@@ -186,24 +197,6 @@ function App() {
         <div className="brand">{t.appTitle}</div>
         
         <div className="mode-switches">
-            <div className="switch-group">
-                <label>{t.gameVersion}:</label>
-                <select value={gameVersion} onChange={(e) => setGameVersion(e.target.value as any)}>
-                    <option value="poe1">POE 1</option>
-                    <option value="poe2">POE 2</option>
-                </select>
-            </div>
-
-            {gameVersion === 'poe1' && (
-                <div className="switch-group">
-                    <label>{t.gameMode}:</label>
-                    <select value={gameMode} onChange={(e) => setGameMode(e.target.value as any)}>
-                        <option value="normal">{t.normalMode}</option>
-                        <option value="ruthless">{t.ruthlessMode}</option>
-                    </select>
-                </div>
-            )}
-
             {gameVersion === 'poe1' && (
                 <div className="switch-group">
                     <label>{t.strictness}:</label>
@@ -215,14 +208,10 @@ function App() {
                 </div>
             )}
 
-            {gameVersion === 'poe1' && (
-                <button className="campaign-btn" onClick={() => setShowCampaign(true)} title={t.campaignTitle}>
-                    🎯 {t.campaign}
-                </button>
-            )}
         </div>
 
         <div className="nav-links">
+          <button className={currentView === 'overview' ? 'active' : ''} onClick={() => setCurrentView('overview')}>{t.overview}</button>
           <button className={currentView === 'editor' ? 'active' : ''} onClick={() => setCurrentView('editor')}>{t.editor}</button>
           <button className={currentView === 'theme' ? 'active' : ''} onClick={() => setCurrentView('theme')}>{language === 'ch' ? "外观与音效" : "Theme & Sound"}</button>
           <button className={currentView === 'simulator' ? 'active' : ''} onClick={() => setCurrentView('simulator')}>{t.simulator}</button>
@@ -249,6 +238,20 @@ function App() {
       </div>
 
       <div className="app-body">
+        {currentView === 'overview' && (
+          <OverviewView
+            language={language}
+            gameVersion={gameVersion}
+            gameMode={gameMode}
+            setGameMode={setGameMode}
+            strictness={strictness}
+            setStrictness={setStrictness}
+            levelingSelection={levelingSelection}
+            baseTheme={baseTheme}
+            onOpenCampaign={() => setShowCampaign(true)}
+            onNavigate={setCurrentView}
+          />
+        )}
         <div className="view-slot" style={{ display: currentView === 'editor' ? 'flex' : 'none' }}>
           <EditorView
             selectedFile={selectedFile}
@@ -259,6 +262,7 @@ function App() {
             message={message}
             language={language}
             strictness={strictness}
+            levelingSelection={levelingSelection}
             styleClipboard={styleClipboard}
             setStyleClipboard={setStyleClipboard}
             viewerBackground={viewerBackground}

@@ -19,6 +19,10 @@ filter_generation/data/_import_backup/
 # (CI runs it on every deploy; locally run it before `vite preview`)
 webapp/frontend/public/demo_data/
 
+# Backend runtime settings (written on POST /api/settings; per-user state, not a
+# committed default — get_settings() falls back to sensible defaults when absent).
+filter_generation/data/settings.json
+
 # Downloaded admin-submission snapshots (review artifacts, never commit)
 *.snapshot.json
 
