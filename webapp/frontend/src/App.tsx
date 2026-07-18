@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import { useTranslation } from './utils/localization';
 import type { Language } from './utils/localization';
-import { STRICTNESS_LEVELS, type StrictnessLevel } from './utils/filterGenerator';
+import { STRICTNESS_LEVELS, type StrictnessLevel, type LevelingSelection } from './utils/filterGenerator';
 import EditorView from './views/EditorView';
 import SimulatorView from './views/SimulatorView';
 import ExportView from './views/ExportView';
@@ -15,6 +15,7 @@ import AdminPanel from './components/AdminPanel';
 import LoadingOverlay from './components/LoadingOverlay';
 import WelcomeModal from './components/WelcomeModal';
 import ManualViewer from './components/ManualViewer';
+import CampaignPicker from './components/CampaignPicker';
 
 // App-start splash: covers the UI until the shared base data
 // (class hierarchy/properties) is in. Must live inside AppDataProvider.
@@ -29,7 +30,18 @@ function App() {
   const [gameVersion, setGameVersion] = useState<'poe1' | 'poe2'>('poe1');
   const [gameMode, setGameMode] = useState<'normal' | 'ruthless'>('ruthless');
   const [strictness, setStrictness] = useState<StrictnessLevel>('soft');
+  // Campaign/leveling picker selection (persisted setting; {} = show all leveling)
+  const [levelingSelection, setLevelingSelection] = useState<LevelingSelection>({});
+  const [showCampaign, setShowCampaign] = useState<boolean>(false);
   const t = useTranslation(language);
+
+  // Load the persisted Campaign selection once, so generation and the picker
+  // reflect the saved choice (both local backend and the demo VFS serve settings).
+  useEffect(() => {
+    axios.get('/api/settings')
+      .then(res => { if (res.data?.leveling_selection) setLevelingSelection(res.data.leveling_selection); })
+      .catch(() => {});
+  }, []);
 
   // First-visit welcome + in-app manual reader
   const [showWelcome, setShowWelcome] = useState<boolean>(
@@ -108,14 +120,15 @@ function App() {
     }
   }, [t.loadFailed]);
 
-  const generateFilter = async (): Promise<string | null> => {
+  const generateFilter = async (selectionOverride?: LevelingSelection): Promise<string | null> => {
     setLoading(true);
     try {
       setMessage(t.generating);
       const response = await axios.post(`${API_BASE_URL}/api/generate`, {
         game_version: gameVersion,
         game_mode: gameMode,
-        strictness
+        strictness,
+        leveling_selection: selectionOverride ?? levelingSelection,
       });
       setMessage(`${t.generatedSuccess}\n${response.data.output || ''}`);
       return await fetchFilterPreview();
@@ -126,6 +139,15 @@ function App() {
     } finally {
       setLoading(false);
     }
+  };
+
+  // Campaign picker Apply: persist the selection, then regenerate with it (pass the
+  // fresh selection directly to avoid a stale-state read on the immediate generate).
+  const handleApplyCampaign = async (sel: LevelingSelection) => {
+    setLevelingSelection(sel);
+    setShowCampaign(false);
+    try { await axios.post(`${API_BASE_URL}/api/settings`, { leveling_selection: sel }); } catch { /* demo VFS / offline */ }
+    await generateFilter(sel);
   };
 
   const fetchFilterPreview = useCallback(async (): Promise<string | null> => {
@@ -191,6 +213,12 @@ function App() {
                         ))}
                     </select>
                 </div>
+            )}
+
+            {gameVersion === 'poe1' && (
+                <button className="campaign-btn" onClick={() => setShowCampaign(true)} title={t.campaignTitle}>
+                    🎯 {t.campaign}
+                </button>
             )}
         </div>
 
@@ -270,6 +298,14 @@ function App() {
       {showManual && (
         <ManualViewer language={language} onClose={() => setShowManual(false)} />
       )}
+      {showCampaign && (
+        <CampaignPicker
+          language={language}
+          initialSelection={levelingSelection}
+          onClose={() => setShowCampaign(false)}
+          onApply={handleApplyCampaign}
+        />
+      )}
 
       <style>{`
         .App { display: flex; flex-direction: column; height: 100vh; font-family: 'Segoe UI', sans-serif; }
@@ -283,6 +319,8 @@ function App() {
         .mode-switches { display: flex; gap: 15px; margin-left: 20px; border-left: 1px solid #555; padding-left: 20px; }
         .switch-group { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #aaa; }
         .switch-group select { background: #444; color: white; border: 1px solid #555; padding: 4px 8px; border-radius: 4px; }
+        .campaign-btn { background: #444; color: #eaf6ff; border: 1px solid #2f9fe0; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; white-space: nowrap; }
+        .campaign-btn:hover { background: #14618a; }
 
         .nav-links { display: flex; height: 100%; flex-grow: 1; justify-content: center; }
         .nav-links button {

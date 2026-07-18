@@ -38,6 +38,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Body Armours"
+      },
       "localization": {
         "en": "Leveling: firstlevels earlybodyarmours (Body Armours)",
         "ch": "过渡: 胸甲 earlybodyarmours"
@@ -64,6 +68,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Boots"
       },
       "localization": {
         "en": "Leveling: firstlevels threesocketedgear (Boots)",
@@ -92,6 +100,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Gloves"
+      },
       "localization": {
         "en": "Leveling: firstlevels threesocketedgear (Gloves)",
         "ch": "过渡: 手套 threesocketedgear"
@@ -118,6 +130,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Helmets"
       },
       "localization": {
         "en": "Leveling: firstlevels threesocketedgear (Helmets)",
@@ -146,6 +162,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Sceptres"
+      },
       "localization": {
         "en": "Leveling: firstlevels threesocketedgear (Sceptres)",
         "ch": "过渡: 短杖 threesocketedgear"
@@ -172,6 +192,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Shields"
       },
       "localization": {
         "en": "Leveling: firstlevels threesocketedgear (Shields)",
@@ -200,6 +224,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Wands"
+      },
       "localization": {
         "en": "Leveling: firstlevels threesocketedgear (Wands)",
         "ch": "过渡: 法杖 threesocketedgear"
@@ -224,6 +252,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "firstlevels"
       },
       "localization": {
         "en": "Leveling: firstlevels firstareas",

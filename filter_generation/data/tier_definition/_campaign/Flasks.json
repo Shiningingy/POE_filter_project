@@ -58,6 +58,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "utility"
+      },
       "localization": {
         "en": "Leveling: utility quicksilver",
         "ch": "过渡: utility quicksilver"
@@ -82,6 +86,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "utility"
+      },
       "localization": {
         "en": "Leveling: utility asortedutility",
         "ch": "过渡: utility asortedutility"
@@ -105,6 +113,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Utility Flasks"
       },
       "localization": {
         "en": "Leveling: utility any (Utility Flasks)",
@@ -132,6 +144,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Hybrid Flasks"
+      },
       "localization": {
         "en": "Leveling: hybrid t1 (Hybrid Flasks)",
         "ch": "过渡: 复合药剂 t1"
@@ -157,6 +173,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Hybrid Flasks"
       },
       "localization": {
         "en": "Leveling: hybrid t2 (Hybrid Flasks)",
@@ -184,6 +204,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Hybrid Flasks"
+      },
       "localization": {
         "en": "Leveling: hybrid t3 (Hybrid Flasks)",
         "ch": "过渡: 复合药剂 t3"
@@ -209,6 +233,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Hybrid Flasks"
       },
       "localization": {
         "en": "Leveling: hybrid t4 (Hybrid Flasks)",
@@ -236,6 +264,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Hybrid Flasks"
+      },
       "localization": {
         "en": "Leveling: hybrid t5 (Hybrid Flasks)",
         "ch": "过渡: 复合药剂 t5"
@@ -261,6 +293,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Hybrid Flasks"
       },
       "localization": {
         "en": "Leveling: hybrid t6 (Hybrid Flasks)",
@@ -288,6 +324,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
       "localization": {
         "en": "Leveling: life t1 (Life Flasks)",
         "ch": "过渡: 生命药剂 t1"
@@ -313,6 +353,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
       },
       "localization": {
         "en": "Leveling: life t2 (Life Flasks)",
@@ -340,6 +384,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
       "localization": {
         "en": "Leveling: life t3 (Life Flasks)",
         "ch": "过渡: 生命药剂 t3"
@@ -365,6 +413,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
       },
       "localization": {
         "en": "Leveling: life t4 (Life Flasks)",
@@ -392,6 +444,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
       "localization": {
         "en": "Leveling: life t5 (Life Flasks)",
         "ch": "过渡: 生命药剂 t5"
@@ -417,6 +473,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
       },
       "localization": {
         "en": "Leveling: life t6 (Life Flasks)",
@@ -444,6 +504,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
       "localization": {
         "en": "Leveling: life t7 (Life Flasks)",
         "ch": "过渡: 生命药剂 t7"
@@ -469,6 +533,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
       },
       "localization": {
         "en": "Leveling: life t8 (Life Flasks)",
@@ -496,6 +564,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
       "localization": {
         "en": "Leveling: life t9 (Life Flasks)",
         "ch": "过渡: 生命药剂 t9"
@@ -521,6 +593,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
       },
       "localization": {
         "en": "Leveling: life t10 (Life Flasks)",
@@ -548,6 +624,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
       "localization": {
         "en": "Leveling: life t11 (Life Flasks)",
         "ch": "过渡: 生命药剂 t11"
@@ -573,6 +653,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
       },
       "localization": {
         "en": "Leveling: life t12 (Life Flasks)",
@@ -600,6 +684,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
       "localization": {
         "en": "Leveling: mana t1 (Mana Flasks)",
         "ch": "过渡: 魔力药剂 t1"
@@ -625,6 +713,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
       },
       "localization": {
         "en": "Leveling: mana t2 (Mana Flasks)",
@@ -652,6 +744,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
       "localization": {
         "en": "Leveling: mana t3 (Mana Flasks)",
         "ch": "过渡: 魔力药剂 t3"
@@ -677,6 +773,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
       },
       "localization": {
         "en": "Leveling: mana t4 (Mana Flasks)",
@@ -704,6 +804,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
       "localization": {
         "en": "Leveling: mana t5 (Mana Flasks)",
         "ch": "过渡: 魔力药剂 t5"
@@ -729,6 +833,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
       },
       "localization": {
         "en": "Leveling: mana t6 (Mana Flasks)",
@@ -756,6 +864,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
       "localization": {
         "en": "Leveling: mana t7 (Mana Flasks)",
         "ch": "过渡: 魔力药剂 t7"
@@ -781,6 +893,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
       },
       "localization": {
         "en": "Leveling: mana t8 (Mana Flasks)",
@@ -808,6 +924,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
       "localization": {
         "en": "Leveling: mana t9 (Mana Flasks)",
         "ch": "过渡: 魔力药剂 t9"
@@ -833,6 +953,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
       },
       "localization": {
         "en": "Leveling: mana t10 (Mana Flasks)",
@@ -860,6 +984,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
       "localization": {
         "en": "Leveling: mana t11 (Mana Flasks)",
         "ch": "过渡: 魔力药剂 t11"
@@ -885,6 +1013,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
       },
       "localization": {
         "en": "Leveling: mana t12 (Mana Flasks)",

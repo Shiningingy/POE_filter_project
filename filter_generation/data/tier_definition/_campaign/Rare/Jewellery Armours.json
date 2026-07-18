@@ -8,16 +8,15 @@
       },
       "tier_order": [
         "Lv minion general",
-        "Lv universal jewellery Amulets",
-        "Lv universal jewellery Belts",
-        "Lv universal jewellery Rings",
-        "Lv armours bootsfocus Boots",
-        "Lv armours general Boots",
-        "Lv armours general Gloves",
-        "Lv armours general Helmets",
-        "Lv armours bodyarmours Body Armours",
+        "Lv universal jewellery",
         "Lv armours shields Shields",
         "Lv armours quivers Quivers",
+        "Lv armour Armour",
+        "Lv armour AR/EV",
+        "Lv armour Evasion",
+        "Lv armour EV/ES",
+        "Lv armour Energy Shield",
+        "Lv armour AR/ES",
         "Jewellery & Armours T1",
         "Jewellery & Armours Hide"
       ]
@@ -37,9 +36,13 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "minion",
+        "key": "minion"
+      },
       "localization": {
-        "en": "Leveling: minion general",
-        "ch": "过渡: minion general"
+        "en": "Leveling: minion bases",
+        "ch": "过渡: 召唤物底材"
       },
       "_source": {
         "path": "leveling->rare->minion",
@@ -47,12 +50,12 @@
         "order": 39
       }
     },
-    "Lv universal jewellery Amulets": {
+    "Lv universal jewellery": {
       "_lv": true,
       "class_condition": true,
       "conditions": {
         "Rarity": "Rare",
-        "Class": "== \"Amulets\""
+        "Class": "== \"Amulets\" \"Belts\" \"Rings\""
       },
       "hideable": true,
       "theme": {
@@ -62,189 +65,18 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "jewellery"
+      },
       "localization": {
-        "en": "Leveling: universal jewellery (Amulets)",
-        "ch": "过渡: 护身符 jewellery"
+        "en": "Leveling: jewellery",
+        "ch": "过渡: 首饰"
       },
       "_source": {
         "path": "leveling->rare->universal",
         "tier": "jewellery",
         "order": 40
-      }
-    },
-    "Lv universal jewellery Belts": {
-      "_lv": true,
-      "class_condition": true,
-      "conditions": {
-        "Rarity": "Rare",
-        "Class": "== \"Belts\""
-      },
-      "hideable": true,
-      "theme": {
-        "Tier": 4
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Leveling: universal jewellery (Belts)",
-        "ch": "过渡: 腰带 jewellery"
-      },
-      "_source": {
-        "path": "leveling->rare->universal",
-        "tier": "jewellery",
-        "order": 40
-      }
-    },
-    "Lv universal jewellery Rings": {
-      "_lv": true,
-      "class_condition": true,
-      "conditions": {
-        "Rarity": "Rare",
-        "Class": "== \"Rings\""
-      },
-      "hideable": true,
-      "theme": {
-        "Tier": 4
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Leveling: universal jewellery (Rings)",
-        "ch": "过渡: 戒指 jewellery"
-      },
-      "_source": {
-        "path": "leveling->rare->universal",
-        "tier": "jewellery",
-        "order": 40
-      }
-    },
-    "Lv armours bootsfocus Boots": {
-      "_lv": true,
-      "class_condition": true,
-      "conditions": {
-        "Rarity": "Rare",
-        "Class": "== \"Boots\""
-      },
-      "hideable": true,
-      "theme": {
-        "Tier": 4
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Leveling: armours bootsfocus (Boots)",
-        "ch": "过渡: 鞋子 bootsfocus"
-      },
-      "_source": {
-        "path": "leveling->rare->armours",
-        "tier": "bootsfocus",
-        "order": 41
-      }
-    },
-    "Lv armours general Boots": {
-      "_lv": true,
-      "class_condition": true,
-      "conditions": {
-        "Rarity": "Rare",
-        "Class": "== \"Boots\""
-      },
-      "hideable": true,
-      "theme": {
-        "Tier": 4
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Leveling: armours general (Boots)",
-        "ch": "过渡: 鞋子 general"
-      },
-      "_source": {
-        "path": "leveling->rare->armours",
-        "tier": "general",
-        "order": 42
-      }
-    },
-    "Lv armours general Gloves": {
-      "_lv": true,
-      "class_condition": true,
-      "conditions": {
-        "Rarity": "Rare",
-        "Class": "== \"Gloves\""
-      },
-      "hideable": true,
-      "theme": {
-        "Tier": 4
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Leveling: armours general (Gloves)",
-        "ch": "过渡: 手套 general"
-      },
-      "_source": {
-        "path": "leveling->rare->armours",
-        "tier": "general",
-        "order": 42
-      }
-    },
-    "Lv armours general Helmets": {
-      "_lv": true,
-      "class_condition": true,
-      "conditions": {
-        "Rarity": "Rare",
-        "Class": "== \"Helmets\""
-      },
-      "hideable": true,
-      "theme": {
-        "Tier": 4
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Leveling: armours general (Helmets)",
-        "ch": "过渡: 头部 general"
-      },
-      "_source": {
-        "path": "leveling->rare->armours",
-        "tier": "general",
-        "order": 42
-      }
-    },
-    "Lv armours bodyarmours Body Armours": {
-      "_lv": true,
-      "class_condition": true,
-      "conditions": {
-        "Rarity": "Rare",
-        "Class": "== \"Body Armours\""
-      },
-      "hideable": true,
-      "theme": {
-        "Tier": 4
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Leveling: armours bodyarmours (Body Armours)",
-        "ch": "过渡: 胸甲 bodyarmours"
-      },
-      "_source": {
-        "path": "leveling->rare->armours",
-        "tier": "bodyarmours",
-        "order": 43
       }
     },
     "Lv armours shields Shields": {
@@ -261,6 +93,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Shields"
       },
       "localization": {
         "en": "Leveling: armours shields (Shields)",
@@ -287,6 +123,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Quivers"
+      },
       "localization": {
         "en": "Leveling: armours quivers (Quivers)",
         "ch": "过渡: 箭袋 quivers"
@@ -295,6 +135,180 @@
         "path": "leveling->rare->armours",
         "tier": "quivers",
         "order": 45
+      }
+    },
+    "Lv armour Armour": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "BaseType": "== \"Ancient Gauntlets\" \"Ancient Greaves\" \"Antique Gauntlets\" \"Antique Greaves\" \"Arena Plate\" \"Astral Plate\" \"Barbute Helmet\" \"Basemetal Treads\" \"Battle Plate\" \"Brimstone Treads\" \"Bronze Gauntlets\" \"Bronze Plate\" \"Chestplate\" \"Close Helmet\" \"Colosseum Plate\" \"Cone Helmet\" \"Conqueror's Helmet\" \"Copper Plate\" \"Crusader Plate\" \"Darksteel Treads\" \"Eternal Burgonet\" \"Ezomyte Burgonet\" \"Full Plate\" \"General's Helmet\" \"Giantslayer Helmet\" \"Gladiator Helmet\" \"Gladiator Plate\" \"Glorious Plate\" \"Golden Plate\" \"Goliath Gauntlets\" \"Goliath Greaves\" \"Guarding Gauntlets\" \"Iron Gauntlets\" \"Iron Greaves\" \"Iron Hat\" \"Legion Plate\" \"Leviathan Gauntlets\" \"Leviathan Greaves\" \"Lordly Plate\" \"Majestic Plate\" \"Plate Vest\" \"Plated Gauntlets\" \"Plated Greaves\" \"Precursor Gauntlets\" \"Precursor Greaves\" \"Preserving Gauntlets\" \"Reaver Helmet\" \"Reinforced Greaves\" \"Royal Burgonet\" \"Royal Plate\" \"Samnite Helmet\" \"Siege Helmet\" \"Spiked Gloves\" \"Steel Gauntlets\" \"Steel Greaves\" \"Sun Plate\" \"Thwarting Gauntlets\" \"Titan Gauntlets\" \"Titan Greaves\" \"Titan Plate\" \"Vaal Gauntlets\" \"Vaal Greaves\" \"War Plate\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "Armour"
+      },
+      "localization": {
+        "en": "Leveling: armour (Armour)",
+        "ch": "过渡: 防具 护甲"
+      },
+      "_source": {
+        "path": "leveling->rare->armours",
+        "tier": "defense",
+        "order": 900
+      }
+    },
+    "Lv armour AR/EV": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "BaseType": "== \"Atonement Mask\" \"Battered Helm\" \"Battle Lamellar\" \"Bronzescale Boots\" \"Bronzescale Gauntlets\" \"Chimerascale Boots\" \"Chimerascale Gauntlets\" \"Commander's Brigandine\" \"Conquest Helmet\" \"Conquest Lamellar\" \"Desert Brigandine\" \"Dragonscale Boots\" \"Dragonscale Doublet\" \"Dragonscale Gauntlets\" \"Fencer Helm\" \"Field Lamellar\" \"Fishscale Gauntlets\" \"Fluted Bascinet\" \"Full Dragonscale\" \"Full Scale Armour\" \"Full Wyrmscale\" \"Full Wyvernscale\" \"General's Brigandine\" \"Gilded Sallet\" \"Haunted Bascinet\" \"Hussar Brigandine\" \"Hydrascale Boots\" \"Hydrascale Gauntlets\" \"Infantry Brigandine\" \"Ironscale Boots\" \"Ironscale Gauntlets\" \"Knight Helm\" \"Lacquered Helmet\" \"Leatherscale Boots\" \"Light Brigandine\" \"Marshall's Brigandine\" \"Nightmare Bascinet\" \"Penitent Mask\" \"Pig-Faced Bascinet\" \"Sallet\" \"Scale Doublet\" \"Scale Vest\" \"Secutor Helm\" \"Serpentscale Boots\" \"Serpentscale Gauntlets\" \"Soldier's Brigandine\" \"Sorrow Mask\" \"Steelscale Boots\" \"Steelscale Gauntlets\" \"Triumphant Lamellar\" \"Visored Sallet\" \"Wyrmscale Boots\" \"Wyrmscale Doublet\" \"Wyrmscale Gauntlets\" \"Wyvernscale Boots\" \"Wyvernscale Gauntlets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "AR/EV"
+      },
+      "localization": {
+        "en": "Leveling: armour (AR/EV)",
+        "ch": "过渡: 防具 护甲/闪避"
+      },
+      "_source": {
+        "path": "leveling->rare->armours",
+        "tier": "defense",
+        "order": 901
+      }
+    },
+    "Lv armour Evasion": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "BaseType": "== \"Apprentice Gloves\" \"Assassin's Garb\" \"Astral Leather\" \"Buckskin Tunic\" \"Cloudwhisper Boots\" \"Coronal Leather\" \"Cutthroat's Garb\" \"Deerskin Boots\" \"Deerskin Gloves\" \"Destiny Leather\" \"Dire Pelt\" \"Eelskin Boots\" \"Eelskin Gloves\" \"Eelskin Tunic\" \"Exquisite Leather\" \"Frontier Leather\" \"Full Leather\" \"Glorious Leather\" \"Goathide Boots\" \"Goathide Gloves\" \"Gripped Gloves\" \"Grizzly Pelt\" \"Harpyskin Boots\" \"Harpyskin Gloves\" \"Hunter Hood\" \"Leather Cap\" \"Leather Hood\" \"Lion Pelt\" \"Majestic Pelt\" \"Noble Tricorne\" \"Nubuck Boots\" \"Nubuck Gloves\" \"Rawhide Boots\" \"Rawhide Gloves\" \"Shabby Jerkin\" \"Shagreen Boots\" \"Shagreen Gloves\" \"Sharkskin Boots\" \"Sharkskin Gloves\" \"Sharkskin Tunic\" \"Silken Hood\" \"Sinner Tricorne\" \"Slink Boots\" \"Slink Gloves\" \"Stealth Boots\" \"Stealth Gloves\" \"Stormrider Boots\" \"Strapped Leather\" \"Sun Leather\" \"Supreme Leather\" \"Syndicate's Garb\" \"Thief's Garb\" \"Tinker Gloves\" \"Trapsetter Gloves\" \"Tricorne\" \"Ursine Pelt\" \"Velour Boots\" \"Velour Gloves\" \"Wild Leather\" \"Windbreak Boots\" \"Wolf Pelt\" \"Zodiac Leather\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "Evasion"
+      },
+      "localization": {
+        "en": "Leveling: armour (Evasion)",
+        "ch": "过渡: 防具 闪避"
+      },
+      "_source": {
+        "path": "leveling->rare->armours",
+        "tier": "defense",
+        "order": 902
+      }
+    },
+    "Lv armour EV/ES": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "BaseType": "== \"Ambush Boots\" \"Ambush Mitts\" \"Ancient Mask\" \"Assassin's Boots\" \"Assassin's Mitts\" \"Blizzard Crown\" \"Blood Raiment\" \"Bone Armour\" \"Callous Mask\" \"Carnal Armour\" \"Carnal Boots\" \"Carnal Mitts\" \"Clasped Boots\" \"Clasped Mitts\" \"Crimson Raiment\" \"Crypt Armour\" \"Deicide Mask\" \"Festival Mask\" \"Fugitive Boots\" \"Gale Crown\" \"Golden Mask\" \"Harlequin Mask\" \"Infiltrator Boots\" \"Infiltrator Mitts\" \"Iron Mask\" \"Jester Mask\" \"Lacquered Garb\" \"Murder Boots\" \"Murder Mitts\" \"Necrotic Armour\" \"Oiled Coat\" \"Oiled Vest\" \"Padded Jacket\" \"Padded Vest\" \"Phantom Boots\" \"Phantom Mitts\" \"Plague Mask\" \"Quilted Jacket\" \"Raven Mask\" \"Regicide Mask\" \"Sadist Garb\" \"Sanguine Raiment\" \"Scare Mask\" \"Scarlet Raiment\" \"Sentinel Jacket\" \"Shackled Boots\" \"Sleek Coat\" \"Strapped Boots\" \"Strapped Mitts\" \"Torturer Garb\" \"Torturer's Mask\" \"Trapper Boots\" \"Trapper Mitts\" \"Vaal Mask\" \"Varnished Coat\" \"Waxed Garb\" \"Winter Crown\" \"Wrapped Boots\" \"Wrapped Mitts\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "EV/ES"
+      },
+      "localization": {
+        "en": "Leveling: armour (EV/ES)",
+        "ch": "过渡: 防具 闪避/能量护盾"
+      },
+      "_source": {
+        "path": "leveling->rare->armours",
+        "tier": "defense",
+        "order": 903
+      }
+    },
+    "Lv armour Energy Shield": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "BaseType": "== \"Aetherwind Gloves\" \"Arcane Vestment\" \"Arcanist Gloves\" \"Arcanist Slippers\" \"Bone Circlet\" \"Cabalist Regalia\" \"Conjurer Boots\" \"Conjurer Gloves\" \"Conjurer's Vestment\" \"Destroyer Regalia\" \"Dreamquest Slippers\" \"Duskwalk Slippers\" \"Embroidered Gloves\" \"Fingerless Silk Gloves\" \"Hubris Circlet\" \"Iron Circlet\" \"Leyline Gloves\" \"Lich's Circlet\" \"Lunaris Circlet\" \"Mage's Vestment\" \"Mind Cage\" \"Moonlit Circlet\" \"Necromancer Circlet\" \"Necromancer Silks\" \"Nexus Gloves\" \"Nightweave Robe\" \"Nightwind Slippers\" \"Occultist's Vestment\" \"Sage Gloves\" \"Sage Slippers\" \"Sage's Robe\" \"Samite Gloves\" \"Samite Slippers\" \"Satin Gloves\" \"Satin Slippers\" \"Savant's Robe\" \"Scholar Boots\" \"Scholar's Robe\" \"Silk Gloves\" \"Silk Robe\" \"Silk Slippers\" \"Silken Garb\" \"Silken Vest\" \"Silken Wrap\" \"Simple Robe\" \"Solaris Circlet\" \"Sorcerer Boots\" \"Sorcerer Gloves\" \"Spidersilk Robe\" \"Steel Circlet\" \"Sunfire Circlet\" \"Torture Cage\" \"Tribal Circlet\" \"Twilight Regalia\" \"Vaal Regalia\" \"Velvet Gloves\" \"Velvet Slippers\" \"Vine Circlet\" \"Warlock Boots\" \"Warlock Gloves\" \"Widowsilk Robe\" \"Wool Gloves\" \"Wool Shoes\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "Energy Shield"
+      },
+      "localization": {
+        "en": "Leveling: armour (Energy Shield)",
+        "ch": "过渡: 防具 能量护盾"
+      },
+      "_source": {
+        "path": "leveling->rare->armours",
+        "tier": "defense",
+        "order": 904
+      }
+    },
+    "Lv armour AR/ES": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "BaseType": "== \"Apothecary's Gloves\" \"Archdemon Crown\" \"Aventail Helmet\" \"Bone Helmet\" \"Chain Boots\" \"Chain Gloves\" \"Chain Hauberk\" \"Chainmail Doublet\" \"Chainmail Tunic\" \"Chainmail Vest\" \"Conquest Chainmail\" \"Crusader Boots\" \"Crusader Chainmail\" \"Crusader Gloves\" \"Crusader Helmet\" \"Demon Crown\" \"Devout Chainmail\" \"Divine Crown\" \"Elegant Ringmail\" \"Faithful Helmet\" \"Full Chainmail\" \"Full Ringmail\" \"Grand Ringmail\" \"Great Crown\" \"Great Helmet\" \"Holy Chainmail\" \"Imp Crown\" \"Latticed Ringmail\" \"Legion Boots\" \"Legion Gloves\" \"Loricated Ringmail\" \"Magistrate Crown\" \"Martyr Boots\" \"Martyr Gloves\" \"Mesh Boots\" \"Mesh Gloves\" \"Ornate Ringmail\" \"Paladin Boots\" \"Paladin Crown\" \"Paladin Gloves\" \"Paladin's Hauberk\" \"Praetor Crown\" \"Prophet Crown\" \"Ringmail Boots\" \"Ringmail Coat\" \"Ringmail Gloves\" \"Riveted Boots\" \"Riveted Gloves\" \"Rusted Coif\" \"Sacred Chainmail\" \"Saint's Hauberk\" \"Saintly Chainmail\" \"Soldier Boots\" \"Soldier Gloves\" \"Soldier Helmet\" \"Two-Toned Boots\" \"Zealot Boots\" \"Zealot Gloves\" \"Zealot Helmet\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "AR/ES"
+      },
+      "localization": {
+        "en": "Leveling: armour (AR/ES)",
+        "ch": "过渡: 防具 护甲/能量护盾"
+      },
+      "_source": {
+        "path": "leveling->rare->armours",
+        "tier": "defense",
+        "order": 905
       }
     },
     "Jewellery & Armours T1": {

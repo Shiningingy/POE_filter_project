@@ -32,12 +32,49 @@ _args = argparse.ArgumentParser(add_help=False)
 _args.add_argument("--mode", default="standard", choices=["standard", "ruthless"])
 _args.add_argument("--game-version", default="poe1", choices=["poe1", "poe2"])
 _args.add_argument("--strictness", default="soft", choices=STRICTNESS_LEVELS)
+# Leveling module: a JSON selection object from the Campaign picker. Absent/empty
+# ("{}") means every leveling tier is selected -> identical to pre-module output
+# (parity-safe default). Shape: {weapons:[], armour_defense:[], vendor_bands:[],
+# minion_focused:bool, hide_unselected:bool, preset:str}. Mirrors filterGenerator.ts.
+_args.add_argument("--leveling-selection", default="{}")
 _parsed = _args.parse_known_args()[0]
 MODE = _parsed.mode
 GAME_VERSION = _parsed.game_version
 STRICTNESS = _parsed.strictness
 STRICTNESS_IDX = STRICTNESS_LEVELS.index(STRICTNESS)
 HIDE_CMD = "Minimal" if MODE == "ruthless" else "Hide"
+# Value may be inline JSON, or "@path" to read the JSON from a file (avoids shell
+# quoting when a caller can't safely pass a JSON string on the command line).
+_lv_raw = _parsed.leveling_selection or "{}"
+if _lv_raw.startswith("@"):
+    try:
+        _lv_raw = Path(_lv_raw[1:]).read_text(encoding="utf-8")
+    except OSError:
+        _lv_raw = "{}"
+try:
+    LEVELING_SELECTION = json.loads(_lv_raw) or {}
+except (ValueError, TypeError):
+    LEVELING_SELECTION = {}
+
+
+def lv_selected(tier_entry):
+    """Whether a leveling tier is selected under LEVELING_SELECTION (the Campaign
+    picker). Untagged tiers and axis 'always' are always selected. An empty
+    selection (the default) selects everything -> pre-module output / parity."""
+    lv = tier_entry.get("lv_group")
+    if not lv or not LEVELING_SELECTION:
+        return True
+    axis, key = lv.get("axis"), lv.get("key")
+    if axis == "weapon":
+        return key in LEVELING_SELECTION.get("weapons", [])
+    if axis == "armour":
+        return key in LEVELING_SELECTION.get("armour_defense", [])
+    if axis == "vendor":
+        return key in LEVELING_SELECTION.get("vendor_bands", [])
+    if axis == "minion":
+        return bool(LEVELING_SELECTION.get("minion_focused"))
+    return True  # "always" or unknown axis
+
 
 if GAME_VERSION == "poe2":
     print("[ERROR] POE2 filter generation is not yet supported.")
@@ -341,12 +378,26 @@ def generate_filter():
             if MODE in tier_entry.get("excluded_modes", []):
                 continue
 
+            # Leveling module gate (lv_group vs the Campaign picker's selection):
+            # a deselected leveling tier is OMITTED entirely, unless the picker's
+            # "Hide Unselected Gear Aggressively" (hide_unselected) is on, in which
+            # case it emits as Hide/Minimal. Placed before the class-condition branch
+            # so OMIT short-circuits both emit paths and block indices stay aligned.
+            lv_hide = False
+            if not lv_selected(tier_entry):
+                if LEVELING_SELECTION.get("hide_unselected"):
+                    lv_hide = True
+                else:
+                    continue
+
             is_hide = tier_entry.get("is_hide_tier", False)
             # Strictness gate: flip a normally-shown tier to Hide once the selected
             # strictness reaches its threshold. Mode-independent — HIDE_CMD already
             # resolves to "Minimal" under ruthless. (Mirrors filterGenerator.ts.)
             hide_at = tier_entry.get("hide_at_strictness")
             if hide_at is not None and STRICTNESS_IDX >= hide_at:
+                is_hide = True
+            if lv_hide:
                 is_hide = True
             tnum = tier_num_from_label(t_lbl)
             # Honor explicit theme.Tier for tiers with non-standard label names (e.g. "Camp Bows Early")
@@ -356,7 +407,7 @@ def generate_filter():
             ttheme = theme_ref.get(f"Tier {tnum}", {})
             base_text_col = parse_rgba(ttheme.get("TextColor"))
             base_border_col = parse_rgba(ttheme.get("BorderColor"))
-            base_background_col = parse_rgba(ttheme.get("BackgroundColor", "0 0 0 255"))
+            base_background_col = parse_rgba(ttheme.get("BackgroundColor"), "0 0 0 255")
             base_play_eff = ttheme.get("PlayEffect")
             base_mini_icon = ttheme.get("MinimapIcon")
 
@@ -370,7 +421,7 @@ def generate_filter():
                 ttheme = theme_ref.get(f"Tier {theme_tnum}", ttheme)
                 base_text_col = parse_rgba(ttheme.get("TextColor"))
                 base_border_col = parse_rgba(ttheme.get("BorderColor"))
-                base_background_col = parse_rgba(ttheme.get("BackgroundColor", "0 0 0 255"))
+                base_background_col = parse_rgba(ttheme.get("BackgroundColor"), "0 0 0 255")
                 base_play_eff = ttheme.get("PlayEffect")
                 base_mini_icon = ttheme.get("MinimapIcon")
                 block_index += 1

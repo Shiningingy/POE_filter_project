@@ -8,6 +8,18 @@ import { type Language } from './localization';
 export const STRICTNESS_LEVELS = ['soft', 'regular', 'semistrict', 'strict', 'verystrict', 'uber', 'uberplus'] as const;
 export type StrictnessLevel = typeof STRICTNESS_LEVELS[number];
 
+// Leveling module: the Campaign picker's selection. Absent/empty means every
+// leveling tier is selected -> identical to pre-module output (parity-safe).
+// Mirrors LEVELING_SELECTION handling in filter_generation/generate.py.
+export interface LevelingSelection {
+  weapons?: string[];
+  armour_defense?: string[];
+  vendor_bands?: string[];
+  minion_focused?: boolean;
+  hide_unselected?: boolean;
+  preset?: string;
+}
+
 // ===========================
 // TYPES
 // ===========================
@@ -20,6 +32,7 @@ interface GeneratorData {
   language: Language;
   footer?: string; // verbatim tail (unknown-items catch-all block)
   strictness?: string; // strictness ladder level (default 'soft' = loosest)
+  leveling_selection?: LevelingSelection; // Campaign picker selection (default: all selected)
 }
 
 // ===========================
@@ -133,6 +146,22 @@ export const generateFilter = (data: GeneratorData): string => {
 
   // Strictness gate threshold index; an absent/unknown level clamps to 'soft'.
   const STRICTNESS_IDX = Math.max(0, (STRICTNESS_LEVELS as readonly string[]).indexOf(data.strictness ?? 'soft'));
+
+  // Leveling module selection. An empty object selects everything (default; parity
+  // with pre-module output). Mirrors lv_selected() in generate.py.
+  const LV_SEL: LevelingSelection = data.leveling_selection || {};
+  const lvHasSelection = Object.keys(LV_SEL).length > 0;
+  const lvSelected = (tierEntry: any): boolean => {
+    const lv = tierEntry.lv_group;
+    if (!lv || !lvHasSelection) return true;
+    switch (lv.axis) {
+      case 'weapon': return (LV_SEL.weapons || []).includes(lv.key);
+      case 'armour': return (LV_SEL.armour_defense || []).includes(lv.key);
+      case 'vendor': return (LV_SEL.vendor_bands || []).includes(lv.key);
+      case 'minion': return !!LV_SEL.minion_focused;
+      default: return true; // 'always' or unknown axis
+    }
+  };
 
   // Emit condition lines for a block. Mirrors generate.py: list → repeated AND
   // lines, "RANGE a b c d" → two lines, Rarity → strip a leading "==", else
@@ -304,12 +333,24 @@ export const generateFilter = (data: GeneratorData): string => {
       // Skip tiers excluded for the current mode (mirrors generate.py).
       if ((tierEntry.excluded_modes || []).includes(MODE)) continue;
 
+      // Leveling module gate (lv_group vs the Campaign picker's selection): a
+      // deselected leveling tier is OMITTED, unless "Hide Unselected Gear
+      // Aggressively" (hide_unselected) is on, then it emits as Hide/Minimal.
+      // Before the class-condition branch so OMIT keeps block indices aligned.
+      // (Mirrors generate.py.)
+      let lvHide = false;
+      if (!lvSelected(tierEntry)) {
+        if (LV_SEL.hide_unselected) lvHide = true;
+        else continue;
+      }
+
       const isHideTier = !!tierEntry.is_hide_tier;
       // Strictness gate: flip a normally-shown tier to Hide at/above its threshold.
       // (Mirrors generate.py.) MODE still drives HIDE_CMD (Hide vs Minimal).
       let isHide = isHideTier;
       const hideAt = tierEntry.hide_at_strictness;
       if (typeof hideAt === 'number' && STRICTNESS_IDX >= hideAt) isHide = true;
+      if (lvHide) isHide = true;
       let tnum = tierNumFromLabel(tLbl);
       // Honor an explicit theme.Tier for tiers with non-standard label names.
       const themeTierOverride = tierEntry.theme?.Tier;

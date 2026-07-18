@@ -123,6 +123,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Rune Daggers"
+      },
       "localization": {
         "en": "Leveling: caster earlylevels (Rune Daggers)",
         "ch": "过渡: 符文匕首 earlylevels"
@@ -148,6 +152,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Sceptres"
       },
       "localization": {
         "en": "Leveling: caster earlylevels (Sceptres)",
@@ -175,6 +183,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Staves"
+      },
       "localization": {
         "en": "Leveling: caster earlylevels (Staves)",
         "ch": "过渡: 长杖 earlylevels"
@@ -201,6 +213,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Wands"
+      },
       "localization": {
         "en": "Leveling: caster earlylevels (Wands)",
         "ch": "过渡: 法杖 earlylevels"
@@ -225,6 +241,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Rune Daggers"
       },
       "localization": {
         "en": "Leveling: caster general (Rune Daggers)",
@@ -251,6 +271,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Sceptres"
+      },
       "localization": {
         "en": "Leveling: caster general (Sceptres)",
         "ch": "过渡: 短杖 general"
@@ -275,6 +299,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Staves"
       },
       "localization": {
         "en": "Leveling: caster general (Staves)",
@@ -301,6 +329,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Wands"
+      },
       "localization": {
         "en": "Leveling: caster general (Wands)",
         "ch": "过渡: 法杖 general"
@@ -326,6 +358,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Bows"
       },
       "localization": {
         "en": "Leveling: archer l1 (Bows)",
@@ -354,6 +390,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Bows"
+      },
       "localization": {
         "en": "Leveling: archer l2 (Bows)",
         "ch": "过渡: 弓 l2"
@@ -380,6 +420,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Bows"
       },
       "localization": {
         "en": "Leveling: archer l3 (Bows)",
@@ -408,6 +452,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Bows"
+      },
       "localization": {
         "en": "Leveling: archer l4 (Bows)",
         "ch": "过渡: 弓 l4"
@@ -434,6 +482,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Bows"
       },
       "localization": {
         "en": "Leveling: archer l5 (Bows)",
@@ -462,6 +514,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Bows"
+      },
       "localization": {
         "en": "Leveling: archer l6 (Bows)",
         "ch": "过渡: 弓 l6"
@@ -488,6 +544,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Bows"
       },
       "localization": {
         "en": "Leveling: archer l7 (Bows)",
@@ -516,6 +576,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Bows"
+      },
       "localization": {
         "en": "Leveling: archer l8 (Bows)",
         "ch": "过渡: 弓 l8"
@@ -541,6 +605,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Axes"
       },
       "localization": {
         "en": "Leveling: melee2h l1 (Two Hand Axes)",
@@ -568,6 +636,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Maces"
+      },
       "localization": {
         "en": "Leveling: melee2h l1 (Two Hand Maces)",
         "ch": "过渡: 双手锤 l1"
@@ -594,6 +666,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee2h l1 (Two Hand Swords)",
         "ch": "过渡: 双手剑 l1"
@@ -619,6 +695,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Warstaves"
       },
       "localization": {
         "en": "Leveling: melee2h l1 (Warstaves)",
@@ -647,6 +727,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Axes"
+      },
       "localization": {
         "en": "Leveling: melee2h l2 (Two Hand Axes)",
         "ch": "过渡: 双手斧 l2"
@@ -673,6 +757,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Maces"
       },
       "localization": {
         "en": "Leveling: melee2h l2 (Two Hand Maces)",
@@ -701,6 +789,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee2h l2 (Two Hand Swords)",
         "ch": "过渡: 双手剑 l2"
@@ -727,6 +819,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Warstaves"
       },
       "localization": {
         "en": "Leveling: melee2h l2 (Warstaves)",
@@ -755,6 +851,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Axes"
+      },
       "localization": {
         "en": "Leveling: melee2h l3 (Two Hand Axes)",
         "ch": "过渡: 双手斧 l3"
@@ -781,6 +881,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Maces"
       },
       "localization": {
         "en": "Leveling: melee2h l3 (Two Hand Maces)",
@@ -809,6 +913,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee2h l3 (Two Hand Swords)",
         "ch": "过渡: 双手剑 l3"
@@ -835,6 +943,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Warstaves"
       },
       "localization": {
         "en": "Leveling: melee2h l3 (Warstaves)",
@@ -863,6 +975,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Axes"
+      },
       "localization": {
         "en": "Leveling: melee2h l4 (Two Hand Axes)",
         "ch": "过渡: 双手斧 l4"
@@ -889,6 +1005,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Maces"
       },
       "localization": {
         "en": "Leveling: melee2h l4 (Two Hand Maces)",
@@ -917,6 +1037,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee2h l4 (Two Hand Swords)",
         "ch": "过渡: 双手剑 l4"
@@ -943,6 +1067,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Warstaves"
       },
       "localization": {
         "en": "Leveling: melee2h l4 (Warstaves)",
@@ -971,6 +1099,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Axes"
+      },
       "localization": {
         "en": "Leveling: melee2h l5 (Two Hand Axes)",
         "ch": "过渡: 双手斧 l5"
@@ -997,6 +1129,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Maces"
       },
       "localization": {
         "en": "Leveling: melee2h l5 (Two Hand Maces)",
@@ -1025,6 +1161,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee2h l5 (Two Hand Swords)",
         "ch": "过渡: 双手剑 l5"
@@ -1051,6 +1191,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Warstaves"
       },
       "localization": {
         "en": "Leveling: melee2h l5 (Warstaves)",
@@ -1079,6 +1223,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Axes"
+      },
       "localization": {
         "en": "Leveling: melee2h l6 (Two Hand Axes)",
         "ch": "过渡: 双手斧 l6"
@@ -1105,6 +1253,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Maces"
       },
       "localization": {
         "en": "Leveling: melee2h l6 (Two Hand Maces)",
@@ -1133,6 +1285,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee2h l6 (Two Hand Swords)",
         "ch": "过渡: 双手剑 l6"
@@ -1159,6 +1315,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Warstaves"
       },
       "localization": {
         "en": "Leveling: melee2h l6 (Warstaves)",
@@ -1187,6 +1347,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Axes"
+      },
       "localization": {
         "en": "Leveling: melee2h l7 (Two Hand Axes)",
         "ch": "过渡: 双手斧 l7"
@@ -1213,6 +1377,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Maces"
       },
       "localization": {
         "en": "Leveling: melee2h l7 (Two Hand Maces)",
@@ -1241,6 +1409,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee2h l7 (Two Hand Swords)",
         "ch": "过渡: 双手剑 l7"
@@ -1267,6 +1439,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Warstaves"
       },
       "localization": {
         "en": "Leveling: melee2h l7 (Warstaves)",
@@ -1295,6 +1471,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Axes"
+      },
       "localization": {
         "en": "Leveling: melee2h l8 (Two Hand Axes)",
         "ch": "过渡: 双手斧 l8"
@@ -1321,6 +1501,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Maces"
       },
       "localization": {
         "en": "Leveling: melee2h l8 (Two Hand Maces)",
@@ -1349,6 +1533,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee2h l8 (Two Hand Swords)",
         "ch": "过渡: 双手剑 l8"
@@ -1376,6 +1564,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Warstaves"
+      },
       "localization": {
         "en": "Leveling: melee2h l8 (Warstaves)",
         "ch": "过渡: 战杖 l8"
@@ -1401,6 +1593,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Claws"
       },
       "localization": {
         "en": "Leveling: melee1h l1 (Claws)",
@@ -1428,6 +1624,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Daggers"
+      },
       "localization": {
         "en": "Leveling: melee1h l1 (Daggers)",
         "ch": "过渡: 匕首 l1"
@@ -1453,6 +1653,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Axes"
       },
       "localization": {
         "en": "Leveling: melee1h l1 (One Hand Axes)",
@@ -1480,6 +1684,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Maces"
+      },
       "localization": {
         "en": "Leveling: melee1h l1 (One Hand Maces)",
         "ch": "过渡: 单手锤 l1"
@@ -1506,6 +1714,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Thrusting One Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee1h l1 (Thrusting One Hand Swords)",
         "ch": "过渡: 刺剑 l1"
@@ -1531,6 +1743,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Swords"
       },
       "localization": {
         "en": "Leveling: melee1h l1 (One Hand Swords)",
@@ -1559,6 +1775,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Claws"
+      },
       "localization": {
         "en": "Leveling: melee1h l2 (Claws)",
         "ch": "过渡: 爪 l2"
@@ -1585,6 +1805,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Daggers"
       },
       "localization": {
         "en": "Leveling: melee1h l2 (Daggers)",
@@ -1613,6 +1837,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Axes"
+      },
       "localization": {
         "en": "Leveling: melee1h l2 (One Hand Axes)",
         "ch": "过渡: 单手斧 l2"
@@ -1639,6 +1867,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Maces"
       },
       "localization": {
         "en": "Leveling: melee1h l2 (One Hand Maces)",
@@ -1667,6 +1899,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Thrusting One Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee1h l2 (Thrusting One Hand Swords)",
         "ch": "过渡: 刺剑 l2"
@@ -1693,6 +1929,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Swords"
       },
       "localization": {
         "en": "Leveling: melee1h l2 (One Hand Swords)",
@@ -1721,6 +1961,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Claws"
+      },
       "localization": {
         "en": "Leveling: melee1h l3 (Claws)",
         "ch": "过渡: 爪 l3"
@@ -1747,6 +1991,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Daggers"
       },
       "localization": {
         "en": "Leveling: melee1h l3 (Daggers)",
@@ -1775,6 +2023,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Axes"
+      },
       "localization": {
         "en": "Leveling: melee1h l3 (One Hand Axes)",
         "ch": "过渡: 单手斧 l3"
@@ -1801,6 +2053,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Maces"
       },
       "localization": {
         "en": "Leveling: melee1h l3 (One Hand Maces)",
@@ -1829,6 +2085,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Thrusting One Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee1h l3 (Thrusting One Hand Swords)",
         "ch": "过渡: 刺剑 l3"
@@ -1855,6 +2115,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Swords"
       },
       "localization": {
         "en": "Leveling: melee1h l3 (One Hand Swords)",
@@ -1883,6 +2147,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Claws"
+      },
       "localization": {
         "en": "Leveling: melee1h l4 (Claws)",
         "ch": "过渡: 爪 l4"
@@ -1909,6 +2177,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Daggers"
       },
       "localization": {
         "en": "Leveling: melee1h l4 (Daggers)",
@@ -1937,6 +2209,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Axes"
+      },
       "localization": {
         "en": "Leveling: melee1h l4 (One Hand Axes)",
         "ch": "过渡: 单手斧 l4"
@@ -1963,6 +2239,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Maces"
       },
       "localization": {
         "en": "Leveling: melee1h l4 (One Hand Maces)",
@@ -1991,6 +2271,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Thrusting One Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee1h l4 (Thrusting One Hand Swords)",
         "ch": "过渡: 刺剑 l4"
@@ -2017,6 +2301,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Swords"
       },
       "localization": {
         "en": "Leveling: melee1h l4 (One Hand Swords)",
@@ -2045,6 +2333,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Claws"
+      },
       "localization": {
         "en": "Leveling: melee1h l5 (Claws)",
         "ch": "过渡: 爪 l5"
@@ -2071,6 +2363,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Daggers"
       },
       "localization": {
         "en": "Leveling: melee1h l5 (Daggers)",
@@ -2099,6 +2395,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Axes"
+      },
       "localization": {
         "en": "Leveling: melee1h l5 (One Hand Axes)",
         "ch": "过渡: 单手斧 l5"
@@ -2125,6 +2425,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Maces"
       },
       "localization": {
         "en": "Leveling: melee1h l5 (One Hand Maces)",
@@ -2153,6 +2457,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Thrusting One Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee1h l5 (Thrusting One Hand Swords)",
         "ch": "过渡: 刺剑 l5"
@@ -2179,6 +2487,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Swords"
       },
       "localization": {
         "en": "Leveling: melee1h l5 (One Hand Swords)",
@@ -2207,6 +2519,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Claws"
+      },
       "localization": {
         "en": "Leveling: melee1h l6 (Claws)",
         "ch": "过渡: 爪 l6"
@@ -2233,6 +2549,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Daggers"
       },
       "localization": {
         "en": "Leveling: melee1h l6 (Daggers)",
@@ -2261,6 +2581,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Axes"
+      },
       "localization": {
         "en": "Leveling: melee1h l6 (One Hand Axes)",
         "ch": "过渡: 单手斧 l6"
@@ -2287,6 +2611,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Maces"
       },
       "localization": {
         "en": "Leveling: melee1h l6 (One Hand Maces)",
@@ -2315,6 +2643,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Thrusting One Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee1h l6 (Thrusting One Hand Swords)",
         "ch": "过渡: 刺剑 l6"
@@ -2341,6 +2673,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Swords"
       },
       "localization": {
         "en": "Leveling: melee1h l6 (One Hand Swords)",
@@ -2369,6 +2705,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Claws"
+      },
       "localization": {
         "en": "Leveling: melee1h l7 (Claws)",
         "ch": "过渡: 爪 l7"
@@ -2395,6 +2735,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Daggers"
       },
       "localization": {
         "en": "Leveling: melee1h l7 (Daggers)",
@@ -2423,6 +2767,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Axes"
+      },
       "localization": {
         "en": "Leveling: melee1h l7 (One Hand Axes)",
         "ch": "过渡: 单手斧 l7"
@@ -2449,6 +2797,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Maces"
       },
       "localization": {
         "en": "Leveling: melee1h l7 (One Hand Maces)",
@@ -2477,6 +2829,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Thrusting One Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee1h l7 (Thrusting One Hand Swords)",
         "ch": "过渡: 刺剑 l7"
@@ -2503,6 +2859,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Swords"
       },
       "localization": {
         "en": "Leveling: melee1h l7 (One Hand Swords)",
@@ -2531,6 +2891,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Claws"
+      },
       "localization": {
         "en": "Leveling: melee1h l8 (Claws)",
         "ch": "过渡: 爪 l8"
@@ -2557,6 +2921,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Daggers"
       },
       "localization": {
         "en": "Leveling: melee1h l8 (Daggers)",
@@ -2585,6 +2953,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Axes"
+      },
       "localization": {
         "en": "Leveling: melee1h l8 (One Hand Axes)",
         "ch": "过渡: 单手斧 l8"
@@ -2611,6 +2983,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Maces"
       },
       "localization": {
         "en": "Leveling: melee1h l8 (One Hand Maces)",
@@ -2639,6 +3015,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Thrusting One Hand Swords"
+      },
       "localization": {
         "en": "Leveling: melee1h l8 (Thrusting One Hand Swords)",
         "ch": "过渡: 刺剑 l8"
@@ -2665,6 +3045,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Swords"
       },
       "localization": {
         "en": "Leveling: melee1h l8 (One Hand Swords)",

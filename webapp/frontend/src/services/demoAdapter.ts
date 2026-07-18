@@ -161,6 +161,9 @@ export const setupDemoAdapter = () => {
         respond(config, async () => {
           const merged = await data.getMergedState();
           const bundle = await data.loadBundle();
+          // Campaign picker selection: prefer the POST body, else the persisted setting.
+          const settings = await data.getSettings();
+          const levelingSelection = genBody.leveling_selection || settings?.leveling_selection || {};
           const filterText = generateFilter({
             themeData: await data.getMergedTheme(),
             soundMap: await data.getSoundMap(),
@@ -169,6 +172,7 @@ export const setupDemoAdapter = () => {
             language: 'ch',
             footer: bundle?.footer || '',
             strictness: genBody.strictness || 'soft',
+            leveling_selection: levelingSelection,
           });
           localStorage.setItem('demo_generated_filter', filterText);
           return { message: 'Success (generated in browser)', content: filterText };

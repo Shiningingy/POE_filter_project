@@ -98,6 +98,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Two Hand Axes"
+      },
       "localization": {
         "en": "Leveling: 4l general (Two Hand Axes)",
         "ch": "过渡: 双手斧 general"
@@ -123,6 +127,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Two Hand Maces"
       },
       "localization": {
         "en": "Leveling: 4l general (Two Hand Maces)",
@@ -150,6 +158,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Two Hand Swords"
+      },
       "localization": {
         "en": "Leveling: 4l general (Two Hand Swords)",
         "ch": "过渡: 双手剑 general"
@@ -175,6 +187,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Warstaves"
       },
       "localization": {
         "en": "Leveling: 4l general (Warstaves)",
@@ -202,6 +218,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Bows"
+      },
       "localization": {
         "en": "Leveling: 4l general (Bows)",
         "ch": "过渡: 弓 general"
@@ -227,6 +247,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Staves"
       },
       "localization": {
         "en": "Leveling: 4l general (Staves)",
@@ -254,6 +278,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Boots"
+      },
       "localization": {
         "en": "Leveling: 4l general (Boots)",
         "ch": "过渡: 鞋子 general"
@@ -279,6 +307,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Gloves"
       },
       "localization": {
         "en": "Leveling: 4l general (Gloves)",
@@ -306,6 +338,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Helmets"
+      },
       "localization": {
         "en": "Leveling: 4l general (Helmets)",
         "ch": "过渡: 头部 general"
@@ -331,6 +367,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Body Armours"
       },
       "localization": {
         "en": "Leveling: 4l general (Body Armours)",
@@ -359,6 +399,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Claws"
+      },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Claws)",
         "ch": "过渡: 爪 earlythreelinks"
@@ -385,6 +429,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Daggers"
       },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Daggers)",
@@ -413,6 +461,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "One Hand Axes"
+      },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (One Hand Axes)",
         "ch": "过渡: 单手斧 earlythreelinks"
@@ -439,6 +491,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "One Hand Maces"
       },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (One Hand Maces)",
@@ -467,6 +523,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Thrusting One Hand Swords"
+      },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Thrusting One Hand Swords)",
         "ch": "过渡: 刺剑 earlythreelinks"
@@ -493,6 +553,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "One Hand Swords"
       },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (One Hand Swords)",
@@ -521,6 +585,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Two Hand Axes"
+      },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Two Hand Axes)",
         "ch": "过渡: 双手斧 earlythreelinks"
@@ -547,6 +615,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Two Hand Maces"
       },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Two Hand Maces)",
@@ -575,6 +647,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Two Hand Swords"
+      },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Two Hand Swords)",
         "ch": "过渡: 双手剑 earlythreelinks"
@@ -601,6 +677,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Warstaves"
       },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Warstaves)",
@@ -629,6 +709,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Bows"
+      },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Bows)",
         "ch": "过渡: 弓 earlythreelinks"
@@ -655,6 +739,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Rune Daggers"
       },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Rune Daggers)",
@@ -683,6 +771,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Quivers"
+      },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Quivers)",
         "ch": "过渡: 箭袋 earlythreelinks"
@@ -709,6 +801,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Sceptres"
       },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Sceptres)",
@@ -737,6 +833,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Staves"
+      },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Staves)",
         "ch": "过渡: 长杖 earlythreelinks"
@@ -763,6 +863,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Wands"
       },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Wands)",
@@ -791,6 +895,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Shields"
+      },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Shields)",
         "ch": "过渡: 盾 earlythreelinks"
@@ -817,6 +925,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Boots"
       },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Boots)",
@@ -845,6 +957,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Gloves"
+      },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Gloves)",
         "ch": "过渡: 手套 earlythreelinks"
@@ -871,6 +987,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Body Armours"
       },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Body Armours)",
@@ -899,6 +1019,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Helmets"
+      },
       "localization": {
         "en": "Leveling: 3l earlythreelinks (Helmets)",
         "ch": "过渡: 头部 earlythreelinks"
@@ -925,6 +1049,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Claws"
       },
       "localization": {
         "en": "Leveling: 3l general (Claws)",
@@ -953,6 +1081,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Daggers"
+      },
       "localization": {
         "en": "Leveling: 3l general (Daggers)",
         "ch": "过渡: 匕首 general"
@@ -979,6 +1111,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "One Hand Axes"
       },
       "localization": {
         "en": "Leveling: 3l general (One Hand Axes)",
@@ -1007,6 +1143,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "One Hand Maces"
+      },
       "localization": {
         "en": "Leveling: 3l general (One Hand Maces)",
         "ch": "过渡: 单手锤 general"
@@ -1033,6 +1173,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Thrusting One Hand Swords"
       },
       "localization": {
         "en": "Leveling: 3l general (Thrusting One Hand Swords)",
@@ -1061,6 +1205,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "One Hand Swords"
+      },
       "localization": {
         "en": "Leveling: 3l general (One Hand Swords)",
         "ch": "过渡: 单手剑 general"
@@ -1087,6 +1235,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Two Hand Axes"
       },
       "localization": {
         "en": "Leveling: 3l general (Two Hand Axes)",
@@ -1115,6 +1267,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Two Hand Maces"
+      },
       "localization": {
         "en": "Leveling: 3l general (Two Hand Maces)",
         "ch": "过渡: 双手锤 general"
@@ -1141,6 +1297,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Two Hand Swords"
       },
       "localization": {
         "en": "Leveling: 3l general (Two Hand Swords)",
@@ -1169,6 +1329,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Warstaves"
+      },
       "localization": {
         "en": "Leveling: 3l general (Warstaves)",
         "ch": "过渡: 战杖 general"
@@ -1195,6 +1359,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Bows"
       },
       "localization": {
         "en": "Leveling: 3l general (Bows)",
@@ -1223,6 +1391,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Rune Daggers"
+      },
       "localization": {
         "en": "Leveling: 3l general (Rune Daggers)",
         "ch": "过渡: 符文匕首 general"
@@ -1249,6 +1421,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Quivers"
       },
       "localization": {
         "en": "Leveling: 3l general (Quivers)",
@@ -1277,6 +1453,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Sceptres"
+      },
       "localization": {
         "en": "Leveling: 3l general (Sceptres)",
         "ch": "过渡: 短杖 general"
@@ -1303,6 +1483,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Staves"
       },
       "localization": {
         "en": "Leveling: 3l general (Staves)",
@@ -1331,6 +1515,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Wands"
+      },
       "localization": {
         "en": "Leveling: 3l general (Wands)",
         "ch": "过渡: 法杖 general"
@@ -1357,6 +1545,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Shields"
       },
       "localization": {
         "en": "Leveling: 3l general (Shields)",
@@ -1385,6 +1577,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Boots"
+      },
       "localization": {
         "en": "Leveling: 3l general (Boots)",
         "ch": "过渡: 鞋子 general"
@@ -1411,6 +1607,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Gloves"
       },
       "localization": {
         "en": "Leveling: 3l general (Gloves)",
@@ -1439,6 +1639,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Body Armours"
+      },
       "localization": {
         "en": "Leveling: 3l general (Body Armours)",
         "ch": "过渡: 胸甲 general"
@@ -1465,6 +1669,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Helmets"
       },
       "localization": {
         "en": "Leveling: 3l general (Helmets)",
@@ -1493,6 +1701,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Rune Daggers"
+      },
       "localization": {
         "en": "Leveling: act1 casterweapons (Rune Daggers)",
         "ch": "过渡: 符文匕首 casterweapons"
@@ -1519,6 +1731,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Sceptres"
       },
       "localization": {
         "en": "Leveling: act1 casterweapons (Sceptres)",
@@ -1547,6 +1763,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Staves"
+      },
       "localization": {
         "en": "Leveling: act1 casterweapons (Staves)",
         "ch": "过渡: 长杖 casterweapons"
@@ -1574,6 +1794,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Wands"
+      },
       "localization": {
         "en": "Leveling: act1 casterweapons (Wands)",
         "ch": "过渡: 法杖 casterweapons"
@@ -1599,6 +1823,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "act1"
       },
       "localization": {
         "en": "Leveling: act1 castercraftrings",
@@ -1626,6 +1854,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "act1"
+      },
       "localization": {
         "en": "Leveling: act1 general",
         "ch": "过渡: act1 general"
@@ -1651,6 +1883,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Boots"
       },
       "localization": {
         "en": "Leveling: act1 boots (Boots)",
@@ -1678,6 +1914,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Quivers"
+      },
       "localization": {
         "en": "Leveling: act1 quivers (Quivers)",
         "ch": "过渡: 箭袋 quivers"
@@ -1703,6 +1943,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "act1"
       },
       "localization": {
         "en": "Leveling: act1 physical",
@@ -1730,6 +1974,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Amulets"
+      },
       "localization": {
         "en": "Leveling: act1 jewellery (Amulets)",
         "ch": "过渡: 护身符 jewellery"
@@ -1756,6 +2004,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Belts"
+      },
       "localization": {
         "en": "Leveling: act1 jewellery (Belts)",
         "ch": "过渡: 腰带 jewellery"
@@ -1781,6 +2033,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Rings"
       },
       "localization": {
         "en": "Leveling: act1 jewellery (Rings)",
@@ -1811,6 +2067,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "act2"
+      },
       "localization": {
         "en": "Leveling: act2 castercraftrings",
         "ch": "过渡: act2 castercraftrings"
@@ -1840,6 +2100,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "act2"
+      },
       "localization": {
         "en": "Leveling: act2 physical",
         "ch": "过渡: act2 physical"
@@ -1864,6 +2128,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "otheracts"
       },
       "localization": {
         "en": "Leveling: otheracts highphysquivers",
@@ -1894,6 +2162,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "otheracts"
+      },
       "localization": {
         "en": "Leveling: otheracts fireresistgear",
         "ch": "过渡: otheracts fireresistgear"
@@ -1920,6 +2192,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "otheracts"
+      },
       "localization": {
         "en": "Leveling: otheracts generalcrafting",
         "ch": "过渡: otheracts generalcrafting"
@@ -1945,6 +2221,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "minion"
+      },
       "localization": {
         "en": "Leveling: minion miniongear",
         "ch": "过渡: minion miniongear"
@@ -1969,6 +2249,10 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "minion"
       },
       "localization": {
         "en": "Leveling: minion minionshields",

@@ -27,6 +27,10 @@
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
+      "lv_group": {
+        "axis": "always",
+        "key": "Tinctures"
+      },
       "localization": {
         "en": "Leveling: tincture any (Tinctures)",
         "ch": "过渡: 酊剂 any"
