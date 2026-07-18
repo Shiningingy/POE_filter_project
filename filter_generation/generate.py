@@ -113,6 +113,14 @@ def tr(key):
     return TERMS.get(LANG, TERMS["en"]).get(key, key)
 
 # ---------- UTILITIES ----------
+def style_off(value):
+    """True when a theme/override style value means OMIT the line entirely: the
+    editor's 'disabled:' toggle, or the designer sentinels 'inherit' (TextColor
+    keeps the rarity colour) / 'default' (BackgroundColor keeps the game's
+    default label bg). Mirrors styleOff() in filterGenerator.ts — the editor
+    preview (styleResolver) omits these too, so preview == export."""
+    return isinstance(value, str) and (value.startswith("disabled:") or value in ("inherit", "default"))
+
 def parse_rgba(value, default="255 255 255 255"):
     """Return 'R G B A' string from rgba() string or [r,g,b,a] list. Fallback to white."""
     if not value or value == -1: return default
@@ -443,18 +451,21 @@ def generate_filter():
                         block_lines.append(f"    {key} {clean_val}")
                     else:
                         block_lines.append(f"    {key} {val}")
-                block_lines += [
-                    f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}',
-                    f'    SetTextColor {base_text_col}',
-                    f'    SetBorderColor {base_border_col}',
-                    f'    SetBackgroundColor {base_background_col}'
-                ]
+                # Disabled/sentinel styles are OMITTED (see style_off) so the editor
+                # preview and the exported filter agree. (Mirrors filterGenerator.ts.)
+                block_lines.append(f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}')
+                if not style_off(ttheme.get("TextColor")):
+                    block_lines.append(f'    SetTextColor {base_text_col}')
+                if not style_off(ttheme.get("BorderColor")):
+                    block_lines.append(f'    SetBorderColor {base_border_col}')
+                if not style_off(ttheme.get("BackgroundColor")):
+                    block_lines.append(f'    SetBackgroundColor {base_background_col}')
                 sound_line = resolve_sound(tier_entry, sound_map)
                 if sound_line:
                     block_lines.append(f"    {sound_line}")
-                if base_play_eff:
+                if base_play_eff and not style_off(base_play_eff):
                     block_lines.append(f"    PlayEffect {base_play_eff}")
-                if base_mini_icon:
+                if base_mini_icon and not style_off(base_mini_icon):
                     block_lines.append(f"    MinimapIcon {base_mini_icon}")
                 out_lines.append("\n".join(block_lines) + "\n")
                 continue  # Skip normal BaseType processing for this tier
@@ -573,17 +584,25 @@ def generate_filter():
                         for r_line in rule.get("raw").split('\n'):
                             if r_line.strip(): block_lines.append(f"    {r_line.strip()}")
 
-                    block_lines += [
-                        f'    SetFontSize {r_over.get("FontSize", ttheme.get("FontSize", DEFAULT_FONT_SIZE))}',
-                        f'    SetTextColor {parse_rgba(r_over.get("TextColor"), base_text_col)}',
-                        f'    SetBorderColor {parse_rgba(r_over.get("BorderColor"), base_border_col)}',
-                        f'    SetBackgroundColor {parse_rgba(r_over.get("BackgroundColor"), base_background_col)}'
-                    ]
-                    
+                    # Effective raw value = the override when present, else the theme
+                    # value; disabled/sentinel values omit the line (see style_off).
+                    block_lines.append(f'    SetFontSize {r_over.get("FontSize", ttheme.get("FontSize", DEFAULT_FONT_SIZE))}')
+                    r_text_raw = r_over["TextColor"] if "TextColor" in r_over else ttheme.get("TextColor")
+                    if not style_off(r_text_raw):
+                        block_lines.append(f'    SetTextColor {parse_rgba(r_over.get("TextColor"), base_text_col)}')
+                    r_border_raw = r_over["BorderColor"] if "BorderColor" in r_over else ttheme.get("BorderColor")
+                    if not style_off(r_border_raw):
+                        block_lines.append(f'    SetBorderColor {parse_rgba(r_over.get("BorderColor"), base_border_col)}')
+                    r_bg_raw = r_over["BackgroundColor"] if "BackgroundColor" in r_over else ttheme.get("BackgroundColor")
+                    if not style_off(r_bg_raw):
+                        block_lines.append(f'    SetBackgroundColor {parse_rgba(r_over.get("BackgroundColor"), base_background_col)}')
+
                     sound_line = resolve_sound(tier_entry, sound_map, r_over.get("PlayAlertSound"))
                     if sound_line:  block_lines.append(f"    {sound_line}")
-                    if r_over.get("PlayEffect", base_play_eff): block_lines.append(f"    PlayEffect {r_over.get('PlayEffect', base_play_eff)}")
-                    if r_over.get("MinimapIcon", base_mini_icon): block_lines.append(f"    MinimapIcon {r_over.get('MinimapIcon', base_mini_icon)}")
+                    r_eff = r_over.get("PlayEffect", base_play_eff)
+                    if r_eff and not style_off(r_eff): block_lines.append(f"    PlayEffect {r_eff}")
+                    r_icon = r_over.get("MinimapIcon", base_mini_icon)
+                    if r_icon and not style_off(r_icon): block_lines.append(f"    MinimapIcon {r_icon}")
                     
                     out_lines.append("\n".join(block_lines) + "\n")
 
@@ -637,17 +656,19 @@ def generate_filter():
                         else:
                             block_lines.append(f"    {key} {val}")
 
-                    block_lines += [
-                        f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}',
-                        f'    SetTextColor {base_text_col}',
-                        f'    SetBorderColor {base_border_col}',
-                        f'    SetBackgroundColor {base_background_col}'
-                    ]
+                    # Disabled/sentinel styles are OMITTED (see style_off).
+                    block_lines.append(f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}')
+                    if not style_off(ttheme.get("TextColor")):
+                        block_lines.append(f'    SetTextColor {base_text_col}')
+                    if not style_off(ttheme.get("BorderColor")):
+                        block_lines.append(f'    SetBorderColor {base_border_col}')
+                    if not style_off(ttheme.get("BackgroundColor")):
+                        block_lines.append(f'    SetBackgroundColor {base_background_col}')
 
                     sound_line = resolve_sound(tier_entry, sound_map)
                     if sound_line:  block_lines.append(f"    {sound_line}")
-                    if base_play_eff: block_lines.append(f"    PlayEffect {base_play_eff}")
-                    if base_mini_icon: block_lines.append(f"    MinimapIcon {base_mini_icon}")
+                    if base_play_eff and not style_off(base_play_eff): block_lines.append(f"    PlayEffect {base_play_eff}")
+                    if base_mini_icon and not style_off(base_mini_icon): block_lines.append(f"    MinimapIcon {base_mini_icon}")
                     
                     out_lines.append("\n".join(block_lines) + "\n")
 

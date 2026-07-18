@@ -262,29 +262,40 @@
       "MinimapIcon": "1 Grey Diamond"
     },
     "Tier 2": {
-      "FontSize": 39,
-      "TextColor": "#aeaeb2ff",
-      "BorderColor": "#a0a0a5ff",
-      "BackgroundColor": "#101016ff",
-      "MinimapIcon": "1 Grey Circle"
+      "FontSize": 40,
+      "TextColor": "inherit",
+      "BorderColor": "#4ae63aff",
+      "BackgroundColor": "#d7d7c8d2"
     },
     "Tier 3": {
-      "FontSize": 36,
-      "TextColor": "#bcbcc0ff",
-      "BorderColor": "#58585bff",
-      "BackgroundColor": "#0a0a0dff"
+      "FontSize": 40,
+      "TextColor": "inherit",
+      "BorderColor": "#4ae63aff",
+      "BackgroundColor": "#d7d7c8d2"
     },
     "Tier 4": {
-      "FontSize": 34,
-      "TextColor": "#9a9aa1ff",
-      "BorderColor": "#303032ff",
-      "BackgroundColor": "#00000000"
+      "FontSize": 35,
+      "TextColor": "inherit",
+      "BorderColor": "#4ae63aff",
+      "BackgroundColor": "default"
     },
     "Tier 5": {
-      "FontSize": 31,
-      "TextColor": "#9696a0ff",
-      "BorderColor": "#3c3c46ff",
-      "BackgroundColor": "#00000000"
+      "FontSize": 35,
+      "TextColor": "inherit",
+      "BorderColor": "#4ae63aff",
+      "BackgroundColor": "default"
+    },
+    "Tier 6": {
+      "FontSize": 32,
+      "TextColor": "inherit",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "default"
+    },
+    "Tier 7": {
+      "FontSize": 32,
+      "TextColor": "inherit",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "default"
     },
     "Tier 9": {
       "FontSize": 18,

@@ -89,6 +89,14 @@ const FOLDER_LOCALIZATION: Record<string, string> = {
 // UTILITIES
 // ===========================
 
+// True when a theme/override style value means OMIT the line entirely: the
+// editor's 'disabled:' toggle, or the designer sentinels 'inherit' (TextColor
+// keeps the rarity colour) / 'default' (BackgroundColor keeps the game's default
+// label bg). Mirrors style_off() in generate.py — the editor preview
+// (styleResolver) omits these too, so preview == export.
+const styleOff = (value: any): boolean =>
+  typeof value === 'string' && (value.startsWith('disabled:') || value === 'inherit' || value === 'default');
+
 const parseRgba = (value: any, defaultValue: string = "255 255 255 255"): string => {
   if (!value || value === -1) return defaultValue;
   if (typeof value === "string" && value.startsWith("disabled:")) return defaultValue;
@@ -390,14 +398,16 @@ export const generateFilter = (data: GeneratorData): string => {
         outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${ccDisplay} ${locCat} - Class Condition==`);
         const ccLines = [`${isHide ? HIDE_CMD : "Show"}`];
         emitConditions(ccLines, tierConditions);
+        // Disabled/sentinel styles are OMITTED (see styleOff) so the editor
+        // preview and the exported filter agree. (Mirrors generate.py.)
         ccLines.push(`    SetFontSize ${ttheme.FontSize || DEFAULT_FONT_SIZE}`);
-        ccLines.push(`    SetTextColor ${baseTextCol}`);
-        ccLines.push(`    SetBorderColor ${baseBorderCol}`);
-        ccLines.push(`    SetBackgroundColor ${baseBgCol}`);
+        if (!styleOff(ttheme.TextColor)) ccLines.push(`    SetTextColor ${baseTextCol}`);
+        if (!styleOff(ttheme.BorderColor)) ccLines.push(`    SetBorderColor ${baseBorderCol}`);
+        if (!styleOff(ttheme.BackgroundColor)) ccLines.push(`    SetBackgroundColor ${baseBgCol}`);
         const ccSound = resolveSound(tierEntry, soundMap);
         if (ccSound) ccLines.push(`    ${ccSound}`);
-        if (basePlayEff) ccLines.push(`    PlayEffect ${basePlayEff}`);
-        if (baseMiniIcon) ccLines.push(`    MinimapIcon ${baseMiniIcon}`);
+        if (basePlayEff && !styleOff(basePlayEff)) ccLines.push(`    PlayEffect ${basePlayEff}`);
+        if (baseMiniIcon && !styleOff(baseMiniIcon)) ccLines.push(`    MinimapIcon ${baseMiniIcon}`);
         outLines.push(ccLines.join('\n') + '\n');
         continue;
       }
@@ -486,15 +496,22 @@ export const generateFilter = (data: GeneratorData): string => {
             rule.raw.split('\n').forEach((l: string) => { if (l.trim()) blockLines.push(`    ${l.trim()}`); });
           }
 
+          // Effective raw value = the override when present, else the theme value;
+          // disabled/sentinel values omit the line (see styleOff; mirrors generate.py).
           blockLines.push(`    SetFontSize ${rOver.FontSize || ttheme.FontSize || DEFAULT_FONT_SIZE}`);
-          blockLines.push(`    SetTextColor ${parseRgba(rOver.TextColor, baseTextCol)}`);
-          blockLines.push(`    SetBorderColor ${parseRgba(rOver.BorderColor, baseBorderCol)}`);
-          blockLines.push(`    SetBackgroundColor ${parseRgba(rOver.BackgroundColor, baseBgCol)}`);
+          const rTextRaw = 'TextColor' in rOver ? rOver.TextColor : ttheme.TextColor;
+          if (!styleOff(rTextRaw)) blockLines.push(`    SetTextColor ${parseRgba(rOver.TextColor, baseTextCol)}`);
+          const rBorderRaw = 'BorderColor' in rOver ? rOver.BorderColor : ttheme.BorderColor;
+          if (!styleOff(rBorderRaw)) blockLines.push(`    SetBorderColor ${parseRgba(rOver.BorderColor, baseBorderCol)}`);
+          const rBgRaw = 'BackgroundColor' in rOver ? rOver.BackgroundColor : ttheme.BackgroundColor;
+          if (!styleOff(rBgRaw)) blockLines.push(`    SetBackgroundColor ${parseRgba(rOver.BackgroundColor, baseBgCol)}`);
 
           const soundLine = resolveSound(tierEntry, soundMap, rOver.PlayAlertSound);
           if (soundLine) blockLines.push(`    ${soundLine}`);
-          if (rOver.PlayEffect || basePlayEff) blockLines.push(`    PlayEffect ${rOver.PlayEffect || basePlayEff}`);
-          if (rOver.MinimapIcon || baseMiniIcon) blockLines.push(`    MinimapIcon ${rOver.MinimapIcon || baseMiniIcon}`);
+          const rEff = 'PlayEffect' in rOver ? rOver.PlayEffect : basePlayEff;
+          if (rEff && !styleOff(rEff)) blockLines.push(`    PlayEffect ${rEff}`);
+          const rIcon = 'MinimapIcon' in rOver ? rOver.MinimapIcon : baseMiniIcon;
+          if (rIcon && !styleOff(rIcon)) blockLines.push(`    MinimapIcon ${rIcon}`);
 
           outLines.push(blockLines.join('\n') + '\n');
         }
@@ -527,15 +544,16 @@ export const generateFilter = (data: GeneratorData): string => {
           // generate.py's base block. (Previously omitted on the TS side.)
           emitConditions(blockLines, tierEntry.conditions);
 
+          // Disabled/sentinel styles are OMITTED (see styleOff; mirrors generate.py).
           blockLines.push(`    SetFontSize ${ttheme.FontSize || DEFAULT_FONT_SIZE}`);
-          blockLines.push(`    SetTextColor ${baseTextCol}`);
-          blockLines.push(`    SetBorderColor ${baseBorderCol}`);
-          blockLines.push(`    SetBackgroundColor ${baseBgCol}`);
+          if (!styleOff(ttheme.TextColor)) blockLines.push(`    SetTextColor ${baseTextCol}`);
+          if (!styleOff(ttheme.BorderColor)) blockLines.push(`    SetBorderColor ${baseBorderCol}`);
+          if (!styleOff(ttheme.BackgroundColor)) blockLines.push(`    SetBackgroundColor ${baseBgCol}`);
 
           const soundLine = resolveSound(tierEntry, soundMap);
           if (soundLine) blockLines.push(`    ${soundLine}`);
-          if (basePlayEff) blockLines.push(`    PlayEffect ${basePlayEff}`);
-          if (baseMiniIcon) blockLines.push(`    MinimapIcon ${baseMiniIcon}`);
+          if (basePlayEff && !styleOff(basePlayEff)) blockLines.push(`    PlayEffect ${basePlayEff}`);
+          if (baseMiniIcon && !styleOff(baseMiniIcon)) blockLines.push(`    MinimapIcon ${baseMiniIcon}`);
 
           outLines.push(blockLines.join('\n') + '\n');
         }

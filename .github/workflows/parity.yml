@@ -7,9 +7,8 @@ name: Generator parity
 # this test wasn't run after a commit. Running it on every PR makes that unmissable.
 
 on:
-  pull_request:
-  push:
-    branches: [main]
+  push:            # every branch — immediate feedback while you work
+  pull_request:    # and on PRs (the pre-merge gate)
 
 jobs:
   parity:
