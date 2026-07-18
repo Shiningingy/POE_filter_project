@@ -7,9 +7,295 @@
         "ch": "首饰与护甲"
       },
       "tier_order": [
+        "Lv minion general",
+        "Lv universal jewellery Amulets",
+        "Lv universal jewellery Belts",
+        "Lv universal jewellery Rings",
+        "Lv armours bootsfocus Boots",
+        "Lv armours general Boots",
+        "Lv armours general Gloves",
+        "Lv armours general Helmets",
+        "Lv armours bodyarmours Body Armours",
+        "Lv armours shields Shields",
+        "Lv armours quivers Quivers",
         "Jewellery & Armours T1",
         "Jewellery & Armours Hide"
       ]
+    },
+    "Lv minion general": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "BaseType": "== \"Bone Ring\" \"Bone Spirit Shield\" \"Calling Wand\" \"Convening Wand\" \"Fossilised Spirit Shield\" \"Ivory Spirit Shield\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: minion general",
+        "ch": "过渡: minion general"
+      },
+      "_source": {
+        "path": "leveling->rare->minion",
+        "tier": "general",
+        "order": 39
+      }
+    },
+    "Lv universal jewellery Amulets": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "Class": "== \"Amulets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: universal jewellery (Amulets)",
+        "ch": "过渡: 护身符 jewellery"
+      },
+      "_source": {
+        "path": "leveling->rare->universal",
+        "tier": "jewellery",
+        "order": 40
+      }
+    },
+    "Lv universal jewellery Belts": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "Class": "== \"Belts\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: universal jewellery (Belts)",
+        "ch": "过渡: 腰带 jewellery"
+      },
+      "_source": {
+        "path": "leveling->rare->universal",
+        "tier": "jewellery",
+        "order": 40
+      }
+    },
+    "Lv universal jewellery Rings": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "Class": "== \"Rings\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: universal jewellery (Rings)",
+        "ch": "过渡: 戒指 jewellery"
+      },
+      "_source": {
+        "path": "leveling->rare->universal",
+        "tier": "jewellery",
+        "order": 40
+      }
+    },
+    "Lv armours bootsfocus Boots": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "Class": "== \"Boots\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: armours bootsfocus (Boots)",
+        "ch": "过渡: 鞋子 bootsfocus"
+      },
+      "_source": {
+        "path": "leveling->rare->armours",
+        "tier": "bootsfocus",
+        "order": 41
+      }
+    },
+    "Lv armours general Boots": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "Class": "== \"Boots\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: armours general (Boots)",
+        "ch": "过渡: 鞋子 general"
+      },
+      "_source": {
+        "path": "leveling->rare->armours",
+        "tier": "general",
+        "order": 42
+      }
+    },
+    "Lv armours general Gloves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "Class": "== \"Gloves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: armours general (Gloves)",
+        "ch": "过渡: 手套 general"
+      },
+      "_source": {
+        "path": "leveling->rare->armours",
+        "tier": "general",
+        "order": 42
+      }
+    },
+    "Lv armours general Helmets": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "Class": "== \"Helmets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: armours general (Helmets)",
+        "ch": "过渡: 头部 general"
+      },
+      "_source": {
+        "path": "leveling->rare->armours",
+        "tier": "general",
+        "order": 42
+      }
+    },
+    "Lv armours bodyarmours Body Armours": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "Class": "== \"Body Armours\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: armours bodyarmours (Body Armours)",
+        "ch": "过渡: 胸甲 bodyarmours"
+      },
+      "_source": {
+        "path": "leveling->rare->armours",
+        "tier": "bodyarmours",
+        "order": 43
+      }
+    },
+    "Lv armours shields Shields": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "Class": "== \"Shields\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: armours shields (Shields)",
+        "ch": "过渡: 盾 shields"
+      },
+      "_source": {
+        "path": "leveling->rare->armours",
+        "tier": "shields",
+        "order": 44
+      }
+    },
+    "Lv armours quivers Quivers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "Class": "== \"Quivers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: armours quivers (Quivers)",
+        "ch": "过渡: 箭袋 quivers"
+      },
+      "_source": {
+        "path": "leveling->rare->armours",
+        "tier": "quivers",
+        "order": 45
+      }
     },
     "Jewellery & Armours T1": {
       "hideable": true,

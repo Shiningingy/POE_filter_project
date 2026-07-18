@@ -7,9 +7,1978 @@
         "ch": "早期普通物品"
       },
       "tier_order": [
+        "Lv 4l general Two Hand Axes",
+        "Lv 4l general Two Hand Maces",
+        "Lv 4l general Two Hand Swords",
+        "Lv 4l general Warstaves",
+        "Lv 4l general Bows",
+        "Lv 4l general Staves",
+        "Lv 4l general Boots",
+        "Lv 4l general Gloves",
+        "Lv 4l general Helmets",
+        "Lv 4l general Body Armours",
+        "Lv 3l earlythreelinks Claws",
+        "Lv 3l earlythreelinks Daggers",
+        "Lv 3l earlythreelinks One Hand Axes",
+        "Lv 3l earlythreelinks One Hand Maces",
+        "Lv 3l earlythreelinks Thrusting One Hand Swords",
+        "Lv 3l earlythreelinks One Hand Swords",
+        "Lv 3l earlythreelinks Two Hand Axes",
+        "Lv 3l earlythreelinks Two Hand Maces",
+        "Lv 3l earlythreelinks Two Hand Swords",
+        "Lv 3l earlythreelinks Warstaves",
+        "Lv 3l earlythreelinks Bows",
+        "Lv 3l earlythreelinks Rune Daggers",
+        "Lv 3l earlythreelinks Quivers",
+        "Lv 3l earlythreelinks Sceptres",
+        "Lv 3l earlythreelinks Staves",
+        "Lv 3l earlythreelinks Wands",
+        "Lv 3l earlythreelinks Shields",
+        "Lv 3l earlythreelinks Boots",
+        "Lv 3l earlythreelinks Gloves",
+        "Lv 3l earlythreelinks Body Armours",
+        "Lv 3l earlythreelinks Helmets",
+        "Lv 3l general Claws",
+        "Lv 3l general Daggers",
+        "Lv 3l general One Hand Axes",
+        "Lv 3l general One Hand Maces",
+        "Lv 3l general Thrusting One Hand Swords",
+        "Lv 3l general One Hand Swords",
+        "Lv 3l general Two Hand Axes",
+        "Lv 3l general Two Hand Maces",
+        "Lv 3l general Two Hand Swords",
+        "Lv 3l general Warstaves",
+        "Lv 3l general Bows",
+        "Lv 3l general Rune Daggers",
+        "Lv 3l general Quivers",
+        "Lv 3l general Sceptres",
+        "Lv 3l general Staves",
+        "Lv 3l general Wands",
+        "Lv 3l general Shields",
+        "Lv 3l general Boots",
+        "Lv 3l general Gloves",
+        "Lv 3l general Body Armours",
+        "Lv 3l general Helmets",
+        "Lv act1 casterweapons Rune Daggers",
+        "Lv act1 casterweapons Sceptres",
+        "Lv act1 casterweapons Staves",
+        "Lv act1 casterweapons Wands",
+        "Lv act1 castercraftrings",
+        "Lv act1 general",
+        "Lv act1 boots Boots",
+        "Lv act1 quivers Quivers",
+        "Lv act1 physical",
+        "Lv act1 jewellery Amulets",
+        "Lv act1 jewellery Belts",
+        "Lv act1 jewellery Rings",
+        "Lv act2 castercraftrings",
+        "Lv act2 physical",
+        "Lv otheracts highphysquivers",
+        "Lv otheracts fireresistgear",
+        "Lv otheracts generalcrafting",
+        "Lv minion miniongear",
+        "Lv minion minionshields",
         "Normal Items - Early T1",
         "Normal Items - Early Hide"
       ]
+    },
+    "Lv 4l general Two Hand Axes": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 4",
+        "Class": "== \"Two Hand Axes\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 4l general (Two Hand Axes)",
+        "ch": "过渡: 双手斧 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->4l",
+        "tier": "general",
+        "order": 77
+      }
+    },
+    "Lv 4l general Two Hand Maces": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 4",
+        "Class": "== \"Two Hand Maces\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 4l general (Two Hand Maces)",
+        "ch": "过渡: 双手锤 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->4l",
+        "tier": "general",
+        "order": 77
+      }
+    },
+    "Lv 4l general Two Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 4",
+        "Class": "== \"Two Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 4l general (Two Hand Swords)",
+        "ch": "过渡: 双手剑 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->4l",
+        "tier": "general",
+        "order": 77
+      }
+    },
+    "Lv 4l general Warstaves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 4",
+        "Class": "== \"Warstaves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 4l general (Warstaves)",
+        "ch": "过渡: 战杖 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->4l",
+        "tier": "general",
+        "order": 77
+      }
+    },
+    "Lv 4l general Bows": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 4",
+        "Class": "== \"Bows\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 4l general (Bows)",
+        "ch": "过渡: 弓 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->4l",
+        "tier": "general",
+        "order": 77
+      }
+    },
+    "Lv 4l general Staves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 4",
+        "Class": "== \"Staves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 4l general (Staves)",
+        "ch": "过渡: 长杖 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->4l",
+        "tier": "general",
+        "order": 77
+      }
+    },
+    "Lv 4l general Boots": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 4",
+        "Class": "== \"Boots\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 4l general (Boots)",
+        "ch": "过渡: 鞋子 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->4l",
+        "tier": "general",
+        "order": 77
+      }
+    },
+    "Lv 4l general Gloves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 4",
+        "Class": "== \"Gloves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 4l general (Gloves)",
+        "ch": "过渡: 手套 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->4l",
+        "tier": "general",
+        "order": 77
+      }
+    },
+    "Lv 4l general Helmets": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 4",
+        "Class": "== \"Helmets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 4l general (Helmets)",
+        "ch": "过渡: 头部 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->4l",
+        "tier": "general",
+        "order": 77
+      }
+    },
+    "Lv 4l general Body Armours": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 4",
+        "Class": "== \"Body Armours\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 4l general (Body Armours)",
+        "ch": "过渡: 胸甲 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->4l",
+        "tier": "general",
+        "order": 77
+      }
+    },
+    "Lv 3l earlythreelinks Claws": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Claws\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Claws)",
+        "ch": "过渡: 爪 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Daggers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Daggers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Daggers)",
+        "ch": "过渡: 匕首 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks One Hand Axes": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"One Hand Axes\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (One Hand Axes)",
+        "ch": "过渡: 单手斧 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks One Hand Maces": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"One Hand Maces\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (One Hand Maces)",
+        "ch": "过渡: 单手锤 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Thrusting One Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Thrusting One Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Thrusting One Hand Swords)",
+        "ch": "过渡: 刺剑 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks One Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"One Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (One Hand Swords)",
+        "ch": "过渡: 单手剑 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Two Hand Axes": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Two Hand Axes\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Two Hand Axes)",
+        "ch": "过渡: 双手斧 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Two Hand Maces": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Two Hand Maces\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Two Hand Maces)",
+        "ch": "过渡: 双手锤 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Two Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Two Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Two Hand Swords)",
+        "ch": "过渡: 双手剑 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Warstaves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Warstaves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Warstaves)",
+        "ch": "过渡: 战杖 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Bows": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Bows\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Bows)",
+        "ch": "过渡: 弓 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Rune Daggers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Rune Daggers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Rune Daggers)",
+        "ch": "过渡: 符文匕首 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Quivers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Quivers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Quivers)",
+        "ch": "过渡: 箭袋 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Sceptres": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Sceptres\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Sceptres)",
+        "ch": "过渡: 短杖 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Staves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Staves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Staves)",
+        "ch": "过渡: 长杖 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Wands": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Wands\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Wands)",
+        "ch": "过渡: 法杖 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Shields": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Shields\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Shields)",
+        "ch": "过渡: 盾 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Boots": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Boots\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Boots)",
+        "ch": "过渡: 鞋子 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Gloves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Gloves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Gloves)",
+        "ch": "过渡: 手套 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Body Armours": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Body Armours\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Body Armours)",
+        "ch": "过渡: 胸甲 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l earlythreelinks Helmets": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Helmets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l earlythreelinks (Helmets)",
+        "ch": "过渡: 头部 earlythreelinks"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "earlythreelinks",
+        "order": 82
+      }
+    },
+    "Lv 3l general Claws": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Claws\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Claws)",
+        "ch": "过渡: 爪 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Daggers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Daggers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Daggers)",
+        "ch": "过渡: 匕首 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general One Hand Axes": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"One Hand Axes\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (One Hand Axes)",
+        "ch": "过渡: 单手斧 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general One Hand Maces": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"One Hand Maces\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (One Hand Maces)",
+        "ch": "过渡: 单手锤 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Thrusting One Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Thrusting One Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Thrusting One Hand Swords)",
+        "ch": "过渡: 刺剑 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general One Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"One Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (One Hand Swords)",
+        "ch": "过渡: 单手剑 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Two Hand Axes": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Two Hand Axes\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Two Hand Axes)",
+        "ch": "过渡: 双手斧 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Two Hand Maces": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Two Hand Maces\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Two Hand Maces)",
+        "ch": "过渡: 双手锤 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Two Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Two Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Two Hand Swords)",
+        "ch": "过渡: 双手剑 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Warstaves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Warstaves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Warstaves)",
+        "ch": "过渡: 战杖 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Bows": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Bows\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Bows)",
+        "ch": "过渡: 弓 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Rune Daggers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Rune Daggers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Rune Daggers)",
+        "ch": "过渡: 符文匕首 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Quivers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Quivers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Quivers)",
+        "ch": "过渡: 箭袋 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Sceptres": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Sceptres\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Sceptres)",
+        "ch": "过渡: 短杖 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Staves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Staves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Staves)",
+        "ch": "过渡: 长杖 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Wands": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Wands\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Wands)",
+        "ch": "过渡: 法杖 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Shields": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Shields\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Shields)",
+        "ch": "过渡: 盾 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Boots": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Boots\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Boots)",
+        "ch": "过渡: 鞋子 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Gloves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Gloves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Gloves)",
+        "ch": "过渡: 手套 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Body Armours": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Body Armours\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Body Armours)",
+        "ch": "过渡: 胸甲 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv 3l general Helmets": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "LinkedSockets": ">= 3",
+        "AreaLevel": "<= 28",
+        "Class": "== \"Helmets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: 3l general (Helmets)",
+        "ch": "过渡: 头部 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->3l",
+        "tier": "general",
+        "order": 83
+      }
+    },
+    "Lv act1 casterweapons Rune Daggers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "Sockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Rune Daggers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: act1 casterweapons (Rune Daggers)",
+        "ch": "过渡: 符文匕首 casterweapons"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->act1",
+        "tier": "casterweapons",
+        "order": 84
+      }
+    },
+    "Lv act1 casterweapons Sceptres": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "Sockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Sceptres\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: act1 casterweapons (Sceptres)",
+        "ch": "过渡: 短杖 casterweapons"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->act1",
+        "tier": "casterweapons",
+        "order": 84
+      }
+    },
+    "Lv act1 casterweapons Staves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "Sockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Staves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: act1 casterweapons (Staves)",
+        "ch": "过渡: 长杖 casterweapons"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->act1",
+        "tier": "casterweapons",
+        "order": 84
+      }
+    },
+    "Lv act1 casterweapons Wands": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "Sockets": ">= 3",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Wands\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: act1 casterweapons (Wands)",
+        "ch": "过渡: 法杖 casterweapons"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->act1",
+        "tier": "casterweapons",
+        "order": 84
+      }
+    },
+    "Lv act1 castercraftrings": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "BaseType": "== \"Iron Ring\" \"Ruby Ring\" \"Sapphire Ring\" \"Topaz Ring\" \"Two-Stone Ring\"",
+        "AreaLevel": "<= 16"
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: act1 castercraftrings",
+        "ch": "过渡: act1 castercraftrings"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->act1",
+        "tier": "castercraftrings",
+        "order": 85
+      }
+    },
+    "Lv act1 general": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "BaseType": "== \"Amber Amulet\" \"Chain Belt\" \"Coral Ring\" \"Jade Amulet\" \"Lapis Amulet\" \"Leather Belt\"",
+        "AreaLevel": "<= 16"
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: act1 general",
+        "ch": "过渡: act1 general"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->act1",
+        "tier": "general",
+        "order": 86
+      }
+    },
+    "Lv act1 boots Boots": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Boots\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: act1 boots (Boots)",
+        "ch": "过渡: 鞋子 boots"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->act1",
+        "tier": "boots",
+        "order": 87
+      }
+    },
+    "Lv act1 quivers Quivers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Quivers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: act1 quivers (Quivers)",
+        "ch": "过渡: 箭袋 quivers"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->act1",
+        "tier": "quivers",
+        "order": 88
+      }
+    },
+    "Lv act1 physical": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "BaseType": "== \"Iron Ring\" \"Rustic Sash\"",
+        "AreaLevel": "<= 16"
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: act1 physical",
+        "ch": "过渡: act1 physical"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->act1",
+        "tier": "physical",
+        "order": 89
+      }
+    },
+    "Lv act1 jewellery Amulets": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Amulets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: act1 jewellery (Amulets)",
+        "ch": "过渡: 护身符 jewellery"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->act1",
+        "tier": "jewellery",
+        "order": 90
+      }
+    },
+    "Lv act1 jewellery Belts": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Belts\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: act1 jewellery (Belts)",
+        "ch": "过渡: 腰带 jewellery"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->act1",
+        "tier": "jewellery",
+        "order": 90
+      }
+    },
+    "Lv act1 jewellery Rings": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "AreaLevel": "<= 16",
+        "Class": "== \"Rings\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: act1 jewellery (Rings)",
+        "ch": "过渡: 戒指 jewellery"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->act1",
+        "tier": "jewellery",
+        "order": 90
+      }
+    },
+    "Lv act2 castercraftrings": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "BaseType": "== \"Iron Ring\" \"Ruby Ring\" \"Sapphire Ring\" \"Topaz Ring\" \"Two-Stone Ring\"",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ]
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: act2 castercraftrings",
+        "ch": "过渡: act2 castercraftrings"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->act2",
+        "tier": "castercraftrings",
+        "order": 91
+      }
+    },
+    "Lv act2 physical": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "BaseType": "== \"Rustic Sash\"",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ]
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: act2 physical",
+        "ch": "过渡: act2 physical"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->act2",
+        "tier": "physical",
+        "order": 92
+      }
+    },
+    "Lv otheracts highphysquivers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "BaseType": "== \"Broadhead Arrow Quiver\" \"Heavy Arrow Quiver\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: otheracts highphysquivers",
+        "ch": "过渡: otheracts highphysquivers"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->otheracts",
+        "tier": "highphysquivers",
+        "order": 93
+      }
+    },
+    "Lv otheracts fireresistgear": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "BaseType": "== \"Ruby Ring\"",
+        "AreaLevel": [
+          ">= 24",
+          "<= 51"
+        ]
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: otheracts fireresistgear",
+        "ch": "过渡: otheracts fireresistgear"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->otheracts",
+        "tier": "fireresistgear",
+        "order": 94
+      }
+    },
+    "Lv otheracts generalcrafting": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "BaseType": "== \"Leather Belt\" \"Onyx Amulet\" \"Prismatic Ring\" \"Two-Stone Ring\"",
+        "AreaLevel": ">= 24"
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: otheracts generalcrafting",
+        "ch": "过渡: otheracts generalcrafting"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->otheracts",
+        "tier": "generalcrafting",
+        "order": 95
+      }
+    },
+    "Lv minion miniongear": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "BaseType": "== \"Bone Ring\" \"Calling Wand\" \"Convening Wand\" \"Convoking Wand\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: minion miniongear",
+        "ch": "过渡: minion miniongear"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->minion",
+        "tier": "miniongear",
+        "order": 96
+      }
+    },
+    "Lv minion minionshields": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic",
+        "BaseType": "== \"Bone Spirit Shield\" \"Fossilised Spirit Shield\" \"Ivory Spirit Shield\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: minion minionshields",
+        "ch": "过渡: minion minionshields"
+      },
+      "_source": {
+        "path": "leveling->normalmagic->minion",
+        "tier": "minionshields",
+        "order": 97
+      }
     },
     "Normal Items - Early T1": {
       "hideable": true,

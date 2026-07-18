@@ -7,9 +7,94 @@
         "ch": "特殊瞩目掉落"
       },
       "tier_order": [
+        "Lv exotics movementbootshigh Boots",
+        "Lv exotics movementbootslow Boots",
+        "Lv exotics anyveiled",
         "Special Noteworthy Drops T1",
         "Special Noteworthy Drops Hide"
       ]
+    },
+    "Lv exotics movementbootshigh Boots": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic Rare",
+        "ItemLevel": "<= 67",
+        "HasExplicitMod": "\"Cheetah's\" \"Gazelle's\" \"Stallion's\"",
+        "Class": "== \"Boots\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: exotics movementbootshigh (Boots)",
+        "ch": "过渡: 鞋子 movementbootshigh"
+      },
+      "_source": {
+        "path": "leveling->rare->exotics",
+        "tier": "movementbootshigh",
+        "order": 36
+      }
+    },
+    "Lv exotics movementbootslow Boots": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic Rare",
+        "ItemLevel": "<= 67",
+        "HasExplicitMod": "\"Sprinter's\" \"Runner's\"",
+        "AreaLevel": "<= 40",
+        "Class": "== \"Boots\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: exotics movementbootslow (Boots)",
+        "ch": "过渡: 鞋子 movementbootslow"
+      },
+      "_source": {
+        "path": "leveling->rare->exotics",
+        "tier": "movementbootslow",
+        "order": 37
+      }
+    },
+    "Lv exotics anyveiled": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic Rare",
+        "Identified": "True",
+        "ItemLevel": "<= 67",
+        "HasExplicitMod": "\"Veil\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: exotics anyveiled",
+        "ch": "过渡: exotics anyveiled"
+      },
+      "_source": {
+        "path": "leveling->rare->exotics",
+        "tier": "anyveiled",
+        "order": 38
+      }
     },
     "Special Noteworthy Drops T1": {
       "hideable": true,

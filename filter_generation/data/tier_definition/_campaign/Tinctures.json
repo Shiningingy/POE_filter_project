@@ -7,9 +7,35 @@
         "ch": "酊剂"
       },
       "tier_order": [
+        "Lv tincture any Tinctures",
         "Tinctures T1",
         "Tinctures Hide"
       ]
+    },
+    "Lv tincture any Tinctures": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "ItemLevel": "<= 67",
+        "Class": "== \"Tinctures\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: tincture any (Tinctures)",
+        "ch": "过渡: 酊剂 any"
+      },
+      "_source": {
+        "path": "leveling->tincture",
+        "tier": "any",
+        "order": 4
+      }
     },
     "Tinctures T1": {
       "hideable": true,

@@ -7,9 +7,2817 @@
         "ch": "魔法物品"
       },
       "tier_order": [
+        "Lv remaining act2 Amulets",
+        "Lv remaining act2 Belts",
+        "Lv remaining act2 Body Armours",
+        "Lv remaining act2 Boots",
+        "Lv remaining act2 Bows",
+        "Lv remaining act2 Claws",
+        "Lv remaining act2 Daggers",
+        "Lv remaining act2 Gloves",
+        "Lv remaining act2 Helmets",
+        "Lv remaining act2 One Hand Axes",
+        "Lv remaining act2 One Hand Maces",
+        "Lv remaining act2 One Hand Swords",
+        "Lv remaining act2 Quivers",
+        "Lv remaining act2 Rings",
+        "Lv remaining act2 Rune Daggers",
+        "Lv remaining act2 Sceptres",
+        "Lv remaining act2 Shields",
+        "Lv remaining act2 Staves",
+        "Lv remaining act2 Thrusting One Hand Swords",
+        "Lv remaining act2 Two Hand Axes",
+        "Lv remaining act2 Two Hand Maces",
+        "Lv remaining act2 Two Hand Swords",
+        "Lv remaining act2 Wands",
+        "Lv remaining act2 Warstaves",
+        "Lv remaining act1 Amulets",
+        "Lv remaining act1 Belts",
+        "Lv remaining act1 Body Armours",
+        "Lv remaining act1 Boots",
+        "Lv remaining act1 Bows",
+        "Lv remaining act1 Claws",
+        "Lv remaining act1 Daggers",
+        "Lv remaining act1 Gloves",
+        "Lv remaining act1 Helmets",
+        "Lv remaining act1 One Hand Axes",
+        "Lv remaining act1 One Hand Maces",
+        "Lv remaining act1 One Hand Swords",
+        "Lv remaining act1 Quivers",
+        "Lv remaining act1 Rings",
+        "Lv remaining act1 Rune Daggers",
+        "Lv remaining act1 Sceptres",
+        "Lv remaining act1 Shields",
+        "Lv remaining act1 Staves",
+        "Lv remaining act1 Thrusting One Hand Swords",
+        "Lv remaining act1 Two Hand Axes",
+        "Lv remaining act1 Two Hand Maces",
+        "Lv remaining act1 Two Hand Swords",
+        "Lv remaining act1 Wands",
+        "Lv remaining act1 Warstaves",
+        "Lv remaining untilmudflats Amulets",
+        "Lv remaining untilmudflats Belts",
+        "Lv remaining untilmudflats Body Armours",
+        "Lv remaining untilmudflats Boots",
+        "Lv remaining untilmudflats Bows",
+        "Lv remaining untilmudflats Claws",
+        "Lv remaining untilmudflats Daggers",
+        "Lv remaining untilmudflats Gloves",
+        "Lv remaining untilmudflats Helmets",
+        "Lv remaining untilmudflats One Hand Axes",
+        "Lv remaining untilmudflats One Hand Maces",
+        "Lv remaining untilmudflats One Hand Swords",
+        "Lv remaining untilmudflats Quivers",
+        "Lv remaining untilmudflats Rings",
+        "Lv remaining untilmudflats Rune Daggers",
+        "Lv remaining untilmudflats Sceptres",
+        "Lv remaining untilmudflats Shields",
+        "Lv remaining untilmudflats Staves",
+        "Lv remaining untilmudflats Thrusting One Hand Swords",
+        "Lv remaining untilmudflats Two Hand Axes",
+        "Lv remaining untilmudflats Two Hand Maces",
+        "Lv remaining untilmudflats Two Hand Swords",
+        "Lv remaining untilmudflats Wands",
+        "Lv remaining untilmudflats Warstaves",
+        "Lv remaining firstlevels Amulets",
+        "Lv remaining firstlevels Belts",
+        "Lv remaining firstlevels Body Armours",
+        "Lv remaining firstlevels Boots",
+        "Lv remaining firstlevels Bows",
+        "Lv remaining firstlevels Claws",
+        "Lv remaining firstlevels Daggers",
+        "Lv remaining firstlevels Gloves",
+        "Lv remaining firstlevels Helmets",
+        "Lv remaining firstlevels One Hand Axes",
+        "Lv remaining firstlevels One Hand Maces",
+        "Lv remaining firstlevels One Hand Swords",
+        "Lv remaining firstlevels Quivers",
+        "Lv remaining firstlevels Rings",
+        "Lv remaining firstlevels Rune Daggers",
+        "Lv remaining firstlevels Sceptres",
+        "Lv remaining firstlevels Shields",
+        "Lv remaining firstlevels Staves",
+        "Lv remaining firstlevels Thrusting One Hand Swords",
+        "Lv remaining firstlevels Two Hand Axes",
+        "Lv remaining firstlevels Two Hand Maces",
+        "Lv remaining firstlevels Two Hand Swords",
+        "Lv remaining firstlevels Wands",
+        "Lv remaining firstlevels Warstaves",
         "Magic Items T1",
         "Magic Items Hide"
       ]
+    },
+    "Lv remaining act2 Amulets": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Amulets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Amulets)",
+        "ch": "过渡: 护身符 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Belts": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Belts\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Belts)",
+        "ch": "过渡: 腰带 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Body Armours": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Body Armours\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Body Armours)",
+        "ch": "过渡: 胸甲 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Boots": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Boots\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Boots)",
+        "ch": "过渡: 鞋子 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Bows": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Bows\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Bows)",
+        "ch": "过渡: 弓 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Claws": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Claws\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Claws)",
+        "ch": "过渡: 爪 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Daggers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Daggers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Daggers)",
+        "ch": "过渡: 匕首 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Gloves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Gloves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Gloves)",
+        "ch": "过渡: 手套 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Helmets": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Helmets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Helmets)",
+        "ch": "过渡: 头部 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 One Hand Axes": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"One Hand Axes\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (One Hand Axes)",
+        "ch": "过渡: 单手斧 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 One Hand Maces": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"One Hand Maces\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (One Hand Maces)",
+        "ch": "过渡: 单手锤 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 One Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"One Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (One Hand Swords)",
+        "ch": "过渡: 单手剑 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Quivers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Quivers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Quivers)",
+        "ch": "过渡: 箭袋 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Rings": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Rings\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Rings)",
+        "ch": "过渡: 戒指 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Rune Daggers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Rune Daggers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Rune Daggers)",
+        "ch": "过渡: 符文匕首 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Sceptres": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Sceptres\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Sceptres)",
+        "ch": "过渡: 短杖 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Shields": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Shields\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Shields)",
+        "ch": "过渡: 盾 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Staves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Staves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Staves)",
+        "ch": "过渡: 长杖 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Thrusting One Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Thrusting One Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Thrusting One Hand Swords)",
+        "ch": "过渡: 刺剑 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Two Hand Axes": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Two Hand Axes\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Two Hand Axes)",
+        "ch": "过渡: 双手斧 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Two Hand Maces": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Two Hand Maces\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Two Hand Maces)",
+        "ch": "过渡: 双手锤 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Two Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Two Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Two Hand Swords)",
+        "ch": "过渡: 双手剑 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Wands": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Wands\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Wands)",
+        "ch": "过渡: 法杖 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act2 Warstaves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 16",
+          "<= 24"
+        ],
+        "Class": "== \"Warstaves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act2 (Warstaves)",
+        "ch": "过渡: 战杖 act2"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act2",
+        "order": 107
+      }
+    },
+    "Lv remaining act1 Amulets": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Amulets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Amulets)",
+        "ch": "过渡: 护身符 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Belts": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Belts\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Belts)",
+        "ch": "过渡: 腰带 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Body Armours": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Body Armours\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Body Armours)",
+        "ch": "过渡: 胸甲 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Boots": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Boots\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Boots)",
+        "ch": "过渡: 鞋子 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Bows": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Bows\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Bows)",
+        "ch": "过渡: 弓 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Claws": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Claws\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Claws)",
+        "ch": "过渡: 爪 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Daggers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Daggers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Daggers)",
+        "ch": "过渡: 匕首 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Gloves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Gloves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Gloves)",
+        "ch": "过渡: 手套 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Helmets": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Helmets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Helmets)",
+        "ch": "过渡: 头部 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 One Hand Axes": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"One Hand Axes\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (One Hand Axes)",
+        "ch": "过渡: 单手斧 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 One Hand Maces": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"One Hand Maces\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (One Hand Maces)",
+        "ch": "过渡: 单手锤 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 One Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"One Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (One Hand Swords)",
+        "ch": "过渡: 单手剑 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Quivers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Quivers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Quivers)",
+        "ch": "过渡: 箭袋 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Rings": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Rings\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Rings)",
+        "ch": "过渡: 戒指 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Rune Daggers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Rune Daggers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Rune Daggers)",
+        "ch": "过渡: 符文匕首 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Sceptres": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Sceptres\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Sceptres)",
+        "ch": "过渡: 短杖 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Shields": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Shields\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Shields)",
+        "ch": "过渡: 盾 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Staves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Staves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Staves)",
+        "ch": "过渡: 长杖 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Thrusting One Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Thrusting One Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Thrusting One Hand Swords)",
+        "ch": "过渡: 刺剑 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Two Hand Axes": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Two Hand Axes\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Two Hand Axes)",
+        "ch": "过渡: 双手斧 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Two Hand Maces": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Two Hand Maces\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Two Hand Maces)",
+        "ch": "过渡: 双手锤 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Two Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Two Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Two Hand Swords)",
+        "ch": "过渡: 双手剑 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Wands": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Wands\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Wands)",
+        "ch": "过渡: 法杖 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining act1 Warstaves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 9",
+          "<= 16"
+        ],
+        "Class": "== \"Warstaves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining act1 (Warstaves)",
+        "ch": "过渡: 战杖 act1"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "act1",
+        "order": 108
+      }
+    },
+    "Lv remaining untilmudflats Amulets": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Amulets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Amulets)",
+        "ch": "过渡: 护身符 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Belts": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Belts\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Belts)",
+        "ch": "过渡: 腰带 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Body Armours": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Body Armours\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Body Armours)",
+        "ch": "过渡: 胸甲 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Boots": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Boots\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Boots)",
+        "ch": "过渡: 鞋子 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Bows": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Bows\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Bows)",
+        "ch": "过渡: 弓 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Claws": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Claws\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Claws)",
+        "ch": "过渡: 爪 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Daggers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Daggers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Daggers)",
+        "ch": "过渡: 匕首 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Gloves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Gloves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Gloves)",
+        "ch": "过渡: 手套 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Helmets": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Helmets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Helmets)",
+        "ch": "过渡: 头部 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats One Hand Axes": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"One Hand Axes\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (One Hand Axes)",
+        "ch": "过渡: 单手斧 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats One Hand Maces": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"One Hand Maces\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (One Hand Maces)",
+        "ch": "过渡: 单手锤 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats One Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"One Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (One Hand Swords)",
+        "ch": "过渡: 单手剑 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Quivers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Quivers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Quivers)",
+        "ch": "过渡: 箭袋 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Rings": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Rings\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Rings)",
+        "ch": "过渡: 戒指 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Rune Daggers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Rune Daggers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Rune Daggers)",
+        "ch": "过渡: 符文匕首 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Sceptres": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Sceptres\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Sceptres)",
+        "ch": "过渡: 短杖 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Shields": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Shields\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Shields)",
+        "ch": "过渡: 盾 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Staves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Staves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Staves)",
+        "ch": "过渡: 长杖 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Thrusting One Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Thrusting One Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Thrusting One Hand Swords)",
+        "ch": "过渡: 刺剑 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Two Hand Axes": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Two Hand Axes\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Two Hand Axes)",
+        "ch": "过渡: 双手斧 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Two Hand Maces": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Two Hand Maces\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Two Hand Maces)",
+        "ch": "过渡: 双手锤 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Two Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Two Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Two Hand Swords)",
+        "ch": "过渡: 双手剑 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Wands": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Wands\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Wands)",
+        "ch": "过渡: 法杖 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining untilmudflats Warstaves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": "<= 4",
+        "Class": "== \"Warstaves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining untilmudflats (Warstaves)",
+        "ch": "过渡: 战杖 untilmudflats"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "untilmudflats",
+        "order": 109
+      }
+    },
+    "Lv remaining firstlevels Amulets": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Amulets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Amulets)",
+        "ch": "过渡: 护身符 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Belts": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Belts\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Belts)",
+        "ch": "过渡: 腰带 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Body Armours": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Body Armours\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Body Armours)",
+        "ch": "过渡: 胸甲 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Boots": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Boots\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Boots)",
+        "ch": "过渡: 鞋子 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Bows": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Bows\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Bows)",
+        "ch": "过渡: 弓 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Claws": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Claws\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Claws)",
+        "ch": "过渡: 爪 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Daggers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Daggers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Daggers)",
+        "ch": "过渡: 匕首 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Gloves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Gloves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Gloves)",
+        "ch": "过渡: 手套 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Helmets": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Helmets\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Helmets)",
+        "ch": "过渡: 头部 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels One Hand Axes": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"One Hand Axes\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (One Hand Axes)",
+        "ch": "过渡: 单手斧 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels One Hand Maces": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"One Hand Maces\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (One Hand Maces)",
+        "ch": "过渡: 单手锤 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels One Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"One Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (One Hand Swords)",
+        "ch": "过渡: 单手剑 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Quivers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Quivers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Quivers)",
+        "ch": "过渡: 箭袋 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Rings": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Rings\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Rings)",
+        "ch": "过渡: 戒指 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Rune Daggers": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Rune Daggers\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Rune Daggers)",
+        "ch": "过渡: 符文匕首 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Sceptres": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Sceptres\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Sceptres)",
+        "ch": "过渡: 短杖 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Shields": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Shields\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Shields)",
+        "ch": "过渡: 盾 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Staves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Staves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Staves)",
+        "ch": "过渡: 长杖 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Thrusting One Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Thrusting One Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Thrusting One Hand Swords)",
+        "ch": "过渡: 刺剑 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Two Hand Axes": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Two Hand Axes\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Two Hand Axes)",
+        "ch": "过渡: 双手斧 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Two Hand Maces": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Two Hand Maces\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Two Hand Maces)",
+        "ch": "过渡: 双手锤 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Two Hand Swords": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Two Hand Swords\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Two Hand Swords)",
+        "ch": "过渡: 双手剑 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Wands": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Wands\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Wands)",
+        "ch": "过渡: 法杖 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
+    },
+    "Lv remaining firstlevels Warstaves": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": [
+          ">= 1",
+          "<= 9"
+        ],
+        "Class": "== \"Warstaves\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Leveling: remaining firstlevels (Warstaves)",
+        "ch": "过渡: 战杖 firstlevels"
+      },
+      "_source": {
+        "path": "leveling->magic->remaining",
+        "tier": "firstlevels",
+        "order": 110
+      }
     },
     "Magic Items T1": {
       "hideable": true,
