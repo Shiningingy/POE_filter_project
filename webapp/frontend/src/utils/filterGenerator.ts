@@ -8,12 +8,12 @@ import { type Language } from './localization';
 export const STRICTNESS_LEVELS = ['soft', 'regular', 'semistrict', 'strict', 'verystrict', 'uber', 'uberplus'] as const;
 export type StrictnessLevel = typeof STRICTNESS_LEVELS[number];
 
-// Campaign module: the Campaign picker's selection, ADDITIVE model. Picking
-// never creates or removes content — it upgrades a band tier's theme to its
-// boost_theme (T2 -> T1 double emphasis). Nothing picked (the default) =
-// baseline output. hide_unselected is the aggressive declutter: unpicked
-// weapon classes + the 'aggressive' tiers (late-campaign magic) emit as Hide.
-// Mirrors LEVELING_SELECTION handling in filter_generation/generate.py.
+// Campaign module: the Campaign picker's selection — selection-centric ladder.
+// Picked groups emit their T1 band layer + T2 class-wide rare layer; unpicked
+// groups emit nothing and fall to the T3 safety net. Nothing picked (the
+// default) = baseline output. hide_unselected is the aggressive declutter:
+// unpicked weapon groups + the 'aggressive' tiers (late-campaign magic) emit
+// as Hide. Mirrors LEVELING_SELECTION handling in filter_generation/generate.py.
 export interface LevelingSelection {
   weapons?: string[];
   armour_defense?: string[];
@@ -21,18 +21,19 @@ export interface LevelingSelection {
   preset?: string;
 }
 
-// Is a campaign band tier's lv_group key picked? (= will it render boosted).
-// Untagged / 'always' tiers report true (they always show at full strength);
-// 'aggressive' tiers report the hide_unselected flag (they only exist under it).
-// Shared by the generator (below) and the editor preview (dimming), so the two
-// can't drift. Mirrors lv_picked() in filter_generation/generate.py.
+// EDITOR helper: will this campaign tier emit as a SHOW block under the current
+// selection? Selection-centric ladder: weapon/armour group tiers emit ONLY when
+// picked (unpicked = omitted, or Hide under the declutter — either way not a
+// Show). 'aggressive' tiers are never Show blocks. Drives preview dimming and
+// the per-tier enable chip — the generators use their own lv gate
+// (lvPicked / lv_picked in generate.py).
 export const isLevelingSelected = (lvGroup: any, selection?: LevelingSelection): boolean => {
   if (!lvGroup) return true;
   const sel = selection || {};
   switch (lvGroup.axis) {
     case 'weapon': return (sel.weapons || []).includes(lvGroup.key);
     case 'armour': return (sel.armour_defense || []).includes(lvGroup.key);
-    case 'aggressive': return !!sel.hide_unselected;
+    case 'aggressive': return false;
     default: return true; // 'always' or unknown axis
   }
 };
@@ -83,17 +84,7 @@ const FOLDER_LOCALIZATION: Record<string, string> = {
   "Quest": "任务",
   "Uniques": "传奇",
   "_campaign": "过渡",
-  "Heist": "赏金猎人",
-  // Numbered _campaign subfolders (the number controls emission order)
-  "10_Weapons": "武器过渡",
-  "20_Armour": "防具过渡",
-  "30_Special": "特殊掉落",
-  "40_Nets": "鞋子与首饰",
-  "50_Consumables": "药剂",
-  "60_Links": "色与连",
-  "70_Act1": "第一章",
-  "80_Net": "稀有保底",
-  "90_Aggressive": "激进清理",
+  "Heist": "赏金猎人"
 };
 
 // ===========================
@@ -182,8 +173,8 @@ export const generateFilter = (data: GeneratorData): string => {
   // Strictness gate threshold index; an absent/unknown level clamps to 'soft'.
   const STRICTNESS_IDX = Math.max(0, (STRICTNESS_LEVELS as readonly string[]).indexOf(data.strictness ?? 'soft'));
 
-  // Campaign selection (additive: picking only boosts). Mirrors lv_picked() in
-  // generate.py.
+  // Campaign selection (selection-centric: picked groups emit their layers).
+  // Mirrors lv_picked() in generate.py.
   const LV_SEL: LevelingSelection = data.leveling_selection || {};
   const lvPicked = (tierEntry: any): boolean => {
     const lv = tierEntry.lv_group || {};
@@ -374,21 +365,23 @@ export const generateFilter = (data: GeneratorData): string => {
       // Skip tiers excluded for the current mode (mirrors generate.py).
       if ((tierEntry.excluded_modes || []).includes(MODE)) continue;
 
-      // Campaign module gate (additive model, mirrors generate.py): band tiers
-      // (axis weapon/armour) ALWAYS emit and upgrade to their boost_theme when
-      // picked; 'aggressive' declutter tiers emit (as Hide) only under
-      // hide_unselected, which also flips unpicked weapon classes to Hide.
-      // Strictness NEVER applies inside _campaign (endgame-only mechanism —
-      // see CONTEXT.md); campaign tiers carry no hide_at_strictness.
+      // Campaign module gate (selection-centric ladder, mirrors generate.py):
+      // group tiers (axis weapon/armour — the T1 band layer + T2 class-wide
+      // rare layer) emit ONLY when their key is picked; unpicked groups are
+      // omitted and fall to the T3 safety net. 'aggressive' declutter tiers
+      // emit (as Hide) only under hide_unselected, which also flips unpicked
+      // WEAPON groups to Hide instead of omitting them. Strictness NEVER
+      // applies inside _campaign (see CONTEXT.md).
       const lvAxis = (tierEntry.lv_group || {}).axis;
       let lvHide = false;
-      let lvBoost = false;
       if (lvAxis === 'aggressive') {
         if (LV_SEL.hide_unselected) lvHide = true;
         else continue;
       } else if (lvAxis === 'weapon' || lvAxis === 'armour') {
-        if (lvPicked(tierEntry)) lvBoost = true;
-        else if (lvAxis === 'weapon' && LV_SEL.hide_unselected) lvHide = true;
+        if (!lvPicked(tierEntry)) {
+          if (lvAxis === 'weapon' && LV_SEL.hide_unselected) lvHide = true;
+          else continue;
+        }
       }
 
       const isHideTier = !!tierEntry.is_hide_tier;
@@ -399,12 +392,8 @@ export const generateFilter = (data: GeneratorData): string => {
       if (typeof hideAt === 'number' && STRICTNESS_IDX >= hideAt) isHide = true;
       if (lvHide) isHide = true;
       let tnum = tierNumFromLabel(tLbl);
-      // Honor an explicit theme.Tier for tiers with non-standard label names;
-      // a picked band tier upgrades to its boost_theme (T2 -> T1).
-      let themeTierOverride = tierEntry.theme?.Tier;
-      if (lvBoost && tierEntry.boost_theme?.Tier !== undefined && tierEntry.boost_theme?.Tier !== null) {
-        themeTierOverride = tierEntry.boost_theme.Tier;
-      }
+      // Honor an explicit theme.Tier for tiers with non-standard label names.
+      const themeTierOverride = tierEntry.theme?.Tier;
       if (themeTierOverride !== undefined && themeTierOverride !== null) tnum = themeTierOverride;
 
       let ttheme = themeRef[`Tier ${tnum}`] || {};
@@ -424,11 +413,7 @@ export const generateFilter = (data: GeneratorData): string => {
       if (tierEntry.class_condition) {
         const tierConditions = tierEntry.conditions || {};
         if (Object.keys(tierConditions).length === 0) continue;
-        // boost wins here too (tnum already carries it, but theme.Tier would shadow it back).
-        let themeTnum = tierEntry.theme?.Tier ?? tnum;
-        if (lvBoost && tierEntry.boost_theme?.Tier !== undefined && tierEntry.boost_theme?.Tier !== null) {
-          themeTnum = tierEntry.boost_theme.Tier;
-        }
+        const themeTnum = tierEntry.theme?.Tier ?? tnum;
         ttheme = themeRef[`Tier ${themeTnum}`] || ttheme;
         baseTextCol = parseRgba(ttheme.TextColor);
         baseBorderCol = parseRgba(ttheme.BorderColor);

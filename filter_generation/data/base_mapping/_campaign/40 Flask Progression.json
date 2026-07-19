@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Flasks",
+      "ch": "药剂"
+    },
+    "localization": {
+      "en": "Flask Progression",
+      "ch": "药剂过渡"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {
+    "Normal Flask": "Camp Flask Normal"
+  }
+}

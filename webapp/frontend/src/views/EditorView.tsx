@@ -27,6 +27,7 @@ interface EditorViewProps {
   onJumpToRule?: (filePath: string, ruleIndex?: number) => void;
   strictness?: StrictnessLevel;
   levelingSelection?: LevelingSelection;
+  onLevelingSelectionChange?: (sel: LevelingSelection) => void;
 }
 
 const EditorView: React.FC<EditorViewProps> = ({
@@ -43,7 +44,8 @@ const EditorView: React.FC<EditorViewProps> = ({
   setViewerBackground,
   onJumpToRule,
   strictness,
-  levelingSelection
+  levelingSelection,
+  onLevelingSelectionChange
 }) => {
   const t = useTranslation(language);
   const strictnessIdx = Math.max(0, (STRICTNESS_LEVELS as readonly string[]).indexOf(strictness ?? 'soft'));
@@ -417,6 +419,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                   themeData={themeData}
                   strictness={strictness}
                   levelingSelection={levelingSelection}
+                  onLevelingSelectionChange={onLevelingSelectionChange}
                 />
             )}
           </div>

@@ -23,12 +23,15 @@ as a TypeScript port that runs in the browser.
   flips to Hide once the selected strictness level's index ≥ N.
 - **`hideable`** — a per-tier **protect-guard** (see Invariant 2). `hideable:false` =
   protected, cannot be gated/hidden (the 🔒 lock in the editor).
-- **campaign module (ADDITIVE)** — `_campaign/**` band tiers tagged
-  `lv_group:{axis,key}` + `boost_theme`. The whole campaign baseline always emits;
-  the Campaign picker's `leveling_selection` only **boosts** picked weapon classes /
-  armour defense types from T2 (emphasis) to T1 (`boost_theme`, double emphasis),
-  plus the `hide_unselected` declutter (hides unpicked weapon classes + the
-  `axis:"aggressive"` late-campaign-magic tiers). Picking never adds/removes content.
+- **campaign module (selection-centric ladder)** — `_campaign/**` group tiers
+  tagged `lv_group:{axis,key}`. The Campaign picker's `leveling_selection` decides
+  which groups emit: a picked weapon class / armour defense type emits its
+  **T1 layer** ("X Progression": band rules = level-matched good bases, theme
+  Tier 2) and its **T2 layer** ("X Rares": class-wide rare catch, Tier 4);
+  unpicked groups emit nothing and fall to the **T3 safety net** (Tier 6).
+  Nothing picked = the simple baseline (net + boots/jewellery/links/flasks/early).
+  `hide_unselected` = declutter (unpicked WEAPON groups + the `axis:"aggressive"`
+  late-campaign-magic tiers emit as Hide). There is NO boost/theme-swap mechanism.
   Tree is seeded by `parsing_tool/build_campaign_bands.py` (ONE-SHOT — output is
   hand-tuned afterward; never re-run over tuned data without a commit).
 - **mode** vs **game-version** — *mode* (ruthless/standard) shares item data and
@@ -75,11 +78,13 @@ as a TypeScript port that runs in the browser.
 
 8. **`_campaign` emits FIRST in the generated filter.** PoE filters are
    first-match-wins; both generators sort `_campaign` before every other folder
-   (other `_`-prefixed folders stay last), and its numbered subfolders
-   (`10_Weapons` … `90_Aggressive`) control emission order *within* the campaign
-   section (bands → nets → links → declutter). Consequence: **every emitting
-   campaign tier MUST carry an `AreaLevel` guard (≤ 67)** — an unguarded campaign
-   tier would hijack items from the entire endgame filter.
+   (other `_`-prefixed folders stay last). The campaign tree is just TWO category
+   files (`Gear Progression.json`, `Flasks.json`); emission order *within* each
+   is `_meta.tier_order` (progression tiers → nets → links → declutter last), and
+   level bands live as per-tier RULES carrying their own Rarity/AreaLevel
+   conditions. Consequence: **every emitting campaign tier AND band rule MUST
+   carry an `AreaLevel` guard (≤ 67)** — an unguarded one would hijack items from
+   the entire endgame filter.
 
 9. **Strictness never applies inside `_campaign`.** Strictness is an endgame-only
    mechanism (user decision, 2026-07-18): campaign tiers carry no

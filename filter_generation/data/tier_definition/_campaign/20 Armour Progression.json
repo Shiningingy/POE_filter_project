@@ -1,0 +1,442 @@
+{
+  "Armour Progression": {
+    "_meta": {
+      "item_class": {
+        "en": "Armour",
+        "ch": "防具"
+      },
+      "localization": {
+        "en": "Armour Progression",
+        "ch": "防具过渡"
+      },
+      "theme_category": "Campaign",
+      "tier_order": [
+        "Armour Progression",
+        "Armour Rares",
+        "AR/EV Progression",
+        "AR/EV Rares",
+        "Evasion Progression",
+        "Evasion Rares",
+        "EV/ES Progression",
+        "EV/ES Rares",
+        "Energy Shield Progression",
+        "Energy Shield Rares",
+        "AR/ES Progression",
+        "AR/ES Rares",
+        "Lv exotics movementbootshigh",
+        "Lv exotics movementbootslow",
+        "Lv exotics anyveiled",
+        "Boots Highlight"
+      ]
+    },
+    "Armour Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "Armour"
+      },
+      "localization": {
+        "en": "Armour Progression",
+        "ch": "护甲过渡"
+      }
+    },
+    "Armour Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "== \"Ancient Gauntlets\" \"Ancient Greaves\" \"Antique Gauntlets\" \"Antique Greaves\" \"Arena Plate\" \"Astral Plate\" \"Barbute Helmet\" \"Battle Plate\" \"Bronze Gauntlets\" \"Bronze Plate\" \"Bronze Tower Shield\" \"Buckskin Tower Shield\" \"Cedar Tower Shield\" \"Chestplate\" \"Close Helmet\" \"Colossal Tower Shield\" \"Colosseum Plate\" \"Cone Helmet\" \"Copper Plate\" \"Copper Tower Shield\" \"Corroded Tower Shield\" \"Crested Tower Shield\" \"Crusader Plate\" \"Ebony Tower Shield\" \"Ezomyte Burgonet\" \"Ezomyte Tower Shield\" \"Full Plate\" \"Girded Tower Shield\" \"Gladiator Helmet\" \"Gladiator Plate\" \"Golden Plate\" \"Goliath Gauntlets\" \"Goliath Greaves\" \"Iron Gauntlets\" \"Iron Greaves\" \"Iron Hat\" \"Lordly Plate\" \"Mahogany Tower Shield\" \"Majestic Plate\" \"Painted Tower Shield\" \"Plate Vest\" \"Plated Gauntlets\" \"Plated Greaves\" \"Rawhide Tower Shield\" \"Reaver Helmet\" \"Reinforced Greaves\" \"Reinforced Tower Shield\" \"Royal Burgonet\" \"Samnite Helmet\" \"Shagreen Tower Shield\" \"Siege Helmet\" \"Splintered Tower Shield\" \"Steel Gauntlets\" \"Steel Greaves\" \"Sun Plate\" \"Vaal Gauntlets\" \"Vaal Greaves\" \"War Plate\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "Armour"
+      },
+      "localization": {
+        "en": "Armour Rares",
+        "ch": "护甲稀有"
+      }
+    },
+    "AR/EV Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "AR/EV"
+      },
+      "localization": {
+        "en": "AR/EV Progression",
+        "ch": "护甲/闪避过渡"
+      }
+    },
+    "AR/EV Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "== \"Baroque Round Shield\" \"Battered Helm\" \"Battle Lamellar\" \"Bronzescale Boots\" \"Bronzescale Gauntlets\" \"Cardinal Round Shield\" \"Commander's Brigandine\" \"Crimson Round Shield\" \"Desert Brigandine\" \"Dragonscale Boots\" \"Dragonscale Doublet\" \"Dragonscale Gauntlets\" \"Fencer Helm\" \"Field Lamellar\" \"Fir Round Shield\" \"Fishscale Gauntlets\" \"Fluted Bascinet\" \"Full Dragonscale\" \"Full Scale Armour\" \"Full Wyrmscale\" \"General's Brigandine\" \"Gilded Sallet\" \"Hussar Brigandine\" \"Hydrascale Boots\" \"Hydrascale Gauntlets\" \"Infantry Brigandine\" \"Ironscale Boots\" \"Ironscale Gauntlets\" \"Lacquered Helmet\" \"Leatherscale Boots\" \"Light Brigandine\" \"Maple Round Shield\" \"Nightmare Bascinet\" \"Pig-Faced Bascinet\" \"Rotted Round Shield\" \"Sallet\" \"Scale Doublet\" \"Scale Vest\" \"Scarlet Round Shield\" \"Secutor Helm\" \"Serpentscale Boots\" \"Serpentscale Gauntlets\" \"Soldier's Brigandine\" \"Spiked Round Shield\" \"Spiny Round Shield\" \"Splendid Round Shield\" \"Steelscale Boots\" \"Steelscale Gauntlets\" \"Studded Round Shield\" \"Teak Round Shield\" \"Visored Sallet\" \"Wyrmscale Boots\" \"Wyrmscale Doublet\" \"Wyrmscale Gauntlets\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "AR/EV"
+      },
+      "localization": {
+        "en": "AR/EV Rares",
+        "ch": "护甲/闪避稀有"
+      }
+    },
+    "Evasion Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "Evasion"
+      },
+      "localization": {
+        "en": "Evasion Progression",
+        "ch": "闪避过渡"
+      }
+    },
+    "Evasion Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "== \"Battle Buckler\" \"Buckskin Tunic\" \"Coronal Leather\" \"Corrugated Buckler\" \"Crusader Buckler\" \"Cutthroat's Garb\" \"Deerskin Boots\" \"Deerskin Gloves\" \"Destiny Leather\" \"Eelskin Boots\" \"Eelskin Gloves\" \"Eelskin Tunic\" \"Enameled Buckler\" \"Exquisite Leather\" \"Frontier Leather\" \"Full Leather\" \"Gilded Buckler\" \"Glorious Leather\" \"Goathide Boots\" \"Goathide Buckler\" \"Goathide Gloves\" \"Golden Buckler\" \"Hammered Buckler\" \"Hunter Hood\" \"Ironwood Buckler\" \"Lacquered Buckler\" \"Leather Cap\" \"Leather Hood\" \"Noble Tricorne\" \"Nubuck Boots\" \"Nubuck Gloves\" \"Oak Buckler\" \"Painted Buckler\" \"Pine Buckler\" \"Rawhide Boots\" \"Rawhide Gloves\" \"Shabby Jerkin\" \"Shagreen Boots\" \"Shagreen Gloves\" \"Sharkskin Boots\" \"Sharkskin Gloves\" \"Sharkskin Tunic\" \"Silken Hood\" \"Sinner Tricorne\" \"Stealth Boots\" \"Stealth Gloves\" \"Strapped Leather\" \"Sun Leather\" \"Thief's Garb\" \"Tricorne\" \"Ursine Pelt\" \"Vaal Buckler\" \"War Buckler\" \"Wild Leather\" \"Wolf Pelt\" \"Zodiac Leather\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "Evasion"
+      },
+      "localization": {
+        "en": "Evasion Rares",
+        "ch": "闪避稀有"
+      }
+    },
+    "EV/ES Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "EV/ES"
+      },
+      "localization": {
+        "en": "EV/ES Progression",
+        "ch": "闪避/能量护盾过渡"
+      }
+    },
+    "EV/ES Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "== \"Alder Spiked Shield\" \"Alloyed Spiked Shield\" \"Ambush Boots\" \"Ambush Mitts\" \"Assassin's Boots\" \"Assassin's Mitts\" \"Blood Raiment\" \"Bone Armour\" \"Burnished Spiked Shield\" \"Callous Mask\" \"Carnal Boots\" \"Carnal Mitts\" \"Clasped Boots\" \"Clasped Mitts\" \"Compound Spiked Shield\" \"Crimson Raiment\" \"Crypt Armour\" \"Deicide Mask\" \"Driftwood Spiked Shield\" \"Ezomyte Spiked Shield\" \"Festival Mask\" \"Golden Mask\" \"Harlequin Mask\" \"Iron Mask\" \"Lacquered Garb\" \"Mirrored Spiked Shield\" \"Murder Mitts\" \"Oiled Coat\" \"Oiled Vest\" \"Ornate Spiked Shield\" \"Padded Jacket\" \"Padded Vest\" \"Plague Mask\" \"Polished Spiked Shield\" \"Quilted Jacket\" \"Raven Mask\" \"Redwood Spiked Shield\" \"Regicide Mask\" \"Scare Mask\" \"Scarlet Raiment\" \"Sentinel Jacket\" \"Shackled Boots\" \"Sleek Coat\" \"Sovereign Spiked Shield\" \"Spiked Bundle\" \"Strapped Boots\" \"Strapped Mitts\" \"Trapper Boots\" \"Trapper Mitts\" \"Vaal Mask\" \"Varnished Coat\" \"Waxed Garb\" \"Wrapped Boots\" \"Wrapped Mitts\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "EV/ES"
+      },
+      "localization": {
+        "en": "EV/ES Rares",
+        "ch": "闪避/能量护盾稀有"
+      }
+    },
+    "Energy Shield Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "Energy Shield"
+      },
+      "localization": {
+        "en": "Energy Shield Progression",
+        "ch": "能量护盾过渡"
+      }
+    },
+    "Energy Shield Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "== \"Ancient Spirit Shield\" \"Arcanist Gloves\" \"Arcanist Slippers\" \"Bone Circlet\" \"Bone Spirit Shield\" \"Brass Spirit Shield\" \"Cabalist Regalia\" \"Chiming Spirit Shield\" \"Conjurer Boots\" \"Conjurer Gloves\" \"Conjurer's Vestment\" \"Destroyer Regalia\" \"Embroidered Gloves\" \"Fossilised Spirit Shield\" \"Harmonic Spirit Shield\" \"Iron Circlet\" \"Ivory Spirit Shield\" \"Jingling Spirit Shield\" \"Lacewood Spirit Shield\" \"Lunaris Circlet\" \"Mage's Vestment\" \"Mind Cage\" \"Necromancer Circlet\" \"Necromancer Silks\" \"Occultist's Vestment\" \"Sage's Robe\" \"Samite Gloves\" \"Samite Slippers\" \"Satin Gloves\" \"Satin Slippers\" \"Savant's Robe\" \"Scholar Boots\" \"Scholar's Robe\" \"Silk Gloves\" \"Silk Robe\" \"Silk Slippers\" \"Silken Garb\" \"Silken Vest\" \"Silken Wrap\" \"Simple Robe\" \"Solaris Circlet\" \"Sorcerer Boots\" \"Spidersilk Robe\" \"Steel Circlet\" \"Tarnished Spirit Shield\" \"Thorium Spirit Shield\" \"Torture Cage\" \"Tribal Circlet\" \"Twig Spirit Shield\" \"Vaal Spirit Shield\" \"Velvet Gloves\" \"Velvet Slippers\" \"Vine Circlet\" \"Walnut Spirit Shield\" \"Widowsilk Robe\" \"Wool Gloves\" \"Wool Shoes\" \"Yew Spirit Shield\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "Energy Shield"
+      },
+      "localization": {
+        "en": "Energy Shield Rares",
+        "ch": "能量护盾稀有"
+      }
+    },
+    "AR/ES Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "AR/ES"
+      },
+      "localization": {
+        "en": "AR/ES Progression",
+        "ch": "护甲/能量护盾过渡"
+      }
+    },
+    "AR/ES Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "== \"Angelic Kite Shield\" \"Aventail Helmet\" \"Branded Kite Shield\" \"Ceremonial Kite Shield\" \"Chain Boots\" \"Chain Gloves\" \"Chain Hauberk\" \"Chainmail Doublet\" \"Chainmail Tunic\" \"Chainmail Vest\" \"Champion Kite Shield\" \"Conquest Chainmail\" \"Crusader Boots\" \"Crusader Chainmail\" \"Crusader Gloves\" \"Crusader Helmet\" \"Devout Chainmail\" \"Elegant Ringmail\" \"Etched Kite Shield\" \"Full Chainmail\" \"Full Ringmail\" \"Great Crown\" \"Great Helmet\" \"Holy Chainmail\" \"Laminated Kite Shield\" \"Latticed Ringmail\" \"Layered Kite Shield\" \"Legion Boots\" \"Legion Gloves\" \"Linden Kite Shield\" \"Loricated Ringmail\" \"Magistrate Crown\" \"Mesh Boots\" \"Mesh Gloves\" \"Mosaic Kite Shield\" \"Ornate Ringmail\" \"Plank Kite Shield\" \"Prophet Crown\" \"Reinforced Kite Shield\" \"Ringmail Boots\" \"Ringmail Coat\" \"Ringmail Gloves\" \"Riveted Boots\" \"Riveted Gloves\" \"Rusted Coif\" \"Saint's Hauberk\" \"Soldier Boots\" \"Soldier Gloves\" \"Soldier Helmet\" \"Steel Kite Shield\" \"Zealot Boots\" \"Zealot Gloves\" \"Zealot Helmet\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "AR/ES"
+      },
+      "localization": {
+        "en": "AR/ES Rares",
+        "ch": "护甲/能量护盾稀有"
+      }
+    },
+    "Lv exotics movementbootshigh": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic Rare",
+        "ItemLevel": "<= 67",
+        "Class": "== \"Boots\"",
+        "HasExplicitMod": "\"Cheetah's\" \"Gazelle's\" \"Stallion's\"",
+        "AreaLevel": "<= 67"
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "exotics"
+      },
+      "localization": {
+        "en": "Leveling: movementbootshigh",
+        "ch": "过渡: movementbootshigh"
+      },
+      "_source": {
+        "path": "leveling->rare->exotics",
+        "tier": "movementbootshigh",
+        "order": 36
+      }
+    },
+    "Lv exotics movementbootslow": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic Rare",
+        "ItemLevel": "<= 67",
+        "Class": "== \"Boots\"",
+        "HasExplicitMod": "\"Sprinter's\" \"Runner's\"",
+        "AreaLevel": "<= 40"
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "exotics"
+      },
+      "localization": {
+        "en": "Leveling: movementbootslow",
+        "ch": "过渡: movementbootslow"
+      },
+      "_source": {
+        "path": "leveling->rare->exotics",
+        "tier": "movementbootslow",
+        "order": 37
+      }
+    },
+    "Lv exotics anyveiled": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal Magic Rare",
+        "Identified": "True",
+        "ItemLevel": "<= 67",
+        "HasExplicitMod": "\"Veil\"",
+        "AreaLevel": "<= 67"
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "exotics"
+      },
+      "localization": {
+        "en": "Leveling: anyveiled",
+        "ch": "过渡: anyveiled"
+      },
+      "_source": {
+        "path": "leveling->rare->exotics",
+        "tier": "anyveiled",
+        "order": 38
+      }
+    },
+    "Boots Highlight": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Boots\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "campaign"
+      },
+      "localization": {
+        "en": "Boots Highlight",
+        "ch": "鞋子突显"
+      }
+    }
+  }
+}

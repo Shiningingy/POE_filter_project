@@ -30,18 +30,9 @@ const ARMOUR_DEFENSE = ['Armour', 'AR/EV', 'Evasion', 'EV/ES', 'Energy Shield', 
 
 const PRESET_FORMAT = 'sharket-leveling-preset';
 
-// Build-archetype presets: which weapon classes + armour defense types get the
-// T1 boost. The user tunes afterward (which flips the active preset to CUSTOM).
-type Preset = { weapons: string[]; armour_defense: string[] };
-const PRESETS: Record<string, Preset> = {
-  claw_dagger: { weapons: ['Claws', 'Daggers', 'Rune Daggers'], armour_defense: ['Evasion', 'EV/ES', 'Energy Shield'] },
-  bow_ranger: { weapons: ['Bows', 'Quivers'], armour_defense: ['Evasion', 'AR/EV', 'EV/ES'] },
-  sword_shield: { weapons: ['One Hand Swords', 'Thrusting One Hand Swords', 'One Hand Axes', 'One Hand Maces'], armour_defense: ['Armour', 'AR/EV', 'AR/ES'] },
-  axe_mace: { weapons: ['Two Hand Axes', 'Two Hand Maces', 'Two Hand Swords', 'Warstaves'], armour_defense: ['Armour', 'AR/EV', 'AR/ES'] },
-  fire_templar: { weapons: ['Sceptres', 'Staves'], armour_defense: ['Armour', 'AR/ES', 'Energy Shield'] },
-  spells_minions: { weapons: ['Wands', 'Sceptres', 'Staves'], armour_defense: ['Energy Shield', 'EV/ES', 'AR/ES'] },
-};
-const PRESET_ORDER = ['claw_dagger', 'bow_ranger', 'sword_shield', 'axe_mace', 'fire_templar', 'spells_minions'];
+// Built-in build-archetype presets are DEFERRED (user call, 2026-07-19): only
+// the custom selection ships for now. Save/Import of the user's own
+// *.leveling.json files below is the supported "preset" path.
 
 // "Boost everything" — every band tier renders at T1. Louder than the baseline
 // but a legitimate choice; the empty default is the intended additive baseline.
@@ -74,14 +65,6 @@ const CampaignPicker: React.FC<CampaignPickerProps> = ({ language, initialSelect
   const toggleIn = (set: React.Dispatch<React.SetStateAction<Set<string>>>, key: string) => {
     set(prev => { const n = new Set(prev); n.has(key) ? n.delete(key) : n.add(key); return n; });
     setPreset('CUSTOM');
-  };
-
-  const applyPreset = (name: string) => {
-    const p = PRESETS[name];
-    if (!p) return;
-    setWeapons(new Set(p.weapons));
-    setArmour(new Set(p.armour_defense));
-    setPreset(name);
   };
 
   const doSelectAll = () => {
@@ -143,12 +126,6 @@ const CampaignPicker: React.FC<CampaignPickerProps> = ({ language, initialSelect
         <div className="cp-hint">{t.campaignHint}</div>
 
         <div className="cp-body">
-          <div className="cp-section-label">{t.lvPresets}</div>
-          <div className="cp-row">
-            {PRESET_ORDER.map(name => chip(t.lvPresetNames[name] || name, preset === name, () => applyPreset(name), name))}
-            {chip(t.lvCustom, preset === 'CUSTOM' || preset === 'all', () => {}, 'custom')}
-          </div>
-
           <div className="cp-section-label">{t.lvWeapons}</div>
           <div className="cp-row">
             {WEAPON_CLASSES.map(c => chip(weaponLabel(c), weapons.has(c), () => toggleIn(setWeapons, c), c, c))}

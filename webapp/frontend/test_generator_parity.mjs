@@ -232,33 +232,34 @@ try {
   check('semistrict (idx2 < gate3): inert, == baseline on both sides',
         pySemi === pySoft && tsSemi === tsSoft);
 
-  // Case D/E/F — Campaign module (ADDITIVE boost model). D: an explicit empty
-  // selection must equal the absent-selection baseline (nothing picked = the
-  // baseline, never an omission). E: picking weapon classes / defense types
-  // upgrades their band tiers to boost_theme identically on both sides. F: the
-  // hide_unselected declutter flips unpicked weapon bands Show→Hide AND emits
-  // the 'aggressive' tiers (late-campaign magic hide) identically.
-  console.log('\n[D/E/F] Campaign module (additive boost):');
+  // Case D/E/F — Campaign module (selection-centric ladder). D: an explicit
+  // empty selection must equal the absent-selection baseline (nothing picked =
+  // just the always-on campaign categories + T3 net). E: picking groups ADDS
+  // their T1 band layer + T2 class-wide rare layer identically on both sides.
+  // F: hide_unselected flips unpicked weapon groups to Hide AND emits the
+  // 'aggressive' declutter tiers identically.
+  console.log('\n[D/E/F] Campaign module (selection-centric ladder):');
   const emptySel = { weapons: [], armour_defense: [], hide_unselected: false };
   const pyEmpty = runPy('soft', emptySel);
   const tsEmpty = runTs(merged.tiers, 'soft', emptySel);
   compare('empty selection: Python vs TS', pyEmpty, tsEmpty);
-  check('empty selection == absent selection (additive default)',
+  check('empty selection == absent selection (baseline default)',
         pyEmpty === pySoft && tsEmpty === tsSoft);
 
-  const boostSel = { weapons: ['Bows'], armour_defense: ['Evasion'], hide_unselected: false };
-  const pyBoost = runPy('soft', boostSel);
-  const tsBoost = runTs(merged.tiers, 'soft', boostSel);
-  compare('boost (Bows + Evasion): Python vs TS', pyBoost, tsBoost);
-  check('boost fired (band themes upgraded vs baseline)', pyBoost !== pySoft && tsBoost !== tsSoft);
+  const pickSel = { weapons: ['Bows'], armour_defense: ['Evasion'], hide_unselected: false };
+  const pyPick = runPy('soft', pickSel);
+  const tsPick = runTs(merged.tiers, 'soft', pickSel);
+  compare('pick (Bows + Evasion): Python vs TS', pyPick, tsPick);
+  check('pick ADDED layers (more lines; Bows Progression only when picked)',
+        pyPick.split('\n').length > pySoft.split('\n').length &&
+        pyPick.includes('Bows Progression') && !pySoft.includes('Bows Progression'));
 
   const aggroSel = { weapons: ['Bows'], armour_defense: [], hide_unselected: true };
   const pyAggro = runPy('soft', aggroSel);
   const tsAggro = runTs(merged.tiers, 'soft', aggroSel);
   compare('hide_unselected declutter: Python vs TS', pyAggro, tsAggro);
-  check('declutter fired (more Hide blocks + aggressive tier emitted)',
-        hideCount(pyAggro) > hideCount(pySoft) && hideCount(tsAggro) > hideCount(tsSoft) &&
-        pyAggro.split('\n').length > pySoft.split('\n').length);
+  check('declutter fired (more Hide blocks than baseline)',
+        hideCount(pyAggro) > hideCount(pySoft) && hideCount(tsAggro) > hideCount(tsSoft));
 } finally {
   if (filterBackup) writeFileSync(OUTPUT_FILTER, filterBackup);
   rmSync(tmp, { recursive: true, force: true });

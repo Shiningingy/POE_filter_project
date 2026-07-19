@@ -1,0 +1,1185 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Weapons",
+      "ch": "武器"
+    },
+    "localization": {
+      "en": "Weapon Progression",
+      "ch": "武器过渡"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {
+    "Crude Bow": "Bows Progression",
+    "Short Bow": "Bows Progression",
+    "Long Bow": "Bows Progression",
+    "Composite Bow": "Bows Progression",
+    "Recurve Bow": "Bows Progression",
+    "Bone Bow": "Bows Progression",
+    "Royal Bow": "Bows Progression",
+    "Death Bow": "Bows Progression",
+    "Grove Bow": "Bows Progression",
+    "Reflex Bow": "Bows Progression",
+    "Decurve Bow": "Bows Progression",
+    "Compound Bow": "Bows Progression",
+    "Sniper Bow": "Bows Progression",
+    "Ivory Bow": "Bows Progression",
+    "Highborn Bow": "Bows Progression",
+    "Decimation Bow": "Bows Progression",
+    "Thicket Bow": "Bows Progression",
+    "Steelwood Bow": "Bows Progression",
+    "Citadel Bow": "Bows Progression",
+    "Ranger Bow": "Bows Progression",
+    "Nailed Fist": "Claws Progression",
+    "Sharktooth Claw": "Claws Progression",
+    "Awl": "Claws Progression",
+    "Cat's Paw": "Claws Progression",
+    "Blinder": "Claws Progression",
+    "Timeworn Claw": "Claws Progression",
+    "Sparkling Claw": "Claws Progression",
+    "Fright Claw": "Claws Progression",
+    "Double Claw": "Claws Progression",
+    "Thresher Claw": "Claws Progression",
+    "Gouger": "Claws Progression",
+    "Tiger's Paw": "Claws Progression",
+    "Gut Ripper": "Claws Progression",
+    "Prehistoric Claw": "Claws Progression",
+    "Noble Claw": "Claws Progression",
+    "Eagle Claw": "Claws Progression",
+    "Twin Claw": "Claws Progression",
+    "Great White Claw": "Claws Progression",
+    "Throat Stabber": "Claws Progression",
+    "Eye Gouger": "Claws Progression",
+    "Glass Shank": "Daggers Progression",
+    "Skinning Knife": "Daggers Progression",
+    "Stiletto": "Daggers Progression",
+    "Flaying Knife": "Daggers Progression",
+    "Prong Dagger": "Daggers Progression",
+    "Poignard": "Daggers Progression",
+    "Trisula": "Daggers Progression",
+    "Gutting Knife": "Daggers Progression",
+    "Ambusher": "Daggers Progression",
+    "Rusted Hatchet": "One Hand Axes Progression",
+    "Jade Hatchet": "One Hand Axes Progression",
+    "Boarding Axe": "One Hand Axes Progression",
+    "Cleaver": "One Hand Axes Progression",
+    "Broad Axe": "One Hand Axes Progression",
+    "Arming Axe": "One Hand Axes Progression",
+    "Decorative Axe": "One Hand Axes Progression",
+    "Spectral Axe": "One Hand Axes Progression",
+    "Etched Hatchet": "One Hand Axes Progression",
+    "Jasper Axe": "One Hand Axes Progression",
+    "Tomahawk": "One Hand Axes Progression",
+    "Wrist Chopper": "One Hand Axes Progression",
+    "War Axe": "One Hand Axes Progression",
+    "Chest Splitter": "One Hand Axes Progression",
+    "Ceremonial Axe": "One Hand Axes Progression",
+    "Wraith Axe": "One Hand Axes Progression",
+    "Karui Axe": "One Hand Axes Progression",
+    "Siege Axe": "One Hand Axes Progression",
+    "Reaver Axe": "One Hand Axes Progression",
+    "Royal Axe": "One Hand Axes Progression",
+    "Driftwood Club": "One Hand Maces Progression",
+    "Tribal Club": "One Hand Maces Progression",
+    "Spiked Club": "One Hand Maces Progression",
+    "Stone Hammer": "One Hand Maces Progression",
+    "War Hammer": "One Hand Maces Progression",
+    "Bladed Mace": "One Hand Maces Progression",
+    "Ceremonial Mace": "One Hand Maces Progression",
+    "Dream Mace": "One Hand Maces Progression",
+    "Wyrm Mace": "One Hand Maces Progression",
+    "Petrified Club": "One Hand Maces Progression",
+    "Barbed Club": "One Hand Maces Progression",
+    "Rock Breaker": "One Hand Maces Progression",
+    "Flanged Mace": "One Hand Maces Progression",
+    "Ornate Mace": "One Hand Maces Progression",
+    "Phantom Mace": "One Hand Maces Progression",
+    "Dragon Mace": "One Hand Maces Progression",
+    "Ancestral Club": "One Hand Maces Progression",
+    "Tenderizer": "One Hand Maces Progression",
+    "Gavel": "One Hand Maces Progression",
+    "Auric Mace": "One Hand Maces Progression",
+    "Rusted Sword": "One Hand Swords Progression",
+    "Copper Sword": "One Hand Swords Progression",
+    "Sabre": "One Hand Swords Progression",
+    "Broad Sword": "One Hand Swords Progression",
+    "War Sword": "One Hand Swords Progression",
+    "Ancient Sword": "One Hand Swords Progression",
+    "Elegant Sword": "One Hand Swords Progression",
+    "Dusk Blade": "One Hand Swords Progression",
+    "Hook Sword": "One Hand Swords Progression",
+    "Variscite Blade": "One Hand Swords Progression",
+    "Cutlass": "One Hand Swords Progression",
+    "Baselard": "One Hand Swords Progression",
+    "Battle Sword": "One Hand Swords Progression",
+    "Elder Sword": "One Hand Swords Progression",
+    "Graceful Sword": "One Hand Swords Progression",
+    "Twilight Blade": "One Hand Swords Progression",
+    "Grappler": "One Hand Swords Progression",
+    "Gemstone Sword": "One Hand Swords Progression",
+    "Corsair Sword": "One Hand Swords Progression",
+    "Gladius": "One Hand Swords Progression",
+    "Legion Sword": "One Hand Swords Progression",
+    "Rusted Spike": "Thrusting One Hand Swords Progression",
+    "Whalebone Rapier": "Thrusting One Hand Swords Progression",
+    "Battered Foil": "Thrusting One Hand Swords Progression",
+    "Basket Rapier": "Thrusting One Hand Swords Progression",
+    "Jagged Foil": "Thrusting One Hand Swords Progression",
+    "Antique Rapier": "Thrusting One Hand Swords Progression",
+    "Elegant Foil": "Thrusting One Hand Swords Progression",
+    "Thorn Rapier": "Thrusting One Hand Swords Progression",
+    "Smallsword": "Thrusting One Hand Swords Progression",
+    "Wyrmbone Rapier": "Thrusting One Hand Swords Progression",
+    "Burnished Foil": "Thrusting One Hand Swords Progression",
+    "Estoc": "Thrusting One Hand Swords Progression",
+    "Serrated Foil": "Thrusting One Hand Swords Progression",
+    "Primeval Rapier": "Thrusting One Hand Swords Progression",
+    "Fancy Foil": "Thrusting One Hand Swords Progression",
+    "Apex Rapier": "Thrusting One Hand Swords Progression",
+    "Courtesan Sword": "Thrusting One Hand Swords Progression",
+    "Dragonbone Rapier": "Thrusting One Hand Swords Progression",
+    "Tempered Foil": "Thrusting One Hand Swords Progression",
+    "Pecoraro": "Thrusting One Hand Swords Progression",
+    "Spiraled Foil": "Thrusting One Hand Swords Progression",
+    "Serrated Arrow Quiver": "Quivers Progression",
+    "Fire Arrow Quiver": "Quivers Progression",
+    "Sharktooth Arrow Quiver": "Quivers Progression",
+    "Feathered Arrow Quiver": "Quivers Progression",
+    "Penetrating Arrow Quiver": "Quivers Progression",
+    "Blunt Arrow Quiver": "Quivers Progression",
+    "Two-Point Arrow Quiver": "Quivers Progression",
+    "Spike-Point Arrow Quiver": "Quivers Progression",
+    "Blazing Arrow Quiver": "Quivers Progression",
+    "Broadhead Arrow Quiver": "Quivers Progression",
+    "Vile Arrow Quiver": "Quivers Progression",
+    "Heavy Arrow Quiver": "Quivers Progression",
+    "Primal Arrow Quiver": "Quivers Progression",
+    "Carving Knife": "Rune Daggers Progression",
+    "Boot Knife": "Rune Daggers Progression",
+    "Copper Kris": "Rune Daggers Progression",
+    "Skean": "Rune Daggers Progression",
+    "Imp Dagger": "Rune Daggers Progression",
+    "Butcher Knife": "Rune Daggers Progression",
+    "Boot Blade": "Rune Daggers Progression",
+    "Golden Kris": "Rune Daggers Progression",
+    "Royal Skean": "Rune Daggers Progression",
+    "Fiend Dagger": "Rune Daggers Progression",
+    "Slaughter Knife": "Rune Daggers Progression",
+    "Ezomyte Dagger": "Rune Daggers Progression",
+    "Platinum Kris": "Rune Daggers Progression",
+    "Imperial Skean": "Rune Daggers Progression",
+    "Driftwood Sceptre": "Sceptres Progression",
+    "Darkwood Sceptre": "Sceptres Progression",
+    "Bronze Sceptre": "Sceptres Progression",
+    "Quartz Sceptre": "Sceptres Progression",
+    "Iron Sceptre": "Sceptres Progression",
+    "Ochre Sceptre": "Sceptres Progression",
+    "Ritual Sceptre": "Sceptres Progression",
+    "Shadow Sceptre": "Sceptres Progression",
+    "Grinning Fetish": "Sceptres Progression",
+    "Horned Sceptre": "Sceptres Progression",
+    "Sekhem": "Sceptres Progression",
+    "Crystal Sceptre": "Sceptres Progression",
+    "Lead Sceptre": "Sceptres Progression",
+    "Blood Sceptre": "Sceptres Progression",
+    "Royal Sceptre": "Sceptres Progression",
+    "Abyssal Sceptre": "Sceptres Progression",
+    "Stag Sceptre": "Sceptres Progression",
+    "Karui Sceptre": "Sceptres Progression",
+    "Tyrant's Sekhem": "Sceptres Progression",
+    "Opal Sceptre": "Sceptres Progression",
+    "Platinum Sceptre": "Sceptres Progression",
+    "Vaal Sceptre": "Sceptres Progression",
+    "Carnal Sceptre": "Sceptres Progression",
+    "Gnarled Branch": "Staves Progression",
+    "Primitive Staff": "Staves Progression",
+    "Long Staff": "Staves Progression",
+    "Royal Staff": "Staves Progression",
+    "Crescent Staff": "Staves Progression",
+    "Woodful Staff": "Staves Progression",
+    "Quarterstaff": "Staves Progression",
+    "Highborn Staff": "Staves Progression",
+    "Moon Staff": "Staves Progression",
+    "Primordial Staff": "Staves Progression",
+    "Lathi": "Staves Progression",
+    "Imperial Staff": "Staves Progression",
+    "Stone Axe": "Two Hand Axes Progression",
+    "Jade Chopper": "Two Hand Axes Progression",
+    "Woodsplitter": "Two Hand Axes Progression",
+    "Poleaxe": "Two Hand Axes Progression",
+    "Double Axe": "Two Hand Axes Progression",
+    "Gilded Axe": "Two Hand Axes Progression",
+    "Shadow Axe": "Two Hand Axes Progression",
+    "Dagger Axe": "Two Hand Axes Progression",
+    "Jasper Chopper": "Two Hand Axes Progression",
+    "Timber Axe": "Two Hand Axes Progression",
+    "Headsman Axe": "Two Hand Axes Progression",
+    "Labrys": "Two Hand Axes Progression",
+    "Noble Axe": "Two Hand Axes Progression",
+    "Abyssal Axe": "Two Hand Axes Progression",
+    "Karui Chopper": "Two Hand Axes Progression",
+    "Vaal Axe": "Two Hand Axes Progression",
+    "Driftwood Maul": "Two Hand Maces Progression",
+    "Tribal Maul": "Two Hand Maces Progression",
+    "Mallet": "Two Hand Maces Progression",
+    "Sledgehammer": "Two Hand Maces Progression",
+    "Jagged Maul": "Two Hand Maces Progression",
+    "Brass Maul": "Two Hand Maces Progression",
+    "Fright Maul": "Two Hand Maces Progression",
+    "Morning Star": "Two Hand Maces Progression",
+    "Totemic Maul": "Two Hand Maces Progression",
+    "Great Mallet": "Two Hand Maces Progression",
+    "Steelhead": "Two Hand Maces Progression",
+    "Spiny Maul": "Two Hand Maces Progression",
+    "Plated Maul": "Two Hand Maces Progression",
+    "Dread Maul": "Two Hand Maces Progression",
+    "Solar Maul": "Two Hand Maces Progression",
+    "Karui Maul": "Two Hand Maces Progression",
+    "Imperial Maul": "Two Hand Maces Progression",
+    "Terror Maul": "Two Hand Maces Progression",
+    "Corroded Blade": "Two Hand Swords Progression",
+    "Longsword": "Two Hand Swords Progression",
+    "Bastard Sword": "Two Hand Swords Progression",
+    "Two-Handed Sword": "Two Hand Swords Progression",
+    "Etched Greatsword": "Two Hand Swords Progression",
+    "Ornate Sword": "Two Hand Swords Progression",
+    "Spectral Sword": "Two Hand Swords Progression",
+    "Curved Blade": "Two Hand Swords Progression",
+    "Butcher Sword": "Two Hand Swords Progression",
+    "Footman Sword": "Two Hand Swords Progression",
+    "Highland Blade": "Two Hand Swords Progression",
+    "Engraved Greatsword": "Two Hand Swords Progression",
+    "Tiger Sword": "Two Hand Swords Progression",
+    "Wraith Sword": "Two Hand Swords Progression",
+    "Lithe Blade": "Two Hand Swords Progression",
+    "Headman's Sword": "Two Hand Swords Progression",
+    "Reaver Sword": "Two Hand Swords Progression",
+    "Ezomyte Blade": "Two Hand Swords Progression",
+    "Vaal Greatsword": "Two Hand Swords Progression",
+    "Lion Sword": "Two Hand Swords Progression",
+    "Goat's Horn": "Wands Progression",
+    "Quartz Wand": "Wands Progression",
+    "Spiraled Wand": "Wands Progression",
+    "Faun's Horn": "Wands Progression",
+    "Crystal Wand": "Wands Progression",
+    "Coiled Wand": "Wands Progression",
+    "Demon's Horn": "Wands Progression",
+    "Opal Wand": "Wands Progression",
+    "Tornado Wand": "Wands Progression",
+    "Iron Staff": "Warstaves Progression",
+    "Coiled Staff": "Warstaves Progression",
+    "Vile Staff": "Warstaves Progression",
+    "Military Staff": "Warstaves Progression",
+    "Serpentine Staff": "Warstaves Progression",
+    "Foul Staff": "Warstaves Progression",
+    "Ezomyte Staff": "Warstaves Progression",
+    "Maelström Staff": "Warstaves Progression"
+  },
+  "rules": [
+    {
+      "targets": [
+        "Crude Bow",
+        "Short Bow",
+        "Long Bow",
+        "Composite Bow",
+        "Recurve Bow",
+        "Bone Bow",
+        "Royal Bow",
+        "Death Bow"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Grove Bow",
+        "Reflex Bow",
+        "Decurve Bow",
+        "Compound Bow",
+        "Sniper Bow"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Ivory Bow",
+        "Highborn Bow",
+        "Decimation Bow"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Thicket Bow",
+        "Steelwood Bow",
+        "Citadel Bow",
+        "Ranger Bow"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Nailed Fist",
+        "Sharktooth Claw",
+        "Awl",
+        "Cat's Paw",
+        "Blinder",
+        "Timeworn Claw",
+        "Sparkling Claw"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Fright Claw",
+        "Double Claw",
+        "Thresher Claw",
+        "Gouger",
+        "Tiger's Paw"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Gut Ripper",
+        "Prehistoric Claw",
+        "Noble Claw",
+        "Eagle Claw"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Twin Claw",
+        "Great White Claw",
+        "Throat Stabber",
+        "Eye Gouger"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Glass Shank",
+        "Skinning Knife",
+        "Stiletto",
+        "Flaying Knife"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Prong Dagger",
+        "Poignard"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Trisula"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Gutting Knife",
+        "Ambusher"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Rusted Hatchet",
+        "Jade Hatchet",
+        "Boarding Axe",
+        "Cleaver",
+        "Broad Axe",
+        "Arming Axe",
+        "Decorative Axe",
+        "Spectral Axe"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Etched Hatchet",
+        "Jasper Axe",
+        "Tomahawk",
+        "Wrist Chopper",
+        "War Axe"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Chest Splitter",
+        "Ceremonial Axe",
+        "Wraith Axe"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Karui Axe",
+        "Siege Axe",
+        "Reaver Axe",
+        "Royal Axe"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Driftwood Club",
+        "Tribal Club",
+        "Spiked Club",
+        "Stone Hammer",
+        "War Hammer",
+        "Bladed Mace",
+        "Ceremonial Mace",
+        "Dream Mace"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Wyrm Mace",
+        "Petrified Club",
+        "Barbed Club",
+        "Rock Breaker"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Flanged Mace",
+        "Ornate Mace",
+        "Phantom Mace",
+        "Dragon Mace"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Ancestral Club",
+        "Tenderizer",
+        "Gavel",
+        "Auric Mace"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Rusted Sword",
+        "Copper Sword",
+        "Sabre",
+        "Broad Sword",
+        "War Sword",
+        "Ancient Sword",
+        "Elegant Sword",
+        "Dusk Blade"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Hook Sword",
+        "Variscite Blade",
+        "Cutlass",
+        "Baselard",
+        "Battle Sword"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Elder Sword",
+        "Graceful Sword",
+        "Twilight Blade",
+        "Grappler"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Gemstone Sword",
+        "Corsair Sword",
+        "Gladius",
+        "Legion Sword"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Rusted Spike",
+        "Whalebone Rapier",
+        "Battered Foil",
+        "Basket Rapier",
+        "Jagged Foil",
+        "Antique Rapier",
+        "Elegant Foil"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Thorn Rapier",
+        "Smallsword",
+        "Wyrmbone Rapier",
+        "Burnished Foil",
+        "Estoc"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Serrated Foil",
+        "Primeval Rapier",
+        "Fancy Foil",
+        "Apex Rapier"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Courtesan Sword",
+        "Dragonbone Rapier",
+        "Tempered Foil",
+        "Pecoraro",
+        "Spiraled Foil"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Serrated Arrow Quiver",
+        "Fire Arrow Quiver",
+        "Sharktooth Arrow Quiver",
+        "Feathered Arrow Quiver",
+        "Penetrating Arrow Quiver",
+        "Blunt Arrow Quiver"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Two-Point Arrow Quiver",
+        "Spike-Point Arrow Quiver",
+        "Blazing Arrow Quiver"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Broadhead Arrow Quiver",
+        "Vile Arrow Quiver"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Heavy Arrow Quiver",
+        "Primal Arrow Quiver"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Carving Knife",
+        "Boot Knife",
+        "Copper Kris",
+        "Skean",
+        "Imp Dagger"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Butcher Knife",
+        "Boot Blade"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Golden Kris",
+        "Royal Skean",
+        "Fiend Dagger"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Slaughter Knife",
+        "Ezomyte Dagger",
+        "Platinum Kris",
+        "Imperial Skean"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Driftwood Sceptre",
+        "Darkwood Sceptre",
+        "Bronze Sceptre",
+        "Quartz Sceptre",
+        "Iron Sceptre",
+        "Ochre Sceptre",
+        "Ritual Sceptre",
+        "Shadow Sceptre"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Grinning Fetish",
+        "Horned Sceptre",
+        "Sekhem",
+        "Crystal Sceptre",
+        "Lead Sceptre"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Blood Sceptre",
+        "Royal Sceptre",
+        "Abyssal Sceptre",
+        "Stag Sceptre"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Karui Sceptre",
+        "Tyrant's Sekhem",
+        "Opal Sceptre",
+        "Platinum Sceptre",
+        "Vaal Sceptre",
+        "Carnal Sceptre"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Gnarled Branch",
+        "Primitive Staff",
+        "Long Staff",
+        "Royal Staff"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Crescent Staff",
+        "Woodful Staff",
+        "Quarterstaff"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Highborn Staff"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Moon Staff",
+        "Primordial Staff",
+        "Lathi",
+        "Imperial Staff"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Stone Axe",
+        "Jade Chopper",
+        "Woodsplitter",
+        "Poleaxe",
+        "Double Axe",
+        "Gilded Axe",
+        "Shadow Axe"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Dagger Axe",
+        "Jasper Chopper",
+        "Timber Axe",
+        "Headsman Axe"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Labrys",
+        "Noble Axe",
+        "Abyssal Axe"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Karui Chopper",
+        "Vaal Axe"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Driftwood Maul",
+        "Tribal Maul",
+        "Mallet",
+        "Sledgehammer",
+        "Jagged Maul",
+        "Brass Maul",
+        "Fright Maul"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Morning Star",
+        "Totemic Maul",
+        "Great Mallet",
+        "Steelhead"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Spiny Maul",
+        "Plated Maul",
+        "Dread Maul"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Solar Maul",
+        "Karui Maul",
+        "Imperial Maul",
+        "Terror Maul"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Corroded Blade",
+        "Longsword",
+        "Bastard Sword",
+        "Two-Handed Sword",
+        "Etched Greatsword",
+        "Ornate Sword",
+        "Spectral Sword"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Curved Blade",
+        "Butcher Sword",
+        "Footman Sword",
+        "Highland Blade"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Engraved Greatsword",
+        "Tiger Sword",
+        "Wraith Sword"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Lithe Blade",
+        "Headman's Sword",
+        "Reaver Sword",
+        "Ezomyte Blade",
+        "Vaal Greatsword",
+        "Lion Sword"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Goat's Horn",
+        "Quartz Wand",
+        "Spiraled Wand"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Faun's Horn",
+        "Crystal Wand"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Coiled Wand"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Demon's Horn",
+        "Opal Wand",
+        "Tornado Wand"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    },
+    {
+      "targets": [
+        "Iron Staff",
+        "Coiled Staff",
+        "Vile Staff"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)"
+    },
+    {
+      "targets": [
+        "Military Staff"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)"
+    },
+    {
+      "targets": [
+        "Serpentine Staff",
+        "Foul Staff"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)"
+    },
+    {
+      "targets": [
+        "Ezomyte Staff",
+        "Maelström Staff"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band"
+    }
+  ]
+}

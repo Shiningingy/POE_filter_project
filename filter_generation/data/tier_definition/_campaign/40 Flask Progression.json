@@ -1,0 +1,1088 @@
+{
+  "Flask Progression": {
+    "_meta": {
+      "item_class": {
+        "en": "Flasks",
+        "ch": "药剂"
+      },
+      "localization": {
+        "en": "Flask Progression",
+        "ch": "药剂过渡"
+      },
+      "theme_category": "Campaign",
+      "tier_order": [
+        "Lv utility quicksilver",
+        "Lv utility asortedutility",
+        "Lv utility any Utility Flasks",
+        "Lv hybrid t1 Hybrid Flasks",
+        "Lv hybrid t2 Hybrid Flasks",
+        "Lv hybrid t3 Hybrid Flasks",
+        "Lv hybrid t4 Hybrid Flasks",
+        "Lv hybrid t5 Hybrid Flasks",
+        "Lv hybrid t6 Hybrid Flasks",
+        "Lv life t1 Life Flasks",
+        "Lv life t2 Life Flasks",
+        "Lv life t3 Life Flasks",
+        "Lv life t4 Life Flasks",
+        "Lv life t5 Life Flasks",
+        "Lv life t6 Life Flasks",
+        "Lv life t7 Life Flasks",
+        "Lv life t8 Life Flasks",
+        "Lv life t9 Life Flasks",
+        "Lv life t10 Life Flasks",
+        "Lv life t11 Life Flasks",
+        "Lv life t12 Life Flasks",
+        "Lv mana t1 Mana Flasks",
+        "Lv mana t2 Mana Flasks",
+        "Lv mana t3 Mana Flasks",
+        "Lv mana t4 Mana Flasks",
+        "Lv mana t5 Mana Flasks",
+        "Lv mana t6 Mana Flasks",
+        "Lv mana t7 Mana Flasks",
+        "Lv mana t8 Mana Flasks",
+        "Lv mana t9 Mana Flasks",
+        "Lv mana t10 Mana Flasks",
+        "Lv mana t11 Mana Flasks",
+        "Lv mana t12 Mana Flasks",
+        "Camp Flask Normal",
+        "Lv tincture any Tinctures"
+      ]
+    },
+    "Lv utility quicksilver": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "== \"Quicksilver Flask\"",
+        "AreaLevel": "<= 67"
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "utility"
+      },
+      "localization": {
+        "en": "Leveling: utility quicksilver",
+        "ch": "过渡: utility quicksilver"
+      },
+      "_source": {
+        "path": "leveling->flasks->utility",
+        "tier": "quicksilver",
+        "order": 0
+      }
+    },
+    "Lv utility asortedutility": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "== \"Amethyst Flask\" \"Basalt Flask\" \"Bismuth Flask\" \"Diamond Flask\" \"Gold Flask\" \"Granite Flask\" \"Iron Flask\" \"Jade Flask\" \"Quartz Flask\" \"Quicksilver Flask\" \"Ruby Flask\" \"Sapphire Flask\" \"Silver Flask\" \"Stibnite Flask\" \"Sulphur Flask\" \"Topaz Flask\"",
+        "AreaLevel": "<= 67"
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "utility"
+      },
+      "localization": {
+        "en": "Leveling: utility asortedutility",
+        "ch": "过渡: utility asortedutility"
+      },
+      "_source": {
+        "path": "leveling->flasks->utility",
+        "tier": "asortedutility",
+        "order": 1
+      }
+    },
+    "Lv utility any Utility Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Utility Flasks\"",
+        "AreaLevel": "<= 67"
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Utility Flasks"
+      },
+      "localization": {
+        "en": "Leveling: utility any (Utility Flasks)",
+        "ch": "过渡: 功能药剂 any"
+      },
+      "_source": {
+        "path": "leveling->flasks->utility",
+        "tier": "any",
+        "order": 2
+      }
+    },
+    "Lv hybrid t1 Hybrid Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Small\"",
+        "AreaLevel": "<= 20",
+        "Class": "== \"Hybrid Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Hybrid Flasks"
+      },
+      "localization": {
+        "en": "Leveling: hybrid t1 (Hybrid Flasks)",
+        "ch": "过渡: 复合药剂 t1"
+      },
+      "_source": {
+        "path": "leveling->flasks->hybrid",
+        "tier": "t1",
+        "order": 5
+      }
+    },
+    "Lv hybrid t2 Hybrid Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Medium\"",
+        "AreaLevel": "<= 30",
+        "Class": "== \"Hybrid Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Hybrid Flasks"
+      },
+      "localization": {
+        "en": "Leveling: hybrid t2 (Hybrid Flasks)",
+        "ch": "过渡: 复合药剂 t2"
+      },
+      "_source": {
+        "path": "leveling->flasks->hybrid",
+        "tier": "t2",
+        "order": 6
+      }
+    },
+    "Lv hybrid t3 Hybrid Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Large\"",
+        "AreaLevel": "<= 40",
+        "Class": "== \"Hybrid Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Hybrid Flasks"
+      },
+      "localization": {
+        "en": "Leveling: hybrid t3 (Hybrid Flasks)",
+        "ch": "过渡: 复合药剂 t3"
+      },
+      "_source": {
+        "path": "leveling->flasks->hybrid",
+        "tier": "t3",
+        "order": 7
+      }
+    },
+    "Lv hybrid t4 Hybrid Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Colossal\"",
+        "AreaLevel": "<= 50",
+        "Class": "== \"Hybrid Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Hybrid Flasks"
+      },
+      "localization": {
+        "en": "Leveling: hybrid t4 (Hybrid Flasks)",
+        "ch": "过渡: 复合药剂 t4"
+      },
+      "_source": {
+        "path": "leveling->flasks->hybrid",
+        "tier": "t4",
+        "order": 8
+      }
+    },
+    "Lv hybrid t5 Hybrid Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Sacred\"",
+        "AreaLevel": "<= 60",
+        "Class": "== \"Hybrid Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Hybrid Flasks"
+      },
+      "localization": {
+        "en": "Leveling: hybrid t5 (Hybrid Flasks)",
+        "ch": "过渡: 复合药剂 t5"
+      },
+      "_source": {
+        "path": "leveling->flasks->hybrid",
+        "tier": "t5",
+        "order": 9
+      }
+    },
+    "Lv hybrid t6 Hybrid Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Hallowed\"",
+        "AreaLevel": "<= 67",
+        "Class": "== \"Hybrid Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Hybrid Flasks"
+      },
+      "localization": {
+        "en": "Leveling: hybrid t6 (Hybrid Flasks)",
+        "ch": "过渡: 复合药剂 t6"
+      },
+      "_source": {
+        "path": "leveling->flasks->hybrid",
+        "tier": "t6",
+        "order": 10
+      }
+    },
+    "Lv life t1 Life Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Small\"",
+        "AreaLevel": "<= 9",
+        "Class": "== \"Life Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
+      "localization": {
+        "en": "Leveling: life t1 (Life Flasks)",
+        "ch": "过渡: 生命药剂 t1"
+      },
+      "_source": {
+        "path": "leveling->flasks->life",
+        "tier": "t1",
+        "order": 11
+      }
+    },
+    "Lv life t2 Life Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Medium\"",
+        "AreaLevel": "<= 13",
+        "Class": "== \"Life Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
+      "localization": {
+        "en": "Leveling: life t2 (Life Flasks)",
+        "ch": "过渡: 生命药剂 t2"
+      },
+      "_source": {
+        "path": "leveling->flasks->life",
+        "tier": "t2",
+        "order": 12
+      }
+    },
+    "Lv life t3 Life Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Large\"",
+        "AreaLevel": "<= 17",
+        "Class": "== \"Life Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
+      "localization": {
+        "en": "Leveling: life t3 (Life Flasks)",
+        "ch": "过渡: 生命药剂 t3"
+      },
+      "_source": {
+        "path": "leveling->flasks->life",
+        "tier": "t3",
+        "order": 13
+      }
+    },
+    "Lv life t4 Life Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Greater\"",
+        "AreaLevel": "<= 19",
+        "Class": "== \"Life Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
+      "localization": {
+        "en": "Leveling: life t4 (Life Flasks)",
+        "ch": "过渡: 生命药剂 t4"
+      },
+      "_source": {
+        "path": "leveling->flasks->life",
+        "tier": "t4",
+        "order": 14
+      }
+    },
+    "Lv life t5 Life Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Grand\"",
+        "AreaLevel": "<= 25",
+        "Class": "== \"Life Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
+      "localization": {
+        "en": "Leveling: life t5 (Life Flasks)",
+        "ch": "过渡: 生命药剂 t5"
+      },
+      "_source": {
+        "path": "leveling->flasks->life",
+        "tier": "t5",
+        "order": 15
+      }
+    },
+    "Lv life t6 Life Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Giant\"",
+        "AreaLevel": "<= 31",
+        "Class": "== \"Life Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
+      "localization": {
+        "en": "Leveling: life t6 (Life Flasks)",
+        "ch": "过渡: 生命药剂 t6"
+      },
+      "_source": {
+        "path": "leveling->flasks->life",
+        "tier": "t6",
+        "order": 16
+      }
+    },
+    "Lv life t7 Life Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Colossal\"",
+        "AreaLevel": "<= 37",
+        "Class": "== \"Life Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
+      "localization": {
+        "en": "Leveling: life t7 (Life Flasks)",
+        "ch": "过渡: 生命药剂 t7"
+      },
+      "_source": {
+        "path": "leveling->flasks->life",
+        "tier": "t7",
+        "order": 17
+      }
+    },
+    "Lv life t8 Life Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Sacred\"",
+        "AreaLevel": "<= 43",
+        "Class": "== \"Life Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
+      "localization": {
+        "en": "Leveling: life t8 (Life Flasks)",
+        "ch": "过渡: 生命药剂 t8"
+      },
+      "_source": {
+        "path": "leveling->flasks->life",
+        "tier": "t8",
+        "order": 18
+      }
+    },
+    "Lv life t9 Life Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Hallowed\"",
+        "AreaLevel": "<= 51",
+        "Class": "== \"Life Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
+      "localization": {
+        "en": "Leveling: life t9 (Life Flasks)",
+        "ch": "过渡: 生命药剂 t9"
+      },
+      "_source": {
+        "path": "leveling->flasks->life",
+        "tier": "t9",
+        "order": 19
+      }
+    },
+    "Lv life t10 Life Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Sanctified\"",
+        "AreaLevel": "<= 60",
+        "Class": "== \"Life Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
+      "localization": {
+        "en": "Leveling: life t10 (Life Flasks)",
+        "ch": "过渡: 生命药剂 t10"
+      },
+      "_source": {
+        "path": "leveling->flasks->life",
+        "tier": "t10",
+        "order": 20
+      }
+    },
+    "Lv life t11 Life Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Divine\"",
+        "AreaLevel": "<= 68",
+        "Class": "== \"Life Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
+      "localization": {
+        "en": "Leveling: life t11 (Life Flasks)",
+        "ch": "过渡: 生命药剂 t11"
+      },
+      "_source": {
+        "path": "leveling->flasks->life",
+        "tier": "t11",
+        "order": 21
+      }
+    },
+    "Lv life t12 Life Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Eternal\"",
+        "AreaLevel": "<= 68",
+        "Class": "== \"Life Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Life Flasks"
+      },
+      "localization": {
+        "en": "Leveling: life t12 (Life Flasks)",
+        "ch": "过渡: 生命药剂 t12"
+      },
+      "_source": {
+        "path": "leveling->flasks->life",
+        "tier": "t12",
+        "order": 22
+      }
+    },
+    "Lv mana t1 Mana Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Small\"",
+        "AreaLevel": "<= 9",
+        "Class": "== \"Mana Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
+      "localization": {
+        "en": "Leveling: mana t1 (Mana Flasks)",
+        "ch": "过渡: 魔力药剂 t1"
+      },
+      "_source": {
+        "path": "leveling->flasks->mana",
+        "tier": "t1",
+        "order": 23
+      }
+    },
+    "Lv mana t2 Mana Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Medium\"",
+        "AreaLevel": "<= 13",
+        "Class": "== \"Mana Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
+      "localization": {
+        "en": "Leveling: mana t2 (Mana Flasks)",
+        "ch": "过渡: 魔力药剂 t2"
+      },
+      "_source": {
+        "path": "leveling->flasks->mana",
+        "tier": "t2",
+        "order": 24
+      }
+    },
+    "Lv mana t3 Mana Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Large\"",
+        "AreaLevel": "<= 17",
+        "Class": "== \"Mana Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
+      "localization": {
+        "en": "Leveling: mana t3 (Mana Flasks)",
+        "ch": "过渡: 魔力药剂 t3"
+      },
+      "_source": {
+        "path": "leveling->flasks->mana",
+        "tier": "t3",
+        "order": 25
+      }
+    },
+    "Lv mana t4 Mana Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Greater\"",
+        "AreaLevel": "<= 19",
+        "Class": "== \"Mana Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
+      "localization": {
+        "en": "Leveling: mana t4 (Mana Flasks)",
+        "ch": "过渡: 魔力药剂 t4"
+      },
+      "_source": {
+        "path": "leveling->flasks->mana",
+        "tier": "t4",
+        "order": 26
+      }
+    },
+    "Lv mana t5 Mana Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Grand\"",
+        "AreaLevel": "<= 25",
+        "Class": "== \"Mana Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
+      "localization": {
+        "en": "Leveling: mana t5 (Mana Flasks)",
+        "ch": "过渡: 魔力药剂 t5"
+      },
+      "_source": {
+        "path": "leveling->flasks->mana",
+        "tier": "t5",
+        "order": 27
+      }
+    },
+    "Lv mana t6 Mana Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Giant\"",
+        "AreaLevel": "<= 31",
+        "Class": "== \"Mana Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
+      "localization": {
+        "en": "Leveling: mana t6 (Mana Flasks)",
+        "ch": "过渡: 魔力药剂 t6"
+      },
+      "_source": {
+        "path": "leveling->flasks->mana",
+        "tier": "t6",
+        "order": 28
+      }
+    },
+    "Lv mana t7 Mana Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Colossal\"",
+        "AreaLevel": "<= 37",
+        "Class": "== \"Mana Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
+      "localization": {
+        "en": "Leveling: mana t7 (Mana Flasks)",
+        "ch": "过渡: 魔力药剂 t7"
+      },
+      "_source": {
+        "path": "leveling->flasks->mana",
+        "tier": "t7",
+        "order": 29
+      }
+    },
+    "Lv mana t8 Mana Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Sacred\"",
+        "AreaLevel": "<= 43",
+        "Class": "== \"Mana Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
+      "localization": {
+        "en": "Leveling: mana t8 (Mana Flasks)",
+        "ch": "过渡: 魔力药剂 t8"
+      },
+      "_source": {
+        "path": "leveling->flasks->mana",
+        "tier": "t8",
+        "order": 30
+      }
+    },
+    "Lv mana t9 Mana Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Hallowed\"",
+        "AreaLevel": "<= 51",
+        "Class": "== \"Mana Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
+      "localization": {
+        "en": "Leveling: mana t9 (Mana Flasks)",
+        "ch": "过渡: 魔力药剂 t9"
+      },
+      "_source": {
+        "path": "leveling->flasks->mana",
+        "tier": "t9",
+        "order": 31
+      }
+    },
+    "Lv mana t10 Mana Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Sanctified\"",
+        "AreaLevel": "<= 60",
+        "Class": "== \"Mana Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
+      "localization": {
+        "en": "Leveling: mana t10 (Mana Flasks)",
+        "ch": "过渡: 魔力药剂 t10"
+      },
+      "_source": {
+        "path": "leveling->flasks->mana",
+        "tier": "t10",
+        "order": 32
+      }
+    },
+    "Lv mana t11 Mana Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Divine\"",
+        "AreaLevel": "<= 68",
+        "Class": "== \"Mana Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
+      "localization": {
+        "en": "Leveling: mana t11 (Mana Flasks)",
+        "ch": "过渡: 魔力药剂 t11"
+      },
+      "_source": {
+        "path": "leveling->flasks->mana",
+        "tier": "t11",
+        "order": 33
+      }
+    },
+    "Lv mana t12 Mana Flasks": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "\"Eternal\"",
+        "AreaLevel": "<= 68",
+        "Class": "== \"Mana Flasks\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Mana Flasks"
+      },
+      "localization": {
+        "en": "Leveling: mana t12 (Mana Flasks)",
+        "ch": "过渡: 魔力药剂 t12"
+      },
+      "_source": {
+        "path": "leveling->flasks->mana",
+        "tier": "t12",
+        "order": 34
+      }
+    },
+    "Camp Flask Normal": {
+      "class_condition": true,
+      "conditions": {
+        "Class": "\"Life Flasks\" \"Mana Flasks\"",
+        "AreaLevel": "<= 68"
+      },
+      "hideable": false,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Normal Flasks (Campaign)",
+        "ch": "普通药剂（过渡）"
+      }
+    },
+    "Lv tincture any Tinctures": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "ItemLevel": "<= 67",
+        "Class": "== \"Tinctures\"",
+        "AreaLevel": "<= 67"
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "Tinctures"
+      },
+      "localization": {
+        "en": "Leveling: tincture any (Tinctures)",
+        "ch": "过渡: 酊剂 any"
+      },
+      "_source": {
+        "path": "leveling->tincture",
+        "tier": "any",
+        "order": 4
+      }
+    }
+  }
+}

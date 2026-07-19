@@ -3,37 +3,8 @@
 #========================================
 #  [00000] 自定义规则
 #  [10000] 过渡 _campaign
-#    [11000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡弓 Campaign Bows
-#    [12000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡爪 Campaign Claws
-#    [13000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡匕首 Campaign Daggers
-#    [14000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡单手斧 Campaign One Hand Axes
-#    [15000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡单手锤 Campaign One Hand Maces
-#    [16000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡单手剑 Campaign One Hand Swords
-#    [17000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡箭袋 Campaign Quivers
-#    [18000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡符文匕首 Campaign Rune Daggers
-#    [19000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡短杖 Campaign Sceptres
-#    [20000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡长杖 Campaign Staves
-#    [21000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡细剑 Campaign Thrusting One Hand Swords
-#    [22000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡双手斧 Campaign Two Hand Axes
-#    [23000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡双手锤 Campaign Two Hand Maces
-#    [24000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡双手剑 Campaign Two Hand Swords
-#    [25000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡法杖 Campaign Wands
-#    [26000] 过渡 _campaign - 武器过渡 10_Weapons - 过渡战杖 Campaign Warstaves
-#    [27000] 过渡 _campaign - 防具过渡 20_Armour - 过渡防具 AR/ES Campaign AR/ES
-#    [28000] 过渡 _campaign - 防具过渡 20_Armour - 过渡防具 AR/EV Campaign AR/EV
-#    [29000] 过渡 _campaign - 防具过渡 20_Armour - 过渡防具 Armour Campaign Armour
-#    [30000] 过渡 _campaign - 防具过渡 20_Armour - 过渡防具 EV/ES Campaign EV/ES
-#    [31000] 过渡 _campaign - 防具过渡 20_Armour - 过渡防具 Energy Shield Campaign Energy Shield
-#    [32000] 过渡 _campaign - 防具过渡 20_Armour - 过渡防具 Evasion Campaign Evasion
-#    [33000] 过渡 _campaign - 特殊掉落 30_Special - 特殊瞩目掉落 Special Noteworthy Drops
-#    [34000] 过渡 _campaign - 鞋子与首饰 40_Nets - 过渡鞋子 Campaign Boots
-#    [35000] 过渡 _campaign - 鞋子与首饰 40_Nets - 过渡首饰 Campaign Jewellery
-#    [36000] 过渡 _campaign - 药剂 50_Consumables - 过渡药剂 Campaign Flasks
-#    [37000] 过渡 _campaign - 药剂 50_Consumables - 酊剂 Tinctures
-#    [38000] 过渡 _campaign - 色与连 60_Links - 过渡连接 Campaign Links
-#    [39000] 过渡 _campaign - 第一章 70_Act1 - 第一章 Act 1
-#    [40000] 过渡 _campaign - 稀有保底 80_Net - 过渡稀有 Campaign Rares
-#    [41000] 过渡 _campaign - 激进清理 90_Aggressive - 过渡清理 Campaign Declutter
+#    [11000] 过渡 _campaign - 过渡药剂 Campaign Flasks
+#    [12000] 过渡 _campaign - 装备过渡 Gear Progression
 #  [20000] 通货 Currency
 #    [21000] 通货 Currency - 尸体 Corpses
 #    [22000] 通货 Currency - 可堆叠通货 Delirium Orbs
@@ -138,103 +109,413 @@
 # [[10000]] 过渡 _campaign
 #===================================================================================================================
 
-#==[11000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡弓 Campaign Bows==
+#==[11000]-过渡 _campaign - 过渡药剂 Campaign Flasks==
 
-#==[11001]- 弓 -Campaign Bows Early 过渡弓 - 基础 - 精确==
+#==[11001]- 药剂 -Leveling: utility quicksilver 过渡药剂 - Class Condition==
 Show
-    BaseType == "Bone Bow" "Composite Bow" "Crude Bow" "Death Bow" "Long Bow" "Recurve Bow" "Royal Bow" "Short Bow"
+    BaseType == "Quicksilver Flask"
+    AreaLevel <= 67
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11002]- 药剂 -Leveling: utility asortedutility 过渡药剂 - Class Condition==
+Show
+    BaseType == "Amethyst Flask" "Basalt Flask" "Bismuth Flask" "Diamond Flask" "Gold Flask" "Granite Flask" "Iron Flask" "Jade Flask" "Quartz Flask" "Quicksilver Flask" "Ruby Flask" "Sapphire Flask" "Silver Flask" "Stibnite Flask" "Sulphur Flask" "Topaz Flask"
+    AreaLevel <= 67
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11003]- 药剂 -Leveling: utility any (Utility Flasks) 过渡药剂 - Class Condition==
+Show
+    Class == "Utility Flasks"
+    AreaLevel <= 67
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11004]- 药剂 -Leveling: hybrid t1 (Hybrid Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Small"
+    AreaLevel <= 20
+    Class == "Hybrid Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11005]- 药剂 -Leveling: hybrid t2 (Hybrid Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Medium"
+    AreaLevel <= 30
+    Class == "Hybrid Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11006]- 药剂 -Leveling: hybrid t3 (Hybrid Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Large"
+    AreaLevel <= 40
+    Class == "Hybrid Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11007]- 药剂 -Leveling: hybrid t4 (Hybrid Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Colossal"
+    AreaLevel <= 50
+    Class == "Hybrid Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11008]- 药剂 -Leveling: hybrid t5 (Hybrid Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Sacred"
+    AreaLevel <= 60
+    Class == "Hybrid Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11009]- 药剂 -Leveling: hybrid t6 (Hybrid Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Hallowed"
+    AreaLevel <= 67
+    Class == "Hybrid Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11010]- 药剂 -Leveling: life t1 (Life Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Small"
+    AreaLevel <= 9
+    Class == "Life Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11011]- 药剂 -Leveling: life t2 (Life Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Medium"
+    AreaLevel <= 13
+    Class == "Life Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11012]- 药剂 -Leveling: life t3 (Life Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Large"
+    AreaLevel <= 17
+    Class == "Life Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11013]- 药剂 -Leveling: life t4 (Life Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Greater"
+    AreaLevel <= 19
+    Class == "Life Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11014]- 药剂 -Leveling: life t5 (Life Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Grand"
+    AreaLevel <= 25
+    Class == "Life Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11015]- 药剂 -Leveling: life t6 (Life Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Giant"
+    AreaLevel <= 31
+    Class == "Life Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11016]- 药剂 -Leveling: life t7 (Life Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Colossal"
+    AreaLevel <= 37
+    Class == "Life Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11017]- 药剂 -Leveling: life t8 (Life Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Sacred"
+    AreaLevel <= 43
+    Class == "Life Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11018]- 药剂 -Leveling: life t9 (Life Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Hallowed"
+    AreaLevel <= 51
+    Class == "Life Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11019]- 药剂 -Leveling: life t10 (Life Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Sanctified"
+    AreaLevel <= 60
+    Class == "Life Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11020]- 药剂 -Leveling: life t11 (Life Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Divine"
+    AreaLevel <= 68
+    Class == "Life Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11021]- 药剂 -Leveling: life t12 (Life Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Eternal"
+    AreaLevel <= 68
+    Class == "Life Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11022]- 药剂 -Leveling: mana t1 (Mana Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Small"
+    AreaLevel <= 9
+    Class == "Mana Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11023]- 药剂 -Leveling: mana t2 (Mana Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Medium"
+    AreaLevel <= 13
+    Class == "Mana Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11024]- 药剂 -Leveling: mana t3 (Mana Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Large"
+    AreaLevel <= 17
+    Class == "Mana Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11025]- 药剂 -Leveling: mana t4 (Mana Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Greater"
+    AreaLevel <= 19
+    Class == "Mana Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11026]- 药剂 -Leveling: mana t5 (Mana Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Grand"
+    AreaLevel <= 25
+    Class == "Mana Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11027]- 药剂 -Leveling: mana t6 (Mana Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Giant"
+    AreaLevel <= 31
+    Class == "Mana Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11028]- 药剂 -Leveling: mana t7 (Mana Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Colossal"
+    AreaLevel <= 37
+    Class == "Mana Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11029]- 药剂 -Leveling: mana t8 (Mana Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Sacred"
+    AreaLevel <= 43
+    Class == "Mana Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11030]- 药剂 -Leveling: mana t9 (Mana Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Hallowed"
+    AreaLevel <= 51
+    Class == "Mana Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11031]- 药剂 -Leveling: mana t10 (Mana Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Sanctified"
+    AreaLevel <= 60
+    Class == "Mana Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11032]- 药剂 -Leveling: mana t11 (Mana Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Divine"
+    AreaLevel <= 68
+    Class == "Mana Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11033]- 药剂 -Leveling: mana t12 (Mana Flasks) 过渡药剂 - Class Condition==
+Show
+    BaseType "Eternal"
+    AreaLevel <= 68
+    Class == "Mana Flasks"
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[11034]- 药剂 -Normal Flasks (Campaign) 过渡药剂 - Class Condition==
+Show
+    Class "Life Flasks" "Mana Flasks"
+    AreaLevel <= 68
+    SetFontSize 40
+    SetBorderColor 74 230 58 255
+    SetBackgroundColor 215 215 200 210
+
+
+#==[11035]- 药剂 -Leveling: tincture any (Tinctures) 过渡药剂 - Class Condition==
+Show
+    ItemLevel <= 67
+    Class == "Tinctures"
+    AreaLevel <= 67
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[12000]-过渡 _campaign - 装备过渡 Gear Progression==
+
+#==[12001]- 装备 -Bows Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
+Show
+    BaseType == "Crude Bow" "Short Bow" "Long Bow" "Composite Bow" "Recurve Bow" "Bone Bow" "Royal Bow" "Death Bow"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[11002]- 弓 -Campaign Bows Mid 过渡弓 - 基础 - 精确==
+#==[12002]- 装备 -Bows Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Compound Bow" "Decurve Bow" "Grove Bow" "Reflex Bow" "Sniper Bow"
+    BaseType == "Grove Bow" "Reflex Bow" "Decurve Bow" "Compound Bow" "Sniper Bow"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[11003]- 弓 -Campaign Bows Late 过渡弓 - 基础 - 精确==
+#==[12003]- 装备 -Bows Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Decimation Bow" "Highborn Bow" "Ivory Bow"
+    BaseType == "Ivory Bow" "Highborn Bow" "Decimation Bow"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[11004]- 弓 -Campaign Bows PreEndgame 过渡弓 - 基础 - 精确==
+#==[12004]- 装备 -Bows Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Citadel Bow" "Ranger Bow" "Steelwood Bow" "Thicket Bow"
+    BaseType == "Thicket Bow" "Steelwood Bow" "Citadel Bow" "Ranger Bow"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[12000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡爪 Campaign Claws==
-
-#==[12001]- 爪 -Campaign Claws Early 过渡爪 - 基础 - 精确==
+#==[12005]- 装备 -Claws Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Awl" "Blinder" "Cat's Paw" "Nailed Fist" "Sharktooth Claw" "Sparkling Claw" "Timeworn Claw"
+    BaseType == "Nailed Fist" "Sharktooth Claw" "Awl" "Cat's Paw" "Blinder" "Timeworn Claw" "Sparkling Claw"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[12002]- 爪 -Campaign Claws Mid 过渡爪 - 基础 - 精确==
+#==[12006]- 装备 -Claws Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Double Claw" "Fright Claw" "Gouger" "Thresher Claw" "Tiger's Paw"
+    BaseType == "Fright Claw" "Double Claw" "Thresher Claw" "Gouger" "Tiger's Paw"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[12003]- 爪 -Campaign Claws Late 过渡爪 - 基础 - 精确==
+#==[12007]- 装备 -Claws Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Eagle Claw" "Gut Ripper" "Noble Claw" "Prehistoric Claw"
+    BaseType == "Gut Ripper" "Prehistoric Claw" "Noble Claw" "Eagle Claw"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[12004]- 爪 -Campaign Claws PreEndgame 过渡爪 - 基础 - 精确==
+#==[12008]- 装备 -Claws Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Eye Gouger" "Great White Claw" "Throat Stabber" "Twin Claw"
+    BaseType == "Twin Claw" "Great White Claw" "Throat Stabber" "Eye Gouger"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[13000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡匕首 Campaign Daggers==
-
-#==[13001]- 匕首 -Campaign Daggers Early 过渡匕首 - 基础 - 精确==
+#==[12009]- 装备 -Daggers Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Flaying Knife" "Glass Shank" "Skinning Knife" "Stiletto"
+    BaseType == "Glass Shank" "Skinning Knife" "Stiletto" "Flaying Knife"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[13002]- 匕首 -Campaign Daggers Mid 过渡匕首 - 基础 - 精确==
+#==[12010]- 装备 -Daggers Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Poignard" "Prong Dagger"
+    BaseType == "Prong Dagger" "Poignard"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[13003]- 匕首 -Campaign Daggers Late 过渡匕首 - 基础 - 精确==
+#==[12011]- 装备 -Daggers Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
     BaseType == "Trisula"
     Rarity Rare
@@ -243,150 +524,178 @@ Show
     SetBorderColor 74 230 58 255
 
 
-#==[13004]- 匕首 -Campaign Daggers PreEndgame 过渡匕首 - 基础 - 精确==
+#==[12012]- 装备 -Daggers Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Ambusher" "Gutting Knife"
+    BaseType == "Gutting Knife" "Ambusher"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[14000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡单手斧 Campaign One Hand Axes==
-
-#==[14001]- 单手斧 -Campaign One Hand Axes Early 过渡单手斧 - 基础 - 精确==
+#==[12013]- 装备 -One Hand Axes Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Arming Axe" "Boarding Axe" "Broad Axe" "Cleaver" "Decorative Axe" "Jade Hatchet" "Rusted Hatchet" "Spectral Axe"
+    BaseType == "Rusted Hatchet" "Jade Hatchet" "Boarding Axe" "Cleaver" "Broad Axe" "Arming Axe" "Decorative Axe" "Spectral Axe"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[14002]- 单手斧 -Campaign One Hand Axes Mid 过渡单手斧 - 基础 - 精确==
+#==[12014]- 装备 -One Hand Axes Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Etched Hatchet" "Jasper Axe" "Tomahawk" "War Axe" "Wrist Chopper"
+    BaseType == "Etched Hatchet" "Jasper Axe" "Tomahawk" "Wrist Chopper" "War Axe"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[14003]- 单手斧 -Campaign One Hand Axes Late 过渡单手斧 - 基础 - 精确==
+#==[12015]- 装备 -One Hand Axes Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Ceremonial Axe" "Chest Splitter" "Wraith Axe"
+    BaseType == "Chest Splitter" "Ceremonial Axe" "Wraith Axe"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[14004]- 单手斧 -Campaign One Hand Axes PreEndgame 过渡单手斧 - 基础 - 精确==
+#==[12016]- 装备 -One Hand Axes Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Karui Axe" "Reaver Axe" "Royal Axe" "Siege Axe"
+    BaseType == "Karui Axe" "Siege Axe" "Reaver Axe" "Royal Axe"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[15000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡单手锤 Campaign One Hand Maces==
-
-#==[15001]- 单手锤 -Campaign One Hand Maces Early 过渡单手锤 - 基础 - 精确==
+#==[12017]- 装备 -One Hand Maces Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Bladed Mace" "Ceremonial Mace" "Dream Mace" "Driftwood Club" "Spiked Club" "Stone Hammer" "Tribal Club" "War Hammer"
+    BaseType == "Driftwood Club" "Tribal Club" "Spiked Club" "Stone Hammer" "War Hammer" "Bladed Mace" "Ceremonial Mace" "Dream Mace"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[15002]- 单手锤 -Campaign One Hand Maces Mid 过渡单手锤 - 基础 - 精确==
+#==[12018]- 装备 -One Hand Maces Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Barbed Club" "Petrified Club" "Rock Breaker" "Wyrm Mace"
+    BaseType == "Wyrm Mace" "Petrified Club" "Barbed Club" "Rock Breaker"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[15003]- 单手锤 -Campaign One Hand Maces Late 过渡单手锤 - 基础 - 精确==
+#==[12019]- 装备 -One Hand Maces Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Dragon Mace" "Flanged Mace" "Ornate Mace" "Phantom Mace"
+    BaseType == "Flanged Mace" "Ornate Mace" "Phantom Mace" "Dragon Mace"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[15004]- 单手锤 -Campaign One Hand Maces PreEndgame 过渡单手锤 - 基础 - 精确==
+#==[12020]- 装备 -One Hand Maces Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Ancestral Club" "Auric Mace" "Gavel" "Tenderizer"
+    BaseType == "Ancestral Club" "Tenderizer" "Gavel" "Auric Mace"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[16000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡单手剑 Campaign One Hand Swords==
-
-#==[16001]- 单手剑 -Campaign One Hand Swords Early 过渡单手剑 - 基础 - 精确==
+#==[12021]- 装备 -One Hand Swords Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Ancient Sword" "Broad Sword" "Copper Sword" "Dusk Blade" "Elegant Sword" "Rusted Sword" "Sabre" "War Sword"
+    BaseType == "Rusted Sword" "Copper Sword" "Sabre" "Broad Sword" "War Sword" "Ancient Sword" "Elegant Sword" "Dusk Blade"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[16002]- 单手剑 -Campaign One Hand Swords Mid 过渡单手剑 - 基础 - 精确==
+#==[12022]- 装备 -One Hand Swords Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Baselard" "Battle Sword" "Cutlass" "Hook Sword" "Variscite Blade"
+    BaseType == "Hook Sword" "Variscite Blade" "Cutlass" "Baselard" "Battle Sword"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[16003]- 单手剑 -Campaign One Hand Swords Late 过渡单手剑 - 基础 - 精确==
+#==[12023]- 装备 -One Hand Swords Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Elder Sword" "Graceful Sword" "Grappler" "Twilight Blade"
+    BaseType == "Elder Sword" "Graceful Sword" "Twilight Blade" "Grappler"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[16004]- 单手剑 -Campaign One Hand Swords PreEndgame 过渡单手剑 - 基础 - 精确==
+#==[12024]- 装备 -One Hand Swords Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Corsair Sword" "Gemstone Sword" "Gladius" "Legion Sword"
+    BaseType == "Gemstone Sword" "Corsair Sword" "Gladius" "Legion Sword"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[17000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡箭袋 Campaign Quivers==
-
-#==[17001]- 箭袋 -Campaign Quivers Early 过渡箭袋 - 基础 - 精确==
+#==[12025]- 装备 -Thrusting One Hand Swords Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Blunt Arrow Quiver" "Feathered Arrow Quiver" "Fire Arrow Quiver" "Penetrating Arrow Quiver" "Serrated Arrow Quiver" "Sharktooth Arrow Quiver"
+    BaseType == "Rusted Spike" "Whalebone Rapier" "Battered Foil" "Basket Rapier" "Jagged Foil" "Antique Rapier" "Elegant Foil"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[17002]- 箭袋 -Campaign Quivers Mid 过渡箭袋 - 基础 - 精确==
+#==[12026]- 装备 -Thrusting One Hand Swords Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Blazing Arrow Quiver" "Spike-Point Arrow Quiver" "Two-Point Arrow Quiver"
+    BaseType == "Thorn Rapier" "Smallsword" "Wyrmbone Rapier" "Burnished Foil" "Estoc"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[17003]- 箭袋 -Campaign Quivers Late 过渡箭袋 - 基础 - 精确==
+#==[12027]- 装备 -Thrusting One Hand Swords Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
+Show
+    BaseType == "Serrated Foil" "Primeval Rapier" "Fancy Foil" "Apex Rapier"
+    Rarity Rare
+    AreaLevel <= 60
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[12028]- 装备 -Thrusting One Hand Swords Progression 装备过渡 - #4 Pre-endgame band - 精确==
+Show
+    BaseType == "Courtesan Sword" "Dragonbone Rapier" "Tempered Foil" "Pecoraro" "Spiraled Foil"
+    Rarity Rare
+    AreaLevel <= 67
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[12029]- 装备 -Quivers Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
+Show
+    BaseType == "Serrated Arrow Quiver" "Fire Arrow Quiver" "Sharktooth Arrow Quiver" "Feathered Arrow Quiver" "Penetrating Arrow Quiver" "Blunt Arrow Quiver"
+    Rarity Magic Rare
+    AreaLevel <= 33
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[12030]- 装备 -Quivers Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
+Show
+    BaseType == "Two-Point Arrow Quiver" "Spike-Point Arrow Quiver" "Blazing Arrow Quiver"
+    Rarity Rare
+    AreaLevel <= 50
+    SetFontSize 35
+    SetBorderColor 74 230 58 255
+
+
+#==[12031]- 装备 -Quivers Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
     BaseType == "Broadhead Arrow Quiver" "Vile Arrow Quiver"
     Rarity Rare
@@ -395,7 +704,7 @@ Show
     SetBorderColor 74 230 58 255
 
 
-#==[17004]- 箭袋 -Campaign Quivers PreEndgame 过渡箭袋 - 基础 - 精确==
+#==[12032]- 装备 -Quivers Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
     BaseType == "Heavy Arrow Quiver" "Primal Arrow Quiver"
     Rarity Rare
@@ -404,103 +713,97 @@ Show
     SetBorderColor 74 230 58 255
 
 
-#==[18000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡符文匕首 Campaign Rune Daggers==
-
-#==[18001]- 符文匕首 -Campaign Rune Daggers Early 过渡符文匕首 - 基础 - 精确==
+#==[12033]- 装备 -Rune Daggers Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Boot Knife" "Carving Knife" "Copper Kris" "Imp Dagger" "Skean"
+    BaseType == "Carving Knife" "Boot Knife" "Copper Kris" "Skean" "Imp Dagger"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[18002]- 符文匕首 -Campaign Rune Daggers Mid 过渡符文匕首 - 基础 - 精确==
+#==[12034]- 装备 -Rune Daggers Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Boot Blade" "Butcher Knife"
+    BaseType == "Butcher Knife" "Boot Blade"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[18003]- 符文匕首 -Campaign Rune Daggers Late 过渡符文匕首 - 基础 - 精确==
+#==[12035]- 装备 -Rune Daggers Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Fiend Dagger" "Golden Kris" "Royal Skean"
+    BaseType == "Golden Kris" "Royal Skean" "Fiend Dagger"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[18004]- 符文匕首 -Campaign Rune Daggers PreEndgame 过渡符文匕首 - 基础 - 精确==
+#==[12036]- 装备 -Rune Daggers Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Ezomyte Dagger" "Imperial Skean" "Platinum Kris" "Slaughter Knife"
+    BaseType == "Slaughter Knife" "Ezomyte Dagger" "Platinum Kris" "Imperial Skean"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[19000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡短杖 Campaign Sceptres==
-
-#==[19001]- 短杖 -Campaign Sceptres Early 过渡短杖 - 基础 - 精确==
+#==[12037]- 装备 -Sceptres Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Bronze Sceptre" "Darkwood Sceptre" "Driftwood Sceptre" "Iron Sceptre" "Ochre Sceptre" "Quartz Sceptre" "Ritual Sceptre" "Shadow Sceptre"
+    BaseType == "Driftwood Sceptre" "Darkwood Sceptre" "Bronze Sceptre" "Quartz Sceptre" "Iron Sceptre" "Ochre Sceptre" "Ritual Sceptre" "Shadow Sceptre"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[19002]- 短杖 -Campaign Sceptres Mid 过渡短杖 - 基础 - 精确==
+#==[12038]- 装备 -Sceptres Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Crystal Sceptre" "Grinning Fetish" "Horned Sceptre" "Lead Sceptre" "Sekhem"
+    BaseType == "Grinning Fetish" "Horned Sceptre" "Sekhem" "Crystal Sceptre" "Lead Sceptre"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[19003]- 短杖 -Campaign Sceptres Late 过渡短杖 - 基础 - 精确==
+#==[12039]- 装备 -Sceptres Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Abyssal Sceptre" "Blood Sceptre" "Royal Sceptre" "Stag Sceptre"
+    BaseType == "Blood Sceptre" "Royal Sceptre" "Abyssal Sceptre" "Stag Sceptre"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[19004]- 短杖 -Campaign Sceptres PreEndgame 过渡短杖 - 基础 - 精确==
+#==[12040]- 装备 -Sceptres Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Carnal Sceptre" "Karui Sceptre" "Opal Sceptre" "Platinum Sceptre" "Tyrant's Sekhem" "Vaal Sceptre"
+    BaseType == "Karui Sceptre" "Tyrant's Sekhem" "Opal Sceptre" "Platinum Sceptre" "Vaal Sceptre" "Carnal Sceptre"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[20000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡长杖 Campaign Staves==
-
-#==[20001]- 长杖 -Campaign Staves Early 过渡长杖 - 基础 - 精确==
+#==[12041]- 装备 -Staves Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Gnarled Branch" "Long Staff" "Primitive Staff" "Royal Staff"
+    BaseType == "Gnarled Branch" "Primitive Staff" "Long Staff" "Royal Staff"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[20002]- 长杖 -Campaign Staves Mid 过渡长杖 - 基础 - 精确==
+#==[12042]- 装备 -Staves Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Crescent Staff" "Quarterstaff" "Woodful Staff"
+    BaseType == "Crescent Staff" "Woodful Staff" "Quarterstaff"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[20003]- 长杖 -Campaign Staves Late 过渡长杖 - 基础 - 精确==
+#==[12043]- 装备 -Staves Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
     BaseType == "Highborn Staff"
     Rarity Rare
@@ -509,83 +812,43 @@ Show
     SetBorderColor 74 230 58 255
 
 
-#==[20004]- 长杖 -Campaign Staves PreEndgame 过渡长杖 - 基础 - 精确==
+#==[12044]- 装备 -Staves Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Imperial Staff" "Lathi" "Moon Staff" "Primordial Staff"
+    BaseType == "Moon Staff" "Primordial Staff" "Lathi" "Imperial Staff"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[21000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡细剑 Campaign Thrusting One Hand Swords==
-
-#==[21001]- 细剑 -Campaign Thrusting One Hand Swords Early 过渡细剑 - 基础 - 精确==
+#==[12045]- 装备 -Two Hand Axes Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Antique Rapier" "Basket Rapier" "Battered Foil" "Elegant Foil" "Jagged Foil" "Rusted Spike" "Whalebone Rapier"
+    BaseType == "Stone Axe" "Jade Chopper" "Woodsplitter" "Poleaxe" "Double Axe" "Gilded Axe" "Shadow Axe"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[21002]- 细剑 -Campaign Thrusting One Hand Swords Mid 过渡细剑 - 基础 - 精确==
+#==[12046]- 装备 -Two Hand Axes Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Burnished Foil" "Estoc" "Smallsword" "Thorn Rapier" "Wyrmbone Rapier"
+    BaseType == "Dagger Axe" "Jasper Chopper" "Timber Axe" "Headsman Axe"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[21003]- 细剑 -Campaign Thrusting One Hand Swords Late 过渡细剑 - 基础 - 精确==
+#==[12047]- 装备 -Two Hand Axes Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Apex Rapier" "Fancy Foil" "Primeval Rapier" "Serrated Foil"
+    BaseType == "Labrys" "Noble Axe" "Abyssal Axe"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[21004]- 细剑 -Campaign Thrusting One Hand Swords PreEndgame 过渡细剑 - 基础 - 精确==
-Show
-    BaseType == "Courtesan Sword" "Dragonbone Rapier" "Pecoraro" "Spiraled Foil" "Tempered Foil"
-    Rarity Rare
-    AreaLevel <= 67
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[22000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡双手斧 Campaign Two Hand Axes==
-
-#==[22001]- 双手斧 -Campaign Two Hand Axes Early 过渡双手斧 - 基础 - 精确==
-Show
-    BaseType == "Double Axe" "Gilded Axe" "Jade Chopper" "Poleaxe" "Shadow Axe" "Stone Axe" "Woodsplitter"
-    Rarity Magic Rare
-    AreaLevel <= 33
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[22002]- 双手斧 -Campaign Two Hand Axes Mid 过渡双手斧 - 基础 - 精确==
-Show
-    BaseType == "Dagger Axe" "Headsman Axe" "Jasper Chopper" "Timber Axe"
-    Rarity Rare
-    AreaLevel <= 50
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[22003]- 双手斧 -Campaign Two Hand Axes Late 过渡双手斧 - 基础 - 精确==
-Show
-    BaseType == "Abyssal Axe" "Labrys" "Noble Axe"
-    Rarity Rare
-    AreaLevel <= 60
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[22004]- 双手斧 -Campaign Two Hand Axes PreEndgame 过渡双手斧 - 基础 - 精确==
+#==[12048]- 装备 -Two Hand Axes Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
     BaseType == "Karui Chopper" "Vaal Axe"
     Rarity Rare
@@ -594,65 +857,61 @@ Show
     SetBorderColor 74 230 58 255
 
 
-#==[23000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡双手锤 Campaign Two Hand Maces==
-
-#==[23001]- 双手锤 -Campaign Two Hand Maces Early 过渡双手锤 - 基础 - 精确==
+#==[12049]- 装备 -Two Hand Maces Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Brass Maul" "Driftwood Maul" "Fright Maul" "Jagged Maul" "Mallet" "Sledgehammer" "Tribal Maul"
+    BaseType == "Driftwood Maul" "Tribal Maul" "Mallet" "Sledgehammer" "Jagged Maul" "Brass Maul" "Fright Maul"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[23002]- 双手锤 -Campaign Two Hand Maces Mid 过渡双手锤 - 基础 - 精确==
+#==[12050]- 装备 -Two Hand Maces Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Great Mallet" "Morning Star" "Steelhead" "Totemic Maul"
+    BaseType == "Morning Star" "Totemic Maul" "Great Mallet" "Steelhead"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[23003]- 双手锤 -Campaign Two Hand Maces Late 过渡双手锤 - 基础 - 精确==
+#==[12051]- 装备 -Two Hand Maces Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Dread Maul" "Plated Maul" "Spiny Maul"
+    BaseType == "Spiny Maul" "Plated Maul" "Dread Maul"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[23004]- 双手锤 -Campaign Two Hand Maces PreEndgame 过渡双手锤 - 基础 - 精确==
+#==[12052]- 装备 -Two Hand Maces Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Imperial Maul" "Karui Maul" "Solar Maul" "Terror Maul"
+    BaseType == "Solar Maul" "Karui Maul" "Imperial Maul" "Terror Maul"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[24000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡双手剑 Campaign Two Hand Swords==
-
-#==[24001]- 双手剑 -Campaign Two Hand Swords Early 过渡双手剑 - 基础 - 精确==
+#==[12053]- 装备 -Two Hand Swords Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Bastard Sword" "Corroded Blade" "Etched Greatsword" "Longsword" "Ornate Sword" "Spectral Sword" "Two-Handed Sword"
+    BaseType == "Corroded Blade" "Longsword" "Bastard Sword" "Two-Handed Sword" "Etched Greatsword" "Ornate Sword" "Spectral Sword"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[24002]- 双手剑 -Campaign Two Hand Swords Mid 过渡双手剑 - 基础 - 精确==
+#==[12054]- 装备 -Two Hand Swords Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Butcher Sword" "Curved Blade" "Footman Sword" "Highland Blade"
+    BaseType == "Curved Blade" "Butcher Sword" "Footman Sword" "Highland Blade"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[24003]- 双手剑 -Campaign Two Hand Swords Late 过渡双手剑 - 基础 - 精确==
+#==[12055]- 装备 -Two Hand Swords Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
     BaseType == "Engraved Greatsword" "Tiger Sword" "Wraith Sword"
     Rarity Rare
@@ -661,18 +920,16 @@ Show
     SetBorderColor 74 230 58 255
 
 
-#==[24004]- 双手剑 -Campaign Two Hand Swords PreEndgame 过渡双手剑 - 基础 - 精确==
+#==[12056]- 装备 -Two Hand Swords Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Ezomyte Blade" "Headman's Sword" "Lion Sword" "Lithe Blade" "Reaver Sword" "Vaal Greatsword"
+    BaseType == "Lithe Blade" "Headman's Sword" "Reaver Sword" "Ezomyte Blade" "Vaal Greatsword" "Lion Sword"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[25000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡法杖 Campaign Wands==
-
-#==[25001]- 法杖 -Campaign Wands Early 过渡法杖 - 基础 - 精确==
+#==[12057]- 装备 -Wands Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
     BaseType == "Goat's Horn" "Quartz Wand" "Spiraled Wand"
     Rarity Magic Rare
@@ -681,16 +938,16 @@ Show
     SetBorderColor 74 230 58 255
 
 
-#==[25002]- 法杖 -Campaign Wands Mid 过渡法杖 - 基础 - 精确==
+#==[12058]- 装备 -Wands Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Crystal Wand" "Faun's Horn"
+    BaseType == "Faun's Horn" "Crystal Wand"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[25003]- 法杖 -Campaign Wands Late 过渡法杖 - 基础 - 精确==
+#==[12059]- 装备 -Wands Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
     BaseType == "Coiled Wand"
     Rarity Rare
@@ -699,7 +956,7 @@ Show
     SetBorderColor 74 230 58 255
 
 
-#==[25004]- 法杖 -Campaign Wands PreEndgame 过渡法杖 - 基础 - 精确==
+#==[12060]- 装备 -Wands Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
     BaseType == "Demon's Horn" "Opal Wand" "Tornado Wand"
     Rarity Rare
@@ -708,18 +965,16 @@ Show
     SetBorderColor 74 230 58 255
 
 
-#==[26000]-过渡 _campaign - 武器过渡 10_Weapons - 过渡战杖 Campaign Warstaves==
-
-#==[26001]- 战杖 -Campaign Warstaves Early 过渡战杖 - 基础 - 精确==
+#==[12061]- 装备 -Warstaves Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Coiled Staff" "Iron Staff" "Vile Staff"
+    BaseType == "Iron Staff" "Coiled Staff" "Vile Staff"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[26002]- 战杖 -Campaign Warstaves Mid 过渡战杖 - 基础 - 精确==
+#==[12062]- 装备 -Warstaves Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
     BaseType == "Military Staff"
     Rarity Rare
@@ -728,16 +983,16 @@ Show
     SetBorderColor 74 230 58 255
 
 
-#==[26003]- 战杖 -Campaign Warstaves Late 过渡战杖 - 基础 - 精确==
+#==[12063]- 装备 -Warstaves Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Foul Staff" "Serpentine Staff"
+    BaseType == "Serpentine Staff" "Foul Staff"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[26004]- 战杖 -Campaign Warstaves PreEndgame 过渡战杖 - 基础 - 精确==
+#==[12064]- 装备 -Warstaves Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
     BaseType == "Ezomyte Staff" "Maelström Staff"
     Rarity Rare
@@ -746,237 +1001,223 @@ Show
     SetBorderColor 74 230 58 255
 
 
-#==[27000]-过渡 _campaign - 防具过渡 20_Armour - 过渡防具 AR/ES Campaign AR/ES==
-
-#==[27001]- 防具 -Campaign AR/ES Early 过渡防具 AR/ES - 基础 - 精确==
+#==[12065]- 装备 -Armour Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Chain Boots" "Chain Gloves" "Chainmail Doublet" "Chainmail Tunic" "Chainmail Vest" "Crusader Helmet" "Full Chainmail" "Full Ringmail" "Great Helmet" "Layered Kite Shield" "Linden Kite Shield" "Mesh Boots" "Mesh Gloves" "Plank Kite Shield" "Reinforced Kite Shield" "Ringmail Boots" "Ringmail Coat" "Ringmail Gloves" "Rusted Coif" "Soldier Helmet"
+    BaseType == "Plate Vest" "Iron Greaves" "Iron Gauntlets" "Iron Hat" "Splintered Tower Shield" "Corroded Tower Shield" "Chestplate" "Cone Helmet" "Steel Greaves" "Plated Gauntlets" "Rawhide Tower Shield" "Copper Plate" "Cedar Tower Shield" "Barbute Helmet" "War Plate" "Plated Greaves" "Bronze Gauntlets" "Copper Tower Shield" "Close Helmet" "Full Plate" "Reinforced Tower Shield" "Arena Plate" "Reinforced Greaves"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[27002]- 防具 -Campaign AR/ES Mid 过渡防具 AR/ES - 基础 - 精确==
+#==[12066]- 装备 -Armour Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Aventail Helmet" "Ceremonial Kite Shield" "Crusader Chainmail" "Etched Kite Shield" "Holy Chainmail" "Latticed Ringmail" "Riveted Boots" "Riveted Gloves" "Zealot Boots" "Zealot Gloves" "Zealot Helmet"
+    BaseType == "Lordly Plate" "Steel Gauntlets" "Gladiator Helmet" "Painted Tower Shield" "Bronze Plate" "Antique Greaves" "Antique Gauntlets" "Buckskin Tower Shield" "Reaver Helmet" "Battle Plate" "Mahogany Tower Shield" "Sun Plate"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[27003]- 防具 -Campaign AR/ES Late 过渡防具 AR/ES - 基础 - 精确==
+#==[12067]- 装备 -Armour Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Angelic Kite Shield" "Chain Hauberk" "Devout Chainmail" "Great Crown" "Laminated Kite Shield" "Ornate Ringmail" "Soldier Boots" "Soldier Gloves" "Steel Kite Shield"
+    BaseType == "Ancient Greaves" "Ancient Gauntlets" "Bronze Tower Shield" "Siege Helmet" "Colosseum Plate" "Girded Tower Shield" "Majestic Plate" "Goliath Gauntlets" "Goliath Greaves" "Samnite Helmet" "Crested Tower Shield"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[27004]- 防具 -Campaign AR/ES PreEndgame 过渡防具 AR/ES - 基础 - 精确==
+#==[12068]- 装备 -Armour Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Branded Kite Shield" "Champion Kite Shield" "Conquest Chainmail" "Crusader Boots" "Crusader Gloves" "Elegant Ringmail" "Legion Boots" "Legion Gloves" "Loricated Ringmail" "Magistrate Crown" "Mosaic Kite Shield" "Prophet Crown" "Saint's Hauberk"
+    BaseType == "Golden Plate" "Shagreen Tower Shield" "Crusader Plate" "Ezomyte Burgonet" "Ebony Tower Shield" "Astral Plate" "Vaal Greaves" "Vaal Gauntlets" "Ezomyte Tower Shield" "Gladiator Plate" "Royal Burgonet" "Colossal Tower Shield"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[28000]-过渡 _campaign - 防具过渡 20_Armour - 过渡防具 AR/EV Campaign AR/EV==
-
-#==[28001]- 防具 -Campaign AR/EV Early 过渡防具 AR/EV - 基础 - 精确==
+#==[12069]- 装备 -AR/EV Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Battered Helm" "Bronzescale Boots" "Bronzescale Gauntlets" "Fir Round Shield" "Fishscale Gauntlets" "Full Scale Armour" "Gilded Sallet" "Infantry Brigandine" "Ironscale Boots" "Ironscale Gauntlets" "Leatherscale Boots" "Light Brigandine" "Rotted Round Shield" "Sallet" "Scale Doublet" "Scale Vest" "Scarlet Round Shield" "Soldier's Brigandine" "Splendid Round Shield" "Studded Round Shield" "Visored Sallet"
+    BaseType == "Scale Vest" "Fishscale Gauntlets" "Battered Helm" "Rotted Round Shield" "Leatherscale Boots" "Light Brigandine" "Fir Round Shield" "Sallet" "Ironscale Gauntlets" "Scale Doublet" "Ironscale Boots" "Studded Round Shield" "Infantry Brigandine" "Visored Sallet" "Bronzescale Gauntlets" "Scarlet Round Shield" "Full Scale Armour" "Bronzescale Boots" "Soldier's Brigandine" "Gilded Sallet" "Splendid Round Shield"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[28002]- 防具 -Campaign AR/EV Mid 过渡防具 AR/EV - 基础 - 精确==
+#==[12070]- 装备 -AR/EV Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Fencer Helm" "Field Lamellar" "Hussar Brigandine" "Maple Round Shield" "Secutor Helm" "Serpentscale Boots" "Serpentscale Gauntlets" "Spiked Round Shield" "Steelscale Boots" "Steelscale Gauntlets" "Wyrmscale Doublet"
+    BaseType == "Field Lamellar" "Steelscale Boots" "Steelscale Gauntlets" "Secutor Helm" "Wyrmscale Doublet" "Maple Round Shield" "Hussar Brigandine" "Serpentscale Boots" "Serpentscale Gauntlets" "Fencer Helm" "Spiked Round Shield"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[28003]- 防具 -Campaign AR/EV Late 过渡防具 AR/EV - 基础 - 精确==
+#==[12071]- 装备 -AR/EV Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Baroque Round Shield" "Battle Lamellar" "Commander's Brigandine" "Crimson Round Shield" "Full Wyrmscale" "Lacquered Helmet" "Wyrmscale Boots" "Wyrmscale Gauntlets"
+    BaseType == "Full Wyrmscale" "Wyrmscale Gauntlets" "Crimson Round Shield" "Commander's Brigandine" "Wyrmscale Boots" "Lacquered Helmet" "Battle Lamellar" "Baroque Round Shield"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[28004]- 防具 -Campaign AR/EV PreEndgame 过渡防具 AR/EV - 基础 - 精确==
+#==[12072]- 装备 -AR/EV Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Cardinal Round Shield" "Desert Brigandine" "Dragonscale Boots" "Dragonscale Doublet" "Dragonscale Gauntlets" "Fluted Bascinet" "Full Dragonscale" "General's Brigandine" "Hydrascale Boots" "Hydrascale Gauntlets" "Nightmare Bascinet" "Pig-Faced Bascinet" "Spiny Round Shield" "Teak Round Shield"
+    BaseType == "Dragonscale Doublet" "Fluted Bascinet" "Teak Round Shield" "Hydrascale Boots" "Hydrascale Gauntlets" "Desert Brigandine" "Spiny Round Shield" "Full Dragonscale" "Pig-Faced Bascinet" "Dragonscale Boots" "General's Brigandine" "Cardinal Round Shield" "Dragonscale Gauntlets" "Nightmare Bascinet"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[29000]-过渡 _campaign - 防具过渡 20_Armour - 过渡防具 Armour Campaign Armour==
-
-#==[29001]- 防具 -Campaign Armour Early 过渡防具 Armour - 基础 - 精确==
+#==[12073]- 装备 -Evasion Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Arena Plate" "Barbute Helmet" "Bronze Gauntlets" "Cedar Tower Shield" "Chestplate" "Close Helmet" "Cone Helmet" "Copper Plate" "Copper Tower Shield" "Corroded Tower Shield" "Full Plate" "Iron Gauntlets" "Iron Greaves" "Iron Hat" "Plate Vest" "Plated Gauntlets" "Plated Greaves" "Rawhide Tower Shield" "Reinforced Greaves" "Reinforced Tower Shield" "Splintered Tower Shield" "Steel Greaves" "War Plate"
+    BaseType == "Shabby Jerkin" "Goathide Buckler" "Rawhide Boots" "Rawhide Gloves" "Leather Cap" "Pine Buckler" "Strapped Leather" "Goathide Gloves" "Tricorne" "Goathide Boots" "Painted Buckler" "Buckskin Tunic" "Leather Hood" "Deerskin Gloves" "Deerskin Boots" "Hammered Buckler" "Wild Leather" "Full Leather" "War Buckler" "Wolf Pelt" "Sun Leather" "Nubuck Gloves"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[29002]- 防具 -Campaign Armour Mid 过渡防具 Armour - 基础 - 精确==
+#==[12074]- 装备 -Evasion Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Antique Gauntlets" "Antique Greaves" "Battle Plate" "Bronze Plate" "Buckskin Tower Shield" "Gladiator Helmet" "Lordly Plate" "Mahogany Tower Shield" "Painted Tower Shield" "Reaver Helmet" "Steel Gauntlets" "Sun Plate"
+    BaseType == "Nubuck Boots" "Gilded Buckler" "Thief's Garb" "Eelskin Tunic" "Eelskin Gloves" "Oak Buckler" "Eelskin Boots" "Frontier Leather" "Hunter Hood" "Enameled Buckler" "Sharkskin Boots" "Glorious Leather" "Sharkskin Gloves"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[29003]- 防具 -Campaign Armour Late 过渡防具 Armour - 基础 - 精确==
+#==[12075]- 装备 -Evasion Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Ancient Gauntlets" "Ancient Greaves" "Bronze Tower Shield" "Colosseum Plate" "Crested Tower Shield" "Girded Tower Shield" "Goliath Gauntlets" "Goliath Greaves" "Majestic Plate" "Samnite Helmet" "Siege Helmet"
+    BaseType == "Corrugated Buckler" "Noble Tricorne" "Coronal Leather" "Battle Buckler" "Cutthroat's Garb" "Shagreen Gloves" "Golden Buckler" "Shagreen Boots" "Ursine Pelt"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[29004]- 防具 -Campaign Armour PreEndgame 过渡防具 Armour - 基础 - 精确==
+#==[12076]- 装备 -Evasion Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Astral Plate" "Colossal Tower Shield" "Crusader Plate" "Ebony Tower Shield" "Ezomyte Burgonet" "Ezomyte Tower Shield" "Gladiator Plate" "Golden Plate" "Royal Burgonet" "Shagreen Tower Shield" "Vaal Gauntlets" "Vaal Greaves"
+    BaseType == "Sharkskin Tunic" "Ironwood Buckler" "Destiny Leather" "Silken Hood" "Lacquered Buckler" "Exquisite Leather" "Stealth Boots" "Stealth Gloves" "Vaal Buckler" "Sinner Tricorne" "Zodiac Leather" "Crusader Buckler"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[30000]-过渡 _campaign - 防具过渡 20_Armour - 过渡防具 EV/ES Campaign EV/ES==
-
-#==[30001]- 防具 -Campaign EV/ES Early 过渡防具 EV/ES - 基础 - 精确==
+#==[12077]- 装备 -EV/ES Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Alloyed Spiked Shield" "Burnished Spiked Shield" "Clasped Boots" "Clasped Mitts" "Driftwood Spiked Shield" "Festival Mask" "Iron Mask" "Oiled Coat" "Oiled Vest" "Ornate Spiked Shield" "Padded Jacket" "Padded Vest" "Plague Mask" "Scare Mask" "Scarlet Raiment" "Spiked Bundle" "Strapped Boots" "Strapped Mitts" "Waxed Garb" "Wrapped Boots" "Wrapped Mitts"
+    BaseType == "Padded Vest" "Scare Mask" "Wrapped Mitts" "Spiked Bundle" "Wrapped Boots" "Oiled Vest" "Plague Mask" "Driftwood Spiked Shield" "Strapped Boots" "Strapped Mitts" "Iron Mask" "Padded Jacket" "Alloyed Spiked Shield" "Oiled Coat" "Clasped Boots" "Burnished Spiked Shield" "Scarlet Raiment" "Festival Mask" "Clasped Mitts" "Waxed Garb" "Ornate Spiked Shield"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[30002]- 防具 -Campaign EV/ES Mid 过渡防具 EV/ES - 基础 - 精确==
+#==[12078]- 装备 -EV/ES Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Ambush Mitts" "Bone Armour" "Callous Mask" "Compound Spiked Shield" "Golden Mask" "Quilted Jacket" "Raven Mask" "Redwood Spiked Shield" "Shackled Boots" "Sleek Coat" "Trapper Boots" "Trapper Mitts"
+    BaseType == "Shackled Boots" "Bone Armour" "Golden Mask" "Trapper Mitts" "Raven Mask" "Redwood Spiked Shield" "Quilted Jacket" "Trapper Boots" "Sleek Coat" "Ambush Mitts" "Callous Mask" "Compound Spiked Shield"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[30003]- 防具 -Campaign EV/ES Late 过渡防具 EV/ES - 基础 - 精确==
+#==[12079]- 装备 -EV/ES Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Ambush Boots" "Carnal Boots" "Carnal Mitts" "Crimson Raiment" "Lacquered Garb" "Polished Spiked Shield" "Regicide Mask" "Sovereign Spiked Shield"
+    BaseType == "Ambush Boots" "Crimson Raiment" "Polished Spiked Shield" "Carnal Mitts" "Lacquered Garb" "Regicide Mask" "Sovereign Spiked Shield" "Carnal Boots"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[30004]- 防具 -Campaign EV/ES PreEndgame 过渡防具 EV/ES - 基础 - 精确==
+#==[12080]- 装备 -EV/ES Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Alder Spiked Shield" "Assassin's Boots" "Assassin's Mitts" "Blood Raiment" "Crypt Armour" "Deicide Mask" "Ezomyte Spiked Shield" "Harlequin Mask" "Mirrored Spiked Shield" "Murder Mitts" "Sentinel Jacket" "Vaal Mask" "Varnished Coat"
+    BaseType == "Crypt Armour" "Harlequin Mask" "Assassin's Mitts" "Alder Spiked Shield" "Sentinel Jacket" "Varnished Coat" "Vaal Mask" "Ezomyte Spiked Shield" "Assassin's Boots" "Blood Raiment" "Mirrored Spiked Shield" "Murder Mitts" "Deicide Mask"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[31000]-过渡 _campaign - 防具过渡 20_Armour - 过渡防具 Energy Shield Campaign Energy Shield==
-
-#==[31001]- 防具 -Campaign Energy Shield Early 过渡防具 Energy Shield - 基础 - 精确==
+#==[12081]- 装备 -Energy Shield Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Bone Spirit Shield" "Brass Spirit Shield" "Iron Circlet" "Jingling Spirit Shield" "Mage's Vestment" "Scholar Boots" "Scholar's Robe" "Silk Gloves" "Silk Robe" "Silk Slippers" "Silken Garb" "Silken Vest" "Simple Robe" "Tarnished Spirit Shield" "Torture Cage" "Tribal Circlet" "Twig Spirit Shield" "Velvet Gloves" "Velvet Slippers" "Vine Circlet" "Wool Gloves" "Wool Shoes" "Yew Spirit Shield"
+    BaseType == "Simple Robe" "Wool Shoes" "Wool Gloves" "Vine Circlet" "Twig Spirit Shield" "Iron Circlet" "Velvet Slippers" "Yew Spirit Shield" "Silken Vest" "Velvet Gloves" "Bone Spirit Shield" "Torture Cage" "Scholar's Robe" "Silk Slippers" "Tarnished Spirit Shield" "Silken Garb" "Silk Gloves" "Tribal Circlet" "Mage's Vestment" "Jingling Spirit Shield" "Silk Robe" "Scholar Boots" "Brass Spirit Shield"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[31002]- 防具 -Campaign Energy Shield Mid 过渡防具 Energy Shield - 基础 - 精确==
+#==[12082]- 装备 -Energy Shield Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Ancient Spirit Shield" "Bone Circlet" "Cabalist Regalia" "Conjurer's Vestment" "Embroidered Gloves" "Ivory Spirit Shield" "Lunaris Circlet" "Sage's Robe" "Samite Slippers" "Satin Gloves" "Satin Slippers" "Silken Wrap" "Walnut Spirit Shield"
+    BaseType == "Bone Circlet" "Cabalist Regalia" "Embroidered Gloves" "Sage's Robe" "Walnut Spirit Shield" "Satin Slippers" "Lunaris Circlet" "Silken Wrap" "Satin Gloves" "Ivory Spirit Shield" "Samite Slippers" "Conjurer's Vestment" "Ancient Spirit Shield"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[31003]- 防具 -Campaign Energy Shield Late 过渡防具 Energy Shield - 基础 - 精确==
+#==[12083]- 装备 -Energy Shield Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Chiming Spirit Shield" "Conjurer Boots" "Conjurer Gloves" "Destroyer Regalia" "Necromancer Circlet" "Samite Gloves" "Spidersilk Robe" "Steel Circlet" "Thorium Spirit Shield"
+    BaseType == "Samite Gloves" "Steel Circlet" "Spidersilk Robe" "Chiming Spirit Shield" "Destroyer Regalia" "Conjurer Boots" "Thorium Spirit Shield" "Necromancer Circlet" "Conjurer Gloves"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[31004]- 防具 -Campaign Energy Shield PreEndgame 过渡防具 Energy Shield - 基础 - 精确==
+#==[12084]- 装备 -Energy Shield Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Arcanist Gloves" "Arcanist Slippers" "Fossilised Spirit Shield" "Harmonic Spirit Shield" "Lacewood Spirit Shield" "Mind Cage" "Necromancer Silks" "Occultist's Vestment" "Savant's Robe" "Solaris Circlet" "Sorcerer Boots" "Vaal Spirit Shield" "Widowsilk Robe"
+    BaseType == "Savant's Robe" "Lacewood Spirit Shield" "Necromancer Silks" "Solaris Circlet" "Fossilised Spirit Shield" "Arcanist Gloves" "Arcanist Slippers" "Occultist's Vestment" "Vaal Spirit Shield" "Widowsilk Robe" "Mind Cage" "Harmonic Spirit Shield" "Sorcerer Boots"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[32000]-过渡 _campaign - 防具过渡 20_Armour - 过渡防具 Evasion Campaign Evasion==
-
-#==[32001]- 防具 -Campaign Evasion Early 过渡防具 Evasion - 基础 - 精确==
+#==[12085]- 装备 -AR/ES Progression 装备过渡 - #1 Early band (Acts 1-3, magic+rare) - 精确==
 Show
-    BaseType == "Buckskin Tunic" "Deerskin Boots" "Deerskin Gloves" "Full Leather" "Goathide Boots" "Goathide Buckler" "Goathide Gloves" "Hammered Buckler" "Leather Cap" "Leather Hood" "Nubuck Gloves" "Painted Buckler" "Pine Buckler" "Rawhide Boots" "Rawhide Gloves" "Shabby Jerkin" "Strapped Leather" "Sun Leather" "Tricorne" "War Buckler" "Wild Leather" "Wolf Pelt"
+    BaseType == "Chainmail Vest" "Chain Boots" "Rusted Coif" "Chain Gloves" "Plank Kite Shield" "Chainmail Tunic" "Soldier Helmet" "Ringmail Boots" "Linden Kite Shield" "Ringmail Coat" "Ringmail Gloves" "Reinforced Kite Shield" "Chainmail Doublet" "Great Helmet" "Layered Kite Shield" "Full Ringmail" "Mesh Boots" "Crusader Helmet" "Full Chainmail" "Mesh Gloves"
     Rarity Magic Rare
     AreaLevel <= 33
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[32002]- 防具 -Campaign Evasion Mid 过渡防具 Evasion - 基础 - 精确==
+#==[12086]- 装备 -AR/ES Progression 装备过渡 - #2 Mid band (to Act 5) - 精确==
 Show
-    BaseType == "Eelskin Boots" "Eelskin Gloves" "Eelskin Tunic" "Enameled Buckler" "Frontier Leather" "Gilded Buckler" "Glorious Leather" "Hunter Hood" "Nubuck Boots" "Oak Buckler" "Sharkskin Boots" "Sharkskin Gloves" "Thief's Garb"
+    BaseType == "Ceremonial Kite Shield" "Holy Chainmail" "Riveted Boots" "Riveted Gloves" "Aventail Helmet" "Latticed Ringmail" "Zealot Boots" "Etched Kite Shield" "Crusader Chainmail" "Zealot Gloves" "Zealot Helmet"
     Rarity Rare
     AreaLevel <= 50
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[32003]- 防具 -Campaign Evasion Late 过渡防具 Evasion - 基础 - 精确==
+#==[12087]- 装备 -AR/ES Progression 装备过渡 - #3 Late band (to Act 8) - 精确==
 Show
-    BaseType == "Battle Buckler" "Coronal Leather" "Corrugated Buckler" "Cutthroat's Garb" "Golden Buckler" "Noble Tricorne" "Shagreen Boots" "Shagreen Gloves" "Ursine Pelt"
+    BaseType == "Steel Kite Shield" "Ornate Ringmail" "Soldier Boots" "Laminated Kite Shield" "Chain Hauberk" "Soldier Gloves" "Great Crown" "Devout Chainmail" "Angelic Kite Shield"
     Rarity Rare
     AreaLevel <= 60
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[32004]- 防具 -Campaign Evasion PreEndgame 过渡防具 Evasion - 基础 - 精确==
+#==[12088]- 装备 -AR/ES Progression 装备过渡 - #4 Pre-endgame band - 精确==
 Show
-    BaseType == "Crusader Buckler" "Destiny Leather" "Exquisite Leather" "Ironwood Buckler" "Lacquered Buckler" "Sharkskin Tunic" "Silken Hood" "Sinner Tricorne" "Stealth Boots" "Stealth Gloves" "Vaal Buckler" "Zodiac Leather"
+    BaseType == "Legion Gloves" "Loricated Ringmail" "Legion Boots" "Magistrate Crown" "Branded Kite Shield" "Conquest Chainmail" "Champion Kite Shield" "Prophet Crown" "Elegant Ringmail" "Crusader Boots" "Mosaic Kite Shield" "Crusader Gloves" "Saint's Hauberk"
     Rarity Rare
     AreaLevel <= 67
     SetFontSize 35
     SetBorderColor 74 230 58 255
 
 
-#==[33000]-过渡 _campaign - 特殊掉落 30_Special - 特殊瞩目掉落 Special Noteworthy Drops==
-
-#==[33001]- Special Noteworthy Drops -Leveling: movementbootshigh 特殊瞩目掉落 - Class Condition==
+#==[12089]- 装备 -Leveling: movementbootshigh 装备过渡 - Class Condition==
 Show
     Rarity Normal Magic Rare
     ItemLevel <= 67
@@ -989,7 +1230,7 @@ Show
     PlayAlertSound 2 300
 
 
-#==[33002]- Special Noteworthy Drops -Leveling: movementbootslow 特殊瞩目掉落 - Class Condition==
+#==[12090]- 装备 -Leveling: movementbootslow 装备过渡 - Class Condition==
 Show
     Rarity Normal Magic Rare
     ItemLevel <= 67
@@ -1002,7 +1243,7 @@ Show
     PlayAlertSound 2 300
 
 
-#==[33003]- Special Noteworthy Drops -Leveling: anyveiled 特殊瞩目掉落 - Class Condition==
+#==[12091]- 装备 -Leveling: anyveiled 装备过渡 - Class Condition==
 Show
     Rarity Normal Magic Rare
     Identified True
@@ -1015,9 +1256,7 @@ Show
     PlayAlertSound 2 300
 
 
-#==[34000]-过渡 _campaign - 鞋子与首饰 40_Nets - 过渡鞋子 Campaign Boots==
-
-#==[34001]- 鞋子 -Any Rare Boots 过渡鞋子 - Class Condition==
+#==[12092]- 装备 -Boots Highlight 装备过渡 - Class Condition==
 Show
     Class == "Boots"
     Rarity Rare
@@ -1026,9 +1265,7 @@ Show
     SetBorderColor 74 230 58 255
 
 
-#==[35000]-过渡 _campaign - 鞋子与首饰 40_Nets - 过渡首饰 Campaign Jewellery==
-
-#==[35001]- 首饰 -Good Base (Rare) 过渡首饰 - Class Condition==
+#==[12093]- 装备 -Jewellery: Good Base (Rare) 装备过渡 - Class Condition==
 Show
     BaseType == "Ruby Ring" "Sapphire Ring" "Topaz Ring" "Two-Stone Ring"
     Rarity Rare
@@ -1038,7 +1275,7 @@ Show
     PlayAlertSound 2 300
 
 
-#==[35002]- 首饰 -Good Base (Normal/Magic) 过渡首饰 - Class Condition==
+#==[12094]- 装备 -Jewellery: Good Base (Normal/Magic) 装备过渡 - Class Condition==
 Show
     BaseType == "Ruby Ring" "Sapphire Ring" "Topaz Ring" "Two-Stone Ring"
     Rarity Normal Magic
@@ -1048,7 +1285,7 @@ Show
     PlayAlertSound 2 300
 
 
-#==[35003]- 首饰 -Any Rare Jewellery 过渡首饰 - Class Condition==
+#==[12095]- 装备 -Jewellery: Any Rare 装备过渡 - Class Condition==
 Show
     Class == "Amulets" "Belts" "Rings"
     Rarity Rare
@@ -1058,325 +1295,7 @@ Show
     PlayAlertSound 2 300
 
 
-#==[36000]-过渡 _campaign - 药剂 50_Consumables - 过渡药剂 Campaign Flasks==
-
-#==[36001]- Campaign Flasks -Leveling: utility quicksilver 过渡药剂 - Class Condition==
-Show
-    BaseType == "Quicksilver Flask"
-    AreaLevel <= 67
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36002]- Campaign Flasks -Leveling: utility asortedutility 过渡药剂 - Class Condition==
-Show
-    BaseType == "Amethyst Flask" "Basalt Flask" "Bismuth Flask" "Diamond Flask" "Gold Flask" "Granite Flask" "Iron Flask" "Jade Flask" "Quartz Flask" "Quicksilver Flask" "Ruby Flask" "Sapphire Flask" "Silver Flask" "Stibnite Flask" "Sulphur Flask" "Topaz Flask"
-    AreaLevel <= 67
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36003]- Campaign Flasks -Leveling: utility any (Utility Flasks) 过渡药剂 - Class Condition==
-Show
-    Class == "Utility Flasks"
-    AreaLevel <= 67
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36004]- Campaign Flasks -Leveling: hybrid t1 (Hybrid Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Small"
-    AreaLevel <= 20
-    Class == "Hybrid Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36005]- Campaign Flasks -Leveling: hybrid t2 (Hybrid Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Medium"
-    AreaLevel <= 30
-    Class == "Hybrid Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36006]- Campaign Flasks -Leveling: hybrid t3 (Hybrid Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Large"
-    AreaLevel <= 40
-    Class == "Hybrid Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36007]- Campaign Flasks -Leveling: hybrid t4 (Hybrid Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Colossal"
-    AreaLevel <= 50
-    Class == "Hybrid Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36008]- Campaign Flasks -Leveling: hybrid t5 (Hybrid Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Sacred"
-    AreaLevel <= 60
-    Class == "Hybrid Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36009]- Campaign Flasks -Leveling: hybrid t6 (Hybrid Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Hallowed"
-    AreaLevel <= 67
-    Class == "Hybrid Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36010]- Campaign Flasks -Leveling: life t1 (Life Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Small"
-    AreaLevel <= 9
-    Class == "Life Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36011]- Campaign Flasks -Leveling: life t2 (Life Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Medium"
-    AreaLevel <= 13
-    Class == "Life Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36012]- Campaign Flasks -Leveling: life t3 (Life Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Large"
-    AreaLevel <= 17
-    Class == "Life Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36013]- Campaign Flasks -Leveling: life t4 (Life Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Greater"
-    AreaLevel <= 19
-    Class == "Life Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36014]- Campaign Flasks -Leveling: life t5 (Life Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Grand"
-    AreaLevel <= 25
-    Class == "Life Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36015]- Campaign Flasks -Leveling: life t6 (Life Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Giant"
-    AreaLevel <= 31
-    Class == "Life Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36016]- Campaign Flasks -Leveling: life t7 (Life Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Colossal"
-    AreaLevel <= 37
-    Class == "Life Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36017]- Campaign Flasks -Leveling: life t8 (Life Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Sacred"
-    AreaLevel <= 43
-    Class == "Life Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36018]- Campaign Flasks -Leveling: life t9 (Life Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Hallowed"
-    AreaLevel <= 51
-    Class == "Life Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36019]- Campaign Flasks -Leveling: life t10 (Life Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Sanctified"
-    AreaLevel <= 60
-    Class == "Life Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36020]- Campaign Flasks -Leveling: life t11 (Life Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Divine"
-    AreaLevel <= 68
-    Class == "Life Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36021]- Campaign Flasks -Leveling: life t12 (Life Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Eternal"
-    AreaLevel <= 68
-    Class == "Life Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36022]- Campaign Flasks -Leveling: mana t1 (Mana Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Small"
-    AreaLevel <= 9
-    Class == "Mana Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36023]- Campaign Flasks -Leveling: mana t2 (Mana Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Medium"
-    AreaLevel <= 13
-    Class == "Mana Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36024]- Campaign Flasks -Leveling: mana t3 (Mana Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Large"
-    AreaLevel <= 17
-    Class == "Mana Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36025]- Campaign Flasks -Leveling: mana t4 (Mana Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Greater"
-    AreaLevel <= 19
-    Class == "Mana Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36026]- Campaign Flasks -Leveling: mana t5 (Mana Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Grand"
-    AreaLevel <= 25
-    Class == "Mana Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36027]- Campaign Flasks -Leveling: mana t6 (Mana Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Giant"
-    AreaLevel <= 31
-    Class == "Mana Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36028]- Campaign Flasks -Leveling: mana t7 (Mana Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Colossal"
-    AreaLevel <= 37
-    Class == "Mana Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36029]- Campaign Flasks -Leveling: mana t8 (Mana Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Sacred"
-    AreaLevel <= 43
-    Class == "Mana Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36030]- Campaign Flasks -Leveling: mana t9 (Mana Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Hallowed"
-    AreaLevel <= 51
-    Class == "Mana Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36031]- Campaign Flasks -Leveling: mana t10 (Mana Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Sanctified"
-    AreaLevel <= 60
-    Class == "Mana Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36032]- Campaign Flasks -Leveling: mana t11 (Mana Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Divine"
-    AreaLevel <= 68
-    Class == "Mana Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36033]- Campaign Flasks -Leveling: mana t12 (Mana Flasks) 过渡药剂 - Class Condition==
-Show
-    BaseType "Eternal"
-    AreaLevel <= 68
-    Class == "Mana Flasks"
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[36034]- Campaign Flasks -Normal Flasks (Campaign) 过渡药剂 - Class Condition==
-Show
-    Class "Life Flasks" "Mana Flasks"
-    AreaLevel <= 68
-    SetFontSize 40
-    SetBorderColor 74 230 58 255
-    SetBackgroundColor 215 215 200 210
-
-
-#==[37000]-过渡 _campaign - 药剂 50_Consumables - 酊剂 Tinctures==
-
-#==[37001]- Tinctures -Leveling: tincture any (Tinctures) 酊剂 - Class Condition==
-Show
-    ItemLevel <= 67
-    Class == "Tinctures"
-    AreaLevel <= 67
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[38000]-过渡 _campaign - 色与连 60_Links - 过渡连接 Campaign Links==
-
-#==[38001]- 连接装备 -4-Link (until Act 5) 过渡连接 - Class Condition==
+#==[12096]- 装备 -4-Link (until Act 5) 装备过渡 - Class Condition==
 Show
     Class == "Bows" "Claws" "Daggers" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Thrusting One Hand Swords" "Quivers" "Rune Daggers" "Sceptres" "Staves" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords" "Wands" "Warstaves" "Body Armours" "Boots" "Gloves" "Helmets" "Shields"
     LinkedSockets >= 4
@@ -1387,7 +1306,7 @@ Show
     SetBackgroundColor 215 215 200 210
 
 
-#==[38002]- 连接装备 -3-Link (until Act 3) 过渡连接 - Class Condition==
+#==[12097]- 装备 -3-Link (until Act 3) 装备过渡 - Class Condition==
 Show
     Class == "Bows" "Claws" "Daggers" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Thrusting One Hand Swords" "Quivers" "Rune Daggers" "Sceptres" "Staves" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords" "Wands" "Warstaves" "Body Armours" "Boots" "Gloves" "Helmets" "Shields"
     LinkedSockets >= 3
@@ -1398,9 +1317,7 @@ Show
     SetBackgroundColor 215 215 200 210
 
 
-#==[39000]-过渡 _campaign - 第一章 70_Act1 - 第一章 Act 1==
-
-#==[39001]- Act 1 -Leveling: firstlevels earlybodyarmours (Body Armours) 第一章 - Class Condition==
+#==[12098]- 装备 -Leveling: firstlevels earlybodyarmours (Body Armours) 装备过渡 - Class Condition==
 Show
     Rarity Normal
     AreaLevel >= 2
@@ -1410,7 +1327,7 @@ Show
     SetBorderColor 74 230 58 85
 
 
-#==[39002]- Act 1 -Leveling: firstlevels threesocketedgear (Boots) 第一章 - Class Condition==
+#==[12099]- 装备 -Leveling: firstlevels threesocketedgear (Boots) 装备过渡 - Class Condition==
 Show
     Rarity Normal Magic
     Sockets >= 3
@@ -1420,7 +1337,7 @@ Show
     SetBorderColor 74 230 58 85
 
 
-#==[39003]- Act 1 -Leveling: firstlevels threesocketedgear (Gloves) 第一章 - Class Condition==
+#==[12100]- 装备 -Leveling: firstlevels threesocketedgear (Gloves) 装备过渡 - Class Condition==
 Show
     Rarity Normal Magic
     Sockets >= 3
@@ -1430,7 +1347,7 @@ Show
     SetBorderColor 74 230 58 85
 
 
-#==[39004]- Act 1 -Leveling: firstlevels threesocketedgear (Helmets) 第一章 - Class Condition==
+#==[12101]- 装备 -Leveling: firstlevels threesocketedgear (Helmets) 装备过渡 - Class Condition==
 Show
     Rarity Normal Magic
     Sockets >= 3
@@ -1440,7 +1357,7 @@ Show
     SetBorderColor 74 230 58 85
 
 
-#==[39005]- Act 1 -Leveling: firstlevels threesocketedgear (Sceptres) 第一章 - Class Condition==
+#==[12102]- 装备 -Leveling: firstlevels threesocketedgear (Sceptres) 装备过渡 - Class Condition==
 Show
     Rarity Normal Magic
     Sockets >= 3
@@ -1450,7 +1367,7 @@ Show
     SetBorderColor 74 230 58 85
 
 
-#==[39006]- Act 1 -Leveling: firstlevels threesocketedgear (Shields) 第一章 - Class Condition==
+#==[12103]- 装备 -Leveling: firstlevels threesocketedgear (Shields) 装备过渡 - Class Condition==
 Show
     Rarity Normal Magic
     Sockets >= 3
@@ -1460,7 +1377,7 @@ Show
     SetBorderColor 74 230 58 85
 
 
-#==[39007]- Act 1 -Leveling: firstlevels threesocketedgear (Wands) 第一章 - Class Condition==
+#==[12104]- 装备 -Leveling: firstlevels threesocketedgear (Wands) 装备过渡 - Class Condition==
 Show
     Rarity Normal Magic
     Sockets >= 3
@@ -1470,7 +1387,7 @@ Show
     SetBorderColor 74 230 58 85
 
 
-#==[39008]- Act 1 -Leveling: firstlevels firstareas 第一章 - Class Condition==
+#==[12105]- 装备 -Leveling: firstlevels firstareas 装备过渡 - Class Condition==
 Show
     Rarity Normal
     AreaLevel <= 4
@@ -1478,9 +1395,7 @@ Show
     SetBorderColor 74 230 58 85
 
 
-#==[40000]-过渡 _campaign - 稀有保底 80_Net - 过渡稀有 Campaign Rares==
-
-#==[40001]- 装备 -Rare Safety Net 过渡稀有 - Class Condition==
+#==[12106]- 装备 -Rare Safety Net 装备过渡 - Class Condition==
 Show
     Class == "Bows" "Claws" "Daggers" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Thrusting One Hand Swords" "Quivers" "Rune Daggers" "Sceptres" "Staves" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords" "Wands" "Warstaves" "Body Armours" "Boots" "Gloves" "Helmets" "Shields"
     Rarity Rare
@@ -1488,8 +1403,6 @@ Show
     SetFontSize 32
     SetBorderColor 74 230 58 85
 
-
-#==[41000]-过渡 _campaign - 激进清理 90_Aggressive - 过渡清理 Campaign Declutter==
 
 #===================================================================================================================
 # [[20000]] 通货 Currency

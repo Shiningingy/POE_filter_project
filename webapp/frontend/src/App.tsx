@@ -154,10 +154,16 @@ function App() {
   // updates the working selection + persists it (like the strictness selector), and
   // the change is captured at the next explicit Export/generate. It does NOT auto-
   // generate the output filter.
-  const handleApplyCampaign = async (sel: LevelingSelection) => {
+  // Update + persist the selection without UI side effects — also used by the
+  // editor's per-tier ⚡ boost chips.
+  const handleLevelingChange = async (sel: LevelingSelection) => {
     setLevelingSelection(sel);
-    setShowCampaign(false);
     try { await axios.post(`${API_BASE_URL}/api/settings`, { leveling_selection: sel }); } catch { /* demo VFS / offline */ }
+  };
+
+  const handleApplyCampaign = async (sel: LevelingSelection) => {
+    setShowCampaign(false);
+    await handleLevelingChange(sel);
     setMessage(t.campaignApplied);
   };
 
@@ -263,6 +269,7 @@ function App() {
             language={language}
             strictness={strictness}
             levelingSelection={levelingSelection}
+            onLevelingSelectionChange={handleLevelingChange}
             styleClipboard={styleClipboard}
             setStyleClipboard={setStyleClipboard}
             viewerBackground={viewerBackground}
