@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "One Hand Maces",
+      "ch": "单手锤"
+    },
+    "localization": {
+      "en": "Campaign One Hand Maces",
+      "ch": "过渡单手锤"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {
+    "Driftwood Club": "Camp One Hand Maces Early",
+    "Tribal Club": "Camp One Hand Maces Early",
+    "Spiked Club": "Camp One Hand Maces Early",
+    "Stone Hammer": "Camp One Hand Maces Early",
+    "War Hammer": "Camp One Hand Maces Early",
+    "Bladed Mace": "Camp One Hand Maces Early",
+    "Ceremonial Mace": "Camp One Hand Maces Early",
+    "Dream Mace": "Camp One Hand Maces Early",
+    "Wyrm Mace": "Camp One Hand Maces Mid",
+    "Petrified Club": "Camp One Hand Maces Mid",
+    "Barbed Club": "Camp One Hand Maces Mid",
+    "Rock Breaker": "Camp One Hand Maces Mid",
+    "Flanged Mace": "Camp One Hand Maces Late",
+    "Ornate Mace": "Camp One Hand Maces Late",
+    "Phantom Mace": "Camp One Hand Maces Late",
+    "Dragon Mace": "Camp One Hand Maces Late",
+    "Ancestral Club": "Camp One Hand Maces PreEndgame",
+    "Tenderizer": "Camp One Hand Maces PreEndgame",
+    "Gavel": "Camp One Hand Maces PreEndgame",
+    "Auric Mace": "Camp One Hand Maces PreEndgame"
+  }
+}

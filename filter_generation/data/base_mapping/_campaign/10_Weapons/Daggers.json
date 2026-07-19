@@ -1,0 +1,24 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Daggers",
+      "ch": "匕首"
+    },
+    "localization": {
+      "en": "Campaign Daggers",
+      "ch": "过渡匕首"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {
+    "Glass Shank": "Camp Daggers Early",
+    "Skinning Knife": "Camp Daggers Early",
+    "Stiletto": "Camp Daggers Early",
+    "Flaying Knife": "Camp Daggers Early",
+    "Prong Dagger": "Camp Daggers Mid",
+    "Poignard": "Camp Daggers Mid",
+    "Trisula": "Camp Daggers Late",
+    "Gutting Knife": "Camp Daggers PreEndgame",
+    "Ambusher": "Camp Daggers PreEndgame"
+  }
+}

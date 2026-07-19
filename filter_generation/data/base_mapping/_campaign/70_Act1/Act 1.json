@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {}
+    },
+    "item_class": {
+      "en": "Act 1",
+      "ch": "第一章"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {}
+}

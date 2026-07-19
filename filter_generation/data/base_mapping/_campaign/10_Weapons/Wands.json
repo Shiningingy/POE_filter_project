@@ -1,0 +1,24 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Wands",
+      "ch": "法杖"
+    },
+    "localization": {
+      "en": "Campaign Wands",
+      "ch": "过渡法杖"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {
+    "Goat's Horn": "Camp Wands Early",
+    "Quartz Wand": "Camp Wands Early",
+    "Spiraled Wand": "Camp Wands Early",
+    "Faun's Horn": "Camp Wands Mid",
+    "Crystal Wand": "Camp Wands Mid",
+    "Coiled Wand": "Camp Wands Late",
+    "Demon's Horn": "Camp Wands PreEndgame",
+    "Opal Wand": "Camp Wands PreEndgame",
+    "Tornado Wand": "Camp Wands PreEndgame"
+  }
+}

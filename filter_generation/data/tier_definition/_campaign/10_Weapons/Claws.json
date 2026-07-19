@@ -1,0 +1,125 @@
+{
+  "Campaign Claws": {
+    "_meta": {
+      "item_class": {
+        "en": "Claws",
+        "ch": "爪"
+      },
+      "localization": {
+        "en": "Campaign Claws",
+        "ch": "过渡爪"
+      },
+      "theme_category": "Campaign",
+      "tier_order": [
+        "Camp Claws Early",
+        "Camp Claws Mid",
+        "Camp Claws Late",
+        "Camp Claws PreEndgame"
+      ]
+    },
+    "Camp Claws Early": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "boost_theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Claws"
+      },
+      "localization": {
+        "en": "Campaign Claws Early",
+        "ch": "早期"
+      }
+    },
+    "Camp Claws Mid": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "boost_theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Claws"
+      },
+      "localization": {
+        "en": "Campaign Claws Mid",
+        "ch": "中期"
+      }
+    },
+    "Camp Claws Late": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "boost_theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Claws"
+      },
+      "localization": {
+        "en": "Campaign Claws Late",
+        "ch": "后期"
+      }
+    },
+    "Camp Claws PreEndgame": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "boost_theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Claws"
+      },
+      "localization": {
+        "en": "Campaign Claws PreEndgame",
+        "ch": "终局前"
+      }
+    }
+  }
+}

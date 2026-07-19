@@ -1084,7 +1084,7 @@ class GenerateRequest(BaseModel):
     game_version: str = "poe1"
     game_mode: str = "normal"
     strictness: str = "soft"
-    leveling_selection: dict = {}  # Campaign picker selection ({} = all selected)
+    leveling_selection: dict = {}  # Campaign picker selection ({} = baseline, picks add T1 boosts)
 
 @app.post("/api/generate")
 def generate_filter_file(request: GenerateRequest = Body(default=GenerateRequest())):

@@ -23,8 +23,14 @@ as a TypeScript port that runs in the browser.
   flips to Hide once the selected strictness level's index ≥ N.
 - **`hideable`** — a per-tier **protect-guard** (see Invariant 2). `hideable:false` =
   protected, cannot be gated/hidden (the 🔒 lock in the editor).
-- **leveling module** — `_campaign/**` tiers tagged `lv_group:{axis,key}`; a
-  `leveling_selection` decides which groups emit (the FilterBlade-style Campaign picker).
+- **campaign module (ADDITIVE)** — `_campaign/**` band tiers tagged
+  `lv_group:{axis,key}` + `boost_theme`. The whole campaign baseline always emits;
+  the Campaign picker's `leveling_selection` only **boosts** picked weapon classes /
+  armour defense types from T2 (emphasis) to T1 (`boost_theme`, double emphasis),
+  plus the `hide_unselected` declutter (hides unpicked weapon classes + the
+  `axis:"aggressive"` late-campaign-magic tiers). Picking never adds/removes content.
+  Tree is seeded by `parsing_tool/build_campaign_bands.py` (ONE-SHOT — output is
+  hand-tuned afterward; never re-run over tuned data without a commit).
 - **mode** vs **game-version** — *mode* (ruthless/standard) shares item data and
   differs only in tier VALUES (overlay + `excluded_modes`); *game-version* (poe1/poe2)
   = separate trees. Core generator code is identical across modes.
@@ -66,6 +72,20 @@ as a TypeScript port that runs in the browser.
 
 7. **`filter_generation/complete_filter.filter` is a tracked build artifact.** It may be
    stale relative to source; it's regenerated on demand.
+
+8. **`_campaign` emits FIRST in the generated filter.** PoE filters are
+   first-match-wins; both generators sort `_campaign` before every other folder
+   (other `_`-prefixed folders stay last), and its numbered subfolders
+   (`10_Weapons` … `90_Aggressive`) control emission order *within* the campaign
+   section (bands → nets → links → declutter). Consequence: **every emitting
+   campaign tier MUST carry an `AreaLevel` guard (≤ 67)** — an unguarded campaign
+   tier would hijack items from the entire endgame filter.
+
+9. **Strictness never applies inside `_campaign`.** Strictness is an endgame-only
+   mechanism (user decision, 2026-07-18): campaign tiers carry no
+   `hide_at_strictness`, and the campaign section renders identically at every
+   strictness level. Campaign decluttering is the picker's `hide_unselected`
+   toggle, not strictness.
 
 ## Where the roadmap + progress lives
 

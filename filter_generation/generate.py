@@ -57,23 +57,19 @@ except (ValueError, TypeError):
     LEVELING_SELECTION = {}
 
 
-def lv_selected(tier_entry):
-    """Whether a leveling tier is selected under LEVELING_SELECTION (the Campaign
-    picker). Untagged tiers and axis 'always' are always selected. An empty
-    selection (the default) selects everything -> pre-module output / parity."""
-    lv = tier_entry.get("lv_group")
-    if not lv or not LEVELING_SELECTION:
-        return True
+def lv_picked(tier_entry):
+    """Whether a campaign band tier's lv_group key is picked in the Campaign
+    picker (LEVELING_SELECTION). ADDITIVE model: picking never creates or
+    removes content — it upgrades a band tier's theme to its boost_theme
+    (T2 -> T1 double emphasis). Nothing picked (the default) = baseline output.
+    Mirrors isLevelingSelected() in filterGenerator.ts (parity-guarded)."""
+    lv = tier_entry.get("lv_group") or {}
     axis, key = lv.get("axis"), lv.get("key")
     if axis == "weapon":
         return key in LEVELING_SELECTION.get("weapons", [])
     if axis == "armour":
         return key in LEVELING_SELECTION.get("armour_defense", [])
-    if axis == "vendor":
-        return key in LEVELING_SELECTION.get("vendor_bands", [])
-    if axis == "minion":
-        return bool(LEVELING_SELECTION.get("minion_focused"))
-    return True  # "always" or unknown axis
+    return False
 
 
 if GAME_VERSION == "poe2":
@@ -106,7 +102,17 @@ FOLDER_LOCALIZATION = {
     "Quest": "任务",
     "Uniques": "传奇",
     "_campaign": "过渡",
-    "Heist": "赏金猎人"
+    "Heist": "赏金猎人",
+    # Numbered _campaign subfolders (the number controls emission order)
+    "10_Weapons": "武器过渡",
+    "20_Armour": "防具过渡",
+    "30_Special": "特殊掉落",
+    "40_Nets": "鞋子与首饰",
+    "50_Consumables": "药剂",
+    "60_Links": "色与连",
+    "70_Act1": "第一章",
+    "80_Net": "稀有保底",
+    "90_Aggressive": "激进清理",
 }
 
 def tr(key):
@@ -236,11 +242,17 @@ def generate_filter():
     sub_counter = 0   # 11000, 12000...
 
     # Process all JSON files in base_mapping
-    # Sort: underscore-prefixed folders (_campaign, _legacy, _unclassified) go after all standard folders
+    # Sort: _campaign goes FIRST — filters are first-match-wins and every campaign
+    # tier is AreaLevel-guarded (<= 67), so campaign owns the acts and goes inert
+    # at endgame. Other underscore folders (_legacy, _unclassified) stay last.
+    # (Mirrors the sort in filterGenerator.ts — parity-guarded.)
     def _sort_key(p):
         rel = p.relative_to(BASE_MAPPING_DIR)
         parts = list(rel.parts)
-        parts[0] = parts[0].replace("_", "~", 1) if parts[0].startswith("_") else parts[0]
+        if parts[0] == "_campaign":
+            parts[0] = "!campaign"
+        elif parts[0].startswith("_"):
+            parts[0] = parts[0].replace("_", "~", 1)
         return parts
 
     for map_file in sorted(BASE_MAPPING_DIR.rglob("*.json"), key=_sort_key):
@@ -386,17 +398,26 @@ def generate_filter():
             if MODE in tier_entry.get("excluded_modes", []):
                 continue
 
-            # Leveling module gate (lv_group vs the Campaign picker's selection):
-            # a deselected leveling tier is OMITTED entirely, unless the picker's
-            # "Hide Unselected Gear Aggressively" (hide_unselected) is on, in which
-            # case it emits as Hide/Minimal. Placed before the class-condition branch
-            # so OMIT short-circuits both emit paths and block indices stay aligned.
+            # Campaign module gate (additive model, mirrors filterGenerator.ts):
+            # band tiers (axis weapon/armour) ALWAYS emit and upgrade to their
+            # boost_theme when picked; 'aggressive' declutter tiers emit (as
+            # Hide) only under hide_unselected, which also flips unpicked
+            # weapon classes to Hide. Strictness NEVER applies inside _campaign
+            # (endgame-only mechanism — see CONTEXT.md); campaign tiers carry
+            # no hide_at_strictness by construction.
+            lv_axis = (tier_entry.get("lv_group") or {}).get("axis")
             lv_hide = False
-            if not lv_selected(tier_entry):
+            lv_boost = False
+            if lv_axis == "aggressive":
                 if LEVELING_SELECTION.get("hide_unselected"):
                     lv_hide = True
                 else:
                     continue
+            elif lv_axis in ("weapon", "armour"):
+                if lv_picked(tier_entry):
+                    lv_boost = True
+                elif lv_axis == "weapon" and LEVELING_SELECTION.get("hide_unselected"):
+                    lv_hide = True
 
             is_hide = tier_entry.get("is_hide_tier", False)
             # Strictness gate: flip a normally-shown tier to Hide once the selected
@@ -408,8 +429,11 @@ def generate_filter():
             if lv_hide:
                 is_hide = True
             tnum = tier_num_from_label(t_lbl)
-            # Honor explicit theme.Tier for tiers with non-standard label names (e.g. "Camp Bows Early")
+            # Honor explicit theme.Tier for tiers with non-standard label names (e.g. "Camp Bows Early");
+            # a picked band tier upgrades to its boost_theme (T2 -> T1).
             theme_tier_override = tier_entry.get("theme", {}).get("Tier")
+            if lv_boost and tier_entry.get("boost_theme", {}).get("Tier") is not None:
+                theme_tier_override = tier_entry["boost_theme"]["Tier"]
             if theme_tier_override is not None:
                 tnum = theme_tier_override
             ttheme = theme_ref.get(f"Tier {tnum}", {})
@@ -424,8 +448,11 @@ def generate_filter():
                 tier_conditions = tier_entry.get("conditions", {})
                 if not tier_conditions:
                     continue  # No conditions defined — skip this tier
-                # Use theme tier from tier_entry directly (label-based tnum is unreliable for custom keys)
+                # Use theme tier from tier_entry directly (label-based tnum is unreliable for custom keys);
+                # boost wins here too (tnum already carries it, but theme.Tier would shadow it back).
                 theme_tnum = tier_entry.get("theme", {}).get("Tier", tnum)
+                if lv_boost and tier_entry.get("boost_theme", {}).get("Tier") is not None:
+                    theme_tnum = tier_entry["boost_theme"]["Tier"]
                 ttheme = theme_ref.get(f"Tier {theme_tnum}", ttheme)
                 base_text_col = parse_rgba(ttheme.get("TextColor"))
                 base_border_col = parse_rgba(ttheme.get("BorderColor"))

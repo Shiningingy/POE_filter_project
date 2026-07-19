@@ -1,11 +1,11 @@
-// Campaign / Leveling picker — a FilterBlade-style "Auto-Adjust: Campaign" modal.
-// Toggles which leveling highlights the filter shows: build-archetype presets, a
-// per-weapon-class row (the lv_group "weapon" substrate), an armour DEFENSE-type
-// row ("armour"), and options (vendor-rare LVL bands "vendor", "Minion Focused",
-// and "Hide Unselected Gear Aggressively" = hide_unselected). Apply persists the
-// selection to /api/settings; the generator reads it via `leveling_selection` and
-// emits only the selected groups (unselected -> omitted, or Minimal when
-// hide_unselected). Selection shape mirrors LevelingSelection in filterGenerator.ts.
+// Campaign / Leveling picker — ADDITIVE model. The campaign baseline (T2
+// on-level emphasis + T3 rare net + boots/jewellery/flasks/links) is always in
+// the filter; picking weapon classes / armour defense types BOOSTS their band
+// tiers from T2 to T1 double emphasis (boost_theme). Nothing is ever removed by
+// not picking. "Hide Unselected Gear Aggressively" (hide_unselected) is the
+// strict-campaign declutter: unpicked weapon classes and late-campaign magic
+// (the 'aggressive' tiers) emit as Hide. Apply persists the selection to
+// /api/settings; shape mirrors LevelingSelection in filterGenerator.ts.
 import React, { useMemo, useRef, useState } from 'react';
 import { useTranslation, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
@@ -18,54 +18,56 @@ interface CampaignPickerProps {
   onApply: (selection: LevelingSelection) => void;
 }
 
-// Picker rows (order matches FilterBlade's dialog). Keys are the exact lv_group
-// keys the importer tags, so a toggle maps 1:1 to the leveling tiers.
+// Picker rows. Keys are the exact lv_group keys the seeder tags
+// (parsing_tool/build_campaign_bands.py), so a toggle maps 1:1 to band tiers.
+// Shields live on the armour side now (they're defense-typed bases).
 const WEAPON_CLASSES = [
   'Warstaves', 'Two Hand Maces', 'Two Hand Axes', 'One Hand Maces', 'One Hand Axes',
   'Two Hand Swords', 'One Hand Swords', 'Thrusting One Hand Swords', 'Bows', 'Quivers',
-  'Claws', 'Daggers', 'Rune Daggers', 'Wands', 'Sceptres', 'Staves', 'Shields',
+  'Claws', 'Daggers', 'Rune Daggers', 'Wands', 'Sceptres', 'Staves',
 ];
 const ARMOUR_DEFENSE = ['Armour', 'AR/EV', 'Evasion', 'EV/ES', 'Energy Shield', 'AR/ES'];
-const VENDOR_BANDS = ['1-16', '16-24', '24-42', '42-68'];
 
 const PRESET_FORMAT = 'sharket-leveling-preset';
 
-// Build-archetype presets. Each selects a set of weapon classes + armour defense
-// types (+ minion focus). Vendor bands stay fully on (universally useful); the
-// user tunes any of it afterward (which flips the active preset to CUSTOM).
-type Preset = { weapons: string[]; armour_defense: string[]; minion_focused: boolean };
+// Build-archetype presets: which weapon classes + armour defense types get the
+// T1 boost. The user tunes afterward (which flips the active preset to CUSTOM).
+type Preset = { weapons: string[]; armour_defense: string[] };
 const PRESETS: Record<string, Preset> = {
-  claw_dagger: { weapons: ['Claws', 'Daggers', 'Rune Daggers'], armour_defense: ['Evasion', 'EV/ES', 'Energy Shield'], minion_focused: false },
-  bow_ranger: { weapons: ['Bows', 'Quivers'], armour_defense: ['Evasion', 'AR/EV', 'EV/ES'], minion_focused: false },
-  sword_shield: { weapons: ['One Hand Swords', 'Thrusting One Hand Swords', 'One Hand Axes', 'One Hand Maces', 'Shields'], armour_defense: ['Armour', 'AR/EV', 'AR/ES'], minion_focused: false },
-  axe_mace: { weapons: ['Two Hand Axes', 'Two Hand Maces', 'Two Hand Swords', 'Warstaves'], armour_defense: ['Armour', 'AR/EV', 'AR/ES'], minion_focused: false },
-  fire_templar: { weapons: ['Sceptres', 'Staves', 'Shields'], armour_defense: ['Armour', 'AR/ES', 'Energy Shield'], minion_focused: false },
-  spells_minions: { weapons: ['Wands', 'Sceptres', 'Staves'], armour_defense: ['Energy Shield', 'EV/ES', 'AR/ES'], minion_focused: true },
+  claw_dagger: { weapons: ['Claws', 'Daggers', 'Rune Daggers'], armour_defense: ['Evasion', 'EV/ES', 'Energy Shield'] },
+  bow_ranger: { weapons: ['Bows', 'Quivers'], armour_defense: ['Evasion', 'AR/EV', 'EV/ES'] },
+  sword_shield: { weapons: ['One Hand Swords', 'Thrusting One Hand Swords', 'One Hand Axes', 'One Hand Maces'], armour_defense: ['Armour', 'AR/EV', 'AR/ES'] },
+  axe_mace: { weapons: ['Two Hand Axes', 'Two Hand Maces', 'Two Hand Swords', 'Warstaves'], armour_defense: ['Armour', 'AR/EV', 'AR/ES'] },
+  fire_templar: { weapons: ['Sceptres', 'Staves'], armour_defense: ['Armour', 'AR/ES', 'Energy Shield'] },
+  spells_minions: { weapons: ['Wands', 'Sceptres', 'Staves'], armour_defense: ['Energy Shield', 'EV/ES', 'AR/ES'] },
 };
 const PRESET_ORDER = ['claw_dagger', 'bow_ranger', 'sword_shield', 'axe_mace', 'fire_templar', 'spells_minions'];
 
+// "Boost everything" — every band tier renders at T1. Louder than the baseline
+// but a legitimate choice; the empty default is the intended additive baseline.
 const selectAll = (): LevelingSelection => ({
   weapons: [...WEAPON_CLASSES],
   armour_defense: [...ARMOUR_DEFENSE],
-  vendor_bands: [...VENDOR_BANDS],
-  minion_focused: true,
   hide_unselected: false,
   preset: 'all',
+});
+
+const emptySelection = (): LevelingSelection => ({
+  weapons: [], armour_defense: [], hide_unselected: false, preset: 'CUSTOM',
 });
 
 const CampaignPicker: React.FC<CampaignPickerProps> = ({ language, initialSelection, onClose, onApply }) => {
   const t = useTranslation(language);
   const fileRef = useRef<HTMLInputElement>(null);
 
+  // Default = the additive baseline: nothing boosted. (Old persisted selections
+  // may still carry vendor_bands/minion_focused keys — silently ignored.)
   const seed = useMemo<LevelingSelection>(() => {
-    const s = initialSelection && Object.keys(initialSelection).length ? initialSelection : selectAll();
-    return { ...selectAll(), ...s };
+    return { ...emptySelection(), ...(initialSelection || {}) };
   }, [initialSelection]);
 
   const [weapons, setWeapons] = useState<Set<string>>(new Set(seed.weapons));
   const [armour, setArmour] = useState<Set<string>>(new Set(seed.armour_defense));
-  const [bands, setBands] = useState<Set<string>>(new Set(seed.vendor_bands));
-  const [minion, setMinion] = useState<boolean>(!!seed.minion_focused);
   const [hideUnselected, setHideUnselected] = useState<boolean>(!!seed.hide_unselected);
   const [preset, setPreset] = useState<string>(seed.preset || 'CUSTOM');
 
@@ -79,20 +81,21 @@ const CampaignPicker: React.FC<CampaignPickerProps> = ({ language, initialSelect
     if (!p) return;
     setWeapons(new Set(p.weapons));
     setArmour(new Set(p.armour_defense));
-    setBands(new Set(VENDOR_BANDS)); // vendor rares stay on for every build
-    setMinion(p.minion_focused);
     setPreset(name);
   };
 
   const doSelectAll = () => {
     const a = selectAll();
-    setWeapons(new Set(a.weapons)); setArmour(new Set(a.armour_defense));
-    setBands(new Set(a.vendor_bands)); setMinion(true); setPreset('all');
+    setWeapons(new Set(a.weapons)); setArmour(new Set(a.armour_defense)); setPreset('all');
+  };
+
+  const doClear = () => {
+    setWeapons(new Set()); setArmour(new Set()); setPreset('CUSTOM');
   };
 
   const buildSelection = (): LevelingSelection => ({
-    weapons: [...weapons], armour_defense: [...armour], vendor_bands: [...bands],
-    minion_focused: minion, hide_unselected: hideUnselected, preset,
+    weapons: [...weapons], armour_defense: [...armour],
+    hide_unselected: hideUnselected, preset,
   });
 
   const savePreset = () => {
@@ -108,9 +111,8 @@ const CampaignPicker: React.FC<CampaignPickerProps> = ({ language, initialSelect
     try {
       const data = JSON.parse(await file.text());
       const s: LevelingSelection = data?.selection || {};
-      const merged = { ...selectAll(), ...s };
+      const merged = { ...emptySelection(), ...s };
       setWeapons(new Set(merged.weapons)); setArmour(new Set(merged.armour_defense));
-      setBands(new Set(merged.vendor_bands)); setMinion(!!merged.minion_focused);
       setHideUnselected(!!merged.hide_unselected); setPreset(merged.preset || 'CUSTOM');
     } catch {
       alert(t.presetImportFailed);
@@ -130,6 +132,7 @@ const CampaignPicker: React.FC<CampaignPickerProps> = ({ language, initialSelect
           <h3>🎯 {t.campaignTitle}</h3>
           <div className="cp-header-actions">
             <button className="cp-mini" onClick={doSelectAll}>{t.lvSelectAll}</button>
+            <button className="cp-mini" onClick={doClear}>{t.lvClearAll}</button>
             <button className="cp-mini" onClick={savePreset}>⬇ {t.savePreset}</button>
             <button className="cp-mini" onClick={() => fileRef.current?.click()}>⬆ {t.importPreset}</button>
             <button className="cp-close" onClick={onClose}>×</button>
@@ -156,14 +159,8 @@ const CampaignPicker: React.FC<CampaignPickerProps> = ({ language, initialSelect
             {ARMOUR_DEFENSE.map(d => chip(defenseLabel(d), armour.has(d), () => toggleIn(setArmour, d), d))}
           </div>
 
-          <div className="cp-section-label">{t.lvVendorRares}</div>
-          <div className="cp-row">
-            {VENDOR_BANDS.map(b => chip(`LVL ${b}`, bands.has(b), () => toggleIn(setBands, b), b))}
-          </div>
-
           <div className="cp-section-label">{t.lvOptions}</div>
           <div className="cp-row">
-            {chip(t.lvMinionFocused, minion, () => { setMinion(m => !m); setPreset('CUSTOM'); }, 'minion')}
             {chip(t.lvHideUnselected, hideUnselected, () => setHideUnselected(h => !h), 'hideunsel',
               t.lvHideUnselectedHint)}
           </div>

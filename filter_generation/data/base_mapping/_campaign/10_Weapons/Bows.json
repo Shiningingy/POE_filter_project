@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Bows",
+      "ch": "弓"
+    },
+    "localization": {
+      "en": "Campaign Bows",
+      "ch": "过渡弓"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {
+    "Crude Bow": "Camp Bows Early",
+    "Short Bow": "Camp Bows Early",
+    "Long Bow": "Camp Bows Early",
+    "Composite Bow": "Camp Bows Early",
+    "Recurve Bow": "Camp Bows Early",
+    "Bone Bow": "Camp Bows Early",
+    "Royal Bow": "Camp Bows Early",
+    "Death Bow": "Camp Bows Early",
+    "Grove Bow": "Camp Bows Mid",
+    "Reflex Bow": "Camp Bows Mid",
+    "Decurve Bow": "Camp Bows Mid",
+    "Compound Bow": "Camp Bows Mid",
+    "Sniper Bow": "Camp Bows Mid",
+    "Ivory Bow": "Camp Bows Late",
+    "Highborn Bow": "Camp Bows Late",
+    "Decimation Bow": "Camp Bows Late",
+    "Thicket Bow": "Camp Bows PreEndgame",
+    "Steelwood Bow": "Camp Bows PreEndgame",
+    "Citadel Bow": "Camp Bows PreEndgame",
+    "Ranger Bow": "Camp Bows PreEndgame"
+  }
+}

@@ -38,8 +38,13 @@ const OverviewView: React.FC<OverviewViewProps> = ({
 
   const levelingLabel = (): string => {
     const p = levelingSelection?.preset;
-    if (!p || p === 'all') return t.lvAll;
-    if (p === 'CUSTOM') return t.lvCustom;
+    if (p === 'all') return t.lvAll;
+    if (!p || p === 'CUSTOM') {
+      // Additive model: nothing picked = the always-on baseline, not "All".
+      const picked = (levelingSelection?.weapons?.length || 0)
+        + (levelingSelection?.armour_defense?.length || 0);
+      return picked === 0 ? t.lvBaseline : t.lvCustom;
+    }
     return t.lvPresetNames[p] || p;
   };
 

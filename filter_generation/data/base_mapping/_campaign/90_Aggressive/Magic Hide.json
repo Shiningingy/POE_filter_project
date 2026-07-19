@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Equipment",
+      "ch": "装备"
+    },
+    "localization": {
+      "en": "Campaign Declutter",
+      "ch": "过渡清理"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {}
+}

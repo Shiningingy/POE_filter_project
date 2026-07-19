@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Claws",
+      "ch": "爪"
+    },
+    "localization": {
+      "en": "Campaign Claws",
+      "ch": "过渡爪"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {
+    "Nailed Fist": "Camp Claws Early",
+    "Sharktooth Claw": "Camp Claws Early",
+    "Awl": "Camp Claws Early",
+    "Cat's Paw": "Camp Claws Early",
+    "Blinder": "Camp Claws Early",
+    "Timeworn Claw": "Camp Claws Early",
+    "Sparkling Claw": "Camp Claws Early",
+    "Fright Claw": "Camp Claws Mid",
+    "Double Claw": "Camp Claws Mid",
+    "Thresher Claw": "Camp Claws Mid",
+    "Gouger": "Camp Claws Mid",
+    "Tiger's Paw": "Camp Claws Mid",
+    "Gut Ripper": "Camp Claws Late",
+    "Prehistoric Claw": "Camp Claws Late",
+    "Noble Claw": "Camp Claws Late",
+    "Eagle Claw": "Camp Claws Late",
+    "Twin Claw": "Camp Claws PreEndgame",
+    "Great White Claw": "Camp Claws PreEndgame",
+    "Throat Stabber": "Camp Claws PreEndgame",
+    "Eye Gouger": "Camp Claws PreEndgame"
+  }
+}

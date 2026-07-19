@@ -1305,29 +1305,279 @@
     {
       "_meta": {
         "localization": {
-          "en": "Colors & Links",
-          "ch": "色与连"
+          "en": "Weapon Progression",
+          "ch": "武器过渡"
         }
       },
       "files": [
         {
-          "path": "_campaign/ChromaticRecipe.json",
-          "tier_path": "tier_definition/_campaign/ChromaticRecipe.json",
-          "mapping_path": "base_mapping/_campaign/ChromaticRecipe.json",
-          "target_category": "Chromatic Recipe Items",
+          "path": "_campaign/10_Weapons/Bows.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/Bows.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/Bows.json",
+          "target_category": "Campaign Bows",
           "localization": {
-            "en": "Chromatic Recipe Items",
-            "ch": "色卡配方物品"
+            "en": "Bows",
+            "ch": "弓"
           }
         },
         {
-          "path": "_campaign/Armour.json",
-          "tier_path": "tier_definition/_campaign/Armour.json",
-          "mapping_path": "base_mapping/_campaign/Armour.json",
-          "target_category": "Campaign",
+          "path": "_campaign/10_Weapons/Claws.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/Claws.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/Claws.json",
+          "target_category": "Campaign Claws",
           "localization": {
-            "en": "Linked Gear",
-            "ch": "连接装备"
+            "en": "Claws",
+            "ch": "爪"
+          }
+        },
+        {
+          "path": "_campaign/10_Weapons/Daggers.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/Daggers.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/Daggers.json",
+          "target_category": "Campaign Daggers",
+          "localization": {
+            "en": "Daggers",
+            "ch": "匕首"
+          }
+        },
+        {
+          "path": "_campaign/10_Weapons/One Hand Axes.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/One Hand Axes.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/One Hand Axes.json",
+          "target_category": "Campaign One Hand Axes",
+          "localization": {
+            "en": "One Hand Axes",
+            "ch": "单手斧"
+          }
+        },
+        {
+          "path": "_campaign/10_Weapons/One Hand Maces.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/One Hand Maces.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/One Hand Maces.json",
+          "target_category": "Campaign One Hand Maces",
+          "localization": {
+            "en": "One Hand Maces",
+            "ch": "单手锤"
+          }
+        },
+        {
+          "path": "_campaign/10_Weapons/One Hand Swords.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/One Hand Swords.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/One Hand Swords.json",
+          "target_category": "Campaign One Hand Swords",
+          "localization": {
+            "en": "One Hand Swords",
+            "ch": "单手剑"
+          }
+        },
+        {
+          "path": "_campaign/10_Weapons/Thrusting One Hand Swords.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/Thrusting One Hand Swords.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/Thrusting One Hand Swords.json",
+          "target_category": "Campaign Thrusting One Hand Swords",
+          "localization": {
+            "en": "Thrusting One Hand Swords",
+            "ch": "细剑"
+          }
+        },
+        {
+          "path": "_campaign/10_Weapons/Quivers.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/Quivers.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/Quivers.json",
+          "target_category": "Campaign Quivers",
+          "localization": {
+            "en": "Quivers",
+            "ch": "箭袋"
+          }
+        },
+        {
+          "path": "_campaign/10_Weapons/Rune Daggers.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/Rune Daggers.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/Rune Daggers.json",
+          "target_category": "Campaign Rune Daggers",
+          "localization": {
+            "en": "Rune Daggers",
+            "ch": "符文匕首"
+          }
+        },
+        {
+          "path": "_campaign/10_Weapons/Sceptres.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/Sceptres.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/Sceptres.json",
+          "target_category": "Campaign Sceptres",
+          "localization": {
+            "en": "Sceptres",
+            "ch": "短杖"
+          }
+        },
+        {
+          "path": "_campaign/10_Weapons/Staves.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/Staves.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/Staves.json",
+          "target_category": "Campaign Staves",
+          "localization": {
+            "en": "Staves",
+            "ch": "长杖"
+          }
+        },
+        {
+          "path": "_campaign/10_Weapons/Two Hand Axes.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/Two Hand Axes.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/Two Hand Axes.json",
+          "target_category": "Campaign Two Hand Axes",
+          "localization": {
+            "en": "Two Hand Axes",
+            "ch": "双手斧"
+          }
+        },
+        {
+          "path": "_campaign/10_Weapons/Two Hand Maces.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/Two Hand Maces.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/Two Hand Maces.json",
+          "target_category": "Campaign Two Hand Maces",
+          "localization": {
+            "en": "Two Hand Maces",
+            "ch": "双手锤"
+          }
+        },
+        {
+          "path": "_campaign/10_Weapons/Two Hand Swords.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/Two Hand Swords.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/Two Hand Swords.json",
+          "target_category": "Campaign Two Hand Swords",
+          "localization": {
+            "en": "Two Hand Swords",
+            "ch": "双手剑"
+          }
+        },
+        {
+          "path": "_campaign/10_Weapons/Wands.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/Wands.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/Wands.json",
+          "target_category": "Campaign Wands",
+          "localization": {
+            "en": "Wands",
+            "ch": "法杖"
+          }
+        },
+        {
+          "path": "_campaign/10_Weapons/Warstaves.json",
+          "tier_path": "tier_definition/_campaign/10_Weapons/Warstaves.json",
+          "mapping_path": "base_mapping/_campaign/10_Weapons/Warstaves.json",
+          "target_category": "Campaign Warstaves",
+          "localization": {
+            "en": "Warstaves",
+            "ch": "战杖"
+          }
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "Armour by Defense",
+          "ch": "防具过渡"
+        }
+      },
+      "files": [
+        {
+          "path": "_campaign/20_Armour/Armour.json",
+          "tier_path": "tier_definition/_campaign/20_Armour/Armour.json",
+          "mapping_path": "base_mapping/_campaign/20_Armour/Armour.json",
+          "target_category": "Campaign Armour",
+          "localization": {
+            "en": "Armour",
+            "ch": "Armour"
+          }
+        },
+        {
+          "path": "_campaign/20_Armour/AR-EV.json",
+          "tier_path": "tier_definition/_campaign/20_Armour/AR-EV.json",
+          "mapping_path": "base_mapping/_campaign/20_Armour/AR-EV.json",
+          "target_category": "Campaign AR/EV",
+          "localization": {
+            "en": "AR/EV",
+            "ch": "AR/EV"
+          }
+        },
+        {
+          "path": "_campaign/20_Armour/Evasion.json",
+          "tier_path": "tier_definition/_campaign/20_Armour/Evasion.json",
+          "mapping_path": "base_mapping/_campaign/20_Armour/Evasion.json",
+          "target_category": "Campaign Evasion",
+          "localization": {
+            "en": "Evasion",
+            "ch": "Evasion"
+          }
+        },
+        {
+          "path": "_campaign/20_Armour/EV-ES.json",
+          "tier_path": "tier_definition/_campaign/20_Armour/EV-ES.json",
+          "mapping_path": "base_mapping/_campaign/20_Armour/EV-ES.json",
+          "target_category": "Campaign EV/ES",
+          "localization": {
+            "en": "EV/ES",
+            "ch": "EV/ES"
+          }
+        },
+        {
+          "path": "_campaign/20_Armour/Energy Shield.json",
+          "tier_path": "tier_definition/_campaign/20_Armour/Energy Shield.json",
+          "mapping_path": "base_mapping/_campaign/20_Armour/Energy Shield.json",
+          "target_category": "Campaign Energy Shield",
+          "localization": {
+            "en": "Energy Shield",
+            "ch": "Energy Shield"
+          }
+        },
+        {
+          "path": "_campaign/20_Armour/AR-ES.json",
+          "tier_path": "tier_definition/_campaign/20_Armour/AR-ES.json",
+          "mapping_path": "base_mapping/_campaign/20_Armour/AR-ES.json",
+          "target_category": "Campaign AR/ES",
+          "localization": {
+            "en": "AR/ES",
+            "ch": "AR/ES"
+          }
+        }
+      ]
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "Boots & Jewellery",
+          "ch": "鞋子与首饰"
+        }
+      },
+      "files": [
+        {
+          "path": "_campaign/40_Nets/Boots.json",
+          "tier_path": "tier_definition/_campaign/40_Nets/Boots.json",
+          "mapping_path": "base_mapping/_campaign/40_Nets/Boots.json",
+          "target_category": "Campaign Boots",
+          "localization": {
+            "en": "Boots",
+            "ch": "鞋子"
+          }
+        },
+        {
+          "path": "_campaign/40_Nets/Jewellery.json",
+          "tier_path": "tier_definition/_campaign/40_Nets/Jewellery.json",
+          "mapping_path": "base_mapping/_campaign/40_Nets/Jewellery.json",
+          "target_category": "Campaign Jewellery",
+          "localization": {
+            "en": "Jewellery",
+            "ch": "首饰"
+          }
+        },
+        {
+          "path": "_campaign/30_Special/Noteworthy.json",
+          "tier_path": "tier_definition/_campaign/30_Special/Noteworthy.json",
+          "mapping_path": "base_mapping/_campaign/30_Special/Noteworthy.json",
+          "target_category": "Special Noteworthy Drops",
+          "localization": {
+            "en": "Noteworthy",
+            "ch": "特殊掉落"
           }
         }
       ]
@@ -1341,30 +1591,20 @@
       },
       "files": [
         {
-          "path": "_campaign/Flasks.json",
-          "tier_path": "tier_definition/_campaign/Flasks.json",
-          "mapping_path": "base_mapping/_campaign/Flasks.json",
-          "target_category": "Campaign",
+          "path": "_campaign/50_Consumables/Flasks.json",
+          "tier_path": "tier_definition/_campaign/50_Consumables/Flasks.json",
+          "mapping_path": "base_mapping/_campaign/50_Consumables/Flasks.json",
+          "target_category": "Campaign Flasks",
           "localization": {
             "en": "Flask Progression",
-            "ch": "药剂进度"
+            "ch": "药剂过渡"
           }
         },
         {
-          "path": "_campaign/QualityFlasks.json",
-          "tier_path": "tier_definition/_campaign/QualityFlasks.json",
-          "mapping_path": "base_mapping/_campaign/QualityFlasks.json",
-          "target_category": "Quality Flasks",
-          "localization": {
-            "en": "Quality Flasks",
-            "ch": "品质药剂"
-          }
-        },
-        {
-          "path": "_campaign/Tinctures.json",
-          "tier_path": "tier_definition/_campaign/Tinctures.json",
-          "mapping_path": "base_mapping/_campaign/Tinctures.json",
-          "target_category": "Campaign Tinctures",
+          "path": "_campaign/50_Consumables/Tinctures.json",
+          "tier_path": "tier_definition/_campaign/50_Consumables/Tinctures.json",
+          "mapping_path": "base_mapping/_campaign/50_Consumables/Tinctures.json",
+          "target_category": "Tinctures",
           "localization": {
             "en": "Tinctures",
             "ch": "酊剂"
@@ -1375,49 +1615,19 @@
     {
       "_meta": {
         "localization": {
-          "en": "Rare Items",
-          "ch": "稀有物品"
+          "en": "Colors & Links",
+          "ch": "色与连"
         }
       },
       "files": [
         {
-          "path": "_campaign/Rare/Noteworthy.json",
-          "tier_path": "tier_definition/_campaign/Rare/Noteworthy.json",
-          "mapping_path": "base_mapping/_campaign/Rare/Noteworthy.json",
-          "target_category": "Special Noteworthy Drops",
+          "path": "_campaign/60_Links/Links.json",
+          "tier_path": "tier_definition/_campaign/60_Links/Links.json",
+          "mapping_path": "base_mapping/_campaign/60_Links/Links.json",
+          "target_category": "Campaign Links",
           "localization": {
-            "en": "Special Noteworthy Drops",
-            "ch": "特殊瞩目掉落"
-          }
-        },
-        {
-          "path": "_campaign/Rare/Jewellery Armours.json",
-          "tier_path": "tier_definition/_campaign/Rare/Jewellery Armours.json",
-          "mapping_path": "base_mapping/_campaign/Rare/Jewellery Armours.json",
-          "target_category": "Jewellery & Armours",
-          "localization": {
-            "en": "Jewellery & Armours",
-            "ch": "首饰与护甲"
-          }
-        },
-        {
-          "path": "_campaign/Rare/Weapon Highlight.json",
-          "tier_path": "tier_definition/_campaign/Rare/Weapon Highlight.json",
-          "mapping_path": "base_mapping/_campaign/Rare/Weapon Highlight.json",
-          "target_category": "Weapon Highlight",
-          "localization": {
-            "en": "Weapon Highlight",
-            "ch": "武器突显"
-          }
-        },
-        {
-          "path": "_campaign/Rare/Remaining.json",
-          "tier_path": "tier_definition/_campaign/Rare/Remaining.json",
-          "mapping_path": "base_mapping/_campaign/Rare/Remaining.json",
-          "target_category": "Remaining Rares",
-          "localization": {
-            "en": "Remaining Rares",
-            "ch": "其余稀有"
+            "en": "Linked Gear",
+            "ch": "连接装备"
           }
         }
       ]
@@ -1425,259 +1635,49 @@
     {
       "_meta": {
         "localization": {
-          "en": "Act & Build-Specific",
-          "ch": "章节与流派"
+          "en": "Act 1",
+          "ch": "第一章"
         }
       },
       "files": [
         {
-          "path": "_campaign/Act/Act 1.json",
-          "tier_path": "tier_definition/_campaign/Act/Act 1.json",
-          "mapping_path": "base_mapping/_campaign/Act/Act 1.json",
+          "path": "_campaign/70_Act1/Act 1.json",
+          "tier_path": "tier_definition/_campaign/70_Act1/Act 1.json",
+          "mapping_path": "base_mapping/_campaign/70_Act1/Act 1.json",
           "target_category": "Act 1",
           "localization": {
             "en": "Act 1",
             "ch": "第一章"
           }
-        },
-        {
-          "path": "_campaign/Act/Act 2-3.json",
-          "tier_path": "tier_definition/_campaign/Act/Act 2-3.json",
-          "mapping_path": "base_mapping/_campaign/Act/Act 2-3.json",
-          "target_category": "Act 2/3",
-          "localization": {
-            "en": "Act 2/3",
-            "ch": "第二、三章"
-          }
-        },
-        {
-          "path": "_campaign/Act/Act 4-6.json",
-          "tier_path": "tier_definition/_campaign/Act/Act 4-6.json",
-          "mapping_path": "base_mapping/_campaign/Act/Act 4-6.json",
-          "target_category": "Act 4/5/6",
-          "localization": {
-            "en": "Act 4/5/6",
-            "ch": "第四至六章"
-          }
-        },
-        {
-          "path": "_campaign/Act/Jewels.json",
-          "tier_path": "tier_definition/_campaign/Act/Jewels.json",
-          "mapping_path": "base_mapping/_campaign/Act/Jewels.json",
-          "target_category": "Campaign Jewels",
-          "localization": {
-            "en": "Jewels",
-            "ch": "珠宝"
-          }
-        },
-        {
-          "path": "_campaign/Act/Quivers.json",
-          "tier_path": "tier_definition/_campaign/Act/Quivers.json",
-          "mapping_path": "base_mapping/_campaign/Act/Quivers.json",
-          "target_category": "Campaign Quivers",
-          "localization": {
-            "en": "Quivers",
-            "ch": "箭袋"
-          }
-        },
-        {
-          "path": "_campaign/Act/Summoner.json",
-          "tier_path": "tier_definition/_campaign/Act/Summoner.json",
-          "mapping_path": "base_mapping/_campaign/Act/Summoner.json",
-          "target_category": "Summoner Gear",
-          "localization": {
-            "en": "Summoner Gear",
-            "ch": "召唤流装备"
-          }
-        },
-        {
-          "path": "_campaign/Act/Attack Wands.json",
-          "tier_path": "tier_definition/_campaign/Act/Attack Wands.json",
-          "mapping_path": "base_mapping/_campaign/Act/Attack Wands.json",
-          "target_category": "Attack Wands",
-          "localization": {
-            "en": "Attack Wands",
-            "ch": "攻击手杖"
-          }
         }
       ]
     },
     {
       "_meta": {
         "localization": {
-          "en": "Item Progression",
-          "ch": "物品进度"
+          "en": "Safety Net & Declutter",
+          "ch": "保底与清理"
         }
       },
       "files": [
         {
-          "path": "_campaign/Weapons/Bows.json",
-          "tier_path": "tier_definition/_campaign/Weapons/Bows.json",
-          "mapping_path": "base_mapping/_campaign/Weapons/Bows.json",
-          "target_category": "Campaign",
+          "path": "_campaign/80_Net/Rares.json",
+          "tier_path": "tier_definition/_campaign/80_Net/Rares.json",
+          "mapping_path": "base_mapping/_campaign/80_Net/Rares.json",
+          "target_category": "Campaign Rares",
           "localization": {
-            "en": "Bows",
-            "ch": "弓（过渡）"
+            "en": "Rare Safety Net",
+            "ch": "稀有保底"
           }
         },
         {
-          "path": "_campaign/Weapons/Wands.json",
-          "tier_path": "tier_definition/_campaign/Weapons/Wands.json",
-          "mapping_path": "base_mapping/_campaign/Weapons/Wands.json",
-          "target_category": "Campaign",
+          "path": "_campaign/90_Aggressive/Magic Hide.json",
+          "tier_path": "tier_definition/_campaign/90_Aggressive/Magic Hide.json",
+          "mapping_path": "base_mapping/_campaign/90_Aggressive/Magic Hide.json",
+          "target_category": "Campaign Declutter",
           "localization": {
-            "en": "Wands",
-            "ch": "法杖（过渡）"
-          }
-        },
-        {
-          "path": "_campaign/Weapons/Sceptres.json",
-          "tier_path": "tier_definition/_campaign/Weapons/Sceptres.json",
-          "mapping_path": "base_mapping/_campaign/Weapons/Sceptres.json",
-          "target_category": "Campaign",
-          "localization": {
-            "en": "Sceptres",
-            "ch": "短杖（过渡）"
-          }
-        },
-        {
-          "path": "_campaign/Weapons/Claws.json",
-          "tier_path": "tier_definition/_campaign/Weapons/Claws.json",
-          "mapping_path": "base_mapping/_campaign/Weapons/Claws.json",
-          "target_category": "Campaign",
-          "localization": {
-            "en": "Claws",
-            "ch": "爪（过渡）"
-          }
-        },
-        {
-          "path": "_campaign/Weapons/Daggers.json",
-          "tier_path": "tier_definition/_campaign/Weapons/Daggers.json",
-          "mapping_path": "base_mapping/_campaign/Weapons/Daggers.json",
-          "target_category": "Campaign",
-          "localization": {
-            "en": "Daggers",
-            "ch": "匕首（过渡）"
-          }
-        },
-        {
-          "path": "_campaign/Weapons/Rune Daggers.json",
-          "tier_path": "tier_definition/_campaign/Weapons/Rune Daggers.json",
-          "mapping_path": "base_mapping/_campaign/Weapons/Rune Daggers.json",
-          "target_category": "Campaign",
-          "localization": {
-            "en": "Rune Daggers",
-            "ch": "符文匕首（过渡）"
-          }
-        },
-        {
-          "path": "_campaign/Weapons/Staves.json",
-          "tier_path": "tier_definition/_campaign/Weapons/Staves.json",
-          "mapping_path": "base_mapping/_campaign/Weapons/Staves.json",
-          "target_category": "Campaign",
-          "localization": {
-            "en": "Staves",
-            "ch": "长杖（过渡）"
-          }
-        },
-        {
-          "path": "_campaign/Weapons/Warstaves.json",
-          "tier_path": "tier_definition/_campaign/Weapons/Warstaves.json",
-          "mapping_path": "base_mapping/_campaign/Weapons/Warstaves.json",
-          "target_category": "Campaign",
-          "localization": {
-            "en": "Warstaves",
-            "ch": "战杖（过渡）"
-          }
-        },
-        {
-          "path": "_campaign/Weapons/One Hand Axes.json",
-          "tier_path": "tier_definition/_campaign/Weapons/One Hand Axes.json",
-          "mapping_path": "base_mapping/_campaign/Weapons/One Hand Axes.json",
-          "target_category": "Campaign",
-          "localization": {
-            "en": "One Hand Axes",
-            "ch": "单手斧（过渡）"
-          }
-        },
-        {
-          "path": "_campaign/Weapons/One Hand Maces.json",
-          "tier_path": "tier_definition/_campaign/Weapons/One Hand Maces.json",
-          "mapping_path": "base_mapping/_campaign/Weapons/One Hand Maces.json",
-          "target_category": "Campaign",
-          "localization": {
-            "en": "One Hand Maces",
-            "ch": "单手锤（过渡）"
-          }
-        },
-        {
-          "path": "_campaign/Weapons/One Hand Swords.json",
-          "tier_path": "tier_definition/_campaign/Weapons/One Hand Swords.json",
-          "mapping_path": "base_mapping/_campaign/Weapons/One Hand Swords.json",
-          "target_category": "Campaign",
-          "localization": {
-            "en": "One Hand Swords",
-            "ch": "单手剑（过渡）"
-          }
-        },
-        {
-          "path": "_campaign/Weapons/Two Hand Axes.json",
-          "tier_path": "tier_definition/_campaign/Weapons/Two Hand Axes.json",
-          "mapping_path": "base_mapping/_campaign/Weapons/Two Hand Axes.json",
-          "target_category": "Campaign",
-          "localization": {
-            "en": "Two Hand Axes",
-            "ch": "双手斧（过渡）"
-          }
-        },
-        {
-          "path": "_campaign/Weapons/Two Hand Maces.json",
-          "tier_path": "tier_definition/_campaign/Weapons/Two Hand Maces.json",
-          "mapping_path": "base_mapping/_campaign/Weapons/Two Hand Maces.json",
-          "target_category": "Campaign",
-          "localization": {
-            "en": "Two Hand Maces",
-            "ch": "双手锤（过渡）"
-          }
-        },
-        {
-          "path": "_campaign/Weapons/Two Hand Swords.json",
-          "tier_path": "tier_definition/_campaign/Weapons/Two Hand Swords.json",
-          "mapping_path": "base_mapping/_campaign/Weapons/Two Hand Swords.json",
-          "target_category": "Campaign",
-          "localization": {
-            "en": "Two Hand Swords",
-            "ch": "双手剑（过渡）"
-          }
-        }
-      ]
-    },
-    {
-      "_meta": {
-        "localization": {
-          "en": "Other Normal & Magic",
-          "ch": "普通与魔法"
-        }
-      },
-      "files": [
-        {
-          "path": "_campaign/Magic.json",
-          "tier_path": "tier_definition/_campaign/Magic.json",
-          "mapping_path": "base_mapping/_campaign/Magic.json",
-          "target_category": "Magic Items",
-          "localization": {
-            "en": "Magic Items",
-            "ch": "魔法物品"
-          }
-        },
-        {
-          "path": "_campaign/Normal Early.json",
-          "tier_path": "tier_definition/_campaign/Normal Early.json",
-          "mapping_path": "base_mapping/_campaign/Normal Early.json",
-          "target_category": "Normal Items - Early",
-          "localization": {
-            "en": "Normal Items - Early",
-            "ch": "早期普通物品"
+            "en": "Aggressive Declutter",
+            "ch": "激进清理"
           }
         }
       ]

@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Warstaves",
+      "ch": "战杖"
+    },
+    "localization": {
+      "en": "Campaign Warstaves",
+      "ch": "过渡战杖"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {
+    "Iron Staff": "Camp Warstaves Early",
+    "Coiled Staff": "Camp Warstaves Early",
+    "Vile Staff": "Camp Warstaves Early",
+    "Military Staff": "Camp Warstaves Mid",
+    "Serpentine Staff": "Camp Warstaves Late",
+    "Foul Staff": "Camp Warstaves Late",
+    "Ezomyte Staff": "Camp Warstaves PreEndgame",
+    "Maelström Staff": "Camp Warstaves PreEndgame"
+  }
+}

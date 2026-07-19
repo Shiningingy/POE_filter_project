@@ -1,0 +1,43 @@
+{
+  "Campaign Boots": {
+    "_meta": {
+      "item_class": {
+        "en": "Boots",
+        "ch": "鞋子"
+      },
+      "localization": {
+        "en": "Campaign Boots",
+        "ch": "过渡鞋子"
+      },
+      "theme_category": "Campaign",
+      "tier_order": [
+        "Camp Boots Any Rare"
+      ]
+    },
+    "Camp Boots Any Rare": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Boots\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "boots"
+      },
+      "localization": {
+        "en": "Any Rare Boots",
+        "ch": "稀有鞋子"
+      }
+    }
+  }
+}

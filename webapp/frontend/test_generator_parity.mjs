@@ -232,23 +232,33 @@ try {
   check('semistrict (idx2 < gate3): inert, == baseline on both sides',
         pySemi === pySoft && tsSemi === tsSoft);
 
-  // Case D/E — leveling module gate. Deselect ALL gated leveling groups (weapon /
-  // armour / vendor / minion). Deselected tiers must be OMITTED identically on both
-  // sides (D); with hide_unselected on they instead flip Show→Hide identically (E).
-  // Guards the new `leveling_selection` axis (block-index alignment is the risk).
-  console.log('\n[D/E] Leveling module selection gate:');
-  const deselectAll = { weapons: [], armour_defense: [], vendor_bands: [], minion_focused: false, hide_unselected: false };
-  const pyOmit = runPy('soft', deselectAll);
-  const tsOmit = runTs(merged.tiers, 'soft', deselectAll);
-  compare('leveling deselect-all (omit): Python vs TS', pyOmit, tsOmit);
-  check('leveling omit fired (fewer lines than baseline)', pyOmit.split('\n').length < pySoft.split('\n').length);
+  // Case D/E/F — Campaign module (ADDITIVE boost model). D: an explicit empty
+  // selection must equal the absent-selection baseline (nothing picked = the
+  // baseline, never an omission). E: picking weapon classes / defense types
+  // upgrades their band tiers to boost_theme identically on both sides. F: the
+  // hide_unselected declutter flips unpicked weapon bands Show→Hide AND emits
+  // the 'aggressive' tiers (late-campaign magic hide) identically.
+  console.log('\n[D/E/F] Campaign module (additive boost):');
+  const emptySel = { weapons: [], armour_defense: [], hide_unselected: false };
+  const pyEmpty = runPy('soft', emptySel);
+  const tsEmpty = runTs(merged.tiers, 'soft', emptySel);
+  compare('empty selection: Python vs TS', pyEmpty, tsEmpty);
+  check('empty selection == absent selection (additive default)',
+        pyEmpty === pySoft && tsEmpty === tsSoft);
 
-  const hideAll = { ...deselectAll, hide_unselected: true };
-  const pyHide = runPy('soft', hideAll);
-  const tsHide = runTs(merged.tiers, 'soft', hideAll);
-  compare('leveling deselect-all (hide_unselected): Python vs TS', pyHide, tsHide);
-  check('leveling hide_unselected flipped Show→Hide (more Hide than baseline)',
-        hideCount(pyHide) > hideCount(pySoft) && hideCount(tsHide) > hideCount(tsSoft));
+  const boostSel = { weapons: ['Bows'], armour_defense: ['Evasion'], hide_unselected: false };
+  const pyBoost = runPy('soft', boostSel);
+  const tsBoost = runTs(merged.tiers, 'soft', boostSel);
+  compare('boost (Bows + Evasion): Python vs TS', pyBoost, tsBoost);
+  check('boost fired (band themes upgraded vs baseline)', pyBoost !== pySoft && tsBoost !== tsSoft);
+
+  const aggroSel = { weapons: ['Bows'], armour_defense: [], hide_unselected: true };
+  const pyAggro = runPy('soft', aggroSel);
+  const tsAggro = runTs(merged.tiers, 'soft', aggroSel);
+  compare('hide_unselected declutter: Python vs TS', pyAggro, tsAggro);
+  check('declutter fired (more Hide blocks + aggressive tier emitted)',
+        hideCount(pyAggro) > hideCount(pySoft) && hideCount(tsAggro) > hideCount(tsSoft) &&
+        pyAggro.split('\n').length > pySoft.split('\n').length);
 } finally {
   if (filterBackup) writeFileSync(OUTPUT_FILTER, filterBackup);
   rmSync(tmp, { recursive: true, force: true });

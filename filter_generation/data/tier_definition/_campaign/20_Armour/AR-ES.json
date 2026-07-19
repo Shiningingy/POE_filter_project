@@ -1,0 +1,125 @@
+{
+  "Campaign AR/ES": {
+    "_meta": {
+      "item_class": {
+        "en": "Armour",
+        "ch": "防具"
+      },
+      "localization": {
+        "en": "Campaign AR/ES",
+        "ch": "过渡防具 AR/ES"
+      },
+      "theme_category": "Campaign",
+      "tier_order": [
+        "Camp AR-ES Early",
+        "Camp AR-ES Mid",
+        "Camp AR-ES Late",
+        "Camp AR-ES PreEndgame"
+      ]
+    },
+    "Camp AR-ES Early": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "boost_theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "AR/ES"
+      },
+      "localization": {
+        "en": "Campaign AR/ES Early",
+        "ch": "早期"
+      }
+    },
+    "Camp AR-ES Mid": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "boost_theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "AR/ES"
+      },
+      "localization": {
+        "en": "Campaign AR/ES Mid",
+        "ch": "中期"
+      }
+    },
+    "Camp AR-ES Late": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "boost_theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "AR/ES"
+      },
+      "localization": {
+        "en": "Campaign AR/ES Late",
+        "ch": "后期"
+      }
+    },
+    "Camp AR-ES PreEndgame": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "boost_theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "armour",
+        "key": "AR/ES"
+      },
+      "localization": {
+        "en": "Campaign AR/ES PreEndgame",
+        "ch": "终局前"
+      }
+    }
+  }
+}

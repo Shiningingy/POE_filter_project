@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Rune Daggers",
+      "ch": "符文匕首"
+    },
+    "localization": {
+      "en": "Campaign Rune Daggers",
+      "ch": "过渡符文匕首"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {
+    "Carving Knife": "Camp Rune Daggers Early",
+    "Boot Knife": "Camp Rune Daggers Early",
+    "Copper Kris": "Camp Rune Daggers Early",
+    "Skean": "Camp Rune Daggers Early",
+    "Imp Dagger": "Camp Rune Daggers Early",
+    "Butcher Knife": "Camp Rune Daggers Mid",
+    "Boot Blade": "Camp Rune Daggers Mid",
+    "Golden Kris": "Camp Rune Daggers Late",
+    "Royal Skean": "Camp Rune Daggers Late",
+    "Fiend Dagger": "Camp Rune Daggers Late",
+    "Slaughter Knife": "Camp Rune Daggers PreEndgame",
+    "Ezomyte Dagger": "Camp Rune Daggers PreEndgame",
+    "Platinum Kris": "Camp Rune Daggers PreEndgame",
+    "Imperial Skean": "Camp Rune Daggers PreEndgame"
+  }
+}

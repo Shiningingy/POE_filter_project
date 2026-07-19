@@ -1,0 +1,125 @@
+{
+  "Campaign Daggers": {
+    "_meta": {
+      "item_class": {
+        "en": "Daggers",
+        "ch": "匕首"
+      },
+      "localization": {
+        "en": "Campaign Daggers",
+        "ch": "过渡匕首"
+      },
+      "theme_category": "Campaign",
+      "tier_order": [
+        "Camp Daggers Early",
+        "Camp Daggers Mid",
+        "Camp Daggers Late",
+        "Camp Daggers PreEndgame"
+      ]
+    },
+    "Camp Daggers Early": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "boost_theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Daggers"
+      },
+      "localization": {
+        "en": "Campaign Daggers Early",
+        "ch": "早期"
+      }
+    },
+    "Camp Daggers Mid": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "boost_theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Daggers"
+      },
+      "localization": {
+        "en": "Campaign Daggers Mid",
+        "ch": "中期"
+      }
+    },
+    "Camp Daggers Late": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "boost_theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Daggers"
+      },
+      "localization": {
+        "en": "Campaign Daggers Late",
+        "ch": "后期"
+      }
+    },
+    "Camp Daggers PreEndgame": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "boost_theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Daggers"
+      },
+      "localization": {
+        "en": "Campaign Daggers PreEndgame",
+        "ch": "终局前"
+      }
+    }
+  }
+}

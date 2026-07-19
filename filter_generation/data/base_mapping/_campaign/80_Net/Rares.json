@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Equipment",
+      "ch": "装备"
+    },
+    "localization": {
+      "en": "Campaign Rares",
+      "ch": "过渡稀有"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {}
+}
