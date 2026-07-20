@@ -253,6 +253,16 @@ def generate_filter():
         if not tier_file.exists():
             continue
 
+        tier_doc = json.loads(tier_file.read_text(encoding="utf-8"))
+        map_doc  = json.loads(map_file.read_text(encoding="utf-8"))
+
+        # Skip files excluded for current mode (e.g. Divination Cards in ruthless)
+        # BEFORE any counter/header work, so excluded files consume no block
+        # indices and a fully-excluded folder emits no header. (Mirrors the
+        # early skip in filterGenerator.ts — parity-guarded in ruthless mode.)
+        if MODE in map_doc.get("_meta", {}).get("excluded_modes", []):
+            continue
+
         # Extract Folder Name (First part of path)
         folder = rel_path.parts[0]
 
@@ -261,11 +271,11 @@ def generate_filter():
             current_major_cat = folder
             major_counter += 10000
             sub_counter = major_counter # Reset sub counter base
-            
+
             # Localize folder name
             folder_localized = FOLDER_LOCALIZATION.get(folder, folder)
             header_text = f"{folder_localized} {folder}" if LANG == "ch" else folder
-            
+
             out_lines.append(f"\n#===================================================================================================================")
             out_lines.append(f"# [[{major_counter:05d}]] {header_text}")
             out_lines.append(f"#===================================================================================================================")
@@ -274,13 +284,6 @@ def generate_filter():
         # --- Sub Category (File) ---
         sub_counter += 1000
         block_index = sub_counter # 11000 start
-
-        tier_doc = json.loads(tier_file.read_text(encoding="utf-8"))
-        map_doc  = json.loads(map_file.read_text(encoding="utf-8"))
-
-        # Skip files excluded for current mode (e.g. Divination Cards in ruthless)
-        if MODE in map_doc.get("_meta", {}).get("excluded_modes", []):
-            continue
 
         category_key = next((k for k in tier_doc if not k.startswith("//")), None)
         if not category_key: continue

@@ -36,7 +36,12 @@ as a TypeScript port that runs in the browser.
   hand-tuned afterward; never re-run over tuned data without a commit).
 - **mode** vs **game-version** — *mode* (ruthless/standard) shares item data and
   differs only in tier VALUES (overlay + `excluded_modes`); *game-version* (poe1/poe2)
-  = separate trees. Core generator code is identical across modes.
+  = separate trees. Core generator code is identical across modes. **Ruthless
+  forbids the `Hide` keyword in-game** — hidden tiers MUST emit `Minimal` (GGG's
+  Ruthless-only Hide-equivalent; before it existed the workaround was FontSize 1 +
+  transparent border/background). `HIDE_CMD` resolves to `Minimal` under ruthless in
+  BOTH generators. The browser TS generator is now mode-aware (`GeneratorData.mode`,
+  fed from `game_mode`); ruthless parity is guarded by `test_generator_parity.mjs`.
 - **the dual generator** — see Invariant 1.
 - **demo / backend-free build** — the deployed site has no server; `clientData.ts` +
   `demoAdapter.ts` re-implement the FastAPI endpoints over a static bundle + localStorage.

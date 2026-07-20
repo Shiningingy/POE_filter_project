@@ -116,60 +116,6 @@
 
 #==[11000]-过渡 _campaign - 武器过渡 Weapon Progression==
 
-#==[11001]- 武器 -弓高亮（匹配进度） 武器过渡 - #1 早期（1–3章，魔法+稀有） - 精确==
-Show
-    BaseType == "Crude Bow" "Short Bow" "Long Bow" "Composite Bow" "Recurve Bow" "Bone Bow" "Royal Bow" "Death Bow"
-    Rarity Magic Rare
-    AreaLevel <= 33
-    ItemLevel <= 38
-    SetFontSize 40
-    SetBorderColor 74 230 58 255
-    SetBackgroundColor 215 215 200 210
-
-
-#==[11002]- 武器 -弓高亮（匹配进度） 武器过渡 - #2 中期（至第五章） - 精确==
-Show
-    BaseType == "Grove Bow" "Reflex Bow" "Decurve Bow" "Compound Bow" "Sniper Bow"
-    Rarity Rare
-    AreaLevel <= 50
-    ItemLevel <= 55
-    SetFontSize 40
-    SetBorderColor 74 230 58 255
-    SetBackgroundColor 215 215 200 210
-
-
-#==[11003]- 武器 -弓高亮（匹配进度） 武器过渡 - #3 后期（至第八章） - 精确==
-Show
-    BaseType == "Ivory Bow" "Highborn Bow" "Decimation Bow"
-    Rarity Rare
-    AreaLevel <= 60
-    ItemLevel <= 65
-    SetFontSize 40
-    SetBorderColor 74 230 58 255
-    SetBackgroundColor 215 215 200 210
-
-
-#==[11004]- 武器 -弓高亮（匹配进度） 武器过渡 - #4 终局前 - 精确==
-Show
-    BaseType == "Thicket Bow" "Steelwood Bow" "Citadel Bow" "Ranger Bow"
-    Rarity Rare
-    AreaLevel <= 67
-    ItemLevel <= 72
-    SetFontSize 40
-    SetBorderColor 74 230 58 255
-    SetBackgroundColor 215 215 200 210
-
-
-#==[11005]- 武器 -弓稀有突显 武器过渡 - Class Condition==
-Show
-    Class == "Bows"
-    Rarity Rare
-    AreaLevel <= 67
-    ItemLevel <= 72
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
 #==[12000]-过渡 _campaign - 防具过渡 Armour Progression==
 
 #==[12001]- 防具 -隐秘传奇 防具过渡 - Class Condition==
@@ -243,60 +189,6 @@ Show
     Class == "Boots"
     Rarity Rare
     Identified False
-    AreaLevel <= 67
-    ItemLevel <= 72
-    SetFontSize 35
-    SetBorderColor 74 230 58 255
-
-
-#==[12007]- 防具 -闪避高亮（匹配进度） 防具过渡 - #1 早期（1–3章，魔法+稀有） - 精确==
-Show
-    BaseType == "Shabby Jerkin" "Goathide Buckler" "Rawhide Boots" "Rawhide Gloves" "Leather Cap" "Pine Buckler" "Strapped Leather" "Goathide Gloves" "Tricorne" "Goathide Boots" "Painted Buckler" "Buckskin Tunic" "Leather Hood" "Deerskin Gloves" "Deerskin Boots" "Hammered Buckler" "Wild Leather" "Full Leather" "War Buckler" "Wolf Pelt" "Sun Leather" "Nubuck Gloves"
-    Rarity Magic Rare
-    AreaLevel <= 33
-    ItemLevel <= 38
-    SetFontSize 40
-    SetBorderColor 74 230 58 255
-    SetBackgroundColor 215 215 200 210
-
-
-#==[12008]- 防具 -闪避高亮（匹配进度） 防具过渡 - #2 中期（至第五章） - 精确==
-Show
-    BaseType == "Nubuck Boots" "Gilded Buckler" "Thief's Garb" "Eelskin Tunic" "Eelskin Gloves" "Oak Buckler" "Eelskin Boots" "Frontier Leather" "Hunter Hood" "Enameled Buckler" "Sharkskin Boots" "Glorious Leather" "Sharkskin Gloves"
-    Rarity Rare
-    AreaLevel <= 50
-    ItemLevel <= 55
-    SetFontSize 40
-    SetBorderColor 74 230 58 255
-    SetBackgroundColor 215 215 200 210
-
-
-#==[12009]- 防具 -闪避高亮（匹配进度） 防具过渡 - #3 后期（至第八章） - 精确==
-Show
-    BaseType == "Corrugated Buckler" "Noble Tricorne" "Coronal Leather" "Battle Buckler" "Cutthroat's Garb" "Shagreen Gloves" "Golden Buckler" "Shagreen Boots" "Ursine Pelt"
-    Rarity Rare
-    AreaLevel <= 60
-    ItemLevel <= 65
-    SetFontSize 40
-    SetBorderColor 74 230 58 255
-    SetBackgroundColor 215 215 200 210
-
-
-#==[12010]- 防具 -闪避高亮（匹配进度） 防具过渡 - #4 终局前 - 精确==
-Show
-    BaseType == "Sharkskin Tunic" "Ironwood Buckler" "Destiny Leather" "Silken Hood" "Lacquered Buckler" "Exquisite Leather" "Stealth Boots" "Stealth Gloves" "Vaal Buckler" "Sinner Tricorne" "Zodiac Leather" "Crusader Buckler"
-    Rarity Rare
-    AreaLevel <= 67
-    ItemLevel <= 72
-    SetFontSize 40
-    SetBorderColor 74 230 58 255
-    SetBackgroundColor 215 215 200 210
-
-
-#==[12011]- 防具 -闪避稀有突显 防具过渡 - Class Condition==
-Show
-    BaseType == "Battle Buckler" "Buckskin Tunic" "Coronal Leather" "Corrugated Buckler" "Crusader Buckler" "Cutthroat's Garb" "Deerskin Boots" "Deerskin Gloves" "Destiny Leather" "Eelskin Boots" "Eelskin Gloves" "Eelskin Tunic" "Enameled Buckler" "Exquisite Leather" "Frontier Leather" "Full Leather" "Gilded Buckler" "Glorious Leather" "Goathide Boots" "Goathide Buckler" "Goathide Gloves" "Golden Buckler" "Hammered Buckler" "Hunter Hood" "Ironwood Buckler" "Lacquered Buckler" "Leather Cap" "Leather Hood" "Noble Tricorne" "Nubuck Boots" "Nubuck Gloves" "Oak Buckler" "Painted Buckler" "Pine Buckler" "Rawhide Boots" "Rawhide Gloves" "Shabby Jerkin" "Shagreen Boots" "Shagreen Gloves" "Sharkskin Boots" "Sharkskin Gloves" "Sharkskin Tunic" "Silken Hood" "Sinner Tricorne" "Stealth Boots" "Stealth Gloves" "Strapped Leather" "Sun Leather" "Thief's Garb" "Tricorne" "Ursine Pelt" "Vaal Buckler" "War Buckler" "Wild Leather" "Wolf Pelt" "Zodiac Leather"
-    Rarity Rare
     AreaLevel <= 67
     ItemLevel <= 72
     SetFontSize 35

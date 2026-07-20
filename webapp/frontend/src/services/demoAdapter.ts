@@ -164,6 +164,8 @@ export const setupDemoAdapter = () => {
           // Campaign picker selection: prefer the POST body, else the persisted setting.
           const settings = await data.getSettings();
           const levelingSelection = genBody.leveling_selection || settings?.leveling_selection || {};
+          // Ruthless (the default game_mode) must emit `Minimal`, not `Hide`.
+          const mode = (genBody.game_mode || settings?.game_mode) === 'ruthless' ? 'ruthless' : 'standard';
           const filterText = generateFilter({
             themeData: await data.getMergedTheme(),
             soundMap: await data.getSoundMap(),
@@ -173,6 +175,7 @@ export const setupDemoAdapter = () => {
             footer: bundle?.footer || '',
             strictness: genBody.strictness || 'soft',
             leveling_selection: levelingSelection,
+            mode,
           });
           localStorage.setItem('demo_generated_filter', filterText);
           return { message: 'Success (generated in browser)', content: filterText };

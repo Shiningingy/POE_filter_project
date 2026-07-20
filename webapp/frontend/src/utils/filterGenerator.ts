@@ -51,6 +51,7 @@ interface GeneratorData {
   footer?: string; // verbatim tail (unknown-items catch-all block)
   strictness?: string; // strictness ladder level (default 'soft' = loosest)
   leveling_selection?: LevelingSelection; // Campaign picker selection (default: all selected)
+  mode?: string; // 'ruthless' | 'standard' (default). Ruthless hides via 'Minimal' (Hide is invalid there) + excluded_modes.
 }
 
 // ===========================
@@ -164,11 +165,11 @@ export const generateFilter = (data: GeneratorData): string => {
   const term = (key: string): string => (TERMS[language] || TERMS.en)[key] || key;
   const isCh = language === 'ch';
 
-  // The deployed generator is mode-less ≈ generate.py --mode standard. MODE
-  // gates excluded_modes and HIDE_CMD exactly as the Python side does; when the
-  // Ruthless milestone lands, this becomes a parameter.
-  const MODE = 'standard';
-  const HIDE_CMD = 'Hide';
+  // MODE gates excluded_modes and HIDE_CMD exactly as the Python side does.
+  // Ruthless forbids the `Hide` keyword in-game, so hidden tiers emit `Minimal`
+  // (GGG's Ruthless-only Hide-equivalent). Mirrors generate.py.
+  const MODE = data.mode === 'ruthless' ? 'ruthless' : 'standard';
+  const HIDE_CMD = MODE === 'ruthless' ? 'Minimal' : 'Hide';
 
   // Strictness gate threshold index; an absent/unknown level clamps to 'soft'.
   const STRICTNESS_IDX = Math.max(0, (STRICTNESS_LEVELS as readonly string[]).indexOf(data.strictness ?? 'soft'));
