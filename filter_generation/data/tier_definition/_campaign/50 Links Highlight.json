@@ -23,7 +23,8 @@
         "Class": "== \"Bows\" \"Claws\" \"Daggers\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Quivers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Wands\" \"Warstaves\" \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\"",
         "LinkedSockets": ">= 4",
         "Rarity": "<= Rare",
-        "AreaLevel": "<= 45"
+        "AreaLevel": "<= 45",
+        "ItemLevel": "<= 50"
       },
       "theme": {
         "Tier": 2
@@ -49,7 +50,8 @@
         "Class": "== \"Bows\" \"Claws\" \"Daggers\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Quivers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Wands\" \"Warstaves\" \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\"",
         "LinkedSockets": ">= 3",
         "Rarity": "<= Rare",
-        "AreaLevel": "<= 33"
+        "AreaLevel": "<= 33",
+        "ItemLevel": "<= 38"
       },
       "theme": {
         "Tier": 3

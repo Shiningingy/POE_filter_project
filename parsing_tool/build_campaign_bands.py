@@ -53,6 +53,13 @@ BAND_COMMENT = {
     "Late": "Late band (to Act 8)",
     "PreEndgame": "Pre-endgame band",
 }
+# Localized rule names: rule.localization[lang] -> comment (canonical en) -> "Rule"
+BAND_COMMENT_CH = {
+    "Early": "早期（1–3章，魔法+稀有）",
+    "Mid": "中期（至第五章）",
+    "Late": "后期（至第八章）",
+    "PreEndgame": "终局前",
+}
 CAMPAIGN_CAP = 67
 
 WEAPON_CLASSES = [
@@ -86,6 +93,25 @@ DEFENSE_CH = {
 V4_ARMOUR = "20 Armour Progression.json"
 V4_FLASKS = "40 Flask Progression.json"
 V4_EARLY = "60 Early Game Highlight.json"
+
+
+def with_ilvl(cond):
+    """Add ItemLevel <= (AreaLevel+5) after a simple 'AreaLevel <= N' — genuine
+    on-level drops match, endgame-ilvl gear in a campaign zone doesn't (user
+    rule 2026-07-20). No-op on RANGE / missing AreaLevel / existing ItemLevel."""
+    import re as _re
+    if "ItemLevel" in cond:
+        return cond
+    al = cond.get("AreaLevel")
+    m = _re.match(r"^<=\s*(\d+)$", al.strip()) if isinstance(al, str) else None
+    if not m:
+        return cond
+    out = {}
+    for k, v in cond.items():
+        out[k] = v
+        if k == "AreaLevel":
+            out["ItemLevel"] = f"<= {int(m.group(1)) + 5}"
+    return out
 
 
 def class_cond(classes):
@@ -176,7 +202,7 @@ def progression_tier(en_name, ch_name, axis, key):
     return {
         "_lv": True,
         "hideable": True,
-        "conditions": {"Rarity": "Rare", "AreaLevel": f"<= {CAMPAIGN_CAP}"},
+        "conditions": with_ilvl({"Rarity": "Rare", "AreaLevel": f"<= {CAMPAIGN_CAP}"}),
         "theme": {"Tier": 2},  # T1 double emphasis (picked + level match)
         "sound": sound(),
         "lv_group": {"axis": axis, "key": key},
@@ -191,7 +217,7 @@ def rares_tier(en_name, ch_name, axis, key, conditions):
         "_lv": True,
         "hideable": True,
         "class_condition": True,
-        "conditions": conditions,
+        "conditions": with_ilvl(conditions),
         "theme": {"Tier": 4},  # T2 emphasis (picked, not level-matched)
         "sound": sound(),
         "lv_group": {"axis": axis, "key": key},
@@ -207,9 +233,10 @@ def band_rules(bases_by_band):
             continue
         rules.append({
             "targets": [b["name"] for b in sorted(bases, key=lambda x: x["droplevel"])],
-            "conditions": {"Rarity": rarity, "AreaLevel": f"<= {cutoff}"},
+            "conditions": with_ilvl({"Rarity": rarity, "AreaLevel": f"<= {cutoff}"}),
             "overrides": {},
             "comment": BAND_COMMENT[label],
+            "localization": {"ch": BAND_COMMENT_CH[label]},
         })
     return rules
 
@@ -217,7 +244,7 @@ def band_rules(bases_by_band):
 def cc_tier(en, ch, conditions, theme_tier, snd=None, lv=None):
     return {
         "_lv": True, "hideable": True, "class_condition": True,
-        "conditions": conditions,
+        "conditions": with_ilvl(conditions) if (lv or {}).get("axis") != "aggressive" else conditions,
         "theme": {"Tier": theme_tier},
         "sound": snd or sound(),
         "lv_group": lv or {"axis": "always", "key": "campaign"},
@@ -260,18 +287,18 @@ def main():
                 by_band.setdefault(lbl, []).append(b)
         t_key = f"{cls} Progression"
         w_tiers[t_key] = progression_tier(
-            f"{cls} Progression", f"{CLASS_CH.get(cls, cls)}过渡", "weapon", cls)
+            f"{cls} Progression", f"{CLASS_CH.get(cls, cls)}高亮（匹配进度）", "weapon", cls)
         for band in by_band.values():
             for b in band:
                 w_map[b["name"]] = t_key
         w_rules.extend(band_rules(by_band))
         w_tiers[f"{cls} Rares"] = rares_tier(
-            f"{cls} Rares", f"{CLASS_CH.get(cls, cls)}稀有", "weapon", cls,
+            f"{cls} Rares", f"{CLASS_CH.get(cls, cls)}稀有突显", "weapon", cls,
             {"Class": class_cond([cls]), "Rarity": "Rare",
              "AreaLevel": f"<= {CAMPAIGN_CAP}"})
     files.append(("10 Weapon Progression.json", "Weapon Progression",
                   {"en": "Weapons", "ch": "武器"}, w_tiers, w_map, w_rules,
-                  "Weapon Progression", "武器过渡"))
+                  "Weapon Progression", "武器进度"))
 
     # ---- 20 Armour Progression (defense tiers + Noteworthy + Boots Highlight) ----
     a_tiers, a_map, a_rules = {}, {}, []
@@ -287,7 +314,7 @@ def main():
                 by_band.setdefault(lbl, []).append(b)
         t_key = f"{def_key} Progression"
         a_tiers[t_key] = progression_tier(
-            f"{def_key} Progression", f"{DEFENSE_CH.get(def_key, def_key)}过渡",
+            f"{def_key} Progression", f"{DEFENSE_CH.get(def_key, def_key)}高亮（匹配进度）",
             "armour", def_key)
         for band in by_band.values():
             for b in band:
@@ -296,22 +323,47 @@ def main():
         all_def_bases = sorted(b["name"] for b in armour_by_def.get(def_key, []))
         if all_def_bases:
             a_tiers[f"{def_key} Rares"] = rares_tier(
-                f"{def_key} Rares", f"{DEFENSE_CH.get(def_key, def_key)}稀有",
+                f"{def_key} Rares", f"{DEFENSE_CH.get(def_key, def_key)}稀有突显",
                 "armour", def_key,
                 {"BaseType": class_cond(all_def_bases), "Rarity": "Rare",
                  "AreaLevel": f"<= {CAMPAIGN_CAP}"})
-    # Noteworthy exotics (movement boots, veiled) carried from v3 — strong
-    # highlights, emitted before the generic boots net.
-    for name, tv in v4_armour.items():
-        if isinstance(tv, dict) and name.startswith("Lv exotics"):
-            a_tiers[name] = guard(tv)
-    a_tiers["Boots Highlight"] = cc_tier(
-        "Boots Highlight", "鞋子突显",
-        {"Class": class_cond(["Boots"]), "Rarity": "Rare",
+    # Movement-boot MS progression (affix->% confirmed via PoEDB): the minimum MS
+    # bar rises per act; 25%+ always highlights; fall-behinds drop to the safety
+    # net. HasExplicitMod needs an IDENTIFIED item, so a separate unidentified
+    # catch prompts the player to ID rare boots.
+    def mboot(en, ch, mods, area, theme):
+        return cc_tier(en, ch, {
+            "Class": '== "Boots"', "Rarity": "Magic Rare", "Identified": "True",
+            "HasExplicitMod": " ".join(f'"{m}"' for m in mods),
+            "AreaLevel": f"<= {area}", "ItemLevel": f"<= {area + 5}",
+        }, theme, snd=sound(2))
+    a_tiers["Movement Boots 25%+"] = mboot(
+        "Movement Boots 25%+ MS", "移速鞋 25%+", ["Gazelle's", "Cheetah's", "Hellion's"], 67, 2)
+    a_tiers["Movement Boots 20% Act3"] = mboot(
+        "Movement Boots 20% (to Act 3)", "移速鞋 20%（至第三章）", ["Stallion's"], 33, 4)
+    a_tiers["Movement Boots 15% Act2"] = mboot(
+        "Movement Boots 15% (to Act 2)", "移速鞋 15%（至第二章）", ["Sprinter's"], 23, 4)
+    a_tiers["Movement Boots 10% Act1"] = mboot(
+        "Movement Boots 10% (Act 1)", "移速鞋 10%（第一章）", ["Runner's"], 13, 4)
+    a_tiers["Veiled Uniques"] = cc_tier(
+        "Veiled Uniques", "隐秘传奇",
+        {"Rarity": "Unique", "Identified": "True", "HasExplicitMod": '"Veil"',
+         "AreaLevel": f"<= {CAMPAIGN_CAP}"}, 2, snd=sound(2))
+    a_tiers["Boots Highlight (Unidentified)"] = cc_tier(
+        "Unidentified Rare Boots", "未鉴定稀有鞋子",
+        {"Class": '== "Boots"', "Rarity": "Rare", "Identified": "False",
          "AreaLevel": f"<= {CAMPAIGN_CAP}"}, 4)
+    # Emission order (specific -> general): the boot-specific tiers must precede
+    # the general defense "X Rares" (which also match boot bases), so a high-MS
+    # or veiled boot renders by its specific tier, not the generic rare catch.
+    boot_block = ["Veiled Uniques", "Movement Boots 25%+", "Movement Boots 20% Act3",
+                  "Movement Boots 15% Act2", "Movement Boots 10% Act1",
+                  "Boots Highlight (Unidentified)"]
+    a_tiers = {**{k: a_tiers[k] for k in boot_block},
+               **{k: v for k, v in a_tiers.items() if k not in boot_block}}
     files.append(("20 Armour Progression.json", "Armour Progression",
                   {"en": "Armour", "ch": "防具"}, a_tiers, a_map, a_rules,
-                  "Armour Progression", "防具过渡"))
+                  "Armour Progression", "防具进度"))
 
     # ---- 30 Jewellery Progression ----
     good_bt = class_cond(GOOD_JEWELLERY)
@@ -357,10 +409,8 @@ def main():
                   "Links Highlight", "连接突显"))
 
     # ---- 60 Early Game Highlight (act-1 whites carried from v3) ----
-    e_tiers = {}
-    for name, tv in v4_early.items():
-        if isinstance(tv, dict) and name.startswith("Lv firstlevels"):
-            e_tiers[name] = guard(tv)
+    e_tiers = {name: guard(tv) for name, tv in v4_early.items()
+               if name != "_meta" and isinstance(tv, dict)}
     files.append(("60 Early Game Highlight.json", "Early Game Highlight",
                   {"en": "Equipment", "ch": "装备"}, e_tiers, {}, [],
                   "Early Game Highlight", "早期突显"))
@@ -397,7 +447,9 @@ def main():
         tier_doc = {cat_key: {"_meta": meta, **tiers}}
         (TIER_DIR / fname).write_text(
             json.dumps(tier_doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        map_meta = {k: v for k, v in meta.items() if k != "tier_order"}
+        # gen_order -100: campaign emits FIRST (decoupled from nav display order).
+        map_meta = {"gen_order": -100,
+                    **{k: v for k, v in meta.items() if k != "tier_order"}}
         map_doc = {"_meta": map_meta, "mapping": mapping}
         if rules:
             map_doc["rules"] = rules
@@ -420,10 +472,10 @@ def main():
             "target_category": cat_key,
             "localization": {"en": nav_en, "ch": nav_ch},
         })
-    new_groups = [{
-        "_meta": {"localization": {"en": "Campaign", "ch": "过渡"}},
-        "files": entries,
-    }]
+    # One single-file group per entry -> each renders as a flat top-level nav
+    # item under the Campaign separator (Sidebar.isFlat), no redundant wrapper.
+    new_groups = [{"_meta": {"localization": dict(e["localization"])}, "files": [e]}
+                  for e in entries]
     struct["categories"] = cats[:sep_idx + 1] + new_groups + cats[end_idx:]
     STRUCT_PATH.write_text(json.dumps(struct, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

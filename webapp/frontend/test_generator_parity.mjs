@@ -250,9 +250,12 @@ try {
   const pyPick = runPy('soft', pickSel);
   const tsPick = runTs(merged.tiers, 'soft', pickSel);
   compare('pick (Bows + Evasion): Python vs TS', pyPick, tsPick);
-  check('pick ADDED layers (more lines; Bows Progression only when picked)',
+  // Block displays are localized (output lang = ch); the Bows layer's zh name
+  // starts with 弓 and appears only when Bows is picked. Match the class prefix
+  // to stay robust against zh-name tuning.
+  check('pick ADDED layers (more lines; Bows layer only when picked)',
         pyPick.split('\n').length > pySoft.split('\n').length &&
-        pyPick.includes('Bows Progression') && !pySoft.includes('Bows Progression'));
+        /弓高亮/.test(pyPick) && !/弓高亮/.test(pySoft));
 
   const aggroSel = { weapons: ['Bows'], armour_defense: [], hide_unselected: true };
   const pyAggro = runPy('soft', aggroSel);

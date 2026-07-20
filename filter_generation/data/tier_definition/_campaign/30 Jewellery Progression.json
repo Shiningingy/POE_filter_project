@@ -23,7 +23,8 @@
       "conditions": {
         "BaseType": "== \"Ruby Ring\" \"Sapphire Ring\" \"Topaz Ring\" \"Two-Stone Ring\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -48,7 +49,8 @@
       "conditions": {
         "BaseType": "== \"Ruby Ring\" \"Sapphire Ring\" \"Topaz Ring\" \"Two-Stone Ring\"",
         "Rarity": "Normal Magic",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 7
@@ -73,7 +75,8 @@
       "conditions": {
         "Class": "== \"Amulets\" \"Belts\" \"Rings\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 6

@@ -231,21 +231,22 @@ def generate_filter():
     major_counter = 0 # 10000, 20000...
     sub_counter = 0   # 11000, 12000...
 
-    # Process all JSON files in base_mapping
-    # Sort: _campaign goes FIRST — filters are first-match-wins and every campaign
-    # tier is AreaLevel-guarded (<= 67), so campaign owns the acts and goes inert
-    # at endgame. Other underscore folders (_legacy, _unclassified) stay last.
-    # (Mirrors the sort in filterGenerator.ts — parity-guarded.)
-    def _sort_key(p):
-        rel = p.relative_to(BASE_MAPPING_DIR)
-        parts = list(rel.parts)
-        if parts[0] == "_campaign":
-            parts[0] = "!campaign"
-        elif parts[0].startswith("_"):
-            parts[0] = parts[0].replace("_", "~", 1)
-        return parts
+    # Category GENERATION order = explicit `_meta.gen_order` (ascending), then the
+    # relative path. This is DECOUPLED from the nav display order (category_structure
+    # order) on purpose: campaign carries gen_order -100 so it emits FIRST (first-match
+    # wins during the acts) even though the nav shows it low (opened less often).
+    # Absent field = 0. Tier order (tier_order) and rule order (rules array) are
+    # authored in the editor and followed verbatim — the generator never reorders
+    # blocks or rules. (Mirrors the sort in filterGenerator.ts — parity-guarded.)
+    def _order_key(p):
+        rel = p.relative_to(BASE_MAPPING_DIR).as_posix()
+        try:
+            gen_order = json.loads(p.read_text(encoding="utf-8")).get("_meta", {}).get("gen_order", 0)
+        except (OSError, ValueError):
+            gen_order = 0
+        return (gen_order, rel)
 
-    for map_file in sorted(BASE_MAPPING_DIR.rglob("*.json"), key=_sort_key):
+    for map_file in sorted(BASE_MAPPING_DIR.rglob("*.json"), key=_order_key):
         rel_path = map_file.relative_to(BASE_MAPPING_DIR)
         tier_file = TIER_DEF_DIR / rel_path
         
@@ -445,7 +446,7 @@ def generate_filter():
                 base_play_eff = ttheme.get("PlayEffect")
                 base_mini_icon = ttheme.get("MinimapIcon")
                 block_index += 1
-                tier_display = tier_entry.get("localization", {}).get("en") or t_lbl
+                tier_display = tier_entry.get("localization", {}).get(LANG) or tier_entry.get("localization", {}).get("en") or t_lbl
                 out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -{tier_display} {loc_cat} - Class Condition==")
                 cmd = HIDE_CMD if is_hide else "Show"
                 block_lines = [f'{cmd}']
@@ -558,11 +559,12 @@ def generate_filter():
                     else:
                         # Explicit User Rule
                         rule_counter += 1
-                        rule_name = raw_comment or tr('Rule')
+                        # Localizable rule name: rule.localization[lang] -> comment -> "Rule"
+                        rule_name = rule.get("localization", {}).get(LANG) or raw_comment or tr('Rule')
                         rule_part = f"#{rule_counter} {rule_name}"
 
                     final_mode = tr(mode_label)
-                    tier_display_r = tier_entry.get("localization", {}).get("en") or f"Tier {tnum}"
+                    tier_display_r = tier_entry.get("localization", {}).get(LANG) or tier_entry.get("localization", {}).get("en") or f"Tier {tnum}"
                     out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -{tier_display_r} {loc_cat} - {rule_part} - {final_mode}==")
                     
                     joined = '" "'.join(subgroup)
@@ -639,7 +641,7 @@ def generate_filter():
                     block_index += 1
                     final_mode = tr(mode_label)
                     base_label = tr("Base")
-                    tier_display = tier_entry.get("localization", {}).get("en") or f"Tier {tnum}"
+                    tier_display = tier_entry.get("localization", {}).get(LANG) or tier_entry.get("localization", {}).get("en") or f"Tier {tnum}"
                     out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -{tier_display} {loc_cat} - {base_label} - {final_mode}==")
                     
                     joined = '" "'.join(subgroup)

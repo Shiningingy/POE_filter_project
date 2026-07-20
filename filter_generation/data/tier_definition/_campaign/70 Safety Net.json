@@ -22,7 +22,8 @@
       "conditions": {
         "Class": "== \"Bows\" \"Claws\" \"Daggers\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Quivers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Wands\" \"Warstaves\" \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 6
@@ -37,7 +38,7 @@
       },
       "localization": {
         "en": "Rare Safety Net",
-        "ch": "稀有保底"
+        "ch": "显示所有稀有装备"
       }
     },
     "Aggressive Magic Hide": {
@@ -61,7 +62,7 @@
       },
       "localization": {
         "en": "Hide Magic after Act 3",
-        "ch": "隐藏魔法（三章后）"
+        "ch": "隐藏魔法装备（第三章后）"
       }
     }
   }

@@ -1,5 +1,6 @@
 {
   "_meta": {
+    "gen_order": -100,
     "item_class": {
       "en": "Armour",
       "ch": "防具"
@@ -374,10 +375,14 @@
       ],
       "conditions": {
         "Rarity": "Magic Rare",
-        "AreaLevel": "<= 33"
+        "AreaLevel": "<= 33",
+        "ItemLevel": "<= 38"
       },
       "overrides": {},
-      "comment": "Early band (Acts 1-3, magic+rare)"
+      "comment": "Early band (Acts 1-3, magic+rare)",
+      "localization": {
+        "ch": "早期（1–3章，魔法+稀有）"
+      }
     },
     {
       "targets": [
@@ -396,10 +401,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 50"
+        "AreaLevel": "<= 50",
+        "ItemLevel": "<= 55"
       },
       "overrides": {},
-      "comment": "Mid band (to Act 5)"
+      "comment": "Mid band (to Act 5)",
+      "localization": {
+        "ch": "中期（至第五章）"
+      }
     },
     {
       "targets": [
@@ -417,10 +426,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 60"
+        "AreaLevel": "<= 60",
+        "ItemLevel": "<= 65"
       },
       "overrides": {},
-      "comment": "Late band (to Act 8)"
+      "comment": "Late band (to Act 8)",
+      "localization": {
+        "ch": "后期（至第八章）"
+      }
     },
     {
       "targets": [
@@ -439,10 +452,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "overrides": {},
-      "comment": "Pre-endgame band"
+      "comment": "Pre-endgame band",
+      "localization": {
+        "ch": "终局前"
+      }
     },
     {
       "targets": [
@@ -470,10 +487,14 @@
       ],
       "conditions": {
         "Rarity": "Magic Rare",
-        "AreaLevel": "<= 33"
+        "AreaLevel": "<= 33",
+        "ItemLevel": "<= 38"
       },
       "overrides": {},
-      "comment": "Early band (Acts 1-3, magic+rare)"
+      "comment": "Early band (Acts 1-3, magic+rare)",
+      "localization": {
+        "ch": "早期（1–3章，魔法+稀有）"
+      }
     },
     {
       "targets": [
@@ -491,10 +512,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 50"
+        "AreaLevel": "<= 50",
+        "ItemLevel": "<= 55"
       },
       "overrides": {},
-      "comment": "Mid band (to Act 5)"
+      "comment": "Mid band (to Act 5)",
+      "localization": {
+        "ch": "中期（至第五章）"
+      }
     },
     {
       "targets": [
@@ -509,10 +534,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 60"
+        "AreaLevel": "<= 60",
+        "ItemLevel": "<= 65"
       },
       "overrides": {},
-      "comment": "Late band (to Act 8)"
+      "comment": "Late band (to Act 8)",
+      "localization": {
+        "ch": "后期（至第八章）"
+      }
     },
     {
       "targets": [
@@ -533,10 +562,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "overrides": {},
-      "comment": "Pre-endgame band"
+      "comment": "Pre-endgame band",
+      "localization": {
+        "ch": "终局前"
+      }
     },
     {
       "targets": [
@@ -565,10 +598,14 @@
       ],
       "conditions": {
         "Rarity": "Magic Rare",
-        "AreaLevel": "<= 33"
+        "AreaLevel": "<= 33",
+        "ItemLevel": "<= 38"
       },
       "overrides": {},
-      "comment": "Early band (Acts 1-3, magic+rare)"
+      "comment": "Early band (Acts 1-3, magic+rare)",
+      "localization": {
+        "ch": "早期（1–3章，魔法+稀有）"
+      }
     },
     {
       "targets": [
@@ -588,10 +625,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 50"
+        "AreaLevel": "<= 50",
+        "ItemLevel": "<= 55"
       },
       "overrides": {},
-      "comment": "Mid band (to Act 5)"
+      "comment": "Mid band (to Act 5)",
+      "localization": {
+        "ch": "中期（至第五章）"
+      }
     },
     {
       "targets": [
@@ -607,10 +648,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 60"
+        "AreaLevel": "<= 60",
+        "ItemLevel": "<= 65"
       },
       "overrides": {},
-      "comment": "Late band (to Act 8)"
+      "comment": "Late band (to Act 8)",
+      "localization": {
+        "ch": "后期（至第八章）"
+      }
     },
     {
       "targets": [
@@ -629,10 +674,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "overrides": {},
-      "comment": "Pre-endgame band"
+      "comment": "Pre-endgame band",
+      "localization": {
+        "ch": "终局前"
+      }
     },
     {
       "targets": [
@@ -660,10 +709,14 @@
       ],
       "conditions": {
         "Rarity": "Magic Rare",
-        "AreaLevel": "<= 33"
+        "AreaLevel": "<= 33",
+        "ItemLevel": "<= 38"
       },
       "overrides": {},
-      "comment": "Early band (Acts 1-3, magic+rare)"
+      "comment": "Early band (Acts 1-3, magic+rare)",
+      "localization": {
+        "ch": "早期（1–3章，魔法+稀有）"
+      }
     },
     {
       "targets": [
@@ -682,10 +735,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 50"
+        "AreaLevel": "<= 50",
+        "ItemLevel": "<= 55"
       },
       "overrides": {},
-      "comment": "Mid band (to Act 5)"
+      "comment": "Mid band (to Act 5)",
+      "localization": {
+        "ch": "中期（至第五章）"
+      }
     },
     {
       "targets": [
@@ -700,10 +757,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 60"
+        "AreaLevel": "<= 60",
+        "ItemLevel": "<= 65"
       },
       "overrides": {},
-      "comment": "Late band (to Act 8)"
+      "comment": "Late band (to Act 8)",
+      "localization": {
+        "ch": "后期（至第八章）"
+      }
     },
     {
       "targets": [
@@ -723,10 +784,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "overrides": {},
-      "comment": "Pre-endgame band"
+      "comment": "Pre-endgame band",
+      "localization": {
+        "ch": "终局前"
+      }
     },
     {
       "targets": [
@@ -756,10 +821,14 @@
       ],
       "conditions": {
         "Rarity": "Magic Rare",
-        "AreaLevel": "<= 33"
+        "AreaLevel": "<= 33",
+        "ItemLevel": "<= 38"
       },
       "overrides": {},
-      "comment": "Early band (Acts 1-3, magic+rare)"
+      "comment": "Early band (Acts 1-3, magic+rare)",
+      "localization": {
+        "ch": "早期（1–3章，魔法+稀有）"
+      }
     },
     {
       "targets": [
@@ -779,10 +848,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 50"
+        "AreaLevel": "<= 50",
+        "ItemLevel": "<= 55"
       },
       "overrides": {},
-      "comment": "Mid band (to Act 5)"
+      "comment": "Mid band (to Act 5)",
+      "localization": {
+        "ch": "中期（至第五章）"
+      }
     },
     {
       "targets": [
@@ -798,10 +871,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 60"
+        "AreaLevel": "<= 60",
+        "ItemLevel": "<= 65"
       },
       "overrides": {},
-      "comment": "Late band (to Act 8)"
+      "comment": "Late band (to Act 8)",
+      "localization": {
+        "ch": "后期（至第八章）"
+      }
     },
     {
       "targets": [
@@ -821,10 +898,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "overrides": {},
-      "comment": "Pre-endgame band"
+      "comment": "Pre-endgame band",
+      "localization": {
+        "ch": "终局前"
+      }
     },
     {
       "targets": [
@@ -851,10 +932,14 @@
       ],
       "conditions": {
         "Rarity": "Magic Rare",
-        "AreaLevel": "<= 33"
+        "AreaLevel": "<= 33",
+        "ItemLevel": "<= 38"
       },
       "overrides": {},
-      "comment": "Early band (Acts 1-3, magic+rare)"
+      "comment": "Early band (Acts 1-3, magic+rare)",
+      "localization": {
+        "ch": "早期（1–3章，魔法+稀有）"
+      }
     },
     {
       "targets": [
@@ -872,10 +957,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 50"
+        "AreaLevel": "<= 50",
+        "ItemLevel": "<= 55"
       },
       "overrides": {},
-      "comment": "Mid band (to Act 5)"
+      "comment": "Mid band (to Act 5)",
+      "localization": {
+        "ch": "中期（至第五章）"
+      }
     },
     {
       "targets": [
@@ -891,10 +980,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 60"
+        "AreaLevel": "<= 60",
+        "ItemLevel": "<= 65"
       },
       "overrides": {},
-      "comment": "Late band (to Act 8)"
+      "comment": "Late band (to Act 8)",
+      "localization": {
+        "ch": "后期（至第八章）"
+      }
     },
     {
       "targets": [
@@ -914,10 +1007,14 @@
       ],
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "overrides": {},
-      "comment": "Pre-endgame band"
+      "comment": "Pre-endgame band",
+      "localization": {
+        "ch": "终局前"
+      }
     }
   ]
 }

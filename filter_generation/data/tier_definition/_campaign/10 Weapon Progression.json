@@ -7,7 +7,7 @@
       },
       "localization": {
         "en": "Weapon Progression",
-        "ch": "武器过渡"
+        "ch": "武器进度"
       },
       "theme_category": "Campaign",
       "tier_order": [
@@ -25,7 +25,7 @@
         "One Hand Swords Rares",
         "Thrusting One Hand Swords Progression",
         "Thrusting One Hand Swords Rares",
-        "Quivers Progression",
+        "Quivers Good Bases",
         "Quivers Rares",
         "Rune Daggers Progression",
         "Rune Daggers Rares",
@@ -50,7 +50,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -65,7 +66,7 @@
       },
       "localization": {
         "en": "Bows Progression",
-        "ch": "弓过渡"
+        "ch": "弓高亮（匹配进度）"
       }
     },
     "Bows Rares": {
@@ -75,7 +76,8 @@
       "conditions": {
         "Class": "== \"Bows\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -90,7 +92,7 @@
       },
       "localization": {
         "en": "Bows Rares",
-        "ch": "弓稀有"
+        "ch": "弓稀有突显"
       }
     },
     "Claws Progression": {
@@ -98,7 +100,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -113,7 +116,7 @@
       },
       "localization": {
         "en": "Claws Progression",
-        "ch": "爪过渡"
+        "ch": "爪高亮（匹配进度）"
       }
     },
     "Claws Rares": {
@@ -123,7 +126,8 @@
       "conditions": {
         "Class": "== \"Claws\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -138,7 +142,7 @@
       },
       "localization": {
         "en": "Claws Rares",
-        "ch": "爪稀有"
+        "ch": "爪稀有突显"
       }
     },
     "Daggers Progression": {
@@ -146,7 +150,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -161,7 +166,7 @@
       },
       "localization": {
         "en": "Daggers Progression",
-        "ch": "匕首过渡"
+        "ch": "匕首高亮（匹配进度）"
       }
     },
     "Daggers Rares": {
@@ -171,7 +176,8 @@
       "conditions": {
         "Class": "== \"Daggers\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -194,7 +200,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -209,7 +216,7 @@
       },
       "localization": {
         "en": "One Hand Axes Progression",
-        "ch": "单手斧过渡"
+        "ch": "单手斧高亮（匹配进度）"
       }
     },
     "One Hand Axes Rares": {
@@ -219,7 +226,8 @@
       "conditions": {
         "Class": "== \"One Hand Axes\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -234,7 +242,7 @@
       },
       "localization": {
         "en": "One Hand Axes Rares",
-        "ch": "单手斧稀有"
+        "ch": "单手斧稀有突显"
       }
     },
     "One Hand Maces Progression": {
@@ -242,7 +250,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -257,7 +266,7 @@
       },
       "localization": {
         "en": "One Hand Maces Progression",
-        "ch": "单手锤过渡"
+        "ch": "单手锤高亮（匹配进度）"
       }
     },
     "One Hand Maces Rares": {
@@ -267,7 +276,8 @@
       "conditions": {
         "Class": "== \"One Hand Maces\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -282,7 +292,7 @@
       },
       "localization": {
         "en": "One Hand Maces Rares",
-        "ch": "单手锤稀有"
+        "ch": "单手锤稀有突显"
       }
     },
     "One Hand Swords Progression": {
@@ -290,7 +300,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -305,7 +316,7 @@
       },
       "localization": {
         "en": "One Hand Swords Progression",
-        "ch": "单手剑过渡"
+        "ch": "单手剑高亮（匹配进度）"
       }
     },
     "One Hand Swords Rares": {
@@ -315,7 +326,8 @@
       "conditions": {
         "Class": "== \"One Hand Swords\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -330,7 +342,7 @@
       },
       "localization": {
         "en": "One Hand Swords Rares",
-        "ch": "单手剑稀有"
+        "ch": "单手剑稀有突显"
       }
     },
     "Thrusting One Hand Swords Progression": {
@@ -338,7 +350,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -353,7 +366,7 @@
       },
       "localization": {
         "en": "Thrusting One Hand Swords Progression",
-        "ch": "细剑过渡"
+        "ch": "细剑高亮（匹配进度）"
       }
     },
     "Thrusting One Hand Swords Rares": {
@@ -363,7 +376,8 @@
       "conditions": {
         "Class": "== \"Thrusting One Hand Swords\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -378,15 +392,16 @@
       },
       "localization": {
         "en": "Thrusting One Hand Swords Rares",
-        "ch": "细剑稀有"
+        "ch": "细剑稀有突显"
       }
     },
-    "Quivers Progression": {
+    "Quivers Good Bases": {
       "_lv": true,
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -400,8 +415,8 @@
         "key": "Quivers"
       },
       "localization": {
-        "en": "Quivers Progression",
-        "ch": "箭袋过渡"
+        "en": "Quivers Good Bases",
+        "ch": "箭袋优质基底"
       }
     },
     "Quivers Rares": {
@@ -411,7 +426,8 @@
       "conditions": {
         "Class": "== \"Quivers\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -426,7 +442,7 @@
       },
       "localization": {
         "en": "Quivers Rares",
-        "ch": "箭袋稀有"
+        "ch": "箭袋稀有突显"
       }
     },
     "Rune Daggers Progression": {
@@ -434,7 +450,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -449,7 +466,7 @@
       },
       "localization": {
         "en": "Rune Daggers Progression",
-        "ch": "符文匕首过渡"
+        "ch": "符文匕首高亮（匹配进度）"
       }
     },
     "Rune Daggers Rares": {
@@ -459,7 +476,8 @@
       "conditions": {
         "Class": "== \"Rune Daggers\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -474,7 +492,7 @@
       },
       "localization": {
         "en": "Rune Daggers Rares",
-        "ch": "符文匕首稀有"
+        "ch": "符文匕首稀有突显"
       }
     },
     "Sceptres Progression": {
@@ -482,7 +500,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -497,7 +516,7 @@
       },
       "localization": {
         "en": "Sceptres Progression",
-        "ch": "短杖过渡"
+        "ch": "短杖高亮（匹配进度）"
       }
     },
     "Sceptres Rares": {
@@ -507,7 +526,8 @@
       "conditions": {
         "Class": "== \"Sceptres\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -522,7 +542,7 @@
       },
       "localization": {
         "en": "Sceptres Rares",
-        "ch": "短杖稀有"
+        "ch": "短杖稀有突显"
       }
     },
     "Staves Progression": {
@@ -530,7 +550,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -545,7 +566,7 @@
       },
       "localization": {
         "en": "Staves Progression",
-        "ch": "长杖过渡"
+        "ch": "长杖高亮（匹配进度）"
       }
     },
     "Staves Rares": {
@@ -555,7 +576,8 @@
       "conditions": {
         "Class": "== \"Staves\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -570,7 +592,7 @@
       },
       "localization": {
         "en": "Staves Rares",
-        "ch": "长杖稀有"
+        "ch": "长杖稀有突显"
       }
     },
     "Two Hand Axes Progression": {
@@ -578,7 +600,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -593,7 +616,7 @@
       },
       "localization": {
         "en": "Two Hand Axes Progression",
-        "ch": "双手斧过渡"
+        "ch": "双手斧高亮（匹配进度）"
       }
     },
     "Two Hand Axes Rares": {
@@ -603,7 +626,8 @@
       "conditions": {
         "Class": "== \"Two Hand Axes\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -618,7 +642,7 @@
       },
       "localization": {
         "en": "Two Hand Axes Rares",
-        "ch": "双手斧稀有"
+        "ch": "双手斧稀有突显"
       }
     },
     "Two Hand Maces Progression": {
@@ -626,7 +650,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -641,7 +666,7 @@
       },
       "localization": {
         "en": "Two Hand Maces Progression",
-        "ch": "双手锤过渡"
+        "ch": "双手锤高亮（匹配进度）"
       }
     },
     "Two Hand Maces Rares": {
@@ -651,7 +676,8 @@
       "conditions": {
         "Class": "== \"Two Hand Maces\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -666,7 +692,7 @@
       },
       "localization": {
         "en": "Two Hand Maces Rares",
-        "ch": "双手锤稀有"
+        "ch": "双手锤稀有突显"
       }
     },
     "Two Hand Swords Progression": {
@@ -674,7 +700,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -689,7 +716,7 @@
       },
       "localization": {
         "en": "Two Hand Swords Progression",
-        "ch": "双手剑过渡"
+        "ch": "双手剑高亮（匹配进度）"
       }
     },
     "Two Hand Swords Rares": {
@@ -699,7 +726,8 @@
       "conditions": {
         "Class": "== \"Two Hand Swords\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -714,7 +742,7 @@
       },
       "localization": {
         "en": "Two Hand Swords Rares",
-        "ch": "双手剑稀有"
+        "ch": "双手剑稀有突显"
       }
     },
     "Wands Progression": {
@@ -722,7 +750,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -737,7 +766,7 @@
       },
       "localization": {
         "en": "Wands Progression",
-        "ch": "法杖过渡"
+        "ch": "法杖高亮（匹配进度）"
       }
     },
     "Wands Rares": {
@@ -747,7 +776,8 @@
       "conditions": {
         "Class": "== \"Wands\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -762,7 +792,7 @@
       },
       "localization": {
         "en": "Wands Rares",
-        "ch": "法杖稀有"
+        "ch": "法杖稀有突显"
       }
     },
     "Warstaves Progression": {
@@ -770,7 +800,8 @@
       "hideable": true,
       "conditions": {
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 2
@@ -785,7 +816,7 @@
       },
       "localization": {
         "en": "Warstaves Progression",
-        "ch": "战杖过渡"
+        "ch": "战杖高亮（匹配进度）"
       }
     },
     "Warstaves Rares": {
@@ -795,7 +826,8 @@
       "conditions": {
         "Class": "== \"Warstaves\"",
         "Rarity": "Rare",
-        "AreaLevel": "<= 67"
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
       },
       "theme": {
         "Tier": 4
@@ -810,7 +842,7 @@
       },
       "localization": {
         "en": "Warstaves Rares",
-        "ch": "战杖稀有"
+        "ch": "战杖稀有突显"
       }
     }
   }

@@ -222,19 +222,17 @@ export const generateFilter = (data: GeneratorData): string => {
   let majorCounter = 0;
   let subCounter = 0;
 
-  // Process all mappings, sorted by path with _campaign FIRST: filters are
-  // first-match-wins and every campaign tier is AreaLevel-guarded (<= 67), so
-  // campaign owns the acts and goes inert at endgame. Other underscore folders
-  // (_legacy, _unclassified) stay last. (Mirrors _sort_key in generate.py.)
-  const pathSortKey = (p: string): string => {
-    const folder = p.split('/')[0];
-    if (folder === '_campaign') return '!campaign' + p.slice('_campaign'.length);
-    if (folder.startsWith('_')) return '~' + p.slice(1);
-    return p;
-  };
+  // Category GENERATION order = explicit `_meta.gen_order` (ascending), then the
+  // relative path. DECOUPLED from nav display order (category_structure) on purpose:
+  // campaign carries gen_order -100 so it emits FIRST (first-match wins during the
+  // acts) even though the nav shows it low. Absent field = 0. Tier order and rule
+  // order are authored in the editor and followed verbatim — never reordered here.
+  // (Mirrors _order_key in generate.py — parity-guarded.)
+  const genOrder = (p: string): number => (allMappings[p]?._meta?.gen_order ?? 0);
   const sortedPaths = Object.keys(allMappings).sort((a, b) => {
-    const ka = pathSortKey(a), kb = pathSortKey(b);
-    return ka < kb ? -1 : ka > kb ? 1 : 0;
+    const ga = genOrder(a), gb = genOrder(b);
+    if (ga !== gb) return ga - gb;
+    return a < b ? -1 : a > b ? 1 : 0;
   });
 
   for (const relPath of sortedPaths) {
@@ -405,7 +403,7 @@ export const generateFilter = (data: GeneratorData): string => {
 
       // Tier label shown in comment headers (e.g. "T1: High End"); the filter
       // command + theme lookup still key off tnum above.
-      const tierDisplay = tierEntry.localization?.en || `Tier ${tnum}`;
+      const tierDisplay = tierEntry.localization?.[language] || tierEntry.localization?.en || `Tier ${tnum}`;
 
       // --- Class-Condition tiers (e.g. _campaign/Armour.json) ---
       // Emit one Class-gated block (no BaseType enumeration) and skip normal
@@ -421,7 +419,7 @@ export const generateFilter = (data: GeneratorData): string => {
         basePlayEff = ttheme.PlayEffect;
         baseMiniIcon = ttheme.MinimapIcon;
         blockIndex++;
-        const ccDisplay = tierEntry.localization?.en || tLbl;
+        const ccDisplay = tierEntry.localization?.[language] || tierEntry.localization?.en || tLbl;
         outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${ccDisplay} ${locCat} - Class Condition==`);
         const ccLines = [`${isHide ? HIDE_CMD : "Show"}`];
         emitConditions(ccLines, tierConditions);
@@ -504,7 +502,9 @@ export const generateFilter = (data: GeneratorData): string => {
             rulePart = `${term('Auto-Sound')}：${itemLocal}`;
           } else {
             ruleCounter++;
-            rulePart = `#${ruleCounter} ${rawComment || term('Rule')}`;
+            // Localizable rule name: rule.localization[lang] -> comment -> "Rule"
+            const ruleName = (rule.localization || {})[language] || rawComment || term('Rule');
+            rulePart = `#${ruleCounter} ${ruleName}`;
           }
 
           const finalMode = term(modeLabel);

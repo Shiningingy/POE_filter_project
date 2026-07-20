@@ -885,6 +885,34 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     }
                     viewerBackground={viewerBackground}
                   />
+                  {tierData.conditions && Object.keys(tierData.conditions).length > 0 && (
+                    <div className="tier-cond-strip" title={t.tierConditionsHint}>
+                      <span className="tc-label">{t.tierConditions}</span>
+                      {Object.entries(tierData.conditions as Record<string, any>).map(([k, v]) => {
+                        const val = typeof v === 'string' && v.startsWith('RANGE ')
+                          ? v.slice(6).replace(/\s+/g, ' ')
+                          : Array.isArray(v) ? v.join(' & ') : String(v);
+                        // Long BaseType lists: show a count, full list on hover
+                        const isLong = val.length > 60;
+                        const shown = isLong ? `${(val.match(/"/g)?.length || 0) / 2} bases` : val;
+                        return (
+                          <span key={k} className="tc-chip" title={`${k} ${val}`}>
+                            {k} {shown}
+                          </span>
+                        );
+                      })}
+                      <style>{`
+                        .tier-cond-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin: 6px 0 2px; }
+                        .tc-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: #8a8a92; }
+                        .tc-chip {
+                          font-size: 0.72rem; font-family: Consolas, monospace;
+                          background: #f0f4f8; border: 1px solid #d1d9e0; border-radius: 4px;
+                          padding: 2px 8px; color: #445; white-space: nowrap;
+                          max-width: 340px; overflow: hidden; text-overflow: ellipsis;
+                        }
+                      `}</style>
+                    </div>
+                  )}
                   {togglable && (
                     <div className="lv-boost-bar">
                       <button

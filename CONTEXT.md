@@ -76,17 +76,46 @@ as a TypeScript port that runs in the browser.
 7. **`filter_generation/complete_filter.filter` is a tracked build artifact.** It may be
    stale relative to source; it's regenerated on demand.
 
-8. **`_campaign` emits FIRST in the generated filter.** PoE filters are
-   first-match-wins; both generators sort `_campaign` before every other folder
-   (other `_`-prefixed folders stay last). The campaign tree is just TWO category
-   files (`Gear Progression.json`, `Flasks.json`); emission order *within* each
-   is `_meta.tier_order` (progression tiers → nets → links → declutter last), and
-   level bands live as per-tier RULES carrying their own Rarity/AreaLevel
-   conditions. Consequence: **every emitting campaign tier AND band rule MUST
-   carry an `AreaLevel` guard (≤ 67)** — an unguarded one would hijack items from
-   the entire endgame filter.
+8. **Emission order is a 3-level hybrid, authored (never auto-sorted).** PoE
+   filters are first-match-wins, so order = specific→general (valuable/precise
+   blocks before broad catch-alls).
+   - **Category (file) order** = each mapping's `_meta.gen_order` (integer,
+     ascending; absent = 0), then relative path. This is **decoupled from nav
+     display order** (`category_structure` order) on purpose: campaign files carry
+     `gen_order: -100` so they emit FIRST (owning the acts), while the nav shows
+     campaign low (opened less often); `_legacy`/`_unclassified` carry `+100`
+     (last). Both generators sort by this — parity-guarded. (Replaced the old
+     `!campaign`/`~` filename hack.)
+   - **Tier order** within a category = `_meta.tier_order`, authored by dragging
+     blocks in the editor. Editor order == generation order.
+   - **Rule order** within a tier = the `rules` array order, authored in
+     RuleManager; rules emit before the tier's base block.
+   The generator follows all three verbatim and never reorders (consistent with
+   invariant #10). Consequence: **every emitting campaign tier AND band rule MUST
+   carry an `AreaLevel` guard (≤ 67)** — an unguarded one, emitting first, would
+   hijack items from the entire endgame filter.
 
-9. **Strictness never applies inside `_campaign`.** Strictness is an endgame-only
+9. **Localization contract (built for N languages).** One canonical string +
+   per-language dicts + a single fallback chain: `loc[lang] → loc.en → raw key`.
+   Data (tiers/categories) carries `localization: {en, ch, …}`; **rules** carry a
+   canonical English `comment` plus an optional `localization: {ch, …}` dict —
+   never bake a translation into `comment`. Both generators resolve displays
+   through this chain (parity-guarded); the Python output language is `LANG`
+   (currently hardcoded `"ch"`), the TS side uses its `language` input. Adding a
+   language = adding dict keys + a `localization.ts` block — no schema changes.
+   (Future: make the output language a generation parameter for localized
+   `.filter` exports.)
+
+10. **No invisible filter logic (user rule, 2026-07-19).** Everything the
+    generators emit must be visible in the editor: condition-driven tiers show
+    their conditions (the condition strip in CategoryView), predefined bands are
+    ordinary RULES in the Rules panel (never generator-side magic), and gates
+    surface as controls (strictness chips, ⚡ enable, dimming). If a predefined
+    behavior can't be seen in the UI, users can't debug a broken rule — show it.
+    (Known remaining exception: `data/footer.filter`, the hand-maintained
+    catch-all appended verbatim — visible only in the filter preview/export.)
+
+11. **Strictness never applies inside `_campaign`.** Strictness is an endgame-only
    mechanism (user decision, 2026-07-18): campaign tiers carry no
    `hide_at_strictness`, and the campaign section renders identically at every
    strictness level. Campaign decluttering is the picker's `hide_unselected`
