@@ -1,0 +1,849 @@
+{
+  "Weapon Progression": {
+    "_meta": {
+      "item_class": {
+        "en": "Weapons",
+        "ch": "武器"
+      },
+      "localization": {
+        "en": "Weapon Progression",
+        "ch": "武器进度"
+      },
+      "theme_category": "Campaign",
+      "tier_order": [
+        "Bows Progression",
+        "Bows Rares",
+        "Claws Progression",
+        "Claws Rares",
+        "Daggers Progression",
+        "Daggers Rares",
+        "One Hand Axes Progression",
+        "One Hand Axes Rares",
+        "One Hand Maces Progression",
+        "One Hand Maces Rares",
+        "One Hand Swords Progression",
+        "One Hand Swords Rares",
+        "Thrusting One Hand Swords Progression",
+        "Thrusting One Hand Swords Rares",
+        "Quivers Good Bases",
+        "Quivers Rares",
+        "Rune Daggers Progression",
+        "Rune Daggers Rares",
+        "Sceptres Progression",
+        "Sceptres Rares",
+        "Staves Progression",
+        "Staves Rares",
+        "Two Hand Axes Progression",
+        "Two Hand Axes Rares",
+        "Two Hand Maces Progression",
+        "Two Hand Maces Rares",
+        "Two Hand Swords Progression",
+        "Two Hand Swords Rares",
+        "Wands Progression",
+        "Wands Rares",
+        "Warstaves Progression",
+        "Warstaves Rares"
+      ]
+    },
+    "Bows Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Bows"
+      },
+      "localization": {
+        "en": "Bows Progression",
+        "ch": "弓高亮（匹配进度）"
+      }
+    },
+    "Bows Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Bows\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Bows"
+      },
+      "localization": {
+        "en": "Bows Rares",
+        "ch": "弓稀有突显"
+      }
+    },
+    "Claws Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Claws"
+      },
+      "localization": {
+        "en": "Claws Progression",
+        "ch": "爪高亮（匹配进度）"
+      }
+    },
+    "Claws Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Claws\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Claws"
+      },
+      "localization": {
+        "en": "Claws Rares",
+        "ch": "爪稀有突显"
+      }
+    },
+    "Daggers Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Daggers"
+      },
+      "localization": {
+        "en": "Daggers Progression",
+        "ch": "匕首高亮（匹配进度）"
+      }
+    },
+    "Daggers Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Daggers\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Daggers"
+      },
+      "localization": {
+        "en": "Daggers Rares",
+        "ch": "匕首稀有"
+      }
+    },
+    "One Hand Axes Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Axes"
+      },
+      "localization": {
+        "en": "One Hand Axes Progression",
+        "ch": "单手斧高亮（匹配进度）"
+      }
+    },
+    "One Hand Axes Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"One Hand Axes\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Axes"
+      },
+      "localization": {
+        "en": "One Hand Axes Rares",
+        "ch": "单手斧稀有突显"
+      }
+    },
+    "One Hand Maces Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Maces"
+      },
+      "localization": {
+        "en": "One Hand Maces Progression",
+        "ch": "单手锤高亮（匹配进度）"
+      }
+    },
+    "One Hand Maces Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"One Hand Maces\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Maces"
+      },
+      "localization": {
+        "en": "One Hand Maces Rares",
+        "ch": "单手锤稀有突显"
+      }
+    },
+    "One Hand Swords Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Swords"
+      },
+      "localization": {
+        "en": "One Hand Swords Progression",
+        "ch": "单手剑高亮（匹配进度）"
+      }
+    },
+    "One Hand Swords Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"One Hand Swords\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "One Hand Swords"
+      },
+      "localization": {
+        "en": "One Hand Swords Rares",
+        "ch": "单手剑稀有突显"
+      }
+    },
+    "Thrusting One Hand Swords Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Thrusting One Hand Swords"
+      },
+      "localization": {
+        "en": "Thrusting One Hand Swords Progression",
+        "ch": "细剑高亮（匹配进度）"
+      }
+    },
+    "Thrusting One Hand Swords Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Thrusting One Hand Swords\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Thrusting One Hand Swords"
+      },
+      "localization": {
+        "en": "Thrusting One Hand Swords Rares",
+        "ch": "细剑稀有突显"
+      }
+    },
+    "Quivers Good Bases": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Quivers"
+      },
+      "localization": {
+        "en": "Quivers Good Bases",
+        "ch": "箭袋优质基底"
+      }
+    },
+    "Quivers Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Quivers\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Quivers"
+      },
+      "localization": {
+        "en": "Quivers Rares",
+        "ch": "箭袋稀有突显"
+      }
+    },
+    "Rune Daggers Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Rune Daggers"
+      },
+      "localization": {
+        "en": "Rune Daggers Progression",
+        "ch": "符文匕首高亮（匹配进度）"
+      }
+    },
+    "Rune Daggers Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Rune Daggers\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Rune Daggers"
+      },
+      "localization": {
+        "en": "Rune Daggers Rares",
+        "ch": "符文匕首稀有突显"
+      }
+    },
+    "Sceptres Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Sceptres"
+      },
+      "localization": {
+        "en": "Sceptres Progression",
+        "ch": "短杖高亮（匹配进度）"
+      }
+    },
+    "Sceptres Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Sceptres\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Sceptres"
+      },
+      "localization": {
+        "en": "Sceptres Rares",
+        "ch": "短杖稀有突显"
+      }
+    },
+    "Staves Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Staves"
+      },
+      "localization": {
+        "en": "Staves Progression",
+        "ch": "长杖高亮（匹配进度）"
+      }
+    },
+    "Staves Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Staves\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Staves"
+      },
+      "localization": {
+        "en": "Staves Rares",
+        "ch": "长杖稀有突显"
+      }
+    },
+    "Two Hand Axes Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Axes"
+      },
+      "localization": {
+        "en": "Two Hand Axes Progression",
+        "ch": "双手斧高亮（匹配进度）"
+      }
+    },
+    "Two Hand Axes Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Two Hand Axes\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Axes"
+      },
+      "localization": {
+        "en": "Two Hand Axes Rares",
+        "ch": "双手斧稀有突显"
+      }
+    },
+    "Two Hand Maces Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Maces"
+      },
+      "localization": {
+        "en": "Two Hand Maces Progression",
+        "ch": "双手锤高亮（匹配进度）"
+      }
+    },
+    "Two Hand Maces Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Two Hand Maces\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Maces"
+      },
+      "localization": {
+        "en": "Two Hand Maces Rares",
+        "ch": "双手锤稀有突显"
+      }
+    },
+    "Two Hand Swords Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Swords"
+      },
+      "localization": {
+        "en": "Two Hand Swords Progression",
+        "ch": "双手剑高亮（匹配进度）"
+      }
+    },
+    "Two Hand Swords Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Two Hand Swords\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Two Hand Swords"
+      },
+      "localization": {
+        "en": "Two Hand Swords Rares",
+        "ch": "双手剑稀有突显"
+      }
+    },
+    "Wands Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Wands"
+      },
+      "localization": {
+        "en": "Wands Progression",
+        "ch": "法杖高亮（匹配进度）"
+      }
+    },
+    "Wands Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Wands\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Wands"
+      },
+      "localization": {
+        "en": "Wands Rares",
+        "ch": "法杖稀有突显"
+      }
+    },
+    "Warstaves Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Warstaves"
+      },
+      "localization": {
+        "en": "Warstaves Progression",
+        "ch": "战杖高亮（匹配进度）"
+      }
+    },
+    "Warstaves Rares": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Warstaves\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "weapon",
+        "key": "Warstaves"
+      },
+      "localization": {
+        "en": "Warstaves Rares",
+        "ch": "战杖稀有突显"
+      }
+    }
+  }
+}

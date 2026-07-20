@@ -10,7 +10,7 @@ import axios from 'axios';
 import { useTranslation, translations, RULE_FACTOR_LOCALIZATION } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import { resolveStyle } from '../utils/styleResolver';
-import { STRICTNESS_LEVELS, type StrictnessLevel } from '../utils/filterGenerator';
+import { STRICTNESS_LEVELS, type StrictnessLevel, type LevelingSelection, isLevelingSelected } from '../utils/filterGenerator';
 
 interface EditorViewProps {
   selectedFile: CategoryFile | null;
@@ -26,6 +26,8 @@ interface EditorViewProps {
   setViewerBackground: (bg: string) => void;
   onJumpToRule?: (filePath: string, ruleIndex?: number) => void;
   strictness?: StrictnessLevel;
+  levelingSelection?: LevelingSelection;
+  onLevelingSelectionChange?: (sel: LevelingSelection) => void;
 }
 
 const EditorView: React.FC<EditorViewProps> = ({
@@ -41,13 +43,18 @@ const EditorView: React.FC<EditorViewProps> = ({
   viewerBackground,
   setViewerBackground,
   onJumpToRule,
-  strictness
+  strictness,
+  levelingSelection,
+  onLevelingSelectionChange
 }) => {
   const t = useTranslation(language);
   const strictnessIdx = Math.max(0, (STRICTNESS_LEVELS as readonly string[]).indexOf(strictness ?? 'soft'));
+  // Effective-hidden for the live preview: a permanent hide bucket, a strictness gate
+  // the current level reaches, OR a leveling tier deselected by the Campaign picker.
   const tierHidden = (td: any): boolean =>
     !!td?.is_hide_tier ||
-    (typeof td?.hide_at_strictness === 'number' && strictnessIdx >= td.hide_at_strictness);
+    (typeof td?.hide_at_strictness === 'number' && strictnessIdx >= td.hide_at_strictness) ||
+    !isLevelingSelected(td?.lv_group, levelingSelection);
   const [inspectedTierKey, setInspectedTierKey] = useState<string | null>(null);
   const [editingRuleIndex, setEditingRuleIndex] = useState<number | null>(null);
   const [pingedCondition, setPingedCondition] = useState<{ tierKey: string, ruleIndex: number, conditionKey: string, timestamp: number } | null>(null);
@@ -411,6 +418,8 @@ const EditorView: React.FC<EditorViewProps> = ({
                   soundMap={soundMap}
                   themeData={themeData}
                   strictness={strictness}
+                  levelingSelection={levelingSelection}
+                  onLevelingSelectionChange={onLevelingSelectionChange}
                 />
             )}
           </div>

@@ -21,6 +21,7 @@ import TierItemManager from "./TierItemManager";
 import BulkTierEditor from "./BulkTierEditor";
 import RuleManager from "./RuleManager";
 import SortableTierBlock from "./SortableTierBlock";
+import TierOutlineRail from "./TierOutlineRail";
 import TierContextMenu from "./TierContextMenu";
 import CategoryRenameModal from "./CategoryRenameModal";
 import LoadingOverlay from "./LoadingOverlay";
@@ -29,7 +30,7 @@ import { resolveStyle } from "../utils/styleResolver";
 import { useTranslation, translations } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import tierTemplate from "../config/tierTemplate.json";
-import { STRICTNESS_LEVELS, type StrictnessLevel } from "../utils/filterGenerator";
+import { STRICTNESS_LEVELS, type StrictnessLevel, type LevelingSelection, isLevelingSelected } from "../utils/filterGenerator";
 
 interface TierItem {
   name: string;
@@ -66,6 +67,8 @@ interface CategoryViewProps {
   themeData?: any;
   categoryClass?: string | null;
   strictness?: StrictnessLevel;
+  levelingSelection?: LevelingSelection;
+  onLevelingSelectionChange?: (sel: LevelingSelection) => void;
 }
 
 const CategoryView: React.FC<CategoryViewProps> = ({
@@ -85,14 +88,18 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   themeData,
   categoryClass,
   strictness,
+  levelingSelection,
+  onLevelingSelectionChange,
 }) => {
   const t = useTranslation(language);
   const strictnessIdx = Math.max(0, (STRICTNESS_LEVELS as readonly string[]).indexOf(strictness ?? 'soft'));
-  // Effective hidden state at the currently-selected strictness (preview only):
-  // a dedicated hide bucket, or a strictness gate that the current level reaches.
+  // Effective hidden state for the preview: a permanent hide bucket, a strictness gate
+  // the current level reaches, or a campaign tier the declutter turns to Hide
+  // (additive model: un-boosted band tiers still SHOW — they are not dimmed).
   const tierHidden = (td: any): boolean =>
     !!td?.is_hide_tier ||
-    (typeof td?.hide_at_strictness === 'number' && strictnessIdx >= td.hide_at_strictness);
+    (typeof td?.hide_at_strictness === 'number' && strictnessIdx >= td.hide_at_strictness) ||
+    !isLevelingSelected(td?.lv_group, levelingSelection);
   // const [themeData, setThemeData] = useState<any>(null); // Lifted to EditorView
   // const [soundMap, setSoundMap] = useState<any>(null); // Lifted
   const [parsedConfig, setParsedConfig] = useState<any>(null);
@@ -764,12 +771,32 @@ const CategoryView: React.FC<CategoryViewProps> = ({
           >
             {sortedTierKeys.map((tierKey, index) => {
               const tierData = activeCategoryData[tierKey];
+              // Campaign group tiers (selection-centric ladder): the ⚡ chip
+              // toggles the group in the same leveling_selection the picker
+              // edits — enabled = the tier emits, disabled = falls to the net.
+              const togglable =
+                tierData.lv_group?.axis === 'weapon' || tierData.lv_group?.axis === 'armour';
+              const lvEnabled = !togglable || isLevelingSelected(tierData.lv_group, levelingSelection);
               const resolved = resolveStyle(
                 tierData,
                 themeData,
                 themeCategory,
                 soundMap,
               );
+              const toggleBoost = () => {
+                if (!onLevelingSelectionChange) return;
+                const lv = tierData.lv_group;
+                const sel: LevelingSelection = {
+                  weapons: [...(levelingSelection?.weapons || [])],
+                  armour_defense: [...(levelingSelection?.armour_defense || [])],
+                  hide_unselected: !!levelingSelection?.hide_unselected,
+                  preset: 'CUSTOM',
+                };
+                const list = lv.axis === 'weapon' ? sel.weapons! : sel.armour_defense!;
+                const at = list.indexOf(lv.key);
+                if (at >= 0) list.splice(at, 1); else list.push(lv.key);
+                onLevelingSelectionChange(sel);
+              };
               const items = derivedTierItems[tierKey] || [];
               const tierNum =
                 tierData.theme?.Tier !== undefined ? tierData.theme.Tier : "?";
@@ -858,6 +885,57 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     }
                     viewerBackground={viewerBackground}
                   />
+                  {tierData.conditions && Object.keys(tierData.conditions).length > 0 && (
+                    <div className="tier-cond-strip" title={t.tierConditionsHint}>
+                      <span className="tc-label">{t.tierConditions}</span>
+                      {Object.entries(tierData.conditions as Record<string, any>).map(([k, v]) => {
+                        const val = typeof v === 'string' && v.startsWith('RANGE ')
+                          ? v.slice(6).replace(/\s+/g, ' ')
+                          : Array.isArray(v) ? v.join(' & ') : String(v);
+                        // Long BaseType lists: show a count, full list on hover
+                        const isLong = val.length > 60;
+                        const shown = isLong ? `${(val.match(/"/g)?.length || 0) / 2} bases` : val;
+                        return (
+                          <span key={k} className="tc-chip" title={`${k} ${val}`}>
+                            {k} {shown}
+                          </span>
+                        );
+                      })}
+                      <style>{`
+                        .tier-cond-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin: 6px 0 2px; }
+                        .tc-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: #8a8a92; }
+                        .tc-chip {
+                          font-size: 0.72rem; font-family: Consolas, monospace;
+                          background: #f0f4f8; border: 1px solid #d1d9e0; border-radius: 4px;
+                          padding: 2px 8px; color: #445; white-space: nowrap;
+                          max-width: 340px; overflow: hidden; text-overflow: ellipsis;
+                        }
+                      `}</style>
+                    </div>
+                  )}
+                  {togglable && (
+                    <div className="lv-boost-bar">
+                      <button
+                        className={`lv-boost-chip ${lvEnabled ? 'on' : ''}`}
+                        title={t.lvBoostHint}
+                        onClick={toggleBoost}
+                      >
+                        ⚡ {lvEnabled ? t.lvBoostedChip : t.lvBoostChip}
+                      </button>
+                      <style>{`
+                        .lv-boost-bar { margin: 6px 0 2px; }
+                        .lv-boost-chip {
+                          font-size: 0.74rem; padding: 3px 12px; border-radius: 12px;
+                          border: 1px solid #3a3c46; background: #24252d; color: #8a8a92;
+                          cursor: pointer; transition: all 0.1s;
+                        }
+                        .lv-boost-chip:hover { border-color: #e0b93a; color: #e0b93a; }
+                        .lv-boost-chip.on {
+                          background: #4a3d10; border-color: #e0b93a; color: #ffd75e; font-weight: 600;
+                        }
+                      `}</style>
+                    </div>
+                  )}
                                                   <TierItemManager 
                                                       tierKey={tierKey}
                                                       items={items}
@@ -924,6 +1002,18 @@ const CategoryView: React.FC<CategoryViewProps> = ({
           + {t.addNewTier}
         </button>
       </div>
+      {/* Secondary outline navbar — big categories (e.g. Campaign Gear
+          Progression) get a sticky jump-to rail instead of more nav entries. */}
+      {tierOptions.length >= 8 && (
+        <TierOutlineRail
+          title={catName}
+          entries={tierOptions.map((o) => ({
+            key: o.key,
+            label: o.label,
+            isHide: o.is_hide_tier,
+          }))}
+        />
+      )}
       {showBulkEditor && activeBulkClass && (
         <BulkTierEditor
           className={activeBulkClass}

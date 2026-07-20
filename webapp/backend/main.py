@@ -193,6 +193,16 @@ def load_translations():
     except Exception as e:
         print(f"Error loading CH base types: {e}")
 
+def item_trans_of(meta_loc: dict) -> dict:
+    """Per-item zh dict from a mapping file's _meta.localization, tolerating both
+    shapes: core files use {'ch': {item: zh}}, nav-rebuild/campaign files use
+    {'ch': '<category zh string>', 'ch_items': {...}}. A string 'ch' used to
+    raise inside the bare except of tier-items/search, silently skipping the
+    whole file (campaign categories showed 0 items in local dev)."""
+    t = meta_loc.get("ch_items") or meta_loc.get("ch") or {}
+    return t if isinstance(t, dict) else {}
+
+
 def load_category_map():
     global CATEGORY_MAP
     print("Loading category map...")
@@ -751,7 +761,7 @@ def search_items(q: str):
             with open(file_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 mapping = data.get("mapping", {})
-                trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
+                trans = item_trans_of(data.get("_meta", {}).get("localization", {}))
                 
                 # Resolve category CH name
                 rel_path = file_path.relative_to(CONFIG_DATA_DIR).as_posix()
@@ -834,7 +844,7 @@ def get_items_by_class(item_class: str):
                 data = json.load(f)
                 mapping = data.get("mapping", {})
                 rules = data.get("rules", [])
-                trans = data.get("_meta", {}).get("localization", {}).get("ch", {})
+                trans = item_trans_of(data.get("_meta", {}).get("localization", {}))
                 
                 # Items specifically in this category
                 all_possible_items = set(mapping.keys())
@@ -1022,7 +1032,7 @@ def get_items_by_tier(request: TierItemsRequest):
                 mapping = data.get("mapping", {})
                 rules = data.get("rules", [])
                 meta = data.get("_meta", {})
-                trans = meta.get("localization", {}).get("ch", {})
+                trans = item_trans_of(meta.get("localization", {}))
                 match_modes = meta.get("match_modes", {})
                 
                 # Evaluate all possible items in this file context
@@ -1084,6 +1094,7 @@ class GenerateRequest(BaseModel):
     game_version: str = "poe1"
     game_mode: str = "normal"
     strictness: str = "soft"
+    leveling_selection: dict = {}  # Campaign picker selection ({} = baseline, picks add T1 boosts)
 
 @app.post("/api/generate")
 def generate_filter_file(request: GenerateRequest = Body(default=GenerateRequest())):
@@ -1092,7 +1103,8 @@ def generate_filter_file(request: GenerateRequest = Body(default=GenerateRequest
         PYTHON_EXECUTABLE, str(FILTER_GEN_DIR / "generate.py"),
         "--mode", mode_arg,
         "--game-version", request.game_version,
-        "--strictness", request.strictness
+        "--strictness", request.strictness,
+        "--leveling-selection", json.dumps(request.leveling_selection or {}),
     ]
     try:
         result = subprocess.run(cmd, check=True, cwd=PROJECT_ROOT,
@@ -1390,7 +1402,7 @@ def get_mapping_info(file_name: str):
                             })
             except Exception: pass
         available_tiers.sort(key=lambda x: int(re.search(r"Tier (\d+)", x["key"]).group(1)) if re.search(r"Tier (\d+)", x["key"]) else 999)
-        return {"content": mapping_content, "theme_category": theme_category, "available_tiers": available_tiers, "item_translations": mapping_content.get("_meta", {}).get("localization", {}).get("ch", {})}
+        return {"content": mapping_content, "theme_category": theme_category, "available_tiers": available_tiers, "item_translations": item_trans_of(mapping_content.get("_meta", {}).get("localization", {}))}
     except Exception as e: raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/config/{config_path:path}")

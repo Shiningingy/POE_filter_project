@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "gen_order": -100,
+    "item_class": {
+      "en": "Equipment",
+      "ch": "装备"
+    },
+    "localization": {
+      "en": "Early Game Highlight",
+      "ch": "早期突显"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {}
+}

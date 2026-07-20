@@ -1,0 +1,1020 @@
+{
+  "_meta": {
+    "gen_order": -100,
+    "item_class": {
+      "en": "Armour",
+      "ch": "防具"
+    },
+    "localization": {
+      "en": "Armour Progression",
+      "ch": "防具过渡"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {
+    "Plate Vest": "Armour Progression",
+    "Chestplate": "Armour Progression",
+    "Copper Plate": "Armour Progression",
+    "War Plate": "Armour Progression",
+    "Full Plate": "Armour Progression",
+    "Arena Plate": "Armour Progression",
+    "Iron Greaves": "Armour Progression",
+    "Steel Greaves": "Armour Progression",
+    "Plated Greaves": "Armour Progression",
+    "Reinforced Greaves": "Armour Progression",
+    "Iron Gauntlets": "Armour Progression",
+    "Plated Gauntlets": "Armour Progression",
+    "Bronze Gauntlets": "Armour Progression",
+    "Iron Hat": "Armour Progression",
+    "Cone Helmet": "Armour Progression",
+    "Barbute Helmet": "Armour Progression",
+    "Close Helmet": "Armour Progression",
+    "Splintered Tower Shield": "Armour Progression",
+    "Corroded Tower Shield": "Armour Progression",
+    "Rawhide Tower Shield": "Armour Progression",
+    "Cedar Tower Shield": "Armour Progression",
+    "Copper Tower Shield": "Armour Progression",
+    "Reinforced Tower Shield": "Armour Progression",
+    "Lordly Plate": "Armour Progression",
+    "Bronze Plate": "Armour Progression",
+    "Battle Plate": "Armour Progression",
+    "Sun Plate": "Armour Progression",
+    "Antique Greaves": "Armour Progression",
+    "Steel Gauntlets": "Armour Progression",
+    "Antique Gauntlets": "Armour Progression",
+    "Gladiator Helmet": "Armour Progression",
+    "Reaver Helmet": "Armour Progression",
+    "Painted Tower Shield": "Armour Progression",
+    "Buckskin Tower Shield": "Armour Progression",
+    "Mahogany Tower Shield": "Armour Progression",
+    "Colosseum Plate": "Armour Progression",
+    "Majestic Plate": "Armour Progression",
+    "Ancient Greaves": "Armour Progression",
+    "Goliath Greaves": "Armour Progression",
+    "Ancient Gauntlets": "Armour Progression",
+    "Goliath Gauntlets": "Armour Progression",
+    "Siege Helmet": "Armour Progression",
+    "Samnite Helmet": "Armour Progression",
+    "Bronze Tower Shield": "Armour Progression",
+    "Girded Tower Shield": "Armour Progression",
+    "Crested Tower Shield": "Armour Progression",
+    "Golden Plate": "Armour Progression",
+    "Crusader Plate": "Armour Progression",
+    "Astral Plate": "Armour Progression",
+    "Gladiator Plate": "Armour Progression",
+    "Vaal Greaves": "Armour Progression",
+    "Vaal Gauntlets": "Armour Progression",
+    "Ezomyte Burgonet": "Armour Progression",
+    "Royal Burgonet": "Armour Progression",
+    "Shagreen Tower Shield": "Armour Progression",
+    "Ebony Tower Shield": "Armour Progression",
+    "Ezomyte Tower Shield": "Armour Progression",
+    "Colossal Tower Shield": "Armour Progression",
+    "Scale Vest": "AR/EV Progression",
+    "Light Brigandine": "AR/EV Progression",
+    "Scale Doublet": "AR/EV Progression",
+    "Infantry Brigandine": "AR/EV Progression",
+    "Full Scale Armour": "AR/EV Progression",
+    "Soldier's Brigandine": "AR/EV Progression",
+    "Leatherscale Boots": "AR/EV Progression",
+    "Ironscale Boots": "AR/EV Progression",
+    "Bronzescale Boots": "AR/EV Progression",
+    "Fishscale Gauntlets": "AR/EV Progression",
+    "Ironscale Gauntlets": "AR/EV Progression",
+    "Bronzescale Gauntlets": "AR/EV Progression",
+    "Battered Helm": "AR/EV Progression",
+    "Sallet": "AR/EV Progression",
+    "Visored Sallet": "AR/EV Progression",
+    "Gilded Sallet": "AR/EV Progression",
+    "Rotted Round Shield": "AR/EV Progression",
+    "Fir Round Shield": "AR/EV Progression",
+    "Studded Round Shield": "AR/EV Progression",
+    "Scarlet Round Shield": "AR/EV Progression",
+    "Splendid Round Shield": "AR/EV Progression",
+    "Field Lamellar": "AR/EV Progression",
+    "Wyrmscale Doublet": "AR/EV Progression",
+    "Hussar Brigandine": "AR/EV Progression",
+    "Steelscale Boots": "AR/EV Progression",
+    "Serpentscale Boots": "AR/EV Progression",
+    "Steelscale Gauntlets": "AR/EV Progression",
+    "Serpentscale Gauntlets": "AR/EV Progression",
+    "Secutor Helm": "AR/EV Progression",
+    "Fencer Helm": "AR/EV Progression",
+    "Maple Round Shield": "AR/EV Progression",
+    "Spiked Round Shield": "AR/EV Progression",
+    "Full Wyrmscale": "AR/EV Progression",
+    "Commander's Brigandine": "AR/EV Progression",
+    "Battle Lamellar": "AR/EV Progression",
+    "Wyrmscale Boots": "AR/EV Progression",
+    "Wyrmscale Gauntlets": "AR/EV Progression",
+    "Lacquered Helmet": "AR/EV Progression",
+    "Crimson Round Shield": "AR/EV Progression",
+    "Baroque Round Shield": "AR/EV Progression",
+    "Dragonscale Doublet": "AR/EV Progression",
+    "Desert Brigandine": "AR/EV Progression",
+    "Full Dragonscale": "AR/EV Progression",
+    "General's Brigandine": "AR/EV Progression",
+    "Hydrascale Boots": "AR/EV Progression",
+    "Dragonscale Boots": "AR/EV Progression",
+    "Hydrascale Gauntlets": "AR/EV Progression",
+    "Dragonscale Gauntlets": "AR/EV Progression",
+    "Fluted Bascinet": "AR/EV Progression",
+    "Pig-Faced Bascinet": "AR/EV Progression",
+    "Nightmare Bascinet": "AR/EV Progression",
+    "Teak Round Shield": "AR/EV Progression",
+    "Spiny Round Shield": "AR/EV Progression",
+    "Cardinal Round Shield": "AR/EV Progression",
+    "Shabby Jerkin": "Evasion Progression",
+    "Strapped Leather": "Evasion Progression",
+    "Buckskin Tunic": "Evasion Progression",
+    "Wild Leather": "Evasion Progression",
+    "Full Leather": "Evasion Progression",
+    "Sun Leather": "Evasion Progression",
+    "Rawhide Boots": "Evasion Progression",
+    "Goathide Boots": "Evasion Progression",
+    "Deerskin Boots": "Evasion Progression",
+    "Rawhide Gloves": "Evasion Progression",
+    "Goathide Gloves": "Evasion Progression",
+    "Deerskin Gloves": "Evasion Progression",
+    "Nubuck Gloves": "Evasion Progression",
+    "Leather Cap": "Evasion Progression",
+    "Tricorne": "Evasion Progression",
+    "Leather Hood": "Evasion Progression",
+    "Wolf Pelt": "Evasion Progression",
+    "Goathide Buckler": "Evasion Progression",
+    "Pine Buckler": "Evasion Progression",
+    "Painted Buckler": "Evasion Progression",
+    "Hammered Buckler": "Evasion Progression",
+    "War Buckler": "Evasion Progression",
+    "Thief's Garb": "Evasion Progression",
+    "Eelskin Tunic": "Evasion Progression",
+    "Frontier Leather": "Evasion Progression",
+    "Glorious Leather": "Evasion Progression",
+    "Nubuck Boots": "Evasion Progression",
+    "Eelskin Boots": "Evasion Progression",
+    "Sharkskin Boots": "Evasion Progression",
+    "Eelskin Gloves": "Evasion Progression",
+    "Sharkskin Gloves": "Evasion Progression",
+    "Hunter Hood": "Evasion Progression",
+    "Gilded Buckler": "Evasion Progression",
+    "Oak Buckler": "Evasion Progression",
+    "Enameled Buckler": "Evasion Progression",
+    "Coronal Leather": "Evasion Progression",
+    "Cutthroat's Garb": "Evasion Progression",
+    "Shagreen Boots": "Evasion Progression",
+    "Shagreen Gloves": "Evasion Progression",
+    "Noble Tricorne": "Evasion Progression",
+    "Ursine Pelt": "Evasion Progression",
+    "Corrugated Buckler": "Evasion Progression",
+    "Battle Buckler": "Evasion Progression",
+    "Golden Buckler": "Evasion Progression",
+    "Sharkskin Tunic": "Evasion Progression",
+    "Destiny Leather": "Evasion Progression",
+    "Exquisite Leather": "Evasion Progression",
+    "Zodiac Leather": "Evasion Progression",
+    "Stealth Boots": "Evasion Progression",
+    "Stealth Gloves": "Evasion Progression",
+    "Silken Hood": "Evasion Progression",
+    "Sinner Tricorne": "Evasion Progression",
+    "Ironwood Buckler": "Evasion Progression",
+    "Lacquered Buckler": "Evasion Progression",
+    "Vaal Buckler": "Evasion Progression",
+    "Crusader Buckler": "Evasion Progression",
+    "Padded Vest": "EV/ES Progression",
+    "Oiled Vest": "EV/ES Progression",
+    "Padded Jacket": "EV/ES Progression",
+    "Oiled Coat": "EV/ES Progression",
+    "Scarlet Raiment": "EV/ES Progression",
+    "Waxed Garb": "EV/ES Progression",
+    "Wrapped Boots": "EV/ES Progression",
+    "Strapped Boots": "EV/ES Progression",
+    "Clasped Boots": "EV/ES Progression",
+    "Wrapped Mitts": "EV/ES Progression",
+    "Strapped Mitts": "EV/ES Progression",
+    "Clasped Mitts": "EV/ES Progression",
+    "Scare Mask": "EV/ES Progression",
+    "Plague Mask": "EV/ES Progression",
+    "Iron Mask": "EV/ES Progression",
+    "Festival Mask": "EV/ES Progression",
+    "Spiked Bundle": "EV/ES Progression",
+    "Driftwood Spiked Shield": "EV/ES Progression",
+    "Alloyed Spiked Shield": "EV/ES Progression",
+    "Burnished Spiked Shield": "EV/ES Progression",
+    "Ornate Spiked Shield": "EV/ES Progression",
+    "Bone Armour": "EV/ES Progression",
+    "Quilted Jacket": "EV/ES Progression",
+    "Sleek Coat": "EV/ES Progression",
+    "Shackled Boots": "EV/ES Progression",
+    "Trapper Boots": "EV/ES Progression",
+    "Trapper Mitts": "EV/ES Progression",
+    "Ambush Mitts": "EV/ES Progression",
+    "Golden Mask": "EV/ES Progression",
+    "Raven Mask": "EV/ES Progression",
+    "Callous Mask": "EV/ES Progression",
+    "Redwood Spiked Shield": "EV/ES Progression",
+    "Compound Spiked Shield": "EV/ES Progression",
+    "Crimson Raiment": "EV/ES Progression",
+    "Lacquered Garb": "EV/ES Progression",
+    "Ambush Boots": "EV/ES Progression",
+    "Carnal Boots": "EV/ES Progression",
+    "Carnal Mitts": "EV/ES Progression",
+    "Regicide Mask": "EV/ES Progression",
+    "Polished Spiked Shield": "EV/ES Progression",
+    "Sovereign Spiked Shield": "EV/ES Progression",
+    "Crypt Armour": "EV/ES Progression",
+    "Sentinel Jacket": "EV/ES Progression",
+    "Varnished Coat": "EV/ES Progression",
+    "Blood Raiment": "EV/ES Progression",
+    "Assassin's Boots": "EV/ES Progression",
+    "Assassin's Mitts": "EV/ES Progression",
+    "Murder Mitts": "EV/ES Progression",
+    "Harlequin Mask": "EV/ES Progression",
+    "Vaal Mask": "EV/ES Progression",
+    "Deicide Mask": "EV/ES Progression",
+    "Alder Spiked Shield": "EV/ES Progression",
+    "Ezomyte Spiked Shield": "EV/ES Progression",
+    "Mirrored Spiked Shield": "EV/ES Progression",
+    "Simple Robe": "Energy Shield Progression",
+    "Silken Vest": "Energy Shield Progression",
+    "Scholar's Robe": "Energy Shield Progression",
+    "Silken Garb": "Energy Shield Progression",
+    "Mage's Vestment": "Energy Shield Progression",
+    "Silk Robe": "Energy Shield Progression",
+    "Wool Shoes": "Energy Shield Progression",
+    "Velvet Slippers": "Energy Shield Progression",
+    "Silk Slippers": "Energy Shield Progression",
+    "Scholar Boots": "Energy Shield Progression",
+    "Wool Gloves": "Energy Shield Progression",
+    "Velvet Gloves": "Energy Shield Progression",
+    "Silk Gloves": "Energy Shield Progression",
+    "Vine Circlet": "Energy Shield Progression",
+    "Iron Circlet": "Energy Shield Progression",
+    "Torture Cage": "Energy Shield Progression",
+    "Tribal Circlet": "Energy Shield Progression",
+    "Twig Spirit Shield": "Energy Shield Progression",
+    "Yew Spirit Shield": "Energy Shield Progression",
+    "Bone Spirit Shield": "Energy Shield Progression",
+    "Tarnished Spirit Shield": "Energy Shield Progression",
+    "Jingling Spirit Shield": "Energy Shield Progression",
+    "Brass Spirit Shield": "Energy Shield Progression",
+    "Cabalist Regalia": "Energy Shield Progression",
+    "Sage's Robe": "Energy Shield Progression",
+    "Silken Wrap": "Energy Shield Progression",
+    "Conjurer's Vestment": "Energy Shield Progression",
+    "Satin Slippers": "Energy Shield Progression",
+    "Samite Slippers": "Energy Shield Progression",
+    "Embroidered Gloves": "Energy Shield Progression",
+    "Satin Gloves": "Energy Shield Progression",
+    "Bone Circlet": "Energy Shield Progression",
+    "Lunaris Circlet": "Energy Shield Progression",
+    "Walnut Spirit Shield": "Energy Shield Progression",
+    "Ivory Spirit Shield": "Energy Shield Progression",
+    "Ancient Spirit Shield": "Energy Shield Progression",
+    "Spidersilk Robe": "Energy Shield Progression",
+    "Destroyer Regalia": "Energy Shield Progression",
+    "Conjurer Boots": "Energy Shield Progression",
+    "Samite Gloves": "Energy Shield Progression",
+    "Conjurer Gloves": "Energy Shield Progression",
+    "Steel Circlet": "Energy Shield Progression",
+    "Necromancer Circlet": "Energy Shield Progression",
+    "Chiming Spirit Shield": "Energy Shield Progression",
+    "Thorium Spirit Shield": "Energy Shield Progression",
+    "Savant's Robe": "Energy Shield Progression",
+    "Necromancer Silks": "Energy Shield Progression",
+    "Occultist's Vestment": "Energy Shield Progression",
+    "Widowsilk Robe": "Energy Shield Progression",
+    "Arcanist Slippers": "Energy Shield Progression",
+    "Sorcerer Boots": "Energy Shield Progression",
+    "Arcanist Gloves": "Energy Shield Progression",
+    "Solaris Circlet": "Energy Shield Progression",
+    "Mind Cage": "Energy Shield Progression",
+    "Lacewood Spirit Shield": "Energy Shield Progression",
+    "Fossilised Spirit Shield": "Energy Shield Progression",
+    "Vaal Spirit Shield": "Energy Shield Progression",
+    "Harmonic Spirit Shield": "Energy Shield Progression",
+    "Chainmail Vest": "AR/ES Progression",
+    "Chainmail Tunic": "AR/ES Progression",
+    "Ringmail Coat": "AR/ES Progression",
+    "Chainmail Doublet": "AR/ES Progression",
+    "Full Ringmail": "AR/ES Progression",
+    "Full Chainmail": "AR/ES Progression",
+    "Chain Boots": "AR/ES Progression",
+    "Ringmail Boots": "AR/ES Progression",
+    "Mesh Boots": "AR/ES Progression",
+    "Chain Gloves": "AR/ES Progression",
+    "Ringmail Gloves": "AR/ES Progression",
+    "Mesh Gloves": "AR/ES Progression",
+    "Rusted Coif": "AR/ES Progression",
+    "Soldier Helmet": "AR/ES Progression",
+    "Great Helmet": "AR/ES Progression",
+    "Crusader Helmet": "AR/ES Progression",
+    "Plank Kite Shield": "AR/ES Progression",
+    "Linden Kite Shield": "AR/ES Progression",
+    "Reinforced Kite Shield": "AR/ES Progression",
+    "Layered Kite Shield": "AR/ES Progression",
+    "Holy Chainmail": "AR/ES Progression",
+    "Latticed Ringmail": "AR/ES Progression",
+    "Crusader Chainmail": "AR/ES Progression",
+    "Riveted Boots": "AR/ES Progression",
+    "Zealot Boots": "AR/ES Progression",
+    "Riveted Gloves": "AR/ES Progression",
+    "Zealot Gloves": "AR/ES Progression",
+    "Aventail Helmet": "AR/ES Progression",
+    "Zealot Helmet": "AR/ES Progression",
+    "Ceremonial Kite Shield": "AR/ES Progression",
+    "Etched Kite Shield": "AR/ES Progression",
+    "Ornate Ringmail": "AR/ES Progression",
+    "Chain Hauberk": "AR/ES Progression",
+    "Devout Chainmail": "AR/ES Progression",
+    "Soldier Boots": "AR/ES Progression",
+    "Soldier Gloves": "AR/ES Progression",
+    "Great Crown": "AR/ES Progression",
+    "Steel Kite Shield": "AR/ES Progression",
+    "Laminated Kite Shield": "AR/ES Progression",
+    "Angelic Kite Shield": "AR/ES Progression",
+    "Loricated Ringmail": "AR/ES Progression",
+    "Conquest Chainmail": "AR/ES Progression",
+    "Elegant Ringmail": "AR/ES Progression",
+    "Saint's Hauberk": "AR/ES Progression",
+    "Legion Boots": "AR/ES Progression",
+    "Crusader Boots": "AR/ES Progression",
+    "Legion Gloves": "AR/ES Progression",
+    "Crusader Gloves": "AR/ES Progression",
+    "Magistrate Crown": "AR/ES Progression",
+    "Prophet Crown": "AR/ES Progression",
+    "Branded Kite Shield": "AR/ES Progression",
+    "Champion Kite Shield": "AR/ES Progression",
+    "Mosaic Kite Shield": "AR/ES Progression"
+  },
+  "rules": [
+    {
+      "targets": [
+        "Plate Vest",
+        "Iron Greaves",
+        "Iron Gauntlets",
+        "Iron Hat",
+        "Splintered Tower Shield",
+        "Corroded Tower Shield",
+        "Chestplate",
+        "Cone Helmet",
+        "Steel Greaves",
+        "Plated Gauntlets",
+        "Rawhide Tower Shield",
+        "Copper Plate",
+        "Cedar Tower Shield",
+        "Barbute Helmet",
+        "War Plate",
+        "Plated Greaves",
+        "Bronze Gauntlets",
+        "Copper Tower Shield",
+        "Close Helmet",
+        "Full Plate",
+        "Reinforced Tower Shield",
+        "Arena Plate",
+        "Reinforced Greaves"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33",
+        "ItemLevel": "<= 38"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)",
+      "localization": {
+        "ch": "早期（1–3章，魔法+稀有）"
+      }
+    },
+    {
+      "targets": [
+        "Lordly Plate",
+        "Steel Gauntlets",
+        "Gladiator Helmet",
+        "Painted Tower Shield",
+        "Bronze Plate",
+        "Antique Greaves",
+        "Antique Gauntlets",
+        "Buckskin Tower Shield",
+        "Reaver Helmet",
+        "Battle Plate",
+        "Mahogany Tower Shield",
+        "Sun Plate"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50",
+        "ItemLevel": "<= 55"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)",
+      "localization": {
+        "ch": "中期（至第五章）"
+      }
+    },
+    {
+      "targets": [
+        "Ancient Greaves",
+        "Ancient Gauntlets",
+        "Bronze Tower Shield",
+        "Siege Helmet",
+        "Colosseum Plate",
+        "Girded Tower Shield",
+        "Majestic Plate",
+        "Goliath Gauntlets",
+        "Goliath Greaves",
+        "Samnite Helmet",
+        "Crested Tower Shield"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60",
+        "ItemLevel": "<= 65"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)",
+      "localization": {
+        "ch": "后期（至第八章）"
+      }
+    },
+    {
+      "targets": [
+        "Golden Plate",
+        "Shagreen Tower Shield",
+        "Crusader Plate",
+        "Ezomyte Burgonet",
+        "Ebony Tower Shield",
+        "Astral Plate",
+        "Vaal Greaves",
+        "Vaal Gauntlets",
+        "Ezomyte Tower Shield",
+        "Gladiator Plate",
+        "Royal Burgonet",
+        "Colossal Tower Shield"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band",
+      "localization": {
+        "ch": "终局前"
+      }
+    },
+    {
+      "targets": [
+        "Scale Vest",
+        "Fishscale Gauntlets",
+        "Battered Helm",
+        "Rotted Round Shield",
+        "Leatherscale Boots",
+        "Light Brigandine",
+        "Fir Round Shield",
+        "Sallet",
+        "Ironscale Gauntlets",
+        "Scale Doublet",
+        "Ironscale Boots",
+        "Studded Round Shield",
+        "Infantry Brigandine",
+        "Visored Sallet",
+        "Bronzescale Gauntlets",
+        "Scarlet Round Shield",
+        "Full Scale Armour",
+        "Bronzescale Boots",
+        "Soldier's Brigandine",
+        "Gilded Sallet",
+        "Splendid Round Shield"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33",
+        "ItemLevel": "<= 38"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)",
+      "localization": {
+        "ch": "早期（1–3章，魔法+稀有）"
+      }
+    },
+    {
+      "targets": [
+        "Field Lamellar",
+        "Steelscale Boots",
+        "Steelscale Gauntlets",
+        "Secutor Helm",
+        "Wyrmscale Doublet",
+        "Maple Round Shield",
+        "Hussar Brigandine",
+        "Serpentscale Boots",
+        "Serpentscale Gauntlets",
+        "Fencer Helm",
+        "Spiked Round Shield"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50",
+        "ItemLevel": "<= 55"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)",
+      "localization": {
+        "ch": "中期（至第五章）"
+      }
+    },
+    {
+      "targets": [
+        "Full Wyrmscale",
+        "Wyrmscale Gauntlets",
+        "Crimson Round Shield",
+        "Commander's Brigandine",
+        "Wyrmscale Boots",
+        "Lacquered Helmet",
+        "Battle Lamellar",
+        "Baroque Round Shield"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60",
+        "ItemLevel": "<= 65"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)",
+      "localization": {
+        "ch": "后期（至第八章）"
+      }
+    },
+    {
+      "targets": [
+        "Dragonscale Doublet",
+        "Fluted Bascinet",
+        "Teak Round Shield",
+        "Hydrascale Boots",
+        "Hydrascale Gauntlets",
+        "Desert Brigandine",
+        "Spiny Round Shield",
+        "Full Dragonscale",
+        "Pig-Faced Bascinet",
+        "Dragonscale Boots",
+        "General's Brigandine",
+        "Cardinal Round Shield",
+        "Dragonscale Gauntlets",
+        "Nightmare Bascinet"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band",
+      "localization": {
+        "ch": "终局前"
+      }
+    },
+    {
+      "targets": [
+        "Shabby Jerkin",
+        "Goathide Buckler",
+        "Rawhide Boots",
+        "Rawhide Gloves",
+        "Leather Cap",
+        "Pine Buckler",
+        "Strapped Leather",
+        "Goathide Gloves",
+        "Tricorne",
+        "Goathide Boots",
+        "Painted Buckler",
+        "Buckskin Tunic",
+        "Leather Hood",
+        "Deerskin Gloves",
+        "Deerskin Boots",
+        "Hammered Buckler",
+        "Wild Leather",
+        "Full Leather",
+        "War Buckler",
+        "Wolf Pelt",
+        "Sun Leather",
+        "Nubuck Gloves"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33",
+        "ItemLevel": "<= 38"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)",
+      "localization": {
+        "ch": "早期（1–3章，魔法+稀有）"
+      }
+    },
+    {
+      "targets": [
+        "Nubuck Boots",
+        "Gilded Buckler",
+        "Thief's Garb",
+        "Eelskin Tunic",
+        "Eelskin Gloves",
+        "Oak Buckler",
+        "Eelskin Boots",
+        "Frontier Leather",
+        "Hunter Hood",
+        "Enameled Buckler",
+        "Sharkskin Boots",
+        "Glorious Leather",
+        "Sharkskin Gloves"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50",
+        "ItemLevel": "<= 55"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)",
+      "localization": {
+        "ch": "中期（至第五章）"
+      }
+    },
+    {
+      "targets": [
+        "Corrugated Buckler",
+        "Noble Tricorne",
+        "Coronal Leather",
+        "Battle Buckler",
+        "Cutthroat's Garb",
+        "Shagreen Gloves",
+        "Golden Buckler",
+        "Shagreen Boots",
+        "Ursine Pelt"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60",
+        "ItemLevel": "<= 65"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)",
+      "localization": {
+        "ch": "后期（至第八章）"
+      }
+    },
+    {
+      "targets": [
+        "Sharkskin Tunic",
+        "Ironwood Buckler",
+        "Destiny Leather",
+        "Silken Hood",
+        "Lacquered Buckler",
+        "Exquisite Leather",
+        "Stealth Boots",
+        "Stealth Gloves",
+        "Vaal Buckler",
+        "Sinner Tricorne",
+        "Zodiac Leather",
+        "Crusader Buckler"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band",
+      "localization": {
+        "ch": "终局前"
+      }
+    },
+    {
+      "targets": [
+        "Padded Vest",
+        "Scare Mask",
+        "Wrapped Mitts",
+        "Spiked Bundle",
+        "Wrapped Boots",
+        "Oiled Vest",
+        "Plague Mask",
+        "Driftwood Spiked Shield",
+        "Strapped Boots",
+        "Strapped Mitts",
+        "Iron Mask",
+        "Padded Jacket",
+        "Alloyed Spiked Shield",
+        "Oiled Coat",
+        "Clasped Boots",
+        "Burnished Spiked Shield",
+        "Scarlet Raiment",
+        "Festival Mask",
+        "Clasped Mitts",
+        "Waxed Garb",
+        "Ornate Spiked Shield"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33",
+        "ItemLevel": "<= 38"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)",
+      "localization": {
+        "ch": "早期（1–3章，魔法+稀有）"
+      }
+    },
+    {
+      "targets": [
+        "Shackled Boots",
+        "Bone Armour",
+        "Golden Mask",
+        "Trapper Mitts",
+        "Raven Mask",
+        "Redwood Spiked Shield",
+        "Quilted Jacket",
+        "Trapper Boots",
+        "Sleek Coat",
+        "Ambush Mitts",
+        "Callous Mask",
+        "Compound Spiked Shield"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50",
+        "ItemLevel": "<= 55"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)",
+      "localization": {
+        "ch": "中期（至第五章）"
+      }
+    },
+    {
+      "targets": [
+        "Ambush Boots",
+        "Crimson Raiment",
+        "Polished Spiked Shield",
+        "Carnal Mitts",
+        "Lacquered Garb",
+        "Regicide Mask",
+        "Sovereign Spiked Shield",
+        "Carnal Boots"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60",
+        "ItemLevel": "<= 65"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)",
+      "localization": {
+        "ch": "后期（至第八章）"
+      }
+    },
+    {
+      "targets": [
+        "Crypt Armour",
+        "Harlequin Mask",
+        "Assassin's Mitts",
+        "Alder Spiked Shield",
+        "Sentinel Jacket",
+        "Varnished Coat",
+        "Vaal Mask",
+        "Ezomyte Spiked Shield",
+        "Assassin's Boots",
+        "Blood Raiment",
+        "Mirrored Spiked Shield",
+        "Murder Mitts",
+        "Deicide Mask"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band",
+      "localization": {
+        "ch": "终局前"
+      }
+    },
+    {
+      "targets": [
+        "Simple Robe",
+        "Wool Shoes",
+        "Wool Gloves",
+        "Vine Circlet",
+        "Twig Spirit Shield",
+        "Iron Circlet",
+        "Velvet Slippers",
+        "Yew Spirit Shield",
+        "Silken Vest",
+        "Velvet Gloves",
+        "Bone Spirit Shield",
+        "Torture Cage",
+        "Scholar's Robe",
+        "Silk Slippers",
+        "Tarnished Spirit Shield",
+        "Silken Garb",
+        "Silk Gloves",
+        "Tribal Circlet",
+        "Mage's Vestment",
+        "Jingling Spirit Shield",
+        "Silk Robe",
+        "Scholar Boots",
+        "Brass Spirit Shield"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33",
+        "ItemLevel": "<= 38"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)",
+      "localization": {
+        "ch": "早期（1–3章，魔法+稀有）"
+      }
+    },
+    {
+      "targets": [
+        "Bone Circlet",
+        "Cabalist Regalia",
+        "Embroidered Gloves",
+        "Sage's Robe",
+        "Walnut Spirit Shield",
+        "Satin Slippers",
+        "Lunaris Circlet",
+        "Silken Wrap",
+        "Satin Gloves",
+        "Ivory Spirit Shield",
+        "Samite Slippers",
+        "Conjurer's Vestment",
+        "Ancient Spirit Shield"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50",
+        "ItemLevel": "<= 55"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)",
+      "localization": {
+        "ch": "中期（至第五章）"
+      }
+    },
+    {
+      "targets": [
+        "Samite Gloves",
+        "Steel Circlet",
+        "Spidersilk Robe",
+        "Chiming Spirit Shield",
+        "Destroyer Regalia",
+        "Conjurer Boots",
+        "Thorium Spirit Shield",
+        "Necromancer Circlet",
+        "Conjurer Gloves"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60",
+        "ItemLevel": "<= 65"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)",
+      "localization": {
+        "ch": "后期（至第八章）"
+      }
+    },
+    {
+      "targets": [
+        "Savant's Robe",
+        "Lacewood Spirit Shield",
+        "Necromancer Silks",
+        "Solaris Circlet",
+        "Fossilised Spirit Shield",
+        "Arcanist Gloves",
+        "Arcanist Slippers",
+        "Occultist's Vestment",
+        "Vaal Spirit Shield",
+        "Widowsilk Robe",
+        "Mind Cage",
+        "Harmonic Spirit Shield",
+        "Sorcerer Boots"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band",
+      "localization": {
+        "ch": "终局前"
+      }
+    },
+    {
+      "targets": [
+        "Chainmail Vest",
+        "Chain Boots",
+        "Rusted Coif",
+        "Chain Gloves",
+        "Plank Kite Shield",
+        "Chainmail Tunic",
+        "Soldier Helmet",
+        "Ringmail Boots",
+        "Linden Kite Shield",
+        "Ringmail Coat",
+        "Ringmail Gloves",
+        "Reinforced Kite Shield",
+        "Chainmail Doublet",
+        "Great Helmet",
+        "Layered Kite Shield",
+        "Full Ringmail",
+        "Mesh Boots",
+        "Crusader Helmet",
+        "Full Chainmail",
+        "Mesh Gloves"
+      ],
+      "conditions": {
+        "Rarity": "Magic Rare",
+        "AreaLevel": "<= 33",
+        "ItemLevel": "<= 38"
+      },
+      "overrides": {},
+      "comment": "Early band (Acts 1-3, magic+rare)",
+      "localization": {
+        "ch": "早期（1–3章，魔法+稀有）"
+      }
+    },
+    {
+      "targets": [
+        "Ceremonial Kite Shield",
+        "Holy Chainmail",
+        "Riveted Boots",
+        "Riveted Gloves",
+        "Aventail Helmet",
+        "Latticed Ringmail",
+        "Zealot Boots",
+        "Etched Kite Shield",
+        "Crusader Chainmail",
+        "Zealot Gloves",
+        "Zealot Helmet"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 50",
+        "ItemLevel": "<= 55"
+      },
+      "overrides": {},
+      "comment": "Mid band (to Act 5)",
+      "localization": {
+        "ch": "中期（至第五章）"
+      }
+    },
+    {
+      "targets": [
+        "Steel Kite Shield",
+        "Ornate Ringmail",
+        "Soldier Boots",
+        "Laminated Kite Shield",
+        "Chain Hauberk",
+        "Soldier Gloves",
+        "Great Crown",
+        "Devout Chainmail",
+        "Angelic Kite Shield"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 60",
+        "ItemLevel": "<= 65"
+      },
+      "overrides": {},
+      "comment": "Late band (to Act 8)",
+      "localization": {
+        "ch": "后期（至第八章）"
+      }
+    },
+    {
+      "targets": [
+        "Legion Gloves",
+        "Loricated Ringmail",
+        "Legion Boots",
+        "Magistrate Crown",
+        "Branded Kite Shield",
+        "Conquest Chainmail",
+        "Champion Kite Shield",
+        "Prophet Crown",
+        "Elegant Ringmail",
+        "Crusader Boots",
+        "Mosaic Kite Shield",
+        "Crusader Gloves",
+        "Saint's Hauberk"
+      ],
+      "conditions": {
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "overrides": {},
+      "comment": "Pre-endgame band",
+      "localization": {
+        "ch": "终局前"
+      }
+    }
+  ]
+}

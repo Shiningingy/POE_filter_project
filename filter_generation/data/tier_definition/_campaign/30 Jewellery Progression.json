@@ -1,0 +1,98 @@
+{
+  "Jewellery Progression": {
+    "_meta": {
+      "item_class": {
+        "en": "Jewellery",
+        "ch": "首饰"
+      },
+      "localization": {
+        "en": "Jewellery Progression",
+        "ch": "首饰过渡"
+      },
+      "theme_category": "Campaign",
+      "tier_order": [
+        "Jewellery Good Rare",
+        "Jewellery Good LowRarity",
+        "Jewellery Any Rare"
+      ]
+    },
+    "Jewellery Good Rare": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "== \"Ruby Ring\" \"Sapphire Ring\" \"Topaz Ring\" \"Two-Stone Ring\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "campaign"
+      },
+      "localization": {
+        "en": "Good Base (Rare)",
+        "ch": "优质底子（稀有）"
+      }
+    },
+    "Jewellery Good LowRarity": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "== \"Ruby Ring\" \"Sapphire Ring\" \"Topaz Ring\" \"Two-Stone Ring\"",
+        "Rarity": "Normal Magic",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 7
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "campaign"
+      },
+      "localization": {
+        "en": "Good Base (Normal/Magic)",
+        "ch": "优质底子（普/魔）"
+      }
+    },
+    "Jewellery Any Rare": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Amulets\" \"Belts\" \"Rings\"",
+        "Rarity": "Rare",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "campaign"
+      },
+      "localization": {
+        "en": "Any Rare Jewellery",
+        "ch": "稀有首饰"
+      }
+    }
+  }
+}

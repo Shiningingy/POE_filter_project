@@ -1,0 +1,78 @@
+{
+  "Early Game Highlight": {
+    "_meta": {
+      "item_class": {
+        "en": "Equipment",
+        "ch": "装备"
+      },
+      "localization": {
+        "en": "Early Game Highlight",
+        "ch": "早期装备高亮"
+      },
+      "theme_category": "Campaign",
+      "tier_order": [
+        "Act1 3-Socket Gear",
+        "Act1 Early Bodies"
+      ]
+    },
+    "Act1 3-Socket Gear": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal",
+        "Sockets": ">= 3",
+        "AreaLevel": "<= 9",
+        "ItemLevel": "<= 14"
+      },
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "early"
+      },
+      "localization": {
+        "en": "Act 1: 3-Socket Gear",
+        "ch": "第一章：三插槽装备"
+      }
+    },
+    "Act1 Early Bodies": {
+      "_lv": true,
+      "class_condition": true,
+      "conditions": {
+        "Rarity": "Normal",
+        "AreaLevel": [
+          ">= 2",
+          "<= 9"
+        ],
+        "Class": "== \"Body Armours\""
+      },
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "early"
+      },
+      "localization": {
+        "en": "Act 1: Early Body Armours",
+        "ch": "第一章：早期胸甲"
+      },
+      "_source": {
+        "path": "leveling->firstlevels",
+        "tier": "earlybodyarmours",
+        "order": 98
+      }
+    }
+  }
+}

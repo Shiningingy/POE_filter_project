@@ -50,9 +50,10 @@ const SortableTierBlock: React.FC<SortableTierBlockProps> = ({
   };
 
   return (
-    <div 
-      ref={setNodeRef} 
-      style={style} 
+    <div
+      ref={setNodeRef}
+      style={style}
+      id={`tierblock-${id}`}
       className={`tier-block-wrapper ${isDragging ? 'is-dragging' : ''}`}
       onContextMenu={onContextMenu}
     >

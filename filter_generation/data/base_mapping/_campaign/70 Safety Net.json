@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "gen_order": -100,
+    "item_class": {
+      "en": "Equipment",
+      "ch": "装备"
+    },
+    "localization": {
+      "en": "Safety Net & Declutter",
+      "ch": "保底与清理"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {}
+}

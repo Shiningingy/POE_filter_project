@@ -217,12 +217,16 @@ const _appendStyleLines = (lines: string[], style: StyleProps) => {
     return `${r} ${g} ${b} ${a}`;
   };
 
-  const isActive = (val: any) => val && (typeof val !== 'string' || !val.startsWith('disabled:'));
+  // Active = present and not switched off. Off values ("disabled:" prefix from the
+  // editor toggle, or the sentinels "inherit"/"default") omit the line entirely —
+  // mirrors styleOff() in both generators, so preview == export.
+  const isActive = (val: any) =>
+    val && (typeof val !== 'string' || (!val.startsWith('disabled:') && val !== 'inherit' && val !== 'default'));
 
   if (isActive(style.TextColor)) lines.push(`    SetTextColor ${toRgba(style.TextColor)}`);
   if (isActive(style.BorderColor)) lines.push(`    SetBorderColor ${toRgba(style.BorderColor)}`);
   if (isActive(style.BackgroundColor)) lines.push(`    SetBackgroundColor ${toRgba(style.BackgroundColor)}`);
-  
+
   if (isActive(style.PlayEffect)) lines.push(`    PlayEffect ${style.PlayEffect}`);
   if (isActive(style.MinimapIcon)) {
       lines.push(`    MinimapIcon ${style.MinimapIcon}`);

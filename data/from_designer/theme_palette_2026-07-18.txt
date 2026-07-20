@@ -1,0 +1,511 @@
+# Designer theme palette (received 2026-07-18). Role-keyed via `# @theme:<slug>` tags —
+# machine-parseable: every SetTextColor/SetBackgroundColor/SetBorderColor/SetFontSize
+# line carries its role slug. Colors are filter-style RGB[A] (space-separated).
+#
+# Semantics the designer encodes by OMISSION (see comments inline):
+#   * no SetTextColor line       -> text inherits the item's rarity colour
+#   * no SetBackgroundColor line -> the game's default label background
+#   * SetBorderColor 0 0 0 0     -> no visible border (alpha 0)
+# Our theme represents these as the sentinels "inherit" (TextColor) and "default"
+# (BackgroundColor); both generators + styleResolver omit the line for them.
+#
+# INTEGRATION STATUS:
+#   [x] campaign-gear-t1/t2/t3 -> sharket_theme.json "Campaign" Tiers 2-7 (Slice A, 2026-07-18)
+#   [ ] 1:1 category roles (currency, shards, gems, div cards, essences, scarabs,
+#       catalysts, delirium, heist, expedition, oils, fossils, resonators, map
+#       fragments, jewels) — apply after the 3.29 content/tier work settles (Slice B)
+#   [ ] new concepts needing generator plumbing: equipment-bases (by rarity),
+#       sockets-links (by link count), maps corrupted/enchanted borders, uniques
+#       T0-T4 -> our 18-tier ladder mapping, league-mechanics hue map (Slice C)
+
+# ============ CURRENCY ============
+# T1 · Mirror-class
+    SetTextColor 255 0 0 # @theme:currency-t1
+    SetBackgroundColor 255 255 255 255 # @theme:currency-t1
+    SetBorderColor 255 0 0 # @theme:currency-t1
+    SetFontSize 45 # @theme:currency-t1
+# T2 · Divine-class
+    SetTextColor 255 255 255 # @theme:currency-t2
+    SetBackgroundColor 210 0 0 # @theme:currency-t2
+    SetBorderColor 255 255 255 # @theme:currency-t2
+    SetFontSize 45 # @theme:currency-t2
+# T3 · High
+    SetTextColor 0 0 0 # @theme:currency-t3
+    SetBackgroundColor 255 170 0 # @theme:currency-t3
+    SetBorderColor 0 0 0 0 # @theme:currency-t3
+    SetFontSize 40 # @theme:currency-t3
+# T4 · Mid
+    SetTextColor 0 0 0 # @theme:currency-t4
+    SetBackgroundColor 170 158 130 # @theme:currency-t4
+    SetBorderColor 0 0 0 0 # @theme:currency-t4
+    SetFontSize 36 # @theme:currency-t4
+# T5 · Low
+    SetTextColor 170 158 130 # @theme:currency-t5
+    SetBackgroundColor 80 80 80 # @theme:currency-t5
+    SetBorderColor 0 0 0 0 # @theme:currency-t5
+    SetFontSize 32 # @theme:currency-t5
+
+# ============ CURRENCY SHARDS ============
+# T1 · Mirror Shard
+    SetTextColor 255 0 0 # @theme:currency-shards-t1
+    SetBackgroundColor 255 255 255 255 # @theme:currency-shards-t1
+    SetBorderColor 255 0 0 # @theme:currency-shards-t1
+    SetFontSize 40 # @theme:currency-shards-t1
+# T2 · Exalted Shard
+    SetTextColor 255 255 255 # @theme:currency-shards-t2
+    SetBackgroundColor 210 0 0 # @theme:currency-shards-t2
+    SetBorderColor 0 0 0 0 # @theme:currency-shards-t2
+    SetFontSize 36 # @theme:currency-shards-t2
+# T3 · Common
+    SetTextColor 170 158 130 # @theme:currency-shards-t3
+    SetBackgroundColor 80 80 80 # @theme:currency-shards-t3
+    SetBorderColor 0 0 0 0 # @theme:currency-shards-t3
+    SetFontSize 32 # @theme:currency-shards-t3
+
+# ============ EQUIPMENT BASES ============
+# T1 Rare base
+    SetTextColor 255 0 0 # @theme:equipment-bases-t1-rare-base
+    SetBackgroundColor 255 255 119 # @theme:equipment-bases-t1-rare-base
+    SetBorderColor 255 0 0 # @theme:equipment-bases-t1-rare-base
+    SetFontSize 45 # @theme:equipment-bases-t1-rare-base
+# T2 Rare base
+    SetTextColor 0 0 0 # @theme:equipment-bases-t2-rare-base
+    SetBackgroundColor 255 255 119 # @theme:equipment-bases-t2-rare-base
+    SetBorderColor 0 0 0 0 # @theme:equipment-bases-t2-rare-base
+    SetFontSize 40 # @theme:equipment-bases-t2-rare-base
+# T1 Magic base
+    SetTextColor 255 0 0 # @theme:equipment-bases-t1-magic-base
+    SetBackgroundColor 136 136 255 # @theme:equipment-bases-t1-magic-base
+    SetBorderColor 255 0 0 # @theme:equipment-bases-t1-magic-base
+    SetFontSize 45 # @theme:equipment-bases-t1-magic-base
+# T2 Magic base
+    SetTextColor 0 0 0 # @theme:equipment-bases-t2-magic-base
+    SetBackgroundColor 136 136 255 # @theme:equipment-bases-t2-magic-base
+    SetBorderColor 0 0 0 0 # @theme:equipment-bases-t2-magic-base
+    SetFontSize 40 # @theme:equipment-bases-t2-magic-base
+# T1 Normal base
+    SetTextColor 255 0 0 # @theme:equipment-bases-t1-normal-base
+    SetBackgroundColor 200 200 200 # @theme:equipment-bases-t1-normal-base
+    SetBorderColor 255 0 0 # @theme:equipment-bases-t1-normal-base
+    SetFontSize 45 # @theme:equipment-bases-t1-normal-base
+# T2 Normal base
+    SetTextColor 0 0 0 # @theme:equipment-bases-t2-normal-base
+    SetBackgroundColor 200 200 200 # @theme:equipment-bases-t2-normal-base
+    SetBorderColor 0 0 0 0 # @theme:equipment-bases-t2-normal-base
+    SetFontSize 40 # @theme:equipment-bases-t2-normal-base
+# Enchant / Vaal / League mod
+    SetTextColor 0 0 0 # @theme:equipment-bases-enchant-vaal-league-mod
+    SetBackgroundColor 184 218 242 # @theme:equipment-bases-enchant-vaal-league-mod
+    SetBorderColor 0 0 0 0 # @theme:equipment-bases-enchant-vaal-league-mod
+    SetFontSize 40 # @theme:equipment-bases-enchant-vaal-league-mod
+
+# ============ SOCKETS & LINKS ============
+# 6-Link · any rarity
+    SetTextColor 255 0 0 # @theme:sockets-links-6-link
+    SetBackgroundColor 225 225 210 230 # @theme:sockets-links-6-link
+    SetBorderColor 0 255 0 # @theme:sockets-links-6-link
+    SetFontSize 45 # @theme:sockets-links-6-link
+# 5-Link · any rarity
+    # no SetTextColor — text inherits rarity color # @theme:sockets-links-5-link
+    SetBackgroundColor 0 110 45 # @theme:sockets-links-5-link
+    SetBorderColor 0 255 0 # @theme:sockets-links-5-link
+    SetFontSize 40 # @theme:sockets-links-5-link
+# 6-Socket · any rarity
+    # no SetTextColor — text inherits rarity color # @theme:sockets-links-6-socket
+    SetBackgroundColor 0 60 25 # @theme:sockets-links-6-socket
+    SetBorderColor 0 255 0 # @theme:sockets-links-6-socket
+    SetFontSize 36 # @theme:sockets-links-6-socket
+
+# ============ CAMPAIGN GEAR ============
+# T1 · Key upgrade (speed boots, +1 wands…)
+    # no SetTextColor — text inherits rarity color # @theme:campaign-gear-t1
+    SetBackgroundColor 215 215 200 210 # @theme:campaign-gear-t1
+    SetBorderColor 74 230 58 # @theme:campaign-gear-t1
+    SetFontSize 40 # @theme:campaign-gear-t1
+# T2 · Useful base / linked
+    # no SetTextColor — text inherits rarity color # @theme:campaign-gear-t2
+    # no SetBackgroundColor — default label bg # @theme:campaign-gear-t2
+    SetBorderColor 74 230 58 # @theme:campaign-gear-t2
+    SetFontSize 35 # @theme:campaign-gear-t2
+# T3 · Filler gear (early zones only)
+    # no SetTextColor — text inherits rarity color # @theme:campaign-gear-t3
+    # no SetBackgroundColor — default label bg # @theme:campaign-gear-t3
+    SetBorderColor 0 0 0 0 # @theme:campaign-gear-t3
+    SetFontSize 32 # @theme:campaign-gear-t3
+
+# ============ UNIQUES ============
+# T0 · Chase (determinable)
+    SetTextColor 175 96 37 # @theme:uniques-t0
+    SetBackgroundColor 255 255 255 255 # @theme:uniques-t0
+    SetBorderColor 255 0 0 # @theme:uniques-t0
+    SetFontSize 45 # @theme:uniques-t0
+# T1 · Very valuable / likely
+    SetTextColor 255 0 0 # @theme:uniques-t1
+    SetBackgroundColor 255 255 255 255 # @theme:uniques-t1
+    SetBorderColor 175 96 37 # @theme:uniques-t1
+    SetFontSize 45 # @theme:uniques-t1
+# T2 · Maybe valuable
+    SetTextColor 175 96 37 # @theme:uniques-t2
+    SetBackgroundColor 255 255 255 255 # @theme:uniques-t2
+    SetBorderColor 175 96 37 # @theme:uniques-t2
+    SetFontSize 40 # @theme:uniques-t2
+# T3 · Just a unique
+    SetTextColor 255 255 255 # @theme:uniques-t3
+    SetBackgroundColor 175 96 37 # @theme:uniques-t3
+    SetBorderColor 255 255 255 # @theme:uniques-t3
+    SetFontSize 36 # @theme:uniques-t3
+# T4 · Filler (if needed)
+    SetTextColor 255 255 255 # @theme:uniques-t4
+    SetBackgroundColor 175 96 37 # @theme:uniques-t4
+    SetBorderColor 0 0 0 0 # @theme:uniques-t4
+    SetFontSize 32 # @theme:uniques-t4
+
+# ============ MAPS ============
+# Red tier · rare
+    SetTextColor 255 0 0 # @theme:maps-red-tier
+    SetBackgroundColor 255 255 119 # @theme:maps-red-tier
+    SetBorderColor 0 0 0 0 # @theme:maps-red-tier
+    SetFontSize 45 # @theme:maps-red-tier
+# Yellow tier · magic
+    SetTextColor 255 170 0 # @theme:maps-yellow-tier
+    SetBackgroundColor 136 136 255 # @theme:maps-yellow-tier
+    SetBorderColor 0 0 0 0 # @theme:maps-yellow-tier
+    SetFontSize 40 # @theme:maps-yellow-tier
+# White tier · normal
+    SetTextColor 0 0 0 # @theme:maps-white-tier
+    SetBackgroundColor 200 200 200 # @theme:maps-white-tier
+    SetBorderColor 0 0 0 0 # @theme:maps-white-tier
+    SetFontSize 35 # @theme:maps-white-tier
+# + Corrupted → border
+    SetTextColor 255 0 0 # @theme:maps-corrupted-border
+    SetBackgroundColor 255 255 119 # @theme:maps-corrupted-border
+    SetBorderColor 210 0 0 # @theme:maps-corrupted-border
+    SetFontSize 45 # @theme:maps-corrupted-border
+# + Enchanted → border
+    SetTextColor 255 0 0 # @theme:maps-enchanted-border
+    SetBackgroundColor 255 255 119 # @theme:maps-enchanted-border
+    SetBorderColor 184 218 242 # @theme:maps-enchanted-border
+    SetFontSize 45 # @theme:maps-enchanted-border
+# Unique map
+    SetTextColor 175 96 37 # @theme:maps-unique-map
+    SetBackgroundColor 255 255 255 255 # @theme:maps-unique-map
+    SetBorderColor 175 96 37 # @theme:maps-unique-map
+    SetFontSize 45 # @theme:maps-unique-map
+
+# ============ MAP FRAGMENTS ============
+# T1 · Sets & rare frags
+    SetTextColor 255 0 0 # @theme:map-fragments-t1
+    SetBackgroundColor 200 200 200 # @theme:map-fragments-t1
+    SetBorderColor 255 0 0 # @theme:map-fragments-t1
+    SetFontSize 45 # @theme:map-fragments-t1
+# T2 · Standard
+    SetTextColor 0 0 0 # @theme:map-fragments-t2
+    SetBackgroundColor 200 200 200 # @theme:map-fragments-t2
+    SetBorderColor 0 0 0 0 # @theme:map-fragments-t2
+    SetFontSize 40 # @theme:map-fragments-t2
+# T3 · Bulk
+    SetTextColor 200 200 200 # @theme:map-fragments-t3
+    SetBackgroundColor 80 80 80 # @theme:map-fragments-t3
+    SetBorderColor 0 0 0 0 # @theme:map-fragments-t3
+    SetFontSize 36 # @theme:map-fragments-t3
+
+# ============ GEMS ============
+# T1 · Valuable awakened
+    SetTextColor 27 162 155 # @theme:gems-t1
+    SetBackgroundColor 255 255 255 255 # @theme:gems-t1
+    SetBorderColor 255 0 0 # @theme:gems-t1
+    SetFontSize 45 # @theme:gems-t1
+# T2 · Awakened / valuable normal
+    SetTextColor 255 255 255 # @theme:gems-t2
+    SetBackgroundColor 27 162 155 # @theme:gems-t2
+    SetBorderColor 0 0 0 0 # @theme:gems-t2
+    SetFontSize 42 # @theme:gems-t2
+# T3 · Normal with quality
+    SetTextColor 0 0 0 # @theme:gems-t3
+    SetBackgroundColor 27 162 155 # @theme:gems-t3
+    SetBorderColor 0 0 0 0 # @theme:gems-t3
+    SetFontSize 38 # @theme:gems-t3
+# T4 · Normal gem
+    SetTextColor 27 162 155 # @theme:gems-t4
+    SetBackgroundColor 0 40 38 # @theme:gems-t4
+    SetBorderColor 27 162 155 # @theme:gems-t4
+    SetFontSize 38 # @theme:gems-t4
+
+# ============ DIVINATION CARDS ============
+# T1 · Jackpot
+    SetTextColor 14 186 255 # @theme:divination-cards-t1
+    SetBackgroundColor 255 255 255 255 # @theme:divination-cards-t1
+    SetBorderColor 255 0 0 # @theme:divination-cards-t1
+    SetFontSize 45 # @theme:divination-cards-t1
+# T2 · Valuable
+    SetTextColor 0 0 0 # @theme:divination-cards-t2
+    SetBackgroundColor 14 186 255 # @theme:divination-cards-t2
+    SetBorderColor 0 0 0 0 # @theme:divination-cards-t2
+    SetFontSize 42 # @theme:divination-cards-t2
+# T3 · Common
+    SetTextColor 14 186 255 # @theme:divination-cards-t3
+    SetBackgroundColor 80 80 80 # @theme:divination-cards-t3
+    SetBorderColor 0 0 0 0 # @theme:divination-cards-t3
+    SetFontSize 36 # @theme:divination-cards-t3
+
+# ============ ESSENCES ============
+# T1 · Special / Deafening top
+    SetTextColor 60 130 255 # @theme:essences-t1
+    SetBackgroundColor 255 255 255 255 # @theme:essences-t1
+    SetBorderColor 255 0 0 # @theme:essences-t1
+    SetFontSize 45 # @theme:essences-t1
+# T2 · Deafening / Shrieking
+    SetTextColor 255 255 255 # @theme:essences-t2
+    SetBackgroundColor 60 130 255 # @theme:essences-t2
+    SetBorderColor 0 0 0 0 # @theme:essences-t2
+    SetFontSize 42 # @theme:essences-t2
+# T3 · Low essences
+    SetTextColor 60 130 255 # @theme:essences-t3
+    SetBackgroundColor 12 30 62 # @theme:essences-t3
+    SetBorderColor 60 130 255 # @theme:essences-t3
+    SetFontSize 36 # @theme:essences-t3
+
+# ============ SCARABS ============
+# T1 · Chase (Horned, Cornucopia…)
+    SetTextColor 0 130 90 # @theme:scarabs-t1
+    SetBackgroundColor 255 255 255 255 # @theme:scarabs-t1
+    SetBorderColor 255 0 0 # @theme:scarabs-t1
+    SetFontSize 45 # @theme:scarabs-t1
+# T2 · Named "of" scarabs
+    SetTextColor 255 255 255 # @theme:scarabs-t2
+    SetBackgroundColor 0 130 90 # @theme:scarabs-t2
+    SetBorderColor 0 0 0 0 # @theme:scarabs-t2
+    SetFontSize 42 # @theme:scarabs-t2
+# T3 · Bulk scarabs
+    SetTextColor 0 130 90 # @theme:scarabs-t3
+    SetBackgroundColor 0 42 30 # @theme:scarabs-t3
+    SetBorderColor 0 130 90 # @theme:scarabs-t3
+    SetFontSize 36 # @theme:scarabs-t3
+
+# ============ CATALYSTS ============
+# T1 · Tainted / Fertile / Prismatic…
+    SetTextColor 110 160 20 # @theme:catalysts-t1
+    SetBackgroundColor 255 255 255 255 # @theme:catalysts-t1
+    SetBorderColor 255 0 0 # @theme:catalysts-t1
+    SetFontSize 45 # @theme:catalysts-t1
+# T2 · Mid catalysts
+    SetTextColor 0 0 0 # @theme:catalysts-t2
+    SetBackgroundColor 150 200 40 # @theme:catalysts-t2
+    SetBorderColor 0 0 0 0 # @theme:catalysts-t2
+    SetFontSize 42 # @theme:catalysts-t2
+# T3 · Intrinsic / bulk
+    SetTextColor 150 200 40 # @theme:catalysts-t3
+    SetBackgroundColor 38 50 10 # @theme:catalysts-t3
+    SetBorderColor 150 200 40 # @theme:catalysts-t3
+    SetFontSize 36 # @theme:catalysts-t3
+
+# ============ DELIRIUM ============
+# T1 · Top delirium orbs
+    SetTextColor 90 90 120 # @theme:delirium-t1
+    SetBackgroundColor 255 255 255 255 # @theme:delirium-t1
+    SetBorderColor 255 0 0 # @theme:delirium-t1
+    SetFontSize 45 # @theme:delirium-t1
+# T2 · Other delirium orbs
+    SetTextColor 0 0 0 # @theme:delirium-t2
+    SetBackgroundColor 210 210 230 # @theme:delirium-t2
+    SetBorderColor 0 0 0 0 # @theme:delirium-t2
+    SetFontSize 42 # @theme:delirium-t2
+# T3 · Simulacrum splinters
+    SetTextColor 210 210 230 # @theme:delirium-t3
+    SetBackgroundColor 58 58 78 # @theme:delirium-t3
+    SetBorderColor 210 210 230 # @theme:delirium-t3
+    SetFontSize 36 # @theme:delirium-t3
+
+# ============ HEIST ============
+# T1 · Enchanted blueprint
+    SetTextColor 152 110 157 # @theme:heist-t1
+    SetBackgroundColor 255 255 255 255 # @theme:heist-t1
+    SetBorderColor 255 0 0 # @theme:heist-t1
+    SetFontSize 45 # @theme:heist-t1
+# T2 · Blueprint
+    SetTextColor 152 110 157 # @theme:heist-t2
+    SetBackgroundColor 255 255 255 255 # @theme:heist-t2
+    SetBorderColor 152 110 157 # @theme:heist-t2
+    SetFontSize 42 # @theme:heist-t2
+# T3 · Contracts
+    SetTextColor 255 255 255 # @theme:heist-t3
+    SetBackgroundColor 110 70 120 # @theme:heist-t3
+    SetBorderColor 0 0 0 0 # @theme:heist-t3
+    SetFontSize 40 # @theme:heist-t3
+# T4 · Rogue's Markers / trinkets
+    SetTextColor 152 110 157 # @theme:heist-t4
+    SetBackgroundColor 42 25 48 # @theme:heist-t4
+    SetBorderColor 152 110 157 # @theme:heist-t4
+    SetFontSize 36 # @theme:heist-t4
+
+# ============ EXPEDITION ============
+# T1 · Top logbook
+    SetTextColor 0 60 120 # @theme:expedition-t1
+    SetBackgroundColor 255 255 255 255 # @theme:expedition-t1
+    SetBorderColor 255 0 0 # @theme:expedition-t1
+    SetFontSize 45 # @theme:expedition-t1
+# T2 · Logbook
+    SetTextColor 0 0 0 # @theme:expedition-t2
+    SetBackgroundColor 130 200 255 # @theme:expedition-t2
+    SetBorderColor 0 0 0 0 # @theme:expedition-t2
+    SetFontSize 42 # @theme:expedition-t2
+# T3 · Reroll currency
+    SetTextColor 130 200 255 # @theme:expedition-t3
+    SetBackgroundColor 20 48 72 # @theme:expedition-t3
+    SetBorderColor 130 200 255 # @theme:expedition-t3
+    SetFontSize 36 # @theme:expedition-t3
+
+# ============ JEWELS ============
+# Rare jewel
+    SetTextColor 0 0 0 # @theme:jewels-rare-jewel
+    SetBackgroundColor 255 255 119 # @theme:jewels-rare-jewel
+    SetBorderColor 0 0 0 0 # @theme:jewels-rare-jewel
+    SetFontSize 40 # @theme:jewels-rare-jewel
+# Magic jewel
+    SetTextColor 0 0 0 # @theme:jewels-magic-jewel
+    SetBackgroundColor 136 136 255 # @theme:jewels-magic-jewel
+    SetBorderColor 0 0 0 0 # @theme:jewels-magic-jewel
+    SetFontSize 40 # @theme:jewels-magic-jewel
+# Abyss jewel · dark green text
+    SetTextColor 0 90 45 # @theme:jewels-abyss-jewel
+    SetBackgroundColor 255 255 119 # @theme:jewels-abyss-jewel
+    SetBorderColor 0 0 0 0 # @theme:jewels-abyss-jewel
+    SetFontSize 40 # @theme:jewels-abyss-jewel
+# Cluster / eternal · T1
+    SetTextColor 255 0 0 # @theme:jewels-cluster-eternal
+    SetBackgroundColor 255 255 119 # @theme:jewels-cluster-eternal
+    SetBorderColor 255 0 0 # @theme:jewels-cluster-eternal
+    SetFontSize 45 # @theme:jewels-cluster-eternal
+
+# ============ BLIGHT — OILS ============
+# T1 · Golden / Prismatic / Silver / Tainted
+    SetTextColor 150 130 20 # @theme:blight-oils-t1
+    SetBackgroundColor 255 255 255 255 # @theme:blight-oils-t1
+    SetBorderColor 255 0 0 # @theme:blight-oils-t1
+    SetFontSize 45 # @theme:blight-oils-t1
+# T2 · Black / Opalescent / Reflective / Crimson
+    SetTextColor 0 0 0 # @theme:blight-oils-t2
+    SetBackgroundColor 255 230 80 # @theme:blight-oils-t2
+    SetBorderColor 0 0 0 0 # @theme:blight-oils-t2
+    SetFontSize 42 # @theme:blight-oils-t2
+# T3 · Violet / Indigo / Azure / Teal
+    SetTextColor 255 230 80 # @theme:blight-oils-t3
+    SetBackgroundColor 70 60 10 # @theme:blight-oils-t3
+    SetBorderColor 255 230 80 # @theme:blight-oils-t3
+    SetFontSize 38 # @theme:blight-oils-t3
+# T4 · Verdant / Amber / Sepia / Clear
+    SetTextColor 255 230 80 # @theme:blight-oils-t4
+    SetBackgroundColor 70 60 10 # @theme:blight-oils-t4
+    SetBorderColor 0 0 0 0 # @theme:blight-oils-t4
+    SetFontSize 32 # @theme:blight-oils-t4
+
+# ============ DELVE — FOSSILS ============
+# T1 · Faceted / Glyphic / rare
+    SetTextColor 200 140 0 # @theme:delve-fossils-t1
+    SetBackgroundColor 255 255 255 255 # @theme:delve-fossils-t1
+    SetBorderColor 255 0 0 # @theme:delve-fossils-t1
+    SetFontSize 45 # @theme:delve-fossils-t1
+# T2 · Mid fossils
+    SetTextColor 0 0 0 # @theme:delve-fossils-t2
+    SetBackgroundColor 200 140 0 # @theme:delve-fossils-t2
+    SetBorderColor 0 0 0 0 # @theme:delve-fossils-t2
+    SetFontSize 42 # @theme:delve-fossils-t2
+# T3 · Common fossils
+    SetTextColor 200 140 0 # @theme:delve-fossils-t3
+    SetBackgroundColor 58 40 0 # @theme:delve-fossils-t3
+    SetBorderColor 200 140 0 # @theme:delve-fossils-t3
+    SetFontSize 36 # @theme:delve-fossils-t3
+
+# ============ DELVE — RESONATORS ============
+# T1 · Prime / 4-socket
+    SetTextColor 150 120 30 # @theme:delve-resonators-t1
+    SetBackgroundColor 255 255 255 255 # @theme:delve-resonators-t1
+    SetBorderColor 255 0 0 # @theme:delve-resonators-t1
+    SetFontSize 45 # @theme:delve-resonators-t1
+# T2 · Potent / 3-socket
+    SetTextColor 0 0 0 # @theme:delve-resonators-t2
+    SetBackgroundColor 212 175 55 # @theme:delve-resonators-t2
+    SetBorderColor 0 0 0 0 # @theme:delve-resonators-t2
+    SetFontSize 42 # @theme:delve-resonators-t2
+# T3 · Primitive
+    SetTextColor 212 175 55 # @theme:delve-resonators-t3
+    SetBackgroundColor 62 50 15 # @theme:delve-resonators-t3
+    SetBorderColor 212 175 55 # @theme:delve-resonators-t3
+    SetFontSize 36 # @theme:delve-resonators-t3
+
+# ============ LEAGUE MECHANICS — HUE MAP ============
+# Abyss (non-jewel) · dark green
+    SetTextColor 255 255 255 # @theme:league-mechanics-hue-map-abyss-non-jewel
+    SetBackgroundColor 0 90 45 # @theme:league-mechanics-hue-map-abyss-non-jewel
+    SetBorderColor 0 0 0 0 # @theme:league-mechanics-hue-map-abyss-non-jewel
+    SetFontSize 42 # @theme:league-mechanics-hue-map-abyss-non-jewel
+# Breach · purple
+    SetTextColor 255 255 255 # @theme:league-mechanics-hue-map-breach
+    SetBackgroundColor 130 20 180 # @theme:league-mechanics-hue-map-breach
+    SetBorderColor 0 0 0 0 # @theme:league-mechanics-hue-map-breach
+    SetFontSize 42 # @theme:league-mechanics-hue-map-breach
+# Incursion · emerald
+    SetTextColor 255 255 255 # @theme:league-mechanics-hue-map-incursion
+    SetBackgroundColor 40 150 80 # @theme:league-mechanics-hue-map-incursion
+    SetBorderColor 0 0 0 0 # @theme:league-mechanics-hue-map-incursion
+    SetFontSize 42 # @theme:league-mechanics-hue-map-incursion
+# Bestiary · rust
+    SetTextColor 255 255 255 # @theme:league-mechanics-hue-map-bestiary
+    SetBackgroundColor 170 70 20 # @theme:league-mechanics-hue-map-bestiary
+    SetBorderColor 0 0 0 0 # @theme:league-mechanics-hue-map-bestiary
+    SetFontSize 42 # @theme:league-mechanics-hue-map-bestiary
+# Legion · steel
+    SetTextColor 0 0 0 # @theme:league-mechanics-hue-map-legion
+    SetBackgroundColor 145 155 170 # @theme:league-mechanics-hue-map-legion
+    SetBorderColor 0 0 0 0 # @theme:league-mechanics-hue-map-legion
+    SetFontSize 42 # @theme:league-mechanics-hue-map-legion
+# Harvest T1 · Sacred Crystallised
+    SetTextColor 40 150 60 # @theme:league-mechanics-hue-map-harvest-t1
+    SetBackgroundColor 255 255 255 255 # @theme:league-mechanics-hue-map-harvest-t1
+    SetBorderColor 255 0 0 # @theme:league-mechanics-hue-map-harvest-t1
+    SetFontSize 45 # @theme:league-mechanics-hue-map-harvest-t1
+# Harvest T2 · Large stack
+    SetTextColor 0 0 0 # @theme:league-mechanics-hue-map-harvest-t2
+    SetBackgroundColor 110 220 130 # @theme:league-mechanics-hue-map-harvest-t2
+    SetBorderColor 0 0 0 0 # @theme:league-mechanics-hue-map-harvest-t2
+    SetFontSize 42 # @theme:league-mechanics-hue-map-harvest-t2
+# Harvest T3 · Small stack
+    SetTextColor 110 220 130 # @theme:league-mechanics-hue-map-harvest-t3
+    SetBackgroundColor 20 55 28 # @theme:league-mechanics-hue-map-harvest-t3
+    SetBorderColor 110 220 130 # @theme:league-mechanics-hue-map-harvest-t3
+    SetFontSize 36 # @theme:league-mechanics-hue-map-harvest-t3
+# Scourge / tainted · blood
+    SetTextColor 255 255 255 # @theme:league-mechanics-hue-map-scourge-tainted
+    SetBackgroundColor 150 20 40 # @theme:league-mechanics-hue-map-scourge-tainted
+    SetBorderColor 0 0 0 0 # @theme:league-mechanics-hue-map-scourge-tainted
+    SetFontSize 42 # @theme:league-mechanics-hue-map-scourge-tainted
+# Embers/Ichors → currency tiers
+    SetTextColor 255 255 255 # @theme:league-mechanics-hue-map-embers-ichors-currency-tiers
+    SetBackgroundColor 210 0 0 # @theme:league-mechanics-hue-map-embers-ichors-currency-tiers
+    SetBorderColor 255 255 255 # @theme:league-mechanics-hue-map-embers-ichors-currency-tiers
+    SetFontSize 42 # @theme:league-mechanics-hue-map-embers-ichors-currency-tiers
+# Ancestor · ivory
+    SetTextColor 0 0 0 # @theme:league-mechanics-hue-map-ancestor
+    SetBackgroundColor 230 220 190 # @theme:league-mechanics-hue-map-ancestor
+    SetBorderColor 0 0 0 0 # @theme:league-mechanics-hue-map-ancestor
+    SetFontSize 42 # @theme:league-mechanics-hue-map-ancestor
+# Necropolis · olive
+    SetTextColor 255 255 255 # @theme:league-mechanics-hue-map-necropolis
+    SetBackgroundColor 110 110 45 # @theme:league-mechanics-hue-map-necropolis
+    SetBorderColor 0 0 0 0 # @theme:league-mechanics-hue-map-necropolis
+    SetFontSize 42 # @theme:league-mechanics-hue-map-necropolis
+# Settlers runes → currency tiers
+    SetTextColor 0 0 0 # @theme:league-mechanics-hue-map-settlers-runes-currency-tiers
+    SetBackgroundColor 255 170 0 # @theme:league-mechanics-hue-map-settlers-runes-currency-tiers
+    SetBorderColor 0 0 0 0 # @theme:league-mechanics-hue-map-settlers-runes-currency-tiers
+    SetFontSize 42 # @theme:league-mechanics-hue-map-settlers-runes-currency-tiers
+# Quest / story items
+    SetTextColor 74 230 58 # @theme:league-mechanics-hue-map-quest-story-items
+    SetBackgroundColor 12 54 20 # @theme:league-mechanics-hue-map-quest-story-items
+    SetBorderColor 0 0 0 0 # @theme:league-mechanics-hue-map-quest-story-items
+    SetFontSize 45 # @theme:league-mechanics-hue-map-quest-story-items
+# Utility flasks (kept)
+    SetTextColor 136 136 255 # @theme:league-mechanics-hue-map-utility-flasks-kept
+    SetBackgroundColor 56 56 92 # @theme:league-mechanics-hue-map-utility-flasks-kept
+    SetBorderColor 0 0 0 0 # @theme:league-mechanics-hue-map-utility-flasks-kept
+    SetFontSize 40 # @theme:league-mechanics-hue-map-utility-flasks-kept

@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "gen_order": -100,
+    "item_class": {
+      "en": "Jewellery",
+      "ch": "首饰"
+    },
+    "localization": {
+      "en": "Jewellery Progression",
+      "ch": "首饰过渡"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {}
+}

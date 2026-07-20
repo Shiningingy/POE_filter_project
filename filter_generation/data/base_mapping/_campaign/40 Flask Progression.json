@@ -1,0 +1,221 @@
+{
+  "_meta": {
+    "gen_order": -100,
+    "item_class": {
+      "en": "Flasks",
+      "ch": "药剂"
+    },
+    "localization": {
+      "en": "Flask Progression",
+      "ch": "药剂过渡"
+    },
+    "theme_category": "Campaign"
+  },
+  "mapping": {},
+  "rules": [
+    {
+      "targets": [
+        "Small Life Flask",
+        "Small Mana Flask"
+      ],
+      "overrides": {
+        "Tier": "Life Mana Progression"
+      },
+      "conditions": {
+        "AreaLevel": "<= 9",
+        "ItemLevel": "<= 14"
+      },
+      "comment": "Small flasks (to area 9)",
+      "localization": {
+        "ch": "Small药剂（至9级区域）"
+      }
+    },
+    {
+      "targets": [
+        "Medium Life Flask",
+        "Medium Mana Flask"
+      ],
+      "overrides": {
+        "Tier": "Life Mana Progression"
+      },
+      "conditions": {
+        "AreaLevel": "<= 13",
+        "ItemLevel": "<= 18"
+      },
+      "comment": "Medium flasks (to area 13)",
+      "localization": {
+        "ch": "Medium药剂（至13级区域）"
+      }
+    },
+    {
+      "targets": [
+        "Large Life Flask",
+        "Large Mana Flask"
+      ],
+      "overrides": {
+        "Tier": "Life Mana Progression"
+      },
+      "conditions": {
+        "AreaLevel": "<= 17",
+        "ItemLevel": "<= 22"
+      },
+      "comment": "Large flasks (to area 17)",
+      "localization": {
+        "ch": "Large药剂（至17级区域）"
+      }
+    },
+    {
+      "targets": [
+        "Greater Life Flask",
+        "Greater Mana Flask"
+      ],
+      "overrides": {
+        "Tier": "Life Mana Progression"
+      },
+      "conditions": {
+        "AreaLevel": "<= 19",
+        "ItemLevel": "<= 24"
+      },
+      "comment": "Greater flasks (to area 19)",
+      "localization": {
+        "ch": "Greater药剂（至19级区域）"
+      }
+    },
+    {
+      "targets": [
+        "Grand Life Flask",
+        "Grand Mana Flask"
+      ],
+      "overrides": {
+        "Tier": "Life Mana Progression"
+      },
+      "conditions": {
+        "AreaLevel": "<= 25",
+        "ItemLevel": "<= 30"
+      },
+      "comment": "Grand flasks (to area 25)",
+      "localization": {
+        "ch": "Grand药剂（至25级区域）"
+      }
+    },
+    {
+      "targets": [
+        "Giant Life Flask",
+        "Giant Mana Flask"
+      ],
+      "overrides": {
+        "Tier": "Life Mana Progression"
+      },
+      "conditions": {
+        "AreaLevel": "<= 31",
+        "ItemLevel": "<= 36"
+      },
+      "comment": "Giant flasks (to area 31)",
+      "localization": {
+        "ch": "Giant药剂（至31级区域）"
+      }
+    },
+    {
+      "targets": [
+        "Colossal Life Flask",
+        "Colossal Mana Flask"
+      ],
+      "overrides": {
+        "Tier": "Life Mana Progression"
+      },
+      "conditions": {
+        "AreaLevel": "<= 37",
+        "ItemLevel": "<= 42"
+      },
+      "comment": "Colossal flasks (to area 37)",
+      "localization": {
+        "ch": "Colossal药剂（至37级区域）"
+      }
+    },
+    {
+      "targets": [
+        "Sacred Life Flask",
+        "Sacred Mana Flask"
+      ],
+      "overrides": {
+        "Tier": "Life Mana Progression"
+      },
+      "conditions": {
+        "AreaLevel": "<= 43",
+        "ItemLevel": "<= 48"
+      },
+      "comment": "Sacred flasks (to area 43)",
+      "localization": {
+        "ch": "Sacred药剂（至43级区域）"
+      }
+    },
+    {
+      "targets": [
+        "Hallowed Life Flask",
+        "Hallowed Mana Flask"
+      ],
+      "overrides": {
+        "Tier": "Life Mana Progression"
+      },
+      "conditions": {
+        "AreaLevel": "<= 51",
+        "ItemLevel": "<= 56"
+      },
+      "comment": "Hallowed flasks (to area 51)",
+      "localization": {
+        "ch": "Hallowed药剂（至51级区域）"
+      }
+    },
+    {
+      "targets": [
+        "Sanctified Life Flask",
+        "Sanctified Mana Flask"
+      ],
+      "overrides": {
+        "Tier": "Life Mana Progression"
+      },
+      "conditions": {
+        "AreaLevel": "<= 60",
+        "ItemLevel": "<= 65"
+      },
+      "comment": "Sanctified flasks (to area 60)",
+      "localization": {
+        "ch": "Sanctified药剂（至60级区域）"
+      }
+    },
+    {
+      "targets": [
+        "Divine Life Flask",
+        "Divine Mana Flask"
+      ],
+      "overrides": {
+        "Tier": "Life Mana Progression"
+      },
+      "conditions": {
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "comment": "Divine flasks (to area 67)",
+      "localization": {
+        "ch": "Divine药剂（至67级区域）"
+      }
+    },
+    {
+      "targets": [
+        "Eternal Life Flask",
+        "Eternal Mana Flask"
+      ],
+      "overrides": {
+        "Tier": "Life Mana Progression"
+      },
+      "conditions": {
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "comment": "Eternal flasks (to area 67)",
+      "localization": {
+        "ch": "Eternal药剂（至67级区域）"
+      }
+    }
+  ]
+}

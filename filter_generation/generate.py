@@ -32,12 +32,45 @@ _args = argparse.ArgumentParser(add_help=False)
 _args.add_argument("--mode", default="standard", choices=["standard", "ruthless"])
 _args.add_argument("--game-version", default="poe1", choices=["poe1", "poe2"])
 _args.add_argument("--strictness", default="soft", choices=STRICTNESS_LEVELS)
+# Leveling module: a JSON selection object from the Campaign picker. Absent/empty
+# ("{}") means every leveling tier is selected -> identical to pre-module output
+# (parity-safe default). Shape: {weapons:[], armour_defense:[], vendor_bands:[],
+# minion_focused:bool, hide_unselected:bool, preset:str}. Mirrors filterGenerator.ts.
+_args.add_argument("--leveling-selection", default="{}")
 _parsed = _args.parse_known_args()[0]
 MODE = _parsed.mode
 GAME_VERSION = _parsed.game_version
 STRICTNESS = _parsed.strictness
 STRICTNESS_IDX = STRICTNESS_LEVELS.index(STRICTNESS)
 HIDE_CMD = "Minimal" if MODE == "ruthless" else "Hide"
+# Value may be inline JSON, or "@path" to read the JSON from a file (avoids shell
+# quoting when a caller can't safely pass a JSON string on the command line).
+_lv_raw = _parsed.leveling_selection or "{}"
+if _lv_raw.startswith("@"):
+    try:
+        _lv_raw = Path(_lv_raw[1:]).read_text(encoding="utf-8")
+    except OSError:
+        _lv_raw = "{}"
+try:
+    LEVELING_SELECTION = json.loads(_lv_raw) or {}
+except (ValueError, TypeError):
+    LEVELING_SELECTION = {}
+
+
+def lv_picked(tier_entry):
+    """Whether a campaign group tier's lv_group key is picked in the Campaign
+    picker (LEVELING_SELECTION). Selection-centric ladder: picked groups emit
+    their T1 band layer + T2 class-wide rare layer; unpicked groups emit
+    nothing and fall to the T3 safety net. Nothing picked (the default) =
+    baseline output. Mirrors the gate in filterGenerator.ts (parity-guarded)."""
+    lv = tier_entry.get("lv_group") or {}
+    axis, key = lv.get("axis"), lv.get("key")
+    if axis == "weapon":
+        return key in LEVELING_SELECTION.get("weapons", [])
+    if axis == "armour":
+        return key in LEVELING_SELECTION.get("armour_defense", [])
+    return False
+
 
 if GAME_VERSION == "poe2":
     print("[ERROR] POE2 filter generation is not yet supported.")
@@ -76,6 +109,14 @@ def tr(key):
     return TERMS.get(LANG, TERMS["en"]).get(key, key)
 
 # ---------- UTILITIES ----------
+def style_off(value):
+    """True when a theme/override style value means OMIT the line entirely: the
+    editor's 'disabled:' toggle, or the designer sentinels 'inherit' (TextColor
+    keeps the rarity colour) / 'default' (BackgroundColor keeps the game's
+    default label bg). Mirrors styleOff() in filterGenerator.ts — the editor
+    preview (styleResolver) omits these too, so preview == export."""
+    return isinstance(value, str) and (value.startswith("disabled:") or value in ("inherit", "default"))
+
 def parse_rgba(value, default="255 255 255 255"):
     """Return 'R G B A' string from rgba() string or [r,g,b,a] list. Fallback to white."""
     if not value or value == -1: return default
@@ -190,19 +231,36 @@ def generate_filter():
     major_counter = 0 # 10000, 20000...
     sub_counter = 0   # 11000, 12000...
 
-    # Process all JSON files in base_mapping
-    # Sort: underscore-prefixed folders (_campaign, _legacy, _unclassified) go after all standard folders
-    def _sort_key(p):
-        rel = p.relative_to(BASE_MAPPING_DIR)
-        parts = list(rel.parts)
-        parts[0] = parts[0].replace("_", "~", 1) if parts[0].startswith("_") else parts[0]
-        return parts
+    # Category GENERATION order = explicit `_meta.gen_order` (ascending), then the
+    # relative path. This is DECOUPLED from the nav display order (category_structure
+    # order) on purpose: campaign carries gen_order -100 so it emits FIRST (first-match
+    # wins during the acts) even though the nav shows it low (opened less often).
+    # Absent field = 0. Tier order (tier_order) and rule order (rules array) are
+    # authored in the editor and followed verbatim — the generator never reorders
+    # blocks or rules. (Mirrors the sort in filterGenerator.ts — parity-guarded.)
+    def _order_key(p):
+        rel = p.relative_to(BASE_MAPPING_DIR).as_posix()
+        try:
+            gen_order = json.loads(p.read_text(encoding="utf-8")).get("_meta", {}).get("gen_order", 0)
+        except (OSError, ValueError):
+            gen_order = 0
+        return (gen_order, rel)
 
-    for map_file in sorted(BASE_MAPPING_DIR.rglob("*.json"), key=_sort_key):
+    for map_file in sorted(BASE_MAPPING_DIR.rglob("*.json"), key=_order_key):
         rel_path = map_file.relative_to(BASE_MAPPING_DIR)
         tier_file = TIER_DEF_DIR / rel_path
         
         if not tier_file.exists():
+            continue
+
+        tier_doc = json.loads(tier_file.read_text(encoding="utf-8"))
+        map_doc  = json.loads(map_file.read_text(encoding="utf-8"))
+
+        # Skip files excluded for current mode (e.g. Divination Cards in ruthless)
+        # BEFORE any counter/header work, so excluded files consume no block
+        # indices and a fully-excluded folder emits no header. (Mirrors the
+        # early skip in filterGenerator.ts — parity-guarded in ruthless mode.)
+        if MODE in map_doc.get("_meta", {}).get("excluded_modes", []):
             continue
 
         # Extract Folder Name (First part of path)
@@ -213,11 +271,11 @@ def generate_filter():
             current_major_cat = folder
             major_counter += 10000
             sub_counter = major_counter # Reset sub counter base
-            
+
             # Localize folder name
             folder_localized = FOLDER_LOCALIZATION.get(folder, folder)
             header_text = f"{folder_localized} {folder}" if LANG == "ch" else folder
-            
+
             out_lines.append(f"\n#===================================================================================================================")
             out_lines.append(f"# [[{major_counter:05d}]] {header_text}")
             out_lines.append(f"#===================================================================================================================")
@@ -226,13 +284,6 @@ def generate_filter():
         # --- Sub Category (File) ---
         sub_counter += 1000
         block_index = sub_counter # 11000 start
-
-        tier_doc = json.loads(tier_file.read_text(encoding="utf-8"))
-        map_doc  = json.loads(map_file.read_text(encoding="utf-8"))
-
-        # Skip files excluded for current mode (e.g. Divination Cards in ruthless)
-        if MODE in map_doc.get("_meta", {}).get("excluded_modes", []):
-            continue
 
         category_key = next((k for k in tier_doc if not k.startswith("//")), None)
         if not category_key: continue
@@ -341,6 +392,28 @@ def generate_filter():
             if MODE in tier_entry.get("excluded_modes", []):
                 continue
 
+            # Campaign module gate (selection-centric ladder, mirrors
+            # filterGenerator.ts): group tiers (axis weapon/armour — the T1
+            # band layer + T2 class-wide rare layer) emit ONLY when their key
+            # is picked in the Campaign picker; unpicked groups are omitted and
+            # fall to the T3 safety net. 'aggressive' declutter tiers emit (as
+            # Hide) only under hide_unselected, which also flips unpicked
+            # WEAPON groups to Hide instead of omitting them. Strictness NEVER
+            # applies inside _campaign (see CONTEXT.md).
+            lv_axis = (tier_entry.get("lv_group") or {}).get("axis")
+            lv_hide = False
+            if lv_axis == "aggressive":
+                if LEVELING_SELECTION.get("hide_unselected"):
+                    lv_hide = True
+                else:
+                    continue
+            elif lv_axis in ("weapon", "armour"):
+                if not lv_picked(tier_entry):
+                    if lv_axis == "weapon" and LEVELING_SELECTION.get("hide_unselected"):
+                        lv_hide = True
+                    else:
+                        continue
+
             is_hide = tier_entry.get("is_hide_tier", False)
             # Strictness gate: flip a normally-shown tier to Hide once the selected
             # strictness reaches its threshold. Mode-independent — HIDE_CMD already
@@ -348,15 +421,17 @@ def generate_filter():
             hide_at = tier_entry.get("hide_at_strictness")
             if hide_at is not None and STRICTNESS_IDX >= hide_at:
                 is_hide = True
+            if lv_hide:
+                is_hide = True
             tnum = tier_num_from_label(t_lbl)
-            # Honor explicit theme.Tier for tiers with non-standard label names (e.g. "Camp Bows Early")
+            # Honor explicit theme.Tier for tiers with non-standard label names (e.g. "Bows Progression")
             theme_tier_override = tier_entry.get("theme", {}).get("Tier")
             if theme_tier_override is not None:
                 tnum = theme_tier_override
             ttheme = theme_ref.get(f"Tier {tnum}", {})
             base_text_col = parse_rgba(ttheme.get("TextColor"))
             base_border_col = parse_rgba(ttheme.get("BorderColor"))
-            base_background_col = parse_rgba(ttheme.get("BackgroundColor", "0 0 0 255"))
+            base_background_col = parse_rgba(ttheme.get("BackgroundColor"), "0 0 0 255")
             base_play_eff = ttheme.get("PlayEffect")
             base_mini_icon = ttheme.get("MinimapIcon")
 
@@ -370,11 +445,11 @@ def generate_filter():
                 ttheme = theme_ref.get(f"Tier {theme_tnum}", ttheme)
                 base_text_col = parse_rgba(ttheme.get("TextColor"))
                 base_border_col = parse_rgba(ttheme.get("BorderColor"))
-                base_background_col = parse_rgba(ttheme.get("BackgroundColor", "0 0 0 255"))
+                base_background_col = parse_rgba(ttheme.get("BackgroundColor"), "0 0 0 255")
                 base_play_eff = ttheme.get("PlayEffect")
                 base_mini_icon = ttheme.get("MinimapIcon")
                 block_index += 1
-                tier_display = tier_entry.get("localization", {}).get("en") or t_lbl
+                tier_display = tier_entry.get("localization", {}).get(LANG) or tier_entry.get("localization", {}).get("en") or t_lbl
                 out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -{tier_display} {loc_cat} - Class Condition==")
                 cmd = HIDE_CMD if is_hide else "Show"
                 block_lines = [f'{cmd}']
@@ -392,18 +467,21 @@ def generate_filter():
                         block_lines.append(f"    {key} {clean_val}")
                     else:
                         block_lines.append(f"    {key} {val}")
-                block_lines += [
-                    f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}',
-                    f'    SetTextColor {base_text_col}',
-                    f'    SetBorderColor {base_border_col}',
-                    f'    SetBackgroundColor {base_background_col}'
-                ]
+                # Disabled/sentinel styles are OMITTED (see style_off) so the editor
+                # preview and the exported filter agree. (Mirrors filterGenerator.ts.)
+                block_lines.append(f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}')
+                if not style_off(ttheme.get("TextColor")):
+                    block_lines.append(f'    SetTextColor {base_text_col}')
+                if not style_off(ttheme.get("BorderColor")):
+                    block_lines.append(f'    SetBorderColor {base_border_col}')
+                if not style_off(ttheme.get("BackgroundColor")):
+                    block_lines.append(f'    SetBackgroundColor {base_background_col}')
                 sound_line = resolve_sound(tier_entry, sound_map)
                 if sound_line:
                     block_lines.append(f"    {sound_line}")
-                if base_play_eff:
+                if base_play_eff and not style_off(base_play_eff):
                     block_lines.append(f"    PlayEffect {base_play_eff}")
-                if base_mini_icon:
+                if base_mini_icon and not style_off(base_mini_icon):
                     block_lines.append(f"    MinimapIcon {base_mini_icon}")
                 out_lines.append("\n".join(block_lines) + "\n")
                 continue  # Skip normal BaseType processing for this tier
@@ -484,11 +562,12 @@ def generate_filter():
                     else:
                         # Explicit User Rule
                         rule_counter += 1
-                        rule_name = raw_comment or tr('Rule')
+                        # Localizable rule name: rule.localization[lang] -> comment -> "Rule"
+                        rule_name = rule.get("localization", {}).get(LANG) or raw_comment or tr('Rule')
                         rule_part = f"#{rule_counter} {rule_name}"
 
                     final_mode = tr(mode_label)
-                    tier_display_r = tier_entry.get("localization", {}).get("en") or f"Tier {tnum}"
+                    tier_display_r = tier_entry.get("localization", {}).get(LANG) or tier_entry.get("localization", {}).get("en") or f"Tier {tnum}"
                     out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -{tier_display_r} {loc_cat} - {rule_part} - {final_mode}==")
                     
                     joined = '" "'.join(subgroup)
@@ -522,17 +601,25 @@ def generate_filter():
                         for r_line in rule.get("raw").split('\n'):
                             if r_line.strip(): block_lines.append(f"    {r_line.strip()}")
 
-                    block_lines += [
-                        f'    SetFontSize {r_over.get("FontSize", ttheme.get("FontSize", DEFAULT_FONT_SIZE))}',
-                        f'    SetTextColor {parse_rgba(r_over.get("TextColor"), base_text_col)}',
-                        f'    SetBorderColor {parse_rgba(r_over.get("BorderColor"), base_border_col)}',
-                        f'    SetBackgroundColor {parse_rgba(r_over.get("BackgroundColor"), base_background_col)}'
-                    ]
-                    
+                    # Effective raw value = the override when present, else the theme
+                    # value; disabled/sentinel values omit the line (see style_off).
+                    block_lines.append(f'    SetFontSize {r_over.get("FontSize", ttheme.get("FontSize", DEFAULT_FONT_SIZE))}')
+                    r_text_raw = r_over["TextColor"] if "TextColor" in r_over else ttheme.get("TextColor")
+                    if not style_off(r_text_raw):
+                        block_lines.append(f'    SetTextColor {parse_rgba(r_over.get("TextColor"), base_text_col)}')
+                    r_border_raw = r_over["BorderColor"] if "BorderColor" in r_over else ttheme.get("BorderColor")
+                    if not style_off(r_border_raw):
+                        block_lines.append(f'    SetBorderColor {parse_rgba(r_over.get("BorderColor"), base_border_col)}')
+                    r_bg_raw = r_over["BackgroundColor"] if "BackgroundColor" in r_over else ttheme.get("BackgroundColor")
+                    if not style_off(r_bg_raw):
+                        block_lines.append(f'    SetBackgroundColor {parse_rgba(r_over.get("BackgroundColor"), base_background_col)}')
+
                     sound_line = resolve_sound(tier_entry, sound_map, r_over.get("PlayAlertSound"))
                     if sound_line:  block_lines.append(f"    {sound_line}")
-                    if r_over.get("PlayEffect", base_play_eff): block_lines.append(f"    PlayEffect {r_over.get('PlayEffect', base_play_eff)}")
-                    if r_over.get("MinimapIcon", base_mini_icon): block_lines.append(f"    MinimapIcon {r_over.get('MinimapIcon', base_mini_icon)}")
+                    r_eff = r_over.get("PlayEffect", base_play_eff)
+                    if r_eff and not style_off(r_eff): block_lines.append(f"    PlayEffect {r_eff}")
+                    r_icon = r_over.get("MinimapIcon", base_mini_icon)
+                    if r_icon and not style_off(r_icon): block_lines.append(f"    MinimapIcon {r_icon}")
                     
                     out_lines.append("\n".join(block_lines) + "\n")
 
@@ -557,7 +644,7 @@ def generate_filter():
                     block_index += 1
                     final_mode = tr(mode_label)
                     base_label = tr("Base")
-                    tier_display = tier_entry.get("localization", {}).get("en") or f"Tier {tnum}"
+                    tier_display = tier_entry.get("localization", {}).get(LANG) or tier_entry.get("localization", {}).get("en") or f"Tier {tnum}"
                     out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -{tier_display} {loc_cat} - {base_label} - {final_mode}==")
                     
                     joined = '" "'.join(subgroup)
@@ -586,17 +673,19 @@ def generate_filter():
                         else:
                             block_lines.append(f"    {key} {val}")
 
-                    block_lines += [
-                        f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}',
-                        f'    SetTextColor {base_text_col}',
-                        f'    SetBorderColor {base_border_col}',
-                        f'    SetBackgroundColor {base_background_col}'
-                    ]
+                    # Disabled/sentinel styles are OMITTED (see style_off).
+                    block_lines.append(f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}')
+                    if not style_off(ttheme.get("TextColor")):
+                        block_lines.append(f'    SetTextColor {base_text_col}')
+                    if not style_off(ttheme.get("BorderColor")):
+                        block_lines.append(f'    SetBorderColor {base_border_col}')
+                    if not style_off(ttheme.get("BackgroundColor")):
+                        block_lines.append(f'    SetBackgroundColor {base_background_col}')
 
                     sound_line = resolve_sound(tier_entry, sound_map)
                     if sound_line:  block_lines.append(f"    {sound_line}")
-                    if base_play_eff: block_lines.append(f"    PlayEffect {base_play_eff}")
-                    if base_mini_icon: block_lines.append(f"    MinimapIcon {base_mini_icon}")
+                    if base_play_eff and not style_off(base_play_eff): block_lines.append(f"    PlayEffect {base_play_eff}")
+                    if base_mini_icon and not style_off(base_mini_icon): block_lines.append(f"    MinimapIcon {base_mini_icon}")
                     
                     out_lines.append("\n".join(block_lines) + "\n")
 

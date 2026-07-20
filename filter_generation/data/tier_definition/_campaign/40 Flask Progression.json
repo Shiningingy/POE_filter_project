@@ -1,0 +1,90 @@
+{
+  "Flask Progression": {
+    "_meta": {
+      "item_class": {
+        "en": "Flasks",
+        "ch": "药剂"
+      },
+      "localization": {
+        "en": "Flask Progression",
+        "ch": "药剂过渡"
+      },
+      "theme_category": "Campaign",
+      "tier_order": [
+        "Life Mana Progression",
+        "Quicksilver Highlight",
+        "Tinctures Highlight"
+      ]
+    },
+    "Life Mana Progression": {
+      "_lv": true,
+      "hideable": true,
+      "conditions": {},
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "flasks"
+      },
+      "localization": {
+        "en": "Life/Mana Progression",
+        "ch": "生命/魔力药剂过渡"
+      }
+    },
+    "Quicksilver Highlight": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "BaseType": "== \"Quicksilver Flask\"",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "flasks"
+      },
+      "localization": {
+        "en": "Quicksilver Highlight",
+        "ch": "水银药剂突显"
+      }
+    },
+    "Tinctures Highlight": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Tinctures\"",
+        "AreaLevel": "<= 67",
+        "ItemLevel": "<= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "flasks"
+      },
+      "localization": {
+        "en": "Tinctures Highlight",
+        "ch": "酊剂突显"
+      }
+    }
+  }
+}

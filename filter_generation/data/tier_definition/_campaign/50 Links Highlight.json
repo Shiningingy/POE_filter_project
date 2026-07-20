@@ -1,0 +1,73 @@
+{
+  "Links Highlight": {
+    "_meta": {
+      "item_class": {
+        "en": "Linked Gear",
+        "ch": "连接装备"
+      },
+      "localization": {
+        "en": "Links Highlight",
+        "ch": "连接突显"
+      },
+      "theme_category": "Campaign",
+      "tier_order": [
+        "Camp 4-Link",
+        "Camp 3-Link"
+      ]
+    },
+    "Camp 4-Link": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Bows\" \"Claws\" \"Daggers\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Quivers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Wands\" \"Warstaves\" \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\"",
+        "LinkedSockets": ">= 4",
+        "Rarity": "<= Rare",
+        "AreaLevel": "<= 45",
+        "ItemLevel": "<= 50"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "campaign"
+      },
+      "localization": {
+        "en": "4-Link (until Act 5)",
+        "ch": "四连（至第五章）"
+      }
+    },
+    "Camp 3-Link": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Bows\" \"Claws\" \"Daggers\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Quivers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Wands\" \"Warstaves\" \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\"",
+        "LinkedSockets": ">= 3",
+        "Rarity": "<= Rare",
+        "AreaLevel": "<= 33",
+        "ItemLevel": "<= 38"
+      },
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "campaign"
+      },
+      "localization": {
+        "en": "3-Link (until Act 3)",
+        "ch": "三连（至第三章）"
+      }
+    }
+  }
+}

@@ -8,6 +8,36 @@ import { type Language } from './localization';
 export const STRICTNESS_LEVELS = ['soft', 'regular', 'semistrict', 'strict', 'verystrict', 'uber', 'uberplus'] as const;
 export type StrictnessLevel = typeof STRICTNESS_LEVELS[number];
 
+// Campaign module: the Campaign picker's selection — selection-centric ladder.
+// Picked groups emit their T1 band layer + T2 class-wide rare layer; unpicked
+// groups emit nothing and fall to the T3 safety net. Nothing picked (the
+// default) = baseline output. hide_unselected is the aggressive declutter:
+// unpicked weapon groups + the 'aggressive' tiers (late-campaign magic) emit
+// as Hide. Mirrors LEVELING_SELECTION handling in filter_generation/generate.py.
+export interface LevelingSelection {
+  weapons?: string[];
+  armour_defense?: string[];
+  hide_unselected?: boolean;
+  preset?: string;
+}
+
+// EDITOR helper: will this campaign tier emit as a SHOW block under the current
+// selection? Selection-centric ladder: weapon/armour group tiers emit ONLY when
+// picked (unpicked = omitted, or Hide under the declutter — either way not a
+// Show). 'aggressive' tiers are never Show blocks. Drives preview dimming and
+// the per-tier enable chip — the generators use their own lv gate
+// (lvPicked / lv_picked in generate.py).
+export const isLevelingSelected = (lvGroup: any, selection?: LevelingSelection): boolean => {
+  if (!lvGroup) return true;
+  const sel = selection || {};
+  switch (lvGroup.axis) {
+    case 'weapon': return (sel.weapons || []).includes(lvGroup.key);
+    case 'armour': return (sel.armour_defense || []).includes(lvGroup.key);
+    case 'aggressive': return false;
+    default: return true; // 'always' or unknown axis
+  }
+};
+
 // ===========================
 // TYPES
 // ===========================
@@ -20,6 +50,8 @@ interface GeneratorData {
   language: Language;
   footer?: string; // verbatim tail (unknown-items catch-all block)
   strictness?: string; // strictness ladder level (default 'soft' = loosest)
+  leveling_selection?: LevelingSelection; // Campaign picker selection (default: all selected)
+  mode?: string; // 'ruthless' | 'standard' (default). Ruthless hides via 'Minimal' (Hide is invalid there) + excluded_modes.
 }
 
 // ===========================
@@ -59,6 +91,14 @@ const FOLDER_LOCALIZATION: Record<string, string> = {
 // ===========================
 // UTILITIES
 // ===========================
+
+// True when a theme/override style value means OMIT the line entirely: the
+// editor's 'disabled:' toggle, or the designer sentinels 'inherit' (TextColor
+// keeps the rarity colour) / 'default' (BackgroundColor keeps the game's default
+// label bg). Mirrors style_off() in generate.py — the editor preview
+// (styleResolver) omits these too, so preview == export.
+const styleOff = (value: any): boolean =>
+  typeof value === 'string' && (value.startsWith('disabled:') || value === 'inherit' || value === 'default');
 
 const parseRgba = (value: any, defaultValue: string = "255 255 255 255"): string => {
   if (!value || value === -1) return defaultValue;
@@ -125,14 +165,24 @@ export const generateFilter = (data: GeneratorData): string => {
   const term = (key: string): string => (TERMS[language] || TERMS.en)[key] || key;
   const isCh = language === 'ch';
 
-  // The deployed generator is mode-less ≈ generate.py --mode standard. MODE
-  // gates excluded_modes and HIDE_CMD exactly as the Python side does; when the
-  // Ruthless milestone lands, this becomes a parameter.
-  const MODE = 'standard';
-  const HIDE_CMD = 'Hide';
+  // MODE gates excluded_modes and HIDE_CMD exactly as the Python side does.
+  // Ruthless forbids the `Hide` keyword in-game, so hidden tiers emit `Minimal`
+  // (GGG's Ruthless-only Hide-equivalent). Mirrors generate.py.
+  const MODE = data.mode === 'ruthless' ? 'ruthless' : 'standard';
+  const HIDE_CMD = MODE === 'ruthless' ? 'Minimal' : 'Hide';
 
   // Strictness gate threshold index; an absent/unknown level clamps to 'soft'.
   const STRICTNESS_IDX = Math.max(0, (STRICTNESS_LEVELS as readonly string[]).indexOf(data.strictness ?? 'soft'));
+
+  // Campaign selection (selection-centric: picked groups emit their layers).
+  // Mirrors lv_picked() in generate.py.
+  const LV_SEL: LevelingSelection = data.leveling_selection || {};
+  const lvPicked = (tierEntry: any): boolean => {
+    const lv = tierEntry.lv_group || {};
+    if (lv.axis === 'weapon') return (LV_SEL.weapons || []).includes(lv.key);
+    if (lv.axis === 'armour') return (LV_SEL.armour_defense || []).includes(lv.key);
+    return false;
+  };
 
   // Emit condition lines for a block. Mirrors generate.py: list → repeated AND
   // lines, "RANGE a b c d" → two lines, Rarity → strip a leading "==", else
@@ -173,8 +223,18 @@ export const generateFilter = (data: GeneratorData): string => {
   let majorCounter = 0;
   let subCounter = 0;
 
-  // Process all mappings (Sorted by path)
-  const sortedPaths = Object.keys(allMappings).sort();
+  // Category GENERATION order = explicit `_meta.gen_order` (ascending), then the
+  // relative path. DECOUPLED from nav display order (category_structure) on purpose:
+  // campaign carries gen_order -100 so it emits FIRST (first-match wins during the
+  // acts) even though the nav shows it low. Absent field = 0. Tier order and rule
+  // order are authored in the editor and followed verbatim — never reordered here.
+  // (Mirrors _order_key in generate.py — parity-guarded.)
+  const genOrder = (p: string): number => (allMappings[p]?._meta?.gen_order ?? 0);
+  const sortedPaths = Object.keys(allMappings).sort((a, b) => {
+    const ga = genOrder(a), gb = genOrder(b);
+    if (ga !== gb) return ga - gb;
+    return a < b ? -1 : a > b ? 1 : 0;
+  });
 
   for (const relPath of sortedPaths) {
     const mapDoc = allMappings[relPath];
@@ -304,12 +364,32 @@ export const generateFilter = (data: GeneratorData): string => {
       // Skip tiers excluded for the current mode (mirrors generate.py).
       if ((tierEntry.excluded_modes || []).includes(MODE)) continue;
 
+      // Campaign module gate (selection-centric ladder, mirrors generate.py):
+      // group tiers (axis weapon/armour — the T1 band layer + T2 class-wide
+      // rare layer) emit ONLY when their key is picked; unpicked groups are
+      // omitted and fall to the T3 safety net. 'aggressive' declutter tiers
+      // emit (as Hide) only under hide_unselected, which also flips unpicked
+      // WEAPON groups to Hide instead of omitting them. Strictness NEVER
+      // applies inside _campaign (see CONTEXT.md).
+      const lvAxis = (tierEntry.lv_group || {}).axis;
+      let lvHide = false;
+      if (lvAxis === 'aggressive') {
+        if (LV_SEL.hide_unselected) lvHide = true;
+        else continue;
+      } else if (lvAxis === 'weapon' || lvAxis === 'armour') {
+        if (!lvPicked(tierEntry)) {
+          if (lvAxis === 'weapon' && LV_SEL.hide_unselected) lvHide = true;
+          else continue;
+        }
+      }
+
       const isHideTier = !!tierEntry.is_hide_tier;
       // Strictness gate: flip a normally-shown tier to Hide at/above its threshold.
       // (Mirrors generate.py.) MODE still drives HIDE_CMD (Hide vs Minimal).
       let isHide = isHideTier;
       const hideAt = tierEntry.hide_at_strictness;
       if (typeof hideAt === 'number' && STRICTNESS_IDX >= hideAt) isHide = true;
+      if (lvHide) isHide = true;
       let tnum = tierNumFromLabel(tLbl);
       // Honor an explicit theme.Tier for tiers with non-standard label names.
       const themeTierOverride = tierEntry.theme?.Tier;
@@ -324,7 +404,7 @@ export const generateFilter = (data: GeneratorData): string => {
 
       // Tier label shown in comment headers (e.g. "T1: High End"); the filter
       // command + theme lookup still key off tnum above.
-      const tierDisplay = tierEntry.localization?.en || `Tier ${tnum}`;
+      const tierDisplay = tierEntry.localization?.[language] || tierEntry.localization?.en || `Tier ${tnum}`;
 
       // --- Class-Condition tiers (e.g. _campaign/Armour.json) ---
       // Emit one Class-gated block (no BaseType enumeration) and skip normal
@@ -340,18 +420,20 @@ export const generateFilter = (data: GeneratorData): string => {
         basePlayEff = ttheme.PlayEffect;
         baseMiniIcon = ttheme.MinimapIcon;
         blockIndex++;
-        const ccDisplay = tierEntry.localization?.en || tLbl;
+        const ccDisplay = tierEntry.localization?.[language] || tierEntry.localization?.en || tLbl;
         outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${ccDisplay} ${locCat} - Class Condition==`);
         const ccLines = [`${isHide ? HIDE_CMD : "Show"}`];
         emitConditions(ccLines, tierConditions);
+        // Disabled/sentinel styles are OMITTED (see styleOff) so the editor
+        // preview and the exported filter agree. (Mirrors generate.py.)
         ccLines.push(`    SetFontSize ${ttheme.FontSize || DEFAULT_FONT_SIZE}`);
-        ccLines.push(`    SetTextColor ${baseTextCol}`);
-        ccLines.push(`    SetBorderColor ${baseBorderCol}`);
-        ccLines.push(`    SetBackgroundColor ${baseBgCol}`);
+        if (!styleOff(ttheme.TextColor)) ccLines.push(`    SetTextColor ${baseTextCol}`);
+        if (!styleOff(ttheme.BorderColor)) ccLines.push(`    SetBorderColor ${baseBorderCol}`);
+        if (!styleOff(ttheme.BackgroundColor)) ccLines.push(`    SetBackgroundColor ${baseBgCol}`);
         const ccSound = resolveSound(tierEntry, soundMap);
         if (ccSound) ccLines.push(`    ${ccSound}`);
-        if (basePlayEff) ccLines.push(`    PlayEffect ${basePlayEff}`);
-        if (baseMiniIcon) ccLines.push(`    MinimapIcon ${baseMiniIcon}`);
+        if (basePlayEff && !styleOff(basePlayEff)) ccLines.push(`    PlayEffect ${basePlayEff}`);
+        if (baseMiniIcon && !styleOff(baseMiniIcon)) ccLines.push(`    MinimapIcon ${baseMiniIcon}`);
         outLines.push(ccLines.join('\n') + '\n');
         continue;
       }
@@ -421,7 +503,9 @@ export const generateFilter = (data: GeneratorData): string => {
             rulePart = `${term('Auto-Sound')}：${itemLocal}`;
           } else {
             ruleCounter++;
-            rulePart = `#${ruleCounter} ${rawComment || term('Rule')}`;
+            // Localizable rule name: rule.localization[lang] -> comment -> "Rule"
+            const ruleName = (rule.localization || {})[language] || rawComment || term('Rule');
+            rulePart = `#${ruleCounter} ${ruleName}`;
           }
 
           const finalMode = term(modeLabel);
@@ -440,15 +524,22 @@ export const generateFilter = (data: GeneratorData): string => {
             rule.raw.split('\n').forEach((l: string) => { if (l.trim()) blockLines.push(`    ${l.trim()}`); });
           }
 
+          // Effective raw value = the override when present, else the theme value;
+          // disabled/sentinel values omit the line (see styleOff; mirrors generate.py).
           blockLines.push(`    SetFontSize ${rOver.FontSize || ttheme.FontSize || DEFAULT_FONT_SIZE}`);
-          blockLines.push(`    SetTextColor ${parseRgba(rOver.TextColor, baseTextCol)}`);
-          blockLines.push(`    SetBorderColor ${parseRgba(rOver.BorderColor, baseBorderCol)}`);
-          blockLines.push(`    SetBackgroundColor ${parseRgba(rOver.BackgroundColor, baseBgCol)}`);
+          const rTextRaw = 'TextColor' in rOver ? rOver.TextColor : ttheme.TextColor;
+          if (!styleOff(rTextRaw)) blockLines.push(`    SetTextColor ${parseRgba(rOver.TextColor, baseTextCol)}`);
+          const rBorderRaw = 'BorderColor' in rOver ? rOver.BorderColor : ttheme.BorderColor;
+          if (!styleOff(rBorderRaw)) blockLines.push(`    SetBorderColor ${parseRgba(rOver.BorderColor, baseBorderCol)}`);
+          const rBgRaw = 'BackgroundColor' in rOver ? rOver.BackgroundColor : ttheme.BackgroundColor;
+          if (!styleOff(rBgRaw)) blockLines.push(`    SetBackgroundColor ${parseRgba(rOver.BackgroundColor, baseBgCol)}`);
 
           const soundLine = resolveSound(tierEntry, soundMap, rOver.PlayAlertSound);
           if (soundLine) blockLines.push(`    ${soundLine}`);
-          if (rOver.PlayEffect || basePlayEff) blockLines.push(`    PlayEffect ${rOver.PlayEffect || basePlayEff}`);
-          if (rOver.MinimapIcon || baseMiniIcon) blockLines.push(`    MinimapIcon ${rOver.MinimapIcon || baseMiniIcon}`);
+          const rEff = 'PlayEffect' in rOver ? rOver.PlayEffect : basePlayEff;
+          if (rEff && !styleOff(rEff)) blockLines.push(`    PlayEffect ${rEff}`);
+          const rIcon = 'MinimapIcon' in rOver ? rOver.MinimapIcon : baseMiniIcon;
+          if (rIcon && !styleOff(rIcon)) blockLines.push(`    MinimapIcon ${rIcon}`);
 
           outLines.push(blockLines.join('\n') + '\n');
         }
@@ -481,15 +572,16 @@ export const generateFilter = (data: GeneratorData): string => {
           // generate.py's base block. (Previously omitted on the TS side.)
           emitConditions(blockLines, tierEntry.conditions);
 
+          // Disabled/sentinel styles are OMITTED (see styleOff; mirrors generate.py).
           blockLines.push(`    SetFontSize ${ttheme.FontSize || DEFAULT_FONT_SIZE}`);
-          blockLines.push(`    SetTextColor ${baseTextCol}`);
-          blockLines.push(`    SetBorderColor ${baseBorderCol}`);
-          blockLines.push(`    SetBackgroundColor ${baseBgCol}`);
+          if (!styleOff(ttheme.TextColor)) blockLines.push(`    SetTextColor ${baseTextCol}`);
+          if (!styleOff(ttheme.BorderColor)) blockLines.push(`    SetBorderColor ${baseBorderCol}`);
+          if (!styleOff(ttheme.BackgroundColor)) blockLines.push(`    SetBackgroundColor ${baseBgCol}`);
 
           const soundLine = resolveSound(tierEntry, soundMap);
           if (soundLine) blockLines.push(`    ${soundLine}`);
-          if (basePlayEff) blockLines.push(`    PlayEffect ${basePlayEff}`);
-          if (baseMiniIcon) blockLines.push(`    MinimapIcon ${baseMiniIcon}`);
+          if (basePlayEff && !styleOff(basePlayEff)) blockLines.push(`    PlayEffect ${basePlayEff}`);
+          if (baseMiniIcon && !styleOff(baseMiniIcon)) blockLines.push(`    MinimapIcon ${baseMiniIcon}`);
 
           outLines.push(blockLines.join('\n') + '\n');
         }

@@ -3,7 +3,8 @@ import axios from 'axios';
 import './App.css';
 import { useTranslation } from './utils/localization';
 import type { Language } from './utils/localization';
-import { STRICTNESS_LEVELS, type StrictnessLevel } from './utils/filterGenerator';
+import { STRICTNESS_LEVELS, type StrictnessLevel, type LevelingSelection } from './utils/filterGenerator';
+import OverviewView from './views/OverviewView';
 import EditorView from './views/EditorView';
 import SimulatorView from './views/SimulatorView';
 import ExportView from './views/ExportView';
@@ -15,6 +16,7 @@ import AdminPanel from './components/AdminPanel';
 import LoadingOverlay from './components/LoadingOverlay';
 import WelcomeModal from './components/WelcomeModal';
 import ManualViewer from './components/ManualViewer';
+import CampaignPicker from './components/CampaignPicker';
 
 // App-start splash: covers the UI until the shared base data
 // (class hierarchy/properties) is in. Must live inside AppDataProvider.
@@ -23,13 +25,32 @@ const StartupSplash = ({ language }: { language: Language }) => {
   return loading ? <LoadingOverlay language={language} fullscreen /> : null;
 };
 
+type ViewName = 'overview' | 'editor' | 'simulator' | 'export' | 'theme' | 'import-foreign';
+
 function App() {
-  const [currentView, setCurrentView] = useState<'editor' | 'simulator' | 'export' | 'theme' | 'import-foreign'>('editor');
+  const [currentView, setCurrentView] = useState<ViewName>('overview');
   const [language, setLanguage] = useState<Language>('ch');
-  const [gameVersion, setGameVersion] = useState<'poe1' | 'poe2'>('poe1');
+  // PoE 2 isn't supported yet, so the game version is fixed to poe1 (no navbar selector).
+  const [gameVersion] = useState<'poe1' | 'poe2'>('poe1');
   const [gameMode, setGameMode] = useState<'normal' | 'ruthless'>('ruthless');
   const [strictness, setStrictness] = useState<StrictnessLevel>('soft');
+  // Campaign/leveling picker selection (persisted setting; {} = show all leveling)
+  const [levelingSelection, setLevelingSelection] = useState<LevelingSelection>({});
+  const [showCampaign, setShowCampaign] = useState<boolean>(false);
+  const [baseTheme, setBaseTheme] = useState<string>('sharket');
   const t = useTranslation(language);
+
+  // Load persisted settings once (Campaign selection + active theme) so the
+  // Overview cards and generation reflect the saved state. Both the local backend
+  // and the demo VFS serve /api/settings.
+  useEffect(() => {
+    axios.get('/api/settings')
+      .then(res => {
+        if (res.data?.leveling_selection) setLevelingSelection(res.data.leveling_selection);
+        if (res.data?.base_theme) setBaseTheme(res.data.base_theme);
+      })
+      .catch(() => {});
+  }, []);
 
   // First-visit welcome + in-app manual reader
   const [showWelcome, setShowWelcome] = useState<boolean>(
@@ -108,14 +129,15 @@ function App() {
     }
   }, [t.loadFailed]);
 
-  const generateFilter = async (): Promise<string | null> => {
+  const generateFilter = async (selectionOverride?: LevelingSelection): Promise<string | null> => {
     setLoading(true);
     try {
       setMessage(t.generating);
       const response = await axios.post(`${API_BASE_URL}/api/generate`, {
         game_version: gameVersion,
         game_mode: gameMode,
-        strictness
+        strictness,
+        leveling_selection: selectionOverride ?? levelingSelection,
       });
       setMessage(`${t.generatedSuccess}\n${response.data.output || ''}`);
       return await fetchFilterPreview();
@@ -126,6 +148,23 @@ function App() {
     } finally {
       setLoading(false);
     }
+  };
+
+  // Campaign picker Apply: this is a *customization*, not a generation trigger — it
+  // updates the working selection + persists it (like the strictness selector), and
+  // the change is captured at the next explicit Export/generate. It does NOT auto-
+  // generate the output filter.
+  // Update + persist the selection without UI side effects — also used by the
+  // editor's per-tier ⚡ boost chips.
+  const handleLevelingChange = async (sel: LevelingSelection) => {
+    setLevelingSelection(sel);
+    try { await axios.post(`${API_BASE_URL}/api/settings`, { leveling_selection: sel }); } catch { /* demo VFS / offline */ }
+  };
+
+  const handleApplyCampaign = async (sel: LevelingSelection) => {
+    setShowCampaign(false);
+    await handleLevelingChange(sel);
+    setMessage(t.campaignApplied);
   };
 
   const fetchFilterPreview = useCallback(async (): Promise<string | null> => {
@@ -164,24 +203,6 @@ function App() {
         <div className="brand">{t.appTitle}</div>
         
         <div className="mode-switches">
-            <div className="switch-group">
-                <label>{t.gameVersion}:</label>
-                <select value={gameVersion} onChange={(e) => setGameVersion(e.target.value as any)}>
-                    <option value="poe1">POE 1</option>
-                    <option value="poe2">POE 2</option>
-                </select>
-            </div>
-
-            {gameVersion === 'poe1' && (
-                <div className="switch-group">
-                    <label>{t.gameMode}:</label>
-                    <select value={gameMode} onChange={(e) => setGameMode(e.target.value as any)}>
-                        <option value="normal">{t.normalMode}</option>
-                        <option value="ruthless">{t.ruthlessMode}</option>
-                    </select>
-                </div>
-            )}
-
             {gameVersion === 'poe1' && (
                 <div className="switch-group">
                     <label>{t.strictness}:</label>
@@ -192,9 +213,11 @@ function App() {
                     </select>
                 </div>
             )}
+
         </div>
 
         <div className="nav-links">
+          <button className={currentView === 'overview' ? 'active' : ''} onClick={() => setCurrentView('overview')}>{t.overview}</button>
           <button className={currentView === 'editor' ? 'active' : ''} onClick={() => setCurrentView('editor')}>{t.editor}</button>
           <button className={currentView === 'theme' ? 'active' : ''} onClick={() => setCurrentView('theme')}>{language === 'ch' ? "外观与音效" : "Theme & Sound"}</button>
           <button className={currentView === 'simulator' ? 'active' : ''} onClick={() => setCurrentView('simulator')}>{t.simulator}</button>
@@ -221,6 +244,20 @@ function App() {
       </div>
 
       <div className="app-body">
+        {currentView === 'overview' && (
+          <OverviewView
+            language={language}
+            gameVersion={gameVersion}
+            gameMode={gameMode}
+            setGameMode={setGameMode}
+            strictness={strictness}
+            setStrictness={setStrictness}
+            levelingSelection={levelingSelection}
+            baseTheme={baseTheme}
+            onOpenCampaign={() => setShowCampaign(true)}
+            onNavigate={setCurrentView}
+          />
+        )}
         <div className="view-slot" style={{ display: currentView === 'editor' ? 'flex' : 'none' }}>
           <EditorView
             selectedFile={selectedFile}
@@ -231,6 +268,8 @@ function App() {
             message={message}
             language={language}
             strictness={strictness}
+            levelingSelection={levelingSelection}
+            onLevelingSelectionChange={handleLevelingChange}
             styleClipboard={styleClipboard}
             setStyleClipboard={setStyleClipboard}
             viewerBackground={viewerBackground}
@@ -270,6 +309,14 @@ function App() {
       {showManual && (
         <ManualViewer language={language} onClose={() => setShowManual(false)} />
       )}
+      {showCampaign && (
+        <CampaignPicker
+          language={language}
+          initialSelection={levelingSelection}
+          onClose={() => setShowCampaign(false)}
+          onApply={handleApplyCampaign}
+        />
+      )}
 
       <style>{`
         .App { display: flex; flex-direction: column; height: 100vh; font-family: 'Segoe UI', sans-serif; }
@@ -283,6 +330,8 @@ function App() {
         .mode-switches { display: flex; gap: 15px; margin-left: 20px; border-left: 1px solid #555; padding-left: 20px; }
         .switch-group { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #aaa; }
         .switch-group select { background: #444; color: white; border: 1px solid #555; padding: 4px 8px; border-radius: 4px; }
+        .campaign-btn { background: #444; color: #eaf6ff; border: 1px solid #2f9fe0; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; white-space: nowrap; }
+        .campaign-btn:hover { background: #14618a; }
 
         .nav-links { display: flex; height: 100%; flex-grow: 1; justify-content: center; }
         .nav-links button {

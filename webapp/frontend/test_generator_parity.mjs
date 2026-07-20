@@ -104,16 +104,23 @@ const baseGenData = {
   footer: bundle?.footer || '',
 };
 
-// Run the TS generator at a strictness over a given tier set; silence its
-// internal auto-sound debug logging.
-const runTs = (tiers, strictness) => {
+// Run the TS generator at a strictness/mode over a given tier set; silence its
+// internal auto-sound debug logging. `leveling` = optional Campaign selection.
+const runTs = (tiers, strictness, leveling, mode = 'standard') => {
   const real = console.log; console.log = () => {};
-  try { return norm(generateFilter({ ...baseGenData, allTierDefinitions: tiers, strictness })); }
+  try { return norm(generateFilter({ ...baseGenData, allTierDefinitions: tiers, strictness, leveling_selection: leveling, mode })); }
   finally { console.log = real; }
 };
-// Run the Python generator at a strictness; reads + returns the tracked output.
-const runPy = (strictness) => {
-  sh(`${PY} filter_generation/generate.py --mode standard --game-version poe1 --strictness ${strictness}`);
+// Run the Python generator at a strictness/mode; reads + returns the tracked output.
+// A leveling selection is passed via a temp @file to dodge shell JSON-quoting.
+const runPy = (strictness, leveling, mode = 'standard') => {
+  let arg = '';
+  if (leveling) {
+    const selFile = join(tmp, 'lvsel.json');
+    writeFileSync(selFile, JSON.stringify(leveling));
+    arg = ` --leveling-selection "@${selFile}"`;
+  }
+  sh(`${PY} filter_generation/generate.py --mode ${mode} --game-version poe1 --strictness ${strictness}${arg}`);
   return norm(readFileSync(OUTPUT_FILTER, 'utf8'));
 };
 // Inject a gate into a deep-cloned copy of the matching tier-def entry (TS side).
@@ -224,11 +231,55 @@ try {
   compare('semistrict: Python vs TS', pySemi, tsSemi);
   check('semistrict (idx2 < gate3): inert, == baseline on both sides',
         pySemi === pySoft && tsSemi === tsSoft);
+
+  // Case D/E/F — Campaign module (selection-centric ladder). D: an explicit
+  // empty selection must equal the absent-selection baseline (nothing picked =
+  // just the always-on campaign categories + T3 net). E: picking groups ADDS
+  // their T1 band layer + T2 class-wide rare layer identically on both sides.
+  // F: hide_unselected flips unpicked weapon groups to Hide AND emits the
+  // 'aggressive' declutter tiers identically.
+  console.log('\n[D/E/F] Campaign module (selection-centric ladder):');
+  const emptySel = { weapons: [], armour_defense: [], hide_unselected: false };
+  const pyEmpty = runPy('soft', emptySel);
+  const tsEmpty = runTs(merged.tiers, 'soft', emptySel);
+  compare('empty selection: Python vs TS', pyEmpty, tsEmpty);
+  check('empty selection == absent selection (baseline default)',
+        pyEmpty === pySoft && tsEmpty === tsSoft);
+
+  const pickSel = { weapons: ['Bows'], armour_defense: ['Evasion'], hide_unselected: false };
+  const pyPick = runPy('soft', pickSel);
+  const tsPick = runTs(merged.tiers, 'soft', pickSel);
+  compare('pick (Bows + Evasion): Python vs TS', pyPick, tsPick);
+  // Block displays are localized (output lang = ch); the Bows layer's zh name
+  // starts with 弓 and appears only when Bows is picked. Match the class prefix
+  // to stay robust against zh-name tuning.
+  check('pick ADDED layers (more lines; Bows layer only when picked)',
+        pyPick.split('\n').length > pySoft.split('\n').length &&
+        /弓高亮/.test(pyPick) && !/弓高亮/.test(pySoft));
+
+  const aggroSel = { weapons: ['Bows'], armour_defense: [], hide_unselected: true };
+  const pyAggro = runPy('soft', aggroSel);
+  const tsAggro = runTs(merged.tiers, 'soft', aggroSel);
+  compare('hide_unselected declutter: Python vs TS', pyAggro, tsAggro);
+  check('declutter fired (more Hide blocks than baseline)',
+        hideCount(pyAggro) > hideCount(pySoft) && hideCount(tsAggro) > hideCount(tsSoft));
+
+  // Case G — Ruthless mode. Ruthless forbids `Hide` in-game, so hidden tiers emit
+  // `Minimal`; excluded_modes content is dropped. Both generators must agree AND
+  // the output must contain zero bare `Hide` blocks (only `Minimal`).
+  console.log('\n[G] Ruthless mode (Minimal / excluded_modes):');
+  const pyRuth = runPy('soft', undefined, 'ruthless');
+  const tsRuth = runTs(merged.tiers, 'soft', undefined, 'ruthless');
+  compare('ruthless soft: Python vs TS', pyRuth, tsRuth);
+  const minimalCount = (t) => (t.match(/^Minimal\b/gm) || []).length;
+  check('ruthless uses Minimal, never bare Hide (both sides)',
+        hideCount(pyRuth) === 0 && hideCount(tsRuth) === 0 &&
+        minimalCount(pyRuth) === minimalCount(tsRuth) && minimalCount(tsRuth) > 0);
 } finally {
   if (filterBackup) writeFileSync(OUTPUT_FILTER, filterBackup);
   rmSync(tmp, { recursive: true, force: true });
 }
 
 const ok = results.every(Boolean);
-console.log(`\n${ok ? 'PASS' : 'FAIL'}: ${results.filter(Boolean).length}/${results.length} checks (standard mode + strictness gate).`);
+console.log(`\n${ok ? 'PASS' : 'FAIL'}: ${results.filter(Boolean).length}/${results.length} checks (standard mode + strictness gate + leveling gate).`);
 process.exit(ok ? 0 : 1);
