@@ -1,0 +1,34 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Vial of Dominance": "统御魔瓶",
+        "Vial of Summoning": "召唤魔瓶",
+        "Vial of Awakening": "觉醒魔瓶",
+        "Vial of the Ritual": "仪祭魔瓶",
+        "Vial of Fate": "命运魔瓶",
+        "Vial of Consequence": "结论魔瓶",
+        "Vial of the Ghost": "鬼魂魔瓶",
+        "Vial of Transcendence": "超越魔瓶",
+        "Vial of Sacrifice": "献祭魔瓶"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Vial of Dominance": "Incursion Vials",
+    "Vial of Summoning": "Incursion Vials",
+    "Vial of Awakening": "Incursion Vials",
+    "Vial of the Ritual": "Incursion Vials",
+    "Vial of Fate": "Incursion Vials",
+    "Vial of Consequence": "Incursion Vials",
+    "Vial of the Ghost": "Incursion Vials",
+    "Vial of Transcendence": "Incursion Vials",
+    "Vial of Sacrifice": "Incursion Vials"
+  },
+  "rules": []
+}

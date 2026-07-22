@@ -1,0 +1,26 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Karui Enshrouding Crystal": "卡鲁笼罩水晶",
+        "Imperial Enshrouding Crystal": "帝国笼罩水晶",
+        "Vaal Enshrouding Crystal": "瓦尔笼罩水晶",
+        "Templar Enshrouding Crystal": "圣堂笼罩水晶",
+        "Maraketh Enshrouding Crystal": "玛拉克斯笼罩水晶"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Karui Enshrouding Crystal": "Enshrouding Crystals",
+    "Imperial Enshrouding Crystal": "Enshrouding Crystals",
+    "Vaal Enshrouding Crystal": "Enshrouding Crystals",
+    "Templar Enshrouding Crystal": "Enshrouding Crystals",
+    "Maraketh Enshrouding Crystal": "Enshrouding Crystals"
+  },
+  "rules": []
+}
