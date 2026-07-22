@@ -1,0 +1,50 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Scrying Orb": "预知宝珠",
+        "Merrick's Ducat": "梅里克的达克特",
+        "Cyaxan's Ducat": "塞亚桑的达克特",
+        "The Changeling's Ducat": "换生灵的达克特",
+        "The Genteel's Ducat": "高雅者的达克特",
+        "Kishara's Ducat": "奇萨拉的达克特",
+        "Telesia's Ducat": "泰蕾希亚的达克特",
+        "Rotmother's Ducat": "腐母的达克特",
+        "Brinehook's Ducat": "咸钩的达克特",
+        "Katakohi's Ducat": "卡塔科希的达克特",
+        "Tzamoto's Ducat": "查莫托的达克特",
+        "Dead Man's Sulphur": "死者硫磺",
+        "Message in a Bottle": "瓶中信",
+        "Sandy Seabed Chart": "沙质海床海图",
+        "Coral Forest Chart": "珊瑚森林海图",
+        "Coral Reef Chart": "珊瑚礁海图",
+        "Mercenary Warrant": "佣兵委托令"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Stackable Currency"
+  },
+  "mapping": {
+    "Scrying Orb": "Notable",
+    "Merrick's Ducat": "Common",
+    "Cyaxan's Ducat": "Common",
+    "The Changeling's Ducat": "Common",
+    "The Genteel's Ducat": "Common",
+    "Kishara's Ducat": "Common",
+    "Telesia's Ducat": "Common",
+    "Rotmother's Ducat": "Common",
+    "Brinehook's Ducat": "Common",
+    "Katakohi's Ducat": "Common",
+    "Tzamoto's Ducat": "Common",
+    "Dead Man's Sulphur": "Common",
+    "Message in a Bottle": "Common",
+    "Sandy Seabed Chart": "Common",
+    "Coral Forest Chart": "Common",
+    "Coral Reef Chart": "Common",
+    "Mercenary Warrant": "Common"
+  },
+  "rules": []
+}

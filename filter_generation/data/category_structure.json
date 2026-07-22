@@ -115,13 +115,23 @@
           }
         },
         {
-          "path": "Currency/Incubators.json",
-          "tier_path": "tier_definition/Currency/Incubators.json",
-          "mapping_path": "base_mapping/Currency/Incubators.json",
-          "target_category": "Incubators",
+          "path": "Currency/Enshrouding Crystals.json",
+          "tier_path": "tier_definition/Currency/Enshrouding Crystals.json",
+          "mapping_path": "base_mapping/Currency/Enshrouding Crystals.json",
+          "target_category": "Enshrouding Crystals",
           "localization": {
-            "en": "Incubators",
-            "ch": "孕育石"
+            "en": "Enshrouding Crystals",
+            "ch": "笼罩水晶"
+          }
+        },
+        {
+          "path": "Currency/Incursion Vials.json",
+          "tier_path": "tier_definition/Currency/Incursion Vials.json",
+          "mapping_path": "base_mapping/Currency/Incursion Vials.json",
+          "target_category": "Incursion Vials",
+          "localization": {
+            "en": "Incursion Vials",
+            "ch": "穿越魔瓶"
           }
         },
         {
@@ -242,6 +252,32 @@
           "localization": {
             "en": "Support",
             "ch": "辅助宝石"
+          }
+        }
+      ]
+    },
+    {
+      "separator": {
+        "en": "Curse of the Allflame",
+        "ch": "众焰之咒"
+      }
+    },
+    {
+      "_meta": {
+        "localization": {
+          "en": "Curse of the Allflame",
+          "ch": "众焰之咒"
+        }
+      },
+      "files": [
+        {
+          "path": "Curse of the Allflame/League Items.json",
+          "tier_path": "tier_definition/Curse of the Allflame/League Items.json",
+          "mapping_path": "base_mapping/Curse of the Allflame/League Items.json",
+          "target_category": "Curse of the Allflame",
+          "localization": {
+            "en": "League Items",
+            "ch": "联盟物品"
           }
         }
       ]

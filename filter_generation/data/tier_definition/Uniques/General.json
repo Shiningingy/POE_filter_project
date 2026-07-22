@@ -10,6 +10,7 @@
         "T0 Chase",
         "T1",
         "T2",
+        "Enshrouded",
         "Replica Mid",
         "Foulborn Mid",
         "6-Link",
@@ -152,6 +153,25 @@
       "localization": {
         "en": "T2: Good Value",
         "ch": "T2: 优质"
+      }
+    },
+    "Enshrouded": {
+      "class_condition": true,
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "conditions": {
+        "Rarity": "Unique",
+        "Vestigial": "True"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "传奇.mp3"
+      },
+      "localization": {
+        "en": "Enshrouded (Vestigial)",
+        "ch": "笼罩传奇"
       }
     },
     "Replica Mid": {
