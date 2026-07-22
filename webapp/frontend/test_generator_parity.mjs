@@ -5,15 +5,18 @@
 // engine — and nothing else proves they agree. This test does: feed both the
 // SAME baked data and assert they emit the same filter text.
 //
-// Coverage:
-//   1. STANDARD mode, Soft strictness baseline — byte-for-byte agreement on the
-//      real data (this is today's shipped output).
-//   2. Strictness gate (`hide_at_strictness`) — a SYNTHETIC gate is injected on
-//      one tier and we assert both generators flip it identically: Hidden at/above
-//      the threshold, untouched below it. ("Mechanism only" — no real tier carries
-//      a gate yet, so this synthetic check is what guards the new axis.)
-//   Ruthless parity (Minimal / excluded_modes content) stays out of scope until
-//   the "webapp usable for Ruthless" milestone ports those to TS.
+// Coverage (cases A–H):
+//   A.   STANDARD mode, Soft strictness baseline — byte-for-byte agreement on the
+//        real data (this is today's shipped output).
+//   B/C. Strictness gate (`hide_at_strictness`) — a SYNTHETIC gate is injected on
+//        one tier and we assert both generators flip it identically: Hidden at/above
+//        the threshold, untouched below it. ("Mechanism only" — no real tier carries
+//        a gate yet, so this synthetic check is what guards the axis.)
+//   D/E/F. Campaign module (selection-centric ladder) — empty == baseline, picking
+//        groups ADDS layers, hide_unselected declutters; identical on both sides.
+//   G.   Ruthless mode — hidden tiers emit `Minimal` (never bare `Hide`), excluded_modes
+//        content is dropped; both generators agree.
+//   H.   English output language — the zh/en localization paths agree byte-for-byte.
 //
 // Run this whenever generate.py or filterGenerator.ts changes.
 // Usage (from webapp/frontend):  node test_generator_parity.mjs
@@ -106,21 +109,21 @@ const baseGenData = {
 
 // Run the TS generator at a strictness/mode over a given tier set; silence its
 // internal auto-sound debug logging. `leveling` = optional Campaign selection.
-const runTs = (tiers, strictness, leveling, mode = 'standard') => {
+const runTs = (tiers, strictness, leveling, mode = 'standard', language = 'ch') => {
   const real = console.log; console.log = () => {};
-  try { return norm(generateFilter({ ...baseGenData, allTierDefinitions: tiers, strictness, leveling_selection: leveling, mode })); }
+  try { return norm(generateFilter({ ...baseGenData, allTierDefinitions: tiers, strictness, leveling_selection: leveling, mode, language })); }
   finally { console.log = real; }
 };
 // Run the Python generator at a strictness/mode; reads + returns the tracked output.
 // A leveling selection is passed via a temp @file to dodge shell JSON-quoting.
-const runPy = (strictness, leveling, mode = 'standard') => {
+const runPy = (strictness, leveling, mode = 'standard', language = 'ch') => {
   let arg = '';
   if (leveling) {
     const selFile = join(tmp, 'lvsel.json');
     writeFileSync(selFile, JSON.stringify(leveling));
     arg = ` --leveling-selection "@${selFile}"`;
   }
-  sh(`${PY} filter_generation/generate.py --mode ${mode} --game-version poe1 --strictness ${strictness}${arg}`);
+  sh(`${PY} filter_generation/generate.py --mode ${mode} --game-version poe1 --strictness ${strictness} --language ${language}${arg}`);
   return norm(readFileSync(OUTPUT_FILTER, 'utf8'));
 };
 // Inject a gate into a deep-cloned copy of the matching tier-def entry (TS side).
@@ -275,11 +278,20 @@ try {
   check('ruthless uses Minimal, never bare Hide (both sides)',
         hideCount(pyRuth) === 0 && hideCount(tsRuth) === 0 &&
         minimalCount(pyRuth) === minimalCount(tsRuth) && minimalCount(tsRuth) > 0);
+
+  // Case H — English output language. The zh/en localization paths (tier displays,
+  // headers, Rule/Base/Exact terms) must agree byte-for-byte in English too, not
+  // just the default ch. `pyEn !== pySoft` guards against a vacuous pass.
+  console.log('\n[H] English output language:');
+  const pyEn = runPy('soft', undefined, 'standard', 'en');
+  const tsEn = runTs(merged.tiers, 'soft', undefined, 'standard', 'en');
+  compare('en language: Python vs TS', pyEn, tsEn);
+  check('en output differs from ch baseline (localization actually switched)', pyEn !== pySoft);
 } finally {
   if (filterBackup) writeFileSync(OUTPUT_FILTER, filterBackup);
   rmSync(tmp, { recursive: true, force: true });
 }
 
 const ok = results.every(Boolean);
-console.log(`\n${ok ? 'PASS' : 'FAIL'}: ${results.filter(Boolean).length}/${results.length} checks (standard mode + strictness gate + leveling gate).`);
+console.log(`\n${ok ? 'PASS' : 'FAIL'}: ${results.filter(Boolean).length}/${results.length} checks (standard + strictness + campaign + ruthless + en).`);
 process.exit(ok ? 0 : 1);

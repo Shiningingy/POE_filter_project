@@ -10,6 +10,7 @@
 // versions, the deployed site runs these.
 
 import axios from 'axios';
+import { mergeThemeOverrides } from '../utils/theme';
 
 export const VFS_PREFIX = 'demo_vfs_';
 
@@ -583,15 +584,8 @@ export const getMergedTheme = async () => {
   if (!base || Object.keys(base).length === 0) {
     try { base = (await themeData('sharket'))?.theme_data; } catch { base = {}; }
   }
-  const merged = JSON.parse(JSON.stringify(base || {}));
   const overrides = await getCustomOverrides();
-  for (const [cat, tiers] of Object.entries<any>(overrides || {})) {
-    if (!merged[cat]) merged[cat] = {};
-    for (const [tier, style] of Object.entries<any>(tiers || {})) {
-      merged[cat][tier] = { ...(merged[cat][tier] || {}), ...style };
-    }
-  }
-  return merged;
+  return mergeThemeOverrides(base, overrides);
 };
 
 /** GET /api/item-info/{base_type} (main.py get_item_info) */

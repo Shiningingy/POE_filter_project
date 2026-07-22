@@ -106,7 +106,10 @@ const parseRgba = (value: any, defaultValue: string = "255 255 255 255"): string
   
   if (typeof value === "string" && value.startsWith("#")) {
     const hexv = value.replace("#", "");
-    if (hexv.length === 6 || hexv.length === 8) {
+    // Require valid hex chars too (parity with generate.py): a bad-char string
+    // of the right length would otherwise yield "NaN NaN NaN 255" here while
+    // Python's int(..,16) raises — both must fall through to the default.
+    if ((hexv.length === 6 || hexv.length === 8) && /^[0-9a-fA-F]+$/.test(hexv)) {
       const r = parseInt(hexv.substring(0, 2), 16);
       const g = parseInt(hexv.substring(2, 4), 16);
       const b = parseInt(hexv.substring(4, 6), 16);

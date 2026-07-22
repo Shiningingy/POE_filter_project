@@ -12,6 +12,7 @@ import { buildThemeExport, parseThemeExport, downloadJson } from '../utils/theme
 import type { ThemeExport } from '../utils/themeSoundExport';
 import ThemeHueGenerator from './ThemeHueGenerator';
 import type { GeneratedTierStyle } from '../utils/themeGenerator';
+import { mergeThemeOverrides } from '../utils/theme';
 
 interface ThemePresetEditorProps {
   language: Language;
@@ -295,13 +296,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   const handleSaveAsPreset = async () => {
       const name = savePresetName.trim();
       if (!name || themes.includes(name) || !baseThemeData) return;
-      const merged = JSON.parse(JSON.stringify(baseThemeData));
-      Object.entries(overridesData as Record<string, any>).forEach(([cat, tiers]) => {
-          if (!merged[cat]) merged[cat] = {};
-          Object.entries(tiers as Record<string, any>).forEach(([tier, style]) => {
-              merged[cat][tier] = { ...(merged[cat][tier] || {}), ...style };
-          });
-      });
+      const merged = mergeThemeOverrides(baseThemeData, overridesData);
       try {
           await axios.post(`/api/themes/${name}`, { theme_data: merged });
           setThemes(prev => prev.includes(name) ? prev : [...prev, name]);
