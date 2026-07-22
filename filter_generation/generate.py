@@ -32,6 +32,7 @@ _args = argparse.ArgumentParser(add_help=False)
 _args.add_argument("--mode", default="standard", choices=["standard", "ruthless"])
 _args.add_argument("--game-version", default="poe1", choices=["poe1", "poe2"])
 _args.add_argument("--strictness", default="soft", choices=STRICTNESS_LEVELS)
+_args.add_argument("--language", default="ch", choices=["ch", "en"])
 # Leveling module: a JSON selection object from the Campaign picker. Absent/empty
 # ("{}") means every leveling tier is selected -> identical to pre-module output
 # (parity-safe default). Shape: {weapons:[], armour_defense:[], vendor_bands:[],
@@ -83,8 +84,8 @@ TERMS = {
     "en": {"Rule": "Rule", "Base": "Base", "Auto-Sound": "Auto-Sound", "Exact": "Exact", "Partial": "Partial"},
     "ch": {"Rule": "规则", "Base": "基础", "Auto-Sound": "自动音效", "Exact": "精确", "Partial": "模糊"}
 }
-# Current output language (can be made configurable)
-LANG = "ch" 
+# Output language — CLI-configurable via --language; default 'ch' preserves prior behavior.
+LANG = _parsed.language
 
 # Folder Localization Map
 FOLDER_LOCALIZATION = {
@@ -124,7 +125,10 @@ def parse_rgba(value, default="255 255 255 255"):
     
     if isinstance(value, str) and value.startswith("#"):
         hexv = value.lstrip("#")
-        if len(hexv) in (6, 8):
+        # Require valid hex chars too: a bad-char string of the right length
+        # would otherwise raise here (int('GG',16)) while the TS parseInt path
+        # yields "NaN NaN NaN 255" — both must fall through to `default` instead.
+        if len(hexv) in (6, 8) and all(c in "0123456789abcdefABCDEF" for c in hexv):
             r = int(hexv[0:2], 16)
             g = int(hexv[2:4], 16)
             b = int(hexv[4:6], 16)
@@ -216,16 +220,20 @@ def generate_filter():
     # For now, we assume Sound Map is consistent or handled by frontend overrides.
     sound_map = json.loads(Path(SOUND_MAP_FILE).read_text(encoding="utf-8"))
     
+    # Localized like the TS generator (filterGenerator.ts): ch by default, en under --language en.
+    cr_label = "自定义规则" if LANG == "ch" else "Custom Rules"
+    cr_desc = ("在此添加自定义规则将会覆盖所有过滤器设定."
+               if LANG == "ch" else "Add custom rules here to override all filter settings.")
     overview = [
         "#========================================",
         "#  FILTER OVERVIEW",
         "#========================================",
-        "#  [00000] 自定义规则"
+        f"#  [00000] {cr_label}"
     ]
 
     out_lines = []
-    out_lines.append(header_line(0, "自定义规则"))
-    out_lines.append("# 在此添加自定义规则将会覆盖所有过滤器设定.\n")
+    out_lines.append(header_line(0, cr_label))
+    out_lines.append(f"# {cr_desc}\n")
 
     current_major_cat = ""
     major_counter = 0 # 10000, 20000...

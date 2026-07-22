@@ -11,6 +11,7 @@ import { useTranslation, translations, RULE_FACTOR_LOCALIZATION } from '../utils
 import type { Language } from '../utils/localization';
 import { resolveStyle } from '../utils/styleResolver';
 import { STRICTNESS_LEVELS, type StrictnessLevel, type LevelingSelection, isLevelingSelected } from '../utils/filterGenerator';
+import { mergeThemeOverrides } from '../utils/theme';
 
 interface EditorViewProps {
   selectedFile: CategoryFile | null;
@@ -83,13 +84,7 @@ const EditorView: React.FC<EditorViewProps> = ({
             const baseThemeData = themeRes.data.theme_data;
             
             // Merge Base + Overrides
-            const mergedTheme = JSON.parse(JSON.stringify(baseThemeData));
-            Object.keys(overrides).forEach(cat => {
-                if (!mergedTheme[cat]) mergedTheme[cat] = {};
-                Object.keys(overrides[cat]).forEach(tier => {
-                    mergedTheme[cat][tier] = { ...mergedTheme[cat][tier], ...overrides[cat][tier] };
-                });
-            });
+            const mergedTheme = mergeThemeOverrides(baseThemeData, overrides);
 
             setThemeData(mergedTheme);
             setSoundMap(themeRes.data.sound_map_data);

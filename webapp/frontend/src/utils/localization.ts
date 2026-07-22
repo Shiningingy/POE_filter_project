@@ -1409,8 +1409,32 @@ export const DATA_FOLDER_CH: Record<string, string> = {
   "_unclassified": "未分类",
 };
 
-export const useTranslation = (lang: Language) => {
-  return translations[lang];
+/** Full translation shape: every key from `en` plus any `ch`-only keys.
+ *  `en` is the canonical fallback per the i18n contract (CONTEXT.md invariant #9). */
+export type Translation = typeof translations.en & Omit<typeof translations.ch, keyof typeof translations.en>;
+
+// One cached Proxy per language. Property access follows the i18n fallback
+// chain (invariant #9): translations[lang][key] → translations.en[key] → the
+// key string itself — so a missing `ch` key renders English (or, last resort,
+// the key) instead of `undefined`. This also makes en-only / ch-only keys
+// type-safe, retiring the `(t as any)` casts scattered across the components.
+const _tCache: Partial<Record<Language, Translation>> = {};
+export const useTranslation = (lang: Language): Translation => {
+  let proxy = _tCache[lang];
+  if (!proxy) {
+    const primary = translations[lang] as Record<string, any>;
+    const fallback = translations.en as Record<string, any>;
+    proxy = new Proxy(primary, {
+      get(target, prop) {
+        if (typeof prop !== 'string') return (target as any)[prop];
+        if (prop in target) return target[prop];
+        if (prop in fallback) return fallback[prop];
+        return prop;
+      },
+    }) as unknown as Translation;
+    _tCache[lang] = proxy;
+  }
+  return proxy;
 };
 
 export const getItemName = (item: { name: string; name_ch?: string }, lang: Language) => {
