@@ -1,0 +1,59 @@
+{
+  "Curse of the Allflame": {
+    "_meta": {
+      "theme_category": "Stackable Currency",
+      "localization": {
+        "en": "Curse of the Allflame",
+        "ch": "众焰之咒"
+      },
+      "tier_order": [
+        "Notable",
+        "Common",
+        "Hide"
+      ]
+    },
+    "Notable": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Notable",
+        "ch": "重要"
+      }
+    },
+    "Common": {
+      "hideable": false,
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Common",
+        "ch": "普通"
+      }
+    },
+    "Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}
