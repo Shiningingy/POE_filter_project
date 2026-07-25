@@ -144,6 +144,41 @@ the query — otherwise you would be approving something you cannot see. This is
 the intended behaviour: module upkeep collapses into the same per-league review
 loop as everything else.
 
+### 4. Store the module stack, not the mutated tree
+
+Applying a module does **not** permanently rewrite the tree cached in the
+browser. What is persisted is the ordered stack of enabled modules plus the
+per-change accept/reject decisions; the working tree is *derived* by replaying
+that stack over the base.
+
+The obvious benefit is that revert and reorder are free — drop or move an entry
+and replay. The load-bearing one is different:
+
+> **A stored stack survives a base update; a mutated snapshot does not.**
+
+When a new league's base tree ships, a browser holding a mutated copy is
+stranded — the user's customisations are either clobbered or need a merge. With
+a stack, the modules replay over the *new* base, and anything that no longer
+fits surfaces as the same diff review. League updates and module upkeep become
+one operation instead of two.
+
+Order is part of the stored state because order decides first-match-wins, so
+reordering is a real, reviewable action.
+
+Two requirements follow, both from failures this project has already had:
+
+- **Rejections are recorded, not just acceptances** — as "rejected against
+  version V". Otherwise a module re-proposes a rejected change every league. It
+  should stay quiet while the proposal is unchanged and re-surface when it is
+  not.
+- **Orphans surface as conflicts, never as silent skips.** An entry addressing a
+  file, tier, or item the new base renamed or retired goes to review. Resolving
+  it quietly is exactly how 525 curated entries went missing from the generated
+  filter (see `CONTEXT.md`, coverage model).
+
+Performance: replay **once** into a memoized resolved tree, invalidated when the
+stack changes. Replaying per render is the version of this that feels slow.
+
 ## Consequences
 
 - The initial Standard tree is real authoring work. Open at decision time:
@@ -177,3 +212,6 @@ Restructuring mid-tuning risks the tuning and buys nothing.
   same lines.
 - **A per-mode profile/config** — previously rejected and still rejected: those
   are descriptions of Ruthless, not knobs. Softness lives in tier data.
+- **Persisting the module-modified tree in the browser** — rejected. It makes
+  revert a bookkeeping problem and strands the user's customisations the moment
+  a new base tree ships. Store the stack and derive the tree instead.
