@@ -42,6 +42,26 @@ as a TypeScript port that runs in the browser.
   transparent border/background). `HIDE_CMD` resolves to `Minimal` under ruthless in
   BOTH generators. The browser TS generator is now mode-aware (`GeneratorData.mode`,
   fed from `game_mode`); ruthless parity is guarded by `test_generator_parity.mjs`.
+- **coverage: cherry-pick + safety net + catch-all** — a category does **not**
+  have to name every base it covers, so "this base type is in no `base_mapping`"
+  is *not* by itself a defect. Three layers, in emission order:
+  1. **Cherry-pick** — named `BaseType` lists for the bases actually worth
+     calling out. For very general classes (gems above all) this is a small
+     minority by design. Ruthless cherry-picks *more* than standard, because in
+     standard you can ignore ~95% of gems outright.
+  2. **Class safety net** — a `class_condition: true` tier whose `conditions`
+     carry a `Class` line, catching the rest of that class in one rule (every
+     map via `Maps/Base Maps.json`, boots, jewellery, weapons/armour, relics,
+     idols, tinctures). Note `class_condition` alone does *not* imply a `Class`
+     line — it means "emit `conditions` verbatim with no BaseType list"; the
+     `Class` key has to be inside `conditions`. `_meta.item_class` is a display
+     label only and never emits (Invariant: see `item_class` below).
+  3. **`[99999] Unknown Items`** — the final catch-all for anything no rule
+     above matched. Currently a magenta PLACEHOLDER, deliberately loud: a new
+     league's unmapped bases scream in-game instead of vanishing.
+  `parsing_tool/ggpk/reconcile.py` models exactly this — it counts `Class`
+  conditions as coverage, so it reports what would fall through to 3, not what
+  merely lacks a name.
 - **the dual generator** — see Invariant 1.
 - **demo / backend-free build** — the deployed site has no server; `clientData.ts` +
   `demoAdapter.ts` re-implement the FastAPI endpoints over a static bundle + localStorage.
