@@ -86,11 +86,11 @@
     "Burst Band": "Tier 1 Misc",
     "Chronicle of Atzoatl": "Tier 1 Misc",
     "Inscribed Ultimatum": "Tier 1 Misc",
-    "Eldritch Voidstone": "Tier 1 Atlas Upgrade Items",
-    "Originator Voidstone": "Tier 1 Atlas Upgrade Items",
-    "Lonely Reliquary Key": "Tier 1 Vault Keys",
-    "Reverent Reliquary Key": "Tier 1 Vault Keys",
-    "Traumatic Reliquary Key": "Tier 1 Vault Keys"
+    "Eldritch Voidstone": "Tier 1 Misc",
+    "Originator Voidstone": "Tier 1 Misc",
+    "Lonely Reliquary Key": "Tier 1 Misc",
+    "Reverent Reliquary Key": "Tier 1 Misc",
+    "Traumatic Reliquary Key": "Tier 1 Misc"
   },
   "rules": []
 }

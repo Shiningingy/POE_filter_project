@@ -34,6 +34,9 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import jsonio  # noqa: E402  (sibling module; keeps the diff free of reformatting)
+
 REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
 BASE_MAPPING = os.path.join(REPO, "filter_generation", "data", "base_mapping")
 TIER_DEFINITION = os.path.join(REPO, "filter_generation", "data", "tier_definition")
@@ -146,7 +149,7 @@ def main() -> None:
         if not os.path.exists(path):
             print(f"\n!! {rel} does not exist - skipped ({len(rows)} rows)")
             continue
-        doc_bm = load(path)
+        doc_bm, style = jsonio.read_json(path)
         mapping = doc_bm.setdefault("mapping", {})
         loc = (doc_bm.setdefault("_meta", {}).setdefault("localization", {})
                .setdefault("ch", {}))
@@ -160,9 +163,7 @@ def main() -> None:
                 note = f"   zh {zh[name]} (from the dump, not hand-tuned)"
             print(f"   + {name:<34} -> {tier}{note}")
         if args.write:
-            with open(path, "w", encoding="utf-8") as fh:
-                json.dump(doc_bm, fh, ensure_ascii=False, indent=2)
-                fh.write("\n")
+            jsonio.write_json(path, doc_bm, style)
 
     total = sum(len(v) for v in planned.values())
     if args.write:
