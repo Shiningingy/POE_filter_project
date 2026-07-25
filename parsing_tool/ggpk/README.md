@@ -69,6 +69,46 @@ record even though the bytes don't.
 `.work/` holds `config.json`, the fetched schema, and the CDN bundle cache
 (~45 MB). Keeping it means a repeat run of the same patch never re-downloads.
 
+## Reconcile — the league work queue
+
+Extraction answers *what does the game contain*. Reconcile answers the question
+league maintenance actually asks: **what changed, and what do I have to decide?**
+
+```bash
+python parsing_tool/ggpk/reconcile.py --label 3.29.0.2.2 \
+    --html "$HOME/Documents/poe-league-maintenance.html"
+```
+
+It compares the dump against every file in `base_mapping/` and produces four
+queues:
+
+| Queue | Meaning |
+|---|---|
+| **Unmapped** | in the game, no category maps it |
+| **Retired** | we moved it to `_legacy`, the game still ships it |
+| **Not in the game** | we map it, GGPK has no such base |
+| **Class headers** | declared `item_class` disagrees with the members' real class |
+
+**Nothing is applied automatically.** GGPK says what exists, not what drops, so
+an unmapped base is a question, never an instruction. The `--html` flag writes a
+standalone triage console — group by item class, decide with `M`/`L`/`S`, and
+export the decisions as JSON. Progress lives in `localStorage` keyed by the
+patch label, so closing the tab doesn't lose the session.
+
+Two things the tool deliberately does *not* treat as findings:
+
+- **Umbrella class headers.** `Unique Items`, `Weapons`, `Legacy` are not GGPK
+  class names; files carrying them are *supposed* to span classes. Only a label
+  that names a real class while describing none of its members is wrong.
+- **Transfigured gems.** They are composed from `GrantedEffects`/`ActiveSkills`
+  and appear in **no** table we extract — not even `Ice Nova of Frostbolts`.
+  Their absence proves nothing about our data. (FilterBlade doesn't enumerate
+  them either; it matches `TransfiguredGem True` instead.)
+
+Non-drop item classes (hideout doodads, microtransactions, quest items…) are
+excluded from the unmapped queue, and the count that was excluded is printed —
+a silent cap would read as "we covered everything".
+
 ## Why the column list is curated
 
 `tables.json` requests only the columns we actually consume. That isn't tidiness:
