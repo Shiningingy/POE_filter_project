@@ -1,0 +1,14 @@
+diff --git a/node_modules/pathofexile-dat/dist/cli/export-tables.js b/node_modules/pathofexile-dat/dist/cli/export-tables.js
+index f588746..e3dd1e3 100644
+--- a/node_modules/pathofexile-dat/dist/cli/export-tables.js
++++ b/node_modules/pathofexile-dat/dist/cli/export-tables.js
+@@ -14,7 +14,8 @@ const TRANSLATIONS_POE1 = [
+     { name: 'Russian', path: 'Data/Russian' },
+     { name: 'Spanish', path: 'Data/Spanish' },
+     { name: 'Thai', path: 'Data/Thai' },
+-    { name: 'Traditional Chinese', path: 'Data/Traditional Chinese' }
++    { name: 'Traditional Chinese', path: 'Data/Traditional Chinese' },
++    { name: 'Simplified Chinese', path: 'Data/Simplified Chinese' }
+ ];
+ const TRANSLATIONS_POE2 = [
+     { name: 'English', path: 'Data/Balance' },

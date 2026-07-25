@@ -19,6 +19,14 @@ filter_generation/data/_import_backup/
 # (CI runs it on every deploy; locally run it before `vite preview`)
 webapp/frontend/public/demo_data/
 
+# Raw GGPK dumps (~40 MB/league, mostly Mods) are build artifacts of
+# parsing_tool/ggpk/extract.py, reproducible from the patch version alone.
+# The catalog derived from them IS committed; the raw tables are not.
+# manifest.json stays, so every league's dump is on the record.
+data/source/**
+!data/source/**/
+!data/source/*/manifest.json
+
 # Backend runtime settings (written on POST /api/settings; per-user state, not a
 # committed default — get_settings() falls back to sensible defaults when absent).
 filter_generation/data/settings.json

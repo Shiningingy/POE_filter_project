@@ -1,0 +1,15 @@
+{
+  "name": "poe-filter-ggpk-extract",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GGPK table extraction for the filter catalog pipeline. Driven by extract.py; this package exists only to pin the exporter and its patch.",
+  "scripts": {
+    "postinstall": "patch-package"
+  },
+  "dependencies": {
+    "pathofexile-dat": "15.2.0"
+  },
+  "devDependencies": {
+    "patch-package": "^8.0.1"
+  }
+}

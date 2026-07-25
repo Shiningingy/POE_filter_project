@@ -1,0 +1,225 @@
+{
+  "_readme": [
+    "The curated GGPK table/column list. This file IS the contract for what our",
+    "catalog is allowed to know about.",
+    "",
+    "Why curated and not 'every column in the schema': the published dat-schema is",
+    "always 'latest'. Against an older client the trailing columns of a table do not",
+    "exist, so the reader walks past the end of the row and dies with",
+    "  RangeError: Offset is outside the bounds of the DataView",
+    "Requesting only the columns we consume keeps the read inside the row, and",
+    "extract.py validates every name against the schema first, so a GGG rename fails",
+    "loudly at config time instead of silently producing wrong data.",
+    "",
+    "Adding a column is a deliberate act: add it here, say why in 'why', and re-run.",
+    "See docs/adr/0004-catalog-curation-split-and-ggpk-join-keys.md."
+  ],
+
+  "tables": [
+    {
+      "name": "BaseItemTypes",
+      "why": "The spine. Id is the only safe join key (ADR-0004); Name is @localized so each language folder gives the translation for the same Id.",
+      "columns": [
+        "Id",
+        "Name",
+        "ItemClassesKey",
+        "Width",
+        "Height",
+        "DropLevel",
+        "Implicit_ModsKeys",
+        "TalismanEnchants",
+        "TagsKeys",
+        "ModDomain",
+        "IsCorrupted",
+        "InheritsFrom",
+        "SizeOnGround"
+      ],
+      "notes": [
+        "TalismanEnchants carries the 3.29 talisman semi-implicits (-> Mods -> Stats).",
+        "It is the LAST column, so it is the first thing to break against a client",
+        "older than the schema. Drop it for a lag-window dump: --drop-column BaseItemTypes.TalismanEnchants"
+      ]
+    },
+    {
+      "name": "ItemClasses",
+      "why": "Class grouping + the localized class label the editor shows (CLASS_CH today).",
+      "columns": ["Id", "Name"]
+    },
+    {
+      "name": "Tags",
+      "why": "Resolves BaseItemTypes.TagsKeys into readable tags.",
+      "columns": ["Id"]
+    },
+
+    {
+      "name": "ArmourTypes",
+      "why": "Replaces the CSV's armour columns. IncreasedMovementSpeed is a genuine win - FilterBlade's CSV has no such column and the campaign boot rules need it.",
+      "columns": [
+        "BaseItemTypesKey",
+        "ArmourMin",
+        "ArmourMax",
+        "EvasionMin",
+        "EvasionMax",
+        "EnergyShieldMin",
+        "EnergyShieldMax",
+        "IncreasedMovementSpeed"
+      ]
+    },
+    {
+      "name": "WeaponTypes",
+      "why": "Weapon stats. DPS is derived, not stored: avg(DamageMin, DamageMax) * 1000 / Speed.",
+      "columns": ["BaseItemTypesKey", "Critical", "Speed", "DamageMin", "DamageMax", "RangeMax"]
+    },
+    {
+      "name": "ShieldTypes",
+      "why": "Block chance, the one shield stat the other tables miss.",
+      "columns": ["BaseItemTypesKey", "Block"]
+    },
+    {
+      "name": "ComponentAttributeRequirements",
+      "why": "Str/Dex/Int requirements - also how the Armour/Evasion/ES defence split is derived.",
+      "columns": ["BaseItemTypesKey", "ReqStr", "ReqDex", "ReqInt"]
+    },
+    {
+      "name": "ComponentCharges",
+      "why": "Flask charges.",
+      "columns": ["BaseItemTypesKey", "MaxCharges", "PerCharge"]
+    },
+
+    {
+      "name": "Mods",
+      "why": "Implicit + talisman-enchant resolution. Structured (stat id + min/max) beats prose for tiering.",
+      "columns": [
+        "Id",
+        "Name",
+        "Level",
+        "Domain",
+        "GenerationType",
+        "StatsKey1",
+        "StatsKey2",
+        "StatsKey3",
+        "StatsKey4",
+        "Stat1Min",
+        "Stat1Max",
+        "Stat2Min",
+        "Stat2Max",
+        "Stat3Min",
+        "Stat3Max",
+        "Stat4Min",
+        "Stat4Max"
+      ]
+    },
+    {
+      "name": "Stats",
+      "why": "Stat ids, the key into stat_descriptions.txt for human-readable implicit text.",
+      "columns": ["Id"]
+    },
+
+    {
+      "name": "CurrencyItems",
+      "why": "Stack size + the localized use-description shown in the editor.",
+      "columns": ["BaseItemTypesKey", "StackSize", "Description", "Directions"]
+    },
+    {
+      "name": "Flasks",
+      "why": "Life/mana recovery and flask type, for the campaign flask bands.",
+      "columns": ["BaseItemTypesKey", "Name", "Type", "LifePerUse", "ManaPerUse"]
+    },
+    {
+      "name": "SkillGems",
+      "why": "Support-vs-active and gem colour, for the Gems categories.",
+      "columns": ["BaseItemTypesKey", "IsSupport", "GemColour"]
+    },
+    {
+      "name": "Maps",
+      "why": "Map tier.",
+      "columns": ["BaseItemTypesKey", "Tier"]
+    },
+
+    {
+      "name": "Words",
+      "why": "Unique item NAMES live here, not in BaseItemTypes. Foreign key target for the unique tables below.",
+      "columns": ["Text", "Text2"],
+      "notes": ["Words has NO Id column - join on the foreignrow index only."]
+    },
+    {
+      "name": "UniqueStashLayout",
+      "why": "The canonical unique list (~1555 rows) plus its stash-tab category.",
+      "columns": ["WordsKey", "UniqueStashTypesKey", "IsAlternateArt"]
+    },
+    {
+      "name": "UniqueStashTypes",
+      "why": "Names the stash-tab category (Axe / Amulet / Ring ...).",
+      "columns": ["Id", "Name"]
+    },
+    {
+      "name": "VillageUniqueDisenchantValues",
+      "why": "A drop-RARITY axis for unique tiering, and RuthlessValue additionally flags Ruthless availability.",
+      "columns": ["UniqueName", "Value", "RuthlessValue"],
+      "notes": [
+        "NOT a market price. Only ~364 distinct values across 1526 uniques (heavily",
+        "banded), and Ashes of the Stars scores 12.20 despite being expensive.",
+        "Use it as rarity; use data/unique_base_db.json for actual value.",
+        "RuthlessValue floors to 0.90 for items unobtainable in Ruthless (unique maps),",
+        "so a high Value/RuthlessValue ratio is a usable 'irrelevant in Ruthless' flag.",
+        "Derived from the Settlers village mechanic - could go stale if GGG retires it."
+      ]
+    },
+    {
+      "name": "UniqueMaps",
+      "why": "IsDropDisabled is a real droppability flag - the only one GGPK gives us, and only for unique maps.",
+      "columns": ["WordsKey", "Name", "IsDropDisabled"]
+    }
+  ],
+
+  "removed": [
+    {
+      "name": "Talismans",
+      "why": "Data/Talismans.datc64 was REMOVED in 3.29 - requesting it fails the whole run with NoFileInfoError. Its Tier column was the in-game upgrade chain anyway, never a filter tier. 3.29 talisman implicits come from BaseItemTypes.TalismanEnchants instead."
+    }
+  ],
+
+  "files": [],
+
+  "checks": {
+    "_why": "Cheap post-export smoke tests. A schema/data skew that inserts a column mid-table shifts every later offset and yields plausible-looking garbage, which no column-name validation can catch. These assert known-true values instead.",
+    "min_rows": {
+      "BaseItemTypes": 5000,
+      "ItemClasses": 90,
+      "Mods": 35000,
+      "Stats": 20000,
+      "ArmourTypes": 400,
+      "WeaponTypes": 300,
+      "UniqueStashLayout": 1400
+    },
+    "values": [
+      {
+        "table": "BaseItemTypes",
+        "match": { "Id": "Metadata/Items/Currency/CurrencyRerollRare" },
+        "expect": { "Name": "Chaos Orb", "ItemClassesKey": "@ItemClasses:StackableCurrency" }
+      },
+      {
+        "table": "BaseItemTypes",
+        "match": { "Id": "Metadata/Items/Currency/CurrencyAddModToRare" },
+        "expect": { "Name": "Exalted Orb", "DropLevel": 35 }
+      },
+      {
+        "table": "ItemClasses",
+        "match": { "Id": "StackableCurrency" },
+        "expect": { "Name": "Stackable Currency" }
+      },
+      {
+        "table": "ItemClasses",
+        "match": { "Id": "Boots" },
+        "expect": { "Name": "Boots" }
+      }
+    ],
+    "translation_probe": {
+      "_why": "exportTables falls back to the English file when a language folder is absent, so a bad --languages silently produces an English dump labelled zh. This asserts the value actually differs.",
+      "table": "BaseItemTypes",
+      "match": { "Id": "Metadata/Items/Currency/CurrencyRerollRare" },
+      "column": "Name",
+      "english": "Chaos Orb"
+    }
+  }
+}
