@@ -94,7 +94,12 @@ def safe_join(base: Path, path: str):
 
 def load_base_types():
     global ITEM_CLASSES, CLASS_TO_ITEMS, ITEM_TO_CLASS, ITEM_SUBTYPES
-    csv_path = DATA_DIR / "from_filter_blade" / "3.28" / "BaseTypes.csv"
+    # The current drop lives at the top of from_filter_blade/; the dated
+    # subfolders are previous leagues. Pointing at 3.28 made the editor blind to
+    # every 3.29 item - search and tooltips could not resolve Scrying Orb, the
+    # new talismans, or the Enshrouded bases. Stopgap until the GGPK catalog
+    # (ADR-0004) replaces this loader outright.
+    csv_path = DATA_DIR / "from_filter_blade" / "BaseTypes.csv"
     if not csv_path.exists():
         print("Warning: BaseTypes.csv not found.")
         return
