@@ -179,6 +179,81 @@ Two requirements follow, both from failures this project has already had:
 Performance: replay **once** into a memoized resolved tree, invalidated when the
 stack changes. Replaying per render is the version of this that feels slow.
 
+### 5. Precedence is resolved in the stack replay, not in emission order
+
+Locks beat the custom tiering category, which beats modules, which beat the base
+tree. That ordering is applied while **resolving** the stack, not by emitting
+blocks in a special order:
+
+```
+resolve:  base tree -> modules (stack order) -> custom tiering category
+          clamp: reject any change moving a locked item into a hide tier
+generate: emit the resolved tree once, exactly as today
+```
+
+The generator never learns that modules exist — no second pass, no reordering,
+and **no generator change at all**, so ADR-0001's byte-parity is untouched (no
+double port, no new parity cases). This also keeps ADR-0002 intact: `hideable`
+stays a guard enforced above the generator, which continues to ignore it.
+
+Clamping is stronger than ordering. Emitting locked tiers first only makes a
+locked item *likely* to win; clamping makes it **impossible** to lose. And the
+rejected change becomes a visible diff line — "this module tried to hide
+Mageblood; the lock refused it" — instead of the item quietly surviving because
+of a sort order the user cannot see.
+
+The one thing that genuinely needs emission order — the custom tiering category
+outranking the base — is already handled by `_meta.gen_order`, the mechanism
+added for `_campaign`. Custom tiers take a negative `gen_order`.
+
+### 6. The diff summary leads with `show -> hide`
+
+Review must survive volume: a module proposing thousands of changes is not
+reviewable, and the honest outcome is accept-all, which voids the whole safety
+property. So the diff opens with an **aggregate**, and the transition classes
+are ranked by risk:
+
+| transition | meaning |
+|---|---|
+| **show → hide** | the dangerous class — lead with it |
+| hide → show | noisier screen, harmless |
+| show → show | re-tier, styling changes |
+| hide → hide | invisible today, responds differently to strictness later |
+
+`hideable: false` (the chase-item lock) is the backstop for anything that slips
+through review — see clamping above.
+
+### 7. Module queries are data, never code
+
+A query-defined module ships a rule rather than a list, and that rule is
+evaluated on our own site. It must be a **fixed vocabulary**: `field` validated
+against the catalog schema, `op` from a closed set, no expressions.
+
+```jsonc
+// rejected - to use this you must execute it
+{ "filter": "item.movespeed >= 25 && item.class === 'Boots'" }
+
+// accepted - the author fills slots we defined
+{ "where": [ { "field": "IncreasedMovementSpeed", "op": ">=", "value": 25 },
+             { "field": "class", "op": "in", "value": ["Boots"] } ] }
+```
+
+The rule of thumb: if a module author can write something we would have to
+*run*, it is code; if they can only fill in slots we defined, it is data. The
+stakes are concrete — third-party code in a visitor's browser can read the
+localStorage holding their entire filter state and module stack.
+
+### 8. Author notification goes through the issue tracker, not email
+
+The per-league impact check is one computation: resolve each module against the
+new base; a non-empty delta both warns the user and flags the module. "Impacted"
+means a non-empty delta in the **resolved proposal**, not a change in the module
+source — otherwise every query module reports impact every league.
+
+Notifying authors is then a byproduct. Route it through GitHub issues against
+the module rather than stored emails: same signal, no PII to hold, no mail
+infrastructure on a static site.
+
 ## Consequences
 
 - The initial Standard tree is real authoring work. Open at decision time:
@@ -215,3 +290,22 @@ Restructuring mid-tuning risks the tuning and buys nothing.
 - **Persisting the module-modified tree in the browser** — rejected. It makes
   revert a bookkeeping problem and strands the user's customisations the moment
   a new base tree ships. Store the stack and derive the tree instead.
+- **Running the generator twice to get locks-then-custom-then-base ordering** —
+  rejected. That treats precedence as an emission-order problem; resolving it in
+  the stack replay costs one pass, no generator change, and enforces locks by
+  clamping rather than by winning a race.
+- **Storing contributor emails for module-breakage notices** — rejected. PII to
+  hold and mail infrastructure on a static site, to duplicate a signal the issue
+  tracker already carries.
+
+## Open questions
+
+- Can a module define its **own tiers**, or only re-tier into existing ones?
+  Re-tier-only keeps every conflict resolvable and styling coherent;
+  own-tiers means inserting into the ladder and affecting emission order.
+  Leaning re-tier-only to start.
+- Can a module set **theme values** (colours, sounds)? Leaning no: two enabled
+  modules painting freely produce an incoherent filter with no sensible merge.
+  Styling should follow from the tier an item lands in.
+- What is the **sweeping-change threshold** above which a module is flagged in
+  the summary as too large to review change-by-change?
