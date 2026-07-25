@@ -18,6 +18,7 @@
         "Sandy Seabed Chart": "沙质海床海图",
         "Coral Forest Chart": "珊瑚森林海图",
         "Coral Reef Chart": "珊瑚礁海图",
+        "Thermal Vents Chart": "海底热泉海图",
         "Mercenary Warrant": "佣兵委托令"
       }
     },
@@ -44,6 +45,7 @@
     "Sandy Seabed Chart": "Common",
     "Coral Forest Chart": "Common",
     "Coral Reef Chart": "Common",
+    "Thermal Vents Chart": "Common",
     "Mercenary Warrant": "Common"
   },
   "rules": []

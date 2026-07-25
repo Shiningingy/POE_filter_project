@@ -1487,7 +1487,7 @@ Show
 
 #==[32002]- Curse of the Allflame -普通 可堆叠通货 - 基础 - 精确==
 Show
-    BaseType == "Brinehook's Ducat" "Coral Forest Chart" "Coral Reef Chart" "Cyaxan's Ducat" "Dead Man's Sulphur" "Katakohi's Ducat" "Kishara's Ducat" "Mercenary Warrant" "Merrick's Ducat" "Message in a Bottle" "Rotmother's Ducat" "Sandy Seabed Chart" "Telesia's Ducat" "The Changeling's Ducat" "The Genteel's Ducat" "Tzamoto's Ducat"
+    BaseType == "Brinehook's Ducat" "Coral Forest Chart" "Coral Reef Chart" "Cyaxan's Ducat" "Dead Man's Sulphur" "Katakohi's Ducat" "Kishara's Ducat" "Mercenary Warrant" "Merrick's Ducat" "Message in a Bottle" "Rotmother's Ducat" "Sandy Seabed Chart" "Telesia's Ducat" "The Changeling's Ducat" "The Genteel's Ducat" "Thermal Vents Chart" "Tzamoto's Ducat"
     SetFontSize 31
     SetTextColor 150 150 160 255
     SetBorderColor 60 60 70 255
