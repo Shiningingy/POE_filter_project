@@ -203,6 +203,23 @@ def item_trans_of(meta_loc: dict) -> dict:
     return t if isinstance(t, dict) else {}
 
 
+def set_item_trans(meta_loc: dict, item_name: str, trans: str) -> None:
+    """Write a per-item zh translation, mirroring item_trans_of's read shapes:
+    core files keep the per-item dict under 'ch'; nav-rebuild/campaign files keep
+    a category-name STRING in 'ch' and the per-item dict under 'ch_items'. Assigning
+    into a string 'ch' raised 'str object does not support item assignment' → a 500
+    ('Failed to update some items') when tiering an item in a campaign/chancing file."""
+    ch = meta_loc.get("ch")
+    if isinstance(ch, dict):
+        ch[item_name] = trans
+        return
+    items = meta_loc.get("ch_items")
+    if not isinstance(items, dict):
+        items = {}
+        meta_loc["ch_items"] = items
+    items[item_name] = trans
+
+
 def load_category_map():
     global CATEGORY_MAP
     print("Loading category map...")
@@ -932,17 +949,17 @@ def update_item_tier(request: UpdateItemTierRequest):
         with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
         mapping = data.get("mapping", {})
         
-        # 1. Update Localization
+        # 1. Update Localization. Tolerates the string-'ch' nav-rebuild/campaign
+        # shape (category name in 'ch', per-item dict in 'ch_items'); the old code
+        # assigned into localization['ch'][item] which raised on a string 'ch' → 500.
+        # Mirrors item_trans_of on read. (see set_item_trans)
         if "_meta" not in data: data["_meta"] = {}
         if "localization" not in data["_meta"]: data["_meta"]["localization"] = {"en": {}, "ch": {}}
-        
-        # Ensure 'ch' dict exists
-        if "ch" not in data["_meta"]["localization"]: data["_meta"]["localization"]["ch"] = {}
-        
-        if request.item_name not in data["_meta"]["localization"]["ch"]:
+        meta_loc = data["_meta"]["localization"]
+        if request.item_name not in item_trans_of(meta_loc):
             trans = ITEM_TRANSLATIONS.get(request.item_name)
             if trans:
-                data["_meta"]["localization"]["ch"][request.item_name] = trans
+                set_item_trans(meta_loc, request.item_name, trans)
 
         # 3. Update Match Mode
         if "match_modes" not in data["_meta"]: data["_meta"]["match_modes"] = {}

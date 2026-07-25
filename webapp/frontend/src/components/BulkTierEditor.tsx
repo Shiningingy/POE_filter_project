@@ -379,30 +379,50 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   };
 
   const handleApply = async () => {
-    const changeCount = Object.keys(stagedChanges).length;
-    if (changeCount === 0) return;
-    
+    const entries = Object.entries(stagedChanges);
+    if (entries.length === 0) return;
+
     setLoading(true);
     try {
-      const promises = Object.entries(stagedChanges).map(([itemName, newTiers]) => {
+      // Resolve each item's target mapping file. Prefer the item's OWN file, then
+      // the open category's mapping path. The previous chain tried classToFile[class]
+      // and a bare `${selectedClass}.json` first — both produce invalid paths for
+      // shared classes (every currency is "Stackable Currency") and brand-new items
+      // (empty class), which the backend rejects with a 500. Never POST an unresolved
+      // path, and report per-item so a failure names the culprit.
+      const results = await Promise.allSettled(entries.map(([itemName, newTiers]) => {
         const item = items.find(i => i.name === itemName);
-        // Use mapping from classToFile if available, fallback to existing or default
-        const sourceFile = item?.source_file || classToFile[item?.item_class || ""] || defaultMappingPath || `${selectedClass}.json`;
-        
+        const sourceFile = item?.source_file || defaultMappingPath || classToFile[item?.item_class || ""] || "";
+        if (!sourceFile) {
+          return Promise.reject(new Error("could not determine a target mapping file"));
+        }
         return axios.post(`${API_BASE_URL}/api/update-item-tier`, {
           item_name: itemName,
           new_tiers: newTiers,
-          new_tier: "", 
-          source_file: sourceFile
+          new_tier: "",
+          source_file: sourceFile,
+        }).catch((err) => {
+          const detail = err?.response?.data?.detail || err?.message || "request failed";
+          throw new Error(`${detail} (→ ${sourceFile})`);
         });
-      });
+      }));
 
-      await Promise.all(promises);
-      onSave(); 
-      onClose();
+      const failures = results
+        .map((r, i) => ({ r, name: entries[i][0] }))
+        .filter((x) => x.r.status === "rejected")
+        .map((x) => ({ name: x.name, reason: String((x.r as PromiseRejectedResult).reason?.message ?? (x.r as PromiseRejectedResult).reason) }));
+
+      onSave(); // reflect whatever succeeded
+      if (failures.length) {
+        console.error("BulkTierEditor: failed items", failures);
+        alert(`Failed to update ${failures.length} item(s):\n` +
+              failures.map((f) => `• ${f.name} — ${f.reason}`).join("\n"));
+      } else {
+        onClose();
+      }
     } catch (err) {
       console.error(err);
-      alert("Failed to update some items.");
+      alert("Failed to update items (unexpected error).");
     } finally {
       setLoading(false);
     }
