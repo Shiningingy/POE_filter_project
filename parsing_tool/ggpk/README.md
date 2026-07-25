@@ -76,26 +76,38 @@ league maintenance actually asks: **what changed, and what do I have to decide?*
 
 ```bash
 python parsing_tool/ggpk/reconcile.py --label 3.29.0.2.2 \
+    --baseline data/from_ggpk/baseitemtypes.json \
     --html "$HOME/Documents/poe-league-maintenance.html"
 ```
 
-It compares the dump against every file in `base_mapping/` and produces four
-queues:
+**Always pass `--baseline`.** It is the difference between a usable queue and an
+unusable one: with the previous patch to diff against, the headline queue is
+what *this* patch added — a couple of dozen rows. Without it, the queue is every
+base we have never mapped, which was 893 on the first run and mostly ancient.
+The baseline is a `data/source` label or a path to an older `BaseItemTypes`
+dump; the diff is computed on `Id`, never on row index or name.
 
 | Queue | Meaning |
 |---|---|
-| **Unmapped** | in the game, no category maps it |
+| **New this league** | the patch added it, nothing covers it — *the work* |
+| **Removed** | gone from the game, we still map it (usually a rename) |
+| **Backlog** | never mapped, not new — carried over, dip in when there's time |
 | **Retired** | we moved it to `_legacy`, the game still ships it |
 | **Not in the game** | we map it, GGPK has no such base |
 | **Class headers** | declared `item_class` disagrees with the members' real class |
 
 **Nothing is applied automatically.** GGPK says what exists, not what drops, so
-an unmapped base is a question, never an instruction. The `--html` flag writes a
-standalone triage console — group by item class, decide with `M`/`L`/`S`, and
-export the decisions as JSON. Progress lives in `localStorage` keyed by the
-patch label, so closing the tab doesn't lose the session.
+a row is a question, never an instruction. The `--html` flag writes a standalone
+triage console — filter by item class, decide with `M`/`L`/`S`, export as JSON.
+Progress lives in `localStorage` keyed by the patch label, so closing the tab
+doesn't lose the session.
 
-Two things the tool deliberately does *not* treat as findings:
+Three things the tool deliberately does *not* treat as findings:
+
+- **Coverage by `Class` rather than by name.** Whole categories select on
+  `Class` — every map is handled by one rule in `Maps/Base Maps.json` — so
+  checking `mapping` keys alone reported 229 maps as unmapped. `reconcile.py`
+  scans `tier_definition/` for `Class` conditions and counts them as coverage.
 
 - **Umbrella class headers.** `Unique Items`, `Weapons`, `Legacy` are not GGPK
   class names; files carrying them are *supposed* to span classes. Only a label
@@ -105,9 +117,10 @@ Two things the tool deliberately does *not* treat as findings:
   Their absence proves nothing about our data. (FilterBlade doesn't enumerate
   them either; it matches `TransfiguredGem True` instead.)
 
-Non-drop item classes (hideout doodads, microtransactions, quest items…) are
-excluded from the unmapped queue, and the count that was excluded is printed —
-a silent cap would read as "we covered everything".
+Non-drop item classes (hideout doodads, microtransactions, quest items…) and
+retired-mechanic classes (Allflame Embers, Corpses, Leaguestones…) are held out
+of the queues. Both counts are printed by the tool and stated on the console's
+header — a silent cap would read as "we covered everything".
 
 ## Why the column list is curated
 

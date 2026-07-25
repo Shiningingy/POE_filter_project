@@ -24,16 +24,30 @@ REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
 
 def slim(rep: dict) -> dict:
     """Only what the page draws - the raw dump columns stay on disk."""
+
+    def item(r, with_files=False):
+        row = {"n": r["name"], "c": r["class_name"] or "(unclassed)",
+               "l": r["drop_level"], "z": r["zh"]}
+        if r.get("ids"):
+            row["i"], row["k"] = r["ids"][0], len(r["ids"])
+        if with_files:
+            row["f"] = r.get("files")
+        return row
+
+    suppressed = {
+        "non_drop": sum(rep["excluded_non_drop_classes"].values()),
+        "dead_league": sum(rep["quiet_dead_league"].values()),
+        "class_rules": len(rep["class_covered"]),
+    }
     return {
         "label": rep["label"],
+        "baseline": rep["baseline"],
         "totals": rep["totals"],
-        "unmapped": [{"n": r["name"], "c": r["class_name"] or "(unclassed)",
-                      "l": r["drop_level"], "z": r["zh"],
-                      "i": r["ids"][0], "k": len(r["ids"])}
-                     for r in rep["unmapped"]],
-        "legacy": [{"n": r["name"], "c": r["class_name"] or "(unclassed)",
-                    "l": r["drop_level"], "z": r["zh"], "f": r["files"]}
-                   for r in rep["legacy_only"]],
+        "suppressed": suppressed,
+        "new": [item(r) for r in rep["new_items"]],
+        "removed": [{"n": r["name"], "f": r["files"]} for r in rep["removed_items"]],
+        "backlog": [item(r) for r in rep["backlog"]],
+        "legacy": [item(r, True) for r in rep["legacy_only"]],
         "unmatched": [{"n": r["name"], "r": r["reason"], "f": r["files"]}
                       for r in rep["unmatched"]],
         "headers": [m for m in rep["class_mismatch"] if m["kind"] != "umbrella"],
@@ -101,6 +115,8 @@ button { font:inherit; color:inherit; }
   background:var(--raise); color:var(--dim); font-variant-numeric:tabular-nums;
 }
 .lede { flex:1 1 22rem; color:var(--dim); font-size:var(--fs-s); max-width:62ch; margin:0; }
+.provenance { flex:1 1 100%; font-family:var(--mono); font-size:var(--fs-xs);
+  color:var(--faint); max-width:none; }
 
 /* ---- summary ----------------------------------------------------------- */
 .summary {
@@ -254,11 +270,12 @@ dialog textarea {
   <h1>League Maintenance</h1>
   <span class="patch">__LABEL__</span>
   <p class="lede">
-    Every difference between the game data and our curation, in one queue.
-    Nothing here is applied automatically &mdash; GGPK tells you what
-    <em>exists</em>, not what <em>drops</em>, so each row is a question.
-    Decisions are kept in this browser; export when you are done.
+    Every difference between the game data and our curation. Nothing here is
+    applied automatically &mdash; GGPK tells you what <em>exists</em>, not what
+    <em>drops</em>, so each row is a question. Decisions are kept in this
+    browser; export when you are done.
   </p>
+  <p class="lede provenance" id="prov"></p>
 </header>
 
 <div class="summary" role="tablist" id="tabs"></div>
@@ -306,24 +323,30 @@ let decisions = {};
 try { decisions = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { decisions = {}; }
 
 const TABS = [
-  { id:"unmapped",  label:"Unmapped",       sub:"in the game, nothing maps it", act:true  },
-  { id:"legacy",    label:"Retired",        sub:"we retired it, still shipping", act:true  },
-  { id:"unmatched", label:"Not in the game",sub:"we map it, GGPK has no such base", act:false },
-  { id:"headers",   label:"Class headers",  sub:"declared class vs real class", act:false },
+  { id:"new",       label:"New this league", sub:"added by the patch, uncovered", act:true  },
+  { id:"removed",   label:"Removed",         sub:"gone from the game, still mapped", act:true  },
+  { id:"backlog",   label:"Backlog",         sub:"never mapped, not new", act:true  },
+  { id:"legacy",    label:"Retired",         sub:"we retired it, still shipping", act:true  },
+  { id:"unmatched", label:"Not in the game", sub:"we map it, GGPK has no such base", act:false },
+  { id:"headers",   label:"Class headers",   sub:"declared class vs real class", act:false },
 ];
 const NOTES = {
-  unmapped:"Bases the game ships that no category maps. <strong>Most are meant to be here</strong> \u2014 pre-3.22 scarabs and retired talismans still exist in the data with drops disabled. Decide per row; absence of a decision is not a decision.",
-  legacy:"Names we moved to <strong>_legacy</strong> that are still present in the game data. Expected: GGG disables drops rather than deleting. Worth a look only when a mechanic came back.",
-  unmatched:"Names we map that no base type, unique, or unique map carries. Transfigured gems are composed from other tables and are <strong>absent by design</strong> \u2014 not typos. Anything marked unknown is worth checking by hand.",
-  headers:"Files whose declared <strong>item_class</strong> header disagrees with the real class of their members. This is a display label only, so generation is unaffected \u2014 but the editor header is misleading.",
+  "new":"Bases this patch added that no mapping names and no <strong>Class</strong> rule covers. This is the league's actual work. Anything already handled is counted in the header, not listed here.",
+  removed:"Bases the previous patch had that this one does not, which we still map. Rare \u2014 GGG disables drops rather than deleting, so a name genuinely disappearing usually means a rename.",
+  backlog:"Bases the game ships that we have never mapped, carried over from earlier leagues. <strong>Most are meant to be here</strong> \u2014 pre-3.22 scarabs and retired talismans still exist in the data with drops disabled. Not league work; dip in when you have time.",
+  legacy:"Names we moved to <strong>_legacy</strong> that are still present in the game data. Expected: GGG disables drops rather than deleting. Worth a look only when a mechanic comes back.",
+  unmatched:"Names we map that no base type, unique, or unique map carries. Transfigured gems are composed from other tables and are <strong>absent by design</strong> \u2014 not typos; FilterBlade matches them with <code>TransfiguredGem True</code> instead of naming them. Anything marked unknown is worth checking by hand.",
+  headers:"Files whose declared <strong>item_class</strong> header disagrees with the real class of their members. That is a display label only, so generation is unaffected \u2014 but the editor header is misleading.",
 };
 
-let tab = "unmapped", cls = null, cursor = 0, hideDone = false, query = "";
+let tab = "new", cls = null, cursor = 0, hideDone = false, query = "";
 const $ = (s) => document.querySelector(s);
+
+const RAILED = new Set(["new", "backlog", "legacy"]);
 
 function rowsFor(t) {
   let rs = DATA[t] || [];
-  if (t === "unmapped" && cls) rs = rs.filter(r => r.c === cls);
+  if (RAILED.has(t) && cls) rs = rs.filter(r => r.c === cls);
   if (query) {
     const q = query.toLowerCase();
     rs = rs.filter(r => JSON.stringify(r).toLowerCase().includes(q));
@@ -336,11 +359,13 @@ const key = (t, r) => t + "\u241f" + r.n;
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g,
   c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
 
-function decidedCount() {
-  return Object.keys(decisions).length;
-}
-function totalActionable() {
-  return TABS.filter(t => t.act).reduce((n, t) => n + (DATA[t.id] || []).length, 0);
+// Progress is scoped to the tab you are on. A single global bar would drown
+// this league's 21 rows in the several hundred carried over from earlier ones.
+function tabProgress() {
+  const all = DATA[tab] || [];
+  if (!isActionable(tab)) return null;
+  const done = all.filter(r => decisions[key(tab, r)]).length;
+  return { done, total: all.length };
 }
 
 function drawTabs() {
@@ -354,13 +379,14 @@ function drawTabs() {
 
 function drawRail() {
   const rail = $("#rail");
-  if (tab !== "unmapped") { rail.style.display = "none"; return; }
+  if (!RAILED.has(tab)) { rail.style.display = "none"; return; }
   rail.style.display = "";
+  const all = DATA[tab] || [];
   const counts = {};
-  for (const r of DATA.unmapped) counts[r.c] = (counts[r.c] || 0) + 1;
-  const list = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  for (const r of all) counts[r.c] = (counts[r.c] || 0) + 1;
+  const list = Object.entries(counts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
   rail.innerHTML = "<h2>Item class</h2>" +
-    `<button data-c="" aria-pressed="${cls === null}">All<span class="cnt">${DATA.unmapped.length}</span></button>` +
+    `<button data-c="" aria-pressed="${cls === null}">All<span class="cnt">${all.length}</span></button>` +
     list.map(([c, n]) =>
       `<button data-c="${esc(c)}" aria-pressed="${cls === c}">${esc(c)}<span class="cnt">${n}</span></button>`
     ).join("");
@@ -413,12 +439,25 @@ function empty() {
 }
 
 function drawProgress() {
-  const done = decidedCount(), all = totalActionable();
-  $("#barfill").style.width = all ? (done / all * 100) + "%" : "0%";
-  $("#prog").textContent = `${done} of ${all} decided`;
+  const p = tabProgress();
+  const label = TABS.find(t => t.id === tab).label;
+  $("#barfill").style.width = p && p.total ? (p.done / p.total * 100) + "%" : "0%";
+  $("#prog").textContent = p
+    ? `${label} — ${p.done} of ${p.total} decided`
+    : `${label} — review only`;
 }
 
-function render() { drawTabs(); drawRail(); drawRows(); drawProgress(); }
+function drawProvenance() {
+  const s = DATA.suppressed, t = DATA.totals;
+  // Say what was left out. A queue that quietly drops rows reads as complete.
+  $("#prov").innerHTML =
+    `baseline ${DATA.baseline ? esc(DATA.baseline) : "— none, showing every unmapped base"}`
+    + ` · ${t.added_since_baseline} added this patch, ${t.added_already_handled} already handled`
+    + ` · suppressed: ${s.non_drop} bases in non-drop classes, ${s.dead_league} in retired`
+    + ` mechanics, and everything under the ${s.class_rules} classes a Class rule already covers`;
+}
+
+function render() { drawTabs(); drawRail(); drawRows(); drawProgress(); drawProvenance(); }
 
 function setDecision(i, v) {
   const rs = rowsFor(tab);
@@ -438,7 +477,8 @@ function setDecision(i, v) {
 
 document.addEventListener("click", (e) => {
   const card = e.target.closest(".card");
-  if (card) { tab = card.dataset.t; cursor = 0; render(); return; }
+  // A class picked in one queue may not exist in the next, so reset the rail.
+  if (card) { tab = card.dataset.t; cls = null; cursor = 0; render(); return; }
   const railBtn = e.target.closest("#rail button");
   if (railBtn) { cls = railBtn.dataset.c || null; cursor = 0; render(); return; }
   const act = e.target.closest(".act");
