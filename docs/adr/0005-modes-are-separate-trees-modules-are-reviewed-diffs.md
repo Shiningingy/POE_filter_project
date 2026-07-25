@@ -179,32 +179,43 @@ Two requirements follow, both from failures this project has already had:
 Performance: replay **once** into a memoized resolved tree, invalidated when the
 stack changes. Replaying per render is the version of this that feels slow.
 
-### 5. Precedence is resolved in the stack replay, not in emission order
+### 5. Locks need BOTH clamping and hoisting — they defend different attacks
 
-Locks beat the custom tiering category, which beats modules, which beat the base
-tree. That ordering is applied while **resolving** the stack, not by emitting
-blocks in a special order:
+Precedence is locks > custom tiering > modules > base. Two mechanisms, because
+neither covers the other's case:
+
+- **Clamping (in the stack replay)** defends against *membership changes*. A
+  module moves Mageblood out of its locked tier into a hide tier. Emission order
+  cannot help — the item is no longer in the protected tier, so emitting that
+  tier first matches nothing. The resolver rejects the change and the refusal
+  becomes a visible diff line.
+- **Hoisting (in emission order)** defends against *new rules above*. The custom
+  block adds `Class == "Amulets" -> Hide` and first-match-wins swallows a locked
+  chase amulet. Clamping cannot help — the rule never names the item, and
+  conditions like `Corrupted` or socket counts are not statically resolvable
+  against the catalog. Only order saves it.
+
+Both are single-pass. Hoisting is a sort, not a second generator run:
 
 ```
-resolve:  base tree -> modules (stack order) -> custom tiering category
-          clamp: reject any change moving a locked item into a hide tier
-generate: emit the resolved tree once, exactly as today
+band -2   locked tiers, hoisted out of their categories
+band -1   custom tiering block
+band  0+  everything else (skipping what was hoisted)
 ```
 
-The generator never learns that modules exist — no second pass, no reordering,
-and **no generator change at all**, so ADR-0001's byte-parity is untouched (no
-double port, no new parity cases). This also keeps ADR-0002 intact: `hideable`
-stays a guard enforced above the generator, which continues to ignore it.
+Hoisted tiers emit under a synthetic header naming each one's home category, so
+the generated file stays readable.
 
-Clamping is stronger than ordering. Emitting locked tiers first only makes a
-locked item *likely* to win; clamping makes it **impossible** to lose. And the
-rejected change becomes a visible diff line — "this module tried to hide
-Mageblood; the lock refused it" — instead of the item quietly surviving because
-of a sort order the user cannot see.
+**Accepted consequence:** hoisting makes a lock mean *absolute priority*, not
+merely "unhideable" — nothing below can restyle those items either. That is the
+intended meaning of a lock, but it is a behaviour change to today's output and
+needs a regenerate-and-review plus parity updates in both generators. This is
+the **only** generator change in the design; everything else resolves above it,
+so ADR-0001's parity work stays bounded and ADR-0002 holds (`hideable` is still
+enforced above a generator that ignores it).
 
-The one thing that genuinely needs emission order — the custom tiering category
-outranking the base — is already handled by `_meta.gen_order`, the mechanism
-added for `_campaign`. Custom tiers take a negative `gen_order`.
+The custom block outranking the base needs no new mechanism — `_meta.gen_order`,
+added for `_campaign`, already does it.
 
 ### 6. The diff summary leads with `show -> hide`
 
@@ -243,7 +254,48 @@ The rule of thumb: if a module author can write something we would have to
 stakes are concrete — third-party code in a visitor's browser can read the
 localStorage holding their entire filter state and module stack.
 
-### 8. Author notification goes through the issue tracker, not email
+### 8. Module security: modules are parsed, never executed
+
+A module is JSON produced by our own module editor, read and mapped into our
+structures. Nothing in it is ever evaluated. Two risks are specific to this
+design and are closed by construction:
+
+**Prototype pollution — the stack replay is the vector.** Replaying a stack is a
+deep merge of parsed JSON, and `{"__proto__": {...}}` merged naively poisons
+`Object.prototype` for the whole page. Merge with `Object.keys` (not `for...in`)
+and reject `__proto__` / `constructor` / `prototype`, or hold resolved state in a
+`Map` / `Object.create(null)`. This is the most likely real vulnerability here,
+precisely because merging is the core operation.
+
+**Filter-text injection — the output is text and modules supply strings.** A
+crafted base type name closes the quoted string and injects rules into the
+downloaded `.filter`:
+
+```
+BaseType == "Chaos Orb"        <- intended
+BaseType == "Chaos Orb"
+Hide
+BaseType == "Mageblood"        <- what a crafted name can produce
+```
+
+The defence already exists: **every BaseType a module names must resolve in the
+catalog**, the same validation `apply_decisions.py` performs. Free text that
+reaches the file (comments, category labels) is newline-stripped and
+quote-escaped at write time.
+
+Also required:
+
+- **Strict schema; reject unknown keys** rather than ignoring them. Ignored keys
+  are how "just data" quietly becomes a feature nobody reviewed.
+- **No URLs or remote references** of any kind. Otherwise enabling a module
+  pings a third-party server and discloses who enabled it. Sounds are referenced
+  by built-in id, never by path.
+- **Size caps** on item count, string length, and nesting depth — a browser DoS
+  guard that doubles as the sweeping-change threshold review needs anyway.
+- **Module strings are untrusted display text.** No `dangerouslySetInnerHTML`
+  anywhere near a module-supplied name or description.
+
+### 9. Author notification goes through the issue tracker, not email
 
 The per-league impact check is one computation: resolve each module against the
 new base; a non-empty delta both warns the user and flags the module. "Impacted"
