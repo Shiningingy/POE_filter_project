@@ -1,0 +1,26 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Enshrouded Body Armour": "笼罩胸甲",
+        "Enshrouded Boots": "笼罩鞋子",
+        "Enshrouded Gloves": "笼罩手套",
+        "Enshrouded Helmet": "笼罩头盔",
+        "Enshrouded Shield": "笼罩盾"
+      }
+    },
+    "item_class": {
+      "en": "Enshrouded Items",
+      "ch": "笼罩物品"
+    },
+    "theme_category": "Enshrouded Gear"
+  },
+  "mapping": {
+    "Enshrouded Body Armour": "Enshrouded Gear",
+    "Enshrouded Boots": "Enshrouded Gear",
+    "Enshrouded Gloves": "Enshrouded Gear",
+    "Enshrouded Helmet": "Enshrouded Gear",
+    "Enshrouded Shield": "Enshrouded Gear"
+  },
+  "rules": []
+}

@@ -1,0 +1,48 @@
+{
+  "Enshrouded Gear": {
+    "_meta": {
+      "theme_category": "Enshrouded Gear",
+      "item_class": {
+        "en": "Enshrouded Items",
+        "ch": "笼罩物品"
+      },
+      "localization": {
+        "en": "Enshrouded Gear",
+        "ch": "笼罩装备"
+      },
+      "tier_order": [
+        "Enshrouded Gear",
+        "Hide Enshrouded Gear"
+      ]
+    },
+    "Enshrouded Gear": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Enshrouded Gear",
+        "ch": "笼罩装备"
+      }
+    },
+    "Hide Enshrouded Gear": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

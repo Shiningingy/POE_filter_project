@@ -279,6 +279,16 @@
             "en": "League Items",
             "ch": "联盟物品"
           }
+        },
+        {
+          "path": "Curse of the Allflame/Enshrouded Gear.json",
+          "tier_path": "tier_definition/Curse of the Allflame/Enshrouded Gear.json",
+          "mapping_path": "base_mapping/Curse of the Allflame/Enshrouded Gear.json",
+          "target_category": "Enshrouded Gear",
+          "localization": {
+            "en": "Enshrouded Gear",
+            "ch": "笼罩装备"
+          }
         }
       ]
     },
