@@ -89,6 +89,7 @@ dump; the diff is computed on `Id`, never on row index or name.
 
 | Queue | Meaning |
 |---|---|
+| **Emitting nothing** | mapped to a tier key that doesn't exist — see below |
 | **New this league** | the patch added it, nothing covers it — *the work* |
 | **Removed** | gone from the game, we still map it (usually a rename) |
 | **Backlog** | never mapped, not new — carried over, dip in when there's time |
@@ -97,10 +98,51 @@ dump; the diff is computed on `Id`, never on row index or name.
 | **Class headers** | declared `item_class` disagrees with the members' real class |
 
 **Nothing is applied automatically.** GGPK says what exists, not what drops, so
-a row is a question, never an instruction. The `--html` flag writes a standalone
-triage console — filter by item class, decide with `M`/`L`/`S`, export as JSON.
-Progress lives in `localStorage` keyed by the patch label, so closing the tab
-doesn't lose the session.
+a row is a question, never an instruction.
+
+### The console is a cheap editor, not a report
+
+`--html` writes a standalone page: filter by item class, tag rows with a
+**category and tier**, and export. Decisions are keyed by patch label in
+`localStorage`, so closing the tab doesn't lose the session.
+
+`M`/`L`/`S` decide the row under the cursor, `X` selects it. The bulk path is
+the point — filter the class rail to `Map Fragments`, search `Scarab`,
+**Select all shown**, and assign 27 items to one tier in a single action. Tier
+choices come from the category's real `tier_order`, never free text.
+
+Then close the loop:
+
+```bash
+python parsing_tool/ggpk/apply_decisions.py decisions.json          # dry run
+python parsing_tool/ggpk/apply_decisions.py decisions.json --write
+python filter_generation/generate.py --mode ruthless
+```
+
+`apply_decisions.py` writes into `base_mapping` and fills missing zh from the
+dump (reporting every one it added, since those are machine translations, not
+hand-tuned). It refuses to write a tier that isn't in the target's `tier_order`,
+and refuses to re-home a name that's already mapped in a *different* file —
+re-tiering within the same file is allowed, which is how the queue below is
+fixed. `skip` writes nothing at all.
+
+### "Emitting nothing" — the queue that outranks the others
+
+A tier key that isn't in the category's `tier_order` does **not** error. The
+generator appends it to the order, then skips it for having no tier entry
+([generate.py:386-394](../../filter_generation/generate.py#L386-L394)) — so the
+items produce no output at all. Underscore folders (`_legacy`, `_campaign`) are
+exempt: they remap undeclared keys to their first non-hide tier on purpose.
+
+On the first run this found **525 already-curated entries emitting nothing**,
+including all 420 divination cards. Every one used the item *class* name where
+the category's tier suffix was wanted — `Tier 1 Divination Cards` against a
+declared `Tier 1 Cards` — so they are renames, not re-tierings. The console
+suggests the matching declared tier in the same file for each.
+
+Because of this, the destination picker only ever offers **declared** tier keys.
+Offering the in-use spelling back would let you "fix" a dropped entry by writing
+the same dead key again.
 
 Three things the tool deliberately does *not* treat as findings:
 

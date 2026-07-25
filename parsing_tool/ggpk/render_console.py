@@ -44,6 +44,10 @@ def slim(rep: dict) -> dict:
         "baseline": rep["baseline"],
         "totals": rep["totals"],
         "suppressed": suppressed,
+        "dests": [{"f": d["file"], "n": d["label"], "c": d["classes"], "s": d["size"],
+                   "t": [t["key"] for t in d["tiers"] if not t["hide"]]}
+                  for d in rep["destinations"] if d["file"] != "_legacy/Legacy.json"],
+        "dropped": [dict(item(r), f=r["file"], bad=r["bad_tier"]) for r in rep["dropped"]],
         "new": [item(r) for r in rep["new_items"]],
         "removed": [{"n": r["name"], "f": r["files"]} for r in rep["removed_items"]],
         "backlog": [item(r) for r in rep["backlog"]],
@@ -197,6 +201,15 @@ main { display:grid; grid-template-columns:15rem minmax(0,1fr); gap:0; align-ite
   border-left:2px solid var(--line); padding-left:.8rem; }
 .note strong { color:var(--ink); font-weight:600; }
 
+.selbar { display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; margin-bottom:1rem;
+  padding:.5rem .7rem; border:1px solid var(--accent); border-radius:4px;
+  background:var(--accent-soft); font-size:var(--fs-s); }
+.selbar strong { font-family:var(--mono); font-variant-numeric:tabular-nums; }
+.selbar span { color:var(--dim); margin-right:auto; }
+.row .tick { flex:0 0 auto; width:1rem; height:1rem; margin:0; accent-color:var(--accent);
+  cursor:pointer; }
+.row.picked { background:var(--accent-soft); }
+
 /* ---- rows -------------------------------------------------------------- */
 .rows { list-style:none; margin:0; padding:0; border:1px solid var(--line);
   border-radius:5px; overflow:hidden; background:var(--surface); box-shadow:var(--shadow); }
@@ -213,6 +226,7 @@ main { display:grid; grid-template-columns:15rem minmax(0,1fr); gap:0; align-ite
 .row .meta { display:flex; flex-wrap:wrap; align-items:center; gap:.4rem .7rem;
   font-size:var(--fs-xs); color:var(--faint); font-family:var(--mono); }
 .row .meta .id { overflow-wrap:anywhere; }
+.row .meta .bad { color:var(--alert); overflow-wrap:anywhere; }
 .chip { display:inline-block; font-size:var(--fs-xs); font-family:var(--sans);
   padding:.05rem .4rem; border:1px solid var(--line); border-radius:99px; color:var(--dim); }
 .acts { flex:0 0 auto; display:flex; gap:.3rem; }
@@ -224,9 +238,21 @@ main { display:grid; grid-template-columns:15rem minmax(0,1fr); gap:0; align-ite
 .act[data-v="legacy"][aria-pressed="true"] { background:var(--legacy); border-color:var(--legacy); }
 .act[data-v="skip"][aria-pressed="true"]   { background:var(--skip); border-color:var(--skip); }
 
-.reason { font-size:var(--fs-s); color:var(--dim); grid-column:1; }
+.reason { font-size:var(--fs-s); color:var(--dim); }
 .reason.unknown { color:var(--alert); font-weight:600; }
-.files { font-family:var(--mono); font-size:var(--fs-xs); color:var(--faint); grid-column:1; }
+
+/* the destination a Map decision landed on */
+.dest { font-size:var(--fs-xs); color:var(--map); font-family:var(--mono); }
+.lnk { background:none; border:0; padding:0; font:inherit; color:inherit; cursor:pointer;
+  text-decoration:underline; text-underline-offset:2px; text-decoration-style:dotted; }
+.lnk:hover { color:var(--ink); }
+.picker { display:flex; flex-wrap:wrap; gap:.5rem; align-items:flex-end; margin-top:.35rem;
+  padding:.55rem; background:var(--raise); border:1px solid var(--line); border-radius:4px; }
+.picker label { display:flex; flex-direction:column; gap:.15rem; font-size:var(--fs-xs);
+  color:var(--dim); text-transform:uppercase; letter-spacing:.07em; }
+.picker select { font:var(--fs-s) var(--mono); color:var(--ink); background:var(--surface);
+  border:1px solid var(--line); border-radius:3px; padding:.3rem .4rem; max-width:26rem; }
+.picker select:focus-visible { outline:2px solid var(--accent); outline-offset:1px; }
 
 /* ---- header-audit table ------------------------------------------------ */
 .audit { width:100%; border-collapse:collapse; font-size:var(--fs-s); }
@@ -285,10 +311,12 @@ dialog textarea {
   <span class="txt" id="prog">0 decided</span>
   <span class="txt" style="color:var(--faint)">
     <span class="kbd">J</span>/<span class="kbd">K</span> move
-    &middot; <span class="kbd">M</span> map
+    &middot; <span class="kbd">M</span> map to the suggested category
     &middot; <span class="kbd">L</span> legacy
     &middot; <span class="kbd">S</span> skip
+    &middot; <span class="kbd">X</span> select
     &middot; <span class="kbd">U</span> undo
+    &middot; filter by class, <em>Select all shown</em>, then assign the batch in one go
   </span>
 </div>
 
@@ -298,7 +326,16 @@ dialog textarea {
     <div class="toolbar">
       <input type="search" id="q" placeholder="Filter by name, translation, or metadata id" aria-label="Filter rows">
       <button class="tool" id="hide" aria-pressed="false">Hide decided</button>
+      <button class="tool" id="selall">Select all shown</button>
       <button class="tool primary" id="exp">Export decisions</button>
+    </div>
+    <div class="selbar" id="selbar" hidden>
+      <strong id="selcount"></strong>
+      <span>&mdash; one destination for all of them</span>
+      <button class="tool primary" id="bulkmap">Assign to&hellip;</button>
+      <button class="tool" id="bulklegacy">Legacy</button>
+      <button class="tool" id="bulkskip">Skip</button>
+      <button class="tool" id="selclear">Clear</button>
     </div>
     <p class="note" id="note"></p>
     <div id="view"></div>
@@ -311,8 +348,9 @@ dialog textarea {
     <button class="tool" id="copy">Copy</button>
     <button class="tool" id="close">Close</button>
   </div>
-  <p>Paste this back into the session, or save it next to the dump. Only decided
-     rows are included &mdash; anything untouched stays an open question.</p>
+  <p>Every <strong>Map</strong> names the file and tier it lands in, so this is
+     applyable, not just readable. Only decided rows are included &mdash;
+     anything untouched stays an open question.</p>
   <textarea id="out" readonly spellcheck="false"></textarea>
 </dialog>
 
@@ -321,8 +359,38 @@ const DATA = __DATA__;
 const KEY = "poe-league-maint:" + DATA.label;
 let decisions = {};
 try { decisions = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { decisions = {}; }
+// A decision is {v:"map"|"legacy"|"skip", f?:file, t?:tier}. Older sessions
+// stored a bare string; read those rather than dropping the work on the floor.
+for (const k of Object.keys(decisions))
+  if (typeof decisions[k] === "string") decisions[k] = { v: decisions[k] };
+
+// "Include it" is only half a decision - it has to land in a category and a
+// tier. Suggest by the item's own class, since a category's existing members
+// are the best evidence of what belongs there.
+function suggest(item) {
+  // An entry that emits nothing is already in the right file - it just needs a
+  // tier key that exists. Keep it where it is.
+  if (item.f && typeof item.f === "string") {
+    const home = destFor(item.f);
+    if (home && home.t.length) {
+      const want = (item.bad || "").replace(/^Tier (\S+).*/, "Tier $1");
+      return { f:home.f, t:home.t.find(t => t.startsWith(want)) || home.t[0],
+               alternatives:1 };
+    }
+  }
+  const byClass = DATA.dests.filter(d => d.c.includes(item.c) && d.t.length);
+  const pool = (byClass.length ? byClass : DATA.dests.filter(d => d.t.length))
+    .slice().sort((a, b) => b.s - a.s);
+  const d = pool[0];
+  if (!d) return null;
+  // Prefer a middle tier over T0: a new item is rarely the top of a ladder.
+  const tier = d.t.find(t => /Tier 1\b/.test(t)) || d.t[Math.min(1, d.t.length - 1)] || d.t[0];
+  return { f: d.f, t: tier, alternatives: pool.length };
+}
+const destFor = (f) => DATA.dests.find(d => d.f === f);
 
 const TABS = [
+  { id:"dropped",   label:"Emitting nothing", sub:"mapped to a tier that does not exist", act:true },
   { id:"new",       label:"New this league", sub:"added by the patch, uncovered", act:true  },
   { id:"removed",   label:"Removed",         sub:"gone from the game, still mapped", act:true  },
   { id:"backlog",   label:"Backlog",         sub:"never mapped, not new", act:true  },
@@ -331,6 +399,7 @@ const TABS = [
   { id:"headers",   label:"Class headers",   sub:"declared class vs real class", act:false },
 ];
 const NOTES = {
+  dropped:"<strong>Already curated, and silently absent from the filter.</strong> Their tier key is not in the category's <code>tier_order</code>, so the generator appends it to the order and then skips it for having no tier entry — no error, no output. Every key here is the item <em>class</em> name where the category's tier suffix was wanted (<code>Tier 1 Divination Cards</code> vs the declared <code>Tier 1 Cards</code>), so this is a rename, not a re-tiering. Filter by class, select all, assign the right tier.",
   "new":"Bases this patch added that no mapping names and no <strong>Class</strong> rule covers. This is the league's actual work. Anything already handled is counted in the header, not listed here.",
   removed:"Bases the previous patch had that this one does not, which we still map. Rare \u2014 GGG disables drops rather than deleting, so a name genuinely disappearing usually means a rename.",
   backlog:"Bases the game ships that we have never mapped, carried over from earlier leagues. <strong>Most are meant to be here</strong> \u2014 pre-3.22 scarabs and retired talismans still exist in the data with drops disabled. Not league work; dip in when you have time.",
@@ -339,10 +408,10 @@ const NOTES = {
   headers:"Files whose declared <strong>item_class</strong> header disagrees with the real class of their members. That is a display label only, so generation is unaffected \u2014 but the editor header is misleading.",
 };
 
-let tab = "new", cls = null, cursor = 0, hideDone = false, query = "";
+let tab = "new", cls = null, cursor = 0, hideDone = false, query = "", picking = null;
 const $ = (s) => document.querySelector(s);
 
-const RAILED = new Set(["new", "backlog", "legacy"]);
+const RAILED = new Set(["dropped", "new", "backlog", "legacy"]);
 
 function rowsFor(t) {
   let rs = DATA[t] || [];
@@ -418,20 +487,51 @@ function drawRows() {
     if (r.c) meta.push(`<span class="chip">${esc(r.c)}</span>`);
     if (r.l != null) meta.push(`<span>lvl ${r.l}</span>`);
     if (r.i) meta.push(`<span class="id">${esc(r.i)}${r.k > 1 ? ` +${r.k - 1}` : ""}</span>`);
-    if (r.f) meta.push(`<span class="id">${esc(r.f.join(", "))}</span>`);
-    return `<li class="row${i === cursor ? " cursor" : ""}" data-i="${i}" ${d ? `data-d="${d}"` : ""}>
+    if (r.bad) meta.push(`<span class="bad">${esc(r.f)} · ${esc(r.bad)} ✗</span>`);
+    else if (r.f) meta.push(`<span class="id">${esc(Array.isArray(r.f) ? r.f.join(", ") : r.f)}</span>`);
+    const v = d && d.v;
+    const sel = selected.has(key(tab, r));
+    return `<li class="row${i === cursor ? " cursor" : ""}${sel ? " picked" : ""}" data-i="${i}" ${v ? `data-d="${v}"` : ""}>
+      <input type="checkbox" class="tick" ${sel ? "checked" : ""} aria-label="Select ${esc(r.n)}">
       <div class="body">
         <div class="nm">${esc(r.n)}${r.z && r.z !== r.n ? `<span class="zh">${esc(r.z)}</span>` : ""}</div>
         ${r.r ? `<div class="reason${r.r.startsWith("UNKNOWN") ? " unknown" : ""}">${esc(r.r)}</div>` : ""}
         <div class="meta">${meta.join("")}</div>
+        ${v === "map" && d.f ? destChip(d, i) : ""}
+        ${i === picking ? picker(r, d) : ""}
       </div>
       ${act ? `<div class="acts">
-        <button class="act" data-v="map"    aria-pressed="${d === "map"}">Map</button>
-        <button class="act" data-v="legacy" aria-pressed="${d === "legacy"}">Legacy</button>
-        <button class="act" data-v="skip"   aria-pressed="${d === "skip"}">Skip</button>
+        <button class="act" data-v="map"    aria-pressed="${v === "map"}">Map</button>
+        <button class="act" data-v="legacy" aria-pressed="${v === "legacy"}">Legacy</button>
+        <button class="act" data-v="skip"   aria-pressed="${v === "skip"}">Skip</button>
       </div>` : ""}
     </li>`;
   }).join("") + `</ol>`;
+}
+
+function destChip(d, i) {
+  return `<div class="dest">→ <button class="lnk" data-edit="${i}">${esc(d.f)} · ${esc(d.t)}</button></div>`;
+}
+
+function picker(r, d) {
+  const chosen = (d && d.f) || (suggest(r) || {}).f;
+  const opts = DATA.dests.slice().sort((a, b) =>
+    (b.c.includes(r.c) - a.c.includes(r.c)) || b.s - a.s);
+  const tiers = (destFor(chosen) || { t: [] }).t;
+  const tierNow = (d && d.t) || (suggest(r) || {}).t;
+  return `<div class="picker">
+    <label>Category
+      <select data-pick="file">${opts.map(o =>
+        `<option value="${esc(o.f)}"${o.f === chosen ? " selected" : ""}>${esc(o.f)}${
+          o.c.includes(r.c) ? "  ✓ holds " + esc(r.c) : ""}</option>`).join("")}</select>
+    </label>
+    <label>Tier
+      <select data-pick="tier">${tiers.map(t =>
+        `<option value="${esc(t)}"${t === tierNow ? " selected" : ""}>${esc(t)}</option>`).join("")}</select>
+    </label>
+    <button class="tool primary" data-pick="ok">${selected.size ? `Set all ${selected.size}` : "Set"}</button>
+    <button class="tool" data-pick="cancel">Cancel</button>
+  </div>`;
 }
 
 function empty() {
@@ -457,18 +557,49 @@ function drawProvenance() {
     + ` mechanics, and everything under the ${s.class_rules} classes a Class rule already covers`;
 }
 
-function render() { drawTabs(); drawRail(); drawRows(); drawProgress(); drawProvenance(); }
+function render() {
+  drawTabs(); drawRail(); drawRows(); drawProgress(); drawProvenance(); drawSelbar();
+}
 
-function setDecision(i, v) {
+function save() { localStorage.setItem(KEY, JSON.stringify(decisions)); }
+
+// Bulk assignment is the point of the tool: "these 27 scarabs are Tier 2" is
+// one action, not 27. Selection is scoped to the rows currently shown, so the
+// class rail and the search box are the selection mechanism.
+const selected = new Set();
+
+function applyBulk(v, dest) {
+  for (const r of rowsFor(tab)) {
+    const k = key(tab, r);
+    if (!selected.has(k)) continue;
+    decisions[k] = (v === "map") ? { v:"map", f:dest.f, t:dest.t } : { v };
+  }
+  selected.clear(); picking = null; save(); render();
+}
+
+function drawSelbar() {
+  const bar = $("#selbar");
+  bar.hidden = selected.size === 0 || !isActionable(tab);
+  $("#selcount").textContent = `${selected.size} selected`;
+}
+
+function setDecision(i, v, dest) {
   const rs = rowsFor(tab);
-  if (!rs[i] || !isActionable(tab)) return;
-  const k = key(tab, rs[i]);
-  const decided = decisions[k] !== v;
-  if (decided) decisions[k] = v; else delete decisions[k];
-  localStorage.setItem(KEY, JSON.stringify(decisions));
+  const r = rs[i];
+  if (!r || !isActionable(tab)) return;
+  const k = key(tab, r);
+  const cur = decisions[k];
+  const same = cur && cur.v === v && !dest;
+  if (same) delete decisions[k];
+  else if (v === "map") {
+    const d = dest || suggest(r) || {};
+    decisions[k] = { v:"map", f:d.f, t:d.t };
+  } else decisions[k] = { v };
+  picking = null;
+  save();
   // With "hide decided" on, the row vanishes and the next one slides into this
   // index - advancing here would skip it.
-  const step = (decided && !hideDone) ? 1 : 0;
+  const step = (!same && !hideDone) ? 1 : 0;
   cursor = Math.min(i + step, Math.max(rowsFor(tab).length - 1, 0));
   drawRows(); drawProgress(); drawTabs();
   const el = document.querySelector(".row.cursor");
@@ -478,13 +609,56 @@ function setDecision(i, v) {
 document.addEventListener("click", (e) => {
   const card = e.target.closest(".card");
   // A class picked in one queue may not exist in the next, so reset the rail.
-  if (card) { tab = card.dataset.t; cls = null; cursor = 0; render(); return; }
+  if (card) { tab = card.dataset.t; cls = null; cursor = 0; picking = null; render(); return; }
   const railBtn = e.target.closest("#rail button");
-  if (railBtn) { cls = railBtn.dataset.c || null; cursor = 0; render(); return; }
+  if (railBtn) { cls = railBtn.dataset.c || null; cursor = 0; picking = null; render(); return; }
+
+  const tick = e.target.closest(".tick");
+  if (tick) {
+    const r = rowsFor(tab)[+tick.closest(".row").dataset.i];
+    const k = key(tab, r);
+    selected.has(k) ? selected.delete(k) : selected.add(k);
+    drawRows(); drawSelbar(); return;
+  }
+
+  const pick = e.target.closest("[data-pick]");
+  if (pick) {
+    const li = pick.closest(".row"), i = +li.dataset.i;
+    if (pick.dataset.pick === "cancel") { picking = null; drawRows(); return; }
+    if (pick.dataset.pick === "ok") {
+      const dest = {
+        f: li.querySelector('[data-pick="file"]').value,
+        t: li.querySelector('[data-pick="tier"]').value,
+      };
+      if (selected.size) applyBulk("map", dest); else setDecision(i, "map", dest);
+    }
+    return;
+  }
+  const edit = e.target.closest("[data-edit]");
+  if (edit) { picking = +edit.dataset.edit; cursor = picking; drawRows(); return; }
+
   const act = e.target.closest(".act");
-  if (act) { setDecision(+act.closest(".row").dataset.i, act.dataset.v); return; }
+  if (act) {
+    const i = +act.closest(".row").dataset.i;
+    // Map needs a destination: open the picker rather than guess silently.
+    if (act.dataset.v === "map" && act.getAttribute("aria-pressed") !== "true") {
+      picking = i; cursor = i; drawRows(); return;
+    }
+    setDecision(i, act.dataset.v);
+    return;
+  }
   const row = e.target.closest(".row");
   if (row) { cursor = +row.dataset.i; drawRows(); }
+});
+
+// Changing the category re-populates its tier ladder in place.
+document.addEventListener("change", (e) => {
+  if (e.target.matches('[data-pick="file"]')) {
+    const li = e.target.closest(".row");
+    const sel = li.querySelector('[data-pick="tier"]');
+    const d = destFor(e.target.value) || { t: [] };
+    sel.innerHTML = d.t.map(t => `<option value="${esc(t)}">${esc(t)}</option>`).join("");
+  }
 });
 
 $("#q").addEventListener("input", (e) => { query = e.target.value.trim(); cursor = 0; drawRows(); });
@@ -492,12 +666,31 @@ $("#hide").addEventListener("click", (e) => {
   hideDone = !hideDone; e.currentTarget.setAttribute("aria-pressed", hideDone);
   cursor = 0; drawRows();
 });
+$("#selall").addEventListener("click", () => {
+  for (const r of rowsFor(tab)) selected.add(key(tab, r));
+  drawRows(); drawSelbar();
+});
+$("#selclear").addEventListener("click", () => { selected.clear(); render(); });
+$("#bulkmap").addEventListener("click", () => {
+  // Open the picker on the first selected row; Set then applies to all of them.
+  const rs = rowsFor(tab);
+  const i = rs.findIndex(r => selected.has(key(tab, r)));
+  if (i < 0) return;
+  picking = i; cursor = i; drawRows();
+  const el = document.querySelector(".picker");
+  if (el) el.scrollIntoView({ block:"center" });
+});
+$("#bulklegacy").addEventListener("click", () => applyBulk("legacy"));
+$("#bulkskip").addEventListener("click", () => applyBulk("skip"));
 $("#exp").addEventListener("click", () => {
-  const out = { label:DATA.label, decided:decidedCount(), decisions:{} };
-  for (const [k, v] of Object.entries(decisions)) {
-    const [t, n] = k.split("\u241f");
-    (out.decisions[t] = out.decisions[t] || {})[n] = v;
+  // Shaped so it can be applied, not just read: each add names its file + tier.
+  const out = { label:DATA.label, baseline:DATA.baseline, add:[], legacy:[], skip:[] };
+  for (const [k, d] of Object.entries(decisions)) {
+    const [queue, name] = k.split("\u241f");
+    if (d.v === "map") out.add.push({ name, file:d.f, tier:d.t, queue });
+    else out[d.v].push({ name, queue });
   }
+  out.add.sort((a, b) => a.file.localeCompare(b.file) || a.name.localeCompare(b.name));
   $("#out").value = JSON.stringify(out, null, 2);
   $("#dlg").showModal();
 });
@@ -511,11 +704,23 @@ $("#copy").addEventListener("click", async (e) => {
 });
 
 document.addEventListener("keydown", (e) => {
-  if (e.target.matches("input, textarea") || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.target.matches("input, textarea, select") || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.key === "Escape" && picking !== null) { picking = null; drawRows(); return; }
+  if (picking !== null) return;   // the open picker owns the keyboard
   const rs = rowsFor(tab);
   const k = e.key.toLowerCase();
   if (k === "j" || k === "arrowdown") { cursor = Math.min(cursor + 1, rs.length - 1); }
   else if (k === "k" || k === "arrowup") { cursor = Math.max(cursor - 1, 0); }
+  else if (k === "x") {
+    const r = rs[cursor];
+    if (r) {
+      const kk = key(tab, r);
+      selected.has(kk) ? selected.delete(kk) : selected.add(kk);
+      cursor = Math.min(cursor + 1, rs.length - 1);
+      drawRows(); drawSelbar();
+    }
+    e.preventDefault(); return;
+  }
   else if (k === "m") { setDecision(cursor, "map"); return; }
   else if (k === "l") { setDecision(cursor, "legacy"); return; }
   else if (k === "s") { setDecision(cursor, "skip"); return; }

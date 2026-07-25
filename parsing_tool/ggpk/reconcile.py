@@ -133,6 +133,90 @@ def read_curation() -> tuple[dict, dict]:
     return where, metas
 
 
+def read_destinations(where: dict, by_name: dict) -> tuple[list[dict], list[dict]]:
+    """Every category an item could be filed into, with its tier ladder.
+
+    A decision to include an item is only half a decision until it names a
+    category and a tier, so the console needs the real ladders - not free text.
+
+    Two sources of tier keys, and they do NOT always agree: the paired
+    tier_definition's `_meta.tier_order` (declared), and the strings the
+    base_mapping file actually uses (in-use). `Gems/Support.json` declares
+    "Tier 1 Support" while all 213 of its entries say "Tier 1 Support Gems".
+    An undeclared key does not error - generate.py silently remaps it - so the
+    drift is invisible until someone writes the *declared* spelling next to the
+    in-use one and the file ends up with both. In-use keys are offered first,
+    since those are what the category is really made of, and the drift is
+    reported separately.
+    """
+    in_use: dict[str, collections.Counter] = collections.defaultdict(collections.Counter)
+    names_by_tier: dict[str, dict[str, list]] = collections.defaultdict(
+        lambda: collections.defaultdict(list))
+    for path in glob.glob(os.path.join(BASE_MAPPING, "**", "*.json"), recursive=True):
+        rel = os.path.relpath(path, BASE_MAPPING).replace("\\", "/")
+        try:
+            with open(path, encoding="utf-8-sig") as fh:
+                doc = json.load(fh)
+        except Exception:
+            continue
+        for name, tier in (doc.get("mapping") or {}).items():
+            for t in (tier if isinstance(tier, list) else [tier]):
+                if isinstance(t, str):
+                    in_use[rel][t] += 1
+                    names_by_tier[rel][t].append(name)
+
+    dests, drift = [], []
+    for path in sorted(glob.glob(os.path.join(TIER_DEFINITION, "**", "*.json"), recursive=True)):
+        rel = os.path.relpath(path, TIER_DEFINITION).replace("\\", "/")
+        try:
+            with open(path, encoding="utf-8-sig") as fh:
+                doc = json.load(fh)
+        except Exception:
+            continue
+
+        declared, label = [], None
+        for cat_key, cat in doc.items():
+            if not isinstance(cat, dict):
+                continue
+            meta = cat.get("_meta") or {}
+            label = label or (meta.get("localization") or {}).get("en") or cat_key
+            for tier in (meta.get("tier_order") or []):
+                entry = cat.get(tier) or {}
+                # A hide tier is a real destination, but never a default one.
+                declared.append({"key": tier, "hide": bool(entry.get("is_hide_tier"))})
+        if not declared:
+            continue
+
+        used = in_use.get(rel, collections.Counter())
+        undeclared = [t for t in used if t not in {d["key"] for d in declared}]
+        if undeclared:
+            # Underscore folders remap undeclared keys to their first non-hide
+            # tier on purpose (generate.py:365). Everywhere else the key is
+            # appended to tier_order, then skipped for having no tier entry -
+            # so the items emit NOTHING, with no error.
+            drops = not rel.startswith("_")
+            drift.append({"file": rel, "declared": [d["key"] for d in declared],
+                          "undeclared": {t: used[t] for t in undeclared},
+                          "drops": drops,
+                          "names": {t: names_by_tier[rel][t] for t in undeclared} if drops else {}})
+        # ONLY declared keys are offerable. An in-use key that is not declared
+        # is not a convention, it is the bug - offering it back would let the
+        # console "fix" a dropped entry by re-writing the same dead key.
+        # Ordered by how much the category actually uses them.
+        tiers = sorted((dict(d, used=used.get(d["key"], 0)) for d in declared),
+                       key=lambda d: (-d["used"], d["hide"]))
+
+        # what this category already holds, so the console can pre-select
+        held = collections.Counter()
+        for name, files in where.items():
+            if rel in files and name in by_name and by_name[name]["class_name"]:
+                held[by_name[name]["class_name"]] += 1
+        dests.append({"file": rel, "label": label,
+                      "tiers": tiers, "classes": [c for c, _ in held.most_common(4)],
+                      "size": sum(held.values())})
+    return dests, drift
+
+
 def read_class_coverage() -> dict[str, list[str]]:
     """Class values any tier or rule matches on -> the files that match them.
 
@@ -208,6 +292,7 @@ def build(label: str, baseline: str | None) -> dict:
 
     where, metas = read_curation()
     cover = read_class_coverage()
+    destinations, drift = read_destinations(where, by_name)
     live = {n: f for n, f in where.items() if not all(p.startswith("_legacy/") for p in f)}
 
     base_ids, base_src = (set(), None)
@@ -300,6 +385,22 @@ def build(label: str, baseline: str | None) -> dict:
                                "actual": dict(seen.most_common())})
     class_mismatch.sort(key=lambda m: ({"wrong": 0, "mixed": 1, "umbrella": 2}[m["kind"]], m["file"]))
 
+    # --- mapped, but to a tier key that emits nothing --------------------- #
+    # Every one of these is already curated work that silently does not reach
+    # the filter, so it outranks anything in the discovery queues.
+    dropped = []
+    for d in drift:
+        if not d["drops"]:
+            continue
+        for bad_key, names in d["names"].items():
+            for name in sorted(names):
+                info = by_name.get(name, {})
+                dropped.append({"name": name, "file": d["file"], "bad_tier": bad_key,
+                                "declared": d["declared"],
+                                "class_name": info.get("class_name"),
+                                "drop_level": info.get("drop_level"),
+                                "zh": info.get("zh"), "ids": info.get("ids", [])})
+
     excluded = collections.Counter(
         info["class_id"] for name, info in by_name.items()
         if name not in where and info["class_id"] in NON_DROP_CLASSES)
@@ -322,6 +423,9 @@ def build(label: str, baseline: str | None) -> dict:
         "legacy_only": legacy_only,
         "unmatched": unmatched,
         "class_mismatch": class_mismatch,
+        "destinations": destinations,
+        "tier_key_drift": drift,
+        "dropped": dropped,
         "class_covered": {c: sorted(f) for c, f in cover.items()},
         "quiet_dead_league": dict(quiet.most_common()),
         "excluded_non_drop_classes": dict(excluded.most_common()),
@@ -353,6 +457,18 @@ def summarise(rep: dict) -> None:
     kinds = collections.Counter(m["kind"] for m in rep["class_mismatch"])
     print(f"    class headers {kinds['wrong'] + kinds['mixed']:>4}  "
           f"({kinds['wrong']} wrong, {kinds['mixed']} mixed; {kinds['umbrella']} umbrella ignored)")
+
+    dropping = [d for d in rep["tier_key_drift"] if d["drops"]]
+    if dropping:
+        n = sum(sum(d["undeclared"].values()) for d in dropping)
+        print(f"\n  !! SILENTLY DROPPED  {n} mapping entries emit NOTHING")
+        print(f"     Their tier key is not in the category's tier_order, so generate.py")
+        print(f"     appends it to the order and then skips it for having no tier entry.")
+        print(f"     No error, no output. (Underscore folders are exempt - they remap.)")
+        for d in dropping:
+            for key, cnt in sorted(d["undeclared"].items(), key=lambda kv: -kv[1]):
+                print(f"       {d['file']:<38} {key!r} x{cnt}")
+            print(f"       {'':<38} declared: {d['declared']}")
 
     suppressed = [
         (sum(rep["excluded_non_drop_classes"].values()), "non-drop classes"),
