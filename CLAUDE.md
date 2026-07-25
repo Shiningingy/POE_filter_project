@@ -9,6 +9,7 @@ Several "obvious cleanups" here are deliberate. Full glossary + rationale in `CO
 - `hide_at_strictness` having **zero values in tier data is intentional** (mechanism-only gate).
 - App language code is **`'ch'`** (not `'zh'`; `zh` appears only in some data filenames).
 - `RuleManager` / `SoundBulkEditor` / `CategoryView` / `ImportForeignFilterView` and the big `localization.ts` are **deliberately not split**. (ADR-0003)
+- **Ruthless and Standard are separate content trees**, not one tree with an overlay — they invert their primary axis (Standard 551 `Class` vs 18; Ruthless 382 `BaseType`), and they have different maintainers. Contributor/player work arrives as **modules**, applied only through a **reviewed diff**. Not built yet; the fork waits until Ruthless tuning is done. (ADR-0005)
 - GGPK item data joins on **`Id`** only. **Never join the international and CN dumps on `_rid`** — row indices differ on 94% of rows, and the first ~300 align so a spot-check looks fine. English `Name` is ambiguous (413 duplicates). Curation (`base_mapping`) stays **name-keyed** on purpose — the filter matches names, and several `Id`s can share one. (ADR-0004)
 
 ## Agent skills
