@@ -527,7 +527,12 @@ def generate_filter():
                 if rule_tier_override:
                     if rule_tier_override == t_lbl:
                         if apply_to_tier:
-                            rule_matches = list(pending_items)
+                            # sorted(), not list(): a Python set iterates in hash
+                            # order, which is randomised per process, so this made
+                            # the generated filter differ between runs. The TS
+                            # generator's Set iterates in insertion order, so the
+                            # two also disagreed. Both now sort (ADR-0001 parity).
+                            rule_matches = sorted(pending_items)
                         elif rule_targets:
                             # Strict instruction: If rule targets this tier, pull it in!
                             rule_matches = rule_targets

@@ -475,7 +475,11 @@ export const generateFilter = (data: GeneratorData): string => {
 
         if (ruleTierOverride) {
           if (ruleTierOverride === tLbl) {
-            ruleMatches = applyToTier ? Array.from(pendingItems) : ruleTargets;
+            // .sort(), not bare Array.from(): a JS Set iterates in insertion
+            // order while Python's iterates in (randomised) hash order, so the
+            // two generators disagreed and generate.py was not even stable
+            // between runs. Both now sort (ADR-0001 parity).
+            ruleMatches = applyToTier ? Array.from(pendingItems).sort() : ruleTargets;
           } else {
             continue;
           }
