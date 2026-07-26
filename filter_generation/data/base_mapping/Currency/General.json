@@ -1,279 +1,295 @@
 {
-    "_meta": {
-        "localization": {
-            "ch": {
-                "Albino Rhoa Feather": "白化的羽毛",
-                "Mirror of Kalandra": "卡兰德的魔镜",
-                "Exalted Orb": "崇高石",
-                "Divine Orb": "神圣石",
-                "Chaos Orb": "混沌石",
-                "Vaal Orb": "瓦尔宝珠",
-                "Regal Orb": "富豪石",
-                "Gemcutter's Prism": "宝石匠的棱镜",
-                "Orb of Regret": "后悔石",
-                "Blessed Orb": "祝福石",
-                "Glassblower's Bauble": "玻璃弹珠",
-                "Orb of Alchemy": "点金石",
-                "Orb of Fusing": "链结石",
-                "Orb of Scouring": "重铸石",
-                "Orb of Alteration": "改造石",
-                "Orb of Chance": "机会石",
-                "Jeweller's Orb": "工匠石",
-                "Chromatic Orb": "幻色石",
-                "Scroll of Wisdom": "知识卷轴",
-                "Portal Scroll": "传送卷轴",
-                "Armourer's Scrap": "护甲片",
-                "Blacksmith's Whetstone": "磨刀石",
-                "Orb of Augmentation": "增幅石",
-                "Orb of Transmutation": "蜕变石",
-                "Orb of Annulment": "剥离石",
-                "Orb of Binding": "高阶点金石",
-                "Scroll Fragment": "卷轴碎片",
-                "Eternal Orb": "永恒宝珠",
-                "Maven's Chisel of Procurement": "征用之贤主钉",
-                "Maven's Chisel of Proliferation": "激增之贤主钉",
-                "Maven's Chisel of Divination": "神恩之贤主钉",
-                "Maven's Chisel of Scarabs": "圣甲虫之贤主钉",
-                "Maven's Chisel of Avarice": "贪婪之贤主钉",
-                "Reflecting Mist": "倒映薄雾",
-                "Stacked Deck": "未知的命运卡",
-                "Imprinted Bestiary Orb": "拓印的封魔之玉",
-                "Turbulent Catalyst": "猛烈催化剂",
-                "Imbued Catalyst": "灌注催化剂",
-                "Abrasive Catalyst": "研磨催化剂",
-                "Tempering Catalyst": "回火催化剂",
-                "Fertile Catalyst": "丰沃催化剂",
-                "Prismatic Catalyst": "棱光催化剂",
-                "Intrinsic Catalyst": "内在催化剂",
-                "Noxious Catalyst": "有害催化剂",
-                "Accelerating Catalyst": "加速催化剂",
-                "Unstable Catalyst": "不稳定的催化剂",
-                "Tainted Catalyst": "污秽催化剂",
-                "Crusader's Exalted Orb": "圣战者的崇高石",
-                "Redeemer's Exalted Orb": "救赎者的崇高石",
-                "Hunter's Exalted Orb": "猎人的崇高石",
-                "Warlord's Exalted Orb": "督军的崇高石",
-                "Awakener's Orb": "觉醒者之石",
-                "Orb of Unmaking": "粉碎石",
-                "Enkindling Orb": "启明石",
-                "Instilling Orb": "灌顶石",
-                "Sacred Orb": "崇神石",
-                "Tainted Chromatic Orb": "污秽幻色石",
-                "Tainted Orb of Fusing": "污秽链结石",
-                "Tainted Jeweller's Orb": "污秽工匠石",
-                "Tainted Exalted Orb": "污秽崇高石",
-                "Tainted Mythic Orb": "污秽神秘石",
-                "Tainted Chaos Orb": "污秽混沌石",
-                "Tainted Armourer's Scrap": "污秽护甲片",
-                "Tainted Divine Teardrop": "污染神泪",
-                "Tainted Blacksmith's Whetstone": "污秽磨刀石",
-                "Lesser Eldritch Ember": "次级古灵余烬",
-                "Greater Eldritch Ember": "高级古灵余烬",
-                "Grand Eldritch Ember": "上级古灵余烬",
-                "Exceptional Eldritch Ember": "卓越古灵余烬",
-                "Lesser Eldritch Ichor": "次级古灵溶液",
-                "Greater Eldritch Ichor": "高级古灵溶液",
-                "Grand Eldritch Ichor": "上级古灵溶液",
-                "Exceptional Eldritch Ichor": "卓越古灵溶液",
-                "Orb of Conflict": "冲突石",
-                "Orb of Dominance": "统御宝珠",
-                "Eldritch Chaos Orb": "古灵混沌石",
-                "Eldritch Exalted Orb": "古灵崇高石",
-                "Eldritch Orb of Annulment": "古灵剥离石",
-                "Hinekora's Lock": "辛格拉的发辫",
-                "Valdo's Puzzle Box": "瓦尔多的谜之匣",
-                "Veiled Scarab": "加密圣甲虫",
-                "Blessing of Xoph": "索伏的祝福",
-                "Blessing of Tul": "托沃的祝福",
-                "Blessing of Esh": "艾许的祝福",
-                "Veiled Chaos Orb": "加密混沌石",
-                "Shaper's Exalted Orb": "塑界者的崇高石",
-                "Elder's Exalted Orb": "裂界者的崇高石",
-                "Orb of Remembrance": "铭记石",
-                "Orb of Unravelling": "解析石",
-                "Orb of Intention": "意念石",
-                "Foulborn Orb of Augmentation": "秽生增幅石",
-                "Foulborn Regal Orb": "秽生富豪石",
-                "Foulborn Exalted Orb": "秽生崇高石",
-                "Mirror Shard": "卡兰德的魔镜碎片",
-                "Fracturing Orb": "破溃宝珠",
-                "Veiled Exalted Orb": "加密崇高石",
-                "Tailoring Orb": "裁剪石",
-                "Tempering Orb": "回火石",
-                "Ancient Orb": "远古石",
-                "Annulment Shard": "剥离石碎片",
-                "Exalted Shard": "崇高石碎片",
-                "Transmutation Shard": "蜕变石碎片",
-                "Alteration Shard": "改造石碎片",
-                "Alchemy Shard": "点金石碎片",
-                "Regal Shard": "富豪石碎片",
-                "Chaos Shard": "混沌石碎片"
-            }
-        },
-        "item_class": {
-            "en": "Stackable Currency",
-            "ch": "可堆叠通货"
-        },
-        "theme_category": "Stackable Currency",
-        "match_modes": {
-            "Mirror of Kalandra": "exact"
-        }
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Albino Rhoa Feather": "白化的羽毛",
+        "Mirror of Kalandra": "卡兰德的魔镜",
+        "Exalted Orb": "崇高石",
+        "Divine Orb": "神圣石",
+        "Chaos Orb": "混沌石",
+        "Vaal Orb": "瓦尔宝珠",
+        "Regal Orb": "富豪石",
+        "Gemcutter's Prism": "宝石匠的棱镜",
+        "Orb of Regret": "后悔石",
+        "Blessed Orb": "祝福石",
+        "Glassblower's Bauble": "玻璃弹珠",
+        "Orb of Alchemy": "点金石",
+        "Orb of Fusing": "链结石",
+        "Orb of Scouring": "重铸石",
+        "Orb of Alteration": "改造石",
+        "Orb of Chance": "机会石",
+        "Jeweller's Orb": "工匠石",
+        "Chromatic Orb": "幻色石",
+        "Scroll of Wisdom": "知识卷轴",
+        "Portal Scroll": "传送卷轴",
+        "Armourer's Scrap": "护甲片",
+        "Blacksmith's Whetstone": "磨刀石",
+        "Orb of Augmentation": "增幅石",
+        "Orb of Transmutation": "蜕变石",
+        "Orb of Annulment": "剥离石",
+        "Orb of Binding": "高阶点金石",
+        "Scroll Fragment": "卷轴碎片",
+        "Eternal Orb": "永恒宝珠",
+        "Maven's Chisel of Procurement": "征用之贤主钉",
+        "Maven's Chisel of Proliferation": "激增之贤主钉",
+        "Maven's Chisel of Divination": "神恩之贤主钉",
+        "Maven's Chisel of Scarabs": "圣甲虫之贤主钉",
+        "Maven's Chisel of Avarice": "贪婪之贤主钉",
+        "Reflecting Mist": "倒映薄雾",
+        "Stacked Deck": "未知的命运卡",
+        "Imprinted Bestiary Orb": "拓印的封魔之玉",
+        "Turbulent Catalyst": "猛烈催化剂",
+        "Imbued Catalyst": "灌注催化剂",
+        "Abrasive Catalyst": "研磨催化剂",
+        "Tempering Catalyst": "回火催化剂",
+        "Fertile Catalyst": "丰沃催化剂",
+        "Prismatic Catalyst": "棱光催化剂",
+        "Intrinsic Catalyst": "内在催化剂",
+        "Noxious Catalyst": "有害催化剂",
+        "Accelerating Catalyst": "加速催化剂",
+        "Unstable Catalyst": "不稳定的催化剂",
+        "Tainted Catalyst": "污秽催化剂",
+        "Crusader's Exalted Orb": "圣战者的崇高石",
+        "Redeemer's Exalted Orb": "救赎者的崇高石",
+        "Hunter's Exalted Orb": "猎人的崇高石",
+        "Warlord's Exalted Orb": "督军的崇高石",
+        "Awakener's Orb": "觉醒者之石",
+        "Orb of Unmaking": "粉碎石",
+        "Enkindling Orb": "启明石",
+        "Instilling Orb": "灌顶石",
+        "Sacred Orb": "崇神石",
+        "Tainted Chromatic Orb": "污秽幻色石",
+        "Tainted Orb of Fusing": "污秽链结石",
+        "Tainted Jeweller's Orb": "污秽工匠石",
+        "Tainted Exalted Orb": "污秽崇高石",
+        "Tainted Mythic Orb": "污秽神秘石",
+        "Tainted Chaos Orb": "污秽混沌石",
+        "Tainted Armourer's Scrap": "污秽护甲片",
+        "Tainted Divine Teardrop": "污染神泪",
+        "Tainted Blacksmith's Whetstone": "污秽磨刀石",
+        "Lesser Eldritch Ember": "次级古灵余烬",
+        "Greater Eldritch Ember": "高级古灵余烬",
+        "Grand Eldritch Ember": "上级古灵余烬",
+        "Exceptional Eldritch Ember": "卓越古灵余烬",
+        "Lesser Eldritch Ichor": "次级古灵溶液",
+        "Greater Eldritch Ichor": "高级古灵溶液",
+        "Grand Eldritch Ichor": "上级古灵溶液",
+        "Exceptional Eldritch Ichor": "卓越古灵溶液",
+        "Orb of Conflict": "冲突石",
+        "Orb of Dominance": "统御宝珠",
+        "Eldritch Chaos Orb": "古灵混沌石",
+        "Eldritch Exalted Orb": "古灵崇高石",
+        "Eldritch Orb of Annulment": "古灵剥离石",
+        "Hinekora's Lock": "辛格拉的发辫",
+        "Valdo's Puzzle Box": "瓦尔多的谜之匣",
+        "Veiled Scarab": "加密圣甲虫",
+        "Blessing of Xoph": "索伏的祝福",
+        "Blessing of Tul": "托沃的祝福",
+        "Blessing of Esh": "艾许的祝福",
+        "Veiled Chaos Orb": "加密混沌石",
+        "Shaper's Exalted Orb": "塑界者的崇高石",
+        "Elder's Exalted Orb": "裂界者的崇高石",
+        "Orb of Remembrance": "铭记石",
+        "Orb of Unravelling": "解析石",
+        "Orb of Intention": "意念石",
+        "Foulborn Orb of Augmentation": "秽生增幅石",
+        "Foulborn Regal Orb": "秽生富豪石",
+        "Foulborn Exalted Orb": "秽生崇高石",
+        "Mirror Shard": "卡兰德的魔镜碎片",
+        "Fracturing Orb": "破溃宝珠",
+        "Veiled Exalted Orb": "加密崇高石",
+        "Tailoring Orb": "裁剪石",
+        "Tempering Orb": "回火石",
+        "Ancient Orb": "远古石",
+        "Annulment Shard": "剥离石碎片",
+        "Exalted Shard": "崇高石碎片",
+        "Transmutation Shard": "蜕变石碎片",
+        "Alteration Shard": "改造石碎片",
+        "Alchemy Shard": "点金石碎片",
+        "Regal Shard": "富豪石碎片",
+        "Chaos Shard": "混沌石碎片"
+      }
     },
-    "mapping": {
-        "Mirror of Kalandra": "Tier 0 General",
-        "Mirror Shard": "Tier 0 General",
-        "Eternal Orb": "Tier 0 General",
-        "Hinekora's Lock": "Tier 0 General",
-        "Albino Rhoa Feather": "Tier 0 General",
-        "Divine Orb": "Tier 1 General",
-        "Valdo's Puzzle Box": "Tier 1 General",
-        "Awakener's Orb": "Tier 1 General",
-        "Fracturing Orb": "Tier 1 General",
-        "Exceptional Eldritch Ember": "Tier 1 General",
-        "Exceptional Eldritch Ichor": "Tier 1 General",
-        "Veiled Exalted Orb": "Tier 1 General",
-        "Reflecting Mist": "Tier 1 General",
-        "Tailoring Orb": "Tier 1 General",
-        "Tempering Orb": "Tier 1 General",
-        "Crusader's Exalted Orb": "Tier 2 General",
-        "Redeemer's Exalted Orb": "Tier 2 General",
-        "Hunter's Exalted Orb": "Tier 2 General",
-        "Warlord's Exalted Orb": "Tier 2 General",
-        "Orb of Conflict": "Tier 2 General",
-        "Sacred Orb": "Tier 2 General",
-        "Orb of Dominance": "Tier 2 General",
-        "Prismatic Catalyst": "Tier 2 General",
-        "Tainted Exalted Orb": "Tier 2 General",
-        "Tainted Divine Teardrop": "Tier 2 General",
-        "Grand Eldritch Ember": "Tier 2 General",
-        "Grand Eldritch Ichor": "Tier 2 General",
-        "Maven's Chisel of Scarabs": "Tier 2 General",
-        "Exalted Orb": "Tier 3 General",
-        "Ancient Orb": "Tier 3 General",
-        "Fertile Catalyst": "Tier 3 General",
-        "Annulment Shard": "Tier 3 General",
-        "Eldritch Chaos Orb": "Tier 3 General",
-        "Eldritch Exalted Orb": "Tier 3 General",
-        "Eldritch Orb of Annulment": "Tier 3 General",
-        "Tainted Chaos Orb": "Tier 3 General",
-        "Tainted Chromatic Orb": "Tier 3 General",
-        "Tainted Orb of Fusing": "Tier 3 General",
-        "Tainted Mythic Orb": "Tier 3 General",
-        "Maven's Chisel of Avarice": "Tier 3 General",
-        "Maven's Chisel of Divination": [
-            "Tier 2 General"
-        ],
-        "Maven's Chisel of Proliferation": "Tier 3 General",
-        "Exalted Shard": "Tier 3 General",
-        "Chaos Orb": [
-            "Tier 4 General"
-        ],
-        "Orb of Annulment": "Tier 4 General",
-        "Stacked Deck": "Tier 4 General",
-        "Gemcutter's Prism": "Tier 4 General",
-        "Vaal Orb": "Tier 4 General",
-        "Orb of Regret": "Tier 4 General",
-        "Orb of Unmaking": "Tier 4 General",
-        "Orb of Scouring": "Tier 4 General",
-        "Enkindling Orb": "Tier 4 General",
-        "Instilling Orb": "Tier 4 General",
-        "Tainted Armourer's Scrap": "Tier 4 General",
-        "Tainted Blacksmith's Whetstone": "Tier 4 General",
-        "Maven's Chisel of Procurement": "Tier 4 General",
-        "Noxious Catalyst": "Tier 4 General",
-        "Imbued Catalyst": "Tier 4 General",
-        "Abrasive Catalyst": "Tier 4 General",
-        "Tempering Catalyst": "Tier 4 General",
-        "Turbulent Catalyst": "Tier 4 General",
-        "Intrinsic Catalyst": "Tier 4 General",
-        "Accelerating Catalyst": "Tier 4 General",
-        "Unstable Catalyst": "Tier 4 General",
-        "Greater Eldritch Ember": "Tier 4 General",
-        "Greater Eldritch Ichor": "Tier 4 General",
-        "Orb of Alchemy": "Tier 5 General",
-        "Orb of Fusing": "Tier 5 General",
-        "Glassblower's Bauble": "Tier 5 General",
-        "Orb of Alteration": "Tier 5 General",
-        "Orb of Chance": "Tier 5 General",
-        "Jeweller's Orb": "Tier 5 General",
-        "Chromatic Orb": "Tier 5 General",
-        "Orb of Binding": "Tier 5 General",
-        "Armourer's Scrap": "Tier 5 General",
-        "Blacksmith's Whetstone": "Tier 5 General",
-        "Orb of Augmentation": "Tier 5 General",
-        "Orb of Transmutation": "Tier 5 General",
-        "Portal Scroll": "Tier 5 General",
-        "Scroll of Wisdom": "Tier 5 General",
-        "Regal Orb": "Tier 5 General",
-        "Blessed Orb": "Tier 5 General",
-        "Lesser Eldritch Ember": "Tier 5 General",
-        "Lesser Eldritch Ichor": "Tier 5 General",
-        "Scroll Fragment": "Tier 5 General",
-        "Transmutation Shard": "Tier 5 General",
-        "Alteration Shard": "Tier 5 General",
-        "Alchemy Shard": "Tier 5 General",
-        "Regal Shard": "Tier 5 General",
-        "Chaos Shard": "Tier 5 General",
-        "Blessing of Xoph": "Tier 1 General",
-        "Blessing of Tul": "Tier 1 General",
-        "Blessing of Esh": "Tier 1 General",
-        "Veiled Chaos Orb": "Tier 1 General",
-        "Shaper's Exalted Orb": "Tier 1 General",
-        "Elder's Exalted Orb": "Tier 1 General",
-        "Orb of Remembrance": "Tier 1 General",
-        "Orb of Unravelling": "Tier 1 General",
-        "Orb of Intention": "Tier 1 General",
-        "Foulborn Orb of Augmentation": "Tier 1 General",
-        "Foulborn Regal Orb": "Tier 1 General",
-        "Foulborn Exalted Orb": "Tier 1 General"
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
     },
-    "rules": [
-        {
-            "targets": [
-                "Chaos Orb"
-            ],
-            "conditions": {
-                "StackSize": ">= 100"
-            },
-            "overrides": {
-                "Tier": "Tier 0 General"
-            },
-            "comment": "Test Rule: Stacked Divine"
-        },
-        {
-            "targets": [
-                "Chaos Orb"
-            ],
-            "conditions": {
-                "StackSize": ">=10"
-            },
-            "overrides": {
-                "Tier": "Tier 3 General"
-            },
-            "comment": ""
-        },
-        {
-            "targets": [
-                "Eldritch Orb of Annulment",
-                "Chaos Orb"
-            ],
-            "conditions": {
-                "StackSize": ">=1000"
-            },
-            "overrides": {
-                "Tier": "Tier 0 General"
-            },
-            "comment": ""
-        },
-        {
-            "targets": [
-                "Gift to the Goddess"
-            ],
-            "conditions": {},
-            "overrides": {
-                "Tier": "Tier 0 General"
-            },
-            "comment": ""
-        }
-    ]
+    "theme_category": "Stackable Currency",
+    "match_modes": {
+      "Mirror of Kalandra": "exact"
+    }
+  },
+  "mapping": {
+    "Mirror of Kalandra": "Tier 0 General",
+    "Mirror Shard": "Tier 0 General",
+    "Eternal Orb": "Tier 0 General",
+    "Hinekora's Lock": "Tier 0 General",
+    "Albino Rhoa Feather": "Tier 0 General",
+    "Divine Orb": "Tier 1 General",
+    "Valdo's Puzzle Box": "Tier 1 General",
+    "Awakener's Orb": "Tier 1 General",
+    "Fracturing Orb": "Tier 1 General",
+    "Exceptional Eldritch Ember": "Tier 1 General",
+    "Exceptional Eldritch Ichor": "Tier 1 General",
+    "Veiled Exalted Orb": "Tier 1 General",
+    "Reflecting Mist": [
+      "Tier 0 General"
+    ],
+    "Tailoring Orb": "Tier 1 General",
+    "Tempering Orb": "Tier 1 General",
+    "Crusader's Exalted Orb": [],
+    "Redeemer's Exalted Orb": [],
+    "Hunter's Exalted Orb": [],
+    "Warlord's Exalted Orb": "Tier 2 General",
+    "Orb of Conflict": "Tier 2 General",
+    "Sacred Orb": "Tier 2 General",
+    "Orb of Dominance": "Tier 2 General",
+    "Prismatic Catalyst": [],
+    "Tainted Exalted Orb": "Tier 2 General",
+    "Tainted Divine Teardrop": [
+      "Tier 1 General"
+    ],
+    "Grand Eldritch Ember": "Tier 2 General",
+    "Grand Eldritch Ichor": "Tier 2 General",
+    "Maven's Chisel of Scarabs": "Tier 2 General",
+    "Exalted Orb": "Tier 3 General",
+    "Ancient Orb": "Tier 3 General",
+    "Fertile Catalyst": "Tier 3 General",
+    "Annulment Shard": "Tier 3 General",
+    "Eldritch Chaos Orb": "Tier 3 General",
+    "Eldritch Exalted Orb": "Tier 3 General",
+    "Eldritch Orb of Annulment": "Tier 3 General",
+    "Tainted Chaos Orb": "Tier 3 General",
+    "Tainted Chromatic Orb": "Tier 3 General",
+    "Tainted Orb of Fusing": "Tier 3 General",
+    "Tainted Mythic Orb": "Tier 3 General",
+    "Maven's Chisel of Avarice": "Tier 3 General",
+    "Maven's Chisel of Divination": [
+      "Tier 2 General"
+    ],
+    "Maven's Chisel of Proliferation": "Tier 3 General",
+    "Exalted Shard": "Tier 3 General",
+    "Chaos Orb": [
+      "Tier 4 General"
+    ],
+    "Orb of Annulment": "Tier 4 General",
+    "Stacked Deck": "Tier 4 General",
+    "Gemcutter's Prism": "Tier 4 General",
+    "Vaal Orb": "Tier 4 General",
+    "Orb of Regret": "Tier 4 General",
+    "Orb of Unmaking": "Tier 4 General",
+    "Orb of Scouring": "Tier 4 General",
+    "Enkindling Orb": "Tier 4 General",
+    "Instilling Orb": "Tier 4 General",
+    "Tainted Armourer's Scrap": [
+      "Tier 5 General"
+    ],
+    "Tainted Blacksmith's Whetstone": "Tier 4 General",
+    "Maven's Chisel of Procurement": [
+      "Tier 2 General"
+    ],
+    "Noxious Catalyst": "Tier 4 General",
+    "Imbued Catalyst": "Tier 4 General",
+    "Abrasive Catalyst": "Tier 4 General",
+    "Tempering Catalyst": [],
+    "Turbulent Catalyst": [],
+    "Intrinsic Catalyst": "Tier 4 General",
+    "Accelerating Catalyst": "Tier 4 General",
+    "Unstable Catalyst": "Tier 4 General",
+    "Greater Eldritch Ember": "Tier 4 General",
+    "Greater Eldritch Ichor": "Tier 4 General",
+    "Orb of Alchemy": "Tier 5 General",
+    "Orb of Fusing": [
+      "Tier 4 General"
+    ],
+    "Glassblower's Bauble": "Tier 5 General",
+    "Orb of Alteration": "Tier 5 General",
+    "Orb of Chance": "Tier 5 General",
+    "Jeweller's Orb": "Tier 5 General",
+    "Chromatic Orb": "Tier 5 General",
+    "Orb of Binding": "Tier 5 General",
+    "Armourer's Scrap": "Tier 5 General",
+    "Blacksmith's Whetstone": "Tier 5 General",
+    "Orb of Augmentation": "Tier 5 General",
+    "Orb of Transmutation": "Tier 5 General",
+    "Portal Scroll": [
+      "CustomTier 1 General"
+    ],
+    "Scroll of Wisdom": "Tier 5 General",
+    "Regal Orb": [
+      "Tier 4 General"
+    ],
+    "Blessed Orb": [
+      "Tier 4 General"
+    ],
+    "Lesser Eldritch Ember": "Tier 5 General",
+    "Lesser Eldritch Ichor": "Tier 5 General",
+    "Scroll Fragment": "Tier 5 General",
+    "Transmutation Shard": "Tier 5 General",
+    "Alteration Shard": "Tier 5 General",
+    "Alchemy Shard": "Tier 5 General",
+    "Regal Shard": "Tier 5 General",
+    "Chaos Shard": "Tier 5 General",
+    "Blessing of Xoph": [],
+    "Blessing of Tul": [],
+    "Blessing of Esh": [],
+    "Veiled Chaos Orb": "Tier 1 General",
+    "Shaper's Exalted Orb": "Tier 1 General",
+    "Elder's Exalted Orb": "Tier 1 General",
+    "Orb of Remembrance": "Tier 1 General",
+    "Orb of Unravelling": "Tier 1 General",
+    "Orb of Intention": "Tier 1 General",
+    "Foulborn Orb of Augmentation": "Tier 1 General",
+    "Foulborn Regal Orb": "Tier 1 General",
+    "Foulborn Exalted Orb": "Tier 1 General"
+  },
+  "rules": [
+    {
+      "targets": [
+        "Chaos Orb"
+      ],
+      "conditions": {
+        "StackSize": ">= 100"
+      },
+      "overrides": {
+        "Tier": "Tier 0 General"
+      },
+      "comment": "Test Rule: Stacked Divine"
+    },
+    {
+      "targets": [
+        "Chaos Orb"
+      ],
+      "conditions": {
+        "StackSize": ">=10"
+      },
+      "overrides": {
+        "Tier": "Tier 3 General"
+      },
+      "comment": ""
+    },
+    {
+      "targets": [
+        "Eldritch Orb of Annulment",
+        "Chaos Orb"
+      ],
+      "conditions": {
+        "StackSize": ">=1000"
+      },
+      "overrides": {
+        "Tier": "Tier 0 General"
+      },
+      "comment": ""
+    },
+    {
+      "targets": [
+        "Gift to the Goddess"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 0 General"
+      },
+      "comment": ""
+    }
+  ]
 }

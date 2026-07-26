@@ -10,12 +10,68 @@ import sys
 import time
 import re
 import csv
+import threading
+import collections
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Dict, Optional
 from pydantic import BaseModel
 
 app = FastAPI()
+
+# --- Safe curation writes -------------------------------------------------- #
+# These endpoints are sync `def`, so FastAPI runs them in a threadpool: several
+# requests genuinely execute at once. Every one of them does a read-modify-write
+# of a whole JSON file, which without protection produced three distinct
+# failures on the same file - a shorter document written over a longer one
+# leaving an orphaned tail ("Extra data"), a reader catching a half-written file
+# ("Invalid control character"), and silent lost updates where the last writer
+# wins and the earlier edits vanish with no error at all.
+
+_FILE_LOCKS: Dict[str, threading.Lock] = collections.defaultdict(threading.Lock)
+_FILE_LOCKS_GUARD = threading.Lock()
+
+
+def file_lock(path: Path) -> threading.Lock:
+    """One lock per file, so a read-modify-write cycle is never interleaved."""
+    key = str(Path(path).resolve()).lower()
+    with _FILE_LOCKS_GUARD:
+        return _FILE_LOCKS[key]
+
+
+def write_json_atomic(path: Path, data: dict, indent: int = 2) -> None:
+    """Write via a temp file in the same directory, then os.replace().
+
+    os.replace is atomic on Windows and POSIX, so a reader sees either the old
+    file or the new one - never a partial write - and a crash mid-write cannot
+    leave a truncated file behind.
+    """
+    path = Path(path)
+    tmp = path.with_suffix(path.suffix + f".tmp{os.getpid()}.{threading.get_ident()}")
+    try:
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=indent, ensure_ascii=False)
+            f.flush()
+            os.fsync(f.fileno())
+        # On Windows os.replace fails with ACCESS_DENIED whenever anything else
+        # holds even a transient handle on the destination - Defender, the
+        # search indexer, a sync client. Measured: roughly 1 write in 40 during
+        # a bulk edit. Without the retry that exception propagates and the edit
+        # is simply lost, which is the failure we are here to remove.
+        for attempt in range(12):
+            try:
+                os.replace(tmp, path)
+                break
+            except PermissionError:
+                if attempt == 11:
+                    raise
+                time.sleep(0.02 * (attempt + 1))
+    finally:
+        if tmp.exists():
+            try:
+                tmp.unlink()
+            except OSError:
+                pass
 
 # --- Models ---
 class UpdateItemOverrideRequest(BaseModel):
@@ -951,9 +1007,26 @@ def update_item_tier(request: UpdateItemTierRequest):
         file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
 
     try:
-        with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
+        # One lock per file for the whole read-modify-write, and an atomic
+        # replace at the end. Without both, concurrent edits to the same
+        # category corrupted it or silently dropped each other's changes.
+        with file_lock(file_path):
+            with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
+            apply_tier_change(data, request)
+            write_json_atomic(file_path, data)
+        return {"message": "Success"}
+    except Exception as e: raise HTTPException(status_code=500, detail=str(e))
+
+
+def apply_tier_change(data: dict, request: "UpdateItemTierRequest") -> None:
+    """Mutate one loaded mapping document in place.
+
+    Shared by the single and batch endpoints so their semantics cannot drift
+    apart. Does no I/O - the caller owns the lock and the write.
+    """
+    if True:
         mapping = data.get("mapping", {})
-        
+
         # 1. Update Localization. Tolerates the string-'ch' nav-rebuild/campaign
         # shape (category name in 'ch', per-item dict in 'ch_items'); the old code
         # assigned into localization['ch'][item] which raised on a string 'ch' → 500.
@@ -1015,11 +1088,69 @@ def update_item_tier(request: UpdateItemTierRequest):
             else:
                 # Overwrite (Reset)
                 mapping[request.item_name] = request.new_tier
-            
+
         data["mapping"] = mapping
-        with open(file_path, "w", encoding="utf-8") as f: json.dump(data, f, indent=2, ensure_ascii=False)
-        return {"message": "Success"}
-    except Exception as e: raise HTTPException(status_code=500, detail=str(e))
+
+
+class BulkTierChange(BaseModel):
+    """One item's change inside a batch. Same fields as UpdateItemTierRequest."""
+    item_name: str
+    new_tier: Optional[str] = None
+    source_file: str
+    is_append: bool = False
+    old_tier: Optional[str] = None
+    new_tiers: Optional[List[str]] = None
+    match_mode: Optional[str] = None
+
+
+class BulkTierRequest(BaseModel):
+    changes: List[BulkTierChange]
+
+
+@app.post("/api/update-item-tiers-bulk")
+def update_item_tiers_bulk(request: BulkTierRequest):
+    """Apply many tier changes with ONE read-modify-write per file.
+
+    The editor used to fire one request per item in parallel. Each was a full
+    read-modify-write of the same document, so N concurrent edits to one
+    category raced: the file could be corrupted, or edits could silently
+    disappear because the last writer overwrote everything before it. Grouping
+    by file removes the race entirely rather than just narrowing it, and turns
+    a 40-item bulk edit into one write instead of forty.
+    """
+    by_file: Dict[str, List[BulkTierChange]] = collections.OrderedDict()
+    for change in request.changes:
+        if not change.source_file:
+            raise HTTPException(status_code=422, detail="Source file is required")
+        by_file.setdefault(change.source_file, []).append(change)
+
+    applied, failures = 0, []
+    for source_file, changes in by_file.items():
+        if source_file.startswith("base_mapping/"):
+            file_path = safe_join(CONFIG_DATA_DIR, source_file)
+        else:
+            file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", source_file)
+        try:
+            with file_lock(file_path):
+                with open(file_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                for change in changes:
+                    apply_tier_change(data, change)
+                write_json_atomic(file_path, data)
+            applied += len(changes)
+        except Exception as exc:
+            # Report per file: one bad category must not hide the rest, and the
+            # editor needs to know WHICH items did not land.
+            failures.append({"source_file": source_file,
+                             "items": [c.item_name for c in changes],
+                             "error": str(exc)})
+
+    if failures:
+        raise HTTPException(status_code=500, detail={
+            "message": f"{applied} change(s) applied, {sum(len(f['items']) for f in failures)} failed",
+            "failures": failures,
+        })
+    return {"message": "Success", "applied": applied, "files": len(by_file)}
 
 @app.post("/api/update-item-override")
 def update_item_override(request: UpdateItemOverrideRequest):
@@ -1029,16 +1160,17 @@ def update_item_override(request: UpdateItemOverrideRequest):
         file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
 
     try:
-        with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
-        rules = data.get("rules", [])
-        found = False
-        for rule in rules:
-            if rule.get("targets") == [request.item_name] and not rule.get("conditions"):
-                rule["overrides"].update(request.overrides); found = True; break
-        if not found:
-            rules.append({"targets": [request.item_name], "conditions": {}, "overrides": request.overrides, "comment": f"Override for {request.item_name}"})
-        data["rules"] = rules
-        with open(file_path, "w", encoding="utf-8") as f: json.dump(data, f, indent=2, ensure_ascii=False)
+        with file_lock(file_path):
+            with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
+            rules = data.get("rules", [])
+            found = False
+            for rule in rules:
+                if rule.get("targets") == [request.item_name] and not rule.get("conditions"):
+                    rule["overrides"].update(request.overrides); found = True; break
+            if not found:
+                rules.append({"targets": [request.item_name], "conditions": {}, "overrides": request.overrides, "comment": f"Override for {request.item_name}"})
+            data["rules"] = rules
+            write_json_atomic(file_path, data)
         return {"message": "Success"}
     except Exception as e: raise HTTPException(status_code=500, detail=str(e))
 
@@ -1437,7 +1569,10 @@ def get_config_content(config_path: str):
 async def save_config_file_v2(config_path: str, content: dict = Body(...)):
     path = safe_join(CONFIG_DATA_DIR, config_path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "w", encoding="utf-8") as f: json.dump(content, f, indent=2, ensure_ascii=False)
+    # Whole-document save from the editor. Atomic + locked so it cannot
+    # interleave with a per-item write to the same file.
+    with file_lock(path):
+        write_json_atomic(path, content)
     return {"message": "Success"}
 
 # --- Mounts ---

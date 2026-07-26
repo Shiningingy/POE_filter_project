@@ -390,33 +390,44 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       // shared classes (every currency is "Stackable Currency") and brand-new items
       // (empty class), which the backend rejects with a 500. Never POST an unresolved
       // path, and report per-item so a failure names the culprit.
-      const results = await Promise.allSettled(entries.map(([itemName, newTiers]) => {
+      // ONE request for the whole edit. This used to fire a POST per item in
+      // parallel; each was a full read-modify-write of the same mapping file,
+      // so editing several items in one category raced against itself and
+      // could corrupt the file or silently drop edits. The backend now groups
+      // by file and writes each once, under a lock.
+      const changes: { item_name: string; new_tiers: string[]; new_tier: string; source_file: string }[] = [];
+      const unresolved: string[] = [];
+      for (const [itemName, newTiers] of entries) {
         const item = items.find(i => i.name === itemName);
         const sourceFile = item?.source_file || defaultMappingPath || classToFile[item?.item_class || ""] || "";
-        if (!sourceFile) {
-          return Promise.reject(new Error("could not determine a target mapping file"));
-        }
-        return axios.post(`${API_BASE_URL}/api/update-item-tier`, {
-          item_name: itemName,
-          new_tiers: newTiers,
-          new_tier: "",
-          source_file: sourceFile,
-        }).catch((err) => {
-          const detail = err?.response?.data?.detail || err?.message || "request failed";
-          throw new Error(`${detail} (→ ${sourceFile})`);
-        });
-      }));
+        if (!sourceFile) { unresolved.push(itemName); continue; }
+        changes.push({ item_name: itemName, new_tiers: newTiers, new_tier: "", source_file: sourceFile });
+      }
 
-      const failures = results
-        .map((r, i) => ({ r, name: entries[i][0] }))
-        .filter((x) => x.r.status === "rejected")
-        .map((x) => ({ name: x.name, reason: String((x.r as PromiseRejectedResult).reason?.message ?? (x.r as PromiseRejectedResult).reason) }));
+      let failed: string[] = [];
+      if (changes.length) {
+        try {
+          await axios.post(`${API_BASE_URL}/api/update-item-tiers-bulk`, { changes });
+        } catch (err: any) {
+          const detail = err?.response?.data?.detail;
+          if (detail?.failures) {
+            failed = detail.failures.flatMap((f: any) => f.items.map((n: string) => `${n} — ${f.error} (→ ${f.source_file})`));
+          } else {
+            failed = [String(detail || err?.message || "request failed")];
+          }
+        }
+      }
+
+      const problems = [
+        ...unresolved.map(n => `${n} — could not determine a target mapping file`),
+        ...failed,
+      ];
 
       onSave(); // reflect whatever succeeded
-      if (failures.length) {
-        console.error("BulkTierEditor: failed items", failures);
-        alert(`Failed to update ${failures.length} item(s):\n` +
-              failures.map((f) => `• ${f.name} — ${f.reason}`).join("\n"));
+      if (problems.length) {
+        console.error("BulkTierEditor: failed items", problems);
+        alert(`Failed to update ${problems.length} item(s):\n` +
+              problems.map((p) => `• ${p}`).join("\n"));
       } else {
         onClose();
       }
