@@ -309,14 +309,15 @@
       "en": "Legacy",
       "ch": "历史物品"
     },
-    "theme_category": "Legacy"
+    "theme_category": "Legacy",
+    "match_modes": {}
   },
   "mapping": {
     "Chayula's Flawless Breachstone": "Tier 1 Breach",
-    "Harbinger's Orb": "Tier 4 General",
+    "Harbinger's Orb": [],
     "Binding Shard": "Tier 5 General",
-    "Horizon Shard": "Tier 5 General",
-    "Harbinger's Shard": "Tier 5 General",
+    "Horizon Shard": [],
+    "Harbinger's Shard": [],
     "Engineer's Shard": "Tier 5 General",
     "Imprint": "Tier 1 Stackable Currency",
     "Charan's Sword": "Tier 1 One Hand Swords",

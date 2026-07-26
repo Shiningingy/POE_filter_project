@@ -51,6 +51,7 @@ def write_json_atomic(path: Path, data: dict, indent: int = 2) -> None:
     try:
         with open(tmp, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=indent, ensure_ascii=False)
+            f.write("\n")          # keep git from reporting "\ No newline at end of file"
             f.flush()
             os.fsync(f.fileno())
         # On Windows os.replace fails with ACCESS_DENIED whenever anything else
