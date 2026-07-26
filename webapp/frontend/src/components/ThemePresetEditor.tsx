@@ -44,6 +44,66 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const toggle = (id: string) => setExpanded(p => ({ ...p, [id]: !p[id] }));
 
+  // --- sidebar: search + resize -------------------------------------------- //
+  // 102 nav entries in a fixed 220px rail is a lot of scrolling when you are
+  // sweeping category by category. Search flattens to results; the rail can be
+  // dragged wider for the long localized names, and the width persists.
+  const [navQuery, setNavQuery] = useState('');
+  const [sidebarWidth, setSidebarWidth] = useState<number>(() => {
+    const saved = Number(localStorage.getItem('themeEditor.sidebarWidth'));
+    return saved >= 160 && saved <= 560 ? saved : 220;
+  });
+  const dragRef = useRef<{ startX: number; startW: number } | null>(null);
+
+  const startResize = (e: React.MouseEvent) => {
+    e.preventDefault();
+    dragRef.current = { startX: e.clientX, startW: sidebarWidth };
+    const onMove = (ev: MouseEvent) => {
+      if (!dragRef.current) return;
+      const next = dragRef.current.startW + (ev.clientX - dragRef.current.startX);
+      setSidebarWidth(Math.min(560, Math.max(160, next)));
+    };
+    const onUp = () => {
+      dragRef.current = null;
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+      // read the committed width from state rather than the stale closure
+      setSidebarWidth(w => { localStorage.setItem('themeEditor.sidebarWidth', String(w)); return w; });
+    };
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+  };
+
+  // Flattened nav, with a breadcrumb, so search can show results directly
+  // instead of making the user expand groups to find a hit.
+  const allLeaves = useMemo(() => {
+    const out: { f: any; crumb: string }[] = [];
+    for (const g of navGroups as any[]) {
+      if (!g || g.separator) continue;
+      const gName = g._meta?.localization?.[language] || g._meta?.localization?.en || '';
+      for (const f of (g.files || [])) out.push({ f, crumb: gName });
+      for (const s of (g.subgroups || [])) {
+        const sName = s._meta?.localization?.[language] || s._meta?.localization?.en || '';
+        for (const f of (s.files || [])) {
+          out.push({ f, crumb: gName && sName ? `${gName} › ${sName}` : (gName || sName) });
+        }
+      }
+    }
+    return out;
+  }, [navGroups, language]);
+
+  const navFilter = navQuery.trim().toLowerCase();
+  const searchHits = useMemo(() => {
+    if (!navFilter) return [];
+    const hit = (s?: string) => !!s && s.toLowerCase().includes(navFilter);
+    return allLeaves.filter(({ f, crumb }) =>
+      hit(f.target_category || f.localization?.en) ||
+      hit(f.localization?.[language]) ||
+      hit(f.localization?.en) ||
+      hit(f.path) ||
+      hit(crumb));
+  }, [allLeaves, navFilter, language]);
+
   const [editingTier, setEditingTier] = useState<string | null>(null);
   const [isBulkEditing, setIsBulkEditing] = useState(false);
   const [unsavedOverrides, setUnsavedOverrides] = useState(false);
@@ -446,8 +506,50 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
         </div>
 
         <div className="editor-layout">
-          <div className="category-sidebar">
+          <div className="category-sidebar" style={{ width: sidebarWidth }}>
+            <div className="nav-search">
+              <input
+                type="search"
+                value={navQuery}
+                onChange={(e) => setNavQuery(e.target.value)}
+                placeholder={language === 'ch' ? '搜索分类…' : 'Search categories…'}
+                aria-label={language === 'ch' ? '搜索分类' : 'Search categories'}
+              />
+              {navFilter && (
+                <span className="nav-count">
+                  {searchHits.length} / {allLeaves.length}
+                </span>
+              )}
+            </div>
             <div className="category-list">
+              {/* Search: flat results with a breadcrumb, so a hit is one click away. */}
+              {navFilter ? (
+                searchHits.length === 0 ? (
+                  <div className="nav-empty">
+                    {language === 'ch' ? '没有匹配的分类' : 'No categories match'}
+                  </div>
+                ) : (
+                  searchHits.map(({ f, crumb }) => {
+                    const key = f.target_category || f.localization?.en;
+                    const id = f.path || key;
+                    const label = f.localization?.[language] || f.localization?.en || key;
+                    return (
+                      <div
+                        key={id}
+                        className={`category-item search-hit ${selectedLeaf === id ? 'active' : ''}`}
+                        onClick={() => selectLeaf(f)}
+                      >
+                        <span className="hit-label">
+                          {label}
+                          {overridesData[key] && <span className="override-dot">•</span>}
+                        </span>
+                        {crumb && <span className="leaf-crumb">{crumb}</span>}
+                      </div>
+                    );
+                  })
+                )
+              ) : (
+              <>
               {/* Global fallback bucket */}
               <div
                 className={`category-item template-category ${selectedLeaf === '__default__' ? 'active' : ''}`}
@@ -513,7 +615,17 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                   </div>
                 );
               })}
+              </>
+              )}
             </div>
+            <div
+              className="resize-handle"
+              onMouseDown={startResize}
+              onDoubleClick={() => { setSidebarWidth(220); localStorage.setItem('themeEditor.sidebarWidth', '220'); }}
+              title={language === 'ch' ? '拖动调整宽度（双击重置）' : 'Drag to resize (double-click to reset)'}
+              role="separator"
+              aria-orientation="vertical"
+            />
           </div>
 
           <div className="preview-area" onClick={() => { setEditingTier(null); setIsBulkEditing(false); }} style={getBackgroundStyle()}>
@@ -851,8 +963,26 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
         .editor-layout { display: flex; flex: 1; overflow: hidden; background: #f0f2f5; }
         
-        .category-sidebar { width: 220px; border-right: 1px solid #ddd; display: flex; flex-direction: column; background: #fff; min-height: 0; }
+        /* Width comes from inline style (draggable, persisted); flex-shrink:0 keeps
+           the flex parent from squeezing it back. position:relative anchors the
+           resize handle. */
+        .category-sidebar { flex: 0 0 auto; position: relative; border-right: 1px solid #ddd; display: flex; flex-direction: column; background: #fff; min-height: 0; }
         .category-list { flex: 1; min-height: 0; overflow-y: auto; padding: 10px; }
+
+        .nav-search { padding: 10px 10px 0; display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+        .nav-search input { flex: 1; min-width: 0; padding: 6px 8px; font-size: 0.85rem; border: 1px solid #ddd; border-radius: 5px; background: #fafafa; color: #222; }
+        .nav-search input:focus { outline: 2px solid #2196F3; outline-offset: -1px; background: #fff; }
+        .nav-count { font-size: 0.7rem; color: #999; font-variant-numeric: tabular-nums; white-space: nowrap; }
+        .nav-empty { padding: 20px 12px; color: #999; font-size: 0.82rem; text-align: center; }
+
+        .search-hit { flex-direction: column; align-items: flex-start; gap: 1px; }
+        .search-hit .hit-label { display: flex; align-items: center; gap: 4px; }
+        .leaf-crumb { font-size: 0.68rem; color: #aaa; }
+        .category-item.active .leaf-crumb { color: rgba(255,255,255,0.75); }
+
+        /* Sits over the right border so the whole edge is grabbable. */
+        .resize-handle { position: absolute; top: 0; right: -3px; width: 7px; height: 100%; cursor: col-resize; z-index: 5; background: transparent; }
+        .resize-handle:hover { background: rgba(33,150,243,0.25); }
         .category-item { padding: 10px 15px; cursor: pointer; border-radius: 6px; margin-bottom: 2px; color: #444; font-weight: 500; font-size: 0.9rem; display: flex; justify-content: space-between; transition: background 0.2s; }
         .category-item:hover { background: #f5f5f5; }
         .category-item.active { background: #2196F3; color: white; }
