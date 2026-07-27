@@ -70,6 +70,20 @@ const EditorView: React.FC<EditorViewProps> = ({
   const [fallbackMenu, setFallbackMenu] = useState<{ x: number, y: number } | null>(null);
   const [showSoundManager, setShowSoundManager] = useState(false);
   const [showVisibilityOverview, setShowVisibilityOverview] = useState(false);
+  // Lifts the protect-guard on the 57 `show_in_editor: false` T0 chase tiers so
+  // their items can be deleted or re-tiered. Off by default and persisted, so it
+  // survives a reload but is never the state you land in by accident.
+  //
+  // MAINTAINER-ONLY: import.meta.env.DEV is true under `npm run dev` and false in
+  // every production build, so the button is absent and the flag is pinned false
+  // on the deployed site. It gates the initial state as well as the render, so a
+  // stale localStorage '1' carried over from a dev session cannot switch it on.
+  const [adminMode, setAdminMode] = useState<boolean>(
+    () => import.meta.env.DEV && localStorage.getItem('editorAdminMode') === '1'
+  );
+  useEffect(() => {
+    localStorage.setItem('editorAdminMode', adminMode ? '1' : '0');
+  }, [adminMode]);
 
   const API_BASE_URL = '';
 
@@ -398,6 +412,15 @@ const EditorView: React.FC<EditorViewProps> = ({
         <div className="top-bar">
           <h2>{t.toolbar}</h2>
           <div className="actions">
+             {import.meta.env.DEV && (
+                <button
+                   className={`admin-btn ${adminMode ? 'on' : ''}`}
+                   onClick={() => setAdminMode(!adminMode)}
+                   title={t.adminModeHint}
+                >
+                    {adminMode ? '🔓' : '🔒'} {t.adminMode}
+                </button>
+             )}
              <button className="visibility-btn" onClick={() => setShowVisibilityOverview(true)}>
                  🎚 {t.strictnessGates}
              </button>
@@ -439,6 +462,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                   strictness={strictness}
                   levelingSelection={levelingSelection}
                   onLevelingSelectionChange={onLevelingSelectionChange}
+                  adminMode={adminMode}
                 />
             )}
           </div>
@@ -530,6 +554,16 @@ const EditorView: React.FC<EditorViewProps> = ({
             border-radius: 4px; cursor: pointer; font-size: 0.9rem;
         }
         .visibility-btn:hover { border-color: #4CAF50; color: #2e7d32; }
+        .admin-btn {
+            background: white; color: #333; border: 1px solid #ccc; padding: 8px 16px;
+            border-radius: 4px; cursor: pointer; font-size: 0.9rem;
+        }
+        .admin-btn:hover { border-color: #e53935; color: #c62828; }
+        /* Unmistakable while the guard is lifted - this is not a state to sit in. */
+        .admin-btn.on {
+            background: #c62828; color: #fff; border-color: #c62828; font-weight: 600;
+        }
+        .admin-btn.on:hover { background: #b71c1c; color: #fff; }
 
         .workspace { flex: 1; padding: 0; overflow: hidden; display: flex; }
         .editor-pane { 

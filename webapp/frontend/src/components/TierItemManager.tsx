@@ -39,6 +39,9 @@ interface TierItemManagerProps {
   onRefresh?: () => void;
   soundMap?: any;
   tierStyle?: any;
+  /** Admin mode lifts the protect-guard on `show_in_editor: false` tiers (the 57
+   *  T0 chase rungs), so their items can be deleted and re-tiered by hand. */
+  adminMode?: boolean;
 }
 
 const TierItemManager: React.FC<TierItemManagerProps> = ({
@@ -54,7 +57,8 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   categoryRules = [],
   onRefresh,
   soundMap,
-  tierStyle
+  tierStyle,
+  adminMode = false
 }) => {
   const t = useTranslation(language);
   const [isOpen, setIsOpen] = useState(false);
@@ -294,8 +298,8 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           return opt && opt.show_in_editor === false;
       });
 
-      // Unlock if it is a rule item
-      const isLocked = !isRuleItem && isLocationLocked && isT0ByOrigin;
+      // Unlock if it is a rule item, or if admin mode has lifted the guard
+      const isLocked = !adminMode && !isRuleItem && isLocationLocked && isT0ByOrigin;
       
       // Calculate local badge index
       let localBadge = item.rule_index; 
@@ -445,7 +449,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                     })();
 
                     const isCurrent = tOption.key === tierKey;
-                    const isLocked = (isLocationLocked && isT0ByOrigin && contextMenu.item.rule_index === undefined);
+                    const isLocked = (!adminMode && isLocationLocked && isT0ByOrigin && contextMenu.item.rule_index === undefined);
 
                     return {
                         label: isCurrent ? `${tOption.label} ${(t as any).current}` : tOption.label,

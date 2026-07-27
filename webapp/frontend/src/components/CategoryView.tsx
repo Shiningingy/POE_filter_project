@@ -72,6 +72,7 @@ interface CategoryViewProps {
   strictness?: StrictnessLevel;
   levelingSelection?: LevelingSelection;
   onLevelingSelectionChange?: (sel: LevelingSelection) => void;
+  adminMode?: boolean;
 }
 
 const CategoryView: React.FC<CategoryViewProps> = ({
@@ -94,6 +95,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   strictness,
   levelingSelection,
   onLevelingSelectionChange,
+  adminMode = false,
 }) => {
   const t = useTranslation(language);
   const strictnessIdx = Math.max(0, (STRICTNESS_LEVELS as readonly string[]).indexOf(strictness ?? 'soft'));
@@ -963,6 +965,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                                           setActiveRuleIndex({ tierKey: tKey, index: idx });
                                                       }}
                                                       categoryRules={activeCategoryData.rules || activeCategoryData._meta?.rules || []}
+                                                      adminMode={adminMode}
                                                       onRefresh={() => fetchTierItems(sortedTierKeys)}
                                                       soundMap={soundMap}
                                                       tierStyle={resolved}
