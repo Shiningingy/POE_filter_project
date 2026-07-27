@@ -84,7 +84,9 @@
         "Alchemy Shard": "点金石碎片",
         "Regal Shard": "富豪石碎片",
         "Chaos Shard": "混沌石碎片",
-        "Uncarved Gemstone": "待雕琢的宝石"
+        "Uncarved Gemstone": "待雕琢的宝石",
+        "Dextral Catalyst": "右旋催化剂",
+        "Sinistral Catalyst": "左旋催化剂"
       }
     },
     "item_class": {
@@ -98,114 +100,188 @@
   },
   "mapping": {
     "Mirror of Kalandra": "Tier 0 General",
-    "Mirror Shard": "Tier 0 General",
+    "Mirror Shard": [
+      "Tier 1 General"
+    ],
     "Eternal Orb": "Tier 0 General",
     "Hinekora's Lock": "Tier 0 General",
     "Albino Rhoa Feather": "Tier 0 General",
     "Divine Orb": "Tier 1 General",
-    "Valdo's Puzzle Box": "Tier 1 General",
-    "Fracturing Orb": "Tier 1 General",
+    "Valdo's Puzzle Box": [
+      "Tier 2 General"
+    ],
+    "Fracturing Orb": [
+      "Tier 0 General"
+    ],
     "Exceptional Eldritch Ember": "Tier 1 General",
     "Exceptional Eldritch Ichor": "Tier 1 General",
     "Reflecting Mist": [
       "Tier 0 General"
     ],
-    "Orb of Conflict": "Tier 2 General",
-    "Sacred Orb": "Tier 2 General",
-    "Prismatic Catalyst": [],
-    "Grand Eldritch Ember": "Tier 2 General",
-    "Grand Eldritch Ichor": "Tier 2 General",
+    "Orb of Conflict": [
+      "Tier 1 General"
+    ],
+    "Sacred Orb": [
+      "Tier 1 General"
+    ],
+    "Prismatic Catalyst": [
+      "Tier 2 General"
+    ],
+    "Grand Eldritch Ember": [
+      "Tier 2 General"
+    ],
+    "Grand Eldritch Ichor": [
+      "Tier 2 General"
+    ],
     "Maven's Chisel of Scarabs": "Tier 2 General",
     "Exalted Orb": "Tier 3 General",
     "Ancient Orb": "Tier 3 General",
-    "Fertile Catalyst": "Tier 3 General",
+    "Fertile Catalyst": [
+      "Tier 2 General"
+    ],
     "Annulment Shard": "Tier 3 General",
-    "Eldritch Chaos Orb": "Tier 3 General",
-    "Eldritch Exalted Orb": "Tier 3 General",
-    "Eldritch Orb of Annulment": "Tier 3 General",
+    "Eldritch Chaos Orb": [
+      "Tier 1 General"
+    ],
+    "Eldritch Exalted Orb": [
+      "Tier 2 General"
+    ],
+    "Eldritch Orb of Annulment": [
+      "Tier 2 General"
+    ],
     "Maven's Chisel of Avarice": "Tier 3 General",
     "Maven's Chisel of Divination": [
       "Tier 2 General"
     ],
     "Maven's Chisel of Proliferation": "Tier 3 General",
-    "Exalted Shard": "Tier 3 General",
+    "Exalted Shard": [
+      "Tier 4 General"
+    ],
     "Chaos Orb": [
       "Tier 4 General"
     ],
-    "Orb of Annulment": "Tier 4 General",
+    "Orb of Annulment": [
+      "Tier 3 General"
+    ],
     "Gemcutter's Prism": "Tier 4 General",
     "Vaal Orb": "Tier 4 General",
-    "Orb of Regret": "Tier 4 General",
-    "Orb of Unmaking": "Tier 4 General",
+    "Orb of Regret": [
+      "CustomTier 2 General"
+    ],
+    "Orb of Unmaking": [
+      "CustomTier 2 General"
+    ],
     "Orb of Scouring": "Tier 4 General",
     "Maven's Chisel of Procurement": [
       "Tier 2 General"
     ],
     "Noxious Catalyst": "Tier 4 General",
-    "Imbued Catalyst": "Tier 4 General",
-    "Abrasive Catalyst": "Tier 4 General",
-    "Tempering Catalyst": [],
-    "Turbulent Catalyst": [],
+    "Imbued Catalyst": [
+      "Tier 4 General",
+      "Tier 3 General"
+    ],
+    "Abrasive Catalyst": [
+      "Tier 4 General",
+      "Tier 3 General"
+    ],
+    "Tempering Catalyst": [
+      "Tier 2 General"
+    ],
+    "Turbulent Catalyst": [
+      "Tier 3 General"
+    ],
     "Intrinsic Catalyst": "Tier 4 General",
-    "Accelerating Catalyst": "Tier 4 General",
-    "Unstable Catalyst": "Tier 4 General",
-    "Greater Eldritch Ember": "Tier 4 General",
-    "Greater Eldritch Ichor": "Tier 4 General",
-    "Orb of Alchemy": "Tier 5 General",
+    "Accelerating Catalyst": [
+      "Tier 4 General",
+      "Tier 2 General"
+    ],
+    "Unstable Catalyst": [
+      "Tier 4 General",
+      "Tier 3 General"
+    ],
+    "Greater Eldritch Ember": [
+      "Tier 3 General"
+    ],
+    "Greater Eldritch Ichor": [
+      "Tier 3 General"
+    ],
+    "Orb of Alchemy": [
+      "CustomTier 2 General"
+    ],
     "Orb of Fusing": [
+      "CustomTier 2 General"
+    ],
+    "Glassblower's Bauble": [
+      "CustomTier 1 General"
+    ],
+    "Orb of Alteration": [
+      "CustomTier 1 General"
+    ],
+    "Orb of Chance": [
+      "CustomTier 1 General"
+    ],
+    "Jeweller's Orb": [
+      "CustomTier 1 General"
+    ],
+    "Chromatic Orb": [
       "Tier 4 General"
     ],
-    "Glassblower's Bauble": "Tier 5 General",
-    "Orb of Alteration": "Tier 5 General",
-    "Orb of Chance": "Tier 5 General",
-    "Jeweller's Orb": "Tier 5 General",
-    "Chromatic Orb": "Tier 5 General",
-    "Armourer's Scrap": "Tier 5 General",
-    "Blacksmith's Whetstone": "Tier 5 General",
+    "Armourer's Scrap": [
+      "CustomTier 1 General"
+    ],
+    "Blacksmith's Whetstone": [
+      "CustomTier 1 General"
+    ],
     "Orb of Augmentation": "Tier 5 General",
     "Orb of Transmutation": "Tier 5 General",
     "Portal Scroll": [
-      "CustomTier 1 General"
+      "Tier 5 General"
     ],
     "Scroll of Wisdom": "Tier 5 General",
     "Regal Orb": [
-      "Tier 4 General"
+      "Tier 3 General"
     ],
     "Blessed Orb": [
       "Tier 4 General"
     ],
-    "Lesser Eldritch Ember": "Tier 5 General",
-    "Lesser Eldritch Ichor": "Tier 5 General",
+    "Lesser Eldritch Ember": [
+      "Tier 4 General"
+    ],
+    "Lesser Eldritch Ichor": [
+      "Tier 4 General"
+    ],
     "Scroll Fragment": "Tier 5 General",
     "Transmutation Shard": "Tier 5 General",
     "Alteration Shard": "Tier 5 General",
     "Alchemy Shard": "Tier 5 General",
     "Regal Shard": "Tier 5 General",
-    "Chaos Shard": "Tier 5 General",
+    "Chaos Shard": [
+      "CustomTier 1 General"
+    ],
     "Blessing of Xoph": [],
     "Blessing of Tul": [],
     "Blessing of Esh": [],
     "Orb of Remembrance": "Tier 1 General",
     "Orb of Unravelling": "Tier 1 General",
-    "Orb of Intention": "Tier 1 General",
-    "Foulborn Orb of Augmentation": "Tier 1 General",
+    "Orb of Intention": [
+      "Tier 4 General"
+    ],
+    "Foulborn Orb of Augmentation": [
+      "Tier 3 General"
+    ],
     "Foulborn Regal Orb": "Tier 1 General",
     "Foulborn Exalted Orb": "Tier 1 General",
-    "Uncarved Gemstone": "Tier 1 General"
+    "Uncarved Gemstone": [
+      "Tier 2 General"
+    ],
+    "Dextral Catalyst": [
+      "Tier 2 General"
+    ],
+    "Sinistral Catalyst": [
+      "Tier 2 General"
+    ]
   },
   "rules": [
-    {
-      "targets": [
-        "Chaos Orb"
-      ],
-      "conditions": {
-        "StackSize": ">= 100"
-      },
-      "overrides": {
-        "Tier": "Tier 0 General"
-      },
-      "comment": "Test Rule: Stacked Divine"
-    },
     {
       "targets": [
         "Chaos Orb"
@@ -215,29 +291,6 @@
       },
       "overrides": {
         "Tier": "Tier 3 General"
-      },
-      "comment": ""
-    },
-    {
-      "targets": [
-        "Eldritch Orb of Annulment",
-        "Chaos Orb"
-      ],
-      "conditions": {
-        "StackSize": ">=1000"
-      },
-      "overrides": {
-        "Tier": "Tier 0 General"
-      },
-      "comment": ""
-    },
-    {
-      "targets": [
-        "Gift to the Goddess"
-      ],
-      "conditions": {},
-      "overrides": {
-        "Tier": "Tier 0 General"
       },
       "comment": ""
     }
