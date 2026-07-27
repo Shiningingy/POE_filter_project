@@ -4,8 +4,13 @@
 Writes a complete `filter_generation/data/theme/sharket/sharket_theme.json` covering
 EVERY theme_category our data uses (so nothing falls back to the generic "Currency"
 style) for tiers 0-5 + 9. Each category has its own accent HUE; the role (= absolute
-tier number, see roles.json) controls SIZE/BRIGHTNESS. Decorator (Tier 0) is rendered
-in the category's own accent so top highlights aren't all identical.
+tier number, see roles.json) controls SIZE/BRIGHTNESS. Tier 0 is rendered in the
+category's own accent so top highlights aren't all identical.
+
+NOTE (2026-07-27): Tier 0's role was called "Decorator" and allowed to be an empty
+highlight band. That is retired - a decorator is no longer a tier; decorators apply
+in place via rule overrides. Tier 0 is now the top/chase rank and a category with no
+chase items should simply omit it rather than carry an empty one.
 
 theme_category list is read live from tier_definition so coverage stays in sync.
 Re-runnable. Run: python parsing_tool/build_standard_theme.py

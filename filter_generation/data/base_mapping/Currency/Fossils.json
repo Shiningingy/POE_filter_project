@@ -37,38 +37,87 @@
       "en": "Stackable Currency",
       "ch": "可堆叠通货"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Stackable Currency",
+    "match_modes": {}
   },
   "mapping": {
-    "Scorched Fossil": "Tier 1 Fossils",
-    "Frigid Fossil": "Tier 1 Fossils",
-    "Metallic Fossil": "Tier 1 Fossils",
-    "Jagged Fossil": "Tier 1 Fossils",
-    "Aberrant Fossil": "Tier 1 Fossils",
-    "Pristine Fossil": "Tier 1 Fossils",
-    "Dense Fossil": "Tier 1 Fossils",
-    "Corroded Fossil": "Tier 1 Fossils",
-    "Prismatic Fossil": "Tier 1 Fossils",
-    "Aetheric Fossil": "Tier 1 Fossils",
-    "Serrated Fossil": "Tier 1 Fossils",
-    "Lucent Fossil": "Tier 1 Fossils",
-    "Shuddering Fossil": "Tier 1 Fossils",
-    "Bound Fossil": "Tier 1 Fossils",
-    "Opulent Fossil": "Tier 1 Fossils",
-    "Faceted Fossil": "Tier 1 Fossils",
+    "Scorched Fossil": [
+      "CustomTier 1 Fossils"
+    ],
+    "Frigid Fossil": [
+      "CustomTier 1 Fossils"
+    ],
+    "Metallic Fossil": [
+      "CustomTier 1 Fossils"
+    ],
+    "Jagged Fossil": [
+      "CustomTier 1 Fossils"
+    ],
+    "Aberrant Fossil": [
+      "CustomTier 1 Fossils"
+    ],
+    "Pristine Fossil": [
+      "CustomTier 1 Fossils"
+    ],
+    "Dense Fossil": [
+      "CustomTier 1 Fossils"
+    ],
+    "Corroded Fossil": [
+      "Tier 2 Fossils"
+    ],
+    "Prismatic Fossil": [
+      "CustomTier 1 Fossils"
+    ],
+    "Aetheric Fossil": [
+      "Tier 2 Fossils"
+    ],
+    "Serrated Fossil": [
+      "Tier 2 Fossils"
+    ],
+    "Lucent Fossil": [
+      "CustomTier 1 Fossils"
+    ],
+    "Shuddering Fossil": [
+      "Tier 2 Fossils"
+    ],
+    "Bound Fossil": [
+      "Tier 2 Fossils"
+    ],
+    "Opulent Fossil": [
+      "Tier 2 Fossils"
+    ],
+    "Faceted Fossil": [
+      "Tier 0 Fossils"
+    ],
     "Bloodstained Fossil": "Tier 1 Fossils",
     "Hollow Fossil": "Tier 1 Fossils",
-    "Fractured Fossil": "Tier 1 Fossils",
+    "Fractured Fossil": [
+      "Tier 0 Fossils"
+    ],
     "Glyphic Fossil": "Tier 1 Fossils",
-    "Tangled Fossil": "Tier 1 Fossils",
+    "Tangled Fossil": [
+      "Tier 1 Fossils"
+    ],
     "Sanctified Fossil": "Tier 1 Fossils",
-    "Gilded Fossil": "Tier 1 Fossils",
-    "Deft Fossil": "Tier 1 Fossils",
-    "Fundamental Fossil": "Tier 1 Fossils",
-    "Primitive Chaotic Resonator": "Tier 1 Fossils",
-    "Potent Chaotic Resonator": "Tier 1 Fossils",
+    "Gilded Fossil": [
+      "Tier 2 Fossils"
+    ],
+    "Deft Fossil": [
+      "Tier 2 Fossils"
+    ],
+    "Fundamental Fossil": [
+      "Tier 2 Fossils"
+    ],
+    "Primitive Chaotic Resonator": [
+      "CustomTier 1 Fossils"
+    ],
+    "Potent Chaotic Resonator": [
+      "Tier 2 Fossils"
+    ],
     "Powerful Chaotic Resonator": "Tier 1 Fossils",
-    "Prime Chaotic Resonator": "Tier 1 Fossils"
+    "Prime Chaotic Resonator": [
+      "Tier 0 Fossils"
+    ]
   },
   "rules": []
 }

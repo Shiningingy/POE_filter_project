@@ -21,6 +21,14 @@ as a TypeScript port that runs in the browser.
   colours/fonts/sounds. Tier files store only `theme.Tier: N`; colours resolve here.
 - **strictness gate** — optional per-tier `hide_at_strictness: N` (0–6). A shown tier
   flips to Hide once the selected strictness level's index ≥ N.
+- **decorator** — a purely visual emphasis applied to items **in place**, via a rule
+  `overrides` block (the emphasis button). A decorator is **not a tier**: it changes
+  how an item looks without changing which tier owns it. *(Retired 2026-07-27: Tier 0's
+  role used to be called "Decorator" and was allowed to be an empty highlight band,
+  which forced an empty Tier-0 into every category — 34 of 65 were empty. Tier 0 is now
+  the top/chase rank and a category with no chase items should omit it. The old role
+  entry is kept commented in `theme/roles.json` under `_retired` and in
+  `themeGenerator.ts` for easy revert.)*
 - **`hideable`** — a per-tier **protect-guard** (see Invariant 2). `hideable:false` =
   protected, cannot be gated/hidden (the 🔒 lock in the editor).
 - **campaign module (selection-centric ladder)** — `_campaign/**` group tiers
