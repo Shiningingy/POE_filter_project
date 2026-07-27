@@ -27,7 +27,8 @@
 #    [34000] 通货 Currency - 可堆叠通货 Ritual
 #    [35000] 通货 Currency - 可堆叠通货 Runegrafts
 #    [36000] 通货 Currency - 可堆叠通货 Splinters
-#    [37000] 通货 Currency - _archived _archived - 裂隙 Breach
+#    [37000] 通货 Currency - 可堆叠通货 Tainted Currency
+#    [38000] 通货 Currency - _archived _archived - 裂隙 Breach
 #  [30000] Curse of the Allflame Curse of the Allflame
 #    [31000] Curse of the Allflame Curse of the Allflame - 笼罩物品 Enshrouded Gear
 #    [32000] Curse of the Allflame Curse of the Allflame - 可堆叠通货 Curse of the Allflame
@@ -440,27 +441,16 @@ Show
 
 #==[22000]-通货 Currency - 可堆叠通货 Delirium Orbs==
 
-#==[22001]- Delirium Orbs -T1: 高级雾魇宝珠 可堆叠通货 - 基础 - 精确==
+#==[22001]- Delirium Orbs -T0: 顶级/核心 可堆叠通货 - 自动音效：雾魇宝珠 - 精确==
 Show
-    BaseType == "Abyssal Delirium Orb" "Armoursmith's Delirium Orb" "Blacksmith's Delirium Orb" "Blighted Delirium Orb" "Cartographer's Delirium Orb" "Diviner's Delirium Orb" "Fossilised Delirium Orb" "Fragmented Delirium Orb" "Jeweller's Delirium Orb" "Simulacrum Splinter" "Skittering Delirium Orb" "Thaumaturge's Delirium Orb" "Timeless Delirium Orb" "Whispering Delirium Orb"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 180 162 210 255
-    SetBackgroundColor 36 32 42 255
-    PlayAlertSound 1 300
+    BaseType == "Delirium Orb"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 180 162 210 255
+    CustomAlertSound "sound_files\Sharket掉落音效\雾魇宝珠.mp3" 200
     PlayEffect Grey
-    MinimapIcon 1 Grey Diamond
-
-
-#==[22002]- Delirium Orbs -T2: 普通雾魇宝珠 可堆叠通货 - 基础 - 精确==
-Show
-    BaseType == "Fine Delirium Orb" "Singular Delirium Orb"
-    SetFontSize 39
-    SetTextColor 191 176 217 255
-    SetBorderColor 180 162 210 255
-    SetBackgroundColor 16 16 22 255
-    PlayAlertSound 2 300
-    MinimapIcon 1 Grey Circle
+    MinimapIcon 0 Grey Star
 
 
 #==[23000]-通货 Currency - 可堆叠通货 Enshrouding Crystals==
@@ -541,9 +531,21 @@ Show
 
 #==[26000]-通货 Currency - 可堆叠通货 Fossils==
 
-#==[26001]- Fossils -T1: 顶级化石 可堆叠通货 - 基础 - 精确==
+#==[26001]- Fossils -T1: 四孔/高价值化石 可堆叠通货 - 基础 - 精确==
 Show
-    BaseType == "Aberrant Fossil" "Aetheric Fossil" "Bloodstained Fossil" "Bound Fossil" "Corroded Fossil" "Deft Fossil" "Dense Fossil" "Faceted Fossil" "Fractured Fossil" "Frigid Fossil" "Fundamental Fossil" "Gilded Fossil" "Glyphic Fossil" "Hollow Fossil" "Jagged Fossil" "Lucent Fossil" "Metallic Fossil" "Opulent Fossil" "Potent Chaotic Resonator" "Powerful Chaotic Resonator" "Prime Chaotic Resonator" "Primitive Chaotic Resonator" "Prismatic Fossil" "Pristine Fossil" "Sanctified Fossil" "Scorched Fossil" "Serrated Fossil" "Shuddering Fossil" "Tangled Fossil"
+    BaseType == "Faceted Fossil" "Fractured Fossil" "Prime Chaotic Resonator"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 255 140 26 255
+    PlayAlertSound 6 300
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[26002]- Fossils -T2: 三孔/特殊化石 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Bloodstained Fossil" "Glyphic Fossil" "Hollow Fossil" "Powerful Chaotic Resonator" "Sanctified Fossil" "Tangled Fossil"
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 255 140 26 255
@@ -551,6 +553,26 @@ Show
     PlayAlertSound 1 300
     PlayEffect Orange
     MinimapIcon 1 Orange Diamond
+
+
+#==[26003]- Fossils -T3: 双孔/高级化石 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Aetheric Fossil" "Bound Fossil" "Corroded Fossil" "Deft Fossil" "Fundamental Fossil" "Gilded Fossil" "Opulent Fossil" "Potent Chaotic Resonator" "Serrated Fossil" "Shuddering Fossil"
+    SetFontSize 39
+    SetTextColor 255 157 60 255
+    SetBorderColor 255 140 26 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 2 300
+    MinimapIcon 1 Orange Circle
+
+
+#==[26004]- Fossils -自定义阶级 #1 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Aberrant Fossil" "Dense Fossil" "Frigid Fossil" "Jagged Fossil" "Lucent Fossil" "Metallic Fossil" "Primitive Chaotic Resonator" "Prismatic Fossil" "Pristine Fossil" "Scorched Fossil"
+    SetFontSize 36
+    SetTextColor 255 174 95 255
+    SetBorderColor 140 77 14 255
+    SetBackgroundColor 10 10 13 255
 
 
 #==[27000]-通货 Currency - 可堆叠通货 General==
@@ -629,7 +651,19 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[27007]- General -T0: 顶级通货 可堆叠通货 - 基础 - 精确==
+#==[27007]- General -T0: 顶级通货 可堆叠通货 - 自动音效：倒映薄雾 - 精确==
+Show
+    BaseType == "Reflecting Mist"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\倒映薄雾.mp3" 300
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[27008]- General -T0: 顶级通货 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Hinekora's Lock" "Mirror Shard"
     SetFontSize 45
@@ -641,7 +675,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[27008]- General -T1: 神圣石级 可堆叠通货 - 自动音效：神圣石 - 精确==
+#==[27009]- General -T1: 神圣石级 可堆叠通货 - 自动音效：神圣石 - 精确==
 Show
     BaseType == "Divine Orb"
     SetFontSize 42
@@ -649,18 +683,6 @@ Show
     SetBorderColor 212 175 55 255
     SetBackgroundColor 42 35 11 255
     CustomAlertSound "sound_files\Sharket掉落音效\神圣石.mp3" 300
-    PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
-
-
-#==[27009]- General -T1: 神圣石级 可堆叠通货 - 自动音效：觉醒者之石 - 精确==
-Show
-    BaseType == "Awakener's Orb"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
-    CustomAlertSound "sound_files\Sharket掉落音效\觉醒者之石.mp3" 300
     PlayEffect Orange
     MinimapIcon 1 Orange Diamond
 
@@ -677,45 +699,9 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[27011]- General -T1: 神圣石级 可堆叠通货 - 自动音效：倒映薄雾 - 精确==
+#==[27011]- General -T1: 神圣石级 可堆叠通货 - 基础 - 精确==
 Show
-    BaseType == "Reflecting Mist"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
-    CustomAlertSound "sound_files\Sharket掉落音效\倒映薄雾.mp3" 300
-    PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
-
-
-#==[27012]- General -T1: 神圣石级 可堆叠通货 - 自动音效：裁剪石 - 精确==
-Show
-    BaseType == "Tailoring Orb"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
-    CustomAlertSound "sound_files\Sharket掉落音效\裁剪石.mp3" 300
-    PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
-
-
-#==[27013]- General -T1: 神圣石级 可堆叠通货 - 自动音效：回火石 - 精确==
-Show
-    BaseType == "Tempering Orb"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
-    CustomAlertSound "sound_files\Sharket掉落音效\回火石.mp3" 300
-    PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
-
-
-#==[27014]- General -T1: 神圣石级 可堆叠通货 - 基础 - 精确==
-Show
-    BaseType == "Blessing of Esh" "Blessing of Tul" "Blessing of Xoph" "Elder's Exalted Orb" "Exceptional Eldritch Ember" "Exceptional Eldritch Ichor" "Foulborn Exalted Orb" "Foulborn Orb of Augmentation" "Foulborn Regal Orb" "Orb of Intention" "Orb of Remembrance" "Orb of Unravelling" "Shaper's Exalted Orb" "Valdo's Puzzle Box" "Veiled Chaos Orb" "Veiled Exalted Orb"
+    BaseType == "Exceptional Eldritch Ember" "Exceptional Eldritch Ichor" "Foulborn Exalted Orb" "Foulborn Orb of Augmentation" "Foulborn Regal Orb" "Orb of Intention" "Orb of Remembrance" "Orb of Unravelling" "Uncarved Gemstone" "Valdo's Puzzle Box"
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 212 175 55 255
@@ -725,7 +711,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[27015]- General -T2: 高价值通货 可堆叠通货 - 自动音效：冲突石 - 精确==
+#==[27012]- General -T2: 高价值通货 可堆叠通货 - 自动音效：冲突石 - 精确==
 Show
     BaseType == "Orb of Conflict"
     SetFontSize 39
@@ -736,7 +722,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[27016]- General -T2: 高价值通货 可堆叠通货 - 自动音效：崇神石 - 精确==
+#==[27013]- General -T2: 高价值通货 可堆叠通货 - 自动音效：崇神石 - 精确==
 Show
     BaseType == "Sacred Orb"
     SetFontSize 39
@@ -747,42 +733,9 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[27017]- General -T2: 高价值通货 可堆叠通货 - 自动音效：统御宝珠 - 精确==
+#==[27014]- General -T2: 高价值通货 可堆叠通货 - 基础 - 精确==
 Show
-    BaseType == "Orb of Dominance"
-    SetFontSize 39
-    SetTextColor 218 187 85 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
-    CustomAlertSound "sound_files\Sharket掉落音效\统御宝珠.mp3" 300
-    MinimapIcon 1 Orange Circle
-
-
-#==[27018]- General -T2: 高价值通货 可堆叠通货 - 自动音效：污秽崇高石 - 精确==
-Show
-    BaseType == "Tainted Exalted Orb"
-    SetFontSize 39
-    SetTextColor 218 187 85 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
-    CustomAlertSound "sound_files\Sharket掉落音效\污秽崇高石.mp3" 300
-    MinimapIcon 1 Orange Circle
-
-
-#==[27019]- General -T2: 高价值通货 可堆叠通货 - 自动音效：污染神泪 - 精确==
-Show
-    BaseType == "Tainted Divine Teardrop"
-    SetFontSize 39
-    SetTextColor 218 187 85 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
-    CustomAlertSound "sound_files\Sharket掉落音效\污染神泪.mp3" 300
-    MinimapIcon 1 Orange Circle
-
-
-#==[27020]- General -T2: 高价值通货 可堆叠通货 - 基础 - 精确==
-Show
-    BaseType == "Crusader's Exalted Orb" "Grand Eldritch Ember" "Grand Eldritch Ichor" "Hunter's Exalted Orb" "Maven's Chisel of Divination" "Maven's Chisel of Scarabs" "Prismatic Catalyst" "Redeemer's Exalted Orb" "Warlord's Exalted Orb"
+    BaseType == "Grand Eldritch Ember" "Grand Eldritch Ichor" "Maven's Chisel of Divination" "Maven's Chisel of Procurement" "Maven's Chisel of Scarabs"
     SetFontSize 39
     SetTextColor 218 187 85 255
     SetBorderColor 212 175 55 255
@@ -791,7 +744,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[27021]- General -T3: 崇高石级 可堆叠通货 - #1 规则 - 精确==
+#==[27015]- General -T3: 崇高石级 可堆叠通货 - #1 规则 - 精确==
 Show
     BaseType == "Chaos Orb"
     StackSize >=10
@@ -802,7 +755,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\通货.mp3" 100
 
 
-#==[27022]- General -T3: 崇高石级 可堆叠通货 - 自动音效：崇高石 - 精确==
+#==[27016]- General -T3: 崇高石级 可堆叠通货 - 自动音效：崇高石 - 精确==
 Show
     BaseType == "Exalted Orb"
     SetFontSize 36
@@ -812,7 +765,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\崇高石.mp3" 300
 
 
-#==[27023]- General -T3: 崇高石级 可堆叠通货 - 自动音效：远古石 - 精确==
+#==[27017]- General -T3: 崇高石级 可堆叠通货 - 自动音效：远古石 - 精确==
 Show
     BaseType == "Ancient Orb"
     SetFontSize 36
@@ -822,7 +775,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\远古石.mp3" 300
 
 
-#==[27024]- General -T3: 崇高石级 可堆叠通货 - 自动音效：古灵混沌石 - 精确==
+#==[27018]- General -T3: 崇高石级 可堆叠通货 - 自动音效：古灵混沌石 - 精确==
 Show
     BaseType == "Eldritch Chaos Orb"
     SetFontSize 36
@@ -832,7 +785,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\古灵混沌石.mp3" 300
 
 
-#==[27025]- General -T3: 崇高石级 可堆叠通货 - 自动音效：古灵崇高石 - 精确==
+#==[27019]- General -T3: 崇高石级 可堆叠通货 - 自动音效：古灵崇高石 - 精确==
 Show
     BaseType == "Eldritch Exalted Orb"
     SetFontSize 36
@@ -842,47 +795,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\古灵崇高石.mp3" 300
 
 
-#==[27026]- General -T3: 崇高石级 可堆叠通货 - 自动音效：污秽混沌石 - 精确==
-Show
-    BaseType == "Tainted Chaos Orb"
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
-    CustomAlertSound "sound_files\Sharket掉落音效\污秽混沌石.mp3" 300
-
-
-#==[27027]- General -T3: 崇高石级 可堆叠通货 - 自动音效：污秽幻色石 - 精确==
-Show
-    BaseType == "Tainted Chromatic Orb"
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
-    CustomAlertSound "sound_files\Sharket掉落音效\污秽幻色石.mp3" 300
-
-
-#==[27028]- General -T3: 崇高石级 可堆叠通货 - 自动音效：污秽链结石 - 精确==
-Show
-    BaseType == "Tainted Orb of Fusing"
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
-    CustomAlertSound "sound_files\Sharket掉落音效\污秽链结石.mp3" 300
-
-
-#==[27029]- General -T3: 崇高石级 可堆叠通货 - 自动音效：污秽神秘石 - 精确==
-Show
-    BaseType == "Tainted Mythic Orb"
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
-    CustomAlertSound "sound_files\Sharket掉落音效\污秽神秘石.mp3" 300
-
-
-#==[27030]- General -T3: 崇高石级 可堆叠通货 - 基础 - 精确==
+#==[27020]- General -T3: 崇高石级 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Annulment Shard" "Eldritch Orb of Annulment" "Exalted Shard" "Fertile Catalyst" "Maven's Chisel of Avarice" "Maven's Chisel of Proliferation"
     SetFontSize 36
@@ -892,7 +805,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\通货.mp3" 100
 
 
-#==[27031]- General -T4: 混沌石级 可堆叠通货 - 自动音效：剥离石 - 精确==
+#==[27021]- General -T4: 混沌石级 可堆叠通货 - 自动音效：剥离石 - 精确==
 Show
     BaseType == "Orb of Annulment"
     SetFontSize 34
@@ -902,7 +815,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\剥离石.mp3" 300
 
 
-#==[27032]- General -T4: 混沌石级 可堆叠通货 - 自动音效：瓦尔宝珠 - 精确==
+#==[27022]- General -T4: 混沌石级 可堆叠通货 - 自动音效：瓦尔宝珠 - 精确==
 Show
     BaseType == "Vaal Orb"
     SetFontSize 34
@@ -912,7 +825,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\瓦尔宝珠.mp3" 300
 
 
-#==[27033]- General -T4: 混沌石级 可堆叠通货 - 自动音效：后悔石 - 精确==
+#==[27023]- General -T4: 混沌石级 可堆叠通货 - 自动音效：后悔石 - 精确==
 Show
     BaseType == "Orb of Regret"
     SetFontSize 34
@@ -922,7 +835,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\后悔石.mp3" 300
 
 
-#==[27034]- General -T4: 混沌石级 可堆叠通货 - 自动音效：粉碎石 - 精确==
+#==[27024]- General -T4: 混沌石级 可堆叠通货 - 自动音效：粉碎石 - 精确==
 Show
     BaseType == "Orb of Unmaking"
     SetFontSize 34
@@ -932,7 +845,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\粉碎石.mp3" 200
 
 
-#==[27035]- General -T4: 混沌石级 可堆叠通货 - 自动音效：重铸石 - 精确==
+#==[27025]- General -T4: 混沌石级 可堆叠通货 - 自动音效：重铸石 - 精确==
 Show
     BaseType == "Orb of Scouring"
     SetFontSize 34
@@ -942,29 +855,39 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\重铸石.mp3" 300
 
 
-#==[27036]- General -T4: 混沌石级 可堆叠通货 - 自动音效：污秽护甲片 - 精确==
+#==[27026]- General -T4: 混沌石级 可堆叠通货 - 自动音效：链结石 - 精确==
 Show
-    BaseType == "Tainted Armourer's Scrap"
+    BaseType == "Orb of Fusing"
     SetFontSize 34
     SetTextColor 178 161 112 255
     SetBorderColor 64 52 16 255
     SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\污秽护甲片.mp3" 200
+    CustomAlertSound "sound_files\Sharket掉落音效\链结石.mp3" 200
 
 
-#==[27037]- General -T4: 混沌石级 可堆叠通货 - 自动音效：污秽磨刀石 - 精确==
+#==[27027]- General -T4: 混沌石级 可堆叠通货 - 自动音效：富豪石 - 精确==
 Show
-    BaseType == "Tainted Blacksmith's Whetstone"
+    BaseType == "Regal Orb"
     SetFontSize 34
     SetTextColor 178 161 112 255
     SetBorderColor 64 52 16 255
     SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\污秽磨刀石.mp3" 200
+    CustomAlertSound "sound_files\Sharket掉落音效\富豪石.mp3" 300
 
 
-#==[27038]- General -T4: 混沌石级 可堆叠通货 - 基础 - 精确==
+#==[27028]- General -T4: 混沌石级 可堆叠通货 - 自动音效：祝福石 - 精确==
 Show
-    BaseType == "Abrasive Catalyst" "Accelerating Catalyst" "Chaos Orb" "Enkindling Orb" "Gemcutter's Prism" "Greater Eldritch Ember" "Greater Eldritch Ichor" "Imbued Catalyst" "Instilling Orb" "Intrinsic Catalyst" "Maven's Chisel of Procurement" "Noxious Catalyst" "Stacked Deck" "Tempering Catalyst" "Turbulent Catalyst" "Unstable Catalyst"
+    BaseType == "Blessed Orb"
+    SetFontSize 34
+    SetTextColor 178 161 112 255
+    SetBorderColor 64 52 16 255
+    SetBackgroundColor 0 0 0 0
+    CustomAlertSound "sound_files\Sharket掉落音效\祝福石.mp3" 200
+
+
+#==[27029]- General -T4: 混沌石级 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Abrasive Catalyst" "Accelerating Catalyst" "Chaos Orb" "Gemcutter's Prism" "Greater Eldritch Ember" "Greater Eldritch Ichor" "Imbued Catalyst" "Intrinsic Catalyst" "Noxious Catalyst" "Unstable Catalyst"
     SetFontSize 34
     SetTextColor 178 161 112 255
     SetBorderColor 64 52 16 255
@@ -972,7 +895,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\通货.mp3" 100
 
 
-#==[27039]- General -T5: 低价值通货 可堆叠通货 - 自动音效：点金石 - 精确==
+#==[27030]- General -T5: 低价值通货 可堆叠通货 - 自动音效：点金石 - 精确==
 Show
     BaseType == "Orb of Alchemy"
     SetFontSize 31
@@ -982,17 +905,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\点金石.mp3" 300
 
 
-#==[27040]- General -T5: 低价值通货 可堆叠通货 - 自动音效：链结石 - 精确==
-Show
-    BaseType == "Orb of Fusing"
-    SetFontSize 31
-    SetTextColor 150 150 160 255
-    SetBorderColor 60 60 70 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\链结石.mp3" 200
-
-
-#==[27041]- General -T5: 低价值通货 可堆叠通货 - 自动音效：玻璃弹珠 - 精确==
+#==[27031]- General -T5: 低价值通货 可堆叠通货 - 自动音效：玻璃弹珠 - 精确==
 Show
     BaseType == "Glassblower's Bauble"
     SetFontSize 31
@@ -1002,7 +915,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\玻璃弹珠.mp3" 100
 
 
-#==[27042]- General -T5: 低价值通货 可堆叠通货 - 自动音效：改造石 - 精确==
+#==[27032]- General -T5: 低价值通货 可堆叠通货 - 自动音效：改造石 - 精确==
 Show
     BaseType == "Orb of Alteration"
     SetFontSize 31
@@ -1012,7 +925,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\改造石.mp3" 200
 
 
-#==[27043]- General -T5: 低价值通货 可堆叠通货 - 自动音效：机会石 - 精确==
+#==[27033]- General -T5: 低价值通货 可堆叠通货 - 自动音效：机会石 - 精确==
 Show
     BaseType == "Orb of Chance"
     SetFontSize 31
@@ -1022,7 +935,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\机会石.mp3" 200
 
 
-#==[27044]- General -T5: 低价值通货 可堆叠通货 - 自动音效：工匠石 - 精确==
+#==[27034]- General -T5: 低价值通货 可堆叠通货 - 自动音效：工匠石 - 精确==
 Show
     BaseType == "Jeweller's Orb"
     SetFontSize 31
@@ -1032,7 +945,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\工匠石.mp3" 100
 
 
-#==[27045]- General -T5: 低价值通货 可堆叠通货 - 自动音效：幻色石 - 精确==
+#==[27035]- General -T5: 低价值通货 可堆叠通货 - 自动音效：幻色石 - 精确==
 Show
     BaseType == "Chromatic Orb"
     SetFontSize 31
@@ -1042,17 +955,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\幻色石.mp3" 100
 
 
-#==[27046]- General -T5: 低价值通货 可堆叠通货 - 自动音效：高阶点金石 - 精确==
-Show
-    BaseType == "Orb of Binding"
-    SetFontSize 31
-    SetTextColor 150 150 160 255
-    SetBorderColor 60 60 70 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\高阶点金石.mp3" 300
-
-
-#==[27047]- General -T5: 低价值通货 可堆叠通货 - 自动音效：护甲片 - 精确==
+#==[27036]- General -T5: 低价值通货 可堆叠通货 - 自动音效：护甲片 - 精确==
 Show
     BaseType == "Armourer's Scrap"
     SetFontSize 31
@@ -1062,7 +965,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\护甲片.mp3" 100
 
 
-#==[27048]- General -T5: 低价值通货 可堆叠通货 - 自动音效：磨刀石 - 精确==
+#==[27037]- General -T5: 低价值通货 可堆叠通货 - 自动音效：磨刀石 - 精确==
 Show
     BaseType == "Blacksmith's Whetstone"
     SetFontSize 31
@@ -1072,7 +975,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\磨刀石.mp3" 100
 
 
-#==[27049]- General -T5: 低价值通货 可堆叠通货 - 自动音效：增幅石 - 精确==
+#==[27038]- General -T5: 低价值通货 可堆叠通货 - 自动音效：增幅石 - 精确==
 Show
     BaseType == "Orb of Augmentation"
     SetFontSize 31
@@ -1082,7 +985,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\增幅石.mp3" 100
 
 
-#==[27050]- General -T5: 低价值通货 可堆叠通货 - 自动音效：蜕变石 - 精确==
+#==[27039]- General -T5: 低价值通货 可堆叠通货 - 自动音效：蜕变石 - 精确==
 Show
     BaseType == "Orb of Transmutation"
     SetFontSize 31
@@ -1092,17 +995,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\蜕变石.mp3" 100
 
 
-#==[27051]- General -T5: 低价值通货 可堆叠通货 - 自动音效：传送卷轴 - 精确==
-Show
-    BaseType == "Portal Scroll"
-    SetFontSize 31
-    SetTextColor 150 150 160 255
-    SetBorderColor 60 60 70 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\传送卷轴.mp3" 100
-
-
-#==[27052]- General -T5: 低价值通货 可堆叠通货 - 自动音效：知识卷轴 - 精确==
+#==[27040]- General -T5: 低价值通货 可堆叠通货 - 自动音效：知识卷轴 - 精确==
 Show
     BaseType == "Scroll of Wisdom"
     SetFontSize 31
@@ -1112,27 +1005,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\知识卷轴.mp3" 100
 
 
-#==[27053]- General -T5: 低价值通货 可堆叠通货 - 自动音效：富豪石 - 精确==
-Show
-    BaseType == "Regal Orb"
-    SetFontSize 31
-    SetTextColor 150 150 160 255
-    SetBorderColor 60 60 70 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\富豪石.mp3" 300
-
-
-#==[27054]- General -T5: 低价值通货 可堆叠通货 - 自动音效：祝福石 - 精确==
-Show
-    BaseType == "Blessed Orb"
-    SetFontSize 31
-    SetTextColor 150 150 160 255
-    SetBorderColor 60 60 70 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\祝福石.mp3" 200
-
-
-#==[27055]- General -T5: 低价值通货 可堆叠通货 - 基础 - 精确==
+#==[27041]- General -T5: 低价值通货 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Alchemy Shard" "Alteration Shard" "Chaos Shard" "Lesser Eldritch Ember" "Lesser Eldritch Ichor" "Regal Shard" "Scroll Fragment" "Transmutation Shard"
     SetFontSize 31
@@ -1421,9 +1294,115 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[37000]-通货 Currency - _archived _archived - 裂隙 Breach==
+#==[37000]-通货 Currency - 可堆叠通货 Tainted Currency==
 
-#==[37001]- Breach -T0: 无瑕裂隙石/祝福 裂隙 - 基础 - 精确==
+#==[37001]- Tainted Currency -T1：顶级 可堆叠通货 - 自动音效：污染神泪 - 精确==
+Show
+    BaseType == "Tainted Divine Teardrop"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 42 35 11 255
+    CustomAlertSound "sound_files\Sharket掉落音效\污染神泪.mp3" 300
+    PlayEffect Orange
+    MinimapIcon 1 Orange Diamond
+
+
+#==[37002]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽神秘石 - 精确==
+Show
+    BaseType == "Tainted Mythic Orb"
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\污秽神秘石.mp3" 300
+    MinimapIcon 1 Orange Circle
+
+
+#==[37003]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽链结石 - 精确==
+Show
+    BaseType == "Tainted Orb of Fusing"
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\污秽链结石.mp3" 300
+    MinimapIcon 1 Orange Circle
+
+
+#==[37004]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽崇高石 - 精确==
+Show
+    BaseType == "Tainted Exalted Orb"
+    SetFontSize 36
+    SetTextColor 225 199 115 255
+    SetBorderColor 117 96 30 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\污秽崇高石.mp3" 300
+
+
+#==[37005]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽混沌石 - 精确==
+Show
+    BaseType == "Tainted Chaos Orb"
+    SetFontSize 36
+    SetTextColor 225 199 115 255
+    SetBorderColor 117 96 30 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\污秽混沌石.mp3" 300
+
+
+#==[37006]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽幻色石 - 精确==
+Show
+    BaseType == "Tainted Chromatic Orb"
+    SetFontSize 36
+    SetTextColor 225 199 115 255
+    SetBorderColor 117 96 30 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\污秽幻色石.mp3" 300
+
+
+#==[37007]- Tainted Currency -T3：中等 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Tainted Catalyst"
+    SetFontSize 36
+    SetTextColor 225 199 115 255
+    SetBorderColor 117 96 30 255
+    SetBackgroundColor 10 10 13 255
+    PlayAlertSound 3 300
+
+
+#==[37008]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽磨刀石 - 精确==
+Show
+    BaseType == "Tainted Blacksmith's Whetstone"
+    SetFontSize 34
+    SetTextColor 178 161 112 255
+    SetBorderColor 64 52 16 255
+    SetBackgroundColor 0 0 0 0
+    CustomAlertSound "sound_files\Sharket掉落音效\污秽磨刀石.mp3" 200
+
+
+#==[37009]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽工匠石 - 精确==
+Show
+    BaseType == "Tainted Jeweller's Orb"
+    SetFontSize 34
+    SetTextColor 178 161 112 255
+    SetBorderColor 64 52 16 255
+    SetBackgroundColor 0 0 0 0
+    CustomAlertSound "sound_files\Sharket掉落音效\污秽工匠石.mp3" 300
+
+
+#==[37010]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽护甲片 - 精确==
+Show
+    BaseType == "Tainted Armourer's Scrap"
+    SetFontSize 34
+    SetTextColor 178 161 112 255
+    SetBorderColor 64 52 16 255
+    SetBackgroundColor 0 0 0 0
+    CustomAlertSound "sound_files\Sharket掉落音效\污秽护甲片.mp3" 200
+
+
+#==[38000]-通货 Currency - _archived _archived - 裂隙 Breach==
+
+#==[38001]- Breach -T0: 无瑕裂隙石/祝福 裂隙 - 基础 - 精确==
 Show
     BaseType == "Blessing of Chayula"
     SetFontSize 45
@@ -1435,7 +1414,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[37002]- Breach -T1: 高级裂隙通货 裂隙 - 基础 - 精确==
+#==[38002]- Breach -T1: 高级裂隙通货 裂隙 - 基础 - 精确==
 Show
     BaseType == "Blessing of Uul-Netol" "Splinter of Chayula"
     SetFontSize 42
@@ -1447,7 +1426,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[37003]- Breach -T2: 常用裂隙通货 裂隙 - 基础 - 精确==
+#==[38003]- Breach -T2: 常用裂隙通货 裂隙 - 基础 - 精确==
 Show
     BaseType == "Splinter of Uul-Netol"
     SetFontSize 39
@@ -1458,7 +1437,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[37004]- Breach -T3: 裂隙裂片 裂隙 - 基础 - 精确==
+#==[38004]- Breach -T3: 裂隙裂片 裂隙 - 基础 - 精确==
 Show
     BaseType == "Splinter of Esh" "Splinter of Tul" "Splinter of Xoph"
     SetFontSize 36
@@ -3965,17 +3944,7 @@ Show
     PlayAlertSound 2 300
 
 
-#==[82010]- Fragments -T4: 低价值碎片 碎片 - 自动音效：禁灵之瓶 - 精确==
-Show
-    BaseType == "Divine Vessel"
-    SetFontSize 34
-    SetTextColor 172 158 130 255
-    SetBorderColor 60 50 29 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\禁灵之瓶.mp3" 100
-
-
-#==[82011]- Fragments -T4: 低价值碎片 碎片 - 基础 - 精确==
+#==[82010]- Fragments -T4: 低价值碎片 碎片 - 基础 - 精确==
 Show
     BaseType == "Sacrifice at Dawn" "Sacrifice at Dusk" "Sacrifice at Midnight" "Sacrifice at Noon"
     SetFontSize 34
@@ -4978,19 +4947,7 @@ Show
 
 #==[121000]-_legacy _legacy - 历史物品 Legacy==
 
-#==[121001]- Legacy -显示历史物品 历史物品 - 自动音效：先驱石 - 精确==
-Show
-    BaseType == "Harbinger's Orb"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 162 130 52 255
-    SetBackgroundColor 32 26 10 255
-    CustomAlertSound "sound_files\Sharket掉落音效\先驱石.mp3" 300
-    PlayEffect Brown
-    MinimapIcon 1 Brown Diamond
-
-
-#==[121002]- Legacy -显示历史物品 历史物品 - 自动音效：普兰德斯金币 - 精确==
+#==[121001]- Legacy -显示历史物品 历史物品 - 自动音效：普兰德斯金币 - 精确==
 Show
     BaseType == "Perandus Coin"
     SetFontSize 42
@@ -5002,31 +4959,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[121003]- Legacy -显示历史物品 历史物品 - 自动音效：雾魇宝珠 - 精确==
-Show
-    BaseType == "Delirium Orb"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 162 130 52 255
-    SetBackgroundColor 32 26 10 255
-    CustomAlertSound "sound_files\Sharket掉落音效\雾魇宝珠.mp3" 200
-    PlayEffect Brown
-    MinimapIcon 1 Brown Diamond
-
-
-#==[121004]- Legacy -显示历史物品 历史物品 - 自动音效：污秽祝福 - 精确==
-Show
-    BaseType == "Tainted Blessing"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 162 130 52 255
-    SetBackgroundColor 32 26 10 255
-    CustomAlertSound "sound_files\Sharket掉落音效\污秽祝福.mp3" 200
-    PlayEffect Brown
-    MinimapIcon 1 Brown Diamond
-
-
-#==[121005]- Legacy -显示历史物品 历史物品 - 自动音效：护甲重组器 - 精确==
+#==[121002]- Legacy -显示历史物品 历史物品 - 自动音效：护甲重组器 - 精确==
 Show
     BaseType == "Armour Recombinator"
     SetFontSize 42
@@ -5038,7 +4971,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[121006]- Legacy -显示历史物品 历史物品 - 自动音效：武器重组器 - 精确==
+#==[121003]- Legacy -显示历史物品 历史物品 - 自动音效：武器重组器 - 精确==
 Show
     BaseType == "Weapon Recombinator"
     SetFontSize 42
@@ -5050,7 +4983,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[121007]- Legacy -显示历史物品 历史物品 - 自动音效：珠宝重组器 - 精确==
+#==[121004]- Legacy -显示历史物品 历史物品 - 自动音效：珠宝重组器 - 精确==
 Show
     BaseType == "Jewellery Recombinator"
     SetFontSize 42
@@ -5062,7 +4995,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[121008]- Legacy -显示历史物品 历史物品 - 自动音效：潜能项链 - 精确==
+#==[121005]- Legacy -显示历史物品 历史物品 - 自动音效：潜能项链 - 精确==
 Show
     BaseType == "Unset Amulet"
     SetFontSize 42
@@ -5074,7 +5007,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[121009]- Legacy -显示历史物品 历史物品 - 自动音效：血色护身符 - 精确==
+#==[121006]- Legacy -显示历史物品 历史物品 - 自动音效：血色护身符 - 精确==
 Show
     BaseType == "Ruby Amulet"
     SetFontSize 42
@@ -5086,7 +5019,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[121010]- Legacy -显示历史物品 历史物品 - 自动音效：华美箭袋 - 精确==
+#==[121007]- Legacy -显示历史物品 历史物品 - 自动音效：华美箭袋 - 精确==
 Show
     BaseType == "Ornate Quiver"
     SetFontSize 42
@@ -5098,7 +5031,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[121011]- Legacy -显示历史物品 历史物品 - 自动音效：裂隙戒指 - 精确==
+#==[121008]- Legacy -显示历史物品 历史物品 - 自动音效：裂隙戒指 - 精确==
 Show
     BaseType == "Breach Ring"
     SetFontSize 42
@@ -5110,7 +5043,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[121012]- Legacy -显示历史物品 历史物品 - 自动音效：三相珠宝 - 精确==
+#==[121009]- Legacy -显示历史物品 历史物品 - 自动音效：三相珠宝 - 精确==
 Show
     BaseType == "Prismatic Jewel"
     SetFontSize 42
@@ -5122,7 +5055,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[121013]- Legacy -显示历史物品 历史物品 - 自动音效：永恒珠宝 - 精确==
+#==[121010]- Legacy -显示历史物品 历史物品 - 自动音效：永恒珠宝 - 精确==
 Show
     BaseType == "Timeless Jewel"
     SetFontSize 42
@@ -5134,7 +5067,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[121014]- Legacy -显示历史物品 历史物品 - 自动音效：扼杀链甲 - 精确==
+#==[121011]- Legacy -显示历史物品 历史物品 - 自动音效：扼杀链甲 - 精确==
 Show
     BaseType == "Grasping Mail"
     SetFontSize 42
@@ -5146,7 +5079,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[121015]- Legacy -显示历史物品 历史物品 - 自动音效：圣洁遗物 - 精确==
+#==[121012]- Legacy -显示历史物品 历史物品 - 自动音效：圣洁遗物 - 精确==
 Show
     BaseType == "Sanctified Relic"
     SetFontSize 42
@@ -5158,9 +5091,81 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[121016]- Legacy -显示历史物品 历史物品 - 基础 - 精确==
+#==[121013]- Legacy -显示历史物品 历史物品 - 自动音效：高阶点金石 - 精确==
 Show
-    BaseType == "Abyss Scarab of Descending" "Abyssal Incubator" "Adherent of Zarokh" "Anarchy Scarab of the Exceptional" "Ancient Reliquary Key" "Annihilation Support" "Ashscale Talisman" "Astral Lich" "Avian Twins Talisman" "Betrayal Scarab of Unbreaking" "Binding Shard" "Birth of the Three" "Blessed Call Support" "Blessing of God" "Blighted Incubator" "Bloodsoaked Banner Support" "Bonespire Support" "Bonespire Talisman" "Breakrib Talisman" "Cartographer's Incubator" "Cast on Ward Break Support" "Celestial Armoursmith's Incubator" "Celestial Blacksmith's Incubator" "Chaotic Astrolabe" "Charan's Sword" "Charged Dash of Projection" "Chayula's Flawless Breachstone" "Chrysalis Talisman" "Clutching Talisman" "Coin of Desecration" "Coin of Knowledge" "Coin of Power" "Coin of Restoration" "Coin of Skill" "Companionship Support" "Congregation Support" "Conjuror of Rot" "Cooldown Recovery Support" "Cord Belt" "Corvine Charm" "Craicic Lure" "Creeping Frost of Floes" "Crystallised Rancour" "Cull the Weak Support" "Deadhand Talisman" "Deep One Talisman" "Dextral Catalyst" "Divine Blast" "Divine Sentinel Support" "Diviner's Incubator" "Eclipse Support" "Eldritch Blasphemy Support" "Engineer's Shard" "Engraved Ultimatum" "Enshrouded Astrolabe" "Essence of Desolation" "Excommunicate Support" "Exemplar Support" "Expedition Scarab of Infusion" "Fangjaw Talisman" "Farric Lure" "Fenumal Lure" "Fine Incubator" "Fissure Support" "Flamethrower Trap of Stability" "Flesh of Xesht" "Foreboding Incubator" "Fossilised Incubator" "Foulgrasp Support" "Fragmented Incubator" "Frostmage Support" "Fruiting Astrolabe" "Fungal Astrolabe" "Geomancer's Incubator" "Gluttony Support" "Golden Blade" "Golden Bracers" "Golden Caligae" "Golden Flame" "Golden Hoop" "Golden Mantle" "Golden Obi" "Golden Visage" "Golden Wreath" "Grasping Astrolabe" "Greater Ancestral Call Support" "Greater Chain Support" "Greater Devour Support" "Greater Fork Support" "Greater Kinetic Instability Support" "Greater Multistrike Support" "Greater Spell Cascade Support" "Greater Spell Echo Support" "Greater Unleash Support" "Hallow Support" "Harbinger's Shard" "Hexclaw Talisman" "Hexpass Support" "Hextoad Support" "Hiveborn Support" "Holy Hammers" "Holy Strike" "Honoured Incubator" "Horizon Shard" "Horned Talisman" "Imperfect Adherent of Zarokh" "Imperfect Astral Lich" "Imperfect Conjuror of Rot" "Imprint" "Infused Incubator" "Invention Support" "Invert the Rules Support" "Journey Tattoo of the Body" "Journey Tattoo of the Mind" "Journey Tattoo of the Soul" "Kalguuran Incubator" "Kalguuran Scarab of Enriching" "Kinetic Fusillade of Detonation" "Lethal Dose Support" "Lightless Astrolabe" "Lone Antler Talisman" "Longtooth Talisman" "Lupine Charm" "Lycia's Invocation of Acrobatics" "Lycia's Invocation of Ancestral Bond" "Lycia's Invocation of Arrow Dancing" "Lycia's Invocation of Avatar of Fire" "Lycia's Invocation of Blood Magic" "Lycia's Invocation of Call to Arms" "Lycia's Invocation of Conduit" "Lycia's Invocation of Crimson Dance" "Lycia's Invocation of Divine Shield" "Lycia's Invocation of Eldritch Battery" "Lycia's Invocation of Elemental Equilibrium" "Lycia's Invocation of Elemental Overload" "Lycia's Invocation of Eternal Youth" "Lycia's Invocation of Ghost Dance" "Lycia's Invocation of Ghost Reaver" "Lycia's Invocation of Glancing Blows" "Lycia's Invocation of Hex Master" "Lycia's Invocation of Imbalanced Guard" "Lycia's Invocation of Iron Grip" "Lycia's Invocation of Iron Reflexes" "Lycia's Invocation of Iron Will" "Lycia's Invocation of Lethe Shade" "Lycia's Invocation of Magebane" "Lycia's Invocation of Mind Over Matter" "Lycia's Invocation of Minion Instability" "Lycia's Invocation of Pain Attunement" "Lycia's Invocation of Perfect Agony" "Lycia's Invocation of Point Blank" "Lycia's Invocation of Precise Technique" "Lycia's Invocation of Resolute Technique" "Lycia's Invocation of Runebinder" "Lycia's Invocation of Solipsism" "Lycia's Invocation of Supreme Ego" "Lycia's Invocation of The Agnostic" "Lycia's Invocation of The Impaler" "Lycia's Invocation of Unwavering Stance" "Lycia's Invocation of Vaal Pact" "Lycia's Invocation of Versatile Combatant" "Lycia's Invocation of Wicked Ward" "Lycia's Invocation of Wind Dancer" "Lycia's Invocation of Zealot's Oath" "Machinations Support" "Maddening Incubator" "Mandible Talisman" "Memory of Loneliness" "Memory of Reverence" "Memory of Trauma" "Minion Pact Support" "Miraged Incubator" "Monkey Paw Talisman" "Monkey Twins Talisman" "Mysterious Incubator" "Nameless Astrolabe" "Omen of Acceleration" "Omen of Bequeathal" "Omen of Resurgence" "Omen of Revenge" "Orb of Storms of Squalls" "Ornate Incubator" "Otherworldly Incubator" "Overheat Support" "Overloaded Intensity Support" "Pacifism Support" "Perfect Adherent of Zarokh" "Perfect Astral Lich" "Perfect Conjuror of Rot" "Potent Alchemical Resonator" "Powerful Alchemical Resonator" "Primal Incubator" "Primal Skull Talisman" "Prime Alchemical Resonator" "Prime Regrading Lens" "Primeval Remnant" "Primitive Alchemical Resonator" "Primordial Remnant" "Pyre Support" "Refracting Fog" "Ring" "Ritual Scarab of Corpses" "Rot Head Talisman" "Rotfeather Talisman" "Runegraft of Connection" "Runegraft of Consecration" "Runegraft of Fury" "Runegraft of Rallying" "Runegraft of Resurgence" "Runegraft of Rotblood" "Runegraft of Suffering" "Runegraft of the Agile" "Runegraft of the Imbued" "Runegraft of the Spellbound" "Runic Astrolabe" "Sacred Incubator" "Saqawine Lure" "Scarab of the Dextral" "Scornful Herald Support" "Secondary Regrading Lens" "Shield of Light" "Shock Nova of Procession" "Shockwave Totem of Authority" "Singular Incubator" "Sinistral Catalyst" "Siphoning Trap of Pain" "Skittering Incubator" "Soul Quenched" "Spinefuse Talisman" "Splitnewt Talisman" "Static Strike of Gathering Lightning" "Storm Burst of Repulsion" "Tattoo of the Arohongui Moonwarden" "Tattoo of the Arohongui Scout" "Tattoo of the Arohongui Shaman" "Tattoo of the Arohongui Warmonger" "Tattoo of the Arohongui Warrior" "Tattoo of the Hinekora Deathwarden" "Tattoo of the Hinekora Shaman" "Tattoo of the Hinekora Storyteller" "Tattoo of the Hinekora Warmonger" "Tattoo of the Hinekora Warrior" "Tattoo of the Kitava Blood Drinker" "Tattoo of the Kitava Heart Eater" "Tattoo of the Kitava Rebel" "Tattoo of the Kitava Shaman" "Tattoo of the Kitava Warrior" "Tattoo of the Ngamahu Firewalker" "Tattoo of the Ngamahu Shaman" "Tattoo of the Ngamahu Warmonger" "Tattoo of the Ngamahu Warrior" "Tattoo of the Ngamahu Woodcarver" "Tattoo of the Ramako Archer" "Tattoo of the Ramako Fleetfoot" "Tattoo of the Ramako Scout" "Tattoo of the Ramako Shaman" "Tattoo of the Ramako Sniper" "Tattoo of the Rongokurai Brute" "Tattoo of the Rongokurai Goliath" "Tattoo of the Rongokurai Guard" "Tattoo of the Rongokurai Turtle" "Tattoo of the Rongokurai Warrior" "Tattoo of the Tasalio Bladedancer" "Tattoo of the Tasalio Scout" "Tattoo of the Tasalio Shaman" "Tattoo of the Tasalio Tideshifter" "Tattoo of the Tasalio Warrior" "Tattoo of the Tawhoa Herbalist" "Tattoo of the Tawhoa Naturalist" "Tattoo of the Tawhoa Scout" "Tattoo of the Tawhoa Shaman" "Tattoo of the Tawhoa Warrior" "Tattoo of the Tukohama Brawler" "Tattoo of the Tukohama Shaman" "Tattoo of the Tukohama Warcaller" "Tattoo of the Tukohama Warmonger" "Tattoo of the Tukohama Warrior" "Tattoo of the Valako Scout" "Tattoo of the Valako Shaman" "Tattoo of the Valako Shieldbearer" "Tattoo of the Valako Stormrider" "Tattoo of the Valako Warrior" "Templar Astrolabe" "Thaumaturge's Incubator" "The Black Barya" "The Master" "The Sustenance" "Three Hands Talisman" "Three Rat Talisman" "Timeless Astrolabe" "Timeworn Reliquary Key" "Transfusion Support" "Undying Flesh Talisman" "Unholy Trinity Support" "Unrelenting Timeless Eternal Emblem" "Unrelenting Timeless Karui Emblem" "Unrelenting Timeless Maraketh Emblem" "Unrelenting Timeless Templar Emblem" "Unrelenting Timeless Vaal Emblem" "Unshaping Orb" "Ursine Charm" "Vaal Breach" "Vaal Reliquary Key" "Vaal Sacrifice Support" "Vaal Temptation Support" "Void Shockwave Support" "Voidstorm Support" "Volatile Vaal Orb" "Wereclaw Talisman" "Whispering Incubator" "Writhing Talisman"
+    BaseType == "Orb of Binding"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 162 130 52 255
+    SetBackgroundColor 32 26 10 255
+    CustomAlertSound "sound_files\Sharket掉落音效\高阶点金石.mp3" 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[121014]- Legacy -显示历史物品 历史物品 - 自动音效：统御宝珠 - 精确==
+Show
+    BaseType == "Orb of Dominance"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 162 130 52 255
+    SetBackgroundColor 32 26 10 255
+    CustomAlertSound "sound_files\Sharket掉落音效\统御宝珠.mp3" 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[121015]- Legacy -显示历史物品 历史物品 - 自动音效：觉醒者之石 - 精确==
+Show
+    BaseType == "Awakener's Orb"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 162 130 52 255
+    SetBackgroundColor 32 26 10 255
+    CustomAlertSound "sound_files\Sharket掉落音效\觉醒者之石.mp3" 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[121016]- Legacy -显示历史物品 历史物品 - 自动音效：裁剪石 - 精确==
+Show
+    BaseType == "Tailoring Orb"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 162 130 52 255
+    SetBackgroundColor 32 26 10 255
+    CustomAlertSound "sound_files\Sharket掉落音效\裁剪石.mp3" 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[121017]- Legacy -显示历史物品 历史物品 - 自动音效：回火石 - 精确==
+Show
+    BaseType == "Tempering Orb"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 162 130 52 255
+    SetBackgroundColor 32 26 10 255
+    CustomAlertSound "sound_files\Sharket掉落音效\回火石.mp3" 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[121018]- Legacy -显示历史物品 历史物品 - 自动音效：禁灵之瓶 - 精确==
+Show
+    BaseType == "Divine Vessel"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 162 130 52 255
+    SetBackgroundColor 32 26 10 255
+    CustomAlertSound "sound_files\Sharket掉落音效\禁灵之瓶.mp3" 100
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[121019]- Legacy -显示历史物品 历史物品 - 基础 - 精确==
+Show
+    BaseType == "Abyss Scarab of Descending" "Abyssal Incubator" "Adherent of Zarokh" "Anarchy Scarab of the Exceptional" "Ancient Reliquary Key" "Annihilation Support" "Ashscale Talisman" "Astral Lich" "Avian Twins Talisman" "Betrayal Scarab of Unbreaking" "Binding Shard" "Birth of the Three" "Blessed Call Support" "Blessing of God" "Blighted Incubator" "Bloodsoaked Banner Support" "Bonespire Support" "Bonespire Talisman" "Breakrib Talisman" "Cartographer's Incubator" "Cast on Ward Break Support" "Celestial Armoursmith's Incubator" "Celestial Blacksmith's Incubator" "Chaotic Astrolabe" "Charan's Sword" "Charged Dash of Projection" "Chayula's Flawless Breachstone" "Chrysalis Talisman" "Clutching Talisman" "Coin of Desecration" "Coin of Knowledge" "Coin of Power" "Coin of Restoration" "Coin of Skill" "Companionship Support" "Congregation Support" "Conjuror of Rot" "Cooldown Recovery Support" "Cord Belt" "Corvine Charm" "Craicic Lure" "Creeping Frost of Floes" "Crusader's Exalted Orb" "Crystallised Rancour" "Cull the Weak Support" "Deadhand Talisman" "Deep One Talisman" "Dextral Catalyst" "Divine Blast" "Divine Sentinel Support" "Diviner's Incubator" "Eclipse Support" "Elder's Exalted Orb" "Eldritch Blasphemy Support" "Engineer's Shard" "Engraved Ultimatum" "Enkindling Orb" "Enshrouded Astrolabe" "Essence of Desolation" "Excommunicate Support" "Exemplar Support" "Expedition Scarab of Infusion" "Fangjaw Talisman" "Farric Lure" "Fenumal Lure" "Fine Incubator" "Fissure Support" "Flamethrower Trap of Stability" "Flesh of Xesht" "Foreboding Incubator" "Fossilised Incubator" "Foulgrasp Support" "Fragmented Incubator" "Frostmage Support" "Fruiting Astrolabe" "Fungal Astrolabe" "Geomancer's Incubator" "Gluttony Support" "Golden Blade" "Golden Bracers" "Golden Caligae" "Golden Flame" "Golden Hoop" "Golden Mantle" "Golden Obi" "Golden Visage" "Golden Wreath" "Grasping Astrolabe" "Greater Ancestral Call Support" "Greater Chain Support" "Greater Devour Support" "Greater Fork Support" "Greater Kinetic Instability Support" "Greater Multistrike Support" "Greater Spell Cascade Support" "Greater Spell Echo Support" "Greater Unleash Support" "Hallow Support" "Hexclaw Talisman" "Hexpass Support" "Hextoad Support" "Hiveborn Support" "Holy Hammers" "Holy Strike" "Honoured Incubator" "Horned Talisman" "Hunter's Exalted Orb" "Imperfect Adherent of Zarokh" "Imperfect Astral Lich" "Imperfect Conjuror of Rot" "Imprint" "Infused Incubator" "Instilling Orb" "Invention Support" "Invert the Rules Support" "Journey Tattoo of the Body" "Journey Tattoo of the Mind" "Journey Tattoo of the Soul" "Kalguuran Incubator" "Kalguuran Scarab of Enriching" "Kinetic Fusillade of Detonation" "Lethal Dose Support" "Lightless Astrolabe" "Lone Antler Talisman" "Longtooth Talisman" "Lupine Charm" "Lycia's Invocation of Acrobatics" "Lycia's Invocation of Ancestral Bond" "Lycia's Invocation of Arrow Dancing" "Lycia's Invocation of Avatar of Fire" "Lycia's Invocation of Blood Magic" "Lycia's Invocation of Call to Arms" "Lycia's Invocation of Conduit" "Lycia's Invocation of Crimson Dance" "Lycia's Invocation of Divine Shield" "Lycia's Invocation of Eldritch Battery" "Lycia's Invocation of Elemental Equilibrium" "Lycia's Invocation of Elemental Overload" "Lycia's Invocation of Eternal Youth" "Lycia's Invocation of Ghost Dance" "Lycia's Invocation of Ghost Reaver" "Lycia's Invocation of Glancing Blows" "Lycia's Invocation of Hex Master" "Lycia's Invocation of Imbalanced Guard" "Lycia's Invocation of Iron Grip" "Lycia's Invocation of Iron Reflexes" "Lycia's Invocation of Iron Will" "Lycia's Invocation of Lethe Shade" "Lycia's Invocation of Magebane" "Lycia's Invocation of Mind Over Matter" "Lycia's Invocation of Minion Instability" "Lycia's Invocation of Pain Attunement" "Lycia's Invocation of Perfect Agony" "Lycia's Invocation of Point Blank" "Lycia's Invocation of Precise Technique" "Lycia's Invocation of Resolute Technique" "Lycia's Invocation of Runebinder" "Lycia's Invocation of Solipsism" "Lycia's Invocation of Supreme Ego" "Lycia's Invocation of The Agnostic" "Lycia's Invocation of The Impaler" "Lycia's Invocation of Unwavering Stance" "Lycia's Invocation of Vaal Pact" "Lycia's Invocation of Versatile Combatant" "Lycia's Invocation of Wicked Ward" "Lycia's Invocation of Wind Dancer" "Lycia's Invocation of Zealot's Oath" "Machinations Support" "Maddening Incubator" "Mandible Talisman" "Memory of Loneliness" "Memory of Reverence" "Memory of Trauma" "Minion Pact Support" "Miraged Incubator" "Monkey Paw Talisman" "Monkey Twins Talisman" "Mysterious Incubator" "Nameless Astrolabe" "Omen of Acceleration" "Omen of Bequeathal" "Omen of Resurgence" "Omen of Revenge" "Orb of Storms of Squalls" "Ornate Incubator" "Otherworldly Incubator" "Overheat Support" "Overloaded Intensity Support" "Pacifism Support" "Perfect Adherent of Zarokh" "Perfect Astral Lich" "Perfect Conjuror of Rot" "Potent Alchemical Resonator" "Powerful Alchemical Resonator" "Primal Incubator" "Primal Skull Talisman" "Prime Alchemical Resonator" "Prime Regrading Lens" "Primeval Remnant" "Primitive Alchemical Resonator" "Primordial Remnant" "Pyre Support" "Redeemer's Exalted Orb" "Refracting Fog" "Ring" "Ritual Scarab of Corpses" "Rot Head Talisman" "Rotfeather Talisman" "Runegraft of Connection" "Runegraft of Consecration" "Runegraft of Fury" "Runegraft of Rallying" "Runegraft of Resurgence" "Runegraft of Rotblood" "Runegraft of Suffering" "Runegraft of the Agile" "Runegraft of the Imbued" "Runegraft of the Spellbound" "Runic Astrolabe" "Sacred Incubator" "Saqawine Lure" "Scarab of the Dextral" "Scornful Herald Support" "Secondary Regrading Lens" "Shaper's Exalted Orb" "Shield of Light" "Shock Nova of Procession" "Shockwave Totem of Authority" "Singular Incubator" "Sinistral Catalyst" "Siphoning Trap of Pain" "Skittering Incubator" "Soul Quenched" "Spinefuse Talisman" "Splitnewt Talisman" "Stacked Deck" "Static Strike of Gathering Lightning" "Storm Burst of Repulsion" "Tattoo of the Arohongui Moonwarden" "Tattoo of the Arohongui Scout" "Tattoo of the Arohongui Shaman" "Tattoo of the Arohongui Warmonger" "Tattoo of the Arohongui Warrior" "Tattoo of the Hinekora Deathwarden" "Tattoo of the Hinekora Shaman" "Tattoo of the Hinekora Storyteller" "Tattoo of the Hinekora Warmonger" "Tattoo of the Hinekora Warrior" "Tattoo of the Kitava Blood Drinker" "Tattoo of the Kitava Heart Eater" "Tattoo of the Kitava Rebel" "Tattoo of the Kitava Shaman" "Tattoo of the Kitava Warrior" "Tattoo of the Ngamahu Firewalker" "Tattoo of the Ngamahu Shaman" "Tattoo of the Ngamahu Warmonger" "Tattoo of the Ngamahu Warrior" "Tattoo of the Ngamahu Woodcarver" "Tattoo of the Ramako Archer" "Tattoo of the Ramako Fleetfoot" "Tattoo of the Ramako Scout" "Tattoo of the Ramako Shaman" "Tattoo of the Ramako Sniper" "Tattoo of the Rongokurai Brute" "Tattoo of the Rongokurai Goliath" "Tattoo of the Rongokurai Guard" "Tattoo of the Rongokurai Turtle" "Tattoo of the Rongokurai Warrior" "Tattoo of the Tasalio Bladedancer" "Tattoo of the Tasalio Scout" "Tattoo of the Tasalio Shaman" "Tattoo of the Tasalio Tideshifter" "Tattoo of the Tasalio Warrior" "Tattoo of the Tawhoa Herbalist" "Tattoo of the Tawhoa Naturalist" "Tattoo of the Tawhoa Scout" "Tattoo of the Tawhoa Shaman" "Tattoo of the Tawhoa Warrior" "Tattoo of the Tukohama Brawler" "Tattoo of the Tukohama Shaman" "Tattoo of the Tukohama Warcaller" "Tattoo of the Tukohama Warmonger" "Tattoo of the Tukohama Warrior" "Tattoo of the Valako Scout" "Tattoo of the Valako Shaman" "Tattoo of the Valako Shieldbearer" "Tattoo of the Valako Stormrider" "Tattoo of the Valako Warrior" "Templar Astrolabe" "Thaumaturge's Incubator" "The Black Barya" "The Master" "The Sustenance" "Three Hands Talisman" "Three Rat Talisman" "Timeless Astrolabe" "Timeworn Reliquary Key" "Transfusion Support" "Undying Flesh Talisman" "Unholy Trinity Support" "Unrelenting Timeless Eternal Emblem" "Unrelenting Timeless Karui Emblem" "Unrelenting Timeless Maraketh Emblem" "Unrelenting Timeless Templar Emblem" "Unrelenting Timeless Vaal Emblem" "Unshaping Orb" "Ursine Charm" "Vaal Breach" "Vaal Reliquary Key" "Vaal Sacrifice Support" "Vaal Temptation Support" "Veiled Chaos Orb" "Veiled Exalted Orb" "Void Shockwave Support" "Voidstorm Support" "Volatile Vaal Orb" "Warlord's Exalted Orb" "Wereclaw Talisman" "Whispering Incubator" "Writhing Talisman"
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 162 130 52 255

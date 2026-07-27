@@ -19,18 +19,27 @@
       "en": "Stackable Currency",
       "ch": "可堆叠通货"
     },
-    "theme_category": "Tainted Currency"
+    "theme_category": "Tainted Currency",
+    "match_modes": {}
   },
   "mapping": {
     "Tainted Divine Teardrop": "Tier 1 Tainted",
-    "Tainted Exalted Orb": "Tier 2 Tainted",
-    "Tainted Blessing": "Tier 2 Tainted",
-    "Tainted Mythic Orb": "Tier 3 Tainted",
+    "Tainted Exalted Orb": [
+      "Tier 3 Tainted"
+    ],
+    "Tainted Blessing": [],
+    "Tainted Mythic Orb": [
+      "Tier 2 Tainted"
+    ],
     "Tainted Chaos Orb": "Tier 3 Tainted",
-    "Tainted Orb of Fusing": "Tier 3 Tainted",
+    "Tainted Orb of Fusing": [
+      "Tier 2 Tainted"
+    ],
     "Tainted Chromatic Orb": "Tier 3 Tainted",
     "Tainted Catalyst": "Tier 3 Tainted",
-    "Tainted Blacksmith's Whetstone": "Tier 3 Tainted",
+    "Tainted Blacksmith's Whetstone": [
+      "Tier 4 Tainted"
+    ],
     "Tainted Jeweller's Orb": "Tier 4 Tainted",
     "Tainted Armourer's Scrap": "Tier 4 Tainted"
   },

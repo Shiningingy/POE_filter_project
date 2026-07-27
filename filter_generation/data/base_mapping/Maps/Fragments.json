@@ -65,8 +65,7 @@
         "Hivebrain Gland": "虫脑腺体",
         "Traumatic Fragment": "创痛碎片",
         "Reverent Fragment": "虔敬碎片",
-        "Lonely Fragment": "孤寂碎片",
-        "Divine Vessel": "禁灵之瓶"
+        "Lonely Fragment": "孤寂碎片"
       }
     },
     "item_class": {
@@ -97,7 +96,6 @@
     "Sacrifice at Dusk": "Tier 4 Fragments",
     "Sacrifice at Dawn": "Tier 4 Fragments",
     "Sacrifice at Noon": "Tier 4 Fragments",
-    "Divine Vessel": "Tier 4 Fragments",
     "Mortal Grief": "Tier 1 Fragments",
     "Mortal Rage": "Tier 1 Fragments",
     "Mortal Hope": "Tier 1 Fragments",
