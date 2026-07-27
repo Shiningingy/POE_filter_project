@@ -135,6 +135,16 @@
           }
         },
         {
+          "path": "Currency/Tainted Currency.json",
+          "tier_path": "tier_definition/Currency/Tainted Currency.json",
+          "mapping_path": "base_mapping/Currency/Tainted Currency.json",
+          "target_category": "Tainted Currency",
+          "localization": {
+            "en": "Tainted Currency",
+            "ch": "玷污通货"
+          }
+        },
+        {
           "path": "Currency/Oils.json",
           "tier_path": "tier_definition/Currency/Oils.json",
           "mapping_path": "base_mapping/Currency/Oils.json",

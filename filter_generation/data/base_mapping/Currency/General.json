@@ -58,15 +58,7 @@
         "Enkindling Orb": "启明石",
         "Instilling Orb": "灌顶石",
         "Sacred Orb": "崇神石",
-        "Tainted Chromatic Orb": "污秽幻色石",
-        "Tainted Orb of Fusing": "污秽链结石",
         "Tainted Jeweller's Orb": "污秽工匠石",
-        "Tainted Exalted Orb": "污秽崇高石",
-        "Tainted Mythic Orb": "污秽神秘石",
-        "Tainted Chaos Orb": "污秽混沌石",
-        "Tainted Armourer's Scrap": "污秽护甲片",
-        "Tainted Divine Teardrop": "污染神泪",
-        "Tainted Blacksmith's Whetstone": "污秽磨刀石",
         "Lesser Eldritch Ember": "次级古灵余烬",
         "Greater Eldritch Ember": "高级古灵余烬",
         "Grand Eldritch Ember": "上级古灵余烬",
@@ -145,10 +137,6 @@
     "Sacred Orb": "Tier 2 General",
     "Orb of Dominance": "Tier 2 General",
     "Prismatic Catalyst": [],
-    "Tainted Exalted Orb": "Tier 2 General",
-    "Tainted Divine Teardrop": [
-      "Tier 1 General"
-    ],
     "Grand Eldritch Ember": "Tier 2 General",
     "Grand Eldritch Ichor": "Tier 2 General",
     "Maven's Chisel of Scarabs": "Tier 2 General",
@@ -159,10 +147,6 @@
     "Eldritch Chaos Orb": "Tier 3 General",
     "Eldritch Exalted Orb": "Tier 3 General",
     "Eldritch Orb of Annulment": "Tier 3 General",
-    "Tainted Chaos Orb": "Tier 3 General",
-    "Tainted Chromatic Orb": "Tier 3 General",
-    "Tainted Orb of Fusing": "Tier 3 General",
-    "Tainted Mythic Orb": "Tier 3 General",
     "Maven's Chisel of Avarice": "Tier 3 General",
     "Maven's Chisel of Divination": [
       "Tier 2 General"
@@ -181,10 +165,6 @@
     "Orb of Scouring": "Tier 4 General",
     "Enkindling Orb": "Tier 4 General",
     "Instilling Orb": "Tier 4 General",
-    "Tainted Armourer's Scrap": [
-      "Tier 5 General"
-    ],
-    "Tainted Blacksmith's Whetstone": "Tier 4 General",
     "Maven's Chisel of Procurement": [
       "Tier 2 General"
     ],

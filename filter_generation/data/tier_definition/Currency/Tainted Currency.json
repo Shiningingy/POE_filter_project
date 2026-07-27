@@ -1,0 +1,89 @@
+{
+  "Tainted Currency": {
+    "_meta": {
+      "theme_category": "Tainted Currency",
+      "localization": {
+        "en": "Tainted Currency",
+        "ch": "玷污通货"
+      },
+      "tier_order": [
+        "Tier 1 Tainted",
+        "Tier 2 Tainted",
+        "Tier 3 Tainted",
+        "Tier 4 Tainted",
+        "Tier Hide Tainted"
+      ]
+    },
+    "Tier 1 Tainted": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T1: Top",
+        "ch": "T1：顶级"
+      }
+    },
+    "Tier 2 Tainted": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T2: High",
+        "ch": "T2：高价值"
+      }
+    },
+    "Tier 3 Tainted": {
+      "hideable": true,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": 3,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T3: Mid",
+        "ch": "T3：中等"
+      }
+    },
+    "Tier 4 Tainted": {
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T4: Low",
+        "ch": "T4：低价值"
+      }
+    },
+    "Tier Hide Tainted": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

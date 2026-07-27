@@ -1,0 +1,38 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Tainted Divine Teardrop": "污染神泪",
+        "Tainted Exalted Orb": "污秽崇高石",
+        "Tainted Blessing": "污秽祝福",
+        "Tainted Mythic Orb": "污秽神秘石",
+        "Tainted Chaos Orb": "污秽混沌石",
+        "Tainted Orb of Fusing": "污秽链结石",
+        "Tainted Chromatic Orb": "污秽幻色石",
+        "Tainted Catalyst": "污秽催化剂",
+        "Tainted Blacksmith's Whetstone": "污秽磨刀石",
+        "Tainted Jeweller's Orb": "污秽工匠石",
+        "Tainted Armourer's Scrap": "污秽护甲片"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Tainted Currency"
+  },
+  "mapping": {
+    "Tainted Divine Teardrop": "Tier 1 Tainted",
+    "Tainted Exalted Orb": "Tier 2 Tainted",
+    "Tainted Blessing": "Tier 2 Tainted",
+    "Tainted Mythic Orb": "Tier 3 Tainted",
+    "Tainted Chaos Orb": "Tier 3 Tainted",
+    "Tainted Orb of Fusing": "Tier 3 Tainted",
+    "Tainted Chromatic Orb": "Tier 3 Tainted",
+    "Tainted Catalyst": "Tier 3 Tainted",
+    "Tainted Blacksmith's Whetstone": "Tier 3 Tainted",
+    "Tainted Jeweller's Orb": "Tier 4 Tainted",
+    "Tainted Armourer's Scrap": "Tier 4 Tainted"
+  },
+  "rules": []
+}
