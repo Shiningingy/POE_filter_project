@@ -66,8 +66,8 @@ const DEFAULT_FONT_SIZE = 32;
 // NOT in localization.ts, which is the UI translation table; these are
 // filter-artifact domain strings, a different concern.
 const TERMS: Record<string, Record<string, string>> = {
-  en: { Rule: "Rule", Base: "Base", "Auto-Sound": "Auto-Sound", Exact: "Exact", Partial: "Partial" },
-  ch: { Rule: "规则", Base: "基础", "Auto-Sound": "自动音效", Exact: "精确", Partial: "模糊" },
+  en: { Rule: "Rule", Base: "Base", "Auto-Sound": "Auto-Sound", Exact: "Exact", Partial: "Partial", Self: "Self-matched" },
+  ch: { Rule: "规则", Base: "基础", "Auto-Sound": "自动音效", Exact: "精确", Partial: "模糊", Self: "自选" },
 };
 
 const FOLDER_LOCALIZATION: Record<string, string> = {
@@ -473,13 +473,25 @@ export const generateFilter = (data: GeneratorData): string => {
 
         let ruleMatches: string[] = [];
 
+        // A rule can bring its OWN item selector instead of a target list: a `raw`
+        // block, or a BaseType/Class condition. That is the only way to express
+        // "every Deafening Essence" without naming all 17 - a partial BaseType
+        // match collapses them to one line. Such a rule emits a block with NO
+        // generated BaseType line; its own lines match. Without a selector a
+        // target-less rule matches nothing, which validate_curation.py reports.
+        const selfSelecting = !!rule.raw ||
+          ['BaseType', 'Class'].some((k) => k in (rule.conditions || {}));
+
         if (ruleTierOverride) {
           if (ruleTierOverride === tLbl) {
             // .sort(), not bare Array.from(): a JS Set iterates in insertion
             // order while Python's iterates in (randomised) hash order, so the
             // two generators disagreed and generate.py was not even stable
             // between runs. Both now sort (ADR-0001 parity).
-            ruleMatches = applyToTier ? Array.from(pendingItems).sort() : ruleTargets;
+            if (applyToTier) ruleMatches = Array.from(pendingItems).sort();
+            else if (ruleTargets.length > 0) ruleMatches = ruleTargets;
+            else if (selfSelecting) ruleMatches = [];  // the rule's own lines match
+            else continue;
           } else {
             continue;
           }
@@ -491,13 +503,19 @@ export const generateFilter = (data: GeneratorData): string => {
           }
         }
 
-        if (ruleMatches.length === 0) continue;
+        if (ruleMatches.length === 0 && !selfSelecting) continue;
 
         const exactGroup = ruleMatches.filter((m: string) => (matchModes[m] || 'exact') === 'exact');
         const partialGroup = ruleMatches.filter((m: string) => matchModes[m] === 'partial');
 
-        for (const [subgroup, modeLabel, isStrict] of [[exactGroup, "Exact", true], [partialGroup, "Partial", false]] as const) {
-          if (subgroup.length === 0) continue;
+        // isStrict null = self-matched: one block, no generated BaseType line.
+        const groups: readonly (readonly [string[], string, boolean | null])[] =
+          ruleMatches.length > 0
+            ? [[exactGroup, "Exact", true], [partialGroup, "Partial", false]]
+            : [[[], "Self", null]];
+
+        for (const [subgroup, modeLabel, isStrict] of groups) {
+          if (isStrict !== null && subgroup.length === 0) continue;
 
           blockIndex++;
           const rOver = rule.overrides || {};
@@ -519,11 +537,11 @@ export const generateFilter = (data: GeneratorData): string => {
           outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${tierDisplay} ${locCat} - ${rulePart} - ${finalMode}==`);
 
           const cmd = isHide ? HIDE_CMD : "Show";
-          const btOp = isStrict ? " == " : " ";
-          const blockLines = [
-            `${cmd}`,
-            `    BaseType${btOp}"${subgroup.join('" "')}"`
-          ];
+          const blockLines = [`${cmd}`];
+          if (isStrict !== null) {
+            const btOp = isStrict ? " == " : " ";
+            blockLines.push(`    BaseType${btOp}"${subgroup.join('" "')}"`);
+          }
 
           emitConditions(blockLines, rule.conditions);
 

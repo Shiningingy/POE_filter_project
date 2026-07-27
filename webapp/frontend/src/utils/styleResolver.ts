@@ -113,11 +113,20 @@ export const generateFilterText = (style: StyleProps, baseTypes: string[] = ["It
 
       rules.forEach((rule) => {
           if (rule.disabled) return;
-          
+
+          // A self-selecting rule supplies its own matching lines (a `raw` block, or
+          // a BaseType/Class condition), so the generator emits NO BaseType line for
+          // it - see generate.py:531. Falling back to the tier's whole base list here
+          // put a second BaseType line above the raw one in the preview.
+          const selfSelecting = !!rule.raw ||
+              ['BaseType', 'Class'].some((k) => k in (rule.conditions || {}));
+
           // Remove from pending base
-          const targets = rule.targets && rule.targets.length > 0 ? rule.targets : cleanBaseTypes;
-          if (rule.targets) rule.targets.forEach((t: string) => pendingBaseItems.delete(t));
-          else pendingBaseItems.clear();
+          const targets = rule.targets && rule.targets.length > 0
+              ? rule.targets
+              : (selfSelecting ? [] : cleanBaseTypes);
+          if (rule.targets && rule.targets.length > 0) rule.targets.forEach((t: string) => pendingBaseItems.delete(t));
+          else if (!selfSelecting) pendingBaseItems.clear();
 
           // Create a key for grouping
           const overrideKey = JSON.stringify({ 
@@ -165,10 +174,12 @@ const _generateBlock = (rule: any, targets: string[], baseStyle: any, hideable: 
     }
 
     rLines.push(hideable ? "Hide" : "Show");
-    
-    // Use unique targets only
-    const uniqueTargets = Array.from(new Set(targets)).sort();
-    rLines.push(`    BaseType == "${uniqueTargets.join('" "')}"`);
+
+    // No targets = self-selecting rule: its own raw/BaseType lines do the matching.
+    if (targets.length > 0) {
+        const uniqueTargets = Array.from(new Set(targets)).sort();
+        rLines.push(`    BaseType == "${uniqueTargets.join('" "')}"`);
+    }
 
     if (rule.conditions) {
         Object.entries(rule.conditions as Record<string, string>).forEach(([key, val]) => {

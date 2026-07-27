@@ -81,8 +81,8 @@ _rgba_re = re.compile(r"rgba?(\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?")
 
 # Localization Terms
 TERMS = {
-    "en": {"Rule": "Rule", "Base": "Base", "Auto-Sound": "Auto-Sound", "Exact": "Exact", "Partial": "Partial"},
-    "ch": {"Rule": "规则", "Base": "基础", "Auto-Sound": "自动音效", "Exact": "精确", "Partial": "模糊"}
+    "en": {"Rule": "Rule", "Base": "Base", "Auto-Sound": "Auto-Sound", "Exact": "Exact", "Partial": "Partial", "Self": "Self-matched"},
+    "ch": {"Rule": "规则", "Base": "基础", "Auto-Sound": "自动音效", "Exact": "精确", "Partial": "模糊", "Self": "自选"}
 }
 # Output language — CLI-configurable via --language; default 'ch' preserves prior behavior.
 LANG = _parsed.language
@@ -524,6 +524,17 @@ def generate_filter():
                 
                 rule_matches = []
 
+                # A rule can bring its OWN item selector instead of a target list:
+                # a `raw` block, or a BaseType/Class condition. That is the only way
+                # to express "every Deafening Essence" without naming all 17 - a
+                # partial BaseType match collapses them to one line. Such a rule
+                # emits a block with NO generated BaseType line; its own lines match.
+                # Without a selector a target-less rule matches nothing at all, which
+                # is the error validate_curation.py reports.
+                self_selecting = bool(rule.get("raw")) or any(
+                    k in (rule.get("conditions") or {}) for k in ("BaseType", "Class")
+                )
+
                 if rule_tier_override:
                     if rule_tier_override == t_lbl:
                         if apply_to_tier:
@@ -536,6 +547,8 @@ def generate_filter():
                         elif rule_targets:
                             # Strict instruction: If rule targets this tier, pull it in!
                             rule_matches = rule_targets
+                        elif self_selecting:
+                            rule_matches = []   # the rule's own lines do the matching
                         else:
                             continue
                     else:
@@ -549,7 +562,7 @@ def generate_filter():
                     else:
                         continue
                 
-                if not rule_matches: continue
+                if not rule_matches and not self_selecting: continue
 
                 exact_group = []
                 partial_group = []
@@ -558,8 +571,12 @@ def generate_filter():
                     if mode == "exact": exact_group.append(m)
                     else: partial_group.append(m)
 
-                for subgroup, mode_label, is_strict in [(exact_group, "Exact", True), (partial_group, "Partial", False)]:
-                    if not subgroup: continue
+                # is_strict None = self-matched: one block, no generated BaseType line.
+                groups = ([(exact_group, "Exact", True), (partial_group, "Partial", False)]
+                          if rule_matches else [([], "Self", None)])
+
+                for subgroup, mode_label, is_strict in groups:
+                    if is_strict is not None and not subgroup: continue
                     
                     block_index += 1
                     
@@ -583,15 +600,13 @@ def generate_filter():
                     tier_display_r = tier_entry.get("localization", {}).get(LANG) or tier_entry.get("localization", {}).get("en") or f"Tier {tnum}"
                     out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -{tier_display_r} {loc_cat} - {rule_part} - {final_mode}==")
                     
-                    joined = '" "'.join(subgroup)
                     cmd = HIDE_CMD if is_hide else "Show"
-                    bt_operator = " == " if is_strict else " "
-                    
-                    block_lines = [
-                        f'{cmd}',
-                        f'    BaseType{bt_operator}"{joined}"'
-                    ]
-                    
+                    block_lines = [f'{cmd}']
+                    if is_strict is not None:
+                        joined = '" "'.join(subgroup)
+                        bt_operator = " == " if is_strict else " "
+                        block_lines.append(f'    BaseType{bt_operator}"{joined}"')
+
                     extra_conditions = rule.get("conditions")
                     if extra_conditions:
                         for key, val in extra_conditions.items():

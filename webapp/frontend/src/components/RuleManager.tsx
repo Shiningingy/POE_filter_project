@@ -11,6 +11,38 @@ import MinimapIconPicker from "./MinimapIconPicker";
 import PlayEffectPicker from "./PlayEffectPicker";
 import StylePresetPicker from "./StylePresetPicker";
 
+/**
+ * A textarea that keeps its own text while focused.
+ *
+ * Every keystroke here walks up to CategoryView, is serialised with
+ * JSON.stringify and parsed back on the way down. React then reassigns the
+ * textarea's `value` from that round-trip, and reassigning `value` on a focused
+ * textarea drops the caret to the end - so typing anywhere but the last
+ * character jumped. Holding the text locally while focused keeps the DOM value
+ * stable (caret intact) and still reports every change upward; the prop is only
+ * adopted when the field is not focused, i.e. when a different rule is opened.
+ */
+const StableTextArea: React.FC<{
+  value: string;
+  onChange: (v: string) => void;
+  placeholder?: string;
+}> = ({ value, onChange, placeholder }) => {
+  const [local, setLocal] = useState(value);
+  const focused = useRef(false);
+  useEffect(() => {
+    if (!focused.current) setLocal(value);
+  }, [value]);
+  return (
+    <textarea
+      placeholder={placeholder}
+      value={local}
+      onFocus={() => { focused.current = true; }}
+      onBlur={() => { focused.current = false; setLocal(value); }}
+      onChange={(e) => { setLocal(e.target.value); onChange(e.target.value); }}
+    />
+  );
+};
+
 interface Item {
   name: string;
   name_ch?: string;
@@ -541,14 +573,11 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                   </div>
 
                   <div className="raw-code-field">
-                    <textarea
-                      placeholder="# Custom lines like: \n    SetFontSize 45"
+                    <StableTextArea
+                      placeholder={'BaseType "Deafening Essence of"'}
                       value={rule.raw || ""}
-                      onChange={(e) =>
-                        handleUpdateRule(globalIndex, {
-                          ...rule,
-                          raw: e.target.value,
-                        })
+                      onChange={(v) =>
+                        handleUpdateRule(globalIndex, { ...rule, raw: v })
                       }
                     />
                   </div>
