@@ -1248,13 +1248,33 @@ def get_items_by_tier(request: TierItemsRequest):
                         for t in base_tiers:
                             final_tier_entries.append((t, None))
                     
+                    absorbed: set[str] = set()
                     for idx, r in enumerate(rules):
+                        # applyToTier makes `targets` DEAD: generate.py:529 replaces
+                        # rule_matches with the tier's pending items and never reads
+                        # them. A target listed here is not one the generator honours,
+                        # so it must not become a card of its own.
+                        if r.get("applyToTier"):
+                            continue
                         r_t = r.get("targets", [])
                         # ONLY match if targets is a non-empty list
                         if isinstance(r_t, list) and len(r_t) > 0 and item_name in r_t:
                             t_over = r.get("overrides", {}).get("Tier")
                             if t_over:
                                 final_tier_entries.append((t_over, idx))
+                                if not r.get("disabled"):
+                                    absorbed.add(t_over)
+
+                    # ONE card per (item, tier). A live rule that names the item for a
+                    # tier discards it from pending_items (generate.py:639), so the
+                    # base block never follows: the mapping entry and the rule entry
+                    # are the SAME emitted block, not two. Two RULES on one tier do
+                    # emit twice, so only the mapping (None) entry is absorbed.
+                    if absorbed:
+                        final_tier_entries = [
+                            (t, r) for t, r in final_tier_entries
+                            if r is not None or t not in absorbed
+                        ]
 
                     # Distribute to results
                     for tier_key, rule_idx in final_tier_entries:
