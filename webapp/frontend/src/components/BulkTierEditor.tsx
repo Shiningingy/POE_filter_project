@@ -426,8 +426,14 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       onSave(); // reflect whatever succeeded
       if (problems.length) {
         console.error("BulkTierEditor: failed items", problems);
+        // A tier the backend does not know about is almost always one that was
+        // just added in the editor and never saved. Say so, rather than making
+        // the user decode the raw rejection.
+        const hint = problems.some((p) => p.includes("does not define"))
+          ? "\n\nThat tier is not saved to disk yet. Save the category (💾), then apply again."
+          : "";
         alert(`Failed to update ${problems.length} item(s):\n` +
-              problems.map((p) => `• ${p}`).join("\n"));
+              problems.map((p) => `• ${p}`).join("\n") + hint);
       } else {
         onClose();
       }

@@ -56,6 +56,9 @@ interface CategoryViewProps {
   tierItems: Record<string, TierItem[]>;
   fetchTierItems: (keys: string[]) => void;
   defaultMappingPath?: string;
+  /** Persist a freshly inserted tier straight away, so the backend knows about
+   *  it before any item is assigned to it. */
+  onPersistNewTier?: (rawContent: string) => Promise<void>;
   onUpdateTierItems?: (tierKey: string, items: TierItem[]) => void;
   pingedCondition?: {
     tierKey: string;
@@ -82,6 +85,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   tierItems,
   fetchTierItems,
   defaultMappingPath,
+  onPersistNewTier,
   onUpdateTierItems,
   pingedCondition,
   soundMap,
@@ -510,6 +514,15 @@ const CategoryView: React.FC<CategoryViewProps> = ({
 
     categoryData._meta.tier_order = newOrder;
     updateConfig(newConfig);
+
+    // Persist immediately. Until the tier exists in the tier_definition on
+    // disk, assigning items to it is rejected by the backend guard - and before
+    // that guard existed it was accepted and then emitted nothing, which is how
+    // "CustomTier 1 General" ended up holding a dead Portal Scroll entry.
+    // newConfig is passed explicitly because the parent state has not updated yet.
+    onPersistNewTier?.(JSON.stringify(newConfig, null, 2)).catch((e) =>
+      console.error("Failed to persist the new tier", e),
+    );
 
     fetchTierItems(newOrder);
   };

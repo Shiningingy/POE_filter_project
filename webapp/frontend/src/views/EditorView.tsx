@@ -220,10 +220,12 @@ const EditorView: React.FC<EditorViewProps> = ({
     }
   }, [selectedFile]);
 
-  const handleSave = async () => {
+  // `raw` lets a caller persist content it has just built, without waiting for
+  // the parent state round-trip. `silent` skips the alert for automatic saves.
+  const persistConfig = async (raw?: string, silent = false) => {
       if (!selectedFile) return;
       try {
-          const currentViewData = JSON.parse(configContent);
+          const currentViewData = JSON.parse(raw ?? configContent);
           const catKey = Object.keys(currentViewData).find(k => !k.startsWith('//'));
           
           if (catKey) {
@@ -248,14 +250,24 @@ const EditorView: React.FC<EditorViewProps> = ({
                   selectedFile.mapping_path ? axios.post(`${API_BASE_URL}/api/config/${selectedFile.mapping_path}`, mappingToSave) : Promise.resolve()
               ]);
               
-              alert("Saved successfully!");
+              if (!silent) alert("Saved successfully!");
               markClean();
           }
       } catch (e) {
           console.error("Save failed", e);
-          alert("Save failed");
+          if (!silent) alert("Save failed");
+          throw e;
       }
   };
+
+  const handleSave = () => persistConfig();
+
+  // A newly inserted tier lives only in editor state until the category is
+  // saved, but assigning items to it posts to the API immediately - so the
+  // backend rejects the write (or, before that guard existed, accepted an
+  // assignment that silently emitted nothing). Persisting the tier the moment
+  // it is created keeps disk and editor in step for every downstream path.
+  const persistNewTier = (raw: string) => persistConfig(raw, true);
 
   const handlePasteStyle = (tierKey: string, style: any) => {
     if (!style || !configContent) return;
@@ -408,6 +420,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                   fetchTierItems={fetchTierItems}
                   defaultMappingPath={selectedFile.mapping_path}
                   categoryClass={categoryClass}
+                  onPersistNewTier={persistNewTier}
                   onUpdateTierItems={handleManualItemUpdate}
                   pingedCondition={pingedCondition}
                   soundMap={soundMap}
