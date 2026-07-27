@@ -26,6 +26,17 @@ The rules, and where they come from in generate.py:
                instead REMAPS unknown keys onto the first non-hide tier. Items
                are not lost, but they all collapse into one bucket - the
                "everything shows up in general" symptom. Warning, not error.
+
+  no-op rule   Every branch that selects a rule's items (generate.py:527-550)
+               needs either `targets` or `applyToTier`. A rule with neither
+               falls through to `continue` and emits nothing - and worse, the
+               items it meant to condition stay in `pending_items`, so they
+               emit as an UNCONDITIONED base block instead. The intended
+               "narrower" rule silently becomes a wider one.
+
+  rule tier    A rule's overrides.Tier is compared to the tier being emitted
+               (generate.py:528). Naming a tier the category does not define
+               means the comparison never holds - the dead-key bug in rule form.
 """
 
 from __future__ import annotations
@@ -94,6 +105,77 @@ def category_of(tier_doc: dict) -> tuple[str, dict] | tuple[None, None]:
         if isinstance(body, dict) and isinstance(body.get("_meta"), dict):
             return key, body
     return None, None
+
+
+def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
+                names: set[str], rep: Report) -> None:
+    """A rule only reaches an output block through generate.py:527-550.
+
+    Both selection branches there end in a bare `continue` when the rule names
+    no items, so a conditions-only rule is not "apply to everything" - it is
+    apply to nothing, with no message.
+    """
+    rules = map_doc.get("rules")
+    if rules is None:
+        return
+    if not isinstance(rules, list):
+        rep.add("ERROR", f"base_mapping/{rel}",
+                f"'rules' is a {type(rules).__name__}; expected a list")
+        return
+
+    # Which items would be left unconditioned if a rule for their tier is a no-op.
+    per_tier: dict[str, list[str]] = {}
+    for item, val in mapping.items():
+        for k in ([val] if isinstance(val, str) else val if isinstance(val, list) else []):
+            if isinstance(k, str):
+                per_tier.setdefault(k, []).append(item)
+
+    for i, rule in enumerate(rules):
+        if not isinstance(rule, dict) or rule.get("disabled"):
+            continue
+        where = f"base_mapping/{rel}"
+        tier = (rule.get("overrides") or {}).get("Tier")
+        conds = rule.get("conditions") or {}
+        label = rule.get("comment") or (f"-> {tier}" if tier else f"rule #{i}")
+
+        if not rule.get("targets") and not rule.get("applyToTier"):
+            # The rule is skipped. What the reader needs to know is what happens
+            # INSTEAD, which depends on whether the tier has items of its own.
+            stranded = per_tier.get(tier, []) if tier else []
+            if stranded:
+                consequence = (
+                    f"the {len(stranded)} item(s) already on {tier!r} "
+                    f"({', '.join(sorted(stranded)[:4])}"
+                    f"{' …' if len(stranded) > 4 else ''}) emit as an UNCONDITIONED "
+                    f"block instead - {' + '.join(conds) or 'the conditions'} "
+                    f"never applies, so that block matches every one of them")
+            elif not mapping:
+                consequence = ("this category has no mapping either, so it emits "
+                               "NO blocks at all")
+            else:
+                consequence = f"nothing is emitted for {tier!r}"
+            rep.add("ERROR", where,
+                    f"rule {label!r} has no 'targets' and no 'applyToTier', so "
+                    f"generate.py:539 skips it - {consequence}\n            "
+                    f"fix: list the base types in 'targets', or move the "
+                    f"conditions onto the tier as class_condition:true "
+                    f"(generate.py:447) if they are meant to match by class")
+            continue
+
+        if tier and tier not in defined:
+            rep.add("ERROR", where,
+                    f"rule {label!r} overrides Tier to {tier!r}, which this "
+                    f"category does not define - generate.py:528 never matches "
+                    f"it, so the rule emits NOTHING\n            "
+                    f"defined tiers: {', '.join(sorted(defined)[:8])}")
+
+        if names:
+            for t in rule.get("targets") or []:
+                if isinstance(t, str) and t not in PSEUDO_NAMES and t not in names:
+                    rep.add("WARN", where,
+                            f"rule {label!r} targets {t!r}, which is not a base "
+                            f"type in the catalog - it emits a BaseType line that "
+                            f"never matches in game")
 
 
 def validate(only: str | None, catalog: str | None) -> Report:
@@ -222,6 +304,8 @@ def validate(only: str | None, catalog: str | None) -> Report:
             rep.add("WARN", f"base_mapping/{rel}",
                     f"tier {key!r} is undefined here; its {len(items)} item(s) are "
                     f"remapped onto the first non-hide tier and lose their ranking")
+
+        check_rules(map_doc, mapping, defined, rel, names, rep)
 
     # tier_definitions with no mapping partner
     for path in sorted(glob.glob(os.path.join(TD, "**", "*.json"), recursive=True)):

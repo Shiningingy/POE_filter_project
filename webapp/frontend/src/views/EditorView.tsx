@@ -61,6 +61,10 @@ const EditorView: React.FC<EditorViewProps> = ({
   const [pingedCondition, setPingedCondition] = useState<{ tierKey: string, ruleIndex: number, conditionKey: string, timestamp: number } | null>(null);
   const [toast, setToast] = useState<{ message: string, timestamp: number } | null>(null);
   const [tierItems, setTierItems] = useState<Record<string, any[]>>({});
+  // The mapping file's _meta.item_class. Kept OUT of configContent on purpose:
+  // persistConfig writes configContent straight back to the tier_definition, so
+  // merging a mapping-only field in would copy it into 94 tier files.
+  const [mappingItemClass, setMappingItemClass] = useState<string | null>(null);
   const [soundMap, setSoundMap] = useState<any>({ basetype_sounds: {}, class_sounds: {} });
   const [themeData, setThemeData] = useState<any>(null);
   const [fallbackMenu, setFallbackMenu] = useState<{ x: number, y: number } | null>(null);
@@ -205,7 +209,10 @@ const EditorView: React.FC<EditorViewProps> = ({
             const mapData = mapRes.data.content;
             const catKey = Object.keys(tierData).find(k => !k.startsWith('//'));
             const mergedData = JSON.parse(JSON.stringify(tierData));
-            
+
+            const mic = mapData?._meta?.item_class;
+            setMappingItemClass(typeof mic === 'string' ? mic : (mic?.en ?? null));
+
             if (catKey) {
                 if (mapData.rules) {
                     mergedData[catKey].rules = mapData.rules;
@@ -363,8 +370,12 @@ const EditorView: React.FC<EditorViewProps> = ({
   }, [configContent]);
 
   // The editing category's item class (EN) — used to recommend class-applicable
-  // conditions in the rule editor.
+  // conditions in the rule editor. It lives in the MAPPING's _meta (102 of 103
+  // categories); only 9 tier_definitions carry one, so reading configContent
+  // alone left this null nearly everywhere and no condition was ever
+  // recommended beyond the universal ones.
   const categoryClass = useMemo<string | null>(() => {
+      if (mappingItemClass) return mappingItemClass;
       if (!configContent) return null;
       try {
           const parsed = JSON.parse(configContent);
@@ -372,7 +383,7 @@ const EditorView: React.FC<EditorViewProps> = ({
           const ic = catKey ? parsed[catKey]?._meta?.item_class : null;
           return typeof ic === 'string' ? ic : (ic?.en ?? null);
       } catch { return null; }
-  }, [configContent]);
+  }, [configContent, mappingItemClass]);
 
   return (
     <div className="editor-view" onContextMenu={handleGlobalContextMenu}>
