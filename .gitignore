@@ -19,6 +19,11 @@ filter_generation/data/_import_backup/
 # (CI runs it on every deploy; locally run it before `vite preview`)
 webapp/frontend/public/demo_data/
 
+# Browser "save complete page" asset folders (icons/css/js, ~2.4 MB, 260 files).
+# The saved .html itself IS committed — poewiki.net 403s every fetch route, so a
+# hand-saved copy is the only reproducible input for parse_ruthless_wiki.py.
+data/*_files/
+
 # Raw GGPK dumps (~40 MB/league, mostly Mods) are build artifacts of
 # parsing_tool/ggpk/extract.py, reproducible from the patch version alone.
 # The catalog derived from them IS committed; the raw tables are not.
