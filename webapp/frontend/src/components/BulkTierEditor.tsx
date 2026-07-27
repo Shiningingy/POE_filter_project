@@ -395,13 +395,33 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       // so editing several items in one category raced against itself and
       // could corrupt the file or silently drop edits. The backend now groups
       // by file and writes each once, under a lock.
-      const changes: { item_name: string; new_tiers: string[]; new_tier: string; source_file: string }[] = [];
+      // This editor owns exactly ONE category: the tiers it offers, in that
+      // category's mapping file. An item's other tiers live in other files and
+      // must not be touched — 792 of 3198 curated names are deliberately mapped
+      // in several files at once (a base armour is in Body Armours AND Uniques
+      // AND the campaign tree), so "move it here" must never mean "remove it
+      // from there".
+      //
+      // Previously the whole tier list — including tiers belonging to other
+      // categories — was posted to the ITEM's file, so dragging a _legacy item
+      // into this category tried to write e.g. 'Tier 0 Delirium Orbs' into
+      // Legacy.json, which does not define it.
+      const openTierKeys = new Set(availableTiers.map(t => t.key));
+      const changes: { item_name: string; new_tiers: string[] | null; new_tier: string; source_file: string }[] = [];
       const unresolved: string[] = [];
       for (const [itemName, newTiers] of entries) {
         const item = items.find(i => i.name === itemName);
-        const sourceFile = item?.source_file || defaultMappingPath || classToFile[item?.item_class || ""] || "";
-        if (!sourceFile) { unresolved.push(itemName); continue; }
-        changes.push({ item_name: itemName, new_tiers: newTiers, new_tier: "", source_file: sourceFile });
+        const targetFile = defaultMappingPath || item?.source_file || classToFile[item?.item_class || ""] || "";
+        if (!targetFile) { unresolved.push(itemName); continue; }
+
+        const mine = newTiers.filter(t => openTierKeys.has(t));
+        if (mine.length) {
+          changes.push({ item_name: itemName, new_tiers: mine, new_tier: "", source_file: targetFile });
+        } else if (item?.source_file === targetFile) {
+          // It lived here and now has no tier here: drop it from this file only.
+          changes.push({ item_name: itemName, new_tiers: null, new_tier: "", source_file: targetFile });
+        }
+        // else: not ours and not assigned here — leave every file alone.
       }
 
       let failed: string[] = [];
@@ -430,7 +450,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         // just added in the editor and never saved. Say so, rather than making
         // the user decode the raw rejection.
         const hint = problems.some((p) => p.includes("does not define"))
-          ? "\n\nThat tier is not saved to disk yet. Save the category (💾), then apply again."
+          ? "\n\nThat tier does not exist in the target category. If you just added it, save the category (💾) first, then apply again."
           : "";
         alert(`Failed to update ${problems.length} item(s):\n` +
               problems.map((p) => `• ${p}`).join("\n") + hint);
