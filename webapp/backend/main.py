@@ -1007,6 +1007,9 @@ def update_item_tier(request: UpdateItemTierRequest):
     else:
         file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
 
+    # Destination tiers only. old_tier may legitimately BE a dead tier - that is
+    # what moving an item off one looks like.
+    assert_tiers_exist(request.source_file, (request.new_tiers or []) + [request.new_tier])
     try:
         # One lock per file for the whole read-modify-write, and an atomic
         # replace at the end. Without both, concurrent edits to the same
@@ -1017,6 +1020,39 @@ def update_item_tier(request: UpdateItemTierRequest):
             write_json_atomic(file_path, data)
         return {"message": "Success"}
     except Exception as e: raise HTTPException(status_code=500, detail=str(e))
+
+
+def assert_tiers_exist(source_file: str, tiers: List[str]) -> None:
+    """Reject a tier the target category does not define, before writing it.
+
+    generate.py:393 does `if t_lbl not in category_data: continue`, so an item
+    filed under an undefined tier emits NOTHING - the filter builds cleanly and
+    the item is simply missing in game. That is how 525 curated entries went
+    dark unnoticed. Catching it at write time turns a silent data-loss bug into
+    an error message naming the valid tiers.
+    """
+    wanted = [t for t in tiers if t]
+    if not wanted:
+        return
+    rel = source_file[len("base_mapping/"):] if source_file.startswith("base_mapping/") else source_file
+    tier_path = CONFIG_DATA_DIR / "tier_definition" / rel
+    if not tier_path.exists():
+        return          # unpaired category - the CLI validator reports it
+    try:
+        with open(tier_path, encoding="utf-8-sig") as f:
+            doc = json.load(f)
+    except Exception:
+        return          # a broken tier file is the validator's problem, not this write's
+    defined = set()
+    for _key, body in doc.items():
+        if isinstance(body, dict) and isinstance(body.get("_meta"), dict):
+            defined |= {k for k in body if k != "_meta"}
+    unknown = [t for t in wanted if t not in defined]
+    if unknown and defined:
+        raise HTTPException(status_code=400, detail=(
+            f"{rel} does not define {', '.join(repr(t) for t in unknown)}. "
+            f"An item filed there would emit nothing. Valid tiers: "
+            f"{', '.join(sorted(defined))}"))
 
 
 def apply_tier_change(data: dict, request: "UpdateItemTierRequest") -> None:
@@ -1132,6 +1168,9 @@ def update_item_tiers_bulk(request: BulkTierRequest):
         else:
             file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", source_file)
         try:
+            for change in changes:
+                assert_tiers_exist(change.source_file,
+                                   (change.new_tiers or []) + [change.new_tier])
             with file_lock(file_path):
                 with open(file_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
