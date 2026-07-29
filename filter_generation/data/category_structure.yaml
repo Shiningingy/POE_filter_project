@@ -56,9 +56,6 @@ League Currency:
   Omens:
     name: 预兆
     path: Currency/Omens.json
-  Ritual:
-    name: 仪式
-    path: Currency/Ritual.json
   Runegrafts:
     name: 符文嫁接
     path: Currency/Runegrafts.json

@@ -38,6 +38,7 @@
         "Fragment of Terror": "恐怖碎片",
         "Fragment of Emptiness": "空虚碎片",
         "Blood-filled Vessel": "浸血法器",
+        "Ritual Vessel": "驱灵法器",
         "Zorath's Eye of Malevolence": "佐拉斯之眼：恶意",
         "Zorath's Eye of Authority": "佐拉斯之眼：威权",
         "Zorath's Eye of the Inevitable": "佐拉斯之眼：必然",
@@ -146,6 +147,9 @@
     "Fragment of Terror": "Tier 1 Fragments",
     "Fragment of Emptiness": "Tier 1 Fragments",
     "Blood-filled Vessel": [
+      "Tier 2 Fragments"
+    ],
+    "Ritual Vessel": [
       "Tier 2 Fragments"
     ],
     "Zorath's Eye of Malevolence": "Tier 2 Fragments",

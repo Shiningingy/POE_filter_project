@@ -22,11 +22,10 @@
 #    [29000] 通货 Currency - 可堆叠通货 Incursion Vials
 #    [30000] 通货 Currency - 圣油 Oils
 #    [31000] 通货 Currency - 可堆叠通货 Omens
-#    [32000] 通货 Currency - 可堆叠通货 Ritual
-#    [33000] 通货 Currency - 可堆叠通货 Runegrafts
-#    [34000] 通货 Currency - 可堆叠通货 Splinters
-#    [35000] 通货 Currency - 可堆叠通货 Tainted Currency
-#    [36000] 通货 Currency - _archived _archived - 裂隙 Breach
+#    [32000] 通货 Currency - 可堆叠通货 Runegrafts
+#    [33000] 通货 Currency - 可堆叠通货 Splinters
+#    [34000] 通货 Currency - 可堆叠通货 Tainted Currency
+#    [35000] 通货 Currency - _archived _archived - 裂隙 Breach
 #  [30000] Curse of the Allflame Curse of the Allflame
 #    [31000] Curse of the Allflame Curse of the Allflame - 笼罩物品 Enshrouded Gear
 #    [32000] Curse of the Allflame Curse of the Allflame - 可堆叠通货 Curse of the Allflame
@@ -1228,46 +1227,9 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[32000]-通货 Currency - 可堆叠通货 Ritual==
+#==[32000]-通货 Currency - 可堆叠通货 Runegrafts==
 
-#==[32001]- Ritual -Tier 1 可堆叠通货 - 自动音效：驱灵裂片 - 精确==
-Show
-    BaseType == "Ritual Splinter"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
-    CustomAlertSound "sound_files\Sharket掉落音效\驱灵裂片.mp3" 100
-    PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
-
-
-#==[32002]- Ritual -Tier 1 可堆叠通货 - 自动音效：新月裂片 - 精确==
-Show
-    BaseType == "Crescent Splinter"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
-    CustomAlertSound "sound_files\Sharket掉落音效\新月裂片.mp3" 300
-    PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
-
-
-#==[32003]- Ritual -Tier 1 可堆叠通货 - 基础 - 精确==
-Show
-    BaseType == "Ritual Vessel"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
-    PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
-
-
-#==[33000]-通货 Currency - 可堆叠通货 Runegrafts==
-
-#==[33001]- Runegrafts -T1: 符文嵌板 可堆叠通货 - 基础 - 精确==
+#==[32001]- Runegrafts -T1: 符文嵌板 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Runegraft of Bellows" "Runegraft of Blasphemy" "Runegraft of Gemcraft" "Runegraft of Loyalty" "Runegraft of Quaffing" "Runegraft of Refraction" "Runegraft of Restitching" "Runegraft of Stability" "Runegraft of Time" "Runegraft of Treachery" "Runegraft of the Angler" "Runegraft of the Bound" "Runegraft of the Combatant" "Runegraft of the Fortress" "Runegraft of the Jeweller" "Runegraft of the Novamark" "Runegraft of the River" "Runegraft of the Sinistral" "Runegraft of the Soulwick" "Runegraft of the Warp" "Runegraft of the Witchmark"
     SetFontSize 42
@@ -1279,9 +1241,9 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[34000]-通货 Currency - 可堆叠通货 Splinters==
+#==[33000]-通货 Currency - 可堆叠通货 Splinters==
 
-#==[34001]- Splinters -T1: 破界/军团裂片 可堆叠通货 - 基础 - 精确==
+#==[33001]- Splinters -T1: 破界/军团裂片 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Simulacrum Splinter" "Splinter of Chayula" "Splinter of Esh" "Splinter of Tul" "Splinter of Uul-Netol" "Splinter of Xoph" "Timeless Eternal Empire Splinter" "Timeless Karui Splinter" "Timeless Maraketh Splinter" "Timeless Templar Splinter" "Timeless Vaal Splinter"
     SetFontSize 42
@@ -1293,7 +1255,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[34002]- Splinters -T2: 其他裂片 可堆叠通货 - 自动音效：驱灵裂片 - 精确==
+#==[33002]- Splinters -T2: 其他裂片 可堆叠通货 - 自动音效：驱灵裂片 - 精确==
 Show
     BaseType == "Ritual Splinter"
     SetFontSize 39
@@ -1304,7 +1266,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[34003]- Splinters -T2: 其他裂片 可堆叠通货 - 自动音效：新月裂片 - 精确==
+#==[33003]- Splinters -T2: 其他裂片 可堆叠通货 - 自动音效：新月裂片 - 精确==
 Show
     BaseType == "Crescent Splinter"
     SetFontSize 39
@@ -1315,9 +1277,9 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[35000]-通货 Currency - 可堆叠通货 Tainted Currency==
+#==[34000]-通货 Currency - 可堆叠通货 Tainted Currency==
 
-#==[35001]- Tainted Currency -T1：顶级 可堆叠通货 - 自动音效：污染神泪 - 精确==
+#==[34001]- Tainted Currency -T1：顶级 可堆叠通货 - 自动音效：污染神泪 - 精确==
 Show
     BaseType == "Tainted Divine Teardrop"
     SetFontSize 42
@@ -1329,7 +1291,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[35002]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽神秘石 - 精确==
+#==[34002]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽神秘石 - 精确==
 Show
     BaseType == "Tainted Mythic Orb"
     SetFontSize 39
@@ -1340,7 +1302,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[35003]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽链结石 - 精确==
+#==[34003]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽链结石 - 精确==
 Show
     BaseType == "Tainted Orb of Fusing"
     SetFontSize 39
@@ -1351,7 +1313,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[35004]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽崇高石 - 精确==
+#==[34004]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽崇高石 - 精确==
 Show
     BaseType == "Tainted Exalted Orb"
     SetFontSize 36
@@ -1361,7 +1323,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽崇高石.mp3" 300
 
 
-#==[35005]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽混沌石 - 精确==
+#==[34005]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽混沌石 - 精确==
 Show
     BaseType == "Tainted Chaos Orb"
     SetFontSize 36
@@ -1371,7 +1333,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽混沌石.mp3" 300
 
 
-#==[35006]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽幻色石 - 精确==
+#==[34006]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽幻色石 - 精确==
 Show
     BaseType == "Tainted Chromatic Orb"
     SetFontSize 36
@@ -1381,7 +1343,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽幻色石.mp3" 300
 
 
-#==[35007]- Tainted Currency -T3：中等 可堆叠通货 - 基础 - 精确==
+#==[34007]- Tainted Currency -T3：中等 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Tainted Catalyst"
     SetFontSize 36
@@ -1391,7 +1353,7 @@ Show
     PlayAlertSound 3 300
 
 
-#==[35008]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽磨刀石 - 精确==
+#==[34008]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽磨刀石 - 精确==
 Show
     BaseType == "Tainted Blacksmith's Whetstone"
     SetFontSize 34
@@ -1401,7 +1363,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽磨刀石.mp3" 200
 
 
-#==[35009]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽工匠石 - 精确==
+#==[34009]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽工匠石 - 精确==
 Show
     BaseType == "Tainted Jeweller's Orb"
     SetFontSize 34
@@ -1411,7 +1373,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽工匠石.mp3" 300
 
 
-#==[35010]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽护甲片 - 精确==
+#==[34010]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽护甲片 - 精确==
 Show
     BaseType == "Tainted Armourer's Scrap"
     SetFontSize 34
@@ -1421,9 +1383,9 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽护甲片.mp3" 200
 
 
-#==[36000]-通货 Currency - _archived _archived - 裂隙 Breach==
+#==[35000]-通货 Currency - _archived _archived - 裂隙 Breach==
 
-#==[36001]- Breach -T0: 无瑕裂隙石/祝福 裂隙 - 基础 - 精确==
+#==[35001]- Breach -T0: 无瑕裂隙石/祝福 裂隙 - 基础 - 精确==
 Show
     BaseType == "Blessing of Chayula"
     SetFontSize 45
@@ -1435,7 +1397,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[36002]- Breach -T1: 高级裂隙通货 裂隙 - 基础 - 精确==
+#==[35002]- Breach -T1: 高级裂隙通货 裂隙 - 基础 - 精确==
 Show
     BaseType == "Blessing of Uul-Netol" "Splinter of Chayula"
     SetFontSize 42
@@ -1447,7 +1409,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[36003]- Breach -T2: 常用裂隙通货 裂隙 - 基础 - 精确==
+#==[35003]- Breach -T2: 常用裂隙通货 裂隙 - 基础 - 精确==
 Show
     BaseType == "Splinter of Uul-Netol"
     SetFontSize 39
@@ -1458,7 +1420,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[36004]- Breach -T3: 裂隙裂片 裂隙 - 基础 - 精确==
+#==[35004]- Breach -T3: 裂隙裂片 裂隙 - 基础 - 精确==
 Show
     BaseType == "Splinter of Esh" "Splinter of Tul" "Splinter of Xoph"
     SetFontSize 36
@@ -3955,7 +3917,7 @@ Show
 
 #==[82009]- Fragments -T2: 高价值碎片 碎片 - 基础 - 精确==
 Show
-    BaseType == "Fragment of Knowledge" "Mortal Grief" "Mortal Ignorance" "Mortal Rage" "Syndicate Medallion" "Timeless Eternal Emblem" "Timeless Karui Emblem" "Timeless Maraketh Emblem" "Timeless Templar Emblem" "Timeless Vaal Emblem" "Zorath's Eye of Authority" "Zorath's Eye of Malevolence" "Zorath's Eye of the Endless" "Zorath's Eye of the Inevitable"
+    BaseType == "Fragment of Knowledge" "Mortal Grief" "Mortal Ignorance" "Mortal Rage" "Ritual Vessel" "Syndicate Medallion" "Timeless Eternal Emblem" "Timeless Karui Emblem" "Timeless Maraketh Emblem" "Timeless Templar Emblem" "Timeless Vaal Emblem" "Zorath's Eye of Authority" "Zorath's Eye of Malevolence" "Zorath's Eye of the Endless" "Zorath's Eye of the Inevitable"
     SetFontSize 39
     SetTextColor 208 181 120 255
     SetBorderColor 200 168 96 255

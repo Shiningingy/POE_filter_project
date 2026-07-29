@@ -145,16 +145,6 @@
           }
         },
         {
-          "path": "Currency/Ritual.json",
-          "tier_path": "tier_definition/Currency/Ritual.json",
-          "mapping_path": "base_mapping/Currency/Ritual.json",
-          "target_category": "Ritual",
-          "localization": {
-            "en": "Ritual",
-            "ch": "仪式"
-          }
-        },
-        {
           "path": "Currency/Runegrafts.json",
           "tier_path": "tier_definition/Currency/Runegrafts.json",
           "mapping_path": "base_mapping/Currency/Runegrafts.json",
