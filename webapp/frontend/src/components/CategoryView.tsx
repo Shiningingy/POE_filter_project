@@ -1038,6 +1038,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
           onClose={() => setShowBulkEditor(false)}
           onSave={() => fetchTierItems(sortedTierKeys)}
           defaultMappingPath={defaultMappingPath}
+          adminMode={adminMode}
         />
       )}
 

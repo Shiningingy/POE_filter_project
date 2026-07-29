@@ -48,6 +48,8 @@ interface BulkTierEditorProps {
   onClose: () => void;
   onSave: () => void;
   defaultMappingPath?: string;
+  /** Lifts the T0 protect-guard for the session — see EditorView's adminMode. */
+  adminMode?: boolean;
 }
 
 const ARMOUR_CLASSES = ["Body Armours", "Gloves", "Boots", "Helmets", "Shields"];
@@ -126,7 +128,8 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   language, 
   onClose,
   onSave,
-  defaultMappingPath
+  defaultMappingPath,
+  adminMode = false
 }) => {
   const t = useTranslation(language);
   const [items, setItems] = useState<Item[]>([]);
@@ -346,9 +349,9 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
             if (!window.confirm(confirmMsg)) return;
         }
         
-        // PROTECT T0: Do not remove from list if it's a locked tier
+        // PROTECT T0: Do not remove from list if it's a locked tier (admin mode lifts it)
         const sourceOpt = availableTiers.find(o => o.key === actualSource);
-        const isSourceLocked = sourceOpt && sourceOpt.show_in_editor === false;
+        const isSourceLocked = !adminMode && sourceOpt && sourceOpt.show_in_editor === false;
 
         if (!isSourceLocked) {
             const idx = effectiveTiers.indexOf(actualSource);
@@ -663,7 +666,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                                                 return opt && opt.show_in_editor === false;
                                             });
 
-                                            const isItemLocked = isLocationLocked && isT0ByOrigin;
+                                            const isItemLocked = !adminMode && isLocationLocked && isT0ByOrigin;
 
                                             return (
                                                 <SortableItem 
@@ -713,7 +716,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                                 const o = availableTiers.find(x => x.key === tk);
                                 return o && o.show_in_editor === false;
                             });
-                            return opt && opt.show_in_editor === false && isT0ByOrigin;
+                            return !adminMode && opt && opt.show_in_editor === false && isT0ByOrigin;
                         })()
                     },
                     { divider: true, label: '', onClick: () => {} }
