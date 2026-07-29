@@ -23,9 +23,8 @@
 #    [30000] 通货 Currency - 圣油 Oils
 #    [31000] 通货 Currency - 可堆叠通货 Omens
 #    [32000] 通货 Currency - 可堆叠通货 Runegrafts
-#    [33000] 通货 Currency - 可堆叠通货 Splinters
-#    [34000] 通货 Currency - 可堆叠通货 Tainted Currency
-#    [35000] 通货 Currency - _archived _archived - 裂隙 Breach
+#    [33000] 通货 Currency - 可堆叠通货 Tainted Currency
+#    [34000] 通货 Currency - _archived _archived - 裂隙 Breach
 #  [30000] Curse of the Allflame Curse of the Allflame
 #    [31000] Curse of the Allflame Curse of the Allflame - 笼罩物品 Enshrouded Gear
 #    [32000] Curse of the Allflame Curse of the Allflame - 可堆叠通货 Curse of the Allflame
@@ -90,8 +89,9 @@
 #    [73000] Jewels Jewels - 星团珠宝 Cluster Jewels
 #  [80000] 地图 Maps
 #    [81000] 地图 Maps - 常规地图 Base Maps
-#    [82000] 地图 Maps - 碎片 Fragments
-#    [83000] 地图 Maps - 地图碎片 Scarabs
+#    [82000] 地图 Maps - 可堆叠通货 Splinters
+#    [83000] 地图 Maps - 碎片 Fragments
+#    [84000] 地图 Maps - 地图碎片 Scarabs
 #  [90000] 杂项 Misc
 #    [91000] 杂项 Misc - 金币 Misc
 #    [92000] 杂项 Misc - 神像 Idols
@@ -1241,45 +1241,9 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[33000]-通货 Currency - 可堆叠通货 Splinters==
+#==[33000]-通货 Currency - 可堆叠通货 Tainted Currency==
 
-#==[33001]- Splinters -T1: 破界/军团裂片 可堆叠通货 - 基础 - 精确==
-Show
-    BaseType == "Simulacrum Splinter" "Splinter of Chayula" "Splinter of Esh" "Splinter of Tul" "Splinter of Uul-Netol" "Splinter of Xoph" "Timeless Eternal Empire Splinter" "Timeless Karui Splinter" "Timeless Maraketh Splinter" "Timeless Templar Splinter" "Timeless Vaal Splinter"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
-    PlayAlertSound 2 300
-    PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
-
-
-#==[33002]- Splinters -T2: 其他裂片 可堆叠通货 - 自动音效：驱灵裂片 - 精确==
-Show
-    BaseType == "Ritual Splinter"
-    SetFontSize 39
-    SetTextColor 218 187 85 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
-    CustomAlertSound "sound_files\Sharket掉落音效\驱灵裂片.mp3" 100
-    MinimapIcon 1 Orange Circle
-
-
-#==[33003]- Splinters -T2: 其他裂片 可堆叠通货 - 自动音效：新月裂片 - 精确==
-Show
-    BaseType == "Crescent Splinter"
-    SetFontSize 39
-    SetTextColor 218 187 85 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
-    CustomAlertSound "sound_files\Sharket掉落音效\新月裂片.mp3" 300
-    MinimapIcon 1 Orange Circle
-
-
-#==[34000]-通货 Currency - 可堆叠通货 Tainted Currency==
-
-#==[34001]- Tainted Currency -T1：顶级 可堆叠通货 - 自动音效：污染神泪 - 精确==
+#==[33001]- Tainted Currency -T1：顶级 可堆叠通货 - 自动音效：污染神泪 - 精确==
 Show
     BaseType == "Tainted Divine Teardrop"
     SetFontSize 42
@@ -1291,7 +1255,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[34002]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽神秘石 - 精确==
+#==[33002]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽神秘石 - 精确==
 Show
     BaseType == "Tainted Mythic Orb"
     SetFontSize 39
@@ -1302,7 +1266,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[34003]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽链结石 - 精确==
+#==[33003]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽链结石 - 精确==
 Show
     BaseType == "Tainted Orb of Fusing"
     SetFontSize 39
@@ -1313,7 +1277,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[34004]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽崇高石 - 精确==
+#==[33004]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽崇高石 - 精确==
 Show
     BaseType == "Tainted Exalted Orb"
     SetFontSize 36
@@ -1323,7 +1287,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽崇高石.mp3" 300
 
 
-#==[34005]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽混沌石 - 精确==
+#==[33005]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽混沌石 - 精确==
 Show
     BaseType == "Tainted Chaos Orb"
     SetFontSize 36
@@ -1333,7 +1297,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽混沌石.mp3" 300
 
 
-#==[34006]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽幻色石 - 精确==
+#==[33006]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽幻色石 - 精确==
 Show
     BaseType == "Tainted Chromatic Orb"
     SetFontSize 36
@@ -1343,7 +1307,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽幻色石.mp3" 300
 
 
-#==[34007]- Tainted Currency -T3：中等 可堆叠通货 - 基础 - 精确==
+#==[33007]- Tainted Currency -T3：中等 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Tainted Catalyst"
     SetFontSize 36
@@ -1353,7 +1317,7 @@ Show
     PlayAlertSound 3 300
 
 
-#==[34008]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽磨刀石 - 精确==
+#==[33008]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽磨刀石 - 精确==
 Show
     BaseType == "Tainted Blacksmith's Whetstone"
     SetFontSize 34
@@ -1363,7 +1327,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽磨刀石.mp3" 200
 
 
-#==[34009]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽工匠石 - 精确==
+#==[33009]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽工匠石 - 精确==
 Show
     BaseType == "Tainted Jeweller's Orb"
     SetFontSize 34
@@ -1373,7 +1337,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽工匠石.mp3" 300
 
 
-#==[34010]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽护甲片 - 精确==
+#==[33010]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽护甲片 - 精确==
 Show
     BaseType == "Tainted Armourer's Scrap"
     SetFontSize 34
@@ -1383,9 +1347,9 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽护甲片.mp3" 200
 
 
-#==[35000]-通货 Currency - _archived _archived - 裂隙 Breach==
+#==[34000]-通货 Currency - _archived _archived - 裂隙 Breach==
 
-#==[35001]- Breach -T0: 无瑕裂隙石/祝福 裂隙 - 基础 - 精确==
+#==[34001]- Breach -T0: 无瑕裂隙石/祝福 裂隙 - 基础 - 精确==
 Show
     BaseType == "Blessing of Chayula"
     SetFontSize 45
@@ -1397,7 +1361,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[35002]- Breach -T1: 高级裂隙通货 裂隙 - 基础 - 精确==
+#==[34002]- Breach -T1: 高级裂隙通货 裂隙 - 基础 - 精确==
 Show
     BaseType == "Blessing of Uul-Netol" "Splinter of Chayula"
     SetFontSize 42
@@ -1409,7 +1373,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[35003]- Breach -T2: 常用裂隙通货 裂隙 - 基础 - 精确==
+#==[34003]- Breach -T2: 常用裂隙通货 裂隙 - 基础 - 精确==
 Show
     BaseType == "Splinter of Uul-Netol"
     SetFontSize 39
@@ -1420,7 +1384,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[35004]- Breach -T3: 裂隙裂片 裂隙 - 基础 - 精确==
+#==[34004]- Breach -T3: 裂隙裂片 裂隙 - 基础 - 精确==
 Show
     BaseType == "Splinter of Esh" "Splinter of Tul" "Splinter of Xoph"
     SetFontSize 36
@@ -3820,9 +3784,44 @@ Show
     MinimapIcon 1 Blue Circle
 
 
-#==[82000]-地图 Maps - 碎片 Fragments==
+#==[82000]-地图 Maps - 可堆叠通货 Splinters==
 
-#==[82001]- Fragments -T0: 顶级/核心 碎片 - 基础 - 精确==
+#==[82001]- Splinters -T1: 破界/军团裂片 可堆叠通货 - 自动音效：新月裂片 - 精确==
+Show
+    BaseType == "Crescent Splinter"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 42 35 11 255
+    CustomAlertSound "sound_files\Sharket掉落音效\新月裂片.mp3" 300
+    PlayEffect Orange
+    MinimapIcon 1 Orange Diamond
+
+
+#==[82002]- Splinters -T2: 其他裂片 可堆叠通货 - 自动音效：驱灵裂片 - 精确==
+Show
+    BaseType == "Ritual Splinter"
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\驱灵裂片.mp3" 100
+    MinimapIcon 1 Orange Circle
+
+
+#==[82003]- Splinters -T2: 其他裂片 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Simulacrum Splinter" "Timeless Eternal Empire Splinter" "Timeless Maraketh Splinter" "Timeless Vaal Splinter"
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    MinimapIcon 1 Orange Circle
+
+
+#==[83000]-地图 Maps - 碎片 Fragments==
+
+#==[83001]- Fragments -T0: 顶级/核心 碎片 - 基础 - 精确==
 Show
     BaseType == "Awakening Fragment" "Blazing Fragment" "Cosmic Fragment" "Decaying Fragment" "Devouring Fragment" "Lonely Fragment" "Reality Fragment" "Reverent Fragment" "Synthesising Fragment" "Traumatic Fragment"
     SetFontSize 45
@@ -3834,7 +3833,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[82002]- Fragments -T1: 顶级碎片 碎片 - 自动音效：贤主敕令 - 精确==
+#==[83002]- Fragments -T1: 顶级碎片 碎片 - 自动音效：贤主敕令 - 精确==
 Show
     BaseType == "The Maven's Writ"
     SetFontSize 42
@@ -3846,7 +3845,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[82003]- Fragments -T1: 顶级碎片 碎片 - 自动音效：神圣之花 - 精确==
+#==[83003]- Fragments -T1: 顶级碎片 碎片 - 自动音效：神圣之花 - 精确==
 Show
     BaseType == "Sacred Blossom"
     SetFontSize 42
@@ -3858,7 +3857,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[82004]- Fragments -T1: 顶级碎片 碎片 - 自动音效：谒王之约 - 精确==
+#==[83004]- Fragments -T1: 顶级碎片 碎片 - 自动音效：谒王之约 - 精确==
 Show
     BaseType == "An Audience With The King"
     SetFontSize 42
@@ -3870,7 +3869,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[82005]- Fragments -T1: 顶级碎片 碎片 - 基础 - 精确==
+#==[83005]- Fragments -T1: 顶级碎片 碎片 - 基础 - 精确==
 Show
     BaseType == "Echo of Loneliness" "Echo of Reverence" "Echo of Trauma" "Fragment of Emptiness" "Fragment of Shape" "Fragment of Terror" "Hivebrain Gland" "Kalguuran Scarab" "Kalguuran Scarab of Guarded Riches" "Kalguuran Scarab of Refinement"
     SetFontSize 42
@@ -3882,7 +3881,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[82006]- Fragments -T2: 高价值碎片 碎片 - 自动音效：梦魇拟像 - 精确==
+#==[83006]- Fragments -T2: 高价值碎片 碎片 - 自动音效：梦魇拟像 - 精确==
 Show
     BaseType == "Simulacrum"
     SetFontSize 39
@@ -3893,7 +3892,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[82007]- Fragments -T2: 高价值碎片 碎片 - 自动音效：凡人的希望 - 精确==
+#==[83007]- Fragments -T2: 高价值碎片 碎片 - 自动音效：凡人的希望 - 精确==
 Show
     BaseType == "Mortal Hope"
     SetFontSize 39
@@ -3904,7 +3903,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[82008]- Fragments -T2: 高价值碎片 碎片 - 自动音效：浸血法器 - 精确==
+#==[83008]- Fragments -T2: 高价值碎片 碎片 - 自动音效：浸血法器 - 精确==
 Show
     BaseType == "Blood-filled Vessel"
     SetFontSize 39
@@ -3915,7 +3914,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[82009]- Fragments -T2: 高价值碎片 碎片 - 基础 - 精确==
+#==[83009]- Fragments -T2: 高价值碎片 碎片 - 基础 - 精确==
 Show
     BaseType == "Fragment of Knowledge" "Mortal Grief" "Mortal Ignorance" "Mortal Rage" "Ritual Vessel" "Syndicate Medallion" "Timeless Eternal Emblem" "Timeless Karui Emblem" "Timeless Maraketh Emblem" "Timeless Templar Emblem" "Timeless Vaal Emblem" "Zorath's Eye of Authority" "Zorath's Eye of Malevolence" "Zorath's Eye of the Endless" "Zorath's Eye of the Inevitable"
     SetFontSize 39
@@ -3926,7 +3925,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[82010]- Fragments -T3: 普通碎片 碎片 - 基础 - 精确==
+#==[83010]- Fragments -T3: 普通碎片 碎片 - 基础 - 精确==
 Show
     BaseType == "Al-Hezmin's Crest" "Allflame Ember of Flesh" "Allflame Ember of Kulemak" "Allflame Ember of Propagation" "Allflame Ember of Resplendence" "Allflame Ember of Toads" "Allflame Ember of the Ethereal" "Allflame Ember of the Gilded" "Allflame Ember of the Wildwood" "Baran's Crest" "Drox's Crest" "Fragment of Constriction" "Fragment of Enslavement" "Fragment of Eradication" "Fragment of Purification" "Fragment of the Chimera" "Fragment of the Hydra" "Fragment of the Minotaur" "Fragment of the Phoenix" "Veritania's Crest"
     SetFontSize 36
@@ -3936,7 +3935,7 @@ Show
     PlayAlertSound 2 300
 
 
-#==[82011]- Fragments -T4: 低价值碎片 碎片 - 基础 - 精确==
+#==[83011]- Fragments -T4: 低价值碎片 碎片 - 基础 - 精确==
 Show
     BaseType == "Sacrifice at Dawn" "Sacrifice at Dusk" "Sacrifice at Midnight" "Sacrifice at Noon"
     SetFontSize 34
@@ -3945,9 +3944,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[83000]-地图 Maps - 地图碎片 Scarabs==
+#==[84000]-地图 Maps - 地图碎片 Scarabs==
 
-#==[83001]- 地图碎片 -T1: 顶级圣甲虫 地图碎片 - 基础 - 精确==
+#==[84001]- 地图碎片 -T1: 顶级圣甲虫 地图碎片 - 基础 - 精确==
 Show
     BaseType == "Abyss Scarab of the Consort" "Blight Scarab of Blooming" "Blight Scarab of Invigoration" "Breach Scarab of Resonant Cascade" "Breach Scarab of the Incensed Swarm" "Domination Scarab of Terrors" "Essence Scarab of Adaptation" "Harvest Scarab of Cornucopia" "Horned Scarab of Awakening" "Horned Scarab of Bloodlines" "Horned Scarab of Glittering" "Horned Scarab of Pandemonium" "Horned Scarab of Preservation" "Horned Scarab of Tradition" "Legion Scarab of Eternal Conflict" "Scarab of Radiant Storms" "Titanic Scarab of Legend" "Ultimatum Scarab of Catalysing" "Ultimatum Scarab of Dueling"
     SetFontSize 42
@@ -3959,7 +3958,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[83002]- 地图碎片 -T2: 稀有圣甲虫 地图碎片 - 基础 - 精确==
+#==[84002]- 地图碎片 -T2: 稀有圣甲虫 地图碎片 - 基础 - 精确==
 Show
     BaseType == "Ambush Scarab of Containment" "Ambush Scarab of Discernment" "Anarchy Scarab of Partnership" "Betrayal Scarab of Reinforcements" "Betrayal Scarab of the Allflame" "Beyond Scarab of Haemophilia" "Beyond Scarab of Resurgence" "Beyond Scarab of the Invasion" "Blight Scarab of the Blightheart" "Breach Scarab of the Marshal" "Cartography Scarab of Corruption" "Cartography Scarab of Risk" "Delirium Scarab of Delusions" "Delirium Scarab of Neuroses" "Divination Scarab of Pilfering" "Domination Scarab of Evolution" "Essence Scarab of Ascent" "Essence Scarab of Calcification" "Expedition Scarab of Archaeology" "Harvest Scarab of Doubling" "Horned Scarab of Nemeses" "Incursion Scarab of Champions" "Incursion Scarab of Timelines" "Influencing Scarab of Interference" "Legion Scarab of Officers" "Legion Scarab of Treasures" "Ritual Scarab of Abundance" "Scarab of Stability" "Scarab of the Sinistral" "Titanic Scarab of Treasures" "Torment Scarab of Possession" "Trarthan Scarab of Surprising Alliances" "Ultimatum Scarab of Inscription"
     SetFontSize 39
@@ -3970,7 +3969,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[83003]- 地图碎片 -T3: 少见圣甲虫 地图碎片 - 基础 - 精确==
+#==[84003]- 地图碎片 -T3: 少见圣甲虫 地图碎片 - 基础 - 精确==
 Show
     BaseType == "Abyss Scarab of Multitudes" "Ambush Scarab of Hidden Compartments" "Ambush Scarab of Potency" "Anarchy Scarab of Gigantification" "Bestiary Scarab of the Herd" "Breach Scarab of Instability" "Cartography Scarab of the Multitude" "Delirium Scarab of Mania" "Delirium Scarab of Paranoia" "Divination Scarab of Plenty" "Domination Scarab of Apparitions" "Essence Scarab of Stability" "Expedition Scarab of Runefinding" "Expedition Scarab of Verisium Powder" "Influencing Scarab of Hordes" "Ritual Scarab of Wisps" "Scarab of Divinity" "Torment Scarab of Peculiarity" "Trarthan Scarab" "Trarthan Scarab of Infamy" "Trarthan Scarab of Renown" "Ultimatum Scarab of Bribing"
     SetFontSize 36
@@ -3980,7 +3979,7 @@ Show
     PlayAlertSound 2 300
 
 
-#==[83004]- 地图碎片 -T4: 普通圣甲虫 地图碎片 - 基础 - 精确==
+#==[84004]- 地图碎片 -T4: 普通圣甲虫 地图碎片 - 基础 - 精确==
 Show
     BaseType == "Abyss Scarab" "Abyss Scarab of Crystals" "Ambush Scarab" "Anarchy Scarab" "Bestiary Scarab" "Bestiary Scarab of Duplicating" "Betrayal Scarab" "Beyond Scarab" "Blight Scarab" "Breach Scarab of the Hive" "Cartography Scarab of Escalation" "Delirium Scarab" "Divination Scarab of The Cloister" "Domination Scarab" "Essence Scarab" "Expedition Scarab" "Harvest Scarab" "Incursion Scarab" "Incursion Scarab of Invasion" "Influencing Scarab of the Elder" "Influencing Scarab of the Shaper" "Legion Scarab" "Ritual Scarab of Selectiveness" "Scarab of Adversaries" "Scarab of Monstrous Lineage" "Scarab of Wisps" "Sulphite Scarab" "Sulphite Scarab of Fumes" "Titanic Scarab" "Torment Scarab" "Ultimatum Scarab"
     SetFontSize 34

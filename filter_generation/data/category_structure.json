@@ -153,16 +153,6 @@
             "en": "Runegrafts",
             "ch": "符文嫁接"
           }
-        },
-        {
-          "path": "Currency/Splinters.json",
-          "tier_path": "tier_definition/Currency/Splinters.json",
-          "mapping_path": "base_mapping/Currency/Splinters.json",
-          "target_category": "Splinters",
-          "localization": {
-            "en": "Splinters",
-            "ch": "碎片"
-          }
         }
       ]
     },
@@ -346,6 +336,16 @@
           "localization": {
             "en": "Fragments",
             "ch": "地图碎片与邀请"
+          }
+        },
+        {
+          "path": "Maps/Fragment Splinters.json",
+          "tier_path": "tier_definition/Maps/Fragment Splinters.json",
+          "mapping_path": "base_mapping/Maps/Fragment Splinters.json",
+          "target_category": "Splinters",
+          "localization": {
+            "en": "Fragment Splinters",
+            "ch": "碎片"
           }
         }
       ]

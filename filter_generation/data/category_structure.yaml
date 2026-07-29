@@ -59,9 +59,6 @@ League Currency:
   Runegrafts:
     name: 符文嫁接
     path: Currency/Runegrafts.json
-  Splinters:
-    name: 碎片
-    path: Currency/Splinters.json
 
 Divination Cards:
   _name: 命运卡
@@ -101,6 +98,14 @@ Maps & Fragments:
     name: 地图碎片与邀请
     target: Map Fragments
     path: Maps/Fragments.json
+  # Splinters are the FEEDERS - each stacks into something in Fragments above
+  # (100 -> Emblem / Breachstone / Ritual Vessel, 300 -> Simulacrum, 10 Crescent
+  # -> The Maven's Writ). `target` stays "Splinters" to preserve the current
+  # theme resolution; see the note in the commit that moved this here.
+  Fragment Splinters:
+    name: 碎片
+    target: Splinters
+    path: Maps/Fragment Splinters.json
   Heist:
     _name: 赏金猎人
     Contracts:

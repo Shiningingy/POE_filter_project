@@ -21,22 +21,26 @@
       "en": "Stackable Currency",
       "ch": "可堆叠通货"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Stackable Currency",
+    "match_modes": {}
   },
   "mapping": {
-    "Splinter of Xoph": "Tier 1 Splinters",
-    "Splinter of Tul": "Tier 1 Splinters",
-    "Splinter of Esh": "Tier 1 Splinters",
-    "Splinter of Uul-Netol": "Tier 1 Splinters",
-    "Splinter of Chayula": "Tier 1 Splinters",
-    "Timeless Karui Splinter": "Tier 1 Splinters",
-    "Timeless Maraketh Splinter": "Tier 1 Splinters",
-    "Timeless Eternal Empire Splinter": "Tier 1 Splinters",
-    "Timeless Templar Splinter": "Tier 1 Splinters",
-    "Timeless Vaal Splinter": "Tier 1 Splinters",
-    "Simulacrum Splinter": "Tier 1 Splinters",
+    "Timeless Maraketh Splinter": [
+      "Tier 2 Splinters"
+    ],
+    "Timeless Eternal Empire Splinter": [
+      "Tier 2 Splinters"
+    ],
+    "Timeless Vaal Splinter": [
+      "Tier 2 Splinters"
+    ],
+    "Simulacrum Splinter": [
+      "Tier 2 Splinters"
+    ],
     "Ritual Splinter": "Tier 2 Splinters",
-    "Crescent Splinter": "Tier 2 Splinters"
+    "Crescent Splinter": [
+      "Tier 1 Splinters"
+    ]
   },
   "rules": []
 }
