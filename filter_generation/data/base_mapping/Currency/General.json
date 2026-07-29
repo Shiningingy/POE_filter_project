@@ -86,7 +86,13 @@
         "Chaos Shard": "混沌石碎片",
         "Uncarved Gemstone": "待雕琢的宝石",
         "Dextral Catalyst": "右旋催化剂",
-        "Sinistral Catalyst": "左旋催化剂"
+        "Sinistral Catalyst": "左旋催化剂",
+        "Exotic Coinage": "异域铸币",
+        "Burial Medallion": "葬礼徽章",
+        "Astragali": "骨牌",
+        "Scrap Metal": "废金属",
+        "Fracturing Shard": "破溃碎片",
+        "Sacred Crystallised Lifeforce": "神圣白晶命能"
       }
     },
     "item_class": {
@@ -139,7 +145,9 @@
     "Fertile Catalyst": [
       "Tier 2 General"
     ],
-    "Annulment Shard": "Tier 3 General",
+    "Annulment Shard": [
+      "Tier 4 General"
+    ],
     "Eldritch Chaos Orb": [
       "Tier 1 General"
     ],
@@ -256,7 +264,7 @@
     "Alchemy Shard": "Tier 5 General",
     "Regal Shard": "Tier 5 General",
     "Chaos Shard": [
-      "CustomTier 1 General"
+      "CustomTier 2 General"
     ],
     "Blessing of Xoph": [],
     "Blessing of Tul": [],
@@ -279,6 +287,24 @@
     ],
     "Sinistral Catalyst": [
       "Tier 2 General"
+    ],
+    "Exotic Coinage": [
+      "Tier 3 General"
+    ],
+    "Burial Medallion": [
+      "Tier 3 General"
+    ],
+    "Astragali": [
+      "Tier 4 General"
+    ],
+    "Scrap Metal": [
+      "Tier 4 General"
+    ],
+    "Fracturing Shard": [
+      "Tier 2 General"
+    ],
+    "Sacred Crystallised Lifeforce": [
+      "Tier 1 General"
     ]
   },
   "rules": [

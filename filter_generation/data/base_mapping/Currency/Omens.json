@@ -20,18 +20,27 @@
       "en": "Stackable Currency",
       "ch": "可堆叠通货"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Stackable Currency",
+    "match_modes": {}
   },
   "mapping": {
-    "Omen of Fortune": "Tier 1 Omens",
+    "Omen of Fortune": [
+      "Tier 0 Omens"
+    ],
     "Omen of the Jeweller": "Tier 1 Omens",
-    "Omen of Connections": "Tier 1 Omens",
-    "Omen of Amelioration": "Tier 2 Omens",
+    "Omen of Connections": [
+      "Tier 0 Omens"
+    ],
+    "Omen of Amelioration": [
+      "Tier 1 Omens"
+    ],
     "Omen of Return": "Tier 2 Omens",
     "Omen of Death-dancing": "Tier 2 Omens",
     "Omen of Refreshment": "Tier 2 Omens",
     "Omen of the Soul Devourer": "Tier 2 Omens",
-    "Omen of Trichromatism": "Tier 2 Omens",
+    "Omen of Trichromatism": [
+      "Tier 1 Omens"
+    ],
     "Omen of Adrenaline": "Tier 2 Omens",
     "Omen of Death's Door": "Tier 2 Omens",
     "Omen of Brilliance": "Tier 2 Omens"

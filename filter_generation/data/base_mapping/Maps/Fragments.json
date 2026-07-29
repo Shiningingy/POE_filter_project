@@ -72,18 +72,33 @@
       "en": "Map Fragments",
       "ch": "碎片"
     },
-    "theme_category": "Map Fragments"
+    "theme_category": "Map Fragments",
+    "match_modes": {}
   },
   "mapping": {
-    "Simulacrum": "Tier 1 Fragments",
+    "Simulacrum": [
+      "Tier 2 Fragments"
+    ],
     "The Maven's Writ": "Tier 1 Fragments",
     "Sacred Blossom": "Tier 1 Fragments",
-    "Awakening Fragment": "Tier 2 Fragments",
-    "Cosmic Fragment": "Tier 2 Fragments",
-    "Decaying Fragment": "Tier 2 Fragments",
-    "Devouring Fragment": "Tier 2 Fragments",
-    "Reality Fragment": "Tier 2 Fragments",
-    "Synthesising Fragment": "Tier 2 Fragments",
+    "Awakening Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Cosmic Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Decaying Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Devouring Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Reality Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Synthesising Fragment": [
+      "Tier 0 Fragments"
+    ],
     "Fragment of the Hydra": "Tier 3 Fragments",
     "Fragment of the Phoenix": "Tier 3 Fragments",
     "Fragment of the Minotaur": "Tier 3 Fragments",
@@ -96,49 +111,105 @@
     "Sacrifice at Dusk": "Tier 4 Fragments",
     "Sacrifice at Dawn": "Tier 4 Fragments",
     "Sacrifice at Noon": "Tier 4 Fragments",
-    "Mortal Grief": "Tier 1 Fragments",
-    "Mortal Rage": "Tier 1 Fragments",
-    "Mortal Hope": "Tier 1 Fragments",
-    "Mortal Ignorance": "Tier 1 Fragments",
+    "Mortal Grief": [
+      "Tier 2 Fragments"
+    ],
+    "Mortal Rage": [
+      "Tier 2 Fragments"
+    ],
+    "Mortal Hope": [
+      "Tier 2 Fragments"
+    ],
+    "Mortal Ignorance": [
+      "Tier 2 Fragments"
+    ],
     "An Audience With The King": "Tier 1 Fragments",
-    "Timeless Karui Emblem": "Tier 1 Fragments",
-    "Timeless Maraketh Emblem": "Tier 1 Fragments",
-    "Timeless Eternal Emblem": "Tier 1 Fragments",
-    "Timeless Templar Emblem": "Tier 1 Fragments",
-    "Timeless Vaal Emblem": "Tier 1 Fragments",
+    "Timeless Karui Emblem": [
+      "Tier 2 Fragments"
+    ],
+    "Timeless Maraketh Emblem": [
+      "Tier 2 Fragments"
+    ],
+    "Timeless Eternal Emblem": [
+      "Tier 2 Fragments"
+    ],
+    "Timeless Templar Emblem": [
+      "Tier 2 Fragments"
+    ],
+    "Timeless Vaal Emblem": [
+      "Tier 2 Fragments"
+    ],
     "Fragment of Shape": "Tier 1 Fragments",
-    "Fragment of Knowledge": "Tier 1 Fragments",
+    "Fragment of Knowledge": [
+      "Tier 2 Fragments"
+    ],
     "Fragment of Terror": "Tier 1 Fragments",
     "Fragment of Emptiness": "Tier 1 Fragments",
-    "Blood-filled Vessel": "Tier 1 Fragments",
+    "Blood-filled Vessel": [
+      "Tier 2 Fragments"
+    ],
     "Zorath's Eye of Malevolence": "Tier 2 Fragments",
     "Zorath's Eye of Authority": "Tier 2 Fragments",
     "Zorath's Eye of the Inevitable": "Tier 2 Fragments",
     "Zorath's Eye of the Endless": "Tier 2 Fragments",
-    "Al-Hezmin's Crest": "Tier 1 Fragments",
-    "Baran's Crest": "Tier 1 Fragments",
-    "Drox's Crest": "Tier 1 Fragments",
-    "Veritania's Crest": "Tier 1 Fragments",
-    "Blazing Fragment": "Tier 1 Fragments",
+    "Al-Hezmin's Crest": [
+      "Tier 3 Fragments"
+    ],
+    "Baran's Crest": [
+      "Tier 3 Fragments"
+    ],
+    "Drox's Crest": [
+      "Tier 3 Fragments"
+    ],
+    "Veritania's Crest": [
+      "Tier 3 Fragments"
+    ],
+    "Blazing Fragment": [
+      "Tier 0 Fragments"
+    ],
     "Kalguuran Scarab": "Tier 1 Fragments",
     "Kalguuran Scarab of Guarded Riches": "Tier 1 Fragments",
     "Kalguuran Scarab of Refinement": "Tier 1 Fragments",
     "Echo of Trauma": "Tier 1 Fragments",
     "Echo of Reverence": "Tier 1 Fragments",
     "Echo of Loneliness": "Tier 1 Fragments",
-    "Syndicate Medallion": "Tier 1 Fragments",
-    "Allflame Ember of Kulemak": "Tier 1 Fragments",
-    "Allflame Ember of Resplendence": "Tier 1 Fragments",
-    "Allflame Ember of Propagation": "Tier 1 Fragments",
-    "Allflame Ember of Flesh": "Tier 1 Fragments",
-    "Allflame Ember of the Wildwood": "Tier 1 Fragments",
-    "Allflame Ember of the Ethereal": "Tier 1 Fragments",
-    "Allflame Ember of the Gilded": "Tier 1 Fragments",
-    "Allflame Ember of Toads": "Tier 1 Fragments",
+    "Syndicate Medallion": [
+      "Tier 2 Fragments"
+    ],
+    "Allflame Ember of Kulemak": [
+      "Tier 3 Fragments"
+    ],
+    "Allflame Ember of Resplendence": [
+      "Tier 3 Fragments"
+    ],
+    "Allflame Ember of Propagation": [
+      "Tier 3 Fragments"
+    ],
+    "Allflame Ember of Flesh": [
+      "Tier 3 Fragments"
+    ],
+    "Allflame Ember of the Wildwood": [
+      "Tier 3 Fragments"
+    ],
+    "Allflame Ember of the Ethereal": [
+      "Tier 3 Fragments"
+    ],
+    "Allflame Ember of the Gilded": [
+      "Tier 3 Fragments"
+    ],
+    "Allflame Ember of Toads": [
+      "Tier 3 Fragments"
+    ],
     "Hivebrain Gland": "Tier 1 Fragments",
-    "Traumatic Fragment": "Tier 1 Fragments",
-    "Reverent Fragment": "Tier 1 Fragments",
-    "Lonely Fragment": "Tier 1 Fragments"
+    "Traumatic Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Reverent Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Lonely Fragment": [
+      "Tier 0 Fragments"
+    ]
   },
   "rules": []
 }

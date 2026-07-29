@@ -8,38 +8,8 @@
       },
       "tier_order": [
         "Tier 0 Delirium Orbs",
-        "Tier 1 Delirium Orbs",
-        "Tier 2 Delirium Orbs",
         "Tier Hide Delirium Orbs"
       ]
-    },
-    "Tier 1 Delirium Orbs": {
-      "hideable": false,
-      "theme": {
-        "Tier": 1
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "高级雾魇宝珠.mp3"
-      },
-      "localization": {
-        "en": "T1: High End Orbs",
-        "ch": "T1: 高级雾魇宝珠"
-      }
-    },
-    "Tier 2 Delirium Orbs": {
-      "hideable": false,
-      "theme": {
-        "Tier": 2
-      },
-      "sound": {
-        "default_sound_id": 2,
-        "sharket_sound_id": "雾魇宝珠.mp3"
-      },
-      "localization": {
-        "en": "T2: Common Orbs",
-        "ch": "T2: 普通雾魇宝珠"
-      }
     },
     "Tier Hide Delirium Orbs": {
       "hideable": true,

@@ -7,6 +7,8 @@
         "ch": "预兆"
       },
       "tier_order": [
+        "CustomTier 1 Omens",
+        "Tier 0 Omens",
         "Tier 1 Omens",
         "Tier 2 Omens",
         "Tier Hide Omens"
@@ -64,6 +66,24 @@
         "ch": "T0: 预兆"
       },
       "show_in_editor": true
+    },
+    "CustomTier 1 Omens": {
+      "theme": {
+        "Tier": "custom",
+        "FontSize": 36,
+        "TextColor": "#FFFFFF",
+        "BorderColor": "#AAAAAA",
+        "BackgroundColor": "#222222"
+      },
+      "hideable": false,
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Custom Tier #1",
+        "ch": "自定义阶级 #1"
+      }
     }
   }
 }
