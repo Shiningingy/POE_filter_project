@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# [parsing_tool group A: LIVE TOOL] Safe to run. See parsing_tool/README.md.
 """Extract Ruthless droppability lists from a saved copy of the wiki page.
 
 The page (https://www.poewiki.net/wiki/Ruthless_mode) is the only source that

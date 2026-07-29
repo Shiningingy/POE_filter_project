@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# [parsing_tool group A: LIVE TOOL] Safe to run. See parsing_tool/README.md.
 """Validate the curation tree against the rules the generator actually enforces.
 
 Every check here exists because the failure it catches has already happened,

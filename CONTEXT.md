@@ -154,6 +154,16 @@ as a TypeScript port that runs in the browser.
    strictness level. Campaign decluttering is the picker's `hide_unselected`
    toggle, not strictness.
 
+12. **Most of `parsing_tool/` is spent.** 41 of its 52 scripts write directly into
+   `filter_generation/data/`, and the majority were run once during a build or
+   migration and are now historical — re-running one reverts that region of the tree
+   to its state on the date it was written. The filenames give no hint of this
+   (`generate_base_mappings.py` would flatten the curation). Every script carries a
+   group banner on line 1; **`parsing_tool/README.md` is the index** and says which
+   are safe. Notable: `generate_category_json.py` is a known regression, and
+   `build_campaign_bands.py`, `build_standard_theme.py` and
+   `import_uniques_from_filterblade.py` would each destroy hand-tuning.
+
 ## Where the roadmap + progress lives
 
 Ongoing work, decisions, and the 3.29-league to-do live in the maintainer's `.claude`

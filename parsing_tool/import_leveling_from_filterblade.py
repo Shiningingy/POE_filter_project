@@ -1,3 +1,5 @@
+# [parsing_tool group B: CAREFUL] Rerunnable, but it OVERWRITES hand-tuned data.
+# Check `git status` is clean first. See parsing_tool/README.md.
 """
 Import NeverSink/FilterBlade campaign LEVELING rules into our `_campaign` tiers,
 tagged for the FilterBlade-style "Auto-Adjust: Campaign" picker (a leveling MODULE).

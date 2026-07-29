@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# [parsing_tool group B: CAREFUL] Rerunnable, but it OVERWRITES hand-tuned data.
+# Check `git status` is clean first. See parsing_tool/README.md.
 """Re-space the theme's font-size ladder, touching ONLY FontSize.
 
 sharket_theme.json is hand-tuned - colours, effects and icons are the

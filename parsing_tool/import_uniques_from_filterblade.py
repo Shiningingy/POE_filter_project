@@ -1,3 +1,5 @@
+# [parsing_tool group B: CAREFUL] Rerunnable, but it OVERWRITES hand-tuned data.
+# Check `git status` is clean first. See parsing_tool/README.md.
 """
 Import the Uniques tierlist from a FilterBlade .filter into our two-file schema.
 

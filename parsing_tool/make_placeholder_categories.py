@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# [parsing_tool group D: SPENT ONE-SHOT, 2026-06] Already applied to the tree.
+# Re-running reverts that region to its 2026-06 state and destroys curation done
+# since. Kept as the record of how the tree got its shape. See parsing_tool/README.md.
 """Generate placeholder base_mapping + tier_definition pairs for the nav rebuild.
 
 The FilterBlade-aligned nav adds many new categories (Endgame special rares,

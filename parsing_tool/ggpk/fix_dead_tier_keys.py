@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# [parsing_tool group D: SPENT ONE-SHOT, 2026-07] Already applied to the tree.
+# Re-running reverts that region to its 2026-07 state and destroys curation done
+# since. Kept as the record of how the tree got its shape. See parsing_tool/README.md.
 """Repair mapping entries whose tier key does not exist, so they emit nothing.
 
 A tier key absent from the category's `_meta.tier_order` does NOT error. The

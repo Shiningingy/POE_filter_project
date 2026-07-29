@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# [parsing_tool group A: LIVE TOOL] Safe to run. See parsing_tool/README.md.
 """Extract the curated GGPK table set into data/source/<label>/.
 
 This is step 1 of the own-database pipeline (ADR-0004): a reproducible dump of

@@ -1,3 +1,4 @@
+# [parsing_tool group A: LIVE TOOL] Safe to run. See parsing_tool/README.md.
 """Read and write the curation JSON without reformatting it.
 
 Any tool that edits `base_mapping` competes with a human reviewer: if a two-line

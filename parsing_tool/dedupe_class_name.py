@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# [parsing_tool group D: SPENT ONE-SHOT, 2026-06] Already applied to the tree.
+# Re-running reverts that region to its 2026-06 state and destroys curation done
+# since. Kept as the record of how the tree got its shape. See parsing_tool/README.md.
 """Collapse the `__class_name__` / `item_class.ch` duplicate (make item_class canonical).
 
 The class label was stored twice in each base_mapping file: in

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# [parsing_tool group A: LIVE TOOL] Safe to run. See parsing_tool/README.md.
 """Reconcile our curation against a GGPK dump, and emit the league work queue.
 
 Step 3 of the own-database pipeline. Answers the only question league

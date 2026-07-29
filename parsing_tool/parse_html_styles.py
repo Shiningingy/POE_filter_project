@@ -1,3 +1,6 @@
+# [parsing_tool group D: SPENT ONE-SHOT, 2026-01-24] Already applied to the tree.
+# Re-running reverts that region to its 2026-01-24 state and destroys curation done
+# since. Kept as the record of how the tree got its shape. See parsing_tool/README.md.
 import re
 import json
 import os

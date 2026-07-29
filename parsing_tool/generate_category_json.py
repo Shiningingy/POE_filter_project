@@ -1,3 +1,6 @@
+# [parsing_tool group C: DO NOT RUN] Known regression - it rewrites
+# category_structure.json wrongly. Edit the yaml AND the json by hand instead.
+# See parsing_tool/README.md.
 import yaml
 import json
 import os

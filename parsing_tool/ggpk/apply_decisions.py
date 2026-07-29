@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# [parsing_tool group A: LIVE TOOL] Safe to run. See parsing_tool/README.md.
 """Apply the triage console's exported decisions to base_mapping.
 
 This is what makes the console a cheap editor instead of a report: you tag

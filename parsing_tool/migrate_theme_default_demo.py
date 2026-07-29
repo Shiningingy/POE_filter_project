@@ -1,3 +1,6 @@
+# [parsing_tool group D: SPENT ONE-SHOT, 2026-06] Already applied to the tree.
+# Re-running reverts that region to its 2026-06 state and destroys curation done
+# since. Kept as the record of how the tree got its shape. See parsing_tool/README.md.
 """Part E (demo parity): mirror the theme-default migration into the static demo data.
 
 - demo theme_sharket.json: theme_data -> rename "Stackable Currency" to "Default", drop "Currency".

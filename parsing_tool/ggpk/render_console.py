@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# [parsing_tool group A: LIVE TOOL] Safe to run. See parsing_tool/README.md.
 """Render reconcile.json into a standalone league-maintenance triage console.
 
 One self-contained HTML file, no build step and no network: open it, work
