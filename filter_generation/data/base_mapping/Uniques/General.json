@@ -1277,43 +1277,55 @@
             }
         },
         {
-            "comment": "侍从 The Squire（三白孔）",
-            "targets": [
-                "Elegant Round Shield"
-            ],
-            "conditions": {
-                "Rarity": "Unique",
-                "Sockets": ">= 3WWW"
-            },
-            "overrides": {
-                "Tier": "T0 Chase"
-            }
-        },
-        {
-            "comment": "无尽之衣 Tabula Rasa（六连全白）",
+            "comment": "无尽之衣 Tabula Rasa（六连）",
             "targets": [
                 "Simple Robe"
             ],
             "conditions": {
                 "Rarity": "Unique",
-                "LinkedSockets": "6",
-                "SocketGroup": "WWWWWW"
+                "LinkedSockets": "6"
             },
             "overrides": {
                 "Tier": "T1"
             }
         },
         {
-            "comment": "三重扣 Triad Grip（四白孔）",
+            "comment": "三重扣 Triad Grip（四红）",
             "targets": [
                 "Mesh Gloves"
             ],
             "conditions": {
                 "Rarity": "Unique",
-                "Sockets": ">= 4WWWW"
+                "Sockets": ">= 4RRRR"
             },
             "overrides": {
-                "Tier": "T0 Chase"
+                "Tier": "T1"
+            }
+        },
+        {
+            "comment": "三重扣 Triad Grip（四绿）",
+            "targets": [
+                "Mesh Gloves"
+            ],
+            "conditions": {
+                "Rarity": "Unique",
+                "Sockets": ">= 4GGGG"
+            },
+            "overrides": {
+                "Tier": "T1"
+            }
+        },
+        {
+            "comment": "三重扣 Triad Grip（四蓝）",
+            "targets": [
+                "Mesh Gloves"
+            ],
+            "conditions": {
+                "Rarity": "Unique",
+                "Sockets": ">= 4BBBB"
+            },
+            "overrides": {
+                "Tier": "T1"
             }
         },
         {
