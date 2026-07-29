@@ -1,3 +1,20 @@
+# ⚠️ DO NOT blindly run parsing_tool/generate_category_json.py over this file.
+#
+# It has drifted from the checked-in category_structure.json and a full recompile
+# is a REGRESSION: `_default_target: Stackable Currency` makes the compiler stamp
+# that on every currency leaf, but `target_category` is the THEME RESOLUTION KEY
+# (ThemePresetEditor.tsx:100/206) and must match the tier_definition's
+# `_meta.theme_category` - "Essences", "Fossils", "Delirium Orbs", ... The theme
+# file has no "Stackable Currency" entry at all, so recompiling silently points
+# five currency categories at a key that does not exist.
+#
+# Note the MAPPING file's `_meta.theme_category` is NOT the one that matters:
+# generate.py reads the TIER file's. They disagree today (mapping says
+# "Stackable Currency", tier says "Essences") and the tier file wins.
+#
+# Until the compiler is reconciled with the JSON, edit BOTH files by hand for a
+# small change - a nav add/remove is ~10 lines in each.
+
 _chapter_general:
   _separator:
     en: General
@@ -21,15 +38,9 @@ League Currency:
   Essences:
     name: 精华
     path: Currency/Essences.json
-  Expedition:
-    name: 探险
-    path: Currency/Expedition.json
   Fossils:
     name: 化石
     path: Currency/Fossils.json
-  Harbinger:
-    name: 先驱
-    path: Currency/Harbinger.json
   Harvest:
     name: 庄园
     path: Currency/Harvest.json

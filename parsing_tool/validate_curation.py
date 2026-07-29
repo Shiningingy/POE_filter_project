@@ -138,7 +138,15 @@ def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
         conds = rule.get("conditions") or {}
         label = rule.get("comment") or (f"-> {tier}" if tier else f"rule #{i}")
 
-        if not rule.get("targets") and not rule.get("applyToTier"):
+        # A rule that brings its OWN selector - a `raw` block, or a BaseType/Class
+        # condition - is legitimate with no targets: generate.py:531 emits a block
+        # with no generated BaseType line and the rule's own lines do the matching.
+        # That is how one partial match stands in for a whole family
+        # (`BaseType "Deafening Essence of"` for all 17). Not an error.
+        self_selecting = bool(rule.get("raw")) or any(
+            k in conds for k in ("BaseType", "Class"))
+
+        if not rule.get("targets") and not rule.get("applyToTier") and not self_selecting:
             # The rule is skipped. What the reader needs to know is what happens
             # INSTEAD, which depends on whether the tier has items of its own.
             stranded = per_tier.get(tier, []) if tier else []
@@ -156,8 +164,10 @@ def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
                 consequence = f"nothing is emitted for {tier!r}"
             rep.add("ERROR", where,
                     f"rule {label!r} has no 'targets' and no 'applyToTier', so "
-                    f"generate.py:539 skips it - {consequence}\n            "
-                    f"fix: list the base types in 'targets', or move the "
+                    f"generate.py:545 skips it - {consequence}\n            "
+                    f"fix: list the base types in 'targets'; or give the rule its "
+                    f"own selector - a BaseType/Class condition, or a 'raw' block "
+                    f"- which lets it match without naming items; or move the "
                     f"conditions onto the tier as class_condition:true "
                     f"(generate.py:447) if they are meant to match by class")
             continue

@@ -65,16 +65,6 @@
           }
         },
         {
-          "path": "Currency/Expedition.json",
-          "tier_path": "tier_definition/Currency/Expedition.json",
-          "mapping_path": "base_mapping/Currency/Expedition.json",
-          "target_category": "Expedition",
-          "localization": {
-            "en": "Expedition",
-            "ch": "探险"
-          }
-        },
-        {
           "path": "Currency/Fossils.json",
           "tier_path": "tier_definition/Currency/Fossils.json",
           "mapping_path": "base_mapping/Currency/Fossils.json",
@@ -82,16 +72,6 @@
           "localization": {
             "en": "Fossils",
             "ch": "化石"
-          }
-        },
-        {
-          "path": "Currency/Harbinger.json",
-          "tier_path": "tier_definition/Currency/Harbinger.json",
-          "mapping_path": "base_mapping/Currency/Harbinger.json",
-          "target_category": "Harbinger",
-          "localization": {
-            "en": "Harbinger",
-            "ch": "先驱"
           }
         },
         {
