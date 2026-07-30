@@ -43,11 +43,15 @@
         "StackSize": ">= 50"
       },
       "overrides": {
-        "Tier": "Tier 0 Splinters"
+        "Tier": "Tier 0 Splinters",
+        "PlayAlertSound": [
+          "Sharket掉落音效/666.mp3",
+          300
+        ]
       }
     },
     {
-      "comment": "模拟回忆碎片 11-49",
+      "comment": "拟像 11-49",
       "targets": [
         "Simulacrum Splinter"
       ],
@@ -55,7 +59,11 @@
         "StackSize": ">= 11"
       },
       "overrides": {
-        "Tier": "Tier 1 Splinters"
+        "Tier": "Tier 1 Splinters",
+        "PlayAlertSound": [
+          "Sharket掉落音效/拟像裂片.mp3",
+          300
+        ]
       }
     },
     {
@@ -71,21 +79,24 @@
         "StackSize": ">= 5"
       },
       "overrides": {
-        "Tier": "Tier 1 Splinters"
+        "Tier": "Tier 1 Splinters",
+        "PlayAlertSound": [
+          "Sharket掉落音效/永恒裂片.mp3",
+          300
+        ]
       }
     },
     {
       "targets": [
-        "Simulacrum Splinter"
+        "Ritual Splinter"
       ],
       "conditions": {},
       "overrides": {
-        "PlayAlertSound": [
-          "Sharket掉落音效/拟像裂片.mp3",
-          300
-        ]
+        "Tier": "Tier 2 Splinters"
       },
-      "comment": "Override for Simulacrum Splinter"
+      "comment": "No auto-sound for Ritual Splinter @ Tier 2 Splinters",
+      "sound_scope": true,
+      "suppress_auto_sound": true
     }
   ]
 }

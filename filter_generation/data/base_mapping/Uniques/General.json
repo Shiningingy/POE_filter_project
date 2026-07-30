@@ -1422,6 +1422,21 @@
       },
       "comment": "Override for Timeless Jewel @ T0 Chase",
       "sound_scope": true
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "Unique",
+        "Class": "== \"Maps\""
+      },
+      "overrides": {
+        "Tier": "T1",
+        "PlayAlertSound": [
+          "Sharket掉落音效/传奇地图.mp3",
+          300
+        ]
+      },
+      "comment": "传奇地图"
     }
   ]
 }

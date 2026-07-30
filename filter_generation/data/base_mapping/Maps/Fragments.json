@@ -524,6 +524,33 @@
         ]
       },
       "comment": "__SOUND__:Sacrifice at Dawn"
+    },
+    {
+      "targets": [
+        "Archive Reliquary Key",
+        "Cosmic Reliquary Key",
+        "Decaying Reliquary Key",
+        "Forgotten Reliquary Key",
+        "Lonely Reliquary Key",
+        "Oubliette Reliquary Key",
+        "Reverent Reliquary Key",
+        "Shiny Reliquary Key",
+        "Traumatic Reliquary Key",
+        "Visceral Reliquary Key",
+        "Voidborn Reliquary Key",
+        "Timeworn Reliquary Key",
+        "Vaal Reliquary Key"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 0 Fragments",
+        "PlayAlertSound": [
+          "Sharket掉落音效/圣物厅钥匙.mp3",
+          300
+        ]
+      },
+      "comment": "圣物厅钥匙",
+      "applyToTier": false
     }
   ]
 }

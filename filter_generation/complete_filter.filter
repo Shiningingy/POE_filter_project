@@ -3725,18 +3725,7 @@ Show
 
 #==[91000]-地图 Maps - 常规地图 Base Maps==
 
-#==[91001]- Base Maps -传奇地图 常规地图 - Class Condition==
-Show
-    Class == "Maps"
-    Rarity Unique
-    SetFontSize 36
-    SetTextColor 126 171 220 255
-    SetBorderColor 38 74 113 255
-    SetBackgroundColor 10 10 13 255
-    CustomAlertSound "sound_files\Sharket掉落音效\地图.mp3" 100
-
-
-#==[91002]- Base Maps -T0: 特殊地图 常规地图 - #1 T17 地图 - 自选==
+#==[91001]- Base Maps -T0: 特殊地图 常规地图 - #1 T17 地图 - 自选==
 Show
     Class == "Maps"
     MapTier == 17
@@ -3749,7 +3738,7 @@ Show
     MinimapIcon 0 Blue Star
 
 
-#==[91003]- Base Maps -T0: 特殊地图 常规地图 - #2 瓦尔密殿 - 精确==
+#==[91002]- Base Maps -T0: 特殊地图 常规地图 - #2 瓦尔密殿 - 精确==
 Show
     BaseType == "Vaal Temple Map"
     MapTier >= 16
@@ -3762,7 +3751,7 @@ Show
     MinimapIcon 0 Blue Star
 
 
-#==[91004]- Base Maps -T0: 特殊地图 常规地图 - #3 势力地图 - 自选==
+#==[91003]- Base Maps -T0: 特殊地图 常规地图 - #3 势力地图 - 自选==
 Show
     Class == "Maps"
     HasInfluence Shaper Elder Crusader Hunter Redeemer Warlord
@@ -3775,7 +3764,7 @@ Show
     MinimapIcon 0 Blue Star
 
 
-#==[91005]- Base Maps -T0: 特殊地图 常规地图 - #4 扎娜的记忆 - 自选==
+#==[91004]- Base Maps -T0: 特殊地图 常规地图 - #4 扎娜的记忆 - 自选==
 Show
     Class == "Maps"
     ZanaMemory True
@@ -3788,7 +3777,7 @@ Show
     MinimapIcon 0 Blue Star
 
 
-#==[91006]- Base Maps -T0: 特殊地图 常规地图 - #5 附魔地图 - 自选==
+#==[91005]- Base Maps -T0: 特殊地图 常规地图 - #5 附魔地图 - 自选==
 Show
     Class == "Maps"
     AnyEnchantment True
@@ -3801,7 +3790,7 @@ Show
     MinimapIcon 0 Blue Star
 
 
-#==[91007]- Base Maps -T0: 特殊地图 常规地图 - #6 8 词缀污染地图 - 自选==
+#==[91006]- Base Maps -T0: 特殊地图 常规地图 - #6 8 词缀污染地图 - 自选==
 Show
     Class == "Maps"
     Corrupted True
@@ -3815,7 +3804,7 @@ Show
     MinimapIcon 0 Blue Star
 
 
-#==[91008]- Base Maps -T1: T16 地图 常规地图 - #1 T16 地图 - 自选==
+#==[91007]- Base Maps -T1: T16 地图 常规地图 - #1 T16 地图 - 自选==
 Show
     Class == "Maps"
     MapTier == 16
@@ -3828,7 +3817,7 @@ Show
     MinimapIcon 1 Blue Diamond
 
 
-#==[91009]- Base Maps -T2: 红色地图 (T11-T15) 常规地图 - #1 红色地图 (T11-T15) - 自选==
+#==[91008]- Base Maps -T2: 红色地图 (T11-T15) 常规地图 - #1 红色地图 (T11-T15) - 自选==
 Show
     Class == "Maps"
     MapTier >= 11
@@ -3841,7 +3830,7 @@ Show
     MinimapIcon 1 Blue Circle
 
 
-#==[91010]- Base Maps -T2: 红色地图 (T11-T15) 常规地图 - #2 标记：城市广场（绿框） - 精确==
+#==[91009]- Base Maps -T2: 红色地图 (T11-T15) 常规地图 - #2 标记：城市广场（绿框） - 精确==
 Show
     BaseType == "City Square Map"
     MapTier >= 11
@@ -3854,7 +3843,7 @@ Show
     MinimapIcon 1 Blue Circle
 
 
-#==[91011]- Base Maps -T3: 黄色地图 (T6-T10) 常规地图 - #1 黄色地图 (T6-T10) - 自选==
+#==[91010]- Base Maps -T3: 黄色地图 (T6-T10) 常规地图 - #1 黄色地图 (T6-T10) - 自选==
 Show
     Class == "Maps"
     MapTier >= 6
@@ -3866,7 +3855,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\地图.mp3" 100
 
 
-#==[91012]- Base Maps -T4: 白色地图 (T1-T5) 常规地图 - #1 白色地图 (T1-T5) - 自选==
+#==[91011]- Base Maps -T4: 白色地图 (T1-T5) 常规地图 - #1 白色地图 (T1-T5) - 自选==
 Show
     Class == "Maps"
     MapTier >= 1
@@ -3887,11 +3876,12 @@ Show
     SetTextColor 0 0 0 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 200 168 96 255
+    CustomAlertSound "sound_files\Sharket掉落音效\666.mp3" 300
     PlayEffect Orange
     MinimapIcon 0 Orange Star
 
 
-#==[92002]- Splinters -T1: 值得停下 可堆叠通货 - #1 模拟回忆碎片 11-49 - 精确==
+#==[92002]- Splinters -T1: 值得停下 可堆叠通货 - #1 拟像 11-49 - 精确==
 Show
     BaseType == "Simulacrum Splinter"
     StackSize >= 11
@@ -3899,7 +3889,7 @@ Show
     SetTextColor 255 255 255 255
     SetBorderColor 200 168 96 255
     SetBackgroundColor 40 34 19 255
-    PlayAlertSound 2 300
+    CustomAlertSound "sound_files\Sharket掉落音效\拟像裂片.mp3" 300
     PlayEffect Orange
     MinimapIcon 1 Orange Diamond
 
@@ -3912,36 +3902,24 @@ Show
     SetTextColor 255 255 255 255
     SetBorderColor 200 168 96 255
     SetBackgroundColor 40 34 19 255
-    PlayAlertSound 2 300
+    CustomAlertSound "sound_files\Sharket掉落音效\永恒裂片.mp3" 300
     PlayEffect Orange
     MinimapIcon 1 Orange Diamond
 
 
-#==[92004]- Splinters -T2: 单个 / 小堆 可堆叠通货 - #1 Override for Simulacrum Splinter - 精确==
-Show
-    BaseType == "Simulacrum Splinter"
-    SetFontSize 39
-    SetTextColor 208 181 120 255
-    SetBorderColor 200 168 96 255
-    SetBackgroundColor 16 16 22 255
-    CustomAlertSound "sound_files\Sharket掉落音效\拟像裂片.mp3" 300
-    MinimapIcon 1 Orange Circle
-
-
-#==[92005]- Splinters -T2: 单个 / 小堆 可堆叠通货 - 自动音效：驱灵裂片 - 精确==
+#==[92004]- Splinters -T2: 单个 / 小堆 可堆叠通货 - #1 No auto-sound for Ritual Splinter @ Tier 2 Splinters - 精确==
 Show
     BaseType == "Ritual Splinter"
     SetFontSize 39
     SetTextColor 208 181 120 255
     SetBorderColor 200 168 96 255
     SetBackgroundColor 16 16 22 255
-    CustomAlertSound "sound_files\Sharket掉落音效\驱灵裂片.mp3" 100
     MinimapIcon 1 Orange Circle
 
 
-#==[92006]- Splinters -T2: 单个 / 小堆 可堆叠通货 - 基础 - 精确==
+#==[92005]- Splinters -T2: 单个 / 小堆 可堆叠通货 - 基础 - 精确==
 Show
-    BaseType == "Timeless Eternal Empire Splinter" "Timeless Karui Splinter" "Timeless Maraketh Splinter" "Timeless Templar Splinter" "Timeless Vaal Splinter"
+    BaseType == "Simulacrum Splinter" "Timeless Eternal Empire Splinter" "Timeless Karui Splinter" "Timeless Maraketh Splinter" "Timeless Templar Splinter" "Timeless Vaal Splinter"
     SetFontSize 39
     SetTextColor 208 181 120 255
     SetBorderColor 200 168 96 255
@@ -3951,7 +3929,19 @@ Show
 
 #==[93000]-地图 Maps - 碎片 Fragments==
 
-#==[93001]- Fragments -T0: 顶级/核心 碎片 - 基础 - 精确==
+#==[93001]- Fragments -T0: 顶级/核心 碎片 - #1 圣物厅钥匙 - 精确==
+Show
+    BaseType == "Archive Reliquary Key" "Cosmic Reliquary Key" "Decaying Reliquary Key" "Forgotten Reliquary Key" "Lonely Reliquary Key" "Oubliette Reliquary Key" "Reverent Reliquary Key" "Shiny Reliquary Key" "Traumatic Reliquary Key" "Visceral Reliquary Key" "Voidborn Reliquary Key" "Timeworn Reliquary Key" "Vaal Reliquary Key"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 200 168 96 255
+    CustomAlertSound "sound_files\Sharket掉落音效\圣物厅钥匙.mp3" 300
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[93002]- Fragments -T0: 顶级/核心 碎片 - 基础 - 精确==
 Show
     BaseType == "Awakening Fragment" "Blazing Fragment" "Cosmic Fragment" "Decaying Fragment" "Devouring Fragment" "Lonely Fragment" "Reality Fragment" "Reverent Fragment" "Synthesising Fragment" "Traumatic Fragment"
     SetFontSize 45
@@ -3963,7 +3953,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[93002]- Fragments -T1: 顶级碎片 碎片 - #1 __SOUND__:Fragment of Emptiness - 精确==
+#==[93003]- Fragments -T1: 顶级碎片 碎片 - #1 __SOUND__:Fragment of Emptiness - 精确==
 Show
     BaseType == "Fragment of Emptiness"
     SetFontSize 42
@@ -3975,7 +3965,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[93003]- Fragments -T1: 顶级碎片 碎片 - #2 __SOUND__:Fragment of Shape - 精确==
+#==[93004]- Fragments -T1: 顶级碎片 碎片 - #2 __SOUND__:Fragment of Shape - 精确==
 Show
     BaseType == "Fragment of Shape"
     SetFontSize 42
@@ -3987,7 +3977,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[93004]- Fragments -T1: 顶级碎片 碎片 - #3 __SOUND__:Fragment of Terror - 精确==
+#==[93005]- Fragments -T1: 顶级碎片 碎片 - #3 __SOUND__:Fragment of Terror - 精确==
 Show
     BaseType == "Fragment of Terror"
     SetFontSize 42
@@ -3999,7 +3989,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[93005]- Fragments -T1: 顶级碎片 碎片 - 自动音效：贤主敕令 - 精确==
+#==[93006]- Fragments -T1: 顶级碎片 碎片 - 自动音效：贤主敕令 - 精确==
 Show
     BaseType == "The Maven's Writ"
     SetFontSize 42
@@ -4011,7 +4001,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[93006]- Fragments -T1: 顶级碎片 碎片 - 自动音效：谒王之约 - 精确==
+#==[93007]- Fragments -T1: 顶级碎片 碎片 - 自动音效：谒王之约 - 精确==
 Show
     BaseType == "An Audience With The King"
     SetFontSize 42
@@ -4023,7 +4013,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[93007]- Fragments -T1: 顶级碎片 碎片 - 基础 - 精确==
+#==[93008]- Fragments -T1: 顶级碎片 碎片 - 基础 - 精确==
 Show
     BaseType == "Echo of Loneliness" "Echo of Reverence" "Echo of Trauma" "Timeless Maraketh Emblem"
     SetFontSize 42
@@ -4035,7 +4025,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[93008]- Fragments -T2: 高价值碎片 碎片 - #1 __SOUND__:Fragment of Knowledge - 精确==
+#==[93009]- Fragments -T2: 高价值碎片 碎片 - #1 __SOUND__:Fragment of Knowledge - 精确==
 Show
     BaseType == "Fragment of Knowledge"
     SetFontSize 39
@@ -4046,7 +4036,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[93009]- Fragments -T2: 高价值碎片 碎片 - #2 Override for Ritual Vessel - 精确==
+#==[93010]- Fragments -T2: 高价值碎片 碎片 - #2 Override for Ritual Vessel - 精确==
 Show
     BaseType == "Ritual Vessel"
     SetFontSize 39
@@ -4057,7 +4047,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[93010]- Fragments -T2: 高价值碎片 碎片 - #3 Override for Hivebrain Gland - 精确==
+#==[93011]- Fragments -T2: 高价值碎片 碎片 - #3 Override for Hivebrain Gland - 精确==
 Show
     BaseType == "Hivebrain Gland"
     SetFontSize 39
@@ -4068,7 +4058,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[93011]- Fragments -T2: 高价值碎片 碎片 - #4 Override for Timeless Templar Emblem - 精确==
+#==[93012]- Fragments -T2: 高价值碎片 碎片 - #4 Override for Timeless Templar Emblem - 精确==
 Show
     BaseType == "Timeless Templar Emblem"
     SetFontSize 39
@@ -4079,7 +4069,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[93012]- Fragments -T2: 高价值碎片 碎片 - 自动音效：梦魇拟像 - 精确==
+#==[93013]- Fragments -T2: 高价值碎片 碎片 - 自动音效：梦魇拟像 - 精确==
 Show
     BaseType == "Simulacrum"
     SetFontSize 39
@@ -4090,7 +4080,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[93013]- Fragments -T2: 高价值碎片 碎片 - 自动音效：神圣之花 - 精确==
+#==[93014]- Fragments -T2: 高价值碎片 碎片 - 自动音效：神圣之花 - 精确==
 Show
     BaseType == "Sacred Blossom"
     SetFontSize 39
@@ -4101,7 +4091,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[93014]- Fragments -T2: 高价值碎片 碎片 - 自动音效：浸血法器 - 精确==
+#==[93015]- Fragments -T2: 高价值碎片 碎片 - 自动音效：浸血法器 - 精确==
 Show
     BaseType == "Blood-filled Vessel"
     SetFontSize 39
@@ -4112,7 +4102,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[93015]- Fragments -T2: 高价值碎片 碎片 - 基础 - 精确==
+#==[93016]- Fragments -T2: 高价值碎片 碎片 - 基础 - 精确==
 Show
     BaseType == "Syndicate Medallion" "Timeless Eternal Emblem" "Timeless Karui Emblem" "Timeless Vaal Emblem" "Zorath's Eye of Authority" "Zorath's Eye of Malevolence" "Zorath's Eye of the Endless" "Zorath's Eye of the Inevitable"
     SetFontSize 39
@@ -4123,7 +4113,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[93016]- Fragments -T3: 普通碎片 碎片 - #1 Override for Fragment of Enslavement - 精确==
+#==[93017]- Fragments -T3: 普通碎片 碎片 - #1 Override for Fragment of Enslavement - 精确==
 Show
     BaseType == "Fragment of Enslavement"
     SetFontSize 36
@@ -4133,7 +4123,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\腐坏碎片.mp3" 300
 
 
-#==[93017]- Fragments -T3: 普通碎片 碎片 - #2 __SOUND__:Fragment of Constriction - 精确==
+#==[93018]- Fragments -T3: 普通碎片 碎片 - #2 __SOUND__:Fragment of Constriction - 精确==
 Show
     BaseType == "Fragment of Constriction"
     SetFontSize 36
@@ -4143,7 +4133,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\腐坏碎片.mp3" 300
 
 
-#==[93018]- Fragments -T3: 普通碎片 碎片 - #3 __SOUND__:Fragment of Eradication - 精确==
+#==[93019]- Fragments -T3: 普通碎片 碎片 - #3 __SOUND__:Fragment of Eradication - 精确==
 Show
     BaseType == "Fragment of Eradication"
     SetFontSize 36
@@ -4153,7 +4143,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\腐坏碎片.mp3" 300
 
 
-#==[93019]- Fragments -T3: 普通碎片 碎片 - #4 __SOUND__:Fragment of Purification - 精确==
+#==[93020]- Fragments -T3: 普通碎片 碎片 - #4 __SOUND__:Fragment of Purification - 精确==
 Show
     BaseType == "Fragment of Purification"
     SetFontSize 36
@@ -4163,7 +4153,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\腐坏碎片.mp3" 300
 
 
-#==[93020]- Fragments -T3: 普通碎片 碎片 - #5 __SOUND__:Baran's Crest - 精确==
+#==[93021]- Fragments -T3: 普通碎片 碎片 - #5 __SOUND__:Baran's Crest - 精确==
 Show
     BaseType == "Baran's Crest"
     SetFontSize 36
@@ -4173,7 +4163,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\碎片之冠.mp3" 300
 
 
-#==[93021]- Fragments -T3: 普通碎片 碎片 - #6 __SOUND__:Al-Hezmin's Crest - 精确==
+#==[93022]- Fragments -T3: 普通碎片 碎片 - #6 __SOUND__:Al-Hezmin's Crest - 精确==
 Show
     BaseType == "Al-Hezmin's Crest"
     SetFontSize 36
@@ -4183,7 +4173,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\碎片之冠.mp3" 300
 
 
-#==[93022]- Fragments -T3: 普通碎片 碎片 - #7 __SOUND__:Veritania's Crest - 精确==
+#==[93023]- Fragments -T3: 普通碎片 碎片 - #7 __SOUND__:Veritania's Crest - 精确==
 Show
     BaseType == "Veritania's Crest"
     SetFontSize 36
@@ -4193,7 +4183,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\碎片之冠.mp3" 300
 
 
-#==[93023]- Fragments -T3: 普通碎片 碎片 - #8 __SOUND__:Drox's Crest - 精确==
+#==[93024]- Fragments -T3: 普通碎片 碎片 - #8 __SOUND__:Drox's Crest - 精确==
 Show
     BaseType == "Drox's Crest"
     SetFontSize 36
@@ -4203,7 +4193,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\碎片之冠.mp3" 300
 
 
-#==[93024]- Fragments -T3: 普通碎片 碎片 - #9 __SOUND__:Mortal Rage - 精确==
+#==[93025]- Fragments -T3: 普通碎片 碎片 - #9 __SOUND__:Mortal Rage - 精确==
 Show
     BaseType == "Mortal Rage"
     SetFontSize 36
@@ -4213,7 +4203,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\绿门碎片.mp3" 300
 
 
-#==[93025]- Fragments -T3: 普通碎片 碎片 - #10 __SOUND__:Mortal Grief - 精确==
+#==[93026]- Fragments -T3: 普通碎片 碎片 - #10 __SOUND__:Mortal Grief - 精确==
 Show
     BaseType == "Mortal Grief"
     SetFontSize 36
@@ -4223,7 +4213,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\绿门碎片.mp3" 300
 
 
-#==[93026]- Fragments -T3: 普通碎片 碎片 - #11 __SOUND__:Mortal Hope - 精确==
+#==[93027]- Fragments -T3: 普通碎片 碎片 - #11 __SOUND__:Mortal Hope - 精确==
 Show
     BaseType == "Mortal Hope"
     SetFontSize 36
@@ -4233,7 +4223,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\绿门碎片.mp3" 300
 
 
-#==[93027]- Fragments -T3: 普通碎片 碎片 - #12 __SOUND__:Mortal Ignorance - 精确==
+#==[93028]- Fragments -T3: 普通碎片 碎片 - #12 __SOUND__:Mortal Ignorance - 精确==
 Show
     BaseType == "Mortal Ignorance"
     SetFontSize 36
@@ -4243,7 +4233,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\绿门碎片.mp3" 300
 
 
-#==[93028]- Fragments -T3: 普通碎片 碎片 - #13 __SOUND__:Fragment of the Minotaur - 精确==
+#==[93029]- Fragments -T3: 普通碎片 碎片 - #13 __SOUND__:Fragment of the Minotaur - 精确==
 Show
     BaseType == "Fragment of the Minotaur"
     SetFontSize 36
@@ -4253,7 +4243,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\记忆碎片.mp3" 300
 
 
-#==[93029]- Fragments -T3: 普通碎片 碎片 - #14 __SOUND__:Fragment of the Chimera - 精确==
+#==[93030]- Fragments -T3: 普通碎片 碎片 - #14 __SOUND__:Fragment of the Chimera - 精确==
 Show
     BaseType == "Fragment of the Chimera"
     SetFontSize 36
@@ -4263,7 +4253,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\记忆碎片.mp3" 300
 
 
-#==[93030]- Fragments -T3: 普通碎片 碎片 - #15 __SOUND__:Fragment of the Hydra - 精确==
+#==[93031]- Fragments -T3: 普通碎片 碎片 - #15 __SOUND__:Fragment of the Hydra - 精确==
 Show
     BaseType == "Fragment of the Hydra"
     SetFontSize 36
@@ -4273,7 +4263,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\记忆碎片.mp3" 300
 
 
-#==[93031]- Fragments -T3: 普通碎片 碎片 - #16 __SOUND__:Fragment of the Phoenix - 精确==
+#==[93032]- Fragments -T3: 普通碎片 碎片 - #16 __SOUND__:Fragment of the Phoenix - 精确==
 Show
     BaseType == "Fragment of the Phoenix"
     SetFontSize 36
@@ -4283,7 +4273,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\记忆碎片.mp3" 300
 
 
-#==[93032]- Fragments -T3: 普通碎片 碎片 - 自动音效：新月裂片 - 精确==
+#==[93033]- Fragments -T3: 普通碎片 碎片 - 自动音效：新月裂片 - 精确==
 Show
     BaseType == "Crescent Splinter"
     SetFontSize 36
@@ -4293,7 +4283,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\新月裂片.mp3" 300
 
 
-#==[93033]- Fragments -T4: 低价值碎片 碎片 - #1 __SOUND__:Sacrifice at Midnight - 精确==
+#==[93034]- Fragments -T4: 低价值碎片 碎片 - #1 __SOUND__:Sacrifice at Midnight - 精确==
 Show
     BaseType == "Sacrifice at Midnight"
     SetFontSize 34
@@ -4303,7 +4293,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\红门碎片.mp3" 300
 
 
-#==[93034]- Fragments -T4: 低价值碎片 碎片 - #2 __SOUND__:Sacrifice at Noon - 精确==
+#==[93035]- Fragments -T4: 低价值碎片 碎片 - #2 __SOUND__:Sacrifice at Noon - 精确==
 Show
     BaseType == "Sacrifice at Noon"
     SetFontSize 34
@@ -4313,7 +4303,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\红门碎片.mp3" 300
 
 
-#==[93035]- Fragments -T4: 低价值碎片 碎片 - #3 __SOUND__:Sacrifice at Dusk - 精确==
+#==[93036]- Fragments -T4: 低价值碎片 碎片 - #3 __SOUND__:Sacrifice at Dusk - 精确==
 Show
     BaseType == "Sacrifice at Dusk"
     SetFontSize 34
@@ -4323,7 +4313,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\红门碎片.mp3" 300
 
 
-#==[93036]- Fragments -T4: 低价值碎片 碎片 - #4 __SOUND__:Sacrifice at Dawn - 精确==
+#==[93037]- Fragments -T4: 低价值碎片 碎片 - #4 __SOUND__:Sacrifice at Dawn - 精确==
 Show
     BaseType == "Sacrifice at Dawn"
     SetFontSize 34
@@ -4396,31 +4386,43 @@ Show
 
 #==[101000]-杂项 Misc - 其他杂项 Other Misc==
 
-#==[101001]- Misc -其他杂项 其他杂项 - 自动音效：医药箱 - 精确==
+#==[101001]- Misc -其他杂项 其他杂项 - #1 任务物品 - 精确==
 Show
-    BaseType == "Medicine Chest"
+    BaseType == "Alira's Amulet" "Allflame" "Ammonite Glyph" "Ankh of Eternity" "Atlas Book of Skill" "Baleful Gem" "Basilisk Acid" "Bestel's Manuscript" "Black Venom" "Bottled Storm" "Bust of Gaius Sentari" "Bust of Hector Titucius" "Bust of Marceus Lioneye" "Calendar of Fortune" "Chitus' Plum" "Decanter Spiritus" "Deshret's Banner" "Elixir of Allure" "Eye of Conquest" "Eyes of Zeal" "Firefly" "Flesh Compass" "Golden Hand" "Golden Page" "Greust's Necklace" "Haliotis Glyph" "Hinekora's Hair" "Incandescent Invitation" "Infernal Talc" "Kishara's Star" "Kraityn's Amulet" "Luminous Astrolabe" "Malachai's Entrails" "Malachai's Heart" "Malachai's Lungs" "Maligaro's Map" "Medicine Chest" "Miasmeter" "Moon Orb" "Oak's Amulet" "Obsidian Key" "Polaric Invitation" "Ribbon Spool" "Roseus Glyph" "Sekhema Feather" "Sewer Keys" "Sign of Purity" "Silver Locket" "Storm Blade" "Sun Orb" "Thaumetic Emblem" "Thaumetic Sulphite" "The Apex" "The Black Flag" "The Eye of Desire" "The Eye of Fury" "The Staff of Purity" "The Teardrop" "Tolman's Bracelet" "Tower Key" "Trarthan Powder" "Tukohama's Tooth" "Valako's Jaw" "Wings of Vastiri" "Writhing Invitation"
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 52 200 52 255
     SetBackgroundColor 10 40 10 255
-    CustomAlertSound "sound_files\Sharket掉落音效\医药箱.mp3" 200
+    CustomAlertSound "sound_files\Sharket掉落音效\任务物品.mp3" 200
     PlayEffect Green
     MinimapIcon 1 Green Diamond
 
 
-#==[101002]- Misc -其他杂项 其他杂项 - 自动音效：不灭之火 - 精确==
+#==[101002]- Misc -其他杂项 其他杂项 - #2 迷宫饰品 - 精确==
 Show
-    BaseType == "Allflame"
+    BaseType == "Bane of the Loyal" "Cogs of Disruption" "Cube Of Absorption" "Heart of the Gargoyle" "Orb of Elemental Dispersion" "Portal Shredder" "Rod of Detonation" "Sand of Eternity"
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 52 200 52 255
     SetBackgroundColor 10 40 10 255
-    CustomAlertSound "sound_files\Sharket掉落音效\不灭之火.mp3" 300
+    CustomAlertSound "sound_files\Sharket掉落音效\迷宫饰品.mp3" 300
     PlayEffect Green
     MinimapIcon 1 Green Diamond
 
 
-#==[101003]- Misc -其他杂项 其他杂项 - 自动音效：阿佐亚特编年史 - 精确==
+#==[101003]- Misc -其他杂项 其他杂项 - #3 虚空石 - 精确==
+Show
+    BaseType == "Ceremonial Voidstone" "Decayed Voidstone" "Eldritch Voidstone" "Originator Voidstone"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 52 200 52 255
+    SetBackgroundColor 10 40 10 255
+    CustomAlertSound "sound_files\Sharket掉落音效\虚空石.mp3" 300
+    PlayEffect Green
+    MinimapIcon 1 Green Diamond
+
+
+#==[101004]- Misc -其他杂项 其他杂项 - 自动音效：阿佐亚特编年史 - 精确==
 Show
     BaseType == "Chronicle of Atzoatl"
     SetFontSize 42
@@ -4432,7 +4434,7 @@ Show
     MinimapIcon 1 Green Diamond
 
 
-#==[101004]- Misc -其他杂项 其他杂项 - 自动音效：贪婪战书 - 精确==
+#==[101005]- Misc -其他杂项 其他杂项 - 自动音效：贪婪战书 - 精确==
 Show
     BaseType == "Inscribed Ultimatum"
     SetFontSize 42
@@ -4444,7 +4446,7 @@ Show
     MinimapIcon 1 Green Diamond
 
 
-#==[101005]- Misc -其他杂项 其他杂项 - 自动音效：白银钥匙 - 精确==
+#==[101006]- Misc -其他杂项 其他杂项 - 自动音效：白银钥匙 - 精确==
 Show
     BaseType == "Silver Key"
     SetFontSize 42
@@ -4456,7 +4458,7 @@ Show
     MinimapIcon 1 Green Diamond
 
 
-#==[101006]- Misc -其他杂项 其他杂项 - 自动音效：黄金钥匙 - 精确==
+#==[101007]- Misc -其他杂项 其他杂项 - 自动音效：黄金钥匙 - 精确==
 Show
     BaseType == "Golden Key"
     SetFontSize 42
@@ -4468,7 +4470,7 @@ Show
     MinimapIcon 1 Green Diamond
 
 
-#==[101007]- Misc -其他杂项 其他杂项 - 自动音效：古铜钥匙 - 精确==
+#==[101008]- Misc -其他杂项 其他杂项 - 自动音效：古铜钥匙 - 精确==
 Show
     BaseType == "Treasure Key"
     SetFontSize 42
@@ -4480,7 +4482,7 @@ Show
     MinimapIcon 1 Green Diamond
 
 
-#==[101008]- Misc -其他杂项 其他杂项 - 自动音效：镜像桌台 - 精确==
+#==[101009]- Misc -其他杂项 其他杂项 - 自动音效：镜像桌台 - 精确==
 Show
     BaseType == "Mirrored Tablet"
     SetFontSize 42
@@ -4492,45 +4494,9 @@ Show
     MinimapIcon 1 Green Diamond
 
 
-#==[101009]- Misc -其他杂项 其他杂项 - 自动音效：女神祭品 - 精确==
+#==[101010]- Misc -其他杂项 其他杂项 - 基础 - 精确==
 Show
-    BaseType == "Offering to the Goddess"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 52 200 52 255
-    SetBackgroundColor 10 40 10 255
-    CustomAlertSound "sound_files\Sharket掉落音效\女神祭品.mp3" 100
-    PlayEffect Green
-    MinimapIcon 1 Green Diamond
-
-
-#==[101010]- Misc -其他杂项 其他杂项 - 自动音效：女神之礼 - 精确==
-Show
-    BaseType == "Gift to the Goddess"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 52 200 52 255
-    SetBackgroundColor 10 40 10 255
-    CustomAlertSound "sound_files\Sharket掉落音效\女神之礼.mp3" 200
-    PlayEffect Green
-    MinimapIcon 1 Green Diamond
-
-
-#==[101011]- Misc -其他杂项 其他杂项 - 自动音效：女神贡品 - 精确==
-Show
-    BaseType == "Tribute to the Goddess"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 52 200 52 255
-    SetBackgroundColor 10 40 10 255
-    CustomAlertSound "sound_files\Sharket掉落音效\女神贡品.mp3" 200
-    PlayEffect Green
-    MinimapIcon 1 Green Diamond
-
-
-#==[101012]- Misc -其他杂项 其他杂项 - 基础 - 精确==
-Show
-    BaseType == "Aggregator Charm" "Alira's Amulet" "Ammonite Glyph" "Ankh of Eternity" "Archive Reliquary Key" "Atlas Book of Skill" "Baleful Gem" "Bane of the Loyal" "Basilisk Acid" "Bestel's Manuscript" "Black Venom" "Bottled Storm" "Burst Band" "Bust of Gaius Sentari" "Bust of Hector Titucius" "Bust of Marceus Lioneye" "Calendar of Fortune" "Candlestick Relic" "Censer Relic" "Ceremonial Voidstone" "Chitus' Plum" "Coffer Relic" "Cogs of Disruption" "Conduit Line" "Cosmic Reliquary Key" "Cube Of Absorption" "Decanter Spiritus" "Decayed Voidstone" "Decaying Reliquary Key" "Dedication to the Goddess" "Deshret's Banner" "Eldritch Eye" "Eldritch Voidstone" "Elixir of Allure" "Essential Keyring" "Eye of Conquest" "Eyes of Zeal" "Firefly" "Fishing Rod" "Flashpowder Keg" "Flesh Compass" "Focal Stone" "Forbidden Tome" "Forgotten Reliquary Key" "Ghastly Eye Jewel" "Golden Hand" "Golden Page" "Grandmaster Keyring" "Greust's Necklace" "Haliotis Glyph" "Heart of the Gargoyle" "Hinekora's Hair" "Hypnotic Eye Jewel" "Imperfect Eldritch Eye" "Incandescent Invitation" "Infernal Talc" "Kishara's Star" "Kraityn's Amulet" "Lonely Reliquary Key" "Luminous Astrolabe" "Malachai's Entrails" "Malachai's Heart" "Malachai's Lungs" "Maligaro's Map" "Miasmeter" "Moon Orb" "Murderous Eye Jewel" "Oak's Amulet" "Obsidian Key" "Orb of Elemental Dispersion" "Originator Voidstone" "Oubliette Reliquary Key" "Papyrus Relic" "Pecoraro" "Perfect Eldritch Eye" "Polaric Invitation" "Portal Shredder" "Processional Relic" "Reverent Reliquary Key" "Ribbon Spool" "Rod of Detonation" "Roseus Glyph" "Sanctum Archives Research" "Sanctum Cathedral Research" "Sanctum Necropolis Research" "Sanctum Vaults Research" "Sand of Eternity" "Screaming Invitation" "Searching Eye Jewel" "Sekhema Feather" "Sewer Keys" "Shiny Reliquary Key" "Sign of Purity" "Silver Locket" "Skeleton Keyring" "Stone of Passage" "Storm Blade" "Sun Orb" "Thaumetic Emblem" "Thaumetic Sulphite" "The Apex" "The Black Flag" "The Eye of Desire" "The Eye of Fury" "The Staff of Purity" "The Teardrop" "Tolman's Bracelet" "Tome Relic" "Tower Key" "Trarthan Powder" "Traumatic Reliquary Key" "Tukohama's Tooth" "Urn Relic" "Urn of Farud" "Vaal Aspect" "Valako's Jaw" "Versatile Keyring" "Visceral Reliquary Key" "Voidborn Reliquary Key" "Wings of Vastiri" "Writhing Invitation"
+    BaseType == "Aggregator Charm" "Burst Band" "Conduit Line" "Eldritch Eye" "Essential Keyring" "Fishing Rod" "Flashpowder Keg" "Focal Stone" "Forbidden Tome" "Ghastly Eye Jewel" "Grandmaster Keyring" "Murderous Eye Jewel" "Pecoraro" "Perfect Eldritch Eye" "Sanctum Archives Research" "Sanctum Cathedral Research" "Sanctum Necropolis Research" "Sanctum Vaults Research" "Searching Eye Jewel" "Skeleton Keyring" "Stone of Passage" "Urn of Farud" "Vaal Aspect" "Versatile Keyring"
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 52 200 52 255
@@ -4856,7 +4822,20 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[111024]- Unique Items -T1: 高价值 传奇物品 - 基础 - 精确==
+#==[111024]- Unique Items -T1: 高价值 传奇物品 - #15 传奇地图 - 自选==
+Show
+    Rarity Unique
+    Class == "Maps"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 190 105 40 255
+    SetBackgroundColor 38 21 8 255
+    CustomAlertSound "sound_files\Sharket掉落音效\传奇地图.mp3" 300
+    PlayEffect Brown
+    MinimapIcon 1 Brown Diamond
+
+
+#==[111025]- Unique Items -T1: 高价值 传奇物品 - 基础 - 精确==
 Show
     BaseType == "Fleshripper" "Formless Ring" "Foul Staff" "Fugitive Ring" "Ghastly Eye Jewel" "Gold Flask" "Jingling Spirit Shield" "Murderous Eye Jewel" "Papyrus Relic" "Processional Relic" "Runic Helm" "Runic Sollerets" "Siege Helmet" "Vermillion Ring"
     Rarity Unique
@@ -4869,7 +4848,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[111025]- Unique Items -T2: 优质 传奇物品 - #1 仿品 Replica T2 - 精确==
+#==[111026]- Unique Items -T2: 优质 传奇物品 - #1 仿品 Replica T2 - 精确==
 Show
     BaseType == "Eternal Sword" "Ezomyte Burgonet" "Gut Ripper" "Imperial Bow" "Ornate Quiver" "Sage Wand" "Siege Axe" "Sorcerer Gloves" "Stibnite Flask" "Tornado Wand" "Vaal Rapier" "Zodiac Leather"
     Rarity Unique
@@ -4882,7 +4861,7 @@ Show
     MinimapIcon 1 Brown Circle
 
 
-#==[111026]- Unique Items -T2: 优质 传奇物品 - #2 秽生 Foulborn T2 - 精确==
+#==[111027]- Unique Items -T2: 优质 传奇物品 - #2 秽生 Foulborn T2 - 精确==
 Show
     BaseType == "Assassin's Garb" "Dragonscale Boots" "Eternal Sword" "Exquisite Leather" "Gladiator Plate" "Lunaris Circlet" "Murder Mitts" "Reinforced Greaves" "Silk Gloves" "Steel Gauntlets" "Titanium Spirit Shield" "Tomahawk" "Vaal Gauntlets"
     Rarity Unique
@@ -4895,7 +4874,7 @@ Show
     MinimapIcon 1 Brown Circle
 
 
-#==[111027]- Unique Items -T2: 优质 传奇物品 - #3 四深渊孔头盔（召唤头） 4x Abyss Helmet - 精确==
+#==[111028]- Unique Items -T2: 优质 传奇物品 - #3 四深渊孔头盔（召唤头） 4x Abyss Helmet - 精确==
 Show
     BaseType == "Bone Circlet"
     Rarity Unique
@@ -4908,7 +4887,7 @@ Show
     MinimapIcon 1 Brown Circle
 
 
-#==[111028]- Unique Items -T2: 优质 传奇物品 - #4 三深渊孔深渊衣 3x Abyss - 精确==
+#==[111029]- Unique Items -T2: 优质 传奇物品 - #4 三深渊孔深渊衣 3x Abyss - 精确==
 Show
     BaseType == "Carnal Armour"
     Rarity Unique
@@ -4921,7 +4900,7 @@ Show
     MinimapIcon 1 Brown Circle
 
 
-#==[111029]- Unique Items -T2: 优质 传奇物品 - #5 双深渊孔深渊套餐 2x Abyss - 精确==
+#==[111030]- Unique Items -T2: 优质 传奇物品 - #5 双深渊孔深渊套餐 2x Abyss - 精确==
 Show
     BaseType == "Great Crown" "Mind Cage" "Murder Boots" "Riveted Gloves" "Steelscale Gauntlets"
     Rarity Unique
@@ -4934,7 +4913,7 @@ Show
     MinimapIcon 1 Brown Circle
 
 
-#==[111030]- Unique Items -T2: 优质 传奇物品 - #6 已腐化传奇珠宝 Corrupted Jewels - 精确==
+#==[111031]- Unique Items -T2: 优质 传奇物品 - #6 已腐化传奇珠宝 Corrupted Jewels - 精确==
 Show
     BaseType == "Cobalt Jewel" "Crimson Jewel" "Viridian Jewel"
     Rarity Unique
@@ -4948,7 +4927,7 @@ Show
     MinimapIcon 1 Brown Circle
 
 
-#==[111031]- Unique Items -T2: 优质 传奇物品 - #7 传奇契约 - 自选==
+#==[111032]- Unique Items -T2: 优质 传奇物品 - #7 传奇契约 - 自选==
 Show
     Class == "Contract"
     Rarity Unique
@@ -4960,7 +4939,7 @@ Show
     MinimapIcon 1 Brown Circle
 
 
-#==[111032]- Unique Items -T2: 优质 传奇物品 - 基础 - 精确==
+#==[111033]- Unique Items -T2: 优质 传奇物品 - 基础 - 精确==
 Show
     BaseType == "Amethyst Flask" "Antique Gauntlets" "Assassin's Boots" "Astrolabe Amulet" "Cabalist Regalia" "Candlestick Relic" "Censer Relic" "Coronal Maul" "Devout Chainmail" "Elegant Round Shield" "Exquisite Blade" "Faun's Horn" "Golden Buckler" "Heavy Belt" "Hypnotic Eye Jewel" "Imperial Maul" "Lacewood Spirit Shield" "Large Cluster Jewel" "Leather Belt" "Leather Hood" "Magistrate Crown" "Maraketh Bow" "Martyr Gloves" "Medium Cluster Jewel" "Opal Wand" "Paua Amulet" "Piledriver" "Prismatic Ring" "Quarterstaff" "Rawhide Boots" "Runic Crown" "Runic Gages" "Runic Sabatons" "Savant's Robe" "Scholar's Robe" "Seaglass Amulet" "Searching Eye Jewel" "Small Cluster Jewel" "Spectral Axe" "Spidersilk Robe" "Synaptic Ring" "Terror Maul" "Vaal Claw" "Vile Staff" "Void Axe"
     Rarity Unique
@@ -4972,7 +4951,7 @@ Show
     MinimapIcon 1 Brown Circle
 
 
-#==[111033]- Unique Items -T3: 普通 传奇物品 - #1 其他仿品传奇 - 自选==
+#==[111034]- Unique Items -T3: 普通 传奇物品 - #1 其他仿品传奇 - 自选==
 Show
     Replica True
     Rarity Unique
@@ -4983,7 +4962,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\传奇.mp3" 300
 
 
-#==[111034]- Unique Items -T3: 普通 传奇物品 - #2 其他秽生传奇 - 自选==
+#==[111035]- Unique Items -T3: 普通 传奇物品 - #2 其他秽生传奇 - 自选==
 Show
     Foulborn True
     Rarity Unique
@@ -4994,7 +4973,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\传奇.mp3" 300
 
 
-#==[111035]- Unique Items -T3: 普通 传奇物品 - #3 神像 - 自选==
+#==[111036]- Unique Items -T3: 普通 传奇物品 - #3 神像 - 自选==
 Show
     Rarity Unique
     Class "idol"
@@ -5005,7 +4984,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\传奇.mp3" 300
 
 
-#==[111036]- Unique Items -T3: 普通 传奇物品 - 基础 - 精确==
+#==[111037]- Unique Items -T3: 普通 传奇物品 - 基础 - 精确==
 Show
     BaseType == "Abyssal Axe" "Agate Amulet" "Amber Amulet" "Ambush Mitts" "Amethyst Ring" "Ancient Gauntlets" "Archon Kite Shield" "Assassin's Mitts" "Astral Plate" "Bismuth Flask" "Black Maw Talisman" "Blood Raiment" "Blood Sceptre" "Blue Pearl Amulet" "Blunt Arrow Quiver" "Bone Circlet" "Bone Helmet" "Broadhead Arrow Quiver" "Butcher Axe" "Callous Mask" "Cardinal Round Shield" "Carnal Armour" "Carnal Boots" "Carnal Mitts" "Chain Belt" "Citadel Bow" "Citrine Amulet" "Cloth Belt" "Coffer Relic" "Coiled Staff" "Colossal Mana Flask" "Colossal Tower Shield" "Colosseum Plate" "Coral Ring" "Crimson Round Shield" "Crude Bow" "Crusader Plate" "Cryonic Ring" "Crystal Sceptre" "Cutlass" "Deicide Mask" "Demon Dagger" "Desert Brigandine" "Dragonscale Boots" "Ebony Tower Shield" "Enthalpic Ring" "Ezomyte Burgonet" "Ezomyte Spiked Shield" "Ezomyte Staff" "Ezomyte Tower Shield" "Fiend Dagger" "Fingerless Silk Gloves" "Fugitive Boots" "Full Wyrmscale" "General's Brigandine" "Gladiator Plate" "Goathide Boots" "Gold Ring" "Golden Mask" "Golden Plate" "Goliath Gauntlets" "Goliath Greaves" "Granite Flask" "Great Crown" "Harlequin Mask" "Harmonic Spirit Shield" "Hellion's Paw" "Highborn Staff" "Hubris Circlet" "Hydrascale Boots" "Hydrascale Gauntlets" "Imperial Skean" "Imperial Staff" "Infernal Sword" "Iron Flask" "Iron Ring" "Jade Amulet" "Jewelled Foil" "Judgement Staff" "Lacquered Buckler" "Lacquered Garb" "Lacquered Helmet" "Lapis Amulet" "Legion Boots" "Legion Sword" "Lich's Circlet" "Lion Sword" "Maelström Staff" "Majestic Plate" "Marble Amulet" "Mirrored Spiked Shield" "Moonstone Ring" "Murder Mitts" "Necromancer Circlet" "Nightmare Mace" "Occultist's Vestment" "Onyx Amulet" "Opal Ring" "Organic Ring" "Pagan Wand" "Painted Tower Shield" "Paladin Crown" "Paua Ring" "Pig-Faced Bascinet" "Plated Greaves" "Platinum Sceptre" "Praetor Crown" "Primordial Staff" "Prophecy Wand" "Prophet Crown" "Raven Mask" "Reinforced Greaves" "Royal Burgonet" "Ruby Ring" "Runic Gauntlets" "Sacrificial Garb" "Sadist Garb" "Sage Wand" "Sage's Robe" "Saint's Hauberk" "Saintly Chainmail" "Sapphire Flask" "Sapphire Ring" "Sentinel Jacket" "Serpentine Staff" "Serpentscale Boots" "Serpentscale Gauntlets" "Shadow Sceptre" "Shield Crab Talisman" "Silk Gloves" "Silken Hood" "Silver Flask" "Slink Boots" "Solaris Circlet" "Soldier Gloves" "Somatic Wand" "Sorcerer Boots" "Spidersilk Robe" "Spiked Gloves" "Spine Bow" "Spiny Round Shield" "Stealth Boots" "Steel Kite Shield" "Steel Ring" "Steelscale Gauntlets" "Steelwood Bow" "Stibnite Flask" "Studded Belt" "Stygian Vise" "Sulphur Flask" "Titan Greaves" "Titanium Spirit Shield" "Tome Relic" "Topaz Flask" "Topaz Ring" "Tornado Wand" "Torturer Garb" "Triumphant Lamellar" "Turquoise Amulet" "Two-Point Arrow Quiver" "Tyrant's Sekhem" "Unset Ring" "Urn Relic" "Vaal Axe" "Vaal Blade" "Vaal Gauntlets" "Vaal Greaves" "Vaal Mask" "Vaal Regalia" "Vaal Spirit Shield" "Vanguard Belt" "Varnished Coat" "Vile Arrow Quiver" "Void Sceptre" "Waxed Garb" "Wyrmscale Boots" "Zealot Helmet" "Zodiac Leather"
     Rarity Unique
@@ -5016,7 +4995,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\传奇.mp3" 300
 
 
-#==[111037]- Unique Items -其他传奇 传奇物品 - Class Condition==
+#==[111038]- Unique Items -其他传奇 传奇物品 - Class Condition==
 Show
     Rarity Unique
     SetFontSize 36
