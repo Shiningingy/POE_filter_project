@@ -1,0 +1,382 @@
+{
+  "_meta": {
+    "gen_order": -10,
+    "localization": {
+      "ch": {}
+    },
+    "item_class": {
+      "en": "Crafting Priority",
+      "ch": "优先精品底材"
+    },
+    "theme_category": "Crafting Bases"
+  },
+  "mapping": {
+    "Blood Viper Talisman": "Crafting Chase 86",
+    "Croaker Talisman": [
+      "Crafting Chase 86",
+      "Crafting Chase 85",
+      "Crafting Chase 84",
+      "Crafting Chase 83"
+    ],
+    "Cryonic Ring": "Crafting Chase 86",
+    "Crystal Belt": "Crafting Chase 86",
+    "Enthalpic Ring": "Crafting Chase 86",
+    "Flame Hellion Talisman": "Crafting Chase 86",
+    "Fugitive Boots": "Crafting Chase 86",
+    "Fugitive Ring": "Crafting Chase 86",
+    "Gargantuan Talisman": "Crafting Chase 86",
+    "Great Maw Talisman": [
+      "Crafting Chase 86",
+      "Crafting Chase 85",
+      "Crafting Chase 84",
+      "Crafting Chase 83"
+    ],
+    "Lich's Circlet": "Crafting Chase 86",
+    "Octopus Talisman": "Crafting Chase 86",
+    "Organic Ring": "Crafting Chase 86",
+    "Retch Talisman": "Crafting Chase 86",
+    "Rhoa Talisman": "Crafting Chase 86",
+    "Scrabbler Talisman": "Crafting Chase 86",
+    "Spiked Gloves": "Crafting Chase 86",
+    "Stygian Vise": [
+      "Crafting Chase 86",
+      "Crafting Chase 85",
+      "Crafting Chase 84",
+      "Crafting Chase 83"
+    ],
+    "Synaptic Ring": [
+      "Crafting Chase 86",
+      "Crafting Chase 85",
+      "Crafting Chase 84",
+      "Crafting Chase 83"
+    ],
+    "Titanium Spirit Shield": "Crafting Chase 86",
+    "Twilight Regalia": "Crafting Chase 86",
+    "Vermillion Ring": [
+      "Crafting Chase 86",
+      "Crafting Chase 85",
+      "Crafting Chase 84",
+      "Crafting Chase 83"
+    ],
+    "Warlock Gloves": "Crafting Chase 86",
+    "Watcher Talisman": "Crafting Chase 86",
+    "Wyvernscale Gauntlets": [
+      "Crafting Chase 86",
+      "Crafting Chase 85",
+      "Crafting Chase 84",
+      "Crafting Chase 83"
+    ],
+    "Wyvernscale Boots": "Crafting Chase 83",
+    "Carrion Queen Talisman": [
+      "Crafting Chase 85",
+      "Crafting Chase 84",
+      "Crafting Chase 83"
+    ],
+    "Craicic Talisman": [
+      "Crafting Chase 85",
+      "Crafting Chase 84",
+      "Crafting Chase 83"
+    ],
+    "Rhex Talisman": [
+      "Crafting Chase 85",
+      "Crafting Chase 84",
+      "Crafting Chase 83"
+    ],
+    "Saqawine Talisman": [
+      "Crafting Chase 85",
+      "Crafting Chase 84",
+      "Crafting Chase 83"
+    ],
+    "Tiger Talisman": [
+      "Crafting Chase 85",
+      "Crafting Chase 84",
+      "Crafting Chase 83"
+    ],
+    "Divine Crown": "Crafting Chase 83",
+    "Leviathan Gauntlets": "Crafting Chase 83",
+    "Paladin Gloves": "Crafting Chase 83",
+    "Phantom Mitts": "Crafting Chase 83",
+    "Velour Gloves": "Crafting Chase 83",
+    "Ape Talisman": "Crafting Chase 84",
+    "Cobra Talisman": "Crafting Chase 84",
+    "Fenumal Talisman": [
+      "Crafting Chase 84",
+      "Crafting Chase 83"
+    ]
+  },
+  "rules": [
+    {
+      "comment": "机会底材 高品质",
+      "targets": [
+        "Riveted Boots",
+        "Steel Kite Shield"
+      ],
+      "conditions": {
+        "Quality": ">= 26",
+        "Corrupted": "False",
+        "Mirrored": "False"
+      },
+      "overrides": {
+        "Tier": "Crafting Perfect Quality"
+      }
+    },
+    {
+      "comment": "防具 完美品质",
+      "targets": [
+        "Apothecary's Gloves",
+        "Archon Kite Shield",
+        "Bone Helmet",
+        "Cardinal Round Shield",
+        "Colossal Tower Shield",
+        "Conquest Lamellar",
+        "Divine Crown",
+        "Ezomyte Tower Shield",
+        "Fingerless Silk Gloves",
+        "Fossilised Spirit Shield",
+        "Fugitive Boots",
+        "Giantslayer Helmet",
+        "Gripped Gloves",
+        "Haunted Bascinet",
+        "Lacquered Buckler",
+        "Leviathan Gauntlets",
+        "Leviathan Greaves",
+        "Lich's Circlet",
+        "Majestic Pelt",
+        "Necrotic Armour",
+        "Paladin Boots",
+        "Paladin Gloves",
+        "Phantom Boots",
+        "Phantom Mitts",
+        "Royal Plate",
+        "Sacred Chainmail",
+        "Sacrificial Garb",
+        "Spiked Gloves",
+        "Supreme Spiked Shield",
+        "Syndicate's Garb",
+        "Titanium Spirit Shield",
+        "Torturer's Mask",
+        "Twilight Regalia",
+        "Two-Toned Boots",
+        "Velour Boots",
+        "Velour Gloves",
+        "Warlock Boots",
+        "Warlock Gloves",
+        "Wyvernscale Boots",
+        "Wyvernscale Gauntlets"
+      ],
+      "conditions": {
+        "Quality": ">= 28",
+        "Corrupted": "False",
+        "Mirrored": "False"
+      },
+      "overrides": {
+        "Tier": "Crafting Perfect Quality"
+      }
+    },
+    {
+      "comment": "武器 完美品质",
+      "targets": [
+        "Ambusher",
+        "Artillery Quiver",
+        "Basket Rapier",
+        "Battered Foil",
+        "Behemoth Mace",
+        "Broadhead Arrow Quiver",
+        "Citadel Bow",
+        "Convening Wand",
+        "Convoking Wand",
+        "Copper Kris",
+        "Corsair Sword",
+        "Despot Axe",
+        "Eclipse Staff",
+        "Eternal Sword",
+        "Exquisite Blade",
+        "Ezomyte Blade",
+        "Ezomyte Staff",
+        "Feathered Arrow Quiver",
+        "Fleshripper",
+        "Gemini Claw",
+        "Golden Kris",
+        "Grove Bow",
+        "Harbinger Bow",
+        "Heavy Arrow Quiver",
+        "Imperial Bow",
+        "Imperial Claw",
+        "Imperial Skean",
+        "Jewelled Foil",
+        "Judgement Staff",
+        "Karui Chopper",
+        "Karui Sceptre",
+        "Kinetic Wand",
+        "Lathi",
+        "Legion Hammer",
+        "Maelström Staff",
+        "Maraketh Bow",
+        "Meatgrinder",
+        "Opal Sceptre",
+        "Opal Wand",
+        "Pagan Wand",
+        "Piledriver",
+        "Platinum Kris",
+        "Primal Arrow Quiver",
+        "Profane Wand",
+        "Prophecy Wand",
+        "Reaver Axe",
+        "Reaver Sword",
+        "Reflex Bow",
+        "Royal Axe",
+        "Runic Hatchet",
+        "Sai",
+        "Sambar Sceptre",
+        "Short Bow",
+        "Siege Axe",
+        "Spine Bow",
+        "Spiraled Foil",
+        "Sundering Axe",
+        "Thicket Bow",
+        "Vaal Axe",
+        "Vile Arrow Quiver",
+        "Void Sceptre",
+        "Whalebone Rapier"
+      ],
+      "conditions": {
+        "Quality": ">= 28",
+        "ItemLevel": ">= 83",
+        "Corrupted": "False",
+        "Mirrored": "False"
+      },
+      "overrides": {
+        "Tier": "Crafting Perfect Quality"
+      }
+    },
+    {
+      "comment": "防具 高品质",
+      "targets": [
+        "Apothecary's Gloves",
+        "Archon Kite Shield",
+        "Bone Helmet",
+        "Cardinal Round Shield",
+        "Colossal Tower Shield",
+        "Conquest Lamellar",
+        "Divine Crown",
+        "Ezomyte Tower Shield",
+        "Fingerless Silk Gloves",
+        "Fossilised Spirit Shield",
+        "Fugitive Boots",
+        "Giantslayer Helmet",
+        "Gripped Gloves",
+        "Haunted Bascinet",
+        "Lacquered Buckler",
+        "Leviathan Gauntlets",
+        "Leviathan Greaves",
+        "Lich's Circlet",
+        "Majestic Pelt",
+        "Necrotic Armour",
+        "Paladin Boots",
+        "Paladin Gloves",
+        "Phantom Boots",
+        "Phantom Mitts",
+        "Royal Plate",
+        "Sacred Chainmail",
+        "Sacrificial Garb",
+        "Spiked Gloves",
+        "Supreme Spiked Shield",
+        "Syndicate's Garb",
+        "Titanium Spirit Shield",
+        "Torturer's Mask",
+        "Twilight Regalia",
+        "Two-Toned Boots",
+        "Velour Boots",
+        "Velour Gloves",
+        "Warlock Boots",
+        "Warlock Gloves",
+        "Wyvernscale Boots",
+        "Wyvernscale Gauntlets"
+      ],
+      "conditions": {
+        "Quality": ">= 24",
+        "Corrupted": "False",
+        "Mirrored": "False"
+      },
+      "overrides": {
+        "Tier": "Crafting High Quality"
+      }
+    },
+    {
+      "comment": "武器 高品质",
+      "targets": [
+        "Ambusher",
+        "Artillery Quiver",
+        "Basket Rapier",
+        "Battered Foil",
+        "Behemoth Mace",
+        "Broadhead Arrow Quiver",
+        "Citadel Bow",
+        "Convening Wand",
+        "Convoking Wand",
+        "Copper Kris",
+        "Corsair Sword",
+        "Despot Axe",
+        "Eclipse Staff",
+        "Eternal Sword",
+        "Exquisite Blade",
+        "Ezomyte Blade",
+        "Ezomyte Staff",
+        "Feathered Arrow Quiver",
+        "Fleshripper",
+        "Gemini Claw",
+        "Golden Kris",
+        "Grove Bow",
+        "Harbinger Bow",
+        "Heavy Arrow Quiver",
+        "Imperial Bow",
+        "Imperial Claw",
+        "Imperial Skean",
+        "Jewelled Foil",
+        "Judgement Staff",
+        "Karui Chopper",
+        "Karui Sceptre",
+        "Kinetic Wand",
+        "Lathi",
+        "Legion Hammer",
+        "Maelström Staff",
+        "Maraketh Bow",
+        "Meatgrinder",
+        "Opal Sceptre",
+        "Opal Wand",
+        "Pagan Wand",
+        "Piledriver",
+        "Platinum Kris",
+        "Primal Arrow Quiver",
+        "Profane Wand",
+        "Prophecy Wand",
+        "Reaver Axe",
+        "Reaver Sword",
+        "Reflex Bow",
+        "Royal Axe",
+        "Runic Hatchet",
+        "Sai",
+        "Sambar Sceptre",
+        "Short Bow",
+        "Siege Axe",
+        "Spine Bow",
+        "Spiraled Foil",
+        "Sundering Axe",
+        "Thicket Bow",
+        "Vaal Axe",
+        "Vile Arrow Quiver",
+        "Void Sceptre",
+        "Whalebone Rapier"
+      ],
+      "conditions": {
+        "Quality": ">= 24",
+        "ItemLevel": ">= 83",
+        "Corrupted": "False",
+        "Mirrored": "False"
+      },
+      "overrides": {
+        "Tier": "Crafting High Quality"
+      }
+    }
+  ]
+}

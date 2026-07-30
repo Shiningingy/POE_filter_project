@@ -771,6 +771,16 @@
       },
       "files": [
         {
+          "path": "Equipment/Crafting Priority.json",
+          "tier_path": "tier_definition/Equipment/Crafting Priority.json",
+          "mapping_path": "base_mapping/Equipment/Crafting Priority.json",
+          "target_category": "Crafting Bases",
+          "localization": {
+            "en": "Crafting Priority",
+            "ch": "优先精品底材"
+          }
+        },
+        {
           "path": "Equipment/Crafting.json",
           "tier_path": "tier_definition/Equipment/Crafting.json",
           "mapping_path": "base_mapping/Equipment/Crafting.json",

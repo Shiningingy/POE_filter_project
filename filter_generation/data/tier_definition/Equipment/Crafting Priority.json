@@ -1,0 +1,147 @@
+{
+  "Crafting Priority": {
+    "_meta": {
+      "theme_category": "Crafting Bases",
+      "localization": {
+        "en": "Crafting Priority",
+        "ch": "优先精品底材"
+      },
+      "tier_order": [
+        "Crafting Perfect Quality",
+        "Crafting High Quality",
+        "Crafting Chase 86",
+        "Crafting Chase 85",
+        "Crafting Chase 84",
+        "Crafting Chase 83",
+        "Crafting Bases Hide"
+      ]
+    },
+    "Crafting Perfect Quality": {
+      "hideable": true,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Perfect quality (28+)",
+        "ch": "完美品质 28+"
+      }
+    },
+    "Crafting High Quality": {
+      "hideable": true,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "High quality (24+)",
+        "ch": "高品质 24+"
+      }
+    },
+    "Crafting Chase 86": {
+      "hideable": true,
+      "theme": {
+        "Tier": 1
+      },
+      "conditions": {
+        "Rarity": "<= Rare",
+        "Corrupted": "False",
+        "Mirrored": "False",
+        "ItemLevel": ">= 86"
+      },
+      "hide_at_strictness": 6,
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Chase craft base i86",
+        "ch": "极品底材 i86"
+      }
+    },
+    "Crafting Chase 85": {
+      "hideable": true,
+      "theme": {
+        "Tier": 1
+      },
+      "conditions": {
+        "Rarity": "<= Rare",
+        "Corrupted": "False",
+        "Mirrored": "False",
+        "ItemLevel": ">= 85"
+      },
+      "hide_at_strictness": 6,
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Chase craft base i85",
+        "ch": "极品底材 i85"
+      }
+    },
+    "Crafting Chase 84": {
+      "hideable": true,
+      "theme": {
+        "Tier": 2
+      },
+      "conditions": {
+        "Rarity": "<= Rare",
+        "Corrupted": "False",
+        "Mirrored": "False",
+        "ItemLevel": ">= 84"
+      },
+      "hide_at_strictness": 6,
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Chase craft base i84",
+        "ch": "极品底材 i84"
+      }
+    },
+    "Crafting Chase 83": {
+      "hideable": true,
+      "theme": {
+        "Tier": 2
+      },
+      "conditions": {
+        "Rarity": "<= Rare",
+        "Corrupted": "False",
+        "Mirrored": "False",
+        "ItemLevel": ">= 83"
+      },
+      "hide_at_strictness": 5,
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Chase craft base i83",
+        "ch": "极品底材 i83"
+      }
+    },
+    "Crafting Bases Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}
