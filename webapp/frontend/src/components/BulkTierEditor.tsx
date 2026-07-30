@@ -54,7 +54,7 @@ interface BulkTierEditorProps {
 
 const ARMOUR_CLASSES = ["Body Armours", "Gloves", "Boots", "Helmets", "Shields"];
 
-const SortableItem = ({ id, item, color, isStaged, language, onContextMenu, disabled }: { id: string, item: Item, color: string, isStaged: boolean, language: Language, onContextMenu: (e: React.MouseEvent) => void, disabled?: boolean }) => {
+const SortableItem = ({ id, item, color, isStaged, language, onContextMenu, disabled, selectable, selected, onToggleSelect }: { id: string, item: Item, color: string, isStaged: boolean, language: Language, onContextMenu: (e: React.MouseEvent) => void, disabled?: boolean, selectable?: boolean, selected?: boolean, onToggleSelect?: () => void }) => {
   const {
     attributes,
     listeners,
@@ -72,14 +72,27 @@ const SortableItem = ({ id, item, color, isStaged, language, onContextMenu, disa
   };
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...(disabled ? {} : listeners)}>
-      <ItemCard 
+    <div ref={setNodeRef} style={style} {...attributes} {...(disabled ? {} : listeners)} className="sortable-wrap">
+      {selectable && (
+        // stopPropagation on pointerdown matters: dnd-kit's sensor lives on the
+        // wrapper, so without it every click on the box starts a drag instead of
+        // ticking the checkbox.
+        <input
+          type="checkbox"
+          className="bulk-select-box"
+          checked={!!selected}
+          onPointerDown={(e) => e.stopPropagation()}
+          onClick={(e) => e.stopPropagation()}
+          onChange={() => onToggleSelect?.()}
+        />
+      )}
+      <ItemCard
         item={item}
         language={language}
         color={color}
         isStaged={isStaged}
         onContextMenu={onContextMenu}
-        className={`${isDragging ? 'dragging' : ''} ${disabled ? 'locked' : ''}`}
+        className={`${isDragging ? 'dragging' : ''} ${disabled ? 'locked' : ''} ${selected ? 'bulk-selected' : ''}`}
       />
     </div>
   );
@@ -145,6 +158,9 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   
   // stagedChanges: itemName -> newTierKeyList
   const [stagedChanges, setStagedChanges] = useState<Record<string, string[]>>({});
+  // Multi-select for bulk actions. Keyed by item NAME, so an item shown in two
+  // tier columns is one selection, not two.
+  const [selected, setSelected] = useState<Set<string>>(new Set());
   const [activeId, setActiveId] = useState<string | null>(null);
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: Item, tierKey: string } | null>(null);
   const [selectedSubType, setSelectedSubType] = useState('All');
@@ -412,6 +428,14 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       const openTierKeys = new Set(availableTiers.map(t => t.key));
       const changes: { item_name: string; new_tiers: string[] | null; new_tier: string; source_file: string }[] = [];
       const unresolved: string[] = [];
+      // The two sides of the "is this item's home the open category?" test arrive in
+      // DIFFERENT shapes: category_structure.json gives mapping_path as
+      // 'base_mapping/Gems/Skill.json', while /api/class-items reports source_file
+      // relative to base_mapping/, i.e. 'Gems/Skill.json'. Comparing them raw made
+      // the removal branch below unreachable, so dragging an item OUT of a category
+      // staged fine, reported success, and silently wrote nothing — the item was
+      // back at its old tier on the next load. Normalise before comparing.
+      const relOf = (p?: string) => (p || "").replace(/^base_mapping\//, "");
       for (const [itemName, newTiers] of entries) {
         const item = items.find(i => i.name === itemName);
         const targetFile = defaultMappingPath || item?.source_file || classToFile[item?.item_class || ""] || "";
@@ -420,7 +444,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         const mine = newTiers.filter(t => openTierKeys.has(t));
         if (mine.length) {
           changes.push({ item_name: itemName, new_tiers: mine, new_tier: "", source_file: targetFile });
-        } else if (item?.source_file === targetFile) {
+        } else if (item?.source_file && relOf(item.source_file) === relOf(targetFile)) {
           // It lived here and now has no tier here: drop it from this file only.
           changes.push({ item_name: itemName, new_tiers: null, new_tier: "", source_file: targetFile });
         }
@@ -466,6 +490,53 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     } finally {
       setLoading(false);
     }
+  };
+
+  // Everything the TIERED filter is currently showing, de-duplicated: an item in
+  // two tiers appears in two columns. Backs "select all filtered".
+  const filteredTieredItems = useMemo(() => {
+    const seen = new Map<string, Item>();
+    availableTiers.forEach((tier) => {
+      (columns[tier.key] || []).forEach((it) => seen.set(it.name, it));
+    });
+    return [...seen.values()];
+  }, [columns, availableTiers]);
+
+  const toggleSelected = (name: string) =>
+    setSelected((prev) => {
+      const next = new Set(prev);
+      next.has(name) ? next.delete(name) : next.add(name);
+      return next;
+    });
+
+  // Bulk counterpart of the per-item "remove from tier": drop every SELECTED item
+  // from THIS category, which is the only removal this editor may make - an item's
+  // tiers in other mapping files are none of its business (792 curated names are
+  // multi-homed on purpose).
+  const handleRemoveSelected = () => {
+    const locked = new Set(
+      availableTiers.filter((o) => o.show_in_editor === false).map((o) => o.key),
+    );
+    const picked = items.filter((it) => selected.has(it.name));
+    const removable = picked.filter(
+      (it) => adminMode || !(it.current_tier || []).some((tk) => locked.has(tk)),
+    );
+    if (!removable.length) return;
+    const msg = (t as any).bulkRemoveConfirm
+      .replace("{n}", String(removable.length))
+      .replace("{locked}", String(picked.length - removable.length));
+    if (!window.confirm(msg)) return;
+    setStagedChanges((prev) => {
+      const next = { ...prev };
+      removable.forEach((it) => {
+        // Keep tiers this category does NOT offer - they belong to other files.
+        next[it.name] = (prev[it.name] ?? it.current_tier ?? []).filter(
+          (tk) => !availableTiers.some((o) => o.key === tk),
+        );
+      });
+      return next;
+    });
+    setSelected(new Set());
   };
 
   const handleItemRightClick = (e: React.MouseEvent, item: Item, tierKey: string) => {
@@ -588,8 +659,30 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
             onChange={e => setSearchTermTiered(e.target.value)}
             className="search-box"
           />
-          <button 
-            className="apply-btn" 
+          <button
+            className="bulk-select-btn"
+            disabled={filteredTieredItems.length === 0 || loading}
+            title={(t as any).selectAllFilteredTitle}
+            onClick={() =>
+              setSelected((prev) =>
+                prev.size >= filteredTieredItems.length && filteredTieredItems.length > 0
+                  ? new Set()
+                  : new Set(filteredTieredItems.map((i) => i.name)),
+              )
+            }
+          >
+            ☑ {(t as any).selectAllFiltered} ({filteredTieredItems.length})
+          </button>
+          <button
+            className="bulk-remove-btn"
+            disabled={selected.size === 0 || loading}
+            title={(t as any).bulkRemoveTitle}
+            onClick={handleRemoveSelected}
+          >
+            🗑 {(t as any).removeSelected} ({selected.size})
+          </button>
+          <button
+            className="apply-btn"
             disabled={stagedCount === 0 || loading}
             onClick={handleApply}
           >
@@ -678,6 +771,9 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                                                     language={language}
                                                     onContextMenu={(e) => handleItemRightClick(e, item, tier.key)}
                                                     disabled={isItemLocked}
+                                                    selectable={!isItemLocked}
+                                                    selected={selected.has(item.name)}
+                                                    onToggleSelect={() => toggleSelected(item.name)}
                                                 />
                                             );
                                         })}
@@ -762,6 +858,15 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         .search-box { flex-grow: 0; width: 300px; padding: 10px 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
         .apply-btn { padding: 10px 25px; background: #4CAF50; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: background 0.2s; }
         .apply-btn:hover { background: #43a047; }
+        .bulk-remove-btn { padding: 10px 18px; background: transparent; color: #d98a8a; border: 1px solid #7a3f3f; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.95rem; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+        .bulk-remove-btn:hover:not(:disabled) { background: #7a3f3f; color: #fff; }
+        .bulk-remove-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .bulk-select-btn { padding: 10px 16px; background: transparent; color: #9ab4d9; border: 1px solid #3f5a7a; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.95rem; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+        .bulk-select-btn:hover:not(:disabled) { background: #3f5a7a; color: #fff; }
+        .bulk-select-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .sortable-wrap { position: relative; }
+        .bulk-select-box { position: absolute; top: 6px; left: 6px; z-index: 5; width: 15px; height: 15px; cursor: pointer; accent-color: #d98a8a; }
+        .bulk-selected { outline: 2px solid #d98a8a; outline-offset: -2px; }
         .apply-btn:disabled { background: #e0e0e0; color: #999; cursor: not-allowed; }
 
         .kanban-board { flex-grow: 1; display: flex; gap: 15px; padding: 20px; overflow-x: auto; background: #f0f2f5; }

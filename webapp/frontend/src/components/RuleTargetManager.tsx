@@ -59,10 +59,14 @@ const RuleTargetManager: React.FC<RuleTargetManagerProps> = ({
   handleItemRightClick,
   onRegisterTranslation,
 }) => {
+  // A SELF-SELECTING rule carries no `targets` key at all - a BaseType/Class
+  // condition or a raw block does its own matching (generate.py:534). That is a
+  // supported shape, not bad data, so every read here has to tolerate it.
+  const targets = rule.targets || [];
   return (
                     <div className="target-manager">
                       <div className="target-grid">
-                        {rule.targets.map((tName) => {
+                        {targets.map((tName) => {
                           const item = availableItems.find(
                             (i) => i.name === tName,
                           ) || {
@@ -126,7 +130,7 @@ const RuleTargetManager: React.FC<RuleTargetManagerProps> = ({
                           );
                         })}
 
-                        {rule.targets.length === 0 && (
+                        {targets.length === 0 && (
                           <div className="target-empty-hint">
                             {t.targetTooltip}
                           </div>

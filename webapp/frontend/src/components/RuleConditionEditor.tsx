@@ -5,6 +5,7 @@ import {
   CLASS_KEY_MAP,
 } from "../utils/localization";
 import type { Language } from "../utils/localization";
+import { StableInput } from "./StableField";
 
 interface Rule {
   targets: string[];
@@ -16,6 +17,20 @@ interface Rule {
   disabled?: boolean;
   applyToTier?: boolean;
 }
+
+// A class name is emitted verbatim into the .filter, so it MUST be quoted: PoE
+// splits an unquoted `Class Skill Gems` into two values, "Skill" and "Gems", which
+// are OR'd - so the block silently matches far more than the picker showed. The
+// picker used to store the bare name, producing exactly that.
+//
+// Stored form is `== "Skill Gems"`. classToken() reads a stored value back to the
+// bare name so the dropdown still selects correctly for both the old unquoted data
+// and the quoted form. Hand-typed values in the custom box are left ALONE - an
+// unquoted partial like `Class "Gems"` (matches Skill Gems and Support Gems both)
+// is a deliberate, useful idiom.
+const classToken = (v: string): string =>
+  (v || "").replace(/^\s*(==|!=)?\s*/, "").replace(/^"|"$/g, "").trim();
+const asClassValue = (name: string): string => `== "${name}"`;
 
 // Item classes offered by the class_picker condition. Used only here.
 const ITEM_CLASSES = [
@@ -201,31 +216,28 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                     })}
                   </select>
                 ) : isText ? (
-                  <input
-                    type="text"
+                  <StableInput
                     value={currentVal}
                     placeholder={tmp.placeholder || ""}
-                    onChange={(e) =>
-                      updateCondition(
-                        globalIndex,
-                        key,
-                        e.target.value,
-                      )
+                    onChange={(v) =>
+                      updateCondition(globalIndex, key, v)
                     }
                   />
                 ) : isClass ? (
                   <div className="class-picker-ui">
                     <select
                       value={
-                        ITEM_CLASSES.includes(currentVal)
-                          ? currentVal
+                        ITEM_CLASSES.includes(classToken(currentVal))
+                          ? classToken(currentVal)
                           : "custom"
                       }
                       onChange={(e) =>
                         updateCondition(
                           globalIndex,
                           key,
-                          e.target.value,
+                          e.target.value === "custom"
+                            ? ""
+                            : asClassValue(e.target.value),
                         )
                       }
                     >
@@ -249,23 +261,16 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                         --
                       </option>
                     </select>
-                    {!ITEM_CLASSES.includes(currentVal) && (
-                      <input
-                        type="text"
+                    {!ITEM_CLASSES.includes(classToken(currentVal)) && (
+                      <StableInput
                         value={
-                          currentVal === "custom"
-                            ? ""
-                            : currentVal
+                          currentVal === "custom" ? "" : currentVal
                         }
                         placeholder={
                           (translations[language] as any).search
                         }
-                        onChange={(e) =>
-                          updateCondition(
-                            globalIndex,
-                            key,
-                            e.target.value,
-                          )
+                        onChange={(v) =>
+                          updateCondition(globalIndex, key, v)
                         }
                         className="mt-5"
                       />
@@ -302,15 +307,10 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                             {t.rangeBetween}
                           </option>
                         </select>
-                        <input
-                          type="text"
+                        <StableInput
                           value={v1}
-                          onChange={(e) =>
-                            updateCondition(
-                              globalIndex,
-                              key,
-                              `${op1}${e.target.value}`,
-                            )
+                          onChange={(v) =>
+                            updateCondition(globalIndex, key, `${op1}${v}`)
                           }
                         />
                       </>
@@ -330,14 +330,13 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                             <option value=">=">&gt;=</option>
                             <option value=">">&gt;</option>
                           </select>
-                          <input
-                            type="text"
+                          <StableInput
                             value={v1}
-                            onChange={(e) =>
+                            onChange={(v) =>
                               updateCondition(
                                 globalIndex,
                                 key,
-                                `RANGE ${op1} ${e.target.value} ${op2} ${v2}`,
+                                `RANGE ${op1} ${v} ${op2} ${v2}`,
                               )
                             }
                           />
@@ -357,14 +356,13 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                             <option value="<=">&lt;=</option>
                             <option value="<">&lt;</option>
                           </select>
-                          <input
-                            type="text"
+                          <StableInput
                             value={v2}
-                            onChange={(e) =>
+                            onChange={(v) =>
                               updateCondition(
                                 globalIndex,
                                 key,
-                                `RANGE ${op1} ${v1} ${op2} ${e.target.value}`,
+                                `RANGE ${op1} ${v1} ${op2} ${v}`,
                               )
                             }
                           />

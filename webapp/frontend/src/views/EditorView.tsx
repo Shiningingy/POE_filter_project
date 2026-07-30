@@ -126,6 +126,9 @@ const EditorView: React.FC<EditorViewProps> = ({
   }, [pingedCondition, language]);
 
   const isDirtyRef = React.useRef(false);
+  // A ref alone cannot drive the auto-save effect - it never re-renders. This
+  // counter is what markDirty() ticks so the debounce can restart.
+  const [dirtyTick, setDirtyTick] = useState(0);
 
   const inspectedTier = useMemo(() => {
       if (!inspectedTierKey || !configContent) return null;
@@ -187,7 +190,7 @@ const EditorView: React.FC<EditorViewProps> = ({
       return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, []);
 
-  const markDirty = () => { isDirtyRef.current = true; };
+  const markDirty = () => { isDirtyRef.current = true; setDirtyTick((n) => n + 1); };
   const markClean = () => { isDirtyRef.current = false; };
 
   const handleRuleEdit = (_tierKey: string, ruleIndex: number | null) => {
@@ -282,6 +285,35 @@ const EditorView: React.FC<EditorViewProps> = ({
   };
 
   const handleSave = () => persistConfig();
+
+  // AUTO-SAVE. Rule edits used to live only in component state until this button
+  // was pressed, so collapsing a rule, moving it between tiers, or switching
+  // category silently dropped them. Item tier assignments already posted
+  // immediately, which is what made the inconsistency so easy to miss - half the
+  // editor persisted itself and half did not.
+  //
+  // Debounced rather than per-keystroke: persistConfig does a GET-then-POST per
+  // save, and typing a rule comment would otherwise fire one round trip per
+  // character. The timer restarts on every change, so a save lands once the user
+  // pauses.
+  useEffect(() => {
+    if (dirtyTick === 0 || !selectedFile?.tier_path) return;
+    const timer = setTimeout(() => {
+      if (!isDirtyRef.current) return;
+      persistConfig(undefined, true)
+        .then(() => {
+          setToast({ message: translations[language].autoSaved, timestamp: Date.now() });
+          setTimeout(() => setToast(null), 1200);
+        })
+        .catch(() => {
+          // markClean() never ran, so the beforeunload guard still protects the
+          // edit and the Save button remains the manual fallback.
+          setToast({ message: translations[language].autoSaveFailed, timestamp: Date.now() });
+          setTimeout(() => setToast(null), 2500);
+        });
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [dirtyTick, selectedFile?.tier_path]);
 
   // A newly inserted tier lives only in editor state until the category is
   // saved, but assigning items to it posts to the API immediately - so the

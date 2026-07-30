@@ -10,38 +10,7 @@ import SoundPicker from "./SoundPicker";
 import MinimapIconPicker from "./MinimapIconPicker";
 import PlayEffectPicker from "./PlayEffectPicker";
 import StylePresetPicker from "./StylePresetPicker";
-
-/**
- * A textarea that keeps its own text while focused.
- *
- * Every keystroke here walks up to CategoryView, is serialised with
- * JSON.stringify and parsed back on the way down. React then reassigns the
- * textarea's `value` from that round-trip, and reassigning `value` on a focused
- * textarea drops the caret to the end - so typing anywhere but the last
- * character jumped. Holding the text locally while focused keeps the DOM value
- * stable (caret intact) and still reports every change upward; the prop is only
- * adopted when the field is not focused, i.e. when a different rule is opened.
- */
-const StableTextArea: React.FC<{
-  value: string;
-  onChange: (v: string) => void;
-  placeholder?: string;
-}> = ({ value, onChange, placeholder }) => {
-  const [local, setLocal] = useState(value);
-  const focused = useRef(false);
-  useEffect(() => {
-    if (!focused.current) setLocal(value);
-  }, [value]);
-  return (
-    <textarea
-      placeholder={placeholder}
-      value={local}
-      onFocus={() => { focused.current = true; }}
-      onBlur={() => { focused.current = false; setLocal(value); }}
-      onChange={(e) => { setLocal(e.target.value); onChange(e.target.value); }}
-    />
-  );
-};
+import { StableInput, StableTextArea } from "./StableField";
 
 interface Item {
   name: string;
@@ -327,12 +296,16 @@ const RuleManager: React.FC<RuleManagerProps> = ({
     setContextMenu({ x: e.clientX, y: e.clientY, ruleIndex: globalIndex });
   };
 
+  // A self-selecting rule has no `targets` key (generate.py:534), so both of these
+  // have to cope with it being absent - adding the first target is exactly how a
+  // user converts such a rule into a normal one.
   const addTarget = (globalIndex: number, itemName: string) => {
     const rule = allRules[globalIndex];
-    if (!rule.targets.includes(itemName)) {
+    const targets = rule.targets || [];
+    if (!targets.includes(itemName)) {
       handleUpdateRule(globalIndex, {
         ...rule,
-        targets: [...rule.targets, itemName],
+        targets: [...targets, itemName],
       });
     }
     setTargetSearch("");
@@ -343,7 +316,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
     const rule = allRules[globalIndex];
     handleUpdateRule(globalIndex, {
       ...rule,
-      targets: rule.targets.filter((t) => t !== itemName),
+      targets: (rule.targets || []).filter((t) => t !== itemName),
     });
   };
 
@@ -456,16 +429,13 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                 >
                   #{localIndex + 1}
                 </div>
-                <input
+                <StableInput
                   className={`rule-name-input ${rule.disabled ? "disabled-text" : ""}`}
                   value={rule.comment || ""}
                   placeholder={t.ruleComment}
                   onClick={(e) => e.stopPropagation()}
-                  onChange={(e) =>
-                    handleUpdateRule(globalIndex, {
-                      ...rule,
-                      comment: e.target.value,
-                    })
+                  onChange={(v) =>
+                    handleUpdateRule(globalIndex, { ...rule, comment: v })
                   }
                 />
                 <div className="rule-actions">
