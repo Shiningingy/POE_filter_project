@@ -211,6 +211,33 @@ Verified against the China client: EN 5348 rows / SC 5348 rows / `Id` overlap
 Worth upstreaming. Until then, `extract.py` refuses to run a Simplified Chinese
 export if the patch isn't applied, rather than let the English fallback through.
 
+## Dead rows share live names — always filter Royale and `[DNT]`
+
+**Every join that keys on a display `Name` must drop `Royale` and `[DNT]` rows
+first.** They are not exotic edge cases; they reuse the names of real items with
+*different numbers*, so letting them through silently overwrites good data with
+bad and nothing looks wrong afterwards.
+
+```python
+if 'Royale' in row['Id'] or (row.get('Name') or '').startswith('[DNT]'):
+    continue
+```
+
+Path of Exile Royale was a limited-time mode, long dead, but its rows still ship.
+`Metadata/Items/Gems/SkillGemClarityRoyale` is named **"Clarity"** and requires
+level 1, where the real Clarity requires 10 — a name-keyed dict built without the
+filter ends up with the Royale value, because it happens to come second. The same
+trap caught `Fireball` (Royale drop level 1 vs the real 5).
+
+`[DNT]` ("do not translate") marks unfinished or internal content GGG left in the
+data. `SkillGems` additionally carries monster and NPC skills — `Death Aura`,
+`Blinding Aura`, `Order: To me!`, `Playtest Slam`, `[UNUSED] Blitz` — which are
+not obtainable items at all. Seeding a curation list from that table without
+filtering pulls in ~80 of them.
+
+This is the `Name`-side companion to ADR-0004's join rule: join on `Id`, and even
+then, decide which `Id`s are real.
+
 ## Known limits
 
 **GGPK tells you what EXISTS, not what DROPS.** 3.29 still ships all 78

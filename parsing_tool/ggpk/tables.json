@@ -12,7 +12,13 @@
     "loudly at config time instead of silently producing wrong data.",
     "",
     "Adding a column is a deliberate act: add it here, say why in 'why', and re-run.",
-    "See docs/adr/0004-catalog-curation-split-and-ggpk-join-keys.md."
+    "See docs/adr/0004-catalog-curation-split-and-ggpk-join-keys.md.",
+    "",
+    "CONSUMERS: drop Royale and [DNT] rows before keying anything on Name. They",
+    "reuse real names with different numbers - SkillGemClarityRoyale is called",
+    "'Clarity' and requires level 1 where the real one requires 10 - so an unfiltered",
+    "name-keyed dict silently takes the dead value. SkillGems also lists monster and",
+    "playtest skills that are not obtainable items. See README.md."
   ],
 
   "tables": [
@@ -128,7 +134,39 @@
     {
       "name": "SkillGems",
       "why": "Support-vs-active and gem colour, for the Gems categories.",
-      "columns": ["BaseItemTypesKey", "IsSupport", "GemColour"]
+      "columns": ["BaseItemTypesKey", "IsSupport", "GemColour", "GemVariants"],
+      "notes": [
+        "GemVariants is an ARRAY of GemEffects - the gem's default variant plus every",
+        "transfigured one. It is the only route from a droppable gem item to its",
+        "requirement level, its gem tags and the transfigured names, none of which are",
+        "in BaseItemTypes. Chain:",
+        "  SkillGems.GemVariants[] -> GemEffects.GrantedEffect",
+        "    -> GrantedEffectsPerLevel (Level == 1) -> PlayerLevelReq"
+      ]
+    },
+    {
+      "name": "GemEffects",
+      "why": "One row per gem VARIANT. Name carries the transfigured names ('Ice Nova of Frostbolts') that BaseItemTypes does not hold at all; GemTags is the only structured 'this is an aura / a herald' signal we have, replacing hand-curated lists.",
+      "columns": ["Id", "Name", "GrantedEffect", "GemTags"],
+      "notes": [
+        "Name is NOT @localized, unlike BaseItemTypes.Name - so this gives English",
+        "transfigured names but not Chinese ones."
+      ]
+    },
+    {
+      "name": "GemTags",
+      "why": "The tag vocabulary GemEffects.GemTags points at (aura, herald, support, ...).",
+      "columns": ["Id", "Tag"]
+    },
+    {
+      "name": "GrantedEffects",
+      "why": "The join hop between a gem variant and its per-level table.",
+      "columns": ["Id", "IsSupport"]
+    },
+    {
+      "name": "GrantedEffectsPerLevel",
+      "why": "PlayerLevelReq at Level 1 IS the gem's requirement level - the number poedb prints as 'Requires Level'. BaseItemTypes.DropLevel is a different quantity (when it starts dropping) and disagrees for every act-1 quest-reward gem: Fireball is DropLevel 5, Requires Level 1.",
+      "columns": ["GrantedEffect", "Level", "PlayerLevelReq"]
     },
     {
       "name": "Maps",
