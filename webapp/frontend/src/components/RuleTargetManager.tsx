@@ -1,6 +1,7 @@
 import React from "react";
 import type { Language } from "../utils/localization";
 import ItemCard from "./ItemCard";
+import { SOUND_OVERRIDE_KEYS } from "../utils/themeSoundExport";
 
 interface Item {
   name: string;
@@ -80,9 +81,16 @@ const RuleTargetManager: React.FC<RuleTargetManagerProps> = ({
                           const matchMode =
                             rule.targetMatchModes?.[tName] || "exact";
 
-                          // Check for sound overrides
-                          const soundKeys = ["CustomAlertSound", "AlertSound", "DropSound"];
-                          const soundOverrideKey = soundKeys.find(k => rule.overrides?.[k] && !rule.overrides[k].startsWith("disabled:"));
+                          // Check for sound overrides. PlayAlertSound MUST be in this
+                          // list: it is the key the sound picker and the bulk editor
+                          // write. Omitting it meant a sound set through the UI was
+                          // invisible here even though the filter emitted it.
+                          // The value is [file, volume] for PlayAlertSound, so the
+                          // "disabled:" probe has to be string-guarded.
+                          const soundOverrideKey = SOUND_OVERRIDE_KEYS.find(k => {
+                              const v = rule.overrides?.[k];
+                              return v && !(typeof v === "string" && v.startsWith("disabled:"));
+                          });
                           const hasExplicitSound = !!soundOverrideKey;
 
                           const handlePlaySound = () => {

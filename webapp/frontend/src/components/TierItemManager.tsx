@@ -5,6 +5,7 @@ import type { Language } from '../utils/localization';
 import ContextMenu from './ContextMenu';
 import ItemCard from './ItemCard';
 import SoundPicker from './SoundPicker';
+import { SOUND_OVERRIDE_KEYS } from '../utils/themeSoundExport';
 
 interface TierItem {
   name: string;
@@ -94,7 +95,16 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
       if (item.rule_index !== undefined && item.rule_index !== null) {
           const rule = categoryRules[item.rule_index];
           if (rule && rule.overrides) {
-              const overrideKey = ["CustomAlertSound", "AlertSound", "DropSound"].find(k => rule.overrides[k] && !rule.overrides[k].startsWith("disabled:"));
+              // PlayAlertSound MUST be in this list: it is the key the sound picker
+              // and the Sound Bulk Editor write. It was missing, so a sound set
+              // through either path never showed on the card - the filter emitted it
+              // correctly, the editor just could not see it, which reads exactly like
+              // "setting the sound does nothing".
+              // Its value is [file, volume], so string-guard the "disabled:" probe.
+              const overrideKey = SOUND_OVERRIDE_KEYS.find(k => {
+                  const v = rule.overrides[k];
+                  return v && !(typeof v === "string" && v.startsWith("disabled:"));
+              });
               if (overrideKey) {
                   const val = rule.overrides[overrideKey];
                   if (Array.isArray(val)) { 
@@ -111,6 +121,32 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                   }
                   sourceLabel = (t as any).fromRule || "Rule Override";
               }
+          }
+      }
+
+      // 1b. A sound set on THIS item by a rule that is not the card's own rule.
+      // The sound picker and the Sound Bulk Editor write a bare rule - targets: [item],
+      // no conditions, no Tier override - so /api/tier-items produces no separate card
+      // for it and the item keeps rule_index null. Step 1 therefore never saw it, and
+      // the card showed the tier default while the filter happily emitted the custom
+      // sound. Scan the category's rules for one that targets this item and carries a
+      // sound.
+      if (!soundFile) {
+          for (const r of categoryRules) {
+              if (!r?.overrides || !r.targets?.includes(item.name)) continue;
+              const k = SOUND_OVERRIDE_KEYS.find(key => {
+                  const v = r.overrides[key];
+                  return v && !(typeof v === "string" && v.startsWith("disabled:"));
+              });
+              if (!k) continue;
+              const val = r.overrides[k];
+              if (Array.isArray(val)) { soundFile = val[0]; soundVol = val[1]; }
+              else if (typeof val === 'string') {
+                  const m = val.match(/^(\d+) (\d+)$/);
+                  if (m) { soundFile = `Default/AlertSound${m[1]}.mp3`; soundVol = parseInt(m[2]); }
+                  else soundFile = val;
+              }
+              if (soundFile) { sourceLabel = (t as any).fromRule || "Rule Override"; break; }
           }
       }
 
