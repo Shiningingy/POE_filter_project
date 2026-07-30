@@ -53,3 +53,5 @@ filter_generation/data/settings.json
 
 # Jupyter
 **/.ipynb_checkpoints/
+
+bash.exe.stackdump
