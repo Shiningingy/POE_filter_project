@@ -1,12 +1,13 @@
 {
   "Splinters": {
     "_meta": {
-      "theme_category": "Splinters",
+      "theme_category": "Map Fragments",
       "localization": {
         "en": "Splinters",
         "ch": "碎片"
       },
       "tier_order": [
+        "Tier 0 Splinters",
         "Tier 1 Splinters",
         "Tier 2 Splinters",
         "Tier Hide Splinters"
@@ -22,8 +23,8 @@
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "T1: Breach / Legion Splinters",
-        "ch": "T1: 破界/军团裂片"
+        "en": "T1: Worth stopping for",
+        "ch": "T1: 值得停下"
       }
     },
     "Tier 2 Splinters": {
@@ -36,8 +37,8 @@
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "T2: Other Splinters",
-        "ch": "T2: 其他裂片"
+        "en": "T2: Single / small",
+        "ch": "T2: 单个 / 小堆"
       }
     },
     "Tier Hide Splinters": {
@@ -53,6 +54,20 @@
       "localization": {
         "en": "Hide",
         "ch": "隐藏"
+      }
+    },
+    "Tier 0 Splinters": {
+      "hideable": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T0: Big stack",
+        "ch": "T0: 大堆叠"
       }
     }
   }

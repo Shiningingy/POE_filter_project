@@ -25,22 +25,54 @@
     "match_modes": {}
   },
   "mapping": {
-    "Timeless Maraketh Splinter": [
-      "Tier 2 Splinters"
-    ],
-    "Timeless Eternal Empire Splinter": [
-      "Tier 2 Splinters"
-    ],
-    "Timeless Vaal Splinter": [
-      "Tier 2 Splinters"
-    ],
-    "Simulacrum Splinter": [
-      "Tier 2 Splinters"
-    ],
+    "Timeless Maraketh Splinter": "Tier 2 Splinters",
+    "Timeless Eternal Empire Splinter": "Tier 2 Splinters",
+    "Timeless Vaal Splinter": "Tier 2 Splinters",
+    "Simulacrum Splinter": "Tier 2 Splinters",
     "Ritual Splinter": "Tier 2 Splinters",
-    "Crescent Splinter": [
-      "Tier 1 Splinters"
-    ]
+    "Timeless Karui Splinter": "Tier 2 Splinters",
+    "Timeless Templar Splinter": "Tier 2 Splinters"
   },
-  "rules": []
+  "rules": [
+    {
+      "comment": "模拟回忆碎片 50+",
+      "targets": [
+        "Simulacrum Splinter"
+      ],
+      "conditions": {
+        "StackSize": ">= 50"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Splinters"
+      }
+    },
+    {
+      "comment": "模拟回忆碎片 11-49",
+      "targets": [
+        "Simulacrum Splinter"
+      ],
+      "conditions": {
+        "StackSize": ">= 11"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Splinters"
+      }
+    },
+    {
+      "comment": "军团碎片 5+",
+      "targets": [
+        "Timeless Eternal Empire Splinter",
+        "Timeless Karui Splinter",
+        "Timeless Maraketh Splinter",
+        "Timeless Templar Splinter",
+        "Timeless Vaal Splinter"
+      ],
+      "conditions": {
+        "StackSize": ">= 5"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Splinters"
+      }
+    }
+  ]
 }
