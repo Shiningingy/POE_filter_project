@@ -32,7 +32,7 @@ interface TierItemManagerProps {
   allTiers: TierOption[]; 
   onMoveItem: (item: TierItem, newTier: string, isAppend?: boolean, oldTier?: string) => void;
   onDeleteItem: (item: TierItem, fromTier: string) => void;
-  onUpdateOverride: (item: TierItem, overrides: any) => void;
+  onUpdateOverride: (item: TierItem, overrides: any, removeKeys?: string[]) => void;
   onRemoveRuleTarget: (item: TierItem, ruleIndex: number) => void;
   language: Language;
   onRuleEdit?: (tierKey: string, ruleIndex: number) => void;
@@ -307,6 +307,25 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
       setSoundEditorItem(null);
   };
 
+  // Clearing has to be explicit: sound could only ever be ADDED, so an item that
+  // picked up a per-item alert had no way back to its tier's. Removing every sound
+  // key from the item's own bare rule leaves the rule empty, and the backend then
+  // drops it - which IS the fallback, since the tier block matches next.
+  const handleClearSound = (item: TierItem) => {
+      onUpdateOverride(item, {}, [...SOUND_OVERRIDE_KEYS]);
+      setContextMenu(null);
+  };
+
+  // Only offer it when there is something of the item's OWN to clear. A sound
+  // inherited from the tier, or one belonging to a conditioned rule like Replica,
+  // is not this item's to remove.
+  const hasOwnSound = (item: TierItem) =>
+      categoryRules.some((r: any) =>
+          r?.targets?.includes(item.name) &&
+          !r.conditions?.Class && !r.conditions?.BaseType &&
+          Object.keys(r.conditions || {}).length === 0 &&
+          SOUND_OVERRIDE_KEYS.some(k => r.overrides?.[k]));
+
   const renderTierLabels = (tier: string | string[] | undefined | null, catCh?: string) => {
       if (!tier) return [t.untiered];
       const tiers = Array.isArray(tier) ? tier : [tier];
@@ -484,7 +503,11 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                 {
                     label: `🎵 ${(t as any).soundSelection || "Sound Selection"}`,
                     onClick: () => handleSoundOverride(contextMenu.item)
-                }
+                },
+                ...(hasOwnSound(contextMenu.item) ? [{
+                    label: `🔇 ${(t as any).clearSound || "Clear sound (use tier)"}`,
+                    onClick: () => handleClearSound(contextMenu.item)
+                }] : [])
             ].map((opt: any) => ({ ...opt, className: opt.divider && !opt.label ? "divider" : (opt.className || "") }))
             : [
                 { title: true, label: (t as any).quickMove, onClick: () => {} },
@@ -522,7 +545,11 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                     onClick: () => toggleItemMode(contextMenu.item)
                 },
                 { divider: true, label: '', onClick: () => {} },
-                { label: `🎵 ${(t as any).soundSelection || "Sound Selection"}`, onClick: () => handleSoundOverride(contextMenu.item) }
+                { label: `🎵 ${(t as any).soundSelection || "Sound Selection"}`, onClick: () => handleSoundOverride(contextMenu.item) },
+                ...(hasOwnSound(contextMenu.item) ? [{
+                    label: `🔇 ${(t as any).clearSound || "Clear sound (use tier)"}`,
+                    onClick: () => handleClearSound(contextMenu.item)
+                }] : [])
             ].map((opt: any) => ({ ...opt, className: opt.label === "divider" || (opt.divider && !opt.label) ? "divider" : (opt.className || "") }))
           }
         />

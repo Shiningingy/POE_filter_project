@@ -549,6 +549,7 @@ export const translations = {
     switchToExact: "Switch to Exact Match",
     noOptions: "No available options",
     removeFromTier: "Remove from this Tier",
+    clearSound: "Clear sound (fall back to tier)",
     selectAllFiltered: "Select filtered",
     selectAllFilteredTitle:
       "Tick every tiered item the filter is showing. Press again to clear the selection.",
@@ -1087,6 +1088,7 @@ export const translations = {
     switchToExact: "切换为精确匹配",
     noOptions: "暂无可用操作",
     removeFromTier: "从此阶级移除",
+    clearSound: "清除音效（回退至层级音效）",
     selectAllFiltered: "全选筛选结果",
     selectAllFilteredTitle: "勾选当前筛选出的所有已分类物品；再次点击可取消全选。",
     removeSelected: "移除所选",

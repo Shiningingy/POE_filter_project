@@ -398,12 +398,13 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     handleMoveItem(item, "", false, fromTier);
   };
 
-  const handleUpdateOverride = async (item: TierItem, overrides: any) => {
+  const handleUpdateOverride = async (item: TierItem, overrides: any, removeKeys?: string[]) => {
     try {
       await axios.post(`${API_BASE_URL}/api/update-item-override`, {
         item_name: item.name,
         overrides: overrides,
         source_file: item.source,
+        remove_keys: removeKeys,
       });
       // The endpoint appends a RULE to the mapping file, but only tier ITEMS were
       // refreshed here. The sound indicator is driven by categoryRules, which comes

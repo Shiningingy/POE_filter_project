@@ -79,6 +79,11 @@ class UpdateItemOverrideRequest(BaseModel):
     item_name: str
     overrides: dict
     source_file: str
+    # Keys to DELETE from the item's bare override rule. Sound could only ever be
+    # added; clearing it needs an explicit removal so the item falls back to its
+    # tier's sound. When the rule has nothing left it is dropped entirely rather
+    # than left behind as an empty block.
+    remove_keys: Optional[List[str]] = None
 
 class UpdateItemTierRequest(BaseModel):
     item_name: str
@@ -1206,9 +1211,18 @@ def update_item_override(request: UpdateItemOverrideRequest):
             found = False
             for rule in rules:
                 if rule.get("targets") == [request.item_name] and not rule.get("conditions"):
+                    for k in (request.remove_keys or []):
+                        rule.get("overrides", {}).pop(k, None)
                     rule["overrides"].update(request.overrides); found = True; break
-            if not found:
+            if not found and request.overrides:
                 rules.append({"targets": [request.item_name], "conditions": {}, "overrides": request.overrides, "comment": f"Override for {request.item_name}"})
+            # A bare rule with nothing left to say would emit a block identical to the
+            # tier's own, so drop it - that IS the fallback to the tier sound. Only
+            # ever touches the item's OWN rule; a rule carrying conditions (Replica,
+            # Foulborn, six-link…) is somebody else's and is left alone above.
+            rules = [r for r in rules
+                     if r.get("conditions") or r.get("raw") or r.get("overrides")
+                     or r.get("applyToTier")]
             data["rules"] = rules
             write_json_atomic(file_path, data)
         return {"message": "Success"}
