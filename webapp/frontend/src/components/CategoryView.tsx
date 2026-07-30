@@ -405,6 +405,24 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         overrides: overrides,
         source_file: item.source,
       });
+      // The endpoint appends a RULE to the mapping file, but only tier ITEMS were
+      // refreshed here. The sound indicator is driven by categoryRules, which comes
+      // from configContent, so a sound set this way stayed invisible until the
+      // category happened to be reloaded - it looked like it worked "occasionally".
+      // Pull the rules back in for the open category.
+      const rel = (p?: string) => (p || "").replace(/^base_mapping\//, "");
+      if (activeCategoryKey && defaultMappingPath &&
+          rel(item.source) === rel(defaultMappingPath)) {
+        const res = await axios.get(
+          `${API_BASE_URL}/api/config/${defaultMappingPath}?t=${Date.now()}`);
+        const rules = res.data?.content?.rules;
+        if (Array.isArray(rules)) {
+          const next = JSON.parse(JSON.stringify(parsedConfig));
+          next[activeCategoryKey].rules = rules;
+          if (next[activeCategoryKey]._meta?.rules) delete next[activeCategoryKey]._meta.rules;
+          updateConfig(next);
+        }
+      }
       fetchTierItems(sortedTierKeys);
     } catch (err) {
       console.error(err);
