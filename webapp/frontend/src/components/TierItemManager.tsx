@@ -430,12 +430,26 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                         if (onRuleEdit) onRuleEdit(tierKey, contextMenu.item.rule_index!);
                     } 
                 },
-                { 
-                    label: `🗑 ${t.removeFromRule}`, 
+                {
+                    label: `🗑 ${t.removeFromRule}`,
                     onClick: () => onRemoveRuleTarget(contextMenu.item, contextMenu.item.rule_index!),
                     className: "delete-option"
+                },
+                // A card shown as a RULE's target used to get only the two entries
+                // above, so "right-click -> set sound" simply did not exist for it -
+                // and in a category like Uniques most cards are rule targets.
+                //
+                // It is worth having here: the override lands on the item's own tier,
+                // so it applies wherever the owning rule's conditions do NOT match
+                // (a plain Chain Belt takes it; a Replica Chain Belt still takes the
+                // Replica rule's sound, because that block emits first). Use
+                // "go to rule" instead when the sound should belong to the rule.
+                { divider: true, label: '', onClick: () => {} },
+                {
+                    label: `🎵 ${(t as any).soundSelection || "Sound Selection"}`,
+                    onClick: () => handleSoundOverride(contextMenu.item)
                 }
-            ]
+            ].map((opt: any) => ({ ...opt, className: opt.divider && !opt.label ? "divider" : (opt.className || "") }))
             : [
                 { title: true, label: (t as any).quickMove, onClick: () => {} },
                 ...allTiers.map(tOption => {

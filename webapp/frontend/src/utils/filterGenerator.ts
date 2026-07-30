@@ -468,8 +468,14 @@ export const generateFilter = (data: GeneratorData): string => {
       // Create a fresh deep copy of rules for this tier
       const allRules = JSON.parse(JSON.stringify(mapDoc.rules || []));
 
-      // Auto-Inject Sound Rules
-      const btSounds = soundMap?.basetype_sounds || {};
+      // Auto-Inject Sound Rules.
+      // basetype_sounds is GLOBAL: a base type with an entry gets a per-item sound in
+      // every category that carries it. `suppress_basetype_sounds` on a category's
+      // mapping _meta opts that category out, so the base keeps its per-item sound
+      // elsewhere while this category speaks with one voice - the tier's own sound.
+      const btSounds = (mapDoc._meta || {}).suppress_basetype_sounds
+        ? {}
+        : (soundMap?.basetype_sounds || {});
       items.forEach(item => {
         if (btSounds[item]) {
           const sData = btSounds[item];

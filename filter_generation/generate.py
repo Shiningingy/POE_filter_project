@@ -524,7 +524,14 @@ def generate_filter():
             all_rules = map_doc.get("rules", [])
             
             # --- AUTO-INJECT SOUND RULES FROM MAP ---
-            bt_sounds = sound_map.get("basetype_sounds", {})
+            # basetype_sounds is GLOBAL: a base type with an entry gets a per-item
+            # sound in every category that carries it. `suppress_basetype_sounds` on a
+            # category's mapping _meta opts that category out, so the base keeps its
+            # per-item sound elsewhere while this category speaks with one voice - the
+            # tier's own sound. Uniques uses it: 19 of its blocks were per-item alerts
+            # that drowned out the tier ladder.
+            bt_sounds = {} if map_doc.get("_meta", {}).get("suppress_basetype_sounds") \
+                else sound_map.get("basetype_sounds", {})
             for item_name in items:
                 if item_name in bt_sounds:
                     s_data = bt_sounds[item_name]

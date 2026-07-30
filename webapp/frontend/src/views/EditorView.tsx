@@ -65,6 +65,10 @@ const EditorView: React.FC<EditorViewProps> = ({
   // persistConfig writes configContent straight back to the tier_definition, so
   // merging a mapping-only field in would copy it into 94 tier files.
   const [mappingItemClass, setMappingItemClass] = useState<string | null>(null);
+  // Mirrors `_meta.suppress_basetype_sounds` from the category's MAPPING file. The
+  // editor injects the same per-basetype sounds the generators do, so without this it
+  // would keep showing an alert the exported filter no longer emits.
+  const [suppressBasetypeSounds, setSuppressBasetypeSounds] = useState(false);
   const [soundMap, setSoundMap] = useState<any>({ basetype_sounds: {}, class_sounds: {} });
   const [themeData, setThemeData] = useState<any>(null);
   const [fallbackMenu, setFallbackMenu] = useState<{ x: number, y: number } | null>(null);
@@ -125,6 +129,16 @@ const EditorView: React.FC<EditorViewProps> = ({
       }
   }, [pingedCondition, language]);
 
+  // Both the category preview (getAugmentedRules) and the item cards read
+  // soundMap.basetype_sounds directly to mirror what the generators inject. Deriving
+  // one map here beats threading a flag through every consumer, and a suppressed
+  // category then behaves exactly as if those entries did not exist - which is what
+  // the exported filter does.
+  const effectiveSoundMap = useMemo(
+    () => (suppressBasetypeSounds ? { ...soundMap, basetype_sounds: {} } : soundMap),
+    [soundMap, suppressBasetypeSounds],
+  );
+
   const isDirtyRef = React.useRef(false);
   // A ref alone cannot drive the auto-save effect - it never re-renders. This
   // counter is what markDirty() ticks so the debounce can restart.
@@ -143,12 +157,12 @@ const EditorView: React.FC<EditorViewProps> = ({
           
           let rules = catData.rules || catData._meta?.rules || [];
 
-          if (soundMap?.basetype_sounds) {
+          if (effectiveSoundMap?.basetype_sounds) {
               const augmentedRules = [...rules];
               const tierItemNames = items.map(i => i.name);
-              
+
               tierItemNames.forEach(name => {
-                  const sData = soundMap.basetype_sounds[name];
+                  const sData = effectiveSoundMap.basetype_sounds[name];
                   if (sData) {
                       const handled = rules.some((r: any) => r.targets?.includes(name));
                       if (!handled) {
@@ -177,7 +191,7 @@ const EditorView: React.FC<EditorViewProps> = ({
               baseTypes: items.map(i => i.name)
           };
       } catch (e) { return null; }
-  }, [inspectedTierKey, configContent, tierItems, soundMap, themeData]);
+  }, [inspectedTierKey, configContent, tierItems, soundMap, effectiveSoundMap, themeData]);
 
   useEffect(() => {
       const handleBeforeUnload = (e: BeforeUnloadEvent) => {
@@ -229,6 +243,7 @@ const EditorView: React.FC<EditorViewProps> = ({
 
             const mic = mapData?._meta?.item_class;
             setMappingItemClass(typeof mic === 'string' ? mic : (mic?.en ?? null));
+            setSuppressBasetypeSounds(!!mapData?._meta?.suppress_basetype_sounds);
 
             if (catKey) {
                 if (mapData.rules) {
@@ -489,7 +504,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                   onPersistNewTier={persistNewTier}
                   onUpdateTierItems={handleManualItemUpdate}
                   pingedCondition={pingedCondition}
-                  soundMap={soundMap}
+                  soundMap={effectiveSoundMap}
                   themeData={themeData}
                   strictness={strictness}
                   levelingSelection={levelingSelection}
@@ -515,7 +530,7 @@ const EditorView: React.FC<EditorViewProps> = ({
         viewerBackground={viewerBackground}
         setViewerBackground={setViewerBackground}
         onPingCondition={(tierKey, ruleIdx, condKey) => setPingedCondition({ tierKey, ruleIndex: ruleIdx, conditionKey: condKey, timestamp: Date.now() })}
-        soundMap={soundMap}
+        soundMap={effectiveSoundMap}
         categoryClass={categoryClass}
       />
 
