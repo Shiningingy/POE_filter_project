@@ -101,10 +101,17 @@ conditions:
   # ---- Maps & endgame -----------------------------------------------------
   - { key: MapTier,           type: number, default: ">= 1", category: maps, applies: [maps], simulatable: true, label: { en: "Map Tier",          ch: "地图阶级" } }
   - { key: BlightedMap,       type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Blighted Map",       ch: "菌潮地图" } }
-  - { key: BlightRavagedMap,  type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Blight-ravaged Map", ch: "菌潮灭绝地图" } }
+  # UberBlightedMap and ZanaMemory are the names GGG documents
+  # (pathofexile.com/item-filter/about). We offered 'BlightRavagedMap' and
+  # 'ZanasMemory', which the game does not know - picking either in the editor would
+  # have emitted an invalid line. Nothing in the tree used them yet.
+  # filterParser.ts already had the correct spellings for reading foreign filters.
+  - { key: UberBlightedMap,   type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Blight-ravaged Map", ch: "菌潮灭绝地图" } }
   - { key: ShapedMap,         type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Shaped Map",         ch: "塑界地图" } }
   - { key: ElderMap,          type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Elder Map",          ch: "裂界地图" } }
-  - { key: ZanasMemory,       type: bool, category: maps, applies: [maps, "Map Fragments"], simulatable: true, label: { en: "Zana's Memory", ch: "扎娜的记忆" } }
+  - { key: MirageMap,         type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Mirage Map",         ch: "幻影地图" } }
+  - { key: ZanaMemory,        type: bool, category: maps, applies: [maps, "Map Fragments"], simulatable: true, label: { en: "Zana's Memory", ch: "扎娜的记忆" } }
+  - { key: AnyEnchantment,    type: bool, category: maps, applies: [maps], simulatable: false, label: { en: "Any Enchantment (map)", ch: "含有任意附魔（地图）" } }
 
   # ---- Cluster jewels -----------------------------------------------------
   - { key: EnchantmentPassiveNum,  type: number, default: ">= 1", category: jewels, applies: ["Jewels"], simulatable: false, label: { en: "Passive Count", ch: "天赋数量" } }

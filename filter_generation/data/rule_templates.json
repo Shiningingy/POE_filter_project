@@ -600,7 +600,7 @@
             "en": "Blight-ravaged Map",
             "ch": "菌潮灭绝地图"
           },
-          "condition": "BlightRavagedMap",
+          "condition": "UberBlightedMap",
           "type": "bool",
           "aliases": [
             "maps"
@@ -612,7 +612,7 @@
             "en": "Zana's Memory",
             "ch": "扎娜记忆"
           },
-          "condition": "ZanasMemory",
+          "condition": "ZanaMemory",
           "type": "bool",
           "aliases": [
             "maps",
