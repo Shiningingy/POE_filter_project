@@ -142,6 +142,7 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
             RULE_FACTOR_LOCALIZATION[key]?.[language] ||
             key;
           const isSelect = tmp?.type === "select";
+          const isMulti = tmp?.type === "multiselect";
           const isClass = tmp?.type === "class_picker";
           const isText = tmp?.type === "text";
 
@@ -215,6 +216,54 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                       );
                     })}
                   </select>
+                ) : isMulti ? (
+                  // Space-separated list; the condition matches ANY of the picked
+                  // values, so all-ticked reads as "any influence".
+                  (() => {
+                    const picked = (currentVal || "").trim().split(/\s+/).filter(Boolean);
+                    const opts: string[] = tmp.options || [];
+                    const toggle = (opt: string) => {
+                      const next = picked.includes(opt)
+                        ? picked.filter((p) => p !== opt)
+                        : [...opts.filter((o) => picked.includes(o) || o === opt)];
+                      updateCondition(globalIndex, key, next.join(" "));
+                    };
+                    const allOn = opts.every((o) => picked.includes(o));
+                    return (
+                      <div className="multi-picker">
+                        <button
+                          type="button"
+                          className={`multi-chip multi-all ${allOn ? "on" : ""}`}
+                          onClick={() =>
+                            updateCondition(globalIndex, key, allOn ? "" : opts.join(" "))
+                          }
+                        >
+                          {(translations[language] as any).selectAll || "All"}
+                        </button>
+                        {opts.map((opt) => {
+                          const locKey = opt.replace(/ /g, "_");
+                          // The influence names are already localized, keyed
+                          // lowercase (shaper/elder/...) - reuse those rather
+                          // than adding a second set of Chinese strings.
+                          const locName =
+                            (translations[language] as any)[opt] ||
+                            (translations[language] as any)[locKey] ||
+                            (translations[language] as any)[opt.toLowerCase()] ||
+                            opt;
+                          return (
+                            <button
+                              type="button"
+                              key={opt}
+                              className={`multi-chip ${picked.includes(opt) ? "on" : ""}`}
+                              onClick={() => toggle(opt)}
+                            >
+                              {locName}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    );
+                  })()
                 ) : isText ? (
                   <StableInput
                     value={currentVal}

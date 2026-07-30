@@ -32,7 +32,7 @@ interface TierItemManagerProps {
   allTiers: TierOption[]; 
   onMoveItem: (item: TierItem, newTier: string, isAppend?: boolean, oldTier?: string) => void;
   onDeleteItem: (item: TierItem, fromTier: string) => void;
-  onUpdateOverride: (item: TierItem, overrides: any, removeKeys?: string[]) => void;
+  onUpdateOverride: (item: TierItem, overrides: any, removeKeys?: string[], tierKey?: string, suppressAuto?: boolean) => void;
   onRemoveRuleTarget: (item: TierItem, ruleIndex: number) => void;
   language: Language;
   onRuleEdit?: (tierKey: string, ruleIndex: number) => void;
@@ -131,9 +131,17 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
       // the card showed the tier default while the filter happily emitted the custom
       // sound. Scan the category's rules for one that targets this item and carries a
       // sound.
+      // A rule pinned to THIS tier is the more specific one and is what the
+      // generator matches first, so it has to win over a bare global rule here too
+      // - otherwise the card shows a sound the filter does not actually emit.
       if (!soundFile) {
-          for (const r of categoryRules) {
-              if (!r?.overrides || !r.targets?.includes(item.name)) continue;
+          const scoped = categoryRules.filter((r: any) =>
+              r?.overrides && r.targets?.includes(item.name) &&
+              !Object.keys(r.conditions || {}).length &&
+              r.overrides.Tier === tierKey);
+          const bare = categoryRules.filter((r: any) =>
+              r?.overrides && r.targets?.includes(item.name) && !r.overrides.Tier);
+          for (const r of [...scoped, ...bare]) {
               const k = SOUND_OVERRIDE_KEYS.find(key => {
                   const v = r.overrides[key];
                   return v && !(typeof v === "string" && v.startsWith("disabled:"));
@@ -295,36 +303,70 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
 
   const handleSoundOverride = (item: TierItem) => {
     const { soundFile, soundVol, sourceLabel } = resolveItemSound(item);
+    // Say so up front when the sound will land on a shared rule. The rule's
+    // conditions are the block, so its targets cannot be given separate sounds
+    // without splitting the rule.
+    const siblings = ruleSiblingCount(item);
+    const source = siblings > 0
+        ? `${sourceLabel} (+${siblings})`
+        : sourceLabel;
     setSoundEditorItem(item);
-    setSoundEditorInitial({ path: soundFile || '', volume: soundVol, source: sourceLabel });
+    setSoundEditorInitial({ path: soundFile || '', volume: soundVol, source });
     setContextMenu(null);
   };
 
+  // tierKey travels with every sound write so the change lands on THIS occurrence.
+  // A base type in three tiers is three blocks and can hold three sounds; the old
+  // call wrote one bare rule for the base type, so all three spoke at once.
   const onSoundConfirm = (path: string, volume: number) => {
       if (soundEditorItem) {
-          onUpdateOverride(soundEditorItem, { PlayAlertSound: [path, volume] });
+          onUpdateOverride(soundEditorItem, { PlayAlertSound: [path, volume] }, undefined, tierKey);
       }
       setSoundEditorItem(null);
   };
 
+  const hasRuleSound = (item: TierItem) => {
+      const own = item.rule_index != null ? categoryRules[item.rule_index] : null;
+      if (own && SOUND_OVERRIDE_KEYS.some(k => own.overrides?.[k])) return true;
+      return categoryRules.some((r: any) =>
+          r?.targets?.includes(item.name) &&
+          Object.keys(r.conditions || {}).length === 0 &&
+          SOUND_OVERRIDE_KEYS.some(k => r.overrides?.[k]));
+  };
+
+  // Already pinned as "no auto-sound here" - the card is back on its tier's sound.
+  const autoSuppressed = (item: TierItem) =>
+      categoryRules.some((r: any) =>
+          r?.targets?.includes(item.name) && r?.suppress_auto_sound);
+
+  // An auto-sound comes from the sound map, not from any rule, so there is no key
+  // to strip - it needs the pinned-empty-rule route instead.
+  const isAutoSound = (item: TierItem) =>
+      !hasRuleSound(item) && !autoSuppressed(item) &&
+      !!soundMap?.basetype_sounds?.[item.name];
+
   // Clearing has to be explicit: sound could only ever be ADDED, so an item that
   // picked up a per-item alert had no way back to its tier's. Removing every sound
-  // key from the item's own bare rule leaves the rule empty, and the backend then
-  // drops it - which IS the fallback, since the tier block matches next.
+  // key from the occurrence's rule leaves it with nothing to say, and the backend
+  // then drops it - which IS the fallback, since the tier block matches next.
   const handleClearSound = (item: TierItem) => {
-      onUpdateOverride(item, {}, [...SOUND_OVERRIDE_KEYS]);
+      onUpdateOverride(item, {}, [...SOUND_OVERRIDE_KEYS], tierKey, isAutoSound(item));
       setContextMenu(null);
   };
 
-  // Only offer it when there is something of the item's OWN to clear. A sound
-  // inherited from the tier, or one belonging to a conditioned rule like Replica,
-  // is not this item's to remove.
-  const hasOwnSound = (item: TierItem) =>
-      categoryRules.some((r: any) =>
-          r?.targets?.includes(item.name) &&
-          !r.conditions?.Class && !r.conditions?.BaseType &&
-          Object.keys(r.conditions || {}).length === 0 &&
-          SOUND_OVERRIDE_KEYS.some(k => r.overrides?.[k]));
+  // Offer it whenever the card has a sound that is NOT simply inherited from its
+  // tier - a rule's, or one injected per-base-type from the sound map. The
+  // auto-sound was previously unreachable: no rule carried it, so the menu entry
+  // never appeared and the only way to drop it was editing the sound map by hand.
+  const hasOwnSound = (item: TierItem) => hasRuleSound(item) || isAutoSound(item);
+
+  // How many OTHER base types share this card's rule. The sound lives on the rule
+  // (its conditions are the block), so setting one here sets it for all of them.
+  const ruleSiblingCount = (item: TierItem) => {
+      if (item.rule_index == null) return 0;
+      const r = categoryRules[item.rule_index];
+      return Math.max(0, (r?.targets?.length || 0) - 1);
+  };
 
   const renderTierLabels = (tier: string | string[] | undefined | null, catCh?: string) => {
       if (!tier) return [t.untiered];

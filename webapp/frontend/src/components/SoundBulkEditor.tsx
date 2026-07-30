@@ -584,6 +584,10 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
           const snd = r ? ruleSoundValue(r.overrides) : null;
           return { ...it, occurrences: (it.occurrences || []).map(o => o.file === rel ? { ...o, sound: snd } : o) };
       }));
+      // The rule panel writes straight to the backend, so this path used to refresh
+      // only THIS modal's local state - the editor behind it kept a stale sound map
+      // and the change appeared only after a page reload.
+      onSave();
   };
 
   const collisionDetectionStrategy = (args: any) => {

@@ -84,6 +84,21 @@ class UpdateItemOverrideRequest(BaseModel):
     # tier's sound. When the rule has nothing left it is dropped entirely rather
     # than left behind as an empty block.
     remove_keys: Optional[List[str]] = None
+    # WHICH occurrence of the item the caller means. A base type can appear in
+    # several tiers (Simulacrum Splinter is in three), and each occurrence is its
+    # own block, so each can carry its own sound. Without these the write landed
+    # on ONE bare rule targeting the item, which applied everywhere at once - the
+    # "global override" that made per-block sounds impossible.
+    #   rule_index -> the card IS a target of that rule; the sound belongs to the
+    #                 rule, because a separate rule placed ahead of it would emit
+    #                 without the rule's own conditions.
+    #   tier_key   -> a plain tier card; gets a rule scoped to that tier only.
+    rule_index: Optional[int] = None
+    tier_key: Optional[str] = None
+    # The card's sound is injected from the sound map (basetype_sounds), so there is
+    # no rule to strip a key from - clearing it means pinning an empty rule so the
+    # generator stops injecting. Set by the card when it knows the source is auto.
+    suppress_auto: Optional[bool] = None
 
 class UpdateItemTierRequest(BaseModel):
     item_name: str
@@ -1208,21 +1223,104 @@ def update_item_override(request: UpdateItemOverrideRequest):
         with file_lock(file_path):
             with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
             rules = data.get("rules", [])
-            found = False
-            for rule in rules:
-                if rule.get("targets") == [request.item_name] and not rule.get("conditions"):
-                    for k in (request.remove_keys or []):
-                        rule.get("overrides", {}).pop(k, None)
-                    rule["overrides"].update(request.overrides); found = True; break
-            if not found and request.overrides:
-                rules.append({"targets": [request.item_name], "conditions": {}, "overrides": request.overrides, "comment": f"Override for {request.item_name}"})
+            target = None
+
+            if request.rule_index is not None and 0 <= request.rule_index < len(rules):
+                # (A) The card is a target of this rule. The rule's conditions ARE
+                # the block, so the sound has to live on the rule. A rule with
+                # several targets therefore shares one sound - that is the block,
+                # not a limitation we can route around here.
+                target = rules[request.rule_index]
+            elif request.tier_key:
+                # (B) Plain tier card: a rule pinned to THIS tier, so the same base
+                # can speak differently in each tier it appears in.
+                for r in rules:
+                    if (r.get("targets") == [request.item_name]
+                            and not r.get("conditions")
+                            and (r.get("overrides") or {}).get("Tier") == request.tier_key):
+                        target = r
+                        break
+                if target is None and not request.overrides and request.remove_keys:
+                    # CLEARING and there is no tier-scoped rule: the sound is coming
+                    # from one of the older bare global rules, and the card is the
+                    # only place the user can reach it. Clear that instead of
+                    # silently doing nothing.
+                    for r in rules:
+                        if r.get("targets") == [request.item_name] and not r.get("conditions"):
+                            target = r
+                            break
+                if target is None and request.suppress_auto and request.remove_keys:
+                    # Nothing to clear because the sound is INJECTED from the sound
+                    # map's basetype_sounds. generate.py skips that injection for any
+                    # item a rule already targets, so an otherwise-empty pinned rule
+                    # is what "no auto-sound here" looks like.
+                    target = {
+                        "targets": [request.item_name],
+                        "conditions": {},
+                        "overrides": {"Tier": request.tier_key},
+                        "comment": f"No auto-sound for {request.item_name} @ {request.tier_key}",
+                        "sound_scope": True,
+                        "suppress_auto_sound": True,
+                    }
+                    rules.append(target)
+                if target is None and request.overrides:
+                    target = {
+                        "targets": [request.item_name],
+                        "conditions": {},
+                        "overrides": {"Tier": request.tier_key},
+                        "comment": f"Override for {request.item_name} @ {request.tier_key}",
+                        # Marks a rule that exists ONLY to scope a sound, so it can be
+                        # dropped again when the sound is cleared. Two hand-authored
+                        # rules (Crystallised Rancour, the 7 Vaal gems) are Tier-only
+                        # on purpose, so "Tier-only" alone is NOT safe to prune.
+                        "sound_scope": True,
+                    }
+                    # First match wins: the tier-scoped rule is the more specific one
+                    # and must be seen before any bare global rule for the same item.
+                    insert_at = len(rules)
+                    for i, r in enumerate(rules):
+                        if (r.get("targets") == [request.item_name]
+                                and not r.get("conditions")
+                                and not (r.get("overrides") or {}).get("Tier")):
+                            insert_at = i
+                            break
+                    rules.insert(insert_at, target)
+            else:
+                # (C) Legacy bare global rule. Kept so the 40 already-tuned overrides
+                # keep resolving; new writes from the editor always carry a scope.
+                for r in rules:
+                    if r.get("targets") == [request.item_name] and not r.get("conditions"):
+                        target = r
+                        break
+                if target is None and request.overrides:
+                    target = {"targets": [request.item_name], "conditions": {},
+                              "overrides": request.overrides,
+                              "comment": f"Override for {request.item_name}"}
+                    rules.append(target)
+
+            if target is not None:
+                target.setdefault("overrides", {})
+                for k in (request.remove_keys or []):
+                    target["overrides"].pop(k, None)
+                target["overrides"].update(request.overrides)
+
             # A bare rule with nothing left to say would emit a block identical to the
             # tier's own, so drop it - that IS the fallback to the tier sound. Only
             # ever touches the item's OWN rule; a rule carrying conditions (Replica,
             # Foulborn, six-link…) is somebody else's and is left alone above.
-            rules = [r for r in rules
-                     if r.get("conditions") or r.get("raw") or r.get("overrides")
-                     or r.get("applyToTier")]
+            # A sound-scope rule reduced to just its Tier is equally empty.
+            def _is_spent(r):
+                ov = r.get("overrides") or {}
+                if r.get("conditions") or r.get("raw") or r.get("applyToTier"):
+                    return False
+                if r.get("suppress_auto_sound"):
+                    # Its whole job is to exist, so the auto-sound injection skips
+                    # this item. Empty is the point - never prune it.
+                    return False
+                if r.get("sound_scope"):
+                    return set(ov.keys()) <= {"Tier"}
+                return not ov
+            rules = [r for r in rules if not _is_spent(r)]
             data["rules"] = rules
             write_json_atomic(file_path, data)
         return {"message": "Success"}

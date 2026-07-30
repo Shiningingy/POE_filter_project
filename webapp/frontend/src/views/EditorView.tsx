@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import Sidebar from '../components/Sidebar';
 import type { CategoryFile } from '../components/Sidebar';
 import CategoryView from '../components/CategoryView';
@@ -91,31 +91,35 @@ const EditorView: React.FC<EditorViewProps> = ({
 
   const API_BASE_URL = '';
 
-  useEffect(() => {
-    const loadTheme = async () => {
-        try {
-            const [settingsRes, overridesRes] = await Promise.all([
-                axios.get(`${API_BASE_URL}/api/settings`),
-                axios.get(`${API_BASE_URL}/api/custom-overrides`)
-            ]);
-            
-            const baseTheme = settingsRes.data.base_theme || 'sharket';
-            const overrides = overridesRes.data || {};
+  // Hoisted out of the mount effect so the sound editor can re-run the SAME load
+  // after it writes. The old inline refetch hardcoded the 'sharket' theme and
+  // skipped the overrides merge, so it could not be reused for anything else.
+  const loadTheme = useCallback(async () => {
+      try {
+          const [settingsRes, overridesRes] = await Promise.all([
+              axios.get(`${API_BASE_URL}/api/settings`),
+              axios.get(`${API_BASE_URL}/api/custom-overrides`)
+          ]);
 
-            const themeRes = await axios.get(`${API_BASE_URL}/api/themes/${baseTheme}`);
-            const baseThemeData = themeRes.data.theme_data;
-            
-            // Merge Base + Overrides
-            const mergedTheme = mergeThemeOverrides(baseThemeData, overrides);
+          const baseTheme = settingsRes.data.base_theme || 'sharket';
+          const overrides = overridesRes.data || {};
 
-            setThemeData(mergedTheme);
-            setSoundMap(themeRes.data.sound_map_data);
-        } catch (err) {
-            console.error("Failed to load theme", err);
-        }
-    };
-    loadTheme();
+          const themeRes = await axios.get(`${API_BASE_URL}/api/themes/${baseTheme}`);
+          const baseThemeData = themeRes.data.theme_data;
+
+          // Merge Base + Overrides
+          const mergedTheme = mergeThemeOverrides(baseThemeData, overrides);
+
+          setThemeData(mergedTheme);
+          setSoundMap(themeRes.data.sound_map_data);
+      } catch (err) {
+          console.error("Failed to load theme", err);
+      }
   }, []);
+
+  useEffect(() => {
+    loadTheme();
+  }, [loadTheme]);
 
   useEffect(() => {
       if (pingedCondition) {
@@ -564,12 +568,7 @@ const EditorView: React.FC<EditorViewProps> = ({
             categoryRules={activeCategoryRules}
             themeData={themeData}
             fullConfig={configContent ? JSON.parse(configContent) : null}
-            onSave={() => {
-                // Re-fetch sound map to keep editor in sync without reload
-                axios.get('/api/themes/sharket')
-                    .then(res => setSoundMap(res.data.sound_map_data))
-                    .catch(err => console.error(err));
-            }}
+            onSave={() => { void loadTheme(); }}
           />
       )}
 
