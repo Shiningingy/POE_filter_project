@@ -32,14 +32,38 @@ export const resolveStyle = (tierData: any, themeData: any, themeCategory: strin
   const { Tier, ...overrides } = localTheme;
   resolved = { ...resolved, ...overrides };
 
-  // 3. Resolve Sound
-  if (localSound.sharket_sound_id && soundMap && soundMap.class_sounds && soundMap.class_sounds[localSound.sharket_sound_id]) {
-      const s = soundMap.class_sounds[localSound.sharket_sound_id];
-      resolved.PlayAlertSound = [s.file, s.volume];
+  // 3. Resolve Sound.
+  //
+  // Order MUST match resolve_sound in BOTH generators:
+  //     theme.PlayAlertSound  ->  sharket_sound_id  ->  default_sound_id
+  //
+  // It used to be the exact reverse, with the theme sound as a last resort. The tier
+  // style editor writes the sound it picks to theme.PlayAlertSound, so once the
+  // generators started honouring that, the editor preview and the exported filter
+  // disagreed for every tier whose sound had been picked in the UI.
+  //
+  // The lookup also has to tolerate the ".mp3" suffix: sharket_sound_id is authored
+  // WITH it in 192 of 197 tiers while class_sounds is keyed by the bare stem, so an
+  // exact match silently missed and fell through to the stock default.
+  const themeSound = resolved.PlayAlertSound;
+  const sid = localSound.sharket_sound_id;
+  const classSounds = (soundMap && soundMap.class_sounds) || {};
+  let sharket = sid ? classSounds[sid] : undefined;
+  if (sharket === undefined && typeof sid === 'string' && sid.toLowerCase().endsWith('.mp3')) {
+      sharket = classSounds[sid.slice(0, -4)];
+  }
+
+  if (themeSound) {
+      resolved.PlayAlertSound = themeSound;
+  } else if (sharket !== undefined) {
+      resolved.PlayAlertSound = [sharket.file, sharket.volume];
   } else if (localSound.default_sound_id !== undefined && localSound.default_sound_id !== -1) {
       resolved.PlayAlertSound = [`Default/AlertSound${localSound.default_sound_id}.mp3`, 300];
-  } else if (resolved.PlayAlertSound) {
-      // If it's a "Sharket_Sound_X.mp3" placeholder, try to map it to Default/AlertSoundX.mp3
+  }
+
+  if (resolved.PlayAlertSound) {
+      // "Sharket_Sound_X.mp3" is a dead placeholder (no file, no map entry) left in 12
+      // tiers; render it as the stock alert it stands in for.
       const [file, vol] = resolved.PlayAlertSound;
       if (typeof file === 'string' && file.startsWith('Sharket_Sound_')) {
           const num = file.match(/\d+/)?.[0];
