@@ -14,7 +14,13 @@
     "Enshrouding Crystals": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 38,
+        "TextColor": "#000000ff",
+        "BorderColor": "#c1dcb7ff",
+        "BackgroundColor": "#528240ff",
+        "PlayEffect": "Green",
+        "MinimapIcon": "1 Green Circle"
       },
       "sound": {
         "default_sound_id": 2,

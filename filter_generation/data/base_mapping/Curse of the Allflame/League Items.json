@@ -31,22 +31,52 @@
   },
   "mapping": {
     "Merrick's Ducat": "Common",
-    "Cyaxan's Ducat": "Common",
+    "Cyaxan's Ducat": [
+      "CustomTier 1 Curse of the Allflame"
+    ],
     "The Changeling's Ducat": "Common",
     "The Genteel's Ducat": "Common",
     "Kishara's Ducat": "Common",
     "Telesia's Ducat": "Common",
     "Rotmother's Ducat": "Common",
     "Brinehook's Ducat": "Common",
-    "Katakohi's Ducat": "Common",
-    "Tzamoto's Ducat": "Common",
+    "Katakohi's Ducat": [
+      "CustomTier 1 Curse of the Allflame"
+    ],
+    "Tzamoto's Ducat": [
+      "CustomTier 1 Curse of the Allflame"
+    ],
     "Dead Man's Sulphur": "Common",
     "Message in a Bottle": "Notable",
-    "Sandy Seabed Chart": "Common",
-    "Coral Forest Chart": "Common",
-    "Coral Reef Chart": "Common",
-    "Thermal Vents Chart": "Common",
-    "Mercenary Warrant": "Common"
+    "Sandy Seabed Chart": [
+      "CustomTier 3 Curse of the Allflame"
+    ],
+    "Coral Forest Chart": [
+      "CustomTier 3 Curse of the Allflame"
+    ],
+    "Coral Reef Chart": [
+      "CustomTier 3 Curse of the Allflame"
+    ],
+    "Thermal Vents Chart": [
+      "CustomTier 3 Curse of the Allflame"
+    ],
+    "Mercenary Warrant": "CustomTier 2 Curse of the Allflame"
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": [
+        "Message in a Bottle"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Notable",
+        "PlayAlertSound": [
+          "Sharket掉落音效/DOTA2_瓶.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Message in a Bottle @ Notable",
+      "sound_scope": true
+    }
+  ]
 }

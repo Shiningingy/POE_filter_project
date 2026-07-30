@@ -1648,24 +1648,55 @@ Show
 
 #==[42000]-Curse of the Allflame Curse of the Allflame - 可堆叠通货 Curse of the Allflame==
 
-#==[42001]- Curse of the Allflame -重要 可堆叠通货 - 基础 - 精确==
+#==[42001]- Curse of the Allflame -T1 瓶中信 可堆叠通货 - #1 Override for Message in a Bottle @ Notable - 精确==
 Show
     BaseType == "Message in a Bottle"
     SetFontSize 39
     SetTextColor 218 187 85 255
     SetBorderColor 212 175 55 255
     SetBackgroundColor 16 16 22 255
-    PlayAlertSound 2 300
+    CustomAlertSound "sound_files\Sharket掉落音效\DOTA2_瓶.mp3" 300
     MinimapIcon 1 Orange Circle
 
 
-#==[42002]- Curse of the Allflame -普通 可堆叠通货 - 基础 - 精确==
+#==[42002]- Curse of the Allflame -T1 高级达克特 可堆叠通货 - 基础 - 精确==
 Show
-    BaseType == "Brinehook's Ducat" "Coral Forest Chart" "Coral Reef Chart" "Cyaxan's Ducat" "Dead Man's Sulphur" "Katakohi's Ducat" "Kishara's Ducat" "Mercenary Warrant" "Merrick's Ducat" "Rotmother's Ducat" "Sandy Seabed Chart" "Telesia's Ducat" "The Changeling's Ducat" "The Genteel's Ducat" "Thermal Vents Chart" "Tzamoto's Ducat"
+    BaseType == "Cyaxan's Ducat" "Katakohi's Ducat" "Tzamoto's Ducat"
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 0 0 0 255
+    CustomAlertSound "sound_files\Sharket掉落音效\DOTA2_嘿真棒.mp3" 300
+
+
+#==[42003]- Curse of the Allflame -T2 普通达克特 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Brinehook's Ducat" "Dead Man's Sulphur" "Kishara's Ducat" "Merrick's Ducat" "Rotmother's Ducat" "Telesia's Ducat" "The Changeling's Ducat" "The Genteel's Ducat"
     SetFontSize 31
     SetTextColor 150 150 160 255
     SetBorderColor 60 60 70 255
     SetBackgroundColor 0 0 0 0
+    CustomAlertSound "sound_files\Sharket掉落音效\DOTA2_金子.mp3" 300
+
+
+#==[42004]- Curse of the Allflame -佣兵卖身契 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Mercenary Warrant"
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 0 0 0 255
+    CustomAlertSound "sound_files\Sharket掉落音效\你是主人，还是奴隶.mp3" 300
+
+
+#==[42005]- Curse of the Allflame -海图 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Coral Forest Chart" "Coral Reef Chart" "Sandy Seabed Chart" "Thermal Vents Chart"
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 0 0 0 255
+    CustomAlertSound "sound_files\Sharket掉落音效\DOTA2_开船.mp3" 300
 
 
 #===================================================================================================================
@@ -5520,31 +5551,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131016]- Legacy -显示历史物品 历史物品 - 自动音效：裁剪石 - 精确==
-Show
-    BaseType == "Tailoring Orb"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 162 130 52 255
-    SetBackgroundColor 32 26 10 255
-    CustomAlertSound "sound_files\Sharket掉落音效\裁剪石.mp3" 300
-    PlayEffect Brown
-    MinimapIcon 1 Brown Diamond
-
-
-#==[131017]- Legacy -显示历史物品 历史物品 - 自动音效：回火石 - 精确==
-Show
-    BaseType == "Tempering Orb"
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 162 130 52 255
-    SetBackgroundColor 32 26 10 255
-    CustomAlertSound "sound_files\Sharket掉落音效\回火石.mp3" 300
-    PlayEffect Brown
-    MinimapIcon 1 Brown Diamond
-
-
-#==[131018]- Legacy -显示历史物品 历史物品 - 自动音效：禁灵之瓶 - 精确==
+#==[131016]- Legacy -显示历史物品 历史物品 - 自动音效：禁灵之瓶 - 精确==
 Show
     BaseType == "Divine Vessel"
     SetFontSize 42
@@ -5556,7 +5563,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131019]- Legacy -显示历史物品 历史物品 - 基础 - 精确==
+#==[131017]- Legacy -显示历史物品 历史物品 - 基础 - 精确==
 Show
     BaseType == "Abyss Scarab of Descending" "Abyssal Incubator" "Adherent of Zarokh" "Anarchy Scarab of the Exceptional" "Ancient Reliquary Key" "Annihilation Support" "Ashscale Talisman" "Astral Lich" "Avian Twins Talisman" "Betrayal Scarab of Unbreaking" "Binding Shard" "Birth of the Three" "Blessed Call Support" "Blessing of God" "Blighted Incubator" "Bloodsoaked Banner Support" "Bonespire Support" "Bonespire Talisman" "Breakrib Talisman" "Cartographer's Incubator" "Cast on Ward Break Support" "Celestial Armoursmith's Incubator" "Celestial Blacksmith's Incubator" "Chaotic Astrolabe" "Charan's Sword" "Charged Dash of Projection" "Chayula's Flawless Breachstone" "Chrysalis Talisman" "Clutching Talisman" "Coin of Desecration" "Coin of Knowledge" "Coin of Power" "Coin of Restoration" "Coin of Skill" "Companionship Support" "Congregation Support" "Conjuror of Rot" "Cooldown Recovery Support" "Cord Belt" "Corvine Charm" "Craicic Lure" "Creeping Frost of Floes" "Crusader's Exalted Orb" "Crystallised Rancour" "Cull the Weak Support" "Deadhand Talisman" "Deep One Talisman" "Dextral Catalyst" "Divine Blast" "Divine Sentinel Support" "Diviner's Incubator" "Eclipse Support" "Elder's Exalted Orb" "Eldritch Blasphemy Support" "Engineer's Shard" "Engraved Ultimatum" "Enkindling Orb" "Enshrouded Astrolabe" "Essence of Desolation" "Excommunicate Support" "Exemplar Support" "Expedition Scarab of Infusion" "Fangjaw Talisman" "Farric Lure" "Fenumal Lure" "Fine Incubator" "Fissure Support" "Flamethrower Trap of Stability" "Flesh of Xesht" "Foreboding Incubator" "Fossilised Incubator" "Foulgrasp Support" "Fragmented Incubator" "Frostmage Support" "Fruiting Astrolabe" "Fungal Astrolabe" "Geomancer's Incubator" "Gluttony Support" "Golden Blade" "Golden Bracers" "Golden Caligae" "Golden Flame" "Golden Hoop" "Golden Mantle" "Golden Obi" "Golden Visage" "Golden Wreath" "Grasping Astrolabe" "Greater Ancestral Call Support" "Greater Chain Support" "Greater Devour Support" "Greater Fork Support" "Greater Kinetic Instability Support" "Greater Multistrike Support" "Greater Spell Cascade Support" "Greater Spell Echo Support" "Greater Unleash Support" "Hallow Support" "Hexclaw Talisman" "Hexpass Support" "Hextoad Support" "Hiveborn Support" "Holy Hammers" "Holy Strike" "Honoured Incubator" "Horned Talisman" "Hunter's Exalted Orb" "Imperfect Adherent of Zarokh" "Imperfect Astral Lich" "Imperfect Conjuror of Rot" "Imprint" "Infused Incubator" "Instilling Orb" "Invention Support" "Invert the Rules Support" "Journey Tattoo of the Body" "Journey Tattoo of the Mind" "Journey Tattoo of the Soul" "Kalguuran Incubator" "Kalguuran Scarab of Enriching" "Kinetic Fusillade of Detonation" "Lethal Dose Support" "Lightless Astrolabe" "Lone Antler Talisman" "Longtooth Talisman" "Lupine Charm" "Lycia's Invocation of Acrobatics" "Lycia's Invocation of Ancestral Bond" "Lycia's Invocation of Arrow Dancing" "Lycia's Invocation of Avatar of Fire" "Lycia's Invocation of Blood Magic" "Lycia's Invocation of Call to Arms" "Lycia's Invocation of Conduit" "Lycia's Invocation of Crimson Dance" "Lycia's Invocation of Divine Shield" "Lycia's Invocation of Eldritch Battery" "Lycia's Invocation of Elemental Equilibrium" "Lycia's Invocation of Elemental Overload" "Lycia's Invocation of Eternal Youth" "Lycia's Invocation of Ghost Dance" "Lycia's Invocation of Ghost Reaver" "Lycia's Invocation of Glancing Blows" "Lycia's Invocation of Hex Master" "Lycia's Invocation of Imbalanced Guard" "Lycia's Invocation of Iron Grip" "Lycia's Invocation of Iron Reflexes" "Lycia's Invocation of Iron Will" "Lycia's Invocation of Lethe Shade" "Lycia's Invocation of Magebane" "Lycia's Invocation of Mind Over Matter" "Lycia's Invocation of Minion Instability" "Lycia's Invocation of Pain Attunement" "Lycia's Invocation of Perfect Agony" "Lycia's Invocation of Point Blank" "Lycia's Invocation of Precise Technique" "Lycia's Invocation of Resolute Technique" "Lycia's Invocation of Runebinder" "Lycia's Invocation of Solipsism" "Lycia's Invocation of Supreme Ego" "Lycia's Invocation of The Agnostic" "Lycia's Invocation of The Impaler" "Lycia's Invocation of Unwavering Stance" "Lycia's Invocation of Vaal Pact" "Lycia's Invocation of Versatile Combatant" "Lycia's Invocation of Wicked Ward" "Lycia's Invocation of Wind Dancer" "Lycia's Invocation of Zealot's Oath" "Machinations Support" "Maddening Incubator" "Mandible Talisman" "Memory of Loneliness" "Memory of Reverence" "Memory of Trauma" "Minion Pact Support" "Miraged Incubator" "Monkey Paw Talisman" "Monkey Twins Talisman" "Mysterious Incubator" "Nameless Astrolabe" "Omen of Acceleration" "Omen of Bequeathal" "Omen of Resurgence" "Omen of Revenge" "Orb of Storms of Squalls" "Ornate Incubator" "Otherworldly Incubator" "Overheat Support" "Overloaded Intensity Support" "Pacifism Support" "Perfect Adherent of Zarokh" "Perfect Astral Lich" "Perfect Conjuror of Rot" "Potent Alchemical Resonator" "Powerful Alchemical Resonator" "Primal Incubator" "Primal Skull Talisman" "Prime Alchemical Resonator" "Prime Regrading Lens" "Primeval Remnant" "Primitive Alchemical Resonator" "Primordial Remnant" "Pyre Support" "Redeemer's Exalted Orb" "Refracting Fog" "Ring" "Ritual Scarab of Corpses" "Rot Head Talisman" "Rotfeather Talisman" "Runegraft of Connection" "Runegraft of Consecration" "Runegraft of Fury" "Runegraft of Rallying" "Runegraft of Resurgence" "Runegraft of Rotblood" "Runegraft of Suffering" "Runegraft of the Agile" "Runegraft of the Imbued" "Runegraft of the Spellbound" "Runic Astrolabe" "Sacred Incubator" "Saqawine Lure" "Scarab of the Dextral" "Scornful Herald Support" "Secondary Regrading Lens" "Shaper's Exalted Orb" "Shield of Light" "Shock Nova of Procession" "Shockwave Totem of Authority" "Singular Incubator" "Sinistral Catalyst" "Siphoning Trap of Pain" "Skittering Incubator" "Soul Quenched" "Spinefuse Talisman" "Splitnewt Talisman" "Stacked Deck" "Static Strike of Gathering Lightning" "Storm Burst of Repulsion" "Tattoo of the Arohongui Moonwarden" "Tattoo of the Arohongui Scout" "Tattoo of the Arohongui Shaman" "Tattoo of the Arohongui Warmonger" "Tattoo of the Arohongui Warrior" "Tattoo of the Hinekora Deathwarden" "Tattoo of the Hinekora Shaman" "Tattoo of the Hinekora Storyteller" "Tattoo of the Hinekora Warmonger" "Tattoo of the Hinekora Warrior" "Tattoo of the Kitava Blood Drinker" "Tattoo of the Kitava Heart Eater" "Tattoo of the Kitava Rebel" "Tattoo of the Kitava Shaman" "Tattoo of the Kitava Warrior" "Tattoo of the Ngamahu Firewalker" "Tattoo of the Ngamahu Shaman" "Tattoo of the Ngamahu Warmonger" "Tattoo of the Ngamahu Warrior" "Tattoo of the Ngamahu Woodcarver" "Tattoo of the Ramako Archer" "Tattoo of the Ramako Fleetfoot" "Tattoo of the Ramako Scout" "Tattoo of the Ramako Shaman" "Tattoo of the Ramako Sniper" "Tattoo of the Rongokurai Brute" "Tattoo of the Rongokurai Goliath" "Tattoo of the Rongokurai Guard" "Tattoo of the Rongokurai Turtle" "Tattoo of the Rongokurai Warrior" "Tattoo of the Tasalio Bladedancer" "Tattoo of the Tasalio Scout" "Tattoo of the Tasalio Shaman" "Tattoo of the Tasalio Tideshifter" "Tattoo of the Tasalio Warrior" "Tattoo of the Tawhoa Herbalist" "Tattoo of the Tawhoa Naturalist" "Tattoo of the Tawhoa Scout" "Tattoo of the Tawhoa Shaman" "Tattoo of the Tawhoa Warrior" "Tattoo of the Tukohama Brawler" "Tattoo of the Tukohama Shaman" "Tattoo of the Tukohama Warcaller" "Tattoo of the Tukohama Warmonger" "Tattoo of the Tukohama Warrior" "Tattoo of the Valako Scout" "Tattoo of the Valako Shaman" "Tattoo of the Valako Shieldbearer" "Tattoo of the Valako Stormrider" "Tattoo of the Valako Warrior" "Templar Astrolabe" "Thaumaturge's Incubator" "The Black Barya" "The Master" "The Sustenance" "Three Hands Talisman" "Three Rat Talisman" "Timeless Astrolabe" "Timeworn Reliquary Key" "Transfusion Support" "Undying Flesh Talisman" "Unholy Trinity Support" "Unrelenting Timeless Eternal Emblem" "Unrelenting Timeless Karui Emblem" "Unrelenting Timeless Maraketh Emblem" "Unrelenting Timeless Templar Emblem" "Unrelenting Timeless Vaal Emblem" "Unshaping Orb" "Ursine Charm" "Vaal Breach" "Vaal Reliquary Key" "Vaal Sacrifice Support" "Vaal Temptation Support" "Veiled Chaos Orb" "Veiled Exalted Orb" "Void Shockwave Support" "Voidstorm Support" "Volatile Vaal Orb" "Warlord's Exalted Orb" "Wereclaw Talisman" "Whispering Incubator" "Writhing Talisman"
     SetFontSize 42
