@@ -159,26 +159,6 @@
     {
       "_meta": {
         "localization": {
-          "en": "Divination Cards",
-          "ch": "命运卡"
-        }
-      },
-      "files": [
-        {
-          "path": "Divination Cards/Cards.json",
-          "tier_path": "tier_definition/Divination Cards/Cards.json",
-          "mapping_path": "base_mapping/Divination Cards/Cards.json",
-          "target_category": "Divination Cards",
-          "localization": {
-            "en": "Cards",
-            "ch": "命运卡"
-          }
-        }
-      ]
-    },
-    {
-      "_meta": {
-        "localization": {
           "en": "Uniques",
           "ch": "传奇物品"
         }

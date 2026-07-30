@@ -462,7 +462,8 @@
     "theme_category": "Divination Cards",
     "excluded_modes": [
       "ruthless"
-    ]
+    ],
+    "_archived_note": "Ruthless does not drop divination cards. Archived 2026-07-30: moved under _archived/ and removed from category_structure.json so the editor stops offering it, and excluded_modes stops it generating for ruthless. The data is kept intact - cards DO drop in Standard, so this inverts when that tree forks (ADR-0005). Unlike Currency/_archived/Breach.json, which is globally dead content."
   },
   "mapping": {
     "House of Mirrors": "Tier 0 Cards",
