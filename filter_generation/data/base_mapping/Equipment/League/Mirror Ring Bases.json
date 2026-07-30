@@ -1,7 +1,13 @@
 {
   "_meta": {
     "localization": {
-      "ch": {}
+      "ch": {
+        "Dusk Ring": "戒指：暮色",
+        "Gloam Ring": "戒指：薄暮",
+        "Penumbra Ring": "戒指：半影",
+        "Shadowed Ring": "戒指：暗影",
+        "Tenebrous Ring": "戒指：暗黑"
+      }
     },
     "item_class": {
       "en": "Mirror of Kalandra Ring Bases",

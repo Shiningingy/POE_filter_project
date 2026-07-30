@@ -1,7 +1,18 @@
 {
   "_meta": {
     "localization": {
-      "ch": {}
+      "ch": {
+        "Iron Flask": "坚铁药剂",
+        "Runic Crest": "符文之冠",
+        "Runic Crown": "符文王冠",
+        "Runic Gages": "符文笼手",
+        "Runic Gauntlets": "符文手甲",
+        "Runic Gloves": "符文手套",
+        "Runic Greaves": "符文胫甲",
+        "Runic Helm": "符文头盔",
+        "Runic Sabatons": "符文战靴",
+        "Runic Sollerets": "符文护腿"
+      }
     },
     "item_class": {
       "en": "Expedition Ward-Bases",

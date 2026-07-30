@@ -66,7 +66,8 @@
         "Hivebrain Gland": "虫脑腺体",
         "Traumatic Fragment": "创痛碎片",
         "Reverent Fragment": "虔敬碎片",
-        "Lonely Fragment": "孤寂碎片"
+        "Lonely Fragment": "孤寂碎片",
+        "Crescent Splinter": "新月裂片"
       }
     },
     "item_class": {
@@ -81,7 +82,9 @@
       "Tier 2 Fragments"
     ],
     "The Maven's Writ": "Tier 1 Fragments",
-    "Sacred Blossom": "Tier 1 Fragments",
+    "Sacred Blossom": [
+      "Tier 2 Fragments"
+    ],
     "Awakening Fragment": [
       "Tier 0 Fragments"
     ],
@@ -113,23 +116,23 @@
     "Sacrifice at Dawn": "Tier 4 Fragments",
     "Sacrifice at Noon": "Tier 4 Fragments",
     "Mortal Grief": [
-      "Tier 2 Fragments"
+      "Tier 3 Fragments"
     ],
     "Mortal Rage": [
-      "Tier 2 Fragments"
+      "Tier 3 Fragments"
     ],
     "Mortal Hope": [
-      "Tier 2 Fragments"
+      "Tier 3 Fragments"
     ],
     "Mortal Ignorance": [
-      "Tier 2 Fragments"
+      "Tier 3 Fragments"
     ],
     "An Audience With The King": "Tier 1 Fragments",
     "Timeless Karui Emblem": [
       "Tier 2 Fragments"
     ],
     "Timeless Maraketh Emblem": [
-      "Tier 2 Fragments"
+      "Tier 1 Fragments"
     ],
     "Timeless Eternal Emblem": [
       "Tier 2 Fragments"
@@ -171,40 +174,15 @@
     "Blazing Fragment": [
       "Tier 0 Fragments"
     ],
-    "Kalguuran Scarab": "Tier 1 Fragments",
-    "Kalguuran Scarab of Guarded Riches": "Tier 1 Fragments",
-    "Kalguuran Scarab of Refinement": "Tier 1 Fragments",
     "Echo of Trauma": "Tier 1 Fragments",
     "Echo of Reverence": "Tier 1 Fragments",
     "Echo of Loneliness": "Tier 1 Fragments",
     "Syndicate Medallion": [
       "Tier 2 Fragments"
     ],
-    "Allflame Ember of Kulemak": [
-      "Tier 3 Fragments"
+    "Hivebrain Gland": [
+      "Tier 2 Fragments"
     ],
-    "Allflame Ember of Resplendence": [
-      "Tier 3 Fragments"
-    ],
-    "Allflame Ember of Propagation": [
-      "Tier 3 Fragments"
-    ],
-    "Allflame Ember of Flesh": [
-      "Tier 3 Fragments"
-    ],
-    "Allflame Ember of the Wildwood": [
-      "Tier 3 Fragments"
-    ],
-    "Allflame Ember of the Ethereal": [
-      "Tier 3 Fragments"
-    ],
-    "Allflame Ember of the Gilded": [
-      "Tier 3 Fragments"
-    ],
-    "Allflame Ember of Toads": [
-      "Tier 3 Fragments"
-    ],
-    "Hivebrain Gland": "Tier 1 Fragments",
     "Traumatic Fragment": [
       "Tier 0 Fragments"
     ],
@@ -213,7 +191,339 @@
     ],
     "Lonely Fragment": [
       "Tier 0 Fragments"
+    ],
+    "Crescent Splinter": [
+      "Tier 3 Fragments"
     ]
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": [
+        "Fragment of Enslavement"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/腐坏碎片.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Fragment of Enslavement"
+    },
+    {
+      "targets": [
+        "Fragment of Constriction"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/腐坏碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of Constriction"
+    },
+    {
+      "targets": [
+        "Fragment of Eradication"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/腐坏碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of Eradication"
+    },
+    {
+      "targets": [
+        "Fragment of Purification"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/腐坏碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of Purification"
+    },
+    {
+      "targets": [
+        "Baran's Crest"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/碎片之冠.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Baran's Crest"
+    },
+    {
+      "targets": [
+        "Al-Hezmin's Crest"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/碎片之冠.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Al-Hezmin's Crest"
+    },
+    {
+      "targets": [
+        "Veritania's Crest"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/碎片之冠.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Veritania's Crest"
+    },
+    {
+      "targets": [
+        "Drox's Crest"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/碎片之冠.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Drox's Crest"
+    },
+    {
+      "targets": [
+        "Mortal Rage"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/绿门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Mortal Rage"
+    },
+    {
+      "targets": [
+        "Mortal Grief"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/绿门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Mortal Grief"
+    },
+    {
+      "targets": [
+        "Mortal Hope"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/绿门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Mortal Hope"
+    },
+    {
+      "targets": [
+        "Mortal Ignorance"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/绿门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Mortal Ignorance"
+    },
+    {
+      "targets": [
+        "Fragment of the Minotaur"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/记忆碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of the Minotaur"
+    },
+    {
+      "targets": [
+        "Fragment of the Chimera"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/记忆碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of the Chimera"
+    },
+    {
+      "targets": [
+        "Fragment of the Hydra"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/记忆碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of the Hydra"
+    },
+    {
+      "targets": [
+        "Fragment of the Phoenix"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/记忆碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of the Phoenix"
+    },
+    {
+      "targets": [
+        "Fragment of Emptiness"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/疯狂碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of Emptiness"
+    },
+    {
+      "targets": [
+        "Fragment of Shape"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/疯狂碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of Shape"
+    },
+    {
+      "targets": [
+        "Fragment of Terror"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/疯狂碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of Terror"
+    },
+    {
+      "targets": [
+        "Fragment of Knowledge"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/疯狂碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of Knowledge"
+    },
+    {
+      "targets": [
+        "Ritual Vessel"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/驱灵法器.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Ritual Vessel"
+    },
+    {
+      "targets": [
+        "Hivebrain Gland"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/裂隙碎片.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Hivebrain Gland"
+    },
+    {
+      "targets": [
+        "Timeless Templar Emblem"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/地图碎片.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Timeless Templar Emblem"
+    },
+    {
+      "targets": [
+        "Sacrifice at Midnight"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/红门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Sacrifice at Midnight"
+    },
+    {
+      "targets": [
+        "Sacrifice at Noon"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/红门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Sacrifice at Noon"
+    },
+    {
+      "targets": [
+        "Sacrifice at Dusk"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/红门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Sacrifice at Dusk"
+    },
+    {
+      "targets": [
+        "Sacrifice at Dawn"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/红门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Sacrifice at Dawn"
+    }
+  ]
 }

@@ -9,32 +9,58 @@
       "tier_order": [
         "Tier 0 Support",
         "Tier 1 Support",
+        "Tier 2 Support",
+        "Tier Net Support",
         "Tier Hide Support"
       ]
     },
     "Tier 1 Support": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 42,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#2cac96ff",
+        "BackgroundColor": "#09221eff",
+        "PlayEffect": "Grey",
+        "MinimapIcon": "1 Grey Diamond",
+        "PlayAlertSound": [
+          "Sharket掉落音效/强辅技能石.mp3",
+          100
+        ]
       },
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T1: Exceptional",
+        "ch": "T1: 特殊辅助"
       }
     },
     "Tier 0 Support": {
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#ffffffff",
+        "BackgroundColor": "#2cac96ff",
+        "PlayEffect": "Grey",
+        "MinimapIcon": "0 Grey Star",
+        "PlayAlertSound": [
+          "Sharket掉落音效/稀有技能石.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": 6,
         "sharket_sound_id": "顶级底材.mp3"
       },
       "localization": {
-        "en": "T0: Absolute Top",
-        "ch": "T0: 顶级/核心"
+        "en": "T0: Hand-picked",
+        "ch": "T0: 精选"
       }
     },
     "Tier Hide Support": {
@@ -50,6 +76,47 @@
       "localization": {
         "en": "Hide",
         "ch": "隐藏"
+      }
+    },
+    "Tier 2 Support": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T2: Standard",
+        "ch": "T2: 一般辅助"
+      }
+    },
+    "Tier Net Support": {
+      "hideable": false,
+      "theme": {
+        "Tier": 3,
+        "FontSize": 36,
+        "TextColor": "#6bc5b6ff",
+        "BorderColor": "#185f52ff",
+        "BackgroundColor": "#0a0a0dff",
+        "MinimapIcon": null,
+        "PlayAlertSound": [
+          "Sharket掉落音效/辅助技能石.mp3",
+          100
+        ]
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Net: Other Support Gems",
+        "ch": "兜底：其他辅助宝石"
+      },
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Support Gems\""
       }
     }
   }

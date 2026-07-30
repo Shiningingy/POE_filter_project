@@ -106,19 +106,34 @@
         "Torment Scarab of Possession": "附身之苦痛圣甲虫",
         "Scarab of Radiant Storms": "辉煌风暴之圣甲虫",
         "Scarab of Wisps": "鬼灵之圣甲虫",
-        "Scarab of the Sinistral": "左旋之圣甲虫"
+        "Scarab of the Sinistral": "左旋之圣甲虫",
+        "Allflame Ember of Kulemak": "库勒马克之不灭余烬",
+        "Kalguuran Scarab": "卡古兰圣甲虫",
+        "Allflame Ember of the Ethereal": "虚无之不灭余烬",
+        "Kalguuran Scarab of Guarded Riches": "森严重宝之卡古兰圣甲虫",
+        "Allflame Ember of the Gilded": "亮丽之不灭余烬",
+        "Allflame Ember of Resplendence": "炫灿之不灭余烬",
+        "Allflame Ember of the Wildwood": "荒林之不灭余烬",
+        "Allflame Ember of Propagation": "传播之不灭余烬",
+        "Allflame Ember of Flesh": "血肉之不灭余烬",
+        "Allflame Ember of Toads": "蟾蜍之不灭余烬",
+        "Kalguuran Scarab of Refinement": "精炼之卡古兰圣甲虫",
+        "Allflame Ember of K'Tash": "科塔席之不灭余烬"
       }
     },
     "item_class": {
       "en": "Map Fragments",
       "ch": "地图碎片"
     },
-    "theme_category": "Map Fragments"
+    "theme_category": "Map Fragments",
+    "match_modes": {}
   },
   "mapping": {
     "Breach Scarab of the Hive": "Tier 4 Scarabs",
     "Breach Scarab of Instability": "Tier 3 Scarabs",
-    "Breach Scarab of the Marshal": "Tier 2 Scarabs",
+    "Breach Scarab of the Marshal": [
+      "Tier 1 Scarabs"
+    ],
     "Breach Scarab of the Incensed Swarm": "Tier 1 Scarabs",
     "Cartography Scarab of Escalation": "Tier 4 Scarabs",
     "Cartography Scarab of Risk": "Tier 2 Scarabs",
@@ -126,7 +141,9 @@
     "Cartography Scarab of the Multitude": "Tier 3 Scarabs",
     "Titanic Scarab": "Tier 4 Scarabs",
     "Titanic Scarab of Treasures": "Tier 2 Scarabs",
-    "Titanic Scarab of Legend": "Tier 1 Scarabs",
+    "Titanic Scarab of Legend": [
+      "Tier 2 Scarabs"
+    ],
     "Bestiary Scarab": "Tier 4 Scarabs",
     "Bestiary Scarab of the Herd": "Tier 3 Scarabs",
     "Bestiary Scarab of Duplicating": "Tier 4 Scarabs",
@@ -144,7 +161,9 @@
     "Ambush Scarab": "Tier 4 Scarabs",
     "Ambush Scarab of Hidden Compartments": "Tier 3 Scarabs",
     "Ambush Scarab of Potency": "Tier 3 Scarabs",
-    "Ambush Scarab of Containment": "Tier 2 Scarabs",
+    "Ambush Scarab of Containment": [
+      "Tier 1 Scarabs"
+    ],
     "Ambush Scarab of Discernment": "Tier 2 Scarabs",
     "Expedition Scarab": "Tier 4 Scarabs",
     "Expedition Scarab of Runefinding": "Tier 3 Scarabs",
@@ -158,23 +177,37 @@
     "Abyss Scarab of Multitudes": "Tier 3 Scarabs",
     "Abyss Scarab of Crystals": "Tier 4 Scarabs",
     "Trarthan Scarab": "Tier 3 Scarabs",
-    "Trarthan Scarab of Infamy": "Tier 3 Scarabs",
-    "Trarthan Scarab of Renown": "Tier 3 Scarabs",
-    "Trarthan Scarab of Surprising Alliances": "Tier 2 Scarabs",
+    "Trarthan Scarab of Infamy": [
+      "Tier 2 Scarabs"
+    ],
+    "Trarthan Scarab of Renown": [
+      "Tier 1 Scarabs"
+    ],
+    "Trarthan Scarab of Surprising Alliances": [
+      "Tier 1 Scarabs"
+    ],
     "Anarchy Scarab": "Tier 4 Scarabs",
     "Anarchy Scarab of Gigantification": "Tier 3 Scarabs",
     "Anarchy Scarab of Partnership": "Tier 2 Scarabs",
     "Essence Scarab": "Tier 4 Scarabs",
     "Essence Scarab of Ascent": "Tier 2 Scarabs",
     "Essence Scarab of Stability": "Tier 3 Scarabs",
-    "Essence Scarab of Calcification": "Tier 2 Scarabs",
+    "Essence Scarab of Calcification": [
+      "Tier 1 Scarabs"
+    ],
     "Domination Scarab": "Tier 4 Scarabs",
     "Domination Scarab of Apparitions": "Tier 3 Scarabs",
     "Domination Scarab of Evolution": "Tier 2 Scarabs",
-    "Domination Scarab of Terrors": "Tier 1 Scarabs",
-    "Ritual Scarab of Selectiveness": "Tier 4 Scarabs",
+    "Domination Scarab of Terrors": [
+      "Tier 0 Scarabs"
+    ],
+    "Ritual Scarab of Selectiveness": [
+      "Tier 3 Scarabs"
+    ],
     "Ritual Scarab of Wisps": "Tier 3 Scarabs",
-    "Ritual Scarab of Abundance": "Tier 2 Scarabs",
+    "Ritual Scarab of Abundance": [
+      "Tier 1 Scarabs"
+    ],
     "Harvest Scarab": "Tier 4 Scarabs",
     "Harvest Scarab of Doubling": "Tier 2 Scarabs",
     "Harvest Scarab of Cornucopia": "Tier 1 Scarabs",
@@ -187,8 +220,12 @@
     "Betrayal Scarab of Reinforcements": "Tier 2 Scarabs",
     "Beyond Scarab": "Tier 4 Scarabs",
     "Beyond Scarab of Haemophilia": "Tier 2 Scarabs",
-    "Beyond Scarab of Resurgence": "Tier 2 Scarabs",
-    "Beyond Scarab of the Invasion": "Tier 2 Scarabs",
+    "Beyond Scarab of Resurgence": [
+      "Tier 1 Scarabs"
+    ],
+    "Beyond Scarab of the Invasion": [
+      "Tier 3 Scarabs"
+    ],
     "Ultimatum Scarab": "Tier 4 Scarabs",
     "Ultimatum Scarab of Bribing": "Tier 3 Scarabs",
     "Ultimatum Scarab of Dueling": "Tier 1 Scarabs",
@@ -200,7 +237,9 @@
     "Delirium Scarab of Neuroses": "Tier 2 Scarabs",
     "Delirium Scarab of Delusions": "Tier 2 Scarabs",
     "Blight Scarab": "Tier 4 Scarabs",
-    "Blight Scarab of the Blightheart": "Tier 2 Scarabs",
+    "Blight Scarab of the Blightheart": [
+      "Tier 3 Scarabs"
+    ],
     "Blight Scarab of Blooming": "Tier 1 Scarabs",
     "Scarab of Monstrous Lineage": "Tier 4 Scarabs",
     "Scarab of Adversaries": "Tier 4 Scarabs",
@@ -208,11 +247,17 @@
     "Scarab of Stability": "Tier 2 Scarabs",
     "Horned Scarab of Bloodlines": "Tier 1 Scarabs",
     "Horned Scarab of Nemeses": "Tier 2 Scarabs",
-    "Horned Scarab of Preservation": "Tier 1 Scarabs",
-    "Horned Scarab of Awakening": "Tier 1 Scarabs",
+    "Horned Scarab of Preservation": [
+      "Tier 0 Scarabs"
+    ],
+    "Horned Scarab of Awakening": [
+      "Tier 0 Scarabs"
+    ],
     "Horned Scarab of Tradition": "Tier 1 Scarabs",
     "Horned Scarab of Glittering": "Tier 1 Scarabs",
-    "Horned Scarab of Pandemonium": "Tier 1 Scarabs",
+    "Horned Scarab of Pandemonium": [
+      "Tier 0 Scarabs"
+    ],
     "Abyss Scarab of the Consort": "Tier 1 Scarabs",
     "Blight Scarab of Invigoration": "Tier 1 Scarabs",
     "Breach Scarab of Resonant Cascade": "Tier 1 Scarabs",
@@ -220,7 +265,43 @@
     "Torment Scarab of Possession": "Tier 2 Scarabs",
     "Scarab of Radiant Storms": "Tier 1 Scarabs",
     "Scarab of Wisps": "Tier 4 Scarabs",
-    "Scarab of the Sinistral": "Tier 2 Scarabs"
+    "Scarab of the Sinistral": "Tier 2 Scarabs",
+    "Allflame Ember of Kulemak": [
+      "Tier 0 Scarabs"
+    ],
+    "Kalguuran Scarab": [
+      "Tier 4 Scarabs"
+    ],
+    "Allflame Ember of the Ethereal": [
+      "Tier 0 Scarabs"
+    ],
+    "Kalguuran Scarab of Guarded Riches": [
+      "Tier 3 Scarabs"
+    ],
+    "Allflame Ember of the Gilded": [
+      "Tier 2 Scarabs"
+    ],
+    "Allflame Ember of K'Tash": [
+      "Tier 2 Scarabs"
+    ],
+    "Allflame Ember of Resplendence": [
+      "Tier 3 Scarabs"
+    ],
+    "Allflame Ember of the Wildwood": [
+      "Tier 3 Scarabs"
+    ],
+    "Allflame Ember of Propagation": [
+      "Tier 3 Scarabs"
+    ],
+    "Allflame Ember of Flesh": [
+      "Tier 4 Scarabs"
+    ],
+    "Allflame Ember of Toads": [
+      "Tier 4 Scarabs"
+    ],
+    "Kalguuran Scarab of Refinement": [
+      "Tier 3 Scarabs"
+    ]
   },
   "rules": []
 }

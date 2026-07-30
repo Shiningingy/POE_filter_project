@@ -835,66 +835,6 @@
     {
       "_meta": {
         "localization": {
-          "en": "Synthesised",
-          "ch": "合成物品"
-        }
-      },
-      "files": [
-        {
-          "path": "Equipment/Special/Synthesised.json",
-          "tier_path": "tier_definition/Equipment/Special/Synthesised.json",
-          "mapping_path": "base_mapping/Equipment/Special/Synthesised.json",
-          "target_category": "Body Armours",
-          "localization": {
-            "en": "Synthesised",
-            "ch": "合成物品"
-          }
-        }
-      ]
-    },
-    {
-      "_meta": {
-        "localization": {
-          "en": "Memory-Stranded",
-          "ch": "追忆物品"
-        }
-      },
-      "files": [
-        {
-          "path": "Equipment/MemoryStranded.json",
-          "tier_path": "tier_definition/Equipment/MemoryStranded.json",
-          "mapping_path": "base_mapping/Equipment/MemoryStranded.json",
-          "target_category": "Memory-Stranded",
-          "localization": {
-            "en": "Memory-Stranded",
-            "ch": "追忆物品"
-          }
-        }
-      ]
-    },
-    {
-      "_meta": {
-        "localization": {
-          "en": "Veiled Items",
-          "ch": "隐匿物品"
-        }
-      },
-      "files": [
-        {
-          "path": "Equipment/Veiled.json",
-          "tier_path": "tier_definition/Equipment/Veiled.json",
-          "mapping_path": "base_mapping/Equipment/Veiled.json",
-          "target_category": "Veiled Items",
-          "localization": {
-            "en": "Veiled",
-            "ch": "隐匿物品"
-          }
-        }
-      ]
-    },
-    {
-      "_meta": {
-        "localization": {
           "en": "Linked Items",
           "ch": "高连物品"
         }
@@ -1176,16 +1116,6 @@
               "localization": {
                 "en": "Ritual BaseTypes",
                 "ch": "仪式底材"
-              }
-            },
-            {
-              "path": "Currency/Corpses.json",
-              "tier_path": "tier_definition/Currency/Corpses.json",
-              "mapping_path": "base_mapping/Currency/Corpses.json",
-              "target_category": "Corpses for Spectres",
-              "localization": {
-                "en": "Corpses for Spectres",
-                "ch": "祭祀尸体"
               }
             },
             {
@@ -1517,36 +1447,6 @@
     {
       "_meta": {
         "localization": {
-          "en": "Quest",
-          "ch": "任务物品"
-        }
-      },
-      "files": [
-        {
-          "path": "Quest/Quest Items.json",
-          "tier_path": "tier_definition/Quest/Quest Items.json",
-          "mapping_path": "base_mapping/Quest/Quest Items.json",
-          "target_category": "Quest Items",
-          "localization": {
-            "en": "Quest Items",
-            "ch": "任务物品"
-          }
-        },
-        {
-          "path": "Quest/Labyrinth.json",
-          "tier_path": "tier_definition/Quest/Labyrinth.json",
-          "mapping_path": "base_mapping/Quest/Labyrinth.json",
-          "target_category": "Labyrinth Items",
-          "localization": {
-            "en": "Labyrinth",
-            "ch": "迷宫"
-          }
-        }
-      ]
-    },
-    {
-      "_meta": {
-        "localization": {
           "en": "Misc",
           "ch": "杂项"
         }
@@ -1556,40 +1456,10 @@
           "path": "Misc/General.json",
           "tier_path": "tier_definition/Misc/General.json",
           "mapping_path": "base_mapping/Misc/General.json",
-          "target_category": "Thrusting One Hand Swords",
+          "target_category": "Quest Items",
           "localization": {
-            "en": "General",
+            "en": "Other Misc",
             "ch": "其他杂项"
-          }
-        },
-        {
-          "path": "Misc/Idols.json",
-          "tier_path": "tier_definition/Misc/Idols.json",
-          "mapping_path": "base_mapping/Misc/Idols.json",
-          "target_category": "Idols",
-          "localization": {
-            "en": "Idols",
-            "ch": "神像"
-          }
-        },
-        {
-          "path": "Misc/Wombgifts.json",
-          "tier_path": "tier_definition/Misc/Wombgifts.json",
-          "mapping_path": "base_mapping/Misc/Wombgifts.json",
-          "target_category": "Wombgifts",
-          "localization": {
-            "en": "Wombgifts",
-            "ch": "孕育赠礼"
-          }
-        },
-        {
-          "path": "Currency/Corpses.json",
-          "tier_path": "tier_definition/Currency/Corpses.json",
-          "mapping_path": "base_mapping/Currency/Corpses.json",
-          "target_category": "Corpses",
-          "localization": {
-            "en": "Corpses",
-            "ch": "尸体"
           }
         }
       ]

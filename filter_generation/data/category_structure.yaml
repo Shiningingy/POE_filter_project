@@ -263,24 +263,6 @@ Fractured:
     name: 破碎物品
     path: Equipment/Special/Fractured.json
 
-Synthesised:
-  _name: 合成物品
-  Synthesised:
-    name: 合成物品
-    path: Equipment/Special/Synthesised.json
-
-Memory-Stranded:
-  _name: 追忆物品
-  Memory-Stranded:
-    name: 追忆物品
-    path: Equipment/MemoryStranded.json
-
-Veiled Items:
-  _name: 隐匿物品
-  Veiled:
-    name: 隐匿物品
-    path: Equipment/Veiled.json
-
 Linked Items:
   _name: 高连物品
   Linked:
@@ -312,9 +294,6 @@ League-Specific:
     Ritual BaseTypes:
       name: 仪式底材
       path: Equipment/League/Ritual BaseTypes.json
-    Corpses for Spectres:
-      name: 祭祀尸体
-      path: Currency/Corpses.json
     Heist Experimented:
       name: 夺宝奇兵实验底材
       path: Equipment/League/Heist Experimented.json
@@ -478,29 +457,13 @@ Heist Gear:
     name: 赏金猎人目标
     path: Heist/Targets.json
 
-Quest:
-  _name: 任务物品
-  _default_target: Quest Items
-  Quest Items: 任务物品
-  Labyrinth:
-    name: 迷宫
-    target: Labyrinth Items
-    path: Quest/Labyrinth.json
-
 Misc:
   _name: 杂项
   _default_target: Misc
   General:
     name: 其他杂项
+    target: Quest Items
     path: Misc/General.json
-  Idols:
-    name: 神像
-    target: Idols
-    path: Misc/Idols.json
-  Wombgifts:
-    name: 孕育赠礼
-    target: Wombgifts
-    path: Misc/Wombgifts.json
 
 _Legacy:
   _name: 历史物品

@@ -1,7 +1,9 @@
 {
   "_meta": {
     "localization": {
-      "ch": {}
+      "ch": {
+        "Sacrificial Garb": "祭礼束衣"
+      }
     },
     "item_class": {
       "en": "Sacrificial Garbs",

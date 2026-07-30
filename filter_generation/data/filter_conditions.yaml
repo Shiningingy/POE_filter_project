@@ -65,7 +65,11 @@ conditions:
   - { key: Scourged,        type: bool, category: status, applies: [equipment, maps],    simulatable: true, label: { en: "Scourged",    ch: "腐化扭曲" } }
 
   # ---- Equipment & mods ---------------------------------------------------
-  - { key: HasInfluence,             type: select, options: [Shaper, Elder, Crusader, Hunter, Redeemer, Warlord, None], category: equipment_mods, applies: [equipment], simulatable: true,  label: { en: "Influence",        ch: "势力影响" } }
+  # HasInfluence takes a LIST and matches ANY of the named influences, so it is a
+  # multi-select, not a single pick. Ticking all six is how you say "any influence"
+  # - PoE has no literal Any token. Maps carry influence too (Elder / Conqueror
+  # maps), so this applies to both trees.
+  - { key: HasInfluence,             type: multiselect, options: [Shaper, Elder, Crusader, Hunter, Redeemer, Warlord, None], category: equipment_mods, applies: [equipment, maps], simulatable: true,  label: { en: "Influence",        ch: "势力影响" } }
   - { key: ShaperItem,               type: bool, category: equipment_mods, applies: [equipment], simulatable: true,  label: { en: "Shaper Item",      ch: "塑界者物品" } }
   - { key: ElderItem,                type: bool, category: equipment_mods, applies: [equipment], simulatable: true,  label: { en: "Elder Item",       ch: "裂界者物品" } }
   - { key: MemoryStrands,            type: number, default: ">= 1", category: equipment_mods, applies: [equipment], simulatable: true,  label: { en: "Memory Strands",   ch: "记忆丝线" } }

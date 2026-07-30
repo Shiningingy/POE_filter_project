@@ -35,7 +35,7 @@
   },
   "rules": [
     {
-      "comment": "模拟回忆碎片 50+",
+      "comment": "梦魇拟像 50+",
       "targets": [
         "Simulacrum Splinter"
       ],
@@ -73,6 +73,19 @@
       "overrides": {
         "Tier": "Tier 1 Splinters"
       }
+    },
+    {
+      "targets": [
+        "Simulacrum Splinter"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/拟像裂片.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Simulacrum Splinter"
     }
   ]
 }

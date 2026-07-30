@@ -26,10 +26,10 @@
       "en": "Stackable Currency",
       "ch": "可堆叠通货"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Stackable Currency",
+    "match_modes": {}
   },
   "mapping": {
-    "Scrying Orb": "Notable",
     "Merrick's Ducat": "Common",
     "Cyaxan's Ducat": "Common",
     "The Changeling's Ducat": "Common",
@@ -41,7 +41,7 @@
     "Katakohi's Ducat": "Common",
     "Tzamoto's Ducat": "Common",
     "Dead Man's Sulphur": "Common",
-    "Message in a Bottle": "Common",
+    "Message in a Bottle": "Notable",
     "Sandy Seabed Chart": "Common",
     "Coral Forest Chart": "Common",
     "Coral Reef Chart": "Common",

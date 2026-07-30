@@ -527,7 +527,12 @@
         "Zealot Gloves": "狂热者手套",
         "Zealot Helmet": "热战之盔",
         "Zodiac Leather": "星辰皮甲",
-        "Ghostflame Blade": "鬼焰之刃"
+        "Ghostflame Blade": "鬼焰之刃",
+        "Assembled Eye Jewel": "聚合之凝珠宝",
+        "Fleshripper": "裂肉者",
+        "Pearlescent Amulet": "珠光项链",
+        "Rhex Talisman": "凶鸟魔符",
+        "Shield Crab Talisman": "附壳巨蟹魔符"
       }
     },
     "item_class": {
@@ -858,7 +863,7 @@
     "Stygian Vise": "T3",
     "Sulphur Flask": "T3",
     "Synaptic Ring": "T2",
-    "Timeless Jewel": "T2",
+    "Timeless Jewel": "T0 Chase",
     "Titan Greaves": "T3",
     "Titanium Spirit Shield": "T3",
     "Tome Relic": "T3",
@@ -1389,6 +1394,34 @@
         ]
       },
       "comment": "__SOUND__:Prismatic Jewel"
+    },
+    {
+      "targets": [
+        "Ruby Flask"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/卓越神器.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Ruby Flask"
+    },
+    {
+      "targets": [
+        "Timeless Jewel"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "T0 Chase",
+        "PlayAlertSound": [
+          "Sharket掉落音效/永恒珠宝.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Timeless Jewel @ T0 Chase",
+      "sound_scope": true
     }
   ]
 }

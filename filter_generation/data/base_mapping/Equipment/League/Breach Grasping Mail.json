@@ -1,7 +1,9 @@
 {
   "_meta": {
     "localization": {
-      "ch": {}
+      "ch": {
+        "Grasping Mail": "扼杀链甲"
+      }
     },
     "item_class": {
       "en": "Breach Grasping Mail",

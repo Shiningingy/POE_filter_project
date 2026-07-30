@@ -1,7 +1,9 @@
 {
   "_meta": {
     "localization": {
-      "ch": {}
+      "ch": {
+        "Stygian Vise": "深渊腰带"
+      }
     },
     "item_class": {
       "en": "Stygian Vise",

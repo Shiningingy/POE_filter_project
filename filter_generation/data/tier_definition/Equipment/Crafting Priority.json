@@ -7,6 +7,7 @@
         "ch": "优先精品底材"
       },
       "tier_order": [
+        "Crafting Memory-Stranded",
         "Crafting Perfect Quality",
         "Crafting High Quality",
         "Crafting Chase 86",
@@ -15,6 +16,28 @@
         "Crafting Chase 83",
         "Crafting Bases Hide"
       ]
+    },
+    "Crafting Memory-Stranded": {
+      "hideable": true,
+      "class_condition": true,
+      "theme": {
+        "Tier": 1
+      },
+      "conditions": {
+        "MemoryStrands": ">= 1",
+        "Rarity": "<= Rare",
+        "Corrupted": "False",
+        "Mirrored": "False"
+      },
+      "hide_at_strictness": 6,
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Memory-Stranded",
+        "ch": "追忆物品"
+      }
     },
     "Crafting Perfect Quality": {
       "hideable": true,
