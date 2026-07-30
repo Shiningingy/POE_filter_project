@@ -9,6 +9,12 @@
     },
     "theme_category": "Stackable Currency"
   },
-  "mapping": {},
+  "mapping": {
+    "Dusk Ring": "Mirror of Kalandra Ring Bases T1",
+    "Gloam Ring": "Mirror of Kalandra Ring Bases T1",
+    "Penumbra Ring": "Mirror of Kalandra Ring Bases T1",
+    "Shadowed Ring": "Mirror of Kalandra Ring Bases T1",
+    "Tenebrous Ring": "Mirror of Kalandra Ring Bases T1"
+  },
   "rules": []
 }

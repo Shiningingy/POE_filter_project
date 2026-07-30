@@ -23,6 +23,9 @@
       "localization": {
         "en": "Sacrificial Garbs",
         "ch": "祭礼束衣"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Sacrificial Garbs Hide": {

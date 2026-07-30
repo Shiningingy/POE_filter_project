@@ -23,6 +23,9 @@
       "localization": {
         "en": "Breach Grasping Mail",
         "ch": "扼杀链甲"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Breach Grasping Mail Hide": {

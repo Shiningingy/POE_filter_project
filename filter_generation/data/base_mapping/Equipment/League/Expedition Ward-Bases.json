@@ -9,6 +9,17 @@
     },
     "theme_category": "Stackable Currency"
   },
-  "mapping": {},
+  "mapping": {
+    "Iron Flask": "Expedition Ward-Bases T1",
+    "Runic Crest": "Expedition Ward-Bases T1",
+    "Runic Crown": "Expedition Ward-Bases T1",
+    "Runic Gages": "Expedition Ward-Bases T1",
+    "Runic Gauntlets": "Expedition Ward-Bases T1",
+    "Runic Gloves": "Expedition Ward-Bases T1",
+    "Runic Greaves": "Expedition Ward-Bases T1",
+    "Runic Helm": "Expedition Ward-Bases T1",
+    "Runic Sabatons": "Expedition Ward-Bases T1",
+    "Runic Sollerets": "Expedition Ward-Bases T1"
+  },
   "rules": []
 }

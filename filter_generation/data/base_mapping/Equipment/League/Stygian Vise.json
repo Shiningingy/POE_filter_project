@@ -9,6 +9,8 @@
     },
     "theme_category": "Stackable Currency"
   },
-  "mapping": {},
+  "mapping": {
+    "Stygian Vise": "Stygian Vise T1"
+  },
   "rules": []
 }

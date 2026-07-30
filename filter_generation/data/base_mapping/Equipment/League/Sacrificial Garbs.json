@@ -9,6 +9,8 @@
     },
     "theme_category": "Stackable Currency"
   },
-  "mapping": {},
+  "mapping": {
+    "Sacrificial Garb": "Sacrificial Garbs T1"
+  },
   "rules": []
 }

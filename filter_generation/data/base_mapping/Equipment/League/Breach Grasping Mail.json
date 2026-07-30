@@ -9,6 +9,8 @@
     },
     "theme_category": "Stackable Currency"
   },
-  "mapping": {},
+  "mapping": {
+    "Grasping Mail": "Breach Grasping Mail T1"
+  },
   "rules": []
 }
