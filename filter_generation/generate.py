@@ -136,27 +136,54 @@ def parse_rgba(value, default="255 255 255 255"):
             return f"{r} {g} {b} {a}"
     return default
 
+def sound_line_from_pair(pair):
+    """[file, volume] -> a filter sound line, or None."""
+    if not pair or not isinstance(pair, list) or len(pair) != 2:
+        return None
+    file, vol = pair
+    if not isinstance(file, str):
+        return None
+    if file.startswith("Default/AlertSound"):
+        num = re.search(r"\d+", file).group(0)
+        return f"PlayAlertSound {num} {vol}"
+    win_path = file.replace("/", "\\")
+    return f'CustomAlertSound "sound_files\\{win_path}" {vol}'
+
+
 def resolve_sound(tier_entry, sound_map, override_sound=None):
-    """Priority: override sound -> sharket -> default"""
+    """Priority: rule override -> tier theme.PlayAlertSound -> sharket -> default"""
     # If user provided a specific override [file, vol] in a rule
-    if override_sound and isinstance(override_sound, list):
-        file, vol = override_sound
-        if file.startswith("Default/AlertSound"):
-            num = re.search(r"\d+", file).group(0)
-            return f"PlayAlertSound {num} {vol}"
-        else:
-            win_path = file.replace("/", "\\")
-            return f'CustomAlertSound "sound_files\\{win_path}" {vol}'
+    line = sound_line_from_pair(override_sound)
+    if line:
+        return line
+
+    # The tier style editor writes the sound it picks to theme.PlayAlertSound.
+    # Nothing read it, so choosing a sound for a tier appeared to save and then
+    # did nothing. A rule's own override still wins over it, which is why this
+    # sits below the branch above.
+    line = sound_line_from_pair((tier_entry.get("theme") or {}).get("PlayAlertSound"))
+    if line:
+        return line
 
     # Handle the new sound_map structure (dict with basetype_sounds and class_sounds)
     sb = tier_entry.get("sound", {})
-    
-    # Check if sound_map has tiered default IDs
-    if sb.get("sharket_sound_id") and "class_sounds" in sound_map and sb["sharket_sound_id"] in sound_map["class_sounds"]:
-        s = sound_map["class_sounds"][sb["sharket_sound_id"]]
-        win_path = s["file"].replace("/", "\\")
-        return f'CustomAlertSound "sound_files\\{win_path}" {s["volume"]}'
-    
+
+    # sharket_sound_id was authored WITH the ".mp3" extension in 192 of 197 tiers,
+    # but class_sounds is keyed by the bare stem ("顶级底材", not "顶级底材.mp3").
+    # The old exact-match lookup therefore missed nearly every tier and fell through
+    # to default_sound_id - so a tier asking for a custom Sharket sound played a
+    # stock PoE alert instead, or, where default_sound_id was -1, was silent.
+    sid = sb.get("sharket_sound_id")
+    class_sounds = sound_map.get("class_sounds") or {}
+    if sid:
+        s = class_sounds.get(sid)
+        if s is None and sid.lower().endswith(".mp3"):
+            s = class_sounds.get(sid[:-4])
+        if s is not None:
+            win_path = s["file"].replace("/", "\\")
+            return f'CustomAlertSound "sound_files\\{win_path}" {s["volume"]}'
+
+
     # 2. Default Sound
     if sb.get("default_sound_id") is not None and sb["default_sound_id"] != -1:
         return f'PlayAlertSound {sb["default_sound_id"]} 300'

@@ -1761,6 +1761,31 @@
       "type": "custom",
       "file": "Sharket掉落音效/哇哦传奇.mp3",
       "volume": 300
+    },
+    "传奇": {
+      "type": "custom",
+      "file": "Sharket掉落音效/传奇.mp3",
+      "volume": 300
+    },
+    "白银钥匙": {
+      "type": "custom",
+      "file": "Sharket掉落音效/白银钥匙.mp3",
+      "volume": 300
+    },
+    "破碎装": {
+      "type": "custom",
+      "file": "Sharket掉落音效/破碎装.mp3",
+      "volume": 200
+    },
+    "裂片": {
+      "type": "custom",
+      "file": "Sharket掉落音效/裂片.mp3",
+      "volume": 200
+    },
+    "高级精华": {
+      "type": "custom",
+      "file": "Sharket掉落音效/高级精华.mp3",
+      "volume": 300
     }
   }
 }

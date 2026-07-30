@@ -120,24 +120,48 @@ const parseRgba = (value: any, defaultValue: string = "255 255 255 255"): string
   return defaultValue;
 };
 
-const resolveSound = (tierEntry: any, soundMap: any, overrideSound?: [string, number]): string | null => {
-  if (overrideSound && Array.isArray(overrideSound)) {
-    const [file, vol] = overrideSound;
-    if (file.startsWith("Default/AlertSound")) {
-      const numMatch = file.match(/\d+/);
-      const num = numMatch ? numMatch[0] : "1";
-      return `PlayAlertSound ${num} ${vol}`;
-    } else {
-      const winPath = file.replace(/\//g, "\\");
-      return `CustomAlertSound "sound_files\\${winPath}" ${vol}`;
-    }
+/** [file, volume] -> a filter sound line, or null. */
+const soundLineFromPair = (pair: any): string | null => {
+  if (!pair || !Array.isArray(pair) || pair.length !== 2) return null;
+  const [file, vol] = pair;
+  if (typeof file !== "string") return null;
+  if (file.startsWith("Default/AlertSound")) {
+    const numMatch = file.match(/\d+/);
+    const num = numMatch ? numMatch[0] : "1";
+    return `PlayAlertSound ${num} ${vol}`;
   }
+  const winPath = file.replace(/\//g, "\\");
+  return `CustomAlertSound "sound_files\\${winPath}" ${vol}`;
+};
+
+/** Priority: rule override -> tier theme.PlayAlertSound -> sharket -> default */
+const resolveSound = (tierEntry: any, soundMap: any, overrideSound?: [string, number]): string | null => {
+  let line = soundLineFromPair(overrideSound);
+  if (line) return line;
+
+  // The tier style editor writes the sound it picks to theme.PlayAlertSound.
+  // Nothing read it, so choosing a sound for a tier appeared to save and then did
+  // nothing. A rule's own override still wins, which is why this sits below.
+  line = soundLineFromPair((tierEntry.theme || {}).PlayAlertSound);
+  if (line) return line;
 
   const sb = tierEntry.sound || {};
-  if (sb.sharket_sound_id && soundMap?.class_sounds?.[sb.sharket_sound_id]) {
-    const s = soundMap.class_sounds[sb.sharket_sound_id];
-    const winPath = s.file.replace(/\//g, "\\");
-    return `CustomAlertSound "sound_files\\${winPath}" ${s.volume}`;
+  // sharket_sound_id was authored WITH the ".mp3" extension in 192 of 197 tiers,
+  // but class_sounds is keyed by the bare stem ("顶级底材", not "顶级底材.mp3").
+  // The old exact-match lookup missed nearly every tier and fell through to
+  // default_sound_id, so a tier asking for a custom Sharket sound played a stock
+  // PoE alert instead, or was silent where default_sound_id was -1.
+  const sid = sb.sharket_sound_id;
+  const classSounds = soundMap?.class_sounds || {};
+  if (sid) {
+    let s = classSounds[sid];
+    if (s === undefined && typeof sid === "string" && sid.toLowerCase().endsWith(".mp3")) {
+      s = classSounds[sid.slice(0, -4)];
+    }
+    if (s !== undefined) {
+      const winPath = s.file.replace(/\//g, "\\");
+      return `CustomAlertSound "sound_files\\${winPath}" ${s.volume}`;
+    }
   }
 
   if (sb.default_sound_id !== undefined && sb.default_sound_id !== -1) {
