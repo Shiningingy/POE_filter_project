@@ -504,13 +504,17 @@ export const generateFilter = (data: GeneratorData): string => {
         let ruleMatches: string[] = [];
 
         // A rule can bring its OWN item selector instead of a target list: a `raw`
-        // block, or a BaseType/Class condition. That is the only way to express
-        // "every Deafening Essence" without naming all 17 - a partial BaseType
-        // match collapses them to one line. Such a rule emits a block with NO
-        // generated BaseType line; its own lines match. Without a selector a
-        // target-less rule matches nothing, which validate_curation.py reports.
-        const selfSelecting = !!rule.raw ||
-          ['BaseType', 'Class'].some((k) => k in (rule.conditions || {}));
+        // block, or its conditions. That is the only way to express "every Deafening
+        // Essence" without naming all 17 - a partial BaseType match collapses them to
+        // one line. Such a rule emits a block with NO generated BaseType line.
+        //
+        // ANY condition counts, not just BaseType/Class: `Rarity Unique` +
+        // `LinkedSockets >= 6` is a complete selector on its own. Requiring
+        // BaseType/Class meant 13 such rules across the tree were silently skipped.
+        //
+        // A rule with targets still uses them - this is only consulted after the
+        // applyToTier and ruleTargets branches below.
+        const selfSelecting = !!rule.raw || Object.keys(rule.conditions || {}).length > 0;
 
         if (ruleTierOverride) {
           if (ruleTierOverride === tLbl) {
@@ -528,6 +532,13 @@ export const generateFilter = (data: GeneratorData): string => {
         } else {
           if (ruleTargets.length > 0) {
             ruleMatches = ruleTargets.filter((item: string) => pendingItems.has(item));
+            // generate.py bails here when a targeted rule matches nothing in THIS
+            // tier. The guard was missing, which only stayed invisible while
+            // selfSelecting was false for such rules - the later
+            // `ruleMatches.length === 0 && !selfSelecting` caught them by accident.
+            // Once any condition counts as a selector, its absence made the TS emit
+            // a condition-only block in every tier the rule did not belong to.
+            if (ruleMatches.length === 0) continue;
           } else {
             continue;
           }

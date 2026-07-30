@@ -144,8 +144,9 @@ def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
         # with no generated BaseType line and the rule's own lines do the matching.
         # That is how one partial match stands in for a whole family
         # (`BaseType "Deafening Essence of"` for all 17). Not an error.
-        self_selecting = bool(rule.get("raw")) or any(
-            k in conds for k in ("BaseType", "Class"))
+        # Mirrors generate.py: ANY condition is a selector, not only BaseType/Class.
+        # A rule saying `Rarity Unique` + `LinkedSockets >= 6` needs no target list.
+        self_selecting = bool(rule.get("raw")) or bool(conds)
 
         if not rule.get("targets") and not rule.get("applyToTier") and not self_selecting:
             # The rule is skipped. What the reader needs to know is what happens

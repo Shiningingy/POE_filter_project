@@ -563,11 +563,17 @@ def generate_filter():
                 # to express "every Deafening Essence" without naming all 17 - a
                 # partial BaseType match collapses them to one line. Such a rule
                 # emits a block with NO generated BaseType line; its own lines match.
-                # Without a selector a target-less rule matches nothing at all, which
-                # is the error validate_curation.py reports.
-                self_selecting = bool(rule.get("raw")) or any(
-                    k in (rule.get("conditions") or {}) for k in ("BaseType", "Class")
-                )
+                #
+                # ANY condition counts, not just BaseType/Class. A rule that says
+                # `Rarity Unique` + `LinkedSockets >= 6` is a complete selector on its
+                # own - "every six-linked unique" - and needs no target list. Requiring
+                # BaseType or Class meant 13 such rules across the tree were silently
+                # SKIPPED: the author had written the condition, the editor previewed a
+                # block, and the generated filter simply did not contain it.
+                #
+                # A rule with targets still uses them: this is only consulted after the
+                # applyToTier and rule_targets branches below.
+                self_selecting = bool(rule.get("raw")) or bool(rule.get("conditions"))
 
                 if rule_tier_override:
                     if rule_tier_override == t_lbl:
