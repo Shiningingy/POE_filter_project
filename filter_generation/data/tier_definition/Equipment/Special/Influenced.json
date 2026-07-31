@@ -1,7 +1,7 @@
 {
   "Influenced": {
     "_meta": {
-      "theme_category": "Body Armours",
+      "theme_category": "Influenced",
       "localization": {
         "en": "Influenced",
         "ch": "势力装备"
@@ -9,12 +9,18 @@
       "tier_order": [
         "Tier 0 Influenced",
         "Tier 1 Influenced",
-        "Tier 2 Influenced",
         "Tier Hide Influenced"
       ]
     },
     "Tier 0 Influenced": {
+      "class_condition": true,
       "hideable": false,
+      "conditions": {
+        "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+        "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord",
+        "Rarity": "<= Rare",
+        "ItemLevel": ">= 86"
+      },
       "theme": {
         "Tier": 0
       },
@@ -23,13 +29,18 @@
         "sharket_sound_id": "顶级底材.mp3"
       },
       "localization": {
-        "en": "T0: iLvl 86+",
-        "ch": "T0: 顶级势力底材"
-      },
-      "show_in_editor": false
+        "en": "Influenced, ilvl 86+",
+        "ch": "T0: 顶级势力装备"
+      }
     },
     "Tier 1 Influenced": {
+      "class_condition": true,
       "hideable": false,
+      "conditions": {
+        "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+        "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord",
+        "Rarity": "<= Rare"
+      },
       "theme": {
         "Tier": 1
       },
@@ -38,22 +49,8 @@
         "sharket_sound_id": "势力装备.mp3"
       },
       "localization": {
-        "en": "T1: High iLvl",
-        "ch": "T1: 高级势力装备"
-      }
-    },
-    "Tier 2 Influenced": {
-      "hideable": false,
-      "theme": {
-        "Tier": 2
-      },
-      "sound": {
-        "default_sound_id": 2,
-        "sharket_sound_id": "高级势力装.mp3"
-      },
-      "localization": {
-        "en": "T2: Standard",
-        "ch": "T2: 常规势力装备"
+        "en": "Influenced",
+        "ch": "T1: 势力装备"
       }
     },
     "Tier Hide Influenced": {

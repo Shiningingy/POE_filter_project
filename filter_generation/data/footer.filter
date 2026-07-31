@@ -1,7 +1,19 @@
 #==[99999]-未知物品 Unknown Items==
-# Catch-all for anything no rule above matched (new league items, unmapped basetypes).
-# PLACEHOLDER — the real block will be hand-written here.
+# THE SAFETY NET. Anything no rule above matched lands here - a new league item, a
+# base we have not curated, a class whose category is still empty.
+#
+# It SHOWS, deliberately and at every strictness level. The rule this filter is
+# built on is that a Hide must name what it hides (a Class or a BaseType), so
+# nothing is ever hidden by accident; whatever falls through has to be visible
+# instead. In Ruthless a missed drop costs far more than a little noise.
+#
+# The styling is meant to be recognisable as "uncurated", not pretty: if you see
+# one of these in game, that base wants a home in base_mapping.
 Show
-    SetFontSize 32
-    SetTextColor 255 0 255 255
-    SetBorderColor 255 0 255 255
+    SetFontSize 40
+    SetTextColor 255 255 255 255
+    SetBorderColor 0 200 255 255
+    SetBackgroundColor 0 40 60 255
+    PlayAlertSound 4 200
+    PlayEffect Cyan
+    MinimapIcon 1 Cyan Kite

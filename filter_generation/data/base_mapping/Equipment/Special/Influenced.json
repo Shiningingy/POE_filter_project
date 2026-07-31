@@ -1,62 +1,16 @@
 {
   "_meta": {
-    "localization": {
-      "ch": {
-        "Vaal Regalia": "瓦尔法衣",
-        "Hubris Circlet": "灵主之环",
-        "Titanium Spirit Shield": "巨人魔盾",
-        "Sorcerer Boots": "术士长靴",
-        "Fingerless Silk Gloves": "丝绸手套",
-        "Stygian Vise": "深渊腰带",
-        "Opal Ring": "蛋白石戒指",
-        "Steel Ring": "合金戒指",
-        "Blue Pearl Amulet": "碧珠护身符",
-        "Marble Amulet": "大理石护身符"
-      }
-    },
     "item_class": {
       "en": "Body Armours",
       "ch": "势力装备"
     },
-    "theme_category": "Body Armours"
-  },
-  "mapping": {
-    "Vaal Regalia": "Tier 0 Influenced",
-    "Hubris Circlet": "Tier 0 Influenced",
-    "Titanium Spirit Shield": "Tier 0 Influenced",
-    "Sorcerer Boots": "Tier 1 Influenced",
-    "Fingerless Silk Gloves": "Tier 1 Influenced",
-    "Stygian Vise": "Tier 0 Influenced",
-    "Opal Ring": "Tier 1 Influenced",
-    "Steel Ring": "Tier 1 Influenced",
-    "Blue Pearl Amulet": "Tier 1 Influenced",
-    "Marble Amulet": "Tier 1 Influenced"
-  },
-  "rules": [
-    {
-      "targets": [],
-      "conditions": {
-        "ItemLevel": ">= 86",
-        "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Influenced"
-      },
-      "comment": "iLvl 86+ Influenced Bases",
-      "applyToTier": true
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 1 Influenced"
-      },
-      "comment": "Influenced Bases",
-      "applyToTier": true
+    "theme_category": "Influenced",
+    "gen_order": -40,
+    "suppress_basetype_sounds": true,
+    "localization": {
+      "ch": {}
     }
-  ]
+  },
+  "mapping": {},
+  "rules": []
 }
