@@ -14,15 +14,12 @@ entries left, so nothing in this table is un-authorable.
 `Tier 9` is the hide row. `gaps` means the family exists but is missing a row
 some tier actually uses, which falls back to `Default` for that tier only.
 
-## Needs authoring (33)
+## Needs authoring (22)
 
 | theme_category | tiers used | bases |
 |---|---|---|
-| `Abyss Socketed` | 5, 9 | 0 _(empty — no rush)_ |
-| `Blight Anointed` | 5, 9 | 0 _(empty — no rush)_ |
 | `Breach` | 0, 1, 2, 3, 9 | 7 |
 | `Breach Grasping Mail` | 5, 9 | 1 |
-| `Breach Rings` | 5, 9 | 0 _(empty — no rush)_ |
 | `Crafting Bases` | 1, 2, 3, 4, 5, 9 | 171 |
 | `Currency` | 0, 1, 2, 3, 4, 5, 6, 7, 9 | 87 |
 | `Curse of the Allflame` | 1, 2, 3, 4, 5, 6, 9 | 17 |
@@ -32,14 +29,7 @@ some tier actually uses, which falls back to `Default` for that tier only.
 | `Fragment Splinters` | 0, 1, 2, 9 | 7 |
 | `Heist` | 0, 1, 2, 3, 4, 9 | 22 |
 | `Heist Experimented` | 5, 9 | 47 |
-| `ID Bestiary` | 5, 9 | 0 _(empty — no rush)_ |
-| `ID Delve` | 5, 9 | 0 _(empty — no rush)_ |
-| `ID Essence` | 5, 9 | 0 _(empty — no rush)_ |
-| `ID Incursion` | 5, 9 | 0 _(empty — no rush)_ |
-| `ID Mercenaries` | 5, 9 | 0 _(empty — no rush)_ |
-| `ID Warband` | 5, 9 | 0 _(empty — no rush)_ |
 | `Incursion Vials` | 2, 9 | 9 |
-| `Linked` | 5, 9 | 0 _(empty — no rush)_ |
 | `Mirror Ring Bases` | 5, 9 | 5 |
 | `Oils` | 0, 1, 2, 3, 9 | 16 |
 | `Omens` | 0, 1, 2, 3, 9 | 12 |
@@ -50,7 +40,6 @@ some tier actually uses, which falls back to `Default` for that tier only.
 | `Stygian Vise` | 5, 9 | 1 |
 | `Tainted Currency` | 1, 2, 3, 4, 9 | 11 |
 | `Talismans` | 5, 9 | 43 |
-| `Veiled` | 5, 9 | 0 _(empty — no rush)_ |
 
 ## Already in the theme file (44)
 

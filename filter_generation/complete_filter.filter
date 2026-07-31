@@ -42,38 +42,31 @@
 #    [58000] 装备 Equipment - 首饰 Jewellery - 腰带 Belts
 #    [59000] 装备 Equipment - 首饰 Jewellery - 戒指 Rings
 #    [60000] 装备 Equipment - 首饰 Jewellery - 饰品 Trinkets
-#    [61000] 装备 Equipment - League League - 深渊插槽道具 Abyss Socketed Items
-#    [62000] 装备 Equipment - League League - 菌潮附魔道具 Blight Anointed Items
-#    [63000] 装备 Equipment - League League - 扼杀链甲 Breach Grasping Mail
-#    [64000] 装备 Equipment - League League - 裂隙戒指 Breach Rings
-#    [65000] 装备 Equipment - League League - 先祖秘藏结界底材 Expedition Ward-Bases
-#    [66000] 装备 Equipment - League League - 夺宝奇兵实验底材 Heist Experimented
-#    [67000] 装备 Equipment - League League - 野兽词缀 ID Mods: Bestiary
-#    [68000] 装备 Equipment - League League - 精华 ID Mods: Essence
-#    [69000] 装备 Equipment - League League - 恶名词缀 ID Mods: Mercenaries
-#    [70000] 装备 Equipment - League League - 战团装备 ID Mods: Warband
-#    [71000] 装备 Equipment - League League - 魔镜戒指底材 Mirror of Kalandra Ring Bases
-#    [72000] 装备 Equipment - League League - 仪式底材 Ritual BaseTypes
-#    [73000] 装备 Equipment - League League - 祭礼束衣 Sacrificial Garbs
-#    [74000] 装备 Equipment - League League - 深渊腰带 Stygian Vise
-#    [75000] 装备 Equipment - League League - 护身符 Talismans
-#    [76000] 装备 Equipment - 遗物 Relics
-#    [77000] 装备 Equipment - 特殊 Special - 破碎装备 Fractured
-#    [78000] 装备 Equipment - 特殊 Special - 势力装备 Influenced
-#    [79000] 装备 Equipment - 武器 Weapons - 弓 Bows
-#    [80000] 装备 Equipment - 武器 Weapons - 爪 Claws
-#    [81000] 装备 Equipment - 武器 Weapons - 匕首 Daggers
-#    [82000] 装备 Equipment - 武器 Weapons - 单手斧 One Hand Axes
-#    [83000] 装备 Equipment - 武器 Weapons - 单手锤 One Hand Maces
-#    [84000] 装备 Equipment - 武器 Weapons - 单手剑 One Hand Swords
-#    [85000] 装备 Equipment - 武器 Weapons - 符文匕首 Rune Daggers
-#    [86000] 装备 Equipment - 武器 Weapons - 短杖 Sceptres
-#    [87000] 装备 Equipment - 武器 Weapons - 长杖 Staves
-#    [88000] 装备 Equipment - 武器 Weapons - 双手斧 Two Hand Axes
-#    [89000] 装备 Equipment - 武器 Weapons - 双手锤 Two Hand Maces
-#    [90000] 装备 Equipment - 武器 Weapons - 双手剑 Two Hand Swords
-#    [91000] 装备 Equipment - 武器 Weapons - 法杖 Wands
-#    [92000] 装备 Equipment - 武器 Weapons - 战杖 Warstaves
+#    [61000] 装备 Equipment - League League - 扼杀链甲 Breach Grasping Mail
+#    [62000] 装备 Equipment - League League - 先祖秘藏结界底材 Expedition Ward-Bases
+#    [63000] 装备 Equipment - League League - 夺宝奇兵实验底材 Heist Experimented
+#    [64000] 装备 Equipment - League League - 魔镜戒指底材 Mirror of Kalandra Ring Bases
+#    [65000] 装备 Equipment - League League - 仪式底材 Ritual BaseTypes
+#    [66000] 装备 Equipment - League League - 祭礼束衣 Sacrificial Garbs
+#    [67000] 装备 Equipment - League League - 深渊腰带 Stygian Vise
+#    [68000] 装备 Equipment - League League - 护身符 Talismans
+#    [69000] 装备 Equipment - 遗物 Relics
+#    [70000] 装备 Equipment - 特殊 Special - 破碎装备 Fractured
+#    [71000] 装备 Equipment - 特殊 Special - 势力装备 Influenced
+#    [72000] 装备 Equipment - 武器 Weapons - 弓 Bows
+#    [73000] 装备 Equipment - 武器 Weapons - 爪 Claws
+#    [74000] 装备 Equipment - 武器 Weapons - 匕首 Daggers
+#    [75000] 装备 Equipment - 武器 Weapons - 单手斧 One Hand Axes
+#    [76000] 装备 Equipment - 武器 Weapons - 单手锤 One Hand Maces
+#    [77000] 装备 Equipment - 武器 Weapons - 单手剑 One Hand Swords
+#    [78000] 装备 Equipment - 武器 Weapons - 符文匕首 Rune Daggers
+#    [79000] 装备 Equipment - 武器 Weapons - 短杖 Sceptres
+#    [80000] 装备 Equipment - 武器 Weapons - 长杖 Staves
+#    [81000] 装备 Equipment - 武器 Weapons - 双手斧 Two Hand Axes
+#    [82000] 装备 Equipment - 武器 Weapons - 双手锤 Two Hand Maces
+#    [83000] 装备 Equipment - 武器 Weapons - 双手剑 Two Hand Swords
+#    [84000] 装备 Equipment - 武器 Weapons - 法杖 Wands
+#    [85000] 装备 Equipment - 武器 Weapons - 战杖 Warstaves
 #  [60000] 药剂 Flasks
 #    [61000] 药剂 Flasks - 生命药剂 Life Flasks
 #    [62000] 药剂 Flasks - 魔力药剂 Mana Flasks
@@ -2604,13 +2597,9 @@ Show
     MinimapIcon 1 Grey Diamond
 
 
-#==[61000]-装备 Equipment - League League - 深渊插槽道具 Abyss Socketed Items==
+#==[61000]-装备 Equipment - League League - 扼杀链甲 Breach Grasping Mail==
 
-#==[62000]-装备 Equipment - League League - 菌潮附魔道具 Blight Anointed Items==
-
-#==[63000]-装备 Equipment - League League - 扼杀链甲 Breach Grasping Mail==
-
-#==[63001]- Breach Grasping Mail -扼杀链甲 扼杀链甲 - 自动音效：扼杀链甲 - 精确==
+#==[61001]- Breach Grasping Mail -扼杀链甲 扼杀链甲 - 自动音效：扼杀链甲 - 精确==
 Show
     BaseType == "Grasping Mail"
     Rarity <= Rare
@@ -2621,11 +2610,9 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\扼杀链甲.mp3" 200
 
 
-#==[64000]-装备 Equipment - League League - 裂隙戒指 Breach Rings==
+#==[62000]-装备 Equipment - League League - 先祖秘藏结界底材 Expedition Ward-Bases==
 
-#==[65000]-装备 Equipment - League League - 先祖秘藏结界底材 Expedition Ward-Bases==
-
-#==[65001]- Expedition Ward-Bases -先祖秘藏结界底材 先祖秘藏结界底材 - 自动音效：坚铁药剂 - 精确==
+#==[62001]- Expedition Ward-Bases -先祖秘藏结界底材 先祖秘藏结界底材 - 自动音效：坚铁药剂 - 精确==
 Show
     BaseType == "Iron Flask"
     Rarity <= Rare
@@ -2636,7 +2623,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\坚铁药剂.mp3" 200
 
 
-#==[65002]- Expedition Ward-Bases -先祖秘藏结界底材 先祖秘藏结界底材 - 基础 - 精确==
+#==[62002]- Expedition Ward-Bases -先祖秘藏结界底材 先祖秘藏结界底材 - 基础 - 精确==
 Show
     BaseType == "Runic Crest" "Runic Crown" "Runic Gages" "Runic Gauntlets" "Runic Gloves" "Runic Greaves" "Runic Helm" "Runic Sabatons" "Runic Sollerets"
     Rarity <= Rare
@@ -2646,9 +2633,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[66000]-装备 Equipment - League League - 夺宝奇兵实验底材 Heist Experimented==
+#==[63000]-装备 Equipment - League League - 夺宝奇兵实验底材 Heist Experimented==
 
-#==[66001]- Heist Experimented -夺宝奇兵实验底材 夺宝奇兵实验底材 - 自动音效：星盘项链 - 精确==
+#==[63001]- Heist Experimented -夺宝奇兵实验底材 夺宝奇兵实验底材 - 自动音效：星盘项链 - 精确==
 Show
     BaseType == "Astrolabe Amulet"
     Rarity <= Rare
@@ -2659,7 +2646,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\星盘项链.mp3" 300
 
 
-#==[66002]- Heist Experimented -夺宝奇兵实验底材 夺宝奇兵实验底材 - 自动音效：朴实项链 - 精确==
+#==[63002]- Heist Experimented -夺宝奇兵实验底材 夺宝奇兵实验底材 - 自动音效：朴实项链 - 精确==
 Show
     BaseType == "Simplex Amulet"
     Rarity <= Rare
@@ -2670,7 +2657,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\朴实项链.mp3" 300
 
 
-#==[66003]- Heist Experimented -夺宝奇兵实验底材 夺宝奇兵实验底材 - 基础 - 精确==
+#==[63003]- Heist Experimented -夺宝奇兵实验底材 夺宝奇兵实验底材 - 基础 - 精确==
 Show
     BaseType == "Accumulator Wand" "Alternating Sceptre" "Anarchic Spiritblade" "Apex Cleaver" "Banishing Blade" "Battery Staff" "Blasting Blade" "Boom Mace" "Capricious Spiritblade" "Cogwork Ring" "Cold-attuned Buckler" "Composite Ring" "Congregator Wand" "Crack Mace" "Crushing Force Magnifier" "Disapprobation Axe" "Eventuality Rod" "Flashfire Blade" "Focused Amulet" "Foundry Bow" "Geodesic Ring" "Heat-attuned Tower Shield" "Helical Ring" "Honed Cleaver" "Impact Force Propagator" "Infernal Blade" "Magmatic Tower Shield" "Malign Fangs" "Manifold Ring" "Mechalarm Belt" "Mechanical Belt" "Micro-Distillery Belt" "Oscillating Sceptre" "Pneumatic Dagger" "Polar Buckler" "Potentiality Rod" "Pressurised Dagger" "Psychotic Axe" "Ratcheting Ring" "Reciprocation Staff" "Solarine Bow" "Stabilising Sceptre" "Subsuming Spirit Shield" "Transfer-attuned Spirit Shield" "Void Fangs"
     Rarity <= Rare
@@ -2680,17 +2667,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[67000]-装备 Equipment - League League - 野兽词缀 ID Mods: Bestiary==
+#==[64000]-装备 Equipment - League League - 魔镜戒指底材 Mirror of Kalandra Ring Bases==
 
-#==[68000]-装备 Equipment - League League - 精华 ID Mods: Essence==
-
-#==[69000]-装备 Equipment - League League - 恶名词缀 ID Mods: Mercenaries==
-
-#==[70000]-装备 Equipment - League League - 战团装备 ID Mods: Warband==
-
-#==[71000]-装备 Equipment - League League - 魔镜戒指底材 Mirror of Kalandra Ring Bases==
-
-#==[71001]- Mirror of Kalandra Ring Bases -魔镜戒指底材 魔镜戒指底材 - 基础 - 精确==
+#==[64001]- Mirror of Kalandra Ring Bases -魔镜戒指底材 魔镜戒指底材 - 基础 - 精确==
 Show
     BaseType == "Dusk Ring" "Gloam Ring" "Penumbra Ring" "Shadowed Ring" "Tenebrous Ring"
     Rarity <= Rare
@@ -2700,9 +2679,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[72000]-装备 Equipment - League League - 仪式底材 Ritual BaseTypes==
+#==[65000]-装备 Equipment - League League - 仪式底材 Ritual BaseTypes==
 
-#==[72001]- Ritual BaseTypes -仪式底材 仪式底材 - 基础 - 精确==
+#==[65001]- Ritual BaseTypes -仪式底材 仪式底材 - 基础 - 精确==
 Show
     BaseType == "Aetherwind Gloves" "Apprentice Gloves" "Archdemon Crown" "Atonement Mask" "Basemetal Treads" "Blizzard Crown" "Brimstone Treads" "Cloudwhisper Boots" "Darksteel Treads" "Demon Crown" "Dreamquest Slippers" "Duskwalk Slippers" "Gale Crown" "Guarding Gauntlets" "Imp Crown" "Leyline Gloves" "Nexus Gloves" "Nightwind Slippers" "Penitent Mask" "Preserving Gauntlets" "Sorrow Mask" "Stormrider Boots" "Thwarting Gauntlets" "Tinker Gloves" "Trapsetter Gloves" "Windbreak Boots" "Winter Crown"
     Rarity <= Rare
@@ -2712,9 +2691,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[73000]-装备 Equipment - League League - 祭礼束衣 Sacrificial Garbs==
+#==[66000]-装备 Equipment - League League - 祭礼束衣 Sacrificial Garbs==
 
-#==[73001]- Sacrificial Garbs -祭礼束衣 祭礼束衣 - 自动音效：祭礼束衣 - 精确==
+#==[66001]- Sacrificial Garbs -祭礼束衣 祭礼束衣 - 自动音效：祭礼束衣 - 精确==
 Show
     BaseType == "Sacrificial Garb"
     Rarity <= Rare
@@ -2725,9 +2704,9 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\祭礼束衣.mp3" 200
 
 
-#==[74000]-装备 Equipment - League League - 深渊腰带 Stygian Vise==
+#==[67000]-装备 Equipment - League League - 深渊腰带 Stygian Vise==
 
-#==[74001]- Stygian Vise -深渊腰带 深渊腰带 - 自动音效：深渊腰带 - 精确==
+#==[67001]- Stygian Vise -深渊腰带 深渊腰带 - 自动音效：深渊腰带 - 精确==
 Show
     BaseType == "Stygian Vise"
     Rarity <= Rare
@@ -2738,9 +2717,9 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\深渊腰带.mp3" 200
 
 
-#==[75000]-装备 Equipment - League League - 护身符 Talismans==
+#==[68000]-装备 Equipment - League League - 护身符 Talismans==
 
-#==[75001]- Talismans -护身符 护身符 - 基础 - 精确==
+#==[68001]- Talismans -护身符 护身符 - 基础 - 精确==
 Show
     BaseType == "Ape Talisman" "Black Maw Talisman" "Black Widow Talisman" "Blood Viper Talisman" "Carrion Queen Talisman" "Chieftain Talisman" "Chimeral Talisman" "Cobra Talisman" "Craicic Talisman" "Croaker Talisman" "Devourer Talisman" "Farric Talisman" "Fenumal Talisman" "Flame Hellion Talisman" "Frost Hellion Talisman" "Gargantuan Talisman" "Goatman Talisman" "Goliath Talisman" "Great Maw Talisman" "Greatwolf Talisman" "Hybrid Arachnid Talisman" "Lynx Talisman" "Magma Hound Talisman" "Octopus Talisman" "Pitbull Talisman" "Plagued Arachnid Talisman" "Retch Talisman" "Rhex Talisman" "Rhoa Talisman" "Sand Spitter Talisman" "Saqawine Talisman" "Savage Crab Talisman" "Scorpion Talisman" "Scrabbler Talisman" "Shield Crab Talisman" "Spider Crab Talisman" "Squid Talisman" "Taurus Talisman" "Tiger Talisman" "Ursa Talisman" "Vulture Talisman" "Watcher Talisman" "Wolf Alpha Talisman"
     Rarity <= Rare
@@ -2750,9 +2729,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[76000]-装备 Equipment - 遗物 Relics==
+#==[69000]-装备 Equipment - 遗物 Relics==
 
-#==[76001]- Relics -遗物 遗物 - Class Condition==
+#==[69001]- Relics -遗物 遗物 - Class Condition==
 Show
     Class "Relics" "Small Relics" "Medium Relics" "Large Relics" "Sanctified Relics"
     Rarity <= Rare
@@ -2763,9 +2742,9 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[77000]-装备 Equipment - 特殊 Special - 破碎装备 Fractured==
+#==[70000]-装备 Equipment - 特殊 Special - 破碎装备 Fractured==
 
-#==[77001]- Fractured -T0: 顶级破碎底材 破碎装备 - #1 High Level Fractured Items - 自选==
+#==[70001]- Fractured -T0: 顶级破碎底材 破碎装备 - #1 High Level Fractured Items - 自选==
 Show
     FracturedItem True
     ItemLevel >= 84
@@ -2779,9 +2758,9 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[78000]-装备 Equipment - 特殊 Special - 势力装备 Influenced==
+#==[71000]-装备 Equipment - 特殊 Special - 势力装备 Influenced==
 
-#==[78001]- Influenced -T0: 顶级势力底材 势力装备 - #1 iLvl 86+ Influenced Bases - 精确==
+#==[71001]- Influenced -T0: 顶级势力底材 势力装备 - #1 iLvl 86+ Influenced Bases - 精确==
 Show
     BaseType == "Hubris Circlet" "Stygian Vise" "Titanium Spirit Shield" "Vaal Regalia"
     ItemLevel >= 86
@@ -2796,7 +2775,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[78002]- Influenced -T1: 高级势力装备 势力装备 - #1 Influenced Bases - 精确==
+#==[71002]- Influenced -T1: 高级势力装备 势力装备 - #1 Influenced Bases - 精确==
 Show
     BaseType == "Blue Pearl Amulet" "Fingerless Silk Gloves" "Marble Amulet" "Opal Ring" "Sorcerer Boots" "Steel Ring"
     HasInfluence Shaper Elder Crusader Hunter Redeemer Warlord
@@ -2810,9 +2789,9 @@ Show
     MinimapIcon 1 Grey Diamond
 
 
-#==[79000]-装备 Equipment - 武器 Weapons - 弓 Bows==
+#==[72000]-装备 Equipment - 武器 Weapons - 弓 Bows==
 
-#==[79001]- Bows -T0: 顶级底材(86+) 弓 - #1 i86 Top Bows - 精确==
+#==[72001]- Bows -T0: 顶级底材(86+) 弓 - #1 i86 Top Bows - 精确==
 Show
     BaseType == "Spine Bow" "Thicket Bow" "Imperial Bow"
     ItemLevel >= 86
@@ -2826,7 +2805,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[79002]- Bows -T1: 顶级稀有底材 弓 - #1 i84 Top Bows - 精确==
+#==[72002]- Bows -T1: 顶级稀有底材 弓 - #1 i84 Top Bows - 精确==
 Show
     BaseType == "Spine Bow" "Thicket Bow" "Imperial Bow"
     ItemLevel >= 84
@@ -2840,7 +2819,7 @@ Show
     MinimapIcon 1 Grey Diamond
 
 
-#==[79003]- Bows -T2: 优质稀有底材 弓 - 基础 - 精确==
+#==[72003]- Bows -T2: 优质稀有底材 弓 - 基础 - 精确==
 Show
     BaseType == "Short Bow" "Spine Bow"
     AreaLevel >= 68
@@ -2853,7 +2832,7 @@ Show
     MinimapIcon 1 Grey Circle
 
 
-#==[79004]- Bows -T3: 可用稀有底材 弓 - 基础 - 精确==
+#==[72004]- Bows -T3: 可用稀有底材 弓 - 基础 - 精确==
 Show
     BaseType == "Imperial Bow" "Maraketh Bow" "Thicket Bow"
     AreaLevel >= 68
@@ -2865,7 +2844,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\金装.mp3" 100
 
 
-#==[79005]- Bows -T4: 兜底（碎片） 弓 - 基础 - 精确==
+#==[72005]- Bows -T4: 兜底（碎片） 弓 - 基础 - 精确==
 Show
     BaseType == "Assassin Bow" "Bone Bow" "Citadel Bow" "Composite Bow" "Compound Bow" "Crude Bow" "Death Bow" "Decimation Bow" "Decurve Bow" "Foundry Bow" "Grove Bow" "Harbinger Bow" "Hedron Bow" "Highborn Bow" "Ivory Bow" "Long Bow" "Ranger Bow" "Recurve Bow" "Reflex Bow" "Royal Bow" "Sniper Bow" "Solarine Bow" "Steelwood Bow"
     AreaLevel >= 68
@@ -2876,9 +2855,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[80000]-装备 Equipment - 武器 Weapons - 爪 Claws==
+#==[73000]-装备 Equipment - 武器 Weapons - 爪 Claws==
 
-#==[80001]- Claws -T0: 顶级爪(86+) 爪 - #1 i86 Top Claws - 精确==
+#==[73001]- Claws -T0: 顶级爪(86+) 爪 - #1 i86 Top Claws - 精确==
 Show
     BaseType == "Imperial Claw" "Gemini Claw" "Great White Claw"
     ItemLevel >= 86
@@ -2892,7 +2871,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[80002]- Claws -T1: 顶级稀有底材 爪 - #1 i84 Top Claws - 精确==
+#==[73002]- Claws -T1: 顶级稀有底材 爪 - #1 i84 Top Claws - 精确==
 Show
     BaseType == "Imperial Claw" "Gemini Claw" "Great White Claw"
     ItemLevel >= 84
@@ -2906,7 +2885,7 @@ Show
     MinimapIcon 1 Grey Diamond
 
 
-#==[80003]- Claws -T2: 优质稀有底材 爪 - 基础 - 精确==
+#==[73003]- Claws -T2: 优质稀有底材 爪 - 基础 - 精确==
 Show
     BaseType == "Imperial Claw"
     AreaLevel >= 68
@@ -2919,7 +2898,7 @@ Show
     MinimapIcon 1 Grey Circle
 
 
-#==[80004]- Claws -T3: 可用稀有底材 爪 - 基础 - 精确==
+#==[73004]- Claws -T3: 可用稀有底材 爪 - 基础 - 精确==
 Show
     BaseType == "Gemini Claw"
     AreaLevel >= 68
@@ -2931,7 +2910,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\金装.mp3" 100
 
 
-#==[80005]- Claws -T4: 兜底（碎片） 爪 - 基础 - 精确==
+#==[73005]- Claws -T4: 兜底（碎片） 爪 - 基础 - 精确==
 Show
     BaseType == "Awl" "Blinder" "Cat's Paw" "Double Claw" "Eagle Claw" "Eye Gouger" "Fright Claw" "Gouger" "Great White Claw" "Gut Ripper" "Hellion's Paw" "Malign Fangs" "Nailed Fist" "Noble Claw" "Prehistoric Claw" "Shadow Fangs" "Sharktooth Claw" "Sparkling Claw" "Terror Claw" "Thresher Claw" "Throat Stabber" "Tiger's Paw" "Timeworn Claw" "Twin Claw" "Vaal Claw" "Void Fangs"
     AreaLevel >= 68
@@ -2942,9 +2921,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[81000]-装备 Equipment - 武器 Weapons - 匕首 Daggers==
+#==[74000]-装备 Equipment - 武器 Weapons - 匕首 Daggers==
 
-#==[81001]- Daggers -T0: 顶级匕首(86+) 匕首 - #1 i86 Top Daggers - 精确==
+#==[74001]- Daggers -T0: 顶级匕首(86+) 匕首 - #1 i86 Top Daggers - 精确==
 Show
     BaseType == "Ambusher" "Imperial Skean" "Demon Dagger"
     ItemLevel >= 86
@@ -2958,7 +2937,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[81002]- Daggers -T1: 顶级稀有底材 匕首 - #1 i84 Top Daggers - 精确==
+#==[74002]- Daggers -T1: 顶级稀有底材 匕首 - #1 i84 Top Daggers - 精确==
 Show
     BaseType == "Ambusher" "Imperial Skean" "Demon Dagger"
     ItemLevel >= 84
@@ -2972,7 +2951,7 @@ Show
     MinimapIcon 1 Grey Diamond
 
 
-#==[81003]- Daggers -T3: 可用稀有底材 匕首 - 基础 - 精确==
+#==[74003]- Daggers -T3: 可用稀有底材 匕首 - 基础 - 精确==
 Show
     BaseType == "Ambusher" "Gutting Knife" "Imperial Skean"
     AreaLevel >= 68
@@ -2984,7 +2963,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\金装.mp3" 100
 
 
-#==[81004]- Daggers -T4: 兜底（碎片） 匕首 - 基础 - 精确==
+#==[74004]- Daggers -T4: 兜底（碎片） 匕首 - 基础 - 精确==
 Show
     BaseType == "Demon Dagger" "Flaying Knife" "Glass Shank" "Hollowpoint Dagger" "Pneumatic Dagger" "Poignard" "Pressurised Dagger" "Prong Dagger" "Royal Skean" "Sai" "Skinning Knife" "Slaughter Knife" "Stiletto" "Trisula"
     AreaLevel >= 68
@@ -2995,9 +2974,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[82000]-装备 Equipment - 武器 Weapons - 单手斧 One Hand Axes==
+#==[75000]-装备 Equipment - 武器 Weapons - 单手斧 One Hand Axes==
 
-#==[82001]- Axes -T0: 顶级单手斧(83+) 单手斧 - #1 i83 Top Axes - 精确==
+#==[75001]- Axes -T0: 顶级单手斧(83+) 单手斧 - #1 i83 Top Axes - 精确==
 Show
     BaseType == "Siege Axe" "Reaver Axe" "Runic Hatchet"
     ItemLevel >= 83
@@ -3011,7 +2990,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[82002]- Axes -T3: 可用稀有底材 单手斧 - 基础 - 精确==
+#==[75002]- Axes -T3: 可用稀有底材 单手斧 - 基础 - 精确==
 Show
     BaseType == "Reaver Axe" "Runic Hatchet" "Siege Axe"
     AreaLevel >= 68
@@ -3023,7 +3002,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\金装.mp3" 100
 
 
-#==[82003]- Axes -T4: 兜底（碎片） 单手斧 - 基础 - 精确==
+#==[75003]- Axes -T4: 兜底（碎片） 单手斧 - 基础 - 精确==
 Show
     BaseType == "Arming Axe" "Boarding Axe" "Broad Axe" "Butcher Axe" "Ceremonial Axe" "Chest Splitter" "Cleaver" "Decorative Axe" "Disapprobation Axe" "Engraved Hatchet" "Etched Hatchet" "Infernal Axe" "Jade Hatchet" "Jasper Axe" "Karui Axe" "Maltreatment Axe" "Psychotic Axe" "Royal Axe" "Rusted Hatchet" "Spectral Axe" "Tomahawk" "Vaal Hatchet" "War Axe" "Wraith Axe" "Wrist Chopper"
     AreaLevel >= 68
@@ -3034,9 +3013,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[83000]-装备 Equipment - 武器 Weapons - 单手锤 One Hand Maces==
+#==[76000]-装备 Equipment - 武器 Weapons - 单手锤 One Hand Maces==
 
-#==[83001]- Maces -T0: 顶级单手锤(83+) 单手锤 - #1 i83 Top Maces - 精确==
+#==[76001]- Maces -T0: 顶级单手锤(83+) 单手锤 - #1 i83 Top Maces - 精确==
 Show
     BaseType == "Behemoth Mace" "Nightmare Mace"
     ItemLevel >= 83
@@ -3050,7 +3029,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[83002]- Maces -T3: 可用稀有底材 单手锤 - 基础 - 精确==
+#==[76002]- Maces -T3: 可用稀有底材 单手锤 - 基础 - 精确==
 Show
     BaseType == "Legion Hammer" "Nightmare Mace" "Piledriver"
     AreaLevel >= 68
@@ -3062,7 +3041,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\金装.mp3" 100
 
 
-#==[83003]- Maces -T4: 兜底（碎片） 单手锤 - 基础 - 精确==
+#==[76003]- Maces -T4: 兜底（碎片） 单手锤 - 基础 - 精确==
 Show
     BaseType == "Ancestral Club" "Auric Mace" "Barbed Club" "Battle Hammer" "Behemoth Mace" "Bladed Mace" "Boom Mace" "Ceremonial Mace" "Crack Mace" "Dragon Mace" "Dream Mace" "Driftwood Club" "Flanged Mace" "Flare Mace" "Gavel" "Ornate Mace" "Pernach" "Petrified Club" "Phantom Mace" "Rock Breaker" "Spiked Club" "Stone Hammer" "Tenderizer" "Tribal Club" "War Hammer" "Wyrm Mace"
     AreaLevel >= 68
@@ -3073,9 +3052,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[84000]-装备 Equipment - 武器 Weapons - 单手剑 One Hand Swords==
+#==[77000]-装备 Equipment - 武器 Weapons - 单手剑 One Hand Swords==
 
-#==[84001]- Swords -T0: 顶级单手剑(83+) 单手剑 - #1 i83 Top Swords - 精确==
+#==[77001]- Swords -T0: 顶级单手剑(83+) 单手剑 - #1 i83 Top Swords - 精确==
 Show
     BaseType == "Jewelled Foil" "Corsair Sword" "Eternal Sword"
     ItemLevel >= 83
@@ -3089,7 +3068,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[84002]- Swords -T3: 可用稀有底材 单手剑 - 基础 - 精确==
+#==[77002]- Swords -T3: 可用稀有底材 单手剑 - 基础 - 精确==
 Show
     BaseType == "Battered Foil" "Corsair Sword" "Eternal Sword" "Jewelled Foil" "Reaver Sword" "Whalebone Rapier"
     AreaLevel >= 68
@@ -3101,7 +3080,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\金装.mp3" 100
 
 
-#==[84003]- Swords -T4: 兜底（碎片） 单手剑 - 基础 - 精确==
+#==[77003]- Swords -T4: 兜底（碎片） 单手剑 - 基础 - 精确==
 Show
     BaseType == "Anarchic Spiritblade" "Ancient Sword" "Antique Rapier" "Apex Rapier" "Baselard" "Basket Rapier" "Battle Sword" "Broad Sword" "Burnished Foil" "Capricious Spiritblade" "Copper Sword" "Courtesan Sword" "Cutlass" "Dancing Sword" "Dragonbone Rapier" "Dragoon Sword" "Dusk Blade" "Elder Sword" "Elegant Foil" "Elegant Sword" "Estoc" "Fancy Foil" "Fickle Spiritblade" "Gemstone Sword" "Gladius" "Graceful Sword" "Grappler" "Harpy Rapier" "Hook Sword" "Imperfect Dancing Sword" "Jagged Foil" "Legion Sword" "Maligaro's Spike" "Midnight Blade" "Perfect Dancing Sword" "Primeval Rapier" "Rusted Spike" "Rusted Sword" "Sabre" "Serrated Foil" "Smallsword" "Spiraled Foil" "Tempered Foil" "Thorn Rapier" "Tiger Hook" "Twilight Blade" "Vaal Blade" "Vaal Rapier" "Variscite Blade" "War Sword" "Wyrmbone Rapier"
     AreaLevel >= 68
@@ -3112,9 +3091,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[85000]-装备 Equipment - 武器 Weapons - 符文匕首 Rune Daggers==
+#==[78000]-装备 Equipment - 武器 Weapons - 符文匕首 Rune Daggers==
 
-#==[85001]- Rune Daggers -T0: 顶级符文匕首(86+) 符文匕首 - #1 i86 Top Rune Daggers - 精确==
+#==[78001]- Rune Daggers -T0: 顶级符文匕首(86+) 符文匕首 - #1 i86 Top Rune Daggers - 精确==
 Show
     BaseType == "Golden Kris" "Platinum Kris" "Ezomyte Dagger"
     ItemLevel >= 86
@@ -3128,7 +3107,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[85002]- Rune Daggers -T2: 优质稀有底材 符文匕首 - 基础 - 精确==
+#==[78002]- Rune Daggers -T2: 优质稀有底材 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Copper Kris" "Golden Kris" "Platinum Kris"
     AreaLevel >= 68
@@ -3141,7 +3120,7 @@ Show
     MinimapIcon 1 Grey Circle
 
 
-#==[85003]- Rune Daggers -T3: 可用稀有底材 符文匕首 - 基础 - 精确==
+#==[78003]- Rune Daggers -T3: 可用稀有底材 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Imperial Skean"
     AreaLevel >= 68
@@ -3153,7 +3132,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\金装.mp3" 100
 
 
-#==[85004]- Rune Daggers -T4: 兜底（碎片） 符文匕首 - 基础 - 精确==
+#==[78004]- Rune Daggers -T4: 兜底（碎片） 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Boot Blade" "Boot Knife" "Butcher Knife" "Carving Knife" "Ezomyte Dagger" "Fiend Dagger" "Flashfire Blade" "Flickerflame Blade" "Imp Dagger" "Infernal Blade" "Skean"
     AreaLevel >= 68
@@ -3164,9 +3143,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[86000]-装备 Equipment - 武器 Weapons - 短杖 Sceptres==
+#==[79000]-装备 Equipment - 武器 Weapons - 短杖 Sceptres==
 
-#==[86001]- Sceptres -T0: 顶级短杖(83+) 短杖 - #1 i83 Top Sceptres - 精确==
+#==[79001]- Sceptres -T0: 顶级短杖(83+) 短杖 - #1 i83 Top Sceptres - 精确==
 Show
     BaseType == "Void Sceptre" "Sambar Sceptre"
     ItemLevel >= 83
@@ -3180,7 +3159,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[86002]- Sceptres -T2: 优质稀有底材 短杖 - 基础 - 精确==
+#==[79002]- Sceptres -T2: 优质稀有底材 短杖 - 基础 - 精确==
 Show
     BaseType == "Opal Sceptre" "Void Sceptre"
     AreaLevel >= 68
@@ -3193,7 +3172,7 @@ Show
     MinimapIcon 1 Grey Circle
 
 
-#==[86003]- Sceptres -T3: 可用稀有底材 短杖 - 基础 - 精确==
+#==[79003]- Sceptres -T3: 可用稀有底材 短杖 - 基础 - 精确==
 Show
     BaseType == "Carnal Sceptre" "Platinum Sceptre" "Vaal Sceptre"
     AreaLevel >= 68
@@ -3205,7 +3184,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\金装.mp3" 100
 
 
-#==[86004]- Sceptres -T4: 兜底（碎片） 短杖 - 基础 - 精确==
+#==[79004]- Sceptres -T4: 兜底（碎片） 短杖 - 基础 - 精确==
 Show
     BaseType == "Abyssal Sceptre" "Alternating Sceptre" "Blood Sceptre" "Bronze Sceptre" "Crystal Sceptre" "Darkwood Sceptre" "Driftwood Sceptre" "Grinning Fetish" "Horned Sceptre" "Iron Sceptre" "Karui Sceptre" "Lead Sceptre" "Ochre Sceptre" "Oscillating Sceptre" "Quartz Sceptre" "Ritual Sceptre" "Royal Sceptre" "Sambar Sceptre" "Sekhem" "Shadow Sceptre" "Stabilising Sceptre" "Stag Sceptre" "Tyrant's Sekhem"
     AreaLevel >= 68
@@ -3216,9 +3195,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[87000]-装备 Equipment - 武器 Weapons - 长杖 Staves==
+#==[80000]-装备 Equipment - 武器 Weapons - 长杖 Staves==
 
-#==[87001]- Staves -T0: 顶级长杖(83+) 长杖 - #1 i83 Top Staves - 精确==
+#==[80001]- Staves -T0: 顶级长杖(83+) 长杖 - #1 i83 Top Staves - 精确==
 Show
     BaseType == "Imperial Staff" "Eclipse Staff"
     ItemLevel >= 83
@@ -3232,7 +3211,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[87002]- Staves -T2: 优质稀有底材 长杖 - 基础 - 精确==
+#==[80002]- Staves -T2: 优质稀有底材 长杖 - 基础 - 精确==
 Show
     BaseType == "Lathi"
     AreaLevel >= 68
@@ -3245,7 +3224,7 @@ Show
     MinimapIcon 1 Grey Circle
 
 
-#==[87003]- Staves -T3: 可用稀有底材 长杖 - 基础 - 精确==
+#==[80003]- Staves -T3: 可用稀有底材 长杖 - 基础 - 精确==
 Show
     BaseType == "Eclipse Staff" "Imperial Staff"
     AreaLevel >= 68
@@ -3257,7 +3236,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\金装.mp3" 100
 
 
-#==[87004]- Staves -T4: 兜底（碎片） 长杖 - 基础 - 精确==
+#==[80004]- Staves -T4: 兜底（碎片） 长杖 - 基础 - 精确==
 Show
     BaseType == "Battery Staff" "Crescent Staff" "Gnarled Branch" "Highborn Staff" "Long Staff" "Moon Staff" "Primitive Staff" "Primordial Staff" "Quarterstaff" "Reciprocation Staff" "Royal Staff" "Transformer Staff" "Woodful Staff"
     AreaLevel >= 68
@@ -3268,9 +3247,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[88000]-装备 Equipment - 武器 Weapons - 双手斧 Two Hand Axes==
+#==[81000]-装备 Equipment - 武器 Weapons - 双手斧 Two Hand Axes==
 
-#==[88001]- Two Hand Axes -T0: 顶级双手斧(83+) 双手斧 - #1 i83 Top 2H Axes - 精确==
+#==[81001]- Two Hand Axes -T0: 顶级双手斧(83+) 双手斧 - #1 i83 Top 2H Axes - 精确==
 Show
     BaseType == "Despot Axe" "Vaal Axe" "Fleshripper"
     ItemLevel >= 83
@@ -3284,7 +3263,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[88002]- Two Hand Axes -T2: 优质稀有底材 双手斧 - 基础 - 精确==
+#==[81002]- Two Hand Axes -T2: 优质稀有底材 双手斧 - 基础 - 精确==
 Show
     BaseType == "Vaal Axe"
     AreaLevel >= 68
@@ -3297,7 +3276,7 @@ Show
     MinimapIcon 1 Grey Circle
 
 
-#==[88003]- Two Hand Axes -T3: 可用稀有底材 双手斧 - 基础 - 精确==
+#==[81003]- Two Hand Axes -T3: 可用稀有底材 双手斧 - 基础 - 精确==
 Show
     BaseType == "Despot Axe" "Ezomyte Axe" "Karui Chopper"
     AreaLevel >= 68
@@ -3309,7 +3288,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\金装.mp3" 100
 
 
-#==[88004]- Two Hand Axes -T4: 兜底（碎片） 双手斧 - 基础 - 精确==
+#==[81004]- Two Hand Axes -T4: 兜底（碎片） 双手斧 - 基础 - 精确==
 Show
     BaseType == "Abyssal Axe" "Apex Cleaver" "Dagger Axe" "Double Axe" "Fleshripper" "Gilded Axe" "Headsman Axe" "Honed Cleaver" "Jade Chopper" "Jasper Chopper" "Labrys" "Noble Axe" "Poleaxe" "Prime Cleaver" "Shadow Axe" "Stone Axe" "Sundering Axe" "Talon Axe" "Timber Axe" "Void Axe" "Woodsplitter"
     AreaLevel >= 68
@@ -3320,9 +3299,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[89000]-装备 Equipment - 武器 Weapons - 双手锤 Two Hand Maces==
+#==[82000]-装备 Equipment - 武器 Weapons - 双手锤 Two Hand Maces==
 
-#==[89001]- Two Hand Maces -T0: 顶级双手锤(83+) 双手锤 - #1 i83 Top 2H Maces - 精确==
+#==[82001]- Two Hand Maces -T0: 顶级双手锤(83+) 双手锤 - #1 i83 Top 2H Maces - 精确==
 Show
     BaseType == "Coronal Maul" "Meatgrinder"
     ItemLevel >= 83
@@ -3336,7 +3315,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[89002]- Two Hand Maces -T3: 可用稀有底材 双手锤 - 基础 - 精确==
+#==[82002]- Two Hand Maces -T3: 可用稀有底材 双手锤 - 基础 - 精确==
 Show
     BaseType == "Meatgrinder" "Piledriver"
     AreaLevel >= 68
@@ -3348,7 +3327,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\金装.mp3" 100
 
 
-#==[89003]- Two Hand Maces -T4: 兜底（碎片） 双手锤 - 基础 - 精确==
+#==[82003]- Two Hand Maces -T4: 兜底（碎片） 双手锤 - 基础 - 精确==
 Show
     BaseType == "Blunt Force Condenser" "Brass Maul" "Colossus Mallet" "Coronal Maul" "Crushing Force Magnifier" "Dread Maul" "Driftwood Maul" "Fright Maul" "Great Mallet" "Impact Force Propagator" "Imperial Maul" "Jagged Maul" "Karui Maul" "Mallet" "Morning Star" "Plated Maul" "Sledgehammer" "Solar Maul" "Spiny Maul" "Steelhead" "Terror Maul" "Totemic Maul" "Tribal Maul"
     AreaLevel >= 68
@@ -3359,9 +3338,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[90000]-装备 Equipment - 武器 Weapons - 双手剑 Two Hand Swords==
+#==[83000]-装备 Equipment - 武器 Weapons - 双手剑 Two Hand Swords==
 
-#==[90001]- Two Hand Swords -T0: 顶级双手剑(83+) 双手剑 - #1 i83 Top 2H Swords - 精确==
+#==[83001]- Two Hand Swords -T0: 顶级双手剑(83+) 双手剑 - #1 i83 Top 2H Swords - 精确==
 Show
     BaseType == "Exquisite Blade"
     ItemLevel >= 83
@@ -3375,7 +3354,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[90002]- Two Hand Swords -T4: 兜底（碎片） 双手剑 - 基础 - 精确==
+#==[83002]- Two Hand Swords -T4: 兜底（碎片） 双手剑 - 基础 - 精确==
 Show
     BaseType == "Banishing Blade" "Bastard Sword" "Blasting Blade" "Butcher Sword" "Corroded Blade" "Curved Blade" "Engraved Greatsword" "Etched Greatsword" "Exquisite Blade" "Ezomyte Blade" "Footman Sword" "Headman's Sword" "Highland Blade" "Infernal Sword" "Lion Sword" "Lithe Blade" "Longsword" "Ornate Sword" "Rebuking Blade" "Spectral Sword" "Tiger Sword" "Two-Handed Sword" "Vaal Greatsword" "Wraith Sword"
     AreaLevel >= 68
@@ -3386,9 +3365,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[91000]-装备 Equipment - 武器 Weapons - 法杖 Wands==
+#==[84000]-装备 Equipment - 武器 Weapons - 法杖 Wands==
 
-#==[91001]- Wands -T0: 顶级法杖(83+) 法杖 - #1 i83 Top Wands - 精确==
+#==[84001]- Wands -T0: 顶级法杖(83+) 法杖 - #1 i83 Top Wands - 精确==
 Show
     BaseType == "Opal Wand" "Profane Wand" "Convoking Wand"
     ItemLevel >= 83
@@ -3402,7 +3381,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[91002]- Wands -T2: 优质稀有底材 法杖 - 基础 - 精确==
+#==[84002]- Wands -T2: 优质稀有底材 法杖 - 基础 - 精确==
 Show
     BaseType == "Convoking Wand" "Kinetic Wand" "Profane Wand" "Prophecy Wand" "Tornado Wand"
     AreaLevel >= 68
@@ -3415,7 +3394,7 @@ Show
     MinimapIcon 1 Grey Circle
 
 
-#==[91003]- Wands -T3: 可用稀有底材 法杖 - 基础 - 精确==
+#==[84003]- Wands -T3: 可用稀有底材 法杖 - 基础 - 精确==
 Show
     BaseType == "Blasting Wand" "Convening Wand" "Demon's Horn" "Heathen Wand" "Opal Wand"
     AreaLevel >= 68
@@ -3427,7 +3406,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\金装.mp3" 100
 
 
-#==[91004]- Wands -T4: 兜底（碎片） 法杖 - 基础 - 精确==
+#==[84004]- Wands -T4: 兜底（碎片） 法杖 - 基础 - 精确==
 Show
     BaseType == "Accumulator Wand" "Assembler Wand" "Calling Wand" "Coiled Wand" "Congregator Wand" "Crystal Wand" "Driftwood Wand" "Faun's Horn" "Goat's Horn" "Omen Wand" "Pagan Wand" "Quartz Wand" "Sage Wand" "Somatic Wand" "Spiraled Wand"
     AreaLevel >= 68
@@ -3438,9 +3417,9 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[92000]-装备 Equipment - 武器 Weapons - 战杖 Warstaves==
+#==[85000]-装备 Equipment - 武器 Weapons - 战杖 Warstaves==
 
-#==[92001]- Warstaves -T0: 顶级战杖(83+) 战杖 - #1 i83 Top Warstaves - 精确==
+#==[85001]- Warstaves -T0: 顶级战杖(83+) 战杖 - #1 i83 Top Warstaves - 精确==
 Show
     BaseType == "Judgement Staff" "Ezomyte Staff"
     ItemLevel >= 83
@@ -3454,7 +3433,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[92002]- Warstaves -T3: 可用稀有底材 战杖 - 基础 - 精确==
+#==[85002]- Warstaves -T3: 可用稀有底材 战杖 - 基础 - 精确==
 Show
     BaseType == "Ezomyte Staff" "Maelström Staff"
     AreaLevel >= 68
@@ -3466,7 +3445,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\金装.mp3" 100
 
 
-#==[92003]- Warstaves -T4: 兜底（碎片） 战杖 - 基础 - 精确==
+#==[85003]- Warstaves -T4: 兜底（碎片） 战杖 - 基础 - 精确==
 Show
     BaseType == "Capacity Rod" "Coiled Staff" "Eventuality Rod" "Foul Staff" "Iron Staff" "Judgement Staff" "Military Staff" "Potentiality Rod" "Serpentine Staff" "Vile Staff"
     AreaLevel >= 68

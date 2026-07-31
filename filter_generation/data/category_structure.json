@@ -839,18 +839,7 @@
           "ch": "高连物品"
         }
       },
-      "files": [
-        {
-          "path": "Equipment/Linked.json",
-          "tier_path": "tier_definition/Equipment/Linked.json",
-          "mapping_path": "base_mapping/Equipment/Linked.json",
-          "target_category": "Linked Items",
-          "localization": {
-            "en": "Linked",
-            "ch": "高连物品"
-          }
-        }
-      ]
+      "files": []
     },
     {
       "_meta": {
@@ -861,26 +850,6 @@
       },
       "files": [
         {
-          "path": "Equipment/League/Abyss Socketed.json",
-          "tier_path": "tier_definition/Equipment/League/Abyss Socketed.json",
-          "mapping_path": "base_mapping/Equipment/League/Abyss Socketed.json",
-          "target_category": "Abyss Socketed Items",
-          "localization": {
-            "en": "Abyss Socketed Items",
-            "ch": "深渊插槽道具"
-          }
-        },
-        {
-          "path": "Equipment/League/Blight Anointed.json",
-          "tier_path": "tier_definition/Equipment/League/Blight Anointed.json",
-          "mapping_path": "base_mapping/Equipment/League/Blight Anointed.json",
-          "target_category": "Blight Anointed Items",
-          "localization": {
-            "en": "Blight Anointed Items",
-            "ch": "菌潮附魔道具"
-          }
-        },
-        {
           "path": "Equipment/League/Breach Grasping Mail.json",
           "tier_path": "tier_definition/Equipment/League/Breach Grasping Mail.json",
           "mapping_path": "base_mapping/Equipment/League/Breach Grasping Mail.json",
@@ -888,16 +857,6 @@
           "localization": {
             "en": "Breach Grasping Mail",
             "ch": "扼杀链甲"
-          }
-        },
-        {
-          "path": "Equipment/League/Breach Rings.json",
-          "tier_path": "tier_definition/Equipment/League/Breach Rings.json",
-          "mapping_path": "base_mapping/Equipment/League/Breach Rings.json",
-          "target_category": "Breach Rings",
-          "localization": {
-            "en": "Breach Rings",
-            "ch": "裂隙戒指"
           }
         },
         {
@@ -918,66 +877,6 @@
           "localization": {
             "en": "Heist Experimented",
             "ch": "夺宝奇兵实验底材"
-          }
-        },
-        {
-          "path": "Equipment/League/ID Bestiary.json",
-          "tier_path": "tier_definition/Equipment/League/ID Bestiary.json",
-          "mapping_path": "base_mapping/Equipment/League/ID Bestiary.json",
-          "target_category": "ID Mods: Bestiary",
-          "localization": {
-            "en": "ID Mods: Bestiary",
-            "ch": "野兽词缀"
-          }
-        },
-        {
-          "path": "Equipment/League/ID Delve.json",
-          "tier_path": "tier_definition/Equipment/League/ID Delve.json",
-          "mapping_path": "base_mapping/Equipment/League/ID Delve.json",
-          "target_category": "ID Mods: Delve",
-          "localization": {
-            "en": "ID Mods: Delve",
-            "ch": "地心"
-          }
-        },
-        {
-          "path": "Equipment/League/ID Essence.json",
-          "tier_path": "tier_definition/Equipment/League/ID Essence.json",
-          "mapping_path": "base_mapping/Equipment/League/ID Essence.json",
-          "target_category": "ID Mods: Essence",
-          "localization": {
-            "en": "ID Mods: Essence",
-            "ch": "精华"
-          }
-        },
-        {
-          "path": "Equipment/League/ID Incursion.json",
-          "tier_path": "tier_definition/Equipment/League/ID Incursion.json",
-          "mapping_path": "base_mapping/Equipment/League/ID Incursion.json",
-          "target_category": "ID Mods: Incursion",
-          "localization": {
-            "en": "ID Mods: Incursion",
-            "ch": "穿越"
-          }
-        },
-        {
-          "path": "Equipment/League/ID Mercenaries.json",
-          "tier_path": "tier_definition/Equipment/League/ID Mercenaries.json",
-          "mapping_path": "base_mapping/Equipment/League/ID Mercenaries.json",
-          "target_category": "ID Mods: Mercenaries",
-          "localization": {
-            "en": "ID Mods: Mercenaries",
-            "ch": "恶名词缀"
-          }
-        },
-        {
-          "path": "Equipment/League/ID Warband.json",
-          "tier_path": "tier_definition/Equipment/League/ID Warband.json",
-          "mapping_path": "base_mapping/Equipment/League/ID Warband.json",
-          "target_category": "ID Mods: Warband",
-          "localization": {
-            "en": "ID Mods: Warband",
-            "ch": "战团装备"
           }
         },
         {
@@ -1048,16 +947,6 @@
             }
           },
           "files": [
-            {
-              "path": "Equipment/League/Breach Rings.json",
-              "tier_path": "tier_definition/Equipment/League/Breach Rings.json",
-              "mapping_path": "base_mapping/Equipment/League/Breach Rings.json",
-              "target_category": "Breach Rings",
-              "localization": {
-                "en": "Breach Rings",
-                "ch": "裂隙戒指"
-              }
-            },
             {
               "path": "Equipment/League/Talismans.json",
               "tier_path": "tier_definition/Equipment/League/Talismans.json",
@@ -1147,28 +1036,7 @@
               "ch": "特殊属性"
             }
           },
-          "files": [
-            {
-              "path": "Equipment/League/Abyss Socketed.json",
-              "tier_path": "tier_definition/Equipment/League/Abyss Socketed.json",
-              "mapping_path": "base_mapping/Equipment/League/Abyss Socketed.json",
-              "target_category": "Abyss Socketed",
-              "localization": {
-                "en": "Abyss Socketed",
-                "ch": "深渊插槽道具"
-              }
-            },
-            {
-              "path": "Equipment/League/Blight Anointed.json",
-              "tier_path": "tier_definition/Equipment/League/Blight Anointed.json",
-              "mapping_path": "base_mapping/Equipment/League/Blight Anointed.json",
-              "target_category": "Blight Anointed",
-              "localization": {
-                "en": "Blight Anointed",
-                "ch": "菌潮附魔道具"
-              }
-            }
-          ]
+          "files": []
         },
         {
           "_meta": {
@@ -1177,68 +1045,7 @@
               "ch": "异域鉴定词缀"
             }
           },
-          "files": [
-            {
-              "path": "Equipment/League/ID Incursion.json",
-              "tier_path": "tier_definition/Equipment/League/ID Incursion.json",
-              "mapping_path": "base_mapping/Equipment/League/ID Incursion.json",
-              "target_category": "ID Incursion",
-              "localization": {
-                "en": "ID Incursion",
-                "ch": "穿越"
-              }
-            },
-            {
-              "path": "Equipment/League/ID Delve.json",
-              "tier_path": "tier_definition/Equipment/League/ID Delve.json",
-              "mapping_path": "base_mapping/Equipment/League/ID Delve.json",
-              "target_category": "ID Delve",
-              "localization": {
-                "en": "ID Delve",
-                "ch": "地心"
-              }
-            },
-            {
-              "path": "Equipment/League/ID Essence.json",
-              "tier_path": "tier_definition/Equipment/League/ID Essence.json",
-              "mapping_path": "base_mapping/Equipment/League/ID Essence.json",
-              "target_category": "ID Essence",
-              "localization": {
-                "en": "ID Essence",
-                "ch": "精华"
-              }
-            },
-            {
-              "path": "Equipment/League/ID Mercenaries.json",
-              "tier_path": "tier_definition/Equipment/League/ID Mercenaries.json",
-              "mapping_path": "base_mapping/Equipment/League/ID Mercenaries.json",
-              "target_category": "ID Mercenaries",
-              "localization": {
-                "en": "ID Mercenaries",
-                "ch": "恶名词缀"
-              }
-            },
-            {
-              "path": "Equipment/League/ID Bestiary.json",
-              "tier_path": "tier_definition/Equipment/League/ID Bestiary.json",
-              "mapping_path": "base_mapping/Equipment/League/ID Bestiary.json",
-              "target_category": "ID Bestiary",
-              "localization": {
-                "en": "ID Bestiary",
-                "ch": "野兽词缀"
-              }
-            },
-            {
-              "path": "Equipment/League/ID Warband.json",
-              "tier_path": "tier_definition/Equipment/League/ID Warband.json",
-              "mapping_path": "base_mapping/Equipment/League/ID Warband.json",
-              "target_category": "ID Warband",
-              "localization": {
-                "en": "ID Warband",
-                "ch": "战团装备"
-              }
-            }
-          ]
+          "files": []
         }
       ]
     },
