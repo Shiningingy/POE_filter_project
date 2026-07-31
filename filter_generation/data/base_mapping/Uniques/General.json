@@ -1248,7 +1248,7 @@
     {
       "targets": [],
       "conditions": {
-        "Class": "== \"Contract\"",
+        "Class": "== \"Contracts\"",
         "Rarity": "Unique"
       },
       "overrides": {

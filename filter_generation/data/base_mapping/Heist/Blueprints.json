@@ -25,7 +25,7 @@
     {
       "targets": [],
       "conditions": {
-        "Class": "== \"Blueprint\"",
+        "Class": "== \"Blueprints\"",
         "AnyEnchantment": "True"
       },
       "overrides": {
@@ -36,7 +36,7 @@
     {
       "targets": [],
       "conditions": {
-        "Class": "== \"Blueprint\""
+        "Class": "== \"Blueprints\""
       },
       "overrides": {
         "Tier": "Heist Blueprint T1",

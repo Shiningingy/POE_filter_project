@@ -76,7 +76,7 @@
     {
       "targets": [],
       "conditions": {
-        "Class": "== \"Contract\"",
+        "Class": "== \"Contracts\"",
         "AnyEnchantment": "True"
       },
       "overrides": {
@@ -91,7 +91,7 @@
     {
       "targets": [],
       "conditions": {
-        "Class": "== \"Contract\""
+        "Class": "== \"Contracts\""
       },
       "overrides": {
         "Tier": "Heist Contract T1",

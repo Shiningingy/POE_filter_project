@@ -4162,7 +4162,7 @@ Show
 
 #==[81001]- Heist Blueprints -T1: 附魔蓝图 蓝图 - #1 附魔 - 自选==
 Show
-    Class == "Blueprint"
+    Class == "Blueprints"
     AnyEnchantment True
     SetFontSize 45
     SetTextColor 0 0 0 255
@@ -4175,7 +4175,7 @@ Show
 
 #==[81002]- Heist Blueprints -T2:其他蓝图 蓝图 - #1 规则 - 自选==
 Show
-    Class == "Blueprint"
+    Class == "Blueprints"
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 212 175 55 255
@@ -4189,7 +4189,7 @@ Show
 
 #==[82001]- Heist Contracts -T1 附魔/欺诈契约 契约 - #1 附魔 - 自选==
 Show
-    Class == "Contract"
+    Class == "Contracts"
     AnyEnchantment True
     SetFontSize 45
     SetTextColor 0 0 0 255
@@ -4214,7 +4214,7 @@ Show
 
 #==[82003]- Heist Contracts -T2: 其他契约 契约 - #1 规则 - 自选==
 Show
-    Class == "Contract"
+    Class == "Contracts"
     SetFontSize 39
     SetTextColor 218 187 85 255
     SetBorderColor 212 175 55 255
@@ -5548,7 +5548,7 @@ Show
 
 #==[121032]- Unique Items -T2: 优质 传奇物品 - #7 传奇契约 - 自选==
 Show
-    Class == "Contract"
+    Class == "Contracts"
     Rarity Unique
     SetFontSize 39
     SetTextColor 200 128 72 255
