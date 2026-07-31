@@ -194,7 +194,6 @@ Show
     AreaLevel <= 67
     ItemLevel <= 72
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 100 144 71 255
     SetBackgroundColor 10 12 8 255
     PlayAlertSound 2 300
@@ -209,7 +208,6 @@ Show
     AreaLevel <= 67
     ItemLevel <= 72
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 100 144 71 255
     SetBackgroundColor 10 12 8 255
     PlayAlertSound 2 300
@@ -224,7 +222,6 @@ Show
     AreaLevel <= 33
     ItemLevel <= 38
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 5 6 4 255
     PlayAlertSound 2 300
@@ -239,7 +236,6 @@ Show
     AreaLevel <= 23
     ItemLevel <= 28
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 5 6 4 255
     PlayAlertSound 2 300
@@ -254,7 +250,6 @@ Show
     AreaLevel <= 13
     ItemLevel <= 18
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 5 6 4 255
     PlayAlertSound 2 300
@@ -268,7 +263,6 @@ Show
     AreaLevel <= 67
     ItemLevel <= 72
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 5 6 4 255
 
@@ -282,7 +276,6 @@ Show
     AreaLevel <= 67
     ItemLevel <= 72
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 5 6 4 255
     PlayAlertSound 2 300
@@ -295,7 +288,6 @@ Show
     AreaLevel <= 67
     ItemLevel <= 72
     SetFontSize 30
-    SetTextColor 255 255 255 255
     SetBorderColor 81 113 61 255
     SetBackgroundColor 2 3 2 255
     PlayAlertSound 2 300
@@ -308,7 +300,6 @@ Show
     AreaLevel <= 67
     ItemLevel <= 72
     SetFontSize 30
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 2 3 2 255
     PlayAlertSound 2 300
@@ -322,7 +313,6 @@ Show
     AreaLevel <= 9
     ItemLevel <= 14
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
 
@@ -333,7 +323,6 @@ Show
     AreaLevel <= 13
     ItemLevel <= 18
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
 
@@ -344,7 +333,6 @@ Show
     AreaLevel <= 17
     ItemLevel <= 22
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
 
@@ -355,7 +343,6 @@ Show
     AreaLevel <= 19
     ItemLevel <= 24
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
 
@@ -366,7 +353,6 @@ Show
     AreaLevel <= 25
     ItemLevel <= 30
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
 
@@ -377,7 +363,6 @@ Show
     AreaLevel <= 31
     ItemLevel <= 36
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
 
@@ -388,7 +373,6 @@ Show
     AreaLevel <= 37
     ItemLevel <= 42
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
 
@@ -399,7 +383,6 @@ Show
     AreaLevel <= 43
     ItemLevel <= 48
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
 
@@ -410,7 +393,6 @@ Show
     AreaLevel <= 51
     ItemLevel <= 56
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
 
@@ -421,7 +403,6 @@ Show
     AreaLevel <= 60
     ItemLevel <= 65
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
 
@@ -432,7 +413,6 @@ Show
     AreaLevel <= 67
     ItemLevel <= 72
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
 
@@ -443,7 +423,6 @@ Show
     AreaLevel <= 67
     ItemLevel <= 72
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
 
@@ -454,7 +433,6 @@ Show
     AreaLevel <= 67
     ItemLevel <= 72
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 5 6 4 255
 
@@ -465,7 +443,6 @@ Show
     AreaLevel <= 67
     ItemLevel <= 72
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 5 6 4 255
 
@@ -480,7 +457,6 @@ Show
     AreaLevel <= 45
     ItemLevel <= 50
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 100 144 71 255
     SetBackgroundColor 10 12 8 255
 
@@ -493,7 +469,6 @@ Show
     AreaLevel <= 33
     ItemLevel <= 38
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 7 9 6 255
 
@@ -507,7 +482,6 @@ Show
     AreaLevel <= 9
     ItemLevel <= 14
     SetFontSize 30
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 2 3 2 255
 
@@ -519,7 +493,6 @@ Show
     AreaLevel <= 9
     Class == "Body Armours"
     SetFontSize 30
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 2 3 2 255
 
@@ -533,7 +506,6 @@ Show
     AreaLevel <= 67
     ItemLevel <= 72
     SetFontSize 30
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 2 3 2 255
 
@@ -567,7 +539,6 @@ Show
     Rarity <= Rare
     ItemLevel >= 86
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 150 0 255 255
     SetBackgroundColor 19 12 23 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 200
@@ -581,7 +552,6 @@ Show
     HasInfluence Shaper Elder Crusader Hunter Redeemer Warlord
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 150 0 255 255
     SetBackgroundColor 14 9 17 255
     CustomAlertSound "Sharket掉落音效\势力装备.mp3" 200
@@ -1136,7 +1106,6 @@ Show
     SetFontSize 35
     SetTextColor 213 144 156 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
 
 
 #==[42000]-通货 Currency - 可堆叠通货 Delirium Orbs==
@@ -1599,7 +1568,6 @@ Show
     SetFontSize 35
     SetTextColor 241 208 116 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
     CustomAlertSound "Sharket掉落音效\后悔石.mp3" 300
 
 
@@ -1609,7 +1577,6 @@ Show
     SetFontSize 35
     SetTextColor 241 208 116 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
     CustomAlertSound "Sharket掉落音效\粉碎石.mp3" 200
 
 
@@ -1619,7 +1586,6 @@ Show
     SetFontSize 35
     SetTextColor 241 208 116 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
     CustomAlertSound "Sharket掉落音效\点金石.mp3" 300
 
 
@@ -1629,7 +1595,6 @@ Show
     SetFontSize 35
     SetTextColor 241 208 116 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
     CustomAlertSound "Sharket掉落音效\链结石.mp3" 200
 
 
@@ -1639,7 +1604,6 @@ Show
     SetFontSize 35
     SetTextColor 241 208 116 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
 
 
 #==[46037]- General -T6： 改造石级 可堆叠通货 - 自动音效：玻璃弹珠 - 精确==
@@ -1648,7 +1612,6 @@ Show
     SetFontSize 30
     SetTextColor 196 162 69 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
     CustomAlertSound "Sharket掉落音效\玻璃弹珠.mp3" 100
 
 
@@ -1658,7 +1621,6 @@ Show
     SetFontSize 30
     SetTextColor 196 162 69 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
     CustomAlertSound "Sharket掉落音效\改造石.mp3" 200
 
 
@@ -1668,7 +1630,6 @@ Show
     SetFontSize 30
     SetTextColor 196 162 69 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
     CustomAlertSound "Sharket掉落音效\机会石.mp3" 200
 
 
@@ -1678,7 +1639,6 @@ Show
     SetFontSize 30
     SetTextColor 196 162 69 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
     CustomAlertSound "Sharket掉落音效\工匠石.mp3" 100
 
 
@@ -1688,7 +1648,6 @@ Show
     SetFontSize 30
     SetTextColor 196 162 69 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
     CustomAlertSound "Sharket掉落音效\护甲片.mp3" 100
 
 
@@ -1698,7 +1657,6 @@ Show
     SetFontSize 30
     SetTextColor 196 162 69 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
     CustomAlertSound "Sharket掉落音效\磨刀石.mp3" 100
 
 
@@ -2125,7 +2083,6 @@ Show
     SetFontSize 35
     SetTextColor 223 134 164 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
 
 
 #==[56000]-通货 Currency - _archived _archived - 裂隙 Breach==
@@ -2184,7 +2141,6 @@ Show
 Show
     BaseType == "Enshrouded Body Armour" "Enshrouded Boots" "Enshrouded Gloves" "Enshrouded Helmet" "Enshrouded Shield"
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 144 100 71 255
     SetBackgroundColor 13 10 7 255
     PlayAlertSound 2 300
@@ -2220,7 +2176,6 @@ Show
     SetFontSize 35
     SetTextColor 165 137 220 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
     CustomAlertSound "Sharket掉落音效\DOTA2_金子.mp3" 300
 
 
@@ -2424,7 +2379,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 200
@@ -2438,7 +2392,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -2450,7 +2403,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -2462,7 +2414,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -2474,7 +2425,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -2486,7 +2436,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -2498,7 +2447,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
     CustomAlertSound "Sharket掉落音效\祭礼束衣.mp3" 200
@@ -2510,7 +2458,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -2523,7 +2470,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -2537,7 +2483,6 @@ Show
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
@@ -2551,7 +2496,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 200
@@ -2565,7 +2509,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -2577,7 +2520,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -2589,7 +2531,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -2602,7 +2543,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -2616,7 +2556,6 @@ Show
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
@@ -2630,7 +2569,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 200
@@ -2644,7 +2582,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -2656,7 +2593,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -2668,7 +2604,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -2681,7 +2616,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -2695,7 +2629,6 @@ Show
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
@@ -2709,7 +2642,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 200
@@ -2723,7 +2655,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -2735,7 +2666,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -2747,7 +2677,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -2760,7 +2689,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -2774,7 +2702,6 @@ Show
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
@@ -2788,7 +2715,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -2800,7 +2726,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -2812,7 +2737,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
     CustomAlertSound "Sharket掉落音效\火炮箭袋.mp3" 200
@@ -2824,7 +2748,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -2837,7 +2760,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -2851,7 +2773,6 @@ Show
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
@@ -2865,7 +2786,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -2877,7 +2797,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -2889,7 +2808,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -2902,7 +2820,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -2916,7 +2833,6 @@ Show
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
@@ -2930,7 +2846,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 200
@@ -2944,7 +2859,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -2956,7 +2870,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -2968,7 +2881,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
     CustomAlertSound "Sharket掉落音效\星盘项链.mp3" 300
@@ -2980,7 +2892,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
     CustomAlertSound "Sharket掉落音效\朴实项链.mp3" 300
@@ -2992,7 +2903,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3005,7 +2915,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3019,7 +2928,6 @@ Show
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
@@ -3033,7 +2941,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\先锋腰带.mp3" 200
@@ -3045,7 +2952,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -3057,7 +2963,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -3069,7 +2974,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3082,7 +2986,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3096,7 +2999,6 @@ Show
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
@@ -3110,7 +3012,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\紫晶戒指.mp3" 200
@@ -3124,7 +3025,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 200
@@ -3138,7 +3038,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -3150,7 +3049,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -3162,7 +3060,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3175,7 +3072,6 @@ Show
     AreaLevel >= 68
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     PlayEffect White
@@ -3189,7 +3085,6 @@ Show
     BaseType == "Grasping Mail"
     Rarity <= Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 114 173 203 255
     SetBackgroundColor 12 16 19 255
     CustomAlertSound "Sharket掉落音效\扼杀链甲.mp3" 200
@@ -3202,7 +3097,6 @@ Show
     BaseType == "Iron Flask"
     Rarity <= Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 114 173 203 255
     SetBackgroundColor 12 16 19 255
     CustomAlertSound "Sharket掉落音效\坚铁药剂.mp3" 200
@@ -3213,7 +3107,6 @@ Show
     BaseType == "Runic Crest" "Runic Crown" "Runic Gages" "Runic Gauntlets" "Runic Gloves" "Runic Greaves" "Runic Helm" "Runic Sabatons" "Runic Sollerets"
     Rarity <= Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 114 173 203 255
     SetBackgroundColor 12 16 19 255
 
@@ -3225,7 +3118,6 @@ Show
     BaseType == "Astrolabe Amulet"
     Rarity <= Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 149 55 136 255
     SetBackgroundColor 13 8 12 255
     CustomAlertSound "Sharket掉落音效\星盘项链.mp3" 300
@@ -3236,7 +3128,6 @@ Show
     BaseType == "Simplex Amulet"
     Rarity <= Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 149 55 136 255
     SetBackgroundColor 13 8 12 255
     CustomAlertSound "Sharket掉落音效\朴实项链.mp3" 300
@@ -3247,7 +3138,6 @@ Show
     BaseType == "Accumulator Wand" "Alternating Sceptre" "Anarchic Spiritblade" "Apex Cleaver" "Banishing Blade" "Battery Staff" "Blasting Blade" "Boom Mace" "Capricious Spiritblade" "Cogwork Ring" "Cold-attuned Buckler" "Composite Ring" "Congregator Wand" "Crack Mace" "Crushing Force Magnifier" "Disapprobation Axe" "Eventuality Rod" "Flashfire Blade" "Focused Amulet" "Foundry Bow" "Geodesic Ring" "Heat-attuned Tower Shield" "Helical Ring" "Honed Cleaver" "Impact Force Propagator" "Infernal Blade" "Magmatic Tower Shield" "Malign Fangs" "Manifold Ring" "Mechalarm Belt" "Mechanical Belt" "Micro-Distillery Belt" "Oscillating Sceptre" "Pneumatic Dagger" "Polar Buckler" "Potentiality Rod" "Pressurised Dagger" "Psychotic Axe" "Ratcheting Ring" "Reciprocation Staff" "Solarine Bow" "Stabilising Sceptre" "Subsuming Spirit Shield" "Transfer-attuned Spirit Shield" "Void Fangs"
     Rarity <= Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 149 55 136 255
     SetBackgroundColor 13 8 12 255
 
@@ -3259,7 +3149,6 @@ Show
     BaseType == "Dusk Ring" "Gloam Ring" "Penumbra Ring" "Shadowed Ring" "Tenebrous Ring"
     Rarity <= Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 114 173 203 255
     SetBackgroundColor 12 16 19 255
 
@@ -3271,7 +3160,6 @@ Show
     BaseType == "Aetherwind Gloves" "Apprentice Gloves" "Archdemon Crown" "Atonement Mask" "Basemetal Treads" "Blizzard Crown" "Brimstone Treads" "Cloudwhisper Boots" "Darksteel Treads" "Demon Crown" "Dreamquest Slippers" "Duskwalk Slippers" "Gale Crown" "Guarding Gauntlets" "Imp Crown" "Leyline Gloves" "Nexus Gloves" "Nightwind Slippers" "Penitent Mask" "Preserving Gauntlets" "Sorrow Mask" "Stormrider Boots" "Thwarting Gauntlets" "Tinker Gloves" "Trapsetter Gloves" "Windbreak Boots" "Winter Crown"
     Rarity <= Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 114 173 203 255
     SetBackgroundColor 12 16 19 255
 
@@ -3283,7 +3171,6 @@ Show
     BaseType == "Sacrificial Garb"
     Rarity <= Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 114 173 203 255
     SetBackgroundColor 12 16 19 255
     CustomAlertSound "Sharket掉落音效\祭礼束衣.mp3" 200
@@ -3296,7 +3183,6 @@ Show
     BaseType == "Stygian Vise"
     Rarity <= Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 114 173 203 255
     SetBackgroundColor 12 16 19 255
     CustomAlertSound "Sharket掉落音效\深渊腰带.mp3" 200
@@ -3309,7 +3195,6 @@ Show
     BaseType == "Ape Talisman" "Black Maw Talisman" "Black Widow Talisman" "Blood Viper Talisman" "Carrion Queen Talisman" "Chieftain Talisman" "Chimeral Talisman" "Cobra Talisman" "Craicic Talisman" "Croaker Talisman" "Devourer Talisman" "Farric Talisman" "Fenumal Talisman" "Flame Hellion Talisman" "Frost Hellion Talisman" "Gargantuan Talisman" "Goatman Talisman" "Goliath Talisman" "Great Maw Talisman" "Greatwolf Talisman" "Hybrid Arachnid Talisman" "Lynx Talisman" "Magma Hound Talisman" "Octopus Talisman" "Pitbull Talisman" "Plagued Arachnid Talisman" "Retch Talisman" "Rhex Talisman" "Rhoa Talisman" "Sand Spitter Talisman" "Saqawine Talisman" "Savage Crab Talisman" "Scorpion Talisman" "Scrabbler Talisman" "Shield Crab Talisman" "Spider Crab Talisman" "Squid Talisman" "Taurus Talisman" "Tiger Talisman" "Ursa Talisman" "Vulture Talisman" "Watcher Talisman" "Wolf Alpha Talisman"
     Rarity <= Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 114 173 203 255
     SetBackgroundColor 12 16 19 255
 
@@ -3334,7 +3219,6 @@ Show
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\破碎装备.mp3" 200
@@ -3350,7 +3234,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3364,7 +3247,6 @@ Show
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
@@ -3378,7 +3260,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -3390,7 +3271,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -3402,7 +3282,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3415,7 +3294,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3429,7 +3307,6 @@ Show
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
@@ -3443,7 +3320,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -3455,7 +3331,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -3467,7 +3342,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3480,7 +3354,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3494,7 +3367,6 @@ Show
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
     CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
@@ -3508,7 +3380,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -3520,7 +3391,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3533,7 +3403,6 @@ Show
     ItemLevel >= 83
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3547,7 +3416,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -3559,7 +3427,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3572,7 +3439,6 @@ Show
     ItemLevel >= 83
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3586,7 +3452,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -3598,7 +3463,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3611,7 +3475,6 @@ Show
     ItemLevel >= 83
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3625,7 +3488,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -3637,7 +3499,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -3649,7 +3510,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3662,7 +3522,6 @@ Show
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3676,7 +3535,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -3688,7 +3546,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -3700,7 +3557,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3713,7 +3569,6 @@ Show
     ItemLevel >= 83
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3727,7 +3582,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -3739,7 +3593,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -3751,7 +3604,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3764,7 +3616,6 @@ Show
     ItemLevel >= 83
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3778,7 +3629,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -3790,7 +3640,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -3802,7 +3651,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3815,7 +3663,6 @@ Show
     ItemLevel >= 83
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3829,7 +3676,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -3841,7 +3687,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -3853,7 +3698,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3866,7 +3710,6 @@ Show
     ItemLevel >= 83
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3880,7 +3723,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -3892,7 +3734,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3905,7 +3746,6 @@ Show
     ItemLevel >= 83
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3919,7 +3759,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3932,7 +3771,6 @@ Show
     ItemLevel >= 83
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3946,7 +3784,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 71 102 144 255
     SetBackgroundColor 9 10 12 255
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
@@ -3958,7 +3795,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -3970,7 +3806,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -3983,7 +3818,6 @@ Show
     ItemLevel >= 83
     Rarity <= Rare
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
@@ -3997,7 +3831,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 6 7 9 255
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
@@ -4009,7 +3842,6 @@ Show
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 4 5 6 255
 
@@ -4021,7 +3853,6 @@ Show
     Rarity <= Rare
     SynthesisedItem True
     SetFontSize 45
-    SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
     CustomAlertSound "Sharket掉落音效\忆境装备.mp3" 300
@@ -4370,7 +4201,6 @@ Show
     SetFontSize 35
     SetTextColor 123 234 226 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
 
 
 #==[92000]-宝石 Gems - 辅助宝石 Support==
@@ -4616,7 +4446,6 @@ Show
     SetFontSize 35
     SetTextColor 229 128 175 255
     SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
     CustomAlertSound "Sharket掉落音效\高级通货.mp3" 200
 
 
@@ -5902,7 +5731,6 @@ Show
     Rarity Magic
     AreaLevel >= 68
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 5 5 6 255
 
@@ -5913,7 +5741,6 @@ Show
     Rarity Magic
     AreaLevel >= 68
     SetFontSize 35
-    SetTextColor 255 255 255 255
     SetBorderColor 71 97 133 255
     SetBackgroundColor 5 5 6 255
 

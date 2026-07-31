@@ -97,8 +97,16 @@ const FOLDER_LOCALIZATION: Record<string, string> = {
 // keeps the rarity colour) / 'default' (BackgroundColor keeps the game's default
 // label bg). Mirrors style_off() in generate.py — the editor preview
 // (styleResolver) omits these too, so preview == export.
+// ALSO true for an ABSENT value. An absent key is the designer's primary way of
+// saying "let the game paint this": 441 of the 998 theme rows omit `TextColor` on
+// purpose — every gear class, Campaign, and every rarity-inherited family gives up
+// its text channel so the RARITY colour shows through. We were falling through to
+// parseRgba(undefined) = white and painting over it, so a rare staff rendered with
+// a white name and read as a plain normal item. Same for the 98 rows omitting
+// `BackgroundColor`, which want the game's own 0 0 0 190 label.
 const styleOff = (value: any): boolean =>
-  typeof value === 'string' && (value.startsWith('disabled:') || value === 'inherit' || value === 'default');
+  value === undefined || value === null ||
+  (typeof value === 'string' && (value.startsWith('disabled:') || value === 'inherit' || value === 'default'));
 
 const parseRgba = (value: any, defaultValue: string = "255 255 255 255"): string => {
   if (!value || value === -1) return defaultValue;

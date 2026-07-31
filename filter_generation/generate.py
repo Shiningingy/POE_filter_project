@@ -113,10 +113,22 @@ def tr(key):
 # ---------- UTILITIES ----------
 def style_off(value):
     """True when a theme/override style value means OMIT the line entirely: the
-    editor's 'disabled:' toggle, or the designer sentinels 'inherit' (TextColor
+    editor's 'disabled:' toggle, the designer sentinels 'inherit' (TextColor
     keeps the rarity colour) / 'default' (BackgroundColor keeps the game's
-    default label bg). Mirrors styleOff() in filterGenerator.ts — the editor
-    preview (styleResolver) omits these too, so preview == export."""
+    default label bg), and — critically — an ABSENT value.
+
+    An absent key is the designer's primary way of saying "let the game paint
+    this". 441 of the 998 theme rows omit `TextColor` on purpose: every gear
+    class, Campaign, and every rarity-inherited family gives up its text channel
+    so the RARITY colour shows through. We were falling through to
+    parse_rgba(None) = white and painting over it, so a rare staff rendered with
+    a white name and read as a plain normal item. Same for the 98 rows that omit
+    `BackgroundColor` and want the game's own 0 0 0 190 label.
+
+    Mirrors styleOff() in filterGenerator.ts — the editor preview (styleResolver)
+    omits these too, so preview == export."""
+    if value is None:
+        return True
     return isinstance(value, str) and (value.startswith("disabled:") or value in ("inherit", "default"))
 
 def parse_rgba(value, default="255 255 255 255"):
