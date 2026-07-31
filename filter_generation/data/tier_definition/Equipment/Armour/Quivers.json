@@ -11,11 +11,15 @@
         "Tier 1 Quivers",
         "Tier 2 Quivers",
         "Tier 3 Quivers",
+        "Tier 4 Quivers",
         "Tier Hide Quivers"
       ]
     },
     "Tier 0 Quivers": {
-      "conditions": {"ItemLevel": ">= 68", "Rarity": "<= Rare"},
+      "conditions": {
+        "AreaLevel": ">= 68",
+        "Rarity": "<= Rare"
+      },
       "hideable": false,
       "theme": {
         "Tier": 0
@@ -31,7 +35,10 @@
       "show_in_editor": false
     },
     "Tier 1 Quivers": {
-      "conditions": {"ItemLevel": ">= 68", "Rarity": "<= Rare"},
+      "conditions": {
+        "AreaLevel": ">= 68",
+        "Rarity": "Rare"
+      },
       "hideable": false,
       "theme": {
         "Tier": 1
@@ -41,12 +48,16 @@
         "sharket_sound_id": "精品装备.mp3"
       },
       "localization": {
-        "en": "T1: High iLvl Bases",
-        "ch": "T1: 优质底材(84+)"
-      }
+        "en": "T1: Top rare bases",
+        "ch": "T1: 顶级稀有底材"
+      },
+      "hide_at_strictness": 5
     },
     "Tier 2 Quivers": {
-      "conditions": {"Rarity": "<= Rare"},
+      "conditions": {
+        "AreaLevel": ">= 68",
+        "Rarity": "Rare"
+      },
       "hideable": false,
       "theme": {
         "Tier": 2
@@ -56,9 +67,10 @@
         "sharket_sound_id": "金装备.mp3"
       },
       "localization": {
-        "en": "T2: Decent Bases",
-        "ch": "T2: 常用底材"
-      }
+        "en": "T2: Good rare bases",
+        "ch": "T2: 优质稀有底材"
+      },
+      "hide_at_strictness": 3
     },
     "Tier 3 Quivers": {
       "hideable": false,
@@ -70,9 +82,14 @@
         "sharket_sound_id": "金装.mp3"
       },
       "localization": {
-        "en": "T3: Mid Tier",
-        "ch": "T3: 普通箭袋"
-      }
+        "en": "T3: Usable rare bases",
+        "ch": "T3: 可用稀有底材"
+      },
+      "conditions": {
+        "AreaLevel": ">= 68",
+        "Rarity": "Rare"
+      },
+      "hide_at_strictness": 2
     },
     "Tier Hide Quivers": {
       "hideable": true,
@@ -87,6 +104,25 @@
       "localization": {
         "en": "Hide",
         "ch": "隐藏"
+      }
+    },
+    "Tier 4 Quivers": {
+      "hideable": false,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "conditions": {
+        "AreaLevel": ">= 68",
+        "Rarity": "Rare"
+      },
+      "hide_at_strictness": 1,
+      "localization": {
+        "en": "T4: Trash net (shards)",
+        "ch": "T4: 兜底（碎片）"
       }
     }
   }

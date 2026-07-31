@@ -106,121 +106,64 @@
         "Essence of Horror": "极恐精华",
         "Essence of Delirium": "谵妄精华",
         "Essence of Hysteria": "浮夸精华",
-        "Remnant of Corruption": "遗忘的腐化器皿"
+        "Remnant of Corruption": "遗忘的腐化器皿",
+        "Essence of Desolation": "哀恸精华"
       }
     },
     "item_class": {
       "en": "Stackable Currency",
       "ch": "可堆叠通货"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Essences",
+    "match_modes": {}
   },
   "mapping": {
-    "Whispering Essence of Greed": "Tier 1 Essences",
-    "Muttering Essence of Greed": "Tier 1 Essences",
-    "Weeping Essence of Greed": "Tier 1 Essences",
-    "Wailing Essence of Greed": "Tier 1 Essences",
-    "Screaming Essence of Greed": "Tier 1 Essences",
-    "Shrieking Essence of Greed": "Tier 1 Essences",
-    "Deafening Essence of Greed": "Tier 1 Essences",
-    "Whispering Essence of Contempt": "Tier 1 Essences",
-    "Muttering Essence of Contempt": "Tier 1 Essences",
-    "Weeping Essence of Contempt": "Tier 1 Essences",
-    "Wailing Essence of Contempt": "Tier 1 Essences",
-    "Screaming Essence of Contempt": "Tier 1 Essences",
-    "Shrieking Essence of Contempt": "Tier 1 Essences",
-    "Deafening Essence of Contempt": "Tier 1 Essences",
-    "Whispering Essence of Hatred": "Tier 1 Essences",
-    "Muttering Essence of Hatred": "Tier 1 Essences",
-    "Weeping Essence of Hatred": "Tier 1 Essences",
-    "Wailing Essence of Hatred": "Tier 1 Essences",
-    "Screaming Essence of Hatred": "Tier 1 Essences",
-    "Shrieking Essence of Hatred": "Tier 1 Essences",
-    "Deafening Essence of Hatred": "Tier 1 Essences",
-    "Whispering Essence of Woe": "Tier 1 Essences",
-    "Muttering Essence of Woe": "Tier 1 Essences",
-    "Weeping Essence of Woe": "Tier 1 Essences",
-    "Wailing Essence of Woe": "Tier 1 Essences",
-    "Screaming Essence of Woe": "Tier 1 Essences",
-    "Shrieking Essence of Woe": "Tier 1 Essences",
-    "Deafening Essence of Woe": "Tier 1 Essences",
-    "Muttering Essence of Fear": "Tier 1 Essences",
-    "Weeping Essence of Fear": "Tier 1 Essences",
-    "Wailing Essence of Fear": "Tier 1 Essences",
-    "Screaming Essence of Fear": "Tier 1 Essences",
-    "Shrieking Essence of Fear": "Tier 1 Essences",
-    "Deafening Essence of Fear": "Tier 1 Essences",
-    "Muttering Essence of Anger": "Tier 1 Essences",
-    "Weeping Essence of Anger": "Tier 1 Essences",
-    "Wailing Essence of Anger": "Tier 1 Essences",
-    "Screaming Essence of Anger": "Tier 1 Essences",
-    "Shrieking Essence of Anger": "Tier 1 Essences",
-    "Deafening Essence of Anger": "Tier 1 Essences",
-    "Muttering Essence of Torment": "Tier 1 Essences",
-    "Weeping Essence of Torment": "Tier 1 Essences",
-    "Wailing Essence of Torment": "Tier 1 Essences",
-    "Screaming Essence of Torment": "Tier 1 Essences",
-    "Shrieking Essence of Torment": "Tier 1 Essences",
-    "Deafening Essence of Torment": "Tier 1 Essences",
-    "Muttering Essence of Sorrow": "Tier 1 Essences",
-    "Weeping Essence of Sorrow": "Tier 1 Essences",
-    "Wailing Essence of Sorrow": "Tier 1 Essences",
-    "Screaming Essence of Sorrow": "Tier 1 Essences",
-    "Shrieking Essence of Sorrow": "Tier 1 Essences",
-    "Deafening Essence of Sorrow": "Tier 1 Essences",
-    "Weeping Essence of Rage": "Tier 1 Essences",
-    "Wailing Essence of Rage": "Tier 1 Essences",
-    "Screaming Essence of Rage": "Tier 1 Essences",
-    "Shrieking Essence of Rage": "Tier 1 Essences",
-    "Deafening Essence of Rage": "Tier 1 Essences",
-    "Weeping Essence of Suffering": "Tier 1 Essences",
-    "Wailing Essence of Suffering": "Tier 1 Essences",
-    "Screaming Essence of Suffering": "Tier 1 Essences",
-    "Shrieking Essence of Suffering": "Tier 1 Essences",
-    "Deafening Essence of Suffering": "Tier 1 Essences",
-    "Weeping Essence of Wrath": "Tier 1 Essences",
-    "Wailing Essence of Wrath": "Tier 1 Essences",
-    "Screaming Essence of Wrath": "Tier 1 Essences",
-    "Shrieking Essence of Wrath": "Tier 1 Essences",
-    "Deafening Essence of Wrath": "Tier 1 Essences",
-    "Weeping Essence of Doubt": "Tier 1 Essences",
-    "Wailing Essence of Doubt": "Tier 1 Essences",
-    "Screaming Essence of Doubt": "Tier 1 Essences",
-    "Shrieking Essence of Doubt": "Tier 1 Essences",
-    "Deafening Essence of Doubt": "Tier 1 Essences",
-    "Wailing Essence of Loathing": "Tier 1 Essences",
-    "Screaming Essence of Loathing": "Tier 1 Essences",
-    "Shrieking Essence of Loathing": "Tier 1 Essences",
-    "Deafening Essence of Loathing": "Tier 1 Essences",
-    "Wailing Essence of Zeal": "Tier 1 Essences",
-    "Screaming Essence of Zeal": "Tier 1 Essences",
-    "Shrieking Essence of Zeal": "Tier 1 Essences",
-    "Deafening Essence of Zeal": "Tier 1 Essences",
-    "Wailing Essence of Anguish": "Tier 1 Essences",
-    "Screaming Essence of Anguish": "Tier 1 Essences",
-    "Shrieking Essence of Anguish": "Tier 1 Essences",
-    "Deafening Essence of Anguish": "Tier 1 Essences",
-    "Wailing Essence of Spite": "Tier 1 Essences",
-    "Screaming Essence of Spite": "Tier 1 Essences",
-    "Shrieking Essence of Spite": "Tier 1 Essences",
-    "Deafening Essence of Spite": "Tier 1 Essences",
-    "Screaming Essence of Scorn": "Tier 1 Essences",
-    "Shrieking Essence of Scorn": "Tier 1 Essences",
-    "Deafening Essence of Scorn": "Tier 1 Essences",
-    "Screaming Essence of Envy": "Tier 1 Essences",
-    "Shrieking Essence of Envy": "Tier 1 Essences",
-    "Deafening Essence of Envy": "Tier 1 Essences",
-    "Screaming Essence of Misery": "Tier 1 Essences",
-    "Shrieking Essence of Misery": "Tier 1 Essences",
-    "Deafening Essence of Misery": "Tier 1 Essences",
-    "Screaming Essence of Dread": "Tier 1 Essences",
-    "Shrieking Essence of Dread": "Tier 1 Essences",
-    "Deafening Essence of Dread": "Tier 1 Essences",
-    "Essence of Insanity": "Tier 1 Essences",
-    "Essence of Horror": "Tier 1 Essences",
-    "Essence of Delirium": "Tier 1 Essences",
-    "Essence of Hysteria": "Tier 1 Essences",
-    "Remnant of Corruption": "Tier 1 Essences"
+    "Essence of Insanity": [
+      "Tier 0 Essences"
+    ],
+    "Essence of Delirium": [
+      "Tier 0 Essences"
+    ],
+    "Essence of Horror": [
+      "Tier 0 Essences"
+    ],
+    "Essence of Desolation": [
+      "Tier 0 Essences"
+    ],
+    "Essence of Hysteria": [
+      "Tier 0 Essences"
+    ]
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": [],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 1 Essences"
+      },
+      "comment": "T7",
+      "targetMatchModes": {
+        "Deafening Essence of Anger": "exact"
+      },
+      "raw": "BaseType \"Deafening Essence of\""
+    },
+    {
+      "targets": [],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 2 Essences"
+      },
+      "comment": "T6和T5",
+      "raw": "BaseType \"Shrieking Essence of\" \"Screaming Essence of\""
+    },
+    {
+      "targets": [],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 3 Essences"
+      },
+      "comment": "剩余",
+      "raw": "Class \"Currency\"\nBaseType \"Essence of\""
+    }
+  ]
 }

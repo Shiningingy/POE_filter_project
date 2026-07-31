@@ -33,7 +33,7 @@ const SoundImportReportModal = ({
               <h4>{t.tsSkipped}</h4>
               {report.skipped.map((s: any, i: number) => (
                 <div key={i} className="report-row">
-                  <span className="row-main">{s.rule.comment || s.rule.targets.join(', ')}</span>
+                  <span className="row-main">{s.rule.comment || (s.rule.targets || []).join(', ')}</span>
                   <span className="row-file">{s.rule.file.replace(/^base_mapping\//, '')}</span>
                   <span className="row-reason">
                     {s.reason === 'file-missing' ? t.tsSkipFileMissing

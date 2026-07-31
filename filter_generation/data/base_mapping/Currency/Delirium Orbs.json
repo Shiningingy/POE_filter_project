@@ -17,32 +17,19 @@
         "Diviner's Delirium Orb": "预言师的雾魇宝珠",
         "Timeless Delirium Orb": "永恒的雾魇宝珠",
         "Blighted Delirium Orb": "枯萎的雾魇宝珠",
-        "Simulacrum Splinter": "梦魇拟像裂片"
+        "Simulacrum Splinter": "梦魇拟像裂片",
+        "Delirium Orb": "雾魇宝珠"
       }
     },
     "item_class": {
       "en": "Stackable Currency",
       "ch": "可堆叠通货"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Delirium Orbs",
+    "match_modes": {}
   },
   "mapping": {
-    "Fine Delirium Orb": "Tier 2 Delirium Orbs",
-    "Singular Delirium Orb": "Tier 2 Delirium Orbs",
-    "Thaumaturge's Delirium Orb": "Tier 1 Delirium Orbs",
-    "Blacksmith's Delirium Orb": "Tier 1 Delirium Orbs",
-    "Armoursmith's Delirium Orb": "Tier 1 Delirium Orbs",
-    "Cartographer's Delirium Orb": "Tier 1 Delirium Orbs",
-    "Jeweller's Delirium Orb": "Tier 1 Delirium Orbs",
-    "Abyssal Delirium Orb": "Tier 1 Delirium Orbs",
-    "Whispering Delirium Orb": "Tier 1 Delirium Orbs",
-    "Fragmented Delirium Orb": "Tier 1 Delirium Orbs",
-    "Skittering Delirium Orb": "Tier 1 Delirium Orbs",
-    "Fossilised Delirium Orb": "Tier 1 Delirium Orbs",
-    "Diviner's Delirium Orb": "Tier 1 Delirium Orbs",
-    "Timeless Delirium Orb": "Tier 1 Delirium Orbs",
-    "Blighted Delirium Orb": "Tier 1 Delirium Orbs",
-    "Simulacrum Splinter": "Tier 1 Delirium Orbs"
+    "Delirium Orb": "Tier 0 Delirium Orbs"
   },
   "rules": []
 }

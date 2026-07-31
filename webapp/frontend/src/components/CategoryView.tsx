@@ -56,6 +56,9 @@ interface CategoryViewProps {
   tierItems: Record<string, TierItem[]>;
   fetchTierItems: (keys: string[]) => void;
   defaultMappingPath?: string;
+  /** Persist a freshly inserted tier straight away, so the backend knows about
+   *  it before any item is assigned to it. */
+  onPersistNewTier?: (rawContent: string) => Promise<void>;
   onUpdateTierItems?: (tierKey: string, items: TierItem[]) => void;
   pingedCondition?: {
     tierKey: string;
@@ -69,6 +72,7 @@ interface CategoryViewProps {
   strictness?: StrictnessLevel;
   levelingSelection?: LevelingSelection;
   onLevelingSelectionChange?: (sel: LevelingSelection) => void;
+  adminMode?: boolean;
 }
 
 const CategoryView: React.FC<CategoryViewProps> = ({
@@ -82,6 +86,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   tierItems,
   fetchTierItems,
   defaultMappingPath,
+  onPersistNewTier,
   onUpdateTierItems,
   pingedCondition,
   soundMap,
@@ -90,6 +95,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   strictness,
   levelingSelection,
   onLevelingSelectionChange,
+  adminMode = false,
 }) => {
   const t = useTranslation(language);
   const strictnessIdx = Math.max(0, (STRICTNESS_LEVELS as readonly string[]).indexOf(strictness ?? 'soft'));
@@ -392,13 +398,38 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     handleMoveItem(item, "", false, fromTier);
   };
 
-  const handleUpdateOverride = async (item: TierItem, overrides: any) => {
+  const handleUpdateOverride = async (item: TierItem, overrides: any, removeKeys?: string[], tierKey?: string, suppressAuto?: boolean) => {
     try {
       await axios.post(`${API_BASE_URL}/api/update-item-override`, {
         item_name: item.name,
         overrides: overrides,
         source_file: item.source,
+        remove_keys: removeKeys,
+        // Which occurrence the card is. Without these the write became one bare
+        // rule for the base type and every block it appears in spoke with the
+        // same voice - see main.py update_item_override.
+        rule_index: item.rule_index ?? null,
+        tier_key: tierKey ?? null,
+        suppress_auto: suppressAuto ?? false,
       });
+      // The endpoint appends a RULE to the mapping file, but only tier ITEMS were
+      // refreshed here. The sound indicator is driven by categoryRules, which comes
+      // from configContent, so a sound set this way stayed invisible until the
+      // category happened to be reloaded - it looked like it worked "occasionally".
+      // Pull the rules back in for the open category.
+      const rel = (p?: string) => (p || "").replace(/^base_mapping\//, "");
+      if (activeCategoryKey && defaultMappingPath &&
+          rel(item.source) === rel(defaultMappingPath)) {
+        const res = await axios.get(
+          `${API_BASE_URL}/api/config/${defaultMappingPath}?t=${Date.now()}`);
+        const rules = res.data?.content?.rules;
+        if (Array.isArray(rules)) {
+          const next = JSON.parse(JSON.stringify(parsedConfig));
+          next[activeCategoryKey].rules = rules;
+          if (next[activeCategoryKey]._meta?.rules) delete next[activeCategoryKey]._meta.rules;
+          updateConfig(next);
+        }
+      }
       fetchTierItems(sortedTierKeys);
     } catch (err) {
       console.error(err);
@@ -510,6 +541,15 @@ const CategoryView: React.FC<CategoryViewProps> = ({
 
     categoryData._meta.tier_order = newOrder;
     updateConfig(newConfig);
+
+    // Persist immediately. Until the tier exists in the tier_definition on
+    // disk, assigning items to it is rejected by the backend guard - and before
+    // that guard existed it was accepted and then emitted nothing, which is how
+    // "CustomTier 1 General" ended up holding a dead Portal Scroll entry.
+    // newConfig is passed explicitly because the parent state has not updated yet.
+    onPersistNewTier?.(JSON.stringify(newConfig, null, 2)).catch((e) =>
+      console.error("Failed to persist the new tier", e),
+    );
 
     fetchTierItems(newOrder);
   };
@@ -950,6 +990,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                                           setActiveRuleIndex({ tierKey: tKey, index: idx });
                                                       }}
                                                       categoryRules={activeCategoryData.rules || activeCategoryData._meta?.rules || []}
+                                                      adminMode={adminMode}
                                                       onRefresh={() => fetchTierItems(sortedTierKeys)}
                                                       soundMap={soundMap}
                                                       tierStyle={resolved}
@@ -1022,6 +1063,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
           onClose={() => setShowBulkEditor(false)}
           onSave={() => fetchTierItems(sortedTierKeys)}
           defaultMappingPath={defaultMappingPath}
+          adminMode={adminMode}
         />
       )}
 

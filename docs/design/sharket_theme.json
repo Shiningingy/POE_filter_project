@@ -1,0 +1,6004 @@
+{
+  "Chancing": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#6f362aff",
+      "BorderColor": "#a24f3fff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#fbf5f4ff",
+      "BorderColor": "#ebc8c1ff",
+      "BackgroundColor": "#b05645ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#eacec8ff",
+      "BorderColor": "#d8a69cff",
+      "BackgroundColor": "#8c4436ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#d59c90ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#371b15ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#d59c90ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#281410ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#d59c90ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#967973ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#967973ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#120907ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#967973ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b0504ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#967973ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040201ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#d59c90ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070403ff"
+    }
+  },
+  "Omens": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#843315ff",
+      "BorderColor": "#c14b1fff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#000000ff",
+      "BorderColor": "#531d09ff",
+      "BackgroundColor": "#d35122ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#f7d6caff",
+      "BorderColor": "#eead96ff",
+      "BackgroundColor": "#a7401bff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#ea997bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#42190bff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#ea997bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#301308ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#ea997bff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#b86d51ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#b86d51ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#160804ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#b86d51ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0d0502ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#b86d51ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040201ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#ea997bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#090301ff"
+    }
+  },
+  "Uniques": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#7f421aff",
+      "BorderColor": "#ba6126ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#000000ff",
+      "BorderColor": "#5d2e0eff",
+      "BackgroundColor": "#cb6a2aff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#f7e5d9ff",
+      "BorderColor": "#eaba99ff",
+      "BackgroundColor": "#a15421ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#e5a880ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#3f210dff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#e5a880ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#2f180aff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#e5a880ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#b17c59ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#b17c59ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#150b04ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#b17c59ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0d0703ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#b17c59ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040201ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#e5a880ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#080402ff"
+    }
+  },
+  "Relics": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#6f4d2aff",
+      "BorderColor": "#9d7043ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#000000ff",
+      "BorderColor": "#4f351cff",
+      "BackgroundColor": "#ab7a49ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#f2e8deff",
+      "BorderColor": "#dac2a9ff",
+      "BackgroundColor": "#88613aff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#d5b390ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#362617ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#d5b390ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#271c11ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#d5b390ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#918578ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#918578ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#120d08ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#918578ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b0805ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#918578ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040302ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#d5b390ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070503ff"
+    }
+  },
+  "Fossils": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#995700ff",
+      "BorderColor": "#d17700ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#4d2b00ff",
+      "BorderColor": "#7a4500ff",
+      "BackgroundColor": "#f58b00ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#000000ff",
+      "BorderColor": "#522e00ff",
+      "BackgroundColor": "#c26e00ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#ffbd66ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#4d2b00ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#ffbd66ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#382000ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#ffbd66ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#da902fff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#da902fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#1a0e00ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#da902fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0f0900ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#da902fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#050300ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#ffbd66ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0a0600ff"
+    }
+  },
+  "Legacy": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#6f532aff",
+      "BorderColor": "#84745cff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#000000ff",
+      "BorderColor": "#3a3022ff",
+      "BackgroundColor": "#907f64ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#eee3d3ff",
+      "BorderColor": "#c7bdaeff",
+      "BackgroundColor": "#72644fff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#d5b990ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#2d281fff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#d5b990ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#211d17ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#d5b990ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#8e877bff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#8e877bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0f0d0aff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#8e877bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#090806ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#8e877bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030302ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#d5b990ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060504ff"
+    }
+  },
+  "Crafting Bases": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#6f582aff",
+      "BorderColor": "#927b4fff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#000000ff",
+      "BorderColor": "#4a3c21ff",
+      "BackgroundColor": "#9f8756ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#f7f2e9ff",
+      "BorderColor": "#d4c8afff",
+      "BackgroundColor": "#7e6b44ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#d5be90ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#322a1bff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#d5be90ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#241f14ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#d5be90ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#8e887bff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#8e887bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#110e09ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#8e887bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0a0805ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#8e887bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030302ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#d5be90ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070604ff"
+    }
+  },
+  "Currency": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#8b6a0eff",
+      "BorderColor": "#b08611ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#544008ff",
+      "BorderColor": "#745706ff",
+      "BackgroundColor": "#dfa916ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#000000ff",
+      "BorderColor": "#4a3807ff",
+      "BackgroundColor": "#b08611ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#f1d074ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#463507ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#f1d074ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#332705ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#f1d074ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#c4a245ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#c4a245ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#171202ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#c4a245ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0e0b01ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#c4a245ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#050400ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#f1d074ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#090701ff"
+    }
+  },
+  "General": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#8b6a0eff",
+      "BorderColor": "#b08611ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#544008ff",
+      "BorderColor": "#745706ff",
+      "BackgroundColor": "#dfa916ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#000000ff",
+      "BorderColor": "#4a3807ff",
+      "BackgroundColor": "#b08611ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#f1d074ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#463507ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#f1d074ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#332705ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#f1d074ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#c4a245ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#c4a245ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#171202ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#c4a245ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0e0b01ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#c4a245ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#050400ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#f1d074ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#090701ff"
+    }
+  },
+  "Harbinger": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#854914ff",
+      "BorderColor": "#c36b1dff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#000000ff",
+      "BorderColor": "#61330aff",
+      "BackgroundColor": "#d57420ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#fdf7f2ff",
+      "BorderColor": "#f1c7a2ff",
+      "BackgroundColor": "#a95c19ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#ebaf7aff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#43240aff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#ebaf7aff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#311b07ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#ebaf7aff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#ba814fff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#ba814fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#160c03ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#ba814fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0d0702ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#ba814fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040201ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#ebaf7aff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#090501ff"
+    }
+  },
+  "Vendor Recipes": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#6f612aff",
+      "BorderColor": "#96874aff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#000000ff",
+      "BorderColor": "#4c431fff",
+      "BackgroundColor": "#a49351ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#ffffffff",
+      "BorderColor": "#dcd4b7ff",
+      "BackgroundColor": "#827540ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#d5c790ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#332e19ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#d5c790ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#262213ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#d5c790ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#8e8a7bff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#8e8a7bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#110f08ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#8e8a7bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0a0905ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#8e8a7bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030302ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#d5c790ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070603ff"
+    }
+  },
+  "Default": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#776922ff",
+      "BorderColor": "#97852bff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#3c3511ff",
+      "BorderColor": "#645716ff",
+      "BackgroundColor": "#bfa836ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#000000ff",
+      "BorderColor": "#403812ff",
+      "BackgroundColor": "#97852bff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#ddcf88ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#3c3511ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#ddcf88ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#2c270cff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#ddcf88ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#a49a65ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#a49a65ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#141206ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#a49a65ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0c0b03ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#a49a65ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040401ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#ddcf88ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#080702ff"
+    }
+  },
+  "Gold": {
+    "Tier 0": {
+      "FontSize": 35,
+      "TextColor": "#706b29ff",
+      "BorderColor": "#999238ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 35,
+      "TextColor": "#383515ff",
+      "BorderColor": "#524f19ff",
+      "BackgroundColor": "#b3ab42ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 35,
+      "TextColor": "#000000ff",
+      "BorderColor": "#3c3916ff",
+      "BackgroundColor": "#8d8834ff"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "TextColor": "#d6d18fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#383515ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#d6d18fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#29270fff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#d6d18fff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#989671ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#989671ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#131207ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#989671ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b0b04ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#989671ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040401ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#d6d18fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070703ff"
+    }
+  },
+  "Runegrafts": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#6d6b1cff",
+      "BorderColor": "#8f8b24ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#494713ff",
+      "BorderColor": "#676414ff",
+      "BackgroundColor": "#c4bf31ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#000000ff",
+      "BorderColor": "#414010ff",
+      "BackgroundColor": "#9b9727ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#e0dd85ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#3d3c0fff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#e0dd85ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#2d2c0bff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#e0dd85ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#a9a760ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#a9a760ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#141405ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#a9a760ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0c0c03ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#a9a760ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040401ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#e0dd85ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#080802ff"
+    }
+  },
+  "Oils": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#5d6b00ff",
+      "BorderColor": "#809400ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Circle"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#5d6b00ff",
+      "BorderColor": "#778a00ff",
+      "BackgroundColor": "#d4f500ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Circle"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#424d00ff",
+      "BorderColor": "#546100ff",
+      "BackgroundColor": "#a8c200ff",
+      "MinimapIcon": "2 White Circle"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#ebff66ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#424d00ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#ebff66ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#313800ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#ebff66ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#c3da2fff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#c3da2fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#161a00ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#c3da2fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0d0f00ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#c3da2fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040500ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#ebff66ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#090a00ff"
+    }
+  },
+  "Tinctures": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#4f6f2aff",
+      "BorderColor": "#6b943dff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#273715ff",
+      "BorderColor": "#37501bff",
+      "BackgroundColor": "#7eae47ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#000000ff",
+      "BorderColor": "#2a3a18ff",
+      "BackgroundColor": "#648a38ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#b5d590ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#273616ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#b5d590ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#1d2810ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#b5d590ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#869376ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#869376ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0d1207ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#869376ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#080b04ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#869376ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030401ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#b5d590ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#050703ff"
+    }
+  },
+  "Enshrouding Crystals": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#3c6f2aff",
+      "BorderColor": "#5e964aff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#000000ff",
+      "BorderColor": "#2b4c1fff",
+      "BackgroundColor": "#67a451ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#000000ff",
+      "BorderColor": "#c1dcb7ff",
+      "BackgroundColor": "#528240ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#a2d590ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#203319ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#a2d590ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#182613ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#a2d590ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#808e7bff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#808e7bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b1108ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#808e7bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060a05ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#808e7bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020302ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#a2d590ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040703ff"
+    }
+  },
+  "Quest Items": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#1f7a22ff",
+      "BorderColor": "#279b2aff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#134915ff",
+      "BorderColor": "#146716ff",
+      "BackgroundColor": "#31c436ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#000000ff",
+      "BorderColor": "#104112ff",
+      "BackgroundColor": "#279b2bff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#85e088ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0f3d11ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#85e088ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b2d0cff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#85e088ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#60a962ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#60a962ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#051406ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#60a962ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030c03ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#60a962ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#010401ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#85e088ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020802ff"
+    }
+  },
+  "Harvest": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#207941ff",
+      "BorderColor": "#299952ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#103c21ff",
+      "BorderColor": "#156632ff",
+      "BackgroundColor": "#33c167ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#000000ff",
+      "BorderColor": "#114023ff",
+      "BackgroundColor": "#299952ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#86dfa7ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#103c20ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#86dfa7ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0c2c18ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#86dfa7ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#62a77bff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#62a77bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#05140bff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#62a77bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030c06ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#62a77bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#010402ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#86dfa7ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020804ff"
+    }
+  },
+  "Labyrinth Items": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#1d7c59ff",
+      "BorderColor": "#259d71ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#114a35ff",
+      "BorderColor": "#126848ff",
+      "BackgroundColor": "#2fc68fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#000000ff",
+      "BorderColor": "#104230ff",
+      "BackgroundColor": "#259d71ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#83e2bfff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0f3e2dff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#83e2bfff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b2d21ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#83e2bfff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#5dac8fff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#5dac8fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#05150fff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#5dac8fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030c09ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#5dac8fff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#010403ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#83e2bfff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020806ff"
+    }
+  },
+  "Incursion Vials": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#257462ff",
+      "BorderColor": "#329f85ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#123a31ff",
+      "BorderColor": "#155647ff",
+      "BackgroundColor": "#3bba9cff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#000000ff",
+      "BorderColor": "#143e34ff",
+      "BackgroundColor": "#2f937cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#8bdac8ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#123a31ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#8bdac8ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0d2b24ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#8bdac8ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#6aa093ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#6aa093ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#061310ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#6aa093ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040c0aff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#6aa093ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#010403ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#8bdac8ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020807ff"
+    }
+  },
+  "Skill Gems": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#137770ff",
+      "BorderColor": "#199a91ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#0c4f4bff",
+      "BorderColor": "#0c6e67ff",
+      "BackgroundColor": "#22d3c7ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#000000ff",
+      "BorderColor": "#0b4642ff",
+      "BackgroundColor": "#1ba79dff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#7beae2ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b423eff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#7beae2ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#08302eff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#7beae2ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#51b8b1ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#51b8b1ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#041615ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#51b8b1ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020d0cff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#51b8b1ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#010404ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#7beae2ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#010908ff"
+    }
+  },
+  "Support Gems": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#207079ff",
+      "BorderColor": "#2c99a5ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#10383cff",
+      "BorderColor": "#125259ff",
+      "BackgroundColor": "#33b3c1ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#000000ff",
+      "BorderColor": "#113c40ff",
+      "BackgroundColor": "#298e99ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#86d6dfff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#10383cff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#86d6dfff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0c292cff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#86d6dfff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#62a0a7ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#62a0a7ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#051314ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#62a0a7ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030b0cff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#62a0a7ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#010404ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#86d6dfff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020708ff"
+    }
+  },
+  "Divination Cards": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#007a99ff",
+      "BorderColor": "#009cc2ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#00495cff",
+      "BorderColor": "#00627aff",
+      "BackgroundColor": "#00c4f5ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#000000ff",
+      "BorderColor": "#004152ff",
+      "BackgroundColor": "#009bc2ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#66e0ffff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#003d4dff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#66e0ffff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#002d38ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#66e0ffff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#2fb8daff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#2fb8daff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#00141aff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#2fb8daff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000c0fff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#2fb8daff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000405ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#66e0ffff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#00080aff"
+    }
+  },
+  "Map Fragments": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#225877ff",
+      "BorderColor": "#3181afff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#000000ff",
+      "BorderColor": "#133f58ff",
+      "BackgroundColor": "#368dbfff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#dbecf5ff",
+      "BorderColor": "#a0cbe4ff",
+      "BackgroundColor": "#2b6f97ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#88beddff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#112c3cff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#88beddff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0c202cff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#88beddff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#658da4ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#658da4ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060f14ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#658da4ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#03090cff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#658da4ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#010304ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#88beddff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020608ff"
+    }
+  },
+  "Scarabs": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#2a506fff",
+      "BorderColor": "#43759dff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#000000ff",
+      "BorderColor": "#183044ff",
+      "BackgroundColor": "#497fabff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#d3e2eeff",
+      "BorderColor": "#9fbdd6ff",
+      "BackgroundColor": "#3a6588ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#90b6d5ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#172836ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#90b6d5ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#111d27ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#90b6d5ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#788691ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#788691ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#080d12ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#788691ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#05080bff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#788691ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020304ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#90b6d5ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030507ff"
+    }
+  },
+  "Fragment Splinters": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#1a4d7fff",
+      "BorderColor": "#2670baff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#000000ff",
+      "BorderColor": "#0c2e50ff",
+      "BackgroundColor": "#2a7acbff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#cce1f5ff",
+      "BorderColor": "#8dbae8ff",
+      "BackgroundColor": "#2161a1ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#80b3e5ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0d263fff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#80b3e5ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0a1c2fff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#80b3e5ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#5985b1ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#5985b1ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040d15ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#5985b1ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#03080dff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#5985b1ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#010304ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#80b3e5ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020508ff"
+    }
+  },
+  "Splinters": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#1a4d7fff",
+      "BorderColor": "#2670baff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#000000ff",
+      "BorderColor": "#0c2e50ff",
+      "BackgroundColor": "#2a7acbff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#cce1f5ff",
+      "BorderColor": "#8dbae8ff",
+      "BackgroundColor": "#2161a1ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#80b3e5ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0d263fff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#80b3e5ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0a1c2fff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#80b3e5ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#5985b1ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#5985b1ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040d15ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#5985b1ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#03080dff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#5985b1ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#010304ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#80b3e5ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020508ff"
+    }
+  },
+  "Expedition": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#0f308aff",
+      "BorderColor": "#1646caff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#c8d5f9ff",
+      "BorderColor": "#96b0f8ff",
+      "BackgroundColor": "#184ddcff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#9fb6f4ff",
+      "BorderColor": "#7597f0ff",
+      "BackgroundColor": "#133daeff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#7596f0ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#081845ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#7596f0ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#061232ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#7596f0ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#5372c6ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#5e7bc9ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030817ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#5e7bc9ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#02050eff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#5372c6ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#010205ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#7596f0ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#010309ff"
+    }
+  },
+  "Maps": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#1d407cff",
+      "BorderColor": "#2b5eb6ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#e6edf9ff",
+      "BorderColor": "#adc5f0ff",
+      "BackgroundColor": "#2f66c6ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#b5caeeff",
+      "BorderColor": "#83a6e2ff",
+      "BackgroundColor": "#25519dff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#83a6e2ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0f203eff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#83a6e2ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b172dff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#83a6e2ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#5d7aacff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#5d7aacff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#050b15ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#5d7aacff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#03060cff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#5d7aacff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#010204ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#83a6e2ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020408ff"
+    }
+  },
+  "Essences": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#000a99ff",
+      "BorderColor": "#000fe0ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#b3b7ffff",
+      "BorderColor": "#8f96ffff",
+      "BackgroundColor": "#0010f5ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#949bffff",
+      "BorderColor": "#757fffff",
+      "BackgroundColor": "#000dc2ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#6670ffff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#00054dff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#6670ffff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000438ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#6670ffff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#636be3ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#636be3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#00021aff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#636be3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#00010fff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#636be3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000005ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#6670ffff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#00010aff"
+    }
+  },
+  "Mana Flasks": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#281f7aff",
+      "BorderColor": "#3a2db4ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#c7c2efff",
+      "BorderColor": "#9d94ebff",
+      "BackgroundColor": "#4031c4ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#a59ee6ff",
+      "BorderColor": "#8e85e0ff",
+      "BackgroundColor": "#32279bff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#8e85e0ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#140f3dff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#8e85e0ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0f0b2dff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#8e85e0ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#7a74b4ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#7a74b4ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070514ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#7a74b4ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#04030cff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#7a74b4ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#010104ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#8e85e0ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030208ff"
+    }
+  },
+  "Curse of the Allflame": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#3f2376ff",
+      "BorderColor": "#5c34adff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#d2c4edff",
+      "BorderColor": "#b298e7ff",
+      "BackgroundColor": "#6438bcff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#c0ade6ff",
+      "BorderColor": "#a589dcff",
+      "BackgroundColor": "#4f2d95ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#a589dcff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#1f123bff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#a589dcff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#170d2bff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#a589dcff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#8371a8ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#8371a8ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0a0614ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#8371a8ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#06040cff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#8371a8ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020104ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#a589dcff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040208ff"
+    }
+  },
+  "Delirium Orbs": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#4f2574ff",
+      "BorderColor": "#7436abff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#e9dcf4ff",
+      "BorderColor": "#c9a5e9ff",
+      "BackgroundColor": "#7f3bbaff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#cbaee5ff",
+      "BorderColor": "#b58bdaff",
+      "BackgroundColor": "#642f93ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#b58bdaff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#28123aff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#b58bdaff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#1d0d2bff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#b58bdaff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#866aa0ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#8d73a5ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0d0613ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#8d73a5ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#08040cff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#866aa0ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030104ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#b58bdaff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#050208ff"
+    }
+  },
+  "Utility Flasks": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#632277ff",
+      "BorderColor": "#9231afff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#f4e7f8ff",
+      "BorderColor": "#dfb0eeff",
+      "BackgroundColor": "#9f36bfff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#dfb7ebff",
+      "BorderColor": "#c988ddff",
+      "BackgroundColor": "#7e2b97ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#c988ddff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#32113cff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#c988ddff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#240c2cff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#c988ddff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#9665a4ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#9d6eaaff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#110614ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#9665a4ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0a030cff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#9665a4ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030104ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#c988ddff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070208ff"
+    }
+  },
+  "Stackable Currency": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#562a6fff",
+      "BorderColor": "#7d3fa2ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#ebdef2ff",
+      "BorderColor": "#d5b5e8ff",
+      "BackgroundColor": "#8945b0ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#d7bce6ff",
+      "BorderColor": "#bb91d4ff",
+      "BackgroundColor": "#6c368cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#bc90d5ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#2b1537ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#bc90d5ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#1f1028ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#bc90d5ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#897396ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#897396ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0e0712ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#897396ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#09040bff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#897396ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030104ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#bc90d5ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060307ff"
+    }
+  },
+  "Heist": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#6f2a6dff",
+      "BorderColor": "#9d439aff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#fbf4fbff",
+      "BorderColor": "#eac3e8ff",
+      "BackgroundColor": "#ab49a8ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#eac8e9ff",
+      "BorderColor": "#d69fd4ff",
+      "BackgroundColor": "#883a85ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#361735ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#271127ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#120812ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b050bff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040204ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070307ff"
+    }
+  },
+  "Heist Currency": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#6f2a6dff",
+      "BorderColor": "#9d439aff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#fbf4fbff",
+      "BorderColor": "#eac3e8ff",
+      "BackgroundColor": "#ab49a8ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#eac8e9ff",
+      "BorderColor": "#d69fd4ff",
+      "BackgroundColor": "#883a85ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#361735ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#271127ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#120812ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b050bff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040204ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070307ff"
+    }
+  },
+  "Heist Contracts": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#6f2a6dff",
+      "BorderColor": "#9d439aff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#fbf4fbff",
+      "BorderColor": "#eac3e8ff",
+      "BackgroundColor": "#ab49a8ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#eac8e9ff",
+      "BorderColor": "#d69fd4ff",
+      "BackgroundColor": "#883a85ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#361735ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#271127ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#120812ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b050bff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040204ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070307ff"
+    }
+  },
+  "Heist Blueprints": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#6f2a6dff",
+      "BorderColor": "#9d439aff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#fbf4fbff",
+      "BorderColor": "#eac3e8ff",
+      "BackgroundColor": "#ab49a8ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#eac8e9ff",
+      "BorderColor": "#d69fd4ff",
+      "BackgroundColor": "#883a85ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#361735ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#271127ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#120812ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b050bff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040204ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070307ff"
+    }
+  },
+  "Heist Equipment": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#6f2a6dff",
+      "BorderColor": "#9d439aff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#fbf4fbff",
+      "BorderColor": "#eac3e8ff",
+      "BackgroundColor": "#ab49a8ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#eac8e9ff",
+      "BorderColor": "#d69fd4ff",
+      "BackgroundColor": "#883a85ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#361735ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#271127ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#120812ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b050bff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040204ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070307ff"
+    }
+  },
+  "Heist Targets": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#6f2a6dff",
+      "BorderColor": "#9d439aff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#fbf4fbff",
+      "BorderColor": "#eac3e8ff",
+      "BackgroundColor": "#ab49a8ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#eac8e9ff",
+      "BorderColor": "#d69fd4ff",
+      "BackgroundColor": "#883a85ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#361735ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#271127ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#120812ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b050bff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#917890ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040204ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070307ff"
+    }
+  },
+  "Heist Experimented": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#d68fccff",
+      "BackgroundColor": "#160d15ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#d68fccff",
+      "BackgroundColor": "#160d15ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#bd4caeff",
+      "BackgroundColor": "#10090fff"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BorderColor": "#953788ff",
+      "BackgroundColor": "#0d080cff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#953788ff",
+      "BackgroundColor": "#0d080cff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#953788ff",
+      "BackgroundColor": "#0d080cff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Breach": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#7c1d66ff",
+      "BorderColor": "#b62b95ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#ffffffff",
+      "BorderColor": "#410b35ff",
+      "BackgroundColor": "#c62fa3ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#f3cdebff",
+      "BorderColor": "#e58fd1ff",
+      "BackgroundColor": "#9d2581ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#e283ccff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#3e0f33ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#e283ccff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#2d0b25ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#e283ccff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#ac5d99ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#ac5d99ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#150511ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#ac5d99ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0c030aff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#ac5d99ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040103ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#e283ccff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#080207ff"
+    }
+  },
+  "Idols": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#792055ff",
+      "BorderColor": "#b12f7dff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#fcf3f8ff",
+      "BorderColor": "#f1bbdcff",
+      "BackgroundColor": "#c13389ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#efc3ddff",
+      "BorderColor": "#e292c2ff",
+      "BackgroundColor": "#99296cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#df86bbff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#3c102bff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#df86bbff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#2c0c1fff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#df86bbff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#a7628bff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#a7628bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#14050eff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#a7628bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0c0309ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#a7628bff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040103ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#df86bbff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#080206ff"
+    }
+  },
+  "Jewels": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#7f1a49ff",
+      "BorderColor": "#ba266bff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#fcf2f7ff",
+      "BorderColor": "#f4b8d4ff",
+      "BackgroundColor": "#cb2a75ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#f2c0d7ff",
+      "BorderColor": "#e88db7ff",
+      "BackgroundColor": "#a1215dff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#e580afff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#3f0d25ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#e580afff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#2f0a1bff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#e580afff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#b15982ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#b66389ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#15040cff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#b66389ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0d0307ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#b15982ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040102ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#e580afff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#080205ff"
+    }
+  },
+  "Wombgifts": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#79203eff",
+      "BorderColor": "#b12f5bff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#f9e7edff",
+      "BorderColor": "#f1bbcdff",
+      "BackgroundColor": "#c13363ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#efc3d2ff",
+      "BorderColor": "#e292adff",
+      "BackgroundColor": "#99294eff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#df86a4ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#3c101fff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#df86a4ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#2c0c17ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#df86a4ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#a76279ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#ac6c82ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#14050aff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#a76279ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0c0306ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#a76279ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040102ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#df86a4ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#080204ff"
+    }
+  },
+  "Corpses": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#6f2a36ff",
+      "BorderColor": "#8d535dff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#fbf4f5ff",
+      "BorderColor": "#dfbec4ff",
+      "BackgroundColor": "#9a5b65ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#eac8ceff",
+      "BorderColor": "#c69fa5ff",
+      "BackgroundColor": "#7a4850ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#d5909cff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#301c20ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#d5909cff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#231517ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#d5909cff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#8e7b7eff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#8e7b7eff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#10090bff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#8e7b7eff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0a0606ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#8e7b7eff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030202ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#d5909cff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060404ff"
+    }
+  },
+  "Ritual": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#6f2a32ff",
+      "BorderColor": "#a23f4aff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#f7e9eaff",
+      "BorderColor": "#e8b5bcff",
+      "BackgroundColor": "#b04551ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#e6bcc1ff",
+      "BorderColor": "#d49199ff",
+      "BackgroundColor": "#8c3640ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#d59098ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#371519ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#d59098ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#281013ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#d59098ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#967377ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#967377ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#120708ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#967377ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0b0405ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#967377ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040102ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#d59098ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070303ff"
+    }
+  },
+  "Life Flasks": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#7c1d23ff",
+      "BorderColor": "#b62b34ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#f9e6e7ff",
+      "BorderColor": "#f3babdff",
+      "BackgroundColor": "#c62f39ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#f0c1c4ff",
+      "BorderColor": "#e58f95ff",
+      "BackgroundColor": "#9d252dff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#e28389ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#3e0f12ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#e28389ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#2d0b0dff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "TextColor": "#e28389ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#ac5d63ff",
+      "BorderColor": "#00000000"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#b1686dff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#150506ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#b1686dff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0c0304ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#b1686dff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040101ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#e28389ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#080202ff"
+    }
+  },
+  "Tainted Currency": {
+    "Tier 0": {
+      "FontSize": 45,
+      "TextColor": "#a00000ff",
+      "BorderColor": "#d20000ff",
+      "BackgroundColor": "#d7d7d7ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "TextColor": "#a00000ff",
+      "BorderColor": "#d20000ff",
+      "BackgroundColor": "#d7d7d7ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#e1d2d2ff",
+      "BorderColor": "#969696ff",
+      "BackgroundColor": "#6e1919ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "TextColor": "#f0f0ebff",
+      "BorderColor": "#e11937ff",
+      "BackgroundColor": "#2a2a2aff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "TextColor": "#f0f0ebff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#2a2a2aff"
+    },
+    "Tier 5": {
+      "FontSize": 30,
+      "TextColor": "#969696ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#121212ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "TextColor": "#969696ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#121212ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "TextColor": "#969696ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#121212ff"
+    },
+    "Tier 8": {
+      "FontSize": 30,
+      "TextColor": "#969696ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#121212ff"
+    },
+    "Tier 12": {
+      "FontSize": 30,
+      "TextColor": "#969696ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#121212ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "TextColor": "#969696ff",
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#121212ff"
+    }
+  },
+  "Body Armours": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Helmets": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Gloves": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Boots": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Shields": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Quivers": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Bows": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Wands": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Claws": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Daggers": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Rune Daggers": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Sceptres": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Staves": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Warstaves": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "One Hand Axes": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "One Hand Maces": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "One Hand Swords": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Two Hand Axes": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Two Hand Maces": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Two Hand Swords": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Thrusting One Hand Swords": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Amulets": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Rings": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Belts": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Trinkets": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#0f1115ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0c0fff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0cff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#060709ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#040506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Enshrouded Gear": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#17110cff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#c99673ff",
+      "BackgroundColor": "#110c09ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#906447ff",
+      "BackgroundColor": "#0d0a07ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#0a0705ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070504ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#7b5842ff",
+      "BackgroundColor": "#070504ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030202ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#7b5842ff",
+      "BackgroundColor": "#030202ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Talismans": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Ritual BaseTypes": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Expedition Ward-Bases": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Mirror of Kalandra Ring Bases": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Stygian Vise": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Sacrificial Garbs": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Breach Grasping Mail": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Breach Rings": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Abyss Socketed Items": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Blight Anointed Items": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Linked Items": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Veiled Items": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Memory-Stranded": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "ID Mods: Bestiary": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "ID Mods: Delve": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "ID Mods: Essence": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "ID Mods: Incursion": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "ID Mods: Mercenaries": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "ID Mods: Warband": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 4": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 5": {
+      "FontSize": 40,
+      "BorderColor": "#72adcbff",
+      "BackgroundColor": "#0c1013ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Campaign": {
+    "Tier 0": {
+      "FontSize": 40,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#11150eff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 40,
+      "BorderColor": "#96c973ff",
+      "BackgroundColor": "#0c0f0aff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#649047ff",
+      "BackgroundColor": "#0a0c08ff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070906ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#050604ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#51713dff",
+      "BackgroundColor": "#050604ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020302ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#51713dff",
+      "BackgroundColor": "#020302ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Influenced": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BorderColor": "#9600ffff",
+      "BackgroundColor": "#130c17ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BorderColor": "#9600ffff",
+      "BackgroundColor": "#0e0911ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BorderColor": "#9600ffff",
+      "BackgroundColor": "#0b070dff"
+    },
+    "Tier 3": {
+      "FontSize": 40,
+      "BorderColor": "#9600ffff",
+      "BackgroundColor": "#08050aff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#9600ffff",
+      "BackgroundColor": "#050407ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#754d8fff",
+      "BackgroundColor": "#050407ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#030203ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#754d8fff",
+      "BackgroundColor": "#030203ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  },
+  "Magic Net": {
+    "Tier 0": {
+      "FontSize": 35,
+      "BorderColor": "#ffffffff",
+      "BackgroundColor": "#101214ff",
+      "PlayEffect": "White",
+      "MinimapIcon": "0 White Star"
+    },
+    "Tier 1": {
+      "FontSize": 35,
+      "BorderColor": "#7398c9ff",
+      "BackgroundColor": "#0b0d0eff",
+      "PlayEffect": "White",
+      "MinimapIcon": "1 White Diamond"
+    },
+    "Tier 2": {
+      "FontSize": 35,
+      "BorderColor": "#476690ff",
+      "BackgroundColor": "#090a0bff"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#070808ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#050506ff"
+    },
+    "Tier 5": {
+      "FontSize": 35,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#050506ff"
+    },
+    "Tier 6": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#020303ff"
+    },
+    "Tier 7": {
+      "FontSize": 30,
+      "BorderColor": "#476185ff",
+      "BackgroundColor": "#020303ff"
+    },
+    "Tier 9": {
+      "FontSize": 30,
+      "BorderColor": "#00000000",
+      "BackgroundColor": "#000000ff"
+    }
+  }
+}

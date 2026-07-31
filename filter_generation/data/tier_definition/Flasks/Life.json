@@ -16,7 +16,14 @@
     "Tier 1 Life Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#f9e6e7ff",
+        "BorderColor": "#f3babdff",
+        "BackgroundColor": "#c62f39ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond",
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 1,
@@ -25,12 +32,20 @@
       "localization": {
         "en": "T1: Divine/Eternal",
         "ch": "T1: 顶级生命药剂"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier 2 Life Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#f0c1c4ff",
+        "BorderColor": "#e58f95ff",
+        "BackgroundColor": "#9d252dff",
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 2,
@@ -39,6 +54,9 @@
       "localization": {
         "en": "T2: High Level",
         "ch": "T2: 高级生命药剂"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier Hide Life Flasks": {
@@ -69,6 +87,9 @@
       "localization": {
         "en": "T0: Absolute Top",
         "ch": "T0: 顶级/核心"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     }
   }

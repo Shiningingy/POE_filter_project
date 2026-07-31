@@ -1,0 +1,198 @@
+{
+  "label": "3.29.0.2.2",
+  "source": "GGG CDN patch 3.29.0.2.2",
+  "patch": "3.29.0.2.2",
+  "game_path": null,
+  "extracted_at": "2026-07-25T15:35:42+00:00",
+  "tool": "pathofexile-dat@15.2.0 (patched: +Simplified Chinese)",
+  "schema_version": 7,
+  "languages": [
+    "English",
+    "Traditional Chinese"
+  ],
+  "tables": {
+    "BaseItemTypes": {
+      "columns": [
+        "Id",
+        "Name",
+        "ItemClassesKey",
+        "Width",
+        "Height",
+        "DropLevel",
+        "Implicit_ModsKeys",
+        "TalismanEnchants",
+        "TagsKeys",
+        "ModDomain",
+        "IsCorrupted",
+        "InheritsFrom",
+        "SizeOnGround"
+      ],
+      "rows": 5443
+    },
+    "ItemClasses": {
+      "columns": [
+        "Id",
+        "Name"
+      ],
+      "rows": 101
+    },
+    "Tags": {
+      "columns": [
+        "Id"
+      ],
+      "rows": null
+    },
+    "ArmourTypes": {
+      "columns": [
+        "BaseItemTypesKey",
+        "ArmourMin",
+        "ArmourMax",
+        "EvasionMin",
+        "EvasionMax",
+        "EnergyShieldMin",
+        "EnergyShieldMax",
+        "IncreasedMovementSpeed"
+      ],
+      "rows": 481
+    },
+    "WeaponTypes": {
+      "columns": [
+        "BaseItemTypesKey",
+        "Critical",
+        "Speed",
+        "DamageMin",
+        "DamageMax",
+        "RangeMax"
+      ],
+      "rows": 366
+    },
+    "ShieldTypes": {
+      "columns": [
+        "BaseItemTypesKey",
+        "Block"
+      ],
+      "rows": null
+    },
+    "ComponentAttributeRequirements": {
+      "columns": [
+        "BaseItemTypesKey",
+        "ReqStr",
+        "ReqDex",
+        "ReqInt"
+      ],
+      "rows": null
+    },
+    "ComponentCharges": {
+      "columns": [
+        "BaseItemTypesKey",
+        "MaxCharges",
+        "PerCharge"
+      ],
+      "rows": null
+    },
+    "Mods": {
+      "columns": [
+        "Id",
+        "Name",
+        "Level",
+        "Domain",
+        "GenerationType",
+        "StatsKey1",
+        "StatsKey2",
+        "StatsKey3",
+        "StatsKey4",
+        "Stat1Min",
+        "Stat1Max",
+        "Stat2Min",
+        "Stat2Max",
+        "Stat3Min",
+        "Stat3Max",
+        "Stat4Min",
+        "Stat4Max"
+      ],
+      "rows": 40334
+    },
+    "Stats": {
+      "columns": [
+        "Id"
+      ],
+      "rows": 23315
+    },
+    "CurrencyItems": {
+      "columns": [
+        "BaseItemTypesKey",
+        "StackSize",
+        "Description",
+        "Directions"
+      ],
+      "rows": null
+    },
+    "Flasks": {
+      "columns": [
+        "BaseItemTypesKey",
+        "Name",
+        "Type",
+        "LifePerUse",
+        "ManaPerUse"
+      ],
+      "rows": null
+    },
+    "SkillGems": {
+      "columns": [
+        "BaseItemTypesKey",
+        "IsSupport",
+        "GemColour"
+      ],
+      "rows": null
+    },
+    "Maps": {
+      "columns": [
+        "BaseItemTypesKey",
+        "Tier"
+      ],
+      "rows": null
+    },
+    "Words": {
+      "columns": [
+        "Text",
+        "Text2"
+      ],
+      "rows": null
+    },
+    "UniqueStashLayout": {
+      "columns": [
+        "WordsKey",
+        "UniqueStashTypesKey",
+        "IsAlternateArt"
+      ],
+      "rows": 1555
+    },
+    "UniqueStashTypes": {
+      "columns": [
+        "Id",
+        "Name"
+      ],
+      "rows": null
+    },
+    "VillageUniqueDisenchantValues": {
+      "columns": [
+        "UniqueName",
+        "Value",
+        "RuthlessValue"
+      ],
+      "rows": null
+    },
+    "UniqueMaps": {
+      "columns": [
+        "WordsKey",
+        "Name",
+        "IsDropDisabled"
+      ],
+      "rows": null
+    }
+  },
+  "caveats": [
+    "GGPK says what EXISTS, not what DROPS. 3.29 still ships all 78 talismans including the 26 FilterBlade retired. Never auto-retire on absence, never assume presence means droppable.",
+    "Join on Id only. Never join two language dumps on _index/_rid (94% of rows differ) and never on English Name (413 duplicates). See ADR-0004."
+  ]
+}

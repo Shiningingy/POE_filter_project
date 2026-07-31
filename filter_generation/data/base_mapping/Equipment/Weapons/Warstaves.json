@@ -23,18 +23,18 @@
     "theme_category": "Warstaves"
   },
   "mapping": {
-    "Judgement Staff": "Tier 0 Warstaves",
-    "Ezomyte Staff": "Tier 1 Warstaves",
-    "Maelström Staff": "Tier 0 Warstaves",
+    "Judgement Staff": "Tier 4 Warstaves",
+    "Ezomyte Staff": "Tier 3 Warstaves",
+    "Maelström Staff": "Tier 3 Warstaves",
     "Iron Staff": "Tier 4 Warstaves",
-    "Coiled Staff": "Tier 3 Warstaves",
-    "Vile Staff": "Tier 3 Warstaves",
-    "Military Staff": "Tier 2 Warstaves",
-    "Serpentine Staff": "Tier 2 Warstaves",
-    "Foul Staff": "Tier 1 Warstaves",
-    "Capacity Rod": "Tier 3 Warstaves",
-    "Potentiality Rod": "Tier 1 Warstaves",
-    "Eventuality Rod": "Tier 0 Warstaves"
+    "Coiled Staff": "Tier 4 Warstaves",
+    "Vile Staff": "Tier 4 Warstaves",
+    "Military Staff": "Tier 4 Warstaves",
+    "Serpentine Staff": "Tier 4 Warstaves",
+    "Foul Staff": "Tier 4 Warstaves",
+    "Capacity Rod": "Tier 4 Warstaves",
+    "Potentiality Rod": "Tier 4 Warstaves",
+    "Eventuality Rod": "Tier 4 Warstaves"
   },
   "rules": [
     {
@@ -43,7 +43,8 @@
         "Ezomyte Staff"
       ],
       "conditions": {
-        "ItemLevel": ">= 83"
+        "ItemLevel": ">= 83",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Warstaves",

@@ -12,6 +12,8 @@
       "theme_category": "Campaign",
       "tier_order": [
         "Rare Safety Net",
+        "Normal Declutter",
+        "Magic Declutter",
         "Aggressive Magic Hide"
       ]
     },
@@ -39,6 +41,58 @@
       "localization": {
         "en": "Rare Safety Net",
         "ch": "显示所有稀有装备"
+      }
+    },
+    "Normal Declutter": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "is_hide_tier": true,
+      "conditions": {
+        "Class": "== \"Bows\" \"Claws\" \"Daggers\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Quivers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Wands\" \"Warstaves\" \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Amulets\" \"Belts\" \"Rings\"",
+        "Rarity": "Normal",
+        "AreaLevel": "RANGE >= 10 <= 67"
+      },
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "campaign"
+      },
+      "localization": {
+        "en": "Hide Normal after Act 1",
+        "ch": "隐藏普通装备（第一章后）"
+      }
+    },
+    "Magic Declutter": {
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "is_hide_tier": true,
+      "conditions": {
+        "Class": "== \"Bows\" \"Claws\" \"Daggers\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Quivers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Wands\" \"Warstaves\" \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Amulets\" \"Belts\" \"Rings\"",
+        "Rarity": "Magic",
+        "AreaLevel": "RANGE >= 10 <= 67"
+      },
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "campaign"
+      },
+      "localization": {
+        "en": "Hide Magic after Act 1",
+        "ch": "隐藏魔法装备（第一章后）"
       }
     },
     "Aggressive Magic Hide": {

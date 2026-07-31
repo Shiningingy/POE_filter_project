@@ -38,6 +38,7 @@
         "Fragment of Terror": "恐怖碎片",
         "Fragment of Emptiness": "空虚碎片",
         "Blood-filled Vessel": "浸血法器",
+        "Ritual Vessel": "驱灵法器",
         "Zorath's Eye of Malevolence": "佐拉斯之眼：恶意",
         "Zorath's Eye of Authority": "佐拉斯之眼：威权",
         "Zorath's Eye of the Inevitable": "佐拉斯之眼：必然",
@@ -66,25 +67,42 @@
         "Traumatic Fragment": "创痛碎片",
         "Reverent Fragment": "虔敬碎片",
         "Lonely Fragment": "孤寂碎片",
-        "Divine Vessel": "禁灵之瓶"
+        "Crescent Splinter": "新月裂片"
       }
     },
     "item_class": {
       "en": "Map Fragments",
       "ch": "碎片"
     },
-    "theme_category": "Map Fragments"
+    "theme_category": "Map Fragments",
+    "match_modes": {}
   },
   "mapping": {
-    "Simulacrum": "Tier 1 Fragments",
+    "Simulacrum": [
+      "Tier 2 Fragments"
+    ],
     "The Maven's Writ": "Tier 1 Fragments",
-    "Sacred Blossom": "Tier 1 Fragments",
-    "Awakening Fragment": "Tier 2 Fragments",
-    "Cosmic Fragment": "Tier 2 Fragments",
-    "Decaying Fragment": "Tier 2 Fragments",
-    "Devouring Fragment": "Tier 2 Fragments",
-    "Reality Fragment": "Tier 2 Fragments",
-    "Synthesising Fragment": "Tier 2 Fragments",
+    "Sacred Blossom": [
+      "Tier 2 Fragments"
+    ],
+    "Awakening Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Cosmic Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Decaying Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Devouring Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Reality Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Synthesising Fragment": [
+      "Tier 0 Fragments"
+    ],
     "Fragment of the Hydra": "Tier 3 Fragments",
     "Fragment of the Phoenix": "Tier 3 Fragments",
     "Fragment of the Minotaur": "Tier 3 Fragments",
@@ -97,50 +115,442 @@
     "Sacrifice at Dusk": "Tier 4 Fragments",
     "Sacrifice at Dawn": "Tier 4 Fragments",
     "Sacrifice at Noon": "Tier 4 Fragments",
-    "Divine Vessel": "Tier 4 Fragments",
-    "Mortal Grief": "Tier 1 Map Fragments",
-    "Mortal Rage": "Tier 1 Map Fragments",
-    "Mortal Hope": "Tier 1 Map Fragments",
-    "Mortal Ignorance": "Tier 1 Map Fragments",
-    "An Audience With The King": "Tier 1 Map Fragments",
-    "Timeless Karui Emblem": "Tier 1 Map Fragments",
-    "Timeless Maraketh Emblem": "Tier 1 Map Fragments",
-    "Timeless Eternal Emblem": "Tier 1 Map Fragments",
-    "Timeless Templar Emblem": "Tier 1 Map Fragments",
-    "Timeless Vaal Emblem": "Tier 1 Map Fragments",
-    "Fragment of Shape": "Tier 1 Map Fragments",
-    "Fragment of Knowledge": "Tier 1 Map Fragments",
-    "Fragment of Terror": "Tier 1 Map Fragments",
-    "Fragment of Emptiness": "Tier 1 Map Fragments",
-    "Blood-filled Vessel": "Tier 1 Map Fragments",
+    "Mortal Grief": [
+      "Tier 3 Fragments"
+    ],
+    "Mortal Rage": [
+      "Tier 3 Fragments"
+    ],
+    "Mortal Hope": [
+      "Tier 3 Fragments"
+    ],
+    "Mortal Ignorance": [
+      "Tier 3 Fragments"
+    ],
+    "An Audience With The King": "Tier 1 Fragments",
+    "Timeless Karui Emblem": [
+      "Tier 2 Fragments"
+    ],
+    "Timeless Maraketh Emblem": [
+      "Tier 1 Fragments"
+    ],
+    "Timeless Eternal Emblem": [
+      "Tier 2 Fragments"
+    ],
+    "Timeless Templar Emblem": [
+      "Tier 2 Fragments"
+    ],
+    "Timeless Vaal Emblem": [
+      "Tier 2 Fragments"
+    ],
+    "Fragment of Shape": "Tier 1 Fragments",
+    "Fragment of Knowledge": [
+      "Tier 2 Fragments"
+    ],
+    "Fragment of Terror": "Tier 1 Fragments",
+    "Fragment of Emptiness": "Tier 1 Fragments",
+    "Blood-filled Vessel": [
+      "Tier 2 Fragments"
+    ],
+    "Ritual Vessel": [
+      "Tier 2 Fragments"
+    ],
     "Zorath's Eye of Malevolence": "Tier 2 Fragments",
     "Zorath's Eye of Authority": "Tier 2 Fragments",
     "Zorath's Eye of the Inevitable": "Tier 2 Fragments",
     "Zorath's Eye of the Endless": "Tier 2 Fragments",
-    "Al-Hezmin's Crest": "Tier 1 Map Fragments",
-    "Baran's Crest": "Tier 1 Map Fragments",
-    "Drox's Crest": "Tier 1 Map Fragments",
-    "Veritania's Crest": "Tier 1 Map Fragments",
-    "Blazing Fragment": "Tier 1 Map Fragments",
-    "Kalguuran Scarab": "Tier 1 Map Fragments",
-    "Kalguuran Scarab of Guarded Riches": "Tier 1 Map Fragments",
-    "Kalguuran Scarab of Refinement": "Tier 1 Map Fragments",
-    "Echo of Trauma": "Tier 1 Map Fragments",
-    "Echo of Reverence": "Tier 1 Map Fragments",
-    "Echo of Loneliness": "Tier 1 Map Fragments",
-    "Syndicate Medallion": "Tier 1 Map Fragments",
-    "Allflame Ember of Kulemak": "Tier 1 Map Fragments",
-    "Allflame Ember of Resplendence": "Tier 1 Map Fragments",
-    "Allflame Ember of Propagation": "Tier 1 Map Fragments",
-    "Allflame Ember of Flesh": "Tier 1 Map Fragments",
-    "Allflame Ember of the Wildwood": "Tier 1 Map Fragments",
-    "Allflame Ember of the Ethereal": "Tier 1 Map Fragments",
-    "Allflame Ember of the Gilded": "Tier 1 Map Fragments",
-    "Allflame Ember of Toads": "Tier 1 Map Fragments",
-    "Hivebrain Gland": "Tier 1 Map Fragments",
-    "Traumatic Fragment": "Tier 1 Map Fragments",
-    "Reverent Fragment": "Tier 1 Map Fragments",
-    "Lonely Fragment": "Tier 1 Map Fragments"
+    "Al-Hezmin's Crest": [
+      "Tier 3 Fragments"
+    ],
+    "Baran's Crest": [
+      "Tier 3 Fragments"
+    ],
+    "Drox's Crest": [
+      "Tier 3 Fragments"
+    ],
+    "Veritania's Crest": [
+      "Tier 3 Fragments"
+    ],
+    "Blazing Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Echo of Trauma": "Tier 1 Fragments",
+    "Echo of Reverence": "Tier 1 Fragments",
+    "Echo of Loneliness": "Tier 1 Fragments",
+    "Syndicate Medallion": [
+      "Tier 2 Fragments"
+    ],
+    "Hivebrain Gland": [
+      "Tier 2 Fragments"
+    ],
+    "Traumatic Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Reverent Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Lonely Fragment": [
+      "Tier 0 Fragments"
+    ],
+    "Crescent Splinter": [
+      "Tier 3 Fragments"
+    ]
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": [
+        "Fragment of Enslavement"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/腐坏碎片.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Fragment of Enslavement"
+    },
+    {
+      "targets": [
+        "Fragment of Constriction"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/腐坏碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of Constriction"
+    },
+    {
+      "targets": [
+        "Fragment of Eradication"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/腐坏碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of Eradication"
+    },
+    {
+      "targets": [
+        "Fragment of Purification"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/腐坏碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of Purification"
+    },
+    {
+      "targets": [
+        "Baran's Crest"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/碎片之冠.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Baran's Crest"
+    },
+    {
+      "targets": [
+        "Al-Hezmin's Crest"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/碎片之冠.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Al-Hezmin's Crest"
+    },
+    {
+      "targets": [
+        "Veritania's Crest"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/碎片之冠.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Veritania's Crest"
+    },
+    {
+      "targets": [
+        "Drox's Crest"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/碎片之冠.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Drox's Crest"
+    },
+    {
+      "targets": [
+        "Mortal Rage"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/绿门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Mortal Rage"
+    },
+    {
+      "targets": [
+        "Mortal Grief"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/绿门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Mortal Grief"
+    },
+    {
+      "targets": [
+        "Mortal Hope"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/绿门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Mortal Hope"
+    },
+    {
+      "targets": [
+        "Mortal Ignorance"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/绿门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Mortal Ignorance"
+    },
+    {
+      "targets": [
+        "Fragment of the Minotaur"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/记忆碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of the Minotaur"
+    },
+    {
+      "targets": [
+        "Fragment of the Chimera"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/记忆碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of the Chimera"
+    },
+    {
+      "targets": [
+        "Fragment of the Hydra"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/记忆碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of the Hydra"
+    },
+    {
+      "targets": [
+        "Fragment of the Phoenix"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/记忆碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of the Phoenix"
+    },
+    {
+      "targets": [
+        "Fragment of Emptiness"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/疯狂碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of Emptiness"
+    },
+    {
+      "targets": [
+        "Fragment of Shape"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/疯狂碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of Shape"
+    },
+    {
+      "targets": [
+        "Fragment of Terror"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/疯狂碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of Terror"
+    },
+    {
+      "targets": [
+        "Fragment of Knowledge"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/疯狂碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Fragment of Knowledge"
+    },
+    {
+      "targets": [
+        "Ritual Vessel"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/驱灵法器.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Ritual Vessel"
+    },
+    {
+      "targets": [
+        "Hivebrain Gland"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/裂隙碎片.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Hivebrain Gland"
+    },
+    {
+      "targets": [
+        "Timeless Templar Emblem"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/地图碎片.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Timeless Templar Emblem"
+    },
+    {
+      "targets": [
+        "Sacrifice at Midnight"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/红门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Sacrifice at Midnight"
+    },
+    {
+      "targets": [
+        "Sacrifice at Noon"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/红门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Sacrifice at Noon"
+    },
+    {
+      "targets": [
+        "Sacrifice at Dusk"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/红门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Sacrifice at Dusk"
+    },
+    {
+      "targets": [
+        "Sacrifice at Dawn"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/红门碎片.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Sacrifice at Dawn"
+    },
+    {
+      "targets": [
+        "Archive Reliquary Key",
+        "Cosmic Reliquary Key",
+        "Decaying Reliquary Key",
+        "Forgotten Reliquary Key",
+        "Lonely Reliquary Key",
+        "Oubliette Reliquary Key",
+        "Reverent Reliquary Key",
+        "Shiny Reliquary Key",
+        "Traumatic Reliquary Key",
+        "Visceral Reliquary Key",
+        "Voidborn Reliquary Key",
+        "Timeworn Reliquary Key",
+        "Vaal Reliquary Key"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 0 Fragments",
+        "PlayAlertSound": [
+          "Sharket掉落音效/圣物厅钥匙.mp3",
+          300
+        ]
+      },
+      "comment": "圣物厅钥匙",
+      "applyToTier": false
+    }
+  ]
 }

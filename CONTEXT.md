@@ -21,6 +21,14 @@ as a TypeScript port that runs in the browser.
   colours/fonts/sounds. Tier files store only `theme.Tier: N`; colours resolve here.
 - **strictness gate** — optional per-tier `hide_at_strictness: N` (0–6). A shown tier
   flips to Hide once the selected strictness level's index ≥ N.
+- **decorator** — a purely visual emphasis applied to items **in place**, via a rule
+  `overrides` block (the emphasis button). A decorator is **not a tier**: it changes
+  how an item looks without changing which tier owns it. *(Retired 2026-07-27: Tier 0's
+  role used to be called "Decorator" and was allowed to be an empty highlight band,
+  which forced an empty Tier-0 into every category — 34 of 65 were empty. Tier 0 is now
+  the top/chase rank and a category with no chase items should omit it. The old role
+  entry is kept commented in `theme/roles.json` under `_retired` and in
+  `themeGenerator.ts` for easy revert.)*
 - **`hideable`** — a per-tier **protect-guard** (see Invariant 2). `hideable:false` =
   protected, cannot be gated/hidden (the 🔒 lock in the editor).
 - **campaign module (selection-centric ladder)** — `_campaign/**` group tiers
@@ -42,6 +50,26 @@ as a TypeScript port that runs in the browser.
   transparent border/background). `HIDE_CMD` resolves to `Minimal` under ruthless in
   BOTH generators. The browser TS generator is now mode-aware (`GeneratorData.mode`,
   fed from `game_mode`); ruthless parity is guarded by `test_generator_parity.mjs`.
+- **coverage: cherry-pick + safety net + catch-all** — a category does **not**
+  have to name every base it covers, so "this base type is in no `base_mapping`"
+  is *not* by itself a defect. Three layers, in emission order:
+  1. **Cherry-pick** — named `BaseType` lists for the bases actually worth
+     calling out. For very general classes (gems above all) this is a small
+     minority by design. Ruthless cherry-picks *more* than standard, because in
+     standard you can ignore ~95% of gems outright.
+  2. **Class safety net** — a `class_condition: true` tier whose `conditions`
+     carry a `Class` line, catching the rest of that class in one rule (every
+     map via `Maps/Base Maps.json`, boots, jewellery, weapons/armour, relics,
+     idols, tinctures). Note `class_condition` alone does *not* imply a `Class`
+     line — it means "emit `conditions` verbatim with no BaseType list"; the
+     `Class` key has to be inside `conditions`. `_meta.item_class` is a display
+     label only and never emits (Invariant: see `item_class` below).
+  3. **`[99999] Unknown Items`** — the final catch-all for anything no rule
+     above matched. Currently a magenta PLACEHOLDER, deliberately loud: a new
+     league's unmapped bases scream in-game instead of vanishing.
+  `parsing_tool/ggpk/reconcile.py` models exactly this — it counts `Class`
+  conditions as coverage, so it reports what would fall through to 3, not what
+  merely lacks a name.
 - **the dual generator** — see Invariant 1.
 - **demo / backend-free build** — the deployed site has no server; `clientData.ts` +
   `demoAdapter.ts` re-implement the FastAPI endpoints over a static bundle + localStorage.
@@ -125,6 +153,16 @@ as a TypeScript port that runs in the browser.
    `hide_at_strictness`, and the campaign section renders identically at every
    strictness level. Campaign decluttering is the picker's `hide_unselected`
    toggle, not strictness.
+
+12. **Most of `parsing_tool/` is spent.** 41 of its 52 scripts write directly into
+   `filter_generation/data/`, and the majority were run once during a build or
+   migration and are now historical — re-running one reverts that region of the tree
+   to its state on the date it was written. The filenames give no hint of this
+   (`generate_base_mappings.py` would flatten the curation). Every script carries a
+   group banner on line 1; **`parsing_tool/README.md` is the index** and says which
+   are safe. Notable: `generate_category_json.py` is a known regression, and
+   `build_campaign_bands.py`, `build_standard_theme.py` and
+   `import_uniques_from_filterblade.py` would each destroy hand-tuning.
 
 ## Where the roadmap + progress lives
 

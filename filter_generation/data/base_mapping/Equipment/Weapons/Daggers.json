@@ -28,23 +28,23 @@
     "theme_category": "Daggers"
   },
   "mapping": {
-    "Ambusher": "Tier 1 Daggers",
-    "Imperial Skean": "Tier 0 Daggers",
-    "Demon Dagger": "Tier 0 Daggers",
-    "Slaughter Knife": "Tier 1 Daggers",
-    "Royal Skean": "Tier 1 Daggers",
+    "Ambusher": "Tier 3 Daggers",
+    "Imperial Skean": "Tier 3 Daggers",
+    "Demon Dagger": "Tier 4 Daggers",
+    "Slaughter Knife": "Tier 4 Daggers",
+    "Royal Skean": "Tier 4 Daggers",
     "Glass Shank": "Tier 4 Daggers",
     "Skinning Knife": "Tier 4 Daggers",
     "Stiletto": "Tier 4 Daggers",
-    "Flaying Knife": "Tier 3 Daggers",
-    "Prong Dagger": "Tier 2 Daggers",
-    "Poignard": "Tier 2 Daggers",
-    "Trisula": "Tier 1 Daggers",
-    "Gutting Knife": "Tier 1 Daggers",
-    "Sai": "Tier 0 Daggers",
-    "Hollowpoint Dagger": "Tier 3 Daggers",
-    "Pressurised Dagger": "Tier 1 Daggers",
-    "Pneumatic Dagger": "Tier 0 Daggers"
+    "Flaying Knife": "Tier 4 Daggers",
+    "Prong Dagger": "Tier 4 Daggers",
+    "Poignard": "Tier 4 Daggers",
+    "Trisula": "Tier 4 Daggers",
+    "Gutting Knife": "Tier 3 Daggers",
+    "Sai": "Tier 4 Daggers",
+    "Hollowpoint Dagger": "Tier 4 Daggers",
+    "Pressurised Dagger": "Tier 4 Daggers",
+    "Pneumatic Dagger": "Tier 4 Daggers"
   },
   "rules": [
     {
@@ -54,7 +54,8 @@
         "Demon Dagger"
       ],
       "conditions": {
-        "ItemLevel": ">= 86"
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Daggers",
@@ -72,7 +73,8 @@
         "Demon Dagger"
       ],
       "conditions": {
-        "ItemLevel": ">= 84"
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 1 Daggers",

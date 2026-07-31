@@ -9,10 +9,40 @@
       "en": "Gold",
       "ch": "金币"
     },
-    "theme_category": "Gold"
+    "theme_category": "Gold",
+    "match_modes": {}
   },
   "mapping": {
-    "Gold": "Tier 1 Gold"
+    "Gold": [
+      "Tier 1 Gold",
+      "Tier 0 Gold",
+      "Tier 2 Gold"
+    ]
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": [],
+      "conditions": {
+        "StackSize": ">=3000"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Gold"
+      },
+      "comment": ">3000",
+      "applyToTier": true
+    },
+    {
+      "targets": [
+        "Gold"
+      ],
+      "conditions": {
+        "StackSize": ">=100"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Gold"
+      },
+      "comment": ">100",
+      "applyToTier": true
+    }
+  ]
 }

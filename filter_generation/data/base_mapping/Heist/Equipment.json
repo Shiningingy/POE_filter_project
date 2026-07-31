@@ -1,8 +1,5 @@
 {
   "_meta": {
-    "excluded_modes": [
-      "ruthless"
-    ],
     "localization": {
       "ch": {
         "Torn Cloak": "破旧披风",
@@ -52,64 +49,48 @@
         "Flanged Arrowhead": "法兰箭头",
         "Fragmenting Arrowhead": "裂片箭头",
         "Hollowpoint Arrowhead": "中空箭头",
-        "Precise Arrowhead": "精准箭头"
+        "Precise Arrowhead": "精准箭头",
+        "Burst Band": "爆破带",
+        "Grandmaster Keyring": "巅峰钥匙环"
       }
     },
     "item_class": {
       "en": "Heist Tools",
       "ch": "盗贼装备"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Heist",
+    "match_modes": {}
   },
   "mapping": {
-    "Whisper-woven Cloak": "Heist Gear T1",
-    "Golden Brooch": "Heist Gear T1",
-    "Enamel Brooch": "Heist Gear T1",
-    "Foliate Brooch": "Heist Gear T1",
-    "Fine Lockpick": "Heist Gear T1",
-    "Master Lockpick": "Heist Gear T1",
-    "Runed Bracers": "Heist Gear T1",
-    "Steel Bracers": "Heist Gear T1",
-    "Espionage Disguise Kit": "Heist Gear T1",
-    "Regicide Disguise Kit": "Heist Gear T1",
-    "Fine Sensing Charm": "Heist Gear T1",
-    "Polished Sensing Charm": "Heist Gear T1",
-    "Thaumaturgical Sensing Charm": "Heist Gear T1",
-    "Lustrous Ward": "Heist Gear T1",
-    "Shining Ward": "Heist Gear T1",
-    "Thaumaturgical Ward": "Heist Gear T1",
-    "Winged Sole": "Heist Gear T1",
-    "Silkweave Sole": "Heist Gear T1",
-    "Flanged Drill": "Heist Gear T1",
-    "Fine Sharpening Stone": "Heist Gear T1",
     "Obsidian Sharpening Stone": "Heist Gear T1",
-    "Hollowpoint Arrowhead": "Heist Gear T1",
     "Precise Arrowhead": "Heist Gear T1",
-    "Azurite Flashpowder": "Heist Gear T1",
-    "Thaumetic Flashpowder": "Heist Gear T1",
+    "Burst Band": "Heist Gear T1",
+    "Master Lockpick": "Heist Gear T1",
+    "Steel Bracers": "Heist Gear T1",
     "Thaumetic Blowtorch": "Heist Gear T1",
-    "Torn Cloak": "Heist Gear T2",
-    "Tattered Cloak": "Heist Gear T2",
-    "Hooded Cloak": "Heist Gear T2",
-    "Silver Brooch": "Heist Gear T2",
-    "Simple Lockpick": "Heist Gear T2",
-    "Standard Lockpick": "Heist Gear T2",
-    "Leather Bracers": "Heist Gear T2",
-    "Studded Bracers": "Heist Gear T2",
-    "Basic Disguise Kit": "Heist Gear T2",
-    "Theatre Disguise Kit": "Heist Gear T2",
-    "Crude Sensing Charm": "Heist Gear T2",
-    "Voltaxic Flashpowder": "Heist Gear T2",
-    "Trarthan Flashpowder": "Heist Gear T2",
-    "Crude Ward": "Heist Gear T2",
-    "Eelskin Sole": "Heist Gear T2",
-    "Foxhide Sole": "Heist Gear T2",
-    "Steel Drill": "Heist Gear T2",
-    "Rough Sharpening Stone": "Heist Gear T2",
-    "Standard Sharpening Stone": "Heist Gear T2",
-    "Flanged Arrowhead": "Heist Gear T2",
-    "Fragmenting Arrowhead": "Heist Gear T2",
-    "Sulphur Blowtorch": "Heist Gear T2"
+    "Silkweave Sole": "Heist Gear T1",
+    "Thaumaturgical Ward": "Heist Gear T1",
+    "Thaumaturgical Sensing Charm": "Heist Gear T1",
+    "Thaumetic Flashpowder": "Heist Gear T1",
+    "Grandmaster Keyring": "Heist Gear T1",
+    "Regicide Disguise Kit": "Heist Gear T1",
+    "Whisper-woven Cloak": "Heist Gear T1",
+    "Foliate Brooch": "Heist Gear T1"
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "\"Heist Gear\""
+      },
+      "overrides": {
+        "Tier": "Heist Gear T2",
+        "PlayAlertSound": [
+          "Sharket掉落音效/赏金装备.mp3",
+          300
+        ]
+      },
+      "comment": "所有赏金装备"
+    }
+  ]
 }

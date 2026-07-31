@@ -41,7 +41,9 @@
       "targets": [],
       "conditions": {
         "ItemLevel": ">= 82",
-        "Quality": ">= 20"
+        "Quality": ">= 20",
+        "Class": "== \"Mana Flasks\"",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 1 Mana Flasks"

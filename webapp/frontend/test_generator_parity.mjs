@@ -207,6 +207,16 @@ try {
   // Synthetic gate: Currency/General → "Tier 5 General" hides at 'strict' (idx 3).
   // Patch disk for Python; restore exact bytes afterwards.
   console.log(`\n[B/C] Synthetic gate ${GATE_CAT}/${GATE_TIER} hide_at_strictness=${GATE_LEVEL}:`);
+  // Baselines at the SAME strictness, ungated. These used to be compared against the
+  // 'soft' output, which only worked while no real tier gated at or below semistrict.
+  // The equipment trash net now gates at 2, so semistrict legitimately differs from
+  // soft and the old assertion failed on correct behaviour. Comparing like-for-like
+  // isolates the synthetic gate instead of the whole ladder.
+  const pyStrictBase = runPy('strict');
+  const pySemiBase = runPy('semistrict');
+  const tsStrictBase = runTs(merged.tiers, 'strict');
+  const tsSemiBase = runTs(merged.tiers, 'semistrict');
+
   const gateBackup = readFileSync(GATE_FILE);
   let pyStrict, pySemi;
   try {
@@ -223,17 +233,19 @@ try {
   const tsSemi = runTs(gatedTiers, 'semistrict');
 
   // Case B — at/above threshold: parity holds AND the gate actually fired (output
-  // changed vs baseline, with strictly more Hide blocks). Guards a vacuous pass.
+  // changed vs the ungated run at the SAME level, with strictly more Hide blocks).
+  // Guards a vacuous pass.
   compare('strict: Python vs TS', pyStrict, tsStrict);
-  check('strict: gate changed Python output vs baseline', pyStrict !== pySoft);
+  check('strict: gate changed Python output vs ungated strict', pyStrict !== pyStrictBase);
   check('strict: gate flipped Show→Hide (more Hide lines)',
-        hideCount(pyStrict) > hideCount(pySoft) && hideCount(tsStrict) > hideCount(tsSoft));
+        hideCount(pyStrict) > hideCount(pyStrictBase) && hideCount(tsStrict) > hideCount(tsStrictBase));
 
-  // Case C — below threshold: parity holds AND the gate is inert (== baseline),
-  // proving the threshold comparison is correct and identical on both sides.
+  // Case C — below threshold: parity holds AND the gate is inert, i.e. identical to
+  // the ungated run at the same strictness, proving the threshold comparison is
+  // correct and identical on both sides.
   compare('semistrict: Python vs TS', pySemi, tsSemi);
-  check('semistrict (idx2 < gate3): inert, == baseline on both sides',
-        pySemi === pySoft && tsSemi === tsSoft);
+  check('semistrict (idx2 < gate3): inert vs ungated semistrict, both sides',
+        pySemi === pySemiBase && tsSemi === tsSemiBase);
 
   // Case D/E/F — Campaign module (selection-centric ladder). D: an explicit
   // empty selection must equal the absent-selection baseline (nothing picked =

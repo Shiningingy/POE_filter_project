@@ -18,6 +18,7 @@
         "Sandy Seabed Chart": "沙质海床海图",
         "Coral Forest Chart": "珊瑚森林海图",
         "Coral Reef Chart": "珊瑚礁海图",
+        "Thermal Vents Chart": "海底热泉海图",
         "Mercenary Warrant": "佣兵委托令"
       }
     },
@@ -25,26 +26,59 @@
       "en": "Stackable Currency",
       "ch": "可堆叠通货"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Curse of the Allflame",
+    "match_modes": {}
   },
   "mapping": {
-    "Scrying Orb": "Notable",
     "Merrick's Ducat": "Common",
-    "Cyaxan's Ducat": "Common",
+    "Cyaxan's Ducat": [
+      "CustomTier 1 Curse of the Allflame"
+    ],
     "The Changeling's Ducat": "Common",
     "The Genteel's Ducat": "Common",
     "Kishara's Ducat": "Common",
     "Telesia's Ducat": "Common",
     "Rotmother's Ducat": "Common",
     "Brinehook's Ducat": "Common",
-    "Katakohi's Ducat": "Common",
-    "Tzamoto's Ducat": "Common",
-    "Dead Man's Sulphur": "Common",
-    "Message in a Bottle": "Common",
-    "Sandy Seabed Chart": "Common",
-    "Coral Forest Chart": "Common",
-    "Coral Reef Chart": "Common",
-    "Mercenary Warrant": "Common"
+    "Katakohi's Ducat": [
+      "CustomTier 1 Curse of the Allflame"
+    ],
+    "Tzamoto's Ducat": [
+      "CustomTier 1 Curse of the Allflame"
+    ],
+    "Dead Man's Sulphur": [
+      "CustomTier 4 Curse of the Allflame"
+    ],
+    "Message in a Bottle": "Notable",
+    "Sandy Seabed Chart": [
+      "CustomTier 3 Curse of the Allflame"
+    ],
+    "Coral Forest Chart": [
+      "CustomTier 3 Curse of the Allflame"
+    ],
+    "Coral Reef Chart": [
+      "CustomTier 3 Curse of the Allflame"
+    ],
+    "Thermal Vents Chart": [
+      "CustomTier 3 Curse of the Allflame"
+    ],
+    "Mercenary Warrant": "CustomTier 2 Curse of the Allflame"
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": [
+        "Message in a Bottle"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Notable",
+        "PlayAlertSound": [
+          "Sharket掉落音效/DOTA2_瓶.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Message in a Bottle @ Notable",
+      "sound_scope": true
+    }
+  ]
 }

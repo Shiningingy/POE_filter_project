@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# [parsing_tool group B: CAREFUL] Rerunnable, but it OVERWRITES hand-tuned data.
+# Check `git status` is clean first. See parsing_tool/README.md.
 """Sync base-type Chinese translations from the official GGPK client dump.
 
 The editor displays item base types via each base_mapping file's

@@ -24,25 +24,48 @@
       "en": "Stackable Currency",
       "ch": "圣油"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Oils",
+    "match_modes": {}
   },
   "mapping": {
-    "Reflective Oil": "Tier 1 Oils",
-    "Tainted Oil": "Tier 1 Oils",
-    "Golden Oil": "Tier 1 Oils",
-    "Silver Oil": "Tier 1 Oils",
-    "Opalescent Oil": "Tier 2 Oils",
-    "Black Oil": "Tier 2 Oils",
-    "Crimson Oil": "Tier 2 Oils",
-    "Violet Oil": "Tier 3 Oils",
-    "Indigo Oil": "Tier 3 Oils",
-    "Azure Oil": "Tier 3 Oils",
+    "Reflective Oil": [
+      "Tier 0 Oils"
+    ],
+    "Tainted Oil": [
+      "Tier 0 Oils"
+    ],
+    "Golden Oil": [
+      "Tier 0 Oils"
+    ],
+    "Silver Oil": [
+      "Tier 0 Oils"
+    ],
+    "Opalescent Oil": [
+      "Tier 1 Oils"
+    ],
+    "Black Oil": [
+      "Tier 1 Oils"
+    ],
+    "Crimson Oil": [
+      "Tier 1 Oils"
+    ],
+    "Violet Oil": [
+      "Tier 2 Oils"
+    ],
+    "Indigo Oil": [
+      "Tier 2 Oils"
+    ],
+    "Azure Oil": [
+      "Tier 2 Oils"
+    ],
     "Teal Oil": "Tier 3 Oils",
     "Verdant Oil": "Tier 3 Oils",
     "Amber Oil": "Tier 3 Oils",
     "Sepia Oil": "Tier 3 Oils",
     "Clear Oil": "Tier 3 Oils",
-    "Prismatic Oil": "Tier 1 Stackable Currency"
+    "Prismatic Oil": [
+      "Tier 0 Oils"
+    ]
   },
   "rules": []
 }

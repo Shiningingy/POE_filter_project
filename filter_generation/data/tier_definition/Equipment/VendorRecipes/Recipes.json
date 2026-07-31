@@ -15,12 +15,23 @@
     "6-Link": {
       "class_condition": true,
       "conditions": {
-        "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
-        "LinkedSockets": ">= 6"
+        "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+        "LinkedSockets": ">= 6",
+        "Rarity": "<= Rare"
       },
       "hideable": false,
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#6f612aff",
+        "BorderColor": "#96874aff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star",
+        "PlayAlertSound": [
+          "Sharket掉落音效/6连装备.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": 6,
@@ -34,12 +45,21 @@
     "6-Socket": {
       "class_condition": true,
       "conditions": {
-        "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
-        "Sockets": ">= 6"
+        "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+        "Sockets": ">= 6",
+        "Rarity": "<= Rare"
       },
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#dcd4b7ff",
+        "BackgroundColor": "#827540ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/6洞装备.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": 2,
@@ -53,12 +73,21 @@
     "RGB Linked": {
       "class_condition": true,
       "conditions": {
-        "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
-        "SocketGroup": "RGB"
+        "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+        "SocketGroup": "RGB",
+        "Rarity": "<= Rare"
       },
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "TextColor": "#d5c790ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#332e19ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/幻色装.mp3",
+          100
+        ]
       },
       "sound": {
         "default_sound_id": -1,
@@ -78,16 +107,6 @@
         "ch": "隐藏"
       },
       "is_hide_tier": true
-    },
-    "Tier 1 Sockets Colors Links": {
-      "theme": {
-        "Tier": 1
-      },
-      "localization": {
-        "en": "T1: Sockets Colors Links",
-        "ch": "T1: 洞&色&连"
-      },
-      "show_in_editor": true
     }
   }
 }

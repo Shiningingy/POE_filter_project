@@ -1,0 +1,74 @@
+{
+  "Splinters": {
+    "_meta": {
+      "theme_category": "Map Fragments",
+      "localization": {
+        "en": "Splinters",
+        "ch": "碎片"
+      },
+      "tier_order": [
+        "Tier 0 Splinters",
+        "Tier 1 Splinters",
+        "Tier 2 Splinters",
+        "Tier Hide Splinters"
+      ]
+    },
+    "Tier 1 Splinters": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T1: Worth stopping for",
+        "ch": "T1: 值得停下"
+      }
+    },
+    "Tier 2 Splinters": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T2: Single / small",
+        "ch": "T2: 单个 / 小堆"
+      }
+    },
+    "Tier Hide Splinters": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    },
+    "Tier 0 Splinters": {
+      "hideable": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T0: Big stack",
+        "ch": "T0: 大堆叠"
+      }
+    }
+  }
+}

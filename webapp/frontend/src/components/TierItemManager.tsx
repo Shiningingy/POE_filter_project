@@ -5,6 +5,7 @@ import type { Language } from '../utils/localization';
 import ContextMenu from './ContextMenu';
 import ItemCard from './ItemCard';
 import SoundPicker from './SoundPicker';
+import { SOUND_OVERRIDE_KEYS } from '../utils/themeSoundExport';
 
 interface TierItem {
   name: string;
@@ -31,7 +32,7 @@ interface TierItemManagerProps {
   allTiers: TierOption[]; 
   onMoveItem: (item: TierItem, newTier: string, isAppend?: boolean, oldTier?: string) => void;
   onDeleteItem: (item: TierItem, fromTier: string) => void;
-  onUpdateOverride: (item: TierItem, overrides: any) => void;
+  onUpdateOverride: (item: TierItem, overrides: any, removeKeys?: string[], tierKey?: string, suppressAuto?: boolean) => void;
   onRemoveRuleTarget: (item: TierItem, ruleIndex: number) => void;
   language: Language;
   onRuleEdit?: (tierKey: string, ruleIndex: number) => void;
@@ -39,6 +40,9 @@ interface TierItemManagerProps {
   onRefresh?: () => void;
   soundMap?: any;
   tierStyle?: any;
+  /** Admin mode lifts the protect-guard on `show_in_editor: false` tiers (the 57
+   *  T0 chase rungs), so their items can be deleted and re-tiered by hand. */
+  adminMode?: boolean;
 }
 
 const TierItemManager: React.FC<TierItemManagerProps> = ({
@@ -54,7 +58,8 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   categoryRules = [],
   onRefresh,
   soundMap,
-  tierStyle
+  tierStyle,
+  adminMode = false
 }) => {
   const t = useTranslation(language);
   const [isOpen, setIsOpen] = useState(false);
@@ -90,7 +95,16 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
       if (item.rule_index !== undefined && item.rule_index !== null) {
           const rule = categoryRules[item.rule_index];
           if (rule && rule.overrides) {
-              const overrideKey = ["CustomAlertSound", "AlertSound", "DropSound"].find(k => rule.overrides[k] && !rule.overrides[k].startsWith("disabled:"));
+              // PlayAlertSound MUST be in this list: it is the key the sound picker
+              // and the Sound Bulk Editor write. It was missing, so a sound set
+              // through either path never showed on the card - the filter emitted it
+              // correctly, the editor just could not see it, which reads exactly like
+              // "setting the sound does nothing".
+              // Its value is [file, volume], so string-guard the "disabled:" probe.
+              const overrideKey = SOUND_OVERRIDE_KEYS.find(k => {
+                  const v = rule.overrides[k];
+                  return v && !(typeof v === "string" && v.startsWith("disabled:"));
+              });
               if (overrideKey) {
                   const val = rule.overrides[overrideKey];
                   if (Array.isArray(val)) { 
@@ -107,6 +121,40 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                   }
                   sourceLabel = (t as any).fromRule || "Rule Override";
               }
+          }
+      }
+
+      // 1b. A sound set on THIS item by a rule that is not the card's own rule.
+      // The sound picker and the Sound Bulk Editor write a bare rule - targets: [item],
+      // no conditions, no Tier override - so /api/tier-items produces no separate card
+      // for it and the item keeps rule_index null. Step 1 therefore never saw it, and
+      // the card showed the tier default while the filter happily emitted the custom
+      // sound. Scan the category's rules for one that targets this item and carries a
+      // sound.
+      // A rule pinned to THIS tier is the more specific one and is what the
+      // generator matches first, so it has to win over a bare global rule here too
+      // - otherwise the card shows a sound the filter does not actually emit.
+      if (!soundFile) {
+          const scoped = categoryRules.filter((r: any) =>
+              r?.overrides && r.targets?.includes(item.name) &&
+              !Object.keys(r.conditions || {}).length &&
+              r.overrides.Tier === tierKey);
+          const bare = categoryRules.filter((r: any) =>
+              r?.overrides && r.targets?.includes(item.name) && !r.overrides.Tier);
+          for (const r of [...scoped, ...bare]) {
+              const k = SOUND_OVERRIDE_KEYS.find(key => {
+                  const v = r.overrides[key];
+                  return v && !(typeof v === "string" && v.startsWith("disabled:"));
+              });
+              if (!k) continue;
+              const val = r.overrides[k];
+              if (Array.isArray(val)) { soundFile = val[0]; soundVol = val[1]; }
+              else if (typeof val === 'string') {
+                  const m = val.match(/^(\d+) (\d+)$/);
+                  if (m) { soundFile = `Default/AlertSound${m[1]}.mp3`; soundVol = parseInt(m[2]); }
+                  else soundFile = val;
+              }
+              if (soundFile) { sourceLabel = (t as any).fromRule || "Rule Override"; break; }
           }
       }
 
@@ -255,16 +303,69 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
 
   const handleSoundOverride = (item: TierItem) => {
     const { soundFile, soundVol, sourceLabel } = resolveItemSound(item);
+    // Say so up front when the sound will land on a shared rule. The rule's
+    // conditions are the block, so its targets cannot be given separate sounds
+    // without splitting the rule.
+    const siblings = ruleSiblingCount(item);
+    const source = siblings > 0
+        ? `${sourceLabel} (+${siblings})`
+        : sourceLabel;
     setSoundEditorItem(item);
-    setSoundEditorInitial({ path: soundFile || '', volume: soundVol, source: sourceLabel });
+    setSoundEditorInitial({ path: soundFile || '', volume: soundVol, source });
     setContextMenu(null);
   };
 
+  // tierKey travels with every sound write so the change lands on THIS occurrence.
+  // A base type in three tiers is three blocks and can hold three sounds; the old
+  // call wrote one bare rule for the base type, so all three spoke at once.
   const onSoundConfirm = (path: string, volume: number) => {
       if (soundEditorItem) {
-          onUpdateOverride(soundEditorItem, { PlayAlertSound: [path, volume] });
+          onUpdateOverride(soundEditorItem, { PlayAlertSound: [path, volume] }, undefined, tierKey);
       }
       setSoundEditorItem(null);
+  };
+
+  const hasRuleSound = (item: TierItem) => {
+      const own = item.rule_index != null ? categoryRules[item.rule_index] : null;
+      if (own && SOUND_OVERRIDE_KEYS.some(k => own.overrides?.[k])) return true;
+      return categoryRules.some((r: any) =>
+          r?.targets?.includes(item.name) &&
+          Object.keys(r.conditions || {}).length === 0 &&
+          SOUND_OVERRIDE_KEYS.some(k => r.overrides?.[k]));
+  };
+
+  // Already pinned as "no auto-sound here" - the card is back on its tier's sound.
+  const autoSuppressed = (item: TierItem) =>
+      categoryRules.some((r: any) =>
+          r?.targets?.includes(item.name) && r?.suppress_auto_sound);
+
+  // An auto-sound comes from the sound map, not from any rule, so there is no key
+  // to strip - it needs the pinned-empty-rule route instead.
+  const isAutoSound = (item: TierItem) =>
+      !hasRuleSound(item) && !autoSuppressed(item) &&
+      !!soundMap?.basetype_sounds?.[item.name];
+
+  // Clearing has to be explicit: sound could only ever be ADDED, so an item that
+  // picked up a per-item alert had no way back to its tier's. Removing every sound
+  // key from the occurrence's rule leaves it with nothing to say, and the backend
+  // then drops it - which IS the fallback, since the tier block matches next.
+  const handleClearSound = (item: TierItem) => {
+      onUpdateOverride(item, {}, [...SOUND_OVERRIDE_KEYS], tierKey, isAutoSound(item));
+      setContextMenu(null);
+  };
+
+  // Offer it whenever the card has a sound that is NOT simply inherited from its
+  // tier - a rule's, or one injected per-base-type from the sound map. The
+  // auto-sound was previously unreachable: no rule carried it, so the menu entry
+  // never appeared and the only way to drop it was editing the sound map by hand.
+  const hasOwnSound = (item: TierItem) => hasRuleSound(item) || isAutoSound(item);
+
+  // How many OTHER base types share this card's rule. The sound lives on the rule
+  // (its conditions are the block), so setting one here sets it for all of them.
+  const ruleSiblingCount = (item: TierItem) => {
+      if (item.rule_index == null) return 0;
+      const r = categoryRules[item.rule_index];
+      return Math.max(0, (r?.targets?.length || 0) - 1);
   };
 
   const renderTierLabels = (tier: string | string[] | undefined | null, catCh?: string) => {
@@ -294,8 +395,8 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           return opt && opt.show_in_editor === false;
       });
 
-      // Unlock if it is a rule item
-      const isLocked = !isRuleItem && isLocationLocked && isT0ByOrigin;
+      // Unlock if it is a rule item, or if admin mode has lifted the guard
+      const isLocked = !adminMode && !isRuleItem && isLocationLocked && isT0ByOrigin;
       
       // Calculate local badge index
       let localBadge = item.rule_index; 
@@ -426,12 +527,30 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                         if (onRuleEdit) onRuleEdit(tierKey, contextMenu.item.rule_index!);
                     } 
                 },
-                { 
-                    label: `🗑 ${t.removeFromRule}`, 
+                {
+                    label: `🗑 ${t.removeFromRule}`,
                     onClick: () => onRemoveRuleTarget(contextMenu.item, contextMenu.item.rule_index!),
                     className: "delete-option"
-                }
-            ]
+                },
+                // A card shown as a RULE's target used to get only the two entries
+                // above, so "right-click -> set sound" simply did not exist for it -
+                // and in a category like Uniques most cards are rule targets.
+                //
+                // It is worth having here: the override lands on the item's own tier,
+                // so it applies wherever the owning rule's conditions do NOT match
+                // (a plain Chain Belt takes it; a Replica Chain Belt still takes the
+                // Replica rule's sound, because that block emits first). Use
+                // "go to rule" instead when the sound should belong to the rule.
+                { divider: true, label: '', onClick: () => {} },
+                {
+                    label: `🎵 ${(t as any).soundSelection || "Sound Selection"}`,
+                    onClick: () => handleSoundOverride(contextMenu.item)
+                },
+                ...(hasOwnSound(contextMenu.item) ? [{
+                    label: `🔇 ${(t as any).clearSound || "Clear sound (use tier)"}`,
+                    onClick: () => handleClearSound(contextMenu.item)
+                }] : [])
+            ].map((opt: any) => ({ ...opt, className: opt.divider && !opt.label ? "divider" : (opt.className || "") }))
             : [
                 { title: true, label: (t as any).quickMove, onClick: () => {} },
                 ...allTiers.map(tOption => {
@@ -445,7 +564,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                     })();
 
                     const isCurrent = tOption.key === tierKey;
-                    const isLocked = (isLocationLocked && isT0ByOrigin && contextMenu.item.rule_index === undefined);
+                    const isLocked = (!adminMode && isLocationLocked && isT0ByOrigin && contextMenu.item.rule_index === undefined);
 
                     return {
                         label: isCurrent ? `${tOption.label} ${(t as any).current}` : tOption.label,
@@ -468,7 +587,11 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                     onClick: () => toggleItemMode(contextMenu.item)
                 },
                 { divider: true, label: '', onClick: () => {} },
-                { label: `🎵 ${(t as any).soundSelection || "Sound Selection"}`, onClick: () => handleSoundOverride(contextMenu.item) }
+                { label: `🎵 ${(t as any).soundSelection || "Sound Selection"}`, onClick: () => handleSoundOverride(contextMenu.item) },
+                ...(hasOwnSound(contextMenu.item) ? [{
+                    label: `🔇 ${(t as any).clearSound || "Clear sound (use tier)"}`,
+                    onClick: () => handleClearSound(contextMenu.item)
+                }] : [])
             ].map((opt: any) => ({ ...opt, className: opt.label === "divider" || (opt.divider && !opt.label) ? "divider" : (opt.className || "") }))
           }
         />

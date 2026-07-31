@@ -1,0 +1,141 @@
+#===================================================================
+# PARTIAL FILTER - sections curse of the allflame enshrouding crystals 圣甲虫 笼罩水晶 笼罩物品
+# Cut from complete_filter.filter by parsing_tool/extract_partial.py.
+# Paste ABOVE the blocks it should outrank - PoE is first-match-wins.
+#===================================================================
+
+#==[32000]-通货 Currency - 可堆叠通货 Enshrouding Crystals==
+
+
+#==[32001]- Enshrouding Crystals -笼罩水晶 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Imperial Enshrouding Crystal" "Karui Enshrouding Crystal" "Maraketh Enshrouding Crystal" "Templar Enshrouding Crystal" "Vaal Enshrouding Crystal"
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 2 300
+    MinimapIcon 1 Orange Circle
+
+#==[41000]-Curse of the Allflame Curse of the Allflame - 笼罩物品 Enshrouded Gear==
+
+
+#==[41001]- 笼罩物品 -笼罩装备 笼罩物品 - 基础 - 精确==
+Show
+    BaseType == "Enshrouded Body Armour" "Enshrouded Boots" "Enshrouded Gloves" "Enshrouded Helmet" "Enshrouded Shield"
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    PlayAlertSound 2 300
+    MinimapIcon 1 Orange Circle
+
+#==[42000]-Curse of the Allflame Curse of the Allflame - 可堆叠通货 Curse of the Allflame==
+
+
+#==[42001]- Curse of the Allflame -T1 瓶中信 可堆叠通货 - #1 Override for Message in a Bottle @ Notable - 精确==
+Show
+    BaseType == "Message in a Bottle"
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\DOTA2_瓶.mp3" 300
+    MinimapIcon 1 Orange Circle
+
+#==[42002]- Curse of the Allflame -T1 高级达克特 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Cyaxan's Ducat" "Katakohi's Ducat" "Tzamoto's Ducat"
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 0 0 0 255
+    CustomAlertSound "sound_files\Sharket掉落音效\DOTA2_嘿真棒.mp3" 300
+
+#==[42003]- Curse of the Allflame -T2 普通达克特 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Brinehook's Ducat" "Dead Man's Sulphur" "Kishara's Ducat" "Merrick's Ducat" "Rotmother's Ducat" "Telesia's Ducat" "The Changeling's Ducat" "The Genteel's Ducat"
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
+    CustomAlertSound "sound_files\Sharket掉落音效\DOTA2_金子.mp3" 300
+
+#==[42004]- Curse of the Allflame -佣兵卖身契 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Mercenary Warrant"
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 0 0 0 255
+    CustomAlertSound "sound_files\Sharket掉落音效\你是主人，还是奴隶.mp3" 300
+
+#==[42005]- Curse of the Allflame -海图 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Coral Forest Chart" "Coral Reef Chart" "Sandy Seabed Chart" "Thermal Vents Chart"
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 0 0 0 255
+    CustomAlertSound "sound_files\Sharket掉落音效\DOTA2_开船.mp3" 300
+
+
+#===================================================================================================================
+# [[50000]] 装备 Equipment
+#===================================================================================================================
+
+#==[94001]- 地图碎片 -T0: 圣甲虫 地图碎片 - 基础 - 精确==
+Show
+    BaseType == "Allflame Ember of Kulemak" "Allflame Ember of the Ethereal" "Domination Scarab of Terrors" "Horned Scarab of Awakening" "Horned Scarab of Pandemonium" "Horned Scarab of Preservation"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 200 168 96 255
+    CustomAlertSound "sound_files\Sharket掉落音效\超级圣甲虫.mp3" 100
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+#==[94002]- 地图碎片 -T1: 顶级圣甲虫 地图碎片 - 基础 - 精确==
+Show
+    BaseType == "Abyss Scarab of the Consort" "Ambush Scarab of Containment" "Beyond Scarab of Resurgence" "Blight Scarab of Blooming" "Blight Scarab of Invigoration" "Breach Scarab of Resonant Cascade" "Breach Scarab of the Incensed Swarm" "Breach Scarab of the Marshal" "Essence Scarab of Adaptation" "Essence Scarab of Calcification" "Harvest Scarab of Cornucopia" "Horned Scarab of Bloodlines" "Horned Scarab of Glittering" "Horned Scarab of Tradition" "Legion Scarab of Eternal Conflict" "Ritual Scarab of Abundance" "Scarab of Radiant Storms" "Trarthan Scarab of Renown" "Trarthan Scarab of Surprising Alliances" "Ultimatum Scarab of Catalysing" "Ultimatum Scarab of Dueling"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 200 168 96 255
+    SetBackgroundColor 40 34 19 255
+    CustomAlertSound "sound_files\Sharket掉落音效\超级圣甲虫.mp3" 300
+    PlayEffect Orange
+    MinimapIcon 1 Orange Diamond
+
+#==[94003]- 地图碎片 -T2: 稀有圣甲虫 地图碎片 - 基础 - 精确==
+Show
+    BaseType == "Allflame Ember of K'Tash" "Allflame Ember of the Gilded" "Ambush Scarab of Discernment" "Anarchy Scarab of Partnership" "Betrayal Scarab of Reinforcements" "Betrayal Scarab of the Allflame" "Beyond Scarab of Haemophilia" "Cartography Scarab of Corruption" "Cartography Scarab of Risk" "Delirium Scarab of Delusions" "Delirium Scarab of Neuroses" "Divination Scarab of Pilfering" "Domination Scarab of Evolution" "Essence Scarab of Ascent" "Expedition Scarab of Archaeology" "Harvest Scarab of Doubling" "Horned Scarab of Nemeses" "Incursion Scarab of Champions" "Incursion Scarab of Timelines" "Influencing Scarab of Interference" "Legion Scarab of Officers" "Legion Scarab of Treasures" "Scarab of Stability" "Scarab of the Sinistral" "Titanic Scarab of Legend" "Titanic Scarab of Treasures" "Torment Scarab of Possession" "Trarthan Scarab of Infamy" "Ultimatum Scarab of Inscription"
+    SetFontSize 39
+    SetTextColor 208 181 120 255
+    SetBorderColor 200 168 96 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\高级圣甲虫.mp3" 300
+    MinimapIcon 1 Orange Circle
+
+#==[94004]- 地图碎片 -T3: 少见圣甲虫 地图碎片 - 基础 - 精确==
+Show
+    BaseType == "Abyss Scarab of Multitudes" "Allflame Ember of Propagation" "Allflame Ember of Resplendence" "Allflame Ember of the Wildwood" "Ambush Scarab of Hidden Compartments" "Ambush Scarab of Potency" "Anarchy Scarab of Gigantification" "Bestiary Scarab of the Herd" "Beyond Scarab of the Invasion" "Blight Scarab of the Blightheart" "Breach Scarab of Instability" "Cartography Scarab of the Multitude" "Delirium Scarab of Mania" "Delirium Scarab of Paranoia" "Divination Scarab of Plenty" "Domination Scarab of Apparitions" "Essence Scarab of Stability" "Expedition Scarab of Runefinding" "Expedition Scarab of Verisium Powder" "Influencing Scarab of Hordes" "Kalguuran Scarab of Guarded Riches" "Kalguuran Scarab of Refinement" "Ritual Scarab of Selectiveness" "Ritual Scarab of Wisps" "Scarab of Divinity" "Torment Scarab of Peculiarity" "Trarthan Scarab" "Ultimatum Scarab of Bribing"
+    SetFontSize 36
+    SetTextColor 216 194 144 255
+    SetBorderColor 110 92 53 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\高级圣甲虫.mp3" 300
+
+#==[94005]- 地图碎片 -T4: 普通圣甲虫 地图碎片 - 基础 - 精确==
+Show
+    BaseType == "Abyss Scarab" "Abyss Scarab of Crystals" "Allflame Ember of Flesh" "Allflame Ember of Toads" "Ambush Scarab" "Anarchy Scarab" "Bestiary Scarab" "Bestiary Scarab of Duplicating" "Betrayal Scarab" "Beyond Scarab" "Blight Scarab" "Breach Scarab of the Hive" "Cartography Scarab of Escalation" "Delirium Scarab" "Divination Scarab of The Cloister" "Domination Scarab" "Essence Scarab" "Expedition Scarab" "Harvest Scarab" "Incursion Scarab" "Incursion Scarab of Invasion" "Influencing Scarab of the Elder" "Influencing Scarab of the Shaper" "Kalguuran Scarab" "Legion Scarab" "Scarab of Adversaries" "Scarab of Monstrous Lineage" "Scarab of Wisps" "Sulphite Scarab" "Sulphite Scarab of Fumes" "Titanic Scarab" "Torment Scarab" "Ultimatum Scarab"
+    SetFontSize 34
+    SetTextColor 172 158 130 255
+    SetBorderColor 60 50 29 255
+    SetBackgroundColor 0 0 0 0
+    CustomAlertSound "sound_files\Sharket掉落音效\圣甲虫.mp3" 100
+
+
+#===================================================================================================================
+# [[100000]] 杂项 Misc
+#===================================================================================================================
+

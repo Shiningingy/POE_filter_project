@@ -39,34 +39,34 @@
     "theme_category": "One Hand Axes"
   },
   "mapping": {
-    "Siege Axe": "Tier 1 Axes",
-    "Reaver Axe": "Tier 1 Axes",
-    "Runic Hatchet": "Tier 0 Axes",
-    "Vaal Hatchet": "Tier 0 Axes",
-    "Royal Axe": "Tier 0 Axes",
+    "Siege Axe": "Tier 3 Axes",
+    "Reaver Axe": "Tier 3 Axes",
+    "Runic Hatchet": "Tier 3 Axes",
+    "Vaal Hatchet": "Tier 4 Axes",
+    "Royal Axe": "Tier 4 Axes",
     "Rusted Hatchet": "Tier 4 Axes",
     "Jade Hatchet": "Tier 4 Axes",
     "Boarding Axe": "Tier 4 Axes",
     "Cleaver": "Tier 4 Axes",
     "Broad Axe": "Tier 4 Axes",
-    "Arming Axe": "Tier 3 Axes",
-    "Decorative Axe": "Tier 3 Axes",
-    "Spectral Axe": "Tier 3 Axes",
-    "Etched Hatchet": "Tier 3 Axes",
-    "Jasper Axe": "Tier 2 Axes",
-    "Tomahawk": "Tier 2 Axes",
-    "Wrist Chopper": "Tier 2 Axes",
-    "War Axe": "Tier 2 Axes",
-    "Chest Splitter": "Tier 2 Axes",
-    "Ceremonial Axe": "Tier 1 Axes",
-    "Wraith Axe": "Tier 1 Axes",
-    "Engraved Hatchet": "Tier 1 Axes",
-    "Karui Axe": "Tier 1 Axes",
-    "Butcher Axe": "Tier 0 Axes",
-    "Infernal Axe": "Tier 0 Axes",
-    "Maltreatment Axe": "Tier 3 Axes",
-    "Disapprobation Axe": "Tier 1 Axes",
-    "Psychotic Axe": "Tier 0 Axes"
+    "Arming Axe": "Tier 4 Axes",
+    "Decorative Axe": "Tier 4 Axes",
+    "Spectral Axe": "Tier 4 Axes",
+    "Etched Hatchet": "Tier 4 Axes",
+    "Jasper Axe": "Tier 4 Axes",
+    "Tomahawk": "Tier 4 Axes",
+    "Wrist Chopper": "Tier 4 Axes",
+    "War Axe": "Tier 4 Axes",
+    "Chest Splitter": "Tier 4 Axes",
+    "Ceremonial Axe": "Tier 4 Axes",
+    "Wraith Axe": "Tier 4 Axes",
+    "Engraved Hatchet": "Tier 4 Axes",
+    "Karui Axe": "Tier 4 Axes",
+    "Butcher Axe": "Tier 4 Axes",
+    "Infernal Axe": "Tier 4 Axes",
+    "Maltreatment Axe": "Tier 4 Axes",
+    "Disapprobation Axe": "Tier 4 Axes",
+    "Psychotic Axe": "Tier 4 Axes"
   },
   "rules": [
     {
@@ -76,7 +76,8 @@
         "Runic Hatchet"
       ],
       "conditions": {
-        "ItemLevel": ">= 83"
+        "ItemLevel": ">= 83",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Axes",

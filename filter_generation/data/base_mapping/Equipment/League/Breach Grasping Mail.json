@@ -1,14 +1,18 @@
 {
   "_meta": {
     "localization": {
-      "ch": {}
+      "ch": {
+        "Grasping Mail": "扼杀链甲"
+      }
     },
     "item_class": {
       "en": "Breach Grasping Mail",
       "ch": "扼杀链甲"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Breach Grasping Mail"
   },
-  "mapping": {},
+  "mapping": {
+    "Grasping Mail": "Breach Grasping Mail T1"
+  },
   "rules": []
 }

@@ -23,6 +23,9 @@
       "localization": {
         "en": "Heist Experimented",
         "ch": "夺宝奇兵实验底材"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Heist Experimented Hide": {

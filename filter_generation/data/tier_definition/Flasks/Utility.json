@@ -16,7 +16,14 @@
     "Tier 1 Utility Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#f4e7f8ff",
+        "BorderColor": "#dfb0eeff",
+        "BackgroundColor": "#9f36bfff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond",
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 1,
@@ -25,12 +32,20 @@
       "localization": {
         "en": "T1: Top Utility",
         "ch": "T1: 顶级功能药剂"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier 2 Utility Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#dfb7ebff",
+        "BorderColor": "#c988ddff",
+        "BackgroundColor": "#7e2b97ff",
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 2,
@@ -39,6 +54,9 @@
       "localization": {
         "en": "T2: Standard",
         "ch": "T2: 常用功能药剂"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier Hide Utility Flasks": {
@@ -60,7 +78,14 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#632277ff",
+        "BorderColor": "#9231afff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star",
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 6,
@@ -69,6 +94,9 @@
       "localization": {
         "en": "T0: Absolute Top",
         "ch": "T0: 顶级/核心"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     }
   }

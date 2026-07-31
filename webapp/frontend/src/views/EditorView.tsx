@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import Sidebar from '../components/Sidebar';
 import type { CategoryFile } from '../components/Sidebar';
 import CategoryView from '../components/CategoryView';
@@ -61,39 +61,65 @@ const EditorView: React.FC<EditorViewProps> = ({
   const [pingedCondition, setPingedCondition] = useState<{ tierKey: string, ruleIndex: number, conditionKey: string, timestamp: number } | null>(null);
   const [toast, setToast] = useState<{ message: string, timestamp: number } | null>(null);
   const [tierItems, setTierItems] = useState<Record<string, any[]>>({});
+  // The mapping file's _meta.item_class. Kept OUT of configContent on purpose:
+  // persistConfig writes configContent straight back to the tier_definition, so
+  // merging a mapping-only field in would copy it into 94 tier files.
+  const [mappingItemClass, setMappingItemClass] = useState<string | null>(null);
+  // Mirrors `_meta.suppress_basetype_sounds` from the category's MAPPING file. The
+  // editor injects the same per-basetype sounds the generators do, so without this it
+  // would keep showing an alert the exported filter no longer emits.
+  const [suppressBasetypeSounds, setSuppressBasetypeSounds] = useState(false);
   const [soundMap, setSoundMap] = useState<any>({ basetype_sounds: {}, class_sounds: {} });
   const [themeData, setThemeData] = useState<any>(null);
   const [fallbackMenu, setFallbackMenu] = useState<{ x: number, y: number } | null>(null);
   const [showSoundManager, setShowSoundManager] = useState(false);
   const [showVisibilityOverview, setShowVisibilityOverview] = useState(false);
+  // Lifts the protect-guard on the 57 `show_in_editor: false` T0 chase tiers so
+  // their items can be deleted or re-tiered. Off by default and persisted, so it
+  // survives a reload but is never the state you land in by accident.
+  //
+  // MAINTAINER-ONLY: import.meta.env.DEV is true under `npm run dev` and false in
+  // every production build, so the button is absent and the flag is pinned false
+  // on the deployed site. It gates the initial state as well as the render, so a
+  // stale localStorage '1' carried over from a dev session cannot switch it on.
+  const [adminMode, setAdminMode] = useState<boolean>(
+    () => import.meta.env.DEV && localStorage.getItem('editorAdminMode') === '1'
+  );
+  useEffect(() => {
+    localStorage.setItem('editorAdminMode', adminMode ? '1' : '0');
+  }, [adminMode]);
 
   const API_BASE_URL = '';
 
-  useEffect(() => {
-    const loadTheme = async () => {
-        try {
-            const [settingsRes, overridesRes] = await Promise.all([
-                axios.get(`${API_BASE_URL}/api/settings`),
-                axios.get(`${API_BASE_URL}/api/custom-overrides`)
-            ]);
-            
-            const baseTheme = settingsRes.data.base_theme || 'sharket';
-            const overrides = overridesRes.data || {};
+  // Hoisted out of the mount effect so the sound editor can re-run the SAME load
+  // after it writes. The old inline refetch hardcoded the 'sharket' theme and
+  // skipped the overrides merge, so it could not be reused for anything else.
+  const loadTheme = useCallback(async () => {
+      try {
+          const [settingsRes, overridesRes] = await Promise.all([
+              axios.get(`${API_BASE_URL}/api/settings`),
+              axios.get(`${API_BASE_URL}/api/custom-overrides`)
+          ]);
 
-            const themeRes = await axios.get(`${API_BASE_URL}/api/themes/${baseTheme}`);
-            const baseThemeData = themeRes.data.theme_data;
-            
-            // Merge Base + Overrides
-            const mergedTheme = mergeThemeOverrides(baseThemeData, overrides);
+          const baseTheme = settingsRes.data.base_theme || 'sharket';
+          const overrides = overridesRes.data || {};
 
-            setThemeData(mergedTheme);
-            setSoundMap(themeRes.data.sound_map_data);
-        } catch (err) {
-            console.error("Failed to load theme", err);
-        }
-    };
-    loadTheme();
+          const themeRes = await axios.get(`${API_BASE_URL}/api/themes/${baseTheme}`);
+          const baseThemeData = themeRes.data.theme_data;
+
+          // Merge Base + Overrides
+          const mergedTheme = mergeThemeOverrides(baseThemeData, overrides);
+
+          setThemeData(mergedTheme);
+          setSoundMap(themeRes.data.sound_map_data);
+      } catch (err) {
+          console.error("Failed to load theme", err);
+      }
   }, []);
+
+  useEffect(() => {
+    loadTheme();
+  }, [loadTheme]);
 
   useEffect(() => {
       if (pingedCondition) {
@@ -107,7 +133,20 @@ const EditorView: React.FC<EditorViewProps> = ({
       }
   }, [pingedCondition, language]);
 
+  // Both the category preview (getAugmentedRules) and the item cards read
+  // soundMap.basetype_sounds directly to mirror what the generators inject. Deriving
+  // one map here beats threading a flag through every consumer, and a suppressed
+  // category then behaves exactly as if those entries did not exist - which is what
+  // the exported filter does.
+  const effectiveSoundMap = useMemo(
+    () => (suppressBasetypeSounds ? { ...soundMap, basetype_sounds: {} } : soundMap),
+    [soundMap, suppressBasetypeSounds],
+  );
+
   const isDirtyRef = React.useRef(false);
+  // A ref alone cannot drive the auto-save effect - it never re-renders. This
+  // counter is what markDirty() ticks so the debounce can restart.
+  const [dirtyTick, setDirtyTick] = useState(0);
 
   const inspectedTier = useMemo(() => {
       if (!inspectedTierKey || !configContent) return null;
@@ -122,12 +161,12 @@ const EditorView: React.FC<EditorViewProps> = ({
           
           let rules = catData.rules || catData._meta?.rules || [];
 
-          if (soundMap?.basetype_sounds) {
+          if (effectiveSoundMap?.basetype_sounds) {
               const augmentedRules = [...rules];
               const tierItemNames = items.map(i => i.name);
-              
+
               tierItemNames.forEach(name => {
-                  const sData = soundMap.basetype_sounds[name];
+                  const sData = effectiveSoundMap.basetype_sounds[name];
                   if (sData) {
                       const handled = rules.some((r: any) => r.targets?.includes(name));
                       if (!handled) {
@@ -156,7 +195,7 @@ const EditorView: React.FC<EditorViewProps> = ({
               baseTypes: items.map(i => i.name)
           };
       } catch (e) { return null; }
-  }, [inspectedTierKey, configContent, tierItems, soundMap, themeData]);
+  }, [inspectedTierKey, configContent, tierItems, soundMap, effectiveSoundMap, themeData]);
 
   useEffect(() => {
       const handleBeforeUnload = (e: BeforeUnloadEvent) => {
@@ -169,7 +208,7 @@ const EditorView: React.FC<EditorViewProps> = ({
       return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, []);
 
-  const markDirty = () => { isDirtyRef.current = true; };
+  const markDirty = () => { isDirtyRef.current = true; setDirtyTick((n) => n + 1); };
   const markClean = () => { isDirtyRef.current = false; };
 
   const handleRuleEdit = (_tierKey: string, ruleIndex: number | null) => {
@@ -205,7 +244,11 @@ const EditorView: React.FC<EditorViewProps> = ({
             const mapData = mapRes.data.content;
             const catKey = Object.keys(tierData).find(k => !k.startsWith('//'));
             const mergedData = JSON.parse(JSON.stringify(tierData));
-            
+
+            const mic = mapData?._meta?.item_class;
+            setMappingItemClass(typeof mic === 'string' ? mic : (mic?.en ?? null));
+            setSuppressBasetypeSounds(!!mapData?._meta?.suppress_basetype_sounds);
+
             if (catKey) {
                 if (mapData.rules) {
                     mergedData[catKey].rules = mapData.rules;
@@ -220,10 +263,12 @@ const EditorView: React.FC<EditorViewProps> = ({
     }
   }, [selectedFile]);
 
-  const handleSave = async () => {
+  // `raw` lets a caller persist content it has just built, without waiting for
+  // the parent state round-trip. `silent` skips the alert for automatic saves.
+  const persistConfig = async (raw?: string, silent = false) => {
       if (!selectedFile) return;
       try {
-          const currentViewData = JSON.parse(configContent);
+          const currentViewData = JSON.parse(raw ?? configContent);
           const catKey = Object.keys(currentViewData).find(k => !k.startsWith('//'));
           
           if (catKey) {
@@ -248,14 +293,53 @@ const EditorView: React.FC<EditorViewProps> = ({
                   selectedFile.mapping_path ? axios.post(`${API_BASE_URL}/api/config/${selectedFile.mapping_path}`, mappingToSave) : Promise.resolve()
               ]);
               
-              alert("Saved successfully!");
+              if (!silent) alert("Saved successfully!");
               markClean();
           }
       } catch (e) {
           console.error("Save failed", e);
-          alert("Save failed");
+          if (!silent) alert("Save failed");
+          throw e;
       }
   };
+
+  const handleSave = () => persistConfig();
+
+  // AUTO-SAVE. Rule edits used to live only in component state until this button
+  // was pressed, so collapsing a rule, moving it between tiers, or switching
+  // category silently dropped them. Item tier assignments already posted
+  // immediately, which is what made the inconsistency so easy to miss - half the
+  // editor persisted itself and half did not.
+  //
+  // Debounced rather than per-keystroke: persistConfig does a GET-then-POST per
+  // save, and typing a rule comment would otherwise fire one round trip per
+  // character. The timer restarts on every change, so a save lands once the user
+  // pauses.
+  useEffect(() => {
+    if (dirtyTick === 0 || !selectedFile?.tier_path) return;
+    const timer = setTimeout(() => {
+      if (!isDirtyRef.current) return;
+      persistConfig(undefined, true)
+        .then(() => {
+          setToast({ message: translations[language].autoSaved, timestamp: Date.now() });
+          setTimeout(() => setToast(null), 1200);
+        })
+        .catch(() => {
+          // markClean() never ran, so the beforeunload guard still protects the
+          // edit and the Save button remains the manual fallback.
+          setToast({ message: translations[language].autoSaveFailed, timestamp: Date.now() });
+          setTimeout(() => setToast(null), 2500);
+        });
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [dirtyTick, selectedFile?.tier_path]);
+
+  // A newly inserted tier lives only in editor state until the category is
+  // saved, but assigning items to it posts to the API immediately - so the
+  // backend rejects the write (or, before that guard existed, accepted an
+  // assignment that silently emitted nothing). Persisting the tier the moment
+  // it is created keeps disk and editor in step for every downstream path.
+  const persistNewTier = (raw: string) => persistConfig(raw, true);
 
   const handlePasteStyle = (tierKey: string, style: any) => {
     if (!style || !configContent) return;
@@ -351,8 +435,12 @@ const EditorView: React.FC<EditorViewProps> = ({
   }, [configContent]);
 
   // The editing category's item class (EN) — used to recommend class-applicable
-  // conditions in the rule editor.
+  // conditions in the rule editor. It lives in the MAPPING's _meta (102 of 103
+  // categories); only 9 tier_definitions carry one, so reading configContent
+  // alone left this null nearly everywhere and no condition was ever
+  // recommended beyond the universal ones.
   const categoryClass = useMemo<string | null>(() => {
+      if (mappingItemClass) return mappingItemClass;
       if (!configContent) return null;
       try {
           const parsed = JSON.parse(configContent);
@@ -360,7 +448,7 @@ const EditorView: React.FC<EditorViewProps> = ({
           const ic = catKey ? parsed[catKey]?._meta?.item_class : null;
           return typeof ic === 'string' ? ic : (ic?.en ?? null);
       } catch { return null; }
-  }, [configContent]);
+  }, [configContent, mappingItemClass]);
 
   return (
     <div className="editor-view" onContextMenu={handleGlobalContextMenu}>
@@ -375,6 +463,15 @@ const EditorView: React.FC<EditorViewProps> = ({
         <div className="top-bar">
           <h2>{t.toolbar}</h2>
           <div className="actions">
+             {import.meta.env.DEV && (
+                <button
+                   className={`admin-btn ${adminMode ? 'on' : ''}`}
+                   onClick={() => setAdminMode(!adminMode)}
+                   title={t.adminModeHint}
+                >
+                    {adminMode ? '🔓' : '🔒'} {t.adminMode}
+                </button>
+             )}
              <button className="visibility-btn" onClick={() => setShowVisibilityOverview(true)}>
                  🎚 {t.strictnessGates}
              </button>
@@ -408,13 +505,15 @@ const EditorView: React.FC<EditorViewProps> = ({
                   fetchTierItems={fetchTierItems}
                   defaultMappingPath={selectedFile.mapping_path}
                   categoryClass={categoryClass}
+                  onPersistNewTier={persistNewTier}
                   onUpdateTierItems={handleManualItemUpdate}
                   pingedCondition={pingedCondition}
-                  soundMap={soundMap}
+                  soundMap={effectiveSoundMap}
                   themeData={themeData}
                   strictness={strictness}
                   levelingSelection={levelingSelection}
                   onLevelingSelectionChange={onLevelingSelectionChange}
+                  adminMode={adminMode}
                 />
             )}
           </div>
@@ -435,7 +534,7 @@ const EditorView: React.FC<EditorViewProps> = ({
         viewerBackground={viewerBackground}
         setViewerBackground={setViewerBackground}
         onPingCondition={(tierKey, ruleIdx, condKey) => setPingedCondition({ tierKey, ruleIndex: ruleIdx, conditionKey: condKey, timestamp: Date.now() })}
-        soundMap={soundMap}
+        soundMap={effectiveSoundMap}
         categoryClass={categoryClass}
       />
 
@@ -469,12 +568,7 @@ const EditorView: React.FC<EditorViewProps> = ({
             categoryRules={activeCategoryRules}
             themeData={themeData}
             fullConfig={configContent ? JSON.parse(configContent) : null}
-            onSave={() => {
-                // Re-fetch sound map to keep editor in sync without reload
-                axios.get('/api/themes/sharket')
-                    .then(res => setSoundMap(res.data.sound_map_data))
-                    .catch(err => console.error(err));
-            }}
+            onSave={() => { void loadTheme(); }}
           />
       )}
 
@@ -506,6 +600,16 @@ const EditorView: React.FC<EditorViewProps> = ({
             border-radius: 4px; cursor: pointer; font-size: 0.9rem;
         }
         .visibility-btn:hover { border-color: #4CAF50; color: #2e7d32; }
+        .admin-btn {
+            background: white; color: #333; border: 1px solid #ccc; padding: 8px 16px;
+            border-radius: 4px; cursor: pointer; font-size: 0.9rem;
+        }
+        .admin-btn:hover { border-color: #e53935; color: #c62828; }
+        /* Unmistakable while the guard is lifted - this is not a state to sit in. */
+        .admin-btn.on {
+            background: #c62828; color: #fff; border-color: #c62828; font-weight: 600;
+        }
+        .admin-btn.on:hover { background: #b71c1c; color: #fff; }
 
         .workspace { flex: 1; padding: 0; overflow: hidden; display: flex; }
         .editor-pane { 

@@ -1,14 +1,18 @@
 {
   "_meta": {
     "localization": {
-      "ch": {}
+      "ch": {
+        "Stygian Vise": "深渊腰带"
+      }
     },
     "item_class": {
       "en": "Stygian Vise",
       "ch": "深渊腰带"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Stygian Vise"
   },
-  "mapping": {},
+  "mapping": {
+    "Stygian Vise": "Stygian Vise T1"
+  },
   "rules": []
 }

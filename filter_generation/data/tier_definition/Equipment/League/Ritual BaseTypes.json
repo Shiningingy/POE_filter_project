@@ -23,6 +23,9 @@
       "localization": {
         "en": "Ritual BaseTypes",
         "ch": "仪式底材"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Ritual BaseTypes Hide": {

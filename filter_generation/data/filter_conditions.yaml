@@ -47,6 +47,11 @@ conditions:
   - { key: DropLevel, type: number, default: ">= 0", category: general, applies: [universal], simulatable: true,  label: { en: "Drop Level", ch: "掉落等级" } }
   - { key: AreaLevel, type: number, default: ">= 0", category: general, applies: [universal], simulatable: true,  label: { en: "Area Level", ch: "地区等级" } }
   - { key: Class,     type: class_picker,            category: general, applies: [universal], simulatable: true,  label: { en: "Item Class", ch: "物品类别" } }
+  # Free-text BaseType. Omit `==` for a SUBSTRING match, which is how one line can
+  # stand in for a whole family: `BaseType "Deafening Essence of"` catches all 17
+  # without naming them. A rule carrying this needs no targets - it selects its own
+  # items (generate.py:531). With `==` it is an exact whole-name match.
+  - { key: BaseType,  type: text, placeholder: "\"Deafening Essence of\"  —  omit == for a substring match", category: general, applies: [universal], simulatable: false, label: { en: "Base Type (text)", ch: "基础类型（文本）" } }
   - { key: Width,     type: number, default: ">= 1", category: general, applies: [universal], simulatable: true,  label: { en: "Width",      ch: "宽度" } }
   - { key: Height,    type: number, default: ">= 1", category: general, applies: [universal], simulatable: true,  label: { en: "Height",     ch: "高度" } }
   - { key: Quality,   type: number, default: ">= 0", category: general, applies: [equipment, gems, maps, flasks], simulatable: true, label: { en: "Quality", ch: "品质" } }
@@ -60,7 +65,11 @@ conditions:
   - { key: Scourged,        type: bool, category: status, applies: [equipment, maps],    simulatable: true, label: { en: "Scourged",    ch: "腐化扭曲" } }
 
   # ---- Equipment & mods ---------------------------------------------------
-  - { key: HasInfluence,             type: select, options: [Shaper, Elder, Crusader, Hunter, Redeemer, Warlord, None], category: equipment_mods, applies: [equipment], simulatable: true,  label: { en: "Influence",        ch: "势力影响" } }
+  # HasInfluence takes a LIST and matches ANY of the named influences, so it is a
+  # multi-select, not a single pick. Ticking all six is how you say "any influence"
+  # - PoE has no literal Any token. Maps carry influence too (Elder / Conqueror
+  # maps), so this applies to both trees.
+  - { key: HasInfluence,             type: multiselect, options: [Shaper, Elder, Crusader, Hunter, Redeemer, Warlord, None], category: equipment_mods, applies: [equipment, maps], simulatable: true,  label: { en: "Influence",        ch: "势力影响" } }
   - { key: ShaperItem,               type: bool, category: equipment_mods, applies: [equipment], simulatable: true,  label: { en: "Shaper Item",      ch: "塑界者物品" } }
   - { key: ElderItem,                type: bool, category: equipment_mods, applies: [equipment], simulatable: true,  label: { en: "Elder Item",       ch: "裂界者物品" } }
   - { key: MemoryStrands,            type: number, default: ">= 1", category: equipment_mods, applies: [equipment], simulatable: true,  label: { en: "Memory Strands",   ch: "记忆丝线" } }
@@ -96,10 +105,17 @@ conditions:
   # ---- Maps & endgame -----------------------------------------------------
   - { key: MapTier,           type: number, default: ">= 1", category: maps, applies: [maps], simulatable: true, label: { en: "Map Tier",          ch: "地图阶级" } }
   - { key: BlightedMap,       type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Blighted Map",       ch: "菌潮地图" } }
-  - { key: BlightRavagedMap,  type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Blight-ravaged Map", ch: "菌潮灭绝地图" } }
+  # UberBlightedMap and ZanaMemory are the names GGG documents
+  # (pathofexile.com/item-filter/about). We offered 'BlightRavagedMap' and
+  # 'ZanasMemory', which the game does not know - picking either in the editor would
+  # have emitted an invalid line. Nothing in the tree used them yet.
+  # filterParser.ts already had the correct spellings for reading foreign filters.
+  - { key: UberBlightedMap,   type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Blight-ravaged Map", ch: "菌潮灭绝地图" } }
   - { key: ShapedMap,         type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Shaped Map",         ch: "塑界地图" } }
   - { key: ElderMap,          type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Elder Map",          ch: "裂界地图" } }
-  - { key: ZanasMemory,       type: bool, category: maps, applies: [maps, "Map Fragments"], simulatable: true, label: { en: "Zana's Memory", ch: "扎娜的记忆" } }
+  - { key: MirageMap,         type: bool, category: maps, applies: [maps], simulatable: true, label: { en: "Mirage Map",         ch: "幻影地图" } }
+  - { key: ZanaMemory,        type: bool, category: maps, applies: [maps, "Map Fragments"], simulatable: true, label: { en: "Zana's Memory", ch: "扎娜的记忆" } }
+  - { key: AnyEnchantment,    type: bool, category: maps, applies: [maps], simulatable: false, label: { en: "Any Enchantment (map)", ch: "含有任意附魔（地图）" } }
 
   # ---- Cluster jewels -----------------------------------------------------
   - { key: EnchantmentPassiveNum,  type: number, default: ">= 1", category: jewels, applies: ["Jewels"], simulatable: false, label: { en: "Passive Count", ch: "天赋数量" } }

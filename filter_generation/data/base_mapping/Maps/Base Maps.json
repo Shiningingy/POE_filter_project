@@ -28,7 +28,8 @@
         "Shaper Guardian Map": "塑界守卫地图",
         "Nightmare Map": "梦魇地图",
         "Vaal Temple Map": "瓦尔密殿",
-        "Synthesised Map": "幻境地图"
+        "Synthesised Map": "幻境地图",
+        "Expedition Logbook": "先祖秘藏日志"
       }
     },
     "match_modes": {
@@ -36,131 +37,249 @@
     }
   },
   "mapping": {
-    "Map (Tier 1)": "Tier 1 Maps",
-    "Map (Tier 2)": "Tier 1 Maps",
-    "Map (Tier 3)": "Tier 1 Maps",
-    "Map (Tier 4)": "Tier 1 Maps",
-    "Map (Tier 5)": "Tier 1 Maps",
-    "Map (Tier 6)": "Tier 1 Maps",
-    "Map (Tier 7)": "Tier 1 Maps",
-    "Map (Tier 8)": "Tier 1 Maps",
-    "Map (Tier 9)": "Tier 1 Maps",
-    "Map (Tier 10)": "Tier 1 Maps",
-    "Map (Tier 11)": "Tier 1 Maps",
-    "Map (Tier 12)": "Tier 1 Maps",
-    "Map (Tier 13)": "Tier 1 Maps",
-    "Map (Tier 14)": "Tier 1 Maps",
-    "Map (Tier 15)": "Tier 1 Maps",
-    "Map (Tier 16)": "Tier 1 Maps",
-    "Valdo Map": "Tier 1 Maps",
-    "Shaper Guardian Map": "Tier 1 Maps",
-    "Nightmare Map": "Tier 1 Maps",
-    "Vaal Temple Map": "Tier 1 Maps",
-    "Synthesised Map": "Tier 1 Maps"
+    "Shaper Guardian Map": "Tier 0 Base Maps",
+    "Expedition Logbook": "Tier 0 Base Maps"
   },
   "rules": [
     {
+      "comment": "T17 Maps",
+      "localization": {
+        "en": "T17 Maps",
+        "ch": "T17 地图"
+      },
       "targets": [],
       "conditions": {
+        "Class": "== \"Maps\"",
         "MapTier": "== 17"
       },
       "overrides": {
         "Tier": "Tier 0 Base Maps"
-      },
-      "applyToTier": true,
-      "comment": "T17 Maps"
+      }
     },
     {
+      "comment": "Vaal Temple",
+      "localization": {
+        "en": "Vaal Temple",
+        "ch": "瓦尔密殿"
+      },
+      "targets": [
+        "Vaal Temple Map"
+      ],
+      "conditions": {
+        "MapTier": ">= 16"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps"
+      }
+    },
+    {
+      "comment": "Conquer Influenced Maps",
+      "localization": {
+        "en": "Influenced Maps",
+        "ch": "势力地图"
+      },
       "targets": [],
       "conditions": {
-        "HasInfluence": "Eldritch Shaper Elder Crusader Redeemer Hunter Warlord"
+        "Class": "== \"Maps\"",
+        "HasInfluence": "Crusader Hunter Redeemer Warlord"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/圣战地图.mp3",
+          300
+        ]
+      }
+    },
+    {
+      "comment": "Zana Memory",
+      "localization": {
+        "en": "Zana Memory",
+        "ch": "扎娜的记忆"
+      },
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "ZanaMemory": "True"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps"
+      }
+    },
+    {
+      "comment": "Enchanted Maps",
+      "localization": {
+        "en": "Enchanted Maps",
+        "ch": "附魔地图"
+      },
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "AnyEnchantment": "True"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps"
+      }
+    },
+    {
+      "comment": "8-Mod Corrupted Maps",
+      "localization": {
+        "en": "8-Mod Corrupted Maps",
+        "ch": "8 词缀污染地图"
+      },
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "Corrupted": "True",
+        "Identified": "True"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级天灾地图.mp3",
+          300
+        ]
+      }
+    },
+    {
+      "comment": "T16 Maps",
+      "localization": {
+        "en": "T16 Maps",
+        "ch": "T16 地图"
+      },
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "MapTier": "== 16"
       },
       "overrides": {
         "Tier": "Tier 1 Base Maps"
-      },
-      "applyToTier": true,
-      "comment": "Influenced Maps"
+      }
     },
     {
+      "comment": "Red Maps (T11-T15)",
+      "localization": {
+        "en": "Red Maps (T11-T15)",
+        "ch": "红色地图 (T11-T15)"
+      },
       "targets": [],
       "conditions": {
-        "MapTier": ">= 14"
+        "Class": "== \"Maps\"",
+        "MapTier": "RANGE >= 11 <= 15"
       },
       "overrides": {
         "Tier": "Tier 2 Base Maps"
-      },
-      "applyToTier": true,
-      "comment": "Red Maps (T14-T16)"
+      }
     },
     {
-      "targets": [
-        "City Square Map"
-      ],
-      "conditions": {
-        "MapTier": ">= 14"
+      "comment": "Yellow Maps (T6-T10)",
+      "localization": {
+        "en": "Yellow Maps (T6-T10)",
+        "ch": "黄色地图 (T6-T10)"
       },
-      "overrides": {
-        "Tier": "Tier 2 Base Maps",
-        "BorderColor": "#00ff00ff",
-        "FontSize": 45
-      },
-      "applyToTier": false,
-      "comment": "Highlight: City Square (Green Border)"
-    },
-    {
       "targets": [],
       "conditions": {
-        "MapTier": ">= 11"
+        "Class": "== \"Maps\"",
+        "MapTier": "RANGE >= 6 <= 10"
       },
       "overrides": {
         "Tier": "Tier 3 Base Maps"
-      },
-      "applyToTier": true,
-      "comment": "Mid Reds (T11-T13)"
+      }
     },
     {
+      "comment": "White Maps (T1-T5)",
+      "localization": {
+        "en": "White Maps (T1-T5)",
+        "ch": "白色地图 (T1-T5)"
+      },
       "targets": [],
       "conditions": {
-        "MapTier": ">= 6"
+        "Class": "== \"Maps\"",
+        "MapTier": "RANGE >= 1 <= 5"
       },
       "overrides": {
         "Tier": "Tier 4 Base Maps"
-      },
-      "applyToTier": true,
-      "comment": "Yellow Maps (T6-T10)"
+      }
     },
     {
-      "targets": [],
-      "conditions": {
-        "MapTier": ">= 1"
-      },
-      "overrides": {
-        "Tier": "Tier 5 Base Maps"
-      },
-      "applyToTier": true,
-      "comment": "White Maps (T1-T5)"
-    },
-    {
+      "disabled": true,
+      "comment": "Rarity: Rare (Yellow Text) - retired, never emitted (no tier, no targets)",
       "targets": [],
       "conditions": {
         "Rarity": "== Rare"
       },
-      "overrides": {
-        "TextColor": "#ffff00ff"
-      },
-      "applyToTier": true,
-      "comment": "Rarity: Rare (Yellow Text)"
+      "overrides": {}
     },
     {
+      "disabled": true,
+      "comment": "Rarity: Magic (Blue Text) - retired, never emitted (no tier, no targets)",
       "targets": [],
       "conditions": {
         "Rarity": "== Magic"
       },
-      "overrides": {
-        "TextColor": "#8888ffff"
+      "overrides": {}
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "ElderMap": "True"
       },
-      "applyToTier": true,
-      "comment": "Rarity: Magic (Blue Text)"
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/裂界地图.mp3",
+          300
+        ]
+      },
+      "comment": "Elder Maps"
+    },
+    {
+      "targets": [
+        "Shaper Guardian Map"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/塑界地图.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Shaper Guardian Map @ Tier 0 Base Maps",
+      "sound_scope": true
+    },
+    {
+      "targets": [
+        "Expedition Logbook"
+      ],
+      "conditions": {
+        "AnyEnchantment": "True"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级日志.mp3",
+          300
+        ]
+      },
+      "comment": "附魔日志",
+      "raw": "Rarity <= rare"
+    },
+    {
+      "targets": [
+        "Expedition Logbook"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/先祖日志.mp3",
+          300
+        ]
+      },
+      "comment": "日志",
+      "raw": "Rarity <= Rare"
     }
   ]
 }

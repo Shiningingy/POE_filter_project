@@ -56,7 +56,9 @@
       "targets": [],
       "conditions": {
         "ItemLevel": ">= 82",
-        "Quality": ">= 20"
+        "Quality": ">= 20",
+        "Class": "== \"Life Flasks\"",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 1 Life Flasks"

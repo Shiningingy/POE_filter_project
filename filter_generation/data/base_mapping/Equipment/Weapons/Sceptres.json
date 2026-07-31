@@ -39,34 +39,34 @@
     "theme_category": "Sceptres"
   },
   "mapping": {
-    "Void Sceptre": "Tier 0 Sceptres",
-    "Sambar Sceptre": "Tier 0 Sceptres",
-    "Opal Sceptre": "Tier 1 Sceptres",
+    "Void Sceptre": "Tier 2 Sceptres",
+    "Sambar Sceptre": "Tier 4 Sceptres",
+    "Opal Sceptre": "Tier 2 Sceptres",
     "Driftwood Sceptre": "Tier 4 Sceptres",
     "Darkwood Sceptre": "Tier 4 Sceptres",
     "Bronze Sceptre": "Tier 4 Sceptres",
     "Quartz Sceptre": "Tier 4 Sceptres",
     "Iron Sceptre": "Tier 4 Sceptres",
-    "Ochre Sceptre": "Tier 3 Sceptres",
-    "Ritual Sceptre": "Tier 3 Sceptres",
-    "Shadow Sceptre": "Tier 3 Sceptres",
-    "Grinning Fetish": "Tier 3 Sceptres",
-    "Horned Sceptre": "Tier 2 Sceptres",
-    "Sekhem": "Tier 2 Sceptres",
-    "Crystal Sceptre": "Tier 2 Sceptres",
-    "Lead Sceptre": "Tier 2 Sceptres",
-    "Blood Sceptre": "Tier 2 Sceptres",
-    "Royal Sceptre": "Tier 1 Sceptres",
-    "Abyssal Sceptre": "Tier 1 Sceptres",
-    "Stag Sceptre": "Tier 1 Sceptres",
-    "Karui Sceptre": "Tier 1 Sceptres",
-    "Tyrant's Sekhem": "Tier 1 Sceptres",
-    "Platinum Sceptre": "Tier 0 Sceptres",
-    "Vaal Sceptre": "Tier 0 Sceptres",
-    "Carnal Sceptre": "Tier 0 Sceptres",
-    "Oscillating Sceptre": "Tier 3 Sceptres",
-    "Stabilising Sceptre": "Tier 1 Sceptres",
-    "Alternating Sceptre": "Tier 0 Sceptres"
+    "Ochre Sceptre": "Tier 4 Sceptres",
+    "Ritual Sceptre": "Tier 4 Sceptres",
+    "Shadow Sceptre": "Tier 4 Sceptres",
+    "Grinning Fetish": "Tier 4 Sceptres",
+    "Horned Sceptre": "Tier 4 Sceptres",
+    "Sekhem": "Tier 4 Sceptres",
+    "Crystal Sceptre": "Tier 4 Sceptres",
+    "Lead Sceptre": "Tier 4 Sceptres",
+    "Blood Sceptre": "Tier 4 Sceptres",
+    "Royal Sceptre": "Tier 4 Sceptres",
+    "Abyssal Sceptre": "Tier 4 Sceptres",
+    "Stag Sceptre": "Tier 4 Sceptres",
+    "Karui Sceptre": "Tier 4 Sceptres",
+    "Tyrant's Sekhem": "Tier 4 Sceptres",
+    "Platinum Sceptre": "Tier 3 Sceptres",
+    "Vaal Sceptre": "Tier 3 Sceptres",
+    "Carnal Sceptre": "Tier 3 Sceptres",
+    "Oscillating Sceptre": "Tier 4 Sceptres",
+    "Stabilising Sceptre": "Tier 4 Sceptres",
+    "Alternating Sceptre": "Tier 4 Sceptres"
   },
   "rules": [
     {
@@ -75,7 +75,8 @@
         "Sambar Sceptre"
       ],
       "conditions": {
-        "ItemLevel": ">= 83"
+        "ItemLevel": ">= 83",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Sceptres",

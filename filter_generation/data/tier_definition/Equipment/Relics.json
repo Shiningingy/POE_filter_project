@@ -26,7 +26,8 @@
       },
       "class_condition": true,
       "conditions": {
-        "Class": "\"Relics\" \"Small Relics\" \"Medium Relics\" \"Large Relics\" \"Sanctified Relics\""
+        "Class": "\"Relics\" \"Small Relics\" \"Medium Relics\" \"Large Relics\" \"Sanctified Relics\"",
+        "Rarity": "<= Rare"
       }
     },
     "Relics Hide": {

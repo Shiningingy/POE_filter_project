@@ -2,6 +2,7 @@ import json
 import re
 import os
 import sys
+import copy
 import argparse
 from pathlib import Path
 from collections import defaultdict
@@ -81,8 +82,8 @@ _rgba_re = re.compile(r"rgba?(\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?")
 
 # Localization Terms
 TERMS = {
-    "en": {"Rule": "Rule", "Base": "Base", "Auto-Sound": "Auto-Sound", "Exact": "Exact", "Partial": "Partial"},
-    "ch": {"Rule": "规则", "Base": "基础", "Auto-Sound": "自动音效", "Exact": "精确", "Partial": "模糊"}
+    "en": {"Rule": "Rule", "Base": "Base", "Auto-Sound": "Auto-Sound", "Exact": "Exact", "Partial": "Partial", "Self": "Self-matched"},
+    "ch": {"Rule": "规则", "Base": "基础", "Auto-Sound": "自动音效", "Exact": "精确", "Partial": "模糊", "Self": "自选"}
 }
 # Output language — CLI-configurable via --language; default 'ch' preserves prior behavior.
 LANG = _parsed.language
@@ -112,10 +113,22 @@ def tr(key):
 # ---------- UTILITIES ----------
 def style_off(value):
     """True when a theme/override style value means OMIT the line entirely: the
-    editor's 'disabled:' toggle, or the designer sentinels 'inherit' (TextColor
+    editor's 'disabled:' toggle, the designer sentinels 'inherit' (TextColor
     keeps the rarity colour) / 'default' (BackgroundColor keeps the game's
-    default label bg). Mirrors styleOff() in filterGenerator.ts — the editor
-    preview (styleResolver) omits these too, so preview == export."""
+    default label bg), and — critically — an ABSENT value.
+
+    An absent key is the designer's primary way of saying "let the game paint
+    this". 441 of the 998 theme rows omit `TextColor` on purpose: every gear
+    class, Campaign, and every rarity-inherited family gives up its text channel
+    so the RARITY colour shows through. We were falling through to
+    parse_rgba(None) = white and painting over it, so a rare staff rendered with
+    a white name and read as a plain normal item. Same for the 98 rows that omit
+    `BackgroundColor` and want the game's own 0 0 0 190 label.
+
+    Mirrors styleOff() in filterGenerator.ts — the editor preview (styleResolver)
+    omits these too, so preview == export."""
+    if value is None:
+        return True
     return isinstance(value, str) and (value.startswith("disabled:") or value in ("inherit", "default"))
 
 def parse_rgba(value, default="255 255 255 255"):
@@ -136,27 +149,104 @@ def parse_rgba(value, default="255 255 255 255"):
             return f"{r} {g} {b} {a}"
     return default
 
+_STYLE_PREFIXES = ("    Set", "    PlayEffect", "    MinimapIcon",
+                   "    CustomAlertSound", "    PlayAlertSound")
+
+
+def block_text(block_lines, is_hide):
+    """Join a block, dropping style lines when it is a hide block.
+
+    A `Hide` block renders nothing, so its styling was always dead weight. Under
+    RUTHLESS it is worse than dead: GGG does not permit `Hide` there, so HIDE_CMD
+    is `Minimal` — which still DRAWS a label. Emitting a font size and a plate on
+    it makes the very thing we are trying to quieten more visible, not less.
+    NeverSink's Ruthless filter emits conditions only on its Minimal blocks
+    ("Hide-Section replaced with minimal"). Mirrors blockText() in
+    filterGenerator.ts — parity-guarded."""
+    if is_hide:
+        block_lines = [l for l in block_lines if not l.startswith(_STYLE_PREFIXES)]
+    return "\n".join(block_lines) + "\n"
+
+
+_cond_op_re = re.compile(r"^(==|!=|<=|>=|<|>|=)\s*(\S.*)$")
+
+def norm_op(val):
+    """PoE needs a SPACE between a comparison operator and its value: the game
+    rejects `StackSize >=10` outright ("cannot be recognised") while
+    `StackSize >= 10` parses. Both spellings are authorable in the editor and the
+    tree contains both — `>= 300` and `>= 50` alongside `>=10`, `>=100`, `>=1000`,
+    `>=3000` — so one bad line broke the whole filter in game. Normalising on emit
+    fixes every existing case and any future one, instead of chasing the data.
+    Mirrors normOp() in filterGenerator.ts."""
+    if not isinstance(val, str):
+        return val
+    m = _cond_op_re.match(val.strip())
+    return f"{m.group(1)} {m.group(2)}" if m else val
+
+
+def sound_line_from_pair(pair):
+    """[file, volume] -> a filter sound line, or None."""
+    if not pair or not isinstance(pair, list) or len(pair) != 2:
+        return None
+    file, vol = pair
+    if not isinstance(file, str):
+        return None
+    if file.startswith("Default/AlertSound"):
+        num = re.search(r"\d+", file).group(0)
+        return f"PlayAlertSound {num} {vol}"
+    win_path = file.replace("/", "\\")
+    # NO "sound_files\" prefix: the game resolves a CustomAlertSound path relative
+    # to the FILTER's own folder, not to this repo. Players drop the shipped
+    # `Sharket掉落音效\` folder next to the .filter, which is what Sharket's own
+    # released filter emits. Prefixing our repo's container directory made every
+    # alert silently fail to load in game. (Mirrors filterGenerator.ts.)
+    return f'CustomAlertSound "{win_path}" {vol}'
+
+
 def resolve_sound(tier_entry, sound_map, override_sound=None):
-    """Priority: override sound -> sharket -> default"""
+    """Priority: rule override -> tier theme.PlayAlertSound -> sharket -> default"""
     # If user provided a specific override [file, vol] in a rule
-    if override_sound and isinstance(override_sound, list):
-        file, vol = override_sound
-        if file.startswith("Default/AlertSound"):
-            num = re.search(r"\d+", file).group(0)
-            return f"PlayAlertSound {num} {vol}"
-        else:
-            win_path = file.replace("/", "\\")
-            return f'CustomAlertSound "sound_files\\{win_path}" {vol}'
+    line = sound_line_from_pair(override_sound)
+    if line:
+        return line
+
+    # The tier style editor writes the sound it picks to theme.PlayAlertSound.
+    # Nothing read it, so choosing a sound for a tier appeared to save and then
+    # did nothing. A rule's own override still wins over it, which is why this
+    # sits below the branch above.
+    # An EXPLICIT disable silences the tier outright and must NOT fall through to
+    # the `sound` block below — that fallback is the whole reason a tier could not
+    # be muted from the editor before: clearing the picked sound just re-exposed
+    # whatever sharket_sound_id/default_sound_id the tier was seeded with.
+    # Checked on the raw string, not via style_off(), because style_off(None) is
+    # True and an ABSENT PlayAlertSound must still fall through.
+    theme_snd = (tier_entry.get("theme") or {}).get("PlayAlertSound")
+    if isinstance(theme_snd, str) and (theme_snd.startswith("disabled:")
+                                       or theme_snd in ("inherit", "default")):
+        return None
+    line = sound_line_from_pair(theme_snd)
+    if line:
+        return line
 
     # Handle the new sound_map structure (dict with basetype_sounds and class_sounds)
     sb = tier_entry.get("sound", {})
-    
-    # Check if sound_map has tiered default IDs
-    if sb.get("sharket_sound_id") and "class_sounds" in sound_map and sb["sharket_sound_id"] in sound_map["class_sounds"]:
-        s = sound_map["class_sounds"][sb["sharket_sound_id"]]
-        win_path = s["file"].replace("/", "\\")
-        return f'CustomAlertSound "sound_files\\{win_path}" {s["volume"]}'
-    
+
+    # sharket_sound_id was authored WITH the ".mp3" extension in 192 of 197 tiers,
+    # but class_sounds is keyed by the bare stem ("顶级底材", not "顶级底材.mp3").
+    # The old exact-match lookup therefore missed nearly every tier and fell through
+    # to default_sound_id - so a tier asking for a custom Sharket sound played a
+    # stock PoE alert instead, or, where default_sound_id was -1, was silent.
+    sid = sb.get("sharket_sound_id")
+    class_sounds = sound_map.get("class_sounds") or {}
+    if sid:
+        s = class_sounds.get(sid)
+        if s is None and sid.lower().endswith(".mp3"):
+            s = class_sounds.get(sid[:-4])
+        if s is not None:
+            win_path = s["file"].replace("/", "\\")
+            return f'CustomAlertSound "{win_path}" {s["volume"]}'
+
+
     # 2. Default Sound
     if sb.get("default_sound_id") is not None and sb["default_sound_id"] != -1:
         return f'PlayAlertSound {sb["default_sound_id"]} 300'
@@ -465,16 +555,16 @@ def generate_filter():
                     if isinstance(val, list):
                         # Repeated condition lines (AND), e.g. two HasInfluence lines
                         for v in val:
-                            block_lines.append(f"    {key} {v}")
+                            block_lines.append(f"    {key} {norm_op(v)}")
                     elif val.startswith("RANGE "):
                         parts = val.split()
                         block_lines.append(f"    {key} {parts[1]} {parts[2]}")
                         block_lines.append(f"    {key} {parts[3]} {parts[4]}")
                     elif key == "Rarity":
                         clean_val = val[2:].strip() if val.strip().startswith("==") else val
-                        block_lines.append(f"    {key} {clean_val}")
+                        block_lines.append(f"    {key} {norm_op(clean_val)}")
                     else:
-                        block_lines.append(f"    {key} {val}")
+                        block_lines.append(f"    {key} {norm_op(val)}")
                 # Disabled/sentinel styles are OMITTED (see style_off) so the editor
                 # preview and the exported filter agree. (Mirrors filterGenerator.ts.)
                 block_lines.append(f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}')
@@ -491,13 +581,27 @@ def generate_filter():
                     block_lines.append(f"    PlayEffect {base_play_eff}")
                 if base_mini_icon and not style_off(base_mini_icon):
                     block_lines.append(f"    MinimapIcon {base_mini_icon}")
-                out_lines.append("\n".join(block_lines) + "\n")
+                out_lines.append(block_text(block_lines, is_hide))
                 continue  # Skip normal BaseType processing for this tier
 
-            all_rules = map_doc.get("rules", [])
+            # Deep copy PER TIER, matching filterGenerator.ts. This used to alias
+            # map_doc["rules"] itself, so auto-sound rules appended during one
+            # tier's pass survived into the next; `already_handled` then saw the
+            # stale rule and skipped re-injecting. Invisible while those rules
+            # carried no conditions - the moment they inherited the tier's, a base
+            # in several bands (Stygian Vise is in Crafting Chase 86/85/84/83) got
+            # the FIRST band's ItemLevel in every later block.
+            all_rules = copy.deepcopy(map_doc.get("rules", []))
             
             # --- AUTO-INJECT SOUND RULES FROM MAP ---
-            bt_sounds = sound_map.get("basetype_sounds", {})
+            # basetype_sounds is GLOBAL: a base type with an entry gets a per-item
+            # sound in every category that carries it. `suppress_basetype_sounds` on a
+            # category's mapping _meta opts that category out, so the base keeps its
+            # per-item sound elsewhere while this category speaks with one voice - the
+            # tier's own sound. Uniques uses it: 19 of its blocks were per-item alerts
+            # that drowned out the tier ladder.
+            bt_sounds = {} if map_doc.get("_meta", {}).get("suppress_basetype_sounds") \
+                else sound_map.get("basetype_sounds", {})
             for item_name in items:
                 if item_name in bt_sounds:
                     s_data = bt_sounds[item_name]
@@ -506,6 +610,14 @@ def generate_filter():
                     if not already_handled:
                         all_rules.append({
                             "targets": [item_name],
+                            # Inherit the TIER's conditions. Tier conditions are emitted
+                            # only on the base block, and an injected rule authors none
+                            # of its own, so without this the sound block dropped every
+                            # gate its tier declared - Rarity <= Rare, Corrupted False,
+                            # the ItemLevel band. A unique Stygian Vise was rendering as
+                            # an ilvl-86 crafting base because its auto-sound block said
+                            # only BaseType == "Stygian Vise".
+                            "conditions": copy.deepcopy(tier_entry.get("conditions") or {}),
                             "overrides": { "PlayAlertSound": [s_data["file"], s_data["volume"]] },
                             "comment": f"__AUTO_SOUND__:{item_name}"
                         })
@@ -524,13 +636,37 @@ def generate_filter():
                 
                 rule_matches = []
 
+                # A rule can bring its OWN item selector instead of a target list:
+                # a `raw` block, or a BaseType/Class condition. That is the only way
+                # to express "every Deafening Essence" without naming all 17 - a
+                # partial BaseType match collapses them to one line. Such a rule
+                # emits a block with NO generated BaseType line; its own lines match.
+                #
+                # ANY condition counts, not just BaseType/Class. A rule that says
+                # `Rarity Unique` + `LinkedSockets >= 6` is a complete selector on its
+                # own - "every six-linked unique" - and needs no target list. Requiring
+                # BaseType or Class meant 13 such rules across the tree were silently
+                # SKIPPED: the author had written the condition, the editor previewed a
+                # block, and the generated filter simply did not contain it.
+                #
+                # A rule with targets still uses them: this is only consulted after the
+                # applyToTier and rule_targets branches below.
+                self_selecting = bool(rule.get("raw")) or bool(rule.get("conditions"))
+
                 if rule_tier_override:
                     if rule_tier_override == t_lbl:
                         if apply_to_tier:
-                            rule_matches = list(pending_items)
+                            # sorted(), not list(): a Python set iterates in hash
+                            # order, which is randomised per process, so this made
+                            # the generated filter differ between runs. The TS
+                            # generator's Set iterates in insertion order, so the
+                            # two also disagreed. Both now sort (ADR-0001 parity).
+                            rule_matches = sorted(pending_items)
                         elif rule_targets:
                             # Strict instruction: If rule targets this tier, pull it in!
                             rule_matches = rule_targets
+                        elif self_selecting:
+                            rule_matches = []   # the rule's own lines do the matching
                         else:
                             continue
                     else:
@@ -544,7 +680,7 @@ def generate_filter():
                     else:
                         continue
                 
-                if not rule_matches: continue
+                if not rule_matches and not self_selecting: continue
 
                 exact_group = []
                 partial_group = []
@@ -553,8 +689,12 @@ def generate_filter():
                     if mode == "exact": exact_group.append(m)
                     else: partial_group.append(m)
 
-                for subgroup, mode_label, is_strict in [(exact_group, "Exact", True), (partial_group, "Partial", False)]:
-                    if not subgroup: continue
+                # is_strict None = self-matched: one block, no generated BaseType line.
+                groups = ([(exact_group, "Exact", True), (partial_group, "Partial", False)]
+                          if rule_matches else [([], "Self", None)])
+
+                for subgroup, mode_label, is_strict in groups:
+                    if is_strict is not None and not subgroup: continue
                     
                     block_index += 1
                     
@@ -578,22 +718,20 @@ def generate_filter():
                     tier_display_r = tier_entry.get("localization", {}).get(LANG) or tier_entry.get("localization", {}).get("en") or f"Tier {tnum}"
                     out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -{tier_display_r} {loc_cat} - {rule_part} - {final_mode}==")
                     
-                    joined = '" "'.join(subgroup)
                     cmd = HIDE_CMD if is_hide else "Show"
-                    bt_operator = " == " if is_strict else " "
-                    
-                    block_lines = [
-                        f'{cmd}',
-                        f'    BaseType{bt_operator}"{joined}"'
-                    ]
-                    
+                    block_lines = [f'{cmd}']
+                    if is_strict is not None:
+                        joined = '" "'.join(subgroup)
+                        bt_operator = " == " if is_strict else " "
+                        block_lines.append(f'    BaseType{bt_operator}"{joined}"')
+
                     extra_conditions = rule.get("conditions")
                     if extra_conditions:
                         for key, val in extra_conditions.items():
                             if isinstance(val, list):
                                 # Repeated condition lines (AND), e.g. two HasInfluence lines
                                 for v in val:
-                                    block_lines.append(f"    {key} {v}")
+                                    block_lines.append(f"    {key} {norm_op(v)}")
                             elif val.startswith("RANGE "):
                                 parts = val.split(" ")
                                 if len(parts) >= 5:
@@ -601,9 +739,9 @@ def generate_filter():
                                     block_lines.append(f"    {key} {parts[3]} {parts[4]}")
                             elif key == "Rarity":
                                 clean_val = val[2:].strip() if val.strip().startswith("==") else val
-                                block_lines.append(f"    {key} {clean_val}")
+                                block_lines.append(f"    {key} {norm_op(clean_val)}")
                             else:
-                                block_lines.append(f"    {key} {val}")
+                                block_lines.append(f"    {key} {norm_op(val)}")
 
                     if rule.get("raw"):
                         for r_line in rule.get("raw").split('\n'):
@@ -629,7 +767,7 @@ def generate_filter():
                     r_icon = r_over.get("MinimapIcon", base_mini_icon)
                     if r_icon and not style_off(r_icon): block_lines.append(f"    MinimapIcon {r_icon}")
                     
-                    out_lines.append("\n".join(block_lines) + "\n")
+                    out_lines.append(block_text(block_lines, is_hide))
 
                 for m in rule_matches:
                     pending_items.discard(m)
@@ -670,16 +808,16 @@ def generate_filter():
                         if isinstance(val, list):
                             # Repeated condition lines (AND), e.g. two HasInfluence lines
                             for v in val:
-                                block_lines.append(f"    {key} {v}")
+                                block_lines.append(f"    {key} {norm_op(v)}")
                         elif val.startswith("RANGE "):
                             parts = val.split()
                             block_lines.append(f"    {key} {parts[1]} {parts[2]}")
                             block_lines.append(f"    {key} {parts[3]} {parts[4]}")
                         elif key == "Rarity":
                             clean_val = val[2:].strip() if val.strip().startswith("==") else val
-                            block_lines.append(f"    {key} {clean_val}")
+                            block_lines.append(f"    {key} {norm_op(clean_val)}")
                         else:
-                            block_lines.append(f"    {key} {val}")
+                            block_lines.append(f"    {key} {norm_op(val)}")
 
                     # Disabled/sentinel styles are OMITTED (see style_off).
                     block_lines.append(f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}')
@@ -695,7 +833,7 @@ def generate_filter():
                     if base_play_eff and not style_off(base_play_eff): block_lines.append(f"    PlayEffect {base_play_eff}")
                     if base_mini_icon and not style_off(base_mini_icon): block_lines.append(f"    MinimapIcon {base_mini_icon}")
                     
-                    out_lines.append("\n".join(block_lines) + "\n")
+                    out_lines.append(block_text(block_lines, is_hide))
 
     # Footer (data/footer.filter): appended verbatim at the very end —
     # the unknown-items catch-all block lives there (hand-maintained).

@@ -1,0 +1,102 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Splinter of Xoph": "裂隙碎片(索伏)",
+        "Splinter of Tul": "裂隙碎片(托沃)",
+        "Splinter of Esh": "裂隙碎片(艾许)",
+        "Splinter of Uul-Netol": "裂隙碎片(乌尔尼多)",
+        "Splinter of Chayula": "裂隙碎片(夏乌拉)",
+        "Timeless Karui Splinter": "永恒卡鲁裂片",
+        "Timeless Maraketh Splinter": "永恒马拉克斯裂片",
+        "Timeless Eternal Empire Splinter": "永恒帝国裂片",
+        "Timeless Templar Splinter": "永恒圣堂裂片",
+        "Timeless Vaal Splinter": "永恒瓦尔裂片",
+        "Simulacrum Splinter": "梦魇拟像裂片",
+        "Ritual Splinter": "驱灵裂片",
+        "Crescent Splinter": "新月裂片"
+      }
+    },
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Fragment Splinters",
+    "match_modes": {}
+  },
+  "mapping": {
+    "Timeless Maraketh Splinter": "Tier 2 Splinters",
+    "Timeless Eternal Empire Splinter": "Tier 2 Splinters",
+    "Timeless Vaal Splinter": "Tier 2 Splinters",
+    "Simulacrum Splinter": "Tier 2 Splinters",
+    "Ritual Splinter": "Tier 2 Splinters",
+    "Timeless Karui Splinter": "Tier 2 Splinters",
+    "Timeless Templar Splinter": "Tier 2 Splinters"
+  },
+  "rules": [
+    {
+      "comment": "梦魇拟像 50+",
+      "targets": [
+        "Simulacrum Splinter"
+      ],
+      "conditions": {
+        "StackSize": ">= 50"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Splinters",
+        "PlayAlertSound": [
+          "Sharket掉落音效/666.mp3",
+          300
+        ]
+      }
+    },
+    {
+      "comment": "拟像 11-49",
+      "targets": [
+        "Simulacrum Splinter"
+      ],
+      "conditions": {
+        "StackSize": ">= 11"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Splinters",
+        "PlayAlertSound": [
+          "Sharket掉落音效/拟像裂片.mp3",
+          300
+        ]
+      }
+    },
+    {
+      "comment": "军团碎片 5+",
+      "targets": [
+        "Timeless Eternal Empire Splinter",
+        "Timeless Karui Splinter",
+        "Timeless Maraketh Splinter",
+        "Timeless Templar Splinter",
+        "Timeless Vaal Splinter"
+      ],
+      "conditions": {
+        "StackSize": ">= 5"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Splinters",
+        "PlayAlertSound": [
+          "Sharket掉落音效/永恒裂片.mp3",
+          300
+        ]
+      }
+    },
+    {
+      "targets": [
+        "Ritual Splinter"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 2 Splinters"
+      },
+      "comment": "No auto-sound for Ritual Splinter @ Tier 2 Splinters",
+      "sound_scope": true,
+      "suppress_auto_sound": true
+    }
+  ]
+}

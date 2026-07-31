@@ -14,7 +14,14 @@
     "Talismans T1": {
       "hideable": true,
       "theme": {
-        "Tier": 5
+        "Tier": 5,
+        "FontSize": 40,
+        "BorderColor": "#72adcbff",
+        "BackgroundColor": "#0c1013ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/魔符.mp3",
+          100
+        ]
       },
       "sound": {
         "default_sound_id": -1,
@@ -23,6 +30,9 @@
       "localization": {
         "en": "Talismans",
         "ch": "护身符"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Talismans Hide": {

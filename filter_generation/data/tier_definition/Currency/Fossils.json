@@ -10,6 +10,7 @@
         "Tier 0 Fossils",
         "Tier 1 Fossils",
         "Tier 2 Fossils",
+        "CustomTier 1 Fossils",
         "Tier Hide Fossils"
       ]
     },
@@ -23,8 +24,8 @@
         "sharket_sound_id": "高级化石.mp3"
       },
       "localization": {
-        "en": "T1: Rare Fossils",
-        "ch": "T1: 顶级化石"
+        "en": "T2: 三孔/特殊化石",
+        "ch": "T2: 三孔/特殊化石"
       }
     },
     "Tier 2 Fossils": {
@@ -37,8 +38,8 @@
         "sharket_sound_id": "化石.mp3"
       },
       "localization": {
-        "en": "T2: Common Fossils",
-        "ch": "T2: 普通化石"
+        "en": "T3: 双孔/高级化石",
+        "ch": "T3: 双孔/高级化石"
       }
     },
     "Tier Hide Fossils": {
@@ -67,8 +68,22 @@
         "sharket_sound_id": "顶级底材.mp3"
       },
       "localization": {
-        "en": "T0: Absolute Top",
-        "ch": "T0: 顶级/核心"
+        "en": "T1: 四孔/高价值化石",
+        "ch": "T1: 四孔/高价值化石"
+      }
+    },
+    "CustomTier 1 Fossils": {
+      "theme": {
+        "Tier": 3
+      },
+      "hideable": false,
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Custom Tier #1",
+        "ch": "自定义阶级 #1"
       }
     }
   }

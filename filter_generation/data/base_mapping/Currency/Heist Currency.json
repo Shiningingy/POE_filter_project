@@ -1,8 +1,5 @@
 {
   "_meta": {
-    "excluded_modes": [
-      "ruthless"
-    ],
     "localization": {
       "ch": {
         "Rogue's Marker": "赏金猎人印记",
@@ -14,12 +11,26 @@
       "en": "Stackable Currency",
       "ch": "可堆叠通货"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Heist",
+    "match_modes": {}
   },
   "mapping": {
-    "Rogue's Marker": "Tier 1 Heist Currency",
-    "Tempering Orb": "Tier 1 Heist Currency",
-    "Tailoring Orb": "Tier 1 Heist Currency"
+    "Rogue's Marker": [
+      "Tier 1 Heist Currency",
+      "Tier 0 Heist Currency"
+    ]
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": [],
+      "conditions": {
+        "StackSize": ">=200"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Heist Currency"
+      },
+      "comment": ">=200",
+      "applyToTier": true
+    }
+  ]
 }

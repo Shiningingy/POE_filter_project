@@ -1,0 +1,162 @@
+{
+  "source": "poewiki.net/wiki/Ruthless_mode (saved by hand; the page 403s to every fetch route)",
+  "drop_disabled": [
+    "Awakener's Orb",
+    "Blink Arrow",
+    "Bodyswap",
+    "Charged Dash",
+    "Crusader's Exalted Orb",
+    "Dash",
+    "Delirium Orb (generic)",
+    "Divine Vessel",
+    "Elder's Exalted Orb",
+    "Enkindling Orb",
+    "Flame Dash",
+    "Frostblink",
+    "Hunter's Exalted Orb",
+    "Instilling Orb",
+    "Item Rarity Support",
+    "Leap Slam",
+    "Lightning Warp",
+    "Oni-Goroshi",
+    "Orb of Binding",
+    "Orb of Dominance",
+    "Phase Run",
+    "Redeemer's Exalted Orb",
+    "Shaper's Exalted Orb",
+    "Shield Charge",
+    "Smoke Mine",
+    "Stacked Deck",
+    "Stormbind of Teleportation",
+    "Tailoring Orb",
+    "Tempering Orb",
+    "Thief's Trinket",
+    "Vaal Venom Gyre",
+    "Veiled Chaos Orb",
+    "Veiled Exalted Orb",
+    "Venom Gyre",
+    "Warlord's Exalted Orb",
+    "Whirling Blades",
+    "Withering Step"
+  ],
+  "ruthless_exclusive": [
+    "Delirium Orb (generic)",
+    "Eternal Orb",
+    "Quickstep",
+    "Uncarved Gemstone"
+  ],
+  "sections": {
+    "removed": {
+      "names": [],
+      "bullets": []
+    },
+    "removed_items": {
+      "names": [
+        "Delirium Orb (generic)",
+        "Oni-Goroshi",
+        "Divine Vessel",
+        "Thief's Trinket"
+      ],
+      "bullets": [
+        "All divination cards",
+        "All incubators",
+        "All delirium orbs (replaced by generic Delirium Orb)",
+        "Oni-Goroshi[4]",
+        "Divine Vessel",
+        "Thief's Trinket"
+      ]
+    },
+    "removed_currency": {
+      "names": [
+        "Stacked Deck",
+        "Enkindling Orb",
+        "Instilling Orb",
+        "Orb of Binding",
+        "Veiled Exalted Orb",
+        "Veiled Chaos Orb",
+        "Orb of Dominance",
+        "Shaper's Exalted Orb",
+        "Elder's Exalted Orb",
+        "Crusader's Exalted Orb",
+        "Hunter's Exalted Orb",
+        "Redeemer's Exalted Orb",
+        "Warlord's Exalted Orb",
+        "Awakener's Orb",
+        "Tailoring Orb",
+        "Tempering Orb"
+      ],
+      "bullets": [
+        "Stacked Deck",
+        "Enkindling Orb",
+        "Instilling Orb (note: these enchantments are available from Einhar's beastcrafting options instead)",
+        "Orb of Binding",
+        "Veiled Exalted Orb",
+        "Veiled Chaos Orb",
+        "Orb of Dominance",
+        "Shaper's Exalted Orb",
+        "Elder's Exalted Orb",
+        "Crusader's Exalted Orb",
+        "Hunter's Exalted Orb",
+        "Redeemer's Exalted Orb",
+        "Warlord's Exalted Orb",
+        "Awakener's Orb",
+        "Tailoring Orb",
+        "Tempering Orb"
+      ]
+    },
+    "removed_gems": {
+      "names": [
+        "Blink Arrow",
+        "Bodyswap",
+        "Charged Dash",
+        "Dash",
+        "Flame Dash",
+        "Frostblink",
+        "Leap Slam",
+        "Lightning Warp",
+        "Phase Run",
+        "Shield Charge",
+        "Smoke Mine",
+        "Stormbind of Teleportation",
+        "Whirling Blades",
+        "Withering Step",
+        "Item Rarity Support",
+        "Venom Gyre",
+        "Vaal Venom Gyre"
+      ],
+      "bullets": [
+        "Blink Arrow",
+        "Bodyswap",
+        "Charged Dash",
+        "Dash",
+        "Flame Dash",
+        "Frostblink",
+        "Leap Slam",
+        "Lightning Warp",
+        "Phase Run",
+        "Shield Charge",
+        "Smoke Mine",
+        "Stormbind of Teleportation",
+        "Whirling Blades",
+        "Withering Step",
+        "Item Rarity Support",
+        "Venom Gyre and Vaal Venom Gyre are drop disabled due to their interaction with Whirling Blades"
+      ]
+    },
+    "exclusive": {
+      "names": [
+        "Eternal Orb",
+        "Quickstep",
+        "Uncarved Gemstone",
+        "Delirium Orb (generic)"
+      ],
+      "bullets": [
+        "Eternal Orb - but cannot be used on fractured items in ruthless",
+        "Quickstep - guaranteed to drop from Hillock in The Twilight Strand",
+        "Uncarved Gemstone - replaces certain quest rewards; can be traded with Siosa for a skill gem",
+        "Alchemical Resonators - replaces Chaotic Resonators",
+        "Delirium Orb - replaces all other Delirium Orbs"
+      ]
+    }
+  }
+}

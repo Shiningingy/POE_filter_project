@@ -9,6 +9,10 @@
       "tier_order": [
         "Tier 0 Skill",
         "Tier 1 Skill",
+        "Tier 2 Skill",
+        "Tier 3 Skill",
+        "Tier 4 Skill",
+        "Tier Net Skill",
         "Tier Hide Skill"
       ]
     },
@@ -21,7 +25,7 @@
         "BorderColor": "#00ffffff",
         "BackgroundColor": "#004040ff",
         "PlayEffect": "Cyan",
-        "MinimapIcon": "CyanCircle",
+        "MinimapIcon": "0 Red Circle",
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
           100
@@ -30,21 +34,35 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T1: 保留技能 / 改造",
+        "ch": "T1: 保留技能 / 改造"
       }
     },
     "Tier 0 Skill": {
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#137770ff",
+        "BorderColor": "#199a91ff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star",
+        "PlayAlertSound": [
+          "Sharket掉落音效/技能宝石.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 6,
         "sharket_sound_id": "顶级底材.mp3"
       },
       "localization": {
-        "en": "T0: Absolute Top",
-        "ch": "T0: 顶级/核心"
+        "en": "T0: 誓约/光环",
+        "ch": "T0: 誓约/光环"
       }
     },
     "Tier Hide Skill": {
@@ -60,6 +78,101 @@
       "localization": {
         "en": "Hide",
         "ch": "隐藏"
+      }
+    },
+    "Tier 2 Skill": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#000000ff",
+        "BorderColor": "#0b4642ff",
+        "BackgroundColor": "#1ba79dff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/技能宝石.mp3",
+          100
+        ],
+        "MinimapIcon": "0 Red Circle"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T2: Requires 12+",
+        "ch": "T2: 需求 12 级及以上"
+      }
+    },
+    "Tier 3 Skill": {
+      "hideable": false,
+      "theme": {
+        "Tier": 3,
+        "FontSize": 40,
+        "TextColor": "#7beae2ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#0b423eff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/技能宝石.mp3",
+          100
+        ],
+        "MinimapIcon": "0 Red Circle"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T3: Requires 5-11",
+        "ch": "T3: 需求 5-11 级"
+      }
+    },
+    "Tier 4 Skill": {
+      "hideable": false,
+      "theme": {
+        "Tier": 4,
+        "FontSize": 35,
+        "TextColor": "#7beae2ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#08302eff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/技能宝石.mp3",
+          100
+        ],
+        "MinimapIcon": "0 Red Circle"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T4: Requires 1-4",
+        "ch": "T4: 需求 1-4 级"
+      }
+    },
+    "Tier Net Skill": {
+      "hideable": false,
+      "theme": {
+        "Tier": 5,
+        "FontSize": 35,
+        "TextColor": "#7beae2ff",
+        "BorderColor": "#00000000",
+        "PlayAlertSound": [
+          "Sharket掉落音效/技能宝石.mp3",
+          100
+        ],
+        "MinimapIcon": "0 Red Circle"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Net: Other Skill Gems",
+        "ch": "兜底：其他技能宝石"
+      },
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Skill Gems\""
       }
     }
   }

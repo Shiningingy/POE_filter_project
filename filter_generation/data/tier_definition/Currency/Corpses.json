@@ -7,53 +7,90 @@
         "ch": "尸体"
       },
       "tier_order": [
-        "Tier 0 Corpses",
         "Tier 1 Corpses",
         "Tier 2 Corpses",
+        "Tier 3 Corpses",
+        "Tier 4 Corpses",
+        "Tier Net Corpses",
         "Tier Hide Corpses"
       ]
     },
-    "Tier 0 Corpses": {
-      "hideable": false,
-      "show_in_editor": false,
-      "theme": {
-        "Tier": 0
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "顶级底材.mp3"
-      },
-      "localization": {
-        "en": "T0: Top",
-        "ch": "T0: 顶级"
-      }
-    },
     "Tier 1 Corpses": {
-      "hideable": false,
+      "hideable": true,
+      "conditions": {},
       "theme": {
         "Tier": 1
       },
       "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "高级通货.mp3"
+        "default_sound_id": -1,
+        "sharket_sound_id": null
       },
       "localization": {
-        "en": "T1: High",
-        "ch": "T1: 高级"
+        "en": "Tier 1 Corpses",
+        "ch": "T1: 顶级尸体"
       }
     },
     "Tier 2 Corpses": {
-      "hideable": false,
+      "hideable": true,
+      "conditions": {},
       "theme": {
         "Tier": 2
       },
       "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "通货.mp3"
+        "default_sound_id": -1,
+        "sharket_sound_id": null
       },
       "localization": {
-        "en": "T2: Standard",
-        "ch": "T2: 常用"
+        "en": "Tier 2 Corpses",
+        "ch": "T2: 高价值尸体"
+      }
+    },
+    "Tier 3 Corpses": {
+      "hideable": true,
+      "conditions": {},
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Tier 3 Corpses",
+        "ch": "T3: 常用尸体"
+      }
+    },
+    "Tier 4 Corpses": {
+      "hideable": true,
+      "conditions": {},
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Tier 4 Corpses",
+        "ch": "T4: 低价值尸体"
+      }
+    },
+    "Tier Net Corpses": {
+      "class_condition": true,
+      "hideable": true,
+      "conditions": {
+        "Class": "== \"Corpses\""
+      },
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "All other Corpses",
+        "ch": "其余尸体"
       }
     },
     "Tier Hide Corpses": {

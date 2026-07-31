@@ -1,0 +1,89 @@
+# `parsing_tool/` — what is safe to run
+
+52 scripts live here and **41 of them write directly into `filter_generation/data/`**,
+the curated tree. Most were written once, run once, and are now spent: re-running one
+today would overwrite months of hand curation with whatever it generated in January.
+The filenames do not distinguish them — `generate_base_mappings.py` sounds like
+something you would run, and it would flatten the tree.
+
+Every script carries a one-line banner at the top saying which group it is in. This
+file is the index.
+
+**Before running anything here that is not in group A: check `git status` is clean, so
+whatever it does is one `git checkout` away from being undone.**
+
+---
+
+## A. Live tools — safe to run
+
+| script | what it does |
+|---|---|
+| `validate_curation.py` | **read-only.** Checks the tree against what the generator actually enforces. `--file Currency` to scope. Run this often |
+| `ggpk/extract.py` | writes `data/source/<label>/` from a GGPK dump. Never touches the curated tree |
+| `ggpk/reconcile.py` | reads the tree + a dump, writes `reconcile.json` and the triage console |
+| `ggpk/render_console.py` | renders the console HTML from `reconcile.json` |
+| `ggpk/apply_decisions.py` | applies decisions **you exported from the console** — it only does what you picked |
+| `ggpk/jsonio.py` | library, not a script. Preserves each file's indent/BOM/line endings; any tool that edits curation JSON must use it |
+| `parse_ruthless_wiki.py` | parses a hand-saved wiki page into `data/from_wiki/` |
+| `build_items_db.py` | builds `data/items_db.json` from GGPK sources |
+| `build_unique_base_db.py` | builds the base→uniques map the backend serves |
+| `extract_zh_currency_descriptions.py` | builds the zh description DB |
+
+## B. Careful — rerunnable, but they overwrite hand-tuned data
+
+| script | why |
+|---|---|
+| `sync_base_translations.py` | pulls official zh from the GGPK dump into the tree. Correct source of truth, but it overwrites per-file localization wholesale |
+| `audit_fix_tier_ladders.py` | audits by default; `--fix` rewrites ladders |
+| `apply_font_ladder.py` | committed but **never run**. `sharket_theme.json` is hand-tuned |
+| `build_standard_theme.py` | regenerates a theme. **`sharket_theme.json` is hand-tuned — do not regenerate it** |
+| `build_campaign_bands.py` | **ONE-SHOT.** Generated the `_campaign` tree; it has been hand-tuned since. Never re-run over that tuning without asking |
+| `import_uniques_from_filterblade.py` | **DO NOT re-run.** The uniques data has been hand-tuned |
+| `import_leveling_from_filterblade.py` | superseded for gear content by the campaign work |
+
+## C. Do not run — known broken
+
+| script | why |
+|---|---|
+| `generate_category_json.py` | **regression.** It has drifted from the checked-in `category_structure.json`. A full recompile rewrites ~716 lines: `_default_target: Stackable Currency` gets stamped on every currency leaf, but `target_category` is the *theme resolution key* (`ThemePresetEditor.tsx:100/206`) and must match the tier file's `_meta.theme_category` — `Essences`, `Fossils`, `Delirium Orbs`. The theme has no `Stackable Currency` key, so recompiling silently points five categories at a key that does not exist and drops them to `Default`. **Edit `category_structure.yaml` AND `.json` by hand** — a nav add/remove is ~10 lines in each. See the comment at the top of the yaml |
+
+## D. Spent one-shots — already applied, do not re-run
+
+These built or migrated the tree once. The curation has moved on; running one now
+reverts that region to its state on the date shown.
+
+**2026-01-13 — initial build**
+`clean_tier_definitions.py` · `generate_base_mappings.py` ·
+`generate_default_tier_definitions.py` · `organize_tier_definitions.py` ·
+`reorganize_by_function.py` · `update_tier_localization.py`
+
+**2026-01-17 — first migration wave**
+`apply_config_defaults.py` · `create_gold_corpse_defs.py` ·
+`create_jewel_definitions.py` · `create_unique_definitions.py` ·
+`ensure_hide_tier.py` · `ensure_t0_and_locks.py` · `fix_misc_naming.py` ·
+`migrate_gold_corpses.py` · `migrate_misc_items.py` · `migrate_misc_items_v2.py` ·
+`resort_tiers.py` · `update_hideable.py` · `update_quest_labyrinth_themes.py` ·
+`update_special_currency_themes.py` · `update_theme_categories.py` ·
+`verify_and_update_categories.py` · `verify_tier_completeness.py`
+
+**2026-01-24 — theme spike**
+`inspect_styles_html.py` · `parse_html_styles.py`
+
+**2026-06 — 3.28 rebuild**
+`assign_endgame_tiers.py` · `update_mappings_3_28.py` · `patch_campaign_arealevel.py` ·
+`dedupe_class_name.py` · `make_placeholder_categories.py` ·
+`insert_missing_nav_categories.py` · `migrate_theme_default.py` ·
+`migrate_theme_default_demo.py`
+
+**2026-07 — pipeline repairs**
+`ggpk/fix_dead_tier_keys.py` (repaired the 105 dead tier keys in `416a262`)
+
+---
+
+## Why they were kept rather than deleted
+
+They are the record of how the tree got its shape, and several document a decision
+that is not written down anywhere else — `ensure_t0_and_locks.py` is where the
+`show_in_editor: false` guard came from, `dedupe_class_name.py` is why `item_class`
+is canonical. Deleting them loses that. Marking them costs nothing and makes the
+hazard obvious at the top of the file.

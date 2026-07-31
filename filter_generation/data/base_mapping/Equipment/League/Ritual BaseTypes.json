@@ -1,14 +1,70 @@
 {
   "_meta": {
     "localization": {
-      "ch": {}
+      "ch": {
+        "Aetherwind Gloves": "灵风手套",
+        "Apprentice Gloves": "学徒手套",
+        "Archdemon Crown": "大恶魔之冠",
+        "Atonement Mask": "赎罪面具",
+        "Basemetal Treads": "劣金之履",
+        "Blizzard Crown": "暴雪之冠",
+        "Brimstone Treads": "踏烟之履",
+        "Cloudwhisper Boots": "唤云之靴",
+        "Darksteel Treads": "乌钢之履",
+        "Demon Crown": "恶魔之冠",
+        "Dreamquest Slippers": "探梦之鞋",
+        "Duskwalk Slippers": "踏暮之鞋",
+        "Gale Crown": "飓风之冠",
+        "Guarding Gauntlets": "护卫手甲",
+        "Imp Crown": "小鬼之冠",
+        "Leyline Gloves": "雷线手套",
+        "Nexus Gloves": "枢纽手套",
+        "Nightwind Slippers": "夜风之鞋",
+        "Penitent Mask": "忏悔面具",
+        "Preserving Gauntlets": "历战手甲",
+        "Sorrow Mask": "悲伤面具",
+        "Stormrider Boots": "御风之靴",
+        "Thwarting Gauntlets": "御敌护手",
+        "Tinker Gloves": "工匠手套",
+        "Trapsetter Gloves": "布陷者手套",
+        "Windbreak Boots": "破风之靴",
+        "Winter Crown": "寒冬之冠"
+      }
     },
     "item_class": {
       "en": "Ritual BaseTypes",
       "ch": "仪式底材"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Ritual BaseTypes"
   },
-  "mapping": {},
+  "mapping": {
+    "Aetherwind Gloves": "Ritual BaseTypes T1",
+    "Apprentice Gloves": "Ritual BaseTypes T1",
+    "Archdemon Crown": "Ritual BaseTypes T1",
+    "Atonement Mask": "Ritual BaseTypes T1",
+    "Basemetal Treads": "Ritual BaseTypes T1",
+    "Blizzard Crown": "Ritual BaseTypes T1",
+    "Brimstone Treads": "Ritual BaseTypes T1",
+    "Cloudwhisper Boots": "Ritual BaseTypes T1",
+    "Darksteel Treads": "Ritual BaseTypes T1",
+    "Demon Crown": "Ritual BaseTypes T1",
+    "Dreamquest Slippers": "Ritual BaseTypes T1",
+    "Duskwalk Slippers": "Ritual BaseTypes T1",
+    "Gale Crown": "Ritual BaseTypes T1",
+    "Guarding Gauntlets": "Ritual BaseTypes T1",
+    "Imp Crown": "Ritual BaseTypes T1",
+    "Leyline Gloves": "Ritual BaseTypes T1",
+    "Nexus Gloves": "Ritual BaseTypes T1",
+    "Nightwind Slippers": "Ritual BaseTypes T1",
+    "Penitent Mask": "Ritual BaseTypes T1",
+    "Preserving Gauntlets": "Ritual BaseTypes T1",
+    "Sorrow Mask": "Ritual BaseTypes T1",
+    "Stormrider Boots": "Ritual BaseTypes T1",
+    "Thwarting Gauntlets": "Ritual BaseTypes T1",
+    "Tinker Gloves": "Ritual BaseTypes T1",
+    "Trapsetter Gloves": "Ritual BaseTypes T1",
+    "Windbreak Boots": "Ritual BaseTypes T1",
+    "Winter Crown": "Ritual BaseTypes T1"
+  },
   "rules": []
 }

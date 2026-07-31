@@ -1,8 +1,5 @@
 {
   "_meta": {
-    "excluded_modes": [
-      "ruthless"
-    ],
     "localization": {
       "ch": {
         "Contract: Bunker": "契约：堡垒",
@@ -52,50 +49,58 @@
       "en": "Contracts",
       "ch": "契约"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Heist",
+    "match_modes": {}
   },
   "mapping": {
-    "Contract: Bunker": "Heist Contract T1",
-    "Contract: Smuggler's Den": "Heist Contract T1",
-    "Contract: Laboratory": "Heist Contract T1",
-    "Contract: Repository": "Heist Contract T1",
-    "Contract: Prohibited Library": "Heist Contract T1",
-    "Contract: Tunnels": "Heist Contract T1",
-    "Contract: Underbelly": "Heist Contract T1",
-    "Contract: Records Office": "Heist Contract T1",
-    "Contract: Mansion": "Heist Contract T1",
-    "Contract: Stolen Lockpicks": "Heist Contract T0",
-    "Contract: Karst's Revenge": "Heist Contract T0",
-    "Contract: Credit Where Credit's Due": "Heist Contract T0",
-    "Contract: Finding Opal": "Heist Contract T0",
-    "Contract: Opal's Jewels": "Heist Contract T0",
-    "Contract: Enoch's Whereabouts": "Heist Contract T0",
-    "Contract: Enoch's Remains": "Heist Contract T0",
-    "Contract: Grocery List": "Heist Contract T0",
-    "Contract: The Vinderi Bomb": "Heist Contract T0",
-    "Contract: The Nameless Play": "Heist Contract T0",
-    "Contract: The Finest Costumes": "Heist Contract T0",
-    "Contract: The Wedding Dress": "Heist Contract T0",
-    "Contract: Disengagement": "Heist Contract T0",
-    "Contract: Rational Tools": "Heist Contract T0",
-    "Contract: A Mundane Sample": "Heist Contract T0",
-    "Contract: The Book of Jamanra": "Heist Contract T0",
-    "Contract: Isla's Prototypes": "Heist Contract T0",
-    "Contract: Isla's Designs": "Heist Contract T0",
-    "Contract: A Matter of Honour": "Heist Contract T0",
-    "Contract: Flying False Colours": "Heist Contract T0",
-    "Contract: Slaver's Revenge": "Heist Contract T0",
-    "Contract: Follow the Paper Trail": "Heist Contract T0",
-    "Contract: The Admiral's Records": "Heist Contract T0",
-    "Contract: Findings for Fidium": "Heist Contract T0",
-    "Contract: Hyrri's Gift": "Heist Contract T0",
-    "Contract: The Negotiation": "Heist Contract T0",
-    "Contract: The Rescue": "Heist Contract T0",
-    "Preventative Contract": "Heist Contract T0",
-    "Familial Contract": "Heist Contract T0",
-    "Vigilante Contract": "Heist Contract T0",
-    "Naval Contract": "Heist Contract T0",
-    "Vengeful Contract": "Heist Contract T0"
+    "Contract: Smuggler's Den": [
+      "Heist Contract T0"
+    ],
+    "Contract: Laboratory": [
+      "Heist Contract T0"
+    ],
+    "Contract: Prohibited Library": [
+      "Heist Contract T0"
+    ],
+    "Contract: Underbelly": [
+      "Heist Contract T0"
+    ],
+    "Contract: Records Office": [
+      "Heist Contract T0"
+    ],
+    "Contract: Mansion": [
+      "Heist Contract T0"
+    ]
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Contracts\"",
+        "AnyEnchantment": "True"
+      },
+      "overrides": {
+        "Tier": "Heist Contract T0",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级契约.mp3",
+          300
+        ]
+      },
+      "comment": "附魔"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Contracts\""
+      },
+      "overrides": {
+        "Tier": "Heist Contract T1",
+        "PlayAlertSound": [
+          "Sharket掉落音效/赏金契约.mp3",
+          300
+        ]
+      },
+      "comment": ""
+    }
+  ]
 }

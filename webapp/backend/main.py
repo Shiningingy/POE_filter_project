@@ -10,6 +10,8 @@ import sys
 import time
 import re
 import csv
+import threading
+import collections
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Dict, Optional
@@ -17,11 +19,86 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
+# --- Safe curation writes -------------------------------------------------- #
+# These endpoints are sync `def`, so FastAPI runs them in a threadpool: several
+# requests genuinely execute at once. Every one of them does a read-modify-write
+# of a whole JSON file, which without protection produced three distinct
+# failures on the same file - a shorter document written over a longer one
+# leaving an orphaned tail ("Extra data"), a reader catching a half-written file
+# ("Invalid control character"), and silent lost updates where the last writer
+# wins and the earlier edits vanish with no error at all.
+
+_FILE_LOCKS: Dict[str, threading.Lock] = collections.defaultdict(threading.Lock)
+_FILE_LOCKS_GUARD = threading.Lock()
+
+
+def file_lock(path: Path) -> threading.Lock:
+    """One lock per file, so a read-modify-write cycle is never interleaved."""
+    key = str(Path(path).resolve()).lower()
+    with _FILE_LOCKS_GUARD:
+        return _FILE_LOCKS[key]
+
+
+def write_json_atomic(path: Path, data: dict, indent: int = 2) -> None:
+    """Write via a temp file in the same directory, then os.replace().
+
+    os.replace is atomic on Windows and POSIX, so a reader sees either the old
+    file or the new one - never a partial write - and a crash mid-write cannot
+    leave a truncated file behind.
+    """
+    path = Path(path)
+    tmp = path.with_suffix(path.suffix + f".tmp{os.getpid()}.{threading.get_ident()}")
+    try:
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=indent, ensure_ascii=False)
+            f.write("\n")          # keep git from reporting "\ No newline at end of file"
+            f.flush()
+            os.fsync(f.fileno())
+        # On Windows os.replace fails with ACCESS_DENIED whenever anything else
+        # holds even a transient handle on the destination - Defender, the
+        # search indexer, a sync client. Measured: roughly 1 write in 40 during
+        # a bulk edit. Without the retry that exception propagates and the edit
+        # is simply lost, which is the failure we are here to remove.
+        for attempt in range(12):
+            try:
+                os.replace(tmp, path)
+                break
+            except PermissionError:
+                if attempt == 11:
+                    raise
+                time.sleep(0.02 * (attempt + 1))
+    finally:
+        if tmp.exists():
+            try:
+                tmp.unlink()
+            except OSError:
+                pass
+
 # --- Models ---
 class UpdateItemOverrideRequest(BaseModel):
     item_name: str
     overrides: dict
     source_file: str
+    # Keys to DELETE from the item's bare override rule. Sound could only ever be
+    # added; clearing it needs an explicit removal so the item falls back to its
+    # tier's sound. When the rule has nothing left it is dropped entirely rather
+    # than left behind as an empty block.
+    remove_keys: Optional[List[str]] = None
+    # WHICH occurrence of the item the caller means. A base type can appear in
+    # several tiers (Simulacrum Splinter is in three), and each occurrence is its
+    # own block, so each can carry its own sound. Without these the write landed
+    # on ONE bare rule targeting the item, which applied everywhere at once - the
+    # "global override" that made per-block sounds impossible.
+    #   rule_index -> the card IS a target of that rule; the sound belongs to the
+    #                 rule, because a separate rule placed ahead of it would emit
+    #                 without the rule's own conditions.
+    #   tier_key   -> a plain tier card; gets a rule scoped to that tier only.
+    rule_index: Optional[int] = None
+    tier_key: Optional[str] = None
+    # The card's sound is injected from the sound map (basetype_sounds), so there is
+    # no rule to strip a key from - clearing it means pinning an empty rule so the
+    # generator stops injecting. Set by the card when it knows the source is auto.
+    suppress_auto: Optional[bool] = None
 
 class UpdateItemTierRequest(BaseModel):
     item_name: str
@@ -94,7 +171,12 @@ def safe_join(base: Path, path: str):
 
 def load_base_types():
     global ITEM_CLASSES, CLASS_TO_ITEMS, ITEM_TO_CLASS, ITEM_SUBTYPES
-    csv_path = DATA_DIR / "from_filter_blade" / "3.28" / "BaseTypes.csv"
+    # The current drop lives at the top of from_filter_blade/; the dated
+    # subfolders are previous leagues. Pointing at 3.28 made the editor blind to
+    # every 3.29 item - search and tooltips could not resolve Scrying Orb, the
+    # new talismans, or the Enshrouded bases. Stopgap until the GGPK catalog
+    # (ADR-0004) replaces this loader outright.
+    csv_path = DATA_DIR / "from_filter_blade" / "BaseTypes.csv"
     if not csv_path.exists():
         print("Warning: BaseTypes.csv not found.")
         return
@@ -201,6 +283,23 @@ def item_trans_of(meta_loc: dict) -> dict:
     whole file (campaign categories showed 0 items in local dev)."""
     t = meta_loc.get("ch_items") or meta_loc.get("ch") or {}
     return t if isinstance(t, dict) else {}
+
+
+def set_item_trans(meta_loc: dict, item_name: str, trans: str) -> None:
+    """Write a per-item zh translation, mirroring item_trans_of's read shapes:
+    core files keep the per-item dict under 'ch'; nav-rebuild/campaign files keep
+    a category-name STRING in 'ch' and the per-item dict under 'ch_items'. Assigning
+    into a string 'ch' raised 'str object does not support item assignment' → a 500
+    ('Failed to update some items') when tiering an item in a campaign/chancing file."""
+    ch = meta_loc.get("ch")
+    if isinstance(ch, dict):
+        ch[item_name] = trans
+        return
+    items = meta_loc.get("ch_items")
+    if not isinstance(items, dict):
+        items = {}
+        meta_loc["ch_items"] = items
+    items[item_name] = trans
 
 
 def load_category_map():
@@ -928,21 +1027,74 @@ def update_item_tier(request: UpdateItemTierRequest):
     else:
         file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
 
+    # Destination tiers only. old_tier may legitimately BE a dead tier - that is
+    # what moving an item off one looks like.
+    assert_tiers_exist(request.source_file, (request.new_tiers or []) + [request.new_tier])
     try:
-        with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
+        # One lock per file for the whole read-modify-write, and an atomic
+        # replace at the end. Without both, concurrent edits to the same
+        # category corrupted it or silently dropped each other's changes.
+        with file_lock(file_path):
+            with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
+            apply_tier_change(data, request)
+            write_json_atomic(file_path, data)
+        return {"message": "Success"}
+    except Exception as e: raise HTTPException(status_code=500, detail=str(e))
+
+
+def assert_tiers_exist(source_file: str, tiers: List[str]) -> None:
+    """Reject a tier the target category does not define, before writing it.
+
+    generate.py:393 does `if t_lbl not in category_data: continue`, so an item
+    filed under an undefined tier emits NOTHING - the filter builds cleanly and
+    the item is simply missing in game. That is how 525 curated entries went
+    dark unnoticed. Catching it at write time turns a silent data-loss bug into
+    an error message naming the valid tiers.
+    """
+    wanted = [t for t in tiers if t]
+    if not wanted:
+        return
+    rel = source_file[len("base_mapping/"):] if source_file.startswith("base_mapping/") else source_file
+    tier_path = CONFIG_DATA_DIR / "tier_definition" / rel
+    if not tier_path.exists():
+        return          # unpaired category - the CLI validator reports it
+    try:
+        with open(tier_path, encoding="utf-8-sig") as f:
+            doc = json.load(f)
+    except Exception:
+        return          # a broken tier file is the validator's problem, not this write's
+    defined = set()
+    for _key, body in doc.items():
+        if isinstance(body, dict) and isinstance(body.get("_meta"), dict):
+            defined |= {k for k in body if k != "_meta"}
+    unknown = [t for t in wanted if t not in defined]
+    if unknown and defined:
+        raise HTTPException(status_code=400, detail=(
+            f"{rel} does not define {', '.join(repr(t) for t in unknown)}. "
+            f"An item filed there would emit nothing. Valid tiers: "
+            f"{', '.join(sorted(defined))}"))
+
+
+def apply_tier_change(data: dict, request: "UpdateItemTierRequest") -> None:
+    """Mutate one loaded mapping document in place.
+
+    Shared by the single and batch endpoints so their semantics cannot drift
+    apart. Does no I/O - the caller owns the lock and the write.
+    """
+    if True:
         mapping = data.get("mapping", {})
-        
-        # 1. Update Localization
+
+        # 1. Update Localization. Tolerates the string-'ch' nav-rebuild/campaign
+        # shape (category name in 'ch', per-item dict in 'ch_items'); the old code
+        # assigned into localization['ch'][item] which raised on a string 'ch' → 500.
+        # Mirrors item_trans_of on read. (see set_item_trans)
         if "_meta" not in data: data["_meta"] = {}
         if "localization" not in data["_meta"]: data["_meta"]["localization"] = {"en": {}, "ch": {}}
-        
-        # Ensure 'ch' dict exists
-        if "ch" not in data["_meta"]["localization"]: data["_meta"]["localization"]["ch"] = {}
-        
-        if request.item_name not in data["_meta"]["localization"]["ch"]:
+        meta_loc = data["_meta"]["localization"]
+        if request.item_name not in item_trans_of(meta_loc):
             trans = ITEM_TRANSLATIONS.get(request.item_name)
             if trans:
-                data["_meta"]["localization"]["ch"][request.item_name] = trans
+                set_item_trans(meta_loc, request.item_name, trans)
 
         # 3. Update Match Mode
         if "match_modes" not in data["_meta"]: data["_meta"]["match_modes"] = {}
@@ -993,11 +1145,72 @@ def update_item_tier(request: UpdateItemTierRequest):
             else:
                 # Overwrite (Reset)
                 mapping[request.item_name] = request.new_tier
-            
+
         data["mapping"] = mapping
-        with open(file_path, "w", encoding="utf-8") as f: json.dump(data, f, indent=2, ensure_ascii=False)
-        return {"message": "Success"}
-    except Exception as e: raise HTTPException(status_code=500, detail=str(e))
+
+
+class BulkTierChange(BaseModel):
+    """One item's change inside a batch. Same fields as UpdateItemTierRequest."""
+    item_name: str
+    new_tier: Optional[str] = None
+    source_file: str
+    is_append: bool = False
+    old_tier: Optional[str] = None
+    new_tiers: Optional[List[str]] = None
+    match_mode: Optional[str] = None
+
+
+class BulkTierRequest(BaseModel):
+    changes: List[BulkTierChange]
+
+
+@app.post("/api/update-item-tiers-bulk")
+def update_item_tiers_bulk(request: BulkTierRequest):
+    """Apply many tier changes with ONE read-modify-write per file.
+
+    The editor used to fire one request per item in parallel. Each was a full
+    read-modify-write of the same document, so N concurrent edits to one
+    category raced: the file could be corrupted, or edits could silently
+    disappear because the last writer overwrote everything before it. Grouping
+    by file removes the race entirely rather than just narrowing it, and turns
+    a 40-item bulk edit into one write instead of forty.
+    """
+    by_file: Dict[str, List[BulkTierChange]] = collections.OrderedDict()
+    for change in request.changes:
+        if not change.source_file:
+            raise HTTPException(status_code=422, detail="Source file is required")
+        by_file.setdefault(change.source_file, []).append(change)
+
+    applied, failures = 0, []
+    for source_file, changes in by_file.items():
+        if source_file.startswith("base_mapping/"):
+            file_path = safe_join(CONFIG_DATA_DIR, source_file)
+        else:
+            file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", source_file)
+        try:
+            for change in changes:
+                assert_tiers_exist(change.source_file,
+                                   (change.new_tiers or []) + [change.new_tier])
+            with file_lock(file_path):
+                with open(file_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                for change in changes:
+                    apply_tier_change(data, change)
+                write_json_atomic(file_path, data)
+            applied += len(changes)
+        except Exception as exc:
+            # Report per file: one bad category must not hide the rest, and the
+            # editor needs to know WHICH items did not land.
+            failures.append({"source_file": source_file,
+                             "items": [c.item_name for c in changes],
+                             "error": str(exc)})
+
+    if failures:
+        raise HTTPException(status_code=500, detail={
+            "message": f"{applied} change(s) applied, {sum(len(f['items']) for f in failures)} failed",
+            "failures": failures,
+        })
+    return {"message": "Success", "applied": applied, "files": len(by_file)}
 
 @app.post("/api/update-item-override")
 def update_item_override(request: UpdateItemOverrideRequest):
@@ -1007,16 +1220,109 @@ def update_item_override(request: UpdateItemOverrideRequest):
         file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
 
     try:
-        with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
-        rules = data.get("rules", [])
-        found = False
-        for rule in rules:
-            if rule.get("targets") == [request.item_name] and not rule.get("conditions"):
-                rule["overrides"].update(request.overrides); found = True; break
-        if not found:
-            rules.append({"targets": [request.item_name], "conditions": {}, "overrides": request.overrides, "comment": f"Override for {request.item_name}"})
-        data["rules"] = rules
-        with open(file_path, "w", encoding="utf-8") as f: json.dump(data, f, indent=2, ensure_ascii=False)
+        with file_lock(file_path):
+            with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
+            rules = data.get("rules", [])
+            target = None
+
+            if request.rule_index is not None and 0 <= request.rule_index < len(rules):
+                # (A) The card is a target of this rule. The rule's conditions ARE
+                # the block, so the sound has to live on the rule. A rule with
+                # several targets therefore shares one sound - that is the block,
+                # not a limitation we can route around here.
+                target = rules[request.rule_index]
+            elif request.tier_key:
+                # (B) Plain tier card: a rule pinned to THIS tier, so the same base
+                # can speak differently in each tier it appears in.
+                for r in rules:
+                    if (r.get("targets") == [request.item_name]
+                            and not r.get("conditions")
+                            and (r.get("overrides") or {}).get("Tier") == request.tier_key):
+                        target = r
+                        break
+                if target is None and not request.overrides and request.remove_keys:
+                    # CLEARING and there is no tier-scoped rule: the sound is coming
+                    # from one of the older bare global rules, and the card is the
+                    # only place the user can reach it. Clear that instead of
+                    # silently doing nothing.
+                    for r in rules:
+                        if r.get("targets") == [request.item_name] and not r.get("conditions"):
+                            target = r
+                            break
+                if target is None and request.suppress_auto and request.remove_keys:
+                    # Nothing to clear because the sound is INJECTED from the sound
+                    # map's basetype_sounds. generate.py skips that injection for any
+                    # item a rule already targets, so an otherwise-empty pinned rule
+                    # is what "no auto-sound here" looks like.
+                    target = {
+                        "targets": [request.item_name],
+                        "conditions": {},
+                        "overrides": {"Tier": request.tier_key},
+                        "comment": f"No auto-sound for {request.item_name} @ {request.tier_key}",
+                        "sound_scope": True,
+                        "suppress_auto_sound": True,
+                    }
+                    rules.append(target)
+                if target is None and request.overrides:
+                    target = {
+                        "targets": [request.item_name],
+                        "conditions": {},
+                        "overrides": {"Tier": request.tier_key},
+                        "comment": f"Override for {request.item_name} @ {request.tier_key}",
+                        # Marks a rule that exists ONLY to scope a sound, so it can be
+                        # dropped again when the sound is cleared. Two hand-authored
+                        # rules (Crystallised Rancour, the 7 Vaal gems) are Tier-only
+                        # on purpose, so "Tier-only" alone is NOT safe to prune.
+                        "sound_scope": True,
+                    }
+                    # First match wins: the tier-scoped rule is the more specific one
+                    # and must be seen before any bare global rule for the same item.
+                    insert_at = len(rules)
+                    for i, r in enumerate(rules):
+                        if (r.get("targets") == [request.item_name]
+                                and not r.get("conditions")
+                                and not (r.get("overrides") or {}).get("Tier")):
+                            insert_at = i
+                            break
+                    rules.insert(insert_at, target)
+            else:
+                # (C) Legacy bare global rule. Kept so the 40 already-tuned overrides
+                # keep resolving; new writes from the editor always carry a scope.
+                for r in rules:
+                    if r.get("targets") == [request.item_name] and not r.get("conditions"):
+                        target = r
+                        break
+                if target is None and request.overrides:
+                    target = {"targets": [request.item_name], "conditions": {},
+                              "overrides": request.overrides,
+                              "comment": f"Override for {request.item_name}"}
+                    rules.append(target)
+
+            if target is not None:
+                target.setdefault("overrides", {})
+                for k in (request.remove_keys or []):
+                    target["overrides"].pop(k, None)
+                target["overrides"].update(request.overrides)
+
+            # A bare rule with nothing left to say would emit a block identical to the
+            # tier's own, so drop it - that IS the fallback to the tier sound. Only
+            # ever touches the item's OWN rule; a rule carrying conditions (Replica,
+            # Foulborn, six-link…) is somebody else's and is left alone above.
+            # A sound-scope rule reduced to just its Tier is equally empty.
+            def _is_spent(r):
+                ov = r.get("overrides") or {}
+                if r.get("conditions") or r.get("raw") or r.get("applyToTier"):
+                    return False
+                if r.get("suppress_auto_sound"):
+                    # Its whole job is to exist, so the auto-sound injection skips
+                    # this item. Empty is the point - never prune it.
+                    return False
+                if r.get("sound_scope"):
+                    return set(ov.keys()) <= {"Tier"}
+                return not ov
+            rules = [r for r in rules if not _is_spent(r)]
+            data["rules"] = rules
+            write_json_atomic(file_path, data)
         return {"message": "Success"}
     except Exception as e: raise HTTPException(status_code=500, detail=str(e))
 
@@ -1054,13 +1360,33 @@ def get_items_by_tier(request: TierItemsRequest):
                         for t in base_tiers:
                             final_tier_entries.append((t, None))
                     
+                    absorbed: set[str] = set()
                     for idx, r in enumerate(rules):
+                        # applyToTier makes `targets` DEAD: generate.py:529 replaces
+                        # rule_matches with the tier's pending items and never reads
+                        # them. A target listed here is not one the generator honours,
+                        # so it must not become a card of its own.
+                        if r.get("applyToTier"):
+                            continue
                         r_t = r.get("targets", [])
                         # ONLY match if targets is a non-empty list
                         if isinstance(r_t, list) and len(r_t) > 0 and item_name in r_t:
                             t_over = r.get("overrides", {}).get("Tier")
                             if t_over:
                                 final_tier_entries.append((t_over, idx))
+                                if not r.get("disabled"):
+                                    absorbed.add(t_over)
+
+                    # ONE card per (item, tier). A live rule that names the item for a
+                    # tier discards it from pending_items (generate.py:639), so the
+                    # base block never follows: the mapping entry and the rule entry
+                    # are the SAME emitted block, not two. Two RULES on one tier do
+                    # emit twice, so only the mapping (None) entry is absorbed.
+                    if absorbed:
+                        final_tier_entries = [
+                            (t, r) for t, r in final_tier_entries
+                            if r is not None or t not in absorbed
+                        ]
 
                     # Distribute to results
                     for tier_key, rule_idx in final_tier_entries:
@@ -1415,7 +1741,10 @@ def get_config_content(config_path: str):
 async def save_config_file_v2(config_path: str, content: dict = Body(...)):
     path = safe_join(CONFIG_DATA_DIR, config_path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    with open(path, "w", encoding="utf-8") as f: json.dump(content, f, indent=2, ensure_ascii=False)
+    # Whole-document save from the editor. Atomic + locked so it cannot
+    # interleave with a per-item write to the same file.
+    with file_lock(path):
+        write_json_atomic(path, content)
     return {"message": "Success"}
 
 # --- Mounts ---

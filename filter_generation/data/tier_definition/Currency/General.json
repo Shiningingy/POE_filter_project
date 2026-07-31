@@ -12,6 +12,8 @@
         "Tier 2 General",
         "Tier 3 General",
         "Tier 4 General",
+        "CustomTier 2 General",
+        "CustomTier 1 General",
         "Tier 5 General",
         "Tier Hide General"
       ]
@@ -48,7 +50,16 @@
     "Tier 2 General": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#000000ff",
+        "BorderColor": "#4a3807ff",
+        "BackgroundColor": "#b08611ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级通货.mp3",
+          200
+        ],
+        "MinimapIcon": "2 Yellow Diamond"
       },
       "sound": {
         "default_sound_id": 2,
@@ -62,7 +73,16 @@
     "Tier 3 General": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "TextColor": "#f1d074ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#463507ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/通货.mp3",
+          100
+        ],
+        "MinimapIcon": "1 Yellow Diamond"
       },
       "sound": {
         "default_sound_id": 2,
@@ -76,7 +96,16 @@
     "Tier 4 General": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "TextColor": "#f1d074ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#332705ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/通货.mp3",
+          100
+        ],
+        "MinimapIcon": "0 Yellow Diamond"
       },
       "sound": {
         "default_sound_id": 2,
@@ -90,15 +119,15 @@
     "Tier 5 General": {
       "hideable": false,
       "theme": {
-        "Tier": 5
+        "Tier": 7
       },
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "T5: Low Value",
-        "ch": "T5: 低价值通货"
+        "en": "T7: 低价值通货",
+        "ch": "T7: 低价值通货"
       }
     },
     "Tier Hide General": {
@@ -114,6 +143,44 @@
       "localization": {
         "en": "Hide",
         "ch": "隐藏"
+      }
+    },
+    "CustomTier 1 General": {
+      "theme": {
+        "Tier": 6,
+        "FontSize": 36,
+        "TextColor": "#FFFFFF",
+        "BorderColor": "#AAAAAA",
+        "BackgroundColor": "#222222",
+        "MinimapIcon": "0 Yellow Diamond"
+      },
+      "hideable": false,
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T6： 改造石级",
+        "ch": "T6： 改造石级"
+      }
+    },
+    "CustomTier 2 General": {
+      "theme": {
+        "Tier": 5,
+        "FontSize": 36,
+        "TextColor": "#FFFFFF",
+        "BorderColor": "#AAAAAA",
+        "BackgroundColor": "#222222",
+        "MinimapIcon": "0 Yellow Diamond"
+      },
+      "hideable": false,
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T5:点金石级",
+        "ch": "T5:点金石级"
       }
     }
   }

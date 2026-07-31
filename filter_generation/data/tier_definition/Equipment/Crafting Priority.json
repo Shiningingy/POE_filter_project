@@ -1,0 +1,166 @@
+{
+  "Crafting Priority": {
+    "_meta": {
+      "theme_category": "Crafting Bases",
+      "localization": {
+        "en": "Crafting Priority",
+        "ch": "优先精品底材"
+      },
+      "tier_order": [
+        "Crafting Perfect Defence",
+        "Crafting Over Quality",
+        "Crafting Strands Weapons",
+        "Crafting Strands Gear",
+        "Crafting Gear 86",
+        "Crafting Gear 85",
+        "Crafting Gear 84",
+        "Tier Hide Crafting Priority"
+      ]
+    },
+    "Crafting Perfect Defence": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "BaseDefencePercentile": ">= 99",
+        "Corrupted": "False",
+        "Mirrored": "False",
+        "ItemLevel": ">= 84"
+      },
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Perfect defence roll",
+        "ch": "完美防御数值"
+      }
+    },
+    "Crafting Over Quality": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "Quality": "> 20"
+      },
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Over-quality base",
+        "ch": "超额品质底材"
+      }
+    },
+    "Crafting Strands Weapons": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "MemoryStrands": ">= 1",
+        "ItemLevel": ">= 83"
+      },
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Weapon base with Memory Strands",
+        "ch": "追忆武器底材"
+      }
+    },
+    "Crafting Strands Gear": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "MemoryStrands": ">= 1"
+      },
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Gear base with Memory Strands",
+        "ch": "追忆防具/首饰底材"
+      }
+    },
+    "Crafting Gear 86": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "ItemLevel": ">= 86"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Gear base i86+",
+        "ch": "精品底材 i86+"
+      }
+    },
+    "Crafting Gear 85": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "ItemLevel": ">= 85"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Gear base i85+",
+        "ch": "精品底材 i85+"
+      }
+    },
+    "Crafting Gear 84": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "ItemLevel": ">= 84"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Gear base i84+",
+        "ch": "精品底材 i84+"
+      }
+    },
+    "Tier Hide Crafting Priority": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

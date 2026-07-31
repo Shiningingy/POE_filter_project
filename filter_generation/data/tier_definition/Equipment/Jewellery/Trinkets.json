@@ -16,7 +16,10 @@
       ]
     },
     "Tier 0 Trinkets": {
-      "conditions": {"ItemLevel": ">= 68", "Rarity": "<= Rare"},
+      "conditions": {
+        "AreaLevel": ">= 68",
+        "Rarity": "<= Rare"
+      },
       "hideable": false,
       "show_in_editor": false,
       "theme": {
@@ -32,7 +35,10 @@
       }
     },
     "Tier 1 Trinkets": {
-      "conditions": {"ItemLevel": ">= 68", "Rarity": "<= Rare"},
+      "conditions": {
+        "AreaLevel": ">= 68",
+        "Rarity": "<= Rare"
+      },
       "hideable": false,
       "theme": {
         "Tier": 1
@@ -40,10 +46,13 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
-      }
+      },
+      "hide_at_strictness": 5
     },
     "Tier 2 Trinkets": {
-      "conditions": {"Rarity": "<= Rare"},
+      "conditions": {
+        "Rarity": "<= Rare"
+      },
       "hideable": false,
       "theme": {
         "Tier": 2
@@ -55,7 +64,8 @@
       "localization": {
         "en": "T2: Decent Bases",
         "ch": "T2: 常用底材"
-      }
+      },
+      "hide_at_strictness": 3
     },
     "Tier 3 Trinkets": {
       "hideable": false,
@@ -69,7 +79,11 @@
       "localization": {
         "en": "T3: Mid Tier",
         "ch": "T3: 普通装备"
-      }
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
+      },
+      "hide_at_strictness": 2
     },
     "Tier 4 Trinkets": {
       "hideable": false,
@@ -83,7 +97,11 @@
       "localization": {
         "en": "T4: Low Tier",
         "ch": "T4: 低级装备"
-      }
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
+      },
+      "hide_at_strictness": 1
     },
     "Tier Hide Trinkets": {
       "hideable": true,

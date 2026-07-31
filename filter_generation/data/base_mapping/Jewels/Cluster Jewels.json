@@ -10,9 +10,24 @@
     }
   },
   "mapping": {
-    "Large Cluster Jewel": "Tier 1 Cluster Jewels",
-    "Medium Cluster Jewel": "Tier 1 Cluster Jewels",
-    "Small Cluster Jewel": "Tier 1 Cluster Jewels"
+    "Large Cluster Jewel": [
+      "Tier 0 Cluster Jewels",
+      "Tier 1 Cluster Jewels",
+      "Tier 2 Cluster Jewels",
+      "Tier 3 Cluster Jewels"
+    ],
+    "Medium Cluster Jewel": [
+      "Tier 0 Cluster Jewels",
+      "Tier 1 Cluster Jewels",
+      "Tier 2 Cluster Jewels",
+      "Tier 3 Cluster Jewels"
+    ],
+    "Small Cluster Jewel": [
+      "Tier 0 Cluster Jewels",
+      "Tier 1 Cluster Jewels",
+      "Tier 2 Cluster Jewels",
+      "Tier 3 Cluster Jewels"
+    ]
   },
   "rules": []
 }

@@ -1,0 +1,1883 @@
+{
+  "_source": {
+    "tool": "parsing_tool/import_uniques_tiers.py",
+    "filterblade_version": "8.20.0b.2026.209.23",
+    "source_file": "data/from_filter_blade/3.29/FilterBlade.filter",
+    "note": "Derived snapshot for provenance and next-league diffing. Our curation never reads this at runtime."
+  },
+  "tiers": {
+    "Abyssal Axe": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t3"
+    },
+    "Agate Amulet": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "multi"
+    },
+    "Amber Amulet": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "multi"
+    },
+    "Ambush Mitts": {
+      "uniques": "t3boss"
+    },
+    "Ambusher": {
+      "uniques": "hideable"
+    },
+    "Amethyst Flask": {
+      "uniques": "t2"
+    },
+    "Amethyst Ring": {
+      "uniques": "exsynth",
+      "uniques->foulborn": "multi"
+    },
+    "Ancient Gauntlets": {
+      "uniques": "t3boss"
+    },
+    "Ancient Greaves": {
+      "uniques": "hideable"
+    },
+    "Ancient Spirit Shield": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Antique Gauntlets": {
+      "uniques": "multispecialhigh"
+    },
+    "Antique Greaves": {
+      "uniques": "hideable"
+    },
+    "Antique Rapier": {
+      "uniques": "hideable"
+    },
+    "Arcanist Gloves": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Arcanist Slippers": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Archon Kite Shield": {
+      "uniques": "t3",
+      "uniques->foulborn": "t2"
+    },
+    "Ashbark Tincture": {
+      "uniques": "hideable"
+    },
+    "Assassin Bow": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi"
+    },
+    "Assassin's Boots": {
+      "uniques": "multispecialhigh",
+      "uniques->replicas": "t2"
+    },
+    "Assassin's Garb": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Assassin's Mitts": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t3"
+    },
+    "Assembled Eye Jewel": {
+      "uniques": "t1"
+    },
+    "Astral Plate": {
+      "uniques": "t3",
+      "uniques->foulborn": "t1"
+    },
+    "Astrolabe Amulet": {
+      "uniques": "t2"
+    },
+    "Auric Mace": {
+      "uniques": "hideable"
+    },
+    "Aventail Helmet": {
+      "uniques": "hideable"
+    },
+    "Awl": {
+      "uniques": "hideable"
+    },
+    "Barbute Helmet": {
+      "uniques": "hideable"
+    },
+    "Baroque Round Shield": {
+      "uniques": "hideable"
+    },
+    "Basket Rapier": {
+      "uniques": "hideable"
+    },
+    "Bastard Sword": {
+      "uniques": "hideable"
+    },
+    "Bismuth Flask": {
+      "uniques": "t3boss"
+    },
+    "Black Maw Talisman": {
+      "uniques": "t3boss"
+    },
+    "Blasting Wand": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Blazing Arrow Quiver": {
+      "uniques": "hideable"
+    },
+    "Blood Raiment": {
+      "uniques": "t3boss",
+      "uniques->replicas": "t2"
+    },
+    "Blood Sceptre": {
+      "uniques": "t3boss"
+    },
+    "Blue Pearl Amulet": {
+      "uniques": "t3"
+    },
+    "Blunt Arrow Quiver": {
+      "uniques": "t3",
+      "uniques->foulborn": "t3"
+    },
+    "Bone Armour": {
+      "uniques": "hideable"
+    },
+    "Bone Circlet": {
+      "uniques": "4xabysshelmet"
+    },
+    "Bone Helmet": {
+      "uniques": "hideable2"
+    },
+    "Boot Blade": {
+      "uniques": "hideable"
+    },
+    "Boot Knife": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Branded Kite Shield": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Brass Maul": {
+      "uniques": "hideable"
+    },
+    "Brass Spirit Shield": {
+      "uniques": "hideable"
+    },
+    "Broadhead Arrow Quiver": {
+      "uniques": "t3boss"
+    },
+    "Bronze Gauntlets": {
+      "uniques": "hideable"
+    },
+    "Bronze Sceptre": {
+      "uniques": "hideable"
+    },
+    "Bronzescale Boots": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Bronzescale Gauntlets": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Buckskin Tunic": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Butcher Axe": {
+      "uniques": "t3boss"
+    },
+    "Cabalist Regalia": {
+      "uniques": "t2"
+    },
+    "Calling Wand": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t3"
+    },
+    "Callous Mask": {
+      "uniques": "t3"
+    },
+    "Candlestick Relic": {
+      "uniques": "t2"
+    },
+    "Cardinal Round Shield": {
+      "uniques": "t3boss"
+    },
+    "Carnal Armour": {
+      "uniques": "3xabyss",
+      "uniques->replicas": "multi"
+    },
+    "Carnal Boots": {
+      "uniques": "t3boss"
+    },
+    "Carnal Mitts": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t3"
+    },
+    "Carnal Sceptre": {
+      "uniques": "hideable"
+    },
+    "Cedar Tower Shield": {
+      "uniques": "hideable"
+    },
+    "Censer Relic": {
+      "uniques": "t2"
+    },
+    "Chain Belt": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t1"
+    },
+    "Chain Gloves": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Champion Kite Shield": {
+      "uniques": "t1",
+      "uniques->foulborn": "t1"
+    },
+    "Chiming Spirit Shield": {
+      "uniques": "hideable"
+    },
+    "Citadel Bow": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t3"
+    },
+    "Citrine Amulet": {
+      "uniques": "t3"
+    },
+    "Clasped Boots": {
+      "uniques": "hideable"
+    },
+    "Clasped Mitts": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Cleaver": {
+      "uniques": "hideable"
+    },
+    "Close Helmet": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Cloth Belt": {
+      "uniques": "multispecial",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t3"
+    },
+    "Cobalt Jewel": {
+      "uniques": "exrationaljewel",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t3"
+    },
+    "Coffer Relic": {
+      "uniques": "t3boss"
+    },
+    "Coiled Staff": {
+      "uniques": "t3boss"
+    },
+    "Colossal Mana Flask": {
+      "uniques": "t3boss"
+    },
+    "Colossal Tower Shield": {
+      "uniques": "t3boss"
+    },
+    "Colosseum Plate": {
+      "uniques": "t3boss"
+    },
+    "Compound Spiked Shield": {
+      "uniques": "hideable"
+    },
+    "Conjurer Boots": {
+      "uniques": "hideable"
+    },
+    "Conjurer Gloves": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Conquest Chainmail": {
+      "uniques": "hideable"
+    },
+    "Copper Plate": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Coral Amulet": {
+      "uniques": "hideable2"
+    },
+    "Coral Ring": {
+      "uniques": "multispecial"
+    },
+    "Coronal Maul": {
+      "uniques": "t2",
+      "uniques->foulborn": "t2"
+    },
+    "Corrugated Buckler": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Corsair Sword": {
+      "uniques": "hideable"
+    },
+    "Crimson Jewel": {
+      "uniques": "exjewelscorrupted",
+      "uniques->foulborn": "t2",
+      "uniques->replicas": "t3"
+    },
+    "Crimson Round Shield": {
+      "uniques": "t3boss"
+    },
+    "Crude Bow": {
+      "uniques": "t3"
+    },
+    "Crusader Boots": {
+      "uniques": "t1"
+    },
+    "Crusader Chainmail": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t3"
+    },
+    "Crusader Gloves": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Crusader Plate": {
+      "uniques": "multispecial",
+      "uniques->foulborn": "multi"
+    },
+    "Cryonic Ring": {
+      "uniques": "t3boss"
+    },
+    "Crystal Belt": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t2"
+    },
+    "Crystal Sceptre": {
+      "uniques": "multispecial"
+    },
+    "Cutlass": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "multi"
+    },
+    "Cutthroat's Garb": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Death Bow": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t3"
+    },
+    "Decimation Bow": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Decorative Axe": {
+      "uniques": "hideable"
+    },
+    "Deerskin Boots": {
+      "uniques": "hideable"
+    },
+    "Deerskin Gloves": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Deicide Mask": {
+      "uniques": "t3"
+    },
+    "Demon Dagger": {
+      "uniques": "t3boss"
+    },
+    "Desert Brigandine": {
+      "uniques": "t3",
+      "uniques->foulborn": "t2"
+    },
+    "Despot Axe": {
+      "uniques": "hideable2"
+    },
+    "Destiny Leather": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi"
+    },
+    "Destroyer Regalia": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi"
+    },
+    "Devout Chainmail": {
+      "uniques": "t2",
+      "uniques->foulborn": "t3"
+    },
+    "Diamond Flask": {
+      "uniques": "hideable"
+    },
+    "Diamond Ring": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t3"
+    },
+    "Dragonscale Boots": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t3"
+    },
+    "Dragonscale Gauntlets": {
+      "uniques": "hideable"
+    },
+    "Dread Maul": {
+      "uniques": "hideable"
+    },
+    "Dream Mace": {
+      "uniques": "hideable"
+    },
+    "Driftwood Wand": {
+      "uniques": "hideable"
+    },
+    "Dusk Blade": {
+      "uniques": "t1"
+    },
+    "Ebony Tower Shield": {
+      "uniques": "multispecial",
+      "uniques->replicas": "t1"
+    },
+    "Eelskin Boots": {
+      "uniques": "hideable"
+    },
+    "Eelskin Gloves": {
+      "uniques": "hideable"
+    },
+    "Elder Sword": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Elegant Ringmail": {
+      "uniques": "hideable2",
+      "uniques->replicas": "t3"
+    },
+    "Elegant Round Shield": {
+      "uniques": "multispecialhigh",
+      "uniques->foulborn": "multi"
+    },
+    "Elegant Sword": {
+      "uniques": "hideable2"
+    },
+    "Embroidered Gloves": {
+      "uniques": "hideable"
+    },
+    "Enameled Buckler": {
+      "uniques": "hideable"
+    },
+    "Engraved Greatsword": {
+      "uniques": "t1"
+    },
+    "Enthalpic Ring": {
+      "uniques": "t3boss"
+    },
+    "Estoc": {
+      "uniques": "hideable"
+    },
+    "Etched Greatsword": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Eternal Burgonet": {
+      "uniques": "hideable"
+    },
+    "Eternal Sword": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t1",
+      "uniques->replicas": "t3"
+    },
+    "Exquisite Blade": {
+      "uniques": "t2"
+    },
+    "Exquisite Leather": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t2"
+    },
+    "Ezomyte Axe": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Ezomyte Blade": {
+      "uniques": "hideable"
+    },
+    "Ezomyte Burgonet": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t2",
+      "uniques->replicas": "t2"
+    },
+    "Ezomyte Dagger": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Ezomyte Spiked Shield": {
+      "uniques": "t3boss"
+    },
+    "Ezomyte Staff": {
+      "uniques": "t3boss"
+    },
+    "Ezomyte Tower Shield": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "multi"
+    },
+    "Faithful Helmet": {
+      "uniques": "t1"
+    },
+    "Faun's Horn": {
+      "uniques": "t2"
+    },
+    "Feathered Arrow Quiver": {
+      "uniques": "hideable"
+    },
+    "Festival Mask": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Fiend Dagger": {
+      "uniques": "multispecial",
+      "uniques->foulborn": "t3"
+    },
+    "Fingerless Silk Gloves": {
+      "uniques": "t3boss"
+    },
+    "Fishing Rod": {
+      "uniques": "t1",
+      "uniques->foulborn": "t1"
+    },
+    "Flaying Knife": {
+      "uniques": "hideable"
+    },
+    "Fleshripper": {
+      "uniques": "t1"
+    },
+    "Fluted Bascinet": {
+      "uniques": "t1"
+    },
+    "Formless Ring": {
+      "uniques": "t1"
+    },
+    "Foul Staff": {
+      "uniques": "t1"
+    },
+    "Fright Claw": {
+      "uniques": "hideable"
+    },
+    "Fugitive Boots": {
+      "uniques": "t3boss"
+    },
+    "Fugitive Ring": {
+      "uniques": "t1"
+    },
+    "Full Dragonscale": {
+      "uniques": "hideable"
+    },
+    "Full Wyrmscale": {
+      "uniques": "t3",
+      "uniques->foulborn": "t3"
+    },
+    "Gavel": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi"
+    },
+    "Gemstone Sword": {
+      "uniques": "hideable"
+    },
+    "General's Brigandine": {
+      "uniques": "t3"
+    },
+    "Ghastly Eye Jewel": {
+      "uniques": "t1"
+    },
+    "Ghostflame Blade": {
+      "uniques": "hideable"
+    },
+    "Gilded Sallet": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi"
+    },
+    "Girded Tower Shield": {
+      "uniques": "t1"
+    },
+    "Gladiator Plate": {
+      "uniques": "t3",
+      "uniques->foulborn": "multi"
+    },
+    "Gladius": {
+      "uniques": "hideable"
+    },
+    "Glorious Plate": {
+      "uniques": "exkaom",
+      "uniques->replicas": "t2"
+    },
+    "Gnarled Branch": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Goat's Horn": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Goathide Boots": {
+      "uniques": "t3",
+      "uniques->foulborn": "t3"
+    },
+    "Goathide Gloves": {
+      "uniques": "hideable"
+    },
+    "Gold Amulet": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Gold Flask": {
+      "uniques": "t1"
+    },
+    "Gold Ring": {
+      "uniques": "multispecial",
+      "uniques->foulborn": "t2"
+    },
+    "Golden Buckler": {
+      "uniques": "t2"
+    },
+    "Golden Mask": {
+      "uniques": "t3",
+      "uniques->foulborn": "multi"
+    },
+    "Golden Plate": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t3"
+    },
+    "Goliath Gauntlets": {
+      "uniques": "t3boss"
+    },
+    "Goliath Greaves": {
+      "uniques": "t3boss"
+    },
+    "Graceful Sword": {
+      "uniques": "hideable"
+    },
+    "Grand Mana Flask": {
+      "uniques": "hideable"
+    },
+    "Granite Flask": {
+      "uniques": "multispecial",
+      "uniques->replicas": "t3"
+    },
+    "Great Crown": {
+      "uniques": "2xabyss",
+      "uniques->replicas": "t1"
+    },
+    "Great Helmet": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t3"
+    },
+    "Great Mallet": {
+      "uniques": "hideable",
+      "uniques->replicas": "t2"
+    },
+    "Greater Mana Flask": {
+      "uniques": "hideable"
+    },
+    "Greatwolf Talisman": {
+      "uniques": "t1"
+    },
+    "Grinning Fetish": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Gut Ripper": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Hallowed Hybrid Flask": {
+      "uniques": "hideable"
+    },
+    "Harbinger Bow": {
+      "uniques": "hideable"
+    },
+    "Harlequin Mask": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t3"
+    },
+    "Harmonic Spirit Shield": {
+      "uniques": "t3",
+      "uniques->foulborn": "t3"
+    },
+    "Headsman Axe": {
+      "uniques": "hideable"
+    },
+    "Heavy Arrow Quiver": {
+      "uniques": "hideable"
+    },
+    "Heavy Belt": {
+      "uniques": "multispecialhigh",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t3"
+    },
+    "Hellion's Paw": {
+      "uniques": "multispecial"
+    },
+    "Highborn Staff": {
+      "uniques": "multispecial"
+    },
+    "Highland Blade": {
+      "uniques": "hideable"
+    },
+    "Holy Chainmail": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Hubris Circlet": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t3"
+    },
+    "Hydrascale Boots": {
+      "uniques": "t3boss"
+    },
+    "Hydrascale Gauntlets": {
+      "uniques": "multispecial"
+    },
+    "Hypnotic Eye Jewel": {
+      "uniques": "multispecialhigh"
+    },
+    "Imperial Bow": {
+      "uniques": "multispecialhigh",
+      "uniques->replicas": "t2"
+    },
+    "Imperial Claw": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi"
+    },
+    "Imperial Maul": {
+      "uniques": "t2"
+    },
+    "Imperial Skean": {
+      "uniques": "multispecial"
+    },
+    "Imperial Staff": {
+      "uniques": "multispecial"
+    },
+    "Infernal Axe": {
+      "uniques": "hideable"
+    },
+    "Infernal Sword": {
+      "uniques": "exforgesword",
+      "uniques->replicas": "t3"
+    },
+    "Iron Circlet": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Iron Flask": {
+      "uniques": "t3boss"
+    },
+    "Iron Gauntlets": {
+      "uniques": "hideable"
+    },
+    "Iron Hat": {
+      "uniques": "hideable"
+    },
+    "Iron Mask": {
+      "uniques": "hideable"
+    },
+    "Iron Ring": {
+      "uniques": "exsynth",
+      "uniques->foulborn": "t2"
+    },
+    "Iron Staff": {
+      "uniques": "hideable"
+    },
+    "Ironscale Boots": {
+      "uniques": "hideable"
+    },
+    "Ironscale Gauntlets": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Ironwood Buckler": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Ironwood Tincture": {
+      "uniques": "hideable"
+    },
+    "Jade Amulet": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t1",
+      "uniques->replicas": "t3"
+    },
+    "Jade Hatchet": {
+      "uniques": "hideable"
+    },
+    "Jagged Foil": {
+      "uniques": "hideable"
+    },
+    "Jagged Maul": {
+      "uniques": "hideable"
+    },
+    "Jasper Chopper": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t2"
+    },
+    "Jewelled Foil": {
+      "uniques": "t3",
+      "uniques->foulborn": "t2"
+    },
+    "Jingling Spirit Shield": {
+      "uniques": "t1"
+    },
+    "Judgement Staff": {
+      "uniques": "t3boss"
+    },
+    "Karui Chopper": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t2"
+    },
+    "Karui Maul": {
+      "uniques": "t1"
+    },
+    "Karui Sceptre": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t3"
+    },
+    "Kinetic Wand": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Lacewood Spirit Shield": {
+      "uniques": "t2"
+    },
+    "Lacquered Buckler": {
+      "uniques": "multispecial",
+      "uniques->replicas": "t3"
+    },
+    "Lacquered Garb": {
+      "uniques": "t3",
+      "uniques->foulborn": "multi"
+    },
+    "Lacquered Helmet": {
+      "uniques": "t3boss"
+    },
+    "Laminated Kite Shield": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Lapis Amulet": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "multi"
+    },
+    "Large Cluster Jewel": {
+      "uniques": "t2"
+    },
+    "Large Hybrid Flask": {
+      "uniques": "hideable"
+    },
+    "Lathi": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Latticed Ringmail": {
+      "uniques": "hideable"
+    },
+    "Leather Belt": {
+      "uniques": "multispecialhigh",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t1"
+    },
+    "Leather Cap": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Leather Hood": {
+      "uniques": "t2",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t3"
+    },
+    "Legion Boots": {
+      "uniques": "t3",
+      "uniques->foulborn": "t3"
+    },
+    "Legion Gloves": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Legion Sword": {
+      "uniques": "t3boss"
+    },
+    "Lich's Circlet": {
+      "uniques": "t3boss"
+    },
+    "Lion Pelt": {
+      "uniques": "hideable"
+    },
+    "Lion Sword": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "multi"
+    },
+    "Long Bow": {
+      "uniques": "hideable"
+    },
+    "Lunaris Circlet": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t2"
+    },
+    "Maelström Staff": {
+      "uniques": "t3",
+      "uniques->replicas": "t1"
+    },
+    "Magistrate Crown": {
+      "uniques": "multispecialhigh"
+    },
+    "Majestic Plate": {
+      "uniques": "t3",
+      "uniques->foulborn": "t3"
+    },
+    "Map (Tier 11)": {
+      "uniques->replicas": "t3"
+    },
+    "Map (Tier 12)": {
+      "uniques->replicas": "t2"
+    },
+    "Map (Tier 14)": {
+      "uniques->replicas": "t2"
+    },
+    "Map (Tier 16)": {
+      "uniques->replicas": "t2"
+    },
+    "Map (Tier 7)": {
+      "uniques->replicas": "t3"
+    },
+    "Maple Round Shield": {
+      "uniques": "hideable"
+    },
+    "Maraketh Bow": {
+      "uniques": "t2",
+      "uniques->foulborn": "t2"
+    },
+    "Marble Amulet": {
+      "uniques": "t3boss"
+    },
+    "Martyr Gloves": {
+      "uniques": "t2"
+    },
+    "Meatgrinder": {
+      "uniques": "hideable"
+    },
+    "Medium Cluster Jewel": {
+      "uniques": "t2"
+    },
+    "Mesh Boots": {
+      "uniques": "hideable"
+    },
+    "Mesh Gloves": {
+      "uniques": "hideable"
+    },
+    "Midnight Blade": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi"
+    },
+    "Military Staff": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Mind Cage": {
+      "uniques": "2xabyss",
+      "uniques->foulborn": "t3"
+    },
+    "Mirrored Spiked Shield": {
+      "uniques": "t3boss"
+    },
+    "Moonstone Ring": {
+      "uniques": "multispecial",
+      "uniques->foulborn": "multi"
+    },
+    "Mosaic Kite Shield": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Murder Boots": {
+      "uniques": "2xabyss",
+      "uniques->replicas": "t3"
+    },
+    "Murder Mitts": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t2"
+    },
+    "Murderous Eye Jewel": {
+      "uniques": "t1"
+    },
+    "Nailed Fist": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Nameless Ring": {
+      "uniques": "hideable2"
+    },
+    "Necromancer Circlet": {
+      "uniques": "t3boss"
+    },
+    "Necromancer Silks": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Nightmare Bascinet": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi"
+    },
+    "Nightmare Mace": {
+      "uniques": "t3boss"
+    },
+    "Nubuck Boots": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Nubuck Gloves": {
+      "uniques": "hideable"
+    },
+    "Oakbranch Tincture": {
+      "uniques": "hideable"
+    },
+    "Occultist's Vestment": {
+      "uniques": "t3",
+      "uniques->foulborn": "t3"
+    },
+    "Omen Wand": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Onyx Amulet": {
+      "uniques": "exuberimpresence",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t3"
+    },
+    "Opal Ring": {
+      "uniques": "t3boss"
+    },
+    "Opal Sceptre": {
+      "uniques": "hideable"
+    },
+    "Opal Wand": {
+      "uniques": "t2",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t3"
+    },
+    "Organic Ring": {
+      "uniques": "t3boss"
+    },
+    "Ornate Mace": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t3"
+    },
+    "Ornate Quiver": {
+      "uniques": "t2",
+      "uniques->foulborn": "t2",
+      "uniques->replicas": "t2"
+    },
+    "Ornate Ringmail": {
+      "uniques": "hideable"
+    },
+    "Ornate Sword": {
+      "uniques": "hideable"
+    },
+    "Pagan Wand": {
+      "uniques": "t3"
+    },
+    "Painted Buckler": {
+      "uniques": "hideable"
+    },
+    "Painted Tower Shield": {
+      "uniques": "t3"
+    },
+    "Paladin Crown": {
+      "uniques": "t3boss"
+    },
+    "Papyrus Relic": {
+      "uniques": "t1"
+    },
+    "Paua Amulet": {
+      "uniques": "multispecialhigh",
+      "uniques->foulborn": "t1",
+      "uniques->replicas": "t3"
+    },
+    "Paua Ring": {
+      "uniques": "t3",
+      "uniques->replicas": "t3"
+    },
+    "Pearlescent Amulet": {
+      "uniques": "t1"
+    },
+    "Penetrating Arrow Quiver": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Pig-Faced Bascinet": {
+      "uniques": "t3boss"
+    },
+    "Piledriver": {
+      "uniques": "t2"
+    },
+    "Pine Buckler": {
+      "uniques": "hideable"
+    },
+    "Pinnacle Tower Shield": {
+      "uniques": "hideable2",
+      "uniques->foulborn": "t3"
+    },
+    "Plague Mask": {
+      "uniques": "hideable"
+    },
+    "Plank Kite Shield": {
+      "uniques": "hideable"
+    },
+    "Plate Vest": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Plated Greaves": {
+      "uniques": "t3"
+    },
+    "Platinum Kris": {
+      "uniques": "hideable"
+    },
+    "Platinum Sceptre": {
+      "uniques": "hideable2",
+      "uniques->foulborn": "t3"
+    },
+    "Poleaxe": {
+      "uniques": "hideable"
+    },
+    "Polished Spiked Shield": {
+      "uniques": "hideable"
+    },
+    "Praetor Crown": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "multi"
+    },
+    "Primal Arrow Quiver": {
+      "uniques": "hideable"
+    },
+    "Primordial Staff": {
+      "uniques": "t3boss"
+    },
+    "Prismatic Jewel": {
+      "uniques": "t1"
+    },
+    "Prismatic Ring": {
+      "uniques": "exsynth",
+      "uniques->foulborn": "multi"
+    },
+    "Prismatic Tincture": {
+      "uniques": "hideable"
+    },
+    "Processional Relic": {
+      "uniques": "t1"
+    },
+    "Prophecy Wand": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t1"
+    },
+    "Prophet Crown": {
+      "uniques": "multispecial"
+    },
+    "Quarterstaff": {
+      "uniques": "t2"
+    },
+    "Quartz Flask": {
+      "uniques": "hideable"
+    },
+    "Quicksilver Flask": {
+      "uniques": "hideable"
+    },
+    "Ranger Bow": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi"
+    },
+    "Raven Mask": {
+      "uniques": "t3",
+      "uniques->foulborn": "t2"
+    },
+    "Rawhide Boots": {
+      "uniques": "t2",
+      "uniques->foulborn": "t1"
+    },
+    "Rawhide Tower Shield": {
+      "uniques": "hideable"
+    },
+    "Reaver Helmet": {
+      "uniques": "hideable"
+    },
+    "Reaver Sword": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Recurve Bow": {
+      "uniques": "hideable"
+    },
+    "Regicide Mask": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Reinforced Greaves": {
+      "uniques": "t3",
+      "uniques->foulborn": "t3"
+    },
+    "Reinforced Tower Shield": {
+      "uniques": "hideable"
+    },
+    "Rhex Talisman": {
+      "uniques": "t1"
+    },
+    "Ring": {
+      "uniques": "t1"
+    },
+    "Ritual Sceptre": {
+      "uniques": "hideable"
+    },
+    "Riveted Boots": {
+      "uniques": "t1"
+    },
+    "Riveted Gloves": {
+      "uniques": "t2"
+    },
+    "Rock Breaker": {
+      "uniques": "hideable"
+    },
+    "Rotted Round Shield": {
+      "uniques": "hideable"
+    },
+    "Royal Axe": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Royal Bow": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Royal Burgonet": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "multi"
+    },
+    "Royal Sceptre": {
+      "uniques": "hideable"
+    },
+    "Royal Skean": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Royal Staff": {
+      "uniques": "hideable"
+    },
+    "Ruby Flask": {
+      "uniques": "t1"
+    },
+    "Ruby Ring": {
+      "uniques": "exsynth",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t3"
+    },
+    "Runic Crown": {
+      "uniques": "t2"
+    },
+    "Runic Gages": {
+      "uniques": "t2"
+    },
+    "Runic Gauntlets": {
+      "uniques": "t3boss"
+    },
+    "Runic Helm": {
+      "uniques": "t1"
+    },
+    "Runic Sabatons": {
+      "uniques": "t2"
+    },
+    "Runic Sollerets": {
+      "uniques": "t1"
+    },
+    "Rusted Sword": {
+      "uniques": "hideable"
+    },
+    "Rustic Sash": {
+      "uniques": "hideable2",
+      "uniques->replicas": "t3"
+    },
+    "Sabre": {
+      "uniques": "hideable"
+    },
+    "Sacrificial Garb": {
+      "uniques": "t3"
+    },
+    "Sadist Garb": {
+      "uniques": "multispecial",
+      "uniques->foulborn": "t3"
+    },
+    "Sage Wand": {
+      "uniques": "t3",
+      "uniques->replicas": "t2"
+    },
+    "Sage's Robe": {
+      "uniques": "multispecial",
+      "uniques->foulborn": "multi"
+    },
+    "Saint's Hauberk": {
+      "uniques": "multispecial"
+    },
+    "Saintly Chainmail": {
+      "uniques": "t3",
+      "uniques->foulborn": "t3"
+    },
+    "Samite Gloves": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t3"
+    },
+    "Samnite Helmet": {
+      "uniques": "hideable"
+    },
+    "Sanctified Life Flask": {
+      "uniques": "hideable"
+    },
+    "Sanctified Mana Flask": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Sapphire Flask": {
+      "uniques": "t3boss"
+    },
+    "Sapphire Ring": {
+      "uniques": "exsynth",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t3"
+    },
+    "Satin Gloves": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Satin Slippers": {
+      "uniques": "hideable"
+    },
+    "Savant's Robe": {
+      "uniques": "t2"
+    },
+    "Scholar Boots": {
+      "uniques": "hideable"
+    },
+    "Scholar's Robe": {
+      "uniques": "t2",
+      "uniques->foulborn": "t2"
+    },
+    "Seaglass Amulet": {
+      "uniques": "t2"
+    },
+    "Searching Eye Jewel": {
+      "uniques": "multispecialhigh"
+    },
+    "Secutor Helm": {
+      "uniques": "hideable"
+    },
+    "Sentinel Jacket": {
+      "uniques": "t3boss"
+    },
+    "Serpentine Staff": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t3"
+    },
+    "Serpentscale Boots": {
+      "uniques": "t3"
+    },
+    "Serpentscale Gauntlets": {
+      "uniques": "t3"
+    },
+    "Serrated Arrow Quiver": {
+      "uniques": "hideable"
+    },
+    "Shackled Boots": {
+      "uniques": "hideable"
+    },
+    "Shadow Axe": {
+      "uniques": "hideable"
+    },
+    "Shadow Sceptre": {
+      "uniques": "t3boss",
+      "uniques->replicas": "t3"
+    },
+    "Shagreen Boots": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Shagreen Gloves": {
+      "uniques": "hideable"
+    },
+    "Sharkskin Boots": {
+      "uniques": "hideable"
+    },
+    "Sharkskin Tunic": {
+      "uniques": "hideable"
+    },
+    "Sharktooth Arrow Quiver": {
+      "uniques": "hideable"
+    },
+    "Shield Crab Talisman": {
+      "uniques": "t3"
+    },
+    "Short Bow": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t3"
+    },
+    "Siege Axe": {
+      "uniques": "t1",
+      "uniques->replicas": "t2"
+    },
+    "Siege Helmet": {
+      "uniques": "t1"
+    },
+    "Silk Gloves": {
+      "uniques": "t3",
+      "uniques->foulborn": "t2"
+    },
+    "Silk Slippers": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Silken Hood": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t3"
+    },
+    "Silken Vest": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Silver Flask": {
+      "uniques": "t3boss"
+    },
+    "Simple Robe": {
+      "uniques": "extabula"
+    },
+    "Sinner Tricorne": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t3"
+    },
+    "Skinning Knife": {
+      "uniques": "hideable"
+    },
+    "Slaughter Knife": {
+      "uniques": "t1"
+    },
+    "Sledgehammer": {
+      "uniques": "hideable"
+    },
+    "Slink Boots": {
+      "uniques": "t3boss"
+    },
+    "Slink Gloves": {
+      "uniques": "hideable"
+    },
+    "Small Cluster Jewel": {
+      "uniques": "multispecialhigh"
+    },
+    "Solaris Circlet": {
+      "uniques": "t3boss"
+    },
+    "Soldier Boots": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t1"
+    },
+    "Soldier Gloves": {
+      "uniques": "t3boss"
+    },
+    "Soldier Helmet": {
+      "uniques": "hideable"
+    },
+    "Somatic Wand": {
+      "uniques": "t3",
+      "uniques->foulborn": "t1"
+    },
+    "Sorcerer Boots": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t2"
+    },
+    "Sorcerer Gloves": {
+      "uniques->replicas": "t2"
+    },
+    "Sovereign Spiked Shield": {
+      "uniques": "hideable2"
+    },
+    "Spectral Axe": {
+      "uniques": "t2"
+    },
+    "Spidersilk Robe": {
+      "uniques": "multispecial",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t1"
+    },
+    "Spike-Point Arrow Quiver": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t3"
+    },
+    "Spiked Club": {
+      "uniques": "hideable"
+    },
+    "Spiked Gloves": {
+      "uniques": "t3boss"
+    },
+    "Spine Bow": {
+      "uniques": "multispecial"
+    },
+    "Spiny Round Shield": {
+      "uniques": "t3boss"
+    },
+    "Spiraled Wand": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Sporebloom Tincture": {
+      "uniques": "hideable"
+    },
+    "Stealth Boots": {
+      "uniques": "multispecial"
+    },
+    "Steel Circlet": {
+      "uniques": "hideable"
+    },
+    "Steel Gauntlets": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Steel Kite Shield": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t1"
+    },
+    "Steel Ring": {
+      "uniques": "t3boss"
+    },
+    "Steelhead": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Steelscale Gauntlets": {
+      "uniques": "2xabyss",
+      "uniques->foulborn": "t2"
+    },
+    "Steelwood Bow": {
+      "uniques": "t3boss"
+    },
+    "Stibnite Flask": {
+      "uniques": "t3",
+      "uniques->replicas": "t2"
+    },
+    "Stiletto": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Strapped Boots": {
+      "uniques": "hideable"
+    },
+    "Strapped Mitts": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Studded Belt": {
+      "uniques": "multispecial",
+      "uniques->foulborn": "t2"
+    },
+    "Studded Round Shield": {
+      "uniques": "hideable"
+    },
+    "Stygian Vise": {
+      "uniques": "t3boss"
+    },
+    "Sulphur Flask": {
+      "uniques": "t3boss",
+      "uniques->replicas": "t3"
+    },
+    "Sun Leather": {
+      "uniques": "hideable"
+    },
+    "Supreme Spiked Shield": {
+      "uniques": "hideable"
+    },
+    "Synaptic Ring": {
+      "uniques": "t2"
+    },
+    "Synthesised Map": {
+      "uniques->replicas": "t2"
+    },
+    "Tarnished Spirit Shield": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Teak Round Shield": {
+      "uniques": "hideable"
+    },
+    "Terror Claw": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi"
+    },
+    "Terror Maul": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t1"
+    },
+    "Thresher Claw": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Throat Stabber": {
+      "uniques": "hideable"
+    },
+    "Tiger Sword": {
+      "uniques": "hideable"
+    },
+    "Timeless Jewel": {
+      "uniques": "t2"
+    },
+    "Timeworn Claw": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Titan Gauntlets": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Titan Greaves": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t3"
+    },
+    "Titanium Spirit Shield": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t2"
+    },
+    "Tomahawk": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t2"
+    },
+    "Tome Relic": {
+      "uniques": "t3boss"
+    },
+    "Topaz Flask": {
+      "uniques": "t3boss"
+    },
+    "Topaz Ring": {
+      "uniques": "exsynth",
+      "uniques->foulborn": "t2"
+    },
+    "Tornado Wand": {
+      "uniques": "t3boss",
+      "uniques->replicas": "t2"
+    },
+    "Torturer Garb": {
+      "uniques": "t3boss"
+    },
+    "Trapper Boots": {
+      "uniques": "hideable"
+    },
+    "Tribal Circlet": {
+      "uniques": "hideable"
+    },
+    "Tricorne": {
+      "uniques": "hideable"
+    },
+    "Triumphant Lamellar": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t1"
+    },
+    "Turquoise Amulet": {
+      "uniques": "multispecial",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t2"
+    },
+    "Twilight Blade": {
+      "uniques": "hideable"
+    },
+    "Two-Point Arrow Quiver": {
+      "uniques": "t3",
+      "uniques->foulborn": "t3"
+    },
+    "Two-Stone Ring": {
+      "uniques": "hideable",
+      "uniques->foulborn": "multi"
+    },
+    "Two-Toned Boots": {
+      "uniques": "hideable"
+    },
+    "Tyrant's Sekhem": {
+      "uniques": "hideable2"
+    },
+    "Unset Amulet": {
+      "uniques": "t1"
+    },
+    "Unset Ring": {
+      "uniques": "multispecial",
+      "uniques->replicas": "t3"
+    },
+    "Urn Relic": {
+      "uniques": "t3boss"
+    },
+    "Ursine Pelt": {
+      "uniques": "hideable"
+    },
+    "Vaal Axe": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "multi"
+    },
+    "Vaal Blade": {
+      "uniques": "multispecial",
+      "uniques->foulborn": "t3"
+    },
+    "Vaal Buckler": {
+      "uniques": "hideable"
+    },
+    "Vaal Claw": {
+      "uniques": "multispecialhigh",
+      "uniques->replicas": "t2"
+    },
+    "Vaal Gauntlets": {
+      "uniques": "t3",
+      "uniques->foulborn": "t3",
+      "uniques->replicas": "t2"
+    },
+    "Vaal Greaves": {
+      "uniques": "t3boss"
+    },
+    "Vaal Hatchet": {
+      "uniques": "hideable"
+    },
+    "Vaal Mask": {
+      "uniques": "t3boss"
+    },
+    "Vaal Rapier": {
+      "uniques": "t2",
+      "uniques->replicas": "t3"
+    },
+    "Vaal Regalia": {
+      "uniques": "t3boss"
+    },
+    "Vaal Sceptre": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Vaal Spirit Shield": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t3"
+    },
+    "Vanguard Belt": {
+      "uniques": "t3boss"
+    },
+    "Varnished Coat": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "t3"
+    },
+    "Velvet Gloves": {
+      "uniques": "hideable"
+    },
+    "Velvet Slippers": {
+      "uniques": "hideable"
+    },
+    "Vermillion Ring": {
+      "uniques": "t1"
+    },
+    "Vile Arrow Quiver": {
+      "uniques": "t3boss"
+    },
+    "Vile Staff": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Vine Circlet": {
+      "uniques": "hideable"
+    },
+    "Viridian Jewel": {
+      "uniques": "exjewelscorrupted",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t3"
+    },
+    "Visored Sallet": {
+      "uniques": "hideable"
+    },
+    "Void Axe": {
+      "uniques": "t2"
+    },
+    "Void Sceptre": {
+      "uniques": "t3boss",
+      "uniques->replicas": "t1"
+    },
+    "War Buckler": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "War Hammer": {
+      "uniques": "hideable"
+    },
+    "War Sword": {
+      "uniques": "hideable",
+      "uniques->replicas": "t3"
+    },
+    "Waxed Garb": {
+      "uniques": "t3boss"
+    },
+    "Whalebone Rapier": {
+      "uniques": "hideable"
+    },
+    "Widowsilk Robe": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Wild Leather": {
+      "uniques": "hideable"
+    },
+    "Wolf Alpha Talisman": {
+      "uniques": "hideable"
+    },
+    "Wolf Pelt": {
+      "uniques": "hideable"
+    },
+    "Woodsplitter": {
+      "uniques": "hideable"
+    },
+    "Wool Gloves": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Wool Shoes": {
+      "uniques": "hideable"
+    },
+    "Wrapped Mitts": {
+      "uniques": "hideable"
+    },
+    "Wyrmscale Boots": {
+      "uniques": "t3boss"
+    },
+    "Wyrmscale Doublet": {
+      "uniques": "t1",
+      "uniques->foulborn": "t1"
+    },
+    "Wyrmscale Gauntlets": {
+      "uniques": "hideable",
+      "uniques->foulborn": "t3"
+    },
+    "Zealot Gloves": {
+      "uniques": "hideable2",
+      "uniques->replicas": "t3"
+    },
+    "Zealot Helmet": {
+      "uniques": "t3",
+      "uniques->foulborn": "t3"
+    },
+    "Zodiac Leather": {
+      "uniques": "t3boss",
+      "uniques->foulborn": "multi",
+      "uniques->replicas": "t3"
+    }
+  }
+}

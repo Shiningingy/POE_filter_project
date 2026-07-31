@@ -1,0 +1,310 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Magic Net",
+      "ch": "魔法装备网"
+    },
+    "theme_category": "Magic Net",
+    "gen_order": 5,
+    "localization": {
+      "ch": {
+        "Blue Pearl Amulet": "碧珠护身符",
+        "Marble Amulet": "大理石护身符",
+        "Onyx Amulet": "黑曜护身符",
+        "Agate Amulet": "玛瑙护身符",
+        "Turquoise Amulet": "青玉护身符",
+        "Citrine Amulet": "黄晶护身符",
+        "Amber Amulet": "琥珀护身符",
+        "Jade Amulet": "翠玉护身符",
+        "Lapis Amulet": "海玉护身符",
+        "Opal Ring": "蛋白石戒指",
+        "Steel Ring": "合金戒指",
+        "Vermillion Ring": "朱砂之戒",
+        "Iolite Ring": "青石戒指",
+        "Diamond Ring": "宝钻戒指",
+        "Cerulean Ring": "天蓝之戒",
+        "Two-Stone Ring": "双玉戒指",
+        "Amethyst Ring": "紫晶戒指",
+        "Coral Ring": "珊瑚戒指",
+        "Unset Ring": "潜能之戒",
+        "Sapphire Ring": "蓝玉戒指",
+        "Topaz Ring": "黄玉戒指",
+        "Ruby Ring": "红玉戒指",
+        "Moonstone Ring": "月光石戒指",
+        "Prismatic Ring": "三相戒指",
+        "Bone Ring": "骨环",
+        "Stygian Vise": "深渊腰带",
+        "Crystal Belt": "水晶腰带",
+        "Leather Belt": "皮革腰带",
+        "Vanguard Belt": "先锋腰带",
+        "Heavy Belt": "重革腰带",
+        "Chieftain Talisman": "酋长护身符",
+        "Gargantuan Talisman": "巨型护身符",
+        "Goliath Talisman": "巨人护身符",
+        "Rhoa Talisman": "鸵鸟护身符",
+        "Blood Viper Talisman": "血蝰护身符",
+        "Chimeral Talisman": "奇美拉护身符",
+        "Squid Talisman": "乌贼护身符",
+        "Sand Spitter Talisman": "喷沙者护身符",
+        "Shield Crab Talisman": "盾蟹护身符",
+        "Goatman Talisman": "羊人护身符",
+        "Devourer Talisman": "吞噬者护身符",
+        "Plagued Arachnid Talisman": "瘟疫蛛护身符",
+        "Watcher Talisman": "观察者护身符",
+        "Savage Crab Talisman": "野蛮蟹护身符",
+        "Flame Hellion Talisman": "烈焰恶鬼护身符",
+        "Frost Hellion Talisman": "冰霜恶鬼护身符",
+        "Lynx Talisman": "猞猁护身符",
+        "Ape Talisman": "猿猴护身符",
+        "Wolf Alpha Talisman": "头狼护身符",
+        "Magma Hound Talisman": "岩浆猎犬护身符",
+        "Pitbull Talisman": "斗牛犬护身符",
+        "Ursa Talisman": "巨熊护身符",
+        "Taurus Talisman": "金牛护身符",
+        "Retch Talisman": "呕吐者护身符",
+        "Cobra Talisman": "眼镜蛇护身符",
+        "Carrion Queen Talisman": "腐肉女王护身符",
+        "Scrabbler Talisman": "抓挠者护身符",
+        "Black Widow Talisman": "黑寡妇护身符",
+        "Scorpion Talisman": "蝎子护身符",
+        "Tiger Talisman": "猛虎护身符",
+        "Vulture Talisman": "秃鹫护身符",
+        "Rhex Talisman": "雷克斯护身符",
+        "Hybrid Arachnid Talisman": "混种蛛护身符",
+        "Octopus Talisman": "章鱼护身符",
+        "Spider Crab Talisman": "蜘蛛蟹护身符",
+        "Great Maw Talisman": "巨口护身符",
+        "Croaker Talisman": "呱噪者护身符",
+        "Craicic Talisman": "深海护身符",
+        "Fenumal Talisman": "暗夜护身符",
+        "Saqawine Talisman": "苍空护身符",
+        "Farric Talisman": "大地护身符",
+        "Black Maw Talisman": "Black Maw护身符",
+        "Greatwolf Talisman": "狼王魔符"
+      }
+    },
+    "suppress_basetype_sounds": true
+  },
+  "mapping": {
+    "Agate Amulet": [
+      "Magic Good Jewellery"
+    ],
+    "Amber Amulet": [
+      "Magic Good Jewellery"
+    ],
+    "Amethyst Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Ape Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Black Maw Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Black Widow Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Blood Viper Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Blue Pearl Amulet": [
+      "Magic Good Jewellery"
+    ],
+    "Bone Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Carrion Queen Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Cerulean Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Chieftain Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Chimeral Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Citrine Amulet": [
+      "Magic Good Jewellery"
+    ],
+    "Cobra Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Coral Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Craicic Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Croaker Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Crystal Belt": [
+      "Magic Good Jewellery"
+    ],
+    "Devourer Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Diamond Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Farric Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Fenumal Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Flame Hellion Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Frost Hellion Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Gargantuan Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Goatman Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Goliath Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Great Maw Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Greatwolf Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Heavy Belt": [
+      "Magic Good Jewellery"
+    ],
+    "Hybrid Arachnid Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Iolite Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Jade Amulet": [
+      "Magic Good Jewellery"
+    ],
+    "Lapis Amulet": [
+      "Magic Good Jewellery"
+    ],
+    "Leather Belt": [
+      "Magic Good Jewellery"
+    ],
+    "Lynx Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Magma Hound Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Marble Amulet": [
+      "Magic Good Jewellery"
+    ],
+    "Moonstone Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Octopus Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Onyx Amulet": [
+      "Magic Good Jewellery"
+    ],
+    "Opal Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Pitbull Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Plagued Arachnid Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Prismatic Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Retch Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Rhex Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Rhoa Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Ruby Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Sand Spitter Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Sapphire Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Saqawine Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Savage Crab Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Scorpion Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Scrabbler Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Shield Crab Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Spider Crab Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Squid Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Steel Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Stygian Vise": [
+      "Magic Good Jewellery"
+    ],
+    "Taurus Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Tiger Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Topaz Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Turquoise Amulet": [
+      "Magic Good Jewellery"
+    ],
+    "Two-Stone Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Unset Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Ursa Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Vanguard Belt": [
+      "Magic Good Jewellery"
+    ],
+    "Vermillion Ring": [
+      "Magic Good Jewellery"
+    ],
+    "Vulture Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Watcher Talisman": [
+      "Magic Good Jewellery"
+    ],
+    "Wolf Alpha Talisman": [
+      "Magic Good Jewellery"
+    ]
+  },
+  "rules": []
+}

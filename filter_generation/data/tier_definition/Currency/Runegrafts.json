@@ -7,14 +7,26 @@
         "ch": "符文嫁接"
       },
       "tier_order": [
+        "Tier 0 Runegrafts",
         "Tier 1 Runegrafts",
+        "Tier 2 Runegrafts",
         "Tier Hide Runegrafts"
       ]
     },
     "Tier 1 Runegrafts": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 42,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#b4b46eff",
+        "BackgroundColor": "#242416ff",
+        "PlayEffect": "Grey",
+        "MinimapIcon": "1 Grey Diamond",
+        "PlayAlertSound": [
+          "Sharket掉落音效/符文.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": 2,
@@ -42,21 +54,40 @@
     },
     "Tier 0 Runegrafts": {
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#000000ff",
+        "BorderColor": "#ffffffff",
+        "BackgroundColor": "#b4b46eff",
+        "PlayEffect": "Grey",
+        "MinimapIcon": "0 Grey Star",
+        "PlayAlertSound": [
+          "Sharket掉落音效/666.mp3",
+          100
+        ]
       },
       "localization": {
-        "en": "T0: Runegrafts",
-        "ch": "T0: 符文嫁接"
+        "en": "T0: 符文嫁接/纹身",
+        "ch": "T0: 符文嫁接/纹身"
       },
       "show_in_editor": true
     },
     "Tier 2 Runegrafts": {
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 39,
+        "TextColor": "#bfbf84ff",
+        "BorderColor": "#b4b46eff",
+        "BackgroundColor": "#101016ff",
+        "MinimapIcon": "1 Grey Circle",
+        "PlayAlertSound": [
+          "Sharket掉落音效/文身.mp3",
+          100
+        ]
       },
       "localization": {
-        "en": "T2: Runegrafts",
-        "ch": "T2: 符文嫁接"
+        "en": "T1:纹身",
+        "ch": "T1:纹身"
       },
       "show_in_editor": true
     }

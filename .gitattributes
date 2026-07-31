@@ -1,0 +1,3 @@
+# patch-package matches patch hunks against node_modules line-for-line, so a
+# CRLF checkout on Windows can make an otherwise-valid patch fail to apply.
+*.patch text eol=lf

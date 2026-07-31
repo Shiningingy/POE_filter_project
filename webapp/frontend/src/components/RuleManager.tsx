@@ -10,6 +10,7 @@ import SoundPicker from "./SoundPicker";
 import MinimapIconPicker from "./MinimapIconPicker";
 import PlayEffectPicker from "./PlayEffectPicker";
 import StylePresetPicker from "./StylePresetPicker";
+import { StableInput, StableTextArea } from "./StableField";
 
 interface Item {
   name: string;
@@ -144,6 +145,13 @@ const RuleManager: React.FC<RuleManagerProps> = ({
     return allRules
       .map((r, i) => ({ r, i }))
       .filter(({ r }) => {
+        // 0. Rules the sound picker created to pin a sound to one occurrence, or to
+        // stop an injected auto-sound, are plumbing rather than rules: no conditions,
+        // no visuals, nothing to edit here. They DO carry a Tier override, so the
+        // sound-only test below never caught them and a tier could sprout one extra
+        // rule per sound. They stay in the data - this hides them from the list only.
+        if ((r as any).sound_scope || (r as any).suppress_auto_sound) return false;
+
         // 1. Must match this tier (if tier override exists) or target items in this tier
         const hasTierOverride = !!r.overrides?.Tier;
         const matchesTier = hasTierOverride
@@ -295,12 +303,16 @@ const RuleManager: React.FC<RuleManagerProps> = ({
     setContextMenu({ x: e.clientX, y: e.clientY, ruleIndex: globalIndex });
   };
 
+  // A self-selecting rule has no `targets` key (generate.py:534), so both of these
+  // have to cope with it being absent - adding the first target is exactly how a
+  // user converts such a rule into a normal one.
   const addTarget = (globalIndex: number, itemName: string) => {
     const rule = allRules[globalIndex];
-    if (!rule.targets.includes(itemName)) {
+    const targets = rule.targets || [];
+    if (!targets.includes(itemName)) {
       handleUpdateRule(globalIndex, {
         ...rule,
-        targets: [...rule.targets, itemName],
+        targets: [...targets, itemName],
       });
     }
     setTargetSearch("");
@@ -311,7 +323,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
     const rule = allRules[globalIndex];
     handleUpdateRule(globalIndex, {
       ...rule,
-      targets: rule.targets.filter((t) => t !== itemName),
+      targets: (rule.targets || []).filter((t) => t !== itemName),
     });
   };
 
@@ -424,16 +436,13 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                 >
                   #{localIndex + 1}
                 </div>
-                <input
+                <StableInput
                   className={`rule-name-input ${rule.disabled ? "disabled-text" : ""}`}
                   value={rule.comment || ""}
                   placeholder={t.ruleComment}
                   onClick={(e) => e.stopPropagation()}
-                  onChange={(e) =>
-                    handleUpdateRule(globalIndex, {
-                      ...rule,
-                      comment: e.target.value,
-                    })
+                  onChange={(v) =>
+                    handleUpdateRule(globalIndex, { ...rule, comment: v })
                   }
                 />
                 <div className="rule-actions">
@@ -541,14 +550,11 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                   </div>
 
                   <div className="raw-code-field">
-                    <textarea
-                      placeholder="# Custom lines like: \n    SetFontSize 45"
+                    <StableTextArea
+                      placeholder={'BaseType "Deafening Essence of"'}
                       value={rule.raw || ""}
-                      onChange={(e) =>
-                        handleUpdateRule(globalIndex, {
-                          ...rule,
-                          raw: e.target.value,
-                        })
+                      onChange={(v) =>
+                        handleUpdateRule(globalIndex, { ...rule, raw: v })
                       }
                     />
                   </div>
@@ -745,6 +751,18 @@ const RuleManager: React.FC<RuleManagerProps> = ({
         .range-back-btn:hover { color: #2196F3; }
 
         .mini-factor select { padding: 4px; font-size: 0.8rem; border: 1px solid #ddd; border-radius: 4px; color: #222; background: #fff; }
+
+        /* multiselect (HasInfluence): a list condition matching ANY picked value */
+        .multi-picker { display: flex; flex-wrap: wrap; gap: 4px; }
+        .multi-chip {
+            padding: 2px 7px; font-size: 0.72rem; line-height: 1.5;
+            border: 1px solid #ddd; border-radius: 10px;
+            background: #fff; color: #555; cursor: pointer; transition: all 0.15s;
+        }
+        .multi-chip:hover { border-color: #2196F3; color: #2196F3; }
+        .multi-chip.on { background: #2196F3; border-color: #2196F3; color: #fff; font-weight: 600; }
+        .multi-chip.multi-all { font-style: italic; }
+        .multi-chip.multi-all.on { background: #1565C0; border-color: #1565C0; }
 
         .raw-code-field textarea {
             width: 100%;

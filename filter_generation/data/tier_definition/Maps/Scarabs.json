@@ -1,7 +1,7 @@
 {
   "Scarabs": {
     "_meta": {
-      "theme_category": "Map Fragments",
+      "theme_category": "Scarabs",
       "item_class": {
         "en": "Map Fragments",
         "ch": "地图碎片"
@@ -11,6 +11,7 @@
         "ch": "圣甲虫"
       },
       "tier_order": [
+        "Tier 0 Scarabs",
         "Tier 1 Scarabs",
         "Tier 2 Scarabs",
         "Tier 3 Scarabs",
@@ -21,7 +22,17 @@
     "Tier 1 Scarabs": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 42,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#c8a860ff",
+        "BackgroundColor": "#282213ff",
+        "PlayEffect": "Orange",
+        "MinimapIcon": "1 Orange Diamond",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级圣甲虫.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": 6,
@@ -35,7 +46,16 @@
     "Tier 2 Scarabs": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 39,
+        "TextColor": "#d0b578ff",
+        "BorderColor": "#c8a860ff",
+        "BackgroundColor": "#101016ff",
+        "MinimapIcon": "1 Orange Circle",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级圣甲虫.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": 1,
@@ -49,7 +69,15 @@
     "Tier 3 Scarabs": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 36,
+        "TextColor": "#d8c290ff",
+        "BorderColor": "#6e5c35ff",
+        "BackgroundColor": "#0a0a0dff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级圣甲虫.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": 2,
@@ -63,7 +91,15 @@
     "Tier 4 Scarabs": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 34,
+        "TextColor": "#ac9e82ff",
+        "BorderColor": "#3c321dff",
+        "BackgroundColor": "#00000000",
+        "PlayAlertSound": [
+          "Sharket掉落音效/圣甲虫.mp3",
+          100
+        ]
       },
       "sound": {
         "default_sound_id": -1,
@@ -91,7 +127,17 @@
     },
     "Tier 0 Scarabs": {
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#000000ff",
+        "BorderColor": "#ffffffff",
+        "BackgroundColor": "#c8a860ff",
+        "PlayEffect": "Orange",
+        "MinimapIcon": "0 Orange Star",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级圣甲虫.mp3",
+          100
+        ]
       },
       "localization": {
         "en": "T0: Scarabs",

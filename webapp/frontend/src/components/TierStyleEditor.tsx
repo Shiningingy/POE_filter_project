@@ -383,6 +383,26 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 </button>
               </div>
               <div className="main-actions">
+                {/* Removing a sound is NOT the same as clearing the picked file:
+                    resolve_sound falls back to the tier's own sharket_sound_id /
+                    default_sound_id, so a cleared tier just goes back to whatever
+                    it was seeded with (this is why every flask announced itself as
+                    currency). Writing the `disabled:` sentinel silences the tier
+                    outright — both generators short-circuit on it. */}
+                <button
+                  className="cancel-btn"
+                  onClick={() => {
+                    handleChange("PlayAlertSound", "disabled:");
+                    setShowSoundPopup(false);
+                  }}
+                  title={
+                    language === "ch"
+                      ? "移除音效：该阶级将完全静音，不会回退到默认音效"
+                      : "Remove sound: silences this tier outright — it will not fall back to its default"
+                  }
+                >
+                  {language === "ch" ? "移除音效" : "Remove sound"}
+                </button>
                 <button
                   className="cancel-btn"
                   onClick={() => setShowSoundPopup(false)}
@@ -686,7 +706,11 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
             </div>
             <div className="bottom-row extra-btns">
               <button
-                className={`extra-toggle-btn ${style.PlayAlertSound ? "active" : ""}`}
+                /* isColorActive, not truthiness: a removed sound is stored as the
+                   "disabled:" sentinel, which IS truthy — so the button kept
+                   rendering active (blue) after the sound had been removed. Same
+                   for the icon and beam toggles below. */
+                className={`extra-toggle-btn ${isColorActive(style.PlayAlertSound) ? "active" : ""}`}
                 onClick={(e) => {
                   e.stopPropagation();
                   toggleExtra("PlayAlertSound");
@@ -695,7 +719,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 {t.sound}
               </button>
               <button
-                className={`extra-toggle-btn ${style.MinimapIcon ? "active" : ""}`}
+                className={`extra-toggle-btn ${isColorActive(style.MinimapIcon) ? "active" : ""}`}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -719,7 +743,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 {t.icon}
               </button>
               <button
-                className={`extra-toggle-btn ${style.PlayEffect ? "active" : ""}`}
+                className={`extra-toggle-btn ${isColorActive(style.PlayEffect) ? "active" : ""}`}
                 style={{
                   display: "flex",
                   alignItems: "center",

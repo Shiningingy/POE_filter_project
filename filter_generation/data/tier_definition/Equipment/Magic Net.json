@@ -1,0 +1,93 @@
+{
+  "Magic Net": {
+    "_meta": {
+      "theme_category": "Magic Net",
+      "localization": {
+        "en": "Magic Net",
+        "ch": "魔法装备网"
+      },
+      "tier_order": [
+        "Magic Good Jewellery",
+        "Magic Net",
+        "Normal Net",
+        "Tier Hide Magic Net"
+      ]
+    },
+    "Magic Good Jewellery": {
+      "hideable": true,
+      "hide_at_strictness": 2,
+      "conditions": {
+        "Rarity": "Magic",
+        "AreaLevel": ">= 68"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Good magic jewellery / talismans",
+        "ch": "优质魔法首饰/魔符"
+      }
+    },
+    "Magic Net": {
+      "class_condition": true,
+      "hideable": true,
+      "hide_at_strictness": 1,
+      "conditions": {
+        "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+        "Rarity": "Magic",
+        "AreaLevel": ">= 68"
+      },
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "All other magic equipment",
+        "ch": "其余魔法装备"
+      }
+    },
+    "Normal Net": {
+      "class_condition": true,
+      "hideable": true,
+      "is_hide_tier": true,
+      "conditions": {
+        "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+        "Rarity": "Normal",
+        "AreaLevel": ">= 68"
+      },
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "All other normal equipment",
+        "ch": "其余普通装备"
+      }
+    },
+    "Tier Hide Magic Net": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

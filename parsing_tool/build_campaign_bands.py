@@ -1,3 +1,5 @@
+# [parsing_tool group B: CAREFUL] Rerunnable, but it OVERWRITES hand-tuned data.
+# Check `git status` is clean first. See parsing_tool/README.md.
 # Campaign v5 seeder — rebuilds _campaign as SEVEN categories (user's split,
 # 2026-07-19: "weapon progression, armour progression, jewellery progression,
 # flask progression, links highlight, early game highlight" + the safety-net/

@@ -24,8 +24,8 @@
         "sharket_sound_id": "神圣命能.mp3"
       },
       "localization": {
-        "en": "T1: Sacred",
-        "ch": "T1: 神圣命能"
+        "en": "T1: 中量命能",
+        "ch": "T1: 中量命能"
       }
     },
     "Tier 2 Harvest": {
@@ -38,8 +38,8 @@
         "sharket_sound_id": "命能.mp3"
       },
       "localization": {
-        "en": "T2: High Volume",
-        "ch": "T2: 大量命能"
+        "en": "T2: 少量命能",
+        "ch": "T2: 少量命能"
       }
     },
     "Tier 3 Harvest": {
@@ -52,8 +52,8 @@
         "sharket_sound_id": "命能.mp3"
       },
       "localization": {
-        "en": "T3: Regular",
-        "ch": "T3: 普通命能"
+        "en": "T3: 命能",
+        "ch": "T3: 命能"
       }
     },
     "Tier Hide Harvest": {
@@ -82,8 +82,8 @@
         "sharket_sound_id": "顶级底材.mp3"
       },
       "localization": {
-        "en": "T0: Absolute Top",
-        "ch": "T0: 顶级/核心"
+        "en": "T0: 大量命能",
+        "ch": "T0: 大量命能"
       }
     }
   }

@@ -1,3 +1,4 @@
+# [parsing_tool group A: LIVE TOOL] Safe to run. See parsing_tool/README.md.
 """
 Build a COMPLETE base-type -> unique-names map from GGG's official trade
 static data, complementing FilterBlade's curated bonusItemInfo (which only

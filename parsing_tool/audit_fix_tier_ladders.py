@@ -1,3 +1,5 @@
+# [parsing_tool group B: CAREFUL] Rerunnable, but it OVERWRITES hand-tuned data.
+# Check `git status` is clean first. See parsing_tool/README.md.
 """Audit (and optionally fix) tier-ladder data quality in tier_definition files.
 
 Detects, per file:

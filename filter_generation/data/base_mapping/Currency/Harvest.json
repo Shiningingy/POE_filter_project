@@ -13,48 +13,72 @@
       "en": "Stackable Currency",
       "ch": "庄园"
     },
-    "theme_category": "Harvest"
+    "theme_category": "Harvest",
+    "match_modes": {}
   },
   "mapping": {
-    "Wild Crystallised Lifeforce": "Tier 2 Harvest",
-    "Vivid Crystallised Lifeforce": "Tier 2 Harvest",
-    "Primal Crystallised Lifeforce": "Tier 2 Harvest",
-    "Sacred Crystallised Lifeforce": "Tier 0 Harvest",
-    "Facetor's Lens": "Tier 1 Stackable Currency"
+    "Wild Crystallised Lifeforce": [
+      "Tier 2 Harvest",
+      "Tier 0 Harvest",
+      "Tier 1 Harvest",
+      "Tier 3 Harvest"
+    ],
+    "Vivid Crystallised Lifeforce": [
+      "Tier 2 Harvest",
+      "Tier 0 Harvest",
+      "Tier 1 Harvest",
+      "Tier 3 Harvest"
+    ],
+    "Primal Crystallised Lifeforce": [
+      "Tier 2 Harvest",
+      "Tier 0 Harvest",
+      "Tier 1 Harvest",
+      "Tier 3 Harvest"
+    ]
   },
   "rules": [
     {
-      "targets": [
-        "Wild Lifeforce",
-        "Wild Crystallised Lifeforce"
-      ],
-      "conditions": {},
-      "overrides": {
-        "TextColor": "#ff00ffff"
+      "targets": [],
+      "conditions": {
+        "StackSize": ">=1000"
       },
-      "comment": "Wild (Purple)"
+      "overrides": {
+        "Tier": "Tier 0 Harvest"
+      },
+      "comment": ">1000",
+      "applyToTier": true
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "StackSize": ">= 300"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Harvest"
+      },
+      "comment": ">= 300",
+      "applyToTier": true
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "StackSize": ">=100"
+      },
+      "overrides": {
+        "Tier": "Tier 2 Harvest"
+      },
+      "comment": ">=100",
+      "applyToTier": true
     },
     {
       "targets": [
-        "Vivid Lifeforce",
-        "Vivid Crystallised Lifeforce"
+        "Crystallised Rancour"
       ],
       "conditions": {},
       "overrides": {
-        "TextColor": "#ffff00ff"
+        "Tier": "Tier 1 Harvest"
       },
-      "comment": "Vivid (Yellow)"
-    },
-    {
-      "targets": [
-        "Primal Lifeforce",
-        "Primal Crystallised Lifeforce"
-      ],
-      "conditions": {},
-      "overrides": {
-        "TextColor": "#3400ffff"
-      },
-      "comment": "Primal (Blue)"
+      "comment": "憎恨结晶"
     }
   ]
 }

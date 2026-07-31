@@ -17,43 +17,62 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 35,
+        "TextColor": "#706b29ff",
+        "BorderColor": "#999238ff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": null,
+        "MinimapIcon": null,
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 6,
         "sharket_sound_id": "顶级底材.mp3"
       },
       "localization": {
-        "en": "T0: Top",
-        "ch": "T0: 顶级"
+        "en": "Tier 1: 大量金币",
+        "ch": "Tier 1: 大量金币"
       }
     },
     "Tier 1 Gold": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 35,
+        "TextColor": "#383515ff",
+        "BorderColor": "#524f19ff",
+        "BackgroundColor": "#b3ab42ff",
+        "PlayEffect": null,
+        "MinimapIcon": null,
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 6,
         "sharket_sound_id": "高级通货.mp3"
       },
       "localization": {
-        "en": "T1: High",
-        "ch": "T1: 高级"
+        "en": "T2: 较多金币",
+        "ch": "T2: 较多金币"
       }
     },
     "Tier 2 Gold": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 35,
+        "TextColor": "#000000ff",
+        "BorderColor": "#3c3916ff",
+        "BackgroundColor": "#8d8834ff",
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 1,
         "sharket_sound_id": "通货.mp3"
       },
       "localization": {
-        "en": "T2: Standard",
-        "ch": "T2: 常用"
+        "en": "T3: 金币",
+        "ch": "T3: 金币"
       }
     },
     "Tier Hide Gold": {

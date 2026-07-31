@@ -16,7 +16,17 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#4f6f2aff",
+        "BorderColor": "#6b943dff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级酊剂.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 6,
@@ -25,12 +35,25 @@
       "localization": {
         "en": "T0: Absolute Top",
         "ch": "T0: 顶级/核心"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier 1 Tinctures": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#273715ff",
+        "BorderColor": "#37501bff",
+        "BackgroundColor": "#7eae47ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond",
+        "PlayAlertSound": [
+          "Sharket掉落音效/酊剂.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 1,
@@ -39,6 +62,9 @@
       "localization": {
         "en": "T1: Tinctures",
         "ch": "T1: 酊剂"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier Hide Tinctures": {

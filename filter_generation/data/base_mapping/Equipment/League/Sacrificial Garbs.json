@@ -1,14 +1,18 @@
 {
   "_meta": {
     "localization": {
-      "ch": {}
+      "ch": {
+        "Sacrificial Garb": "祭礼束衣"
+      }
     },
     "item_class": {
       "en": "Sacrificial Garbs",
       "ch": "祭礼束衣"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Sacrificial Garbs"
   },
-  "mapping": {},
+  "mapping": {
+    "Sacrificial Garb": "Sacrificial Garbs T1"
+  },
   "rules": []
 }

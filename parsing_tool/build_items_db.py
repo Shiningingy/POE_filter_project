@@ -1,3 +1,4 @@
+# [parsing_tool group A: LIVE TOOL] Safe to run. See parsing_tool/README.md.
 """
 build_items_db.py
 -----------------

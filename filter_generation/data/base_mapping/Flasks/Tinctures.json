@@ -18,19 +18,44 @@
         "Sporebloom Tincture": "孢花酊剂"
       }
     },
-    "theme_category": "Tinctures"
+    "theme_category": "Tinctures",
+    "match_modes": {}
   },
   "mapping": {
-    "Prismatic Tincture": "Tier 1 Tinctures",
-    "Rosethorn Tincture": "Tier 1 Tinctures",
+    "Prismatic Tincture": [
+      "Tier 1 Tinctures",
+      "Tier 0 Tinctures"
+    ],
+    "Rosethorn Tincture": [
+      "Tier 1 Tinctures",
+      "Tier 0 Tinctures"
+    ],
     "Ironwood Tincture": "Tier 1 Tinctures",
     "Ashbark Tincture": "Tier 1 Tinctures",
     "Borealwood Tincture": "Tier 1 Tinctures",
     "Fulgurite Tincture": "Tier 1 Tinctures",
-    "Poisonberry Tincture": "Tier 1 Tinctures",
-    "Blood Sap Tincture": "Tier 1 Tinctures",
+    "Poisonberry Tincture": [
+      "Tier 1 Tinctures",
+      "Tier 0 Tinctures"
+    ],
+    "Blood Sap Tincture": [
+      "Tier 1 Tinctures",
+      "Tier 0 Tinctures"
+    ],
     "Oakbranch Tincture": "Tier 1 Tinctures",
     "Sporebloom Tincture": "Tier 1 Tinctures"
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": [],
+      "conditions": {
+        "ItemLevel": ">=84"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Tinctures"
+      },
+      "comment": "84+",
+      "applyToTier": true
+    }
+  ]
 }

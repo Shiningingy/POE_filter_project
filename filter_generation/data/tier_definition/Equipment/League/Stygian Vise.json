@@ -23,6 +23,9 @@
       "localization": {
         "en": "Stygian Vise",
         "ch": "深渊腰带"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Stygian Vise Hide": {

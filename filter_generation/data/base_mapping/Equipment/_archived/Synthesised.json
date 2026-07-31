@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {}
+    },
+    "item_class": {
+      "en": "Body Armours",
+      "ch": "合成装备"
+    },
+    "theme_category": "Body Armours",
+    "excluded_modes": [
+      "ruthless"
+    ],
+    "_archived_note": "Synthesised RARES are drop-disabled everywhere, softcore included - not just Ruthless. They are dead content in every current league but still exist as LEGACY items in Standard, on characters and in stashes (filter author, 2026-07-30). Archived: moved under _archived/ and removed from category_structure.json + .yaml so the editor stops offering it, and excluded_modes stops it generating for ruthless. The rule was ALSO rescoped in the same move: it used to be a bare `SynthesisedItem True` with no Class, no Rarity and no ItemLevel, so it matched EVERY synthesised item in the game, and because Equipment emits before Uniques it stole the two synthesised-unique rules in Uniques/General.json (Rational Doctrine on Cobalt Jewel -> T0 Chase, and the six synth unique rings -> T1). `Rarity <= Rare` keeps it off uniques. Synthesised UNIQUES still drop and are covered by Uniques/General.json. Data kept intact for the Standard fork (ADR-0005). Unlike Currency/_archived/Breach.json, which is globally dead content with nothing left to own."
+  },
+  "mapping": {},
+  "rules": [
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "<= Rare",
+        "SynthesisedItem": "True"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Synthesised"
+      },
+      "comment": "Synthesised Bases"
+    }
+  ]
+}

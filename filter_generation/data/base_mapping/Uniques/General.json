@@ -77,7 +77,6 @@
         "Cleaver": "切割者",
         "Close Helmet": "护面盔",
         "Cloth Belt": "饰布腰带",
-        "Clutching Talisman": "咒箍魔符",
         "Cobalt Jewel": "钴蓝珠宝",
         "Coffer Relic": "匣柜遗物",
         "Coiled Staff": "强化长杖",
@@ -351,7 +350,6 @@
         "Riveted Boots": "仪式短靴",
         "Riveted Gloves": "仪式手套",
         "Rock Breaker": "破岩锤",
-        "Rotfeather Talisman": "死羽魔符",
         "Rotted Round Shield": "朽木圆盾",
         "Royal Axe": "皇家之斧",
         "Royal Bow": "皇家猎弓",
@@ -515,7 +513,6 @@
         "War Hammer": "战锤",
         "War Sword": "征战之剑",
         "Waxed Garb": "蜡封束衣",
-        "Wereclaw Talisman": "亡爪魔符",
         "Whalebone Rapier": "鲸骨细刃",
         "Widowsilk Robe": "毒蛛丝之袍",
         "Wild Leather": "狂野部族皮甲",
@@ -529,7 +526,13 @@
         "Wyrmscale Gauntlets": "蝮鳞手套",
         "Zealot Gloves": "狂热者手套",
         "Zealot Helmet": "热战之盔",
-        "Zodiac Leather": "星辰皮甲"
+        "Zodiac Leather": "星辰皮甲",
+        "Ghostflame Blade": "鬼焰之刃",
+        "Assembled Eye Jewel": "聚合之凝珠宝",
+        "Fleshripper": "裂肉者",
+        "Pearlescent Amulet": "珠光项链",
+        "Rhex Talisman": "凶鸟魔符",
+        "Shield Crab Talisman": "附壳巨蟹魔符"
       }
     },
     "item_class": {
@@ -610,532 +613,312 @@
       "Vanguard Belt",
       "Viridian Jewel",
       "Zodiac Leather"
-    ]
+    ],
+    "match_modes": {},
+    "suppress_basetype_sounds": true
   },
   "mapping": {
     "Abyssal Axe": "T3",
     "Agate Amulet": "T3",
     "Amber Amulet": "T3",
     "Ambush Mitts": "T3",
-    "Ambusher": "T3",
     "Amethyst Flask": "T2",
     "Amethyst Ring": "T3",
     "Ancient Gauntlets": "T3",
-    "Ancient Greaves": "Low",
-    "Ancient Spirit Shield": "Low",
     "Antique Gauntlets": "T2",
-    "Antique Greaves": "Low",
-    "Antique Rapier": "Low",
-    "Arcanist Gloves": "Low",
-    "Arcanist Slippers": "Low",
     "Archon Kite Shield": "T3",
-    "Ashbark Tincture": "Low",
-    "Assassin Bow": "Low",
     "Assassin's Boots": "T2",
-    "Assassin's Garb": "Low",
     "Assassin's Mitts": "T3",
     "Astral Plate": "T3",
     "Astrolabe Amulet": "T2",
-    "Auric Mace": "Low",
-    "Aventail Helmet": "Low",
-    "Awl": "Low",
-    "Barbute Helmet": "Low",
-    "Baroque Round Shield": "Low",
-    "Basket Rapier": "Low",
-    "Bastard Sword": "Low",
     "Bismuth Flask": "T3",
-    "Black Maw Talisman": "Low",
-    "Blasting Wand": "Low",
-    "Blazing Arrow Quiver": "Low",
-    "Blood Raiment": "T2",
+    "Black Maw Talisman": "T3",
+    "Blood Raiment": "T3",
     "Blood Sceptre": "T3",
     "Blue Pearl Amulet": "T3",
     "Blunt Arrow Quiver": "T3",
-    "Bone Armour": "Low",
     "Bone Circlet": "T3",
     "Bone Helmet": "T3",
-    "Boot Blade": "Low",
-    "Boot Knife": "Low",
-    "Branded Kite Shield": "Low",
-    "Brass Maul": "Low",
-    "Brass Spirit Shield": "Low",
     "Broadhead Arrow Quiver": "T3",
-    "Bronze Gauntlets": "Low",
-    "Bronze Sceptre": "Low",
-    "Bronzescale Boots": "Low",
-    "Bronzescale Gauntlets": "Low",
-    "Buckskin Tunic": "Low",
-    "Butcher Axe": "T2",
-    "Cabalist Regalia": "T1",
-    "Calling Wand": "Low",
+    "Butcher Axe": "T3",
+    "Cabalist Regalia": "T2",
     "Callous Mask": "T3",
     "Candlestick Relic": "T2",
     "Cardinal Round Shield": "T3",
     "Carnal Armour": "T3",
     "Carnal Boots": "T3",
     "Carnal Mitts": "T3",
-    "Carnal Sceptre": "Low",
-    "Cedar Tower Shield": "Low",
-    "Censer Relic": "T3",
+    "Censer Relic": "T2",
     "Chain Belt": "T3",
-    "Chain Gloves": "Low",
-    "Champion Kite Shield": "T2",
-    "Chiming Spirit Shield": "T3",
+    "Champion Kite Shield": [
+      "T0 Chase"
+    ],
     "Citadel Bow": "T3",
     "Citrine Amulet": "T3",
-    "Clasped Boots": "Low",
-    "Clasped Mitts": "Low",
-    "Cleaver": "Low",
-    "Close Helmet": "Low",
     "Cloth Belt": "T3",
-    "Clutching Talisman": "Low",
     "Coffer Relic": "T3",
     "Coiled Staff": "T3",
     "Colossal Mana Flask": "T3",
     "Colossal Tower Shield": "T3",
     "Colosseum Plate": "T3",
-    "Compound Spiked Shield": "Low",
-    "Conjurer Boots": "Low",
-    "Conjurer Gloves": "Low",
-    "Conquest Chainmail": "Low",
-    "Copper Plate": "Low",
-    "Coral Amulet": "Low+",
-    "Coral Ring": "Low+",
-    "Coronal Maul": "T3",
-    "Corrugated Buckler": "Low",
-    "Corsair Sword": "Low",
-    "Crimson Round Shield": "T2",
+    "Coral Ring": "T3",
+    "Coronal Maul": "T2",
+    "Crimson Round Shield": "T3",
     "Crude Bow": "T3",
-    "Crusader Boots": "T1",
-    "Crusader Chainmail": "Low",
-    "Crusader Gloves": "T3",
+    "Crusader Boots": [
+      "T0 Chase"
+    ],
     "Crusader Plate": "T3",
     "Cryonic Ring": "T3",
-    "Crystal Belt": "Low",
-    "Crystal Sceptre": "Low",
+    "Crystal Sceptre": "T3",
     "Cutlass": "T3",
-    "Cutthroat's Garb": "Low",
-    "Death Bow": "Low",
-    "Decimation Bow": "Low",
-    "Decorative Axe": "Low",
-    "Deerskin Boots": "Low",
-    "Deerskin Gloves": "Low",
     "Deicide Mask": "T3",
     "Demon Dagger": "T3",
-    "Desert Brigandine": "Low",
-    "Despot Axe": "Low+",
-    "Destiny Leather": "Low",
-    "Destroyer Regalia": "Low",
-    "Devout Chainmail": "T3",
-    "Diamond Flask": "Low",
-    "Diamond Ring": "Low",
+    "Desert Brigandine": "T3",
+    "Devout Chainmail": "T2",
     "Dragonscale Boots": "T3",
-    "Dragonscale Gauntlets": "Low",
-    "Dread Maul": "Low",
-    "Dream Mace": "Low",
-    "Driftwood Wand": "Low",
-    "Dusk Blade": "T1",
+    "Dusk Blade": [
+      "T0 Chase"
+    ],
     "Ebony Tower Shield": "T3",
-    "Eelskin Boots": "Low",
-    "Eelskin Gloves": "Low",
-    "Elder Sword": "Low",
-    "Elegant Ringmail": "Low+",
-    "Elegant Round Shield": "Low",
-    "Elegant Sword": "Low+",
-    "Embroidered Gloves": "T3",
-    "Enameled Buckler": "Low",
-    "Engraved Greatsword": "T1",
+    "Elegant Round Shield": "T2",
+    "Engraved Greatsword": [
+      "T0 Chase"
+    ],
     "Enthalpic Ring": "T3",
-    "Estoc": "Low",
-    "Etched Greatsword": "Low",
-    "Eternal Burgonet": "Low",
-    "Eternal Sword": "Low",
-    "Exquisite Blade": "T3",
-    "Exquisite Leather": "Low",
-    "Ezomyte Axe": "Low",
-    "Ezomyte Blade": "Low",
+    "Exquisite Blade": "T2",
     "Ezomyte Burgonet": "T3",
-    "Ezomyte Dagger": "Low",
     "Ezomyte Spiked Shield": "T3",
     "Ezomyte Staff": "T3",
     "Ezomyte Tower Shield": "T3",
-    "Faithful Helmet": "T3",
+    "Faithful Helmet": [
+      "T0 Chase"
+    ],
     "Faun's Horn": "T2",
-    "Feathered Arrow Quiver": "Low",
-    "Festival Mask": "Low",
     "Fiend Dagger": "T3",
     "Fingerless Silk Gloves": "T3",
-    "Flaying Knife": "Low",
-    "Fluted Bascinet": "T1",
+    "Fluted Bascinet": "T0 Chase",
     "Formless Ring": "T1",
-    "Foul Staff": "T2",
-    "Fright Claw": "Low",
+    "Foul Staff": "T1",
     "Fugitive Boots": "T3",
     "Fugitive Ring": "T1",
-    "Full Dragonscale": "Low",
-    "Full Wyrmscale": "Low",
-    "Gavel": "T3",
-    "Gemstone Sword": "T3",
+    "Full Wyrmscale": "T3",
     "General's Brigandine": "T3",
     "Ghastly Eye Jewel": "T1",
-    "Gilded Sallet": "Low",
-    "Girded Tower Shield": "T1",
+    "Girded Tower Shield": "T0 Chase",
     "Gladiator Plate": "T3",
-    "Gladius": "T3",
-    "Glorious Plate": "Low",
-    "Gnarled Branch": "Low",
-    "Goat's Horn": "Low",
     "Goathide Boots": "T3",
-    "Goathide Gloves": "Low",
-    "Gold Amulet": "Low",
     "Gold Flask": "T1",
     "Gold Ring": "T3",
-    "Golden Buckler": "T3",
-    "Golden Mask": "Low",
+    "Golden Buckler": "T2",
+    "Golden Mask": "T3",
     "Golden Plate": "T3",
     "Goliath Gauntlets": "T3",
     "Goliath Greaves": "T3",
-    "Graceful Sword": "T3",
-    "Grand Mana Flask": "T3",
     "Granite Flask": "T3",
     "Great Crown": "T3",
-    "Great Helmet": "Low",
-    "Great Mallet": "Low",
-    "Greater Mana Flask": "Low",
-    "Greatwolf Talisman": "T1",
-    "Grinning Fetish": "Low",
-    "Gut Ripper": "Low",
-    "Hallowed Hybrid Flask": "Low",
-    "Harbinger Bow": "Low",
-    "Harlequin Mask": "Low",
+    "Greatwolf Talisman": [
+      "T0 Chase"
+    ],
+    "Harlequin Mask": "T3",
     "Harmonic Spirit Shield": "T3",
-    "Headsman Axe": "Low",
-    "Heavy Arrow Quiver": "Low",
     "Heavy Belt": "T2",
-    "Hellion's Paw": "T2",
+    "Hellion's Paw": "T3",
     "Highborn Staff": "T3",
-    "Highland Blade": "Low",
-    "Holy Chainmail": "Low",
     "Hubris Circlet": "T3",
     "Hydrascale Boots": "T3",
     "Hydrascale Gauntlets": "T3",
-    "Hypnotic Eye Jewel": "T3",
+    "Hypnotic Eye Jewel": "T2",
     "Imperial Bow": "T2",
-    "Imperial Claw": "Low",
     "Imperial Maul": "T2",
-    "Imperial Skean": "T2",
-    "Imperial Staff": "T2",
-    "Infernal Axe": "Low",
+    "Imperial Skean": "T3",
+    "Imperial Staff": "T3",
     "Infernal Sword": "T3",
-    "Iron Circlet": "Low",
-    "Iron Flask": "T2",
-    "Iron Gauntlets": "Low",
-    "Iron Hat": "Low",
-    "Iron Mask": "Low",
+    "Iron Flask": "T3",
     "Iron Ring": "T3",
-    "Iron Staff": "Low",
-    "Ironscale Boots": "Low",
-    "Ironscale Gauntlets": "Low",
-    "Ironwood Buckler": "Low",
-    "Ironwood Tincture": "Low",
     "Jade Amulet": "T3",
-    "Jade Hatchet": "Low",
-    "Jagged Foil": "Low",
-    "Jagged Maul": "Low",
-    "Jasper Chopper": "Low",
     "Jewelled Foil": "T3",
-    "Jingling Spirit Shield": "T2",
+    "Jingling Spirit Shield": "T1",
     "Judgement Staff": "T3",
-    "Karui Chopper": "T3",
-    "Karui Maul": "T1",
-    "Karui Sceptre": "Low",
-    "Kinetic Wand": "Low",
-    "Lacewood Spirit Shield": "T1",
+    "Karui Maul": [
+      "T0 Chase"
+    ],
+    "Lacewood Spirit Shield": "T2",
     "Lacquered Buckler": "T3",
     "Lacquered Garb": "T3",
     "Lacquered Helmet": "T3",
-    "Laminated Kite Shield": "Low",
     "Lapis Amulet": "T3",
-    "Large Cluster Jewel": "T1",
-    "Large Hybrid Flask": "T3",
-    "Lathi": "Low",
-    "Latticed Ringmail": "Low",
+    "Large Cluster Jewel": "T2",
     "Leather Belt": "T2",
-    "Leather Cap": "Low",
-    "Leather Hood": "T3",
+    "Leather Hood": "T2",
     "Legion Boots": "T3",
-    "Legion Gloves": "Low",
     "Legion Sword": "T3",
-    "Lich's Circlet": "T2",
-    "Lion Pelt": "Low",
+    "Lich's Circlet": "T3",
     "Lion Sword": "T3",
-    "Long Bow": "Low",
-    "Lunaris Circlet": "Low",
     "Maelström Staff": "T3",
     "Magistrate Crown": "T2",
     "Majestic Plate": "T3",
-    "Maple Round Shield": "T2",
-    "Maraketh Bow": "T3",
+    "Maraketh Bow": "T2",
     "Marble Amulet": "T3",
     "Martyr Gloves": "T2",
-    "Meatgrinder": "Low",
     "Medium Cluster Jewel": "T2",
-    "Mesh Boots": "Low",
-    "Mesh Gloves": "Low",
-    "Midnight Blade": "Low",
-    "Military Staff": "Low",
-    "Mind Cage": "Low",
     "Mirrored Spiked Shield": "T3",
     "Moonstone Ring": "T3",
-    "Mosaic Kite Shield": "Low",
     "Murder Boots": "T2",
     "Murder Mitts": "T3",
-    "Murderous Eye Jewel": "T2",
-    "Nailed Fist": "Low",
-    "Nameless Ring": "Low+",
+    "Murderous Eye Jewel": "T1",
     "Necromancer Circlet": "T3",
-    "Necromancer Silks": "Low",
-    "Nightmare Bascinet": "Low",
     "Nightmare Mace": "T3",
-    "Nubuck Boots": "Low",
-    "Nubuck Gloves": "Low",
-    "Oakbranch Tincture": "Low",
     "Occultist's Vestment": "T3",
-    "Omen Wand": "Low",
     "Onyx Amulet": "T3",
     "Opal Ring": "T3",
-    "Opal Sceptre": "Low",
-    "Opal Wand": "T3",
+    "Opal Wand": "T2",
     "Organic Ring": "T3",
-    "Ornate Mace": "Low",
     "Ornate Quiver": "T2",
-    "Ornate Ringmail": "Low",
-    "Ornate Sword": "Low",
-    "Pagan Wand": "Low",
-    "Painted Buckler": "Low",
+    "Pagan Wand": "T3",
     "Painted Tower Shield": "T3",
     "Paladin Crown": "T3",
     "Papyrus Relic": "T1",
     "Paua Amulet": "T2",
     "Paua Ring": "T3",
-    "Penetrating Arrow Quiver": "Low",
-    "Phantom Mace": "Low+",
     "Pig-Faced Bascinet": "T3",
     "Piledriver": "T2",
-    "Pine Buckler": "Low",
-    "Pinnacle Tower Shield": "Low+",
-    "Plague Mask": "Low",
-    "Plank Kite Shield": "Low",
-    "Plate Vest": "Low",
     "Plated Greaves": "T3",
-    "Platinum Kris": "Low",
-    "Platinum Sceptre": "Low+",
-    "Poleaxe": "Low",
-    "Polished Spiked Shield": "Low",
+    "Platinum Sceptre": "T3",
     "Praetor Crown": "T3",
-    "Primal Arrow Quiver": "T3",
     "Primordial Staff": "T3",
     "Prismatic Jewel": "T1",
-    "Prismatic Ring": "Low",
-    "Prismatic Tincture": "Low",
-    "Processional Relic": "T2",
-    "Prophecy Wand": "T2",
+    "Processional Relic": "T1",
+    "Prophecy Wand": "T3",
     "Prophet Crown": "T3",
     "Quarterstaff": "T2",
-    "Quartz Flask": "Low",
-    "Quicksilver Flask": "Low",
-    "Ranger Bow": "Low",
-    "Raven Mask": "T1",
+    "Raven Mask": "T3",
     "Rawhide Boots": "T2",
-    "Rawhide Tower Shield": "Low",
-    "Reaver Helmet": "Low",
-    "Reaver Sword": "Low",
-    "Recurve Bow": "Low",
-    "Regicide Mask": "T3",
     "Reinforced Greaves": "T3",
-    "Reinforced Tower Shield": "Low",
-    "Ring": "T1",
-    "Ritual Sceptre": "Low",
-    "Riveted Boots": "T2",
+    "Ring": [
+      "T0 Chase"
+    ],
+    "Riveted Boots": [
+      "T0 Chase"
+    ],
     "Riveted Gloves": "T2",
-    "Rock Breaker": "Low",
-    "Rotfeather Talisman": "Low",
-    "Rotted Round Shield": "Low",
-    "Royal Axe": "Low",
-    "Royal Bow": "Low",
     "Royal Burgonet": "T3",
-    "Royal Sceptre": "Low",
-    "Royal Skean": "Low",
-    "Royal Staff": "Low",
     "Ruby Flask": "T1",
     "Ruby Ring": "T3",
-    "Runic Crown": "T1",
-    "Runic Gages": "T1",
+    "Runic Crown": "T2",
+    "Runic Gages": "T2",
     "Runic Gauntlets": "T3",
     "Runic Helm": "T1",
-    "Runic Sabatons": "T3",
+    "Runic Sabatons": "T2",
     "Runic Sollerets": "T1",
-    "Rusted Sword": "Low",
-    "Rustic Sash": "Low+",
-    "Sabre": "Low",
     "Sacrificial Garb": "T3",
     "Sadist Garb": "T3",
     "Sage Wand": "T3",
     "Sage's Robe": "T3",
     "Saint's Hauberk": "T3",
     "Saintly Chainmail": "T3",
-    "Samite Gloves": "Low",
-    "Samnite Helmet": "Low",
-    "Sanctified Life Flask": "Low",
-    "Sanctified Mana Flask": "Low",
     "Sapphire Flask": "T3",
     "Sapphire Ring": "T3",
-    "Satin Gloves": "Low",
-    "Satin Slippers": "Low",
-    "Savant's Robe": "T1",
-    "Scholar Boots": "Low",
-    "Scholar's Robe": "T3",
-    "Seaglass Amulet": "T1",
-    "Searching Eye Jewel": "T3",
-    "Secutor Helm": "Low",
+    "Savant's Robe": "T2",
+    "Scholar's Robe": "T2",
+    "Seaglass Amulet": "T2",
+    "Searching Eye Jewel": "T2",
     "Sentinel Jacket": "T3",
     "Serpentine Staff": "T3",
-    "Serpentscale Boots": "Low",
+    "Serpentscale Boots": "T3",
     "Serpentscale Gauntlets": "T3",
-    "Serrated Arrow Quiver": "Low",
-    "Shackled Boots": "Low",
-    "Shadow Axe": "Low",
     "Shadow Sceptre": "T3",
-    "Shagreen Boots": "Low",
-    "Shagreen Gloves": "Low",
-    "Sharkskin Boots": "Low",
-    "Sharkskin Tunic": "Low",
-    "Sharktooth Arrow Quiver": "Low",
-    "Short Bow": "Low",
-    "Siege Axe": "T1",
-    "Siege Helmet": "T2",
+    "Siege Axe": [
+      "T2",
+      "T0 Chase"
+    ],
+    "Siege Helmet": "T1",
     "Silk Gloves": "T3",
-    "Silk Slippers": "Low",
     "Silken Hood": "T3",
-    "Silken Vest": "Low",
     "Silver Flask": "T3",
-    "Simple Robe": "Low",
-    "Sinner Tricorne": "Low",
-    "Skinning Knife": "Low",
-    "Slaughter Knife": "T1",
-    "Sledgehammer": "Low",
+    "Slaughter Knife": [
+      "T0 Chase"
+    ],
     "Slink Boots": "T3",
-    "Slink Gloves": "Low",
     "Small Cluster Jewel": "T2",
     "Solaris Circlet": "T3",
-    "Soldier Boots": "Low",
     "Soldier Gloves": "T3",
-    "Soldier Helmet": "Low",
-    "Somatic Wand": "T2",
+    "Somatic Wand": "T3",
     "Sorcerer Boots": "T3",
-    "Sovereign Spiked Shield": "Low+",
-    "Spectral Axe": "T1",
-    "Spidersilk Robe": "T3",
-    "Spike-Point Arrow Quiver": "Low",
-    "Spiked Club": "Low",
+    "Spectral Axe": "T2",
+    "Spidersilk Robe": [
+      "T3",
+      "T2"
+    ],
     "Spiked Gloves": "T3",
-    "Spine Bow": "T2",
+    "Spine Bow": "T3",
     "Spiny Round Shield": "T3",
-    "Spiraled Wand": "Low",
-    "Sporebloom Tincture": "Low",
     "Stealth Boots": "T3",
-    "Steel Circlet": "Low",
-    "Steel Gauntlets": "Low",
     "Steel Kite Shield": "T3",
     "Steel Ring": "T3",
-    "Steelhead": "Low",
     "Steelscale Gauntlets": "T3",
     "Steelwood Bow": "T3",
     "Stibnite Flask": "T3",
-    "Stiletto": "Low",
-    "Strapped Boots": "Low",
-    "Strapped Mitts": "Low",
     "Studded Belt": "T3",
-    "Studded Round Shield": "Low",
     "Stygian Vise": "T3",
     "Sulphur Flask": "T3",
-    "Sun Leather": "Low",
-    "Supreme Spiked Shield": "Low",
-    "Synaptic Ring": "T3",
-    "Tarnished Spirit Shield": "Low",
-    "Teak Round Shield": "Low",
-    "Terror Claw": "Low",
-    "Terror Maul": "Low",
-    "Thresher Claw": "Low",
-    "Throat Stabber": "Low",
-    "Tiger Sword": "Low",
-    "Timeless Jewel": "T2",
-    "Timeworn Claw": "Low",
-    "Titan Gauntlets": "Low",
-    "Titan Greaves": "Low",
-    "Titanium Spirit Shield": "T2",
-    "Tomahawk": "Low",
-    "Tome Relic": "T1",
+    "Synaptic Ring": "T2",
+    "Timeless Jewel": "T0 Chase",
+    "Titan Greaves": "T3",
+    "Titanium Spirit Shield": "T3",
+    "Tome Relic": "T3",
     "Topaz Flask": "T3",
     "Topaz Ring": "T3",
     "Tornado Wand": "T3",
     "Torturer Garb": "T3",
-    "Trapper Boots": "Low",
-    "Tribal Circlet": "Low",
-    "Tricorne": "Low",
     "Triumphant Lamellar": "T3",
     "Turquoise Amulet": "T3",
-    "Twilight Blade": "Low",
-    "Two-Point Arrow Quiver": "Low",
-    "Two-Stone Ring": "Low",
-    "Two-Toned Boots": "T3",
-    "Tyrant's Sekhem": "Low",
-    "Unset Amulet": "T1",
+    "Two-Point Arrow Quiver": "T3",
+    "Tyrant's Sekhem": "T3",
+    "Unset Amulet": [
+      "T0 Chase"
+    ],
     "Unset Ring": "T3",
     "Urn Relic": "T3",
-    "Ursine Pelt": "Low",
     "Vaal Axe": "T3",
-    "Vaal Blade": "T2",
-    "Vaal Buckler": "Low",
+    "Vaal Blade": "T3",
     "Vaal Claw": "T2",
     "Vaal Gauntlets": "T3",
     "Vaal Greaves": "T3",
-    "Vaal Hatchet": "Low",
     "Vaal Mask": "T3",
-    "Vaal Rapier": "T1",
+    "Vaal Rapier": "T2",
     "Vaal Regalia": "T3",
-    "Vaal Sceptre": "Low",
     "Vaal Spirit Shield": "T3",
     "Vanguard Belt": "T3",
     "Varnished Coat": "T3",
-    "Velvet Gloves": "Low",
-    "Velvet Slippers": "Low",
     "Vermillion Ring": "T1",
     "Vile Arrow Quiver": "T3",
-    "Vile Staff": "Low",
-    "Vine Circlet": "Low",
-    "Visored Sallet": "T3",
     "Void Axe": "T2",
     "Void Sceptre": "T3",
-    "War Buckler": "Low",
-    "War Hammer": "Low",
-    "War Sword": "Low",
-    "Waxed Garb": "T2",
-    "Wereclaw Talisman": "Low",
-    "Whalebone Rapier": "Low",
-    "Widowsilk Robe": "T3",
-    "Wild Leather": "Low",
-    "Wolf Pelt": "T3",
-    "Woodsplitter": "Low",
-    "Wool Gloves": "Low",
-    "Wool Shoes": "Low",
-    "Wrapped Mitts": "Low",
+    "Waxed Garb": "T3",
     "Wyrmscale Boots": "T3",
-    "Wyrmscale Doublet": "T2",
-    "Wyrmscale Gauntlets": "Low",
-    "Zealot Gloves": "Low+",
+    "Wyrmscale Doublet": "T1",
     "Zealot Helmet": "T3",
-    "Zodiac Leather": "T3"
+    "Zodiac Leather": "T3",
+    "Assembled Eye Jewel": [
+      "T0 Chase"
+    ],
+    "Fishing Rod": "T1",
+    "Fleshripper": "T1",
+    "Pearlescent Amulet": [
+      "T0 Chase"
+    ],
+    "Rhex Talisman": "T0 Chase",
+    "Shield Crab Talisman": "T3",
+    "Terror Maul": [
+      "T2"
+    ],
+    "Vile Staff": [
+      "T2"
+    ],
+    "Prismatic Ring": [
+      "T2"
+    ]
   },
   "rules": [
     {
@@ -1162,7 +945,11 @@
         "Replica": "True"
       },
       "overrides": {
-        "Tier": "T1"
+        "Tier": "T1",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级仿品传奇.mp3",
+          300
+        ]
       }
     },
     {
@@ -1186,7 +973,11 @@
         "Replica": "True"
       },
       "overrides": {
-        "Tier": "T2"
+        "Tier": "T2",
+        "PlayAlertSound": [
+          "Sharket掉落音效/仿品传奇.mp3",
+          300
+        ]
       }
     },
     {
@@ -1241,7 +1032,11 @@
         "Foulborn": "True"
       },
       "overrides": {
-        "Tier": "T2"
+        "Tier": "T2",
+        "PlayAlertSound": [
+          "Sharket掉落音效/秽生传奇.mp3",
+          300
+        ]
       }
     },
     {
@@ -1270,51 +1065,67 @@
         "Sockets": "< 1"
       },
       "overrides": {
-        "Tier": "T0 Chase"
+        "Tier": "T1"
       }
     },
     {
-      "comment": "侍从 The Squire（三白孔）",
-      "targets": [
-        "Elegant Round Shield"
-      ],
-      "conditions": {
-        "Rarity": "Unique",
-        "Sockets": ">= 3WWW"
-      },
-      "overrides": {
-        "Tier": "T0 Chase"
-      }
-    },
-    {
-      "comment": "无尽之衣 Tabula Rasa（六连全白）",
+      "comment": "无尽之衣 Tabula Rasa（六连）",
       "targets": [
         "Simple Robe"
       ],
       "conditions": {
         "Rarity": "Unique",
-        "LinkedSockets": "6",
-        "SocketGroup": "WWWWWW"
+        "LinkedSockets": "6"
+      },
+      "overrides": {
+        "Tier": "T1",
+        "PlayAlertSound": [
+          "Sharket掉落音效/白袍.mp3",
+          300
+        ]
+      }
+    },
+    {
+      "comment": "三重扣 Triad Grip（四红）",
+      "targets": [
+        "Mesh Gloves"
+      ],
+      "conditions": {
+        "Rarity": "Unique",
+        "Sockets": ">= 4RRRR"
       },
       "overrides": {
         "Tier": "T1"
       }
     },
     {
-      "comment": "三重扣 Triad Grip（四白孔）",
+      "comment": "三重扣 Triad Grip（四绿）",
       "targets": [
         "Mesh Gloves"
       ],
       "conditions": {
         "Rarity": "Unique",
-        "Sockets": ">= 4WWWW"
+        "Sockets": ">= 4GGGG"
       },
       "overrides": {
-        "Tier": "T0 Chase"
+        "Tier": "T1"
       }
     },
     {
-      "comment": "鬼弑 Oni-Goroshi（受影响基底）",
+      "comment": "三重扣 Triad Grip（四蓝）",
+      "targets": [
+        "Mesh Gloves"
+      ],
+      "conditions": {
+        "Rarity": "Unique",
+        "Sockets": ">= 4BBBB"
+      },
+      "overrides": {
+        "Tier": "T1"
+      }
+    },
+    {
+      "comment": "大宝剑（受影响基底）",
       "targets": [
         "Infernal Sword"
       ],
@@ -1358,7 +1169,7 @@
       }
     },
     {
-      "comment": "四深渊孔头盔 4x Abyss Helmet",
+      "comment": "四深渊孔头盔（召唤头） 4x Abyss Helmet",
       "targets": [
         "Bone Circlet"
       ],
@@ -1371,7 +1182,7 @@
       }
     },
     {
-      "comment": "三深渊孔 3x Abyss",
+      "comment": "三深渊孔深渊衣 3x Abyss",
       "targets": [
         "Carnal Armour"
       ],
@@ -1384,7 +1195,7 @@
       }
     },
     {
-      "comment": "双深渊孔 2x Abyss",
+      "comment": "双深渊孔深渊套餐 2x Abyss",
       "targets": [
         "Great Crown",
         "Mind Cage",
@@ -1427,8 +1238,213 @@
         "Rarity": "Unique"
       },
       "overrides": {
-        "Tier": "T1"
+        "Tier": "T1",
+        "PlayAlertSound": [
+          "Sharket掉落音效/传奇珠宝.mp3",
+          300
+        ]
       }
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Contracts\"",
+        "Rarity": "Unique"
+      },
+      "overrides": {
+        "Tier": "T2",
+        "PlayAlertSound": [
+          "Sharket掉落音效/传奇契约.mp3",
+          300
+        ]
+      },
+      "comment": "传奇契约"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "Unique",
+        "LinkedSockets": ">=6"
+      },
+      "overrides": {
+        "Tier": "T0 Chase",
+        "PlayAlertSound": [
+          "Sharket掉落音效/哇哦6连传奇.mp3",
+          300
+        ]
+      },
+      "comment": "六连传奇"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "Unique",
+        "LinkedSockets": ">=5"
+      },
+      "overrides": {
+        "Tier": "T1",
+        "PlayAlertSound": [
+          "Sharket掉落音效/5连传奇.mp3",
+          300
+        ]
+      },
+      "comment": "五连传奇"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Corrupted": "True",
+        "Rarity": "Unique",
+        "CorruptedMods": ">=1"
+      },
+      "overrides": {
+        "Tier": "T1",
+        "BorderColor": "#f90101ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/瓦尔传奇.mp3",
+          300
+        ]
+      },
+      "comment": "腐化基底"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "Unique",
+        "CorruptedMods": ">=2",
+        "Corrupted": "True"
+      },
+      "overrides": {
+        "Tier": "T0 Chase",
+        "BorderColor": "#f50000ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/天灾传奇.mp3",
+          300
+        ]
+      },
+      "comment": "双重腐化基底"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "Unique",
+        "Quality": ">=21"
+      },
+      "overrides": {
+        "Tier": "T0 Chase"
+      },
+      "comment": "超额品质"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Replica": "True",
+        "Rarity": "Unique"
+      },
+      "overrides": {
+        "Tier": "T3"
+      },
+      "comment": "其他仿品传奇"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Foulborn": "True",
+        "Rarity": "Unique"
+      },
+      "overrides": {
+        "Tier": "T3"
+      },
+      "comment": "其他秽生传奇"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "Unique"
+      },
+      "overrides": {
+        "Tier": "T1"
+      },
+      "comment": "笼罩传奇",
+      "raw": "Vestigial True"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "Unique",
+        "Class": "\"idol\""
+      },
+      "overrides": {
+        "Tier": "T3"
+      },
+      "comment": "神像"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "Unique",
+        "HasCruciblePassiveTree": "True"
+      },
+      "overrides": {
+        "Tier": "T0 Chase",
+        "BorderColor": "#ff0000ff"
+      },
+      "comment": "天灾天赋（遗产）"
+    },
+    {
+      "targets": [
+        "Prismatic Jewel"
+      ],
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/哇~三相珠宝！.mp3",
+          300
+        ]
+      },
+      "comment": "__SOUND__:Prismatic Jewel"
+    },
+    {
+      "targets": [
+        "Ruby Flask"
+      ],
+      "conditions": {},
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/卓越神器.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Ruby Flask"
+    },
+    {
+      "targets": [
+        "Timeless Jewel"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "T0 Chase",
+        "PlayAlertSound": [
+          "Sharket掉落音效/永恒珠宝.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Timeless Jewel @ T0 Chase",
+      "sound_scope": true
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "Unique",
+        "Class": "== \"Maps\""
+      },
+      "overrides": {
+        "Tier": "T1",
+        "PlayAlertSound": [
+          "Sharket掉落音效/传奇地图.mp3",
+          300
+        ]
+      },
+      "comment": "传奇地图"
     }
   ]
 }

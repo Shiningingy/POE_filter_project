@@ -1,3 +1,20 @@
+# ⚠️ DO NOT blindly run parsing_tool/generate_category_json.py over this file.
+#
+# It has drifted from the checked-in category_structure.json and a full recompile
+# is a REGRESSION: `_default_target: Stackable Currency` makes the compiler stamp
+# that on every currency leaf, but `target_category` is the THEME RESOLUTION KEY
+# (ThemePresetEditor.tsx:100/206) and must match the tier_definition's
+# `_meta.theme_category` - "Essences", "Fossils", "Delirium Orbs", ... The theme
+# file has no "Stackable Currency" entry at all, so recompiling silently points
+# five currency categories at a key that does not exist.
+#
+# Note the MAPPING file's `_meta.theme_category` is NOT the one that matters:
+# generate.py reads the TIER file's. They disagree today (mapping says
+# "Stackable Currency", tier says "Essences") and the tier file wins.
+#
+# Until the compiler is reconciled with the JSON, edit BOTH files by hand for a
+# small change - a nav add/remove is ~10 lines in each.
+
 _chapter_general:
   _separator:
     en: General
@@ -21,15 +38,9 @@ League Currency:
   Essences:
     name: 精华
     path: Currency/Essences.json
-  Expedition:
-    name: 探险
-    path: Currency/Expedition.json
   Fossils:
     name: 化石
     path: Currency/Fossils.json
-  Harbinger:
-    name: 先驱
-    path: Currency/Harbinger.json
   Harvest:
     name: 庄园
     path: Currency/Harvest.json
@@ -45,15 +56,9 @@ League Currency:
   Omens:
     name: 预兆
     path: Currency/Omens.json
-  Ritual:
-    name: 仪式
-    path: Currency/Ritual.json
   Runegrafts:
     name: 符文嫁接
     path: Currency/Runegrafts.json
-  Splinters:
-    name: 碎片
-    path: Currency/Splinters.json
 
 Divination Cards:
   _name: 命运卡
@@ -93,6 +98,14 @@ Maps & Fragments:
     name: 地图碎片与邀请
     target: Map Fragments
     path: Maps/Fragments.json
+  # Splinters are the FEEDERS - each stacks into something in Fragments above
+  # (100 -> Emblem / Breachstone / Ritual Vessel, 300 -> Simulacrum, 10 Crescent
+  # -> The Maven's Writ). `target` stays "Splinters" to preserve the current
+  # theme resolution; see the note in the commit that moved this here.
+  Fragment Splinters:
+    name: 碎片
+    target: Splinters
+    path: Maps/Fragment Splinters.json
   Heist:
     _name: 赏金猎人
     Contracts:
@@ -250,24 +263,6 @@ Fractured:
     name: 破碎物品
     path: Equipment/Special/Fractured.json
 
-Synthesised:
-  _name: 合成物品
-  Synthesised:
-    name: 合成物品
-    path: Equipment/Special/Synthesised.json
-
-Memory-Stranded:
-  _name: 追忆物品
-  Memory-Stranded:
-    name: 追忆物品
-    path: Equipment/MemoryStranded.json
-
-Veiled Items:
-  _name: 隐匿物品
-  Veiled:
-    name: 隐匿物品
-    path: Equipment/Veiled.json
-
 Linked Items:
   _name: 高连物品
   Linked:
@@ -299,9 +294,6 @@ League-Specific:
     Ritual BaseTypes:
       name: 仪式底材
       path: Equipment/League/Ritual BaseTypes.json
-    Corpses for Spectres:
-      name: 祭祀尸体
-      path: Currency/Corpses.json
     Heist Experimented:
       name: 夺宝奇兵实验底材
       path: Equipment/League/Heist Experimented.json
@@ -465,29 +457,13 @@ Heist Gear:
     name: 赏金猎人目标
     path: Heist/Targets.json
 
-Quest:
-  _name: 任务物品
-  _default_target: Quest Items
-  Quest Items: 任务物品
-  Labyrinth:
-    name: 迷宫
-    target: Labyrinth Items
-    path: Quest/Labyrinth.json
-
 Misc:
   _name: 杂项
   _default_target: Misc
   General:
     name: 其他杂项
+    target: Quest Items
     path: Misc/General.json
-  Idols:
-    name: 神像
-    target: Idols
-    path: Misc/Idols.json
-  Wombgifts:
-    name: 孕育赠礼
-    target: Wombgifts
-    path: Misc/Wombgifts.json
 
 _Legacy:
   _name: 历史物品

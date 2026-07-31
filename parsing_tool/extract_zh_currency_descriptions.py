@@ -1,3 +1,4 @@
+# [parsing_tool group A: LIVE TOOL] Safe to run. See parsing_tool/README.md.
 # Extract official zh-simplified currency descriptions from raw GGPK .datc64
 # tables and join them to EN item names.
 #

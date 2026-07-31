@@ -31,7 +31,12 @@ export const SERIES_META: { id: SeriesId; en: string; ch: string }[] = [
 
 // Role names per tier, mirroring filter_generation/data/theme/roles.json.
 export const ROLE_LABELS: Record<number, { en: string; ch: string }> = {
-  0: { en: 'Decorator', ch: '装饰高亮' },
+  // RETIRED 2026-07-27 — a decorator is no longer a TIER. Decorators are applied
+  // in place via rule overrides (the emphasis button); modelling one as a tier
+  // forced an empty highlight band into every category (34 of 65 Tier-0 blocks
+  // were empty). Tier 0 keeps its slot as the top/chase rank.
+  // 0: { en: 'Decorator', ch: '装饰高亮' },
+  0: { en: 'Chase / Top', ch: '顶级' },
   1: { en: 'High Value', ch: '高价值' },
   2: { en: 'Valuable', ch: '有价值' },
   3: { en: 'Notable', ch: '值得注意' },

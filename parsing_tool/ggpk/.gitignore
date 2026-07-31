@@ -1,0 +1,6 @@
+node_modules/
+
+# Scratch space for the exporter: config.json, the CDN bundle cache (~45 MB),
+# the fetched schema, and the raw tables before they are staged into
+# data/source/<label>/. All reproducible - never committed.
+.work/

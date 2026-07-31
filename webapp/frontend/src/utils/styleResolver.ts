@@ -32,14 +32,38 @@ export const resolveStyle = (tierData: any, themeData: any, themeCategory: strin
   const { Tier, ...overrides } = localTheme;
   resolved = { ...resolved, ...overrides };
 
-  // 3. Resolve Sound
-  if (localSound.sharket_sound_id && soundMap && soundMap.class_sounds && soundMap.class_sounds[localSound.sharket_sound_id]) {
-      const s = soundMap.class_sounds[localSound.sharket_sound_id];
-      resolved.PlayAlertSound = [s.file, s.volume];
+  // 3. Resolve Sound.
+  //
+  // Order MUST match resolve_sound in BOTH generators:
+  //     theme.PlayAlertSound  ->  sharket_sound_id  ->  default_sound_id
+  //
+  // It used to be the exact reverse, with the theme sound as a last resort. The tier
+  // style editor writes the sound it picks to theme.PlayAlertSound, so once the
+  // generators started honouring that, the editor preview and the exported filter
+  // disagreed for every tier whose sound had been picked in the UI.
+  //
+  // The lookup also has to tolerate the ".mp3" suffix: sharket_sound_id is authored
+  // WITH it in 192 of 197 tiers while class_sounds is keyed by the bare stem, so an
+  // exact match silently missed and fell through to the stock default.
+  const themeSound = resolved.PlayAlertSound;
+  const sid = localSound.sharket_sound_id;
+  const classSounds = (soundMap && soundMap.class_sounds) || {};
+  let sharket = sid ? classSounds[sid] : undefined;
+  if (sharket === undefined && typeof sid === 'string' && sid.toLowerCase().endsWith('.mp3')) {
+      sharket = classSounds[sid.slice(0, -4)];
+  }
+
+  if (themeSound) {
+      resolved.PlayAlertSound = themeSound;
+  } else if (sharket !== undefined) {
+      resolved.PlayAlertSound = [sharket.file, sharket.volume];
   } else if (localSound.default_sound_id !== undefined && localSound.default_sound_id !== -1) {
       resolved.PlayAlertSound = [`Default/AlertSound${localSound.default_sound_id}.mp3`, 300];
-  } else if (resolved.PlayAlertSound) {
-      // If it's a "Sharket_Sound_X.mp3" placeholder, try to map it to Default/AlertSoundX.mp3
+  }
+
+  if (resolved.PlayAlertSound) {
+      // "Sharket_Sound_X.mp3" is a dead placeholder (no file, no map entry) left in 12
+      // tiers; render it as the stock alert it stands in for.
       const [file, vol] = resolved.PlayAlertSound;
       if (typeof file === 'string' && file.startsWith('Sharket_Sound_')) {
           const num = file.match(/\d+/)?.[0];
@@ -113,11 +137,20 @@ export const generateFilterText = (style: StyleProps, baseTypes: string[] = ["It
 
       rules.forEach((rule) => {
           if (rule.disabled) return;
-          
+
+          // A self-selecting rule supplies its own matching lines (a `raw` block, or
+          // a BaseType/Class condition), so the generator emits NO BaseType line for
+          // it - see generate.py:531. Falling back to the tier's whole base list here
+          // put a second BaseType line above the raw one in the preview.
+          const selfSelecting = !!rule.raw ||
+              ['BaseType', 'Class'].some((k) => k in (rule.conditions || {}));
+
           // Remove from pending base
-          const targets = rule.targets && rule.targets.length > 0 ? rule.targets : cleanBaseTypes;
-          if (rule.targets) rule.targets.forEach((t: string) => pendingBaseItems.delete(t));
-          else pendingBaseItems.clear();
+          const targets = rule.targets && rule.targets.length > 0
+              ? rule.targets
+              : (selfSelecting ? [] : cleanBaseTypes);
+          if (rule.targets && rule.targets.length > 0) rule.targets.forEach((t: string) => pendingBaseItems.delete(t));
+          else if (!selfSelecting) pendingBaseItems.clear();
 
           // Create a key for grouping
           const overrideKey = JSON.stringify({ 
@@ -165,10 +198,12 @@ const _generateBlock = (rule: any, targets: string[], baseStyle: any, hideable: 
     }
 
     rLines.push(hideable ? "Hide" : "Show");
-    
-    // Use unique targets only
-    const uniqueTargets = Array.from(new Set(targets)).sort();
-    rLines.push(`    BaseType == "${uniqueTargets.join('" "')}"`);
+
+    // No targets = self-selecting rule: its own raw/BaseType lines do the matching.
+    if (targets.length > 0) {
+        const uniqueTargets = Array.from(new Set(targets)).sort();
+        rLines.push(`    BaseType == "${uniqueTargets.join('" "')}"`);
+    }
 
     if (rule.conditions) {
         Object.entries(rule.conditions as Record<string, string>).forEach(([key, val]) => {
