@@ -23,7 +23,7 @@ Show
     SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 0 255 0 255
-    CustomAlertSound "sound_files\Sharket掉落音效\拜托~更新一下过滤吧.mp3" 150
+    CustomAlertSound "Sharket掉落音效\拜托~更新一下过滤吧.mp3" 150
     PlayEffect Green
     MinimapIcon 0 Green Star
 
@@ -32,6 +32,6 @@ Show
     SetTextColor 255 255 255 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 0 255 0 255
-    CustomAlertSound "sound_files\Sharket掉落音效\拜托~更新一下过滤吧.mp3" 150
+    CustomAlertSound "Sharket掉落音效\拜托~更新一下过滤吧.mp3" 150
     PlayEffect Green
     MinimapIcon 0 Green Star

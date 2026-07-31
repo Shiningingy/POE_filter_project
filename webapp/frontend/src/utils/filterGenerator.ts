@@ -131,7 +131,12 @@ const soundLineFromPair = (pair: any): string | null => {
     return `PlayAlertSound ${num} ${vol}`;
   }
   const winPath = file.replace(/\//g, "\\");
-  return `CustomAlertSound "sound_files\\${winPath}" ${vol}`;
+  // NO "sound_files\" prefix: the game resolves a CustomAlertSound path relative to
+  // the FILTER's own folder, not to this repo. Players drop the shipped
+  // `Sharket掉落音效\` folder next to the .filter, which is what Sharket's own
+  // released filter emits. Prefixing our repo's container directory made every alert
+  // silently fail to load in game. (Mirrors generate.py.)
+  return `CustomAlertSound "${winPath}" ${vol}`;
 };
 
 /** Priority: rule override -> tier theme.PlayAlertSound -> sharket -> default */
@@ -160,7 +165,7 @@ const resolveSound = (tierEntry: any, soundMap: any, overrideSound?: [string, nu
     }
     if (s !== undefined) {
       const winPath = s.file.replace(/\//g, "\\");
-      return `CustomAlertSound "sound_files\\${winPath}" ${s.volume}`;
+      return `CustomAlertSound "${winPath}" ${s.volume}`;
     }
   }
 

@@ -148,7 +148,12 @@ def sound_line_from_pair(pair):
         num = re.search(r"\d+", file).group(0)
         return f"PlayAlertSound {num} {vol}"
     win_path = file.replace("/", "\\")
-    return f'CustomAlertSound "sound_files\\{win_path}" {vol}'
+    # NO "sound_files\" prefix: the game resolves a CustomAlertSound path relative
+    # to the FILTER's own folder, not to this repo. Players drop the shipped
+    # `Sharket掉落音效\` folder next to the .filter, which is what Sharket's own
+    # released filter emits. Prefixing our repo's container directory made every
+    # alert silently fail to load in game. (Mirrors filterGenerator.ts.)
+    return f'CustomAlertSound "{win_path}" {vol}'
 
 
 def resolve_sound(tier_entry, sound_map, override_sound=None):
@@ -182,7 +187,7 @@ def resolve_sound(tier_entry, sound_map, override_sound=None):
             s = class_sounds.get(sid[:-4])
         if s is not None:
             win_path = s["file"].replace("/", "\\")
-            return f'CustomAlertSound "sound_files\\{win_path}" {s["volume"]}'
+            return f'CustomAlertSound "{win_path}" {s["volume"]}'
 
 
     # 2. Default Sound
