@@ -1767,8 +1767,6 @@ Show
     SetTextColor 112 107 41 255
     SetBorderColor 153 146 56 255
     SetBackgroundColor 248 248 242 255
-    PlayEffect White
-    MinimapIcon 0 White Star
 
 
 #==[47002]- Gold -T2: 较多金币 金币 - #1 >100 - 精确==
@@ -1779,8 +1777,6 @@ Show
     SetTextColor 56 53 21 255
     SetBorderColor 82 79 25 255
     SetBackgroundColor 179 171 66 255
-    PlayEffect White
-    MinimapIcon 1 White Diamond
 
 
 #==[47003]- Gold -T3: 金币 金币 - 基础 - 精确==

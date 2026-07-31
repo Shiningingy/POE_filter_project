@@ -66,7 +66,6 @@
         "BorderColor": "#3400ffff",
         "BackgroundColor": "#ffffffff",
         "PlayEffect": "Red",
-        "MinimapIcon": "RedStar",
         "PlayAlertSound": [
           "Default/AlertSound3.mp3",
           300

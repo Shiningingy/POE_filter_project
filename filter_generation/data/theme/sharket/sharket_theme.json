@@ -844,17 +844,13 @@
       "FontSize": 35,
       "TextColor": "#706b29ff",
       "BorderColor": "#999238ff",
-      "BackgroundColor": "#f8f8f2ff",
-      "PlayEffect": "White",
-      "MinimapIcon": "0 White Star"
+      "BackgroundColor": "#f8f8f2ff"
     },
     "Tier 1": {
       "FontSize": 35,
       "TextColor": "#383515ff",
       "BorderColor": "#524f19ff",
-      "BackgroundColor": "#b3ab42ff",
-      "PlayEffect": "White",
-      "MinimapIcon": "1 White Diamond"
+      "BackgroundColor": "#b3ab42ff"
     },
     "Tier 2": {
       "FontSize": 35,
