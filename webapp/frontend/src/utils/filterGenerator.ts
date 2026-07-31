@@ -483,6 +483,13 @@ export const generateFilter = (data: GeneratorData): string => {
           if (!handled) {
             allRules.push({
               targets: [item],
+              // Inherit the TIER's conditions. Tier conditions are emitted only on
+              // the base block, and an injected rule authors none of its own, so
+              // without this the sound block dropped every gate its tier declared -
+              // Rarity <= Rare, Corrupted False, the ItemLevel band. A unique
+              // Stygian Vise was rendering as an ilvl-86 crafting base because its
+              // auto-sound block said only BaseType == "Stygian Vise".
+              conditions: JSON.parse(JSON.stringify(tierEntry.conditions || {})),
               overrides: { PlayAlertSound: [sData.file, sData.volume] },
               comment: `__AUTO_SOUND__:${item}`
             });

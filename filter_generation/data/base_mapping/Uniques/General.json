@@ -945,7 +945,11 @@
         "Replica": "True"
       },
       "overrides": {
-        "Tier": "T1"
+        "Tier": "T1",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级仿品传奇.mp3",
+          300
+        ]
       }
     },
     {
@@ -1028,7 +1032,11 @@
         "Foulborn": "True"
       },
       "overrides": {
-        "Tier": "T2"
+        "Tier": "T2",
+        "PlayAlertSound": [
+          "Sharket掉落音效/秽生传奇.mp3",
+          300
+        ]
       }
     },
     {

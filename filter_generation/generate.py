@@ -2,6 +2,7 @@ import json
 import re
 import os
 import sys
+import copy
 import argparse
 from pathlib import Path
 from collections import defaultdict
@@ -521,7 +522,14 @@ def generate_filter():
                 out_lines.append("\n".join(block_lines) + "\n")
                 continue  # Skip normal BaseType processing for this tier
 
-            all_rules = map_doc.get("rules", [])
+            # Deep copy PER TIER, matching filterGenerator.ts. This used to alias
+            # map_doc["rules"] itself, so auto-sound rules appended during one
+            # tier's pass survived into the next; `already_handled` then saw the
+            # stale rule and skipped re-injecting. Invisible while those rules
+            # carried no conditions - the moment they inherited the tier's, a base
+            # in several bands (Stygian Vise is in Crafting Chase 86/85/84/83) got
+            # the FIRST band's ItemLevel in every later block.
+            all_rules = copy.deepcopy(map_doc.get("rules", []))
             
             # --- AUTO-INJECT SOUND RULES FROM MAP ---
             # basetype_sounds is GLOBAL: a base type with an entry gets a per-item
@@ -540,6 +548,14 @@ def generate_filter():
                     if not already_handled:
                         all_rules.append({
                             "targets": [item_name],
+                            # Inherit the TIER's conditions. Tier conditions are emitted
+                            # only on the base block, and an injected rule authors none
+                            # of its own, so without this the sound block dropped every
+                            # gate its tier declared - Rarity <= Rare, Corrupted False,
+                            # the ItemLevel band. A unique Stygian Vise was rendering as
+                            # an ilvl-86 crafting base because its auto-sound block said
+                            # only BaseType == "Stygian Vise".
+                            "conditions": copy.deepcopy(tier_entry.get("conditions") or {}),
                             "overrides": { "PlayAlertSound": [s_data["file"], s_data["volume"]] },
                             "comment": f"__AUTO_SOUND__:{item_name}"
                         })

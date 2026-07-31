@@ -549,6 +549,10 @@ Show
 #==[22007]- Crafting Priority -极品底材 i86 优先精品底材 - 自动音效：水晶腰带 - 精确==
 Show
     BaseType == "Crystal Belt"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 86
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 212 175 55 255
@@ -561,6 +565,10 @@ Show
 #==[22008]- Crafting Priority -极品底材 i86 优先精品底材 - 自动音效：深渊腰带 - 精确==
 Show
     BaseType == "Stygian Vise"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 86
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 212 175 55 255
@@ -573,6 +581,10 @@ Show
 #==[22009]- Crafting Priority -极品底材 i86 优先精品底材 - 自动音效：朱砂之戒 - 精确==
 Show
     BaseType == "Vermillion Ring"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 86
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 212 175 55 255
@@ -600,6 +612,10 @@ Show
 #==[22011]- Crafting Priority -极品底材 i85 优先精品底材 - 自动音效：深渊腰带 - 精确==
 Show
     BaseType == "Stygian Vise"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 85
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 212 175 55 255
@@ -612,6 +628,10 @@ Show
 #==[22012]- Crafting Priority -极品底材 i85 优先精品底材 - 自动音效：朱砂之戒 - 精确==
 Show
     BaseType == "Vermillion Ring"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 85
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 212 175 55 255
@@ -639,6 +659,10 @@ Show
 #==[22014]- Crafting Priority -极品底材 i84 优先精品底材 - 自动音效：深渊腰带 - 精确==
 Show
     BaseType == "Stygian Vise"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 84
     SetFontSize 39
     SetTextColor 218 187 85 255
     SetBorderColor 212 175 55 255
@@ -650,6 +674,10 @@ Show
 #==[22015]- Crafting Priority -极品底材 i84 优先精品底材 - 自动音效：朱砂之戒 - 精确==
 Show
     BaseType == "Vermillion Ring"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 84
     SetFontSize 39
     SetTextColor 218 187 85 255
     SetBorderColor 212 175 55 255
@@ -675,6 +703,10 @@ Show
 #==[22017]- Crafting Priority -极品底材 i83 优先精品底材 - 自动音效：深渊腰带 - 精确==
 Show
     BaseType == "Stygian Vise"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 83
     SetFontSize 39
     SetTextColor 218 187 85 255
     SetBorderColor 212 175 55 255
@@ -686,6 +718,10 @@ Show
 #==[22018]- Crafting Priority -极品底材 i83 优先精品底材 - 自动音效：朱砂之戒 - 精确==
 Show
     BaseType == "Vermillion Ring"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 83
     SetFontSize 39
     SetTextColor 218 187 85 255
     SetBorderColor 212 175 55 255
@@ -1849,6 +1885,8 @@ Show
 #==[51007]- Body Armours -T4: 兜底（碎片） 胸甲 - 自动音效：祭礼束衣 - 精确==
 Show
     BaseType == "Sacrificial Garb"
+    ItemLevel >= 68
+    Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
     SetBorderColor 39 45 52 255
@@ -2157,6 +2195,8 @@ Show
 #==[55005]- Quivers -T4: 兜底（碎片） 箭袋 - 自动音效：火炮箭袋 - 精确==
 Show
     BaseType == "Artillery Quiver"
+    ItemLevel >= 68
+    Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
     SetBorderColor 39 45 52 255
@@ -2309,6 +2349,8 @@ Show
 #==[57006]- Amulets -T4: 兜底（碎片） 项链 - 自动音效：星盘项链 - 精确==
 Show
     BaseType == "Astrolabe Amulet"
+    ItemLevel >= 68
+    Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
     SetBorderColor 39 45 52 255
@@ -2319,6 +2361,8 @@ Show
 #==[57007]- Amulets -T4: 兜底（碎片） 项链 - 自动音效：朴实项链 - 精确==
 Show
     BaseType == "Simplex Amulet"
+    ItemLevel >= 68
+    Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
     SetBorderColor 39 45 52 255
@@ -2368,6 +2412,8 @@ Show
 #==[58003]- Belts -T2: 优质稀有底材 腰带 - 自动音效：先锋腰带 - 精确==
 Show
     BaseType == "Vanguard Belt"
+    ItemLevel >= 68
+    Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
     SetBorderColor 130 150 175 255
@@ -2443,6 +2489,8 @@ Show
 #==[59003]- Rings -T1: 顶级稀有底材 戒指 - 自动音效：紫晶戒指 - 精确==
 Show
     BaseType == "Amethyst Ring"
+    ItemLevel >= 68
+    Rarity Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 130 150 175 255
@@ -2526,6 +2574,7 @@ Show
 #==[63001]- Breach Grasping Mail -扼杀链甲 扼杀链甲 - 自动音效：扼杀链甲 - 精确==
 Show
     BaseType == "Grasping Mail"
+    Rarity <= Rare
     SetFontSize 31
     SetTextColor 150 150 160 255
     SetBorderColor 60 60 70 255
@@ -2540,6 +2589,7 @@ Show
 #==[65001]- Expedition Ward-Bases -先祖秘藏结界底材 先祖秘藏结界底材 - 自动音效：坚铁药剂 - 精确==
 Show
     BaseType == "Iron Flask"
+    Rarity <= Rare
     SetFontSize 31
     SetTextColor 150 150 160 255
     SetBorderColor 60 60 70 255
@@ -2562,6 +2612,7 @@ Show
 #==[66001]- Heist Experimented -夺宝奇兵实验底材 夺宝奇兵实验底材 - 自动音效：星盘项链 - 精确==
 Show
     BaseType == "Astrolabe Amulet"
+    Rarity <= Rare
     SetFontSize 31
     SetTextColor 150 150 160 255
     SetBorderColor 60 60 70 255
@@ -2572,6 +2623,7 @@ Show
 #==[66002]- Heist Experimented -夺宝奇兵实验底材 夺宝奇兵实验底材 - 自动音效：朴实项链 - 精确==
 Show
     BaseType == "Simplex Amulet"
+    Rarity <= Rare
     SetFontSize 31
     SetTextColor 150 150 160 255
     SetBorderColor 60 60 70 255
@@ -2626,6 +2678,7 @@ Show
 #==[73001]- Sacrificial Garbs -祭礼束衣 祭礼束衣 - 自动音效：祭礼束衣 - 精确==
 Show
     BaseType == "Sacrificial Garb"
+    Rarity <= Rare
     SetFontSize 31
     SetTextColor 150 150 160 255
     SetBorderColor 60 60 70 255
@@ -2638,6 +2691,7 @@ Show
 #==[74001]- Stygian Vise -深渊腰带 深渊腰带 - 自动音效：深渊腰带 - 精确==
 Show
     BaseType == "Stygian Vise"
+    Rarity <= Rare
     SetFontSize 31
     SetTextColor 150 150 160 255
     SetBorderColor 60 60 70 255
@@ -4786,7 +4840,7 @@ Show
     SetTextColor 255 255 255 255
     SetBorderColor 190 105 40 255
     SetBackgroundColor 38 21 8 255
-    CustomAlertSound "sound_files\Sharket掉落音效\超级传奇.mp3" 300
+    CustomAlertSound "sound_files\Sharket掉落音效\高级仿品传奇.mp3" 300
     PlayEffect Brown
     MinimapIcon 1 Brown Diamond
 
@@ -5014,7 +5068,7 @@ Show
     SetTextColor 200 128 72 255
     SetBorderColor 190 105 40 255
     SetBackgroundColor 16 16 22 255
-    CustomAlertSound "sound_files\Sharket掉落音效\高级传奇.mp3" 300
+    CustomAlertSound "sound_files\Sharket掉落音效\秽生传奇.mp3" 300
     MinimapIcon 1 Brown Circle
 
 
@@ -5158,6 +5212,10 @@ Show
 #==[131001]- Crafting Bases -i86 T1 精品底材 精品底材 - 自动音效：水晶腰带 - 精确==
 Show
     BaseType == "Crystal Belt"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 86
     SetFontSize 39
     SetTextColor 218 187 85 255
     SetBorderColor 212 175 55 255
@@ -5169,6 +5227,10 @@ Show
 #==[131002]- Crafting Bases -i86 T1 精品底材 精品底材 - 自动音效：祭礼束衣 - 精确==
 Show
     BaseType == "Sacrificial Garb"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 86
     SetFontSize 39
     SetTextColor 218 187 85 255
     SetBorderColor 212 175 55 255
@@ -5194,6 +5256,10 @@ Show
 #==[131004]- Crafting Bases -i86 T2 精品底材 精品底材 - 自动音效：逃亡之靴 - 精确==
 Show
     BaseType == "Fugitive Boots"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 86
     SetFontSize 36
     SetTextColor 225 199 115 255
     SetBorderColor 117 96 30 255
@@ -5204,6 +5270,10 @@ Show
 #==[131005]- Crafting Bases -i86 T2 精品底材 精品底材 - 自动音效：火炮箭袋 - 精确==
 Show
     BaseType == "Artillery Quiver"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 86
     SetFontSize 36
     SetTextColor 225 199 115 255
     SetBorderColor 117 96 30 255
@@ -5214,6 +5284,10 @@ Show
 #==[131006]- Crafting Bases -i86 T2 精品底材 精品底材 - 自动音效：先锋腰带 - 精确==
 Show
     BaseType == "Vanguard Belt"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 86
     SetFontSize 36
     SetTextColor 225 199 115 255
     SetBorderColor 117 96 30 255
@@ -5263,6 +5337,10 @@ Show
 #==[131010]- Crafting Bases -i85 T2 精品底材 精品底材 - 自动音效：扣钉手套 - 精确==
 Show
     BaseType == "Spiked Gloves"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 85
     SetFontSize 34
     SetTextColor 178 161 112 255
     SetBorderColor 64 52 16 255
@@ -5273,6 +5351,10 @@ Show
 #==[131011]- Crafting Bases -i85 T2 精品底材 精品底材 - 自动音效：药剂师手套 - 精确==
 Show
     BaseType == "Apothecary's Gloves"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 85
     SetFontSize 34
     SetTextColor 178 161 112 255
     SetBorderColor 64 52 16 255
@@ -5283,6 +5365,10 @@ Show
 #==[131012]- Crafting Bases -i85 T2 精品底材 精品底材 - 自动音效：碧珠护身符 - 精确==
 Show
     BaseType == "Blue Pearl Amulet"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 85
     SetFontSize 34
     SetTextColor 178 161 112 255
     SetBorderColor 64 52 16 255
@@ -5293,6 +5379,10 @@ Show
 #==[131013]- Crafting Bases -i85 T2 精品底材 精品底材 - 自动音效：唤骨头盔 - 精确==
 Show
     BaseType == "Bone Helmet"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 85
     SetFontSize 34
     SetTextColor 178 161 112 255
     SetBorderColor 64 52 16 255
@@ -5303,6 +5393,10 @@ Show
 #==[131014]- Crafting Bases -i85 T2 精品底材 精品底材 - 自动音效：丝绸手套 - 精确==
 Show
     BaseType == "Fingerless Silk Gloves"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 85
     SetFontSize 34
     SetTextColor 178 161 112 255
     SetBorderColor 64 52 16 255
@@ -5313,6 +5407,10 @@ Show
 #==[131015]- Crafting Bases -i85 T2 精品底材 精品底材 - 自动音效：大理石护身符 - 精确==
 Show
     BaseType == "Marble Amulet"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 85
     SetFontSize 34
     SetTextColor 178 161 112 255
     SetBorderColor 64 52 16 255
@@ -5336,6 +5434,10 @@ Show
 #==[131017]- Crafting Bases -i85 T3 精品底材 精品底材 - 自动音效：海晶护符 - 精确==
 Show
     BaseType == "Seaglass Amulet"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 85
     SetFontSize 34
     SetTextColor 178 161 112 255
     SetBorderColor 64 52 16 255
@@ -5359,6 +5461,10 @@ Show
 #==[131019]- Crafting Bases -i84 T1 精品底材 精品底材 - 自动音效：朱砂之戒 - 精确==
 Show
     BaseType == "Vermillion Ring"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 84
     SetFontSize 36
     SetTextColor 225 199 115 255
     SetBorderColor 117 96 30 255
@@ -5369,6 +5475,10 @@ Show
 #==[131020]- Crafting Bases -i84 T1 精品底材 精品底材 - 自动音效：青石戒指 - 精确==
 Show
     BaseType == "Iolite Ring"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 84
     SetFontSize 36
     SetTextColor 225 199 115 255
     SetBorderColor 117 96 30 255
@@ -5379,6 +5489,10 @@ Show
 #==[131021]- Crafting Bases -i84 T1 精品底材 精品底材 - 自动音效：蛋白石戒指 - 精确==
 Show
     BaseType == "Opal Ring"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 84
     SetFontSize 36
     SetTextColor 225 199 115 255
     SetBorderColor 117 96 30 255
@@ -5389,6 +5503,10 @@ Show
 #==[131022]- Crafting Bases -i84 T1 精品底材 精品底材 - 自动音效：合金戒指 - 精确==
 Show
     BaseType == "Steel Ring"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 84
     SetFontSize 36
     SetTextColor 225 199 115 255
     SetBorderColor 117 96 30 255
@@ -5399,6 +5517,10 @@ Show
 #==[131023]- Crafting Bases -i84 T2 精品底材 精品底材 - 自动音效：紫晶戒指 - 精确==
 Show
     BaseType == "Amethyst Ring"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 84
     SetFontSize 34
     SetTextColor 178 161 112 255
     SetBorderColor 64 52 16 255
@@ -5409,6 +5531,10 @@ Show
 #==[131024]- Crafting Bases -i84 T2 精品底材 精品底材 - 自动音效：天蓝之戒 - 精确==
 Show
     BaseType == "Cerulean Ring"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 84
     SetFontSize 34
     SetTextColor 178 161 112 255
     SetBorderColor 64 52 16 255
@@ -5419,6 +5545,10 @@ Show
 #==[131025]- Crafting Bases -i84 T2 精品底材 精品底材 - 自动音效：召集法杖 - 精确==
 Show
     BaseType == "Convoking Wand"
+    Rarity <= Rare
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 84
     SetFontSize 34
     SetTextColor 178 161 112 255
     SetBorderColor 64 52 16 255
