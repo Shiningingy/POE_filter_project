@@ -137,6 +137,25 @@ def parse_rgba(value, default="255 255 255 255"):
             return f"{r} {g} {b} {a}"
     return default
 
+_STYLE_PREFIXES = ("    Set", "    PlayEffect", "    MinimapIcon",
+                   "    CustomAlertSound", "    PlayAlertSound")
+
+
+def block_text(block_lines, is_hide):
+    """Join a block, dropping style lines when it is a hide block.
+
+    A `Hide` block renders nothing, so its styling was always dead weight. Under
+    RUTHLESS it is worse than dead: GGG does not permit `Hide` there, so HIDE_CMD
+    is `Minimal` — which still DRAWS a label. Emitting a font size and a plate on
+    it makes the very thing we are trying to quieten more visible, not less.
+    NeverSink's Ruthless filter emits conditions only on its Minimal blocks
+    ("Hide-Section replaced with minimal"). Mirrors blockText() in
+    filterGenerator.ts — parity-guarded."""
+    if is_hide:
+        block_lines = [l for l in block_lines if not l.startswith(_STYLE_PREFIXES)]
+    return "\n".join(block_lines) + "\n"
+
+
 _cond_op_re = re.compile(r"^(==|!=|<=|>=|<|>|=)\s*(\S.*)$")
 
 def norm_op(val):
@@ -540,7 +559,7 @@ def generate_filter():
                     block_lines.append(f"    PlayEffect {base_play_eff}")
                 if base_mini_icon and not style_off(base_mini_icon):
                     block_lines.append(f"    MinimapIcon {base_mini_icon}")
-                out_lines.append("\n".join(block_lines) + "\n")
+                out_lines.append(block_text(block_lines, is_hide))
                 continue  # Skip normal BaseType processing for this tier
 
             # Deep copy PER TIER, matching filterGenerator.ts. This used to alias
@@ -726,7 +745,7 @@ def generate_filter():
                     r_icon = r_over.get("MinimapIcon", base_mini_icon)
                     if r_icon and not style_off(r_icon): block_lines.append(f"    MinimapIcon {r_icon}")
                     
-                    out_lines.append("\n".join(block_lines) + "\n")
+                    out_lines.append(block_text(block_lines, is_hide))
 
                 for m in rule_matches:
                     pending_items.discard(m)
@@ -792,7 +811,7 @@ def generate_filter():
                     if base_play_eff and not style_off(base_play_eff): block_lines.append(f"    PlayEffect {base_play_eff}")
                     if base_mini_icon and not style_off(base_mini_icon): block_lines.append(f"    MinimapIcon {base_mini_icon}")
                     
-                    out_lines.append("\n".join(block_lines) + "\n")
+                    out_lines.append(block_text(block_lines, is_hide))
 
     # Footer (data/footer.filter): appended verbatim at the very end —
     # the unknown-items catch-all block lives there (hand-maintained).

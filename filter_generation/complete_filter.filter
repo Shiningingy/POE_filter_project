@@ -544,22 +544,14 @@ Hide
     Rarity Normal
     AreaLevel >= 10
     AreaLevel <= 67
-    SetFontSize 30
-    SetTextColor 255 255 255 255
-    SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
 
 
-#==[27003]- 装备 -隐藏魔法装备（第三章后） 保底与清理 - Class Condition==
+#==[27003]- 装备 -隐藏魔法装备（第一章后） 保底与清理 - Class Condition==
 Hide
     Class == "Bows" "Claws" "Daggers" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Thrusting One Hand Swords" "Quivers" "Rune Daggers" "Sceptres" "Staves" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords" "Wands" "Warstaves" "Body Armours" "Boots" "Gloves" "Helmets" "Shields" "Amulets" "Belts" "Rings"
     Rarity Magic
-    AreaLevel >= 34
+    AreaLevel >= 10
     AreaLevel <= 67
-    SetFontSize 30
-    SetTextColor 255 255 255 255
-    SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
 
 
 #===================================================================================================================
@@ -4074,10 +4066,6 @@ Show
 #==[81003]- Life Flasks -隐藏 生命药剂 - 基础 - 精确==
 Hide
     BaseType == "Small Life Flask"
-    SetFontSize 30
-    SetTextColor 226 131 137 255
-    SetBorderColor 0 0 0 0
-    SetBackgroundColor 8 2 2 255
 
 
 #==[82000]-药剂 Flasks - 魔力药剂 Mana Flasks==
@@ -5935,10 +5923,6 @@ Hide
     Class == "Body Armours" "Boots" "Gloves" "Helmets" "Shields" "Quivers" "Amulets" "Belts" "Rings" "Bows" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Warstaves" "Wands" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Thrusting One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords"
     Rarity Normal
     AreaLevel >= 68
-    SetFontSize 30
-    SetTextColor 255 255 255 255
-    SetBorderColor 0 0 0 0
-    SetBackgroundColor 0 0 0 255
 
 
 #===================================================================================================================

@@ -153,6 +153,26 @@ const normOp = (val: any): any => {
   return m ? `${m[1]} ${m[2]}` : val;
 };
 
+const STYLE_PREFIXES = ["    Set", "    PlayEffect", "    MinimapIcon",
+                       "    CustomAlertSound", "    PlayAlertSound"];
+
+/**
+ * Join a block, dropping style lines when it is a hide block.
+ *
+ * A `Hide` block renders nothing, so its styling was always dead weight. Under
+ * RUTHLESS it is worse than dead: GGG does not permit `Hide` there, so HIDE_CMD
+ * is `Minimal` — which still DRAWS a label. Emitting a font size and a plate on
+ * it makes the very thing we are trying to quieten more visible, not less.
+ * NeverSink's Ruthless filter emits conditions only on its Minimal blocks
+ * ("Hide-Section replaced with minimal"). Mirrors block_text() in generate.py.
+ */
+const blockText = (blockLines: string[], isHide: boolean): string => {
+  const kept = isHide
+    ? blockLines.filter((l) => !STYLE_PREFIXES.some((p) => l.startsWith(p)))
+    : blockLines;
+  return kept.join('\n') + '\n';
+};
+
 /** Priority: rule override -> tier theme.PlayAlertSound -> sharket -> default */
 const resolveSound = (tierEntry: any, soundMap: any, overrideSound?: [string, number]): string | null => {
   let line = soundLineFromPair(overrideSound);
@@ -480,7 +500,7 @@ export const generateFilter = (data: GeneratorData): string => {
         if (ccSound) ccLines.push(`    ${ccSound}`);
         if (basePlayEff && !styleOff(basePlayEff)) ccLines.push(`    PlayEffect ${basePlayEff}`);
         if (baseMiniIcon && !styleOff(baseMiniIcon)) ccLines.push(`    MinimapIcon ${baseMiniIcon}`);
-        outLines.push(ccLines.join('\n') + '\n');
+        outLines.push(blockText(ccLines, isHide));
         continue;
       }
 
@@ -633,7 +653,7 @@ export const generateFilter = (data: GeneratorData): string => {
           const rIcon = 'MinimapIcon' in rOver ? rOver.MinimapIcon : baseMiniIcon;
           if (rIcon && !styleOff(rIcon)) blockLines.push(`    MinimapIcon ${rIcon}`);
 
-          outLines.push(blockLines.join('\n') + '\n');
+          outLines.push(blockText(blockLines, isHide));
         }
 
         ruleMatches.forEach(m => pendingItems.delete(m));
@@ -675,7 +695,7 @@ export const generateFilter = (data: GeneratorData): string => {
           if (basePlayEff && !styleOff(basePlayEff)) blockLines.push(`    PlayEffect ${basePlayEff}`);
           if (baseMiniIcon && !styleOff(baseMiniIcon)) blockLines.push(`    MinimapIcon ${baseMiniIcon}`);
 
-          outLines.push(blockLines.join('\n') + '\n');
+          outLines.push(blockText(blockLines, isHide));
         }
       }
     }
