@@ -20,9 +20,8 @@
       "theme": {
         "Tier": 2,
         "FontSize": 40,
-        "TextColor": "#000000ff",
-        "BorderColor": "#7a3a08ff",
-        "BackgroundColor": "#ff7814ff",
+        "BorderColor": "#906447ff",
+        "BackgroundColor": "#0d0a07ff",
         "PlayEffect": "Orange",
         "MinimapIcon": "1 Orange Star"
       },
@@ -39,7 +38,10 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#000000ff"
       },
       "sound": {
         "default_sound_id": -1,

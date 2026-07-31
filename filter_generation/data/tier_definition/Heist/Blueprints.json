@@ -15,7 +15,13 @@
     "Heist Blueprint T1": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#fbf4fbff",
+        "BorderColor": "#eac3e8ff",
+        "BackgroundColor": "#ab49a8ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond"
       },
       "sound": {
         "default_sound_id": -1,
@@ -30,7 +36,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#d590d3ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#070307ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -44,10 +54,12 @@
     "CustomTier 1 Heist Blueprints": {
       "theme": {
         "Tier": 0,
-        "FontSize": 36,
-        "TextColor": "#FFFFFF",
-        "BorderColor": "#AAAAAA",
-        "BackgroundColor": "#222222",
+        "FontSize": 45,
+        "TextColor": "#6f2a6dff",
+        "BorderColor": "#9d439aff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star",
         "PlayAlertSound": [
           "Sharket掉落音效/高级蓝图.mp3",
           300

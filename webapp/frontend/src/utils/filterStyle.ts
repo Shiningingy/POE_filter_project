@@ -210,34 +210,29 @@ export const resolveTierTheme = (themeData: any, themeCategory: string, tierEntr
   const tnum = inline.Tier !== undefined ? inline.Tier : tierNumFromLabel(tierKey);
   const row = themeRef[`Tier ${tnum}`] || {};
 
-  // INTERIM (see below): a tier's own beam/icon is honoured where the theme row
-  // says nothing. 24 such values are authored and reach the filter nowhere today —
-  // the General ladder's Yellow Diamonds, Enshrouding's Green circle and beam,
-  // Enshrouded Gear's Orange, League Items' Purple, Breach's Red.
+  // ★ THE TIER BLOCK OWNS ITS LOOK. Its inline style wins; the theme row is the
+  // base it was seeded from, and now only supplies channels the block does not
+  // state. Editing a block's style in the editor therefore changes the filter —
+  // which is the whole point of the rewrite, and was not true before.
   //
-  // Why ONLY these two channels, and only when the row is silent:
+  // This was only safe to switch on AFTER reseed_tier_styles.py rewrote every
+  // tier's inline block as its fully resolved style. Before that, inline held a
+  // mix of deliberate authoring and stale snapshots (the editor writes the
+  // resolved theme back whenever it saves): of 182 inline values that differed
+  // from the theme row, 87 were exactly the PRE-DESIGNER value and 67 more looked
+  // like editor defaults, so flipping against that data would have silently undone
+  // the designer's port. Post-reseed the two agree by construction, which is why
+  // the flip emits byte-identical output.
   //
-  //   * Silence means different things per channel. An absent TextColor is the
-  //     designer being deliberate — 441 of 998 rows omit it so the RARITY colour
-  //     shows through — so filling it in would paint over that. But the theme file
-  //     has no beam/icon vocabulary at all yet (that is the designer's pending
-  //     task, workstream E), so silence there means "unspecified", not "off".
-  //
-  //   * Inline data cannot be trusted wholesale. The editor writes the RESOLVED
-  //     theme back into a tier when it saves, so `theme` holds a mix of deliberate
-  //     authoring and stale snapshots. Measured against the pre-designer theme:
-  //     of 182 inline values that differ from the current row, 87 are exactly the
-  //     PRE-DESIGNER value and 67 more look like editor defaults (#FFFFFF,
-  //     #AAAAAA). Promoting inline wholesale — which is where this design ends up —
-  //     would therefore silently undo the designer's port.
-  //
-  // The end state is still "the block owns its look". Getting there safely needs
-  // the B migration to reseed every block from its RESOLVED style first, after
-  // which inline-wins is byte-identical by construction. Until then this promotes
-  // only what cannot conflict with anything.
+  // Note an ABSENT key is not the same as an off one. Absent means the block says
+  // nothing, so the row (then the game) decides — 441 of 998 theme rows omit
+  // TextColor on purpose so the RARITY colour shows through. A block that wants a
+  // channel silenced says so explicitly with null or a `disabled:` value, which
+  // styleOff() turns into an omitted line. `Currency/Gold.json` does exactly that.
   const out: any = { ...row };
-  for (const k of ['PlayEffect', 'MinimapIcon']) {
-    if (k in inline && !(k in row) && wellFormed(k, inline[k])) out[k] = inline[k];
+  for (const [k, v] of Object.entries(inline)) {
+    if (k === 'Tier' || k === 'PlayAlertSound') continue;   // not style channels
+    if (wellFormed(k, v)) out[k] = v;
   }
   return out;
 };
@@ -259,12 +254,12 @@ export const resolveTierTheme = (themeData: any, themeCategory: string, tierEntr
  * and icon would have shipped it onto the Breach splinter block.
  */
 export const wellFormed = (channel: string, value: any): boolean => {
+  if (channel !== 'MinimapIcon' && channel !== 'PlayEffect') return true;  // only beam/icon have a grammar
   if (styleOff(value)) return true;          // an off value emits no line at all
   if (typeof value !== 'string') return false;
   const parts = value.trim().split(/\s+/);
   if (channel === 'MinimapIcon') return parts.length === 3 && /^[0-2]$/.test(parts[0]);
-  if (channel === 'PlayEffect') return parts.length === 1 || (parts.length === 2 && parts[1] === 'Temp');
-  return true;
+  return parts.length === 1 || (parts.length === 2 && parts[1] === 'Temp');
 };
 
 /**

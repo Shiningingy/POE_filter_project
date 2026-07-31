@@ -320,6 +320,8 @@ def well_formed(channel, value):
 
     Mirrors wellFormed() in filterStyle.ts (parity-guarded).
     """
+    if channel not in ("MinimapIcon", "PlayEffect"):
+        return True            # only beam/icon have a grammar to get wrong here
     if style_off(value):
         return True            # an off value emits no line at all
     if not isinstance(value, str):
@@ -327,43 +329,46 @@ def well_formed(channel, value):
     parts = value.split()
     if channel == "MinimapIcon":
         return len(parts) == 3 and parts[0] in ("0", "1", "2")
-    if channel == "PlayEffect":
-        return len(parts) == 1 or (len(parts) == 2 and parts[1] == "Temp")
-    return True
+    return len(parts) == 1 or (len(parts) == 2 and parts[1] == "Temp")
 
 
 def resolve_tier_theme(theme_ref, tier_entry, tnum):
-    """The theme row a tier resolves to, plus its own beam/icon where the row is silent.
+    """The style a tier block emits: the theme row, overlaid by the block's own.
 
-    INTERIM. The rewrite's end state is that the tier block owns its look outright,
-    but inline `theme` data cannot be promoted wholesale yet: the editor writes the
-    RESOLVED theme back into a tier when it saves, so the field holds a mix of
-    deliberate authoring and stale snapshots. Measured against the pre-designer
-    theme, of 182 inline values that differ from the current row, 87 are exactly
-    the PRE-designer value and 67 more look like editor defaults — promoting all of
-    them would silently undo the designer's port.
+    ★ THE TIER BLOCK OWNS ITS LOOK. Its inline style wins; the theme row is the
+    base it was seeded from and now only supplies channels the block does not
+    state. Editing a block's style in the editor therefore changes the filter,
+    which is the point of the rewrite and was not true before.
 
-    Beam and icon are the exception, and only where the row says nothing. An absent
-    TextColor is the designer being deliberate (441 of 998 rows omit it so the
-    rarity colour shows through), but the theme file carries no beam/icon
-    vocabulary at all yet — that is still the designer's task — so silence there
-    means "unspecified". 24 authored values reach the filter nowhere today because
-    of it.
+    Only safe to switch on AFTER reseed_tier_styles.py rewrote every tier's inline
+    block as its fully resolved style. Before that, inline held a mix of deliberate
+    authoring and stale snapshots (the editor writes the resolved theme back
+    whenever it saves): of 182 inline values that differed from the theme row, 87
+    were exactly the PRE-DESIGNER value and 67 more looked like editor defaults, so
+    flipping against that data would have silently undone the designer's port.
+    Post-reseed the two agree by construction, so the flip emits identical bytes.
 
-    Mirrors resolveTierTheme() in filterGenerator's filterStyle.ts (parity-guarded).
+    An ABSENT key is not an off one. Absent means the block says nothing, so the
+    row (then the game) decides — 441 of 998 theme rows omit TextColor on purpose
+    so the RARITY colour shows through. A block silences a channel explicitly, with
+    null or a `disabled:` value; style_off() then omits the line. Gold.json does
+    exactly that.
+
+    Mirrors resolveTierTheme() in filterStyle.ts (parity-guarded).
     """
     row = dict(theme_ref.get(f"Tier {tnum}", {}))
     inline = tier_entry.get("theme") or {}
-    for k in ("PlayEffect", "MinimapIcon"):
-        if k in inline and k not in row:
-            if well_formed(k, inline[k]):
-                row[k] = inline[k]
-            elif (k, repr(inline[k])) not in _warned_malformed:
-                # Loud, not silent: the value is being DROPPED, and a dropped icon
-                # looks exactly like an icon nobody authored.
-                _warned_malformed.add((k, repr(inline[k])))
-                print(f"[WARN] malformed {k} {inline[k]!r} not emitted "
-                      f"(expected e.g. '0 Red Star'); fix the tier's theme block.")
+    for k, v in inline.items():
+        if k in ("Tier", "PlayAlertSound"):      # not style channels
+            continue
+        if well_formed(k, v):
+            row[k] = v
+        elif (k, repr(v)) not in _warned_malformed:
+            # Loud, not silent: the value is being DROPPED, and a dropped icon
+            # looks exactly like an icon nobody authored.
+            _warned_malformed.add((k, repr(v)))
+            print(f"[WARN] malformed {k} {v!r} not emitted "
+                  f"(expected e.g. '0 Red Star'); fix the tier's theme block.")
     return row
 
 

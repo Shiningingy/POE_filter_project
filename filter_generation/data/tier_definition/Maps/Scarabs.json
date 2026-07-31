@@ -23,12 +23,12 @@
       "hideable": false,
       "theme": {
         "Tier": 1,
-        "FontSize": 42,
-        "TextColor": "#ffffffff",
-        "BorderColor": "#c8a860ff",
-        "BackgroundColor": "#282213ff",
-        "PlayEffect": "Orange",
-        "MinimapIcon": "1 Orange Diamond",
+        "FontSize": 45,
+        "TextColor": "#000000ff",
+        "BorderColor": "#183044ff",
+        "BackgroundColor": "#497fabff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond",
         "PlayAlertSound": [
           "Sharket掉落音效/超级圣甲虫.mp3",
           300
@@ -47,10 +47,10 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 39,
-        "TextColor": "#d0b578ff",
-        "BorderColor": "#c8a860ff",
-        "BackgroundColor": "#101016ff",
+        "FontSize": 40,
+        "TextColor": "#d3e2eeff",
+        "BorderColor": "#9fbdd6ff",
+        "BackgroundColor": "#3a6588ff",
         "MinimapIcon": "1 Orange Circle",
         "PlayAlertSound": [
           "Sharket掉落音效/高级圣甲虫.mp3",
@@ -70,10 +70,10 @@
       "hideable": false,
       "theme": {
         "Tier": 3,
-        "FontSize": 36,
-        "TextColor": "#d8c290ff",
-        "BorderColor": "#6e5c35ff",
-        "BackgroundColor": "#0a0a0dff",
+        "FontSize": 40,
+        "TextColor": "#90b6d5ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#172836ff",
         "PlayAlertSound": [
           "Sharket掉落音效/高级圣甲虫.mp3",
           300
@@ -92,10 +92,10 @@
       "hideable": false,
       "theme": {
         "Tier": 4,
-        "FontSize": 34,
-        "TextColor": "#ac9e82ff",
-        "BorderColor": "#3c321dff",
-        "BackgroundColor": "#00000000",
+        "FontSize": 35,
+        "TextColor": "#90b6d5ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#111d27ff",
         "PlayAlertSound": [
           "Sharket掉落音效/圣甲虫.mp3",
           100
@@ -114,7 +114,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#90b6d5ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#030507ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -129,11 +133,11 @@
       "theme": {
         "Tier": 0,
         "FontSize": 45,
-        "TextColor": "#000000ff",
-        "BorderColor": "#ffffffff",
-        "BackgroundColor": "#c8a860ff",
-        "PlayEffect": "Orange",
-        "MinimapIcon": "0 Orange Star",
+        "TextColor": "#2a506fff",
+        "BorderColor": "#43759dff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star",
         "PlayAlertSound": [
           "Sharket掉落音效/超级圣甲虫.mp3",
           100

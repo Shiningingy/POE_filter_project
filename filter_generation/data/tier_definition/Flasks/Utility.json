@@ -63,7 +63,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#c988ddff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#070208ff"
       },
       "sound": {
         "default_sound_id": -1,

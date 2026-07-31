@@ -100,7 +100,11 @@
     },
     "Tier Hide Sockets Colors Links": {
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#d5c790ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#070603ff"
       },
       "localization": {
         "en": "Hide",

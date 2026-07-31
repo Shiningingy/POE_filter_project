@@ -17,7 +17,13 @@
     "Tier 1 Tainted": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#a00000ff",
+        "BorderColor": "#d20000ff",
+        "BackgroundColor": "#d7d7d7ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond"
       },
       "sound": {
         "default_sound_id": 1,
@@ -31,7 +37,11 @@
     "Tier 2 Tainted": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#e1d2d2ff",
+        "BorderColor": "#969696ff",
+        "BackgroundColor": "#6e1919ff"
       },
       "sound": {
         "default_sound_id": 2,
@@ -45,7 +55,11 @@
     "Tier 3 Tainted": {
       "hideable": true,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "TextColor": "#f0f0ebff",
+        "BorderColor": "#e11937ff",
+        "BackgroundColor": "#2a2a2aff"
       },
       "sound": {
         "default_sound_id": 3,
@@ -59,7 +73,11 @@
     "Tier 4 Tainted": {
       "hideable": true,
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "TextColor": "#f0f0ebff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#2a2a2aff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -74,7 +92,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#969696ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#121212ff"
       },
       "sound": {
         "default_sound_id": -1,

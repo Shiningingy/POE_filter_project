@@ -16,10 +16,10 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 39,
-        "TextColor": "#bfbf84ff",
-        "BorderColor": "#b4b46eff",
-        "BackgroundColor": "#101016ff",
+        "FontSize": 40,
+        "TextColor": "#eac8e9ff",
+        "BorderColor": "#d69fd4ff",
+        "BackgroundColor": "#883a85ff",
         "MinimapIcon": "1 Grey Circle",
         "PlayAlertSound": [
           "Sharket掉落音效/高级赏金装备.mp3",
@@ -39,10 +39,10 @@
       "hideable": true,
       "theme": {
         "Tier": 4,
-        "FontSize": 34,
-        "TextColor": "#a4a488ff",
-        "BorderColor": "#363621ff",
-        "BackgroundColor": "#00000000",
+        "FontSize": 35,
+        "TextColor": "#d590d3ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#271127ff",
         "PlayAlertSound": [
           "Sharket掉落音效/赏金装备.mp3",
           300
@@ -61,7 +61,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#d590d3ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#070307ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -74,7 +78,13 @@
     },
     "Tier 0 Heist Equipment": {
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#6f2a6dff",
+        "BorderColor": "#9d439aff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star"
       },
       "localization": {
         "en": "T0: Heist Equipment",
@@ -84,7 +94,13 @@
     },
     "Tier 1 Heist Equipment": {
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#fbf4fbff",
+        "BorderColor": "#eac3e8ff",
+        "BackgroundColor": "#ab49a8ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond"
       },
       "localization": {
         "en": "T1: Heist Equipment",
@@ -94,7 +110,11 @@
     },
     "Tier 3 Heist Equipment": {
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "TextColor": "#d590d3ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#361735ff"
       },
       "localization": {
         "en": "T3: Heist Equipment",

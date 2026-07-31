@@ -15,7 +15,12 @@
     "Tier 0 Synthesised": {
       "hideable": false,
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "BorderColor": "#ffffffff",
+        "BackgroundColor": "#0f1115ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star"
       },
       "sound": {
         "default_sound_id": 6,
@@ -30,7 +35,12 @@
     "Tier 1 Synthesised": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "BorderColor": "#7398c9ff",
+        "BackgroundColor": "#0b0c0fff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond"
       },
       "sound": {
         "default_sound_id": 1,
@@ -45,7 +55,10 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#000000ff"
       },
       "sound": {
         "default_sound_id": -1,

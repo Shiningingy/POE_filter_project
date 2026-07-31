@@ -22,7 +22,13 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#8b6a0eff",
+        "BorderColor": "#b08611ff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star"
       },
       "sound": {
         "default_sound_id": 6,
@@ -36,7 +42,13 @@
     "Tier 1 General": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#544008ff",
+        "BorderColor": "#745706ff",
+        "BackgroundColor": "#dfa916ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond"
       },
       "sound": {
         "default_sound_id": 1,
@@ -119,7 +131,11 @@
     "Tier 5 General": {
       "hideable": false,
       "theme": {
-        "Tier": 7
+        "Tier": 7,
+        "FontSize": 30,
+        "TextColor": "#c4a245ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#171202ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -134,7 +150,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#f1d074ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#090701ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -148,10 +168,9 @@
     "CustomTier 1 General": {
       "theme": {
         "Tier": 6,
-        "FontSize": 36,
-        "TextColor": "#FFFFFF",
-        "BorderColor": "#AAAAAA",
-        "BackgroundColor": "#222222",
+        "FontSize": 30,
+        "TextColor": "#c4a245ff",
+        "BorderColor": "#00000000",
         "MinimapIcon": "0 Yellow Diamond"
       },
       "hideable": false,
@@ -167,10 +186,9 @@
     "CustomTier 2 General": {
       "theme": {
         "Tier": 5,
-        "FontSize": 36,
-        "TextColor": "#FFFFFF",
-        "BorderColor": "#AAAAAA",
-        "BackgroundColor": "#222222",
+        "FontSize": 35,
+        "TextColor": "#f1d074ff",
+        "BorderColor": "#00000000",
         "MinimapIcon": "0 Yellow Diamond"
       },
       "hideable": false,

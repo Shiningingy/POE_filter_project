@@ -19,7 +19,13 @@
       "hideable": true,
       "conditions": {},
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#fbf4f5ff",
+        "BorderColor": "#dfbec4ff",
+        "BackgroundColor": "#9a5b65ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond"
       },
       "sound": {
         "default_sound_id": -1,
@@ -34,7 +40,11 @@
       "hideable": true,
       "conditions": {},
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#eac8ceff",
+        "BorderColor": "#c69fa5ff",
+        "BackgroundColor": "#7a4850ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -49,7 +59,11 @@
       "hideable": true,
       "conditions": {},
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "TextColor": "#d5909cff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#301c20ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -64,7 +78,11 @@
       "hideable": true,
       "conditions": {},
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "TextColor": "#d5909cff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#231517ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -82,7 +100,10 @@
         "Class": "== \"Corpses\""
       },
       "theme": {
-        "Tier": 5
+        "Tier": 5,
+        "FontSize": 35,
+        "TextColor": "#d5909cff",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": -1,
@@ -97,7 +118,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#d5909cff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#060404ff"
       },
       "sound": {
         "default_sound_id": -1,

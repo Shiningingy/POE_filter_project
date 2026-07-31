@@ -14,7 +14,13 @@
     "Tier 1 Legacy": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#000000ff",
+        "BorderColor": "#3a3022ff",
+        "BackgroundColor": "#907f64ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond"
       },
       "sound": {
         "default_sound_id": 2,
@@ -29,7 +35,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#d5b990ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#060504ff"
       },
       "sound": {
         "default_sound_id": -1,

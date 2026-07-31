@@ -15,7 +15,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#b58bdaff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#050208ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -30,7 +34,13 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#4f2574ff",
+        "BorderColor": "#7436abff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star"
       },
       "sound": {
         "default_sound_id": 6,

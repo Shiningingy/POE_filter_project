@@ -40,7 +40,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BorderColor": "#649047ff",
+        "BackgroundColor": "#0a0c08ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -66,7 +69,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#050604ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -90,7 +96,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BorderColor": "#649047ff",
+        "BackgroundColor": "#0a0c08ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -116,7 +125,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#050604ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -140,7 +152,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BorderColor": "#649047ff",
+        "BackgroundColor": "#0a0c08ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -166,7 +181,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#050604ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -190,7 +208,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BorderColor": "#649047ff",
+        "BackgroundColor": "#0a0c08ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -216,7 +237,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#050604ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -240,7 +264,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BorderColor": "#649047ff",
+        "BackgroundColor": "#0a0c08ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -266,7 +293,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#050604ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -290,7 +320,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BorderColor": "#649047ff",
+        "BackgroundColor": "#0a0c08ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -316,7 +349,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#050604ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -344,7 +380,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BorderColor": "#649047ff",
+        "BackgroundColor": "#0a0c08ff"
       },
       "sound": {
         "default_sound_id": 2,
@@ -372,7 +411,10 @@
         "ItemLevel": "<= 38"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#050604ff"
       },
       "sound": {
         "default_sound_id": 2,
@@ -400,7 +442,10 @@
         "ItemLevel": "<= 28"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#050604ff"
       },
       "sound": {
         "default_sound_id": 2,
@@ -428,7 +473,10 @@
         "ItemLevel": "<= 18"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#050604ff"
       },
       "sound": {
         "default_sound_id": 2,
@@ -455,7 +503,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BorderColor": "#649047ff",
+        "BackgroundColor": "#0a0c08ff"
       },
       "sound": {
         "default_sound_id": 2,
@@ -482,7 +533,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#050604ff"
       },
       "sound": {
         "default_sound_id": -1,

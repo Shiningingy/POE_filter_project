@@ -14,7 +14,11 @@
     "Incursion Vials": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#000000ff",
+        "BorderColor": "#143e34ff",
+        "BackgroundColor": "#2f937cff"
       },
       "sound": {
         "default_sound_id": 2,
@@ -29,7 +33,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#8bdac8ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#020807ff"
       },
       "sound": {
         "default_sound_id": -1,

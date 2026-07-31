@@ -15,7 +15,7 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 38,
+        "FontSize": 40,
         "TextColor": "#000000ff",
         "BorderColor": "#c1dcb7ff",
         "BackgroundColor": "#528240ff",
@@ -35,7 +35,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#a2d590ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#040703ff"
       },
       "sound": {
         "default_sound_id": -1,

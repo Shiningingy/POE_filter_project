@@ -20,16 +20,16 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 45,
-        "TextColor": "#d2c4edff",
-        "BorderColor": "#b298e7ff",
-        "BackgroundColor": "#6438bcff",
+        "FontSize": 40,
+        "TextColor": "#c0ade6ff",
+        "BorderColor": "#a589dcff",
+        "BackgroundColor": "#4f2d95ff",
+        "PlayEffect": "Purple",
         "MinimapIcon": "1 Purple Cross",
         "PlayAlertSound": [
           "Default/AlertSound2.mp3",
           300
-        ],
-        "PlayEffect": "Purple"
+        ]
       },
       "sound": {
         "default_sound_id": 2,
@@ -46,8 +46,7 @@
         "Tier": 5,
         "FontSize": 35,
         "TextColor": "#a589dcff",
-        "BorderColor": "disabled:#3c3c46ff",
-        "BackgroundColor": "disabled:#00000000",
+        "BorderColor": "#00000000",
         "PlayAlertSound": [
           "Sharket掉落音效/DOTA2_金子.mp3",
           300
@@ -66,7 +65,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#a589dcff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#040208ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -80,10 +83,12 @@
     "CustomTier 1 Curse of the Allflame": {
       "theme": {
         "Tier": 1,
-        "FontSize": 40,
-        "TextColor": "#a589dcff",
-        "BorderColor": "#AAAAAA",
-        "BackgroundColor": "disabled:#222222",
+        "FontSize": 45,
+        "TextColor": "#d2c4edff",
+        "BorderColor": "#b298e7ff",
+        "BackgroundColor": "#6438bcff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond",
         "PlayAlertSound": [
           "Sharket掉落音效/DOTA2_嘿真棒.mp3",
           300
@@ -102,10 +107,10 @@
     "CustomTier 2 Curse of the Allflame": {
       "theme": {
         "Tier": 4,
-        "FontSize": 40,
-        "TextColor": "#c0ade6ff",
-        "BorderColor": "#4f2d95ff",
-        "BackgroundColor": "#222222",
+        "FontSize": 35,
+        "TextColor": "#a589dcff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#170d2bff",
         "PlayAlertSound": [
           "Sharket掉落音效/你是主人，还是奴隶.mp3",
           300
@@ -125,9 +130,9 @@
       "theme": {
         "Tier": 3,
         "FontSize": 40,
-        "TextColor": "#c0b3e6ff",
-        "BorderColor": "#a589dcff",
-        "BackgroundColor": "#4f2d95ff",
+        "TextColor": "#a589dcff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#1f123bff",
         "PlayAlertSound": [
           "Sharket掉落音效/DOTA2_开船.mp3",
           300
@@ -146,10 +151,10 @@
     "CustomTier 4 Curse of the Allflame": {
       "theme": {
         "Tier": 3,
-        "FontSize": 35,
-        "TextColor": "#29bc47ff",
-        "BorderColor": "#af2323ff",
-        "BackgroundColor": "disabled:#262626ff",
+        "FontSize": 40,
+        "TextColor": "#a589dcff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#1f123bff",
         "PlayAlertSound": [
           "Sharket掉落音效/DOTA2_魂火.mp3",
           300

@@ -17,7 +17,13 @@
       "hideable": true,
       "conditions": {},
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#f9e7edff",
+        "BorderColor": "#f1bbcdff",
+        "BackgroundColor": "#c13363ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond"
       },
       "sound": {
         "default_sound_id": -1,
@@ -32,7 +38,11 @@
       "hideable": true,
       "conditions": {},
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#efc3d2ff",
+        "BorderColor": "#e292adff",
+        "BackgroundColor": "#99294eff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -50,7 +60,10 @@
         "Class": "== \"Wombgifts\""
       },
       "theme": {
-        "Tier": 5
+        "Tier": 5,
+        "FontSize": 35,
+        "TextColor": "#df86a4ff",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": -1,
@@ -65,7 +78,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#df86a4ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#080204ff"
       },
       "sound": {
         "default_sound_id": -1,

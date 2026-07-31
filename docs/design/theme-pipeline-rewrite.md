@@ -167,12 +167,20 @@ Fragments"` special case. After this the preview *cannot* disagree with the expo
   inline block. That is byte-identical by construction, which is what makes Verification
   item 1 achievable; only then is "inline wins" safe.
 
-  **Shipped as an interim step (see `resolve_tier_theme`):** beam and icon are promoted
-  where the theme row is silent — 24 authored values that reach the filter nowhere today.
-  Only those two channels, because silence means different things per channel: an absent
-  `TextColor` is deliberate (441 of 998 rows omit it so rarity shows through), while the
-  theme file has no beam/icon vocabulary *at all* yet, so silence there means
-  "unspecified". Output delta: **+64 lines, 0 removed.**
+  **✅ DONE, in two steps.** First beam and icon were promoted where the theme row is
+  silent (+64 lines, 0 removed) — 24 authored values that reached the filter nowhere.
+  Then `reseed_tier_styles.py` rewrote all 388 tiers' inline blocks as their fully
+  resolved style, and the priority was flipped: **the block's own style now wins.**
+
+  Both steps verified by generating before and after: **byte-identical**, in standard and
+  ruthless. That is the design's own Verification item 1, and it is what made the flip
+  safe — post-reseed, inline and the row agree by construction. Proven to actually bite by
+  editing one block's colour and icon: 8 emitted blocks changed, revert restored the bytes.
+
+  The reseed drops a style key only where the theme row deliberately omits that channel
+  (4 such values), since an absent colour means "let the game paint it" and materialising
+  it would paint over the designer's intent. A block silences a channel *explicitly*, with
+  `null` or a `disabled:` value — `Currency/Gold.json` does exactly that.
 
   Two things this surfaced, both for the author/designer, not for the migration:
   - `Currency/_archived/Breach.json` carries `MinimapIcon: "RedStar"` — no size, no
@@ -276,6 +284,22 @@ or absent claim.
 And `reachable` is a **report, not an error**. Of the 86 today, 72 sit behind ordinary
 `tier_base` blocks, mostly because `Crafting Priority` carries `gen_order −10` so it
 deliberately outranks the equipment ladders. The editor should show these, not fix them.
+
+**The system stays predictable, so index the two axes that matter** (author, 2026-07-31).
+Conditions are finite and enumerable, so "which rule catches this item" is not a mystery —
+it is a thing you can hold an *expectation* about and then measure. Two axes follow, and
+the trace already records both:
+
+- **per BASE** — where does it appear, and can each claim fire? (above)
+- **per RULE** — did this rule emit **anything at all**? A rule that produces no block is
+  the silent-failure class this project keeps rediscovering (the Blueprints rules that
+  matched nothing; a rule with conditions but no tier is skipped outright). The trace
+  names the emitting rule on every block, so "authored rules minus emitting rules" is a
+  standing list rather than a script someone remembers to re-run.
+
+Expected item → rule pairs then become **assertable**: pin a handful (`Opal Ring` ilvl 84
+Q21 → `Crafting Over Quality`; ilvl 70 → `Tier 2 Rings`) and a reordering that breaks them
+fails loudly instead of being noticed in game.
 
 - The **sound picker** and **bulk editors** query it for "where does this base appear?"
   instead of walking the tree — the operation they already perform, made cheap.

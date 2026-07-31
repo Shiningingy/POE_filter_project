@@ -16,7 +16,11 @@
       },
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#eacec8ff",
+        "BorderColor": "#d8a69cff",
+        "BackgroundColor": "#8c4436ff"
       },
       "sound": {
         "default_sound_id": 1,
@@ -29,7 +33,11 @@
     },
     "Tier Hide Chancing Bases": {
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#d59c90ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#070403ff"
       },
       "localization": {
         "en": "Hide",

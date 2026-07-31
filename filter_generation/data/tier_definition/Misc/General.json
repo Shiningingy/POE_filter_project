@@ -13,7 +13,13 @@
     "Tier 1 Misc": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#134915ff",
+        "BorderColor": "#146716ff",
+        "BackgroundColor": "#31c436ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond"
       },
       "sound": {
         "default_sound_id": 1,

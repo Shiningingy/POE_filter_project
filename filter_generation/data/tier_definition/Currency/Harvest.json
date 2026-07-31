@@ -17,7 +17,13 @@
     "Tier 1 Harvest": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#103c21ff",
+        "BorderColor": "#156632ff",
+        "BackgroundColor": "#33c167ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond"
       },
       "sound": {
         "default_sound_id": 1,
@@ -31,7 +37,11 @@
     "Tier 2 Harvest": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#000000ff",
+        "BorderColor": "#114023ff",
+        "BackgroundColor": "#299952ff"
       },
       "sound": {
         "default_sound_id": 2,
@@ -45,7 +55,11 @@
     "Tier 3 Harvest": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "TextColor": "#86dfa7ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#103c20ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -60,7 +74,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#86dfa7ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#020804ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -75,7 +93,13 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#207941ff",
+        "BorderColor": "#299952ff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star"
       },
       "sound": {
         "default_sound_id": 6,

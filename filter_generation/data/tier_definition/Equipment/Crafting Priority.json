@@ -27,7 +27,13 @@
         "ItemLevel": ">= 84"
       },
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#6f582aff",
+        "BorderColor": "#927b4fff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star"
       },
       "sound": {
         "default_sound_id": -1,
@@ -45,7 +51,13 @@
         "Quality": "> 20"
       },
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#6f582aff",
+        "BorderColor": "#927b4fff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star"
       },
       "sound": {
         "default_sound_id": -1,
@@ -64,7 +76,13 @@
         "ItemLevel": ">= 83"
       },
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#6f582aff",
+        "BorderColor": "#927b4fff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star"
       },
       "sound": {
         "default_sound_id": -1,
@@ -82,7 +100,13 @@
         "MemoryStrands": ">= 1"
       },
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#6f582aff",
+        "BorderColor": "#927b4fff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star"
       },
       "sound": {
         "default_sound_id": -1,
@@ -100,7 +124,11 @@
         "ItemLevel": ">= 86"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#f7f2e9ff",
+        "BorderColor": "#d4c8afff",
+        "BackgroundColor": "#7e6b44ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -118,7 +146,11 @@
         "ItemLevel": ">= 85"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#f7f2e9ff",
+        "BorderColor": "#d4c8afff",
+        "BackgroundColor": "#7e6b44ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -136,7 +168,11 @@
         "ItemLevel": ">= 84"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#f7f2e9ff",
+        "BorderColor": "#d4c8afff",
+        "BackgroundColor": "#7e6b44ff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -151,7 +187,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#d5be90ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#070604ff"
       },
       "sound": {
         "default_sound_id": -1,

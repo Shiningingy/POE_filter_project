@@ -27,7 +27,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#050604ff"
       },
       "sound": {
         "default_sound_id": 2,
@@ -53,7 +56,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 7
+        "Tier": 7,
+        "FontSize": 30,
+        "BorderColor": "#51713dff",
+        "BackgroundColor": "#020302ff"
       },
       "sound": {
         "default_sound_id": 2,
@@ -79,7 +85,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 6
+        "Tier": 6,
+        "FontSize": 30,
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#020302ff"
       },
       "sound": {
         "default_sound_id": 2,

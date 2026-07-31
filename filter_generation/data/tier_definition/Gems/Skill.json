@@ -20,12 +20,12 @@
       "hideable": false,
       "theme": {
         "Tier": 1,
-        "FontSize": 42,
-        "TextColor": "#00ffffff",
-        "BorderColor": "#00ffffff",
-        "BackgroundColor": "#004040ff",
-        "PlayEffect": "Cyan",
-        "MinimapIcon": "0 Red Circle",
+        "FontSize": 45,
+        "TextColor": "#0c4f4bff",
+        "BorderColor": "#0c6e67ff",
+        "BackgroundColor": "#22d3c7ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond",
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
           100
@@ -69,7 +69,11 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#7beae2ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#010908ff"
       },
       "sound": {
         "default_sound_id": -1,
