@@ -17,7 +17,7 @@
     },
     "Tier 0 Trinkets": {
       "conditions": {
-        "ItemLevel": ">= 68",
+        "AreaLevel": ">= 68",
         "Rarity": "<= Rare"
       },
       "hideable": false,
@@ -36,7 +36,7 @@
     },
     "Tier 1 Trinkets": {
       "conditions": {
-        "ItemLevel": ">= 68",
+        "AreaLevel": ">= 68",
         "Rarity": "<= Rare"
       },
       "hideable": false,

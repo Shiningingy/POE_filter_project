@@ -1833,7 +1833,7 @@ Show
 #==[51001]- Body Armours -T1: 顶级稀有底材 胸甲 - 基础 - 精确==
 Show
     BaseType == "Conquest Lamellar" "Necrotic Armour" "Royal Plate" "Sacred Chainmail" "Syndicate's Garb" "Twilight Regalia"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
@@ -1847,7 +1847,7 @@ Show
 #==[51002]- Body Armours -T2: 优质稀有底材 胸甲 - 基础 - 精确==
 Show
     BaseType == "Astral Leather" "Full Wyvernscale" "Grand Ringmail" "Legion Plate" "Marshall's Brigandine" "Nightweave Robe" "Paladin's Hauberk" "Sanguine Raiment" "Supreme Leather" "Titan Plate" "Torturer Garb"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -1896,7 +1896,7 @@ Show
 #==[51006]- Body Armours -T3: 可用稀有底材 胸甲 - 基础 - 精确==
 Show
     BaseType == "Arcane Vestment" "Full Dragonscale" "Glorious Plate" "Sadist Garb" "Saint's Hauberk" "Saintly Chainmail" "Triumphant Lamellar"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -1908,7 +1908,7 @@ Show
 #==[51007]- Body Armours -T4: 兜底（碎片） 胸甲 - 自动音效：祭礼束衣 - 精确==
 Show
     BaseType == "Sacrificial Garb"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -1920,7 +1920,7 @@ Show
 #==[51008]- Body Armours -T4: 兜底（碎片） 胸甲 - 基础 - 精确==
 Show
     BaseType == "Arena Plate" "Assassin's Garb" "Battle Lamellar" "Battle Plate" "Blood Raiment" "Bone Armour" "Bronze Plate" "Buckskin Tunic" "Cabalist Regalia" "Carnal Armour" "Chain Hauberk" "Chainmail Doublet" "Chainmail Tunic" "Chainmail Vest" "Chestplate" "Colosseum Plate" "Commander's Brigandine" "Conjurer's Vestment" "Conquest Chainmail" "Copper Plate" "Coronal Leather" "Crimson Raiment" "Crusader Chainmail" "Crusader Plate" "Crypt Armour" "Cutthroat's Garb" "Desert Brigandine" "Destiny Leather" "Destroyer Regalia" "Devout Chainmail" "Dragonscale Doublet" "Eelskin Tunic" "Elegant Ringmail" "Exquisite Leather" "Field Lamellar" "Frontier Leather" "Full Chainmail" "Full Leather" "Full Plate" "Full Ringmail" "Full Scale Armour" "Full Wyrmscale" "General's Brigandine" "Gladiator Plate" "Glorious Leather" "Golden Plate" "Holy Chainmail" "Hussar Brigandine" "Infantry Brigandine" "Lacquered Garb" "Latticed Ringmail" "Light Brigandine" "Lordly Plate" "Loricated Ringmail" "Mage's Vestment" "Majestic Plate" "Necromancer Silks" "Occultist's Vestment" "Oiled Coat" "Oiled Vest" "Ornate Ringmail" "Padded Jacket" "Padded Vest" "Plate Vest" "Quilted Jacket" "Ringmail Coat" "Sage's Robe" "Savant's Robe" "Scale Doublet" "Scale Vest" "Scarlet Raiment" "Scholar's Robe" "Sentinel Jacket" "Shabby Jerkin" "Sharkskin Tunic" "Silk Robe" "Silken Garb" "Silken Vest" "Silken Wrap" "Simple Robe" "Sleek Coat" "Soldier's Brigandine" "Spidersilk Robe" "Strapped Leather" "Sun Leather" "Sun Plate" "Thief's Garb" "Varnished Coat" "War Plate" "Waxed Garb" "Widowsilk Robe" "Wild Leather" "Wyrmscale Doublet"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -1961,7 +1961,7 @@ Show
 #==[52003]- Boots -T1: 顶级稀有底材 鞋子 - 基础 - 精确==
 Show
     BaseType == "Leviathan Greaves" "Paladin Boots" "Phantom Boots" "Velour Boots" "Warlock Boots" "Wyvernscale Boots"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
@@ -1975,7 +1975,7 @@ Show
 #==[52004]- Boots -T2: 优质稀有底材 鞋子 - 基础 - 精确==
 Show
     BaseType == "Arcanist Slippers" "Assassin's Boots" "Chimerascale Boots" "Crusader Boots" "Dragonscale Boots" "Fugitive Boots" "Goliath Greaves" "Harpyskin Boots" "Hydrascale Boots" "Infiltrator Boots" "Legion Boots" "Martyr Boots" "Murder Boots" "Precursor Greaves" "Sage Slippers" "Slink Boots" "Soldier Boots" "Sorcerer Boots" "Stealth Boots" "Titan Greaves" "Two-Toned Boots" "Vaal Greaves"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -1988,7 +1988,7 @@ Show
 #==[52005]- Boots -T3: 可用稀有底材 鞋子 - 基础 - 精确==
 Show
     BaseType == "Ambush Boots" "Ancient Greaves" "Antique Greaves" "Carnal Boots" "Conjurer Boots" "Riveted Boots" "Samite Slippers" "Serpentscale Boots" "Shagreen Boots" "Sharkskin Boots" "Wyrmscale Boots" "Zealot Boots"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -2000,7 +2000,7 @@ Show
 #==[52006]- Boots -T4: 兜底（碎片） 鞋子 - 基础 - 精确==
 Show
     BaseType == "Basemetal Treads" "Brimstone Treads" "Bronzescale Boots" "Chain Boots" "Clasped Boots" "Cloudwhisper Boots" "Darksteel Treads" "Deerskin Boots" "Dreamquest Slippers" "Duskwalk Slippers" "Eelskin Boots" "Goathide Boots" "Iron Greaves" "Ironscale Boots" "Leatherscale Boots" "Mesh Boots" "Nightwind Slippers" "Nubuck Boots" "Plated Greaves" "Rawhide Boots" "Reinforced Greaves" "Ringmail Boots" "Runic Greaves" "Runic Sabatons" "Runic Sollerets" "Satin Slippers" "Scholar Boots" "Shackled Boots" "Silk Slippers" "Steel Greaves" "Steelscale Boots" "Stormrider Boots" "Strapped Boots" "Trapper Boots" "Velvet Slippers" "Windbreak Boots" "Wool Shoes" "Wrapped Boots"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -2041,7 +2041,7 @@ Show
 #==[53003]- Gloves -T1: 顶级稀有底材 手套 - 基础 - 精确==
 Show
     BaseType == "Leviathan Gauntlets" "Paladin Gloves" "Phantom Mitts" "Velour Gloves" "Warlock Gloves" "Wyvernscale Gauntlets"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
@@ -2055,7 +2055,7 @@ Show
 #==[53004]- Gloves -T2: 优质稀有底材 手套 - 基础 - 精确==
 Show
     BaseType == "Apothecary's Gloves" "Chimerascale Gauntlets" "Crusader Gloves" "Dragonscale Gauntlets" "Goliath Gauntlets" "Gripped Gloves" "Harpyskin Gloves" "Hydrascale Gauntlets" "Infiltrator Mitts" "Legion Gloves" "Martyr Gloves" "Murder Mitts" "Precursor Gauntlets" "Sage Gloves" "Slink Gloves" "Sorcerer Gloves" "Spiked Gloves" "Titan Gauntlets" "Vaal Gauntlets"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -2068,7 +2068,7 @@ Show
 #==[53005]- Gloves -T3: 可用稀有底材 手套 - 基础 - 精确==
 Show
     BaseType == "Ambush Mitts" "Ancient Gauntlets" "Antique Gauntlets" "Arcanist Gloves" "Assassin's Mitts" "Carnal Mitts" "Conjurer Gloves" "Fingerless Silk Gloves" "Serpentscale Gauntlets" "Shagreen Gloves" "Soldier Gloves" "Stealth Gloves" "Wyrmscale Gauntlets" "Zealot Gloves"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -2080,7 +2080,7 @@ Show
 #==[53006]- Gloves -T4: 兜底（碎片） 手套 - 基础 - 精确==
 Show
     BaseType == "Aetherwind Gloves" "Apprentice Gloves" "Bronze Gauntlets" "Bronzescale Gauntlets" "Chain Gloves" "Clasped Mitts" "Deerskin Gloves" "Eelskin Gloves" "Embroidered Gloves" "Fishscale Gauntlets" "Goathide Gloves" "Guarding Gauntlets" "Iron Gauntlets" "Ironscale Gauntlets" "Leyline Gloves" "Mesh Gloves" "Nexus Gloves" "Nubuck Gloves" "Plated Gauntlets" "Preserving Gauntlets" "Rawhide Gloves" "Ringmail Gloves" "Riveted Gloves" "Runic Gages" "Runic Gauntlets" "Runic Gloves" "Samite Gloves" "Satin Gloves" "Sharkskin Gloves" "Silk Gloves" "Steel Gauntlets" "Steelscale Gauntlets" "Strapped Mitts" "Thwarting Gauntlets" "Tinker Gloves" "Trapper Mitts" "Trapsetter Gloves" "Velvet Gloves" "Wool Gloves" "Wrapped Mitts"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -2121,7 +2121,7 @@ Show
 #==[54003]- Helmets -T1: 顶级稀有底材 头部 - 基础 - 精确==
 Show
     BaseType == "Divine Crown" "Giantslayer Helmet" "Haunted Bascinet" "Lich's Circlet" "Majestic Pelt" "Torturer's Mask"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
@@ -2135,7 +2135,7 @@ Show
 #==[54004]- Helmets -T2: 优质稀有底材 头部 - 基础 - 精确==
 Show
     BaseType == "Ancient Mask" "Bone Helmet" "Conqueror's Helmet" "Conquest Helmet" "Deicide Mask" "Dire Pelt" "Eternal Burgonet" "Faithful Helmet" "General's Helmet" "Grizzly Pelt" "Hubris Circlet" "Jester Mask" "Knight Helm" "Lion Pelt" "Mind Cage" "Moonlit Circlet" "Nightmare Bascinet" "Paladin Crown" "Praetor Crown" "Prophet Crown" "Royal Burgonet" "Sunfire Circlet" "Vaal Mask"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -2148,7 +2148,7 @@ Show
 #==[54005]- Helmets -T3: 可用稀有底材 头部 - 基础 - 精确==
 Show
     BaseType == "Ezomyte Burgonet" "Fluted Bascinet" "Harlequin Mask" "Magistrate Crown" "Pig-Faced Bascinet" "Regicide Mask" "Samnite Helmet" "Silken Hood" "Sinner Tricorne" "Solaris Circlet"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -2160,7 +2160,7 @@ Show
 #==[54006]- Helmets -T4: 兜底（碎片） 头部 - 基础 - 精确==
 Show
     BaseType == "Archdemon Crown" "Atonement Mask" "Aventail Helmet" "Barbute Helmet" "Battered Helm" "Blizzard Crown" "Bone Circlet" "Callous Mask" "Close Helmet" "Cone Helmet" "Crusader Helmet" "Demon Crown" "Fencer Helm" "Festival Mask" "Gale Crown" "Gilded Sallet" "Gladiator Helmet" "Golden Mask" "Great Crown" "Great Helmet" "Hunter Hood" "Imp Crown" "Iron Circlet" "Iron Hat" "Iron Mask" "Lacquered Helmet" "Leather Cap" "Leather Hood" "Lunaris Circlet" "Necromancer Circlet" "Noble Tricorne" "Penitent Mask" "Plague Mask" "Raven Mask" "Reaver Helmet" "Runic Crest" "Runic Crown" "Runic Helm" "Rusted Coif" "Sallet" "Scare Mask" "Secutor Helm" "Siege Helmet" "Soldier Helmet" "Sorrow Mask" "Steel Circlet" "Torture Cage" "Tribal Circlet" "Tricorne" "Ursine Pelt" "Vine Circlet" "Visored Sallet" "Winter Crown" "Wolf Pelt" "Zealot Helmet"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -2201,7 +2201,7 @@ Show
 #==[55003]- Quivers -T2: 优质稀有底材 箭袋 - 基础 - 精确==
 Show
     BaseType == "Broadhead Arrow Quiver" "Feathered Arrow Quiver"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -2214,7 +2214,7 @@ Show
 #==[55004]- Quivers -T3: 可用稀有底材 箭袋 - 基础 - 精确==
 Show
     BaseType == "Heavy Arrow Quiver" "Primal Arrow Quiver"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -2226,7 +2226,7 @@ Show
 #==[55005]- Quivers -T4: 兜底（碎片） 箭袋 - 自动音效：火炮箭袋 - 精确==
 Show
     BaseType == "Artillery Quiver"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -2238,7 +2238,7 @@ Show
 #==[55006]- Quivers -T4: 兜底（碎片） 箭袋 - 基础 - 精确==
 Show
     BaseType == "Blazing Arrow Quiver" "Blunt Arrow Quiver" "Fire Arrow Quiver" "Penetrating Arrow Quiver" "Serrated Arrow Quiver" "Sharktooth Arrow Quiver" "Spike-Point Arrow Quiver" "Two-Point Arrow Quiver" "Vile Arrow Quiver"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -2279,7 +2279,7 @@ Show
 #==[56003]- Shields -T2: 优质稀有底材 盾 - 基础 - 精确==
 Show
     BaseType == "Archon Kite Shield" "Colossal Tower Shield" "Harmonic Spirit Shield" "Lacquered Buckler" "Mirrored Spiked Shield" "Titanium Spirit Shield"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -2292,7 +2292,7 @@ Show
 #==[56004]- Shields -T3: 可用稀有底材 盾 - 基础 - 精确==
 Show
     BaseType == "Cardinal Round Shield" "Champion Kite Shield" "Crusader Buckler" "Elegant Round Shield" "Ezomyte Tower Shield" "Fossilised Spirit Shield" "Imperial Buckler" "Mosaic Kite Shield" "Pinnacle Tower Shield" "Supreme Spiked Shield" "Vaal Spirit Shield"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -2304,7 +2304,7 @@ Show
 #==[56005]- Shields -T4: 兜底（碎片） 盾 - 基础 - 精确==
 Show
     BaseType == "Alder Spiked Shield" "Alloyed Spiked Shield" "Ancient Spirit Shield" "Angelic Kite Shield" "Baroque Round Shield" "Battle Buckler" "Bone Spirit Shield" "Branded Kite Shield" "Brass Spirit Shield" "Bronze Tower Shield" "Buckskin Tower Shield" "Burnished Spiked Shield" "Cedar Tower Shield" "Ceremonial Kite Shield" "Chiming Spirit Shield" "Cold-attuned Buckler" "Compound Spiked Shield" "Copper Tower Shield" "Corroded Tower Shield" "Corrugated Buckler" "Crested Tower Shield" "Crimson Round Shield" "Driftwood Spiked Shield" "Ebony Tower Shield" "Enameled Buckler" "Endothermic Buckler" "Etched Kite Shield" "Exhausting Spirit Shield" "Exothermic Tower Shield" "Ezomyte Spiked Shield" "Fir Round Shield" "Gilded Buckler" "Girded Tower Shield" "Goathide Buckler" "Golden Buckler" "Hammered Buckler" "Heat-attuned Tower Shield" "Ironwood Buckler" "Ivory Spirit Shield" "Jingling Spirit Shield" "Lacewood Spirit Shield" "Laminated Kite Shield" "Layered Kite Shield" "Linden Kite Shield" "Magmatic Tower Shield" "Mahogany Tower Shield" "Maple Round Shield" "Oak Buckler" "Ornate Spiked Shield" "Painted Buckler" "Painted Tower Shield" "Pine Buckler" "Plank Kite Shield" "Polar Buckler" "Polished Spiked Shield" "Rawhide Tower Shield" "Redwood Spiked Shield" "Reinforced Kite Shield" "Reinforced Tower Shield" "Rotted Round Shield" "Scarlet Round Shield" "Shagreen Tower Shield" "Sovereign Spiked Shield" "Spiked Bundle" "Spiked Round Shield" "Spiny Round Shield" "Splendid Round Shield" "Splintered Tower Shield" "Steel Kite Shield" "Studded Round Shield" "Subsuming Spirit Shield" "Tarnished Spirit Shield" "Teak Round Shield" "Thorium Spirit Shield" "Transfer-attuned Spirit Shield" "Twig Spirit Shield" "Vaal Buckler" "Walnut Spirit Shield" "War Buckler" "Yew Spirit Shield"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -2345,7 +2345,7 @@ Show
 #==[57003]- Amulets -T1: 顶级稀有底材 项链 - 基础 - 精确==
 Show
     BaseType == "Agate Amulet" "Citrine Amulet" "Onyx Amulet" "Turquoise Amulet"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
@@ -2359,7 +2359,7 @@ Show
 #==[57004]- Amulets -T2: 优质稀有底材 项链 - 基础 - 精确==
 Show
     BaseType == "Amber Amulet" "Blue Pearl Amulet" "Jade Amulet" "Lapis Amulet" "Marble Amulet"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -2372,7 +2372,7 @@ Show
 #==[57005]- Amulets -T3: 可用稀有底材 项链 - 基础 - 精确==
 Show
     BaseType == "Coral Amulet" "Gold Amulet" "Paua Amulet" "Seaglass Amulet"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -2384,7 +2384,7 @@ Show
 #==[57006]- Amulets -T4: 兜底（碎片） 项链 - 自动音效：星盘项链 - 精确==
 Show
     BaseType == "Astrolabe Amulet"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -2396,7 +2396,7 @@ Show
 #==[57007]- Amulets -T4: 兜底（碎片） 项链 - 自动音效：朴实项链 - 精确==
 Show
     BaseType == "Simplex Amulet"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -2408,7 +2408,7 @@ Show
 #==[57008]- Amulets -T4: 兜底（碎片） 项链 - 基础 - 精确==
 Show
     BaseType == "Focused Amulet" "Pearlescent Amulet"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -2449,7 +2449,7 @@ Show
 #==[58003]- Belts -T2: 优质稀有底材 腰带 - 自动音效：先锋腰带 - 精确==
 Show
     BaseType == "Vanguard Belt"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -2462,7 +2462,7 @@ Show
 #==[58004]- Belts -T2: 优质稀有底材 腰带 - 基础 - 精确==
 Show
     BaseType == "Crystal Belt" "Heavy Belt" "Leather Belt"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -2475,7 +2475,7 @@ Show
 #==[58005]- Belts -T3: 可用稀有底材 腰带 - 基础 - 精确==
 Show
     BaseType == "Chain Belt" "Cloth Belt" "Rustic Sash" "Studded Belt"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -2487,7 +2487,7 @@ Show
 #==[58006]- Belts -T4: 兜底（碎片） 腰带 - 基础 - 精确==
 Show
     BaseType == "Mechalarm Belt" "Mechanical Belt" "Micro-Distillery Belt"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -2528,7 +2528,7 @@ Show
 #==[59003]- Rings -T1: 顶级稀有底材 戒指 - 自动音效：紫晶戒指 - 精确==
 Show
     BaseType == "Amethyst Ring"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
@@ -2542,7 +2542,7 @@ Show
 #==[59004]- Rings -T1: 顶级稀有底材 戒指 - 基础 - 精确==
 Show
     BaseType == "Prismatic Ring" "Two-Stone Ring"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
@@ -2556,7 +2556,7 @@ Show
 #==[59005]- Rings -T2: 优质稀有底材 戒指 - 基础 - 精确==
 Show
     BaseType == "Bone Ring" "Cerulean Ring" "Coral Ring" "Diamond Ring" "Iolite Ring" "Moonstone Ring" "Opal Ring" "Ruby Ring" "Sapphire Ring" "Steel Ring" "Topaz Ring" "Unset Ring"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -2569,7 +2569,7 @@ Show
 #==[59006]- Rings -T3: 可用稀有底材 戒指 - 基础 - 精确==
 Show
     BaseType == "Gold Ring" "Iron Ring" "Paua Ring"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -2581,7 +2581,7 @@ Show
 #==[59007]- Rings -T4: 兜底（碎片） 戒指 - 基础 - 精确==
 Show
     BaseType == "Cogwork Ring" "Composite Ring" "Cryonic Ring" "Dusk Ring" "Enthalpic Ring" "Formless Ring" "Fugitive Ring" "Geodesic Ring" "Gloam Ring" "Helical Ring" "Manifold Ring" "Nameless Ring" "Organic Ring" "Penumbra Ring" "Ratcheting Ring" "Shadowed Ring" "Synaptic Ring" "Tenebrous Ring"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -2594,7 +2594,7 @@ Show
 #==[60001]- Trinkets -Tier 1 饰品 - 基础 - 精确==
 Show
     BaseType == "Thief's Trinket"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
@@ -2843,7 +2843,7 @@ Show
 #==[79003]- Bows -T2: 优质稀有底材 弓 - 基础 - 精确==
 Show
     BaseType == "Short Bow" "Spine Bow"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -2856,7 +2856,7 @@ Show
 #==[79004]- Bows -T3: 可用稀有底材 弓 - 基础 - 精确==
 Show
     BaseType == "Imperial Bow" "Maraketh Bow" "Thicket Bow"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -2868,7 +2868,7 @@ Show
 #==[79005]- Bows -T4: 兜底（碎片） 弓 - 基础 - 精确==
 Show
     BaseType == "Assassin Bow" "Bone Bow" "Citadel Bow" "Composite Bow" "Compound Bow" "Crude Bow" "Death Bow" "Decimation Bow" "Decurve Bow" "Foundry Bow" "Grove Bow" "Harbinger Bow" "Hedron Bow" "Highborn Bow" "Ivory Bow" "Long Bow" "Ranger Bow" "Recurve Bow" "Reflex Bow" "Royal Bow" "Sniper Bow" "Solarine Bow" "Steelwood Bow"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -2909,7 +2909,7 @@ Show
 #==[80003]- Claws -T2: 优质稀有底材 爪 - 基础 - 精确==
 Show
     BaseType == "Imperial Claw"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -2922,7 +2922,7 @@ Show
 #==[80004]- Claws -T3: 可用稀有底材 爪 - 基础 - 精确==
 Show
     BaseType == "Gemini Claw"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -2934,7 +2934,7 @@ Show
 #==[80005]- Claws -T4: 兜底（碎片） 爪 - 基础 - 精确==
 Show
     BaseType == "Awl" "Blinder" "Cat's Paw" "Double Claw" "Eagle Claw" "Eye Gouger" "Fright Claw" "Gouger" "Great White Claw" "Gut Ripper" "Hellion's Paw" "Malign Fangs" "Nailed Fist" "Noble Claw" "Prehistoric Claw" "Shadow Fangs" "Sharktooth Claw" "Sparkling Claw" "Terror Claw" "Thresher Claw" "Throat Stabber" "Tiger's Paw" "Timeworn Claw" "Twin Claw" "Vaal Claw" "Void Fangs"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -2975,7 +2975,7 @@ Show
 #==[81003]- Daggers -T3: 可用稀有底材 匕首 - 基础 - 精确==
 Show
     BaseType == "Ambusher" "Gutting Knife" "Imperial Skean"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -2987,7 +2987,7 @@ Show
 #==[81004]- Daggers -T4: 兜底（碎片） 匕首 - 基础 - 精确==
 Show
     BaseType == "Demon Dagger" "Flaying Knife" "Glass Shank" "Hollowpoint Dagger" "Pneumatic Dagger" "Poignard" "Pressurised Dagger" "Prong Dagger" "Royal Skean" "Sai" "Skinning Knife" "Slaughter Knife" "Stiletto" "Trisula"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -3014,7 +3014,7 @@ Show
 #==[82002]- Axes -T3: 可用稀有底材 单手斧 - 基础 - 精确==
 Show
     BaseType == "Reaver Axe" "Runic Hatchet" "Siege Axe"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -3026,7 +3026,7 @@ Show
 #==[82003]- Axes -T4: 兜底（碎片） 单手斧 - 基础 - 精确==
 Show
     BaseType == "Arming Axe" "Boarding Axe" "Broad Axe" "Butcher Axe" "Ceremonial Axe" "Chest Splitter" "Cleaver" "Decorative Axe" "Disapprobation Axe" "Engraved Hatchet" "Etched Hatchet" "Infernal Axe" "Jade Hatchet" "Jasper Axe" "Karui Axe" "Maltreatment Axe" "Psychotic Axe" "Royal Axe" "Rusted Hatchet" "Spectral Axe" "Tomahawk" "Vaal Hatchet" "War Axe" "Wraith Axe" "Wrist Chopper"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -3053,7 +3053,7 @@ Show
 #==[83002]- Maces -T3: 可用稀有底材 单手锤 - 基础 - 精确==
 Show
     BaseType == "Legion Hammer" "Nightmare Mace" "Piledriver"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -3065,7 +3065,7 @@ Show
 #==[83003]- Maces -T4: 兜底（碎片） 单手锤 - 基础 - 精确==
 Show
     BaseType == "Ancestral Club" "Auric Mace" "Barbed Club" "Battle Hammer" "Behemoth Mace" "Bladed Mace" "Boom Mace" "Ceremonial Mace" "Crack Mace" "Dragon Mace" "Dream Mace" "Driftwood Club" "Flanged Mace" "Flare Mace" "Gavel" "Ornate Mace" "Pernach" "Petrified Club" "Phantom Mace" "Rock Breaker" "Spiked Club" "Stone Hammer" "Tenderizer" "Tribal Club" "War Hammer" "Wyrm Mace"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -3092,7 +3092,7 @@ Show
 #==[84002]- Swords -T3: 可用稀有底材 单手剑 - 基础 - 精确==
 Show
     BaseType == "Battered Foil" "Corsair Sword" "Eternal Sword" "Jewelled Foil" "Reaver Sword" "Whalebone Rapier"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -3104,7 +3104,7 @@ Show
 #==[84003]- Swords -T4: 兜底（碎片） 单手剑 - 基础 - 精确==
 Show
     BaseType == "Anarchic Spiritblade" "Ancient Sword" "Antique Rapier" "Apex Rapier" "Baselard" "Basket Rapier" "Battle Sword" "Broad Sword" "Burnished Foil" "Capricious Spiritblade" "Copper Sword" "Courtesan Sword" "Cutlass" "Dancing Sword" "Dragonbone Rapier" "Dragoon Sword" "Dusk Blade" "Elder Sword" "Elegant Foil" "Elegant Sword" "Estoc" "Fancy Foil" "Fickle Spiritblade" "Gemstone Sword" "Gladius" "Graceful Sword" "Grappler" "Harpy Rapier" "Hook Sword" "Imperfect Dancing Sword" "Jagged Foil" "Legion Sword" "Maligaro's Spike" "Midnight Blade" "Perfect Dancing Sword" "Primeval Rapier" "Rusted Spike" "Rusted Sword" "Sabre" "Serrated Foil" "Smallsword" "Spiraled Foil" "Tempered Foil" "Thorn Rapier" "Tiger Hook" "Twilight Blade" "Vaal Blade" "Vaal Rapier" "Variscite Blade" "War Sword" "Wyrmbone Rapier"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -3131,7 +3131,7 @@ Show
 #==[85002]- Rune Daggers -T2: 优质稀有底材 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Copper Kris" "Golden Kris" "Platinum Kris"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -3144,7 +3144,7 @@ Show
 #==[85003]- Rune Daggers -T3: 可用稀有底材 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Imperial Skean"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -3156,7 +3156,7 @@ Show
 #==[85004]- Rune Daggers -T4: 兜底（碎片） 符文匕首 - 基础 - 精确==
 Show
     BaseType == "Boot Blade" "Boot Knife" "Butcher Knife" "Carving Knife" "Ezomyte Dagger" "Fiend Dagger" "Flashfire Blade" "Flickerflame Blade" "Imp Dagger" "Infernal Blade" "Skean"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -3183,7 +3183,7 @@ Show
 #==[86002]- Sceptres -T2: 优质稀有底材 短杖 - 基础 - 精确==
 Show
     BaseType == "Opal Sceptre" "Void Sceptre"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -3196,7 +3196,7 @@ Show
 #==[86003]- Sceptres -T3: 可用稀有底材 短杖 - 基础 - 精确==
 Show
     BaseType == "Carnal Sceptre" "Platinum Sceptre" "Vaal Sceptre"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -3208,7 +3208,7 @@ Show
 #==[86004]- Sceptres -T4: 兜底（碎片） 短杖 - 基础 - 精确==
 Show
     BaseType == "Abyssal Sceptre" "Alternating Sceptre" "Blood Sceptre" "Bronze Sceptre" "Crystal Sceptre" "Darkwood Sceptre" "Driftwood Sceptre" "Grinning Fetish" "Horned Sceptre" "Iron Sceptre" "Karui Sceptre" "Lead Sceptre" "Ochre Sceptre" "Oscillating Sceptre" "Quartz Sceptre" "Ritual Sceptre" "Royal Sceptre" "Sambar Sceptre" "Sekhem" "Shadow Sceptre" "Stabilising Sceptre" "Stag Sceptre" "Tyrant's Sekhem"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -3235,7 +3235,7 @@ Show
 #==[87002]- Staves -T2: 优质稀有底材 长杖 - 基础 - 精确==
 Show
     BaseType == "Lathi"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -3248,7 +3248,7 @@ Show
 #==[87003]- Staves -T3: 可用稀有底材 长杖 - 基础 - 精确==
 Show
     BaseType == "Eclipse Staff" "Imperial Staff"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -3260,7 +3260,7 @@ Show
 #==[87004]- Staves -T4: 兜底（碎片） 长杖 - 基础 - 精确==
 Show
     BaseType == "Battery Staff" "Crescent Staff" "Gnarled Branch" "Highborn Staff" "Long Staff" "Moon Staff" "Primitive Staff" "Primordial Staff" "Quarterstaff" "Reciprocation Staff" "Royal Staff" "Transformer Staff" "Woodful Staff"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -3287,7 +3287,7 @@ Show
 #==[88002]- Two Hand Axes -T2: 优质稀有底材 双手斧 - 基础 - 精确==
 Show
     BaseType == "Vaal Axe"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -3300,7 +3300,7 @@ Show
 #==[88003]- Two Hand Axes -T3: 可用稀有底材 双手斧 - 基础 - 精确==
 Show
     BaseType == "Despot Axe" "Ezomyte Axe" "Karui Chopper"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -3312,7 +3312,7 @@ Show
 #==[88004]- Two Hand Axes -T4: 兜底（碎片） 双手斧 - 基础 - 精确==
 Show
     BaseType == "Abyssal Axe" "Apex Cleaver" "Dagger Axe" "Double Axe" "Fleshripper" "Gilded Axe" "Headsman Axe" "Honed Cleaver" "Jade Chopper" "Jasper Chopper" "Labrys" "Noble Axe" "Poleaxe" "Prime Cleaver" "Shadow Axe" "Stone Axe" "Sundering Axe" "Talon Axe" "Timber Axe" "Void Axe" "Woodsplitter"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -3339,7 +3339,7 @@ Show
 #==[89002]- Two Hand Maces -T3: 可用稀有底材 双手锤 - 基础 - 精确==
 Show
     BaseType == "Meatgrinder" "Piledriver"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -3351,7 +3351,7 @@ Show
 #==[89003]- Two Hand Maces -T4: 兜底（碎片） 双手锤 - 基础 - 精确==
 Show
     BaseType == "Blunt Force Condenser" "Brass Maul" "Colossus Mallet" "Coronal Maul" "Crushing Force Magnifier" "Dread Maul" "Driftwood Maul" "Fright Maul" "Great Mallet" "Impact Force Propagator" "Imperial Maul" "Jagged Maul" "Karui Maul" "Mallet" "Morning Star" "Plated Maul" "Sledgehammer" "Solar Maul" "Spiny Maul" "Steelhead" "Terror Maul" "Totemic Maul" "Tribal Maul"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -3378,7 +3378,7 @@ Show
 #==[90002]- Two Hand Swords -T4: 兜底（碎片） 双手剑 - 基础 - 精确==
 Show
     BaseType == "Banishing Blade" "Bastard Sword" "Blasting Blade" "Butcher Sword" "Corroded Blade" "Curved Blade" "Engraved Greatsword" "Etched Greatsword" "Exquisite Blade" "Ezomyte Blade" "Footman Sword" "Headman's Sword" "Highland Blade" "Infernal Sword" "Lion Sword" "Lithe Blade" "Longsword" "Ornate Sword" "Rebuking Blade" "Spectral Sword" "Tiger Sword" "Two-Handed Sword" "Vaal Greatsword" "Wraith Sword"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -3405,7 +3405,7 @@ Show
 #==[91002]- Wands -T2: 优质稀有底材 法杖 - 基础 - 精确==
 Show
     BaseType == "Convoking Wand" "Kinetic Wand" "Profane Wand" "Prophecy Wand" "Tornado Wand"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 39
     SetTextColor 149 166 187 255
@@ -3418,7 +3418,7 @@ Show
 #==[91003]- Wands -T3: 可用稀有底材 法杖 - 基础 - 精确==
 Show
     BaseType == "Blasting Wand" "Convening Wand" "Demon's Horn" "Heathen Wand" "Opal Wand"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -3430,7 +3430,7 @@ Show
 #==[91004]- Wands -T4: 兜底（碎片） 法杖 - 基础 - 精确==
 Show
     BaseType == "Accumulator Wand" "Assembler Wand" "Calling Wand" "Coiled Wand" "Congregator Wand" "Crystal Wand" "Driftwood Wand" "Faun's Horn" "Goat's Horn" "Omen Wand" "Pagan Wand" "Quartz Wand" "Sage Wand" "Somatic Wand" "Spiraled Wand"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255
@@ -3457,7 +3457,7 @@ Show
 #==[92002]- Warstaves -T3: 可用稀有底材 战杖 - 基础 - 精确==
 Show
     BaseType == "Ezomyte Staff" "Maelström Staff"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
@@ -3469,7 +3469,7 @@ Show
 #==[92003]- Warstaves -T4: 兜底（碎片） 战杖 - 基础 - 精确==
 Show
     BaseType == "Capacity Rod" "Coiled Staff" "Eventuality Rod" "Foul Staff" "Iron Staff" "Judgement Staff" "Military Staff" "Potentiality Rod" "Serpentine Staff" "Vile Staff"
-    ItemLevel >= 68
+    AreaLevel >= 68
     Rarity Rare
     SetFontSize 34
     SetTextColor 141 150 166 255

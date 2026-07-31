@@ -8,7 +8,11 @@ The generator resolves colours as `sharket_theme.json[theme_category]["Tier N"]`
 A missing key falls back to `Default` silently, which is how the entire currency
 tree ended up on the default ramp.
 
-`Tier custom` cannot be authored — those tiers need real numbers first.
+Every tier now resolves to a real numbered row — there are no `Tier custom`
+entries left, so nothing in this table is un-authorable.
+
+`Tier 9` is the hide row. `gaps` means the family exists but is missing a row
+some tier actually uses, which falls back to `Default` for that tier only.
 
 ## Needs authoring (33)
 

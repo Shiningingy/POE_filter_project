@@ -17,7 +17,7 @@
     },
     "Tier 0 Bows": {
       "conditions": {
-        "ItemLevel": ">= 68",
+        "AreaLevel": ">= 68",
         "Rarity": "<= Rare"
       },
       "hideable": false,
@@ -36,7 +36,7 @@
     },
     "Tier 1 Bows": {
       "conditions": {
-        "ItemLevel": ">= 68",
+        "AreaLevel": ">= 68",
         "Rarity": "Rare"
       },
       "hideable": false,
@@ -55,7 +55,7 @@
     },
     "Tier 2 Bows": {
       "conditions": {
-        "ItemLevel": ">= 68",
+        "AreaLevel": ">= 68",
         "Rarity": "Rare"
       },
       "hideable": false,
@@ -86,7 +86,7 @@
         "ch": "T3: 可用稀有底材"
       },
       "conditions": {
-        "ItemLevel": ">= 68",
+        "AreaLevel": ">= 68",
         "Rarity": "Rare"
       },
       "hide_at_strictness": 3
@@ -105,7 +105,7 @@
         "ch": "T4: 兜底（碎片）"
       },
       "conditions": {
-        "ItemLevel": ">= 68",
+        "AreaLevel": ">= 68",
         "Rarity": "Rare"
       },
       "hide_at_strictness": 2

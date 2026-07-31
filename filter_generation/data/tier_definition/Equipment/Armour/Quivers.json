@@ -17,7 +17,7 @@
     },
     "Tier 0 Quivers": {
       "conditions": {
-        "ItemLevel": ">= 68",
+        "AreaLevel": ">= 68",
         "Rarity": "<= Rare"
       },
       "hideable": false,
@@ -36,7 +36,7 @@
     },
     "Tier 1 Quivers": {
       "conditions": {
-        "ItemLevel": ">= 68",
+        "AreaLevel": ">= 68",
         "Rarity": "Rare"
       },
       "hideable": false,
@@ -55,7 +55,7 @@
     },
     "Tier 2 Quivers": {
       "conditions": {
-        "ItemLevel": ">= 68",
+        "AreaLevel": ">= 68",
         "Rarity": "Rare"
       },
       "hideable": false,
@@ -86,7 +86,7 @@
         "ch": "T3: 可用稀有底材"
       },
       "conditions": {
-        "ItemLevel": ">= 68",
+        "AreaLevel": ">= 68",
         "Rarity": "Rare"
       },
       "hide_at_strictness": 3
@@ -116,7 +116,7 @@
         "sharket_sound_id": null
       },
       "conditions": {
-        "ItemLevel": ">= 68",
+        "AreaLevel": ">= 68",
         "Rarity": "Rare"
       },
       "hide_at_strictness": 2,
