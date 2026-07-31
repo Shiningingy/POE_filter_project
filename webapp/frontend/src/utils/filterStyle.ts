@@ -206,9 +206,65 @@ export const tierNumFromLabel = (label: string): number => {
  */
 export const resolveTierTheme = (themeData: any, themeCategory: string, tierEntry: any, tierKey: string): any => {
   const themeRef = themeData?.[themeCategory] || themeData?.["Default"] || {};
-  const override = (tierEntry?.theme || {}).Tier;
-  const tnum = override !== undefined ? override : tierNumFromLabel(tierKey);
-  return themeRef[`Tier ${tnum}`] || {};
+  const inline = tierEntry?.theme || {};
+  const tnum = inline.Tier !== undefined ? inline.Tier : tierNumFromLabel(tierKey);
+  const row = themeRef[`Tier ${tnum}`] || {};
+
+  // INTERIM (see below): a tier's own beam/icon is honoured where the theme row
+  // says nothing. 24 such values are authored and reach the filter nowhere today —
+  // the General ladder's Yellow Diamonds, Enshrouding's Green circle and beam,
+  // Enshrouded Gear's Orange, League Items' Purple, Breach's Red.
+  //
+  // Why ONLY these two channels, and only when the row is silent:
+  //
+  //   * Silence means different things per channel. An absent TextColor is the
+  //     designer being deliberate — 441 of 998 rows omit it so the RARITY colour
+  //     shows through — so filling it in would paint over that. But the theme file
+  //     has no beam/icon vocabulary at all yet (that is the designer's pending
+  //     task, workstream E), so silence there means "unspecified", not "off".
+  //
+  //   * Inline data cannot be trusted wholesale. The editor writes the RESOLVED
+  //     theme back into a tier when it saves, so `theme` holds a mix of deliberate
+  //     authoring and stale snapshots. Measured against the pre-designer theme:
+  //     of 182 inline values that differ from the current row, 87 are exactly the
+  //     PRE-DESIGNER value and 67 more look like editor defaults (#FFFFFF,
+  //     #AAAAAA). Promoting inline wholesale — which is where this design ends up —
+  //     would therefore silently undo the designer's port.
+  //
+  // The end state is still "the block owns its look". Getting there safely needs
+  // the B migration to reseed every block from its RESOLVED style first, after
+  // which inline-wins is byte-identical by construction. Until then this promotes
+  // only what cannot conflict with anything.
+  const out: any = { ...row };
+  for (const k of ['PlayEffect', 'MinimapIcon']) {
+    if (k in inline && !(k in row) && wellFormed(k, inline[k])) out[k] = inline[k];
+  }
+  return out;
+};
+
+/**
+ * Is this beam/icon value syntactically emittable?
+ *
+ * Gate on the promotion above, and NOT a style judgement — one malformed line
+ * makes the game reject the WHOLE filter on load, so a value that has never been
+ * emitted before must not be able to break it on its way in. Structural only
+ * (token count + size digit), deliberately not an enumeration of colour and
+ * shape names, so GGG adding a shape does not silently start dropping icons.
+ *
+ *   MinimapIcon <size 0-2> <colour> <shape>
+ *   PlayEffect  <colour> [Temp]
+ *
+ * `Currency/_archived/Breach.json` carries `"RedStar"` — no size, no space —
+ * which was harmless only because inline style reached nothing. Promoting beam
+ * and icon would have shipped it onto the Breach splinter block.
+ */
+export const wellFormed = (channel: string, value: any): boolean => {
+  if (styleOff(value)) return true;          // an off value emits no line at all
+  if (typeof value !== 'string') return false;
+  const parts = value.trim().split(/\s+/);
+  if (channel === 'MinimapIcon') return parts.length === 3 && /^[0-2]$/.test(parts[0]);
+  if (channel === 'PlayEffect') return parts.length === 1 || (parts.length === 2 && parts[1] === 'Temp');
+  return true;
 };
 
 /**

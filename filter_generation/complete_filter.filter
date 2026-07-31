@@ -1147,6 +1147,8 @@ Show
     SetBorderColor 193 220 183 255
     SetBackgroundColor 82 130 64 255
     PlayAlertSound 2 300
+    PlayEffect Green
+    MinimapIcon 1 Green Circle
 
 
 #==[44000]-通货 Currency - 可堆叠通货 Essences==
@@ -1384,6 +1386,7 @@ Show
     SetBorderColor 74 56 7 255
     SetBackgroundColor 176 134 17 255
     CustomAlertSound "Sharket掉落音效\星盘.mp3" 300
+    MinimapIcon 2 Yellow Diamond
 
 
 #==[46013]- General -T2: 高价值通货 可堆叠通货 - 自动音效：古灵崇高石 - 精确==
@@ -1394,6 +1397,7 @@ Show
     SetBorderColor 74 56 7 255
     SetBackgroundColor 176 134 17 255
     CustomAlertSound "Sharket掉落音效\古灵崇高石.mp3" 300
+    MinimapIcon 2 Yellow Diamond
 
 
 #==[46014]- General -T2: 高价值通货 可堆叠通货 - 自动音效：古灵剥离石 - 精确==
@@ -1404,6 +1408,7 @@ Show
     SetBorderColor 74 56 7 255
     SetBackgroundColor 176 134 17 255
     CustomAlertSound "Sharket掉落音效\古灵剥离石.mp3" 300
+    MinimapIcon 2 Yellow Diamond
 
 
 #==[46015]- General -T2: 高价值通货 可堆叠通货 - 自动音效：破溃碎片 - 精确==
@@ -1414,6 +1419,7 @@ Show
     SetBorderColor 74 56 7 255
     SetBackgroundColor 176 134 17 255
     CustomAlertSound "Sharket掉落音效\破溃碎片.mp3" 300
+    MinimapIcon 2 Yellow Diamond
 
 
 #==[46016]- General -T2: 高价值通货 可堆叠通货 - 自动音效：费斯特的透镜 - 精确==
@@ -1424,6 +1430,7 @@ Show
     SetBorderColor 74 56 7 255
     SetBackgroundColor 176 134 17 255
     CustomAlertSound "Sharket掉落音效\费斯特的透镜.mp3" 300
+    MinimapIcon 2 Yellow Diamond
 
 
 #==[46017]- General -T2: 高价值通货 可堆叠通货 - 基础 - 精确==
@@ -1434,6 +1441,7 @@ Show
     SetBorderColor 74 56 7 255
     SetBackgroundColor 176 134 17 255
     CustomAlertSound "Sharket掉落音效\高级通货.mp3" 200
+    MinimapIcon 2 Yellow Diamond
 
 
 #==[46018]- General -T3: 崇高石级 可堆叠通货 - #1 规则 - 精确==
@@ -1445,6 +1453,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 70 53 7 255
     CustomAlertSound "Sharket掉落音效\通货.mp3" 100
+    MinimapIcon 1 Yellow Diamond
 
 
 #==[46019]- General -T3: 崇高石级 可堆叠通货 - 自动音效：崇高石 - 精确==
@@ -1455,6 +1464,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 70 53 7 255
     CustomAlertSound "Sharket掉落音效\崇高石.mp3" 300
+    MinimapIcon 1 Yellow Diamond
 
 
 #==[46020]- General -T3: 崇高石级 可堆叠通货 - 自动音效：远古石 - 精确==
@@ -1465,6 +1475,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 70 53 7 255
     CustomAlertSound "Sharket掉落音效\远古石.mp3" 300
+    MinimapIcon 1 Yellow Diamond
 
 
 #==[46021]- General -T3: 崇高石级 可堆叠通货 - 自动音效：剥离石 - 精确==
@@ -1475,6 +1486,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 70 53 7 255
     CustomAlertSound "Sharket掉落音效\剥离石.mp3" 300
+    MinimapIcon 1 Yellow Diamond
 
 
 #==[46022]- General -T3: 崇高石级 可堆叠通货 - 自动音效：富豪石 - 精确==
@@ -1485,6 +1497,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 70 53 7 255
     CustomAlertSound "Sharket掉落音效\富豪石.mp3" 300
+    MinimapIcon 1 Yellow Diamond
 
 
 #==[46023]- General -T3: 崇高石级 可堆叠通货 - 自动音效：异域铸币 - 精确==
@@ -1495,6 +1508,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 70 53 7 255
     CustomAlertSound "Sharket掉落音效\异域铸币.mp3" 200
+    MinimapIcon 1 Yellow Diamond
 
 
 #==[46024]- General -T3: 崇高石级 可堆叠通货 - 自动音效：葬礼徽章 - 精确==
@@ -1505,6 +1519,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 70 53 7 255
     CustomAlertSound "Sharket掉落音效\葬礼徽章.mp3" 200
+    MinimapIcon 1 Yellow Diamond
 
 
 #==[46025]- General -T3: 崇高石级 可堆叠通货 - 基础 - 精确==
@@ -1515,6 +1530,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 70 53 7 255
     CustomAlertSound "Sharket掉落音效\通货.mp3" 100
+    MinimapIcon 1 Yellow Diamond
 
 
 #==[46026]- General -T4: 混沌石级 可堆叠通货 - 自动音效：瓦尔宝珠 - 精确==
@@ -1525,6 +1541,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 51 39 5 255
     CustomAlertSound "Sharket掉落音效\瓦尔宝珠.mp3" 300
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46027]- General -T4: 混沌石级 可堆叠通货 - 自动音效：重铸石 - 精确==
@@ -1535,6 +1552,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 51 39 5 255
     CustomAlertSound "Sharket掉落音效\重铸石.mp3" 300
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46028]- General -T4: 混沌石级 可堆叠通货 - 自动音效：幻色石 - 精确==
@@ -1545,6 +1563,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 51 39 5 255
     CustomAlertSound "Sharket掉落音效\幻色石.mp3" 100
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46029]- General -T4: 混沌石级 可堆叠通货 - 自动音效：祝福石 - 精确==
@@ -1555,6 +1574,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 51 39 5 255
     CustomAlertSound "Sharket掉落音效\祝福石.mp3" 200
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46030]- General -T4: 混沌石级 可堆叠通货 - 自动音效：废金属 - 精确==
@@ -1565,6 +1585,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 51 39 5 255
     CustomAlertSound "Sharket掉落音效\废金属.mp3" 200
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46031]- General -T4: 混沌石级 可堆叠通货 - 基础 - 精确==
@@ -1575,6 +1596,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 51 39 5 255
     CustomAlertSound "Sharket掉落音效\通货.mp3" 100
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46032]- General -T5:点金石级 可堆叠通货 - 自动音效：后悔石 - 精确==
@@ -1584,6 +1606,7 @@ Show
     SetTextColor 241 208 116 255
     SetBorderColor 0 0 0 0
     CustomAlertSound "Sharket掉落音效\后悔石.mp3" 300
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46033]- General -T5:点金石级 可堆叠通货 - 自动音效：粉碎石 - 精确==
@@ -1593,6 +1616,7 @@ Show
     SetTextColor 241 208 116 255
     SetBorderColor 0 0 0 0
     CustomAlertSound "Sharket掉落音效\粉碎石.mp3" 200
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46034]- General -T5:点金石级 可堆叠通货 - 自动音效：点金石 - 精确==
@@ -1602,6 +1626,7 @@ Show
     SetTextColor 241 208 116 255
     SetBorderColor 0 0 0 0
     CustomAlertSound "Sharket掉落音效\点金石.mp3" 300
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46035]- General -T5:点金石级 可堆叠通货 - 自动音效：链结石 - 精确==
@@ -1611,6 +1636,7 @@ Show
     SetTextColor 241 208 116 255
     SetBorderColor 0 0 0 0
     CustomAlertSound "Sharket掉落音效\链结石.mp3" 200
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46036]- General -T5:点金石级 可堆叠通货 - 基础 - 精确==
@@ -1619,6 +1645,7 @@ Show
     SetFontSize 35
     SetTextColor 241 208 116 255
     SetBorderColor 0 0 0 0
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46037]- General -T6： 改造石级 可堆叠通货 - 自动音效：玻璃弹珠 - 精确==
@@ -1628,6 +1655,7 @@ Show
     SetTextColor 196 162 69 255
     SetBorderColor 0 0 0 0
     CustomAlertSound "Sharket掉落音效\玻璃弹珠.mp3" 100
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46038]- General -T6： 改造石级 可堆叠通货 - 自动音效：改造石 - 精确==
@@ -1637,6 +1665,7 @@ Show
     SetTextColor 196 162 69 255
     SetBorderColor 0 0 0 0
     CustomAlertSound "Sharket掉落音效\改造石.mp3" 200
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46039]- General -T6： 改造石级 可堆叠通货 - 自动音效：机会石 - 精确==
@@ -1646,6 +1675,7 @@ Show
     SetTextColor 196 162 69 255
     SetBorderColor 0 0 0 0
     CustomAlertSound "Sharket掉落音效\机会石.mp3" 200
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46040]- General -T6： 改造石级 可堆叠通货 - 自动音效：工匠石 - 精确==
@@ -1655,6 +1685,7 @@ Show
     SetTextColor 196 162 69 255
     SetBorderColor 0 0 0 0
     CustomAlertSound "Sharket掉落音效\工匠石.mp3" 100
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46041]- General -T6： 改造石级 可堆叠通货 - 自动音效：护甲片 - 精确==
@@ -1664,6 +1695,7 @@ Show
     SetTextColor 196 162 69 255
     SetBorderColor 0 0 0 0
     CustomAlertSound "Sharket掉落音效\护甲片.mp3" 100
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46042]- General -T6： 改造石级 可堆叠通货 - 自动音效：磨刀石 - 精确==
@@ -1673,6 +1705,7 @@ Show
     SetTextColor 196 162 69 255
     SetBorderColor 0 0 0 0
     CustomAlertSound "Sharket掉落音效\磨刀石.mp3" 100
+    MinimapIcon 0 Yellow Diamond
 
 
 #==[46043]- General -T7: 低价值通货 可堆叠通货 - 自动音效：增幅石 - 精确==
@@ -1972,6 +2005,7 @@ Show
     SetBorderColor 65 64 16 255
     SetBackgroundColor 155 151 39 255
     CustomAlertSound "Sharket掉落音效\文身.mp3" 100
+    MinimapIcon 1 Grey Circle
 
 
 #==[54000]-通货 Currency - 可堆叠通货 Tainted Currency==
@@ -2141,6 +2175,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 62 15 51 255
     PlayAlertSound 3 300
+    PlayEffect Red
 
 
 #===================================================================================================================
@@ -2156,6 +2191,8 @@ Show
     SetBorderColor 144 100 71 255
     SetBackgroundColor 13 10 7 255
     PlayAlertSound 2 300
+    PlayEffect Orange
+    MinimapIcon 1 Orange Star
 
 
 #==[52000]-Curse of the Allflame Curse of the Allflame - 可堆叠通货 Curse of the Allflame==
@@ -2168,6 +2205,8 @@ Show
     SetBorderColor 165 137 220 255
     SetBackgroundColor 79 45 149 255
     CustomAlertSound "Sharket掉落音效\DOTA2_瓶.mp3" 300
+    PlayEffect Purple
+    MinimapIcon 1 Purple Cross
 
 
 #==[52002]- Curse of the Allflame -T1 高级达克特 可堆叠通货 - 基础 - 精确==
@@ -4186,6 +4225,7 @@ Show
     SetBorderColor 11 70 66 255
     SetBackgroundColor 27 167 157 255
     CustomAlertSound "Sharket掉落音效\时空裂隙.mp3" 300
+    MinimapIcon 0 Red Circle
 
 
 #==[91012]- Skill -T2: 需求 12 级及以上 技能宝石 - 基础 - 精确==
@@ -4196,6 +4236,7 @@ Show
     SetBorderColor 11 70 66 255
     SetBackgroundColor 27 167 157 255
     CustomAlertSound "Sharket掉落音效\技能宝石.mp3" 100
+    MinimapIcon 0 Red Circle
 
 
 #==[91013]- Skill -T3: 需求 5-11 级 技能宝石 - 基础 - 精确==
@@ -4206,6 +4247,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 11 66 62 255
     CustomAlertSound "Sharket掉落音效\技能宝石.mp3" 100
+    MinimapIcon 0 Red Circle
 
 
 #==[91014]- Skill -T4: 需求 1-4 级 技能宝石 - 基础 - 精确==
@@ -4216,6 +4258,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 8 48 46 255
     CustomAlertSound "Sharket掉落音效\技能宝石.mp3" 100
+    MinimapIcon 0 Red Circle
 
 
 #==[91015]- Skill -兜底：其他技能宝石 技能宝石 - Class Condition==
@@ -4225,6 +4268,7 @@ Show
     SetTextColor 123 234 226 255
     SetBorderColor 0 0 0 0
     CustomAlertSound "Sharket掉落音效\技能宝石.mp3" 100
+    MinimapIcon 0 Red Circle
 
 
 #==[92000]-宝石 Gems - 辅助宝石 Support==
@@ -4261,6 +4305,7 @@ Show
     SetBorderColor 17 60 64 255
     SetBackgroundColor 41 142 153 255
     CustomAlertSound "Sharket掉落音效\辅助技能石.mp3" 100
+    MinimapIcon 0 Cyan Circle
 
 
 #==[92004]- Support -兜底：其他辅助宝石 辅助宝石 - Class Condition==
@@ -4271,6 +4316,7 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 16 56 60 255
     CustomAlertSound "Sharket掉落音效\辅助技能石.mp3" 100
+    MinimapIcon 0 Cyan Circle
 
 
 #===================================================================================================================
@@ -4351,6 +4397,7 @@ Show
     SetBorderColor 214 159 212 255
     SetBackgroundColor 136 58 133 255
     CustomAlertSound "Sharket掉落音效\高级赏金装备.mp3" 300
+    MinimapIcon 1 Grey Circle
 
 
 #==[103002]- Heist Equipment -基础装备 盗贼装备 - #1 所有赏金装备 - 自选==
@@ -4824,6 +4871,7 @@ Show
     SetBorderColor 160 203 228 255
     SetBackgroundColor 43 111 151 255
     CustomAlertSound "Sharket掉落音效\疯狂碎片.mp3" 300
+    MinimapIcon 1 Orange Circle
 
 
 #==[123010]- Fragments -T2: 高价值碎片 碎片 - #2 Override for Ritual Vessel - 精确==
@@ -4834,6 +4882,7 @@ Show
     SetBorderColor 160 203 228 255
     SetBackgroundColor 43 111 151 255
     CustomAlertSound "Sharket掉落音效\驱灵法器.mp3" 300
+    MinimapIcon 1 Orange Circle
 
 
 #==[123011]- Fragments -T2: 高价值碎片 碎片 - #3 Override for Hivebrain Gland - 精确==
@@ -4844,6 +4893,7 @@ Show
     SetBorderColor 160 203 228 255
     SetBackgroundColor 43 111 151 255
     CustomAlertSound "Sharket掉落音效\裂隙碎片.mp3" 300
+    MinimapIcon 1 Orange Circle
 
 
 #==[123012]- Fragments -T2: 高价值碎片 碎片 - #4 Override for Timeless Templar Emblem - 精确==
@@ -4854,6 +4904,7 @@ Show
     SetBorderColor 160 203 228 255
     SetBackgroundColor 43 111 151 255
     CustomAlertSound "Sharket掉落音效\地图碎片.mp3" 300
+    MinimapIcon 1 Orange Circle
 
 
 #==[123013]- Fragments -T2: 高价值碎片 碎片 - 自动音效：梦魇拟像 - 精确==
@@ -4864,6 +4915,7 @@ Show
     SetBorderColor 160 203 228 255
     SetBackgroundColor 43 111 151 255
     CustomAlertSound "Sharket掉落音效\梦魇拟像.mp3" 300
+    MinimapIcon 1 Orange Circle
 
 
 #==[123014]- Fragments -T2: 高价值碎片 碎片 - 自动音效：神圣之花 - 精确==
@@ -4874,6 +4926,7 @@ Show
     SetBorderColor 160 203 228 255
     SetBackgroundColor 43 111 151 255
     CustomAlertSound "Sharket掉落音效\神圣之花.mp3" 300
+    MinimapIcon 1 Orange Circle
 
 
 #==[123015]- Fragments -T2: 高价值碎片 碎片 - 自动音效：浸血法器 - 精确==
@@ -4884,6 +4937,7 @@ Show
     SetBorderColor 160 203 228 255
     SetBackgroundColor 43 111 151 255
     CustomAlertSound "Sharket掉落音效\浸血法器.mp3" 200
+    MinimapIcon 1 Orange Circle
 
 
 #==[123016]- Fragments -T2: 高价值碎片 碎片 - 基础 - 精确==
@@ -4894,6 +4948,7 @@ Show
     SetBorderColor 160 203 228 255
     SetBackgroundColor 43 111 151 255
     CustomAlertSound "Sharket掉落音效\地图碎片.mp3" 300
+    MinimapIcon 1 Orange Circle
 
 
 #==[123017]- Fragments -T3: 普通碎片 碎片 - #1 Override for Fragment of Enslavement - 精确==
@@ -5140,6 +5195,7 @@ Show
     SetBorderColor 159 189 214 255
     SetBackgroundColor 58 101 136 255
     CustomAlertSound "Sharket掉落音效\高级圣甲虫.mp3" 300
+    MinimapIcon 1 Orange Circle
 
 
 #==[124004]- 地图碎片 -T3: 少见圣甲虫 地图碎片 - 基础 - 精确==
@@ -5605,6 +5661,7 @@ Show
     SetBorderColor 234 186 153 255
     SetBackgroundColor 161 84 33 255
     CustomAlertSound "Sharket掉落音效\仿品传奇.mp3" 300
+    MinimapIcon 1 Brown Circle
 
 
 #==[141027]- Unique Items -T2: 优质 传奇物品 - #2 秽生 Foulborn T2 - 精确==
@@ -5617,6 +5674,7 @@ Show
     SetBorderColor 234 186 153 255
     SetBackgroundColor 161 84 33 255
     CustomAlertSound "Sharket掉落音效\秽生传奇.mp3" 300
+    MinimapIcon 1 Brown Circle
 
 
 #==[141028]- Unique Items -T2: 优质 传奇物品 - #3 四深渊孔头盔（召唤头） 4x Abyss Helmet - 精确==
@@ -5629,6 +5687,7 @@ Show
     SetBorderColor 234 186 153 255
     SetBackgroundColor 161 84 33 255
     CustomAlertSound "Sharket掉落音效\高级传奇.mp3" 300
+    MinimapIcon 1 Brown Circle
 
 
 #==[141029]- Unique Items -T2: 优质 传奇物品 - #4 三深渊孔深渊衣 3x Abyss - 精确==
@@ -5641,6 +5700,7 @@ Show
     SetBorderColor 234 186 153 255
     SetBackgroundColor 161 84 33 255
     CustomAlertSound "Sharket掉落音效\高级传奇.mp3" 300
+    MinimapIcon 1 Brown Circle
 
 
 #==[141030]- Unique Items -T2: 优质 传奇物品 - #5 双深渊孔深渊套餐 2x Abyss - 精确==
@@ -5653,6 +5713,7 @@ Show
     SetBorderColor 234 186 153 255
     SetBackgroundColor 161 84 33 255
     CustomAlertSound "Sharket掉落音效\高级传奇.mp3" 300
+    MinimapIcon 1 Brown Circle
 
 
 #==[141031]- Unique Items -T2: 优质 传奇物品 - #6 已腐化传奇珠宝 Corrupted Jewels - 精确==
@@ -5666,6 +5727,7 @@ Show
     SetBorderColor 234 186 153 255
     SetBackgroundColor 161 84 33 255
     CustomAlertSound "Sharket掉落音效\高级传奇.mp3" 300
+    MinimapIcon 1 Brown Circle
 
 
 #==[141032]- Unique Items -T2: 优质 传奇物品 - #7 传奇契约 - 自选==
@@ -5677,6 +5739,7 @@ Show
     SetBorderColor 234 186 153 255
     SetBackgroundColor 161 84 33 255
     CustomAlertSound "Sharket掉落音效\传奇契约.mp3" 300
+    MinimapIcon 1 Brown Circle
 
 
 #==[141033]- Unique Items -T2: 优质 传奇物品 - 基础 - 精确==
@@ -5688,6 +5751,7 @@ Show
     SetBorderColor 234 186 153 255
     SetBackgroundColor 161 84 33 255
     CustomAlertSound "Sharket掉落音效\高级传奇.mp3" 300
+    MinimapIcon 1 Brown Circle
 
 
 #==[141034]- Unique Items -T3: 普通 传奇物品 - #1 其他仿品传奇 - 自选==

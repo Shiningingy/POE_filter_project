@@ -150,8 +150,40 @@ Fragments"` special case. After this the preview *cannot* disagree with the expo
 ### B. Data model
 
 - **Inline style on a tier block becomes authoritative**: `tier.style → picked preset →
-  hardcoded default`. Immediately revives the 216 authored inline keys and the discarded
-  `Gold.json` beam/icon suppression.
+  hardcoded default`.
+
+  ⚠️ **Corrected by measurement (2026-07-31): inline style cannot simply be promoted.**
+  The editor writes the RESOLVED theme back into a tier when it saves, so `theme` holds a
+  mix of deliberate authoring and stale snapshots. Of 358 inline style keys across 72
+  tiers in 24 files, 176 already agree with the theme row, and of the 182 that differ:
+
+  | | count | promoting it would |
+  |---|---|---|
+  | matches the **pre-designer** theme exactly | 87 | undo the designer's port |
+  | differs from both, but looks like an editor default (`#FFFFFF`, `#AAAAAA`) | 67 | replace designer colour with UI default |
+  | **additive** — the theme row says nothing | 28 | be pure gain |
+
+  So the migration must **reseed each block from its RESOLVED style**, not from its raw
+  inline block. That is byte-identical by construction, which is what makes Verification
+  item 1 achievable; only then is "inline wins" safe.
+
+  **Shipped as an interim step (see `resolve_tier_theme`):** beam and icon are promoted
+  where the theme row is silent — 24 authored values that reach the filter nowhere today.
+  Only those two channels, because silence means different things per channel: an absent
+  `TextColor` is deliberate (441 of 998 rows omit it so rarity shows through), while the
+  theme file has no beam/icon vocabulary *at all* yet, so silence there means
+  "unspecified". Output delta: **+64 lines, 0 removed.**
+
+  Two things this surfaced, both for the author/designer, not for the migration:
+  - `Currency/_archived/Breach.json` carries `MinimapIcon: "RedStar"` — no size, no
+    space. It was harmless only because inline reached nothing; promoting would have
+    shipped it onto the Breach splinter block and the game rejects the WHOLE filter over
+    one bad line. Generation now validates beam/icon shape, warns, and drops it. **The
+    intended value is still unset** — the size is a design choice.
+  - `Currency/Gold.json` sets `PlayEffect`/`MinimapIcon` to `null` to suppress them, but
+    the theme row *has* a White beam and star, so this is a conflict, not additive, and
+    Gold still beams. Fix belongs in the theme row (the designer owns that file), or waits
+    for the reseed above.
 - **Split `overrides`**: `Tier` becomes the block identity (matching), and the style
   channels become an explicit, narrow **deviation** on the rule rather than a parallel
   styling surface. Resolution stays `rule deviation → block style → preset → default`,

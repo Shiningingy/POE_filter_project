@@ -303,6 +303,70 @@ def resolve_sound(tier_entry, sound_map, override_sound=None):
     
     return None
 
+_warned_malformed = set()
+
+
+def well_formed(channel, value):
+    """Is this beam/icon value syntactically emittable?
+
+    A gate on the promotion in resolve_tier_theme, and NOT a style judgement: one
+    malformed line makes the game reject the WHOLE filter on load, so a value that
+    has never been emitted before must not be able to break it on its way in.
+    Structural only (token count + size digit), deliberately not an enumeration of
+    colour and shape names, so GGG adding a shape does not silently drop icons.
+
+        MinimapIcon <size 0-2> <colour> <shape>
+        PlayEffect  <colour> [Temp]
+
+    Mirrors wellFormed() in filterStyle.ts (parity-guarded).
+    """
+    if style_off(value):
+        return True            # an off value emits no line at all
+    if not isinstance(value, str):
+        return False
+    parts = value.split()
+    if channel == "MinimapIcon":
+        return len(parts) == 3 and parts[0] in ("0", "1", "2")
+    if channel == "PlayEffect":
+        return len(parts) == 1 or (len(parts) == 2 and parts[1] == "Temp")
+    return True
+
+
+def resolve_tier_theme(theme_ref, tier_entry, tnum):
+    """The theme row a tier resolves to, plus its own beam/icon where the row is silent.
+
+    INTERIM. The rewrite's end state is that the tier block owns its look outright,
+    but inline `theme` data cannot be promoted wholesale yet: the editor writes the
+    RESOLVED theme back into a tier when it saves, so the field holds a mix of
+    deliberate authoring and stale snapshots. Measured against the pre-designer
+    theme, of 182 inline values that differ from the current row, 87 are exactly
+    the PRE-designer value and 67 more look like editor defaults — promoting all of
+    them would silently undo the designer's port.
+
+    Beam and icon are the exception, and only where the row says nothing. An absent
+    TextColor is the designer being deliberate (441 of 998 rows omit it so the
+    rarity colour shows through), but the theme file carries no beam/icon
+    vocabulary at all yet — that is still the designer's task — so silence there
+    means "unspecified". 24 authored values reach the filter nowhere today because
+    of it.
+
+    Mirrors resolveTierTheme() in filterGenerator's filterStyle.ts (parity-guarded).
+    """
+    row = dict(theme_ref.get(f"Tier {tnum}", {}))
+    inline = tier_entry.get("theme") or {}
+    for k in ("PlayEffect", "MinimapIcon"):
+        if k in inline and k not in row:
+            if well_formed(k, inline[k]):
+                row[k] = inline[k]
+            elif (k, repr(inline[k])) not in _warned_malformed:
+                # Loud, not silent: the value is being DROPPED, and a dropped icon
+                # looks exactly like an icon nobody authored.
+                _warned_malformed.add((k, repr(inline[k])))
+                print(f"[WARN] malformed {k} {inline[k]!r} not emitted "
+                      f"(expected e.g. '0 Red Star'); fix the tier's theme block.")
+    return row
+
+
 def tier_num_from_label(label):
     if "Tier 0" in label: return 0
     if "Hide" in label: return 9
@@ -590,7 +654,7 @@ def generate_filter():
             theme_tier_override = tier_entry.get("theme", {}).get("Tier")
             if theme_tier_override is not None:
                 tnum = theme_tier_override
-            ttheme = theme_ref.get(f"Tier {tnum}", {})
+            ttheme = resolve_tier_theme(theme_ref, tier_entry, tnum)
             base_text_col = parse_rgba(ttheme.get("TextColor"))
             base_border_col = parse_rgba(ttheme.get("BorderColor"))
             base_background_col = parse_rgba(ttheme.get("BackgroundColor"), "0 0 0 255")
@@ -605,7 +669,7 @@ def generate_filter():
                     continue  # No conditions defined — skip this tier
                 # Use theme tier from tier_entry directly (label-based tnum is unreliable for custom keys)
                 theme_tnum = tier_entry.get("theme", {}).get("Tier", tnum)
-                ttheme = theme_ref.get(f"Tier {theme_tnum}", ttheme)
+                ttheme = resolve_tier_theme(theme_ref, tier_entry, theme_tnum) or ttheme
                 base_text_col = parse_rgba(ttheme.get("TextColor"))
                 base_border_col = parse_rgba(ttheme.get("BorderColor"))
                 base_background_col = parse_rgba(ttheme.get("BackgroundColor"), "0 0 0 255")

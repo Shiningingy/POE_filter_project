@@ -9,27 +9,58 @@
 // like it worked when it did not. Parity between the two GENERATORS never caught
 // that, because the preview was never one of the two.
 //
-// The oracle is filter_generation/traces/standard-soft.json — a recording of what
-// the PYTHON generator actually emitted, block by block, captured before any of
-// this changed (see generate.py --trace). Comparing against a recording rather
-// than against a live call matters: if the preview and the generator both called
-// the same function, comparing them would be tautological. This compares the
-// preview against real emitted filter text.
+// The oracle is a FRESH trace from the Python generator — what it actually
+// emitted, block by block (generate.py --trace). Two things matter about that
+// choice:
+//
+//   * it is real emitted filter text, not a second call into the code under
+//     test. Now that the preview and the generator share filterStyle.ts,
+//     comparing them directly would be tautological; Python is an independent
+//     implementation, so this genuinely cross-checks.
+//   * it is captured per run, not read from filter_generation/traces/. Those
+//     committed traces are the pre-rewrite MIGRATION EVIDENCE and must stay
+//     frozen; an oracle that has to be refreshed whenever output legitimately
+//     changes would either rot or destroy that evidence.
 //
 // Usage (from webapp/frontend):  node test_resolver_equivalence.mjs
+//   Needs Python on PATH (override with PYTHON=...).
 
 import { build } from 'esbuild';
-import { mkdtempSync, writeFileSync, rmSync, readFileSync } from 'node:fs';
+import { execSync } from 'node:child_process';
+import { mkdtempSync, writeFileSync, rmSync, readFileSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..', '..');
-const TRACE = join(ROOT, 'filter_generation', 'traces', 'standard-soft.json');
+const PY = process.env.PYTHON || 'python';
 const SHOW = 10;
 
 const tmp = mkdtempSync(join(tmpdir(), 'resolvereq-'));
+
+// Capture the oracle first: what Python emits, right now, from the data on disk.
+// generate.py also rewrites filter_generation/complete_filter.filter, so restore
+// its exact bytes afterwards (same courtesy the parity test extends).
+const TRACE = join(tmp, 'trace.json');
+const OUTPUT_FILTER = join(ROOT, 'filter_generation', 'complete_filter.filter');
+const filterBackup = existsSync(OUTPUT_FILTER) ? readFileSync(OUTPUT_FILTER) : null;
+try {
+  execSync(`${PY} filter_generation/generate.py --mode standard --strictness soft --trace "${TRACE}"`,
+           { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+} catch (err) {
+  console.error('\nTRACE CAPTURE FAILED — generate.py did not exit cleanly.');
+  if (err.stdout?.length) console.error(err.stdout.toString());
+  if (err.stderr?.length) console.error(err.stderr.toString());
+  process.exit(1);
+} finally {
+  if (filterBackup) writeFileSync(OUTPUT_FILTER, filterBackup);
+}
+if (!existsSync(TRACE)) {
+  console.error('\nTRACE CAPTURE FAILED — generate.py exited 0 but wrote no trace.');
+  process.exit(1);
+}
+
 const axiosStub = join(tmp, 'axios.js');
 writeFileSync(axiosStub, `
 import { readFileSync } from 'fs';

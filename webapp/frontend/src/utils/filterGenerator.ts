@@ -63,7 +63,7 @@ interface GeneratorData {
 // gets exported — they did, in four different directions. Anything touching how a
 // block LOOKS belongs there; this file owns which blocks exist and in what order.
 import {
-  DEFAULT_FONT_SIZE, styleOff, parseRgba, conditionLines,
+  DEFAULT_FONT_SIZE, styleOff, parseRgba, conditionLines, resolveTierTheme,
   blockText, resolveSound, tierNumFromLabel,
 } from './filterStyle';
 
@@ -227,7 +227,8 @@ export const generateFilter = (data: GeneratorData): string => {
     }
 
     const themeCatKey = meta.theme_category || categoryKey;
-    const themeRef = (themeData || {})[themeCatKey] || (themeData || {})["Default"] || {};
+    // (The theme-row lookup itself now lives in filterStyle.resolveTierTheme, so the
+    // editor preview and the simulator resolve the identical row.)
 
     // --- Breadcrumbs ---
     const breadcrumbs: string[] = [];
@@ -322,7 +323,7 @@ export const generateFilter = (data: GeneratorData): string => {
       const themeTierOverride = tierEntry.theme?.Tier;
       if (themeTierOverride !== undefined && themeTierOverride !== null) tnum = themeTierOverride;
 
-      let ttheme = themeRef[`Tier ${tnum}`] || {};
+      let ttheme = resolveTierTheme(themeData, themeCatKey, tierEntry, tLbl);
       let baseTextCol = parseRgba(ttheme.TextColor);
       let baseBorderCol = parseRgba(ttheme.BorderColor);
       let baseBgCol = parseRgba(ttheme.BackgroundColor, "0 0 0 255");
@@ -340,7 +341,8 @@ export const generateFilter = (data: GeneratorData): string => {
         const tierConditions = tierEntry.conditions || {};
         if (Object.keys(tierConditions).length === 0) continue;
         const themeTnum = tierEntry.theme?.Tier ?? tnum;
-        ttheme = themeRef[`Tier ${themeTnum}`] || ttheme;
+        const ccRow = resolveTierTheme(themeData, themeCatKey, tierEntry, `Tier ${themeTnum}`);
+        ttheme = Object.keys(ccRow).length > 0 ? ccRow : ttheme;
         baseTextCol = parseRgba(ttheme.TextColor);
         baseBorderCol = parseRgba(ttheme.BorderColor);
         baseBgCol = parseRgba(ttheme.BackgroundColor, "0 0 0 255");
