@@ -137,6 +137,22 @@ def parse_rgba(value, default="255 255 255 255"):
             return f"{r} {g} {b} {a}"
     return default
 
+_cond_op_re = re.compile(r"^(==|!=|<=|>=|<|>|=)\s*(\S.*)$")
+
+def norm_op(val):
+    """PoE needs a SPACE between a comparison operator and its value: the game
+    rejects `StackSize >=10` outright ("cannot be recognised") while
+    `StackSize >= 10` parses. Both spellings are authorable in the editor and the
+    tree contains both — `>= 300` and `>= 50` alongside `>=10`, `>=100`, `>=1000`,
+    `>=3000` — so one bad line broke the whole filter in game. Normalising on emit
+    fixes every existing case and any future one, instead of chasing the data.
+    Mirrors normOp() in filterGenerator.ts."""
+    if not isinstance(val, str):
+        return val
+    m = _cond_op_re.match(val.strip())
+    return f"{m.group(1)} {m.group(2)}" if m else val
+
+
 def sound_line_from_pair(pair):
     """[file, volume] -> a filter sound line, or None."""
     if not pair or not isinstance(pair, list) or len(pair) != 2:
@@ -498,16 +514,16 @@ def generate_filter():
                     if isinstance(val, list):
                         # Repeated condition lines (AND), e.g. two HasInfluence lines
                         for v in val:
-                            block_lines.append(f"    {key} {v}")
+                            block_lines.append(f"    {key} {norm_op(v)}")
                     elif val.startswith("RANGE "):
                         parts = val.split()
                         block_lines.append(f"    {key} {parts[1]} {parts[2]}")
                         block_lines.append(f"    {key} {parts[3]} {parts[4]}")
                     elif key == "Rarity":
                         clean_val = val[2:].strip() if val.strip().startswith("==") else val
-                        block_lines.append(f"    {key} {clean_val}")
+                        block_lines.append(f"    {key} {norm_op(clean_val)}")
                     else:
-                        block_lines.append(f"    {key} {val}")
+                        block_lines.append(f"    {key} {norm_op(val)}")
                 # Disabled/sentinel styles are OMITTED (see style_off) so the editor
                 # preview and the exported filter agree. (Mirrors filterGenerator.ts.)
                 block_lines.append(f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}')
@@ -674,7 +690,7 @@ def generate_filter():
                             if isinstance(val, list):
                                 # Repeated condition lines (AND), e.g. two HasInfluence lines
                                 for v in val:
-                                    block_lines.append(f"    {key} {v}")
+                                    block_lines.append(f"    {key} {norm_op(v)}")
                             elif val.startswith("RANGE "):
                                 parts = val.split(" ")
                                 if len(parts) >= 5:
@@ -682,9 +698,9 @@ def generate_filter():
                                     block_lines.append(f"    {key} {parts[3]} {parts[4]}")
                             elif key == "Rarity":
                                 clean_val = val[2:].strip() if val.strip().startswith("==") else val
-                                block_lines.append(f"    {key} {clean_val}")
+                                block_lines.append(f"    {key} {norm_op(clean_val)}")
                             else:
-                                block_lines.append(f"    {key} {val}")
+                                block_lines.append(f"    {key} {norm_op(val)}")
 
                     if rule.get("raw"):
                         for r_line in rule.get("raw").split('\n'):
@@ -751,16 +767,16 @@ def generate_filter():
                         if isinstance(val, list):
                             # Repeated condition lines (AND), e.g. two HasInfluence lines
                             for v in val:
-                                block_lines.append(f"    {key} {v}")
+                                block_lines.append(f"    {key} {norm_op(v)}")
                         elif val.startswith("RANGE "):
                             parts = val.split()
                             block_lines.append(f"    {key} {parts[1]} {parts[2]}")
                             block_lines.append(f"    {key} {parts[3]} {parts[4]}")
                         elif key == "Rarity":
                             clean_val = val[2:].strip() if val.strip().startswith("==") else val
-                            block_lines.append(f"    {key} {clean_val}")
+                            block_lines.append(f"    {key} {norm_op(clean_val)}")
                         else:
-                            block_lines.append(f"    {key} {val}")
+                            block_lines.append(f"    {key} {norm_op(val)}")
 
                     # Disabled/sentinel styles are OMITTED (see style_off).
                     block_lines.append(f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}')

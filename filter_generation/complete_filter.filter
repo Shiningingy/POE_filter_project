@@ -1410,7 +1410,7 @@ Show
 #==[36018]- General -T3: 崇高石级 可堆叠通货 - #1 规则 - 精确==
 Show
     BaseType == "Chaos Orb"
-    StackSize >=10
+    StackSize >= 10
     SetFontSize 40
     SetTextColor 241 208 116 255
     SetBorderColor 0 0 0 0
@@ -1711,7 +1711,7 @@ Show
 #==[37001]- Gold -Tier 1: 大量金币 金币 - #1 >3000 - 精确==
 Show
     BaseType == "Gold"
-    StackSize >=3000
+    StackSize >= 3000
     SetFontSize 35
     SetTextColor 112 107 41 255
     SetBorderColor 153 146 56 255
@@ -1724,7 +1724,7 @@ Show
 #==[37002]- Gold -T2: 较多金币 金币 - #1 >100 - 精确==
 Show
     BaseType == "Gold"
-    StackSize >=100
+    StackSize >= 100
     SetFontSize 35
     SetTextColor 56 53 21 255
     SetBorderColor 82 79 25 255
@@ -1749,7 +1749,7 @@ Show
 #==[38001]- Harvest -T0: 大量命能 庄园 - #1 >1000 - 精确==
 Show
     BaseType == "Primal Crystallised Lifeforce" "Vivid Crystallised Lifeforce" "Wild Crystallised Lifeforce"
-    StackSize >=1000
+    StackSize >= 1000
     SetFontSize 45
     SetTextColor 32 121 65 255
     SetBorderColor 41 153 82 255
@@ -1787,7 +1787,7 @@ Show
 #==[38004]- Harvest -T2: 少量命能 庄园 - #1 >=100 - 精确==
 Show
     BaseType == "Primal Crystallised Lifeforce" "Vivid Crystallised Lifeforce" "Wild Crystallised Lifeforce"
-    StackSize >=100
+    StackSize >= 100
     SetFontSize 40
     SetTextColor 0 0 0 255
     SetBorderColor 17 64 35 255
@@ -1810,7 +1810,7 @@ Show
 #==[39001]- Heist Currency -T0: 大量印记 可堆叠通货 - #1 >=200 - 精确==
 Show
     BaseType == "Rogue's Marker"
-    StackSize >=200
+    StackSize >= 200
     SetFontSize 45
     SetTextColor 111 42 109 255
     SetBorderColor 157 67 154 255
@@ -4679,7 +4679,7 @@ Show
     Class == "Maps"
     Corrupted True
     Identified True
-    HasExplicitMod >=8
+    HasExplicitMod >= 8
     SetFontSize 45
     SetTextColor 29 64 124 255
     SetBorderColor 43 94 182 255
@@ -5435,7 +5435,7 @@ Show
 #==[131004]- Unique Items -T0: 顶级传奇 传奇物品 - #4 六连传奇 - 自选==
 Show
     Rarity Unique
-    LinkedSockets >=6
+    LinkedSockets >= 6
     SetFontSize 45
     SetTextColor 127 66 26 255
     SetBorderColor 186 97 38 255
@@ -5448,7 +5448,7 @@ Show
 #==[131005]- Unique Items -T0: 顶级传奇 传奇物品 - #5 双重腐化基底 - 自选==
 Show
     Rarity Unique
-    CorruptedMods >=2
+    CorruptedMods >= 2
     Corrupted True
     SetFontSize 45
     SetTextColor 127 66 26 255
@@ -5462,7 +5462,7 @@ Show
 #==[131006]- Unique Items -T0: 顶级传奇 传奇物品 - #6 超额品质 - 自选==
 Show
     Rarity Unique
-    Quality >=21
+    Quality >= 21
     SetFontSize 45
     SetTextColor 127 66 26 255
     SetBorderColor 186 97 38 255
@@ -5638,7 +5638,7 @@ Show
 #==[131019]- Unique Items -T1: 高价值 传奇物品 - #10 五连传奇 - 自选==
 Show
     Rarity Unique
-    LinkedSockets >=5
+    LinkedSockets >= 5
     SetFontSize 45
     SetTextColor 0 0 0 255
     SetBorderColor 93 46 14 255
@@ -5652,7 +5652,7 @@ Show
 Show
     Corrupted True
     Rarity Unique
-    CorruptedMods >=1
+    CorruptedMods >= 1
     SetFontSize 45
     SetTextColor 0 0 0 255
     SetBorderColor 249 1 1 255

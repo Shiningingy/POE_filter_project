@@ -139,6 +139,20 @@ const soundLineFromPair = (pair: any): string | null => {
   return `CustomAlertSound "${winPath}" ${vol}`;
 };
 
+/**
+ * PoE needs a SPACE between a comparison operator and its value: the game rejects
+ * `StackSize >=10` outright ("cannot be recognised") while `StackSize >= 10` parses.
+ * Both spellings are authorable in the editor and the tree contains both — `>= 300`
+ * and `>= 50` alongside `>=10`, `>=100`, `>=1000`, `>=3000` — so one bad line broke
+ * the whole filter in game. Normalising on emit fixes every existing case and any
+ * future one, instead of chasing the data. Mirrors norm_op() in generate.py.
+ */
+const normOp = (val: any): any => {
+  if (typeof val !== "string") return val;
+  const m = val.trim().match(/^(==|!=|<=|>=|<|>|=)\s*(\S.*)$/);
+  return m ? `${m[1]} ${m[2]}` : val;
+};
+
 /** Priority: rule override -> tier theme.PlayAlertSound -> sharket -> default */
 const resolveSound = (tierEntry: any, soundMap: any, overrideSound?: [string, number]): string | null => {
   let line = soundLineFromPair(overrideSound);
@@ -223,7 +237,7 @@ export const generateFilter = (data: GeneratorData): string => {
     if (!conditions) return;
     Object.entries(conditions).forEach(([key, val]: [string, any]) => {
       if (Array.isArray(val)) {
-        val.forEach((v: string) => lines.push(`    ${key} ${v}`));
+        val.forEach((v: string) => lines.push(`    ${key} ${normOp(v)}`));
       } else if (typeof val === 'string' && val.startsWith("RANGE ")) {
         const parts = val.split(" ");
         if (parts.length >= 5) {
@@ -233,9 +247,9 @@ export const generateFilter = (data: GeneratorData): string => {
       } else if (key === "Rarity") {
         const clean = typeof val === 'string' && val.trim().startsWith("==")
           ? val.trim().slice(2).trim() : val;
-        lines.push(`    ${key} ${clean}`);
+        lines.push(`    ${key} ${normOp(clean)}`);
       } else {
-        lines.push(`    ${key} ${val}`);
+        lines.push(`    ${key} ${normOp(val)}`);
       }
     });
   };
