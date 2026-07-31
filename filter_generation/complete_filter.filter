@@ -5777,22 +5777,40 @@ Show
 
 
 #==[99999]-未知物品 Unknown Items==
-# THE SAFETY NET. Anything no rule above matched lands here - a new league item, a
+# 新出的物品 —— 看到有这种颜色的物品，代表你的过滤器该更新了！
+#
+# THE SAFETY NET. Anything no rule above matched lands here: a new league item, a
 # base we have not curated, a class whose category is still empty.
 #
-# It SHOWS, deliberately and at every strictness level. The rule this filter is
-# built on is that a Hide must name what it hides (a Class or a BaseType), so
-# nothing is ever hidden by accident; whatever falls through has to be visible
-# instead. In Ruthless a missed drop costs far more than a little noise.
+# It SHOWS, deliberately, at every strictness level. The rule this filter is built
+# on is that a Hide must name what it hides (a Class or a BaseType), so nothing is
+# ever hidden by accident and whatever falls through has to stay visible. In
+# Ruthless a missed drop costs far more than a little noise.
 #
-# The styling is meant to be recognisable as "uncurated", not pretty: if you see
-# one of these in game, that base wants a home in base_mapping.
+# Styling and sound follow Sharket's own convention: bright green plate, and an
+# alert that literally says "please update the filter". It is meant to be
+# unmistakable rather than pretty - seeing one in game means that base wants a
+# home in base_mapping.
+#
+# `Rarity > Unique` is a defensive first pass for any rarity tier GGG adds later,
+# which would otherwise fall past every Rarity-gated rule in the tree.
+
 Show
-    SetFontSize 40
+    Rarity > Unique
+    SetFontSize 45
     SetTextColor 255 255 255 255
-    SetBorderColor 0 200 255 255
-    SetBackgroundColor 0 40 60 255
-    PlayAlertSound 4 200
-    PlayEffect Cyan
-    MinimapIcon 1 Cyan Kite
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 0 255 0 255
+    CustomAlertSound "sound_files\Sharket掉落音效\拜托~更新一下过滤吧.mp3" 150
+    PlayEffect Green
+    MinimapIcon 0 Green Star
+
+Show
+    SetFontSize 45
+    SetTextColor 255 255 255 255
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 0 255 0 255
+    CustomAlertSound "sound_files\Sharket掉落音效\拜托~更新一下过滤吧.mp3" 150
+    PlayEffect Green
+    MinimapIcon 0 Green Star
 
