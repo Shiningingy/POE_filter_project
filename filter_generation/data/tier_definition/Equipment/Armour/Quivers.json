@@ -70,7 +70,7 @@
         "en": "T2: Good rare bases",
         "ch": "T2: 优质稀有底材"
       },
-      "hide_at_strictness": 4
+      "hide_at_strictness": 3
     },
     "Tier 3 Quivers": {
       "hideable": false,
@@ -89,7 +89,7 @@
         "AreaLevel": ">= 68",
         "Rarity": "Rare"
       },
-      "hide_at_strictness": 3
+      "hide_at_strictness": 2
     },
     "Tier Hide Quivers": {
       "hideable": true,
@@ -119,7 +119,7 @@
         "AreaLevel": ">= 68",
         "Rarity": "Rare"
       },
-      "hide_at_strictness": 2,
+      "hide_at_strictness": 1,
       "localization": {
         "en": "T4: Trash net (shards)",
         "ch": "T4: 兜底（碎片）"

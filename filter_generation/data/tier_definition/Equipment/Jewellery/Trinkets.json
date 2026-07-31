@@ -46,7 +46,8 @@
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
-      }
+      },
+      "hide_at_strictness": 5
     },
     "Tier 2 Trinkets": {
       "conditions": {
@@ -63,7 +64,8 @@
       "localization": {
         "en": "T2: Decent Bases",
         "ch": "T2: 常用底材"
-      }
+      },
+      "hide_at_strictness": 3
     },
     "Tier 3 Trinkets": {
       "hideable": false,
@@ -80,7 +82,8 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
-      }
+      },
+      "hide_at_strictness": 2
     },
     "Tier 4 Trinkets": {
       "hideable": false,
@@ -97,7 +100,8 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
-      }
+      },
+      "hide_at_strictness": 1
     },
     "Tier Hide Trinkets": {
       "hideable": true,
