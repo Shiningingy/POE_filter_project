@@ -706,7 +706,11 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
             </div>
             <div className="bottom-row extra-btns">
               <button
-                className={`extra-toggle-btn ${style.PlayAlertSound ? "active" : ""}`}
+                /* isColorActive, not truthiness: a removed sound is stored as the
+                   "disabled:" sentinel, which IS truthy — so the button kept
+                   rendering active (blue) after the sound had been removed. Same
+                   for the icon and beam toggles below. */
+                className={`extra-toggle-btn ${isColorActive(style.PlayAlertSound) ? "active" : ""}`}
                 onClick={(e) => {
                   e.stopPropagation();
                   toggleExtra("PlayAlertSound");
@@ -715,7 +719,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 {t.sound}
               </button>
               <button
-                className={`extra-toggle-btn ${style.MinimapIcon ? "active" : ""}`}
+                className={`extra-toggle-btn ${isColorActive(style.MinimapIcon) ? "active" : ""}`}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -739,7 +743,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 {t.icon}
               </button>
               <button
-                className={`extra-toggle-btn ${style.PlayEffect ? "active" : ""}`}
+                className={`extra-toggle-btn ${isColorActive(style.PlayEffect) ? "active" : ""}`}
                 style={{
                   display: "flex",
                   alignItems: "center",
