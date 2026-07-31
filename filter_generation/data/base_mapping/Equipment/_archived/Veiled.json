@@ -7,7 +7,7 @@
       "en": "Veiled Items",
       "ch": "隐匿物品"
     },
-    "theme_category": "Stackable Currency",
+    "theme_category": "Veiled",
     "excluded_modes": [
       "ruthless"
     ],

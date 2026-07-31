@@ -7,7 +7,7 @@
       "en": "Heist Targets",
       "ch": "盗贼目标"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Heist"
   },
   "mapping": {
     "Heist Target": "Heist Target T1"

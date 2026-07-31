@@ -99,7 +99,7 @@
       "en": "Stackable Currency",
       "ch": "可堆叠通货"
     },
-    "theme_category": "Stackable Currency",
+    "theme_category": "Currency",
     "match_modes": {
       "Mirror of Kalandra": "exact"
     }
