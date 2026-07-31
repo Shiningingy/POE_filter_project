@@ -58,7 +58,8 @@
         "Capricious Spiritblade": "莫测魂刃",
         "Anarchic Spiritblade": "无序魂刃",
         "Midnight Blade": "夜语长剑",
-        "Reaver Sword": "残暴巨剑"
+        "Reaver Sword": "残暴巨剑",
+        "Ghostflame Blade": "鬼火长剑"
       }
     },
     "item_class": {
@@ -124,7 +125,8 @@
     "Tiger Hook": "Tier 4 Swords",
     "Fickle Spiritblade": "Tier 4 Swords",
     "Capricious Spiritblade": "Tier 4 Swords",
-    "Anarchic Spiritblade": "Tier 4 Swords"
+    "Anarchic Spiritblade": "Tier 4 Swords",
+    "Ghostflame Blade": "Tier 2 Swords"
   },
   "rules": [
     {

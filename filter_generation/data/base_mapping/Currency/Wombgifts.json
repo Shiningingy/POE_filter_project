@@ -1,0 +1,24 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Wombgifts",
+      "ch": "孕育赠礼"
+    },
+    "theme_category": "Wombgifts",
+    "localization": {
+      "ch": {
+        "Provisioning Wombgift": "供养孕育赠礼",
+        "Lavish Wombgift": "丰裕孕育赠礼",
+        "Ancient Wombgift": "远古孕育赠礼",
+        "Mysterious Wombgift": "神秘孕育赠礼"
+      }
+    }
+  },
+  "mapping": {
+    "Ancient Wombgift": "Tier 2 Wombgifts",
+    "Lavish Wombgift": "Tier 2 Wombgifts",
+    "Mysterious Wombgift": "Tier 2 Wombgifts",
+    "Provisioning Wombgift": "Tier 2 Wombgifts"
+  },
+  "rules": []
+}

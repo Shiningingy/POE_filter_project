@@ -153,6 +153,26 @@
             "en": "Runegrafts",
             "ch": "符文嫁接"
           }
+        },
+        {
+          "path": "Currency/Corpses.json",
+          "tier_path": "tier_definition/Currency/Corpses.json",
+          "mapping_path": "base_mapping/Currency/Corpses.json",
+          "target_category": "Corpses",
+          "localization": {
+            "en": "Corpses",
+            "ch": "尸体"
+          }
+        },
+        {
+          "path": "Currency/Wombgifts.json",
+          "tier_path": "tier_definition/Currency/Wombgifts.json",
+          "mapping_path": "base_mapping/Currency/Wombgifts.json",
+          "target_category": "Wombgifts",
+          "localization": {
+            "en": "Wombgifts",
+            "ch": "孕育赠礼"
+          }
         }
       ]
     },

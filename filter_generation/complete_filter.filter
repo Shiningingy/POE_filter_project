@@ -15,20 +15,22 @@
 #    [22000] 装备 Equipment - 特殊 Special - 势力装备 Influenced
 #    [23000] 装备 Equipment - 优先精品底材 Crafting Priority
 #  [30000] 通货 Currency
-#    [31000] 通货 Currency - 可堆叠通货 Delirium Orbs
-#    [32000] 通货 Currency - 可堆叠通货 Enshrouding Crystals
-#    [33000] 通货 Currency - 可堆叠通货 Essences
-#    [34000] 通货 Currency - 可堆叠通货 Fossils
-#    [35000] 通货 Currency - 可堆叠通货 General
-#    [36000] 通货 Currency - 金币 Gold
-#    [37000] 通货 Currency - 庄园 Harvest
-#    [38000] 通货 Currency - 可堆叠通货 Heist Currency
-#    [39000] 通货 Currency - 可堆叠通货 Incursion Vials
-#    [40000] 通货 Currency - 圣油 Oils
-#    [41000] 通货 Currency - 可堆叠通货 Omens
-#    [42000] 通货 Currency - 可堆叠通货 Runegrafts
-#    [43000] 通货 Currency - 可堆叠通货 Tainted Currency
-#    [44000] 通货 Currency - _archived _archived - 裂隙 Breach
+#    [31000] 通货 Currency - 尸体 Corpses
+#    [32000] 通货 Currency - 可堆叠通货 Delirium Orbs
+#    [33000] 通货 Currency - 可堆叠通货 Enshrouding Crystals
+#    [34000] 通货 Currency - 可堆叠通货 Essences
+#    [35000] 通货 Currency - 可堆叠通货 Fossils
+#    [36000] 通货 Currency - 可堆叠通货 General
+#    [37000] 通货 Currency - 金币 Gold
+#    [38000] 通货 Currency - 庄园 Harvest
+#    [39000] 通货 Currency - 可堆叠通货 Heist Currency
+#    [40000] 通货 Currency - 可堆叠通货 Incursion Vials
+#    [41000] 通货 Currency - 圣油 Oils
+#    [42000] 通货 Currency - 可堆叠通货 Omens
+#    [43000] 通货 Currency - 可堆叠通货 Runegrafts
+#    [44000] 通货 Currency - 可堆叠通货 Tainted Currency
+#    [45000] 通货 Currency - 孕育赠礼 Wombgifts
+#    [46000] 通货 Currency - _archived _archived - 裂隙 Breach
 #  [40000] Curse of the Allflame Curse of the Allflame
 #    [41000] Curse of the Allflame Curse of the Allflame - 笼罩物品 Enshrouded Gear
 #    [42000] Curse of the Allflame Curse of the Allflame - 可堆叠通货 Curse of the Allflame
@@ -996,9 +998,59 @@ Show
 # [[30000]] 通货 Currency
 #===================================================================================================================
 
-#==[31000]-通货 Currency - 可堆叠通货 Delirium Orbs==
+#==[31000]-通货 Currency - 尸体 Corpses==
 
-#==[31001]- Delirium Orbs -T0: 顶级/核心 可堆叠通货 - 自动音效：雾魇宝珠 - 精确==
+#==[31001]- Corpses -T1: 顶级尸体 尸体 - 基础 - 精确==
+Show
+    BaseType == "Perfect Forest Tiger" "Perfect Warlord"
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 42 35 11 255
+    PlayEffect Orange
+    MinimapIcon 1 Orange Diamond
+
+
+#==[31002]- Corpses -T2: 高价值尸体 尸体 - 基础 - 精确==
+Show
+    BaseType == "Perfect Adherent of Zarokh" "Perfect Astral Lich" "Perfect Blasphemer" "Perfect Blood Demon" "Perfect Conjuror of Rot" "Perfect Dancing Sword" "Perfect Dark Marionette" "Perfect Dark Reaper" "Perfect Druidic Alchemist" "Perfect Eldritch Eye" "Perfect Fiery Cannibal" "Perfect Forest Warrior" "Perfect Frozen Cannibal" "Perfect Guardian Turtle" "Perfect Half-remembered Goliath" "Perfect Hulking Miscreation" "Perfect Hydra" "Perfect Judgemental Spirit" "Perfect Meatsack" "Perfect Naval Officer" "Perfect Needle Horror" "Perfect Pain Artist" "Perfect Primal Demiurge" "Perfect Primal Thunderbird" "Perfect Runic Skeleton" "Perfect Sanguimancer Demon" "Perfect Sawblade Horror" "Perfect Serpent Warrior" "Perfect Shadow Construct" "Perfect Slashing Horror" "Perfect Spider Matriarch" "Perfect Spirit of Fortune"
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    MinimapIcon 1 Orange Circle
+
+
+#==[31003]- Corpses -T3: 常用尸体 尸体 - 基础 - 精确==
+Show
+    BaseType == "Adherent of Zarokh" "Astral Lich" "Blasphemer" "Blood Demon" "Conjuror of Rot" "Dancing Sword" "Dark Marionette" "Dark Reaper" "Druidic Alchemist" "Eldritch Eye" "Fiery Cannibal" "Forest Tiger" "Forest Warrior" "Frozen Cannibal" "Guardian Turtle" "Half-remembered Goliath" "Hulking Miscreation" "Hydra" "Imperfect Adherent of Zarokh" "Imperfect Astral Lich" "Imperfect Conjuror of Rot" "Judgemental Spirit" "Meatsack" "Naval Officer" "Needle Horror" "Pain Artist" "Primal Demiurge" "Primal Thunderbird" "Runic Skeleton" "Sanguimancer Demon" "Sawblade Horror" "Serpent Warrior" "Shadow Construct" "Slashing Horror" "Spider Matriarch" "Spirit of Fortune" "Warlord"
+    SetFontSize 36
+    SetTextColor 225 199 115 255
+    SetBorderColor 117 96 30 255
+    SetBackgroundColor 10 10 13 255
+
+
+#==[31004]- Corpses -T4: 低价值尸体 尸体 - 基础 - 精确==
+Show
+    BaseType == "Imperfect Blasphemer" "Imperfect Blood Demon" "Imperfect Dancing Sword" "Imperfect Dark Marionette" "Imperfect Dark Reaper" "Imperfect Druidic Alchemist" "Imperfect Eldritch Eye" "Imperfect Fiery Cannibal" "Imperfect Forest Tiger" "Imperfect Forest Warrior" "Imperfect Frozen Cannibal" "Imperfect Guardian Turtle" "Imperfect Half-remembered Goliath" "Imperfect Hulking Miscreation" "Imperfect Hydra" "Imperfect Judgemental Spirit" "Imperfect Meatsack" "Imperfect Naval Officer" "Imperfect Needle Horror" "Imperfect Pain Artist" "Imperfect Primal Demiurge" "Imperfect Primal Thunderbird" "Imperfect Runic Skeleton" "Imperfect Sanguimancer Demon" "Imperfect Sawblade Horror" "Imperfect Serpent Warrior" "Imperfect Shadow Construct" "Imperfect Slashing Horror" "Imperfect Spider Matriarch" "Imperfect Spirit of Fortune" "Imperfect Warlord"
+    SetFontSize 34
+    SetTextColor 178 161 112 255
+    SetBorderColor 64 52 16 255
+    SetBackgroundColor 0 0 0 0
+
+
+#==[31005]- Corpses -其余尸体 尸体 - Class Condition==
+Show
+    Class == "Corpses"
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
+
+
+#==[32000]-通货 Currency - 可堆叠通货 Delirium Orbs==
+
+#==[32001]- Delirium Orbs -T0: 顶级/核心 可堆叠通货 - 自动音效：雾魇宝珠 - 精确==
 Show
     BaseType == "Delirium Orb"
     SetFontSize 45
@@ -1010,9 +1062,9 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[32000]-通货 Currency - 可堆叠通货 Enshrouding Crystals==
+#==[33000]-通货 Currency - 可堆叠通货 Enshrouding Crystals==
 
-#==[32001]- Enshrouding Crystals -笼罩水晶 可堆叠通货 - 基础 - 精确==
+#==[33001]- Enshrouding Crystals -笼罩水晶 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Imperial Enshrouding Crystal" "Karui Enshrouding Crystal" "Maraketh Enshrouding Crystal" "Templar Enshrouding Crystal" "Vaal Enshrouding Crystal"
     SetFontSize 39
@@ -1023,9 +1075,9 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[33000]-通货 Currency - 可堆叠通货 Essences==
+#==[34000]-通货 Currency - 可堆叠通货 Essences==
 
-#==[33001]- Essences -T0: 顶级/核心 可堆叠通货 - 基础 - 精确==
+#==[34001]- Essences -T0: 顶级/核心 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Essence of Delirium" "Essence of Desolation" "Essence of Horror" "Essence of Hysteria" "Essence of Insanity"
     SetFontSize 45
@@ -1037,7 +1089,7 @@ Show
     MinimapIcon 0 Blue Star
 
 
-#==[33002]- Essences -T1: 顶级精华 可堆叠通货 - #1 T7 - 自选==
+#==[34002]- Essences -T1: 顶级精华 可堆叠通货 - #1 T7 - 自选==
 Show
     BaseType "Deafening Essence of"
     SetFontSize 42
@@ -1049,7 +1101,7 @@ Show
     MinimapIcon 1 Blue Diamond
 
 
-#==[33003]- Essences -T2: 高级精华 可堆叠通货 - #1 T6和T5 - 自选==
+#==[34003]- Essences -T2: 高级精华 可堆叠通货 - #1 T6和T5 - 自选==
 Show
     BaseType "Shrieking Essence of" "Screaming Essence of"
     SetFontSize 39
@@ -1060,7 +1112,7 @@ Show
     MinimapIcon 1 Blue Circle
 
 
-#==[33004]- Essences -T3: 普通精华 可堆叠通货 - #1 剩余 - 自选==
+#==[34004]- Essences -T3: 普通精华 可堆叠通货 - #1 剩余 - 自选==
 Show
     Class "Currency"
     BaseType "Essence of"
@@ -1071,9 +1123,9 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\是精华哎.mp3" 300
 
 
-#==[34000]-通货 Currency - 可堆叠通货 Fossils==
+#==[35000]-通货 Currency - 可堆叠通货 Fossils==
 
-#==[34001]- Fossils -T1: 四孔/高价值化石 可堆叠通货 - 基础 - 精确==
+#==[35001]- Fossils -T1: 四孔/高价值化石 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Faceted Fossil" "Fractured Fossil" "Prime Chaotic Resonator"
     SetFontSize 45
@@ -1085,7 +1137,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[34002]- Fossils -T2: 三孔/特殊化石 可堆叠通货 - 基础 - 精确==
+#==[35002]- Fossils -T2: 三孔/特殊化石 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Bloodstained Fossil" "Glyphic Fossil" "Hollow Fossil" "Powerful Chaotic Resonator" "Sanctified Fossil" "Tangled Fossil"
     SetFontSize 42
@@ -1097,7 +1149,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[34003]- Fossils -T3: 双孔/高级化石 可堆叠通货 - 基础 - 精确==
+#==[35003]- Fossils -T3: 双孔/高级化石 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Aetheric Fossil" "Bound Fossil" "Corroded Fossil" "Deft Fossil" "Fundamental Fossil" "Gilded Fossil" "Opulent Fossil" "Potent Chaotic Resonator" "Serrated Fossil" "Shuddering Fossil"
     SetFontSize 39
@@ -1108,7 +1160,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[34004]- Fossils -自定义阶级 #1 可堆叠通货 - 基础 - 精确==
+#==[35004]- Fossils -自定义阶级 #1 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Aberrant Fossil" "Dense Fossil" "Frigid Fossil" "Jagged Fossil" "Lucent Fossil" "Metallic Fossil" "Primitive Chaotic Resonator" "Prismatic Fossil" "Pristine Fossil" "Scorched Fossil"
     SetFontSize 36
@@ -1117,9 +1169,9 @@ Show
     SetBackgroundColor 10 10 13 255
 
 
-#==[35000]-通货 Currency - 可堆叠通货 General==
+#==[36000]-通货 Currency - 可堆叠通货 General==
 
-#==[35001]- General -T0: 顶级通货 可堆叠通货 - 自动音效：卡兰德的魔镜 - 精确==
+#==[36001]- General -T0: 顶级通货 可堆叠通货 - 自动音效：卡兰德的魔镜 - 精确==
 Show
     BaseType == "Mirror of Kalandra"
     SetFontSize 45
@@ -1131,7 +1183,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[35002]- General -T0: 顶级通货 可堆叠通货 - 自动音效：永恒宝珠 - 精确==
+#==[36002]- General -T0: 顶级通货 可堆叠通货 - 自动音效：永恒宝珠 - 精确==
 Show
     BaseType == "Eternal Orb"
     SetFontSize 45
@@ -1143,7 +1195,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[35003]- General -T0: 顶级通货 可堆叠通货 - 自动音效：白化的羽毛 - 精确==
+#==[36003]- General -T0: 顶级通货 可堆叠通货 - 自动音效：白化的羽毛 - 精确==
 Show
     BaseType == "Albino Rhoa Feather"
     SetFontSize 45
@@ -1155,7 +1207,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[35004]- General -T0: 顶级通货 可堆叠通货 - 自动音效：破溃宝珠 - 精确==
+#==[36004]- General -T0: 顶级通货 可堆叠通货 - 自动音效：破溃宝珠 - 精确==
 Show
     BaseType == "Fracturing Orb"
     SetFontSize 45
@@ -1167,7 +1219,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[35005]- General -T0: 顶级通货 可堆叠通货 - 自动音效：倒映薄雾 - 精确==
+#==[36005]- General -T0: 顶级通货 可堆叠通货 - 自动音效：倒映薄雾 - 精确==
 Show
     BaseType == "Reflecting Mist"
     SetFontSize 45
@@ -1179,7 +1231,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[35006]- General -T0: 顶级通货 可堆叠通货 - 基础 - 精确==
+#==[36006]- General -T0: 顶级通货 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Hinekora's Lock"
     SetFontSize 45
@@ -1191,7 +1243,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[35007]- General -T1: 神圣石级 可堆叠通货 - 自动音效：神圣石 - 精确==
+#==[36007]- General -T1: 神圣石级 可堆叠通货 - 自动音效：神圣石 - 精确==
 Show
     BaseType == "Divine Orb"
     SetFontSize 42
@@ -1203,7 +1255,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[35008]- General -T1: 神圣石级 可堆叠通货 - 自动音效：冲突石 - 精确==
+#==[36008]- General -T1: 神圣石级 可堆叠通货 - 自动音效：冲突石 - 精确==
 Show
     BaseType == "Orb of Conflict"
     SetFontSize 42
@@ -1215,7 +1267,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[35009]- General -T1: 神圣石级 可堆叠通货 - 自动音效：崇神石 - 精确==
+#==[36009]- General -T1: 神圣石级 可堆叠通货 - 自动音效：崇神石 - 精确==
 Show
     BaseType == "Sacred Orb"
     SetFontSize 42
@@ -1227,7 +1279,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[35010]- General -T1: 神圣石级 可堆叠通货 - 自动音效：古灵混沌石 - 精确==
+#==[36010]- General -T1: 神圣石级 可堆叠通货 - 自动音效：古灵混沌石 - 精确==
 Show
     BaseType == "Eldritch Chaos Orb"
     SetFontSize 42
@@ -1239,7 +1291,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[35011]- General -T1: 神圣石级 可堆叠通货 - 基础 - 精确==
+#==[36011]- General -T1: 神圣石级 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Exceptional Eldritch Ember" "Exceptional Eldritch Ichor" "Foulborn Exalted Orb" "Foulborn Regal Orb" "Mirror Shard" "Orb of Remembrance" "Orb of Unravelling" "Sacred Crystallised Lifeforce"
     SetFontSize 42
@@ -1251,7 +1303,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[35012]- General -T2: 高价值通货 可堆叠通货 - 自动音效：古灵崇高石 - 精确==
+#==[36012]- General -T2: 高价值通货 可堆叠通货 - 自动音效：古灵崇高石 - 精确==
 Show
     BaseType == "Eldritch Exalted Orb"
     SetFontSize 39
@@ -1262,7 +1314,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[35013]- General -T2: 高价值通货 可堆叠通货 - 自动音效：古灵剥离石 - 精确==
+#==[36013]- General -T2: 高价值通货 可堆叠通货 - 自动音效：古灵剥离石 - 精确==
 Show
     BaseType == "Eldritch Orb of Annulment"
     SetFontSize 39
@@ -1273,7 +1325,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[35014]- General -T2: 高价值通货 可堆叠通货 - 自动音效：破溃碎片 - 精确==
+#==[36014]- General -T2: 高价值通货 可堆叠通货 - 自动音效：破溃碎片 - 精确==
 Show
     BaseType == "Fracturing Shard"
     SetFontSize 39
@@ -1284,7 +1336,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[35015]- General -T2: 高价值通货 可堆叠通货 - 基础 - 精确==
+#==[36015]- General -T2: 高价值通货 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Accelerating Catalyst" "Dextral Catalyst" "Fertile Catalyst" "Grand Eldritch Ember" "Grand Eldritch Ichor" "Maven's Chisel of Divination" "Maven's Chisel of Procurement" "Maven's Chisel of Scarabs" "Prismatic Catalyst" "Sinistral Catalyst" "Tempering Catalyst" "Uncarved Gemstone" "Valdo's Puzzle Box"
     SetFontSize 39
@@ -1295,7 +1347,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[35016]- General -T3: 崇高石级 可堆叠通货 - #1 规则 - 精确==
+#==[36016]- General -T3: 崇高石级 可堆叠通货 - #1 规则 - 精确==
 Show
     BaseType == "Chaos Orb"
     StackSize >=10
@@ -1306,7 +1358,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\通货.mp3" 100
 
 
-#==[35017]- General -T3: 崇高石级 可堆叠通货 - 自动音效：崇高石 - 精确==
+#==[36017]- General -T3: 崇高石级 可堆叠通货 - 自动音效：崇高石 - 精确==
 Show
     BaseType == "Exalted Orb"
     SetFontSize 36
@@ -1316,7 +1368,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\崇高石.mp3" 300
 
 
-#==[35018]- General -T3: 崇高石级 可堆叠通货 - 自动音效：远古石 - 精确==
+#==[36018]- General -T3: 崇高石级 可堆叠通货 - 自动音效：远古石 - 精确==
 Show
     BaseType == "Ancient Orb"
     SetFontSize 36
@@ -1326,7 +1378,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\远古石.mp3" 300
 
 
-#==[35019]- General -T3: 崇高石级 可堆叠通货 - 自动音效：剥离石 - 精确==
+#==[36019]- General -T3: 崇高石级 可堆叠通货 - 自动音效：剥离石 - 精确==
 Show
     BaseType == "Orb of Annulment"
     SetFontSize 36
@@ -1336,7 +1388,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\剥离石.mp3" 300
 
 
-#==[35020]- General -T3: 崇高石级 可堆叠通货 - 自动音效：富豪石 - 精确==
+#==[36020]- General -T3: 崇高石级 可堆叠通货 - 自动音效：富豪石 - 精确==
 Show
     BaseType == "Regal Orb"
     SetFontSize 36
@@ -1346,7 +1398,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\富豪石.mp3" 300
 
 
-#==[35021]- General -T3: 崇高石级 可堆叠通货 - 自动音效：异域铸币 - 精确==
+#==[36021]- General -T3: 崇高石级 可堆叠通货 - 自动音效：异域铸币 - 精确==
 Show
     BaseType == "Exotic Coinage"
     SetFontSize 36
@@ -1356,7 +1408,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\异域铸币.mp3" 200
 
 
-#==[35022]- General -T3: 崇高石级 可堆叠通货 - 自动音效：葬礼徽章 - 精确==
+#==[36022]- General -T3: 崇高石级 可堆叠通货 - 自动音效：葬礼徽章 - 精确==
 Show
     BaseType == "Burial Medallion"
     SetFontSize 36
@@ -1366,7 +1418,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\葬礼徽章.mp3" 200
 
 
-#==[35023]- General -T3: 崇高石级 可堆叠通货 - 基础 - 精确==
+#==[36023]- General -T3: 崇高石级 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Abrasive Catalyst" "Foulborn Orb of Augmentation" "Greater Eldritch Ember" "Greater Eldritch Ichor" "Imbued Catalyst" "Maven's Chisel of Avarice" "Maven's Chisel of Proliferation" "Turbulent Catalyst" "Unstable Catalyst"
     SetFontSize 36
@@ -1376,7 +1428,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\通货.mp3" 100
 
 
-#==[35024]- General -T4: 混沌石级 可堆叠通货 - 自动音效：瓦尔宝珠 - 精确==
+#==[36024]- General -T4: 混沌石级 可堆叠通货 - 自动音效：瓦尔宝珠 - 精确==
 Show
     BaseType == "Vaal Orb"
     SetFontSize 34
@@ -1386,7 +1438,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\瓦尔宝珠.mp3" 300
 
 
-#==[35025]- General -T4: 混沌石级 可堆叠通货 - 自动音效：重铸石 - 精确==
+#==[36025]- General -T4: 混沌石级 可堆叠通货 - 自动音效：重铸石 - 精确==
 Show
     BaseType == "Orb of Scouring"
     SetFontSize 34
@@ -1396,7 +1448,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\重铸石.mp3" 300
 
 
-#==[35026]- General -T4: 混沌石级 可堆叠通货 - 自动音效：幻色石 - 精确==
+#==[36026]- General -T4: 混沌石级 可堆叠通货 - 自动音效：幻色石 - 精确==
 Show
     BaseType == "Chromatic Orb"
     SetFontSize 34
@@ -1406,7 +1458,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\幻色石.mp3" 100
 
 
-#==[35027]- General -T4: 混沌石级 可堆叠通货 - 自动音效：祝福石 - 精确==
+#==[36027]- General -T4: 混沌石级 可堆叠通货 - 自动音效：祝福石 - 精确==
 Show
     BaseType == "Blessed Orb"
     SetFontSize 34
@@ -1416,7 +1468,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\祝福石.mp3" 200
 
 
-#==[35028]- General -T4: 混沌石级 可堆叠通货 - 自动音效：废金属 - 精确==
+#==[36028]- General -T4: 混沌石级 可堆叠通货 - 自动音效：废金属 - 精确==
 Show
     BaseType == "Scrap Metal"
     SetFontSize 34
@@ -1426,7 +1478,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\废金属.mp3" 200
 
 
-#==[35029]- General -T4: 混沌石级 可堆叠通货 - 基础 - 精确==
+#==[36029]- General -T4: 混沌石级 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Abrasive Catalyst" "Accelerating Catalyst" "Annulment Shard" "Astragali" "Chaos Orb" "Exalted Shard" "Gemcutter's Prism" "Imbued Catalyst" "Intrinsic Catalyst" "Lesser Eldritch Ember" "Lesser Eldritch Ichor" "Noxious Catalyst" "Orb of Intention" "Unstable Catalyst"
     SetFontSize 34
@@ -1436,7 +1488,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\通货.mp3" 100
 
 
-#==[35030]- General -T5:点金石级 可堆叠通货 - 自动音效：后悔石 - 精确==
+#==[36030]- General -T5:点金石级 可堆叠通货 - 自动音效：后悔石 - 精确==
 Show
     BaseType == "Orb of Regret"
     SetFontSize 31
@@ -1446,7 +1498,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\后悔石.mp3" 300
 
 
-#==[35031]- General -T5:点金石级 可堆叠通货 - 自动音效：粉碎石 - 精确==
+#==[36031]- General -T5:点金石级 可堆叠通货 - 自动音效：粉碎石 - 精确==
 Show
     BaseType == "Orb of Unmaking"
     SetFontSize 31
@@ -1456,7 +1508,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\粉碎石.mp3" 200
 
 
-#==[35032]- General -T5:点金石级 可堆叠通货 - 自动音效：点金石 - 精确==
+#==[36032]- General -T5:点金石级 可堆叠通货 - 自动音效：点金石 - 精确==
 Show
     BaseType == "Orb of Alchemy"
     SetFontSize 31
@@ -1466,7 +1518,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\点金石.mp3" 300
 
 
-#==[35033]- General -T5:点金石级 可堆叠通货 - 自动音效：链结石 - 精确==
+#==[36033]- General -T5:点金石级 可堆叠通货 - 自动音效：链结石 - 精确==
 Show
     BaseType == "Orb of Fusing"
     SetFontSize 31
@@ -1476,7 +1528,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\链结石.mp3" 200
 
 
-#==[35034]- General -T5:点金石级 可堆叠通货 - 基础 - 精确==
+#==[36034]- General -T5:点金石级 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Chaos Shard"
     SetFontSize 31
@@ -1485,7 +1537,7 @@ Show
     SetBackgroundColor 0 0 0 0
 
 
-#==[35035]- General -T6： 改造石级 可堆叠通货 - 自动音效：玻璃弹珠 - 精确==
+#==[36035]- General -T6： 改造石级 可堆叠通货 - 自动音效：玻璃弹珠 - 精确==
 Show
     BaseType == "Glassblower's Bauble"
     SetFontSize 32
@@ -1495,7 +1547,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\玻璃弹珠.mp3" 100
 
 
-#==[35036]- General -T6： 改造石级 可堆叠通货 - 自动音效：改造石 - 精确==
+#==[36036]- General -T6： 改造石级 可堆叠通货 - 自动音效：改造石 - 精确==
 Show
     BaseType == "Orb of Alteration"
     SetFontSize 32
@@ -1505,7 +1557,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\改造石.mp3" 200
 
 
-#==[35037]- General -T6： 改造石级 可堆叠通货 - 自动音效：机会石 - 精确==
+#==[36037]- General -T6： 改造石级 可堆叠通货 - 自动音效：机会石 - 精确==
 Show
     BaseType == "Orb of Chance"
     SetFontSize 32
@@ -1515,7 +1567,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\机会石.mp3" 200
 
 
-#==[35038]- General -T6： 改造石级 可堆叠通货 - 自动音效：工匠石 - 精确==
+#==[36038]- General -T6： 改造石级 可堆叠通货 - 自动音效：工匠石 - 精确==
 Show
     BaseType == "Jeweller's Orb"
     SetFontSize 32
@@ -1525,7 +1577,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\工匠石.mp3" 100
 
 
-#==[35039]- General -T6： 改造石级 可堆叠通货 - 自动音效：护甲片 - 精确==
+#==[36039]- General -T6： 改造石级 可堆叠通货 - 自动音效：护甲片 - 精确==
 Show
     BaseType == "Armourer's Scrap"
     SetFontSize 32
@@ -1535,7 +1587,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\护甲片.mp3" 100
 
 
-#==[35040]- General -T6： 改造石级 可堆叠通货 - 自动音效：磨刀石 - 精确==
+#==[36040]- General -T6： 改造石级 可堆叠通货 - 自动音效：磨刀石 - 精确==
 Show
     BaseType == "Blacksmith's Whetstone"
     SetFontSize 32
@@ -1545,7 +1597,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\磨刀石.mp3" 100
 
 
-#==[35041]- General -T7: 低价值通货 可堆叠通货 - 自动音效：增幅石 - 精确==
+#==[36041]- General -T7: 低价值通货 可堆叠通货 - 自动音效：增幅石 - 精确==
 Show
     BaseType == "Orb of Augmentation"
     SetFontSize 32
@@ -1555,7 +1607,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\增幅石.mp3" 100
 
 
-#==[35042]- General -T7: 低价值通货 可堆叠通货 - 自动音效：蜕变石 - 精确==
+#==[36042]- General -T7: 低价值通货 可堆叠通货 - 自动音效：蜕变石 - 精确==
 Show
     BaseType == "Orb of Transmutation"
     SetFontSize 32
@@ -1565,7 +1617,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\蜕变石.mp3" 100
 
 
-#==[35043]- General -T7: 低价值通货 可堆叠通货 - 自动音效：传送卷轴 - 精确==
+#==[36043]- General -T7: 低价值通货 可堆叠通货 - 自动音效：传送卷轴 - 精确==
 Show
     BaseType == "Portal Scroll"
     SetFontSize 32
@@ -1575,7 +1627,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\传送卷轴.mp3" 100
 
 
-#==[35044]- General -T7: 低价值通货 可堆叠通货 - 自动音效：知识卷轴 - 精确==
+#==[36044]- General -T7: 低价值通货 可堆叠通货 - 自动音效：知识卷轴 - 精确==
 Show
     BaseType == "Scroll of Wisdom"
     SetFontSize 32
@@ -1585,7 +1637,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\知识卷轴.mp3" 100
 
 
-#==[35045]- General -T7: 低价值通货 可堆叠通货 - 基础 - 精确==
+#==[36045]- General -T7: 低价值通货 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Alchemy Shard" "Alteration Shard" "Regal Shard" "Scroll Fragment" "Transmutation Shard"
     SetFontSize 32
@@ -1594,9 +1646,9 @@ Show
     SetBackgroundColor 0 0 0 255
 
 
-#==[36000]-通货 Currency - 金币 Gold==
+#==[37000]-通货 Currency - 金币 Gold==
 
-#==[36001]- Gold -Tier 1: 大量金币 金币 - #1 >3000 - 精确==
+#==[37001]- Gold -Tier 1: 大量金币 金币 - #1 >3000 - 精确==
 Show
     BaseType == "Gold"
     StackSize >=3000
@@ -1609,7 +1661,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[36002]- Gold -T2: 较多金币 金币 - #1 >100 - 精确==
+#==[37002]- Gold -T2: 较多金币 金币 - #1 >100 - 精确==
 Show
     BaseType == "Gold"
     StackSize >=100
@@ -1622,7 +1674,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[36003]- Gold -T3: 金币 金币 - 基础 - 精确==
+#==[37003]- Gold -T3: 金币 金币 - 基础 - 精确==
 Show
     BaseType == "Gold"
     SetFontSize 39
@@ -1633,9 +1685,9 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[37000]-通货 Currency - 庄园 Harvest==
+#==[38000]-通货 Currency - 庄园 Harvest==
 
-#==[37001]- Harvest -T0: 大量命能 庄园 - #1 >1000 - 精确==
+#==[38001]- Harvest -T0: 大量命能 庄园 - #1 >1000 - 精确==
 Show
     BaseType == "Primal Crystallised Lifeforce" "Vivid Crystallised Lifeforce" "Wild Crystallised Lifeforce"
     StackSize >=1000
@@ -1648,7 +1700,7 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[37002]- Harvest -T1: 中量命能 庄园 - #1 >= 300 - 精确==
+#==[38002]- Harvest -T1: 中量命能 庄园 - #1 >= 300 - 精确==
 Show
     BaseType == "Primal Crystallised Lifeforce" "Vivid Crystallised Lifeforce" "Wild Crystallised Lifeforce"
     StackSize >= 300
@@ -1661,7 +1713,7 @@ Show
     MinimapIcon 1 Grey Diamond
 
 
-#==[37003]- Harvest -T1: 中量命能 庄园 - #2 憎恨结晶 - 精确==
+#==[38003]- Harvest -T1: 中量命能 庄园 - #2 憎恨结晶 - 精确==
 Show
     BaseType == "Crystallised Rancour"
     SetFontSize 42
@@ -1673,7 +1725,7 @@ Show
     MinimapIcon 1 Grey Diamond
 
 
-#==[37004]- Harvest -T2: 少量命能 庄园 - #1 >=100 - 精确==
+#==[38004]- Harvest -T2: 少量命能 庄园 - #1 >=100 - 精确==
 Show
     BaseType == "Primal Crystallised Lifeforce" "Vivid Crystallised Lifeforce" "Wild Crystallised Lifeforce"
     StackSize >=100
@@ -1685,7 +1737,7 @@ Show
     MinimapIcon 1 Grey Circle
 
 
-#==[37005]- Harvest -T3: 命能 庄园 - 基础 - 精确==
+#==[38005]- Harvest -T3: 命能 庄园 - 基础 - 精确==
 Show
     BaseType == "Primal Crystallised Lifeforce" "Vivid Crystallised Lifeforce" "Wild Crystallised Lifeforce"
     SetFontSize 36
@@ -1695,9 +1747,9 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\命能.mp3" 100
 
 
-#==[38000]-通货 Currency - 可堆叠通货 Heist Currency==
+#==[39000]-通货 Currency - 可堆叠通货 Heist Currency==
 
-#==[38001]- Heist Currency -T0: 大量印记 可堆叠通货 - #1 >=200 - 精确==
+#==[39001]- Heist Currency -T0: 大量印记 可堆叠通货 - #1 >=200 - 精确==
 Show
     BaseType == "Rogue's Marker"
     StackSize >=200
@@ -1710,7 +1762,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[38002]- Heist Currency -赏金猎人通货 可堆叠通货 - 基础 - 精确==
+#==[39002]- Heist Currency -赏金猎人通货 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Rogue's Marker"
     SetFontSize 42
@@ -1721,9 +1773,9 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[39000]-通货 Currency - 可堆叠通货 Incursion Vials==
+#==[40000]-通货 Currency - 可堆叠通货 Incursion Vials==
 
-#==[39001]- Incursion Vials -穿越魔瓶 可堆叠通货 - 基础 - 精确==
+#==[40001]- Incursion Vials -穿越魔瓶 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Vial of Awakening" "Vial of Consequence" "Vial of Dominance" "Vial of Fate" "Vial of Sacrifice" "Vial of Summoning" "Vial of Transcendence" "Vial of the Ghost" "Vial of the Ritual"
     SetFontSize 39
@@ -1734,9 +1786,9 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[40000]-通货 Currency - 圣油 Oils==
+#==[41000]-通货 Currency - 圣油 Oils==
 
-#==[40001]- Oils -T0: 顶级/核心 圣油 - 基础 - 精确==
+#==[41001]- Oils -T0: 顶级/核心 圣油 - 基础 - 精确==
 Show
     BaseType == "Golden Oil" "Prismatic Oil" "Reflective Oil" "Silver Oil" "Tainted Oil"
     SetFontSize 45
@@ -1748,7 +1800,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[40002]- Oils -T1: 顶级圣油 圣油 - 基础 - 精确==
+#==[41002]- Oils -T1: 顶级圣油 圣油 - 基础 - 精确==
 Show
     BaseType == "Black Oil" "Crimson Oil" "Opalescent Oil"
     SetFontSize 42
@@ -1760,7 +1812,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[40003]- Oils -T2: 中级圣油 圣油 - 基础 - 精确==
+#==[41003]- Oils -T2: 中级圣油 圣油 - 基础 - 精确==
 Show
     BaseType == "Azure Oil" "Indigo Oil" "Violet Oil"
     SetFontSize 39
@@ -1771,7 +1823,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[40004]- Oils -T3: 普通圣油 圣油 - 基础 - 精确==
+#==[41004]- Oils -T3: 普通圣油 圣油 - 基础 - 精确==
 Show
     BaseType == "Amber Oil" "Clear Oil" "Sepia Oil" "Teal Oil" "Verdant Oil"
     SetFontSize 36
@@ -1780,9 +1832,9 @@ Show
     SetBackgroundColor 10 10 13 255
 
 
-#==[41000]-通货 Currency - 可堆叠通货 Omens==
+#==[42000]-通货 Currency - 可堆叠通货 Omens==
 
-#==[41001]- Omens -T0: 预兆 可堆叠通货 - 基础 - 精确==
+#==[42001]- Omens -T0: 预兆 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Omen of Connections" "Omen of Fortune"
     SetFontSize 45
@@ -1793,7 +1845,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[41002]- Omens -T1: 高价值预兆 可堆叠通货 - 基础 - 精确==
+#==[42002]- Omens -T1: 高价值预兆 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Omen of Amelioration" "Omen of Trichromatism" "Omen of the Jeweller"
     SetFontSize 42
@@ -1805,7 +1857,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[41003]- Omens -T2: 普通预兆 可堆叠通货 - 基础 - 精确==
+#==[42003]- Omens -T2: 普通预兆 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Omen of Adrenaline" "Omen of Brilliance" "Omen of Death's Door" "Omen of Death-dancing" "Omen of Refreshment" "Omen of Return" "Omen of the Soul Devourer"
     SetFontSize 39
@@ -1815,9 +1867,9 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[42000]-通货 Currency - 可堆叠通货 Runegrafts==
+#==[43000]-通货 Currency - 可堆叠通货 Runegrafts==
 
-#==[42001]- Runegrafts -T1: 符文嵌板 可堆叠通货 - 基础 - 精确==
+#==[43001]- Runegrafts -T1: 符文嵌板 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Runegraft of Bellows" "Runegraft of Blasphemy" "Runegraft of Gemcraft" "Runegraft of Loyalty" "Runegraft of Quaffing" "Runegraft of Refraction" "Runegraft of Restitching" "Runegraft of Stability" "Runegraft of Time" "Runegraft of Treachery" "Runegraft of the Angler" "Runegraft of the Bound" "Runegraft of the Combatant" "Runegraft of the Fortress" "Runegraft of the Jeweller" "Runegraft of the Novamark" "Runegraft of the River" "Runegraft of the Sinistral" "Runegraft of the Soulwick" "Runegraft of the Warp" "Runegraft of the Witchmark"
     SetFontSize 42
@@ -1829,9 +1881,9 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[43000]-通货 Currency - 可堆叠通货 Tainted Currency==
+#==[44000]-通货 Currency - 可堆叠通货 Tainted Currency==
 
-#==[43001]- Tainted Currency -T1：顶级 可堆叠通货 - 自动音效：污染神泪 - 精确==
+#==[44001]- Tainted Currency -T1：顶级 可堆叠通货 - 自动音效：污染神泪 - 精确==
 Show
     BaseType == "Tainted Divine Teardrop"
     SetFontSize 42
@@ -1843,7 +1895,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[43002]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽神秘石 - 精确==
+#==[44002]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽神秘石 - 精确==
 Show
     BaseType == "Tainted Mythic Orb"
     SetFontSize 39
@@ -1854,7 +1906,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[43003]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽链结石 - 精确==
+#==[44003]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽链结石 - 精确==
 Show
     BaseType == "Tainted Orb of Fusing"
     SetFontSize 39
@@ -1865,7 +1917,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[43004]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽崇高石 - 精确==
+#==[44004]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽崇高石 - 精确==
 Show
     BaseType == "Tainted Exalted Orb"
     SetFontSize 36
@@ -1875,7 +1927,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽崇高石.mp3" 300
 
 
-#==[43005]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽混沌石 - 精确==
+#==[44005]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽混沌石 - 精确==
 Show
     BaseType == "Tainted Chaos Orb"
     SetFontSize 36
@@ -1885,7 +1937,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽混沌石.mp3" 300
 
 
-#==[43006]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽幻色石 - 精确==
+#==[44006]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽幻色石 - 精确==
 Show
     BaseType == "Tainted Chromatic Orb"
     SetFontSize 36
@@ -1895,7 +1947,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽幻色石.mp3" 300
 
 
-#==[43007]- Tainted Currency -T3：中等 可堆叠通货 - 基础 - 精确==
+#==[44007]- Tainted Currency -T3：中等 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Tainted Catalyst"
     SetFontSize 36
@@ -1905,7 +1957,7 @@ Show
     PlayAlertSound 3 300
 
 
-#==[43008]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽磨刀石 - 精确==
+#==[44008]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽磨刀石 - 精确==
 Show
     BaseType == "Tainted Blacksmith's Whetstone"
     SetFontSize 34
@@ -1915,7 +1967,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽磨刀石.mp3" 200
 
 
-#==[43009]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽工匠石 - 精确==
+#==[44009]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽工匠石 - 精确==
 Show
     BaseType == "Tainted Jeweller's Orb"
     SetFontSize 34
@@ -1925,7 +1977,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽工匠石.mp3" 300
 
 
-#==[43010]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽护甲片 - 精确==
+#==[44010]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽护甲片 - 精确==
 Show
     BaseType == "Tainted Armourer's Scrap"
     SetFontSize 34
@@ -1935,9 +1987,30 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\污秽护甲片.mp3" 200
 
 
-#==[44000]-通货 Currency - _archived _archived - 裂隙 Breach==
+#==[45000]-通货 Currency - 孕育赠礼 Wombgifts==
 
-#==[44001]- Breach -T0: 无瑕裂隙石/祝福 裂隙 - 基础 - 精确==
+#==[45001]- Wombgifts -T2: 孕育赠礼 孕育赠礼 - 基础 - 精确==
+Show
+    BaseType == "Ancient Wombgift" "Lavish Wombgift" "Mysterious Wombgift" "Provisioning Wombgift"
+    SetFontSize 39
+    SetTextColor 217 137 176 255
+    SetBorderColor 210 116 162 255
+    SetBackgroundColor 16 16 22 255
+    MinimapIcon 1 Pink Circle
+
+
+#==[45002]- Wombgifts -其余孕育赠礼 孕育赠礼 - Class Condition==
+Show
+    Class == "Wombgifts"
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
+
+
+#==[46000]-通货 Currency - _archived _archived - 裂隙 Breach==
+
+#==[46001]- Breach -T0: 无瑕裂隙石/祝福 裂隙 - 基础 - 精确==
 Show
     BaseType == "Blessing of Chayula"
     SetFontSize 45
@@ -1949,7 +2022,7 @@ Show
     MinimapIcon 0 Orange Star
 
 
-#==[44002]- Breach -T1: 高级裂隙通货 裂隙 - 基础 - 精确==
+#==[46002]- Breach -T1: 高级裂隙通货 裂隙 - 基础 - 精确==
 Show
     BaseType == "Blessing of Uul-Netol" "Splinter of Chayula"
     SetFontSize 42
@@ -1961,7 +2034,7 @@ Show
     MinimapIcon 1 Orange Diamond
 
 
-#==[44003]- Breach -T2: 常用裂隙通货 裂隙 - 基础 - 精确==
+#==[46003]- Breach -T2: 常用裂隙通货 裂隙 - 基础 - 精确==
 Show
     BaseType == "Splinter of Uul-Netol"
     SetFontSize 39
@@ -1972,7 +2045,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[44004]- Breach -T3: 裂隙裂片 裂隙 - 基础 - 精确==
+#==[46004]- Breach -T3: 裂隙裂片 裂隙 - 基础 - 精确==
 Show
     BaseType == "Splinter of Esh" "Splinter of Tul" "Splinter of Xoph"
     SetFontSize 36
@@ -3284,7 +3357,20 @@ Show
     MinimapIcon 0 Grey Star
 
 
-#==[76002]- Swords -T3: 可用稀有底材 单手剑 - 基础 - 精确==
+#==[76002]- Swords -T2: 优质稀有底材 单手剑 - 基础 - 精确==
+Show
+    BaseType == "Ghostflame Blade"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 39
+    SetTextColor 149 166 187 255
+    SetBorderColor 130 150 175 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\金装备.mp3" 100
+    MinimapIcon 1 Grey Circle
+
+
+#==[76003]- Swords -T3: 可用稀有底材 单手剑 - 基础 - 精确==
 Show
     BaseType == "Battered Foil" "Corsair Sword" "Eternal Sword" "Jewelled Foil" "Reaver Sword" "Whalebone Rapier"
     AreaLevel >= 68
@@ -3296,7 +3382,7 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\金装.mp3" 100
 
 
-#==[76003]- Swords -T4: 兜底（碎片） 单手剑 - 基础 - 精确==
+#==[76004]- Swords -T4: 兜底（碎片） 单手剑 - 基础 - 精确==
 Show
     BaseType == "Anarchic Spiritblade" "Ancient Sword" "Antique Rapier" "Apex Rapier" "Baselard" "Basket Rapier" "Battle Sword" "Broad Sword" "Burnished Foil" "Capricious Spiritblade" "Copper Sword" "Courtesan Sword" "Cutlass" "Dancing Sword" "Dragonbone Rapier" "Dragoon Sword" "Dusk Blade" "Elder Sword" "Elegant Foil" "Elegant Sword" "Estoc" "Fancy Foil" "Fickle Spiritblade" "Gemstone Sword" "Gladius" "Graceful Sword" "Grappler" "Harpy Rapier" "Hook Sword" "Imperfect Dancing Sword" "Jagged Foil" "Legion Sword" "Maligaro's Spike" "Midnight Blade" "Perfect Dancing Sword" "Primeval Rapier" "Rusted Spike" "Rusted Sword" "Sabre" "Serrated Foil" "Smallsword" "Spiraled Foil" "Tempered Foil" "Thorn Rapier" "Tiger Hook" "Twilight Blade" "Vaal Blade" "Vaal Rapier" "Variscite Blade" "War Sword" "Wyrmbone Rapier"
     AreaLevel >= 68
