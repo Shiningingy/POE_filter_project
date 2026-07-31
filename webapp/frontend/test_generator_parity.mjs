@@ -20,19 +20,23 @@
 //
 // Run this whenever generate.py or filterGenerator.ts changes.
 // Usage (from webapp/frontend):  node test_generator_parity.mjs
-//   Needs Python on PATH. Re-bakes demo_data (untracked) and restores the tracked
-//   filter_generation/complete_filter.filter + the tier file it briefly patches.
+//   Needs Python on PATH (override with PYTHON=...). Re-bakes demo_data (gitignored),
+//   VERIFIES the bake is fresh before comparing anything (see step 1), and restores the
+//   tracked filter_generation/complete_filter.filter + the tier file it briefly patches.
 
 import { build } from 'esbuild';
 import { execSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, rmSync, readFileSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { mkdtempSync, writeFileSync, rmSync, readFileSync, existsSync, readdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, dirname } from 'node:path';
+import { join, dirname, posix } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));            // webapp/frontend
 const ROOT = join(HERE, '..', '..');                            // project root
 const PY = process.env.PYTHON || 'python';
+const DEMO_DIR = join(HERE, 'public', 'demo_data');
+const INPUT_DIR = join(ROOT, 'filter_generation', 'data');
 const OUTPUT_FILTER = join(ROOT, 'filter_generation', 'complete_filter.filter');
 // Tier briefly patched with a synthetic gate (restored to exact bytes after).
 const GATE_FILE = join(ROOT, 'filter_generation', 'data', 'tier_definition', 'Currency', 'General.json');
@@ -45,10 +49,75 @@ const sh = (cmd) => execSync(cmd, { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe']
 const norm = (s) => s.replace(/\r\n/g, '\n');
 
 // ── 1. Bake fresh data so both generators read identical inputs ──────────────
-// create_demo_bundle.py writes webapp/frontend/public/demo_data/** (untracked)
+// create_demo_bundle.py writes webapp/frontend/public/demo_data/** (GITIGNORED)
 // from the same filter_generation/data/** that generate.py reads directly.
+//
+// ⚠️ The bake is NOT trusted. This whole test is "feed both generators the same
+// inputs and compare", so a bundle that failed to refresh silently downgrades it
+// to "compare fresh Python against frozen data" — which still reports PASS, and
+// did for an entire working session. The output tree is gitignored, so nothing
+// else would ever notice.
+//
+// So: run the bake, then independently recompute the input fingerprint here and
+// require the bundle's stamp to match. A stale or absent bundle is a hard error,
+// never a fallback.
+
+// Mirrors source_fingerprint() in create_demo_bundle.py — deliberately a second
+// implementation, because a verifier that asks the suspect to verify itself is
+// not a verifier. Canonical line per file, sorted by POSIX relpath:
+//   relpath \0 sha256(bytes) \n
+const fingerprintInputs = (dir) => {
+  const files = [];
+  const walk = (abs, rel) => {
+    for (const e of readdirSync(abs, { withFileTypes: true })) {
+      const childAbs = join(abs, e.name);
+      const childRel = rel ? posix.join(rel, e.name) : e.name;
+      if (e.isDirectory()) walk(childAbs, childRel);
+      else if (e.isFile()) files.push([childRel, childAbs]);
+    }
+  };
+  walk(dir, '');
+  files.sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
+  const h = createHash('sha256');
+  for (const [rel, abs] of files) {
+    h.update(rel, 'utf8');
+    h.update('\0');
+    h.update(createHash('sha256').update(readFileSync(abs)).digest('hex'), 'ascii');
+    h.update('\n');
+  }
+  return h.digest('hex');
+};
+
 console.log('Baking demo bundle (create_demo_bundle.py)…');
-sh(`${PY} filter_generation/create_demo_bundle.py`);
+try {
+  sh(`${PY} filter_generation/create_demo_bundle.py`);
+} catch (err) {
+  // sh() pipes stdio, so without this the baker's own diagnosis is swallowed.
+  console.error('\nBAKE FAILED — create_demo_bundle.py did not exit cleanly.');
+  if (err.stdout?.length) console.error(err.stdout.toString());
+  if (err.stderr?.length) console.error(err.stderr.toString());
+  console.error(`(PYTHON=${PY}. On Windows, a bare "python" can resolve to the ` +
+                'Microsoft Store stub, which does not run anything. Set PYTHON= to a real interpreter.)');
+  process.exit(1);
+}
+
+const stampFile = join(DEMO_DIR, 'bake_stamp.json');
+if (!existsSync(stampFile)) {
+  console.error(`\nSTALE BUNDLE — no ${stampFile}.\n` +
+                'The bake reported success but left no verified stamp, so the bundle below is of ' +
+                'unknown age. Refusing to compare against it: a pass here would be meaningless.');
+  process.exit(1);
+}
+const stamp = JSON.parse(readFileSync(stampFile, 'utf8'));
+const liveFingerprint = fingerprintInputs(INPUT_DIR);
+if (stamp.source_fingerprint !== liveFingerprint) {
+  console.error('\nSTALE BUNDLE — demo_data was not rebuilt from the current filter_generation/data.\n' +
+                `  stamped: ${stamp.source_fingerprint}\n` +
+                `  on disk: ${liveFingerprint}\n` +
+                'Both generators must read the same inputs or this test proves nothing.');
+  process.exit(1);
+}
+console.log(`  bundle verified fresh (inputs ${liveFingerprint.slice(0, 16)}…)`);
 
 // ── 2. Bundle the TS generator + client data layer for Node ──────────────────
 // Reuse the axios + localStorage stub harness from test_parity.mjs so the
