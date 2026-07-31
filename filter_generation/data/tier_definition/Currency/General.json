@@ -92,7 +92,7 @@
     "Tier 5 General": {
       "hideable": false,
       "theme": {
-        "Tier": 5
+        "Tier": 7
       },
       "sound": {
         "default_sound_id": -1,
@@ -120,7 +120,7 @@
     },
     "CustomTier 1 General": {
       "theme": {
-        "Tier": "custom",
+        "Tier": 6,
         "FontSize": 36,
         "TextColor": "#FFFFFF",
         "BorderColor": "#AAAAAA",
@@ -138,7 +138,7 @@
     },
     "CustomTier 2 General": {
       "theme": {
-        "Tier": "custom",
+        "Tier": 5,
         "FontSize": 36,
         "TextColor": "#FFFFFF",
         "BorderColor": "#AAAAAA",

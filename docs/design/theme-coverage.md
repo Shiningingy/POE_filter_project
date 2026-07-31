@@ -20,13 +20,13 @@ tree ended up on the default ramp.
 | `Breach Grasping Mail` | 5, 9 | 1 |
 | `Breach Rings` | 5, 9 | 0 _(empty — no rush)_ |
 | `Crafting Bases` | 1, 2, 3, 4, 5, 9 | 171 |
-| `Currency` | 0, 1, 2, 3, 4, 5, 9, custom | 87 |
-| `Curse of the Allflame` | 2, 5, 9, custom | 17 |
+| `Currency` | 0, 1, 2, 3, 4, 5, 6, 7, 9 | 87 |
+| `Curse of the Allflame` | 1, 2, 3, 4, 5, 6, 9 | 17 |
 | `Enshrouded Gear` | 2, 9 | 5 |
 | `Enshrouding Crystals` | 2, 9 | 5 |
 | `Expedition Ward-Bases` | 5, 9 | 10 |
 | `Fragment Splinters` | 0, 1, 2, 9 | 7 |
-| `Heist` | 0, 1, 2, 3, 4, 9, custom | 22 |
+| `Heist` | 0, 1, 2, 3, 4, 9 | 22 |
 | `Heist Experimented` | 5, 9 | 47 |
 | `ID Bestiary` | 5, 9 | 0 _(empty — no rush)_ |
 | `ID Delve` | 5, 9 | 0 _(empty — no rush)_ |
@@ -38,7 +38,7 @@ tree ended up on the default ramp.
 | `Linked` | 5, 9 | 0 _(empty — no rush)_ |
 | `Mirror Ring Bases` | 5, 9 | 5 |
 | `Oils` | 0, 1, 2, 3, 9 | 16 |
-| `Omens` | 0, 1, 2, 9, custom | 12 |
+| `Omens` | 0, 1, 2, 3, 9 | 12 |
 | `Relics` | 2, 9 | 1 |
 | `Ritual BaseTypes` | 5, 9 | 27 |
 | `Runegrafts` | 0, 1, 2, 9 | 21 |

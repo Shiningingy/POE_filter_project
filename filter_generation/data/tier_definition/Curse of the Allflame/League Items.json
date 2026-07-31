@@ -79,7 +79,7 @@
     },
     "CustomTier 1 Curse of the Allflame": {
       "theme": {
-        "Tier": "custom",
+        "Tier": 1,
         "FontSize": 40,
         "TextColor": "#a589dcff",
         "BorderColor": "#AAAAAA",
@@ -101,7 +101,7 @@
     },
     "CustomTier 2 Curse of the Allflame": {
       "theme": {
-        "Tier": "custom",
+        "Tier": 4,
         "FontSize": 40,
         "TextColor": "#c0ade6ff",
         "BorderColor": "#4f2d95ff",
@@ -123,7 +123,7 @@
     },
     "CustomTier 3 Curse of the Allflame": {
       "theme": {
-        "Tier": "custom",
+        "Tier": 6,
         "FontSize": 40,
         "TextColor": "#c0b3e6ff",
         "BorderColor": "#a589dcff",
@@ -145,7 +145,7 @@
     },
     "CustomTier 4 Curse of the Allflame": {
       "theme": {
-        "Tier": "custom",
+        "Tier": 3,
         "FontSize": 35,
         "TextColor": "#29bc47ff",
         "BorderColor": "#af2323ff",

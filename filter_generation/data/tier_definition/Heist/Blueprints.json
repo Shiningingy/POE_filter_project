@@ -43,7 +43,7 @@
     },
     "CustomTier 1 Heist Blueprints": {
       "theme": {
-        "Tier": "custom",
+        "Tier": 0,
         "FontSize": 36,
         "TextColor": "#FFFFFF",
         "BorderColor": "#AAAAAA",

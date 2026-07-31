@@ -69,7 +69,7 @@
     },
     "CustomTier 1 Omens": {
       "theme": {
-        "Tier": "custom",
+        "Tier": 3,
         "FontSize": 36,
         "TextColor": "#FFFFFF",
         "BorderColor": "#AAAAAA",

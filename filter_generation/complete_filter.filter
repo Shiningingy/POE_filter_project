@@ -1199,50 +1199,50 @@ Show
 #==[35030]- General -T5:点金石级 可堆叠通货 - 自动音效：后悔石 - 精确==
 Show
     BaseType == "Orb of Regret"
-    SetFontSize 32
-    SetTextColor 255 255 255 255
-    SetBorderColor 255 255 255 255
-    SetBackgroundColor 0 0 0 255
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
     CustomAlertSound "sound_files\Sharket掉落音效\后悔石.mp3" 300
 
 
 #==[35031]- General -T5:点金石级 可堆叠通货 - 自动音效：粉碎石 - 精确==
 Show
     BaseType == "Orb of Unmaking"
-    SetFontSize 32
-    SetTextColor 255 255 255 255
-    SetBorderColor 255 255 255 255
-    SetBackgroundColor 0 0 0 255
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
     CustomAlertSound "sound_files\Sharket掉落音效\粉碎石.mp3" 200
 
 
 #==[35032]- General -T5:点金石级 可堆叠通货 - 自动音效：点金石 - 精确==
 Show
     BaseType == "Orb of Alchemy"
-    SetFontSize 32
-    SetTextColor 255 255 255 255
-    SetBorderColor 255 255 255 255
-    SetBackgroundColor 0 0 0 255
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
     CustomAlertSound "sound_files\Sharket掉落音效\点金石.mp3" 300
 
 
 #==[35033]- General -T5:点金石级 可堆叠通货 - 自动音效：链结石 - 精确==
 Show
     BaseType == "Orb of Fusing"
-    SetFontSize 32
-    SetTextColor 255 255 255 255
-    SetBorderColor 255 255 255 255
-    SetBackgroundColor 0 0 0 255
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
     CustomAlertSound "sound_files\Sharket掉落音效\链结石.mp3" 200
 
 
 #==[35034]- General -T5:点金石级 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Chaos Shard"
-    SetFontSize 32
-    SetTextColor 255 255 255 255
-    SetBorderColor 255 255 255 255
-    SetBackgroundColor 0 0 0 255
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
 
 
 #==[35035]- General -T6： 改造石级 可堆叠通货 - 自动音效：玻璃弹珠 - 精确==
@@ -1308,50 +1308,50 @@ Show
 #==[35041]- General -T7: 低价值通货 可堆叠通货 - 自动音效：增幅石 - 精确==
 Show
     BaseType == "Orb of Augmentation"
-    SetFontSize 31
-    SetTextColor 150 150 160 255
-    SetBorderColor 60 60 70 255
-    SetBackgroundColor 0 0 0 0
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 0 0 0 255
     CustomAlertSound "sound_files\Sharket掉落音效\增幅石.mp3" 100
 
 
 #==[35042]- General -T7: 低价值通货 可堆叠通货 - 自动音效：蜕变石 - 精确==
 Show
     BaseType == "Orb of Transmutation"
-    SetFontSize 31
-    SetTextColor 150 150 160 255
-    SetBorderColor 60 60 70 255
-    SetBackgroundColor 0 0 0 0
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 0 0 0 255
     CustomAlertSound "sound_files\Sharket掉落音效\蜕变石.mp3" 100
 
 
 #==[35043]- General -T7: 低价值通货 可堆叠通货 - 自动音效：传送卷轴 - 精确==
 Show
     BaseType == "Portal Scroll"
-    SetFontSize 31
-    SetTextColor 150 150 160 255
-    SetBorderColor 60 60 70 255
-    SetBackgroundColor 0 0 0 0
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 0 0 0 255
     CustomAlertSound "sound_files\Sharket掉落音效\传送卷轴.mp3" 100
 
 
 #==[35044]- General -T7: 低价值通货 可堆叠通货 - 自动音效：知识卷轴 - 精确==
 Show
     BaseType == "Scroll of Wisdom"
-    SetFontSize 31
-    SetTextColor 150 150 160 255
-    SetBorderColor 60 60 70 255
-    SetBackgroundColor 0 0 0 0
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 0 0 0 255
     CustomAlertSound "sound_files\Sharket掉落音效\知识卷轴.mp3" 100
 
 
 #==[35045]- General -T7: 低价值通货 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Alchemy Shard" "Alteration Shard" "Regal Shard" "Scroll Fragment" "Transmutation Shard"
-    SetFontSize 31
-    SetTextColor 150 150 160 255
-    SetBorderColor 60 60 70 255
-    SetBackgroundColor 0 0 0 0
+    SetFontSize 32
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 0 0 0 255
 
 
 #==[36000]-通货 Currency - 金币 Gold==
@@ -1775,16 +1775,18 @@ Show
 #==[42002]- Curse of the Allflame -T1 高级达克特 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Cyaxan's Ducat" "Katakohi's Ducat" "Tzamoto's Ducat"
-    SetFontSize 32
+    SetFontSize 42
     SetTextColor 255 255 255 255
-    SetBorderColor 255 255 255 255
-    SetBackgroundColor 0 0 0 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 42 35 11 255
     CustomAlertSound "sound_files\Sharket掉落音效\DOTA2_嘿真棒.mp3" 300
+    PlayEffect Orange
+    MinimapIcon 1 Orange Diamond
 
 
 #==[42003]- Curse of the Allflame -T2 普通达克特 可堆叠通货 - 基础 - 精确==
 Show
-    BaseType == "Brinehook's Ducat" "Dead Man's Sulphur" "Kishara's Ducat" "Merrick's Ducat" "Rotmother's Ducat" "Telesia's Ducat" "The Changeling's Ducat" "The Genteel's Ducat"
+    BaseType == "Brinehook's Ducat" "Kishara's Ducat" "Merrick's Ducat" "Rotmother's Ducat" "Telesia's Ducat" "The Changeling's Ducat" "The Genteel's Ducat"
     SetFontSize 31
     SetTextColor 150 150 160 255
     SetBorderColor 60 60 70 255
@@ -1792,17 +1794,27 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\DOTA2_金子.mp3" 300
 
 
-#==[42004]- Curse of the Allflame -佣兵卖身契 可堆叠通货 - 基础 - 精确==
+#==[42004]- Curse of the Allflame -死者硫磺 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Dead Man's Sulphur"
+    SetFontSize 36
+    SetTextColor 225 199 115 255
+    SetBorderColor 117 96 30 255
+    SetBackgroundColor 10 10 13 255
+    CustomAlertSound "sound_files\Sharket掉落音效\DOTA2_魂火.mp3" 300
+
+
+#==[42005]- Curse of the Allflame -佣兵卖身契 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Mercenary Warrant"
-    SetFontSize 32
-    SetTextColor 255 255 255 255
-    SetBorderColor 255 255 255 255
-    SetBackgroundColor 0 0 0 255
+    SetFontSize 34
+    SetTextColor 178 161 112 255
+    SetBorderColor 64 52 16 255
+    SetBackgroundColor 0 0 0 0
     CustomAlertSound "sound_files\Sharket掉落音效\你是主人，还是奴隶.mp3" 300
 
 
-#==[42005]- Curse of the Allflame -海图 可堆叠通货 - 基础 - 精确==
+#==[42006]- Curse of the Allflame -海图 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Coral Forest Chart" "Coral Reef Chart" "Sandy Seabed Chart" "Thermal Vents Chart"
     SetFontSize 32
@@ -3871,11 +3883,13 @@ Show
 Show
     Class == "Blueprint"
     AnyEnchantment True
-    SetFontSize 32
-    SetTextColor 255 255 255 255
+    SetFontSize 45
+    SetTextColor 0 0 0 255
     SetBorderColor 255 255 255 255
-    SetBackgroundColor 0 0 0 255
+    SetBackgroundColor 212 175 55 255
     CustomAlertSound "sound_files\Sharket掉落音效\高级蓝图.mp3" 300
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
 
 
 #==[81002]- Heist Blueprints -T2:其他蓝图 蓝图 - #1 规则 - 自选==
