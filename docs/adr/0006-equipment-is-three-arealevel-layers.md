@@ -35,7 +35,7 @@ The last two are the interesting ones, because they are the same mistake:
 | layer | gate | contents |
 |---|---|---|
 | **Campaign** | `AreaLevel <= 67` | early rares; very early white + magic; occasional low-value currency emphasis |
-| **Midgame** | `AreaLevel >= 68` | rares on good bases, in two sub-levels: (a) essentially all rares — the vendor/shard layer, (b) hide bad weapons |
+| **Midgame** | `AreaLevel >= 68` | two sub-levels: **(a) every rare** — the vendor/shard layer; **(b) mid-tier bases and good weapons only**, everything else hidden |
 | **Endgame** | `AreaLevel >= 68` | crafting bases; catches and emphasises good bases. With midgame fully off, only top-base rares plus optimal normal/magic crafting bases |
 
 Peeling midgame away to leave endgame is **not a new mechanism** — it is
@@ -110,6 +110,19 @@ player-facing net. Replacing it is part of this work.
 - Uniques **can** be influenced; they **cannot** be fractured.
 - Normal and abyss jewels always show at any rarity — they are genuinely rare
   drops. Hiding magic jewels is an option, expressed by naming the class.
+
+### 7. The magic hide is two stages
+
+Magic equipment is hidden in endgame, but not in one step:
+
+| stage | behaviour |
+|---|---|
+| 1 | hide magic equipment, but **really good amulets / rings / talismans survive** |
+| 2 | hide all of them, including those |
+
+Both stages name the classes they hide, per §5 — the survivors in stage 1 are an
+explicit list, not an accident of a loose condition. Like the midgame sub-levels,
+the two stages are strictness rungs rather than a separate mechanism.
 
 ## Consequences
 
