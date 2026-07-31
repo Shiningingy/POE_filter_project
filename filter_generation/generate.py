@@ -39,6 +39,9 @@ _args.add_argument("--language", default="ch", choices=["ch", "en"])
 # (parity-safe default). Shape: {weapons:[], armour_defense:[], vendor_bands:[],
 # minion_focused:bool, hide_unselected:bool, preset:str}. Mirrors filterGenerator.ts.
 _args.add_argument("--leveling-selection", default="{}")
+# Write a machine-readable record of what this run emitted (see trace helpers
+# below). Inert unless given — output bytes are identical either way.
+_args.add_argument("--trace", default=None)
 _parsed = _args.parse_known_args()[0]
 MODE = _parsed.mode
 GAME_VERSION = _parsed.game_version
@@ -72,6 +75,53 @@ def lv_picked(tier_entry):
     if axis == "armour":
         return key in LEVELING_SELECTION.get("armour_defense", [])
     return False
+
+
+# --- Generation trace (inert unless --trace) ---------------------------------
+# Records what THIS engine actually emitted: every block in first-match-wins
+# order, the bases each one claimed, and which code path produced it.
+#
+# Why it exists: the theme-pipeline rewrite migrates from this evidence, NOT
+# from `mapping`. `mapping` cannot describe what a category emits —
+#   * a `tier + targets` rule does not intersect pending_items, so it can conjure
+#     a base that appears nowhere in `mapping` (24 rules do, incl. all 12 flask
+#     progression rules);
+#   * a `class_condition` tier bypasses the rules loop entirely (55 tiers) and
+#     emits no BaseType line at all;
+#   * `pending_items` makes rules mutually destructive, so an earlier rule steals
+#     items from a later one and the loser emits nothing.
+# Reading the data cannot tell you any of that. Running it can, which is why the
+# trace is captured BEFORE anything changes — afterwards the evidence is gone.
+TRACE_PATH = _parsed.trace
+_TRACE = {"blocks": [], "tiers": []} if TRACE_PATH else None
+
+
+def trace_tier(**kw):
+    """One record per (file, tier) considered — including the ones that emit
+    nothing, with the reason. A tier carrying mapped items that never reach a
+    block is the 'mapped but emits nothing' bug, visible here for the first time."""
+    if _TRACE is not None:
+        _TRACE["tiers"].append(kw)
+
+
+def trace_block(**kw):
+    if _TRACE is not None:
+        _TRACE["blocks"].append(kw)
+
+
+def write_trace():
+    if _TRACE is None:
+        return
+    _TRACE["meta"] = {
+        "mode": MODE, "strictness": STRICTNESS, "language": LANG,
+        "leveling_selection": LEVELING_SELECTION,
+        "blocks": len(_TRACE["blocks"]), "tiers": len(_TRACE["tiers"]),
+    }
+    out = Path(TRACE_PATH)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(_TRACE, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"[OK] Trace written to {out} "
+          f"({len(_TRACE['blocks'])} blocks, {len(_TRACE['tiers'])} tiers)")
 
 
 if GAME_VERSION == "poe2":
@@ -361,6 +411,11 @@ def generate_filter():
         if MODE in map_doc.get("_meta", {}).get("excluded_modes", []):
             continue
 
+        # Category priority — the same value _order_key sorted on above. Carried
+        # into the trace because first-match-wins makes emission order the whole
+        # priority system, so a claim is only meaningful alongside its position.
+        file_gen_order = map_doc.get("_meta", {}).get("gen_order", 0)
+
         # Extract Folder Name (First part of path)
         folder = rel_path.parts[0]
 
@@ -486,8 +541,15 @@ def generate_filter():
             items = items_by_tier.get(t_lbl, [])
             tier_entry = category_data[t_lbl]
 
+            # Trace context for this tier — `_t` is filled in as the gates below
+            # decide its fate, and recorded exactly once on every exit path.
+            _t = {"file": rel_path.as_posix(), "gen_order": file_gen_order,
+                  "category_key": category_key, "theme_category": theme_cat_key,
+                  "tier_key": t_lbl, "mapped_items": sorted(items)}
+
             # Skip tiers excluded for current mode (e.g. Chaos Recipe in ruthless)
             if MODE in tier_entry.get("excluded_modes", []):
+                trace_tier(**_t, emitted=False, reason="excluded_modes")
                 continue
 
             # Campaign module gate (selection-centric ladder, mirrors
@@ -504,12 +566,14 @@ def generate_filter():
                 if LEVELING_SELECTION.get("hide_unselected"):
                     lv_hide = True
                 else:
+                    trace_tier(**_t, emitted=False, reason="campaign:aggressive_not_enabled")
                     continue
             elif lv_axis in ("weapon", "armour"):
                 if not lv_picked(tier_entry):
                     if lv_axis == "weapon" and LEVELING_SELECTION.get("hide_unselected"):
                         lv_hide = True
                     else:
+                        trace_tier(**_t, emitted=False, reason=f"campaign:{lv_axis}_not_picked")
                         continue
 
             is_hide = tier_entry.get("is_hide_tier", False)
@@ -537,6 +601,7 @@ def generate_filter():
             if tier_entry.get("class_condition"):
                 tier_conditions = tier_entry.get("conditions", {})
                 if not tier_conditions:
+                    trace_tier(**_t, emitted=False, reason="class_condition:no_conditions")
                     continue  # No conditions defined — skip this tier
                 # Use theme tier from tier_entry directly (label-based tnum is unreliable for custom keys)
                 theme_tnum = tier_entry.get("theme", {}).get("Tier", tnum)
@@ -582,6 +647,15 @@ def generate_filter():
                 if base_mini_icon and not style_off(base_mini_icon):
                     block_lines.append(f"    MinimapIcon {base_mini_icon}")
                 out_lines.append(block_text(block_lines, is_hide))
+                trace_tier(**_t, emitted=True, path="class_condition", is_hide=is_hide)
+                # `bases` is empty on purpose: a class_condition block emits no
+                # BaseType line, so its claim is expressed entirely by conditions.
+                # Any item its conditions happen to match is claimed here — which
+                # is why this path cannot be reconstructed from `mapping`.
+                trace_block(order=block_index, file=rel_path.as_posix(),
+                            tier_key=t_lbl, tier_num=tnum, source="class_condition",
+                            match=None, rule=None, bases=[], is_hide=is_hide,
+                            text=out_lines[-1])
                 continue  # Skip normal BaseType processing for this tier
 
             # Deep copy PER TIER, matching filterGenerator.ts. This used to alias
@@ -591,8 +665,9 @@ def generate_filter():
             # carried no conditions - the moment they inherited the tier's, a base
             # in several bands (Stygian Vise is in Crafting Chase 86/85/84/83) got
             # the FIRST band's ItemLevel in every later block.
+            trace_tier(**_t, emitted=True, path="rules+base", is_hide=is_hide)
             all_rules = copy.deepcopy(map_doc.get("rules", []))
-            
+
             # --- AUTO-INJECT SOUND RULES FROM MAP ---
             # basetype_sounds is GLOBAL: a base type with an entry gets a per-item
             # sound in every category that carries it. `suppress_basetype_sounds` on a
@@ -768,6 +843,15 @@ def generate_filter():
                     if r_icon and not style_off(r_icon): block_lines.append(f"    MinimapIcon {r_icon}")
                     
                     out_lines.append(block_text(block_lines, is_hide))
+                    trace_block(order=block_index, file=rel_path.as_posix(),
+                                tier_key=t_lbl, tier_num=tnum,
+                                source=("auto_sound" if raw_comment.startswith("__AUTO_SOUND__:")
+                                        else "rule"),
+                                match=mode_label, rule=rule_part,
+                                # "Self" blocks claim by their own conditions, so an
+                                # empty list here means "not expressible as bases".
+                                bases=list(subgroup), is_hide=is_hide,
+                                text=out_lines[-1])
 
                 for m in rule_matches:
                     pending_items.discard(m)
@@ -834,6 +918,11 @@ def generate_filter():
                     if base_mini_icon and not style_off(base_mini_icon): block_lines.append(f"    MinimapIcon {base_mini_icon}")
                     
                     out_lines.append(block_text(block_lines, is_hide))
+                    trace_block(order=block_index, file=rel_path.as_posix(),
+                                tier_key=t_lbl, tier_num=tnum, source="tier_base",
+                                match=mode_label, rule=None,
+                                bases=list(subgroup), is_hide=is_hide,
+                                text=out_lines[-1])
 
     # Footer (data/footer.filter): appended verbatim at the very end —
     # the unknown-items catch-all block lives there (hand-maintained).
@@ -847,6 +936,7 @@ def generate_filter():
     final_text = "\n".join(overview) + "\n" + "\n".join(out_lines) + "\n"
     OUTPUT_FILE.write_text(final_text, encoding="utf-8")
     print(f"[OK] Complete filter generated at {OUTPUT_FILE}")
+    write_trace()
 
 if __name__ == "__main__":
     generate_filter()
