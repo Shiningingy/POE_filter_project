@@ -10,7 +10,8 @@
       "ch_items": {}
     },
     "theme_category": "Vendor Recipes",
-    "match_modes": {}
+    "match_modes": {},
+    "gen_order": -50
   },
   "mapping": {
     "RGB Linked": "RGB Linked"
