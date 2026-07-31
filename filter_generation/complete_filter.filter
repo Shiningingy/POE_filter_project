@@ -4679,7 +4679,6 @@ Show
     Class == "Maps"
     Corrupted True
     Identified True
-    HasExplicitMod >= 8
     SetFontSize 45
     SetTextColor 29 64 124 255
     SetBorderColor 43 94 182 255

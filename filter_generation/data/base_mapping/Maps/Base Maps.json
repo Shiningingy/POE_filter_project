@@ -131,8 +131,7 @@
       "conditions": {
         "Class": "== \"Maps\"",
         "Corrupted": "True",
-        "Identified": "True",
-        "HasExplicitMod": ">=8"
+        "Identified": "True"
       },
       "overrides": {
         "Tier": "Tier 0 Base Maps",
