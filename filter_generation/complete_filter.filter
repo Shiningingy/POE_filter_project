@@ -93,8 +93,10 @@
 #    [111000] 杂项 Misc - 其他杂项 Other Misc
 #  [120000] 传奇 Uniques
 #    [121000] 传奇 Uniques - 传奇物品 Unique Items
-#  [130000] _legacy _legacy
-#    [131000] _legacy _legacy - 历史物品 Legacy
+#  [130000] 装备 Equipment
+#    [131000] 装备 Equipment - 魔法装备网 Magic Net
+#  [140000] _legacy _legacy
+#    [141000] _legacy _legacy - 历史物品 Legacy
 #========================================
 
 
@@ -5537,12 +5539,40 @@ Show
 
 
 #===================================================================================================================
-# [[130000]] _legacy _legacy
+# [[130000]] 装备 Equipment
 #===================================================================================================================
 
-#==[131000]-_legacy _legacy - 历史物品 Legacy==
+#==[131000]-装备 Equipment - 魔法装备网 Magic Net==
 
-#==[131001]- Legacy -显示历史物品 历史物品 - 自动音效：普兰德斯金币 - 精确==
+#==[131001]- Magic Net -优质魔法首饰/魔符 魔法装备网 - 基础 - 精确==
+Show
+    BaseType == "Agate Amulet" "Amber Amulet" "Amethyst Ring" "Ape Talisman" "Black Maw Talisman" "Black Widow Talisman" "Blood Viper Talisman" "Blue Pearl Amulet" "Bone Ring" "Carrion Queen Talisman" "Cerulean Ring" "Chieftain Talisman" "Chimeral Talisman" "Citrine Amulet" "Cobra Talisman" "Coral Ring" "Craicic Talisman" "Croaker Talisman" "Crystal Belt" "Devourer Talisman" "Diamond Ring" "Farric Talisman" "Fenumal Talisman" "Flame Hellion Talisman" "Frost Hellion Talisman" "Gargantuan Talisman" "Goatman Talisman" "Goliath Talisman" "Great Maw Talisman" "Greatwolf Talisman" "Heavy Belt" "Hybrid Arachnid Talisman" "Iolite Ring" "Jade Amulet" "Lapis Amulet" "Leather Belt" "Lynx Talisman" "Magma Hound Talisman" "Marble Amulet" "Moonstone Ring" "Octopus Talisman" "Onyx Amulet" "Opal Ring" "Pitbull Talisman" "Plagued Arachnid Talisman" "Prismatic Ring" "Retch Talisman" "Rhex Talisman" "Rhoa Talisman" "Ruby Ring" "Sand Spitter Talisman" "Sapphire Ring" "Saqawine Talisman" "Savage Crab Talisman" "Scorpion Talisman" "Scrabbler Talisman" "Shield Crab Talisman" "Spider Crab Talisman" "Squid Talisman" "Steel Ring" "Stygian Vise" "Taurus Talisman" "Tiger Talisman" "Topaz Ring" "Turquoise Amulet" "Two-Stone Ring" "Unset Ring" "Ursa Talisman" "Vanguard Belt" "Vermillion Ring" "Vulture Talisman" "Watcher Talisman" "Wolf Alpha Talisman"
+    Rarity Magic
+    AreaLevel >= 68
+    SetFontSize 34
+    SetTextColor 178 161 112 255
+    SetBorderColor 64 52 16 255
+    SetBackgroundColor 0 0 0 0
+
+
+#==[131002]- Magic Net -其余魔法装备 魔法装备网 - Class Condition==
+Show
+    Class == "Body Armours" "Boots" "Gloves" "Helmets" "Shields" "Quivers" "Amulets" "Belts" "Rings" "Bows" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Warstaves" "Wands" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Thrusting One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords"
+    Rarity Magic
+    AreaLevel >= 68
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
+
+
+#===================================================================================================================
+# [[140000]] _legacy _legacy
+#===================================================================================================================
+
+#==[141000]-_legacy _legacy - 历史物品 Legacy==
+
+#==[141001]- Legacy -显示历史物品 历史物品 - 自动音效：普兰德斯金币 - 精确==
 Show
     BaseType == "Perandus Coin"
     SetFontSize 42
@@ -5554,7 +5584,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131002]- Legacy -显示历史物品 历史物品 - 自动音效：护甲重组器 - 精确==
+#==[141002]- Legacy -显示历史物品 历史物品 - 自动音效：护甲重组器 - 精确==
 Show
     BaseType == "Armour Recombinator"
     SetFontSize 42
@@ -5566,7 +5596,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131003]- Legacy -显示历史物品 历史物品 - 自动音效：武器重组器 - 精确==
+#==[141003]- Legacy -显示历史物品 历史物品 - 自动音效：武器重组器 - 精确==
 Show
     BaseType == "Weapon Recombinator"
     SetFontSize 42
@@ -5578,7 +5608,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131004]- Legacy -显示历史物品 历史物品 - 自动音效：珠宝重组器 - 精确==
+#==[141004]- Legacy -显示历史物品 历史物品 - 自动音效：珠宝重组器 - 精确==
 Show
     BaseType == "Jewellery Recombinator"
     SetFontSize 42
@@ -5590,7 +5620,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131005]- Legacy -显示历史物品 历史物品 - 自动音效：潜能项链 - 精确==
+#==[141005]- Legacy -显示历史物品 历史物品 - 自动音效：潜能项链 - 精确==
 Show
     BaseType == "Unset Amulet"
     SetFontSize 42
@@ -5602,7 +5632,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131006]- Legacy -显示历史物品 历史物品 - 自动音效：血色护身符 - 精确==
+#==[141006]- Legacy -显示历史物品 历史物品 - 自动音效：血色护身符 - 精确==
 Show
     BaseType == "Ruby Amulet"
     SetFontSize 42
@@ -5614,7 +5644,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131007]- Legacy -显示历史物品 历史物品 - 自动音效：华美箭袋 - 精确==
+#==[141007]- Legacy -显示历史物品 历史物品 - 自动音效：华美箭袋 - 精确==
 Show
     BaseType == "Ornate Quiver"
     SetFontSize 42
@@ -5626,7 +5656,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131008]- Legacy -显示历史物品 历史物品 - 自动音效：裂隙戒指 - 精确==
+#==[141008]- Legacy -显示历史物品 历史物品 - 自动音效：裂隙戒指 - 精确==
 Show
     BaseType == "Breach Ring"
     SetFontSize 42
@@ -5638,7 +5668,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131009]- Legacy -显示历史物品 历史物品 - 自动音效：三相珠宝 - 精确==
+#==[141009]- Legacy -显示历史物品 历史物品 - 自动音效：三相珠宝 - 精确==
 Show
     BaseType == "Prismatic Jewel"
     SetFontSize 42
@@ -5650,7 +5680,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131010]- Legacy -显示历史物品 历史物品 - 自动音效：永恒珠宝 - 精确==
+#==[141010]- Legacy -显示历史物品 历史物品 - 自动音效：永恒珠宝 - 精确==
 Show
     BaseType == "Timeless Jewel"
     SetFontSize 42
@@ -5662,7 +5692,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131011]- Legacy -显示历史物品 历史物品 - 自动音效：扼杀链甲 - 精确==
+#==[141011]- Legacy -显示历史物品 历史物品 - 自动音效：扼杀链甲 - 精确==
 Show
     BaseType == "Grasping Mail"
     SetFontSize 42
@@ -5674,7 +5704,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131012]- Legacy -显示历史物品 历史物品 - 自动音效：圣洁遗物 - 精确==
+#==[141012]- Legacy -显示历史物品 历史物品 - 自动音效：圣洁遗物 - 精确==
 Show
     BaseType == "Sanctified Relic"
     SetFontSize 42
@@ -5686,7 +5716,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131013]- Legacy -显示历史物品 历史物品 - 自动音效：高阶点金石 - 精确==
+#==[141013]- Legacy -显示历史物品 历史物品 - 自动音效：高阶点金石 - 精确==
 Show
     BaseType == "Orb of Binding"
     SetFontSize 42
@@ -5698,7 +5728,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131014]- Legacy -显示历史物品 历史物品 - 自动音效：统御宝珠 - 精确==
+#==[141014]- Legacy -显示历史物品 历史物品 - 自动音效：统御宝珠 - 精确==
 Show
     BaseType == "Orb of Dominance"
     SetFontSize 42
@@ -5710,7 +5740,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131015]- Legacy -显示历史物品 历史物品 - 自动音效：觉醒者之石 - 精确==
+#==[141015]- Legacy -显示历史物品 历史物品 - 自动音效：觉醒者之石 - 精确==
 Show
     BaseType == "Awakener's Orb"
     SetFontSize 42
@@ -5722,7 +5752,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131016]- Legacy -显示历史物品 历史物品 - 自动音效：禁灵之瓶 - 精确==
+#==[141016]- Legacy -显示历史物品 历史物品 - 自动音效：禁灵之瓶 - 精确==
 Show
     BaseType == "Divine Vessel"
     SetFontSize 42
@@ -5734,7 +5764,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[131017]- Legacy -显示历史物品 历史物品 - 基础 - 精确==
+#==[141017]- Legacy -显示历史物品 历史物品 - 基础 - 精确==
 Show
     BaseType == "Abyss Scarab of Descending" "Abyssal Incubator" "Adherent of Zarokh" "Anarchy Scarab of the Exceptional" "Ancient Reliquary Key" "Annihilation Support" "Ashscale Talisman" "Astral Lich" "Avian Twins Talisman" "Betrayal Scarab of Unbreaking" "Binding Shard" "Birth of the Three" "Blessed Call Support" "Blessing of God" "Blighted Incubator" "Bloodsoaked Banner Support" "Bonespire Support" "Bonespire Talisman" "Breakrib Talisman" "Cartographer's Incubator" "Cast on Ward Break Support" "Celestial Armoursmith's Incubator" "Celestial Blacksmith's Incubator" "Chaotic Astrolabe" "Charan's Sword" "Charged Dash of Projection" "Chayula's Flawless Breachstone" "Chrysalis Talisman" "Clutching Talisman" "Coin of Desecration" "Coin of Knowledge" "Coin of Power" "Coin of Restoration" "Coin of Skill" "Companionship Support" "Congregation Support" "Conjuror of Rot" "Cooldown Recovery Support" "Cord Belt" "Corvine Charm" "Craicic Lure" "Creeping Frost of Floes" "Crusader's Exalted Orb" "Crystallised Rancour" "Cull the Weak Support" "Deadhand Talisman" "Deep One Talisman" "Dextral Catalyst" "Divine Blast" "Divine Sentinel Support" "Diviner's Incubator" "Eclipse Support" "Elder's Exalted Orb" "Eldritch Blasphemy Support" "Engineer's Shard" "Engraved Ultimatum" "Enkindling Orb" "Enshrouded Astrolabe" "Essence of Desolation" "Excommunicate Support" "Exemplar Support" "Expedition Scarab of Infusion" "Fangjaw Talisman" "Farric Lure" "Fenumal Lure" "Fine Incubator" "Fissure Support" "Flamethrower Trap of Stability" "Flesh of Xesht" "Foreboding Incubator" "Fossilised Incubator" "Foulgrasp Support" "Fragmented Incubator" "Frostmage Support" "Fruiting Astrolabe" "Fungal Astrolabe" "Geomancer's Incubator" "Gluttony Support" "Golden Blade" "Golden Bracers" "Golden Caligae" "Golden Flame" "Golden Hoop" "Golden Mantle" "Golden Obi" "Golden Visage" "Golden Wreath" "Grasping Astrolabe" "Greater Ancestral Call Support" "Greater Chain Support" "Greater Devour Support" "Greater Fork Support" "Greater Kinetic Instability Support" "Greater Multistrike Support" "Greater Spell Cascade Support" "Greater Spell Echo Support" "Greater Unleash Support" "Hallow Support" "Hexclaw Talisman" "Hexpass Support" "Hextoad Support" "Hiveborn Support" "Holy Hammers" "Holy Strike" "Honoured Incubator" "Horned Talisman" "Hunter's Exalted Orb" "Imperfect Adherent of Zarokh" "Imperfect Astral Lich" "Imperfect Conjuror of Rot" "Imprint" "Infused Incubator" "Instilling Orb" "Invention Support" "Invert the Rules Support" "Journey Tattoo of the Body" "Journey Tattoo of the Mind" "Journey Tattoo of the Soul" "Kalguuran Incubator" "Kalguuran Scarab of Enriching" "Kinetic Fusillade of Detonation" "Lethal Dose Support" "Lightless Astrolabe" "Lone Antler Talisman" "Longtooth Talisman" "Lupine Charm" "Lycia's Invocation of Acrobatics" "Lycia's Invocation of Ancestral Bond" "Lycia's Invocation of Arrow Dancing" "Lycia's Invocation of Avatar of Fire" "Lycia's Invocation of Blood Magic" "Lycia's Invocation of Call to Arms" "Lycia's Invocation of Conduit" "Lycia's Invocation of Crimson Dance" "Lycia's Invocation of Divine Shield" "Lycia's Invocation of Eldritch Battery" "Lycia's Invocation of Elemental Equilibrium" "Lycia's Invocation of Elemental Overload" "Lycia's Invocation of Eternal Youth" "Lycia's Invocation of Ghost Dance" "Lycia's Invocation of Ghost Reaver" "Lycia's Invocation of Glancing Blows" "Lycia's Invocation of Hex Master" "Lycia's Invocation of Imbalanced Guard" "Lycia's Invocation of Iron Grip" "Lycia's Invocation of Iron Reflexes" "Lycia's Invocation of Iron Will" "Lycia's Invocation of Lethe Shade" "Lycia's Invocation of Magebane" "Lycia's Invocation of Mind Over Matter" "Lycia's Invocation of Minion Instability" "Lycia's Invocation of Pain Attunement" "Lycia's Invocation of Perfect Agony" "Lycia's Invocation of Point Blank" "Lycia's Invocation of Precise Technique" "Lycia's Invocation of Resolute Technique" "Lycia's Invocation of Runebinder" "Lycia's Invocation of Solipsism" "Lycia's Invocation of Supreme Ego" "Lycia's Invocation of The Agnostic" "Lycia's Invocation of The Impaler" "Lycia's Invocation of Unwavering Stance" "Lycia's Invocation of Vaal Pact" "Lycia's Invocation of Versatile Combatant" "Lycia's Invocation of Wicked Ward" "Lycia's Invocation of Wind Dancer" "Lycia's Invocation of Zealot's Oath" "Machinations Support" "Maddening Incubator" "Mandible Talisman" "Memory of Loneliness" "Memory of Reverence" "Memory of Trauma" "Minion Pact Support" "Miraged Incubator" "Monkey Paw Talisman" "Monkey Twins Talisman" "Mysterious Incubator" "Nameless Astrolabe" "Omen of Acceleration" "Omen of Bequeathal" "Omen of Resurgence" "Omen of Revenge" "Orb of Storms of Squalls" "Ornate Incubator" "Otherworldly Incubator" "Overheat Support" "Overloaded Intensity Support" "Pacifism Support" "Perfect Adherent of Zarokh" "Perfect Astral Lich" "Perfect Conjuror of Rot" "Potent Alchemical Resonator" "Powerful Alchemical Resonator" "Primal Incubator" "Primal Skull Talisman" "Prime Alchemical Resonator" "Prime Regrading Lens" "Primeval Remnant" "Primitive Alchemical Resonator" "Primordial Remnant" "Pyre Support" "Redeemer's Exalted Orb" "Refracting Fog" "Ring" "Ritual Scarab of Corpses" "Rot Head Talisman" "Rotfeather Talisman" "Runegraft of Connection" "Runegraft of Consecration" "Runegraft of Fury" "Runegraft of Rallying" "Runegraft of Resurgence" "Runegraft of Rotblood" "Runegraft of Suffering" "Runegraft of the Agile" "Runegraft of the Imbued" "Runegraft of the Spellbound" "Runic Astrolabe" "Sacred Incubator" "Saqawine Lure" "Scarab of the Dextral" "Scornful Herald Support" "Secondary Regrading Lens" "Shaper's Exalted Orb" "Shield of Light" "Shock Nova of Procession" "Shockwave Totem of Authority" "Singular Incubator" "Sinistral Catalyst" "Siphoning Trap of Pain" "Skittering Incubator" "Soul Quenched" "Spinefuse Talisman" "Splitnewt Talisman" "Stacked Deck" "Static Strike of Gathering Lightning" "Storm Burst of Repulsion" "Tattoo of the Arohongui Moonwarden" "Tattoo of the Arohongui Scout" "Tattoo of the Arohongui Shaman" "Tattoo of the Arohongui Warmonger" "Tattoo of the Arohongui Warrior" "Tattoo of the Hinekora Deathwarden" "Tattoo of the Hinekora Shaman" "Tattoo of the Hinekora Storyteller" "Tattoo of the Hinekora Warmonger" "Tattoo of the Hinekora Warrior" "Tattoo of the Kitava Blood Drinker" "Tattoo of the Kitava Heart Eater" "Tattoo of the Kitava Rebel" "Tattoo of the Kitava Shaman" "Tattoo of the Kitava Warrior" "Tattoo of the Ngamahu Firewalker" "Tattoo of the Ngamahu Shaman" "Tattoo of the Ngamahu Warmonger" "Tattoo of the Ngamahu Warrior" "Tattoo of the Ngamahu Woodcarver" "Tattoo of the Ramako Archer" "Tattoo of the Ramako Fleetfoot" "Tattoo of the Ramako Scout" "Tattoo of the Ramako Shaman" "Tattoo of the Ramako Sniper" "Tattoo of the Rongokurai Brute" "Tattoo of the Rongokurai Goliath" "Tattoo of the Rongokurai Guard" "Tattoo of the Rongokurai Turtle" "Tattoo of the Rongokurai Warrior" "Tattoo of the Tasalio Bladedancer" "Tattoo of the Tasalio Scout" "Tattoo of the Tasalio Shaman" "Tattoo of the Tasalio Tideshifter" "Tattoo of the Tasalio Warrior" "Tattoo of the Tawhoa Herbalist" "Tattoo of the Tawhoa Naturalist" "Tattoo of the Tawhoa Scout" "Tattoo of the Tawhoa Shaman" "Tattoo of the Tawhoa Warrior" "Tattoo of the Tukohama Brawler" "Tattoo of the Tukohama Shaman" "Tattoo of the Tukohama Warcaller" "Tattoo of the Tukohama Warmonger" "Tattoo of the Tukohama Warrior" "Tattoo of the Valako Scout" "Tattoo of the Valako Shaman" "Tattoo of the Valako Shieldbearer" "Tattoo of the Valako Stormrider" "Tattoo of the Valako Warrior" "Templar Astrolabe" "Thaumaturge's Incubator" "The Black Barya" "The Master" "The Sustenance" "Three Hands Talisman" "Three Rat Talisman" "Timeless Astrolabe" "Timeworn Reliquary Key" "Transfusion Support" "Undying Flesh Talisman" "Unholy Trinity Support" "Unrelenting Timeless Eternal Emblem" "Unrelenting Timeless Karui Emblem" "Unrelenting Timeless Maraketh Emblem" "Unrelenting Timeless Templar Emblem" "Unrelenting Timeless Vaal Emblem" "Unshaping Orb" "Ursine Charm" "Vaal Breach" "Vaal Reliquary Key" "Vaal Sacrifice Support" "Vaal Temptation Support" "Veiled Chaos Orb" "Veiled Exalted Orb" "Void Shockwave Support" "Voidstorm Support" "Volatile Vaal Orb" "Warlord's Exalted Orb" "Wereclaw Talisman" "Whispering Incubator" "Writhing Talisman"
     SetFontSize 42
