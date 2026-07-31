@@ -28,7 +28,8 @@
         "Shaper Guardian Map": "塑界守卫地图",
         "Nightmare Map": "梦魇地图",
         "Vaal Temple Map": "瓦尔密殿",
-        "Synthesised Map": "幻境地图"
+        "Synthesised Map": "幻境地图",
+        "Expedition Logbook": "先祖秘藏日志"
       }
     },
     "match_modes": {
@@ -36,7 +37,8 @@
     }
   },
   "mapping": {
-    "Shaper Guardian Map": "Tier 0 Base Maps"
+    "Shaper Guardian Map": "Tier 0 Base Maps",
+    "Expedition Logbook": "Tier 0 Base Maps"
   },
   "rules": [
     {
@@ -247,6 +249,38 @@
       },
       "comment": "Override for Shaper Guardian Map @ Tier 0 Base Maps",
       "sound_scope": true
+    },
+    {
+      "targets": [
+        "Expedition Logbook"
+      ],
+      "conditions": {
+        "AnyEnchantment": "True"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级日志.mp3",
+          300
+        ]
+      },
+      "comment": "附魔日志",
+      "raw": "Rarity <= rare"
+    },
+    {
+      "targets": [
+        "Expedition Logbook"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/先祖日志.mp3",
+          300
+        ]
+      },
+      "comment": "日志",
+      "raw": "Rarity <= Rare"
     }
   ]
 }

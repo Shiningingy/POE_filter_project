@@ -92,7 +92,8 @@
         "Astragali": "骨牌",
         "Scrap Metal": "废金属",
         "Fracturing Shard": "破溃碎片",
-        "Sacred Crystallised Lifeforce": "神圣白晶命能"
+        "Sacred Crystallised Lifeforce": "神圣白晶命能",
+        "Facetor's Lens": "费斯特的透镜"
       }
     },
     "item_class": {
@@ -305,7 +306,8 @@
     ],
     "Sacred Crystallised Lifeforce": [
       "Tier 1 General"
-    ]
+    ],
+    "Facetor's Lens": "Tier 2 General"
   },
   "rules": [
     {
@@ -319,6 +321,21 @@
         "Tier": "Tier 3 General"
       },
       "comment": ""
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "BaseType": "\"Astrolabe\"",
+        "Class": "Stackable Currency"
+      },
+      "overrides": {
+        "Tier": "Tier 2 General",
+        "PlayAlertSound": [
+          "Sharket掉落音效/星盘.mp3",
+          300
+        ]
+      },
+      "comment": "星盘"
     }
   ]
 }

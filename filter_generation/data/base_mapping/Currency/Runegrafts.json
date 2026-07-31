@@ -22,37 +22,76 @@
         "Runegraft of Restitching": "缝合之符文嵌板",
         "Runegraft of Stability": "稳定之符文嵌板",
         "Runegraft of Time": "时光之符文嵌板",
-        "Runegraft of Treachery": "背叛之符文嵌板"
+        "Runegraft of Treachery": "背叛之符文嵌板",
+        "Journey Tattoo of the Soul": "灵魂的旅途文身",
+        "Journey Tattoo of Makanui": "玛鲁伊的旅途文身",
+        "Journey Tattoo of the Mind": "意志的旅途文身",
+        "Journey Tattoo of the Body": "身躯的旅途文身"
       }
     },
     "item_class": {
       "en": "Stackable Currency",
       "ch": "可堆叠通货"
     },
-    "theme_category": "Runegrafts"
+    "theme_category": "Runegrafts",
+    "match_modes": {}
   },
   "mapping": {
-    "Runegraft of the Angler": "Tier 1 Runegrafts",
-    "Runegraft of the Bound": "Tier 1 Runegrafts",
-    "Runegraft of the Combatant": "Tier 1 Runegrafts",
-    "Runegraft of the Fortress": "Tier 1 Runegrafts",
-    "Runegraft of the Jeweller": "Tier 1 Runegrafts",
-    "Runegraft of the Novamark": "Tier 1 Runegrafts",
-    "Runegraft of the River": "Tier 1 Runegrafts",
-    "Runegraft of the Sinistral": "Tier 1 Runegrafts",
-    "Runegraft of the Soulwick": "Tier 1 Runegrafts",
-    "Runegraft of the Warp": "Tier 1 Runegrafts",
-    "Runegraft of the Witchmark": "Tier 1 Runegrafts",
-    "Runegraft of Bellows": "Tier 1 Runegrafts",
-    "Runegraft of Blasphemy": "Tier 1 Runegrafts",
-    "Runegraft of Gemcraft": "Tier 1 Runegrafts",
-    "Runegraft of Loyalty": "Tier 1 Runegrafts",
-    "Runegraft of Quaffing": "Tier 1 Runegrafts",
-    "Runegraft of Refraction": "Tier 1 Runegrafts",
-    "Runegraft of Restitching": "Tier 1 Runegrafts",
-    "Runegraft of Stability": "Tier 1 Runegrafts",
-    "Runegraft of Time": "Tier 1 Runegrafts",
-    "Runegraft of Treachery": "Tier 1 Runegrafts"
+    "Runegraft of the Angler": [
+      "Tier 0 Runegrafts"
+    ],
+    "Runegraft of the Fortress": [
+      "Tier 0 Runegrafts"
+    ],
+    "Runegraft of the Jeweller": [
+      "Tier 0 Runegrafts"
+    ],
+    "Runegraft of the Warp": [
+      "Tier 0 Runegrafts"
+    ],
+    "Runegraft of Gemcraft": [
+      "Tier 0 Runegrafts"
+    ],
+    "Runegraft of Refraction": [
+      "Tier 0 Runegrafts"
+    ],
+    "Runegraft of Treachery": [
+      "Tier 0 Runegrafts"
+    ],
+    "Journey Tattoo of the Soul": [
+      "Tier 0 Runegrafts"
+    ],
+    "Journey Tattoo of Makanui": [
+      "Tier 0 Runegrafts"
+    ],
+    "Journey Tattoo of the Mind": [
+      "Tier 0 Runegrafts"
+    ],
+    "Journey Tattoo of the Body": [
+      "Tier 0 Runegrafts"
+    ]
   },
-  "rules": []
+  "rules": [
+    {
+      "targets": [],
+      "conditions": {
+        "BaseType": "\"Runegraft of\""
+      },
+      "overrides": {
+        "Tier": "Tier 1 Runegrafts"
+      },
+      "comment": "所有符文"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "BaseType": "\"Tattoo of\""
+      },
+      "overrides": {
+        "Tier": "Tier 2 Runegrafts"
+      },
+      "comment": "所有纹身",
+      "applyToTier": false
+    }
+  ]
 }
