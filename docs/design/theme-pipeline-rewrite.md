@@ -249,9 +249,33 @@ precision layers and **every one of them is live**. A later claim is dead only w
 earlier block is at least as permissive — its condition set a subset of the later one's.
 
 The difference is not academic: order alone calls **573** bases shadowed; the
-condition-aware test says **86**. So the index must carry each occurrence's **conditions**,
-not just its order, and `wins` becomes per-base reachability rather than a position
-comparison. `filter_generation/analyze_trace.py` implements the sound version.
+condition-aware test says **86**. `filter_generation/analyze_trace.py` implements the
+sound version.
+
+**Resolution (author, 2026-07-31): multi-claiming is intended, and `wins` splits in two.**
+A filter is a simple system with complex consequences; several blocks naming one base is
+how precision is expressed, not a defect. The consequence is only that a single boolean
+per `(base, occurrence)` cannot answer "which block catches this drop", because the answer
+depends on the *item*: an Opal Ring at ilvl 84 with Quality 21 lands in
+`Crafting Over Quality`, the same base at Quality 0 lands in `Crafting Gear 84`, and at
+ilvl 70 it falls to `Tier 2 Rings`. There is no winner for "Opal Ring" as such.
+
+So the index answers the **static** question and the simulator answers the **dynamic** one:
+
+| question | needs | answered by |
+|---|---|---|
+| where does this base appear at all? | nothing | the index (cheap, exact) |
+| **can this claim ever fire?** | the claims before it | the index — `reachable`, not `wins` |
+| which block catches *this* drop? | the item's own state | the **drop simulator**, which already does it |
+
+This is a narrowing, and a welcome one: `reachable` is decidable and provable, while a
+global `wins` would have been confidently wrong. It is also still the cure for the bug
+class the index was introduced for — "mapped but emits nothing" is exactly an unreachable
+or absent claim.
+
+And `reachable` is a **report, not an error**. Of the 86 today, 72 sit behind ordinary
+`tier_base` blocks, mostly because `Crafting Priority` carries `gen_order −10` so it
+deliberately outranks the equipment ladders. The editor should show these, not fix them.
 
 - The **sound picker** and **bulk editors** query it for "where does this base appear?"
   instead of walking the tree — the operation they already perform, made cheap.
