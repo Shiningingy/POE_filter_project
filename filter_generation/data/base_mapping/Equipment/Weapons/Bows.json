@@ -76,7 +76,8 @@
         "Imperial Bow"
       ],
       "conditions": {
-        "ItemLevel": ">= 86"
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Bows",
@@ -94,7 +95,8 @@
         "Imperial Bow"
       ],
       "conditions": {
-        "ItemLevel": ">= 84"
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 1 Bows",

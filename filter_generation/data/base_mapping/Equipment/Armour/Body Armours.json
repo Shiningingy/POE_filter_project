@@ -260,7 +260,8 @@
         "Vaal Regalia"
       ],
       "conditions": {
-        "ItemLevel": ">= 86"
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "PlayAlertSound": [
@@ -275,7 +276,8 @@
         "Astral Plate"
       ],
       "conditions": {
-        "ItemLevel": ">= 86"
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "PlayAlertSound": [
@@ -290,7 +292,8 @@
         "Zodiac Leather"
       ],
       "conditions": {
-        "ItemLevel": ">= 86"
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "PlayAlertSound": [

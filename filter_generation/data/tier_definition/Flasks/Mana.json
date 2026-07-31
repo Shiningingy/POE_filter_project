@@ -25,6 +25,9 @@
       "localization": {
         "en": "T1: Divine/Eternal",
         "ch": "T1: 顶级魔力药剂"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier 2 Mana Flasks": {
@@ -39,6 +42,9 @@
       "localization": {
         "en": "T2: High Level",
         "ch": "T2: 高级魔力药剂"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier Hide Mana Flasks": {
@@ -69,6 +75,9 @@
       "localization": {
         "en": "T0: Absolute Top",
         "ch": "T0: 顶级/核心"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     }
   }

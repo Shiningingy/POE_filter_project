@@ -51,7 +51,8 @@
         "Eclipse Staff"
       ],
       "conditions": {
-        "ItemLevel": ">= 83"
+        "ItemLevel": ">= 83",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Staves",

@@ -37,7 +37,8 @@
       "targets": [],
       "conditions": {
         "ItemLevel": ">= 86",
-        "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord"
+        "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Influenced"
@@ -48,7 +49,8 @@
     {
       "targets": [],
       "conditions": {
-        "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord"
+        "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 1 Influenced"

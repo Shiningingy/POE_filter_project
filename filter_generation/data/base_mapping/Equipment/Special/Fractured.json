@@ -15,7 +15,8 @@
       "targets": [],
       "conditions": {
         "FracturedItem": "True",
-        "ItemLevel": ">= 84"
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Fractured"

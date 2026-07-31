@@ -25,6 +25,9 @@
       "localization": {
         "en": "T0: Absolute Top",
         "ch": "T0: 顶级/核心"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier 1 Tinctures": {
@@ -39,6 +42,9 @@
       "localization": {
         "en": "T1: Tinctures",
         "ch": "T1: 酊剂"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier Hide Tinctures": {

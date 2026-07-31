@@ -429,6 +429,7 @@ Show
 Show
     Class "Body Armours" "Helmets" "Gloves" "Boots" "Shields" "Bows" "Wands" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Warstaves" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Thrusting One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords"
     LinkedSockets >= 6
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -442,6 +443,7 @@ Show
 Show
     Class "Body Armours" "Helmets" "Gloves" "Boots" "Shields" "Bows" "Wands" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Warstaves" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Thrusting One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords"
     Sockets >= 6
+    Rarity <= Rare
     SetFontSize 39
     SetTextColor 190 149 94 255
     SetBorderColor 178 130 66 255
@@ -454,6 +456,7 @@ Show
 Show
     Class "Body Armours" "Helmets" "Gloves" "Boots" "Shields" "Bows" "Wands" "Claws" "Daggers" "Rune Daggers" "Sceptres" "Staves" "Warstaves" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Thrusting One Hand Swords" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords"
     SocketGroup RGB
+    Rarity <= Rare
     SetFontSize 36
     SetTextColor 201 168 123 255
     SetBorderColor 98 72 36 255
@@ -482,6 +485,7 @@ Show
     Quality >= 26
     Corrupted False
     Mirrored False
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 212 175 55 255
@@ -496,6 +500,7 @@ Show
     Quality >= 28
     Corrupted False
     Mirrored False
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 212 175 55 255
@@ -511,6 +516,7 @@ Show
     ItemLevel >= 83
     Corrupted False
     Mirrored False
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 212 175 55 255
@@ -525,6 +531,7 @@ Show
     Quality >= 24
     Corrupted False
     Mirrored False
+    Rarity <= Rare
     SetFontSize 39
     SetTextColor 218 187 85 255
     SetBorderColor 212 175 55 255
@@ -539,6 +546,7 @@ Show
     ItemLevel >= 83
     Corrupted False
     Mirrored False
+    Rarity <= Rare
     SetFontSize 39
     SetTextColor 218 187 85 255
     SetBorderColor 212 175 55 255
@@ -1841,6 +1849,7 @@ Show
 Show
     BaseType == "Vaal Regalia"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
     SetBorderColor 72 82 96 255
@@ -1852,6 +1861,7 @@ Show
 Show
     BaseType == "Astral Plate"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
     SetBorderColor 72 82 96 255
@@ -1863,6 +1873,7 @@ Show
 Show
     BaseType == "Zodiac Leather"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 36
     SetTextColor 168 182 199 255
     SetBorderColor 72 82 96 255
@@ -1911,6 +1922,7 @@ Show
 Show
     BaseType == "Sorcerer Boots" "Slink Boots" "Titan Boots" "Two-Tone Boots" "Fugitive Boots"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -1924,6 +1936,7 @@ Show
 Show
     BaseType == "Sorcerer Boots" "Slink Boots" "Titan Boots" "Two-Tone Boots" "Fugitive Boots"
     ItemLevel >= 84
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 130 150 175 255
@@ -1989,6 +2002,7 @@ Show
 Show
     BaseType == "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Apothecary's Gloves"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -2002,6 +2016,7 @@ Show
 Show
     BaseType == "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Apothecary's Gloves"
     ItemLevel >= 84
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 130 150 175 255
@@ -2067,6 +2082,7 @@ Show
 Show
     BaseType == "Hubris Circlet" "Lion Pelt" "Royal Burgonet" "Bone Helmet"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -2080,6 +2096,7 @@ Show
 Show
     BaseType == "Hubris Circlet" "Lion Pelt" "Royal Burgonet" "Bone Helmet"
     ItemLevel >= 84
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 130 150 175 255
@@ -2145,6 +2162,7 @@ Show
 Show
     BaseType == "Broadhead Arrow Quiver" "Spike-Point Arrow Quiver" "Penetrating Arrow Quiver"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -2158,6 +2176,7 @@ Show
 Show
     BaseType == "Broadhead Arrow Quiver" "Spike-Point Arrow Quiver" "Penetrating Arrow Quiver"
     ItemLevel >= 84
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 130 150 175 255
@@ -2221,6 +2240,7 @@ Show
 Show
     BaseType == "Titanium Spirit Shield" "Archon Kite Shield"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -2234,6 +2254,7 @@ Show
 Show
     BaseType == "Titanium Spirit Shield" "Archon Kite Shield"
     ItemLevel >= 84
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 130 150 175 255
@@ -2285,6 +2306,7 @@ Show
 Show
     BaseType == "Blue Pearl Amulet" "Marble Amulet" "Seaglass Amulet"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -2298,6 +2320,7 @@ Show
 Show
     BaseType == "Blue Pearl Amulet" "Marble Amulet" "Seaglass Amulet"
     ItemLevel >= 84
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 130 150 175 255
@@ -2387,6 +2410,7 @@ Show
 Show
     BaseType == "Stygian Vise" "Crystal Belt"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -2400,6 +2424,7 @@ Show
 Show
     BaseType == "Stygian Vise" "Crystal Belt"
     ItemLevel >= 84
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 130 150 175 255
@@ -2464,6 +2489,7 @@ Show
 Show
     BaseType == "Opal Ring" "Steel Ring" "Vermillion Ring" "Iolite Ring" "Cerulean Ring"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -2477,6 +2503,7 @@ Show
 Show
     BaseType == "Opal Ring" "Steel Ring" "Vermillion Ring" "Iolite Ring" "Cerulean Ring"
     ItemLevel >= 84
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 130 150 175 255
@@ -2716,6 +2743,7 @@ Show
 #==[76001]- Relics -遗物 遗物 - Class Condition==
 Show
     Class "Relics" "Small Relics" "Medium Relics" "Large Relics" "Sanctified Relics"
+    Rarity <= Rare
     SetFontSize 39
     SetTextColor 218 187 85 255
     SetBorderColor 212 175 55 255
@@ -2729,6 +2757,7 @@ Show
 Show
     FracturedItem True
     ItemLevel >= 84
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -2745,6 +2774,7 @@ Show
     BaseType == "Hubris Circlet" "Stygian Vise" "Titanium Spirit Shield" "Vaal Regalia"
     ItemLevel >= 86
     HasInfluence Shaper Elder Crusader Hunter Redeemer Warlord
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -2758,6 +2788,7 @@ Show
 Show
     BaseType == "Blue Pearl Amulet" "Fingerless Silk Gloves" "Marble Amulet" "Opal Ring" "Sorcerer Boots" "Steel Ring"
     HasInfluence Shaper Elder Crusader Hunter Redeemer Warlord
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 130 150 175 255
@@ -2773,6 +2804,7 @@ Show
 Show
     BaseType == "Spine Bow" "Thicket Bow" "Imperial Bow"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -2786,6 +2818,7 @@ Show
 Show
     BaseType == "Spine Bow" "Thicket Bow" "Imperial Bow"
     ItemLevel >= 84
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 130 150 175 255
@@ -2837,6 +2870,7 @@ Show
 Show
     BaseType == "Imperial Claw" "Gemini Claw" "Great White Claw"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -2850,6 +2884,7 @@ Show
 Show
     BaseType == "Imperial Claw" "Gemini Claw" "Great White Claw"
     ItemLevel >= 84
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 130 150 175 255
@@ -2901,6 +2936,7 @@ Show
 Show
     BaseType == "Ambusher" "Imperial Skean" "Demon Dagger"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -2914,6 +2950,7 @@ Show
 Show
     BaseType == "Ambusher" "Imperial Skean" "Demon Dagger"
     ItemLevel >= 84
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 130 150 175 255
@@ -2952,6 +2989,7 @@ Show
 Show
     BaseType == "Siege Axe" "Reaver Axe" "Runic Hatchet"
     ItemLevel >= 83
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -2990,6 +3028,7 @@ Show
 Show
     BaseType == "Behemoth Mace" "Nightmare Mace"
     ItemLevel >= 83
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -3028,6 +3067,7 @@ Show
 Show
     BaseType == "Jewelled Foil" "Corsair Sword" "Eternal Sword"
     ItemLevel >= 83
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -3066,6 +3106,7 @@ Show
 Show
     BaseType == "Golden Kris" "Platinum Kris" "Ezomyte Dagger"
     ItemLevel >= 86
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -3117,6 +3158,7 @@ Show
 Show
     BaseType == "Void Sceptre" "Sambar Sceptre"
     ItemLevel >= 83
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -3168,6 +3210,7 @@ Show
 Show
     BaseType == "Imperial Staff" "Eclipse Staff"
     ItemLevel >= 83
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -3219,6 +3262,7 @@ Show
 Show
     BaseType == "Despot Axe" "Vaal Axe" "Fleshripper"
     ItemLevel >= 83
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -3270,6 +3314,7 @@ Show
 Show
     BaseType == "Coronal Maul" "Meatgrinder"
     ItemLevel >= 83
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -3308,6 +3353,7 @@ Show
 Show
     BaseType == "Exquisite Blade"
     ItemLevel >= 83
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -3334,6 +3380,7 @@ Show
 Show
     BaseType == "Opal Wand" "Profane Wand" "Convoking Wand"
     ItemLevel >= 83
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -3385,6 +3432,7 @@ Show
 Show
     BaseType == "Judgement Staff" "Ezomyte Staff"
     ItemLevel >= 83
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -3428,6 +3476,7 @@ Show
     ItemLevel >= 82
     Quality >= 20
     Class == "Life Flasks"
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 210 70 70 255
@@ -3440,6 +3489,7 @@ Show
 #==[61002]- Life Flasks -T1: 顶级生命药剂 生命药剂 - 基础 - 精确==
 Show
     BaseType == "Colossal Hybrid Flask" "Colossal Life Flask" "Divine Life Flask" "Eternal Life Flask" "Giant Life Flask" "Grand Life Flask" "Greater Life Flask" "Hallowed Hybrid Flask" "Hallowed Life Flask" "Large Hybrid Flask" "Large Life Flask" "Medium Hybrid Flask" "Medium Life Flask" "Sacred Hybrid Flask" "Sacred Life Flask" "Sanctified Life Flask" "Small Hybrid Flask"
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 210 70 70 255
@@ -3465,6 +3515,7 @@ Show
     ItemLevel >= 82
     Quality >= 20
     Class == "Mana Flasks"
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 70 100 210 255
@@ -3477,6 +3528,7 @@ Show
 #==[62002]- Mana Flasks -T1: 顶级魔力药剂 魔力药剂 - 基础 - 精确==
 Show
     BaseType == "Colossal Mana Flask" "Divine Mana Flask" "Eternal Mana Flask" "Giant Mana Flask" "Grand Mana Flask" "Greater Mana Flask" "Hallowed Mana Flask" "Large Mana Flask" "Medium Mana Flask" "Sacred Mana Flask" "Sanctified Mana Flask" "Small Mana Flask"
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 70 100 210 255
@@ -3491,6 +3543,7 @@ Show
 #==[63001]- Tinctures -T1: 酊剂 酊剂 - 基础 - 精确==
 Show
     BaseType == "Ashbark Tincture" "Blood Sap Tincture" "Borealwood Tincture" "Fulgurite Tincture" "Ironwood Tincture" "Oakbranch Tincture" "Poisonberry Tincture" "Prismatic Tincture" "Rosethorn Tincture" "Sporebloom Tincture"
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 164 178 70 255
@@ -3506,6 +3559,7 @@ Show
 Show
     BaseType == "Gold Flask" "Corundum Flask" "Silver Flask" "Amethyst Flask" "Diamond Flask" "Quicksilver Flask"
     ItemLevel >= 84
+    Rarity <= Rare
     SetFontSize 45
     SetTextColor 255 255 255 255
     SetBorderColor 255 255 255 255
@@ -3519,6 +3573,7 @@ Show
 Show
     BaseType == "Gold Flask" "Corundum Flask" "Silver Flask" "Amethyst Flask" "Diamond Flask" "Quicksilver Flask"
     ItemLevel >= 82
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 150 100 210 255
@@ -3531,6 +3586,7 @@ Show
 #==[64003]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - 自动音效：坚岩药剂 - 精确==
 Show
     BaseType == "Granite Flask"
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 150 100 210 255
@@ -3543,6 +3599,7 @@ Show
 #==[64004]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - 自动音效：石英药剂 - 精确==
 Show
     BaseType == "Quartz Flask"
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 150 100 210 255
@@ -3555,6 +3612,7 @@ Show
 #==[64005]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - 自动音效：坚铁药剂 - 精确==
 Show
     BaseType == "Iron Flask"
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 150 100 210 255
@@ -3567,6 +3625,7 @@ Show
 #==[64006]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - 基础 - 精确==
 Show
     BaseType == "Aquamarine Flask" "Basalt Flask" "Bismuth Flask" "Jade Flask" "Ruby Flask" "Sapphire Flask" "Stibnite Flask" "Sulphur Flask" "Topaz Flask"
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 150 100 210 255
@@ -3916,6 +3975,7 @@ Show
 #==[92001]- Base Jewels -T1: 高级珠宝 基础珠宝 - 基础 - 精确==
 Show
     BaseType == "Celestial Jeweller's Incubator" "Cobalt Jewel" "Crimson Jewel" "Jewelled Foil" "Viridian Jewel"
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 224 70 196 255
@@ -3930,6 +3990,7 @@ Show
 #==[93001]- Cluster Jewels -T1: 高级珠宝 星团珠宝 - 基础 - 精确==
 Show
     BaseType == "Large Cluster Jewel" "Medium Cluster Jewel" "Small Cluster Jewel"
+    Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 224 70 196 255

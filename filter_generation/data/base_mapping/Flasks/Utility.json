@@ -59,7 +59,8 @@
         "Quicksilver Flask"
       ],
       "conditions": {
-        "ItemLevel": ">= 84"
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Utility Flasks",
@@ -80,7 +81,8 @@
         "Quicksilver Flask"
       ],
       "conditions": {
-        "ItemLevel": ">= 82"
+        "ItemLevel": ">= 82",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 1 Utility Flasks"

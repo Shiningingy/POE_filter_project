@@ -26,6 +26,9 @@
       "localization": {
         "en": "T0: Top Value",
         "ch": "T0: 顶级珠宝"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier 1 Base Jewels": {
@@ -40,6 +43,9 @@
       "localization": {
         "en": "T1: High Value",
         "ch": "T1: 高级珠宝"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier 2 Base Jewels": {
@@ -54,6 +60,9 @@
       "localization": {
         "en": "T2: Standard",
         "ch": "T2: 常用珠宝"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier Hide Base Jewels": {

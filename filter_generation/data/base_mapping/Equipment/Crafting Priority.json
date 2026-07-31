@@ -154,7 +154,8 @@
       "conditions": {
         "Quality": ">= 26",
         "Corrupted": "False",
-        "Mirrored": "False"
+        "Mirrored": "False",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Crafting Perfect Quality"
@@ -207,7 +208,8 @@
       "conditions": {
         "Quality": ">= 28",
         "Corrupted": "False",
-        "Mirrored": "False"
+        "Mirrored": "False",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Crafting Perfect Quality"
@@ -283,7 +285,8 @@
         "Quality": ">= 28",
         "ItemLevel": ">= 83",
         "Corrupted": "False",
-        "Mirrored": "False"
+        "Mirrored": "False",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Crafting Perfect Quality"
@@ -336,7 +339,8 @@
       "conditions": {
         "Quality": ">= 24",
         "Corrupted": "False",
-        "Mirrored": "False"
+        "Mirrored": "False",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Crafting High Quality"
@@ -412,7 +416,8 @@
         "Quality": ">= 24",
         "ItemLevel": ">= 83",
         "Corrupted": "False",
-        "Mirrored": "False"
+        "Mirrored": "False",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Crafting High Quality"

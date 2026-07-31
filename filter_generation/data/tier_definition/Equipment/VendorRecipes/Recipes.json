@@ -16,7 +16,8 @@
       "class_condition": true,
       "conditions": {
         "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
-        "LinkedSockets": ">= 6"
+        "LinkedSockets": ">= 6",
+        "Rarity": "<= Rare"
       },
       "hideable": false,
       "theme": {
@@ -35,7 +36,8 @@
       "class_condition": true,
       "conditions": {
         "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
-        "Sockets": ">= 6"
+        "Sockets": ">= 6",
+        "Rarity": "<= Rare"
       },
       "hideable": false,
       "theme": {
@@ -54,7 +56,8 @@
       "class_condition": true,
       "conditions": {
         "Class": "\"Body Armours\" \"Helmets\" \"Gloves\" \"Boots\" \"Shields\" \"Bows\" \"Wands\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
-        "SocketGroup": "RGB"
+        "SocketGroup": "RGB",
+        "Rarity": "<= Rare"
       },
       "hideable": false,
       "theme": {

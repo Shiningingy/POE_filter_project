@@ -25,6 +25,9 @@
       "localization": {
         "en": "T1: Top Utility",
         "ch": "T1: 顶级功能药剂"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier 2 Utility Flasks": {
@@ -39,6 +42,9 @@
       "localization": {
         "en": "T2: Standard",
         "ch": "T2: 常用功能药剂"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier Hide Utility Flasks": {
@@ -69,6 +75,9 @@
       "localization": {
         "en": "T0: Absolute Top",
         "ch": "T0: 顶级/核心"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     }
   }

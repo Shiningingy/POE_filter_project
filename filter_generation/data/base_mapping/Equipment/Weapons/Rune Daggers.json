@@ -50,7 +50,8 @@
         "Ezomyte Dagger"
       ],
       "conditions": {
-        "ItemLevel": ">= 86"
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Rune Daggers",
