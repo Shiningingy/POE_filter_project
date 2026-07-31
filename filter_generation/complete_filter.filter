@@ -93,10 +93,8 @@
 #    [111000] 杂项 Misc - 其他杂项 Other Misc
 #  [120000] 传奇 Uniques
 #    [121000] 传奇 Uniques - 传奇物品 Unique Items
-#  [130000] 装备 Equipment
-#    [131000] 装备 Equipment - 精品底材 Crafting Bases
-#  [140000] _legacy _legacy
-#    [141000] _legacy _legacy - 历史物品 Legacy
+#  [130000] _legacy _legacy
+#    [131000] _legacy _legacy - 历史物品 Legacy
 #========================================
 
 
@@ -458,290 +456,506 @@ Show
 
 #==[22000]-装备 Equipment - 优先精品底材 Crafting Priority==
 
-#==[22001]- Crafting Priority -追忆物品 优先精品底材 - Class Condition==
+#==[22001]- Crafting Priority -完美防御数值 优先精品底材 - 自动音效：药剂师手套 - 精确==
 Show
-    MemoryStrands >= 1
+    BaseType == "Apothecary's Gloves"
     Rarity <= Rare
+    BaseDefencePercentile >= 99
     Corrupted False
     Mirrored False
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
+    ItemLevel >= 84
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\药剂师手套.mp3" 200
     PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
+    MinimapIcon 0 Orange Star
 
 
-#==[22002]- Crafting Priority -完美品质 28+ 优先精品底材 - #1 机会底材 高品质 - 精确==
+#==[22002]- Crafting Priority -完美防御数值 优先精品底材 - 自动音效：唤骨头盔 - 精确==
 Show
-    BaseType == "Riveted Boots" "Steel Kite Shield"
-    Quality >= 26
+    BaseType == "Bone Helmet"
+    Rarity <= Rare
+    BaseDefencePercentile >= 99
     Corrupted False
     Mirrored False
-    Rarity <= Rare
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
+    ItemLevel >= 84
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\唤骨头盔.mp3" 200
     PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
+    MinimapIcon 0 Orange Star
 
 
-#==[22003]- Crafting Priority -完美品质 28+ 优先精品底材 - #2 防具 完美品质 - 精确==
+#==[22003]- Crafting Priority -完美防御数值 优先精品底材 - 自动音效：丝绸手套 - 精确==
 Show
-    BaseType == "Apothecary's Gloves" "Archon Kite Shield" "Bone Helmet" "Cardinal Round Shield" "Colossal Tower Shield" "Conquest Lamellar" "Divine Crown" "Ezomyte Tower Shield" "Fingerless Silk Gloves" "Fossilised Spirit Shield" "Fugitive Boots" "Giantslayer Helmet" "Gripped Gloves" "Haunted Bascinet" "Lacquered Buckler" "Leviathan Gauntlets" "Leviathan Greaves" "Lich's Circlet" "Majestic Pelt" "Necrotic Armour" "Paladin Boots" "Paladin Gloves" "Phantom Boots" "Phantom Mitts" "Royal Plate" "Sacred Chainmail" "Sacrificial Garb" "Spiked Gloves" "Supreme Spiked Shield" "Syndicate's Garb" "Titanium Spirit Shield" "Torturer's Mask" "Twilight Regalia" "Two-Toned Boots" "Velour Boots" "Velour Gloves" "Warlock Boots" "Warlock Gloves" "Wyvernscale Boots" "Wyvernscale Gauntlets"
-    Quality >= 28
+    BaseType == "Fingerless Silk Gloves"
+    Rarity <= Rare
+    BaseDefencePercentile >= 99
     Corrupted False
     Mirrored False
-    Rarity <= Rare
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
+    ItemLevel >= 84
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\丝绸手套.mp3" 200
     PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
+    MinimapIcon 0 Orange Star
 
 
-#==[22004]- Crafting Priority -完美品质 28+ 优先精品底材 - #3 武器 完美品质 - 精确==
+#==[22004]- Crafting Priority -完美防御数值 优先精品底材 - 自动音效：逃亡之靴 - 精确==
 Show
-    BaseType == "Ambusher" "Artillery Quiver" "Basket Rapier" "Battered Foil" "Behemoth Mace" "Broadhead Arrow Quiver" "Citadel Bow" "Convening Wand" "Convoking Wand" "Copper Kris" "Corsair Sword" "Despot Axe" "Eclipse Staff" "Eternal Sword" "Exquisite Blade" "Ezomyte Blade" "Ezomyte Staff" "Feathered Arrow Quiver" "Fleshripper" "Gemini Claw" "Golden Kris" "Grove Bow" "Harbinger Bow" "Heavy Arrow Quiver" "Imperial Bow" "Imperial Claw" "Imperial Skean" "Jewelled Foil" "Judgement Staff" "Karui Chopper" "Karui Sceptre" "Kinetic Wand" "Lathi" "Legion Hammer" "Maelström Staff" "Maraketh Bow" "Meatgrinder" "Opal Sceptre" "Opal Wand" "Pagan Wand" "Piledriver" "Platinum Kris" "Primal Arrow Quiver" "Profane Wand" "Prophecy Wand" "Reaver Axe" "Reaver Sword" "Reflex Bow" "Royal Axe" "Runic Hatchet" "Sai" "Sambar Sceptre" "Short Bow" "Siege Axe" "Spine Bow" "Spiraled Foil" "Sundering Axe" "Thicket Bow" "Vaal Axe" "Vile Arrow Quiver" "Void Sceptre" "Whalebone Rapier"
-    Quality >= 28
-    ItemLevel >= 83
+    BaseType == "Fugitive Boots"
+    Rarity <= Rare
+    BaseDefencePercentile >= 99
     Corrupted False
     Mirrored False
-    Rarity <= Rare
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
+    ItemLevel >= 84
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\逃亡之靴.mp3" 200
     PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
+    MinimapIcon 0 Orange Star
 
 
-#==[22005]- Crafting Priority -高品质 24+ 优先精品底材 - #1 防具 高品质 - 精确==
+#==[22005]- Crafting Priority -完美防御数值 优先精品底材 - 自动音效：擒拿手套 - 精确==
 Show
-    BaseType == "Apothecary's Gloves" "Archon Kite Shield" "Bone Helmet" "Cardinal Round Shield" "Colossal Tower Shield" "Conquest Lamellar" "Divine Crown" "Ezomyte Tower Shield" "Fingerless Silk Gloves" "Fossilised Spirit Shield" "Fugitive Boots" "Giantslayer Helmet" "Gripped Gloves" "Haunted Bascinet" "Lacquered Buckler" "Leviathan Gauntlets" "Leviathan Greaves" "Lich's Circlet" "Majestic Pelt" "Necrotic Armour" "Paladin Boots" "Paladin Gloves" "Phantom Boots" "Phantom Mitts" "Royal Plate" "Sacred Chainmail" "Sacrificial Garb" "Spiked Gloves" "Supreme Spiked Shield" "Syndicate's Garb" "Titanium Spirit Shield" "Torturer's Mask" "Twilight Regalia" "Two-Toned Boots" "Velour Boots" "Velour Gloves" "Warlock Boots" "Warlock Gloves" "Wyvernscale Boots" "Wyvernscale Gauntlets"
-    Quality >= 24
+    BaseType == "Gripped Gloves"
+    Rarity <= Rare
+    BaseDefencePercentile >= 99
     Corrupted False
     Mirrored False
-    Rarity <= Rare
-    SetFontSize 39
-    SetTextColor 218 187 85 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
-    MinimapIcon 1 Orange Circle
+    ItemLevel >= 84
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\擒拿手套.mp3" 200
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
 
 
-#==[22006]- Crafting Priority -高品质 24+ 优先精品底材 - #2 武器 高品质 - 精确==
+#==[22006]- Crafting Priority -完美防御数值 优先精品底材 - 自动音效：祭礼束衣 - 精确==
 Show
-    BaseType == "Ambusher" "Artillery Quiver" "Basket Rapier" "Battered Foil" "Behemoth Mace" "Broadhead Arrow Quiver" "Citadel Bow" "Convening Wand" "Convoking Wand" "Copper Kris" "Corsair Sword" "Despot Axe" "Eclipse Staff" "Eternal Sword" "Exquisite Blade" "Ezomyte Blade" "Ezomyte Staff" "Feathered Arrow Quiver" "Fleshripper" "Gemini Claw" "Golden Kris" "Grove Bow" "Harbinger Bow" "Heavy Arrow Quiver" "Imperial Bow" "Imperial Claw" "Imperial Skean" "Jewelled Foil" "Judgement Staff" "Karui Chopper" "Karui Sceptre" "Kinetic Wand" "Lathi" "Legion Hammer" "Maelström Staff" "Maraketh Bow" "Meatgrinder" "Opal Sceptre" "Opal Wand" "Pagan Wand" "Piledriver" "Platinum Kris" "Primal Arrow Quiver" "Profane Wand" "Prophecy Wand" "Reaver Axe" "Reaver Sword" "Reflex Bow" "Royal Axe" "Runic Hatchet" "Sai" "Sambar Sceptre" "Short Bow" "Siege Axe" "Spine Bow" "Spiraled Foil" "Sundering Axe" "Thicket Bow" "Vaal Axe" "Vile Arrow Quiver" "Void Sceptre" "Whalebone Rapier"
-    Quality >= 24
-    ItemLevel >= 83
+    BaseType == "Sacrificial Garb"
+    Rarity <= Rare
+    BaseDefencePercentile >= 99
     Corrupted False
     Mirrored False
+    ItemLevel >= 84
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\祭礼束衣.mp3" 200
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[22007]- Crafting Priority -完美防御数值 优先精品底材 - 自动音效：扣钉手套 - 精确==
+Show
+    BaseType == "Spiked Gloves"
     Rarity <= Rare
-    SetFontSize 39
-    SetTextColor 218 187 85 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
-    MinimapIcon 1 Orange Circle
+    BaseDefencePercentile >= 99
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 84
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\扣钉手套.mp3" 200
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
 
 
-#==[22007]- Crafting Priority -极品底材 i86 优先精品底材 - 自动音效：水晶腰带 - 精确==
+#==[22008]- Crafting Priority -完美防御数值 优先精品底材 - 基础 - 精确==
+Show
+    BaseType == "Archon Kite Shield" "Cardinal Round Shield" "Colossal Tower Shield" "Conquest Lamellar" "Divine Crown" "Ezomyte Tower Shield" "Fossilised Spirit Shield" "Giantslayer Helmet" "Haunted Bascinet" "Lacquered Buckler" "Leviathan Gauntlets" "Leviathan Greaves" "Lich's Circlet" "Majestic Pelt" "Necrotic Armour" "Paladin Boots" "Paladin Gloves" "Phantom Boots" "Phantom Mitts" "Royal Plate" "Sacred Chainmail" "Supreme Spiked Shield" "Syndicate's Garb" "Titanium Spirit Shield" "Torturer's Mask" "Twilight Regalia" "Two-Toned Boots" "Velour Boots" "Velour Gloves" "Warlock Boots" "Warlock Gloves" "Wyvernscale Boots" "Wyvernscale Gauntlets"
+    Rarity <= Rare
+    BaseDefencePercentile >= 99
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 84
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[22009]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：火炮箭袋 - 精确==
+Show
+    BaseType == "Artillery Quiver"
+    Rarity <= Rare
+    Quality > 20
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\火炮箭袋.mp3" 200
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[22010]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：召集法杖 - 精确==
+Show
+    BaseType == "Convoking Wand"
+    Rarity <= Rare
+    Quality > 20
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\召集法杖.mp3" 200
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[22011]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：水晶腰带 - 精确==
 Show
     BaseType == "Crystal Belt"
     Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 86
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
+    Quality > 20
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
     CustomAlertSound "sound_files\Sharket掉落音效\水晶腰带.mp3" 200
     PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
+    MinimapIcon 0 Orange Star
 
 
-#==[22008]- Crafting Priority -极品底材 i86 优先精品底材 - 自动音效：深渊腰带 - 精确==
+#==[22012]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：青石戒指 - 精确==
 Show
-    BaseType == "Stygian Vise"
+    BaseType == "Iolite Ring"
     Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 86
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
-    CustomAlertSound "sound_files\Sharket掉落音效\深渊腰带.mp3" 200
+    Quality > 20
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\青石戒指.mp3" 200
     PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
+    MinimapIcon 0 Orange Star
 
 
-#==[22009]- Crafting Priority -极品底材 i86 优先精品底材 - 自动音效：朱砂之戒 - 精确==
+#==[22013]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：蛋白石戒指 - 精确==
+Show
+    BaseType == "Opal Ring"
+    Rarity <= Rare
+    Quality > 20
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\蛋白石戒指.mp3" 200
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[22014]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：祭礼束衣 - 精确==
+Show
+    BaseType == "Sacrificial Garb"
+    Rarity <= Rare
+    Quality > 20
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\祭礼束衣.mp3" 200
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[22015]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：合金戒指 - 精确==
+Show
+    BaseType == "Steel Ring"
+    Rarity <= Rare
+    Quality > 20
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\合金戒指.mp3" 200
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[22016]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：朱砂之戒 - 精确==
 Show
     BaseType == "Vermillion Ring"
     Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 86
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
+    Quality > 20
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
     CustomAlertSound "sound_files\Sharket掉落音效\朱砂之戒.mp3" 200
     PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
+    MinimapIcon 0 Orange Star
 
 
-#==[22010]- Crafting Priority -极品底材 i86 优先精品底材 - 基础 - 精确==
+#==[22017]- Crafting Priority -超额品质底材 优先精品底材 - 基础 - 精确==
 Show
-    BaseType == "Blood Viper Talisman" "Croaker Talisman" "Cryonic Ring" "Enthalpic Ring" "Flame Hellion Talisman" "Fugitive Boots" "Fugitive Ring" "Gargantuan Talisman" "Great Maw Talisman" "Lich's Circlet" "Octopus Talisman" "Organic Ring" "Retch Talisman" "Rhoa Talisman" "Scrabbler Talisman" "Spiked Gloves" "Synaptic Ring" "Titanium Spirit Shield" "Twilight Regalia" "Warlock Gloves" "Watcher Talisman" "Wyvernscale Gauntlets"
+    BaseType == "Battered Foil" "Broadhead Arrow Quiver" "Conquest Lamellar" "Copper Kris" "Despot Axe" "Divine Crown" "Feathered Arrow Quiver" "Gemini Claw" "Giantslayer Helmet" "Golden Kris" "Haunted Bascinet" "Imperial Claw" "Imperial Skean" "Jewelled Foil" "Kinetic Wand" "Leviathan Gauntlets" "Leviathan Greaves" "Lich's Circlet" "Majestic Pelt" "Necrotic Armour" "Opal Sceptre" "Opal Wand" "Pagan Wand" "Paladin Boots" "Paladin Gloves" "Phantom Boots" "Phantom Mitts" "Platinum Kris" "Primal Arrow Quiver" "Profane Wand" "Prophecy Wand" "Reaver Axe" "Reaver Sword" "Reflex Bow" "Royal Plate" "Sacred Chainmail" "Short Bow" "Siege Axe" "Spine Bow" "Syndicate's Garb" "Thicket Bow" "Torturer's Mask" "Twilight Regalia" "Vaal Axe" "Velour Boots" "Velour Gloves" "Void Sceptre" "Warlock Boots" "Warlock Gloves" "Whalebone Rapier" "Wyvernscale Boots" "Wyvernscale Gauntlets"
     Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 86
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
+    Quality > 20
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
     PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
+    MinimapIcon 0 Orange Star
 
 
-#==[22011]- Crafting Priority -极品底材 i85 优先精品底材 - 自动音效：深渊腰带 - 精确==
+#==[22018]- Crafting Priority -追忆武器底材 优先精品底材 - 自动音效：火炮箭袋 - 精确==
 Show
-    BaseType == "Stygian Vise"
+    BaseType == "Artillery Quiver"
     Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 85
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
-    CustomAlertSound "sound_files\Sharket掉落音效\深渊腰带.mp3" 200
+    MemoryStrands >= 1
+    ItemLevel >= 83
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\火炮箭袋.mp3" 200
     PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
+    MinimapIcon 0 Orange Star
 
 
-#==[22012]- Crafting Priority -极品底材 i85 优先精品底材 - 自动音效：朱砂之戒 - 精确==
+#==[22019]- Crafting Priority -追忆武器底材 优先精品底材 - 自动音效：召集法杖 - 精确==
+Show
+    BaseType == "Convoking Wand"
+    Rarity <= Rare
+    MemoryStrands >= 1
+    ItemLevel >= 83
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\召集法杖.mp3" 200
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[22020]- Crafting Priority -追忆武器底材 优先精品底材 - 基础 - 精确==
+Show
+    BaseType == "Battered Foil" "Broadhead Arrow Quiver" "Copper Kris" "Despot Axe" "Feathered Arrow Quiver" "Gemini Claw" "Golden Kris" "Imperial Claw" "Imperial Skean" "Jewelled Foil" "Kinetic Wand" "Opal Sceptre" "Opal Wand" "Pagan Wand" "Platinum Kris" "Primal Arrow Quiver" "Profane Wand" "Prophecy Wand" "Reaver Axe" "Reaver Sword" "Reflex Bow" "Short Bow" "Siege Axe" "Spine Bow" "Thicket Bow" "Vaal Axe" "Void Sceptre" "Whalebone Rapier"
+    Rarity <= Rare
+    MemoryStrands >= 1
+    ItemLevel >= 83
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[22021]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 自动音效：水晶腰带 - 精确==
+Show
+    BaseType == "Crystal Belt"
+    Rarity <= Rare
+    MemoryStrands >= 1
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\水晶腰带.mp3" 200
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[22022]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 自动音效：青石戒指 - 精确==
+Show
+    BaseType == "Iolite Ring"
+    Rarity <= Rare
+    MemoryStrands >= 1
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\青石戒指.mp3" 200
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[22023]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 自动音效：蛋白石戒指 - 精确==
+Show
+    BaseType == "Opal Ring"
+    Rarity <= Rare
+    MemoryStrands >= 1
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\蛋白石戒指.mp3" 200
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[22024]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 自动音效：祭礼束衣 - 精确==
+Show
+    BaseType == "Sacrificial Garb"
+    Rarity <= Rare
+    MemoryStrands >= 1
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\祭礼束衣.mp3" 200
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[22025]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 自动音效：合金戒指 - 精确==
+Show
+    BaseType == "Steel Ring"
+    Rarity <= Rare
+    MemoryStrands >= 1
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
+    CustomAlertSound "sound_files\Sharket掉落音效\合金戒指.mp3" 200
+    PlayEffect Orange
+    MinimapIcon 0 Orange Star
+
+
+#==[22026]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 自动音效：朱砂之戒 - 精确==
 Show
     BaseType == "Vermillion Ring"
     Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 85
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
+    MemoryStrands >= 1
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
     CustomAlertSound "sound_files\Sharket掉落音效\朱砂之戒.mp3" 200
     PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
+    MinimapIcon 0 Orange Star
 
 
-#==[22013]- Crafting Priority -极品底材 i85 优先精品底材 - 基础 - 精确==
+#==[22027]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 基础 - 精确==
 Show
-    BaseType == "Carrion Queen Talisman" "Craicic Talisman" "Croaker Talisman" "Great Maw Talisman" "Rhex Talisman" "Saqawine Talisman" "Synaptic Ring" "Tiger Talisman" "Wyvernscale Gauntlets"
+    BaseType == "Conquest Lamellar" "Divine Crown" "Giantslayer Helmet" "Haunted Bascinet" "Leviathan Gauntlets" "Leviathan Greaves" "Lich's Circlet" "Majestic Pelt" "Necrotic Armour" "Paladin Boots" "Paladin Gloves" "Phantom Boots" "Phantom Mitts" "Royal Plate" "Sacred Chainmail" "Syndicate's Garb" "Torturer's Mask" "Twilight Regalia" "Velour Boots" "Velour Gloves" "Warlock Boots" "Warlock Gloves" "Wyvernscale Boots" "Wyvernscale Gauntlets"
     Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 85
-    SetFontSize 42
-    SetTextColor 255 255 255 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 42 35 11 255
+    MemoryStrands >= 1
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 212 175 55 255
     PlayEffect Orange
-    MinimapIcon 1 Orange Diamond
+    MinimapIcon 0 Orange Star
 
 
-#==[22014]- Crafting Priority -极品底材 i84 优先精品底材 - 自动音效：深渊腰带 - 精确==
+#==[22028]- Crafting Priority -精品底材 i86+ 优先精品底材 - 自动音效：水晶腰带 - 精确==
 Show
-    BaseType == "Stygian Vise"
+    BaseType == "Crystal Belt"
     Rarity <= Rare
-    Corrupted False
-    Mirrored False
+    ItemLevel >= 86
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\水晶腰带.mp3" 200
+    MinimapIcon 1 Orange Circle
+
+
+#==[22029]- Crafting Priority -精品底材 i86+ 优先精品底材 - 自动音效：祭礼束衣 - 精确==
+Show
+    BaseType == "Sacrificial Garb"
+    Rarity <= Rare
+    ItemLevel >= 86
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\祭礼束衣.mp3" 200
+    MinimapIcon 1 Orange Circle
+
+
+#==[22030]- Crafting Priority -精品底材 i86+ 优先精品底材 - 基础 - 精确==
+Show
+    BaseType == "Conquest Lamellar" "Leviathan Greaves" "Necrotic Armour" "Paladin Boots" "Phantom Boots" "Royal Plate" "Sacred Chainmail" "Syndicate's Garb" "Twilight Regalia" "Velour Boots" "Warlock Boots" "Wyvernscale Boots"
+    Rarity <= Rare
+    ItemLevel >= 86
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    MinimapIcon 1 Orange Circle
+
+
+#==[22031]- Crafting Priority -精品底材 i85+ 优先精品底材 - 基础 - 精确==
+Show
+    BaseType == "Divine Crown" "Giantslayer Helmet" "Haunted Bascinet" "Leviathan Gauntlets" "Lich's Circlet" "Majestic Pelt" "Paladin Gloves" "Phantom Mitts" "Torturer's Mask" "Velour Gloves" "Warlock Gloves" "Wyvernscale Gauntlets"
+    Rarity <= Rare
+    ItemLevel >= 85
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    MinimapIcon 1 Orange Circle
+
+
+#==[22032]- Crafting Priority -精品底材 i84+ 优先精品底材 - 自动音效：青石戒指 - 精确==
+Show
+    BaseType == "Iolite Ring"
+    Rarity <= Rare
     ItemLevel >= 84
     SetFontSize 39
     SetTextColor 218 187 85 255
     SetBorderColor 212 175 55 255
     SetBackgroundColor 16 16 22 255
-    CustomAlertSound "sound_files\Sharket掉落音效\深渊腰带.mp3" 200
+    CustomAlertSound "sound_files\Sharket掉落音效\青石戒指.mp3" 200
     MinimapIcon 1 Orange Circle
 
 
-#==[22015]- Crafting Priority -极品底材 i84 优先精品底材 - 自动音效：朱砂之戒 - 精确==
+#==[22033]- Crafting Priority -精品底材 i84+ 优先精品底材 - 自动音效：蛋白石戒指 - 精确==
+Show
+    BaseType == "Opal Ring"
+    Rarity <= Rare
+    ItemLevel >= 84
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\蛋白石戒指.mp3" 200
+    MinimapIcon 1 Orange Circle
+
+
+#==[22034]- Crafting Priority -精品底材 i84+ 优先精品底材 - 自动音效：合金戒指 - 精确==
+Show
+    BaseType == "Steel Ring"
+    Rarity <= Rare
+    ItemLevel >= 84
+    SetFontSize 39
+    SetTextColor 218 187 85 255
+    SetBorderColor 212 175 55 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\合金戒指.mp3" 200
+    MinimapIcon 1 Orange Circle
+
+
+#==[22035]- Crafting Priority -精品底材 i84+ 优先精品底材 - 自动音效：朱砂之戒 - 精确==
 Show
     BaseType == "Vermillion Ring"
     Rarity <= Rare
-    Corrupted False
-    Mirrored False
     ItemLevel >= 84
     SetFontSize 39
     SetTextColor 218 187 85 255
     SetBorderColor 212 175 55 255
     SetBackgroundColor 16 16 22 255
     CustomAlertSound "sound_files\Sharket掉落音效\朱砂之戒.mp3" 200
-    MinimapIcon 1 Orange Circle
-
-
-#==[22016]- Crafting Priority -极品底材 i84 优先精品底材 - 基础 - 精确==
-Show
-    BaseType == "Ape Talisman" "Carrion Queen Talisman" "Cobra Talisman" "Craicic Talisman" "Croaker Talisman" "Fenumal Talisman" "Great Maw Talisman" "Rhex Talisman" "Saqawine Talisman" "Synaptic Ring" "Tiger Talisman" "Wyvernscale Gauntlets"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 84
-    SetFontSize 39
-    SetTextColor 218 187 85 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
-    MinimapIcon 1 Orange Circle
-
-
-#==[22017]- Crafting Priority -极品底材 i83 优先精品底材 - 自动音效：深渊腰带 - 精确==
-Show
-    BaseType == "Stygian Vise"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 83
-    SetFontSize 39
-    SetTextColor 218 187 85 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
-    CustomAlertSound "sound_files\Sharket掉落音效\深渊腰带.mp3" 200
-    MinimapIcon 1 Orange Circle
-
-
-#==[22018]- Crafting Priority -极品底材 i83 优先精品底材 - 自动音效：朱砂之戒 - 精确==
-Show
-    BaseType == "Vermillion Ring"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 83
-    SetFontSize 39
-    SetTextColor 218 187 85 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
-    CustomAlertSound "sound_files\Sharket掉落音效\朱砂之戒.mp3" 200
-    MinimapIcon 1 Orange Circle
-
-
-#==[22019]- Crafting Priority -极品底材 i83 优先精品底材 - 基础 - 精确==
-Show
-    BaseType == "Carrion Queen Talisman" "Craicic Talisman" "Croaker Talisman" "Divine Crown" "Fenumal Talisman" "Great Maw Talisman" "Leviathan Gauntlets" "Paladin Gloves" "Phantom Mitts" "Rhex Talisman" "Saqawine Talisman" "Synaptic Ring" "Tiger Talisman" "Velour Gloves" "Wyvernscale Boots" "Wyvernscale Gauntlets"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 83
-    SetFontSize 39
-    SetTextColor 218 187 85 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
     MinimapIcon 1 Orange Circle
 
 
@@ -5323,417 +5537,12 @@ Show
 
 
 #===================================================================================================================
-# [[130000]] 装备 Equipment
+# [[130000]] _legacy _legacy
 #===================================================================================================================
 
-#==[131000]-装备 Equipment - 精品底材 Crafting Bases==
+#==[131000]-_legacy _legacy - 历史物品 Legacy==
 
-#==[131001]- Crafting Bases -i86 T1 精品底材 精品底材 - 自动音效：水晶腰带 - 精确==
-Show
-    BaseType == "Crystal Belt"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 86
-    SetFontSize 39
-    SetTextColor 218 187 85 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
-    CustomAlertSound "sound_files\Sharket掉落音效\水晶腰带.mp3" 200
-    MinimapIcon 1 Orange Circle
-
-
-#==[131002]- Crafting Bases -i86 T1 精品底材 精品底材 - 自动音效：祭礼束衣 - 精确==
-Show
-    BaseType == "Sacrificial Garb"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 86
-    SetFontSize 39
-    SetTextColor 218 187 85 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
-    CustomAlertSound "sound_files\Sharket掉落音效\祭礼束衣.mp3" 200
-    MinimapIcon 1 Orange Circle
-
-
-#==[131003]- Crafting Bases -i86 T1 精品底材 精品底材 - 基础 - 精确==
-Show
-    BaseType == "Conquest Lamellar" "Leviathan Greaves" "Necrotic Armour" "Paladin Boots" "Phantom Boots" "Royal Plate" "Sacred Chainmail" "Syndicate's Garb" "Twilight Regalia" "Velour Boots" "Warlock Boots" "Wyvernscale Boots"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 86
-    SetFontSize 39
-    SetTextColor 218 187 85 255
-    SetBorderColor 212 175 55 255
-    SetBackgroundColor 16 16 22 255
-    MinimapIcon 1 Orange Circle
-
-
-#==[131004]- Crafting Bases -i86 T2 精品底材 精品底材 - 自动音效：逃亡之靴 - 精确==
-Show
-    BaseType == "Fugitive Boots"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 86
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
-    CustomAlertSound "sound_files\Sharket掉落音效\逃亡之靴.mp3" 200
-
-
-#==[131005]- Crafting Bases -i86 T2 精品底材 精品底材 - 自动音效：火炮箭袋 - 精确==
-Show
-    BaseType == "Artillery Quiver"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 86
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
-    CustomAlertSound "sound_files\Sharket掉落音效\火炮箭袋.mp3" 200
-
-
-#==[131006]- Crafting Bases -i86 T2 精品底材 精品底材 - 自动音效：先锋腰带 - 精确==
-Show
-    BaseType == "Vanguard Belt"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 86
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
-    CustomAlertSound "sound_files\Sharket掉落音效\先锋腰带.mp3" 200
-
-
-#==[131007]- Crafting Bases -i86 T2 精品底材 精品底材 - 基础 - 精确==
-Show
-    BaseType == "Archon Kite Shield" "Broadhead Arrow Quiver" "Cardinal Round Shield" "Colossal Tower Shield" "Ezomyte Tower Shield" "Feathered Arrow Quiver" "Fossilised Spirit Shield" "Lacquered Buckler" "Primal Arrow Quiver" "Reflex Bow" "Short Bow" "Spine Bow" "Supreme Spiked Shield" "Thicket Bow" "Titanium Spirit Shield" "Two-Toned Boots"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 86
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
-
-
-#==[131008]- Crafting Bases -i86 T3 精品底材 精品底材 - 基础 - 精确==
-Show
-    BaseType == "Champion Kite Shield" "Citadel Bow" "Crusader Buckler" "Elegant Round Shield" "Grove Bow" "Harbinger Bow" "Harmonic Spirit Shield" "Heavy Arrow Quiver" "Heavy Belt" "Imperial Bow" "Imperial Buckler" "Leather Belt" "Maraketh Bow" "Mirrored Spiked Shield" "Pinnacle Tower Shield" "Rustic Sash" "Vile Arrow Quiver"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 86
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-
-
-#==[131009]- Crafting Bases -i85 T1 精品底材 精品底材 - 基础 - 精确==
-Show
-    BaseType == "Divine Crown" "Giantslayer Helmet" "Haunted Bascinet" "Leviathan Gauntlets" "Lich's Circlet" "Majestic Pelt" "Paladin Gloves" "Phantom Mitts" "Torturer's Mask" "Velour Gloves" "Warlock Gloves" "Wyvernscale Gauntlets"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 85
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
-
-
-#==[131010]- Crafting Bases -i85 T2 精品底材 精品底材 - 自动音效：扣钉手套 - 精确==
-Show
-    BaseType == "Spiked Gloves"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 85
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\扣钉手套.mp3" 200
-
-
-#==[131011]- Crafting Bases -i85 T2 精品底材 精品底材 - 自动音效：药剂师手套 - 精确==
-Show
-    BaseType == "Apothecary's Gloves"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 85
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\药剂师手套.mp3" 200
-
-
-#==[131012]- Crafting Bases -i85 T2 精品底材 精品底材 - 自动音效：碧珠护身符 - 精确==
-Show
-    BaseType == "Blue Pearl Amulet"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 85
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\碧珠护身符.mp3" 200
-
-
-#==[131013]- Crafting Bases -i85 T2 精品底材 精品底材 - 自动音效：唤骨头盔 - 精确==
-Show
-    BaseType == "Bone Helmet"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 85
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\唤骨头盔.mp3" 200
-
-
-#==[131014]- Crafting Bases -i85 T2 精品底材 精品底材 - 自动音效：丝绸手套 - 精确==
-Show
-    BaseType == "Fingerless Silk Gloves"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 85
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\丝绸手套.mp3" 200
-
-
-#==[131015]- Crafting Bases -i85 T2 精品底材 精品底材 - 自动音效：大理石护身符 - 精确==
-Show
-    BaseType == "Marble Amulet"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 85
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\大理石护身符.mp3" 200
-
-
-#==[131016]- Crafting Bases -i85 T2 精品底材 精品底材 - 基础 - 精确==
-Show
-    BaseType == "Onyx Amulet"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 85
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-
-
-#==[131017]- Crafting Bases -i85 T3 精品底材 精品底材 - 自动音效：海晶护符 - 精确==
-Show
-    BaseType == "Seaglass Amulet"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 85
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\海晶护符.mp3" 200
-
-
-#==[131018]- Crafting Bases -i85 T3 精品底材 精品底材 - 基础 - 精确==
-Show
-    BaseType == "Agate Amulet" "Citrine Amulet" "Turquoise Amulet"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 85
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-
-
-#==[131019]- Crafting Bases -i84 T1 精品底材 精品底材 - 自动音效：朱砂之戒 - 精确==
-Show
-    BaseType == "Vermillion Ring"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 84
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
-    CustomAlertSound "sound_files\Sharket掉落音效\朱砂之戒.mp3" 200
-
-
-#==[131020]- Crafting Bases -i84 T1 精品底材 精品底材 - 自动音效：青石戒指 - 精确==
-Show
-    BaseType == "Iolite Ring"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 84
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
-    CustomAlertSound "sound_files\Sharket掉落音效\青石戒指.mp3" 200
-
-
-#==[131021]- Crafting Bases -i84 T1 精品底材 精品底材 - 自动音效：蛋白石戒指 - 精确==
-Show
-    BaseType == "Opal Ring"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 84
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
-    CustomAlertSound "sound_files\Sharket掉落音效\蛋白石戒指.mp3" 200
-
-
-#==[131022]- Crafting Bases -i84 T1 精品底材 精品底材 - 自动音效：合金戒指 - 精确==
-Show
-    BaseType == "Steel Ring"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 84
-    SetFontSize 36
-    SetTextColor 225 199 115 255
-    SetBorderColor 117 96 30 255
-    SetBackgroundColor 10 10 13 255
-    CustomAlertSound "sound_files\Sharket掉落音效\合金戒指.mp3" 200
-
-
-#==[131023]- Crafting Bases -i84 T2 精品底材 精品底材 - 自动音效：紫晶戒指 - 精确==
-Show
-    BaseType == "Amethyst Ring"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 84
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\紫晶戒指.mp3" 200
-
-
-#==[131024]- Crafting Bases -i84 T2 精品底材 精品底材 - 自动音效：天蓝之戒 - 精确==
-Show
-    BaseType == "Cerulean Ring"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 84
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\天蓝之戒.mp3" 200
-
-
-#==[131025]- Crafting Bases -i84 T2 精品底材 精品底材 - 自动音效：召集法杖 - 精确==
-Show
-    BaseType == "Convoking Wand"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 84
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-    CustomAlertSound "sound_files\Sharket掉落音效\召集法杖.mp3" 200
-
-
-#==[131026]- Crafting Bases -i84 T2 精品底材 精品底材 - 基础 - 精确==
-Show
-    BaseType == "Bone Ring" "Copper Kris" "Diamond Ring" "Golden Kris" "Imperial Skean" "Kinetic Wand" "Moonstone Ring" "Opal Sceptre" "Opal Wand" "Pagan Wand" "Platinum Kris" "Prismatic Ring" "Profane Wand" "Prophecy Wand" "Two-Stone Ring" "Unset Ring" "Void Sceptre"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 84
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-
-
-#==[131027]- Crafting Bases -i84 T3 精品底材 精品底材 - 基础 - 精确==
-Show
-    BaseType == "Convening Wand" "Eclipse Staff" "Karui Sceptre" "Lathi" "Sambar Sceptre"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 84
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-
-
-#==[131028]- Crafting Bases -i83 T2 精品底材 精品底材 - 基础 - 精确==
-Show
-    BaseType == "Battered Foil" "Despot Axe" "Gemini Claw" "Imperial Claw" "Jewelled Foil" "Reaver Axe" "Reaver Sword" "Siege Axe" "Vaal Axe" "Whalebone Rapier"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 83
-    SetFontSize 34
-    SetTextColor 178 161 112 255
-    SetBorderColor 64 52 16 255
-    SetBackgroundColor 0 0 0 0
-
-
-#==[131029]- Crafting Bases -i83 T3 精品底材 精品底材 - 基础 - 精确==
-Show
-    BaseType == "Ambusher" "Basket Rapier" "Behemoth Mace" "Corsair Sword" "Eternal Sword" "Exquisite Blade" "Ezomyte Blade" "Ezomyte Staff" "Fleshripper" "Judgement Staff" "Karui Chopper" "Legion Hammer" "Maelström Staff" "Meatgrinder" "Piledriver" "Royal Axe" "Runic Hatchet" "Sai" "Spiraled Foil" "Sundering Axe"
-    Rarity <= Rare
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 83
-    SetFontSize 31
-    SetTextColor 150 150 160 255
-    SetBorderColor 60 60 70 255
-    SetBackgroundColor 0 0 0 0
-
-
-#===================================================================================================================
-# [[140000]] _legacy _legacy
-#===================================================================================================================
-
-#==[141000]-_legacy _legacy - 历史物品 Legacy==
-
-#==[141001]- Legacy -显示历史物品 历史物品 - 自动音效：普兰德斯金币 - 精确==
+#==[131001]- Legacy -显示历史物品 历史物品 - 自动音效：普兰德斯金币 - 精确==
 Show
     BaseType == "Perandus Coin"
     SetFontSize 42
@@ -5745,7 +5554,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141002]- Legacy -显示历史物品 历史物品 - 自动音效：护甲重组器 - 精确==
+#==[131002]- Legacy -显示历史物品 历史物品 - 自动音效：护甲重组器 - 精确==
 Show
     BaseType == "Armour Recombinator"
     SetFontSize 42
@@ -5757,7 +5566,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141003]- Legacy -显示历史物品 历史物品 - 自动音效：武器重组器 - 精确==
+#==[131003]- Legacy -显示历史物品 历史物品 - 自动音效：武器重组器 - 精确==
 Show
     BaseType == "Weapon Recombinator"
     SetFontSize 42
@@ -5769,7 +5578,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141004]- Legacy -显示历史物品 历史物品 - 自动音效：珠宝重组器 - 精确==
+#==[131004]- Legacy -显示历史物品 历史物品 - 自动音效：珠宝重组器 - 精确==
 Show
     BaseType == "Jewellery Recombinator"
     SetFontSize 42
@@ -5781,7 +5590,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141005]- Legacy -显示历史物品 历史物品 - 自动音效：潜能项链 - 精确==
+#==[131005]- Legacy -显示历史物品 历史物品 - 自动音效：潜能项链 - 精确==
 Show
     BaseType == "Unset Amulet"
     SetFontSize 42
@@ -5793,7 +5602,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141006]- Legacy -显示历史物品 历史物品 - 自动音效：血色护身符 - 精确==
+#==[131006]- Legacy -显示历史物品 历史物品 - 自动音效：血色护身符 - 精确==
 Show
     BaseType == "Ruby Amulet"
     SetFontSize 42
@@ -5805,7 +5614,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141007]- Legacy -显示历史物品 历史物品 - 自动音效：华美箭袋 - 精确==
+#==[131007]- Legacy -显示历史物品 历史物品 - 自动音效：华美箭袋 - 精确==
 Show
     BaseType == "Ornate Quiver"
     SetFontSize 42
@@ -5817,7 +5626,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141008]- Legacy -显示历史物品 历史物品 - 自动音效：裂隙戒指 - 精确==
+#==[131008]- Legacy -显示历史物品 历史物品 - 自动音效：裂隙戒指 - 精确==
 Show
     BaseType == "Breach Ring"
     SetFontSize 42
@@ -5829,7 +5638,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141009]- Legacy -显示历史物品 历史物品 - 自动音效：三相珠宝 - 精确==
+#==[131009]- Legacy -显示历史物品 历史物品 - 自动音效：三相珠宝 - 精确==
 Show
     BaseType == "Prismatic Jewel"
     SetFontSize 42
@@ -5841,7 +5650,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141010]- Legacy -显示历史物品 历史物品 - 自动音效：永恒珠宝 - 精确==
+#==[131010]- Legacy -显示历史物品 历史物品 - 自动音效：永恒珠宝 - 精确==
 Show
     BaseType == "Timeless Jewel"
     SetFontSize 42
@@ -5853,7 +5662,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141011]- Legacy -显示历史物品 历史物品 - 自动音效：扼杀链甲 - 精确==
+#==[131011]- Legacy -显示历史物品 历史物品 - 自动音效：扼杀链甲 - 精确==
 Show
     BaseType == "Grasping Mail"
     SetFontSize 42
@@ -5865,7 +5674,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141012]- Legacy -显示历史物品 历史物品 - 自动音效：圣洁遗物 - 精确==
+#==[131012]- Legacy -显示历史物品 历史物品 - 自动音效：圣洁遗物 - 精确==
 Show
     BaseType == "Sanctified Relic"
     SetFontSize 42
@@ -5877,7 +5686,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141013]- Legacy -显示历史物品 历史物品 - 自动音效：高阶点金石 - 精确==
+#==[131013]- Legacy -显示历史物品 历史物品 - 自动音效：高阶点金石 - 精确==
 Show
     BaseType == "Orb of Binding"
     SetFontSize 42
@@ -5889,7 +5698,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141014]- Legacy -显示历史物品 历史物品 - 自动音效：统御宝珠 - 精确==
+#==[131014]- Legacy -显示历史物品 历史物品 - 自动音效：统御宝珠 - 精确==
 Show
     BaseType == "Orb of Dominance"
     SetFontSize 42
@@ -5901,7 +5710,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141015]- Legacy -显示历史物品 历史物品 - 自动音效：觉醒者之石 - 精确==
+#==[131015]- Legacy -显示历史物品 历史物品 - 自动音效：觉醒者之石 - 精确==
 Show
     BaseType == "Awakener's Orb"
     SetFontSize 42
@@ -5913,7 +5722,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141016]- Legacy -显示历史物品 历史物品 - 自动音效：禁灵之瓶 - 精确==
+#==[131016]- Legacy -显示历史物品 历史物品 - 自动音效：禁灵之瓶 - 精确==
 Show
     BaseType == "Divine Vessel"
     SetFontSize 42
@@ -5925,7 +5734,7 @@ Show
     MinimapIcon 1 Brown Diamond
 
 
-#==[141017]- Legacy -显示历史物品 历史物品 - 基础 - 精确==
+#==[131017]- Legacy -显示历史物品 历史物品 - 基础 - 精确==
 Show
     BaseType == "Abyss Scarab of Descending" "Abyssal Incubator" "Adherent of Zarokh" "Anarchy Scarab of the Exceptional" "Ancient Reliquary Key" "Annihilation Support" "Ashscale Talisman" "Astral Lich" "Avian Twins Talisman" "Betrayal Scarab of Unbreaking" "Binding Shard" "Birth of the Three" "Blessed Call Support" "Blessing of God" "Blighted Incubator" "Bloodsoaked Banner Support" "Bonespire Support" "Bonespire Talisman" "Breakrib Talisman" "Cartographer's Incubator" "Cast on Ward Break Support" "Celestial Armoursmith's Incubator" "Celestial Blacksmith's Incubator" "Chaotic Astrolabe" "Charan's Sword" "Charged Dash of Projection" "Chayula's Flawless Breachstone" "Chrysalis Talisman" "Clutching Talisman" "Coin of Desecration" "Coin of Knowledge" "Coin of Power" "Coin of Restoration" "Coin of Skill" "Companionship Support" "Congregation Support" "Conjuror of Rot" "Cooldown Recovery Support" "Cord Belt" "Corvine Charm" "Craicic Lure" "Creeping Frost of Floes" "Crusader's Exalted Orb" "Crystallised Rancour" "Cull the Weak Support" "Deadhand Talisman" "Deep One Talisman" "Dextral Catalyst" "Divine Blast" "Divine Sentinel Support" "Diviner's Incubator" "Eclipse Support" "Elder's Exalted Orb" "Eldritch Blasphemy Support" "Engineer's Shard" "Engraved Ultimatum" "Enkindling Orb" "Enshrouded Astrolabe" "Essence of Desolation" "Excommunicate Support" "Exemplar Support" "Expedition Scarab of Infusion" "Fangjaw Talisman" "Farric Lure" "Fenumal Lure" "Fine Incubator" "Fissure Support" "Flamethrower Trap of Stability" "Flesh of Xesht" "Foreboding Incubator" "Fossilised Incubator" "Foulgrasp Support" "Fragmented Incubator" "Frostmage Support" "Fruiting Astrolabe" "Fungal Astrolabe" "Geomancer's Incubator" "Gluttony Support" "Golden Blade" "Golden Bracers" "Golden Caligae" "Golden Flame" "Golden Hoop" "Golden Mantle" "Golden Obi" "Golden Visage" "Golden Wreath" "Grasping Astrolabe" "Greater Ancestral Call Support" "Greater Chain Support" "Greater Devour Support" "Greater Fork Support" "Greater Kinetic Instability Support" "Greater Multistrike Support" "Greater Spell Cascade Support" "Greater Spell Echo Support" "Greater Unleash Support" "Hallow Support" "Hexclaw Talisman" "Hexpass Support" "Hextoad Support" "Hiveborn Support" "Holy Hammers" "Holy Strike" "Honoured Incubator" "Horned Talisman" "Hunter's Exalted Orb" "Imperfect Adherent of Zarokh" "Imperfect Astral Lich" "Imperfect Conjuror of Rot" "Imprint" "Infused Incubator" "Instilling Orb" "Invention Support" "Invert the Rules Support" "Journey Tattoo of the Body" "Journey Tattoo of the Mind" "Journey Tattoo of the Soul" "Kalguuran Incubator" "Kalguuran Scarab of Enriching" "Kinetic Fusillade of Detonation" "Lethal Dose Support" "Lightless Astrolabe" "Lone Antler Talisman" "Longtooth Talisman" "Lupine Charm" "Lycia's Invocation of Acrobatics" "Lycia's Invocation of Ancestral Bond" "Lycia's Invocation of Arrow Dancing" "Lycia's Invocation of Avatar of Fire" "Lycia's Invocation of Blood Magic" "Lycia's Invocation of Call to Arms" "Lycia's Invocation of Conduit" "Lycia's Invocation of Crimson Dance" "Lycia's Invocation of Divine Shield" "Lycia's Invocation of Eldritch Battery" "Lycia's Invocation of Elemental Equilibrium" "Lycia's Invocation of Elemental Overload" "Lycia's Invocation of Eternal Youth" "Lycia's Invocation of Ghost Dance" "Lycia's Invocation of Ghost Reaver" "Lycia's Invocation of Glancing Blows" "Lycia's Invocation of Hex Master" "Lycia's Invocation of Imbalanced Guard" "Lycia's Invocation of Iron Grip" "Lycia's Invocation of Iron Reflexes" "Lycia's Invocation of Iron Will" "Lycia's Invocation of Lethe Shade" "Lycia's Invocation of Magebane" "Lycia's Invocation of Mind Over Matter" "Lycia's Invocation of Minion Instability" "Lycia's Invocation of Pain Attunement" "Lycia's Invocation of Perfect Agony" "Lycia's Invocation of Point Blank" "Lycia's Invocation of Precise Technique" "Lycia's Invocation of Resolute Technique" "Lycia's Invocation of Runebinder" "Lycia's Invocation of Solipsism" "Lycia's Invocation of Supreme Ego" "Lycia's Invocation of The Agnostic" "Lycia's Invocation of The Impaler" "Lycia's Invocation of Unwavering Stance" "Lycia's Invocation of Vaal Pact" "Lycia's Invocation of Versatile Combatant" "Lycia's Invocation of Wicked Ward" "Lycia's Invocation of Wind Dancer" "Lycia's Invocation of Zealot's Oath" "Machinations Support" "Maddening Incubator" "Mandible Talisman" "Memory of Loneliness" "Memory of Reverence" "Memory of Trauma" "Minion Pact Support" "Miraged Incubator" "Monkey Paw Talisman" "Monkey Twins Talisman" "Mysterious Incubator" "Nameless Astrolabe" "Omen of Acceleration" "Omen of Bequeathal" "Omen of Resurgence" "Omen of Revenge" "Orb of Storms of Squalls" "Ornate Incubator" "Otherworldly Incubator" "Overheat Support" "Overloaded Intensity Support" "Pacifism Support" "Perfect Adherent of Zarokh" "Perfect Astral Lich" "Perfect Conjuror of Rot" "Potent Alchemical Resonator" "Powerful Alchemical Resonator" "Primal Incubator" "Primal Skull Talisman" "Prime Alchemical Resonator" "Prime Regrading Lens" "Primeval Remnant" "Primitive Alchemical Resonator" "Primordial Remnant" "Pyre Support" "Redeemer's Exalted Orb" "Refracting Fog" "Ring" "Ritual Scarab of Corpses" "Rot Head Talisman" "Rotfeather Talisman" "Runegraft of Connection" "Runegraft of Consecration" "Runegraft of Fury" "Runegraft of Rallying" "Runegraft of Resurgence" "Runegraft of Rotblood" "Runegraft of Suffering" "Runegraft of the Agile" "Runegraft of the Imbued" "Runegraft of the Spellbound" "Runic Astrolabe" "Sacred Incubator" "Saqawine Lure" "Scarab of the Dextral" "Scornful Herald Support" "Secondary Regrading Lens" "Shaper's Exalted Orb" "Shield of Light" "Shock Nova of Procession" "Shockwave Totem of Authority" "Singular Incubator" "Sinistral Catalyst" "Siphoning Trap of Pain" "Skittering Incubator" "Soul Quenched" "Spinefuse Talisman" "Splitnewt Talisman" "Stacked Deck" "Static Strike of Gathering Lightning" "Storm Burst of Repulsion" "Tattoo of the Arohongui Moonwarden" "Tattoo of the Arohongui Scout" "Tattoo of the Arohongui Shaman" "Tattoo of the Arohongui Warmonger" "Tattoo of the Arohongui Warrior" "Tattoo of the Hinekora Deathwarden" "Tattoo of the Hinekora Shaman" "Tattoo of the Hinekora Storyteller" "Tattoo of the Hinekora Warmonger" "Tattoo of the Hinekora Warrior" "Tattoo of the Kitava Blood Drinker" "Tattoo of the Kitava Heart Eater" "Tattoo of the Kitava Rebel" "Tattoo of the Kitava Shaman" "Tattoo of the Kitava Warrior" "Tattoo of the Ngamahu Firewalker" "Tattoo of the Ngamahu Shaman" "Tattoo of the Ngamahu Warmonger" "Tattoo of the Ngamahu Warrior" "Tattoo of the Ngamahu Woodcarver" "Tattoo of the Ramako Archer" "Tattoo of the Ramako Fleetfoot" "Tattoo of the Ramako Scout" "Tattoo of the Ramako Shaman" "Tattoo of the Ramako Sniper" "Tattoo of the Rongokurai Brute" "Tattoo of the Rongokurai Goliath" "Tattoo of the Rongokurai Guard" "Tattoo of the Rongokurai Turtle" "Tattoo of the Rongokurai Warrior" "Tattoo of the Tasalio Bladedancer" "Tattoo of the Tasalio Scout" "Tattoo of the Tasalio Shaman" "Tattoo of the Tasalio Tideshifter" "Tattoo of the Tasalio Warrior" "Tattoo of the Tawhoa Herbalist" "Tattoo of the Tawhoa Naturalist" "Tattoo of the Tawhoa Scout" "Tattoo of the Tawhoa Shaman" "Tattoo of the Tawhoa Warrior" "Tattoo of the Tukohama Brawler" "Tattoo of the Tukohama Shaman" "Tattoo of the Tukohama Warcaller" "Tattoo of the Tukohama Warmonger" "Tattoo of the Tukohama Warrior" "Tattoo of the Valako Scout" "Tattoo of the Valako Shaman" "Tattoo of the Valako Shieldbearer" "Tattoo of the Valako Stormrider" "Tattoo of the Valako Warrior" "Templar Astrolabe" "Thaumaturge's Incubator" "The Black Barya" "The Master" "The Sustenance" "Three Hands Talisman" "Three Rat Talisman" "Timeless Astrolabe" "Timeworn Reliquary Key" "Transfusion Support" "Undying Flesh Talisman" "Unholy Trinity Support" "Unrelenting Timeless Eternal Emblem" "Unrelenting Timeless Karui Emblem" "Unrelenting Timeless Maraketh Emblem" "Unrelenting Timeless Templar Emblem" "Unrelenting Timeless Vaal Emblem" "Unshaping Orb" "Ursine Charm" "Vaal Breach" "Vaal Reliquary Key" "Vaal Sacrifice Support" "Vaal Temptation Support" "Veiled Chaos Orb" "Veiled Exalted Orb" "Void Shockwave Support" "Voidstorm Support" "Volatile Vaal Orb" "Warlord's Exalted Orb" "Wereclaw Talisman" "Whispering Incubator" "Writhing Talisman"
     SetFontSize 42

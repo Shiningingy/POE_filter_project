@@ -7,151 +7,147 @@
         "ch": "优先精品底材"
       },
       "tier_order": [
-        "Crafting Memory-Stranded",
-        "Crafting Perfect Quality",
-        "Crafting High Quality",
-        "Crafting Chase 86",
-        "Crafting Chase 85",
-        "Crafting Chase 84",
-        "Crafting Chase 83",
-        "Crafting Bases Hide"
+        "Crafting Perfect Defence",
+        "Crafting Over Quality",
+        "Crafting Strands Weapons",
+        "Crafting Strands Gear",
+        "Crafting Gear 86",
+        "Crafting Gear 85",
+        "Crafting Gear 84",
+        "Tier Hide Crafting Priority"
       ]
     },
-    "Crafting Memory-Stranded": {
+    "Crafting Perfect Defence": {
       "hideable": true,
-      "class_condition": true,
-      "theme": {
-        "Tier": 1
-      },
-      "conditions": {
-        "MemoryStrands": ">= 1",
-        "Rarity": "<= Rare",
-        "Corrupted": "False",
-        "Mirrored": "False"
-      },
-      "hide_at_strictness": 6,
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Memory-Stranded",
-        "ch": "追忆物品"
-      }
-    },
-    "Crafting Perfect Quality": {
-      "hideable": true,
-      "theme": {
-        "Tier": 1
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Perfect quality (28+)",
-        "ch": "完美品质 28+"
-      }
-    },
-    "Crafting High Quality": {
-      "hideable": true,
-      "theme": {
-        "Tier": 2
-      },
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "High quality (24+)",
-        "ch": "高品质 24+"
-      }
-    },
-    "Crafting Chase 86": {
-      "hideable": true,
-      "theme": {
-        "Tier": 1
-      },
       "conditions": {
         "Rarity": "<= Rare",
-        "Corrupted": "False",
-        "Mirrored": "False",
-        "ItemLevel": ">= 86"
-      },
-      "hide_at_strictness": 6,
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Chase craft base i86",
-        "ch": "极品底材 i86"
-      }
-    },
-    "Crafting Chase 85": {
-      "hideable": true,
-      "theme": {
-        "Tier": 1
-      },
-      "conditions": {
-        "Rarity": "<= Rare",
-        "Corrupted": "False",
-        "Mirrored": "False",
-        "ItemLevel": ">= 85"
-      },
-      "hide_at_strictness": 6,
-      "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
-      },
-      "localization": {
-        "en": "Chase craft base i85",
-        "ch": "极品底材 i85"
-      }
-    },
-    "Crafting Chase 84": {
-      "hideable": true,
-      "theme": {
-        "Tier": 2
-      },
-      "conditions": {
-        "Rarity": "<= Rare",
+        "BaseDefencePercentile": ">= 99",
         "Corrupted": "False",
         "Mirrored": "False",
         "ItemLevel": ">= 84"
       },
-      "hide_at_strictness": 6,
+      "theme": {
+        "Tier": 0
+      },
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "Chase craft base i84",
-        "ch": "极品底材 i84"
+        "en": "Perfect defence roll",
+        "ch": "完美防御数值"
       }
     },
-    "Crafting Chase 83": {
+    "Crafting Over Quality": {
       "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "Quality": "> 20"
+      },
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Over-quality base",
+        "ch": "超额品质底材"
+      }
+    },
+    "Crafting Strands Weapons": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "MemoryStrands": ">= 1",
+        "ItemLevel": ">= 83"
+      },
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Weapon base with Memory Strands",
+        "ch": "追忆武器底材"
+      }
+    },
+    "Crafting Strands Gear": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "MemoryStrands": ">= 1"
+      },
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Gear base with Memory Strands",
+        "ch": "追忆防具/首饰底材"
+      }
+    },
+    "Crafting Gear 86": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "ItemLevel": ">= 86"
+      },
       "theme": {
         "Tier": 2
       },
-      "conditions": {
-        "Rarity": "<= Rare",
-        "Corrupted": "False",
-        "Mirrored": "False",
-        "ItemLevel": ">= 83"
-      },
-      "hide_at_strictness": 5,
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "Chase craft base i83",
-        "ch": "极品底材 i83"
+        "en": "Gear base i86+",
+        "ch": "精品底材 i86+"
       }
     },
-    "Crafting Bases Hide": {
+    "Crafting Gear 85": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "ItemLevel": ">= 85"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Gear base i85+",
+        "ch": "精品底材 i85+"
+      }
+    },
+    "Crafting Gear 84": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "ItemLevel": ">= 84"
+      },
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Gear base i84+",
+        "ch": "精品底材 i84+"
+      }
+    },
+    "Tier Hide Crafting Priority": {
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
