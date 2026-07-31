@@ -189,7 +189,18 @@ const resolveSound = (tierEntry: any, soundMap: any, overrideSound?: [string, nu
   // The tier style editor writes the sound it picks to theme.PlayAlertSound.
   // Nothing read it, so choosing a sound for a tier appeared to save and then did
   // nothing. A rule's own override still wins, which is why this sits below.
-  line = soundLineFromPair((tierEntry.theme || {}).PlayAlertSound);
+  // An EXPLICIT disable silences the tier outright and must NOT fall through to
+  // the `sound` block below — that fallback is the whole reason a tier could not be
+  // muted from the editor before: clearing the picked sound just re-exposed whatever
+  // sharket_sound_id/default_sound_id the tier was seeded with. Checked on the raw
+  // string, not via styleOff(), because styleOff(undefined) is true and an ABSENT
+  // PlayAlertSound must still fall through.
+  const themeSnd = (tierEntry.theme || {}).PlayAlertSound;
+  if (typeof themeSnd === "string" &&
+      (themeSnd.startsWith("disabled:") || themeSnd === "inherit" || themeSnd === "default")) {
+    return null;
+  }
+  line = soundLineFromPair(themeSnd);
   if (line) return line;
 
   const sb = tierEntry.sound || {};

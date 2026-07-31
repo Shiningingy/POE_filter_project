@@ -383,6 +383,26 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                 </button>
               </div>
               <div className="main-actions">
+                {/* Removing a sound is NOT the same as clearing the picked file:
+                    resolve_sound falls back to the tier's own sharket_sound_id /
+                    default_sound_id, so a cleared tier just goes back to whatever
+                    it was seeded with (this is why every flask announced itself as
+                    currency). Writing the `disabled:` sentinel silences the tier
+                    outright — both generators short-circuit on it. */}
+                <button
+                  className="cancel-btn"
+                  onClick={() => {
+                    handleChange("PlayAlertSound", "disabled:");
+                    setShowSoundPopup(false);
+                  }}
+                  title={
+                    language === "ch"
+                      ? "移除音效：该阶级将完全静音，不会回退到默认音效"
+                      : "Remove sound: silences this tier outright — it will not fall back to its default"
+                  }
+                >
+                  {language === "ch" ? "移除音效" : "Remove sound"}
+                </button>
                 <button
                   className="cancel-btn"
                   onClick={() => setShowSoundPopup(false)}

@@ -214,7 +214,17 @@ def resolve_sound(tier_entry, sound_map, override_sound=None):
     # Nothing read it, so choosing a sound for a tier appeared to save and then
     # did nothing. A rule's own override still wins over it, which is why this
     # sits below the branch above.
-    line = sound_line_from_pair((tier_entry.get("theme") or {}).get("PlayAlertSound"))
+    # An EXPLICIT disable silences the tier outright and must NOT fall through to
+    # the `sound` block below — that fallback is the whole reason a tier could not
+    # be muted from the editor before: clearing the picked sound just re-exposed
+    # whatever sharket_sound_id/default_sound_id the tier was seeded with.
+    # Checked on the raw string, not via style_off(), because style_off(None) is
+    # True and an ABSENT PlayAlertSound must still fall through.
+    theme_snd = (tier_entry.get("theme") or {}).get("PlayAlertSound")
+    if isinstance(theme_snd, str) and (theme_snd.startswith("disabled:")
+                                       or theme_snd in ("inherit", "default")):
+        return None
+    line = sound_line_from_pair(theme_snd)
     if line:
         return line
 
