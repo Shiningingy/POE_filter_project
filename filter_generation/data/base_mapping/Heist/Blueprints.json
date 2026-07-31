@@ -1,8 +1,5 @@
 {
   "_meta": {
-    "excluded_modes": [
-      "ruthless"
-    ],
     "localization": {
       "ch": {
         "Blueprint: Bunker": "蓝图：堡垒",
@@ -20,18 +17,35 @@
       "en": "Blueprints",
       "ch": "蓝图"
     },
-    "theme_category": "Stackable Currency"
+    "theme_category": "Stackable Currency",
+    "match_modes": {}
   },
-  "mapping": {
-    "Blueprint: Bunker": "Heist Blueprint T1",
-    "Blueprint: Smuggler's Den": "Heist Blueprint T1",
-    "Blueprint: Laboratory": "Heist Blueprint T1",
-    "Blueprint: Repository": "Heist Blueprint T1",
-    "Blueprint: Prohibited Library": "Heist Blueprint T1",
-    "Blueprint: Tunnels": "Heist Blueprint T1",
-    "Blueprint: Underbelly": "Heist Blueprint T1",
-    "Blueprint: Records Office": "Heist Blueprint T1",
-    "Blueprint: Mansion": "Heist Blueprint T1"
-  },
-  "rules": []
+  "mapping": {},
+  "rules": [
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Blueprint\"",
+        "AnyEnchantment": "True"
+      },
+      "overrides": {
+        "Tier": "CustomTier 1 Heist Blueprints"
+      },
+      "comment": "附魔"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Blueprint\""
+      },
+      "overrides": {
+        "Tier": "Heist Blueprint T1",
+        "PlayAlertSound": [
+          "Sharket掉落音效/赏金蓝图.mp3",
+          300
+        ]
+      },
+      "comment": ""
+    }
+  ]
 }

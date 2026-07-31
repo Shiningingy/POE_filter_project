@@ -7,6 +7,7 @@
         "ch": "赏金猎人蓝图"
       },
       "tier_order": [
+        "CustomTier 1 Heist Blueprints",
         "Heist Blueprint T1",
         "Heist Blueprint Hide"
       ]
@@ -21,8 +22,8 @@
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "Blueprints",
-        "ch": "蓝图"
+        "en": "T2:其他蓝图",
+        "ch": "T2:其他蓝图"
       }
     },
     "Heist Blueprint Hide": {
@@ -38,6 +39,28 @@
       "localization": {
         "en": "Hide",
         "ch": "隐藏"
+      }
+    },
+    "CustomTier 1 Heist Blueprints": {
+      "theme": {
+        "Tier": "custom",
+        "FontSize": 36,
+        "TextColor": "#FFFFFF",
+        "BorderColor": "#AAAAAA",
+        "BackgroundColor": "#222222",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级蓝图.mp3",
+          300
+        ]
+      },
+      "hideable": false,
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T1: 附魔蓝图",
+        "ch": "T1: 附魔蓝图"
       }
     }
   }

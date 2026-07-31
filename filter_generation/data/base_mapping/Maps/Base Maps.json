@@ -35,7 +35,9 @@
       "City Square Map": "exact"
     }
   },
-  "mapping": {},
+  "mapping": {
+    "Shaper Guardian Map": "Tier 0 Base Maps"
+  },
   "rules": [
     {
       "comment": "T17 Maps",
@@ -69,7 +71,7 @@
       }
     },
     {
-      "comment": "Influenced Maps",
+      "comment": "Conquer Influenced Maps",
       "localization": {
         "en": "Influenced Maps",
         "ch": "势力地图"
@@ -77,10 +79,14 @@
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord"
+        "HasInfluence": "Crusader Hunter Redeemer Warlord"
       },
       "overrides": {
-        "Tier": "Tier 0 Base Maps"
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/圣战地图.mp3",
+          300
+        ]
       }
     },
     {
@@ -123,10 +129,15 @@
       "conditions": {
         "Class": "== \"Maps\"",
         "Corrupted": "True",
-        "Identified": "True"
+        "Identified": "True",
+        "HasExplicitMod": ">=8"
       },
       "overrides": {
-        "Tier": "Tier 0 Base Maps"
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级天灾地图.mp3",
+          300
+        ]
       }
     },
     {
@@ -157,24 +168,6 @@
       },
       "overrides": {
         "Tier": "Tier 2 Base Maps"
-      }
-    },
-    {
-      "comment": "Highlight: City Square (Green Border)",
-      "localization": {
-        "en": "Highlight: City Square (Green Border)",
-        "ch": "标记：城市广场（绿框）"
-      },
-      "targets": [
-        "City Square Map"
-      ],
-      "conditions": {
-        "MapTier": "RANGE >= 11 <= 15"
-      },
-      "overrides": {
-        "Tier": "Tier 2 Base Maps",
-        "FontSize": 45,
-        "BorderColor": "#00ff00ff"
       }
     },
     {
@@ -224,6 +217,36 @@
         "Rarity": "== Magic"
       },
       "overrides": {}
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "ElderMap": "True"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/裂界地图.mp3",
+          300
+        ]
+      },
+      "comment": "Elder Maps"
+    },
+    {
+      "targets": [
+        "Shaper Guardian Map"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/塑界地图.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Shaper Guardian Map @ Tier 0 Base Maps",
+      "sound_scope": true
     }
   ]
 }
