@@ -28,7 +28,8 @@
         "ch": "T0: 顶级珠宝"
       },
       "conditions": {
-        "Rarity": "<= Rare"
+        "Rarity": "<= Rare",
+        "ItemLevel": ">= 82"
       }
     },
     "Tier 1 Abyss Jewels": {
@@ -45,7 +46,8 @@
         "ch": "T1: 高级珠宝"
       },
       "conditions": {
-        "Rarity": "<= Rare"
+        "Rarity": "<= Rare",
+        "ItemLevel": ">= 82"
       }
     },
     "Tier 2 Abyss Jewels": {

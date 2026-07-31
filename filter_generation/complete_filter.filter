@@ -3963,11 +3963,37 @@ Show
 
 #==[91000]-Jewels Jewels - 深渊珠宝 Abyss Jewels==
 
+#==[91001]- Abyss Jewels -T1: 高级珠宝 深渊珠宝 - 基础 - 精确==
+Show
+    BaseType == "Assembled Eye Jewel" "Ghastly Eye Jewel" "Hypnotic Eye Jewel" "Murderous Eye Jewel" "Searching Eye Jewel"
+    Rarity <= Rare
+    ItemLevel >= 82
+    SetFontSize 42
+    SetTextColor 255 255 255 255
+    SetBorderColor 224 70 196 255
+    SetBackgroundColor 45 14 39 255
+    CustomAlertSound "sound_files\Sharket掉落音效\高级通货.mp3" 200
+    PlayEffect Purple
+    MinimapIcon 1 Purple Diamond
+
+
+#==[91002]- Abyss Jewels -T2: 常用珠宝 深渊珠宝 - 基础 - 精确==
+Show
+    BaseType == "Assembled Eye Jewel" "Ghastly Eye Jewel" "Hypnotic Eye Jewel" "Murderous Eye Jewel" "Searching Eye Jewel"
+    Rarity <= Rare
+    SetFontSize 39
+    SetTextColor 229 98 205 255
+    SetBorderColor 224 70 196 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\通货.mp3" 100
+    MinimapIcon 1 Purple Circle
+
+
 #==[92000]-Jewels Jewels - 基础珠宝 Base Jewels==
 
 #==[92001]- Base Jewels -T1: 高级珠宝 基础珠宝 - 基础 - 精确==
 Show
-    BaseType == "Celestial Jeweller's Incubator" "Cobalt Jewel" "Crimson Jewel" "Jewelled Foil" "Viridian Jewel"
+    BaseType == "Cobalt Jewel" "Crimson Jewel" "Viridian Jewel"
     Rarity <= Rare
     SetFontSize 42
     SetTextColor 255 255 255 255
@@ -3980,10 +4006,25 @@ Show
 
 #==[93000]-Jewels Jewels - 星团珠宝 Cluster Jewels==
 
-#==[93001]- Cluster Jewels -T1: 高级珠宝 星团珠宝 - 基础 - 精确==
+#==[93001]- Cluster Jewels -T0: 84+ 群集珠宝 星团珠宝 - 基础 - 精确==
 Show
     BaseType == "Large Cluster Jewel" "Medium Cluster Jewel" "Small Cluster Jewel"
     Rarity <= Rare
+    ItemLevel >= 84
+    SetFontSize 45
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 224 70 196 255
+    CustomAlertSound "sound_files\Sharket掉落音效\顶级底材.mp3" 200
+    PlayEffect Purple
+    MinimapIcon 0 Purple Star
+
+
+#==[93002]- Cluster Jewels -T1: 68+ 群集珠宝 星团珠宝 - 基础 - 精确==
+Show
+    BaseType == "Large Cluster Jewel" "Medium Cluster Jewel" "Small Cluster Jewel"
+    Rarity <= Rare
+    ItemLevel >= 68
     SetFontSize 42
     SetTextColor 255 255 255 255
     SetBorderColor 224 70 196 255
@@ -3991,6 +4032,30 @@ Show
     CustomAlertSound "sound_files\Sharket掉落音效\高级通货.mp3" 200
     PlayEffect Purple
     MinimapIcon 1 Purple Diamond
+
+
+#==[93003]- Cluster Jewels -T2: 50+ 群集珠宝 星团珠宝 - 基础 - 精确==
+Show
+    BaseType == "Large Cluster Jewel" "Medium Cluster Jewel" "Small Cluster Jewel"
+    Rarity <= Rare
+    ItemLevel >= 50
+    SetFontSize 39
+    SetTextColor 229 98 205 255
+    SetBorderColor 224 70 196 255
+    SetBackgroundColor 16 16 22 255
+    CustomAlertSound "sound_files\Sharket掉落音效\通货.mp3" 100
+    MinimapIcon 1 Purple Circle
+
+
+#==[93004]- Cluster Jewels -T3: 低阶群集珠宝 星团珠宝 - 基础 - 精确==
+Show
+    BaseType == "Large Cluster Jewel" "Medium Cluster Jewel" "Small Cluster Jewel"
+    Rarity <= Rare
+    SetFontSize 31
+    SetTextColor 150 150 160 255
+    SetBorderColor 60 60 70 255
+    SetBackgroundColor 0 0 0 0
+    CustomAlertSound "sound_files\Sharket掉落音效\高级通货.mp3" 200
 
 
 #===================================================================================================================

@@ -12,11 +12,9 @@
     }
   },
   "mapping": {
-    "Jewelled Foil": "Tier 1 Base Jewels",
     "Cobalt Jewel": "Tier 1 Base Jewels",
     "Crimson Jewel": "Tier 1 Base Jewels",
-    "Viridian Jewel": "Tier 1 Base Jewels",
-    "Celestial Jeweller's Incubator": "Tier 1 Base Jewels"
+    "Viridian Jewel": "Tier 1 Base Jewels"
   },
   "rules": []
 }
