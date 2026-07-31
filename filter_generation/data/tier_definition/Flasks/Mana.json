@@ -16,7 +16,14 @@
     "Tier 1 Mana Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#c7c2efff",
+        "BorderColor": "#9d94ebff",
+        "BackgroundColor": "#4031c4ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond",
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 1,
@@ -33,7 +40,12 @@
     "Tier 2 Mana Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#a59ee6ff",
+        "BorderColor": "#8e85e0ff",
+        "BackgroundColor": "#32279bff",
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 2,

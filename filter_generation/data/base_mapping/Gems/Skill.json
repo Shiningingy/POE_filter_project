@@ -712,7 +712,11 @@
         "Quality": ">= 23"
       },
       "overrides": {
-        "Tier": "Tier 0 Skill"
+        "Tier": "Tier 0 Skill",
+        "PlayAlertSound": [
+          "Sharket掉落音效/稀有技能石.mp3",
+          300
+        ]
       }
     },
     {
@@ -722,7 +726,11 @@
         "TransfiguredGem": "True"
       },
       "overrides": {
-        "Tier": "Tier 1 Skill"
+        "Tier": "Tier 1 Skill",
+        "PlayAlertSound": [
+          "Sharket掉落音效/改造技能石.mp3",
+          300
+        ]
       }
     },
     {
@@ -732,7 +740,11 @@
         "GemLevel": ">= 21"
       },
       "overrides": {
-        "Tier": "Tier 1 Skill"
+        "Tier": "Tier 1 Skill",
+        "PlayAlertSound": [
+          "Sharket掉落音效/稀有技能石.mp3",
+          300
+        ]
       }
     },
     {
@@ -742,7 +754,11 @@
         "Quality": ">= 23"
       },
       "overrides": {
-        "Tier": "Tier 1 Skill"
+        "Tier": "Tier 1 Skill",
+        "PlayAlertSound": [
+          "Sharket掉落音效/稀有技能石.mp3",
+          300
+        ]
       }
     },
     {
@@ -768,7 +784,11 @@
       ],
       "conditions": {},
       "overrides": {
-        "Tier": "Tier 0 Skill"
+        "Tier": "Tier 0 Skill",
+        "PlayAlertSound": [
+          "Sharket掉落音效/瓦尔技能石.mp3",
+          300
+        ]
       },
       "comment": "特挑瓦尔技能石"
     }

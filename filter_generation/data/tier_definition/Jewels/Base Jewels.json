@@ -34,7 +34,17 @@
     "Tier 1 Base Jewels": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#fcf2f7ff",
+        "BorderColor": "#f4b8d4ff",
+        "BackgroundColor": "#cb2a75ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond",
+        "PlayAlertSound": [
+          "Sharket掉落音效/常规珠宝.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 1,

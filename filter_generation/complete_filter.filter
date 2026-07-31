@@ -150,7 +150,7 @@ Show
     SetTextColor 111 97 42 255
     SetBorderColor 150 135 74 255
     SetBackgroundColor 248 248 242 255
-    PlayAlertSound 6 300
+    CustomAlertSound "Sharket掉落音效\6连装备.mp3" 300
     PlayEffect White
     MinimapIcon 0 White Star
 
@@ -164,7 +164,7 @@ Show
     SetTextColor 255 255 255 255
     SetBorderColor 220 212 183 255
     SetBackgroundColor 130 117 64 255
-    PlayAlertSound 2 300
+    CustomAlertSound "Sharket掉落音效\6洞装备.mp3" 300
 
 
 #==[12003]- Sockets Colors Links -三色相连 洞&色&连 - Class Condition==
@@ -176,6 +176,7 @@ Show
     SetTextColor 213 199 144 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 51 46 25 255
+    CustomAlertSound "Sharket掉落音效\幻色装.mp3" 100
 
 
 #===================================================================================================================
@@ -315,6 +316,7 @@ Show
     SetFontSize 35
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
+    CustomAlertSound "Sharket掉落音效\药不能停.mp3" 100
 
 
 #==[24002]- 药剂 -生命/魔力药剂过渡 药剂过渡 - #2 Medium药剂（至13级区域） - 精确==
@@ -325,6 +327,7 @@ Show
     SetFontSize 35
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
+    CustomAlertSound "Sharket掉落音效\药不能停.mp3" 100
 
 
 #==[24003]- 药剂 -生命/魔力药剂过渡 药剂过渡 - #3 Large药剂（至17级区域） - 精确==
@@ -335,6 +338,7 @@ Show
     SetFontSize 35
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
+    CustomAlertSound "Sharket掉落音效\药不能停.mp3" 100
 
 
 #==[24004]- 药剂 -生命/魔力药剂过渡 药剂过渡 - #4 Greater药剂（至19级区域） - 精确==
@@ -345,6 +349,7 @@ Show
     SetFontSize 35
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
+    CustomAlertSound "Sharket掉落音效\药不能停.mp3" 100
 
 
 #==[24005]- 药剂 -生命/魔力药剂过渡 药剂过渡 - #5 Grand药剂（至25级区域） - 精确==
@@ -355,6 +360,7 @@ Show
     SetFontSize 35
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
+    CustomAlertSound "Sharket掉落音效\药不能停.mp3" 100
 
 
 #==[24006]- 药剂 -生命/魔力药剂过渡 药剂过渡 - #6 Giant药剂（至31级区域） - 精确==
@@ -365,6 +371,7 @@ Show
     SetFontSize 35
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
+    CustomAlertSound "Sharket掉落音效\药不能停.mp3" 100
 
 
 #==[24007]- 药剂 -生命/魔力药剂过渡 药剂过渡 - #7 Colossal药剂（至37级区域） - 精确==
@@ -375,6 +382,7 @@ Show
     SetFontSize 35
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
+    CustomAlertSound "Sharket掉落音效\药不能停.mp3" 100
 
 
 #==[24008]- 药剂 -生命/魔力药剂过渡 药剂过渡 - #8 Sacred药剂（至43级区域） - 精确==
@@ -385,6 +393,7 @@ Show
     SetFontSize 35
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
+    CustomAlertSound "Sharket掉落音效\药不能停.mp3" 100
 
 
 #==[24009]- 药剂 -生命/魔力药剂过渡 药剂过渡 - #9 Hallowed药剂（至51级区域） - 精确==
@@ -395,6 +404,7 @@ Show
     SetFontSize 35
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
+    CustomAlertSound "Sharket掉落音效\药不能停.mp3" 100
 
 
 #==[24010]- 药剂 -生命/魔力药剂过渡 药剂过渡 - #10 Sanctified药剂（至60级区域） - 精确==
@@ -405,6 +415,7 @@ Show
     SetFontSize 35
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
+    CustomAlertSound "Sharket掉落音效\药不能停.mp3" 100
 
 
 #==[24011]- 药剂 -生命/魔力药剂过渡 药剂过渡 - #11 Divine药剂（至67级区域） - 精确==
@@ -415,6 +426,7 @@ Show
     SetFontSize 35
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
+    CustomAlertSound "Sharket掉落音效\药不能停.mp3" 100
 
 
 #==[24012]- 药剂 -生命/魔力药剂过渡 药剂过渡 - #12 Eternal药剂（至67级区域） - 精确==
@@ -425,6 +437,7 @@ Show
     SetFontSize 35
     SetBorderColor 81 113 61 255
     SetBackgroundColor 5 6 4 255
+    CustomAlertSound "Sharket掉落音效\药不能停.mp3" 100
 
 
 #==[24013]- 药剂 -水银药剂突显 药剂过渡 - Class Condition==
@@ -435,6 +448,7 @@ Show
     SetFontSize 35
     SetBorderColor 0 0 0 0
     SetBackgroundColor 5 6 4 255
+    CustomAlertSound "Sharket掉落音效\水银药剂.mp3" 100
 
 
 #==[24014]- 药剂 -酊剂突显 药剂过渡 - Class Condition==
@@ -445,6 +459,7 @@ Show
     SetFontSize 35
     SetBorderColor 0 0 0 0
     SetBackgroundColor 5 6 4 255
+    CustomAlertSound "Sharket掉落音效\酊剂.mp3" 100
 
 
 #==[25000]-过渡 _campaign - 连接突显 Links Highlight==
@@ -1719,7 +1734,6 @@ Show
     SetTextColor 112 107 41 255
     SetBorderColor 153 146 56 255
     SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 200
     PlayEffect White
     MinimapIcon 0 White Star
 
@@ -1732,7 +1746,6 @@ Show
     SetTextColor 56 53 21 255
     SetBorderColor 82 79 25 255
     SetBackgroundColor 179 171 66 255
-    CustomAlertSound "Sharket掉落音效\高级通货.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -1744,7 +1757,6 @@ Show
     SetTextColor 0 0 0 255
     SetBorderColor 60 57 22 255
     SetBackgroundColor 141 136 52 255
-    CustomAlertSound "Sharket掉落音效\通货.mp3" 100
 
 
 #==[48000]-通货 Currency - 庄园 Harvest==
@@ -3197,6 +3209,7 @@ Show
     SetFontSize 40
     SetBorderColor 114 173 203 255
     SetBackgroundColor 12 16 19 255
+    CustomAlertSound "Sharket掉落音效\魔符.mp3" 100
 
 
 #==[89000]-装备 Equipment - 遗物 Relics==
@@ -3876,7 +3889,6 @@ Show
     SetTextColor 249 230 231 255
     SetBorderColor 243 186 189 255
     SetBackgroundColor 198 47 57 255
-    CustomAlertSound "Sharket掉落音效\高级通货.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -3889,7 +3901,6 @@ Show
     SetTextColor 249 230 231 255
     SetBorderColor 243 186 189 255
     SetBackgroundColor 198 47 57 255
-    CustomAlertSound "Sharket掉落音效\高级通货.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -3911,7 +3922,6 @@ Show
     SetTextColor 199 194 239 255
     SetBorderColor 157 148 235 255
     SetBackgroundColor 64 49 196 255
-    CustomAlertSound "Sharket掉落音效\高级通货.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -3924,14 +3934,26 @@ Show
     SetTextColor 199 194 239 255
     SetBorderColor 157 148 235 255
     SetBackgroundColor 64 49 196 255
-    CustomAlertSound "Sharket掉落音效\高级通货.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
 
 #==[83000]-药剂 Flasks - 酊剂 Tinctures==
 
-#==[83001]- Tinctures -T1: 酊剂 酊剂 - 基础 - 精确==
+#==[83001]- Tinctures -T0: 顶级/核心 酊剂 - #1 84+ - 精确==
+Show
+    BaseType == "Blood Sap Tincture" "Poisonberry Tincture" "Prismatic Tincture" "Rosethorn Tincture"
+    ItemLevel >= 84
+    SetFontSize 45
+    SetTextColor 79 111 42 255
+    SetBorderColor 107 148 61 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\高级酊剂.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[83002]- Tinctures -T1: 酊剂 酊剂 - 基础 - 精确==
 Show
     BaseType == "Ashbark Tincture" "Blood Sap Tincture" "Borealwood Tincture" "Fulgurite Tincture" "Ironwood Tincture" "Oakbranch Tincture" "Poisonberry Tincture" "Prismatic Tincture" "Rosethorn Tincture" "Sporebloom Tincture"
     Rarity <= Rare
@@ -3939,7 +3961,7 @@ Show
     SetTextColor 39 55 21 255
     SetBorderColor 55 80 27 255
     SetBackgroundColor 126 174 71 255
-    CustomAlertSound "Sharket掉落音效\高级通货.mp3" 200
+    CustomAlertSound "Sharket掉落音效\酊剂.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -3969,7 +3991,6 @@ Show
     SetTextColor 244 231 248 255
     SetBorderColor 223 176 238 255
     SetBackgroundColor 159 54 191 255
-    CustomAlertSound "Sharket掉落音效\高级通货.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -4021,7 +4042,6 @@ Show
     SetTextColor 244 231 248 255
     SetBorderColor 223 176 238 255
     SetBackgroundColor 159 54 191 255
-    CustomAlertSound "Sharket掉落音效\高级通货.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -4041,7 +4061,7 @@ Show
     SetTextColor 19 119 112 255
     SetBorderColor 25 154 145 255
     SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 200
+    CustomAlertSound "Sharket掉落音效\稀有技能石.mp3" 300
     PlayEffect White
     MinimapIcon 0 White Star
 
@@ -4053,7 +4073,7 @@ Show
     SetTextColor 19 119 112 255
     SetBorderColor 25 154 145 255
     SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 200
+    CustomAlertSound "Sharket掉落音效\瓦尔技能石.mp3" 300
     PlayEffect White
     MinimapIcon 0 White Star
 
@@ -4089,7 +4109,7 @@ Show
     SetTextColor 19 119 112 255
     SetBorderColor 25 154 145 255
     SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 200
+    CustomAlertSound "Sharket掉落音效\技能宝石.mp3" 200
     PlayEffect White
     MinimapIcon 0 White Star
 
@@ -4102,7 +4122,7 @@ Show
     SetTextColor 12 79 75 255
     SetBorderColor 12 110 103 255
     SetBackgroundColor 34 211 199 255
-    CustomAlertSound "Sharket掉落音效\技能宝石.mp3" 100
+    CustomAlertSound "Sharket掉落音效\改造技能石.mp3" 300
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -4115,7 +4135,7 @@ Show
     SetTextColor 12 79 75 255
     SetBorderColor 12 110 103 255
     SetBackgroundColor 34 211 199 255
-    CustomAlertSound "Sharket掉落音效\技能宝石.mp3" 100
+    CustomAlertSound "Sharket掉落音效\稀有技能石.mp3" 300
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -4128,7 +4148,7 @@ Show
     SetTextColor 12 79 75 255
     SetBorderColor 12 110 103 255
     SetBackgroundColor 34 211 199 255
-    CustomAlertSound "Sharket掉落音效\技能宝石.mp3" 100
+    CustomAlertSound "Sharket掉落音效\稀有技能石.mp3" 300
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -4175,6 +4195,7 @@ Show
     SetTextColor 0 0 0 255
     SetBorderColor 11 70 66 255
     SetBackgroundColor 27 167 157 255
+    CustomAlertSound "Sharket掉落音效\技能宝石.mp3" 100
 
 
 #==[91013]- Skill -T3: 需求 5-11 级 技能宝石 - 基础 - 精确==
@@ -4184,6 +4205,7 @@ Show
     SetTextColor 123 234 226 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 11 66 62 255
+    CustomAlertSound "Sharket掉落音效\技能宝石.mp3" 100
 
 
 #==[91014]- Skill -T4: 需求 1-4 级 技能宝石 - 基础 - 精确==
@@ -4193,6 +4215,7 @@ Show
     SetTextColor 123 234 226 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 8 48 46 255
+    CustomAlertSound "Sharket掉落音效\技能宝石.mp3" 100
 
 
 #==[91015]- Skill -兜底：其他技能宝石 技能宝石 - Class Condition==
@@ -4201,6 +4224,7 @@ Show
     SetFontSize 35
     SetTextColor 123 234 226 255
     SetBorderColor 0 0 0 0
+    CustomAlertSound "Sharket掉落音效\技能宝石.mp3" 100
 
 
 #==[92000]-宝石 Gems - 辅助宝石 Support==
@@ -4236,6 +4260,7 @@ Show
     SetTextColor 0 0 0 255
     SetBorderColor 17 60 64 255
     SetBackgroundColor 41 142 153 255
+    CustomAlertSound "Sharket掉落音效\辅助技能石.mp3" 100
 
 
 #==[92004]- Support -兜底：其他辅助宝石 辅助宝石 - Class Condition==
@@ -4366,7 +4391,7 @@ Show
     SetTextColor 252 242 247 255
     SetBorderColor 244 184 212 255
     SetBackgroundColor 203 42 117 255
-    CustomAlertSound "Sharket掉落音效\高级通货.mp3" 200
+    CustomAlertSound "Sharket掉落音效\深渊珠宝.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -4379,7 +4404,7 @@ Show
     SetTextColor 242 192 215 255
     SetBorderColor 232 141 183 255
     SetBackgroundColor 161 33 93 255
-    CustomAlertSound "Sharket掉落音效\通货.mp3" 100
+    CustomAlertSound "Sharket掉落音效\深渊珠宝.mp3" 100
 
 
 #==[112000]-Jewels Jewels - 基础珠宝 Base Jewels==
@@ -4392,7 +4417,7 @@ Show
     SetTextColor 252 242 247 255
     SetBorderColor 244 184 212 255
     SetBackgroundColor 203 42 117 255
-    CustomAlertSound "Sharket掉落音效\高级通货.mp3" 200
+    CustomAlertSound "Sharket掉落音效\常规珠宝.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -4408,7 +4433,7 @@ Show
     SetTextColor 127 26 73 255
     SetBorderColor 186 38 107 255
     SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 200
+    CustomAlertSound "Sharket掉落音效\高级星团珠宝.mp3" 200
     PlayEffect White
     MinimapIcon 0 White Star
 
@@ -4422,7 +4447,7 @@ Show
     SetTextColor 252 242 247 255
     SetBorderColor 244 184 212 255
     SetBackgroundColor 203 42 117 255
-    CustomAlertSound "Sharket掉落音效\高级通货.mp3" 200
+    CustomAlertSound "Sharket掉落音效\星团珠宝.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -4436,7 +4461,7 @@ Show
     SetTextColor 242 192 215 255
     SetBorderColor 232 141 183 255
     SetBackgroundColor 161 33 93 255
-    CustomAlertSound "Sharket掉落音效\通货.mp3" 100
+    CustomAlertSound "Sharket掉落音效\星团珠宝.mp3" 100
 
 
 #==[113004]- Cluster Jewels -T3: 低阶群集珠宝 星团珠宝 - 基础 - 精确==
@@ -4446,7 +4471,7 @@ Show
     SetFontSize 35
     SetTextColor 229 128 175 255
     SetBorderColor 0 0 0 0
-    CustomAlertSound "Sharket掉落音效\高级通货.mp3" 200
+    CustomAlertSound "Sharket掉落音效\星团珠宝.mp3" 200
 
 
 #===================================================================================================================

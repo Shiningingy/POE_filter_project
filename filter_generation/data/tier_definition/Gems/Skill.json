@@ -25,7 +25,7 @@
         "BorderColor": "#00ffffff",
         "BackgroundColor": "#004040ff",
         "PlayEffect": "Cyan",
-        "MinimapIcon": "CyanCircle",
+        "MinimapIcon": "0 Red Circle",
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
           100
@@ -44,7 +44,17 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#137770ff",
+        "BorderColor": "#199a91ff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star",
+        "PlayAlertSound": [
+          "Sharket掉落音效/技能宝石.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 6,
@@ -73,7 +83,16 @@
     "Tier 2 Skill": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#000000ff",
+        "BorderColor": "#0b4642ff",
+        "BackgroundColor": "#1ba79dff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/技能宝石.mp3",
+          100
+        ],
+        "MinimapIcon": "0 Red Circle"
       },
       "sound": {
         "default_sound_id": -1,
@@ -87,7 +106,16 @@
     "Tier 3 Skill": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "TextColor": "#7beae2ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#0b423eff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/技能宝石.mp3",
+          100
+        ],
+        "MinimapIcon": "0 Red Circle"
       },
       "sound": {
         "default_sound_id": -1,
@@ -101,7 +129,16 @@
     "Tier 4 Skill": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "TextColor": "#7beae2ff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#08302eff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/技能宝石.mp3",
+          100
+        ],
+        "MinimapIcon": "0 Red Circle"
       },
       "sound": {
         "default_sound_id": -1,
@@ -115,7 +152,15 @@
     "Tier Net Skill": {
       "hideable": false,
       "theme": {
-        "Tier": 5
+        "Tier": 5,
+        "FontSize": 35,
+        "TextColor": "#7beae2ff",
+        "BorderColor": "#00000000",
+        "PlayAlertSound": [
+          "Sharket掉落音效/技能宝石.mp3",
+          100
+        ],
+        "MinimapIcon": "0 Red Circle"
       },
       "sound": {
         "default_sound_id": -1,

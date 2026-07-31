@@ -17,7 +17,14 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 35,
+        "TextColor": "#706b29ff",
+        "BorderColor": "#999238ff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": null,
+        "MinimapIcon": null,
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 6,
@@ -31,7 +38,14 @@
     "Tier 1 Gold": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 35,
+        "TextColor": "#383515ff",
+        "BorderColor": "#524f19ff",
+        "BackgroundColor": "#b3ab42ff",
+        "PlayEffect": null,
+        "MinimapIcon": null,
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 6,
@@ -45,7 +59,12 @@
     "Tier 2 Gold": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 35,
+        "TextColor": "#000000ff",
+        "BorderColor": "#3c3916ff",
+        "BackgroundColor": "#8d8834ff",
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 1,
