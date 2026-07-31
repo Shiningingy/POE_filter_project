@@ -1,13 +1,17 @@
 # Theme pipeline rewrite — tier block owns its look, rules own matching
 
-> **Status: agreed design, not yet built.** Settled with the filter's author on
-> 2026-07-31 after a read-only audit of the whole pipeline (three exploration passes over
-> the generators, the editor surface and the rules model). Everything under *Target model*,
-> *Settled* and *Sequencing* is a decision, not a proposal — the two items still marked
-> ⚠️ inside the cache section are implementation constraints, not open questions.
+> **Status: in progress on `feature/theme-pipeline-rewrite`.** Settled with the filter's
+> author on 2026-07-31 after a read-only audit of the whole pipeline (three exploration
+> passes over the generators, the editor surface and the rules model). Everything under
+> *Target model*, *Settled* and *Sequencing* is a decision, not a proposal — the items
+> marked ⚠️ are implementation constraints, not open questions.
 >
-> Nothing here is implemented. The shipping filter is unaffected and remains buildable
-> from the `v3.29-ruthless-pre-rewrite` tag throughout.
+> **Done so far:** prerequisite H (parity can no longer pass against a stale bundle,
+> `c8b279c`) and prerequisite 2 (the generation trace is captured, `18a4ab0`). Both
+> prerequisites forced corrections to this document; they are marked ⚠️ inline.
+>
+> The shipping filter is untouched and remains buildable from the
+> `v3.29-ruthless-pre-rewrite` tag throughout.
 >
 > Supersedes the deferred decision recorded in `decision_inline_theme_priority`: inline
 > style wins, and the theme file becomes a preset bank. Reverses ADR-0001 (workstream G) —
@@ -61,8 +65,14 @@ like it works, and it is the thing to eliminate.
 - **Theme resolves per tier block.** `sharket_theme.json` demotes from authority to a
   **preset bank** you pick from — the decision already recorded in
   `decision_inline_theme_priority`, finally built.
-- **Auto-sound is deleted.** Its intent was to make the Sharket sound library shine
-  conveniently; in practice it created more problems than it solved.
+- **Auto-sound is deleted, and a per-item sound is not a rule either.** It lives on the
+  **item card** — a property of the item, like its name. This replaces the earlier plan to
+  convert the 122 synthesised sounds into explicit rules, which would have pushed the rule
+  count from 264 to ~380 purely to make magic visible. Nothing is converted, because
+  nothing needs to be: a sound stops being filter logic and becomes item data.
+  The generator then **splits a block by sound** — items sharing the look but carrying
+  their own sound each emit their own filter block. Mechanical, derived, never authored;
+  and safe under first-match-wins because the split sets are disjoint.
 - **Navigation becomes Title → Category → Subcategory → tier blocks**, Title and Category
   in the navbar, Subcategory expandable.
 
@@ -147,10 +157,12 @@ Fragments"` special case. After this the preview *cannot* disagree with the expo
   styling surface. Resolution stays `rule deviation → block style → preset → default`,
   which is what already ships; the change is that the block — not a theme grid keyed by
   category × tier number — supplies the base.
-- **Delete auto-sound.** Convert the 122 currently-synthesised sounds into **explicit,
-  visible rules** in the one-shot migration so nothing is lost but nothing is magic. This
-  retires all three suppression levers (`already_handled`,
-  `suppress_basetype_sounds`, `suppress_auto_sound`) — you delete a rule you don't want.
+- **Delete auto-sound; per-item sound moves to the item card.** The 122 synthesised
+  sounds and the 112 rules that exist only to carry a `PlayAlertSound` both collapse into
+  one per-item field. This retires all three suppression levers (`already_handled`,
+  `suppress_basetype_sounds`, `suppress_auto_sound`): there is nothing to suppress once a
+  sound is an item's property rather than an injected block. You clear the field.
+  The generator groups a block's claimed bases by sound at emission time.
 - **Retire `class_condition`** as a separate path; a condition-matching tier is just a rule
   now. Removes the 55-tier bypass and the silent-death trap.
 - **Migrate from a generation trace, not from `mapping`.** Run the current engine, record
@@ -172,6 +184,12 @@ Fragments"` special case. After this the preview *cannot* disagree with the expo
 | `_meta.item_class` | tier block / category meta, or derived per-base from GGPK |
 | `_meta.theme_category` | **dies** — already dead to both generators; the block owns its look |
 | `_meta.suppress_basetype_sounds` | **dies with auto-sound** |
+| per-item sound (today: `basetype_sounds` + 112 rules) | the **item card** |
+
+Note what that last row means: dropping `base_mapping` does **not** leave zero authored
+per-base data. The **item card is the surviving authored per-item store** — sound today,
+and the natural home for any other per-item fact that is about the *item* rather than
+about a block's matching. The index below stays purely derived; the card does not.
 
 In its place, a **generated index** (an editor convenience, never authored).
 
@@ -186,11 +204,22 @@ authored (`"Chaos Orb" → "Tier 3 General"`); the index is the inverse and deri
 ]
 ```
 
-Generation order is an **input**, not the subject: `wins` is derived from it, since
-first-match-wins means the earliest block claims the base and every later occurrence is
-dead. The Chaos Orb case above is real — it appears in a hand-written rule *and* a tier
-base list, and consequently plays the generic `通货.mp3` instead of its curated
-`混沌石.mp3`. Nothing in the editor shows that today.
+Generation order is an **input**, not the subject: `wins` is derived from it. The Chaos Orb
+case above is real — it appears in a hand-written rule *and* a tier base list, and
+consequently plays the generic `通货.mp3` instead of its curated `混沌石.mp3`. Nothing in
+the editor shows that today.
+
+⚠️ **Corrected by the trace (2026-07-31): `wins` is NOT "earliest occurrence".** Naming a
+base in several blocks is the normal, correct pattern here — `Opal Ring` is claimed 8
+times, each behind a different gate (`Quality > 20`, `MemoryStrands >= 1`,
+`ItemLevel >= 86` / `>= 84`, `AreaLevel >= 68` + `Rarity Rare`). Those are the ADR-0006
+precision layers and **every one of them is live**. A later claim is dead only when an
+earlier block is at least as permissive — its condition set a subset of the later one's.
+
+The difference is not academic: order alone calls **573** bases shadowed; the
+condition-aware test says **86**. So the index must carry each occurrence's **conditions**,
+not just its order, and `wins` becomes per-base reachability rather than a position
+comparison. `filter_generation/analyze_trace.py` implements the sound version.
 
 - The **sound picker** and **bulk editors** query it for "where does this base appear?"
   instead of walking the tree — the operation they already perform, made cheap.
@@ -202,8 +231,8 @@ base list, and consequently plays the generic `通货.mp3` instead of its curate
 - Bases with **zero** entries are the gap list, for free.
 
 Feature check — nothing is lost:
-- **Sound picker**: appends a rule to the tier block instead of to `base_mapping`. Same
-  operation, better home.
+- **Sound picker**: writes the **item card's** sound field. It stops authoring filter logic
+  altogether — no rule is created, in `base_mapping` or anywhere else.
 - **Bulk editors**: the Sound Bulk Editor already had to be made per-occurrence by hand
   because occurrences were implicit; the index makes them explicit, so that stops being a
   special case. Tier reassignment becomes moving a base between blocks' rule targets.
@@ -273,11 +302,42 @@ Go TS-only; delete `generate.py` and `test_generator_parity.mjs`, keep a thin CL
 An ADR-0001 reversal, so it needs its own ADR. Every bug fixed this session had to be
 fixed twice, against a parity test that was itself comparing to a stale bundle.
 
-### H. Prerequisite — fix before migrating
+### H. Prerequisite — fix before migrating ✅ DONE (`c8b279c`)
 
 `create_demo_bundle.py` silently no-ops as a CLI script, so `test_generator_parity.mjs`
 compares fresh Python against a **stale** bundle. Every parity result is untrustworthy
 until this is fixed. The bundle also drops sound files on every bake.
+
+**Outcome.** Neither symptom reproduced on a clean tree — the bake runs correctly from
+both shells and sound counts come out exact (723/723). So the trigger was environmental
+(a lock, a half-written tree, or a `python` that is really the Microsoft Store stub —
+still installed here, and it *hangs* rather than erroring). The fix is therefore
+structural rather than a patch to one bug: the baker fingerprints its input tree and
+stamps the output, but only after verifying it; the parity test recomputes that
+fingerprint independently and refuses to run on a mismatch. Staleness can no longer pass,
+whatever caused it. All four failure paths were made to fire before being called done.
+
+### ★ What the trace measured (prerequisite 2, `18a4ab0`)
+
+Captured from the current engine before any change, for both modes at soft
+(`filter_generation/traces/`). The numbers that change the plan:
+
+- **61 bases across 6 files are claimed by blocks but appear nowhere in `mapping`** —
+  the `tier + targets` hazard, confirmed. A mapping-driven migration drops all 61,
+  including the whole campaign flask progression. This is why the trace exists.
+- **75 blocks emit no `BaseType` line at all** (32 `class_condition`, 43 self-selecting
+  rules). Their claim is not expressible as a base list and must migrate as conditions.
+- **3 bases are mapped but reach no block**, once the campaign gate is separated out —
+  the other 597 are unpicked weapon/armour groups working exactly as designed. (In
+  standard, 420 archived divination cards also surface: the known undeclared-tier-key bug,
+  now measured.)
+- **86 genuinely unreachable claims.** ⚠️ Deleting auto-sound does **not** fix these, as
+  first thought: only 6 have an auto-sound winner, **72 are ordinary `tier_base` blocks**.
+  `Opal Ring` really is mapped into `Crafting Gear 84`, so that block claims it whether or
+  not a sound was injected. This is cross-category precedence — `Crafting Priority` is
+  `gen_order −10` on purpose, so it legitimately outranks the equipment ladders — and it
+  belongs to the open **global emission order** question, not to this rewrite. Recorded
+  here so the migration does not "fix" it by accident.
 
 ## Settled
 
