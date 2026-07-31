@@ -183,7 +183,7 @@ const EditorView: React.FC<EditorViewProps> = ({
           }
 
           const themeCategory = catData._meta?.theme_category || catKey;
-          const resolvedStyle = resolveStyle(tierData, themeData, themeCategory, soundMap);
+          const resolvedStyle = resolveStyle(tierData, themeData, themeCategory, soundMap, inspectedTierKey);
 
           return {
               key: inspectedTierKey,

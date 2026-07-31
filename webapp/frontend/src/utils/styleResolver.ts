@@ -1,4 +1,7 @@
 import { translations, type Language } from './localization';
+import {
+  resolveTierTheme, resolveSoundPair, soundLineFromPair, styleLines, conditionLines, blockText,
+} from './filterStyle';
 
 interface StyleProps {
   FontSize?: number;
@@ -11,66 +14,42 @@ interface StyleProps {
   [key: string]: any;
 }
 
-export const resolveStyle = (tierData: any, themeData: any, themeCategory: string = "Stackable Currency", soundMap?: any): StyleProps => {
-  const localTheme = tierData.theme || {};
-  const localSound = tierData.sound || {};
-  let resolved: StyleProps = {};
+/**
+ * The style the editor shows for a tier block — resolved by the SAME code the
+ * exported filter uses (`filterStyle`), so the preview cannot disagree with it.
+ *
+ * It used to disagree in several ways at once, all of which made authoring feel
+ * like it worked when it did not:
+ *   * it spread the tier's inline `theme` on top, while both generators read only
+ *     `Tier` and `PlayAlertSound` out of that block — 216 authored inline keys
+ *     across 24 tier files were previewed and then discarded on export;
+ *   * it looked the theme row up through a chain no generator has
+ *     ("Stackable Currency" -> "Currency" -> "currency" -> "Templates") and
+ *     defaulted the category to "Stackable Currency", so blocks the filter emits
+ *     bare showed a plausible borrowed style;
+ *   * it kept a private copy of the sound priority chain.
+ *
+ * `tierKey` is needed because the theme row is keyed by tier NUMBER, which comes
+ * from the key when the tier does not state `theme.Tier` explicitly.
+ */
+export const resolveStyle = (
+  tierData: any,
+  themeData: any,
+  themeCategory: string = "Default",
+  soundMap?: any,
+  tierKey: string = "",
+): StyleProps => {
+  const resolved: StyleProps = { ...resolveTierTheme(themeData, themeCategory, tierData, tierKey) };
 
-  // 1. Check if it references a global tier
-  if (localTheme.Tier !== undefined) {
-    const tierKey = `Tier ${localTheme.Tier}`;
-    // Try category, then fallback to common keys
-    const globalStyle = themeData?.[themeCategory]?.[tierKey] || 
-                        themeData?.["Stackable Currency"]?.[tierKey] || 
-                        themeData?.["Currency"]?.[tierKey] || 
-                        themeData?.["currency"]?.[tierKey] || 
-                        themeData?.["Templates"]?.[tierKey] || {}; 
-    resolved = { ...globalStyle };
-  }
-
-  // 2. Merge local overrides
-  const { Tier, ...overrides } = localTheme;
-  resolved = { ...resolved, ...overrides };
-
-  // 3. Resolve Sound.
-  //
-  // Order MUST match resolve_sound in BOTH generators:
-  //     theme.PlayAlertSound  ->  sharket_sound_id  ->  default_sound_id
-  //
-  // It used to be the exact reverse, with the theme sound as a last resort. The tier
-  // style editor writes the sound it picks to theme.PlayAlertSound, so once the
-  // generators started honouring that, the editor preview and the exported filter
-  // disagreed for every tier whose sound had been picked in the UI.
-  //
-  // The lookup also has to tolerate the ".mp3" suffix: sharket_sound_id is authored
-  // WITH it in 192 of 197 tiers while class_sounds is keyed by the bare stem, so an
-  // exact match silently missed and fell through to the stock default.
-  const themeSound = resolved.PlayAlertSound;
-  const sid = localSound.sharket_sound_id;
-  const classSounds = (soundMap && soundMap.class_sounds) || {};
-  let sharket = sid ? classSounds[sid] : undefined;
-  if (sharket === undefined && typeof sid === 'string' && sid.toLowerCase().endsWith('.mp3')) {
-      sharket = classSounds[sid.slice(0, -4)];
-  }
-
-  if (themeSound) {
-      resolved.PlayAlertSound = themeSound;
-  } else if (sharket !== undefined) {
-      resolved.PlayAlertSound = [sharket.file, sharket.volume];
-  } else if (localSound.default_sound_id !== undefined && localSound.default_sound_id !== -1) {
-      resolved.PlayAlertSound = [`Default/AlertSound${localSound.default_sound_id}.mp3`, 300];
-  }
-
-  if (resolved.PlayAlertSound) {
-      // "Sharket_Sound_X.mp3" is a dead placeholder (no file, no map entry) left in 12
-      // tiers; render it as the stock alert it stands in for.
-      const [file, vol] = resolved.PlayAlertSound;
-      if (typeof file === 'string' && file.startsWith('Sharket_Sound_')) {
-          const num = file.match(/\d+/)?.[0];
-          if (num) {
-              resolved.PlayAlertSound = [`Default/AlertSound${num}.mp3`, vol];
-          }
-      }
+  const pair = resolveSoundPair(tierData, soundMap);
+  if (pair) {
+    const [file, vol] = pair;
+    // "Sharket_Sound_X.mp3" is a dead placeholder (no file, no map entry) left in 12
+    // tiers; render it as the stock alert it stands in for.
+    const num = file.startsWith('Sharket_Sound_') ? file.match(/\d+/)?.[0] : undefined;
+    resolved.PlayAlertSound = num ? [`Default/AlertSound${num}.mp3`, vol] : [file, vol];
+  } else {
+    delete resolved.PlayAlertSound;
   }
 
   return resolved;
@@ -138,12 +117,15 @@ export const generateFilterText = (style: StyleProps, baseTypes: string[] = ["It
       rules.forEach((rule) => {
           if (rule.disabled) return;
 
-          // A self-selecting rule supplies its own matching lines (a `raw` block, or
-          // a BaseType/Class condition), so the generator emits NO BaseType line for
-          // it - see generate.py:531. Falling back to the tier's whole base list here
-          // put a second BaseType line above the raw one in the preview.
-          const selfSelecting = !!rule.raw ||
-              ['BaseType', 'Class'].some((k) => k in (rule.conditions || {}));
+          // A self-selecting rule supplies its own matching lines, so the generator
+          // emits NO BaseType line for it. Falling back to the tier's whole base
+          // list here put a second BaseType line above the raw one in the preview.
+          //
+          // ANY condition counts, not just BaseType/Class — a rule saying
+          // `Rarity Unique` + `LinkedSockets >= 6` is a complete selector on its own.
+          // This preview kept the OLD narrow definition after the generators were
+          // widened, so it disagreed with the export for ~40 rules.
+          const selfSelecting = !!rule.raw || Object.keys(rule.conditions || {}).length > 0;
 
           // Remove from pending base
           const targets = rule.targets && rule.targets.length > 0
@@ -181,7 +163,7 @@ export const generateFilterText = (style: StyleProps, baseTypes: string[] = ["It
     lines.push(hideable ? "Hide" : "Show");
     lines.push(`    BaseType == "${Array.from(pendingBaseItems).sort().join('" "')}"`);
     _appendStyleLines(lines, style);
-    allBlocks.push(lines.join('\n'));
+    allBlocks.push(blockText(lines, hideable).replace(/\n$/, ''));
   }
 
   return allBlocks.join('\n\n');
@@ -205,22 +187,10 @@ const _generateBlock = (rule: any, targets: string[], baseStyle: any, hideable: 
         rLines.push(`    BaseType == "${uniqueTargets.join('" "')}"`);
     }
 
-    if (rule.conditions) {
-        Object.entries(rule.conditions as Record<string, string>).forEach(([key, val]) => {
-            if (val.startsWith("RANGE ")) {
-                const parts = val.split(" ");
-                if (parts.length >= 5) {
-                    rLines.push(`    ${key} ${parts[1]} ${parts[2]}`);
-                    rLines.push(`    ${key} ${parts[3]} ${parts[4]}`);
-                }
-            } else if (key === "Rarity") {
-                const cleanVal = val.replace(/==|=/g, "").trim();
-                rLines.push(`    ${key} ${cleanVal}`);
-            } else {
-                rLines.push(`    ${key} ${val}`);
-            }
-        });
-    }
+    // Shared emitter: the private copy skipped normOp, so a condition authored as
+    // `StackSize >=10` previewed exactly that way — the spelling the game rejects
+    // outright — while the export silently normalised it.
+    rLines.push(...conditionLines(rule.conditions));
 
     if (rule.raw) {
         rule.raw.split('\n').forEach((line: string) => {
@@ -228,53 +198,24 @@ const _generateBlock = (rule: any, targets: string[], baseStyle: any, hideable: 
         });
     }
 
-    const ruleStyle = { ...baseStyle, ...(rule.overrides || {}) };
-    _appendStyleLines(rLines, ruleStyle);
+    const overrides = rule.overrides || {};
+    const sound = 'PlayAlertSound' in overrides ? overrides.PlayAlertSound : baseStyle?.PlayAlertSound;
+    rLines.push(...styleLines(baseStyle, overrides, soundLineFromPair(sound)));
 
-    return rLines.join('\n');
+    // A hide block draws nothing (and under Ruthless, `Minimal` still draws a
+    // LABEL), so styling it is worse than useless — the generators strip it.
+    return blockText(rLines, hideable).replace(/\n$/, '');
 };
 
+/**
+ * Style lines for an ALREADY-RESOLVED style object, via the shared emitter.
+ *
+ * The private copy this replaces got three things wrong that the game cares
+ * about: it emitted `CustomAlertSound "sound_files\..."` (the game resolves that
+ * path against the FILTER's folder, so every alert failed silently), it rendered
+ * a `"disabled:"` sound as the literal path `sound_files\d`, and it skipped
+ * SetFontSize whenever the value was absent while the generators always emit it.
+ */
 const _appendStyleLines = (lines: string[], style: StyleProps) => {
-  if (style.FontSize) lines.push(`    SetFontSize ${style.FontSize}`);
-  
-  const toRgba = (hex?: string) => {
-    if (!hex) return "255 255 255 255";
-    const cleanHex = hex.startsWith('disabled:') ? hex.split(':')[1] : hex;
-    if (!cleanHex.startsWith('#')) return "255 255 255 255";
-    
-    const r = parseInt(cleanHex.substring(1, 3), 16);
-    const g = parseInt(cleanHex.substring(3, 5), 16);
-    const b = parseInt(cleanHex.substring(5, 7), 16);
-    let a = 255;
-    if (cleanHex.length >= 9) {
-        a = parseInt(cleanHex.substring(7, 9), 16);
-    }
-    return `${r} ${g} ${b} ${a}`;
-  };
-
-  // Active = present and not switched off. Off values ("disabled:" prefix from the
-  // editor toggle, or the sentinels "inherit"/"default") omit the line entirely —
-  // mirrors styleOff() in both generators, so preview == export.
-  const isActive = (val: any) =>
-    val && (typeof val !== 'string' || (!val.startsWith('disabled:') && val !== 'inherit' && val !== 'default'));
-
-  if (isActive(style.TextColor)) lines.push(`    SetTextColor ${toRgba(style.TextColor)}`);
-  if (isActive(style.BorderColor)) lines.push(`    SetBorderColor ${toRgba(style.BorderColor)}`);
-  if (isActive(style.BackgroundColor)) lines.push(`    SetBackgroundColor ${toRgba(style.BackgroundColor)}`);
-
-  if (isActive(style.PlayEffect)) lines.push(`    PlayEffect ${style.PlayEffect}`);
-  if (isActive(style.MinimapIcon)) {
-      lines.push(`    MinimapIcon ${style.MinimapIcon}`);
-  }
-  
-  if (style.PlayAlertSound) {
-    const [file, vol] = style.PlayAlertSound;
-    if (file.startsWith('Default/AlertSound')) {
-        const num = file.match(/\d+/)?.[0] || "1";
-        lines.push(`    PlayAlertSound ${num} ${vol}`);
-    } else {
-        const winPath = file.replace(/\//g, '\\');
-        lines.push(`    CustomAlertSound "sound_files\\${winPath}" ${vol}`);
-    }
-  }
+  lines.push(...styleLines(style, {}, soundLineFromPair(style.PlayAlertSound)));
 };

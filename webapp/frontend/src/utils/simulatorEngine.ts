@@ -1,4 +1,7 @@
 import type { CSSProperties } from 'react';
+// The simulator renders CSS rather than filter lines, but it must resolve the
+// SAME theme row the exported block gets — see filterStyle.resolveTierTheme.
+import { resolveTierTheme } from './filterStyle';
 
 export interface ItemProps {
     name: string; // BaseType
@@ -193,7 +196,9 @@ const resolveStyle = (
                 const parts = matchedFile.split('/');
                 const relevantParts = parts.filter(p => p !== 'base_mapping' && !p.endsWith('.json'));
                 if (relevantParts.length > 0) category = relevantParts[relevantParts.length - 1];
-                if (category === "Fragments") category = "Map Fragments";
+                // (A "Fragments" -> "Map Fragments" rename used to live here. No
+                // generator has ever done that, so it only made the simulator show a
+                // style the filter does not emit.)
             }
         }
     }
@@ -212,38 +217,28 @@ const resolveStyle = (
 
     let visible = true;
 
-    let themeStyle = null;
+    // The tier's own entry, needed because `theme.Tier` overrides what the tier's
+    // KEY would parse to (real keys like "T1", "Other" and "Rare Safety Net" all
+    // parse to 99).
+    let tierEntry: any = undefined;
+    if (matchedFile && context.tierDefinitions) {
+        const tierDefPath = matchedFile.replace(/^base_mapping\//, 'tier_definition/');
+        const tierDefContent = (context.tierDefinitions as Record<string, any>)[tierDefPath];
+        const groupKey = tierDefContent && Object.keys(tierDefContent).find(k => k !== '_meta' && !k.startsWith('//'));
+        if (groupKey) tierEntry = tierDefContent[groupKey]?.[matchedTier];
+    }
+
+    // Shared lookup — the simulator used to run its own four-step chain
+    // (category/tier, category/normalized, Default/tier, Default/normalized, then
+    // inline as a last resort). Two of those steps do not exist in either
+    // generator: a missing TIER ROW falls back to `{}`, never to Default's row, so
+    // the simulator was painting blocks the filter emits bare. And it consulted
+    // inline style LAST while the generators ignore it entirely — the exact
+    // inversion the rewrite is fixing, which made the simulator a third opinion.
+    let themeStyle: any = null;
     if (matchedTier && matchedTier !== "Untiered") {
-        const tierMatch = matchedTier.match(/Tier \d+/);
-        const normalizedTier = tierMatch ? tierMatch[0] : matchedTier;
-
-        const checkStyle = (cat: string, tier: string) => {
-            if (context.overrides && context.overrides[cat] && context.overrides[cat][tier]) return context.overrides[cat][tier];
-            if (context.theme && context.theme[cat] && context.theme[cat][tier]) return context.theme[cat][tier];
-            return null;
-        };
-
-        // Priority lookup
-        themeStyle = checkStyle(category, matchedTier);
-        if (!themeStyle) themeStyle = checkStyle(category, normalizedTier);
-        if (!themeStyle) themeStyle = checkStyle("Default", matchedTier);
-        if (!themeStyle) themeStyle = checkStyle("Default", normalizedTier);
-
-        // Final fallback: use inline style overrides from the corresponding tier_definition file
-        if (!themeStyle && matchedFile && context.tierDefinitions) {
-            const tierDefPath = matchedFile.replace(/^base_mapping\//, 'tier_definition/');
-            const tierDefContent = (context.tierDefinitions as Record<string, any>)[tierDefPath];
-            if (tierDefContent) {
-                const groupKey = Object.keys(tierDefContent).find(k => k !== '_meta');
-                if (groupKey) {
-                    const tierEntry = tierDefContent[groupKey]?.[matchedTier];
-                    if (tierEntry?.theme) {
-                        const { Tier: _t, ...inlineStyle } = tierEntry.theme as Record<string, any>;
-                        if (Object.keys(inlineStyle).length > 0) themeStyle = inlineStyle;
-                    }
-                }
-            }
-        }
+        const row = resolveTierTheme(context.theme, category, tierEntry, matchedTier);
+        if (row && Object.keys(row).length > 0) themeStyle = row;
     }
 
     if (themeStyle) {
@@ -255,7 +250,10 @@ const resolveStyle = (
         });
     }
 
-    if (matchedTier && matchedTier.includes('Hide')) visible = false;
+    // `is_hide_tier` is what the generators actually gate on; the tier NAME
+    // containing "Hide" was a guess that missed every hide tier named otherwise
+    // (the campaign declutter tiers, the equipment nets).
+    if (tierEntry?.is_hide_tier || (matchedTier && matchedTier.includes('Hide'))) visible = false;
 
     return { style, visible, category };
 };

@@ -58,7 +58,14 @@ interface GeneratorData {
 // CONFIG
 // ===========================
 
-const DEFAULT_FONT_SIZE = 32;
+// Style/emission primitives live in ONE place now (filterStyle.ts) so the editor
+// preview, the Inspector and the drop simulator cannot drift from what actually
+// gets exported — they did, in four different directions. Anything touching how a
+// block LOOKS belongs there; this file owns which blocks exist and in what order.
+import {
+  DEFAULT_FONT_SIZE, styleOff, parseRgba, conditionLines,
+  blockText, resolveSound, tierNumFromLabel,
+} from './filterStyle';
 
 // Generator-output vocabulary (terms that appear in filter comments). Co-located
 // with the generator and mirrored EXACTLY in filter_generation/generate.py
@@ -86,154 +93,6 @@ const FOLDER_LOCALIZATION: Record<string, string> = {
   "Uniques": "传奇",
   "_campaign": "过渡",
   "Heist": "赏金猎人"
-};
-
-// ===========================
-// UTILITIES
-// ===========================
-
-// True when a theme/override style value means OMIT the line entirely: the
-// editor's 'disabled:' toggle, or the designer sentinels 'inherit' (TextColor
-// keeps the rarity colour) / 'default' (BackgroundColor keeps the game's default
-// label bg). Mirrors style_off() in generate.py — the editor preview
-// (styleResolver) omits these too, so preview == export.
-// ALSO true for an ABSENT value. An absent key is the designer's primary way of
-// saying "let the game paint this": 441 of the 998 theme rows omit `TextColor` on
-// purpose — every gear class, Campaign, and every rarity-inherited family gives up
-// its text channel so the RARITY colour shows through. We were falling through to
-// parseRgba(undefined) = white and painting over it, so a rare staff rendered with
-// a white name and read as a plain normal item. Same for the 98 rows omitting
-// `BackgroundColor`, which want the game's own 0 0 0 190 label.
-const styleOff = (value: any): boolean =>
-  value === undefined || value === null ||
-  (typeof value === 'string' && (value.startsWith('disabled:') || value === 'inherit' || value === 'default'));
-
-const parseRgba = (value: any, defaultValue: string = "255 255 255 255"): string => {
-  if (!value || value === -1) return defaultValue;
-  if (typeof value === "string" && value.startsWith("disabled:")) return defaultValue;
-  
-  if (typeof value === "string" && value.startsWith("#")) {
-    const hexv = value.replace("#", "");
-    // Require valid hex chars too (parity with generate.py): a bad-char string
-    // of the right length would otherwise yield "NaN NaN NaN 255" here while
-    // Python's int(..,16) raises — both must fall through to the default.
-    if ((hexv.length === 6 || hexv.length === 8) && /^[0-9a-fA-F]+$/.test(hexv)) {
-      const r = parseInt(hexv.substring(0, 2), 16);
-      const g = parseInt(hexv.substring(2, 4), 16);
-      const b = parseInt(hexv.substring(4, 6), 16);
-      const a = hexv.length === 8 ? parseInt(hexv.substring(6, 8), 16) : 255;
-      return `${r} ${g} ${b} ${a}`;
-    }
-  }
-  return defaultValue;
-};
-
-/** [file, volume] -> a filter sound line, or null. */
-const soundLineFromPair = (pair: any): string | null => {
-  if (!pair || !Array.isArray(pair) || pair.length !== 2) return null;
-  const [file, vol] = pair;
-  if (typeof file !== "string") return null;
-  if (file.startsWith("Default/AlertSound")) {
-    const numMatch = file.match(/\d+/);
-    const num = numMatch ? numMatch[0] : "1";
-    return `PlayAlertSound ${num} ${vol}`;
-  }
-  const winPath = file.replace(/\//g, "\\");
-  // NO "sound_files\" prefix: the game resolves a CustomAlertSound path relative to
-  // the FILTER's own folder, not to this repo. Players drop the shipped
-  // `Sharket掉落音效\` folder next to the .filter, which is what Sharket's own
-  // released filter emits. Prefixing our repo's container directory made every alert
-  // silently fail to load in game. (Mirrors generate.py.)
-  return `CustomAlertSound "${winPath}" ${vol}`;
-};
-
-/**
- * PoE needs a SPACE between a comparison operator and its value: the game rejects
- * `StackSize >=10` outright ("cannot be recognised") while `StackSize >= 10` parses.
- * Both spellings are authorable in the editor and the tree contains both — `>= 300`
- * and `>= 50` alongside `>=10`, `>=100`, `>=1000`, `>=3000` — so one bad line broke
- * the whole filter in game. Normalising on emit fixes every existing case and any
- * future one, instead of chasing the data. Mirrors norm_op() in generate.py.
- */
-const normOp = (val: any): any => {
-  if (typeof val !== "string") return val;
-  const m = val.trim().match(/^(==|!=|<=|>=|<|>|=)\s*(\S.*)$/);
-  return m ? `${m[1]} ${m[2]}` : val;
-};
-
-const STYLE_PREFIXES = ["    Set", "    PlayEffect", "    MinimapIcon",
-                       "    CustomAlertSound", "    PlayAlertSound"];
-
-/**
- * Join a block, dropping style lines when it is a hide block.
- *
- * A `Hide` block renders nothing, so its styling was always dead weight. Under
- * RUTHLESS it is worse than dead: GGG does not permit `Hide` there, so HIDE_CMD
- * is `Minimal` — which still DRAWS a label. Emitting a font size and a plate on
- * it makes the very thing we are trying to quieten more visible, not less.
- * NeverSink's Ruthless filter emits conditions only on its Minimal blocks
- * ("Hide-Section replaced with minimal"). Mirrors block_text() in generate.py.
- */
-const blockText = (blockLines: string[], isHide: boolean): string => {
-  const kept = isHide
-    ? blockLines.filter((l) => !STYLE_PREFIXES.some((p) => l.startsWith(p)))
-    : blockLines;
-  return kept.join('\n') + '\n';
-};
-
-/** Priority: rule override -> tier theme.PlayAlertSound -> sharket -> default */
-const resolveSound = (tierEntry: any, soundMap: any, overrideSound?: [string, number]): string | null => {
-  let line = soundLineFromPair(overrideSound);
-  if (line) return line;
-
-  // The tier style editor writes the sound it picks to theme.PlayAlertSound.
-  // Nothing read it, so choosing a sound for a tier appeared to save and then did
-  // nothing. A rule's own override still wins, which is why this sits below.
-  // An EXPLICIT disable silences the tier outright and must NOT fall through to
-  // the `sound` block below — that fallback is the whole reason a tier could not be
-  // muted from the editor before: clearing the picked sound just re-exposed whatever
-  // sharket_sound_id/default_sound_id the tier was seeded with. Checked on the raw
-  // string, not via styleOff(), because styleOff(undefined) is true and an ABSENT
-  // PlayAlertSound must still fall through.
-  const themeSnd = (tierEntry.theme || {}).PlayAlertSound;
-  if (typeof themeSnd === "string" &&
-      (themeSnd.startsWith("disabled:") || themeSnd === "inherit" || themeSnd === "default")) {
-    return null;
-  }
-  line = soundLineFromPair(themeSnd);
-  if (line) return line;
-
-  const sb = tierEntry.sound || {};
-  // sharket_sound_id was authored WITH the ".mp3" extension in 192 of 197 tiers,
-  // but class_sounds is keyed by the bare stem ("顶级底材", not "顶级底材.mp3").
-  // The old exact-match lookup missed nearly every tier and fell through to
-  // default_sound_id, so a tier asking for a custom Sharket sound played a stock
-  // PoE alert instead, or was silent where default_sound_id was -1.
-  const sid = sb.sharket_sound_id;
-  const classSounds = soundMap?.class_sounds || {};
-  if (sid) {
-    let s = classSounds[sid];
-    if (s === undefined && typeof sid === "string" && sid.toLowerCase().endsWith(".mp3")) {
-      s = classSounds[sid.slice(0, -4)];
-    }
-    if (s !== undefined) {
-      const winPath = s.file.replace(/\//g, "\\");
-      return `CustomAlertSound "${winPath}" ${s.volume}`;
-    }
-  }
-
-  if (sb.default_sound_id !== undefined && sb.default_sound_id !== -1) {
-    return `PlayAlertSound ${sb.default_sound_id} 300`;
-  }
-
-  return null;
-};
-
-const tierNumFromLabel = (label: string): number => {
-  if (label.includes("Tier 0")) return 0;
-  if (label.includes("Hide")) return 9;
-  const m = label.match(/Tier\s+(\d+)/);
-  return m ? parseInt(m[1]) : 99;
 };
 
 const headerLine = (index: number, text: string): string => {
@@ -269,28 +128,11 @@ export const generateFilter = (data: GeneratorData): string => {
     return false;
   };
 
-  // Emit condition lines for a block. Mirrors generate.py: list → repeated AND
-  // lines, "RANGE a b c d" → two lines, Rarity → strip a leading "==", else
-  // "key value".
+  // Condition emission is shared (filterStyle.conditionLines) so the preview and
+  // the simulator cannot spell a condition differently from the export — the
+  // operator-spacing bug that broke the filter in game was exactly that class.
   const emitConditions = (lines: string[], conditions: any): void => {
-    if (!conditions) return;
-    Object.entries(conditions).forEach(([key, val]: [string, any]) => {
-      if (Array.isArray(val)) {
-        val.forEach((v: string) => lines.push(`    ${key} ${normOp(v)}`));
-      } else if (typeof val === 'string' && val.startsWith("RANGE ")) {
-        const parts = val.split(" ");
-        if (parts.length >= 5) {
-          lines.push(`    ${key} ${parts[1]} ${parts[2]}`);
-          lines.push(`    ${key} ${parts[3]} ${parts[4]}`);
-        }
-      } else if (key === "Rarity") {
-        const clean = typeof val === 'string' && val.trim().startsWith("==")
-          ? val.trim().slice(2).trim() : val;
-        lines.push(`    ${key} ${normOp(clean)}`);
-      } else {
-        lines.push(`    ${key} ${normOp(val)}`);
-      }
-    });
+    lines.push(...conditionLines(conditions));
   };
 
   const overview: string[] = [

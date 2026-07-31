@@ -311,6 +311,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         themeData,
         themeCategory,
         soundMap,
+        tierKey,
       ),
       visibility: tierHidden(newConfig[activeCategoryKey][tierKey]),
       category: themeCategory,
@@ -341,7 +342,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     onInspectTier({
       key: tierKey,
       name: td.localization?.[language] || tierKey,
-      style: resolveStyle(td, themeData, themeCategory, soundMap),
+      style: resolveStyle(td, themeData, themeCategory, soundMap, tierKey),
       visibility: tierHidden(td),
       category: themeCategory,
       rules: getAugmentedRules(baseRules, items),
@@ -611,7 +612,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       onInspectTier({
         key: tierKey,
         name: tierName,
-        style: resolveStyle(tierData, themeData, themeCategory, soundMap),
+        style: resolveStyle(tierData, themeData, themeCategory, soundMap, tierKey),
         visibility: tierHidden(tierData),
         category: themeCategory,
         rules: newRules.filter(
@@ -822,6 +823,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                 themeData,
                 themeCategory,
                 soundMap,
+                tierKey,
               );
               const toggleBoost = () => {
                 if (!onLevelingSelectionChange) return;

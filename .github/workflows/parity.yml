@@ -34,8 +34,16 @@ jobs:
         working-directory: webapp/frontend
         run: npx tsc -b
 
-      # Bakes demo data, runs generate.py + filterGenerator.ts on identical inputs, and
-      # asserts byte-for-byte agreement (standard mode + strictness gate + leveling gate).
+      # Bakes demo data, VERIFIES the bake is fresh (a stale bundle silently turned this
+      # into "fresh Python vs frozen data" and still reported PASS), then runs generate.py
+      # + filterGenerator.ts on identical inputs and asserts byte-for-byte agreement.
       - name: Generator parity (generate.py == filterGenerator.ts)
         working-directory: webapp/frontend
         run: node test_generator_parity.mjs
+
+      # Guards the OTHER half: the editor preview must emit what the filter exports.
+      # Generator parity never covered this, because the preview is not one of the two
+      # generators — it was a third opinion, and it disagreed.
+      - name: Resolver equivalence (editor preview == exported filter)
+        working-directory: webapp/frontend
+        run: node test_resolver_equivalence.mjs
