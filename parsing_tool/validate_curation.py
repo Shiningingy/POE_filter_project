@@ -247,28 +247,50 @@ def load_base_names() -> set[str]:
     "pass" silently turns every genuinely invalid name into a pass too — it was
     tried during 3.29 and converted 23 real errors into 23 green ticks.
 
-    ⚠️ And it must be a CURRENT dump. `data/from_ggpk/baseitemtypes.json` is a
-    pre-3.29 extract with 4196 names and no Enshrouding Crystals at all, so
-    checking against it reported 111 perfectly valid 3.29 bases as typos. A name
-    check is only ever as good as its catalogue, and a stale one is worse than no
-    check — it trains you to ignore the validator. So the newest dump under
-    data/source/ wins, and validate() prints which one it used.
-    """
-    roots = sorted(glob.glob(os.path.join(REPO, "data", "source", "*", "tables",
-                                          "English", "BaseItemTypes.json")))
-    best: set[str] = set()
-    for path in roots:
-        with open(path, encoding="utf-8") as fh:
-            got = {r["Name"] for r in json.load(fh) if r.get("Name")}
-        if len(got) > len(best):
-            best, LOADED_FROM["bases"] = got, os.path.relpath(path, REPO)
-    if best:
-        return best
+    ⚠️ And it must be a CURRENT dump, sourced from the GGPK extraction pipeline
+    (`parsing_tool/ggpk/extract.py`), which stages each run as
+    `data/source/<label>/`. The MANIFESTS there are tracked while the `tables/`
+    beside them are gitignored, so the newest label is always KNOWN even when its
+    data is absent — and on a fresh clone or in CI it always is.
 
-    path = os.path.join(REPO, "data", "from_ggpk", "baseitemtypes.json")
-    if not os.path.exists(path):
+    So the manifest picks the label (newest `extracted_at`), and the tables are
+    then either present or not. If not, this returns nothing and the name checks
+    are SKIPPED, loudly, naming the command that would fix it.
+
+    It deliberately does NOT fall back to `data/from_ggpk/baseitemtypes.json`:
+    that is a pre-3.29 extract with 4196 names and no Enshrouding Crystals at all,
+    and quietly checking 3.29 content against it reported 111 valid bases as
+    typos. A name check is only ever as good as its catalogue, and a stale one is
+    worse than no check — it trains you to ignore the validator.
+    """
+    manifests = glob.glob(os.path.join(REPO, "data", "source", "*", "manifest.json"))
+    labels: list[tuple[str, str, str]] = []
+    for m in manifests:
+        try:
+            with open(m, encoding="utf-8") as fh:
+                doc = json.load(fh)
+            labels.append((doc.get("extracted_at") or "",
+                           doc.get("label") or os.path.basename(os.path.dirname(m)),
+                           doc.get("source") or ""))
+        except Exception:
+            continue
+    if not labels:
+        LOADED_FROM["skip"] = "no data/source/*/manifest.json — run parsing_tool/ggpk/extract.py"
         return set()
-    LOADED_FROM["bases"] = os.path.relpath(path, REPO) + " (STALE FALLBACK)"
+
+    _, label, src = max(labels)
+    path = os.path.join(REPO, "data", "source", label, "tables", "English", "BaseItemTypes.json")
+    if not os.path.exists(path):
+        LOADED_FROM["skip"] = (
+            f"newest catalogue is {label!r} but its tables are not extracted here "
+            f"(data/source/**  is gitignored) — name checks SKIPPED. "
+            # The flag has to match how THIS label was made: cn-3.29 came from a
+            # local install, so suggesting --source cdn would just fail.
+            f"Run: python parsing_tool/ggpk/extract.py "
+            f"--source {'local' if 'local' in src.lower() else 'cdn'} --label {label}")
+        return set()
+
+    LOADED_FROM["bases"] = f"{label} ({os.path.relpath(path, REPO)})"
     with open(path, encoding="utf-8") as fh:
         return {r["Name"] for r in json.load(fh) if r.get("Name")}
 
@@ -539,6 +561,8 @@ def main() -> None:
     # typos, which is exactly how a validator gets ignored.
     if LOADED_FROM.get("bases"):
         print(f"  base names from: {LOADED_FROM['bases']}")
+    if LOADED_FROM.get("skip"):
+        print(f"  ⚠️ {LOADED_FROM['skip']}")
     rep.dump(args.info)
     e, w, i = rep.count("ERROR"), rep.count("WARN"), rep.count("INFO")
     print(f"\n{e} error(s), {w} warning(s), {i} info"
