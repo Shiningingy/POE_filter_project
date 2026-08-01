@@ -965,7 +965,9 @@ def generate_filter():
 
             # 3. Base Block for Remaining Items
             if pending_items:
-                match_modes = meta.get("match_modes", {})
+                # map_meta, not meta: the editor writes match_modes into the MAPPING's
+                # _meta, and no tier_definition carries the key (see filterGenerator.ts).
+                match_modes = map_meta.get("match_modes", {})
                 
                 exact_pending = []
                 partial_pending = []

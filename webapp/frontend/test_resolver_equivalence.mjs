@@ -9,57 +9,40 @@
 // like it worked when it did not. Parity between the two GENERATORS never caught
 // that, because the preview was never one of the two.
 //
-// The oracle is a FRESH trace from the Python generator — what it actually
-// emitted, block by block (generate.py --trace). Two things matter about that
-// choice:
+// The oracle is the real emitted filter text, block by block, captured live from
+// the shipping generator through its `onBlock` hook. It used to come from
+// `generate.py --trace`; ADR-0007 retired that generator, and the hook is what
+// replaced the capability.
 //
-//   * it is real emitted filter text, not a second call into the code under
-//     test. Now that the preview and the generator share filterStyle.ts,
-//     comparing them directly would be tautological; Python is an independent
-//     implementation, so this genuinely cross-checks.
-//   * it is captured per run, not read from filter_generation/traces/. Those
-//     committed traces are the pre-rewrite MIGRATION EVIDENCE and must stay
-//     frozen; an oracle that has to be refreshed whenever output legitimately
-//     changes would either rot or destroy that evidence.
+// ⚠️ Be honest about what this proves now. Python was an INDEPENDENT
+// implementation, so the comparison genuinely cross-checked two engines. Today
+// both sides call filterStyle.ts, so this can no longer catch a bug INSIDE the
+// style core — test_generator_fixtures.mjs is what pins that, against committed
+// expected output.
 //
-// Usage (from webapp/frontend):  node test_resolver_equivalence.mjs
-//   Needs Python on PATH (override with PYTHON=...).
+// What it still proves is the thing that actually broke: preview and export must
+// feed the core the SAME arguments. Every divergence workstream A found was of
+// that kind — styleResolver resolved a different theme category, parsed the tier
+// number differently, and carried a "Fragments" → "Map Fragments" special case
+// the generator did not have. None of those live in the shared core, and all of
+// them are still caught here.
+//
+// The committed traces under filter_generation/traces/ are deliberately NOT used:
+// they are frozen pre-rewrite migration evidence, and an oracle that must be
+// refreshed whenever output legitimately changes would either rot or destroy them.
+//
+// Usage (from webapp/frontend):  node test_resolver_equivalence.mjs   (no Python)
 
 import { build } from 'esbuild';
-import { execSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, rmSync, readFileSync, existsSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(HERE, '..', '..');
-const PY = process.env.PYTHON || 'python';
 const SHOW = 10;
 
 const tmp = mkdtempSync(join(tmpdir(), 'resolvereq-'));
-
-// Capture the oracle first: what Python emits, right now, from the data on disk.
-// generate.py also rewrites filter_generation/complete_filter.filter, so restore
-// its exact bytes afterwards (same courtesy the parity test extends).
-const TRACE = join(tmp, 'trace.json');
-const OUTPUT_FILTER = join(ROOT, 'filter_generation', 'complete_filter.filter');
-const filterBackup = existsSync(OUTPUT_FILTER) ? readFileSync(OUTPUT_FILTER) : null;
-try {
-  execSync(`${PY} filter_generation/generate.py --mode standard --strictness soft --trace "${TRACE}"`,
-           { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
-} catch (err) {
-  console.error('\nTRACE CAPTURE FAILED — generate.py did not exit cleanly.');
-  if (err.stdout?.length) console.error(err.stdout.toString());
-  if (err.stderr?.length) console.error(err.stderr.toString());
-  process.exit(1);
-} finally {
-  if (filterBackup) writeFileSync(OUTPUT_FILTER, filterBackup);
-}
-if (!existsSync(TRACE)) {
-  console.error('\nTRACE CAPTURE FAILED — generate.py exited 0 but wrote no trace.');
-  process.exit(1);
-}
 
 const axiosStub = join(tmp, 'axios.js');
 writeFileSync(axiosStub, `
@@ -90,19 +73,47 @@ Object.keys = (o) => (o === globalThis.localStorage ? [...__store.keys()] : __or
 const clientOut = join(tmp, 'clientData.mjs');
 const styleOut = join(tmp, 'styleResolver.mjs');
 const coreOut = join(tmp, 'filterStyle.mjs');
+const genOut = join(tmp, 'filterGenerator.mjs');
 await build({ ...sharedOpts, entryPoints: [join(HERE, 'src/services/clientData.ts')], outfile: clientOut });
 await build({ ...sharedOpts, entryPoints: [join(HERE, 'src/utils/styleResolver.ts')], outfile: styleOut });
 await build({ ...sharedOpts, entryPoints: [join(HERE, 'src/utils/filterStyle.ts')], outfile: coreOut });
+await build({ ...sharedOpts, entryPoints: [join(HERE, 'src/utils/filterGenerator.ts')], outfile: genOut });
 
 const client = await import(pathToFileURL(clientOut).href);
 const { resolveStyle } = await import(pathToFileURL(styleOut).href);
 const { styleLines, soundLineFromPair } = await import(pathToFileURL(coreOut).href);
+const { generateFilter } = await import(pathToFileURL(genOut).href);
 
 const merged = await client.getMergedState();
 const themeData = await client.getMergedTheme();
 const soundMap = await client.getSoundMap();
 
-const trace = JSON.parse(readFileSync(TRACE, 'utf8'));
+// Capture the oracle: every block the generator actually emitted, via onBlock.
+// Same configuration generate.py --trace used (standard / soft / ch), so the
+// comparison set is unchanged from when Python supplied it.
+const bundle = await client.loadBundle();
+const blocks = [];
+{
+  const realLog = console.log; console.log = () => {};   // the generator is chatty
+  try {
+    generateFilter({
+      themeData, soundMap,
+      allMappings: merged.mappings,
+      allTierDefinitions: merged.tiers,
+      language: 'ch',
+      footer: bundle?.footer || '',
+      strictness: 'soft',
+      mode: 'standard',
+      onBlock: (rec) => blocks.push(rec),
+    });
+  } finally { console.log = realLog; }
+}
+if (blocks.length === 0) {
+  console.error('\nORACLE CAPTURE FAILED — generateFilter emitted no blocks. Either the data ' +
+                'tree is empty or the onBlock hook was dropped from filterGenerator.ts.');
+  process.exit(1);
+}
+const trace = { blocks };
 
 // The style half of an emitted block: everything the game treats as appearance.
 const STYLE_RE = /^\s{4}(SetFontSize|SetTextColor|SetBorderColor|SetBackgroundColor|PlayEffect|MinimapIcon|PlayAlertSound|CustomAlertSound)\b/;

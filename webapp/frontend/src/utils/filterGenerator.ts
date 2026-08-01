@@ -42,6 +42,20 @@ export const isLevelingSelected = (lvGroup: any, selection?: LevelingSelection):
 // TYPES
 // ===========================
 
+/** One emitted block, reported through GeneratorData.onBlock. */
+export interface BlockRecord {
+  order: number;
+  file: string;      // tier_definition-relative path, POSIX
+  tier_key: string;
+  tier_num: number;
+  source: 'class_condition' | 'rule' | 'tier_base' | 'card';
+  match: string | null;   // 'Exact' | 'Partial' (untranslated)
+  rule: string | null;    // the rule's display part, when a rule emitted this
+  bases: string[];
+  is_hide: boolean;
+  text: string;           // the block exactly as written to the filter
+}
+
 interface GeneratorData {
   themeData: any;
   soundMap: any;
@@ -52,6 +66,14 @@ interface GeneratorData {
   strictness?: string; // strictness ladder level (default 'soft' = loosest)
   leveling_selection?: LevelingSelection; // Campaign picker selection (default: all selected)
   mode?: string; // 'ruthless' | 'standard' (default). Ruthless hides via 'Minimal' (Hide is invalid there) + excluded_modes.
+  // Opt-in observer: called once per emitted block, with the block text and the
+  // (file, tier) it came from. Inert when absent, so it costs the browser nothing.
+  //
+  // This is what generate.py's `--trace` was for, and it is why deleting the
+  // Python generator did not take the capability with it: the resolver-equivalence
+  // test needs "which block did this tier actually emit", which cannot be read back
+  // out of the finished filter text (the headers are localized and lossy).
+  onBlock?: (rec: BlockRecord) => void;
 }
 
 // ===========================
@@ -364,6 +386,11 @@ export const generateFilter = (data: GeneratorData): string => {
         if (basePlayEff && !styleOff(basePlayEff)) ccLines.push(`    PlayEffect ${basePlayEff}`);
         if (baseMiniIcon && !styleOff(baseMiniIcon)) ccLines.push(`    MinimapIcon ${baseMiniIcon}`);
         outLines.push(blockText(ccLines, isHide));
+        data.onBlock?.({
+          order: blockIndex, file: relPath, tier_key: tLbl, tier_num: tnum,
+          source: 'class_condition', match: null, rule: null, bases: [],
+          is_hide: isHide, text: outLines[outLines.length - 1],
+        });
         continue;
       }
 
@@ -505,6 +532,12 @@ export const generateFilter = (data: GeneratorData): string => {
           if (rIcon && !styleOff(rIcon)) blockLines.push(`    MinimapIcon ${rIcon}`);
 
           outLines.push(blockText(blockLines, isHide));
+          data.onBlock?.({
+            order: blockIndex, file: relPath, tier_key: tLbl, tier_num: tnum,
+            source: cardOver ? 'card' : 'rule', match: modeLabel as string | null,
+            rule: rulePart, bases: [...(subgroup as string[])], is_hide: isHide,
+            text: outLines[outLines.length - 1],
+          });
         }
 
         ruleMatches.forEach(m => pendingItems.delete(m));
@@ -512,7 +545,14 @@ export const generateFilter = (data: GeneratorData): string => {
 
       // Base Block
       if (pendingItems.size > 0) {
-        const matchModes = meta.match_modes || {};
+        // From the MAPPING's _meta, not the tier definition's — the editor writes it
+        // there (clientData.updateItem / main.py update_item), and no tier_definition
+        // file has ever carried the key. Reading `meta` here meant the Partial toggle
+        // did nothing: the card showed a Partial badge and the filter still emitted
+        // `BaseType ==`. Both generators had it wrong identically, which is why
+        // dual-generator parity never saw it. Same trap the line below this block was
+        // already fixed for ("translations come from map_doc, NOT tier definition").
+        const matchModes = mapMeta.match_modes || {};
         const exactPending = Array.from(pendingItems).filter((item: string) => (matchModes[item] || 'exact') === 'exact').sort();
         const partialPending = Array.from(pendingItems).filter((item: string) => matchModes[item] === 'partial').sort();
 
@@ -562,6 +602,12 @@ export const generateFilter = (data: GeneratorData): string => {
           if (cIcon && !styleOff(cIcon)) blockLines.push(`    MinimapIcon ${cIcon}`);
 
           outLines.push(blockText(blockLines, isHide));
+          data.onBlock?.({
+            order: blockIndex, file: relPath, tier_key: tLbl, tier_num: tnum,
+            source: cardOver ? 'card' : 'tier_base', match: modeLabel as string | null,
+            rule: null, bases: [...(subgroup as string[])], is_hide: isHide,
+            text: outLines[outLines.length - 1],
+          });
         }
       }
     }
