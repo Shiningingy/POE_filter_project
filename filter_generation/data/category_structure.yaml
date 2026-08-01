@@ -60,10 +60,10 @@ League Currency:
     name: 符文嫁接
     path: Currency/Runegrafts.json
 
-Divination Cards:
-  _name: 命运卡
-  _default_target: Divination Cards
-  Cards: 命运卡
+# Divination Cards is deliberately absent: cards do not drop in Ruthless, so the content
+# is parked in filter_generation/archive/standard-only/ until the Standard tree forks
+# (ADR-0005). category_structure.json has not listed it since 2026-07-30; this yaml still
+# did, which would have resurrected the nav entry for anyone who edited from here.
 
 Uniques:
   _name: 传奇物品

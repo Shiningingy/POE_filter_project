@@ -47,3 +47,14 @@ jobs:
       - name: Resolver equivalence (editor preview == exported filter)
         working-directory: webapp/frontend
         run: node test_resolver_equivalence.mjs
+
+      # Guards the DATA, which neither test above looks at: both generators agree happily
+      # on curation that emits nothing. Fails only on ERROR — curation that silently drops
+      # items (a tier key the category does not define) or breaks the game's grammar.
+      # Warnings are advisory and do not fail the build.
+      #
+      # Name checks need the GGPK tables under data/source/, which are gitignored, so on
+      # CI the validator skips them and says so. That is deliberate: it degrades loudly
+      # rather than falling back to a stale catalogue and reporting valid bases as typos.
+      - name: Curation validation (no silently-dropped items)
+        run: python parsing_tool/validate_curation.py
