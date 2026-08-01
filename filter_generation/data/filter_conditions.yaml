@@ -42,7 +42,14 @@ categories:
 
 conditions:
   # ---- General / universal ------------------------------------------------
-  - { key: Rarity,    type: select, options: [Normal, Magic, Rare, Unique], category: general, applies: [universal], simulatable: true,  label: { en: "Rarity",     ch: "稀有度" } }
+  # Rarity has TWO legal forms and needs both, which a plain select gave neither of:
+  #   a LIST   - `Rarity Magic Rare`   (matches any one of them)
+  #   a COMPARE- `Rarity <= Rare`      (rarities are ordered Normal<Magic<Rare<Unique)
+  # They are not interchangeable: `Magic Rare` cannot be written as one comparison
+  # (it would need >= Magic AND <= Rare, i.e. two lines), while `<= Rare` is just a
+  # shorter spelling of `Normal Magic Rare`. Our tree uses both - 26 list values and
+  # 114 comparisons - none of which could be authored through the old single select.
+  - { key: Rarity,    type: rarity, options: [Normal, Magic, Rare, Unique], category: general, applies: [universal], simulatable: true,  label: { en: "Rarity",     ch: "稀有度" } }
   - { key: ItemLevel, type: number, default: ">= 0", category: general, applies: [universal], simulatable: true,  label: { en: "Item Level", ch: "物品等级" } }
   - { key: DropLevel, type: number, default: ">= 0", category: general, applies: [universal], simulatable: true,  label: { en: "Drop Level", ch: "掉落等级" } }
   - { key: AreaLevel, type: number, default: ">= 0", category: general, applies: [universal], simulatable: true,  label: { en: "Area Level", ch: "地区等级" } }
@@ -60,6 +67,9 @@ conditions:
   - { key: Identified,      type: bool, category: status, applies: [universal],          simulatable: true, label: { en: "Identified",  ch: "已鉴定" } }
   - { key: Corrupted,       type: bool, category: status, applies: [universal],          simulatable: true, label: { en: "Corrupted",   ch: "已污染" } }
   - { key: Mirrored,        type: bool, category: status, applies: [universal],          simulatable: true, label: { en: "Mirrored",    ch: "已复制" } }
+  # Used 8x by NeverSink 3.29. We author it too, but only through a `raw` block
+  # in Uniques/General.json - the workaround that says the picker was missing it.
+  - { key: Vestigial,       type: bool, category: status, applies: [universal],          simulatable: false, label: { en: "Vestigial",   ch: "残迹" } }
   - { key: FracturedItem,   type: bool, category: status, applies: [equipment],          simulatable: true, label: { en: "Fractured",   ch: "破碎物品" } }
   - { key: SynthesisedItem, type: bool, category: status, applies: [equipment],          simulatable: true, label: { en: "Synthesised", ch: "合成物品" } }
   - { key: Scourged,        type: bool, category: status, applies: [equipment, maps],    simulatable: true, label: { en: "Scourged",    ch: "腐化扭曲" } }

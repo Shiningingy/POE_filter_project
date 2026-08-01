@@ -320,3 +320,10 @@ button:focus-visible {
 }
 .item-card-del-btn:hover { color: #fa5252; background: rgba(250, 82, 82, 0.1); border-radius: 3px; }
 
+
+/* Rarity's two legal spellings: a value LIST or a COMPARISON. Mode chips reuse
+   the multiselect chip styling so the control reads as one family. */
+.rarity-picker { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+.rarity-mode { display: flex; gap: 4px; }
+.rarity-compare { display: flex; gap: 4px; }
+.rarity-compare select { flex: 1; min-width: 0; }
