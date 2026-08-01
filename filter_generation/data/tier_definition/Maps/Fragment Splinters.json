@@ -49,6 +49,14 @@
       "localization": {
         "en": "T2: Single / small",
         "ch": "T2: 单个 / 小堆"
+      },
+      "item_overrides": {
+        "Ritual Splinter": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/驱灵裂片.mp3",
+            100
+          ]
+        }
       }
     },
     "Tier Hide Splinters": {

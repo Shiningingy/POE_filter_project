@@ -37,7 +37,21 @@
         "en": "T0: i86 Top Bases",
         "ch": "T0: 顶级底材(86+)"
       },
-      "show_in_editor": false
+      "show_in_editor": false,
+      "item_overrides": {
+        "Crystal Belt": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/水晶腰带.mp3",
+            200
+          ]
+        },
+        "Stygian Vise": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/深渊腰带.mp3",
+            200
+          ]
+        }
+      }
     },
     "Tier 1 Belts": {
       "conditions": {
@@ -61,7 +75,21 @@
         "en": "T1: Top rare bases",
         "ch": "T1: 顶级稀有底材"
       },
-      "hide_at_strictness": 5
+      "hide_at_strictness": 5,
+      "item_overrides": {
+        "Crystal Belt": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/水晶腰带.mp3",
+            200
+          ]
+        },
+        "Stygian Vise": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/深渊腰带.mp3",
+            200
+          ]
+        }
+      }
     },
     "Tier 2 Belts": {
       "conditions": {
@@ -83,7 +111,21 @@
         "en": "T2: Good rare bases",
         "ch": "T2: 优质稀有底材"
       },
-      "hide_at_strictness": 3
+      "hide_at_strictness": 3,
+      "item_overrides": {
+        "Crystal Belt": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/水晶腰带.mp3",
+            200
+          ]
+        },
+        "Vanguard Belt": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/先锋腰带.mp3",
+            200
+          ]
+        }
+      }
     },
     "Tier 3 Belts": {
       "hideable": false,

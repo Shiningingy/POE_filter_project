@@ -279,6 +279,51 @@ export const wellFormed = (channel: string, value: any): boolean => {
 };
 
 /**
+ * Split a block's base list into (bases, override) groups.
+ *
+ * An item card can carry its own style override — in practice almost always a
+ * sound. A filter block has ONE of each style line, so a base with its own
+ * override has to become its own block: same look, only the overridden channel
+ * differing. Derived here, never authored — you tag the card and the shape follows.
+ *
+ * ⚠️ Overridden groups come FIRST, plain last. First-match-wins means a plain block
+ * listing the base ahead of its override block would swallow it — the dead-claim
+ * class the index counts 86 of. Ordered by the override's JSON so runs are stable.
+ *
+ * Mirrors split_by_override() in generate.py (parity-guarded).
+ */
+export const splitByOverride = (
+  bases: string[],
+  itemOverrides: Record<string, any>,
+): Array<[string[], any]> => {
+  if (!itemOverrides || Object.keys(itemOverrides).length === 0) return [[bases, null]];
+  const groups = new Map<string, string[]>();
+  const plain: string[] = [];
+  for (const b of bases) {
+    const ovr = itemOverrides[b];
+    if (ovr) {
+      const key = stableStringify(ovr);
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key)!.push(b);
+    } else {
+      plain.push(b);
+    }
+  }
+  const out: Array<[string[], any]> = [...groups.keys()].sort()
+    .map((k) => [groups.get(k)!, JSON.parse(k)] as [string[], any]);
+  if (plain.length) out.push([plain, null]);
+  return out;
+};
+
+/** JSON with sorted keys — Python's json.dumps(sort_keys=True) equivalent, for grouping. */
+const stableStringify = (v: any): string => {
+  if (v === null || typeof v !== 'object') return JSON.stringify(v);
+  if (Array.isArray(v)) return `[${v.map(stableStringify).join(', ')}]`;
+  const keys = Object.keys(v).sort();
+  return `{${keys.map((k) => `${JSON.stringify(k)}: ${stableStringify(v[k])}`).join(', ')}}`;
+};
+
+/**
  * Emit a block's MATCHING lines for one condition map.
  *
  * Three shapes, all of which exist in the tree:

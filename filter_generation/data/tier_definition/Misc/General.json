@@ -28,6 +28,26 @@
       "localization": {
         "en": "Other Misc",
         "ch": "其他杂项"
+      },
+      "item_overrides": {
+        "Golden Key": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/黄金钥匙.mp3",
+            200
+          ]
+        },
+        "Silver Key": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/白银钥匙.mp3",
+            200
+          ]
+        },
+        "Treasure Key": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/古铜钥匙.mp3",
+            200
+          ]
+        }
       }
     }
   }

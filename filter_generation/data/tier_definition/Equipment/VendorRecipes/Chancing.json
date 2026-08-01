@@ -29,6 +29,14 @@
       "localization": {
         "en": "Chancing Targets (Normal)",
         "ch": "机会目标（普通品质）"
+      },
+      "item_overrides": {
+        "Opal Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/蛋白石戒指.mp3",
+            200
+          ]
+        }
       }
     },
     "Tier Hide Chancing Bases": {

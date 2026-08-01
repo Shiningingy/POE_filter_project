@@ -29,6 +29,20 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Astrolabe Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/星盘项链.mp3",
+            300
+          ]
+        },
+        "Simplex Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/朴实项链.mp3",
+            300
+          ]
+        }
       }
     },
     "Heist Experimented Hide": {

@@ -29,6 +29,104 @@
       "localization": {
         "en": "Show Legacy",
         "ch": "显示历史物品"
+      },
+      "item_overrides": {
+        "Armour Recombinator": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/护甲重组器.mp3",
+            300
+          ]
+        },
+        "Awakener's Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/觉醒者之石.mp3",
+            300
+          ]
+        },
+        "Breach Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/裂隙戒指.mp3",
+            200
+          ]
+        },
+        "Divine Vessel": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/禁灵之瓶.mp3",
+            100
+          ]
+        },
+        "Grasping Mail": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/扼杀链甲.mp3",
+            200
+          ]
+        },
+        "Jewellery Recombinator": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/珠宝重组器.mp3",
+            300
+          ]
+        },
+        "Orb of Binding": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/高阶点金石.mp3",
+            300
+          ]
+        },
+        "Orb of Dominance": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/统御宝珠.mp3",
+            300
+          ]
+        },
+        "Ornate Quiver": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/华美箭袋.mp3",
+            200
+          ]
+        },
+        "Perandus Coin": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/普兰德斯金币.mp3",
+            100
+          ]
+        },
+        "Prismatic Jewel": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/三相珠宝.mp3",
+            300
+          ]
+        },
+        "Ruby Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/血色护身符.mp3",
+            200
+          ]
+        },
+        "Sanctified Relic": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/圣洁遗物.mp3",
+            300
+          ]
+        },
+        "Timeless Jewel": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/永恒珠宝.mp3",
+            300
+          ]
+        },
+        "Unset Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/潜能项链.mp3",
+            200
+          ]
+        },
+        "Weapon Recombinator": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/武器重组器.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier Hide Legacy": {

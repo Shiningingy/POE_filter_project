@@ -79,17 +79,53 @@
    ]
   },
   "mapped_not_claimed": {
-   "Equipment/Relics.json": [
-    "Relics"
-   ],
    "Equipment/VendorRecipes/Recipes.json": [
     "RGB Linked"
+   ],
+   "Equipment/Relics.json": [
+    "Relics"
    ],
    "Heist/Targets.json": [
     "Heist Target"
    ]
   },
   "shadowed": {
+   "Steel Ring": [
+    {
+     "dead": {
+      "order": 69006,
+      "file": "Equipment/Jewellery/Rings.json",
+      "tier_key": "Tier 1 Rings",
+      "source": "rule",
+      "rule": "#1 i84 Top Rings - 物品卡：合金戒指"
+     },
+     "behind": {
+      "order": 32032,
+      "file": "Equipment/Crafting Priority.json",
+      "tier_key": "Crafting Gear 84",
+      "source": "card",
+      "rule": null
+     }
+    }
+   ],
+   "Vermillion Ring": [
+    {
+     "dead": {
+      "order": 69008,
+      "file": "Equipment/Jewellery/Rings.json",
+      "tier_key": "Tier 1 Rings",
+      "source": "rule",
+      "rule": "#3 i84 Top Rings - 物品卡：朱砂之戒"
+     },
+     "behind": {
+      "order": 32033,
+      "file": "Equipment/Crafting Priority.json",
+      "tier_key": "Crafting Gear 84",
+      "source": "card",
+      "rule": null
+     }
+    }
+   ],
    "Crystal Belt": [
     {
      "dead": {
@@ -97,86 +133,50 @@
       "file": "Equipment/Jewellery/Belts.json",
       "tier_key": "Tier 0 Belts",
       "source": "rule",
-      "rule": "#1 i86 Top Belts"
+      "rule": "#1 i86 Top Belts - 物品卡：水晶腰带"
      },
      "behind": {
       "order": 32028,
       "file": "Equipment/Crafting Priority.json",
       "tier_key": "Crafting Gear 86",
-      "source": "auto_sound",
-      "rule": "自动音效：水晶腰带"
-     }
-    }
-   ],
-   "Iolite Ring": [
-    {
-     "dead": {
-      "order": 69002,
-      "file": "Equipment/Jewellery/Rings.json",
-      "tier_key": "Tier 1 Rings",
-      "source": "rule",
-      "rule": "#1 i84 Top Rings"
-     },
-     "behind": {
-      "order": 32032,
-      "file": "Equipment/Crafting Priority.json",
-      "tier_key": "Crafting Gear 84",
-      "source": "auto_sound",
-      "rule": "自动音效：青石戒指"
+      "source": "card",
+      "rule": null
      }
     }
    ],
    "Opal Ring": [
     {
      "dead": {
-      "order": 69002,
+      "order": 69009,
       "file": "Equipment/Jewellery/Rings.json",
       "tier_key": "Tier 1 Rings",
       "source": "rule",
-      "rule": "#1 i84 Top Rings"
-     },
-     "behind": {
-      "order": 32033,
-      "file": "Equipment/Crafting Priority.json",
-      "tier_key": "Crafting Gear 84",
-      "source": "auto_sound",
-      "rule": "自动音效：蛋白石戒指"
-     }
-    }
-   ],
-   "Steel Ring": [
-    {
-     "dead": {
-      "order": 69002,
-      "file": "Equipment/Jewellery/Rings.json",
-      "tier_key": "Tier 1 Rings",
-      "source": "rule",
-      "rule": "#1 i84 Top Rings"
+      "rule": "#4 i84 Top Rings - 物品卡：蛋白石戒指"
      },
      "behind": {
       "order": 32034,
       "file": "Equipment/Crafting Priority.json",
       "tier_key": "Crafting Gear 84",
-      "source": "auto_sound",
-      "rule": "自动音效：合金戒指"
+      "source": "card",
+      "rule": null
      }
     }
    ],
-   "Vermillion Ring": [
+   "Iolite Ring": [
     {
      "dead": {
-      "order": 69002,
+      "order": 69010,
       "file": "Equipment/Jewellery/Rings.json",
       "tier_key": "Tier 1 Rings",
       "source": "rule",
-      "rule": "#1 i84 Top Rings"
+      "rule": "#5 i84 Top Rings - 物品卡：青石戒指"
      },
      "behind": {
       "order": 32035,
       "file": "Equipment/Crafting Priority.json",
       "tier_key": "Crafting Gear 84",
-      "source": "auto_sound",
-      "rule": "自动音效：朱砂之戒"
+      "source": "card",
+      "rule": null
      }
     }
    ],
@@ -453,7 +453,7 @@
    "Accelerating Catalyst": [
     {
      "dead": {
-      "order": 46031,
+      "order": 46032,
       "file": "Currency/General.json",
       "tier_key": "Tier 4 General",
       "source": "tier_base",
@@ -507,7 +507,7 @@
    "Abrasive Catalyst": [
     {
      "dead": {
-      "order": 46031,
+      "order": 46032,
       "file": "Currency/General.json",
       "tier_key": "Tier 4 General",
       "source": "tier_base",
@@ -525,7 +525,7 @@
    "Imbued Catalyst": [
     {
      "dead": {
-      "order": 46031,
+      "order": 46032,
       "file": "Currency/General.json",
       "tier_key": "Tier 4 General",
       "source": "tier_base",
@@ -543,7 +543,7 @@
    "Unstable Catalyst": [
     {
      "dead": {
-      "order": 46031,
+      "order": 46032,
       "file": "Currency/General.json",
       "tier_key": "Tier 4 General",
       "source": "tier_base",
@@ -669,18 +669,18 @@
    "Iron Flask": [
     {
      "dead": {
-      "order": 74005,
+      "order": 74006,
       "file": "Flasks/Utility.json",
       "tier_key": "Tier 1 Utility Flasks",
-      "source": "auto_sound",
-      "rule": "自动音效：坚铁药剂"
+      "source": "card",
+      "rule": null
      },
      "behind": {
       "order": 72001,
       "file": "Equipment/League/Expedition Ward-Bases.json",
       "tier_key": "Expedition Ward-Bases T1",
-      "source": "auto_sound",
-      "rule": "自动音效：坚铁药剂"
+      "source": "card",
+      "rule": null
      }
     }
    ],
@@ -1605,11 +1605,11 @@
    "Timeless Jewel": [
     {
      "dead": {
-      "order": 151010,
+      "order": 151008,
       "file": "_legacy/Legacy.json",
       "tier_key": "Tier 1 Legacy",
-      "source": "auto_sound",
-      "rule": "自动音效：永恒珠宝"
+      "source": "card",
+      "rule": null
      },
      "behind": {
       "order": 131008,
@@ -1623,11 +1623,11 @@
    "Prismatic Jewel": [
     {
      "dead": {
-      "order": 151009,
+      "order": 151001,
       "file": "_legacy/Legacy.json",
       "tier_key": "Tier 1 Legacy",
-      "source": "auto_sound",
-      "rule": "自动音效：三相珠宝"
+      "source": "card",
+      "rule": null
      },
      "behind": {
       "order": 131022,
@@ -1729,12 +1729,6 @@
    ]
   },
   "mapped_not_claimed": {
-   "Equipment/Relics.json": [
-    "Relics"
-   ],
-   "Equipment/VendorRecipes/Recipes.json": [
-    "RGB Linked"
-   ],
    "Divination Cards/_archived/Cards.json": [
     "A Chilling Wind",
     "A Dab of Ink",
@@ -2157,6 +2151,12 @@
     "Who Asked",
     "Winter's Embrace"
    ],
+   "Equipment/VendorRecipes/Recipes.json": [
+    "RGB Linked"
+   ],
+   "Equipment/Relics.json": [
+    "Relics"
+   ],
    "Heist/Targets.json": [
     "Heist Target"
    ]
@@ -2165,18 +2165,54 @@
    "Opal Ring": [
     {
      "dead": {
-      "order": 79002,
+      "order": 79009,
       "file": "Equipment/Jewellery/Rings.json",
       "tier_key": "Tier 1 Rings",
       "source": "rule",
-      "rule": "#1 i84 Top Rings"
+      "rule": "#4 i84 Top Rings - 物品卡：蛋白石戒指"
+     },
+     "behind": {
+      "order": 32034,
+      "file": "Equipment/Crafting Priority.json",
+      "tier_key": "Crafting Gear 84",
+      "source": "card",
+      "rule": null
+     }
+    }
+   ],
+   "Steel Ring": [
+    {
+     "dead": {
+      "order": 79006,
+      "file": "Equipment/Jewellery/Rings.json",
+      "tier_key": "Tier 1 Rings",
+      "source": "rule",
+      "rule": "#1 i84 Top Rings - 物品卡：合金戒指"
+     },
+     "behind": {
+      "order": 32032,
+      "file": "Equipment/Crafting Priority.json",
+      "tier_key": "Crafting Gear 84",
+      "source": "card",
+      "rule": null
+     }
+    }
+   ],
+   "Vermillion Ring": [
+    {
+     "dead": {
+      "order": 79008,
+      "file": "Equipment/Jewellery/Rings.json",
+      "tier_key": "Tier 1 Rings",
+      "source": "rule",
+      "rule": "#3 i84 Top Rings - 物品卡：朱砂之戒"
      },
      "behind": {
       "order": 32033,
       "file": "Equipment/Crafting Priority.json",
       "tier_key": "Crafting Gear 84",
-      "source": "auto_sound",
-      "rule": "自动音效：蛋白石戒指"
+      "source": "card",
+      "rule": null
      }
     }
    ],
@@ -2187,68 +2223,32 @@
       "file": "Equipment/Jewellery/Belts.json",
       "tier_key": "Tier 0 Belts",
       "source": "rule",
-      "rule": "#1 i86 Top Belts"
+      "rule": "#1 i86 Top Belts - 物品卡：水晶腰带"
      },
      "behind": {
       "order": 32028,
       "file": "Equipment/Crafting Priority.json",
       "tier_key": "Crafting Gear 86",
-      "source": "auto_sound",
-      "rule": "自动音效：水晶腰带"
+      "source": "card",
+      "rule": null
      }
     }
    ],
    "Iolite Ring": [
     {
      "dead": {
-      "order": 79002,
+      "order": 79010,
       "file": "Equipment/Jewellery/Rings.json",
       "tier_key": "Tier 1 Rings",
       "source": "rule",
-      "rule": "#1 i84 Top Rings"
-     },
-     "behind": {
-      "order": 32032,
-      "file": "Equipment/Crafting Priority.json",
-      "tier_key": "Crafting Gear 84",
-      "source": "auto_sound",
-      "rule": "自动音效：青石戒指"
-     }
-    }
-   ],
-   "Steel Ring": [
-    {
-     "dead": {
-      "order": 79002,
-      "file": "Equipment/Jewellery/Rings.json",
-      "tier_key": "Tier 1 Rings",
-      "source": "rule",
-      "rule": "#1 i84 Top Rings"
-     },
-     "behind": {
-      "order": 32034,
-      "file": "Equipment/Crafting Priority.json",
-      "tier_key": "Crafting Gear 84",
-      "source": "auto_sound",
-      "rule": "自动音效：合金戒指"
-     }
-    }
-   ],
-   "Vermillion Ring": [
-    {
-     "dead": {
-      "order": 79002,
-      "file": "Equipment/Jewellery/Rings.json",
-      "tier_key": "Tier 1 Rings",
-      "source": "rule",
-      "rule": "#1 i84 Top Rings"
+      "rule": "#5 i84 Top Rings - 物品卡：青石戒指"
      },
      "behind": {
       "order": 32035,
       "file": "Equipment/Crafting Priority.json",
       "tier_key": "Crafting Gear 84",
-      "source": "auto_sound",
-      "rule": "自动音效：朱砂之戒"
+      "source": "card",
+      "rule": null
      }
     }
    ],
@@ -2525,7 +2525,7 @@
    "Accelerating Catalyst": [
     {
      "dead": {
-      "order": 46031,
+      "order": 46032,
       "file": "Currency/General.json",
       "tier_key": "Tier 4 General",
       "source": "tier_base",
@@ -2579,7 +2579,7 @@
    "Abrasive Catalyst": [
     {
      "dead": {
-      "order": 46031,
+      "order": 46032,
       "file": "Currency/General.json",
       "tier_key": "Tier 4 General",
       "source": "tier_base",
@@ -2597,7 +2597,7 @@
    "Imbued Catalyst": [
     {
      "dead": {
-      "order": 46031,
+      "order": 46032,
       "file": "Currency/General.json",
       "tier_key": "Tier 4 General",
       "source": "tier_base",
@@ -2615,7 +2615,7 @@
    "Unstable Catalyst": [
     {
      "dead": {
-      "order": 46031,
+      "order": 46032,
       "file": "Currency/General.json",
       "tier_key": "Tier 4 General",
       "source": "tier_base",
@@ -2741,18 +2741,18 @@
    "Iron Flask": [
     {
      "dead": {
-      "order": 84005,
+      "order": 84006,
       "file": "Flasks/Utility.json",
       "tier_key": "Tier 1 Utility Flasks",
-      "source": "auto_sound",
-      "rule": "自动音效：坚铁药剂"
+      "source": "card",
+      "rule": null
      },
      "behind": {
       "order": 82001,
       "file": "Equipment/League/Expedition Ward-Bases.json",
       "tier_key": "Expedition Ward-Bases T1",
-      "source": "auto_sound",
-      "rule": "自动音效：坚铁药剂"
+      "source": "card",
+      "rule": null
      }
     }
    ],
@@ -3677,11 +3677,11 @@
    "Timeless Jewel": [
     {
      "dead": {
-      "order": 161010,
+      "order": 161008,
       "file": "_legacy/Legacy.json",
       "tier_key": "Tier 1 Legacy",
-      "source": "auto_sound",
-      "rule": "自动音效：永恒珠宝"
+      "source": "card",
+      "rule": null
      },
      "behind": {
       "order": 141008,
@@ -3695,11 +3695,11 @@
    "Prismatic Jewel": [
     {
      "dead": {
-      "order": 161009,
+      "order": 161001,
       "file": "_legacy/Legacy.json",
       "tier_key": "Tier 1 Legacy",
-      "source": "auto_sound",
-      "rule": "自动音效：三相珠宝"
+      "source": "card",
+      "rule": null
      },
      "behind": {
       "order": 141022,

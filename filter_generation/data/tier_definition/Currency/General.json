@@ -37,6 +37,38 @@
       "localization": {
         "en": "T0: Absolute Top",
         "ch": "T0: 顶级通货"
+      },
+      "item_overrides": {
+        "Albino Rhoa Feather": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/白化的羽毛.mp3",
+            300
+          ]
+        },
+        "Eternal Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/永恒宝珠.mp3",
+            300
+          ]
+        },
+        "Fracturing Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/破溃宝珠.mp3",
+            300
+          ]
+        },
+        "Mirror of Kalandra": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/卡兰德的魔镜.mp3",
+            300
+          ]
+        },
+        "Reflecting Mist": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/倒映薄雾.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 1 General": {
@@ -57,6 +89,32 @@
       "localization": {
         "en": "T1: Divine+",
         "ch": "T1: 神圣石级"
+      },
+      "item_overrides": {
+        "Divine Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/神圣石.mp3",
+            300
+          ]
+        },
+        "Eldritch Chaos Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/古灵混沌石.mp3",
+            300
+          ]
+        },
+        "Orb of Conflict": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/冲突石.mp3",
+            300
+          ]
+        },
+        "Sacred Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/崇神石.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 2 General": {
@@ -80,6 +138,32 @@
       "localization": {
         "en": "T2: High Value",
         "ch": "T2: 高价值通货"
+      },
+      "item_overrides": {
+        "Eldritch Exalted Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/古灵崇高石.mp3",
+            300
+          ]
+        },
+        "Eldritch Orb of Annulment": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/古灵剥离石.mp3",
+            300
+          ]
+        },
+        "Facetor's Lens": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/费斯特的透镜.mp3",
+            300
+          ]
+        },
+        "Fracturing Shard": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/破溃碎片.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 3 General": {
@@ -103,6 +187,50 @@
       "localization": {
         "en": "T3: Exalt Level",
         "ch": "T3: 崇高石级"
+      },
+      "item_overrides": {
+        "Ancient Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/远古石.mp3",
+            300
+          ]
+        },
+        "Burial Medallion": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/葬礼徽章.mp3",
+            200
+          ]
+        },
+        "Chaos Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/混沌石.mp3",
+            300
+          ]
+        },
+        "Exalted Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/崇高石.mp3",
+            300
+          ]
+        },
+        "Exotic Coinage": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/异域铸币.mp3",
+            200
+          ]
+        },
+        "Orb of Annulment": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/剥离石.mp3",
+            300
+          ]
+        },
+        "Regal Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/富豪石.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 4 General": {
@@ -126,6 +254,44 @@
       "localization": {
         "en": "T4: Chaos Level",
         "ch": "T4: 混沌石级"
+      },
+      "item_overrides": {
+        "Blessed Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/祝福石.mp3",
+            200
+          ]
+        },
+        "Chaos Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/混沌石.mp3",
+            300
+          ]
+        },
+        "Chromatic Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/幻色石.mp3",
+            100
+          ]
+        },
+        "Orb of Scouring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/重铸石.mp3",
+            300
+          ]
+        },
+        "Scrap Metal": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/废金属.mp3",
+            200
+          ]
+        },
+        "Vaal Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/瓦尔宝珠.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 5 General": {
@@ -144,6 +310,32 @@
       "localization": {
         "en": "T7: 低价值通货",
         "ch": "T7: 低价值通货"
+      },
+      "item_overrides": {
+        "Orb of Augmentation": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/增幅石.mp3",
+            100
+          ]
+        },
+        "Orb of Transmutation": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/蜕变石.mp3",
+            100
+          ]
+        },
+        "Portal Scroll": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/传送卷轴.mp3",
+            100
+          ]
+        },
+        "Scroll of Wisdom": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/知识卷轴.mp3",
+            100
+          ]
+        }
       }
     },
     "Tier Hide General": {
@@ -181,6 +373,44 @@
       "localization": {
         "en": "T6： 改造石级",
         "ch": "T6： 改造石级"
+      },
+      "item_overrides": {
+        "Armourer's Scrap": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/护甲片.mp3",
+            100
+          ]
+        },
+        "Blacksmith's Whetstone": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/磨刀石.mp3",
+            100
+          ]
+        },
+        "Glassblower's Bauble": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/玻璃弹珠.mp3",
+            100
+          ]
+        },
+        "Jeweller's Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/工匠石.mp3",
+            100
+          ]
+        },
+        "Orb of Alteration": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/改造石.mp3",
+            200
+          ]
+        },
+        "Orb of Chance": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/机会石.mp3",
+            200
+          ]
+        }
       }
     },
     "CustomTier 2 General": {
@@ -199,6 +429,32 @@
       "localization": {
         "en": "T5:点金石级",
         "ch": "T5:点金石级"
+      },
+      "item_overrides": {
+        "Orb of Alchemy": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/点金石.mp3",
+            300
+          ]
+        },
+        "Orb of Fusing": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/链结石.mp3",
+            200
+          ]
+        },
+        "Orb of Regret": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/后悔石.mp3",
+            300
+          ]
+        },
+        "Orb of Unmaking": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/粉碎石.mp3",
+            200
+          ]
+        }
       }
     }
   }

@@ -49,6 +49,14 @@
       "localization": {
         "en": "T0: Absolute Top",
         "ch": "T0: 顶级/核心"
+      },
+      "item_overrides": {
+        "Delirium Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/雾魇宝珠.mp3",
+            200
+          ]
+        }
       }
     }
   }

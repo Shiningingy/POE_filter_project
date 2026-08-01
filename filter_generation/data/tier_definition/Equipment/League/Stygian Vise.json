@@ -29,6 +29,14 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Stygian Vise": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/深渊腰带.mp3",
+            200
+          ]
+        }
       }
     },
     "Stygian Vise Hide": {

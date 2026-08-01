@@ -29,6 +29,14 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Grasping Mail": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/扼杀链甲.mp3",
+            200
+          ]
+        }
       }
     },
     "Breach Grasping Mail Hide": {

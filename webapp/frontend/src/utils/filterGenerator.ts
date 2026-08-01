@@ -63,7 +63,7 @@ interface GeneratorData {
 // gets exported — they did, in four different directions. Anything touching how a
 // block LOOKS belongs there; this file owns which blocks exist and in what order.
 import {
-  DEFAULT_FONT_SIZE, styleOff, parseRgba, conditionLines, resolveTierTheme,
+  DEFAULT_FONT_SIZE, styleOff, parseRgba, conditionLines, resolveTierTheme, splitByOverride,
   blockText, resolveSound, tierNumFromLabel,
 } from './filterStyle';
 
@@ -73,8 +73,8 @@ import {
 // NOT in localization.ts, which is the UI translation table; these are
 // filter-artifact domain strings, a different concern.
 const TERMS: Record<string, Record<string, string>> = {
-  en: { Rule: "Rule", Base: "Base", "Auto-Sound": "Auto-Sound", Exact: "Exact", Partial: "Partial", Self: "Self-matched" },
-  ch: { Rule: "规则", Base: "基础", "Auto-Sound": "自动音效", Exact: "精确", Partial: "模糊", Self: "自选" },
+  en: { Rule: "Rule", Base: "Base", "Auto-Sound": "Auto-Sound", Exact: "Exact", Partial: "Partial", Self: "Self-matched", Card: "Card" },
+  ch: { Rule: "规则", Base: "基础", "Auto-Sound": "自动音效", Exact: "精确", Partial: "模糊", Self: "自选", Card: "物品卡" },
 };
 
 const FOLDER_LOCALIZATION: Record<string, string> = {
@@ -370,34 +370,17 @@ export const generateFilter = (data: GeneratorData): string => {
       // Create a fresh deep copy of rules for this tier
       const allRules = JSON.parse(JSON.stringify(mapDoc.rules || []));
 
-      // Auto-Inject Sound Rules.
-      // basetype_sounds is GLOBAL: a base type with an entry gets a per-item sound in
-      // every category that carries it. `suppress_basetype_sounds` on a category's
-      // mapping _meta opts that category out, so the base keeps its per-item sound
-      // elsewhere while this category speaks with one voice - the tier's own sound.
-      const btSounds = (mapDoc._meta || {}).suppress_basetype_sounds
-        ? {}
-        : (soundMap?.basetype_sounds || {});
-      items.forEach(item => {
-        if (btSounds[item]) {
-          const sData = btSounds[item];
-          const handled = allRules.some((r: any) => r.targets?.includes(item));
-          if (!handled) {
-            allRules.push({
-              targets: [item],
-              // Inherit the TIER's conditions. Tier conditions are emitted only on
-              // the base block, and an injected rule authors none of its own, so
-              // without this the sound block dropped every gate its tier declared -
-              // Rarity <= Rare, Corrupted False, the ItemLevel band. A unique
-              // Stygian Vise was rendering as an ilvl-86 crafting base because its
-              // auto-sound block said only BaseType == "Stygian Vise".
-              conditions: JSON.parse(JSON.stringify(tierEntry.conditions || {})),
-              overrides: { PlayAlertSound: [sData.file, sData.volume] },
-              comment: `__AUTO_SOUND__:${item}`
-            });
-          }
-        }
-      });
+      // AUTO-SOUND IS GONE. A per-item sound is an explicit override on the item
+      // CARD — `item_overrides` on this tier, keyed by base — and blocks split by it
+      // at emission (splitByOverride). Mirrors generate.py.
+      //
+      // What was here injected a synthetic one-target rule per base with a
+      // `basetype_sounds` entry, unless any rule in the file merely NAMED the base.
+      // Not a rule that set a sound — one that mentioned it. So a rule written for
+      // something else silenced the item across its whole file, and nine curated
+      // sounds reached the game nowhere; Chaos Orb's was silenced by a
+      // `StackSize >= 10` tier-up that cannot even fire in Ruthless.
+      const itemOverrides = tierEntry.item_overrides || {};
 
       const pendingItems = new Set(items);
       let ruleCounter = 0;
@@ -464,23 +447,28 @@ export const generateFilter = (data: GeneratorData): string => {
             ? [[exactGroup, "Exact", true], [partialGroup, "Partial", false]]
             : [[[], "Self", null]];
 
-        for (const [subgroup, modeLabel, isStrict] of groups) {
+        // Expand each group by item-card override: a card with its own sound
+        // becomes its own block, overridden groups first. A self-matched group
+        // names no bases, so there is no card to split on. Mirrors generate.py.
+        const expanded: Array<[string[], string, boolean | null, any]> = [];
+        for (const [sg, ml, strict] of groups) {
+          if (strict === null) expanded.push([sg as string[], ml, strict, null]);
+          else for (const [b, o] of splitByOverride(sg as string[], itemOverrides)) expanded.push([b, ml, strict, o]);
+        }
+
+        for (const [subgroup, modeLabel, isStrict, cardOver] of expanded) {
           if (isStrict !== null && subgroup.length === 0) continue;
 
           blockIndex++;
-          const rOver = rule.overrides || {};
+          // Card override wins over the rule's, which wins over the tier's.
+          const rOver = { ...(rule.overrides || {}), ...(cardOver || {}) };
           const rawComment = rule.comment || '';
-          let rulePart = "";
-
-          if (rawComment.startsWith("__AUTO_SOUND__:")) {
-            const itemKey = rawComment.split(":")[1].trim();
-            const itemLocal = itemTrans[itemKey] || itemKey;
-            rulePart = `${term('Auto-Sound')}：${itemLocal}`;
-          } else {
-            ruleCounter++;
-            // Localizable rule name: rule.localization[lang] -> comment -> "Rule"
-            const ruleName = (rule.localization || {})[language] || rawComment || term('Rule');
-            rulePart = `#${ruleCounter} ${ruleName}`;
+          ruleCounter++;
+          // Localizable rule name: rule.localization[lang] -> comment -> "Rule"
+          const ruleName = (rule.localization || {})[language] || rawComment || term('Rule');
+          let rulePart = `#${ruleCounter} ${ruleName}`;
+          if (cardOver) {
+            rulePart += ` - ${term('Card')}：` + subgroup.slice(0, 3).map((b) => itemTrans[b] || b).join('/');
           }
 
           const finalMode = term(modeLabel);
@@ -528,13 +516,21 @@ export const generateFilter = (data: GeneratorData): string => {
         const exactPending = Array.from(pendingItems).filter((item: string) => (matchModes[item] || 'exact') === 'exact').sort();
         const partialPending = Array.from(pendingItems).filter((item: string) => matchModes[item] === 'partial').sort();
 
-        for (const [subgroup, modeLabel, isStrict] of [[exactPending, "Exact", true], [partialPending, "Partial", false]] as const) {
+        const baseGroups: Array<[string[], string, boolean, any]> = [];
+        for (const [sg, ml, strict] of [[exactPending, "Exact", true], [partialPending, "Partial", false]] as const) {
+          for (const [b, o] of splitByOverride(sg as string[], itemOverrides)) baseGroups.push([b, ml, strict, o]);
+        }
+
+        for (const [subgroup, modeLabel, isStrict, cardOver] of baseGroups) {
           if (subgroup.length === 0) continue;
 
           blockIndex++;
           const finalMode = term(modeLabel);
           const baseLabel = term('Base');
-          outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${tierDisplay} ${locCat} - ${baseLabel} - ${finalMode}==`);
+          const cardPart = cardOver
+            ? ` - ${term('Card')}：` + subgroup.slice(0, 3).map((b) => itemTrans[b] || b).join('/')
+            : '';
+          outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${tierDisplay} ${locCat} - ${baseLabel}${cardPart} - ${finalMode}==`);
 
           const cmd = isHide ? HIDE_CMD : "Show";
           const btOp = isStrict ? " == " : " ";
@@ -548,15 +544,22 @@ export const generateFilter = (data: GeneratorData): string => {
           emitConditions(blockLines, tierEntry.conditions);
 
           // Disabled/sentinel styles are OMITTED (see styleOff; mirrors generate.py).
-          blockLines.push(`    SetFontSize ${ttheme.FontSize || DEFAULT_FONT_SIZE}`);
-          if (!styleOff(ttheme.TextColor)) blockLines.push(`    SetTextColor ${baseTextCol}`);
-          if (!styleOff(ttheme.BorderColor)) blockLines.push(`    SetBorderColor ${baseBorderCol}`);
-          if (!styleOff(ttheme.BackgroundColor)) blockLines.push(`    SetBackgroundColor ${baseBgCol}`);
+          // A card override sits on top, exactly as a rule's would.
+          const cOver = cardOver || {};
+          blockLines.push(`    SetFontSize ${cOver.FontSize || ttheme.FontSize || DEFAULT_FONT_SIZE}`);
+          const cTextRaw = 'TextColor' in cOver ? cOver.TextColor : ttheme.TextColor;
+          if (!styleOff(cTextRaw)) blockLines.push(`    SetTextColor ${parseRgba(cOver.TextColor, baseTextCol)}`);
+          const cBorderRaw = 'BorderColor' in cOver ? cOver.BorderColor : ttheme.BorderColor;
+          if (!styleOff(cBorderRaw)) blockLines.push(`    SetBorderColor ${parseRgba(cOver.BorderColor, baseBorderCol)}`);
+          const cBgRaw = 'BackgroundColor' in cOver ? cOver.BackgroundColor : ttheme.BackgroundColor;
+          if (!styleOff(cBgRaw)) blockLines.push(`    SetBackgroundColor ${parseRgba(cOver.BackgroundColor, baseBgCol)}`);
 
-          const soundLine = resolveSound(tierEntry, soundMap);
+          const soundLine = resolveSound(tierEntry, soundMap, cOver.PlayAlertSound);
           if (soundLine) blockLines.push(`    ${soundLine}`);
-          if (basePlayEff && !styleOff(basePlayEff)) blockLines.push(`    PlayEffect ${basePlayEff}`);
-          if (baseMiniIcon && !styleOff(baseMiniIcon)) blockLines.push(`    MinimapIcon ${baseMiniIcon}`);
+          const cEff = cOver.PlayEffect ?? basePlayEff;
+          if (cEff && !styleOff(cEff)) blockLines.push(`    PlayEffect ${cEff}`);
+          const cIcon = cOver.MinimapIcon ?? baseMiniIcon;
+          if (cIcon && !styleOff(cIcon)) blockLines.push(`    MinimapIcon ${cIcon}`);
 
           outLines.push(blockText(blockLines, isHide));
         }

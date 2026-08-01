@@ -37,7 +37,15 @@
         "en": "T0: i83+ Top Wands",
         "ch": "T0: 顶级法杖(83+)"
       },
-      "show_in_editor": false
+      "show_in_editor": false,
+      "item_overrides": {
+        "Convoking Wand": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/召集法杖.mp3",
+            200
+          ]
+        }
+      }
     },
     "Tier 1 Wands": {
       "conditions": {
@@ -83,7 +91,15 @@
         "en": "T2: Good rare bases",
         "ch": "T2: 优质稀有底材"
       },
-      "hide_at_strictness": 3
+      "hide_at_strictness": 3,
+      "item_overrides": {
+        "Convoking Wand": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/召集法杖.mp3",
+            200
+          ]
+        }
+      }
     },
     "Tier 3 Wands": {
       "hideable": false,

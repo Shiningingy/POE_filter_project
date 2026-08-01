@@ -35,6 +35,32 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Granite Flask": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/坚岩药剂.mp3",
+            200
+          ]
+        },
+        "Iron Flask": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/坚铁药剂.mp3",
+            200
+          ]
+        },
+        "Quartz Flask": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/石英药剂.mp3",
+            200
+          ]
+        },
+        "Quicksilver Flask": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/水银药剂.mp3",
+            200
+          ]
+        }
       }
     },
     "Tier 2 Utility Flasks": {
@@ -101,6 +127,14 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Quicksilver Flask": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/水银药剂.mp3",
+            200
+          ]
+        }
       }
     }
   }

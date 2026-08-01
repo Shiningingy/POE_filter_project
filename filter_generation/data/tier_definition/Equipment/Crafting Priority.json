@@ -42,6 +42,50 @@
       "localization": {
         "en": "Perfect defence roll",
         "ch": "完美防御数值"
+      },
+      "item_overrides": {
+        "Apothecary's Gloves": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/药剂师手套.mp3",
+            200
+          ]
+        },
+        "Bone Helmet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/唤骨头盔.mp3",
+            200
+          ]
+        },
+        "Fingerless Silk Gloves": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/丝绸手套.mp3",
+            200
+          ]
+        },
+        "Fugitive Boots": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/逃亡之靴.mp3",
+            200
+          ]
+        },
+        "Gripped Gloves": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/擒拿手套.mp3",
+            200
+          ]
+        },
+        "Sacrificial Garb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/祭礼束衣.mp3",
+            200
+          ]
+        },
+        "Spiked Gloves": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/扣钉手套.mp3",
+            200
+          ]
+        }
       }
     },
     "Crafting Over Quality": {
@@ -66,6 +110,56 @@
       "localization": {
         "en": "Over-quality base",
         "ch": "超额品质底材"
+      },
+      "item_overrides": {
+        "Artillery Quiver": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/火炮箭袋.mp3",
+            200
+          ]
+        },
+        "Convoking Wand": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/召集法杖.mp3",
+            200
+          ]
+        },
+        "Crystal Belt": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/水晶腰带.mp3",
+            200
+          ]
+        },
+        "Iolite Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/青石戒指.mp3",
+            200
+          ]
+        },
+        "Opal Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/蛋白石戒指.mp3",
+            200
+          ]
+        },
+        "Sacrificial Garb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/祭礼束衣.mp3",
+            200
+          ]
+        },
+        "Steel Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/合金戒指.mp3",
+            200
+          ]
+        },
+        "Vermillion Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/朱砂之戒.mp3",
+            200
+          ]
+        }
       }
     },
     "Crafting Strands Weapons": {
@@ -91,6 +185,20 @@
       "localization": {
         "en": "Weapon base with Memory Strands",
         "ch": "追忆武器底材"
+      },
+      "item_overrides": {
+        "Artillery Quiver": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/火炮箭袋.mp3",
+            200
+          ]
+        },
+        "Convoking Wand": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/召集法杖.mp3",
+            200
+          ]
+        }
       }
     },
     "Crafting Strands Gear": {
@@ -115,6 +223,44 @@
       "localization": {
         "en": "Gear base with Memory Strands",
         "ch": "追忆防具/首饰底材"
+      },
+      "item_overrides": {
+        "Crystal Belt": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/水晶腰带.mp3",
+            200
+          ]
+        },
+        "Iolite Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/青石戒指.mp3",
+            200
+          ]
+        },
+        "Opal Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/蛋白石戒指.mp3",
+            200
+          ]
+        },
+        "Sacrificial Garb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/祭礼束衣.mp3",
+            200
+          ]
+        },
+        "Steel Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/合金戒指.mp3",
+            200
+          ]
+        },
+        "Vermillion Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/朱砂之戒.mp3",
+            200
+          ]
+        }
       }
     },
     "Crafting Gear 86": {
@@ -137,6 +283,20 @@
       "localization": {
         "en": "Gear base i86+",
         "ch": "精品底材 i86+"
+      },
+      "item_overrides": {
+        "Crystal Belt": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/水晶腰带.mp3",
+            200
+          ]
+        },
+        "Sacrificial Garb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/祭礼束衣.mp3",
+            200
+          ]
+        }
       }
     },
     "Crafting Gear 85": {
@@ -181,6 +341,32 @@
       "localization": {
         "en": "Gear base i84+",
         "ch": "精品底材 i84+"
+      },
+      "item_overrides": {
+        "Iolite Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/青石戒指.mp3",
+            200
+          ]
+        },
+        "Opal Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/蛋白石戒指.mp3",
+            200
+          ]
+        },
+        "Steel Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/合金戒指.mp3",
+            200
+          ]
+        },
+        "Vermillion Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/朱砂之戒.mp3",
+            200
+          ]
+        }
       }
     },
     "Tier Hide Crafting Priority": {

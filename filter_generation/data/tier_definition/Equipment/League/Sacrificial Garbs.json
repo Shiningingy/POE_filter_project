@@ -29,6 +29,14 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Sacrificial Garb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/祭礼束衣.mp3",
+            200
+          ]
+        }
       }
     },
     "Sacrificial Garbs Hide": {

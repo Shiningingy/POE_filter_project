@@ -127,7 +127,15 @@
         "AreaLevel": ">= 68",
         "Rarity": "Rare"
       },
-      "hide_at_strictness": 1
+      "hide_at_strictness": 1,
+      "item_overrides": {
+        "Sacrificial Garb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/祭礼束衣.mp3",
+            200
+          ]
+        }
+      }
     },
     "Tier Hide Body Armours": {
       "hideable": true,

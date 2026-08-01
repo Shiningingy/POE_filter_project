@@ -37,7 +37,27 @@
         "en": "T0: i86 Top Bases",
         "ch": "T0: 顶级底材(86+)"
       },
-      "show_in_editor": false
+      "show_in_editor": false,
+      "item_overrides": {
+        "Blue Pearl Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/碧珠护身符.mp3",
+            200
+          ]
+        },
+        "Marble Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/大理石护身符.mp3",
+            200
+          ]
+        },
+        "Seaglass Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/海晶护符.mp3",
+            200
+          ]
+        }
+      }
     },
     "Tier 1 Amulets": {
       "conditions": {
@@ -61,7 +81,27 @@
         "en": "T1: Top rare bases",
         "ch": "T1: 顶级稀有底材"
       },
-      "hide_at_strictness": 5
+      "hide_at_strictness": 5,
+      "item_overrides": {
+        "Blue Pearl Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/碧珠护身符.mp3",
+            200
+          ]
+        },
+        "Marble Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/大理石护身符.mp3",
+            200
+          ]
+        },
+        "Seaglass Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/海晶护符.mp3",
+            200
+          ]
+        }
+      }
     },
     "Tier 2 Amulets": {
       "conditions": {
@@ -83,7 +123,21 @@
         "en": "T2: Good rare bases",
         "ch": "T2: 优质稀有底材"
       },
-      "hide_at_strictness": 3
+      "hide_at_strictness": 3,
+      "item_overrides": {
+        "Blue Pearl Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/碧珠护身符.mp3",
+            200
+          ]
+        },
+        "Marble Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/大理石护身符.mp3",
+            200
+          ]
+        }
+      }
     },
     "Tier 3 Amulets": {
       "hideable": false,
@@ -105,7 +159,15 @@
         "AreaLevel": ">= 68",
         "Rarity": "Rare"
       },
-      "hide_at_strictness": 2
+      "hide_at_strictness": 2,
+      "item_overrides": {
+        "Seaglass Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/海晶护符.mp3",
+            200
+          ]
+        }
+      }
     },
     "Tier 4 Amulets": {
       "hideable": false,
@@ -127,7 +189,21 @@
         "AreaLevel": ">= 68",
         "Rarity": "Rare"
       },
-      "hide_at_strictness": 1
+      "hide_at_strictness": 1,
+      "item_overrides": {
+        "Astrolabe Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/星盘项链.mp3",
+            300
+          ]
+        },
+        "Simplex Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/朴实项链.mp3",
+            300
+          ]
+        }
+      }
     },
     "Tier Hide Amulets": {
       "hideable": true,

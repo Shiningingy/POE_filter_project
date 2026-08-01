@@ -5,11 +5,9 @@
    "file": "Equipment/VendorRecipes/Chancing.json",
    "tier_key": "Chancing Normal",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：Opal Ring",
-   "rule_index": 0,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Opal Ring"
    ],
@@ -523,27 +521,23 @@
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Perfect Defence",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：药剂师手套",
-   "rule_index": 0,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Apothecary's Gloves"
+    "Fingerless Silk Gloves"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Apothecary's Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\药剂师手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Fingerless Silk Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\丝绸手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 32002,
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Perfect Defence",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：唤骨头盔",
-   "rule_index": 1,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Bone Helmet"
    ],
@@ -555,43 +549,23 @@
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Perfect Defence",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：丝绸手套",
-   "rule_index": 2,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Fingerless Silk Gloves"
+    "Spiked Gloves"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Fingerless Silk Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\丝绸手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Spiked Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\扣钉手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 32004,
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Perfect Defence",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：逃亡之靴",
-   "rule_index": 3,
-   "rule_authored": false,
-   "bases": [
-    "Fugitive Boots"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Fugitive Boots\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\逃亡之靴.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
-  },
-  {
-   "order": 32005,
-   "file": "Equipment/Crafting Priority.json",
-   "tier_key": "Crafting Perfect Defence",
-   "tier_num": 0,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：擒拿手套",
-   "rule_index": 4,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Gripped Gloves"
    ],
@@ -599,15 +573,13 @@
    "text": "Show\n    BaseType == \"Gripped Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\擒拿手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
-   "order": 32006,
+   "order": 32005,
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Perfect Defence",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：祭礼束衣",
-   "rule_index": 5,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Sacrificial Garb"
    ],
@@ -615,20 +587,32 @@
    "text": "Show\n    BaseType == \"Sacrificial Garb\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\祭礼束衣.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
+   "order": 32006,
+   "file": "Equipment/Crafting Priority.json",
+   "tier_key": "Crafting Perfect Defence",
+   "tier_num": 0,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Apothecary's Gloves"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Apothecary's Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\药剂师手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
    "order": 32007,
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Perfect Defence",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：扣钉手套",
-   "rule_index": 6,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Spiked Gloves"
+    "Fugitive Boots"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Spiked Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\扣钉手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Fugitive Boots\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\逃亡之靴.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 32008,
@@ -681,27 +665,9 @@
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Over Quality",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：火炮箭袋",
-   "rule_index": 0,
-   "rule_authored": false,
-   "bases": [
-    "Artillery Quiver"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Artillery Quiver\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\火炮箭袋.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
-  },
-  {
-   "order": 32010,
-   "file": "Equipment/Crafting Priority.json",
-   "tier_key": "Crafting Over Quality",
-   "tier_num": 0,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：召集法杖",
-   "rule_index": 1,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Convoking Wand"
    ],
@@ -709,15 +675,41 @@
    "text": "Show\n    BaseType == \"Convoking Wand\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\召集法杖.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
+   "order": 32010,
+   "file": "Equipment/Crafting Priority.json",
+   "tier_key": "Crafting Over Quality",
+   "tier_num": 0,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Steel Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Steel Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\合金戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
    "order": 32011,
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Over Quality",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：水晶腰带",
-   "rule_index": 2,
-   "rule_authored": false,
+   "rule": null,
+   "bases": [
+    "Vermillion Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Vermillion Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\朱砂之戒.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 32012,
+   "file": "Equipment/Crafting Priority.json",
+   "tier_key": "Crafting Over Quality",
+   "tier_num": 0,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
    "bases": [
     "Crystal Belt"
    ],
@@ -725,47 +717,27 @@
    "text": "Show\n    BaseType == \"Crystal Belt\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\水晶腰带.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
-   "order": 32012,
-   "file": "Equipment/Crafting Priority.json",
-   "tier_key": "Crafting Over Quality",
-   "tier_num": 0,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：青石戒指",
-   "rule_index": 3,
-   "rule_authored": false,
-   "bases": [
-    "Iolite Ring"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Iolite Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\青石戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
-  },
-  {
    "order": 32013,
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Over Quality",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：蛋白石戒指",
-   "rule_index": 4,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Opal Ring"
+    "Artillery Quiver"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Opal Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\蛋白石戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Artillery Quiver\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\火炮箭袋.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 32014,
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Over Quality",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：祭礼束衣",
-   "rule_index": 5,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Sacrificial Garb"
    ],
@@ -777,32 +749,28 @@
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Over Quality",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：合金戒指",
-   "rule_index": 6,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Steel Ring"
+    "Opal Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Steel Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\合金戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Opal Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\蛋白石戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 32016,
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Over Quality",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：朱砂之戒",
-   "rule_index": 7,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Vermillion Ring"
+    "Iolite Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Vermillion Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\朱砂之戒.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Iolite Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\青石戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 32017,
@@ -874,32 +842,28 @@
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Strands Weapons",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：火炮箭袋",
-   "rule_index": 0,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Artillery Quiver"
+    "Convoking Wand"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Artillery Quiver\"\n    Rarity <= Rare\n    MemoryStrands >= 1\n    ItemLevel >= 83\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\火炮箭袋.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Convoking Wand\"\n    Rarity <= Rare\n    MemoryStrands >= 1\n    ItemLevel >= 83\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\召集法杖.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 32019,
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Strands Weapons",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：召集法杖",
-   "rule_index": 1,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Convoking Wand"
+    "Artillery Quiver"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Convoking Wand\"\n    Rarity <= Rare\n    MemoryStrands >= 1\n    ItemLevel >= 83\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\召集法杖.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Artillery Quiver\"\n    Rarity <= Rare\n    MemoryStrands >= 1\n    ItemLevel >= 83\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\火炮箭袋.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 32020,
@@ -947,11 +911,37 @@
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Strands Gear",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：水晶腰带",
-   "rule_index": 0,
-   "rule_authored": false,
+   "rule": null,
+   "bases": [
+    "Steel Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Steel Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 1\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\合金戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 32022,
+   "file": "Equipment/Crafting Priority.json",
+   "tier_key": "Crafting Strands Gear",
+   "tier_num": 0,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Vermillion Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Vermillion Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 1\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\朱砂之戒.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 32023,
+   "file": "Equipment/Crafting Priority.json",
+   "tier_key": "Crafting Strands Gear",
+   "tier_num": 0,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
    "bases": [
     "Crystal Belt"
    ],
@@ -959,47 +949,13 @@
    "text": "Show\n    BaseType == \"Crystal Belt\"\n    Rarity <= Rare\n    MemoryStrands >= 1\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\水晶腰带.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
-   "order": 32022,
-   "file": "Equipment/Crafting Priority.json",
-   "tier_key": "Crafting Strands Gear",
-   "tier_num": 0,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：青石戒指",
-   "rule_index": 1,
-   "rule_authored": false,
-   "bases": [
-    "Iolite Ring"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Iolite Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 1\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\青石戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
-  },
-  {
-   "order": 32023,
-   "file": "Equipment/Crafting Priority.json",
-   "tier_key": "Crafting Strands Gear",
-   "tier_num": 0,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：蛋白石戒指",
-   "rule_index": 2,
-   "rule_authored": false,
-   "bases": [
-    "Opal Ring"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Opal Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 1\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\蛋白石戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
-  },
-  {
    "order": 32024,
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Strands Gear",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：祭礼束衣",
-   "rule_index": 3,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Sacrificial Garb"
    ],
@@ -1011,32 +967,28 @@
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Strands Gear",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：合金戒指",
-   "rule_index": 4,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Steel Ring"
+    "Opal Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Steel Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 1\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\合金戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Opal Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 1\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\蛋白石戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 32026,
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Strands Gear",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：朱砂之戒",
-   "rule_index": 5,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Vermillion Ring"
+    "Iolite Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Vermillion Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 1\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\朱砂之戒.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Iolite Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 1\n    SetFontSize 45\n    SetTextColor 111 88 42 255\n    SetBorderColor 146 123 79 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\青石戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 32027,
@@ -1080,11 +1032,9 @@
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Gear 86",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：水晶腰带",
-   "rule_index": 0,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Crystal Belt"
    ],
@@ -1096,11 +1046,9 @@
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Gear 86",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：祭礼束衣",
-   "rule_index": 1,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Sacrificial Garb"
    ],
@@ -1162,43 +1110,9 @@
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Gear 84",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：青石戒指",
-   "rule_index": 0,
-   "rule_authored": false,
-   "bases": [
-    "Iolite Ring"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Iolite Ring\"\n    Rarity <= Rare\n    ItemLevel >= 84\n    SetFontSize 40\n    SetTextColor 247 242 233 255\n    SetBorderColor 212 200 175 255\n    SetBackgroundColor 126 107 68 255\n    CustomAlertSound \"Sharket掉落音效\\青石戒指.mp3\" 200\n"
-  },
-  {
-   "order": 32033,
-   "file": "Equipment/Crafting Priority.json",
-   "tier_key": "Crafting Gear 84",
-   "tier_num": 2,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：蛋白石戒指",
-   "rule_index": 1,
-   "rule_authored": false,
-   "bases": [
-    "Opal Ring"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Opal Ring\"\n    Rarity <= Rare\n    ItemLevel >= 84\n    SetFontSize 40\n    SetTextColor 247 242 233 255\n    SetBorderColor 212 200 175 255\n    SetBackgroundColor 126 107 68 255\n    CustomAlertSound \"Sharket掉落音效\\蛋白石戒指.mp3\" 200\n"
-  },
-  {
-   "order": 32034,
-   "file": "Equipment/Crafting Priority.json",
-   "tier_key": "Crafting Gear 84",
-   "tier_num": 2,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：合金戒指",
-   "rule_index": 2,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Steel Ring"
    ],
@@ -1206,20 +1120,46 @@
    "text": "Show\n    BaseType == \"Steel Ring\"\n    Rarity <= Rare\n    ItemLevel >= 84\n    SetFontSize 40\n    SetTextColor 247 242 233 255\n    SetBorderColor 212 200 175 255\n    SetBackgroundColor 126 107 68 255\n    CustomAlertSound \"Sharket掉落音效\\合金戒指.mp3\" 200\n"
   },
   {
-   "order": 32035,
+   "order": 32033,
    "file": "Equipment/Crafting Priority.json",
    "tier_key": "Crafting Gear 84",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：朱砂之戒",
-   "rule_index": 3,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Vermillion Ring"
    ],
    "is_hide": false,
    "text": "Show\n    BaseType == \"Vermillion Ring\"\n    Rarity <= Rare\n    ItemLevel >= 84\n    SetFontSize 40\n    SetTextColor 247 242 233 255\n    SetBorderColor 212 200 175 255\n    SetBackgroundColor 126 107 68 255\n    CustomAlertSound \"Sharket掉落音效\\朱砂之戒.mp3\" 200\n"
+  },
+  {
+   "order": 32034,
+   "file": "Equipment/Crafting Priority.json",
+   "tier_key": "Crafting Gear 84",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Opal Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Opal Ring\"\n    Rarity <= Rare\n    ItemLevel >= 84\n    SetFontSize 40\n    SetTextColor 247 242 233 255\n    SetBorderColor 212 200 175 255\n    SetBackgroundColor 126 107 68 255\n    CustomAlertSound \"Sharket掉落音效\\蛋白石戒指.mp3\" 200\n"
+  },
+  {
+   "order": 32035,
+   "file": "Equipment/Crafting Priority.json",
+   "tier_key": "Crafting Gear 84",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Iolite Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Iolite Ring\"\n    Rarity <= Rare\n    ItemLevel >= 84\n    SetFontSize 40\n    SetTextColor 247 242 233 255\n    SetBorderColor 212 200 175 255\n    SetBackgroundColor 126 107 68 255\n    CustomAlertSound \"Sharket掉落音效\\青石戒指.mp3\" 200\n"
   },
   {
    "order": 41001,
@@ -1392,11 +1332,9 @@
    "file": "Currency/Delirium Orbs.json",
    "tier_key": "Tier 0 Delirium Orbs",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：雾魇宝珠",
-   "rule_index": 0,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Delirium Orb"
    ],
@@ -1567,11 +1505,23 @@
    "file": "Currency/General.json",
    "tier_key": "Tier 0 General",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：卡兰德的魔镜",
-   "rule_index": 2,
-   "rule_authored": false,
+   "rule": null,
+   "bases": [
+    "Reflecting Mist"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Reflecting Mist\"\n    SetFontSize 45\n    SetTextColor 139 106 14 255\n    SetBorderColor 176 134 17 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\倒映薄雾.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 46002,
+   "file": "Currency/General.json",
+   "tier_key": "Tier 0 General",
+   "tier_num": 0,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
    "bases": [
     "Mirror of Kalandra"
    ],
@@ -1579,15 +1529,13 @@
    "text": "Show\n    BaseType == \"Mirror of Kalandra\"\n    SetFontSize 45\n    SetTextColor 139 106 14 255\n    SetBorderColor 176 134 17 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\卡兰德的魔镜.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
-   "order": 46002,
+   "order": 46003,
    "file": "Currency/General.json",
    "tier_key": "Tier 0 General",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：永恒宝珠",
-   "rule_index": 3,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Eternal Orb"
    ],
@@ -1595,15 +1543,13 @@
    "text": "Show\n    BaseType == \"Eternal Orb\"\n    SetFontSize 45\n    SetTextColor 139 106 14 255\n    SetBorderColor 176 134 17 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\永恒宝珠.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
-   "order": 46003,
+   "order": 46004,
    "file": "Currency/General.json",
    "tier_key": "Tier 0 General",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：白化的羽毛",
-   "rule_index": 4,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Albino Rhoa Feather"
    ],
@@ -1611,36 +1557,18 @@
    "text": "Show\n    BaseType == \"Albino Rhoa Feather\"\n    SetFontSize 45\n    SetTextColor 139 106 14 255\n    SetBorderColor 176 134 17 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\白化的羽毛.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
-   "order": 46004,
+   "order": 46005,
    "file": "Currency/General.json",
    "tier_key": "Tier 0 General",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：破溃宝珠",
-   "rule_index": 5,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Fracturing Orb"
    ],
    "is_hide": false,
    "text": "Show\n    BaseType == \"Fracturing Orb\"\n    SetFontSize 45\n    SetTextColor 139 106 14 255\n    SetBorderColor 176 134 17 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\破溃宝珠.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
-  },
-  {
-   "order": 46005,
-   "file": "Currency/General.json",
-   "tier_key": "Tier 0 General",
-   "tier_num": 0,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：倒映薄雾",
-   "rule_index": 6,
-   "rule_authored": false,
-   "bases": [
-    "Reflecting Mist"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Reflecting Mist\"\n    SetFontSize 45\n    SetTextColor 139 106 14 255\n    SetBorderColor 176 134 17 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\倒映薄雾.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 46006,
@@ -1661,27 +1589,9 @@
    "file": "Currency/General.json",
    "tier_key": "Tier 1 General",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：神圣石",
-   "rule_index": 2,
-   "rule_authored": false,
-   "bases": [
-    "Divine Orb"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Divine Orb\"\n    SetFontSize 45\n    SetTextColor 84 64 8 255\n    SetBorderColor 116 87 6 255\n    SetBackgroundColor 223 169 22 255\n    CustomAlertSound \"Sharket掉落音效\\神圣石.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
-  },
-  {
-   "order": 46008,
-   "file": "Currency/General.json",
-   "tier_key": "Tier 1 General",
-   "tier_num": 1,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：冲突石",
-   "rule_index": 3,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Orb of Conflict"
    ],
@@ -1689,15 +1599,27 @@
    "text": "Show\n    BaseType == \"Orb of Conflict\"\n    SetFontSize 45\n    SetTextColor 84 64 8 255\n    SetBorderColor 116 87 6 255\n    SetBackgroundColor 223 169 22 255\n    CustomAlertSound \"Sharket掉落音效\\冲突石.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
+   "order": 46008,
+   "file": "Currency/General.json",
+   "tier_key": "Tier 1 General",
+   "tier_num": 1,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Eldritch Chaos Orb"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Eldritch Chaos Orb\"\n    SetFontSize 45\n    SetTextColor 84 64 8 255\n    SetBorderColor 116 87 6 255\n    SetBackgroundColor 223 169 22 255\n    CustomAlertSound \"Sharket掉落音效\\古灵混沌石.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
    "order": 46009,
    "file": "Currency/General.json",
    "tier_key": "Tier 1 General",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：崇神石",
-   "rule_index": 4,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Sacred Orb"
    ],
@@ -1709,16 +1631,14 @@
    "file": "Currency/General.json",
    "tier_key": "Tier 1 General",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：古灵混沌石",
-   "rule_index": 5,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Eldritch Chaos Orb"
+    "Divine Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Eldritch Chaos Orb\"\n    SetFontSize 45\n    SetTextColor 84 64 8 255\n    SetBorderColor 116 87 6 255\n    SetBackgroundColor 223 169 22 255\n    CustomAlertSound \"Sharket掉落音效\\古灵混沌石.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+   "text": "Show\n    BaseType == \"Divine Orb\"\n    SetFontSize 45\n    SetTextColor 84 64 8 255\n    SetBorderColor 116 87 6 255\n    SetBackgroundColor 223 169 22 255\n    CustomAlertSound \"Sharket掉落音效\\神圣石.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
    "order": 46011,
@@ -1760,27 +1680,9 @@
    "file": "Currency/General.json",
    "tier_key": "Tier 2 General",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：古灵崇高石",
-   "rule_index": 2,
-   "rule_authored": false,
-   "bases": [
-    "Eldritch Exalted Orb"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Eldritch Exalted Orb\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 74 56 7 255\n    SetBackgroundColor 176 134 17 255\n    CustomAlertSound \"Sharket掉落音效\\古灵崇高石.mp3\" 300\n    MinimapIcon 2 Yellow Diamond\n"
-  },
-  {
-   "order": 46014,
-   "file": "Currency/General.json",
-   "tier_key": "Tier 2 General",
-   "tier_num": 2,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：古灵剥离石",
-   "rule_index": 3,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Eldritch Orb of Annulment"
    ],
@@ -1788,15 +1690,27 @@
    "text": "Show\n    BaseType == \"Eldritch Orb of Annulment\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 74 56 7 255\n    SetBackgroundColor 176 134 17 255\n    CustomAlertSound \"Sharket掉落音效\\古灵剥离石.mp3\" 300\n    MinimapIcon 2 Yellow Diamond\n"
   },
   {
+   "order": 46014,
+   "file": "Currency/General.json",
+   "tier_key": "Tier 2 General",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Eldritch Exalted Orb"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Eldritch Exalted Orb\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 74 56 7 255\n    SetBackgroundColor 176 134 17 255\n    CustomAlertSound \"Sharket掉落音效\\古灵崇高石.mp3\" 300\n    MinimapIcon 2 Yellow Diamond\n"
+  },
+  {
    "order": 46015,
    "file": "Currency/General.json",
    "tier_key": "Tier 2 General",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：破溃碎片",
-   "rule_index": 4,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Fracturing Shard"
    ],
@@ -1808,11 +1722,9 @@
    "file": "Currency/General.json",
    "tier_key": "Tier 2 General",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：费斯特的透镜",
-   "rule_index": 5,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Facetor's Lens"
    ],
@@ -1852,57 +1764,23 @@
    "tier_num": 3,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 规则",
+   "rule": "#1 规则 - 物品卡：混沌石",
    "rule_index": 0,
    "rule_authored": true,
    "bases": [
     "Chaos Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Chaos Orb\"\n    StackSize >= 10\n    SetFontSize 40\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 70 53 7 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 100\n    MinimapIcon 1 Yellow Diamond\n"
+   "text": "Show\n    BaseType == \"Chaos Orb\"\n    StackSize >= 10\n    SetFontSize 40\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 70 53 7 255\n    CustomAlertSound \"Sharket掉落音效\\混沌石.mp3\" 300\n    MinimapIcon 1 Yellow Diamond\n"
   },
   {
    "order": 46019,
    "file": "Currency/General.json",
    "tier_key": "Tier 3 General",
    "tier_num": 3,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：崇高石",
-   "rule_index": 2,
-   "rule_authored": false,
-   "bases": [
-    "Exalted Orb"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Exalted Orb\"\n    SetFontSize 40\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 70 53 7 255\n    CustomAlertSound \"Sharket掉落音效\\崇高石.mp3\" 300\n    MinimapIcon 1 Yellow Diamond\n"
-  },
-  {
-   "order": 46020,
-   "file": "Currency/General.json",
-   "tier_key": "Tier 3 General",
-   "tier_num": 3,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：远古石",
-   "rule_index": 3,
-   "rule_authored": false,
-   "bases": [
-    "Ancient Orb"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Ancient Orb\"\n    SetFontSize 40\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 70 53 7 255\n    CustomAlertSound \"Sharket掉落音效\\远古石.mp3\" 300\n    MinimapIcon 1 Yellow Diamond\n"
-  },
-  {
-   "order": 46021,
-   "file": "Currency/General.json",
-   "tier_key": "Tier 3 General",
-   "tier_num": 3,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：剥离石",
-   "rule_index": 4,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Orb of Annulment"
    ],
@@ -1910,15 +1788,13 @@
    "text": "Show\n    BaseType == \"Orb of Annulment\"\n    SetFontSize 40\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 70 53 7 255\n    CustomAlertSound \"Sharket掉落音效\\剥离石.mp3\" 300\n    MinimapIcon 1 Yellow Diamond\n"
   },
   {
-   "order": 46022,
+   "order": 46020,
    "file": "Currency/General.json",
    "tier_key": "Tier 3 General",
    "tier_num": 3,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：富豪石",
-   "rule_index": 5,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Regal Orb"
    ],
@@ -1926,15 +1802,27 @@
    "text": "Show\n    BaseType == \"Regal Orb\"\n    SetFontSize 40\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 70 53 7 255\n    CustomAlertSound \"Sharket掉落音效\\富豪石.mp3\" 300\n    MinimapIcon 1 Yellow Diamond\n"
   },
   {
-   "order": 46023,
+   "order": 46021,
    "file": "Currency/General.json",
    "tier_key": "Tier 3 General",
    "tier_num": 3,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：异域铸币",
-   "rule_index": 6,
-   "rule_authored": false,
+   "rule": null,
+   "bases": [
+    "Exalted Orb"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Exalted Orb\"\n    SetFontSize 40\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 70 53 7 255\n    CustomAlertSound \"Sharket掉落音效\\崇高石.mp3\" 300\n    MinimapIcon 1 Yellow Diamond\n"
+  },
+  {
+   "order": 46022,
+   "file": "Currency/General.json",
+   "tier_key": "Tier 3 General",
+   "tier_num": 3,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
    "bases": [
     "Exotic Coinage"
    ],
@@ -1942,20 +1830,32 @@
    "text": "Show\n    BaseType == \"Exotic Coinage\"\n    SetFontSize 40\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 70 53 7 255\n    CustomAlertSound \"Sharket掉落音效\\异域铸币.mp3\" 200\n    MinimapIcon 1 Yellow Diamond\n"
   },
   {
-   "order": 46024,
+   "order": 46023,
    "file": "Currency/General.json",
    "tier_key": "Tier 3 General",
    "tier_num": 3,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：葬礼徽章",
-   "rule_index": 7,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Burial Medallion"
    ],
    "is_hide": false,
    "text": "Show\n    BaseType == \"Burial Medallion\"\n    SetFontSize 40\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 70 53 7 255\n    CustomAlertSound \"Sharket掉落音效\\葬礼徽章.mp3\" 200\n    MinimapIcon 1 Yellow Diamond\n"
+  },
+  {
+   "order": 46024,
+   "file": "Currency/General.json",
+   "tier_key": "Tier 3 General",
+   "tier_num": 3,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Ancient Orb"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Ancient Orb\"\n    SetFontSize 40\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 70 53 7 255\n    CustomAlertSound \"Sharket掉落音效\\远古石.mp3\" 300\n    MinimapIcon 1 Yellow Diamond\n"
   },
   {
    "order": 46025,
@@ -1984,43 +1884,9 @@
    "file": "Currency/General.json",
    "tier_key": "Tier 4 General",
    "tier_num": 4,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：瓦尔宝珠",
-   "rule_index": 2,
-   "rule_authored": false,
-   "bases": [
-    "Vaal Orb"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Vaal Orb\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 51 39 5 255\n    CustomAlertSound \"Sharket掉落音效\\瓦尔宝珠.mp3\" 300\n    MinimapIcon 0 Yellow Diamond\n"
-  },
-  {
-   "order": 46027,
-   "file": "Currency/General.json",
-   "tier_key": "Tier 4 General",
-   "tier_num": 4,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：重铸石",
-   "rule_index": 3,
-   "rule_authored": false,
-   "bases": [
-    "Orb of Scouring"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Scouring\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 51 39 5 255\n    CustomAlertSound \"Sharket掉落音效\\重铸石.mp3\" 300\n    MinimapIcon 0 Yellow Diamond\n"
-  },
-  {
-   "order": 46028,
-   "file": "Currency/General.json",
-   "tier_key": "Tier 4 General",
-   "tier_num": 4,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：幻色石",
-   "rule_index": 4,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Chromatic Orb"
    ],
@@ -2028,31 +1894,13 @@
    "text": "Show\n    BaseType == \"Chromatic Orb\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 51 39 5 255\n    CustomAlertSound \"Sharket掉落音效\\幻色石.mp3\" 100\n    MinimapIcon 0 Yellow Diamond\n"
   },
   {
-   "order": 46029,
+   "order": 46027,
    "file": "Currency/General.json",
    "tier_key": "Tier 4 General",
    "tier_num": 4,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：祝福石",
-   "rule_index": 5,
-   "rule_authored": false,
-   "bases": [
-    "Blessed Orb"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Blessed Orb\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 51 39 5 255\n    CustomAlertSound \"Sharket掉落音效\\祝福石.mp3\" 200\n    MinimapIcon 0 Yellow Diamond\n"
-  },
-  {
-   "order": 46030,
-   "file": "Currency/General.json",
-   "tier_key": "Tier 4 General",
-   "tier_num": 4,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：废金属",
-   "rule_index": 6,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Scrap Metal"
    ],
@@ -2060,7 +1908,63 @@
    "text": "Show\n    BaseType == \"Scrap Metal\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 51 39 5 255\n    CustomAlertSound \"Sharket掉落音效\\废金属.mp3\" 200\n    MinimapIcon 0 Yellow Diamond\n"
   },
   {
+   "order": 46028,
+   "file": "Currency/General.json",
+   "tier_key": "Tier 4 General",
+   "tier_num": 4,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Chaos Orb"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Chaos Orb\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 51 39 5 255\n    CustomAlertSound \"Sharket掉落音效\\混沌石.mp3\" 300\n    MinimapIcon 0 Yellow Diamond\n"
+  },
+  {
+   "order": 46029,
+   "file": "Currency/General.json",
+   "tier_key": "Tier 4 General",
+   "tier_num": 4,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Vaal Orb"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Vaal Orb\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 51 39 5 255\n    CustomAlertSound \"Sharket掉落音效\\瓦尔宝珠.mp3\" 300\n    MinimapIcon 0 Yellow Diamond\n"
+  },
+  {
+   "order": 46030,
+   "file": "Currency/General.json",
+   "tier_key": "Tier 4 General",
+   "tier_num": 4,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Blessed Orb"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Blessed Orb\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 51 39 5 255\n    CustomAlertSound \"Sharket掉落音效\\祝福石.mp3\" 200\n    MinimapIcon 0 Yellow Diamond\n"
+  },
+  {
    "order": 46031,
+   "file": "Currency/General.json",
+   "tier_key": "Tier 4 General",
+   "tier_num": 4,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Orb of Scouring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Orb of Scouring\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 51 39 5 255\n    CustomAlertSound \"Sharket掉落音效\\重铸石.mp3\" 300\n    MinimapIcon 0 Yellow Diamond\n"
+  },
+  {
+   "order": 46032,
    "file": "Currency/General.json",
    "tier_key": "Tier 4 General",
    "tier_num": 4,
@@ -2072,7 +1976,6 @@
     "Accelerating Catalyst",
     "Annulment Shard",
     "Astragali",
-    "Chaos Orb",
     "Exalted Shard",
     "Gemcutter's Prism",
     "Imbued Catalyst",
@@ -2084,18 +1987,16 @@
     "Unstable Catalyst"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Abrasive Catalyst\" \"Accelerating Catalyst\" \"Annulment Shard\" \"Astragali\" \"Chaos Orb\" \"Exalted Shard\" \"Gemcutter's Prism\" \"Imbued Catalyst\" \"Intrinsic Catalyst\" \"Lesser Eldritch Ember\" \"Lesser Eldritch Ichor\" \"Noxious Catalyst\" \"Orb of Intention\" \"Unstable Catalyst\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 51 39 5 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 100\n    MinimapIcon 0 Yellow Diamond\n"
+   "text": "Show\n    BaseType == \"Abrasive Catalyst\" \"Accelerating Catalyst\" \"Annulment Shard\" \"Astragali\" \"Exalted Shard\" \"Gemcutter's Prism\" \"Imbued Catalyst\" \"Intrinsic Catalyst\" \"Lesser Eldritch Ember\" \"Lesser Eldritch Ichor\" \"Noxious Catalyst\" \"Orb of Intention\" \"Unstable Catalyst\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 51 39 5 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 100\n    MinimapIcon 0 Yellow Diamond\n"
   },
   {
-   "order": 46032,
+   "order": 46033,
    "file": "Currency/General.json",
    "tier_key": "CustomTier 2 General",
    "tier_num": 5,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：后悔石",
-   "rule_index": 2,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Orb of Regret"
    ],
@@ -2103,31 +2004,13 @@
    "text": "Show\n    BaseType == \"Orb of Regret\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\后悔石.mp3\" 300\n    MinimapIcon 0 Yellow Diamond\n"
   },
   {
-   "order": 46033,
-   "file": "Currency/General.json",
-   "tier_key": "CustomTier 2 General",
-   "tier_num": 5,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：粉碎石",
-   "rule_index": 3,
-   "rule_authored": false,
-   "bases": [
-    "Orb of Unmaking"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Unmaking\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\粉碎石.mp3\" 200\n    MinimapIcon 0 Yellow Diamond\n"
-  },
-  {
    "order": 46034,
    "file": "Currency/General.json",
    "tier_key": "CustomTier 2 General",
    "tier_num": 5,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：点金石",
-   "rule_index": 4,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Orb of Alchemy"
    ],
@@ -2139,11 +2022,23 @@
    "file": "Currency/General.json",
    "tier_key": "CustomTier 2 General",
    "tier_num": 5,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：链结石",
-   "rule_index": 5,
-   "rule_authored": false,
+   "rule": null,
+   "bases": [
+    "Orb of Unmaking"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Orb of Unmaking\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\粉碎石.mp3\" 200\n    MinimapIcon 0 Yellow Diamond\n"
+  },
+  {
+   "order": 46036,
+   "file": "Currency/General.json",
+   "tier_key": "CustomTier 2 General",
+   "tier_num": 5,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
    "bases": [
     "Orb of Fusing"
    ],
@@ -2151,7 +2046,7 @@
    "text": "Show\n    BaseType == \"Orb of Fusing\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\链结石.mp3\" 200\n    MinimapIcon 0 Yellow Diamond\n"
   },
   {
-   "order": 46036,
+   "order": 46037,
    "file": "Currency/General.json",
    "tier_key": "CustomTier 2 General",
    "tier_num": 5,
@@ -2165,63 +2060,13 @@
    "text": "Show\n    BaseType == \"Chaos Shard\"\n    SetFontSize 35\n    SetTextColor 241 208 116 255\n    SetBorderColor 0 0 0 0\n    MinimapIcon 0 Yellow Diamond\n"
   },
   {
-   "order": 46037,
-   "file": "Currency/General.json",
-   "tier_key": "CustomTier 1 General",
-   "tier_num": 6,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：玻璃弹珠",
-   "rule_index": 2,
-   "rule_authored": false,
-   "bases": [
-    "Glassblower's Bauble"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Glassblower's Bauble\"\n    SetFontSize 30\n    SetTextColor 196 162 69 255\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\玻璃弹珠.mp3\" 100\n    MinimapIcon 0 Yellow Diamond\n"
-  },
-  {
    "order": 46038,
    "file": "Currency/General.json",
    "tier_key": "CustomTier 1 General",
    "tier_num": 6,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：改造石",
-   "rule_index": 3,
-   "rule_authored": false,
-   "bases": [
-    "Orb of Alteration"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Alteration\"\n    SetFontSize 30\n    SetTextColor 196 162 69 255\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\改造石.mp3\" 200\n    MinimapIcon 0 Yellow Diamond\n"
-  },
-  {
-   "order": 46039,
-   "file": "Currency/General.json",
-   "tier_key": "CustomTier 1 General",
-   "tier_num": 6,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：机会石",
-   "rule_index": 4,
-   "rule_authored": false,
-   "bases": [
-    "Orb of Chance"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Chance\"\n    SetFontSize 30\n    SetTextColor 196 162 69 255\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\机会石.mp3\" 200\n    MinimapIcon 0 Yellow Diamond\n"
-  },
-  {
-   "order": 46040,
-   "file": "Currency/General.json",
-   "tier_key": "CustomTier 1 General",
-   "tier_num": 6,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：工匠石",
-   "rule_index": 5,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Jeweller's Orb"
    ],
@@ -2229,15 +2074,13 @@
    "text": "Show\n    BaseType == \"Jeweller's Orb\"\n    SetFontSize 30\n    SetTextColor 196 162 69 255\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\工匠石.mp3\" 100\n    MinimapIcon 0 Yellow Diamond\n"
   },
   {
-   "order": 46041,
+   "order": 46039,
    "file": "Currency/General.json",
    "tier_key": "CustomTier 1 General",
    "tier_num": 6,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：护甲片",
-   "rule_index": 6,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Armourer's Scrap"
    ],
@@ -2245,15 +2088,55 @@
    "text": "Show\n    BaseType == \"Armourer's Scrap\"\n    SetFontSize 30\n    SetTextColor 196 162 69 255\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\护甲片.mp3\" 100\n    MinimapIcon 0 Yellow Diamond\n"
   },
   {
+   "order": 46040,
+   "file": "Currency/General.json",
+   "tier_key": "CustomTier 1 General",
+   "tier_num": 6,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Orb of Alteration"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Orb of Alteration\"\n    SetFontSize 30\n    SetTextColor 196 162 69 255\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\改造石.mp3\" 200\n    MinimapIcon 0 Yellow Diamond\n"
+  },
+  {
+   "order": 46041,
+   "file": "Currency/General.json",
+   "tier_key": "CustomTier 1 General",
+   "tier_num": 6,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Orb of Chance"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Orb of Chance\"\n    SetFontSize 30\n    SetTextColor 196 162 69 255\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\机会石.mp3\" 200\n    MinimapIcon 0 Yellow Diamond\n"
+  },
+  {
    "order": 46042,
    "file": "Currency/General.json",
    "tier_key": "CustomTier 1 General",
    "tier_num": 6,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：磨刀石",
-   "rule_index": 7,
-   "rule_authored": false,
+   "rule": null,
+   "bases": [
+    "Glassblower's Bauble"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Glassblower's Bauble\"\n    SetFontSize 30\n    SetTextColor 196 162 69 255\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\玻璃弹珠.mp3\" 100\n    MinimapIcon 0 Yellow Diamond\n"
+  },
+  {
+   "order": 46043,
+   "file": "Currency/General.json",
+   "tier_key": "CustomTier 1 General",
+   "tier_num": 6,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
    "bases": [
     "Blacksmith's Whetstone"
    ],
@@ -2261,47 +2144,13 @@
    "text": "Show\n    BaseType == \"Blacksmith's Whetstone\"\n    SetFontSize 30\n    SetTextColor 196 162 69 255\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\磨刀石.mp3\" 100\n    MinimapIcon 0 Yellow Diamond\n"
   },
   {
-   "order": 46043,
-   "file": "Currency/General.json",
-   "tier_key": "Tier 5 General",
-   "tier_num": 7,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：增幅石",
-   "rule_index": 2,
-   "rule_authored": false,
-   "bases": [
-    "Orb of Augmentation"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Augmentation\"\n    SetFontSize 30\n    SetTextColor 196 162 69 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 23 18 2 255\n    CustomAlertSound \"Sharket掉落音效\\增幅石.mp3\" 100\n"
-  },
-  {
    "order": 46044,
    "file": "Currency/General.json",
    "tier_key": "Tier 5 General",
    "tier_num": 7,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：蜕变石",
-   "rule_index": 3,
-   "rule_authored": false,
-   "bases": [
-    "Orb of Transmutation"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Transmutation\"\n    SetFontSize 30\n    SetTextColor 196 162 69 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 23 18 2 255\n    CustomAlertSound \"Sharket掉落音效\\蜕变石.mp3\" 100\n"
-  },
-  {
-   "order": 46045,
-   "file": "Currency/General.json",
-   "tier_key": "Tier 5 General",
-   "tier_num": 7,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：传送卷轴",
-   "rule_index": 4,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Portal Scroll"
    ],
@@ -2309,15 +2158,27 @@
    "text": "Show\n    BaseType == \"Portal Scroll\"\n    SetFontSize 30\n    SetTextColor 196 162 69 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 23 18 2 255\n    CustomAlertSound \"Sharket掉落音效\\传送卷轴.mp3\" 100\n"
   },
   {
+   "order": 46045,
+   "file": "Currency/General.json",
+   "tier_key": "Tier 5 General",
+   "tier_num": 7,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Orb of Augmentation"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Orb of Augmentation\"\n    SetFontSize 30\n    SetTextColor 196 162 69 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 23 18 2 255\n    CustomAlertSound \"Sharket掉落音效\\增幅石.mp3\" 100\n"
+  },
+  {
    "order": 46046,
    "file": "Currency/General.json",
    "tier_key": "Tier 5 General",
    "tier_num": 7,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：知识卷轴",
-   "rule_index": 5,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Scroll of Wisdom"
    ],
@@ -2326,6 +2187,20 @@
   },
   {
    "order": 46047,
+   "file": "Currency/General.json",
+   "tier_key": "Tier 5 General",
+   "tier_num": 7,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Orb of Transmutation"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Orb of Transmutation\"\n    SetFontSize 30\n    SetTextColor 196 162 69 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 23 18 2 255\n    CustomAlertSound \"Sharket掉落音效\\蜕变石.mp3\" 100\n"
+  },
+  {
+   "order": 46048,
    "file": "Currency/General.json",
    "tier_key": "Tier 5 General",
    "tier_num": 7,
@@ -2702,11 +2577,9 @@
    "file": "Currency/Tainted Currency.json",
    "tier_key": "Tier 1 Tainted",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：污染神泪",
-   "rule_index": 0,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Tainted Divine Teardrop"
    ],
@@ -2718,11 +2591,9 @@
    "file": "Currency/Tainted Currency.json",
    "tier_key": "Tier 2 Tainted",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：污秽神秘石",
-   "rule_index": 0,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Tainted Mythic Orb"
    ],
@@ -2734,11 +2605,9 @@
    "file": "Currency/Tainted Currency.json",
    "tier_key": "Tier 2 Tainted",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：污秽链结石",
-   "rule_index": 1,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Tainted Orb of Fusing"
    ],
@@ -2750,11 +2619,9 @@
    "file": "Currency/Tainted Currency.json",
    "tier_key": "Tier 3 Tainted",
    "tier_num": 3,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：污秽崇高石",
-   "rule_index": 0,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Tainted Exalted Orb"
    ],
@@ -2766,32 +2633,28 @@
    "file": "Currency/Tainted Currency.json",
    "tier_key": "Tier 3 Tainted",
    "tier_num": 3,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：污秽混沌石",
-   "rule_index": 1,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Tainted Chaos Orb"
+    "Tainted Chromatic Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Tainted Chaos Orb\"\n    SetFontSize 40\n    SetTextColor 240 240 235 255\n    SetBorderColor 225 25 55 255\n    SetBackgroundColor 42 42 42 255\n    CustomAlertSound \"Sharket掉落音效\\污秽混沌石.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Tainted Chromatic Orb\"\n    SetFontSize 40\n    SetTextColor 240 240 235 255\n    SetBorderColor 225 25 55 255\n    SetBackgroundColor 42 42 42 255\n    CustomAlertSound \"Sharket掉落音效\\污秽幻色石.mp3\" 300\n"
   },
   {
    "order": 54006,
    "file": "Currency/Tainted Currency.json",
    "tier_key": "Tier 3 Tainted",
    "tier_num": 3,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：污秽幻色石",
-   "rule_index": 2,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Tainted Chromatic Orb"
+    "Tainted Chaos Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Tainted Chromatic Orb\"\n    SetFontSize 40\n    SetTextColor 240 240 235 255\n    SetBorderColor 225 25 55 255\n    SetBackgroundColor 42 42 42 255\n    CustomAlertSound \"Sharket掉落音效\\污秽幻色石.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Tainted Chaos Orb\"\n    SetFontSize 40\n    SetTextColor 240 240 235 255\n    SetBorderColor 225 25 55 255\n    SetBackgroundColor 42 42 42 255\n    CustomAlertSound \"Sharket掉落音效\\污秽混沌石.mp3\" 300\n"
   },
   {
    "order": 54007,
@@ -2812,27 +2675,9 @@
    "file": "Currency/Tainted Currency.json",
    "tier_key": "Tier 4 Tainted",
    "tier_num": 4,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：污秽磨刀石",
-   "rule_index": 0,
-   "rule_authored": false,
-   "bases": [
-    "Tainted Blacksmith's Whetstone"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Tainted Blacksmith's Whetstone\"\n    SetFontSize 35\n    SetTextColor 240 240 235 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 42 42 42 255\n    CustomAlertSound \"Sharket掉落音效\\污秽磨刀石.mp3\" 200\n"
-  },
-  {
-   "order": 54009,
-   "file": "Currency/Tainted Currency.json",
-   "tier_key": "Tier 4 Tainted",
-   "tier_num": 4,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：污秽工匠石",
-   "rule_index": 1,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Tainted Jeweller's Orb"
    ],
@@ -2840,20 +2685,32 @@
    "text": "Show\n    BaseType == \"Tainted Jeweller's Orb\"\n    SetFontSize 35\n    SetTextColor 240 240 235 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 42 42 42 255\n    CustomAlertSound \"Sharket掉落音效\\污秽工匠石.mp3\" 300\n"
   },
   {
-   "order": 54010,
+   "order": 54009,
    "file": "Currency/Tainted Currency.json",
    "tier_key": "Tier 4 Tainted",
    "tier_num": 4,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：污秽护甲片",
-   "rule_index": 2,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Tainted Armourer's Scrap"
    ],
    "is_hide": false,
    "text": "Show\n    BaseType == \"Tainted Armourer's Scrap\"\n    SetFontSize 35\n    SetTextColor 240 240 235 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 42 42 42 255\n    CustomAlertSound \"Sharket掉落音效\\污秽护甲片.mp3\" 200\n"
+  },
+  {
+   "order": 54010,
+   "file": "Currency/Tainted Currency.json",
+   "tier_key": "Tier 4 Tainted",
+   "tier_num": 4,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Tainted Blacksmith's Whetstone"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Tainted Blacksmith's Whetstone\"\n    SetFontSize 35\n    SetTextColor 240 240 235 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 42 42 42 255\n    CustomAlertSound \"Sharket掉落音效\\污秽磨刀石.mp3\" 200\n"
   },
   {
    "order": 55001,
@@ -3404,11 +3261,9 @@
    "file": "Equipment/Armour/Body Armours.json",
    "tier_key": "Tier 4 Body Armours",
    "tier_num": 4,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：祭礼束衣",
-   "rule_index": 3,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Sacrificial Garb"
    ],
@@ -3528,41 +3383,71 @@
    "tier_num": 0,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i86 Top Boots",
+   "rule": "#1 i86 Top Boots - 物品卡：逃亡之靴",
+   "rule_index": 0,
+   "rule_authored": true,
+   "bases": [
+    "Fugitive Boots"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Fugitive Boots\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\逃亡之靴.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 72002,
+   "file": "Equipment/Armour/Boots.json",
+   "tier_key": "Tier 0 Boots",
+   "tier_num": 0,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#2 i86 Top Boots",
    "rule_index": 0,
    "rule_authored": true,
    "bases": [
     "Sorcerer Boots",
     "Slink Boots",
     "Titan Greaves",
-    "Two-Toned Boots",
-    "Fugitive Boots"
+    "Two-Toned Boots"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Sorcerer Boots\" \"Slink Boots\" \"Titan Greaves\" \"Two-Toned Boots\" \"Fugitive Boots\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Sorcerer Boots\" \"Slink Boots\" \"Titan Greaves\" \"Two-Toned Boots\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
-   "order": 72002,
+   "order": 72003,
    "file": "Equipment/Armour/Boots.json",
    "tier_key": "Tier 1 Boots",
    "tier_num": 1,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i84 Top Boots",
+   "rule": "#1 i84 Top Boots - 物品卡：逃亡之靴",
+   "rule_index": 1,
+   "rule_authored": true,
+   "bases": [
+    "Fugitive Boots"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Fugitive Boots\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\逃亡之靴.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 72004,
+   "file": "Equipment/Armour/Boots.json",
+   "tier_key": "Tier 1 Boots",
+   "tier_num": 1,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#2 i84 Top Boots",
    "rule_index": 1,
    "rule_authored": true,
    "bases": [
     "Sorcerer Boots",
     "Slink Boots",
     "Titan Greaves",
-    "Two-Toned Boots",
-    "Fugitive Boots"
+    "Two-Toned Boots"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Sorcerer Boots\" \"Slink Boots\" \"Titan Greaves\" \"Two-Toned Boots\" \"Fugitive Boots\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\精品装备.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+   "text": "Show\n    BaseType == \"Sorcerer Boots\" \"Slink Boots\" \"Titan Greaves\" \"Two-Toned Boots\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\精品装备.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 72003,
+   "order": 72005,
    "file": "Equipment/Armour/Boots.json",
    "tier_key": "Tier 1 Boots",
    "tier_num": 1,
@@ -3581,7 +3466,21 @@
    "text": "Show\n    BaseType == \"Leviathan Greaves\" \"Paladin Boots\" \"Phantom Boots\" \"Velour Boots\" \"Warlock Boots\" \"Wyvernscale Boots\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\精品装备.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 72004,
+   "order": 72006,
+   "file": "Equipment/Armour/Boots.json",
+   "tier_key": "Tier 2 Boots",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Fugitive Boots"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Fugitive Boots\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\逃亡之靴.mp3\" 200\n"
+  },
+  {
+   "order": 72007,
    "file": "Equipment/Armour/Boots.json",
    "tier_key": "Tier 2 Boots",
    "tier_num": 2,
@@ -3594,7 +3493,6 @@
     "Chimerascale Boots",
     "Crusader Boots",
     "Dragonscale Boots",
-    "Fugitive Boots",
     "Goliath Greaves",
     "Harpyskin Boots",
     "Hydrascale Boots",
@@ -3613,10 +3511,10 @@
     "Vaal Greaves"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Arcanist Slippers\" \"Assassin's Boots\" \"Chimerascale Boots\" \"Crusader Boots\" \"Dragonscale Boots\" \"Fugitive Boots\" \"Goliath Greaves\" \"Harpyskin Boots\" \"Hydrascale Boots\" \"Infiltrator Boots\" \"Legion Boots\" \"Martyr Boots\" \"Murder Boots\" \"Precursor Greaves\" \"Sage Slippers\" \"Slink Boots\" \"Soldier Boots\" \"Sorcerer Boots\" \"Stealth Boots\" \"Titan Greaves\" \"Two-Toned Boots\" \"Vaal Greaves\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\金装备.mp3\" 100\n"
+   "text": "Show\n    BaseType == \"Arcanist Slippers\" \"Assassin's Boots\" \"Chimerascale Boots\" \"Crusader Boots\" \"Dragonscale Boots\" \"Goliath Greaves\" \"Harpyskin Boots\" \"Hydrascale Boots\" \"Infiltrator Boots\" \"Legion Boots\" \"Martyr Boots\" \"Murder Boots\" \"Precursor Greaves\" \"Sage Slippers\" \"Slink Boots\" \"Soldier Boots\" \"Sorcerer Boots\" \"Stealth Boots\" \"Titan Greaves\" \"Two-Toned Boots\" \"Vaal Greaves\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\金装备.mp3\" 100\n"
   },
   {
-   "order": 72005,
+   "order": 72008,
    "file": "Equipment/Armour/Boots.json",
    "tier_key": "Tier 3 Boots",
    "tier_num": 3,
@@ -3641,7 +3539,7 @@
    "text": "Show\n    BaseType == \"Ambush Boots\" \"Ancient Greaves\" \"Antique Greaves\" \"Carnal Boots\" \"Conjurer Boots\" \"Riveted Boots\" \"Samite Slippers\" \"Serpentscale Boots\" \"Shagreen Boots\" \"Sharkskin Boots\" \"Wyrmscale Boots\" \"Zealot Boots\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 6 7 9 255\n    CustomAlertSound \"Sharket掉落音效\\金装.mp3\" 100\n"
   },
   {
-   "order": 72006,
+   "order": 72009,
    "file": "Equipment/Armour/Boots.json",
    "tier_key": "Tier 4 Boots",
    "tier_num": 4,
@@ -3698,39 +3596,129 @@
    "tier_num": 0,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i86 Top Gloves",
+   "rule": "#1 i86 Top Gloves - 物品卡：丝绸手套",
    "rule_index": 0,
    "rule_authored": true,
    "bases": [
-    "Fingerless Silk Gloves",
-    "Gripped Gloves",
-    "Spiked Gloves",
-    "Apothecary's Gloves"
+    "Fingerless Silk Gloves"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Fingerless Silk Gloves\" \"Gripped Gloves\" \"Spiked Gloves\" \"Apothecary's Gloves\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Fingerless Silk Gloves\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\丝绸手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 73002,
+   "file": "Equipment/Armour/Gloves.json",
+   "tier_key": "Tier 0 Gloves",
+   "tier_num": 0,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#2 i86 Top Gloves - 物品卡：扣钉手套",
+   "rule_index": 0,
+   "rule_authored": true,
+   "bases": [
+    "Spiked Gloves"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Spiked Gloves\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\扣钉手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 73003,
+   "file": "Equipment/Armour/Gloves.json",
+   "tier_key": "Tier 0 Gloves",
+   "tier_num": 0,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#3 i86 Top Gloves - 物品卡：擒拿手套",
+   "rule_index": 0,
+   "rule_authored": true,
+   "bases": [
+    "Gripped Gloves"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Gripped Gloves\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\擒拿手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 73004,
+   "file": "Equipment/Armour/Gloves.json",
+   "tier_key": "Tier 0 Gloves",
+   "tier_num": 0,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#4 i86 Top Gloves - 物品卡：药剂师手套",
+   "rule_index": 0,
+   "rule_authored": true,
+   "bases": [
+    "Apothecary's Gloves"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Apothecary's Gloves\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\药剂师手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 73005,
    "file": "Equipment/Armour/Gloves.json",
    "tier_key": "Tier 1 Gloves",
    "tier_num": 1,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i84 Top Gloves",
+   "rule": "#1 i84 Top Gloves - 物品卡：丝绸手套",
    "rule_index": 1,
    "rule_authored": true,
    "bases": [
-    "Fingerless Silk Gloves",
-    "Gripped Gloves",
-    "Spiked Gloves",
+    "Fingerless Silk Gloves"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Fingerless Silk Gloves\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\丝绸手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 73006,
+   "file": "Equipment/Armour/Gloves.json",
+   "tier_key": "Tier 1 Gloves",
+   "tier_num": 1,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#2 i84 Top Gloves - 物品卡：扣钉手套",
+   "rule_index": 1,
+   "rule_authored": true,
+   "bases": [
+    "Spiked Gloves"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Spiked Gloves\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\扣钉手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 73007,
+   "file": "Equipment/Armour/Gloves.json",
+   "tier_key": "Tier 1 Gloves",
+   "tier_num": 1,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#3 i84 Top Gloves - 物品卡：擒拿手套",
+   "rule_index": 1,
+   "rule_authored": true,
+   "bases": [
+    "Gripped Gloves"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Gripped Gloves\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\擒拿手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 73008,
+   "file": "Equipment/Armour/Gloves.json",
+   "tier_key": "Tier 1 Gloves",
+   "tier_num": 1,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#4 i84 Top Gloves - 物品卡：药剂师手套",
+   "rule_index": 1,
+   "rule_authored": true,
+   "bases": [
     "Apothecary's Gloves"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Fingerless Silk Gloves\" \"Gripped Gloves\" \"Spiked Gloves\" \"Apothecary's Gloves\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\精品装备.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+   "text": "Show\n    BaseType == \"Apothecary's Gloves\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\药剂师手套.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 73003,
+   "order": 73009,
    "file": "Equipment/Armour/Gloves.json",
    "tier_key": "Tier 1 Gloves",
    "tier_num": 1,
@@ -3749,7 +3737,49 @@
    "text": "Show\n    BaseType == \"Leviathan Gauntlets\" \"Paladin Gloves\" \"Phantom Mitts\" \"Velour Gloves\" \"Warlock Gloves\" \"Wyvernscale Gauntlets\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\精品装备.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 73004,
+   "order": 73010,
+   "file": "Equipment/Armour/Gloves.json",
+   "tier_key": "Tier 2 Gloves",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Spiked Gloves"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Spiked Gloves\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\扣钉手套.mp3\" 200\n"
+  },
+  {
+   "order": 73011,
+   "file": "Equipment/Armour/Gloves.json",
+   "tier_key": "Tier 2 Gloves",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Gripped Gloves"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Gripped Gloves\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\擒拿手套.mp3\" 200\n"
+  },
+  {
+   "order": 73012,
+   "file": "Equipment/Armour/Gloves.json",
+   "tier_key": "Tier 2 Gloves",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Apothecary's Gloves"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Apothecary's Gloves\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\药剂师手套.mp3\" 200\n"
+  },
+  {
+   "order": 73013,
    "file": "Equipment/Armour/Gloves.json",
    "tier_key": "Tier 2 Gloves",
    "tier_num": 2,
@@ -3757,12 +3787,10 @@
    "match": "Exact",
    "rule": null,
    "bases": [
-    "Apothecary's Gloves",
     "Chimerascale Gauntlets",
     "Crusader Gloves",
     "Dragonscale Gauntlets",
     "Goliath Gauntlets",
-    "Gripped Gloves",
     "Harpyskin Gloves",
     "Hydrascale Gauntlets",
     "Infiltrator Mitts",
@@ -3773,15 +3801,28 @@
     "Sage Gloves",
     "Slink Gloves",
     "Sorcerer Gloves",
-    "Spiked Gloves",
     "Titan Gauntlets",
     "Vaal Gauntlets"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Apothecary's Gloves\" \"Chimerascale Gauntlets\" \"Crusader Gloves\" \"Dragonscale Gauntlets\" \"Goliath Gauntlets\" \"Gripped Gloves\" \"Harpyskin Gloves\" \"Hydrascale Gauntlets\" \"Infiltrator Mitts\" \"Legion Gloves\" \"Martyr Gloves\" \"Murder Mitts\" \"Precursor Gauntlets\" \"Sage Gloves\" \"Slink Gloves\" \"Sorcerer Gloves\" \"Spiked Gloves\" \"Titan Gauntlets\" \"Vaal Gauntlets\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\金装备.mp3\" 100\n"
+   "text": "Show\n    BaseType == \"Chimerascale Gauntlets\" \"Crusader Gloves\" \"Dragonscale Gauntlets\" \"Goliath Gauntlets\" \"Harpyskin Gloves\" \"Hydrascale Gauntlets\" \"Infiltrator Mitts\" \"Legion Gloves\" \"Martyr Gloves\" \"Murder Mitts\" \"Precursor Gauntlets\" \"Sage Gloves\" \"Slink Gloves\" \"Sorcerer Gloves\" \"Titan Gauntlets\" \"Vaal Gauntlets\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\金装备.mp3\" 100\n"
   },
   {
-   "order": 73005,
+   "order": 73014,
+   "file": "Equipment/Armour/Gloves.json",
+   "tier_key": "Tier 3 Gloves",
+   "tier_num": 3,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Fingerless Silk Gloves"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Fingerless Silk Gloves\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 6 7 9 255\n    CustomAlertSound \"Sharket掉落音效\\丝绸手套.mp3\" 200\n"
+  },
+  {
+   "order": 73015,
    "file": "Equipment/Armour/Gloves.json",
    "tier_key": "Tier 3 Gloves",
    "tier_num": 3,
@@ -3796,7 +3837,6 @@
     "Assassin's Mitts",
     "Carnal Mitts",
     "Conjurer Gloves",
-    "Fingerless Silk Gloves",
     "Serpentscale Gauntlets",
     "Shagreen Gloves",
     "Soldier Gloves",
@@ -3805,10 +3845,10 @@
     "Zealot Gloves"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Ambush Mitts\" \"Ancient Gauntlets\" \"Antique Gauntlets\" \"Arcanist Gloves\" \"Assassin's Mitts\" \"Carnal Mitts\" \"Conjurer Gloves\" \"Fingerless Silk Gloves\" \"Serpentscale Gauntlets\" \"Shagreen Gloves\" \"Soldier Gloves\" \"Stealth Gloves\" \"Wyrmscale Gauntlets\" \"Zealot Gloves\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 6 7 9 255\n    CustomAlertSound \"Sharket掉落音效\\金装.mp3\" 100\n"
+   "text": "Show\n    BaseType == \"Ambush Mitts\" \"Ancient Gauntlets\" \"Antique Gauntlets\" \"Arcanist Gloves\" \"Assassin's Mitts\" \"Carnal Mitts\" \"Conjurer Gloves\" \"Serpentscale Gauntlets\" \"Shagreen Gloves\" \"Soldier Gloves\" \"Stealth Gloves\" \"Wyrmscale Gauntlets\" \"Zealot Gloves\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 6 7 9 255\n    CustomAlertSound \"Sharket掉落音效\\金装.mp3\" 100\n"
   },
   {
-   "order": 73006,
+   "order": 73016,
    "file": "Equipment/Armour/Gloves.json",
    "tier_key": "Tier 4 Gloves",
    "tier_num": 4,
@@ -3867,39 +3907,69 @@
    "tier_num": 0,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i86 Top Helmets",
+   "rule": "#1 i86 Top Helmets - 物品卡：唤骨头盔",
+   "rule_index": 0,
+   "rule_authored": true,
+   "bases": [
+    "Bone Helmet"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Bone Helmet\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\唤骨头盔.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 74002,
+   "file": "Equipment/Armour/Helmets.json",
+   "tier_key": "Tier 0 Helmets",
+   "tier_num": 0,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#2 i86 Top Helmets",
    "rule_index": 0,
    "rule_authored": true,
    "bases": [
     "Hubris Circlet",
     "Lion Pelt",
-    "Royal Burgonet",
-    "Bone Helmet"
+    "Royal Burgonet"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Hubris Circlet\" \"Lion Pelt\" \"Royal Burgonet\" \"Bone Helmet\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Hubris Circlet\" \"Lion Pelt\" \"Royal Burgonet\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
-   "order": 74002,
+   "order": 74003,
    "file": "Equipment/Armour/Helmets.json",
    "tier_key": "Tier 1 Helmets",
    "tier_num": 1,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i84 Top Helmets",
+   "rule": "#1 i84 Top Helmets - 物品卡：唤骨头盔",
+   "rule_index": 1,
+   "rule_authored": true,
+   "bases": [
+    "Bone Helmet"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Bone Helmet\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\唤骨头盔.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 74004,
+   "file": "Equipment/Armour/Helmets.json",
+   "tier_key": "Tier 1 Helmets",
+   "tier_num": 1,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#2 i84 Top Helmets",
    "rule_index": 1,
    "rule_authored": true,
    "bases": [
     "Hubris Circlet",
     "Lion Pelt",
-    "Royal Burgonet",
-    "Bone Helmet"
+    "Royal Burgonet"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Hubris Circlet\" \"Lion Pelt\" \"Royal Burgonet\" \"Bone Helmet\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\精品装备.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+   "text": "Show\n    BaseType == \"Hubris Circlet\" \"Lion Pelt\" \"Royal Burgonet\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\精品装备.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 74003,
+   "order": 74005,
    "file": "Equipment/Armour/Helmets.json",
    "tier_key": "Tier 1 Helmets",
    "tier_num": 1,
@@ -3918,7 +3988,21 @@
    "text": "Show\n    BaseType == \"Divine Crown\" \"Giantslayer Helmet\" \"Haunted Bascinet\" \"Lich's Circlet\" \"Majestic Pelt\" \"Torturer's Mask\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\精品装备.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 74004,
+   "order": 74006,
+   "file": "Equipment/Armour/Helmets.json",
+   "tier_key": "Tier 2 Helmets",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Bone Helmet"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Bone Helmet\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\唤骨头盔.mp3\" 200\n"
+  },
+  {
+   "order": 74007,
    "file": "Equipment/Armour/Helmets.json",
    "tier_key": "Tier 2 Helmets",
    "tier_num": 2,
@@ -3927,7 +4011,6 @@
    "rule": null,
    "bases": [
     "Ancient Mask",
-    "Bone Helmet",
     "Conqueror's Helmet",
     "Conquest Helmet",
     "Deicide Mask",
@@ -3951,10 +4034,10 @@
     "Vaal Mask"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Ancient Mask\" \"Bone Helmet\" \"Conqueror's Helmet\" \"Conquest Helmet\" \"Deicide Mask\" \"Dire Pelt\" \"Eternal Burgonet\" \"Faithful Helmet\" \"General's Helmet\" \"Grizzly Pelt\" \"Hubris Circlet\" \"Jester Mask\" \"Knight Helm\" \"Lion Pelt\" \"Mind Cage\" \"Moonlit Circlet\" \"Nightmare Bascinet\" \"Paladin Crown\" \"Praetor Crown\" \"Prophet Crown\" \"Royal Burgonet\" \"Sunfire Circlet\" \"Vaal Mask\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\金装备.mp3\" 100\n"
+   "text": "Show\n    BaseType == \"Ancient Mask\" \"Conqueror's Helmet\" \"Conquest Helmet\" \"Deicide Mask\" \"Dire Pelt\" \"Eternal Burgonet\" \"Faithful Helmet\" \"General's Helmet\" \"Grizzly Pelt\" \"Hubris Circlet\" \"Jester Mask\" \"Knight Helm\" \"Lion Pelt\" \"Mind Cage\" \"Moonlit Circlet\" \"Nightmare Bascinet\" \"Paladin Crown\" \"Praetor Crown\" \"Prophet Crown\" \"Royal Burgonet\" \"Sunfire Circlet\" \"Vaal Mask\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\金装备.mp3\" 100\n"
   },
   {
-   "order": 74005,
+   "order": 74008,
    "file": "Equipment/Armour/Helmets.json",
    "tier_key": "Tier 3 Helmets",
    "tier_num": 3,
@@ -3977,7 +4060,7 @@
    "text": "Show\n    BaseType == \"Ezomyte Burgonet\" \"Fluted Bascinet\" \"Harlequin Mask\" \"Magistrate Crown\" \"Pig-Faced Bascinet\" \"Regicide Mask\" \"Samnite Helmet\" \"Silken Hood\" \"Sinner Tricorne\" \"Solaris Circlet\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 6 7 9 255\n    CustomAlertSound \"Sharket掉落音效\\金装.mp3\" 100\n"
   },
   {
-   "order": 74006,
+   "order": 74009,
    "file": "Equipment/Armour/Helmets.json",
    "tier_key": "Tier 4 Helmets",
    "tier_num": 4,
@@ -4115,11 +4198,9 @@
    "file": "Equipment/Armour/Quivers.json",
    "tier_key": "Tier 4 Quivers",
    "tier_num": 4,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：火炮箭袋",
-   "rule_index": 2,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Artillery Quiver"
    ],
@@ -4325,37 +4406,97 @@
    "tier_num": 0,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i86 Top Amulets",
+   "rule": "#1 i86 Top Amulets - 物品卡：大理石护身符",
    "rule_index": 0,
    "rule_authored": true,
    "bases": [
-    "Blue Pearl Amulet",
-    "Marble Amulet",
-    "Seaglass Amulet"
+    "Marble Amulet"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Blue Pearl Amulet\" \"Marble Amulet\" \"Seaglass Amulet\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Marble Amulet\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\大理石护身符.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 77002,
+   "file": "Equipment/Jewellery/Amulets.json",
+   "tier_key": "Tier 0 Amulets",
+   "tier_num": 0,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#2 i86 Top Amulets - 物品卡：海晶护符",
+   "rule_index": 0,
+   "rule_authored": true,
+   "bases": [
+    "Seaglass Amulet"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Seaglass Amulet\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\海晶护符.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 77003,
+   "file": "Equipment/Jewellery/Amulets.json",
+   "tier_key": "Tier 0 Amulets",
+   "tier_num": 0,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#3 i86 Top Amulets - 物品卡：碧珠护身符",
+   "rule_index": 0,
+   "rule_authored": true,
+   "bases": [
+    "Blue Pearl Amulet"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Blue Pearl Amulet\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\碧珠护身符.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 77004,
    "file": "Equipment/Jewellery/Amulets.json",
    "tier_key": "Tier 1 Amulets",
    "tier_num": 1,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i84 Top Amulets",
+   "rule": "#1 i84 Top Amulets - 物品卡：大理石护身符",
    "rule_index": 1,
    "rule_authored": true,
    "bases": [
-    "Blue Pearl Amulet",
-    "Marble Amulet",
+    "Marble Amulet"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Marble Amulet\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\大理石护身符.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 77005,
+   "file": "Equipment/Jewellery/Amulets.json",
+   "tier_key": "Tier 1 Amulets",
+   "tier_num": 1,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#2 i84 Top Amulets - 物品卡：海晶护符",
+   "rule_index": 1,
+   "rule_authored": true,
+   "bases": [
     "Seaglass Amulet"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Blue Pearl Amulet\" \"Marble Amulet\" \"Seaglass Amulet\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\精品装备.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+   "text": "Show\n    BaseType == \"Seaglass Amulet\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\海晶护符.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 77003,
+   "order": 77006,
+   "file": "Equipment/Jewellery/Amulets.json",
+   "tier_key": "Tier 1 Amulets",
+   "tier_num": 1,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#3 i84 Top Amulets - 物品卡：碧珠护身符",
+   "rule_index": 1,
+   "rule_authored": true,
+   "bases": [
+    "Blue Pearl Amulet"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Blue Pearl Amulet\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\碧珠护身符.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 77007,
    "file": "Equipment/Jewellery/Amulets.json",
    "tier_key": "Tier 1 Amulets",
    "tier_num": 1,
@@ -4372,7 +4513,35 @@
    "text": "Show\n    BaseType == \"Agate Amulet\" \"Citrine Amulet\" \"Onyx Amulet\" \"Turquoise Amulet\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\精品装备.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 77004,
+   "order": 77008,
+   "file": "Equipment/Jewellery/Amulets.json",
+   "tier_key": "Tier 2 Amulets",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Marble Amulet"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Marble Amulet\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\大理石护身符.mp3\" 200\n"
+  },
+  {
+   "order": 77009,
+   "file": "Equipment/Jewellery/Amulets.json",
+   "tier_key": "Tier 2 Amulets",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Blue Pearl Amulet"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Blue Pearl Amulet\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\碧珠护身符.mp3\" 200\n"
+  },
+  {
+   "order": 77010,
    "file": "Equipment/Jewellery/Amulets.json",
    "tier_key": "Tier 2 Amulets",
    "tier_num": 2,
@@ -4381,16 +4550,28 @@
    "rule": null,
    "bases": [
     "Amber Amulet",
-    "Blue Pearl Amulet",
     "Jade Amulet",
-    "Lapis Amulet",
-    "Marble Amulet"
+    "Lapis Amulet"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Amber Amulet\" \"Blue Pearl Amulet\" \"Jade Amulet\" \"Lapis Amulet\" \"Marble Amulet\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\金装备.mp3\" 100\n"
+   "text": "Show\n    BaseType == \"Amber Amulet\" \"Jade Amulet\" \"Lapis Amulet\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\金装备.mp3\" 100\n"
   },
   {
-   "order": 77005,
+   "order": 77011,
+   "file": "Equipment/Jewellery/Amulets.json",
+   "tier_key": "Tier 3 Amulets",
+   "tier_num": 3,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Seaglass Amulet"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Seaglass Amulet\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 6 7 9 255\n    CustomAlertSound \"Sharket掉落音效\\海晶护符.mp3\" 200\n"
+  },
+  {
+   "order": 77012,
    "file": "Equipment/Jewellery/Amulets.json",
    "tier_key": "Tier 3 Amulets",
    "tier_num": 3,
@@ -4400,22 +4581,19 @@
    "bases": [
     "Coral Amulet",
     "Gold Amulet",
-    "Paua Amulet",
-    "Seaglass Amulet"
+    "Paua Amulet"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Coral Amulet\" \"Gold Amulet\" \"Paua Amulet\" \"Seaglass Amulet\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 6 7 9 255\n    CustomAlertSound \"Sharket掉落音效\\金装.mp3\" 100\n"
+   "text": "Show\n    BaseType == \"Coral Amulet\" \"Gold Amulet\" \"Paua Amulet\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 6 7 9 255\n    CustomAlertSound \"Sharket掉落音效\\金装.mp3\" 100\n"
   },
   {
-   "order": 77006,
+   "order": 77013,
    "file": "Equipment/Jewellery/Amulets.json",
    "tier_key": "Tier 4 Amulets",
    "tier_num": 4,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：星盘项链",
-   "rule_index": 2,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Astrolabe Amulet"
    ],
@@ -4423,15 +4601,13 @@
    "text": "Show\n    BaseType == \"Astrolabe Amulet\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 35\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 4 5 6 255\n    CustomAlertSound \"Sharket掉落音效\\星盘项链.mp3\" 300\n"
   },
   {
-   "order": 77007,
+   "order": 77014,
    "file": "Equipment/Jewellery/Amulets.json",
    "tier_key": "Tier 4 Amulets",
    "tier_num": 4,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：朴实项链",
-   "rule_index": 3,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Simplex Amulet"
    ],
@@ -4439,7 +4615,7 @@
    "text": "Show\n    BaseType == \"Simplex Amulet\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 35\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 4 5 6 255\n    CustomAlertSound \"Sharket掉落音效\\朴实项链.mp3\" 300\n"
   },
   {
-   "order": 77008,
+   "order": 77015,
    "file": "Equipment/Jewellery/Amulets.json",
    "tier_key": "Tier 4 Amulets",
    "tier_num": 4,
@@ -4460,43 +4636,71 @@
    "tier_num": 0,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i86 Top Belts",
+   "rule": "#1 i86 Top Belts - 物品卡：水晶腰带",
    "rule_index": 0,
    "rule_authored": true,
    "bases": [
-    "Stygian Vise",
     "Crystal Belt"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Stygian Vise\" \"Crystal Belt\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Crystal Belt\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\水晶腰带.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 78002,
+   "file": "Equipment/Jewellery/Belts.json",
+   "tier_key": "Tier 0 Belts",
+   "tier_num": 0,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#2 i86 Top Belts - 物品卡：深渊腰带",
+   "rule_index": 0,
+   "rule_authored": true,
+   "bases": [
+    "Stygian Vise"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Stygian Vise\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\深渊腰带.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 78003,
    "file": "Equipment/Jewellery/Belts.json",
    "tier_key": "Tier 1 Belts",
    "tier_num": 1,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i84 Top Belts",
+   "rule": "#1 i84 Top Belts - 物品卡：水晶腰带",
    "rule_index": 1,
    "rule_authored": true,
    "bases": [
-    "Stygian Vise",
     "Crystal Belt"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Stygian Vise\" \"Crystal Belt\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\精品装备.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+   "text": "Show\n    BaseType == \"Crystal Belt\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\水晶腰带.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 78003,
+   "order": 78004,
+   "file": "Equipment/Jewellery/Belts.json",
+   "tier_key": "Tier 1 Belts",
+   "tier_num": 1,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#2 i84 Top Belts - 物品卡：深渊腰带",
+   "rule_index": 1,
+   "rule_authored": true,
+   "bases": [
+    "Stygian Vise"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Stygian Vise\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\深渊腰带.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 78005,
    "file": "Equipment/Jewellery/Belts.json",
    "tier_key": "Tier 2 Belts",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：先锋腰带",
-   "rule_index": 2,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Vanguard Belt"
    ],
@@ -4504,7 +4708,21 @@
    "text": "Show\n    BaseType == \"Vanguard Belt\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\先锋腰带.mp3\" 200\n"
   },
   {
-   "order": 78004,
+   "order": 78006,
+   "file": "Equipment/Jewellery/Belts.json",
+   "tier_key": "Tier 2 Belts",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Crystal Belt"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Crystal Belt\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\水晶腰带.mp3\" 200\n"
+  },
+  {
+   "order": 78007,
    "file": "Equipment/Jewellery/Belts.json",
    "tier_key": "Tier 2 Belts",
    "tier_num": 2,
@@ -4512,15 +4730,14 @@
    "match": "Exact",
    "rule": null,
    "bases": [
-    "Crystal Belt",
     "Heavy Belt",
     "Leather Belt"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Crystal Belt\" \"Heavy Belt\" \"Leather Belt\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\金装备.mp3\" 100\n"
+   "text": "Show\n    BaseType == \"Heavy Belt\" \"Leather Belt\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\金装备.mp3\" 100\n"
   },
   {
-   "order": 78005,
+   "order": 78008,
    "file": "Equipment/Jewellery/Belts.json",
    "tier_key": "Tier 3 Belts",
    "tier_num": 3,
@@ -4537,7 +4754,7 @@
    "text": "Show\n    BaseType == \"Chain Belt\" \"Cloth Belt\" \"Rustic Sash\" \"Studded Belt\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 6 7 9 255\n    CustomAlertSound \"Sharket掉落音效\\金装.mp3\" 100\n"
   },
   {
-   "order": 78006,
+   "order": 78009,
    "file": "Equipment/Jewellery/Belts.json",
    "tier_key": "Tier 4 Belts",
    "tier_num": 4,
@@ -4559,49 +4776,167 @@
    "tier_num": 0,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i86 Top Rings",
+   "rule": "#1 i86 Top Rings - 物品卡：合金戒指",
    "rule_index": 0,
    "rule_authored": true,
    "bases": [
-    "Opal Ring",
-    "Steel Ring",
-    "Vermillion Ring",
-    "Iolite Ring",
-    "Cerulean Ring"
+    "Steel Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Opal Ring\" \"Steel Ring\" \"Vermillion Ring\" \"Iolite Ring\" \"Cerulean Ring\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Steel Ring\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\合金戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 79002,
+   "file": "Equipment/Jewellery/Rings.json",
+   "tier_key": "Tier 0 Rings",
+   "tier_num": 0,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#2 i86 Top Rings - 物品卡：天蓝之戒",
+   "rule_index": 0,
+   "rule_authored": true,
+   "bases": [
+    "Cerulean Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Cerulean Ring\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\天蓝之戒.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 79003,
+   "file": "Equipment/Jewellery/Rings.json",
+   "tier_key": "Tier 0 Rings",
+   "tier_num": 0,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#3 i86 Top Rings - 物品卡：朱砂之戒",
+   "rule_index": 0,
+   "rule_authored": true,
+   "bases": [
+    "Vermillion Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Vermillion Ring\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\朱砂之戒.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 79004,
+   "file": "Equipment/Jewellery/Rings.json",
+   "tier_key": "Tier 0 Rings",
+   "tier_num": 0,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#4 i86 Top Rings - 物品卡：蛋白石戒指",
+   "rule_index": 0,
+   "rule_authored": true,
+   "bases": [
+    "Opal Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Opal Ring\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\蛋白石戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 79005,
+   "file": "Equipment/Jewellery/Rings.json",
+   "tier_key": "Tier 0 Rings",
+   "tier_num": 0,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#5 i86 Top Rings - 物品卡：青石戒指",
+   "rule_index": 0,
+   "rule_authored": true,
+   "bases": [
+    "Iolite Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Iolite Ring\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\青石戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 79006,
    "file": "Equipment/Jewellery/Rings.json",
    "tier_key": "Tier 1 Rings",
    "tier_num": 1,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i84 Top Rings",
+   "rule": "#1 i84 Top Rings - 物品卡：合金戒指",
    "rule_index": 1,
    "rule_authored": true,
    "bases": [
-    "Opal Ring",
-    "Steel Ring",
-    "Vermillion Ring",
-    "Iolite Ring",
-    "Cerulean Ring"
+    "Steel Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Opal Ring\" \"Steel Ring\" \"Vermillion Ring\" \"Iolite Ring\" \"Cerulean Ring\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\精品装备.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+   "text": "Show\n    BaseType == \"Steel Ring\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\合金戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 79003,
+   "order": 79007,
    "file": "Equipment/Jewellery/Rings.json",
    "tier_key": "Tier 1 Rings",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "rule",
    "match": "Exact",
-   "rule": "自动音效：紫晶戒指",
-   "rule_index": 2,
-   "rule_authored": false,
+   "rule": "#2 i84 Top Rings - 物品卡：天蓝之戒",
+   "rule_index": 1,
+   "rule_authored": true,
+   "bases": [
+    "Cerulean Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Cerulean Ring\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\天蓝之戒.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 79008,
+   "file": "Equipment/Jewellery/Rings.json",
+   "tier_key": "Tier 1 Rings",
+   "tier_num": 1,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#3 i84 Top Rings - 物品卡：朱砂之戒",
+   "rule_index": 1,
+   "rule_authored": true,
+   "bases": [
+    "Vermillion Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Vermillion Ring\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\朱砂之戒.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 79009,
+   "file": "Equipment/Jewellery/Rings.json",
+   "tier_key": "Tier 1 Rings",
+   "tier_num": 1,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#4 i84 Top Rings - 物品卡：蛋白石戒指",
+   "rule_index": 1,
+   "rule_authored": true,
+   "bases": [
+    "Opal Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Opal Ring\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\蛋白石戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 79010,
+   "file": "Equipment/Jewellery/Rings.json",
+   "tier_key": "Tier 1 Rings",
+   "tier_num": 1,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#5 i84 Top Rings - 物品卡：青石戒指",
+   "rule_index": 1,
+   "rule_authored": true,
+   "bases": [
+    "Iolite Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Iolite Ring\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\青石戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 79011,
+   "file": "Equipment/Jewellery/Rings.json",
+   "tier_key": "Tier 1 Rings",
+   "tier_num": 1,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
    "bases": [
     "Amethyst Ring"
    ],
@@ -4609,7 +4944,7 @@
    "text": "Show\n    BaseType == \"Amethyst Ring\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\紫晶戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 79004,
+   "order": 79012,
    "file": "Equipment/Jewellery/Rings.json",
    "tier_key": "Tier 1 Rings",
    "tier_num": 1,
@@ -4624,7 +4959,63 @@
    "text": "Show\n    BaseType == \"Prismatic Ring\" \"Two-Stone Ring\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 45\n    SetBorderColor 115 152 201 255\n    SetBackgroundColor 11 12 15 255\n    CustomAlertSound \"Sharket掉落音效\\精品装备.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 79005,
+   "order": 79013,
+   "file": "Equipment/Jewellery/Rings.json",
+   "tier_key": "Tier 2 Rings",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Steel Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Steel Ring\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\合金戒指.mp3\" 200\n"
+  },
+  {
+   "order": 79014,
+   "file": "Equipment/Jewellery/Rings.json",
+   "tier_key": "Tier 2 Rings",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Cerulean Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Cerulean Ring\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\天蓝之戒.mp3\" 200\n"
+  },
+  {
+   "order": 79015,
+   "file": "Equipment/Jewellery/Rings.json",
+   "tier_key": "Tier 2 Rings",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Opal Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Opal Ring\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\蛋白石戒指.mp3\" 200\n"
+  },
+  {
+   "order": 79016,
+   "file": "Equipment/Jewellery/Rings.json",
+   "tier_key": "Tier 2 Rings",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Iolite Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Iolite Ring\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\青石戒指.mp3\" 200\n"
+  },
+  {
+   "order": 79017,
    "file": "Equipment/Jewellery/Rings.json",
    "tier_key": "Tier 2 Rings",
    "tier_num": 2,
@@ -4633,23 +5024,19 @@
    "rule": null,
    "bases": [
     "Bone Ring",
-    "Cerulean Ring",
     "Coral Ring",
     "Diamond Ring",
-    "Iolite Ring",
     "Moonstone Ring",
-    "Opal Ring",
     "Ruby Ring",
     "Sapphire Ring",
-    "Steel Ring",
     "Topaz Ring",
     "Unset Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Bone Ring\" \"Cerulean Ring\" \"Coral Ring\" \"Diamond Ring\" \"Iolite Ring\" \"Moonstone Ring\" \"Opal Ring\" \"Ruby Ring\" \"Sapphire Ring\" \"Steel Ring\" \"Topaz Ring\" \"Unset Ring\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\金装备.mp3\" 100\n"
+   "text": "Show\n    BaseType == \"Bone Ring\" \"Coral Ring\" \"Diamond Ring\" \"Moonstone Ring\" \"Ruby Ring\" \"Sapphire Ring\" \"Topaz Ring\" \"Unset Ring\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\金装备.mp3\" 100\n"
   },
   {
-   "order": 79006,
+   "order": 79018,
    "file": "Equipment/Jewellery/Rings.json",
    "tier_key": "Tier 3 Rings",
    "tier_num": 3,
@@ -4665,7 +5052,7 @@
    "text": "Show\n    BaseType == \"Gold Ring\" \"Iron Ring\" \"Paua Ring\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 6 7 9 255\n    CustomAlertSound \"Sharket掉落音效\\金装.mp3\" 100\n"
   },
   {
-   "order": 79007,
+   "order": 79019,
    "file": "Equipment/Jewellery/Rings.json",
    "tier_key": "Tier 4 Rings",
    "tier_num": 4,
@@ -4714,11 +5101,9 @@
    "file": "Equipment/League/Breach Grasping Mail.json",
    "tier_key": "Breach Grasping Mail T1",
    "tier_num": 5,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：扼杀链甲",
-   "rule_index": 0,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Grasping Mail"
    ],
@@ -4730,11 +5115,9 @@
    "file": "Equipment/League/Expedition Ward-Bases.json",
    "tier_key": "Expedition Ward-Bases T1",
    "tier_num": 5,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：坚铁药剂",
-   "rule_index": 0,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Iron Flask"
    ],
@@ -4768,11 +5151,9 @@
    "file": "Equipment/League/Heist Experimented.json",
    "tier_key": "Heist Experimented T1",
    "tier_num": 5,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：星盘项链",
-   "rule_index": 0,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Astrolabe Amulet"
    ],
@@ -4784,11 +5165,9 @@
    "file": "Equipment/League/Heist Experimented.json",
    "tier_key": "Heist Experimented T1",
    "tier_num": 5,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：朴实项链",
-   "rule_index": 1,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Simplex Amulet"
    ],
@@ -4916,11 +5295,9 @@
    "file": "Equipment/League/Sacrificial Garbs.json",
    "tier_key": "Sacrificial Garbs T1",
    "tier_num": 5,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：祭礼束衣",
-   "rule_index": 0,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Sacrificial Garb"
    ],
@@ -4932,11 +5309,9 @@
    "file": "Equipment/League/Stygian Vise.json",
    "tier_key": "Stygian Vise T1",
    "tier_num": 5,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：深渊腰带",
-   "rule_index": 0,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Stygian Vise"
    ],
@@ -6007,19 +6382,48 @@
    "tier_num": 0,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i83 Top Wands",
+   "rule": "#1 i83 Top Wands - 物品卡：召集法杖",
+   "rule_index": 0,
+   "rule_authored": true,
+   "bases": [
+    "Convoking Wand"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Convoking Wand\"\n    ItemLevel >= 83\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\召集法杖.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 103002,
+   "file": "Equipment/Weapons/Wands.json",
+   "tier_key": "Tier 0 Wands",
+   "tier_num": 0,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#2 i83 Top Wands",
    "rule_index": 0,
    "rule_authored": true,
    "bases": [
     "Opal Wand",
-    "Profane Wand",
+    "Profane Wand"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Opal Wand\" \"Profane Wand\"\n    ItemLevel >= 83\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 103003,
+   "file": "Equipment/Weapons/Wands.json",
+   "tier_key": "Tier 2 Wands",
+   "tier_num": 2,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
     "Convoking Wand"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Opal Wand\" \"Profane Wand\" \"Convoking Wand\"\n    ItemLevel >= 83\n    Rarity <= Rare\n    SetFontSize 45\n    SetBorderColor 255 255 255 255\n    SetBackgroundColor 15 17 21 255\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Convoking Wand\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\召集法杖.mp3\" 200\n"
   },
   {
-   "order": 103002,
+   "order": 103004,
    "file": "Equipment/Weapons/Wands.json",
    "tier_key": "Tier 2 Wands",
    "tier_num": 2,
@@ -6027,17 +6431,16 @@
    "match": "Exact",
    "rule": null,
    "bases": [
-    "Convoking Wand",
     "Kinetic Wand",
     "Profane Wand",
     "Prophecy Wand",
     "Tornado Wand"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Convoking Wand\" \"Kinetic Wand\" \"Profane Wand\" \"Prophecy Wand\" \"Tornado Wand\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\金装备.mp3\" 100\n"
+   "text": "Show\n    BaseType == \"Kinetic Wand\" \"Profane Wand\" \"Prophecy Wand\" \"Tornado Wand\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 71 102 144 255\n    SetBackgroundColor 9 10 12 255\n    CustomAlertSound \"Sharket掉落音效\\金装备.mp3\" 100\n"
   },
   {
-   "order": 103003,
+   "order": 103005,
    "file": "Equipment/Weapons/Wands.json",
    "tier_key": "Tier 3 Wands",
    "tier_num": 3,
@@ -6055,7 +6458,7 @@
    "text": "Show\n    BaseType == \"Blasting Wand\" \"Convening Wand\" \"Demon's Horn\" \"Heathen Wand\" \"Opal Wand\"\n    AreaLevel >= 68\n    Rarity Rare\n    SetFontSize 40\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 6 7 9 255\n    CustomAlertSound \"Sharket掉落音效\\金装.mp3\" 100\n"
   },
   {
-   "order": 103004,
+   "order": 103006,
    "file": "Equipment/Weapons/Wands.json",
    "tier_key": "Tier 4 Wands",
    "tier_num": 4,
@@ -6297,7 +6700,23 @@
    "tier_num": 0,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i84 Top Utility Flasks",
+   "rule": "#1 i84 Top Utility Flasks - 物品卡：水银药剂",
+   "rule_index": 0,
+   "rule_authored": true,
+   "bases": [
+    "Quicksilver Flask"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Quicksilver Flask\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 99 34 119 255\n    SetBorderColor 146 49 175 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\水银药剂.mp3\" 200\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+  },
+  {
+   "order": 84002,
+   "file": "Flasks/Utility.json",
+   "tier_key": "Tier 0 Utility Flasks",
+   "tier_num": 0,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#2 i84 Top Utility Flasks",
    "rule_index": 0,
    "rule_authored": true,
    "bases": [
@@ -6305,20 +6724,35 @@
     "Corundum Flask",
     "Silver Flask",
     "Amethyst Flask",
-    "Diamond Flask",
-    "Quicksilver Flask"
+    "Diamond Flask"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Gold Flask\" \"Corundum Flask\" \"Silver Flask\" \"Amethyst Flask\" \"Diamond Flask\" \"Quicksilver Flask\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 99 34 119 255\n    SetBorderColor 146 49 175 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\高级药酊.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Gold Flask\" \"Corundum Flask\" \"Silver Flask\" \"Amethyst Flask\" \"Diamond Flask\"\n    ItemLevel >= 84\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 99 34 119 255\n    SetBorderColor 146 49 175 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\高级药酊.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
-   "order": 84002,
+   "order": 84003,
    "file": "Flasks/Utility.json",
    "tier_key": "Tier 1 Utility Flasks",
    "tier_num": 1,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 i82 Utility Flasks",
+   "rule": "#1 i82 Utility Flasks - 物品卡：水银药剂",
+   "rule_index": 1,
+   "rule_authored": true,
+   "bases": [
+    "Quicksilver Flask"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Quicksilver Flask\"\n    ItemLevel >= 82\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 244 231 248 255\n    SetBorderColor 223 176 238 255\n    SetBackgroundColor 159 54 191 255\n    CustomAlertSound \"Sharket掉落音效\\水银药剂.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 84004,
+   "file": "Flasks/Utility.json",
+   "tier_key": "Tier 1 Utility Flasks",
+   "tier_num": 1,
+   "source": "rule",
+   "match": "Exact",
+   "rule": "#2 i82 Utility Flasks",
    "rule_index": 1,
    "rule_authored": true,
    "bases": [
@@ -6326,22 +6760,19 @@
     "Corundum Flask",
     "Silver Flask",
     "Amethyst Flask",
-    "Diamond Flask",
-    "Quicksilver Flask"
+    "Diamond Flask"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Gold Flask\" \"Corundum Flask\" \"Silver Flask\" \"Amethyst Flask\" \"Diamond Flask\" \"Quicksilver Flask\"\n    ItemLevel >= 82\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 244 231 248 255\n    SetBorderColor 223 176 238 255\n    SetBackgroundColor 159 54 191 255\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+   "text": "Show\n    BaseType == \"Gold Flask\" \"Corundum Flask\" \"Silver Flask\" \"Amethyst Flask\" \"Diamond Flask\"\n    ItemLevel >= 82\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 244 231 248 255\n    SetBorderColor 223 176 238 255\n    SetBackgroundColor 159 54 191 255\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 84003,
+   "order": 84005,
    "file": "Flasks/Utility.json",
    "tier_key": "Tier 1 Utility Flasks",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：坚岩药剂",
-   "rule_index": 2,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Granite Flask"
    ],
@@ -6349,31 +6780,13 @@
    "text": "Show\n    BaseType == \"Granite Flask\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 244 231 248 255\n    SetBorderColor 223 176 238 255\n    SetBackgroundColor 159 54 191 255\n    CustomAlertSound \"Sharket掉落音效\\坚岩药剂.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 84004,
+   "order": 84006,
    "file": "Flasks/Utility.json",
    "tier_key": "Tier 1 Utility Flasks",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：石英药剂",
-   "rule_index": 3,
-   "rule_authored": false,
-   "bases": [
-    "Quartz Flask"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Quartz Flask\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 244 231 248 255\n    SetBorderColor 223 176 238 255\n    SetBackgroundColor 159 54 191 255\n    CustomAlertSound \"Sharket掉落音效\\石英药剂.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
-  },
-  {
-   "order": 84005,
-   "file": "Flasks/Utility.json",
-   "tier_key": "Tier 1 Utility Flasks",
-   "tier_num": 1,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：坚铁药剂",
-   "rule_index": 4,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Iron Flask"
    ],
@@ -6381,7 +6794,21 @@
    "text": "Show\n    BaseType == \"Iron Flask\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 244 231 248 255\n    SetBorderColor 223 176 238 255\n    SetBackgroundColor 159 54 191 255\n    CustomAlertSound \"Sharket掉落音效\\坚铁药剂.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 84006,
+   "order": 84007,
+   "file": "Flasks/Utility.json",
+   "tier_key": "Tier 1 Utility Flasks",
+   "tier_num": 1,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Quartz Flask"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Quartz Flask\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 244 231 248 255\n    SetBorderColor 223 176 238 255\n    SetBackgroundColor 159 54 191 255\n    CustomAlertSound \"Sharket掉落音效\\石英药剂.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 84008,
    "file": "Flasks/Utility.json",
    "tier_key": "Tier 1 Utility Flasks",
    "tier_num": 1,
@@ -6443,32 +6870,28 @@
    "file": "Gems/Skill.json",
    "tier_key": "Tier 0 Skill",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：时空之门",
-   "rule_index": 6,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Portal"
+    "Purity of Elements"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Portal\"\n    SetFontSize 45\n    SetTextColor 19 119 112 255\n    SetBorderColor 25 154 145 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\时空之门.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Purity of Elements\"\n    SetFontSize 45\n    SetTextColor 19 119 112 255\n    SetBorderColor 25 154 145 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\元素净化.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 91004,
    "file": "Gems/Skill.json",
    "tier_key": "Tier 0 Skill",
    "tier_num": 0,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：元素净化",
-   "rule_index": 7,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Purity of Elements"
+    "Portal"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Purity of Elements\"\n    SetFontSize 45\n    SetTextColor 19 119 112 255\n    SetBorderColor 25 154 145 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\元素净化.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Portal\"\n    SetFontSize 45\n    SetTextColor 19 119 112 255\n    SetBorderColor 25 154 145 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\时空之门.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 91005,
@@ -6585,11 +7008,9 @@
    "file": "Gems/Skill.json",
    "tier_key": "Tier 2 Skill",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：时空裂隙",
-   "rule_index": 6,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Temporal Rift"
    ],
@@ -7315,14 +7736,14 @@
    "tier_num": 0,
    "source": "rule",
    "match": "Exact",
-   "rule": "#2 瓦尔密殿",
+   "rule": "#2 瓦尔密殿 - 物品卡：瓦尔密殿",
    "rule_index": 1,
    "rule_authored": true,
    "bases": [
     "Vaal Temple Map"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Vaal Temple Map\"\n    MapTier >= 16\n    SetFontSize 45\n    SetTextColor 29 64 124 255\n    SetBorderColor 43 94 182 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\超级地图.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
+   "text": "Show\n    BaseType == \"Vaal Temple Map\"\n    MapTier >= 16\n    SetFontSize 45\n    SetTextColor 29 64 124 255\n    SetBorderColor 43 94 182 255\n    SetBackgroundColor 248 248 242 255\n    CustomAlertSound \"Sharket掉落音效\\瓦尔密殿.mp3\" 300\n    PlayEffect White\n    MinimapIcon 0 White Star\n"
   },
   {
    "order": 121003,
@@ -7557,14 +7978,14 @@
    "tier_num": 2,
    "source": "rule",
    "match": "Exact",
-   "rule": "#1 No auto-sound for Ritual Splinter @ Tier 2 Splinters",
+   "rule": "#1 No auto-sound for Ritual Splinter @ Tier 2 Splinters - 物品卡：驱灵裂片",
    "rule_index": 3,
    "rule_authored": true,
    "bases": [
     "Ritual Splinter"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Ritual Splinter\"\n    SetFontSize 40\n    SetTextColor 219 236 245 255\n    SetBorderColor 160 203 228 255\n    SetBackgroundColor 43 111 151 255\n"
+   "text": "Show\n    BaseType == \"Ritual Splinter\"\n    SetFontSize 40\n    SetTextColor 219 236 245 255\n    SetBorderColor 160 203 228 255\n    SetBackgroundColor 43 111 151 255\n    CustomAlertSound \"Sharket掉落音效\\驱灵裂片.mp3\" 100\n"
   },
   {
    "order": 122005,
@@ -7689,32 +8110,28 @@
    "file": "Maps/Fragments.json",
    "tier_key": "Tier 1 Fragments",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：贤主敕令",
-   "rule_index": 28,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "The Maven's Writ"
+    "An Audience With The King"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"The Maven's Writ\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 19 63 88 255\n    SetBackgroundColor 54 141 191 255\n    CustomAlertSound \"Sharket掉落音效\\贤主敕令.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+   "text": "Show\n    BaseType == \"An Audience With The King\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 19 63 88 255\n    SetBackgroundColor 54 141 191 255\n    CustomAlertSound \"Sharket掉落音效\\谒王之约.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
    "order": 123007,
    "file": "Maps/Fragments.json",
    "tier_key": "Tier 1 Fragments",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：谒王之约",
-   "rule_index": 29,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "An Audience With The King"
+    "The Maven's Writ"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"An Audience With The King\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 19 63 88 255\n    SetBackgroundColor 54 141 191 255\n    CustomAlertSound \"Sharket掉落音效\\谒王之约.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+   "text": "Show\n    BaseType == \"The Maven's Writ\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 19 63 88 255\n    SetBackgroundColor 54 141 191 255\n    CustomAlertSound \"Sharket掉落音效\\贤主敕令.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
    "order": 123008,
@@ -7802,11 +8219,9 @@
    "file": "Maps/Fragments.json",
    "tier_key": "Tier 2 Fragments",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：梦魇拟像",
-   "rule_index": 28,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Simulacrum"
    ],
@@ -7818,32 +8233,28 @@
    "file": "Maps/Fragments.json",
    "tier_key": "Tier 2 Fragments",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：神圣之花",
-   "rule_index": 29,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Sacred Blossom"
+    "Blood-filled Vessel"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Sacred Blossom\"\n    SetFontSize 40\n    SetTextColor 219 236 245 255\n    SetBorderColor 160 203 228 255\n    SetBackgroundColor 43 111 151 255\n    CustomAlertSound \"Sharket掉落音效\\神圣之花.mp3\" 300\n    MinimapIcon 1 Orange Circle\n"
+   "text": "Show\n    BaseType == \"Blood-filled Vessel\"\n    SetFontSize 40\n    SetTextColor 219 236 245 255\n    SetBorderColor 160 203 228 255\n    SetBackgroundColor 43 111 151 255\n    CustomAlertSound \"Sharket掉落音效\\浸血法器.mp3\" 200\n    MinimapIcon 1 Orange Circle\n"
   },
   {
    "order": 123015,
    "file": "Maps/Fragments.json",
    "tier_key": "Tier 2 Fragments",
    "tier_num": 2,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：浸血法器",
-   "rule_index": 30,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Blood-filled Vessel"
+    "Sacred Blossom"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Blood-filled Vessel\"\n    SetFontSize 40\n    SetTextColor 219 236 245 255\n    SetBorderColor 160 203 228 255\n    SetBackgroundColor 43 111 151 255\n    CustomAlertSound \"Sharket掉落音效\\浸血法器.mp3\" 200\n    MinimapIcon 1 Orange Circle\n"
+   "text": "Show\n    BaseType == \"Sacred Blossom\"\n    SetFontSize 40\n    SetTextColor 219 236 245 255\n    SetBorderColor 160 203 228 255\n    SetBackgroundColor 43 111 151 255\n    CustomAlertSound \"Sharket掉落音效\\神圣之花.mp3\" 300\n    MinimapIcon 1 Orange Circle\n"
   },
   {
    "order": 123016,
@@ -8033,14 +8444,14 @@
    "tier_num": 3,
    "source": "rule",
    "match": "Exact",
-   "rule": "#11 __SOUND__:Mortal Hope",
+   "rule": "#11 __SOUND__:Mortal Hope - 物品卡：凡人的希望",
    "rule_index": 10,
    "rule_authored": true,
    "bases": [
     "Mortal Hope"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Mortal Hope\"\n    SetFontSize 40\n    SetTextColor 136 190 221 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 17 44 60 255\n    CustomAlertSound \"Sharket掉落音效\\绿门碎片.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Mortal Hope\"\n    SetFontSize 40\n    SetTextColor 136 190 221 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 17 44 60 255\n    CustomAlertSound \"Sharket掉落音效\\凡人的希望.mp3\" 300\n"
   },
   {
    "order": 123028,
@@ -8127,11 +8538,9 @@
    "file": "Maps/Fragments.json",
    "tier_key": "Tier 3 Fragments",
    "tier_num": 3,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：新月裂片",
-   "rule_index": 28,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Crescent Splinter"
    ],
@@ -8459,11 +8868,23 @@
    "file": "Misc/General.json",
    "tier_key": "Tier 1 Misc",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：白银钥匙",
-   "rule_index": 4,
-   "rule_authored": false,
+   "rule": null,
+   "bases": [
+    "Treasure Key"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Treasure Key\"\n    SetFontSize 45\n    SetTextColor 19 73 21 255\n    SetBorderColor 20 103 22 255\n    SetBackgroundColor 49 196 54 255\n    CustomAlertSound \"Sharket掉落音效\\古铜钥匙.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 131006,
+   "file": "Misc/General.json",
+   "tier_key": "Tier 1 Misc",
+   "tier_num": 1,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
    "bases": [
     "Silver Key"
    ],
@@ -8471,36 +8892,18 @@
    "text": "Show\n    BaseType == \"Silver Key\"\n    SetFontSize 45\n    SetTextColor 19 73 21 255\n    SetBorderColor 20 103 22 255\n    SetBackgroundColor 49 196 54 255\n    CustomAlertSound \"Sharket掉落音效\\白银钥匙.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 131006,
+   "order": 131007,
    "file": "Misc/General.json",
    "tier_key": "Tier 1 Misc",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：黄金钥匙",
-   "rule_index": 5,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Golden Key"
    ],
    "is_hide": false,
    "text": "Show\n    BaseType == \"Golden Key\"\n    SetFontSize 45\n    SetTextColor 19 73 21 255\n    SetBorderColor 20 103 22 255\n    SetBackgroundColor 49 196 54 255\n    CustomAlertSound \"Sharket掉落音效\\黄金钥匙.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
-  },
-  {
-   "order": 131007,
-   "file": "Misc/General.json",
-   "tier_key": "Tier 1 Misc",
-   "tier_num": 1,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：古铜钥匙",
-   "rule_index": 6,
-   "rule_authored": false,
-   "bases": [
-    "Treasure Key"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Treasure Key\"\n    SetFontSize 45\n    SetTextColor 19 73 21 255\n    SetBorderColor 20 103 22 255\n    SetBackgroundColor 49 196 54 255\n    CustomAlertSound \"Sharket掉落音效\\古铜钥匙.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
    "order": 141001,
@@ -9506,139 +9909,9 @@
    "file": "_legacy/Legacy.json",
    "tier_key": "Tier 1 Legacy",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：普兰德斯金币",
-   "rule_index": 0,
-   "rule_authored": false,
-   "bases": [
-    "Perandus Coin"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Perandus Coin\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\普兰德斯金币.mp3\" 100\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
-  },
-  {
-   "order": 161002,
-   "file": "_legacy/Legacy.json",
-   "tier_key": "Tier 1 Legacy",
-   "tier_num": 1,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：护甲重组器",
-   "rule_index": 1,
-   "rule_authored": false,
-   "bases": [
-    "Armour Recombinator"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Armour Recombinator\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\护甲重组器.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
-  },
-  {
-   "order": 161003,
-   "file": "_legacy/Legacy.json",
-   "tier_key": "Tier 1 Legacy",
-   "tier_num": 1,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：武器重组器",
-   "rule_index": 2,
-   "rule_authored": false,
-   "bases": [
-    "Weapon Recombinator"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Weapon Recombinator\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\武器重组器.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
-  },
-  {
-   "order": 161004,
-   "file": "_legacy/Legacy.json",
-   "tier_key": "Tier 1 Legacy",
-   "tier_num": 1,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：珠宝重组器",
-   "rule_index": 3,
-   "rule_authored": false,
-   "bases": [
-    "Jewellery Recombinator"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Jewellery Recombinator\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\珠宝重组器.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
-  },
-  {
-   "order": 161005,
-   "file": "_legacy/Legacy.json",
-   "tier_key": "Tier 1 Legacy",
-   "tier_num": 1,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：潜能项链",
-   "rule_index": 4,
-   "rule_authored": false,
-   "bases": [
-    "Unset Amulet"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Unset Amulet\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\潜能项链.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
-  },
-  {
-   "order": 161006,
-   "file": "_legacy/Legacy.json",
-   "tier_key": "Tier 1 Legacy",
-   "tier_num": 1,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：血色护身符",
-   "rule_index": 5,
-   "rule_authored": false,
-   "bases": [
-    "Ruby Amulet"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Ruby Amulet\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\血色护身符.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
-  },
-  {
-   "order": 161007,
-   "file": "_legacy/Legacy.json",
-   "tier_key": "Tier 1 Legacy",
-   "tier_num": 1,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：华美箭袋",
-   "rule_index": 6,
-   "rule_authored": false,
-   "bases": [
-    "Ornate Quiver"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Ornate Quiver\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\华美箭袋.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
-  },
-  {
-   "order": 161008,
-   "file": "_legacy/Legacy.json",
-   "tier_key": "Tier 1 Legacy",
-   "tier_num": 1,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：裂隙戒指",
-   "rule_index": 7,
-   "rule_authored": false,
-   "bases": [
-    "Breach Ring"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Breach Ring\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\裂隙戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
-  },
-  {
-   "order": 161009,
-   "file": "_legacy/Legacy.json",
-   "tier_key": "Tier 1 Legacy",
-   "tier_num": 1,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：三相珠宝",
-   "rule_index": 8,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Prismatic Jewel"
    ],
@@ -9646,47 +9919,27 @@
    "text": "Show\n    BaseType == \"Prismatic Jewel\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\三相珠宝.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 161010,
+   "order": 161002,
    "file": "_legacy/Legacy.json",
    "tier_key": "Tier 1 Legacy",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：永恒珠宝",
-   "rule_index": 9,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Timeless Jewel"
+    "Ornate Quiver"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Timeless Jewel\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\永恒珠宝.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+   "text": "Show\n    BaseType == \"Ornate Quiver\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\华美箭袋.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 161011,
+   "order": 161003,
    "file": "_legacy/Legacy.json",
    "tier_key": "Tier 1 Legacy",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：扼杀链甲",
-   "rule_index": 10,
-   "rule_authored": false,
-   "bases": [
-    "Grasping Mail"
-   ],
-   "is_hide": false,
-   "text": "Show\n    BaseType == \"Grasping Mail\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\扼杀链甲.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
-  },
-  {
-   "order": 161012,
-   "file": "_legacy/Legacy.json",
-   "tier_key": "Tier 1 Legacy",
-   "tier_num": 1,
-   "source": "auto_sound",
-   "match": "Exact",
-   "rule": "自动音效：圣洁遗物",
-   "rule_index": 11,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Sanctified Relic"
    ],
@@ -9694,31 +9947,125 @@
    "text": "Show\n    BaseType == \"Sanctified Relic\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\圣洁遗物.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 161013,
+   "order": 161004,
    "file": "_legacy/Legacy.json",
    "tier_key": "Tier 1 Legacy",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：高阶点金石",
-   "rule_index": 12,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Orb of Binding"
+    "Grasping Mail"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Binding\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\高阶点金石.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+   "text": "Show\n    BaseType == \"Grasping Mail\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\扼杀链甲.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
-   "order": 161014,
+   "order": 161005,
    "file": "_legacy/Legacy.json",
    "tier_key": "Tier 1 Legacy",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：统御宝珠",
-   "rule_index": 13,
-   "rule_authored": false,
+   "rule": null,
+   "bases": [
+    "Armour Recombinator"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Armour Recombinator\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\护甲重组器.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 161006,
+   "file": "_legacy/Legacy.json",
+   "tier_key": "Tier 1 Legacy",
+   "tier_num": 1,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Perandus Coin"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Perandus Coin\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\普兰德斯金币.mp3\" 100\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 161007,
+   "file": "_legacy/Legacy.json",
+   "tier_key": "Tier 1 Legacy",
+   "tier_num": 1,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Weapon Recombinator"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Weapon Recombinator\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\武器重组器.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 161008,
+   "file": "_legacy/Legacy.json",
+   "tier_key": "Tier 1 Legacy",
+   "tier_num": 1,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Timeless Jewel"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Timeless Jewel\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\永恒珠宝.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 161009,
+   "file": "_legacy/Legacy.json",
+   "tier_key": "Tier 1 Legacy",
+   "tier_num": 1,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Unset Amulet"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Unset Amulet\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\潜能项链.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 161010,
+   "file": "_legacy/Legacy.json",
+   "tier_key": "Tier 1 Legacy",
+   "tier_num": 1,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Jewellery Recombinator"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Jewellery Recombinator\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\珠宝重组器.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 161011,
+   "file": "_legacy/Legacy.json",
+   "tier_key": "Tier 1 Legacy",
+   "tier_num": 1,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Divine Vessel"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Divine Vessel\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\禁灵之瓶.mp3\" 100\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 161012,
+   "file": "_legacy/Legacy.json",
+   "tier_key": "Tier 1 Legacy",
+   "tier_num": 1,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
    "bases": [
     "Orb of Dominance"
    ],
@@ -9726,15 +10073,41 @@
    "text": "Show\n    BaseType == \"Orb of Dominance\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\统御宝珠.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
+   "order": 161013,
+   "file": "_legacy/Legacy.json",
+   "tier_key": "Tier 1 Legacy",
+   "tier_num": 1,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Ruby Amulet"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Ruby Amulet\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\血色护身符.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
+   "order": 161014,
+   "file": "_legacy/Legacy.json",
+   "tier_key": "Tier 1 Legacy",
+   "tier_num": 1,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Breach Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Breach Ring\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\裂隙戒指.mp3\" 200\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+  },
+  {
    "order": 161015,
    "file": "_legacy/Legacy.json",
    "tier_key": "Tier 1 Legacy",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：觉醒者之石",
-   "rule_index": 14,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
     "Awakener's Orb"
    ],
@@ -9746,16 +10119,14 @@
    "file": "_legacy/Legacy.json",
    "tier_key": "Tier 1 Legacy",
    "tier_num": 1,
-   "source": "auto_sound",
+   "source": "card",
    "match": "Exact",
-   "rule": "自动音效：禁灵之瓶",
-   "rule_index": 15,
-   "rule_authored": false,
+   "rule": null,
    "bases": [
-    "Divine Vessel"
+    "Orb of Binding"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Divine Vessel\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\禁灵之瓶.mp3\" 100\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
+   "text": "Show\n    BaseType == \"Orb of Binding\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 58 48 34 255\n    SetBackgroundColor 144 127 100 255\n    CustomAlertSound \"Sharket掉落音效\\高阶点金石.mp3\" 300\n    PlayEffect White\n    MinimapIcon 1 White Diamond\n"
   },
   {
    "order": 161017,
@@ -18424,7 +18795,7 @@
   "strictness": "soft",
   "language": "ch",
   "leveling_selection": {},
-  "blocks": 490,
+  "blocks": 533,
   "tiers": 419
  }
 }

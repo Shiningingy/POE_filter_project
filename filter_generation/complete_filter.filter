@@ -117,7 +117,7 @@
 
 #==[11000]-装备 Equipment - VendorRecipes VendorRecipes - 机会底材 Chancing Bases==
 
-#==[11001]- Chancing Bases -机会目标（普通品质） 机会底材 - 自动音效：Opal Ring - 精确==
+#==[11001]- Chancing Bases -机会目标（普通品质） 机会底材 - 基础 - 物品卡：Opal Ring - 精确==
 Show
     BaseType == "Opal Ring"
     Rarity Normal
@@ -576,41 +576,7 @@ Show
 
 #==[32000]-装备 Equipment - 优先精品底材 Crafting Priority==
 
-#==[32001]- Crafting Priority -完美防御数值 优先精品底材 - 自动音效：药剂师手套 - 精确==
-Show
-    BaseType == "Apothecary's Gloves"
-    Rarity <= Rare
-    BaseDefencePercentile >= 99
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 84
-    SetFontSize 45
-    SetTextColor 111 88 42 255
-    SetBorderColor 146 123 79 255
-    SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\药剂师手套.mp3" 200
-    PlayEffect White
-    MinimapIcon 0 White Star
-
-
-#==[32002]- Crafting Priority -完美防御数值 优先精品底材 - 自动音效：唤骨头盔 - 精确==
-Show
-    BaseType == "Bone Helmet"
-    Rarity <= Rare
-    BaseDefencePercentile >= 99
-    Corrupted False
-    Mirrored False
-    ItemLevel >= 84
-    SetFontSize 45
-    SetTextColor 111 88 42 255
-    SetBorderColor 146 123 79 255
-    SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\唤骨头盔.mp3" 200
-    PlayEffect White
-    MinimapIcon 0 White Star
-
-
-#==[32003]- Crafting Priority -完美防御数值 优先精品底材 - 自动音效：丝绸手套 - 精确==
+#==[32001]- Crafting Priority -完美防御数值 优先精品底材 - 基础 - 物品卡：丝绸手套 - 精确==
 Show
     BaseType == "Fingerless Silk Gloves"
     Rarity <= Rare
@@ -627,9 +593,9 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[32004]- Crafting Priority -完美防御数值 优先精品底材 - 自动音效：逃亡之靴 - 精确==
+#==[32002]- Crafting Priority -完美防御数值 优先精品底材 - 基础 - 物品卡：唤骨头盔 - 精确==
 Show
-    BaseType == "Fugitive Boots"
+    BaseType == "Bone Helmet"
     Rarity <= Rare
     BaseDefencePercentile >= 99
     Corrupted False
@@ -639,12 +605,29 @@ Show
     SetTextColor 111 88 42 255
     SetBorderColor 146 123 79 255
     SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\逃亡之靴.mp3" 200
+    CustomAlertSound "Sharket掉落音效\唤骨头盔.mp3" 200
     PlayEffect White
     MinimapIcon 0 White Star
 
 
-#==[32005]- Crafting Priority -完美防御数值 优先精品底材 - 自动音效：擒拿手套 - 精确==
+#==[32003]- Crafting Priority -完美防御数值 优先精品底材 - 基础 - 物品卡：扣钉手套 - 精确==
+Show
+    BaseType == "Spiked Gloves"
+    Rarity <= Rare
+    BaseDefencePercentile >= 99
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 84
+    SetFontSize 45
+    SetTextColor 111 88 42 255
+    SetBorderColor 146 123 79 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\扣钉手套.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[32004]- Crafting Priority -完美防御数值 优先精品底材 - 基础 - 物品卡：擒拿手套 - 精确==
 Show
     BaseType == "Gripped Gloves"
     Rarity <= Rare
@@ -661,7 +644,7 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[32006]- Crafting Priority -完美防御数值 优先精品底材 - 自动音效：祭礼束衣 - 精确==
+#==[32005]- Crafting Priority -完美防御数值 优先精品底材 - 基础 - 物品卡：祭礼束衣 - 精确==
 Show
     BaseType == "Sacrificial Garb"
     Rarity <= Rare
@@ -678,9 +661,9 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[32007]- Crafting Priority -完美防御数值 优先精品底材 - 自动音效：扣钉手套 - 精确==
+#==[32006]- Crafting Priority -完美防御数值 优先精品底材 - 基础 - 物品卡：药剂师手套 - 精确==
 Show
-    BaseType == "Spiked Gloves"
+    BaseType == "Apothecary's Gloves"
     Rarity <= Rare
     BaseDefencePercentile >= 99
     Corrupted False
@@ -690,7 +673,24 @@ Show
     SetTextColor 111 88 42 255
     SetBorderColor 146 123 79 255
     SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\扣钉手套.mp3" 200
+    CustomAlertSound "Sharket掉落音效\药剂师手套.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[32007]- Crafting Priority -完美防御数值 优先精品底材 - 基础 - 物品卡：逃亡之靴 - 精确==
+Show
+    BaseType == "Fugitive Boots"
+    Rarity <= Rare
+    BaseDefencePercentile >= 99
+    Corrupted False
+    Mirrored False
+    ItemLevel >= 84
+    SetFontSize 45
+    SetTextColor 111 88 42 255
+    SetBorderColor 146 123 79 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\逃亡之靴.mp3" 200
     PlayEffect White
     MinimapIcon 0 White Star
 
@@ -711,21 +711,7 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[32009]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：火炮箭袋 - 精确==
-Show
-    BaseType == "Artillery Quiver"
-    Rarity <= Rare
-    Quality > 20
-    SetFontSize 45
-    SetTextColor 111 88 42 255
-    SetBorderColor 146 123 79 255
-    SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\火炮箭袋.mp3" 200
-    PlayEffect White
-    MinimapIcon 0 White Star
-
-
-#==[32010]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：召集法杖 - 精确==
+#==[32009]- Crafting Priority -超额品质底材 优先精品底材 - 基础 - 物品卡：召集法杖 - 精确==
 Show
     BaseType == "Convoking Wand"
     Rarity <= Rare
@@ -739,63 +725,7 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[32011]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：水晶腰带 - 精确==
-Show
-    BaseType == "Crystal Belt"
-    Rarity <= Rare
-    Quality > 20
-    SetFontSize 45
-    SetTextColor 111 88 42 255
-    SetBorderColor 146 123 79 255
-    SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\水晶腰带.mp3" 200
-    PlayEffect White
-    MinimapIcon 0 White Star
-
-
-#==[32012]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：青石戒指 - 精确==
-Show
-    BaseType == "Iolite Ring"
-    Rarity <= Rare
-    Quality > 20
-    SetFontSize 45
-    SetTextColor 111 88 42 255
-    SetBorderColor 146 123 79 255
-    SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\青石戒指.mp3" 200
-    PlayEffect White
-    MinimapIcon 0 White Star
-
-
-#==[32013]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：蛋白石戒指 - 精确==
-Show
-    BaseType == "Opal Ring"
-    Rarity <= Rare
-    Quality > 20
-    SetFontSize 45
-    SetTextColor 111 88 42 255
-    SetBorderColor 146 123 79 255
-    SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\蛋白石戒指.mp3" 200
-    PlayEffect White
-    MinimapIcon 0 White Star
-
-
-#==[32014]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：祭礼束衣 - 精确==
-Show
-    BaseType == "Sacrificial Garb"
-    Rarity <= Rare
-    Quality > 20
-    SetFontSize 45
-    SetTextColor 111 88 42 255
-    SetBorderColor 146 123 79 255
-    SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\祭礼束衣.mp3" 200
-    PlayEffect White
-    MinimapIcon 0 White Star
-
-
-#==[32015]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：合金戒指 - 精确==
+#==[32010]- Crafting Priority -超额品质底材 优先精品底材 - 基础 - 物品卡：合金戒指 - 精确==
 Show
     BaseType == "Steel Ring"
     Rarity <= Rare
@@ -809,7 +739,7 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[32016]- Crafting Priority -超额品质底材 优先精品底材 - 自动音效：朱砂之戒 - 精确==
+#==[32011]- Crafting Priority -超额品质底材 优先精品底材 - 基础 - 物品卡：朱砂之戒 - 精确==
 Show
     BaseType == "Vermillion Ring"
     Rarity <= Rare
@@ -819,6 +749,76 @@ Show
     SetBorderColor 146 123 79 255
     SetBackgroundColor 248 248 242 255
     CustomAlertSound "Sharket掉落音效\朱砂之戒.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[32012]- Crafting Priority -超额品质底材 优先精品底材 - 基础 - 物品卡：水晶腰带 - 精确==
+Show
+    BaseType == "Crystal Belt"
+    Rarity <= Rare
+    Quality > 20
+    SetFontSize 45
+    SetTextColor 111 88 42 255
+    SetBorderColor 146 123 79 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\水晶腰带.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[32013]- Crafting Priority -超额品质底材 优先精品底材 - 基础 - 物品卡：火炮箭袋 - 精确==
+Show
+    BaseType == "Artillery Quiver"
+    Rarity <= Rare
+    Quality > 20
+    SetFontSize 45
+    SetTextColor 111 88 42 255
+    SetBorderColor 146 123 79 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\火炮箭袋.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[32014]- Crafting Priority -超额品质底材 优先精品底材 - 基础 - 物品卡：祭礼束衣 - 精确==
+Show
+    BaseType == "Sacrificial Garb"
+    Rarity <= Rare
+    Quality > 20
+    SetFontSize 45
+    SetTextColor 111 88 42 255
+    SetBorderColor 146 123 79 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\祭礼束衣.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[32015]- Crafting Priority -超额品质底材 优先精品底材 - 基础 - 物品卡：蛋白石戒指 - 精确==
+Show
+    BaseType == "Opal Ring"
+    Rarity <= Rare
+    Quality > 20
+    SetFontSize 45
+    SetTextColor 111 88 42 255
+    SetBorderColor 146 123 79 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\蛋白石戒指.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[32016]- Crafting Priority -超额品质底材 优先精品底材 - 基础 - 物品卡：青石戒指 - 精确==
+Show
+    BaseType == "Iolite Ring"
+    Rarity <= Rare
+    Quality > 20
+    SetFontSize 45
+    SetTextColor 111 88 42 255
+    SetBorderColor 146 123 79 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\青石戒指.mp3" 200
     PlayEffect White
     MinimapIcon 0 White Star
 
@@ -836,22 +836,7 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[32018]- Crafting Priority -追忆武器底材 优先精品底材 - 自动音效：火炮箭袋 - 精确==
-Show
-    BaseType == "Artillery Quiver"
-    Rarity <= Rare
-    MemoryStrands >= 1
-    ItemLevel >= 83
-    SetFontSize 45
-    SetTextColor 111 88 42 255
-    SetBorderColor 146 123 79 255
-    SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\火炮箭袋.mp3" 200
-    PlayEffect White
-    MinimapIcon 0 White Star
-
-
-#==[32019]- Crafting Priority -追忆武器底材 优先精品底材 - 自动音效：召集法杖 - 精确==
+#==[32018]- Crafting Priority -追忆武器底材 优先精品底材 - 基础 - 物品卡：召集法杖 - 精确==
 Show
     BaseType == "Convoking Wand"
     Rarity <= Rare
@@ -862,6 +847,21 @@ Show
     SetBorderColor 146 123 79 255
     SetBackgroundColor 248 248 242 255
     CustomAlertSound "Sharket掉落音效\召集法杖.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[32019]- Crafting Priority -追忆武器底材 优先精品底材 - 基础 - 物品卡：火炮箭袋 - 精确==
+Show
+    BaseType == "Artillery Quiver"
+    Rarity <= Rare
+    MemoryStrands >= 1
+    ItemLevel >= 83
+    SetFontSize 45
+    SetTextColor 111 88 42 255
+    SetBorderColor 146 123 79 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\火炮箭袋.mp3" 200
     PlayEffect White
     MinimapIcon 0 White Star
 
@@ -880,63 +880,7 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[32021]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 自动音效：水晶腰带 - 精确==
-Show
-    BaseType == "Crystal Belt"
-    Rarity <= Rare
-    MemoryStrands >= 1
-    SetFontSize 45
-    SetTextColor 111 88 42 255
-    SetBorderColor 146 123 79 255
-    SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\水晶腰带.mp3" 200
-    PlayEffect White
-    MinimapIcon 0 White Star
-
-
-#==[32022]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 自动音效：青石戒指 - 精确==
-Show
-    BaseType == "Iolite Ring"
-    Rarity <= Rare
-    MemoryStrands >= 1
-    SetFontSize 45
-    SetTextColor 111 88 42 255
-    SetBorderColor 146 123 79 255
-    SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\青石戒指.mp3" 200
-    PlayEffect White
-    MinimapIcon 0 White Star
-
-
-#==[32023]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 自动音效：蛋白石戒指 - 精确==
-Show
-    BaseType == "Opal Ring"
-    Rarity <= Rare
-    MemoryStrands >= 1
-    SetFontSize 45
-    SetTextColor 111 88 42 255
-    SetBorderColor 146 123 79 255
-    SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\蛋白石戒指.mp3" 200
-    PlayEffect White
-    MinimapIcon 0 White Star
-
-
-#==[32024]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 自动音效：祭礼束衣 - 精确==
-Show
-    BaseType == "Sacrificial Garb"
-    Rarity <= Rare
-    MemoryStrands >= 1
-    SetFontSize 45
-    SetTextColor 111 88 42 255
-    SetBorderColor 146 123 79 255
-    SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\祭礼束衣.mp3" 200
-    PlayEffect White
-    MinimapIcon 0 White Star
-
-
-#==[32025]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 自动音效：合金戒指 - 精确==
+#==[32021]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 基础 - 物品卡：合金戒指 - 精确==
 Show
     BaseType == "Steel Ring"
     Rarity <= Rare
@@ -950,7 +894,7 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[32026]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 自动音效：朱砂之戒 - 精确==
+#==[32022]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 基础 - 物品卡：朱砂之戒 - 精确==
 Show
     BaseType == "Vermillion Ring"
     Rarity <= Rare
@@ -960,6 +904,62 @@ Show
     SetBorderColor 146 123 79 255
     SetBackgroundColor 248 248 242 255
     CustomAlertSound "Sharket掉落音效\朱砂之戒.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[32023]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 基础 - 物品卡：水晶腰带 - 精确==
+Show
+    BaseType == "Crystal Belt"
+    Rarity <= Rare
+    MemoryStrands >= 1
+    SetFontSize 45
+    SetTextColor 111 88 42 255
+    SetBorderColor 146 123 79 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\水晶腰带.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[32024]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 基础 - 物品卡：祭礼束衣 - 精确==
+Show
+    BaseType == "Sacrificial Garb"
+    Rarity <= Rare
+    MemoryStrands >= 1
+    SetFontSize 45
+    SetTextColor 111 88 42 255
+    SetBorderColor 146 123 79 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\祭礼束衣.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[32025]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 基础 - 物品卡：蛋白石戒指 - 精确==
+Show
+    BaseType == "Opal Ring"
+    Rarity <= Rare
+    MemoryStrands >= 1
+    SetFontSize 45
+    SetTextColor 111 88 42 255
+    SetBorderColor 146 123 79 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\蛋白石戒指.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[32026]- Crafting Priority -追忆防具/首饰底材 优先精品底材 - 基础 - 物品卡：青石戒指 - 精确==
+Show
+    BaseType == "Iolite Ring"
+    Rarity <= Rare
+    MemoryStrands >= 1
+    SetFontSize 45
+    SetTextColor 111 88 42 255
+    SetBorderColor 146 123 79 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\青石戒指.mp3" 200
     PlayEffect White
     MinimapIcon 0 White Star
 
@@ -977,7 +977,7 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[32028]- Crafting Priority -精品底材 i86+ 优先精品底材 - 自动音效：水晶腰带 - 精确==
+#==[32028]- Crafting Priority -精品底材 i86+ 优先精品底材 - 基础 - 物品卡：水晶腰带 - 精确==
 Show
     BaseType == "Crystal Belt"
     Rarity <= Rare
@@ -989,7 +989,7 @@ Show
     CustomAlertSound "Sharket掉落音效\水晶腰带.mp3" 200
 
 
-#==[32029]- Crafting Priority -精品底材 i86+ 优先精品底材 - 自动音效：祭礼束衣 - 精确==
+#==[32029]- Crafting Priority -精品底材 i86+ 优先精品底材 - 基础 - 物品卡：祭礼束衣 - 精确==
 Show
     BaseType == "Sacrificial Garb"
     Rarity <= Rare
@@ -1023,31 +1023,7 @@ Show
     SetBackgroundColor 126 107 68 255
 
 
-#==[32032]- Crafting Priority -精品底材 i84+ 优先精品底材 - 自动音效：青石戒指 - 精确==
-Show
-    BaseType == "Iolite Ring"
-    Rarity <= Rare
-    ItemLevel >= 84
-    SetFontSize 40
-    SetTextColor 247 242 233 255
-    SetBorderColor 212 200 175 255
-    SetBackgroundColor 126 107 68 255
-    CustomAlertSound "Sharket掉落音效\青石戒指.mp3" 200
-
-
-#==[32033]- Crafting Priority -精品底材 i84+ 优先精品底材 - 自动音效：蛋白石戒指 - 精确==
-Show
-    BaseType == "Opal Ring"
-    Rarity <= Rare
-    ItemLevel >= 84
-    SetFontSize 40
-    SetTextColor 247 242 233 255
-    SetBorderColor 212 200 175 255
-    SetBackgroundColor 126 107 68 255
-    CustomAlertSound "Sharket掉落音效\蛋白石戒指.mp3" 200
-
-
-#==[32034]- Crafting Priority -精品底材 i84+ 优先精品底材 - 自动音效：合金戒指 - 精确==
+#==[32032]- Crafting Priority -精品底材 i84+ 优先精品底材 - 基础 - 物品卡：合金戒指 - 精确==
 Show
     BaseType == "Steel Ring"
     Rarity <= Rare
@@ -1059,7 +1035,7 @@ Show
     CustomAlertSound "Sharket掉落音效\合金戒指.mp3" 200
 
 
-#==[32035]- Crafting Priority -精品底材 i84+ 优先精品底材 - 自动音效：朱砂之戒 - 精确==
+#==[32033]- Crafting Priority -精品底材 i84+ 优先精品底材 - 基础 - 物品卡：朱砂之戒 - 精确==
 Show
     BaseType == "Vermillion Ring"
     Rarity <= Rare
@@ -1069,6 +1045,30 @@ Show
     SetBorderColor 212 200 175 255
     SetBackgroundColor 126 107 68 255
     CustomAlertSound "Sharket掉落音效\朱砂之戒.mp3" 200
+
+
+#==[32034]- Crafting Priority -精品底材 i84+ 优先精品底材 - 基础 - 物品卡：蛋白石戒指 - 精确==
+Show
+    BaseType == "Opal Ring"
+    Rarity <= Rare
+    ItemLevel >= 84
+    SetFontSize 40
+    SetTextColor 247 242 233 255
+    SetBorderColor 212 200 175 255
+    SetBackgroundColor 126 107 68 255
+    CustomAlertSound "Sharket掉落音效\蛋白石戒指.mp3" 200
+
+
+#==[32035]- Crafting Priority -精品底材 i84+ 优先精品底材 - 基础 - 物品卡：青石戒指 - 精确==
+Show
+    BaseType == "Iolite Ring"
+    Rarity <= Rare
+    ItemLevel >= 84
+    SetFontSize 40
+    SetTextColor 247 242 233 255
+    SetBorderColor 212 200 175 255
+    SetBackgroundColor 126 107 68 255
+    CustomAlertSound "Sharket掉落音效\青石戒指.mp3" 200
 
 
 #===================================================================================================================
@@ -1125,7 +1125,7 @@ Show
 
 #==[42000]-通货 Currency - 可堆叠通货 Delirium Orbs==
 
-#==[42001]- Delirium Orbs -T0: 顶级/核心 可堆叠通货 - 自动音效：雾魇宝珠 - 精确==
+#==[42001]- Delirium Orbs -T0: 顶级/核心 可堆叠通货 - 基础 - 物品卡：雾魇宝珠 - 精确==
 Show
     BaseType == "Delirium Orb"
     SetFontSize 45
@@ -1245,7 +1245,19 @@ Show
 
 #==[46000]-通货 Currency - 可堆叠通货 General==
 
-#==[46001]- General -T0: 顶级通货 可堆叠通货 - 自动音效：卡兰德的魔镜 - 精确==
+#==[46001]- General -T0: 顶级通货 可堆叠通货 - 基础 - 物品卡：倒映薄雾 - 精确==
+Show
+    BaseType == "Reflecting Mist"
+    SetFontSize 45
+    SetTextColor 139 106 14 255
+    SetBorderColor 176 134 17 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\倒映薄雾.mp3" 300
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[46002]- General -T0: 顶级通货 可堆叠通货 - 基础 - 物品卡：卡兰德的魔镜 - 精确==
 Show
     BaseType == "Mirror of Kalandra"
     SetFontSize 45
@@ -1257,7 +1269,7 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[46002]- General -T0: 顶级通货 可堆叠通货 - 自动音效：永恒宝珠 - 精确==
+#==[46003]- General -T0: 顶级通货 可堆叠通货 - 基础 - 物品卡：永恒宝珠 - 精确==
 Show
     BaseType == "Eternal Orb"
     SetFontSize 45
@@ -1269,7 +1281,7 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[46003]- General -T0: 顶级通货 可堆叠通货 - 自动音效：白化的羽毛 - 精确==
+#==[46004]- General -T0: 顶级通货 可堆叠通货 - 基础 - 物品卡：白化的羽毛 - 精确==
 Show
     BaseType == "Albino Rhoa Feather"
     SetFontSize 45
@@ -1281,7 +1293,7 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[46004]- General -T0: 顶级通货 可堆叠通货 - 自动音效：破溃宝珠 - 精确==
+#==[46005]- General -T0: 顶级通货 可堆叠通货 - 基础 - 物品卡：破溃宝珠 - 精确==
 Show
     BaseType == "Fracturing Orb"
     SetFontSize 45
@@ -1289,18 +1301,6 @@ Show
     SetBorderColor 176 134 17 255
     SetBackgroundColor 248 248 242 255
     CustomAlertSound "Sharket掉落音效\破溃宝珠.mp3" 300
-    PlayEffect White
-    MinimapIcon 0 White Star
-
-
-#==[46005]- General -T0: 顶级通货 可堆叠通货 - 自动音效：倒映薄雾 - 精确==
-Show
-    BaseType == "Reflecting Mist"
-    SetFontSize 45
-    SetTextColor 139 106 14 255
-    SetBorderColor 176 134 17 255
-    SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\倒映薄雾.mp3" 300
     PlayEffect White
     MinimapIcon 0 White Star
 
@@ -1317,19 +1317,7 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[46007]- General -T1: 神圣石级 可堆叠通货 - 自动音效：神圣石 - 精确==
-Show
-    BaseType == "Divine Orb"
-    SetFontSize 45
-    SetTextColor 84 64 8 255
-    SetBorderColor 116 87 6 255
-    SetBackgroundColor 223 169 22 255
-    CustomAlertSound "Sharket掉落音效\神圣石.mp3" 300
-    PlayEffect White
-    MinimapIcon 1 White Diamond
-
-
-#==[46008]- General -T1: 神圣石级 可堆叠通货 - 自动音效：冲突石 - 精确==
+#==[46007]- General -T1: 神圣石级 可堆叠通货 - 基础 - 物品卡：冲突石 - 精确==
 Show
     BaseType == "Orb of Conflict"
     SetFontSize 45
@@ -1341,7 +1329,19 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[46009]- General -T1: 神圣石级 可堆叠通货 - 自动音效：崇神石 - 精确==
+#==[46008]- General -T1: 神圣石级 可堆叠通货 - 基础 - 物品卡：古灵混沌石 - 精确==
+Show
+    BaseType == "Eldritch Chaos Orb"
+    SetFontSize 45
+    SetTextColor 84 64 8 255
+    SetBorderColor 116 87 6 255
+    SetBackgroundColor 223 169 22 255
+    CustomAlertSound "Sharket掉落音效\古灵混沌石.mp3" 300
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[46009]- General -T1: 神圣石级 可堆叠通货 - 基础 - 物品卡：崇神石 - 精确==
 Show
     BaseType == "Sacred Orb"
     SetFontSize 45
@@ -1353,14 +1353,14 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[46010]- General -T1: 神圣石级 可堆叠通货 - 自动音效：古灵混沌石 - 精确==
+#==[46010]- General -T1: 神圣石级 可堆叠通货 - 基础 - 物品卡：神圣石 - 精确==
 Show
-    BaseType == "Eldritch Chaos Orb"
+    BaseType == "Divine Orb"
     SetFontSize 45
     SetTextColor 84 64 8 255
     SetBorderColor 116 87 6 255
     SetBackgroundColor 223 169 22 255
-    CustomAlertSound "Sharket掉落音效\古灵混沌石.mp3" 300
+    CustomAlertSound "Sharket掉落音效\神圣石.mp3" 300
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -1389,18 +1389,7 @@ Show
     MinimapIcon 2 Yellow Diamond
 
 
-#==[46013]- General -T2: 高价值通货 可堆叠通货 - 自动音效：古灵崇高石 - 精确==
-Show
-    BaseType == "Eldritch Exalted Orb"
-    SetFontSize 40
-    SetTextColor 0 0 0 255
-    SetBorderColor 74 56 7 255
-    SetBackgroundColor 176 134 17 255
-    CustomAlertSound "Sharket掉落音效\古灵崇高石.mp3" 300
-    MinimapIcon 2 Yellow Diamond
-
-
-#==[46014]- General -T2: 高价值通货 可堆叠通货 - 自动音效：古灵剥离石 - 精确==
+#==[46013]- General -T2: 高价值通货 可堆叠通货 - 基础 - 物品卡：古灵剥离石 - 精确==
 Show
     BaseType == "Eldritch Orb of Annulment"
     SetFontSize 40
@@ -1411,7 +1400,18 @@ Show
     MinimapIcon 2 Yellow Diamond
 
 
-#==[46015]- General -T2: 高价值通货 可堆叠通货 - 自动音效：破溃碎片 - 精确==
+#==[46014]- General -T2: 高价值通货 可堆叠通货 - 基础 - 物品卡：古灵崇高石 - 精确==
+Show
+    BaseType == "Eldritch Exalted Orb"
+    SetFontSize 40
+    SetTextColor 0 0 0 255
+    SetBorderColor 74 56 7 255
+    SetBackgroundColor 176 134 17 255
+    CustomAlertSound "Sharket掉落音效\古灵崇高石.mp3" 300
+    MinimapIcon 2 Yellow Diamond
+
+
+#==[46015]- General -T2: 高价值通货 可堆叠通货 - 基础 - 物品卡：破溃碎片 - 精确==
 Show
     BaseType == "Fracturing Shard"
     SetFontSize 40
@@ -1422,7 +1422,7 @@ Show
     MinimapIcon 2 Yellow Diamond
 
 
-#==[46016]- General -T2: 高价值通货 可堆叠通货 - 自动音效：费斯特的透镜 - 精确==
+#==[46016]- General -T2: 高价值通货 可堆叠通货 - 基础 - 物品卡：费斯特的透镜 - 精确==
 Show
     BaseType == "Facetor's Lens"
     SetFontSize 40
@@ -1444,7 +1444,7 @@ Show
     MinimapIcon 2 Yellow Diamond
 
 
-#==[46018]- General -T3: 崇高石级 可堆叠通货 - #1 规则 - 精确==
+#==[46018]- General -T3: 崇高石级 可堆叠通货 - #1 规则 - 物品卡：混沌石 - 精确==
 Show
     BaseType == "Chaos Orb"
     StackSize >= 10
@@ -1452,33 +1452,11 @@ Show
     SetTextColor 241 208 116 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 70 53 7 255
-    CustomAlertSound "Sharket掉落音效\通货.mp3" 100
+    CustomAlertSound "Sharket掉落音效\混沌石.mp3" 300
     MinimapIcon 1 Yellow Diamond
 
 
-#==[46019]- General -T3: 崇高石级 可堆叠通货 - 自动音效：崇高石 - 精确==
-Show
-    BaseType == "Exalted Orb"
-    SetFontSize 40
-    SetTextColor 241 208 116 255
-    SetBorderColor 0 0 0 0
-    SetBackgroundColor 70 53 7 255
-    CustomAlertSound "Sharket掉落音效\崇高石.mp3" 300
-    MinimapIcon 1 Yellow Diamond
-
-
-#==[46020]- General -T3: 崇高石级 可堆叠通货 - 自动音效：远古石 - 精确==
-Show
-    BaseType == "Ancient Orb"
-    SetFontSize 40
-    SetTextColor 241 208 116 255
-    SetBorderColor 0 0 0 0
-    SetBackgroundColor 70 53 7 255
-    CustomAlertSound "Sharket掉落音效\远古石.mp3" 300
-    MinimapIcon 1 Yellow Diamond
-
-
-#==[46021]- General -T3: 崇高石级 可堆叠通货 - 自动音效：剥离石 - 精确==
+#==[46019]- General -T3: 崇高石级 可堆叠通货 - 基础 - 物品卡：剥离石 - 精确==
 Show
     BaseType == "Orb of Annulment"
     SetFontSize 40
@@ -1489,7 +1467,7 @@ Show
     MinimapIcon 1 Yellow Diamond
 
 
-#==[46022]- General -T3: 崇高石级 可堆叠通货 - 自动音效：富豪石 - 精确==
+#==[46020]- General -T3: 崇高石级 可堆叠通货 - 基础 - 物品卡：富豪石 - 精确==
 Show
     BaseType == "Regal Orb"
     SetFontSize 40
@@ -1500,7 +1478,18 @@ Show
     MinimapIcon 1 Yellow Diamond
 
 
-#==[46023]- General -T3: 崇高石级 可堆叠通货 - 自动音效：异域铸币 - 精确==
+#==[46021]- General -T3: 崇高石级 可堆叠通货 - 基础 - 物品卡：崇高石 - 精确==
+Show
+    BaseType == "Exalted Orb"
+    SetFontSize 40
+    SetTextColor 241 208 116 255
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 70 53 7 255
+    CustomAlertSound "Sharket掉落音效\崇高石.mp3" 300
+    MinimapIcon 1 Yellow Diamond
+
+
+#==[46022]- General -T3: 崇高石级 可堆叠通货 - 基础 - 物品卡：异域铸币 - 精确==
 Show
     BaseType == "Exotic Coinage"
     SetFontSize 40
@@ -1511,7 +1500,7 @@ Show
     MinimapIcon 1 Yellow Diamond
 
 
-#==[46024]- General -T3: 崇高石级 可堆叠通货 - 自动音效：葬礼徽章 - 精确==
+#==[46023]- General -T3: 崇高石级 可堆叠通货 - 基础 - 物品卡：葬礼徽章 - 精确==
 Show
     BaseType == "Burial Medallion"
     SetFontSize 40
@@ -1519,6 +1508,17 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 70 53 7 255
     CustomAlertSound "Sharket掉落音效\葬礼徽章.mp3" 200
+    MinimapIcon 1 Yellow Diamond
+
+
+#==[46024]- General -T3: 崇高石级 可堆叠通货 - 基础 - 物品卡：远古石 - 精确==
+Show
+    BaseType == "Ancient Orb"
+    SetFontSize 40
+    SetTextColor 241 208 116 255
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 70 53 7 255
+    CustomAlertSound "Sharket掉落音效\远古石.mp3" 300
     MinimapIcon 1 Yellow Diamond
 
 
@@ -1533,29 +1533,7 @@ Show
     MinimapIcon 1 Yellow Diamond
 
 
-#==[46026]- General -T4: 混沌石级 可堆叠通货 - 自动音效：瓦尔宝珠 - 精确==
-Show
-    BaseType == "Vaal Orb"
-    SetFontSize 35
-    SetTextColor 241 208 116 255
-    SetBorderColor 0 0 0 0
-    SetBackgroundColor 51 39 5 255
-    CustomAlertSound "Sharket掉落音效\瓦尔宝珠.mp3" 300
-    MinimapIcon 0 Yellow Diamond
-
-
-#==[46027]- General -T4: 混沌石级 可堆叠通货 - 自动音效：重铸石 - 精确==
-Show
-    BaseType == "Orb of Scouring"
-    SetFontSize 35
-    SetTextColor 241 208 116 255
-    SetBorderColor 0 0 0 0
-    SetBackgroundColor 51 39 5 255
-    CustomAlertSound "Sharket掉落音效\重铸石.mp3" 300
-    MinimapIcon 0 Yellow Diamond
-
-
-#==[46028]- General -T4: 混沌石级 可堆叠通货 - 自动音效：幻色石 - 精确==
+#==[46026]- General -T4: 混沌石级 可堆叠通货 - 基础 - 物品卡：幻色石 - 精确==
 Show
     BaseType == "Chromatic Orb"
     SetFontSize 35
@@ -1566,18 +1544,7 @@ Show
     MinimapIcon 0 Yellow Diamond
 
 
-#==[46029]- General -T4: 混沌石级 可堆叠通货 - 自动音效：祝福石 - 精确==
-Show
-    BaseType == "Blessed Orb"
-    SetFontSize 35
-    SetTextColor 241 208 116 255
-    SetBorderColor 0 0 0 0
-    SetBackgroundColor 51 39 5 255
-    CustomAlertSound "Sharket掉落音效\祝福石.mp3" 200
-    MinimapIcon 0 Yellow Diamond
-
-
-#==[46030]- General -T4: 混沌石级 可堆叠通货 - 自动音效：废金属 - 精确==
+#==[46027]- General -T4: 混沌石级 可堆叠通货 - 基础 - 物品卡：废金属 - 精确==
 Show
     BaseType == "Scrap Metal"
     SetFontSize 35
@@ -1588,9 +1555,53 @@ Show
     MinimapIcon 0 Yellow Diamond
 
 
-#==[46031]- General -T4: 混沌石级 可堆叠通货 - 基础 - 精确==
+#==[46028]- General -T4: 混沌石级 可堆叠通货 - 基础 - 物品卡：混沌石 - 精确==
 Show
-    BaseType == "Abrasive Catalyst" "Accelerating Catalyst" "Annulment Shard" "Astragali" "Chaos Orb" "Exalted Shard" "Gemcutter's Prism" "Imbued Catalyst" "Intrinsic Catalyst" "Lesser Eldritch Ember" "Lesser Eldritch Ichor" "Noxious Catalyst" "Orb of Intention" "Unstable Catalyst"
+    BaseType == "Chaos Orb"
+    SetFontSize 35
+    SetTextColor 241 208 116 255
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 51 39 5 255
+    CustomAlertSound "Sharket掉落音效\混沌石.mp3" 300
+    MinimapIcon 0 Yellow Diamond
+
+
+#==[46029]- General -T4: 混沌石级 可堆叠通货 - 基础 - 物品卡：瓦尔宝珠 - 精确==
+Show
+    BaseType == "Vaal Orb"
+    SetFontSize 35
+    SetTextColor 241 208 116 255
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 51 39 5 255
+    CustomAlertSound "Sharket掉落音效\瓦尔宝珠.mp3" 300
+    MinimapIcon 0 Yellow Diamond
+
+
+#==[46030]- General -T4: 混沌石级 可堆叠通货 - 基础 - 物品卡：祝福石 - 精确==
+Show
+    BaseType == "Blessed Orb"
+    SetFontSize 35
+    SetTextColor 241 208 116 255
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 51 39 5 255
+    CustomAlertSound "Sharket掉落音效\祝福石.mp3" 200
+    MinimapIcon 0 Yellow Diamond
+
+
+#==[46031]- General -T4: 混沌石级 可堆叠通货 - 基础 - 物品卡：重铸石 - 精确==
+Show
+    BaseType == "Orb of Scouring"
+    SetFontSize 35
+    SetTextColor 241 208 116 255
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 51 39 5 255
+    CustomAlertSound "Sharket掉落音效\重铸石.mp3" 300
+    MinimapIcon 0 Yellow Diamond
+
+
+#==[46032]- General -T4: 混沌石级 可堆叠通货 - 基础 - 精确==
+Show
+    BaseType == "Abrasive Catalyst" "Accelerating Catalyst" "Annulment Shard" "Astragali" "Exalted Shard" "Gemcutter's Prism" "Imbued Catalyst" "Intrinsic Catalyst" "Lesser Eldritch Ember" "Lesser Eldritch Ichor" "Noxious Catalyst" "Orb of Intention" "Unstable Catalyst"
     SetFontSize 35
     SetTextColor 241 208 116 255
     SetBorderColor 0 0 0 0
@@ -1599,7 +1610,7 @@ Show
     MinimapIcon 0 Yellow Diamond
 
 
-#==[46032]- General -T5:点金石级 可堆叠通货 - 自动音效：后悔石 - 精确==
+#==[46033]- General -T5:点金石级 可堆叠通货 - 基础 - 物品卡：后悔石 - 精确==
 Show
     BaseType == "Orb of Regret"
     SetFontSize 35
@@ -1609,17 +1620,7 @@ Show
     MinimapIcon 0 Yellow Diamond
 
 
-#==[46033]- General -T5:点金石级 可堆叠通货 - 自动音效：粉碎石 - 精确==
-Show
-    BaseType == "Orb of Unmaking"
-    SetFontSize 35
-    SetTextColor 241 208 116 255
-    SetBorderColor 0 0 0 0
-    CustomAlertSound "Sharket掉落音效\粉碎石.mp3" 200
-    MinimapIcon 0 Yellow Diamond
-
-
-#==[46034]- General -T5:点金石级 可堆叠通货 - 自动音效：点金石 - 精确==
+#==[46034]- General -T5:点金石级 可堆叠通货 - 基础 - 物品卡：点金石 - 精确==
 Show
     BaseType == "Orb of Alchemy"
     SetFontSize 35
@@ -1629,7 +1630,17 @@ Show
     MinimapIcon 0 Yellow Diamond
 
 
-#==[46035]- General -T5:点金石级 可堆叠通货 - 自动音效：链结石 - 精确==
+#==[46035]- General -T5:点金石级 可堆叠通货 - 基础 - 物品卡：粉碎石 - 精确==
+Show
+    BaseType == "Orb of Unmaking"
+    SetFontSize 35
+    SetTextColor 241 208 116 255
+    SetBorderColor 0 0 0 0
+    CustomAlertSound "Sharket掉落音效\粉碎石.mp3" 200
+    MinimapIcon 0 Yellow Diamond
+
+
+#==[46036]- General -T5:点金石级 可堆叠通货 - 基础 - 物品卡：链结石 - 精确==
 Show
     BaseType == "Orb of Fusing"
     SetFontSize 35
@@ -1639,7 +1650,7 @@ Show
     MinimapIcon 0 Yellow Diamond
 
 
-#==[46036]- General -T5:点金石级 可堆叠通货 - 基础 - 精确==
+#==[46037]- General -T5:点金石级 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Chaos Shard"
     SetFontSize 35
@@ -1648,37 +1659,7 @@ Show
     MinimapIcon 0 Yellow Diamond
 
 
-#==[46037]- General -T6： 改造石级 可堆叠通货 - 自动音效：玻璃弹珠 - 精确==
-Show
-    BaseType == "Glassblower's Bauble"
-    SetFontSize 30
-    SetTextColor 196 162 69 255
-    SetBorderColor 0 0 0 0
-    CustomAlertSound "Sharket掉落音效\玻璃弹珠.mp3" 100
-    MinimapIcon 0 Yellow Diamond
-
-
-#==[46038]- General -T6： 改造石级 可堆叠通货 - 自动音效：改造石 - 精确==
-Show
-    BaseType == "Orb of Alteration"
-    SetFontSize 30
-    SetTextColor 196 162 69 255
-    SetBorderColor 0 0 0 0
-    CustomAlertSound "Sharket掉落音效\改造石.mp3" 200
-    MinimapIcon 0 Yellow Diamond
-
-
-#==[46039]- General -T6： 改造石级 可堆叠通货 - 自动音效：机会石 - 精确==
-Show
-    BaseType == "Orb of Chance"
-    SetFontSize 30
-    SetTextColor 196 162 69 255
-    SetBorderColor 0 0 0 0
-    CustomAlertSound "Sharket掉落音效\机会石.mp3" 200
-    MinimapIcon 0 Yellow Diamond
-
-
-#==[46040]- General -T6： 改造石级 可堆叠通货 - 自动音效：工匠石 - 精确==
+#==[46038]- General -T6： 改造石级 可堆叠通货 - 基础 - 物品卡：工匠石 - 精确==
 Show
     BaseType == "Jeweller's Orb"
     SetFontSize 30
@@ -1688,7 +1669,7 @@ Show
     MinimapIcon 0 Yellow Diamond
 
 
-#==[46041]- General -T6： 改造石级 可堆叠通货 - 自动音效：护甲片 - 精确==
+#==[46039]- General -T6： 改造石级 可堆叠通货 - 基础 - 物品卡：护甲片 - 精确==
 Show
     BaseType == "Armourer's Scrap"
     SetFontSize 30
@@ -1698,7 +1679,37 @@ Show
     MinimapIcon 0 Yellow Diamond
 
 
-#==[46042]- General -T6： 改造石级 可堆叠通货 - 自动音效：磨刀石 - 精确==
+#==[46040]- General -T6： 改造石级 可堆叠通货 - 基础 - 物品卡：改造石 - 精确==
+Show
+    BaseType == "Orb of Alteration"
+    SetFontSize 30
+    SetTextColor 196 162 69 255
+    SetBorderColor 0 0 0 0
+    CustomAlertSound "Sharket掉落音效\改造石.mp3" 200
+    MinimapIcon 0 Yellow Diamond
+
+
+#==[46041]- General -T6： 改造石级 可堆叠通货 - 基础 - 物品卡：机会石 - 精确==
+Show
+    BaseType == "Orb of Chance"
+    SetFontSize 30
+    SetTextColor 196 162 69 255
+    SetBorderColor 0 0 0 0
+    CustomAlertSound "Sharket掉落音效\机会石.mp3" 200
+    MinimapIcon 0 Yellow Diamond
+
+
+#==[46042]- General -T6： 改造石级 可堆叠通货 - 基础 - 物品卡：玻璃弹珠 - 精确==
+Show
+    BaseType == "Glassblower's Bauble"
+    SetFontSize 30
+    SetTextColor 196 162 69 255
+    SetBorderColor 0 0 0 0
+    CustomAlertSound "Sharket掉落音效\玻璃弹珠.mp3" 100
+    MinimapIcon 0 Yellow Diamond
+
+
+#==[46043]- General -T6： 改造石级 可堆叠通货 - 基础 - 物品卡：磨刀石 - 精确==
 Show
     BaseType == "Blacksmith's Whetstone"
     SetFontSize 30
@@ -1708,27 +1719,7 @@ Show
     MinimapIcon 0 Yellow Diamond
 
 
-#==[46043]- General -T7: 低价值通货 可堆叠通货 - 自动音效：增幅石 - 精确==
-Show
-    BaseType == "Orb of Augmentation"
-    SetFontSize 30
-    SetTextColor 196 162 69 255
-    SetBorderColor 0 0 0 0
-    SetBackgroundColor 23 18 2 255
-    CustomAlertSound "Sharket掉落音效\增幅石.mp3" 100
-
-
-#==[46044]- General -T7: 低价值通货 可堆叠通货 - 自动音效：蜕变石 - 精确==
-Show
-    BaseType == "Orb of Transmutation"
-    SetFontSize 30
-    SetTextColor 196 162 69 255
-    SetBorderColor 0 0 0 0
-    SetBackgroundColor 23 18 2 255
-    CustomAlertSound "Sharket掉落音效\蜕变石.mp3" 100
-
-
-#==[46045]- General -T7: 低价值通货 可堆叠通货 - 自动音效：传送卷轴 - 精确==
+#==[46044]- General -T7: 低价值通货 可堆叠通货 - 基础 - 物品卡：传送卷轴 - 精确==
 Show
     BaseType == "Portal Scroll"
     SetFontSize 30
@@ -1738,7 +1729,17 @@ Show
     CustomAlertSound "Sharket掉落音效\传送卷轴.mp3" 100
 
 
-#==[46046]- General -T7: 低价值通货 可堆叠通货 - 自动音效：知识卷轴 - 精确==
+#==[46045]- General -T7: 低价值通货 可堆叠通货 - 基础 - 物品卡：增幅石 - 精确==
+Show
+    BaseType == "Orb of Augmentation"
+    SetFontSize 30
+    SetTextColor 196 162 69 255
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 23 18 2 255
+    CustomAlertSound "Sharket掉落音效\增幅石.mp3" 100
+
+
+#==[46046]- General -T7: 低价值通货 可堆叠通货 - 基础 - 物品卡：知识卷轴 - 精确==
 Show
     BaseType == "Scroll of Wisdom"
     SetFontSize 30
@@ -1748,7 +1749,17 @@ Show
     CustomAlertSound "Sharket掉落音效\知识卷轴.mp3" 100
 
 
-#==[46047]- General -T7: 低价值通货 可堆叠通货 - 基础 - 精确==
+#==[46047]- General -T7: 低价值通货 可堆叠通货 - 基础 - 物品卡：蜕变石 - 精确==
+Show
+    BaseType == "Orb of Transmutation"
+    SetFontSize 30
+    SetTextColor 196 162 69 255
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 23 18 2 255
+    CustomAlertSound "Sharket掉落音效\蜕变石.mp3" 100
+
+
+#==[46048]- General -T7: 低价值通货 可堆叠通货 - 基础 - 精确==
 Show
     BaseType == "Alchemy Shard" "Alteration Shard" "Regal Shard" "Scroll Fragment" "Transmutation Shard"
     SetFontSize 30
@@ -2006,7 +2017,7 @@ Show
 
 #==[54000]-通货 Currency - 可堆叠通货 Tainted Currency==
 
-#==[54001]- Tainted Currency -T1：顶级 可堆叠通货 - 自动音效：污染神泪 - 精确==
+#==[54001]- Tainted Currency -T1：顶级 可堆叠通货 - 基础 - 物品卡：污染神泪 - 精确==
 Show
     BaseType == "Tainted Divine Teardrop"
     SetFontSize 45
@@ -2018,7 +2029,7 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[54002]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽神秘石 - 精确==
+#==[54002]- Tainted Currency -T2：高价值 可堆叠通货 - 基础 - 物品卡：污秽神秘石 - 精确==
 Show
     BaseType == "Tainted Mythic Orb"
     SetFontSize 40
@@ -2028,7 +2039,7 @@ Show
     CustomAlertSound "Sharket掉落音效\污秽神秘石.mp3" 300
 
 
-#==[54003]- Tainted Currency -T2：高价值 可堆叠通货 - 自动音效：污秽链结石 - 精确==
+#==[54003]- Tainted Currency -T2：高价值 可堆叠通货 - 基础 - 物品卡：污秽链结石 - 精确==
 Show
     BaseType == "Tainted Orb of Fusing"
     SetFontSize 40
@@ -2038,7 +2049,7 @@ Show
     CustomAlertSound "Sharket掉落音效\污秽链结石.mp3" 300
 
 
-#==[54004]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽崇高石 - 精确==
+#==[54004]- Tainted Currency -T3：中等 可堆叠通货 - 基础 - 物品卡：污秽崇高石 - 精确==
 Show
     BaseType == "Tainted Exalted Orb"
     SetFontSize 40
@@ -2048,17 +2059,7 @@ Show
     CustomAlertSound "Sharket掉落音效\污秽崇高石.mp3" 300
 
 
-#==[54005]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽混沌石 - 精确==
-Show
-    BaseType == "Tainted Chaos Orb"
-    SetFontSize 40
-    SetTextColor 240 240 235 255
-    SetBorderColor 225 25 55 255
-    SetBackgroundColor 42 42 42 255
-    CustomAlertSound "Sharket掉落音效\污秽混沌石.mp3" 300
-
-
-#==[54006]- Tainted Currency -T3：中等 可堆叠通货 - 自动音效：污秽幻色石 - 精确==
+#==[54005]- Tainted Currency -T3：中等 可堆叠通货 - 基础 - 物品卡：污秽幻色石 - 精确==
 Show
     BaseType == "Tainted Chromatic Orb"
     SetFontSize 40
@@ -2066,6 +2067,16 @@ Show
     SetBorderColor 225 25 55 255
     SetBackgroundColor 42 42 42 255
     CustomAlertSound "Sharket掉落音效\污秽幻色石.mp3" 300
+
+
+#==[54006]- Tainted Currency -T3：中等 可堆叠通货 - 基础 - 物品卡：污秽混沌石 - 精确==
+Show
+    BaseType == "Tainted Chaos Orb"
+    SetFontSize 40
+    SetTextColor 240 240 235 255
+    SetBorderColor 225 25 55 255
+    SetBackgroundColor 42 42 42 255
+    CustomAlertSound "Sharket掉落音效\污秽混沌石.mp3" 300
 
 
 #==[54007]- Tainted Currency -T3：中等 可堆叠通货 - 基础 - 精确==
@@ -2078,17 +2089,7 @@ Show
     PlayAlertSound 3 300
 
 
-#==[54008]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽磨刀石 - 精确==
-Show
-    BaseType == "Tainted Blacksmith's Whetstone"
-    SetFontSize 35
-    SetTextColor 240 240 235 255
-    SetBorderColor 0 0 0 0
-    SetBackgroundColor 42 42 42 255
-    CustomAlertSound "Sharket掉落音效\污秽磨刀石.mp3" 200
-
-
-#==[54009]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽工匠石 - 精确==
+#==[54008]- Tainted Currency -T4：低价值 可堆叠通货 - 基础 - 物品卡：污秽工匠石 - 精确==
 Show
     BaseType == "Tainted Jeweller's Orb"
     SetFontSize 35
@@ -2098,7 +2099,7 @@ Show
     CustomAlertSound "Sharket掉落音效\污秽工匠石.mp3" 300
 
 
-#==[54010]- Tainted Currency -T4：低价值 可堆叠通货 - 自动音效：污秽护甲片 - 精确==
+#==[54009]- Tainted Currency -T4：低价值 可堆叠通货 - 基础 - 物品卡：污秽护甲片 - 精确==
 Show
     BaseType == "Tainted Armourer's Scrap"
     SetFontSize 35
@@ -2106,6 +2107,16 @@ Show
     SetBorderColor 0 0 0 0
     SetBackgroundColor 42 42 42 255
     CustomAlertSound "Sharket掉落音效\污秽护甲片.mp3" 200
+
+
+#==[54010]- Tainted Currency -T4：低价值 可堆叠通货 - 基础 - 物品卡：污秽磨刀石 - 精确==
+Show
+    BaseType == "Tainted Blacksmith's Whetstone"
+    SetFontSize 35
+    SetTextColor 240 240 235 255
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 42 42 42 255
+    CustomAlertSound "Sharket掉落音效\污秽磨刀石.mp3" 200
 
 
 #==[55000]-通货 Currency - 孕育赠礼 Wombgifts==
@@ -2488,7 +2499,7 @@ Show
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
 
 
-#==[71007]- Body Armours -T4: 兜底（碎片） 胸甲 - 自动音效：祭礼束衣 - 精确==
+#==[71007]- Body Armours -T4: 兜底（碎片） 胸甲 - 基础 - 物品卡：祭礼束衣 - 精确==
 Show
     BaseType == "Sacrificial Garb"
     AreaLevel >= 68
@@ -2511,9 +2522,22 @@ Show
 
 #==[72000]-装备 Equipment - 防具 Armour - 鞋子 Boots==
 
-#==[72001]- Boots -T0: 顶级底材(86+) 鞋子 - #1 i86 Top Boots - 精确==
+#==[72001]- Boots -T0: 顶级底材(86+) 鞋子 - #1 i86 Top Boots - 物品卡：逃亡之靴 - 精确==
 Show
-    BaseType == "Sorcerer Boots" "Slink Boots" "Titan Greaves" "Two-Toned Boots" "Fugitive Boots"
+    BaseType == "Fugitive Boots"
+    ItemLevel >= 86
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 15 17 21 255
+    CustomAlertSound "Sharket掉落音效\逃亡之靴.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[72002]- Boots -T0: 顶级底材(86+) 鞋子 - #2 i86 Top Boots - 精确==
+Show
+    BaseType == "Sorcerer Boots" "Slink Boots" "Titan Greaves" "Two-Toned Boots"
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
@@ -2524,9 +2548,22 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[72002]- Boots -T1: 顶级稀有底材 鞋子 - #1 i84 Top Boots - 精确==
+#==[72003]- Boots -T1: 顶级稀有底材 鞋子 - #1 i84 Top Boots - 物品卡：逃亡之靴 - 精确==
 Show
-    BaseType == "Sorcerer Boots" "Slink Boots" "Titan Greaves" "Two-Toned Boots" "Fugitive Boots"
+    BaseType == "Fugitive Boots"
+    ItemLevel >= 84
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 115 152 201 255
+    SetBackgroundColor 11 12 15 255
+    CustomAlertSound "Sharket掉落音效\逃亡之靴.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[72004]- Boots -T1: 顶级稀有底材 鞋子 - #2 i84 Top Boots - 精确==
+Show
+    BaseType == "Sorcerer Boots" "Slink Boots" "Titan Greaves" "Two-Toned Boots"
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
@@ -2537,7 +2574,7 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[72003]- Boots -T1: 顶级稀有底材 鞋子 - 基础 - 精确==
+#==[72005]- Boots -T1: 顶级稀有底材 鞋子 - 基础 - 精确==
 Show
     BaseType == "Leviathan Greaves" "Paladin Boots" "Phantom Boots" "Velour Boots" "Warlock Boots" "Wyvernscale Boots"
     AreaLevel >= 68
@@ -2550,9 +2587,20 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[72004]- Boots -T2: 优质稀有底材 鞋子 - 基础 - 精确==
+#==[72006]- Boots -T2: 优质稀有底材 鞋子 - 基础 - 物品卡：逃亡之靴 - 精确==
 Show
-    BaseType == "Arcanist Slippers" "Assassin's Boots" "Chimerascale Boots" "Crusader Boots" "Dragonscale Boots" "Fugitive Boots" "Goliath Greaves" "Harpyskin Boots" "Hydrascale Boots" "Infiltrator Boots" "Legion Boots" "Martyr Boots" "Murder Boots" "Precursor Greaves" "Sage Slippers" "Slink Boots" "Soldier Boots" "Sorcerer Boots" "Stealth Boots" "Titan Greaves" "Two-Toned Boots" "Vaal Greaves"
+    BaseType == "Fugitive Boots"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 71 102 144 255
+    SetBackgroundColor 9 10 12 255
+    CustomAlertSound "Sharket掉落音效\逃亡之靴.mp3" 200
+
+
+#==[72007]- Boots -T2: 优质稀有底材 鞋子 - 基础 - 精确==
+Show
+    BaseType == "Arcanist Slippers" "Assassin's Boots" "Chimerascale Boots" "Crusader Boots" "Dragonscale Boots" "Goliath Greaves" "Harpyskin Boots" "Hydrascale Boots" "Infiltrator Boots" "Legion Boots" "Martyr Boots" "Murder Boots" "Precursor Greaves" "Sage Slippers" "Slink Boots" "Soldier Boots" "Sorcerer Boots" "Stealth Boots" "Titan Greaves" "Two-Toned Boots" "Vaal Greaves"
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
@@ -2561,7 +2609,7 @@ Show
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
 
 
-#==[72005]- Boots -T3: 可用稀有底材 鞋子 - 基础 - 精确==
+#==[72008]- Boots -T3: 可用稀有底材 鞋子 - 基础 - 精确==
 Show
     BaseType == "Ambush Boots" "Ancient Greaves" "Antique Greaves" "Carnal Boots" "Conjurer Boots" "Riveted Boots" "Samite Slippers" "Serpentscale Boots" "Shagreen Boots" "Sharkskin Boots" "Wyrmscale Boots" "Zealot Boots"
     AreaLevel >= 68
@@ -2572,7 +2620,7 @@ Show
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
 
 
-#==[72006]- Boots -T4: 兜底（碎片） 鞋子 - 基础 - 精确==
+#==[72009]- Boots -T4: 兜底（碎片） 鞋子 - 基础 - 精确==
 Show
     BaseType == "Basemetal Treads" "Brimstone Treads" "Bronzescale Boots" "Chain Boots" "Clasped Boots" "Cloudwhisper Boots" "Darksteel Treads" "Deerskin Boots" "Dreamquest Slippers" "Duskwalk Slippers" "Eelskin Boots" "Goathide Boots" "Iron Greaves" "Ironscale Boots" "Leatherscale Boots" "Mesh Boots" "Nightwind Slippers" "Nubuck Boots" "Plated Greaves" "Rawhide Boots" "Reinforced Greaves" "Ringmail Boots" "Runic Greaves" "Runic Sabatons" "Runic Sollerets" "Satin Slippers" "Scholar Boots" "Shackled Boots" "Silk Slippers" "Steel Greaves" "Steelscale Boots" "Stormrider Boots" "Strapped Boots" "Trapper Boots" "Velvet Slippers" "Windbreak Boots" "Wool Shoes" "Wrapped Boots"
     AreaLevel >= 68
@@ -2584,33 +2632,111 @@ Show
 
 #==[73000]-装备 Equipment - 防具 Armour - 手套 Gloves==
 
-#==[73001]- Gloves -T0: 顶级底材(86+) 手套 - #1 i86 Top Gloves - 精确==
+#==[73001]- Gloves -T0: 顶级底材(86+) 手套 - #1 i86 Top Gloves - 物品卡：丝绸手套 - 精确==
 Show
-    BaseType == "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Apothecary's Gloves"
+    BaseType == "Fingerless Silk Gloves"
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
-    CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
+    CustomAlertSound "Sharket掉落音效\丝绸手套.mp3" 200
     PlayEffect White
     MinimapIcon 0 White Star
 
 
-#==[73002]- Gloves -T1: 顶级稀有底材 手套 - #1 i84 Top Gloves - 精确==
+#==[73002]- Gloves -T0: 顶级底材(86+) 手套 - #2 i86 Top Gloves - 物品卡：扣钉手套 - 精确==
 Show
-    BaseType == "Fingerless Silk Gloves" "Gripped Gloves" "Spiked Gloves" "Apothecary's Gloves"
+    BaseType == "Spiked Gloves"
+    ItemLevel >= 86
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 15 17 21 255
+    CustomAlertSound "Sharket掉落音效\扣钉手套.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[73003]- Gloves -T0: 顶级底材(86+) 手套 - #3 i86 Top Gloves - 物品卡：擒拿手套 - 精确==
+Show
+    BaseType == "Gripped Gloves"
+    ItemLevel >= 86
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 15 17 21 255
+    CustomAlertSound "Sharket掉落音效\擒拿手套.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[73004]- Gloves -T0: 顶级底材(86+) 手套 - #4 i86 Top Gloves - 物品卡：药剂师手套 - 精确==
+Show
+    BaseType == "Apothecary's Gloves"
+    ItemLevel >= 86
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 15 17 21 255
+    CustomAlertSound "Sharket掉落音效\药剂师手套.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[73005]- Gloves -T1: 顶级稀有底材 手套 - #1 i84 Top Gloves - 物品卡：丝绸手套 - 精确==
+Show
+    BaseType == "Fingerless Silk Gloves"
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
-    CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
+    CustomAlertSound "Sharket掉落音效\丝绸手套.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
 
-#==[73003]- Gloves -T1: 顶级稀有底材 手套 - 基础 - 精确==
+#==[73006]- Gloves -T1: 顶级稀有底材 手套 - #2 i84 Top Gloves - 物品卡：扣钉手套 - 精确==
+Show
+    BaseType == "Spiked Gloves"
+    ItemLevel >= 84
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 115 152 201 255
+    SetBackgroundColor 11 12 15 255
+    CustomAlertSound "Sharket掉落音效\扣钉手套.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[73007]- Gloves -T1: 顶级稀有底材 手套 - #3 i84 Top Gloves - 物品卡：擒拿手套 - 精确==
+Show
+    BaseType == "Gripped Gloves"
+    ItemLevel >= 84
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 115 152 201 255
+    SetBackgroundColor 11 12 15 255
+    CustomAlertSound "Sharket掉落音效\擒拿手套.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[73008]- Gloves -T1: 顶级稀有底材 手套 - #4 i84 Top Gloves - 物品卡：药剂师手套 - 精确==
+Show
+    BaseType == "Apothecary's Gloves"
+    ItemLevel >= 84
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 115 152 201 255
+    SetBackgroundColor 11 12 15 255
+    CustomAlertSound "Sharket掉落音效\药剂师手套.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[73009]- Gloves -T1: 顶级稀有底材 手套 - 基础 - 精确==
 Show
     BaseType == "Leviathan Gauntlets" "Paladin Gloves" "Phantom Mitts" "Velour Gloves" "Warlock Gloves" "Wyvernscale Gauntlets"
     AreaLevel >= 68
@@ -2623,9 +2749,42 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[73004]- Gloves -T2: 优质稀有底材 手套 - 基础 - 精确==
+#==[73010]- Gloves -T2: 优质稀有底材 手套 - 基础 - 物品卡：扣钉手套 - 精确==
 Show
-    BaseType == "Apothecary's Gloves" "Chimerascale Gauntlets" "Crusader Gloves" "Dragonscale Gauntlets" "Goliath Gauntlets" "Gripped Gloves" "Harpyskin Gloves" "Hydrascale Gauntlets" "Infiltrator Mitts" "Legion Gloves" "Martyr Gloves" "Murder Mitts" "Precursor Gauntlets" "Sage Gloves" "Slink Gloves" "Sorcerer Gloves" "Spiked Gloves" "Titan Gauntlets" "Vaal Gauntlets"
+    BaseType == "Spiked Gloves"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 71 102 144 255
+    SetBackgroundColor 9 10 12 255
+    CustomAlertSound "Sharket掉落音效\扣钉手套.mp3" 200
+
+
+#==[73011]- Gloves -T2: 优质稀有底材 手套 - 基础 - 物品卡：擒拿手套 - 精确==
+Show
+    BaseType == "Gripped Gloves"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 71 102 144 255
+    SetBackgroundColor 9 10 12 255
+    CustomAlertSound "Sharket掉落音效\擒拿手套.mp3" 200
+
+
+#==[73012]- Gloves -T2: 优质稀有底材 手套 - 基础 - 物品卡：药剂师手套 - 精确==
+Show
+    BaseType == "Apothecary's Gloves"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 71 102 144 255
+    SetBackgroundColor 9 10 12 255
+    CustomAlertSound "Sharket掉落音效\药剂师手套.mp3" 200
+
+
+#==[73013]- Gloves -T2: 优质稀有底材 手套 - 基础 - 精确==
+Show
+    BaseType == "Chimerascale Gauntlets" "Crusader Gloves" "Dragonscale Gauntlets" "Goliath Gauntlets" "Harpyskin Gloves" "Hydrascale Gauntlets" "Infiltrator Mitts" "Legion Gloves" "Martyr Gloves" "Murder Mitts" "Precursor Gauntlets" "Sage Gloves" "Slink Gloves" "Sorcerer Gloves" "Titan Gauntlets" "Vaal Gauntlets"
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
@@ -2634,9 +2793,20 @@ Show
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
 
 
-#==[73005]- Gloves -T3: 可用稀有底材 手套 - 基础 - 精确==
+#==[73014]- Gloves -T3: 可用稀有底材 手套 - 基础 - 物品卡：丝绸手套 - 精确==
 Show
-    BaseType == "Ambush Mitts" "Ancient Gauntlets" "Antique Gauntlets" "Arcanist Gloves" "Assassin's Mitts" "Carnal Mitts" "Conjurer Gloves" "Fingerless Silk Gloves" "Serpentscale Gauntlets" "Shagreen Gloves" "Soldier Gloves" "Stealth Gloves" "Wyrmscale Gauntlets" "Zealot Gloves"
+    BaseType == "Fingerless Silk Gloves"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 6 7 9 255
+    CustomAlertSound "Sharket掉落音效\丝绸手套.mp3" 200
+
+
+#==[73015]- Gloves -T3: 可用稀有底材 手套 - 基础 - 精确==
+Show
+    BaseType == "Ambush Mitts" "Ancient Gauntlets" "Antique Gauntlets" "Arcanist Gloves" "Assassin's Mitts" "Carnal Mitts" "Conjurer Gloves" "Serpentscale Gauntlets" "Shagreen Gloves" "Soldier Gloves" "Stealth Gloves" "Wyrmscale Gauntlets" "Zealot Gloves"
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
@@ -2645,7 +2815,7 @@ Show
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
 
 
-#==[73006]- Gloves -T4: 兜底（碎片） 手套 - 基础 - 精确==
+#==[73016]- Gloves -T4: 兜底（碎片） 手套 - 基础 - 精确==
 Show
     BaseType == "Aetherwind Gloves" "Apprentice Gloves" "Bronze Gauntlets" "Bronzescale Gauntlets" "Chain Gloves" "Clasped Mitts" "Deerskin Gloves" "Eelskin Gloves" "Embroidered Gloves" "Fishscale Gauntlets" "Goathide Gloves" "Guarding Gauntlets" "Iron Gauntlets" "Ironscale Gauntlets" "Leyline Gloves" "Mesh Gloves" "Nexus Gloves" "Nubuck Gloves" "Plated Gauntlets" "Preserving Gauntlets" "Rawhide Gloves" "Ringmail Gloves" "Riveted Gloves" "Runic Gages" "Runic Gauntlets" "Runic Gloves" "Samite Gloves" "Satin Gloves" "Sharkskin Gloves" "Silk Gloves" "Steel Gauntlets" "Steelscale Gauntlets" "Strapped Mitts" "Thwarting Gauntlets" "Tinker Gloves" "Trapper Mitts" "Trapsetter Gloves" "Velvet Gloves" "Wool Gloves" "Wrapped Mitts"
     AreaLevel >= 68
@@ -2657,9 +2827,22 @@ Show
 
 #==[74000]-装备 Equipment - 防具 Armour - 头部 Helmets==
 
-#==[74001]- Helmets -T0: 顶级底材(86+) 头部 - #1 i86 Top Helmets - 精确==
+#==[74001]- Helmets -T0: 顶级底材(86+) 头部 - #1 i86 Top Helmets - 物品卡：唤骨头盔 - 精确==
 Show
-    BaseType == "Hubris Circlet" "Lion Pelt" "Royal Burgonet" "Bone Helmet"
+    BaseType == "Bone Helmet"
+    ItemLevel >= 86
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 15 17 21 255
+    CustomAlertSound "Sharket掉落音效\唤骨头盔.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[74002]- Helmets -T0: 顶级底材(86+) 头部 - #2 i86 Top Helmets - 精确==
+Show
+    BaseType == "Hubris Circlet" "Lion Pelt" "Royal Burgonet"
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
@@ -2670,9 +2853,22 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[74002]- Helmets -T1: 顶级稀有底材 头部 - #1 i84 Top Helmets - 精确==
+#==[74003]- Helmets -T1: 顶级稀有底材 头部 - #1 i84 Top Helmets - 物品卡：唤骨头盔 - 精确==
 Show
-    BaseType == "Hubris Circlet" "Lion Pelt" "Royal Burgonet" "Bone Helmet"
+    BaseType == "Bone Helmet"
+    ItemLevel >= 84
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 115 152 201 255
+    SetBackgroundColor 11 12 15 255
+    CustomAlertSound "Sharket掉落音效\唤骨头盔.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[74004]- Helmets -T1: 顶级稀有底材 头部 - #2 i84 Top Helmets - 精确==
+Show
+    BaseType == "Hubris Circlet" "Lion Pelt" "Royal Burgonet"
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
@@ -2683,7 +2879,7 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[74003]- Helmets -T1: 顶级稀有底材 头部 - 基础 - 精确==
+#==[74005]- Helmets -T1: 顶级稀有底材 头部 - 基础 - 精确==
 Show
     BaseType == "Divine Crown" "Giantslayer Helmet" "Haunted Bascinet" "Lich's Circlet" "Majestic Pelt" "Torturer's Mask"
     AreaLevel >= 68
@@ -2696,9 +2892,20 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[74004]- Helmets -T2: 优质稀有底材 头部 - 基础 - 精确==
+#==[74006]- Helmets -T2: 优质稀有底材 头部 - 基础 - 物品卡：唤骨头盔 - 精确==
 Show
-    BaseType == "Ancient Mask" "Bone Helmet" "Conqueror's Helmet" "Conquest Helmet" "Deicide Mask" "Dire Pelt" "Eternal Burgonet" "Faithful Helmet" "General's Helmet" "Grizzly Pelt" "Hubris Circlet" "Jester Mask" "Knight Helm" "Lion Pelt" "Mind Cage" "Moonlit Circlet" "Nightmare Bascinet" "Paladin Crown" "Praetor Crown" "Prophet Crown" "Royal Burgonet" "Sunfire Circlet" "Vaal Mask"
+    BaseType == "Bone Helmet"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 71 102 144 255
+    SetBackgroundColor 9 10 12 255
+    CustomAlertSound "Sharket掉落音效\唤骨头盔.mp3" 200
+
+
+#==[74007]- Helmets -T2: 优质稀有底材 头部 - 基础 - 精确==
+Show
+    BaseType == "Ancient Mask" "Conqueror's Helmet" "Conquest Helmet" "Deicide Mask" "Dire Pelt" "Eternal Burgonet" "Faithful Helmet" "General's Helmet" "Grizzly Pelt" "Hubris Circlet" "Jester Mask" "Knight Helm" "Lion Pelt" "Mind Cage" "Moonlit Circlet" "Nightmare Bascinet" "Paladin Crown" "Praetor Crown" "Prophet Crown" "Royal Burgonet" "Sunfire Circlet" "Vaal Mask"
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
@@ -2707,7 +2914,7 @@ Show
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
 
 
-#==[74005]- Helmets -T3: 可用稀有底材 头部 - 基础 - 精确==
+#==[74008]- Helmets -T3: 可用稀有底材 头部 - 基础 - 精确==
 Show
     BaseType == "Ezomyte Burgonet" "Fluted Bascinet" "Harlequin Mask" "Magistrate Crown" "Pig-Faced Bascinet" "Regicide Mask" "Samnite Helmet" "Silken Hood" "Sinner Tricorne" "Solaris Circlet"
     AreaLevel >= 68
@@ -2718,7 +2925,7 @@ Show
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
 
 
-#==[74006]- Helmets -T4: 兜底（碎片） 头部 - 基础 - 精确==
+#==[74009]- Helmets -T4: 兜底（碎片） 头部 - 基础 - 精确==
 Show
     BaseType == "Archdemon Crown" "Atonement Mask" "Aventail Helmet" "Barbute Helmet" "Battered Helm" "Blizzard Crown" "Bone Circlet" "Callous Mask" "Close Helmet" "Cone Helmet" "Crusader Helmet" "Demon Crown" "Fencer Helm" "Festival Mask" "Gale Crown" "Gilded Sallet" "Gladiator Helmet" "Golden Mask" "Great Crown" "Great Helmet" "Hunter Hood" "Imp Crown" "Iron Circlet" "Iron Hat" "Iron Mask" "Lacquered Helmet" "Leather Cap" "Leather Hood" "Lunaris Circlet" "Necromancer Circlet" "Noble Tricorne" "Penitent Mask" "Plague Mask" "Raven Mask" "Reaver Helmet" "Runic Crest" "Runic Crown" "Runic Helm" "Rusted Coif" "Sallet" "Scare Mask" "Secutor Helm" "Siege Helmet" "Soldier Helmet" "Sorrow Mask" "Steel Circlet" "Torture Cage" "Tribal Circlet" "Tricorne" "Ursine Pelt" "Vine Circlet" "Visored Sallet" "Winter Crown" "Wolf Pelt" "Zealot Helmet"
     AreaLevel >= 68
@@ -2778,7 +2985,7 @@ Show
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
 
 
-#==[75005]- Quivers -T4: 兜底（碎片） 箭袋 - 自动音效：火炮箭袋 - 精确==
+#==[75005]- Quivers -T4: 兜底（碎片） 箭袋 - 基础 - 物品卡：火炮箭袋 - 精确==
 Show
     BaseType == "Artillery Quiver"
     AreaLevel >= 68
@@ -2861,33 +3068,85 @@ Show
 
 #==[77000]-装备 Equipment - 首饰 Jewellery - 项链 Amulets==
 
-#==[77001]- Amulets -T0: 顶级底材(86+) 项链 - #1 i86 Top Amulets - 精确==
+#==[77001]- Amulets -T0: 顶级底材(86+) 项链 - #1 i86 Top Amulets - 物品卡：大理石护身符 - 精确==
 Show
-    BaseType == "Blue Pearl Amulet" "Marble Amulet" "Seaglass Amulet"
+    BaseType == "Marble Amulet"
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
-    CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
+    CustomAlertSound "Sharket掉落音效\大理石护身符.mp3" 200
     PlayEffect White
     MinimapIcon 0 White Star
 
 
-#==[77002]- Amulets -T1: 顶级稀有底材 项链 - #1 i84 Top Amulets - 精确==
+#==[77002]- Amulets -T0: 顶级底材(86+) 项链 - #2 i86 Top Amulets - 物品卡：海晶护符 - 精确==
 Show
-    BaseType == "Blue Pearl Amulet" "Marble Amulet" "Seaglass Amulet"
+    BaseType == "Seaglass Amulet"
+    ItemLevel >= 86
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 15 17 21 255
+    CustomAlertSound "Sharket掉落音效\海晶护符.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[77003]- Amulets -T0: 顶级底材(86+) 项链 - #3 i86 Top Amulets - 物品卡：碧珠护身符 - 精确==
+Show
+    BaseType == "Blue Pearl Amulet"
+    ItemLevel >= 86
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 15 17 21 255
+    CustomAlertSound "Sharket掉落音效\碧珠护身符.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[77004]- Amulets -T1: 顶级稀有底材 项链 - #1 i84 Top Amulets - 物品卡：大理石护身符 - 精确==
+Show
+    BaseType == "Marble Amulet"
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
-    CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
+    CustomAlertSound "Sharket掉落音效\大理石护身符.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
 
-#==[77003]- Amulets -T1: 顶级稀有底材 项链 - 基础 - 精确==
+#==[77005]- Amulets -T1: 顶级稀有底材 项链 - #2 i84 Top Amulets - 物品卡：海晶护符 - 精确==
+Show
+    BaseType == "Seaglass Amulet"
+    ItemLevel >= 84
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 115 152 201 255
+    SetBackgroundColor 11 12 15 255
+    CustomAlertSound "Sharket掉落音效\海晶护符.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[77006]- Amulets -T1: 顶级稀有底材 项链 - #3 i84 Top Amulets - 物品卡：碧珠护身符 - 精确==
+Show
+    BaseType == "Blue Pearl Amulet"
+    ItemLevel >= 84
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 115 152 201 255
+    SetBackgroundColor 11 12 15 255
+    CustomAlertSound "Sharket掉落音效\碧珠护身符.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[77007]- Amulets -T1: 顶级稀有底材 项链 - 基础 - 精确==
 Show
     BaseType == "Agate Amulet" "Citrine Amulet" "Onyx Amulet" "Turquoise Amulet"
     AreaLevel >= 68
@@ -2900,9 +3159,31 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[77004]- Amulets -T2: 优质稀有底材 项链 - 基础 - 精确==
+#==[77008]- Amulets -T2: 优质稀有底材 项链 - 基础 - 物品卡：大理石护身符 - 精确==
 Show
-    BaseType == "Amber Amulet" "Blue Pearl Amulet" "Jade Amulet" "Lapis Amulet" "Marble Amulet"
+    BaseType == "Marble Amulet"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 71 102 144 255
+    SetBackgroundColor 9 10 12 255
+    CustomAlertSound "Sharket掉落音效\大理石护身符.mp3" 200
+
+
+#==[77009]- Amulets -T2: 优质稀有底材 项链 - 基础 - 物品卡：碧珠护身符 - 精确==
+Show
+    BaseType == "Blue Pearl Amulet"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 71 102 144 255
+    SetBackgroundColor 9 10 12 255
+    CustomAlertSound "Sharket掉落音效\碧珠护身符.mp3" 200
+
+
+#==[77010]- Amulets -T2: 优质稀有底材 项链 - 基础 - 精确==
+Show
+    BaseType == "Amber Amulet" "Jade Amulet" "Lapis Amulet"
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
@@ -2911,9 +3192,20 @@ Show
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
 
 
-#==[77005]- Amulets -T3: 可用稀有底材 项链 - 基础 - 精确==
+#==[77011]- Amulets -T3: 可用稀有底材 项链 - 基础 - 物品卡：海晶护符 - 精确==
 Show
-    BaseType == "Coral Amulet" "Gold Amulet" "Paua Amulet" "Seaglass Amulet"
+    BaseType == "Seaglass Amulet"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 6 7 9 255
+    CustomAlertSound "Sharket掉落音效\海晶护符.mp3" 200
+
+
+#==[77012]- Amulets -T3: 可用稀有底材 项链 - 基础 - 精确==
+Show
+    BaseType == "Coral Amulet" "Gold Amulet" "Paua Amulet"
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
@@ -2922,7 +3214,7 @@ Show
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
 
 
-#==[77006]- Amulets -T4: 兜底（碎片） 项链 - 自动音效：星盘项链 - 精确==
+#==[77013]- Amulets -T4: 兜底（碎片） 项链 - 基础 - 物品卡：星盘项链 - 精确==
 Show
     BaseType == "Astrolabe Amulet"
     AreaLevel >= 68
@@ -2933,7 +3225,7 @@ Show
     CustomAlertSound "Sharket掉落音效\星盘项链.mp3" 300
 
 
-#==[77007]- Amulets -T4: 兜底（碎片） 项链 - 自动音效：朴实项链 - 精确==
+#==[77014]- Amulets -T4: 兜底（碎片） 项链 - 基础 - 物品卡：朴实项链 - 精确==
 Show
     BaseType == "Simplex Amulet"
     AreaLevel >= 68
@@ -2944,7 +3236,7 @@ Show
     CustomAlertSound "Sharket掉落音效\朴实项链.mp3" 300
 
 
-#==[77008]- Amulets -T4: 兜底（碎片） 项链 - 基础 - 精确==
+#==[77015]- Amulets -T4: 兜底（碎片） 项链 - 基础 - 精确==
 Show
     BaseType == "Focused Amulet" "Pearlescent Amulet"
     AreaLevel >= 68
@@ -2956,33 +3248,59 @@ Show
 
 #==[78000]-装备 Equipment - 首饰 Jewellery - 腰带 Belts==
 
-#==[78001]- Belts -T0: 顶级底材(86+) 腰带 - #1 i86 Top Belts - 精确==
+#==[78001]- Belts -T0: 顶级底材(86+) 腰带 - #1 i86 Top Belts - 物品卡：水晶腰带 - 精确==
 Show
-    BaseType == "Stygian Vise" "Crystal Belt"
+    BaseType == "Crystal Belt"
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
-    CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
+    CustomAlertSound "Sharket掉落音效\水晶腰带.mp3" 200
     PlayEffect White
     MinimapIcon 0 White Star
 
 
-#==[78002]- Belts -T1: 顶级稀有底材 腰带 - #1 i84 Top Belts - 精确==
+#==[78002]- Belts -T0: 顶级底材(86+) 腰带 - #2 i86 Top Belts - 物品卡：深渊腰带 - 精确==
 Show
-    BaseType == "Stygian Vise" "Crystal Belt"
+    BaseType == "Stygian Vise"
+    ItemLevel >= 86
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 15 17 21 255
+    CustomAlertSound "Sharket掉落音效\深渊腰带.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[78003]- Belts -T1: 顶级稀有底材 腰带 - #1 i84 Top Belts - 物品卡：水晶腰带 - 精确==
+Show
+    BaseType == "Crystal Belt"
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
-    CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
+    CustomAlertSound "Sharket掉落音效\水晶腰带.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
 
-#==[78003]- Belts -T2: 优质稀有底材 腰带 - 自动音效：先锋腰带 - 精确==
+#==[78004]- Belts -T1: 顶级稀有底材 腰带 - #2 i84 Top Belts - 物品卡：深渊腰带 - 精确==
+Show
+    BaseType == "Stygian Vise"
+    ItemLevel >= 84
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 115 152 201 255
+    SetBackgroundColor 11 12 15 255
+    CustomAlertSound "Sharket掉落音效\深渊腰带.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[78005]- Belts -T2: 优质稀有底材 腰带 - 基础 - 物品卡：先锋腰带 - 精确==
 Show
     BaseType == "Vanguard Belt"
     AreaLevel >= 68
@@ -2993,9 +3311,20 @@ Show
     CustomAlertSound "Sharket掉落音效\先锋腰带.mp3" 200
 
 
-#==[78004]- Belts -T2: 优质稀有底材 腰带 - 基础 - 精确==
+#==[78006]- Belts -T2: 优质稀有底材 腰带 - 基础 - 物品卡：水晶腰带 - 精确==
 Show
-    BaseType == "Crystal Belt" "Heavy Belt" "Leather Belt"
+    BaseType == "Crystal Belt"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 71 102 144 255
+    SetBackgroundColor 9 10 12 255
+    CustomAlertSound "Sharket掉落音效\水晶腰带.mp3" 200
+
+
+#==[78007]- Belts -T2: 优质稀有底材 腰带 - 基础 - 精确==
+Show
+    BaseType == "Heavy Belt" "Leather Belt"
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
@@ -3004,7 +3333,7 @@ Show
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
 
 
-#==[78005]- Belts -T3: 可用稀有底材 腰带 - 基础 - 精确==
+#==[78008]- Belts -T3: 可用稀有底材 腰带 - 基础 - 精确==
 Show
     BaseType == "Chain Belt" "Cloth Belt" "Rustic Sash" "Studded Belt"
     AreaLevel >= 68
@@ -3015,7 +3344,7 @@ Show
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
 
 
-#==[78006]- Belts -T4: 兜底（碎片） 腰带 - 基础 - 精确==
+#==[78009]- Belts -T4: 兜底（碎片） 腰带 - 基础 - 精确==
 Show
     BaseType == "Mechalarm Belt" "Mechanical Belt" "Micro-Distillery Belt"
     AreaLevel >= 68
@@ -3027,33 +3356,137 @@ Show
 
 #==[79000]-装备 Equipment - 首饰 Jewellery - 戒指 Rings==
 
-#==[79001]- Rings -T0: 顶级底材(86+) 戒指 - #1 i86 Top Rings - 精确==
+#==[79001]- Rings -T0: 顶级底材(86+) 戒指 - #1 i86 Top Rings - 物品卡：合金戒指 - 精确==
 Show
-    BaseType == "Opal Ring" "Steel Ring" "Vermillion Ring" "Iolite Ring" "Cerulean Ring"
+    BaseType == "Steel Ring"
     ItemLevel >= 86
     Rarity <= Rare
     SetFontSize 45
     SetBorderColor 255 255 255 255
     SetBackgroundColor 15 17 21 255
-    CustomAlertSound "Sharket掉落音效\顶级底材.mp3" 300
+    CustomAlertSound "Sharket掉落音效\合金戒指.mp3" 200
     PlayEffect White
     MinimapIcon 0 White Star
 
 
-#==[79002]- Rings -T1: 顶级稀有底材 戒指 - #1 i84 Top Rings - 精确==
+#==[79002]- Rings -T0: 顶级底材(86+) 戒指 - #2 i86 Top Rings - 物品卡：天蓝之戒 - 精确==
 Show
-    BaseType == "Opal Ring" "Steel Ring" "Vermillion Ring" "Iolite Ring" "Cerulean Ring"
+    BaseType == "Cerulean Ring"
+    ItemLevel >= 86
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 15 17 21 255
+    CustomAlertSound "Sharket掉落音效\天蓝之戒.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[79003]- Rings -T0: 顶级底材(86+) 戒指 - #3 i86 Top Rings - 物品卡：朱砂之戒 - 精确==
+Show
+    BaseType == "Vermillion Ring"
+    ItemLevel >= 86
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 15 17 21 255
+    CustomAlertSound "Sharket掉落音效\朱砂之戒.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[79004]- Rings -T0: 顶级底材(86+) 戒指 - #4 i86 Top Rings - 物品卡：蛋白石戒指 - 精确==
+Show
+    BaseType == "Opal Ring"
+    ItemLevel >= 86
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 15 17 21 255
+    CustomAlertSound "Sharket掉落音效\蛋白石戒指.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[79005]- Rings -T0: 顶级底材(86+) 戒指 - #5 i86 Top Rings - 物品卡：青石戒指 - 精确==
+Show
+    BaseType == "Iolite Ring"
+    ItemLevel >= 86
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 15 17 21 255
+    CustomAlertSound "Sharket掉落音效\青石戒指.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[79006]- Rings -T1: 顶级稀有底材 戒指 - #1 i84 Top Rings - 物品卡：合金戒指 - 精确==
+Show
+    BaseType == "Steel Ring"
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
     SetBorderColor 115 152 201 255
     SetBackgroundColor 11 12 15 255
-    CustomAlertSound "Sharket掉落音效\精品装备.mp3" 300
+    CustomAlertSound "Sharket掉落音效\合金戒指.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
 
-#==[79003]- Rings -T1: 顶级稀有底材 戒指 - 自动音效：紫晶戒指 - 精确==
+#==[79007]- Rings -T1: 顶级稀有底材 戒指 - #2 i84 Top Rings - 物品卡：天蓝之戒 - 精确==
+Show
+    BaseType == "Cerulean Ring"
+    ItemLevel >= 84
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 115 152 201 255
+    SetBackgroundColor 11 12 15 255
+    CustomAlertSound "Sharket掉落音效\天蓝之戒.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[79008]- Rings -T1: 顶级稀有底材 戒指 - #3 i84 Top Rings - 物品卡：朱砂之戒 - 精确==
+Show
+    BaseType == "Vermillion Ring"
+    ItemLevel >= 84
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 115 152 201 255
+    SetBackgroundColor 11 12 15 255
+    CustomAlertSound "Sharket掉落音效\朱砂之戒.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[79009]- Rings -T1: 顶级稀有底材 戒指 - #4 i84 Top Rings - 物品卡：蛋白石戒指 - 精确==
+Show
+    BaseType == "Opal Ring"
+    ItemLevel >= 84
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 115 152 201 255
+    SetBackgroundColor 11 12 15 255
+    CustomAlertSound "Sharket掉落音效\蛋白石戒指.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[79010]- Rings -T1: 顶级稀有底材 戒指 - #5 i84 Top Rings - 物品卡：青石戒指 - 精确==
+Show
+    BaseType == "Iolite Ring"
+    ItemLevel >= 84
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 115 152 201 255
+    SetBackgroundColor 11 12 15 255
+    CustomAlertSound "Sharket掉落音效\青石戒指.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[79011]- Rings -T1: 顶级稀有底材 戒指 - 基础 - 物品卡：紫晶戒指 - 精确==
 Show
     BaseType == "Amethyst Ring"
     AreaLevel >= 68
@@ -3066,7 +3499,7 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[79004]- Rings -T1: 顶级稀有底材 戒指 - 基础 - 精确==
+#==[79012]- Rings -T1: 顶级稀有底材 戒指 - 基础 - 精确==
 Show
     BaseType == "Prismatic Ring" "Two-Stone Ring"
     AreaLevel >= 68
@@ -3079,9 +3512,53 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[79005]- Rings -T2: 优质稀有底材 戒指 - 基础 - 精确==
+#==[79013]- Rings -T2: 优质稀有底材 戒指 - 基础 - 物品卡：合金戒指 - 精确==
 Show
-    BaseType == "Bone Ring" "Cerulean Ring" "Coral Ring" "Diamond Ring" "Iolite Ring" "Moonstone Ring" "Opal Ring" "Ruby Ring" "Sapphire Ring" "Steel Ring" "Topaz Ring" "Unset Ring"
+    BaseType == "Steel Ring"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 71 102 144 255
+    SetBackgroundColor 9 10 12 255
+    CustomAlertSound "Sharket掉落音效\合金戒指.mp3" 200
+
+
+#==[79014]- Rings -T2: 优质稀有底材 戒指 - 基础 - 物品卡：天蓝之戒 - 精确==
+Show
+    BaseType == "Cerulean Ring"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 71 102 144 255
+    SetBackgroundColor 9 10 12 255
+    CustomAlertSound "Sharket掉落音效\天蓝之戒.mp3" 200
+
+
+#==[79015]- Rings -T2: 优质稀有底材 戒指 - 基础 - 物品卡：蛋白石戒指 - 精确==
+Show
+    BaseType == "Opal Ring"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 71 102 144 255
+    SetBackgroundColor 9 10 12 255
+    CustomAlertSound "Sharket掉落音效\蛋白石戒指.mp3" 200
+
+
+#==[79016]- Rings -T2: 优质稀有底材 戒指 - 基础 - 物品卡：青石戒指 - 精确==
+Show
+    BaseType == "Iolite Ring"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 71 102 144 255
+    SetBackgroundColor 9 10 12 255
+    CustomAlertSound "Sharket掉落音效\青石戒指.mp3" 200
+
+
+#==[79017]- Rings -T2: 优质稀有底材 戒指 - 基础 - 精确==
+Show
+    BaseType == "Bone Ring" "Coral Ring" "Diamond Ring" "Moonstone Ring" "Ruby Ring" "Sapphire Ring" "Topaz Ring" "Unset Ring"
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
@@ -3090,7 +3567,7 @@ Show
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
 
 
-#==[79006]- Rings -T3: 可用稀有底材 戒指 - 基础 - 精确==
+#==[79018]- Rings -T3: 可用稀有底材 戒指 - 基础 - 精确==
 Show
     BaseType == "Gold Ring" "Iron Ring" "Paua Ring"
     AreaLevel >= 68
@@ -3101,7 +3578,7 @@ Show
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
 
 
-#==[79007]- Rings -T4: 兜底（碎片） 戒指 - 基础 - 精确==
+#==[79019]- Rings -T4: 兜底（碎片） 戒指 - 基础 - 精确==
 Show
     BaseType == "Cogwork Ring" "Composite Ring" "Cryonic Ring" "Dusk Ring" "Enthalpic Ring" "Formless Ring" "Fugitive Ring" "Geodesic Ring" "Gloam Ring" "Helical Ring" "Manifold Ring" "Nameless Ring" "Organic Ring" "Penumbra Ring" "Ratcheting Ring" "Shadowed Ring" "Synaptic Ring" "Tenebrous Ring"
     AreaLevel >= 68
@@ -3127,7 +3604,7 @@ Show
 
 #==[81000]-装备 Equipment - League League - 扼杀链甲 Breach Grasping Mail==
 
-#==[81001]- Breach Grasping Mail -扼杀链甲 扼杀链甲 - 自动音效：扼杀链甲 - 精确==
+#==[81001]- Breach Grasping Mail -扼杀链甲 扼杀链甲 - 基础 - 物品卡：扼杀链甲 - 精确==
 Show
     BaseType == "Grasping Mail"
     Rarity <= Rare
@@ -3139,7 +3616,7 @@ Show
 
 #==[82000]-装备 Equipment - League League - 先祖秘藏结界底材 Expedition Ward-Bases==
 
-#==[82001]- Expedition Ward-Bases -先祖秘藏结界底材 先祖秘藏结界底材 - 自动音效：坚铁药剂 - 精确==
+#==[82001]- Expedition Ward-Bases -先祖秘藏结界底材 先祖秘藏结界底材 - 基础 - 物品卡：坚铁药剂 - 精确==
 Show
     BaseType == "Iron Flask"
     Rarity <= Rare
@@ -3160,7 +3637,7 @@ Show
 
 #==[83000]-装备 Equipment - League League - 夺宝奇兵实验底材 Heist Experimented==
 
-#==[83001]- Heist Experimented -夺宝奇兵实验底材 夺宝奇兵实验底材 - 自动音效：星盘项链 - 精确==
+#==[83001]- Heist Experimented -夺宝奇兵实验底材 夺宝奇兵实验底材 - 基础 - 物品卡：星盘项链 - 精确==
 Show
     BaseType == "Astrolabe Amulet"
     Rarity <= Rare
@@ -3170,7 +3647,7 @@ Show
     CustomAlertSound "Sharket掉落音效\星盘项链.mp3" 300
 
 
-#==[83002]- Heist Experimented -夺宝奇兵实验底材 夺宝奇兵实验底材 - 自动音效：朴实项链 - 精确==
+#==[83002]- Heist Experimented -夺宝奇兵实验底材 夺宝奇兵实验底材 - 基础 - 物品卡：朴实项链 - 精确==
 Show
     BaseType == "Simplex Amulet"
     Rarity <= Rare
@@ -3213,7 +3690,7 @@ Show
 
 #==[86000]-装备 Equipment - League League - 祭礼束衣 Sacrificial Garbs==
 
-#==[86001]- Sacrificial Garbs -祭礼束衣 祭礼束衣 - 自动音效：祭礼束衣 - 精确==
+#==[86001]- Sacrificial Garbs -祭礼束衣 祭礼束衣 - 基础 - 物品卡：祭礼束衣 - 精确==
 Show
     BaseType == "Sacrificial Garb"
     Rarity <= Rare
@@ -3225,7 +3702,7 @@ Show
 
 #==[87000]-装备 Equipment - League League - 深渊腰带 Stygian Vise==
 
-#==[87001]- Stygian Vise -深渊腰带 深渊腰带 - 自动音效：深渊腰带 - 精确==
+#==[87001]- Stygian Vise -深渊腰带 深渊腰带 - 基础 - 物品卡：深渊腰带 - 精确==
 Show
     BaseType == "Stygian Vise"
     Rarity <= Rare
@@ -3813,9 +4290,22 @@ Show
 
 #==[103000]-装备 Equipment - 武器 Weapons - 法杖 Wands==
 
-#==[103001]- Wands -T0: 顶级法杖(83+) 法杖 - #1 i83 Top Wands - 精确==
+#==[103001]- Wands -T0: 顶级法杖(83+) 法杖 - #1 i83 Top Wands - 物品卡：召集法杖 - 精确==
 Show
-    BaseType == "Opal Wand" "Profane Wand" "Convoking Wand"
+    BaseType == "Convoking Wand"
+    ItemLevel >= 83
+    Rarity <= Rare
+    SetFontSize 45
+    SetBorderColor 255 255 255 255
+    SetBackgroundColor 15 17 21 255
+    CustomAlertSound "Sharket掉落音效\召集法杖.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[103002]- Wands -T0: 顶级法杖(83+) 法杖 - #2 i83 Top Wands - 精确==
+Show
+    BaseType == "Opal Wand" "Profane Wand"
     ItemLevel >= 83
     Rarity <= Rare
     SetFontSize 45
@@ -3826,9 +4316,20 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[103002]- Wands -T2: 优质稀有底材 法杖 - 基础 - 精确==
+#==[103003]- Wands -T2: 优质稀有底材 法杖 - 基础 - 物品卡：召集法杖 - 精确==
 Show
-    BaseType == "Convoking Wand" "Kinetic Wand" "Profane Wand" "Prophecy Wand" "Tornado Wand"
+    BaseType == "Convoking Wand"
+    AreaLevel >= 68
+    Rarity Rare
+    SetFontSize 40
+    SetBorderColor 71 102 144 255
+    SetBackgroundColor 9 10 12 255
+    CustomAlertSound "Sharket掉落音效\召集法杖.mp3" 200
+
+
+#==[103004]- Wands -T2: 优质稀有底材 法杖 - 基础 - 精确==
+Show
+    BaseType == "Kinetic Wand" "Profane Wand" "Prophecy Wand" "Tornado Wand"
     AreaLevel >= 68
     Rarity Rare
     SetFontSize 40
@@ -3837,7 +4338,7 @@ Show
     CustomAlertSound "Sharket掉落音效\金装备.mp3" 100
 
 
-#==[103003]- Wands -T3: 可用稀有底材 法杖 - 基础 - 精确==
+#==[103005]- Wands -T3: 可用稀有底材 法杖 - 基础 - 精确==
 Show
     BaseType == "Blasting Wand" "Convening Wand" "Demon's Horn" "Heathen Wand" "Opal Wand"
     AreaLevel >= 68
@@ -3848,7 +4349,7 @@ Show
     CustomAlertSound "Sharket掉落音效\金装.mp3" 100
 
 
-#==[103004]- Wands -T4: 兜底（碎片） 法杖 - 基础 - 精确==
+#==[103006]- Wands -T4: 兜底（碎片） 法杖 - 基础 - 精确==
 Show
     BaseType == "Accumulator Wand" "Assembler Wand" "Calling Wand" "Coiled Wand" "Congregator Wand" "Crystal Wand" "Driftwood Wand" "Faun's Horn" "Goat's Horn" "Omen Wand" "Pagan Wand" "Quartz Wand" "Sage Wand" "Somatic Wand" "Spiraled Wand"
     AreaLevel >= 68
@@ -4003,9 +4504,23 @@ Show
 
 #==[84000]-药剂 Flasks - 功能药剂 Utility Flasks==
 
-#==[84001]- Utility Flasks -T0: 顶级/核心 功能药剂 - #1 i84 Top Utility Flasks - 精确==
+#==[84001]- Utility Flasks -T0: 顶级/核心 功能药剂 - #1 i84 Top Utility Flasks - 物品卡：水银药剂 - 精确==
 Show
-    BaseType == "Gold Flask" "Corundum Flask" "Silver Flask" "Amethyst Flask" "Diamond Flask" "Quicksilver Flask"
+    BaseType == "Quicksilver Flask"
+    ItemLevel >= 84
+    Rarity <= Rare
+    SetFontSize 45
+    SetTextColor 99 34 119 255
+    SetBorderColor 146 49 175 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\水银药剂.mp3" 200
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[84002]- Utility Flasks -T0: 顶级/核心 功能药剂 - #2 i84 Top Utility Flasks - 精确==
+Show
+    BaseType == "Gold Flask" "Corundum Flask" "Silver Flask" "Amethyst Flask" "Diamond Flask"
     ItemLevel >= 84
     Rarity <= Rare
     SetFontSize 45
@@ -4017,9 +4532,23 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[84002]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - #1 i82 Utility Flasks - 精确==
+#==[84003]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - #1 i82 Utility Flasks - 物品卡：水银药剂 - 精确==
 Show
-    BaseType == "Gold Flask" "Corundum Flask" "Silver Flask" "Amethyst Flask" "Diamond Flask" "Quicksilver Flask"
+    BaseType == "Quicksilver Flask"
+    ItemLevel >= 82
+    Rarity <= Rare
+    SetFontSize 45
+    SetTextColor 244 231 248 255
+    SetBorderColor 223 176 238 255
+    SetBackgroundColor 159 54 191 255
+    CustomAlertSound "Sharket掉落音效\水银药剂.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[84004]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - #2 i82 Utility Flasks - 精确==
+Show
+    BaseType == "Gold Flask" "Corundum Flask" "Silver Flask" "Amethyst Flask" "Diamond Flask"
     ItemLevel >= 82
     Rarity <= Rare
     SetFontSize 45
@@ -4030,7 +4559,7 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[84003]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - 自动音效：坚岩药剂 - 精确==
+#==[84005]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - 基础 - 物品卡：坚岩药剂 - 精确==
 Show
     BaseType == "Granite Flask"
     Rarity <= Rare
@@ -4043,20 +4572,7 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[84004]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - 自动音效：石英药剂 - 精确==
-Show
-    BaseType == "Quartz Flask"
-    Rarity <= Rare
-    SetFontSize 45
-    SetTextColor 244 231 248 255
-    SetBorderColor 223 176 238 255
-    SetBackgroundColor 159 54 191 255
-    CustomAlertSound "Sharket掉落音效\石英药剂.mp3" 200
-    PlayEffect White
-    MinimapIcon 1 White Diamond
-
-
-#==[84005]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - 自动音效：坚铁药剂 - 精确==
+#==[84006]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - 基础 - 物品卡：坚铁药剂 - 精确==
 Show
     BaseType == "Iron Flask"
     Rarity <= Rare
@@ -4069,7 +4585,20 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[84006]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - 基础 - 精确==
+#==[84007]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - 基础 - 物品卡：石英药剂 - 精确==
+Show
+    BaseType == "Quartz Flask"
+    Rarity <= Rare
+    SetFontSize 45
+    SetTextColor 244 231 248 255
+    SetBorderColor 223 176 238 255
+    SetBackgroundColor 159 54 191 255
+    CustomAlertSound "Sharket掉落音效\石英药剂.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[84008]- Utility Flasks -T1: 顶级功能药剂 功能药剂 - 基础 - 精确==
 Show
     BaseType == "Aquamarine Flask" "Basalt Flask" "Bismuth Flask" "Jade Flask" "Ruby Flask" "Sapphire Flask" "Stibnite Flask" "Sulphur Flask" "Topaz Flask"
     Rarity <= Rare
@@ -4113,19 +4642,7 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[91003]- Skill -T0: 誓约/光环 技能宝石 - 自动音效：时空之门 - 精确==
-Show
-    BaseType == "Portal"
-    SetFontSize 45
-    SetTextColor 19 119 112 255
-    SetBorderColor 25 154 145 255
-    SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\时空之门.mp3" 300
-    PlayEffect White
-    MinimapIcon 0 White Star
-
-
-#==[91004]- Skill -T0: 誓约/光环 技能宝石 - 自动音效：元素净化 - 精确==
+#==[91003]- Skill -T0: 誓约/光环 技能宝石 - 基础 - 物品卡：元素净化 - 精确==
 Show
     BaseType == "Purity of Elements"
     SetFontSize 45
@@ -4133,6 +4650,18 @@ Show
     SetBorderColor 25 154 145 255
     SetBackgroundColor 248 248 242 255
     CustomAlertSound "Sharket掉落音效\元素净化.mp3" 300
+    PlayEffect White
+    MinimapIcon 0 White Star
+
+
+#==[91004]- Skill -T0: 誓约/光环 技能宝石 - 基础 - 物品卡：时空之门 - 精确==
+Show
+    BaseType == "Portal"
+    SetFontSize 45
+    SetTextColor 19 119 112 255
+    SetBorderColor 25 154 145 255
+    SetBackgroundColor 248 248 242 255
+    CustomAlertSound "Sharket掉落音效\时空之门.mp3" 300
     PlayEffect White
     MinimapIcon 0 White Star
 
@@ -4213,7 +4742,7 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[91011]- Skill -T2: 需求 12 级及以上 技能宝石 - 自动音效：时空裂隙 - 精确==
+#==[91011]- Skill -T2: 需求 12 级及以上 技能宝石 - 基础 - 物品卡：时空裂隙 - 精确==
 Show
     BaseType == "Temporal Rift"
     SetFontSize 40
@@ -4536,7 +5065,7 @@ Show
     MinimapIcon 0 White Star
 
 
-#==[121002]- Base Maps -T0: 特殊地图 常规地图 - #2 瓦尔密殿 - 精确==
+#==[121002]- Base Maps -T0: 特殊地图 常规地图 - #2 瓦尔密殿 - 物品卡：瓦尔密殿 - 精确==
 Show
     BaseType == "Vaal Temple Map"
     MapTier >= 16
@@ -4544,7 +5073,7 @@ Show
     SetTextColor 29 64 124 255
     SetBorderColor 43 94 182 255
     SetBackgroundColor 248 248 242 255
-    CustomAlertSound "Sharket掉落音效\超级地图.mp3" 300
+    CustomAlertSound "Sharket掉落音效\瓦尔密殿.mp3" 300
     PlayEffect White
     MinimapIcon 0 White Star
 
@@ -4743,13 +5272,14 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[122004]- Splinters -T2: 单个 / 小堆 可堆叠通货 - #1 No auto-sound for Ritual Splinter @ Tier 2 Splinters - 精确==
+#==[122004]- Splinters -T2: 单个 / 小堆 可堆叠通货 - #1 No auto-sound for Ritual Splinter @ Tier 2 Splinters - 物品卡：驱灵裂片 - 精确==
 Show
     BaseType == "Ritual Splinter"
     SetFontSize 40
     SetTextColor 219 236 245 255
     SetBorderColor 160 203 228 255
     SetBackgroundColor 43 111 151 255
+    CustomAlertSound "Sharket掉落音效\驱灵裂片.mp3" 100
 
 
 #==[122005]- Splinters -T2: 单个 / 小堆 可堆叠通货 - 基础 - 精确==
@@ -4823,19 +5353,7 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[123006]- Fragments -T1: 顶级碎片 碎片 - 自动音效：贤主敕令 - 精确==
-Show
-    BaseType == "The Maven's Writ"
-    SetFontSize 45
-    SetTextColor 0 0 0 255
-    SetBorderColor 19 63 88 255
-    SetBackgroundColor 54 141 191 255
-    CustomAlertSound "Sharket掉落音效\贤主敕令.mp3" 300
-    PlayEffect White
-    MinimapIcon 1 White Diamond
-
-
-#==[123007]- Fragments -T1: 顶级碎片 碎片 - 自动音效：谒王之约 - 精确==
+#==[123006]- Fragments -T1: 顶级碎片 碎片 - 基础 - 物品卡：谒王之约 - 精确==
 Show
     BaseType == "An Audience With The King"
     SetFontSize 45
@@ -4843,6 +5361,18 @@ Show
     SetBorderColor 19 63 88 255
     SetBackgroundColor 54 141 191 255
     CustomAlertSound "Sharket掉落音效\谒王之约.mp3" 300
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[123007]- Fragments -T1: 顶级碎片 碎片 - 基础 - 物品卡：贤主敕令 - 精确==
+Show
+    BaseType == "The Maven's Writ"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 19 63 88 255
+    SetBackgroundColor 54 141 191 255
+    CustomAlertSound "Sharket掉落音效\贤主敕令.mp3" 300
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -4903,7 +5433,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[123013]- Fragments -T2: 高价值碎片 碎片 - 自动音效：梦魇拟像 - 精确==
+#==[123013]- Fragments -T2: 高价值碎片 碎片 - 基础 - 物品卡：梦魇拟像 - 精确==
 Show
     BaseType == "Simulacrum"
     SetFontSize 40
@@ -4914,18 +5444,7 @@ Show
     MinimapIcon 1 Orange Circle
 
 
-#==[123014]- Fragments -T2: 高价值碎片 碎片 - 自动音效：神圣之花 - 精确==
-Show
-    BaseType == "Sacred Blossom"
-    SetFontSize 40
-    SetTextColor 219 236 245 255
-    SetBorderColor 160 203 228 255
-    SetBackgroundColor 43 111 151 255
-    CustomAlertSound "Sharket掉落音效\神圣之花.mp3" 300
-    MinimapIcon 1 Orange Circle
-
-
-#==[123015]- Fragments -T2: 高价值碎片 碎片 - 自动音效：浸血法器 - 精确==
+#==[123014]- Fragments -T2: 高价值碎片 碎片 - 基础 - 物品卡：浸血法器 - 精确==
 Show
     BaseType == "Blood-filled Vessel"
     SetFontSize 40
@@ -4933,6 +5452,17 @@ Show
     SetBorderColor 160 203 228 255
     SetBackgroundColor 43 111 151 255
     CustomAlertSound "Sharket掉落音效\浸血法器.mp3" 200
+    MinimapIcon 1 Orange Circle
+
+
+#==[123015]- Fragments -T2: 高价值碎片 碎片 - 基础 - 物品卡：神圣之花 - 精确==
+Show
+    BaseType == "Sacred Blossom"
+    SetFontSize 40
+    SetTextColor 219 236 245 255
+    SetBorderColor 160 203 228 255
+    SetBackgroundColor 43 111 151 255
+    CustomAlertSound "Sharket掉落音效\神圣之花.mp3" 300
     MinimapIcon 1 Orange Circle
 
 
@@ -5047,14 +5577,14 @@ Show
     CustomAlertSound "Sharket掉落音效\绿门碎片.mp3" 300
 
 
-#==[123027]- Fragments -T3: 普通碎片 碎片 - #11 __SOUND__:Mortal Hope - 精确==
+#==[123027]- Fragments -T3: 普通碎片 碎片 - #11 __SOUND__:Mortal Hope - 物品卡：凡人的希望 - 精确==
 Show
     BaseType == "Mortal Hope"
     SetFontSize 40
     SetTextColor 136 190 221 255
     SetBorderColor 0 0 0 0
     SetBackgroundColor 17 44 60 255
-    CustomAlertSound "Sharket掉落音效\绿门碎片.mp3" 300
+    CustomAlertSound "Sharket掉落音效\凡人的希望.mp3" 300
 
 
 #==[123028]- Fragments -T3: 普通碎片 碎片 - #12 __SOUND__:Mortal Ignorance - 精确==
@@ -5107,7 +5637,7 @@ Show
     CustomAlertSound "Sharket掉落音效\记忆碎片.mp3" 300
 
 
-#==[123033]- Fragments -T3: 普通碎片 碎片 - 自动音效：新月裂片 - 精确==
+#==[123033]- Fragments -T3: 普通碎片 碎片 - 基础 - 物品卡：新月裂片 - 精确==
 Show
     BaseType == "Crescent Splinter"
     SetFontSize 40
@@ -5269,7 +5799,19 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[131005]- Misc -其他杂项 其他杂项 - 自动音效：白银钥匙 - 精确==
+#==[131005]- Misc -其他杂项 其他杂项 - 基础 - 物品卡：古铜钥匙 - 精确==
+Show
+    BaseType == "Treasure Key"
+    SetFontSize 45
+    SetTextColor 19 73 21 255
+    SetBorderColor 20 103 22 255
+    SetBackgroundColor 49 196 54 255
+    CustomAlertSound "Sharket掉落音效\古铜钥匙.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[131006]- Misc -其他杂项 其他杂项 - 基础 - 物品卡：白银钥匙 - 精确==
 Show
     BaseType == "Silver Key"
     SetFontSize 45
@@ -5281,7 +5823,7 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[131006]- Misc -其他杂项 其他杂项 - 自动音效：黄金钥匙 - 精确==
+#==[131007]- Misc -其他杂项 其他杂项 - 基础 - 物品卡：黄金钥匙 - 精确==
 Show
     BaseType == "Golden Key"
     SetFontSize 45
@@ -5289,18 +5831,6 @@ Show
     SetBorderColor 20 103 22 255
     SetBackgroundColor 49 196 54 255
     CustomAlertSound "Sharket掉落音效\黄金钥匙.mp3" 200
-    PlayEffect White
-    MinimapIcon 1 White Diamond
-
-
-#==[131007]- Misc -其他杂项 其他杂项 - 自动音效：古铜钥匙 - 精确==
-Show
-    BaseType == "Treasure Key"
-    SetFontSize 45
-    SetTextColor 19 73 21 255
-    SetBorderColor 20 103 22 255
-    SetBackgroundColor 49 196 54 255
-    CustomAlertSound "Sharket掉落音效\古铜钥匙.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
@@ -5843,103 +6373,7 @@ Hide
 
 #==[161000]-_legacy _legacy - 历史物品 Legacy==
 
-#==[161001]- Legacy -显示历史物品 历史物品 - 自动音效：普兰德斯金币 - 精确==
-Show
-    BaseType == "Perandus Coin"
-    SetFontSize 45
-    SetTextColor 0 0 0 255
-    SetBorderColor 58 48 34 255
-    SetBackgroundColor 144 127 100 255
-    CustomAlertSound "Sharket掉落音效\普兰德斯金币.mp3" 100
-    PlayEffect White
-    MinimapIcon 1 White Diamond
-
-
-#==[161002]- Legacy -显示历史物品 历史物品 - 自动音效：护甲重组器 - 精确==
-Show
-    BaseType == "Armour Recombinator"
-    SetFontSize 45
-    SetTextColor 0 0 0 255
-    SetBorderColor 58 48 34 255
-    SetBackgroundColor 144 127 100 255
-    CustomAlertSound "Sharket掉落音效\护甲重组器.mp3" 300
-    PlayEffect White
-    MinimapIcon 1 White Diamond
-
-
-#==[161003]- Legacy -显示历史物品 历史物品 - 自动音效：武器重组器 - 精确==
-Show
-    BaseType == "Weapon Recombinator"
-    SetFontSize 45
-    SetTextColor 0 0 0 255
-    SetBorderColor 58 48 34 255
-    SetBackgroundColor 144 127 100 255
-    CustomAlertSound "Sharket掉落音效\武器重组器.mp3" 300
-    PlayEffect White
-    MinimapIcon 1 White Diamond
-
-
-#==[161004]- Legacy -显示历史物品 历史物品 - 自动音效：珠宝重组器 - 精确==
-Show
-    BaseType == "Jewellery Recombinator"
-    SetFontSize 45
-    SetTextColor 0 0 0 255
-    SetBorderColor 58 48 34 255
-    SetBackgroundColor 144 127 100 255
-    CustomAlertSound "Sharket掉落音效\珠宝重组器.mp3" 300
-    PlayEffect White
-    MinimapIcon 1 White Diamond
-
-
-#==[161005]- Legacy -显示历史物品 历史物品 - 自动音效：潜能项链 - 精确==
-Show
-    BaseType == "Unset Amulet"
-    SetFontSize 45
-    SetTextColor 0 0 0 255
-    SetBorderColor 58 48 34 255
-    SetBackgroundColor 144 127 100 255
-    CustomAlertSound "Sharket掉落音效\潜能项链.mp3" 200
-    PlayEffect White
-    MinimapIcon 1 White Diamond
-
-
-#==[161006]- Legacy -显示历史物品 历史物品 - 自动音效：血色护身符 - 精确==
-Show
-    BaseType == "Ruby Amulet"
-    SetFontSize 45
-    SetTextColor 0 0 0 255
-    SetBorderColor 58 48 34 255
-    SetBackgroundColor 144 127 100 255
-    CustomAlertSound "Sharket掉落音效\血色护身符.mp3" 200
-    PlayEffect White
-    MinimapIcon 1 White Diamond
-
-
-#==[161007]- Legacy -显示历史物品 历史物品 - 自动音效：华美箭袋 - 精确==
-Show
-    BaseType == "Ornate Quiver"
-    SetFontSize 45
-    SetTextColor 0 0 0 255
-    SetBorderColor 58 48 34 255
-    SetBackgroundColor 144 127 100 255
-    CustomAlertSound "Sharket掉落音效\华美箭袋.mp3" 200
-    PlayEffect White
-    MinimapIcon 1 White Diamond
-
-
-#==[161008]- Legacy -显示历史物品 历史物品 - 自动音效：裂隙戒指 - 精确==
-Show
-    BaseType == "Breach Ring"
-    SetFontSize 45
-    SetTextColor 0 0 0 255
-    SetBorderColor 58 48 34 255
-    SetBackgroundColor 144 127 100 255
-    CustomAlertSound "Sharket掉落音效\裂隙戒指.mp3" 200
-    PlayEffect White
-    MinimapIcon 1 White Diamond
-
-
-#==[161009]- Legacy -显示历史物品 历史物品 - 自动音效：三相珠宝 - 精确==
+#==[161001]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：三相珠宝 - 精确==
 Show
     BaseType == "Prismatic Jewel"
     SetFontSize 45
@@ -5951,31 +6385,19 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[161010]- Legacy -显示历史物品 历史物品 - 自动音效：永恒珠宝 - 精确==
+#==[161002]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：华美箭袋 - 精确==
 Show
-    BaseType == "Timeless Jewel"
+    BaseType == "Ornate Quiver"
     SetFontSize 45
     SetTextColor 0 0 0 255
     SetBorderColor 58 48 34 255
     SetBackgroundColor 144 127 100 255
-    CustomAlertSound "Sharket掉落音效\永恒珠宝.mp3" 300
+    CustomAlertSound "Sharket掉落音效\华美箭袋.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
 
-#==[161011]- Legacy -显示历史物品 历史物品 - 自动音效：扼杀链甲 - 精确==
-Show
-    BaseType == "Grasping Mail"
-    SetFontSize 45
-    SetTextColor 0 0 0 255
-    SetBorderColor 58 48 34 255
-    SetBackgroundColor 144 127 100 255
-    CustomAlertSound "Sharket掉落音效\扼杀链甲.mp3" 200
-    PlayEffect White
-    MinimapIcon 1 White Diamond
-
-
-#==[161012]- Legacy -显示历史物品 历史物品 - 自动音效：圣洁遗物 - 精确==
+#==[161003]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：圣洁遗物 - 精确==
 Show
     BaseType == "Sanctified Relic"
     SetFontSize 45
@@ -5987,19 +6409,103 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[161013]- Legacy -显示历史物品 历史物品 - 自动音效：高阶点金石 - 精确==
+#==[161004]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：扼杀链甲 - 精确==
 Show
-    BaseType == "Orb of Binding"
+    BaseType == "Grasping Mail"
     SetFontSize 45
     SetTextColor 0 0 0 255
     SetBorderColor 58 48 34 255
     SetBackgroundColor 144 127 100 255
-    CustomAlertSound "Sharket掉落音效\高阶点金石.mp3" 300
+    CustomAlertSound "Sharket掉落音效\扼杀链甲.mp3" 200
     PlayEffect White
     MinimapIcon 1 White Diamond
 
 
-#==[161014]- Legacy -显示历史物品 历史物品 - 自动音效：统御宝珠 - 精确==
+#==[161005]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：护甲重组器 - 精确==
+Show
+    BaseType == "Armour Recombinator"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 58 48 34 255
+    SetBackgroundColor 144 127 100 255
+    CustomAlertSound "Sharket掉落音效\护甲重组器.mp3" 300
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[161006]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：普兰德斯金币 - 精确==
+Show
+    BaseType == "Perandus Coin"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 58 48 34 255
+    SetBackgroundColor 144 127 100 255
+    CustomAlertSound "Sharket掉落音效\普兰德斯金币.mp3" 100
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[161007]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：武器重组器 - 精确==
+Show
+    BaseType == "Weapon Recombinator"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 58 48 34 255
+    SetBackgroundColor 144 127 100 255
+    CustomAlertSound "Sharket掉落音效\武器重组器.mp3" 300
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[161008]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：永恒珠宝 - 精确==
+Show
+    BaseType == "Timeless Jewel"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 58 48 34 255
+    SetBackgroundColor 144 127 100 255
+    CustomAlertSound "Sharket掉落音效\永恒珠宝.mp3" 300
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[161009]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：潜能项链 - 精确==
+Show
+    BaseType == "Unset Amulet"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 58 48 34 255
+    SetBackgroundColor 144 127 100 255
+    CustomAlertSound "Sharket掉落音效\潜能项链.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[161010]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：珠宝重组器 - 精确==
+Show
+    BaseType == "Jewellery Recombinator"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 58 48 34 255
+    SetBackgroundColor 144 127 100 255
+    CustomAlertSound "Sharket掉落音效\珠宝重组器.mp3" 300
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[161011]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：禁灵之瓶 - 精确==
+Show
+    BaseType == "Divine Vessel"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 58 48 34 255
+    SetBackgroundColor 144 127 100 255
+    CustomAlertSound "Sharket掉落音效\禁灵之瓶.mp3" 100
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[161012]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：统御宝珠 - 精确==
 Show
     BaseType == "Orb of Dominance"
     SetFontSize 45
@@ -6011,7 +6517,31 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[161015]- Legacy -显示历史物品 历史物品 - 自动音效：觉醒者之石 - 精确==
+#==[161013]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：血色护身符 - 精确==
+Show
+    BaseType == "Ruby Amulet"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 58 48 34 255
+    SetBackgroundColor 144 127 100 255
+    CustomAlertSound "Sharket掉落音效\血色护身符.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[161014]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：裂隙戒指 - 精确==
+Show
+    BaseType == "Breach Ring"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBorderColor 58 48 34 255
+    SetBackgroundColor 144 127 100 255
+    CustomAlertSound "Sharket掉落音效\裂隙戒指.mp3" 200
+    PlayEffect White
+    MinimapIcon 1 White Diamond
+
+
+#==[161015]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：觉醒者之石 - 精确==
 Show
     BaseType == "Awakener's Orb"
     SetFontSize 45
@@ -6023,14 +6553,14 @@ Show
     MinimapIcon 1 White Diamond
 
 
-#==[161016]- Legacy -显示历史物品 历史物品 - 自动音效：禁灵之瓶 - 精确==
+#==[161016]- Legacy -显示历史物品 历史物品 - 基础 - 物品卡：高阶点金石 - 精确==
 Show
-    BaseType == "Divine Vessel"
+    BaseType == "Orb of Binding"
     SetFontSize 45
     SetTextColor 0 0 0 255
     SetBorderColor 58 48 34 255
     SetBackgroundColor 144 127 100 255
-    CustomAlertSound "Sharket掉落音效\禁灵之瓶.mp3" 100
+    CustomAlertSound "Sharket掉落音效\高阶点金石.mp3" 300
     PlayEffect White
     MinimapIcon 1 White Diamond
 

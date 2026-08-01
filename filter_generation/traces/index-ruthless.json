@@ -23,7 +23,7 @@
    "reachable": true
   },
   {
-   "order": 46031,
+   "order": 46032,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
    "rule": null,
@@ -171,7 +171,7 @@
    "reachable": true
   },
   {
-   "order": 46031,
+   "order": 46032,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
    "rule": null,
@@ -195,7 +195,7 @@
    "reachable": true
   },
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -280,7 +280,7 @@
  ],
  "Aetherwind Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -307,7 +307,7 @@
  ],
  "Agate Amulet": [
   {
-   "order": 67003,
+   "order": 67007,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 1 Amulets",
    "rule": null,
@@ -359,11 +359,11 @@
  ],
  "Albino Rhoa Feather": [
   {
-   "order": 46003,
+   "order": 46004,
    "file": "Currency/General.json",
    "block": "Tier 0 General",
-   "rule": "自动音效：白化的羽毛",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -383,7 +383,7 @@
  ],
  "Alchemy Shard": [
   {
-   "order": 46047,
+   "order": 46048,
    "file": "Currency/General.json",
    "block": "Tier 5 General",
    "rule": null,
@@ -533,7 +533,7 @@
  ],
  "Alteration Shard": [
   {
-   "order": 46047,
+   "order": 46048,
    "file": "Currency/General.json",
    "block": "Tier 5 General",
    "rule": null,
@@ -572,7 +572,7 @@
  ],
  "Amber Amulet": [
   {
-   "order": 67004,
+   "order": 67010,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 2 Amulets",
    "rule": null,
@@ -636,7 +636,7 @@
  ],
  "Ambush Boots": [
   {
-   "order": 62005,
+   "order": 62008,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 3 Boots",
    "rule": null,
@@ -651,7 +651,7 @@
  ],
  "Ambush Mitts": [
   {
-   "order": 63005,
+   "order": 63015,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 3 Gloves",
    "rule": null,
@@ -779,10 +779,10 @@
  ],
  "Amethyst Flask": [
   {
-   "order": 74001,
+   "order": 74002,
    "file": "Flasks/Utility.json",
    "block": "Tier 0 Utility Flasks",
-   "rule": "#1 i84 Top Utility Flasks",
+   "rule": "#2 i84 Top Utility Flasks",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -792,10 +792,10 @@
    "reachable": true
   },
   {
-   "order": 74002,
+   "order": 74004,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
-   "rule": "#1 i82 Utility Flasks",
+   "rule": "#2 i82 Utility Flasks",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -819,11 +819,11 @@
  ],
  "Amethyst Ring": [
   {
-   "order": 69003,
+   "order": 69011,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 1 Rings",
-   "rule": "自动音效：紫晶戒指",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -872,11 +872,11 @@
  ],
  "An Audience With The King": [
   {
-   "order": 113007,
+   "order": 113006,
    "file": "Maps/Fragments.json",
    "block": "Tier 1 Fragments",
-   "rule": "自动音效：谒王之约",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -986,7 +986,7 @@
  ],
  "Ancient Gauntlets": [
   {
-   "order": 63005,
+   "order": 63015,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 3 Gloves",
    "rule": null,
@@ -1013,7 +1013,7 @@
  ],
  "Ancient Greaves": [
   {
-   "order": 62005,
+   "order": 62008,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 3 Boots",
    "rule": null,
@@ -1028,7 +1028,7 @@
  ],
  "Ancient Mask": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -1043,11 +1043,11 @@
  ],
  "Ancient Orb": [
   {
-   "order": 46020,
+   "order": 46024,
    "file": "Currency/General.json",
    "block": "Tier 3 General",
-   "rule": "自动音效：远古石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -1182,7 +1182,7 @@
  ],
  "Annulment Shard": [
   {
-   "order": 46031,
+   "order": 46032,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
    "rule": null,
@@ -1194,7 +1194,7 @@
  ],
  "Antique Gauntlets": [
   {
-   "order": 63005,
+   "order": 63015,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 3 Gloves",
    "rule": null,
@@ -1221,7 +1221,7 @@
  ],
  "Antique Greaves": [
   {
-   "order": 62005,
+   "order": 62008,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 3 Boots",
    "rule": null,
@@ -1320,11 +1320,11 @@
  ],
  "Apothecary's Gloves": [
   {
-   "order": 32001,
+   "order": 32006,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Perfect Defence",
-   "rule": "自动音效：药剂师手套",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "BaseDefencePercentile >= 99",
@@ -1336,10 +1336,10 @@
    "reachable": true
   },
   {
-   "order": 63001,
+   "order": 63004,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 0 Gloves",
-   "rule": "#1 i86 Top Gloves",
+   "rule": "#4 i86 Top Gloves - 物品卡：药剂师手套",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -1349,10 +1349,10 @@
    "reachable": true
   },
   {
-   "order": 63002,
+   "order": 63008,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 1 Gloves",
-   "rule": "#1 i84 Top Gloves",
+   "rule": "#4 i84 Top Gloves - 物品卡：药剂师手套",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -1362,11 +1362,11 @@
    "reachable": true
   },
   {
-   "order": 63004,
+   "order": 63012,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -1377,7 +1377,7 @@
  ],
  "Apprentice Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -1404,7 +1404,7 @@
  ],
  "Aquamarine Flask": [
   {
-   "order": 74006,
+   "order": 74008,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
    "rule": null,
@@ -1469,7 +1469,7 @@
  ],
  "Arcanist Gloves": [
   {
-   "order": 63005,
+   "order": 63015,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 3 Gloves",
    "rule": null,
@@ -1484,7 +1484,7 @@
  ],
  "Arcanist Slippers": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -1499,7 +1499,7 @@
  ],
  "Archdemon Crown": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -1661,11 +1661,11 @@
  ],
  "Armour Recombinator": [
   {
-   "order": 151002,
+   "order": 151005,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：护甲重组器",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -1673,11 +1673,11 @@
  ],
  "Armourer's Scrap": [
   {
-   "order": 46041,
+   "order": 46039,
    "file": "Currency/General.json",
    "block": "CustomTier 1 General",
-   "rule": "自动音效：护甲片",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -1709,11 +1709,11 @@
  ],
  "Artillery Quiver": [
   {
-   "order": 32009,
+   "order": 32013,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Over Quality",
-   "rule": "自动音效：火炮箭袋",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Quality > 20",
@@ -1722,11 +1722,11 @@
    "reachable": true
   },
   {
-   "order": 32018,
+   "order": 32019,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Strands Weapons",
-   "rule": "自动音效：火炮箭袋",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "ItemLevel >= 83",
@@ -1739,8 +1739,8 @@
    "order": 65005,
    "file": "Equipment/Armour/Quivers.json",
    "block": "Tier 4 Quivers",
-   "rule": "自动音效：火炮箭袋",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -1792,7 +1792,7 @@
  ],
  "Assassin's Boots": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -1872,7 +1872,7 @@
  ],
  "Assassin's Mitts": [
   {
-   "order": 63005,
+   "order": 63015,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 3 Gloves",
    "rule": null,
@@ -1938,7 +1938,7 @@
  ],
  "Assembler Wand": [
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -1953,7 +1953,7 @@
  ],
  "Astragali": [
   {
-   "order": 46031,
+   "order": 46032,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
    "rule": null,
@@ -2042,11 +2042,11 @@
  ],
  "Astrolabe Amulet": [
   {
-   "order": 67006,
+   "order": 67013,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 4 Amulets",
-   "rule": "自动音效：星盘项链",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -2058,8 +2058,8 @@
    "order": 73001,
    "file": "Equipment/League/Heist Experimented.json",
    "block": "Heist Experimented T1",
-   "rule": "自动音效：星盘项链",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Rarity <= Rare"
@@ -2081,7 +2081,7 @@
  ],
  "Atonement Mask": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -2157,7 +2157,7 @@
  ],
  "Aventail Helmet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -2223,8 +2223,8 @@
    "order": 151015,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：觉醒者之石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -2373,7 +2373,7 @@
  ],
  "Barbute Helmet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -2415,7 +2415,7 @@
  ],
  "Basalt Flask": [
   {
-   "order": 74006,
+   "order": 74008,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
    "rule": null,
@@ -2444,7 +2444,7 @@
  ],
  "Basemetal Treads": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -2543,7 +2543,7 @@
  ],
  "Battered Helm": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -2880,7 +2880,7 @@
  ],
  "Bismuth Flask": [
   {
-   "order": 74006,
+   "order": 74008,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
    "rule": null,
@@ -2984,11 +2984,11 @@
  ],
  "Blacksmith's Whetstone": [
   {
-   "order": 46042,
+   "order": 46043,
    "file": "Currency/General.json",
    "block": "CustomTier 1 General",
-   "rule": "自动音效：磨刀石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -3134,7 +3134,7 @@
  ],
  "Blasting Wand": [
   {
-   "order": 93003,
+   "order": 93005,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 3 Wands",
    "rule": null,
@@ -3200,11 +3200,11 @@
  ],
  "Blessed Orb": [
   {
-   "order": 46029,
+   "order": 46030,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
-   "rule": "自动音效：祝福石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -3347,7 +3347,7 @@
  ],
  "Blizzard Crown": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -3530,11 +3530,11 @@
  ],
  "Blood-filled Vessel": [
   {
-   "order": 113015,
+   "order": 113014,
    "file": "Maps/Fragments.json",
    "block": "Tier 2 Fragments",
-   "rule": "自动音效：浸血法器",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -3576,10 +3576,10 @@
  ],
  "Blue Pearl Amulet": [
   {
-   "order": 67001,
+   "order": 67003,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 0 Amulets",
-   "rule": "#1 i86 Top Amulets",
+   "rule": "#3 i86 Top Amulets - 物品卡：碧珠护身符",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -3589,10 +3589,10 @@
    "reachable": true
   },
   {
-   "order": 67002,
+   "order": 67006,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 1 Amulets",
-   "rule": "#1 i84 Top Amulets",
+   "rule": "#3 i84 Top Amulets - 物品卡：碧珠护身符",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -3602,11 +3602,11 @@
    "reachable": true
   },
   {
-   "order": 67004,
+   "order": 67009,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 2 Amulets",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -3741,7 +3741,7 @@
  ],
  "Bone Circlet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -3784,8 +3784,8 @@
    "order": 32002,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Perfect Defence",
-   "rule": "自动音效：唤骨头盔",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "BaseDefencePercentile >= 99",
@@ -3800,7 +3800,7 @@
    "order": 64001,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 0 Helmets",
-   "rule": "#1 i86 Top Helmets",
+   "rule": "#1 i86 Top Helmets - 物品卡：唤骨头盔",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -3810,10 +3810,10 @@
    "reachable": true
   },
   {
-   "order": 64002,
+   "order": 64003,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 1 Helmets",
-   "rule": "#1 i84 Top Helmets",
+   "rule": "#1 i84 Top Helmets - 物品卡：唤骨头盔",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -3823,11 +3823,11 @@
    "reachable": true
   },
   {
-   "order": 64004,
+   "order": 64006,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -3862,7 +3862,7 @@
  ],
  "Bone Ring": [
   {
-   "order": 69005,
+   "order": 69017,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 2 Rings",
    "rule": null,
@@ -4091,11 +4091,11 @@
  ],
  "Breach Ring": [
   {
-   "order": 151008,
+   "order": 151014,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：裂隙戒指",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -4175,7 +4175,7 @@
  ],
  "Brimstone Treads": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -4324,7 +4324,7 @@
  ],
  "Bronze Gauntlets": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -4384,7 +4384,7 @@
  ],
  "Bronzescale Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -4399,7 +4399,7 @@
  ],
  "Bronzescale Gauntlets": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -4444,11 +4444,11 @@
  ],
  "Burial Medallion": [
   {
-   "order": 46024,
+   "order": 46023,
    "file": "Currency/General.json",
    "block": "Tier 3 General",
-   "rule": "自动音效：葬礼徽章",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -4606,7 +4606,7 @@
  ],
  "Calling Wand": [
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -4621,7 +4621,7 @@
  ],
  "Callous Mask": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -4787,7 +4787,7 @@
  ],
  "Carnal Boots": [
   {
-   "order": 62005,
+   "order": 62008,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 3 Boots",
    "rule": null,
@@ -4814,7 +4814,7 @@
  ],
  "Carnal Mitts": [
   {
-   "order": 63005,
+   "order": 63015,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 3 Gloves",
    "rule": null,
@@ -5153,10 +5153,10 @@
  ],
  "Cerulean Ring": [
   {
-   "order": 69001,
+   "order": 69002,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 0 Rings",
-   "rule": "#1 i86 Top Rings",
+   "rule": "#2 i86 Top Rings - 物品卡：天蓝之戒",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -5166,10 +5166,10 @@
    "reachable": true
   },
   {
-   "order": 69002,
+   "order": 69007,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 1 Rings",
-   "rule": "#1 i84 Top Rings",
+   "rule": "#2 i84 Top Rings - 物品卡：天蓝之戒",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -5179,11 +5179,11 @@
    "reachable": true
   },
   {
-   "order": 69005,
+   "order": 69014,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 2 Rings",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -5207,7 +5207,7 @@
  ],
  "Chain Belt": [
   {
-   "order": 68005,
+   "order": 68008,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 3 Belts",
    "rule": null,
@@ -5247,7 +5247,7 @@
  ],
  "Chain Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -5262,7 +5262,7 @@
  ],
  "Chain Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -5404,7 +5404,7 @@
    "order": 46018,
    "file": "Currency/General.json",
    "block": "Tier 3 General",
-   "rule": "#1 规则",
+   "rule": "#1 规则 - 物品卡：混沌石",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -5413,11 +5413,11 @@
    "reachable": true
   },
   {
-   "order": 46031,
+   "order": 46028,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -5425,7 +5425,7 @@
  ],
  "Chaos Shard": [
   {
-   "order": 46036,
+   "order": 46037,
    "file": "Currency/General.json",
    "block": "CustomTier 2 General",
    "rule": null,
@@ -5581,7 +5581,7 @@
  ],
  "Chimerascale Boots": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -5596,7 +5596,7 @@
  ],
  "Chimerascale Gauntlets": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -5626,11 +5626,11 @@
  ],
  "Chromatic Orb": [
   {
-   "order": 46028,
+   "order": 46026,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
-   "rule": "自动音效：幻色石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -5677,7 +5677,7 @@
  ],
  "Citrine Amulet": [
   {
-   "order": 67003,
+   "order": 67007,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 1 Amulets",
    "rule": null,
@@ -5729,7 +5729,7 @@
  ],
  "Clasped Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -5744,7 +5744,7 @@
  ],
  "Clasped Mitts": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -5798,7 +5798,7 @@
  ],
  "Close Helmet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -5813,7 +5813,7 @@
  ],
  "Cloth Belt": [
   {
-   "order": 68005,
+   "order": 68008,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 3 Belts",
    "rule": null,
@@ -5840,7 +5840,7 @@
  ],
  "Cloudwhisper Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -5997,7 +5997,7 @@
  ],
  "Cogwork Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -6051,7 +6051,7 @@
  ],
  "Coiled Wand": [
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -6394,7 +6394,7 @@
  ],
  "Composite Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -6463,7 +6463,7 @@
  ],
  "Cone Helmet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -6524,7 +6524,7 @@
    "reachable": true
   },
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -6539,7 +6539,7 @@
  ],
  "Conjurer Boots": [
   {
-   "order": 62005,
+   "order": 62008,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 3 Boots",
    "rule": null,
@@ -6554,7 +6554,7 @@
  ],
  "Conjurer Gloves": [
   {
-   "order": 63005,
+   "order": 63015,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 3 Gloves",
    "rule": null,
@@ -6606,7 +6606,7 @@
  ],
  "Conqueror's Helmet": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -6636,7 +6636,7 @@
  ],
  "Conquest Helmet": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -6817,7 +6817,7 @@
  ],
  "Convening Wand": [
   {
-   "order": 93003,
+   "order": 93005,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 3 Wands",
    "rule": null,
@@ -6856,11 +6856,11 @@
  ],
  "Convoking Wand": [
   {
-   "order": 32010,
+   "order": 32009,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Over Quality",
-   "rule": "自动音效：召集法杖",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Quality > 20",
@@ -6869,11 +6869,11 @@
    "reachable": true
   },
   {
-   "order": 32019,
+   "order": 32018,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Strands Weapons",
-   "rule": "自动音效：召集法杖",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "ItemLevel >= 83",
@@ -6886,7 +6886,7 @@
    "order": 93001,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 0 Wands",
-   "rule": "#1 i83 Top Wands",
+   "rule": "#1 i83 Top Wands - 物品卡：召集法杖",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -6896,11 +6896,11 @@
    "reachable": true
   },
   {
-   "order": 93002,
+   "order": 93003,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 2 Wands",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -7020,7 +7020,7 @@
  ],
  "Coral Amulet": [
   {
-   "order": 67005,
+   "order": 67012,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 3 Amulets",
    "rule": null,
@@ -7059,7 +7059,7 @@
  ],
  "Coral Ring": [
   {
-   "order": 69005,
+   "order": 69017,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 2 Rings",
    "rule": null,
@@ -7263,10 +7263,10 @@
  ],
  "Corundum Flask": [
   {
-   "order": 74001,
+   "order": 74002,
    "file": "Flasks/Utility.json",
    "block": "Tier 0 Utility Flasks",
-   "rule": "#1 i84 Top Utility Flasks",
+   "rule": "#2 i84 Top Utility Flasks",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -7276,10 +7276,10 @@
    "reachable": true
   },
   {
-   "order": 74002,
+   "order": 74004,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
-   "rule": "#1 i82 Utility Flasks",
+   "rule": "#2 i82 Utility Flasks",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -7459,8 +7459,8 @@
    "order": 113033,
    "file": "Maps/Fragments.json",
    "block": "Tier 3 Fragments",
-   "rule": "自动音效：新月裂片",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -7658,7 +7658,7 @@
  ],
  "Crusader Boots": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -7715,7 +7715,7 @@
  ],
  "Crusader Gloves": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -7730,7 +7730,7 @@
  ],
  "Crusader Helmet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -7823,7 +7823,7 @@
  ],
  "Cryonic Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -7865,11 +7865,11 @@
  ],
  "Crystal Belt": [
   {
-   "order": 32011,
+   "order": 32012,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Over Quality",
-   "rule": "自动音效：水晶腰带",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Quality > 20",
@@ -7878,11 +7878,11 @@
    "reachable": true
   },
   {
-   "order": 32021,
+   "order": 32023,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Strands Gear",
-   "rule": "自动音效：水晶腰带",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "MemoryStrands >= 1",
@@ -7894,8 +7894,8 @@
    "order": 32028,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Gear 86",
-   "rule": "自动音效：水晶腰带",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "ItemLevel >= 86",
@@ -7907,7 +7907,7 @@
    "order": 68001,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 0 Belts",
-   "rule": "#1 i86 Top Belts",
+   "rule": "#1 i86 Top Belts - 物品卡：水晶腰带",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -7917,10 +7917,10 @@
    "reachable": false
   },
   {
-   "order": 68002,
+   "order": 68003,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 1 Belts",
-   "rule": "#1 i84 Top Belts",
+   "rule": "#1 i84 Top Belts - 物品卡：水晶腰带",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -7930,11 +7930,11 @@
    "reachable": true
   },
   {
-   "order": 68004,
+   "order": 68006,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 2 Belts",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -7985,7 +7985,7 @@
  ],
  "Crystal Wand": [
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -8225,7 +8225,7 @@
  ],
  "Darksteel Treads": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -8423,7 +8423,7 @@
  ],
  "Deerskin Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -8438,7 +8438,7 @@
  ],
  "Deerskin Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -8477,7 +8477,7 @@
  ],
  "Deicide Mask": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -8507,8 +8507,8 @@
    "order": 42001,
    "file": "Currency/Delirium Orbs.json",
    "block": "Tier 0 Delirium Orbs",
-   "rule": "自动音效：雾魇宝珠",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -8576,7 +8576,7 @@
  ],
  "Demon Crown": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -8656,7 +8656,7 @@
  ],
  "Demon's Horn": [
   {
-   "order": 93003,
+   "order": 93005,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 3 Wands",
    "rule": null,
@@ -8980,10 +8980,10 @@
  ],
  "Diamond Flask": [
   {
-   "order": 74001,
+   "order": 74002,
    "file": "Flasks/Utility.json",
    "block": "Tier 0 Utility Flasks",
-   "rule": "#1 i84 Top Utility Flasks",
+   "rule": "#2 i84 Top Utility Flasks",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -8993,10 +8993,10 @@
    "reachable": true
   },
   {
-   "order": 74002,
+   "order": 74004,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
-   "rule": "#1 i82 Utility Flasks",
+   "rule": "#2 i82 Utility Flasks",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -9008,7 +9008,7 @@
  ],
  "Diamond Ring": [
   {
-   "order": 69005,
+   "order": 69017,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 2 Rings",
    "rule": null,
@@ -9036,7 +9036,7 @@
  ],
  "Dire Pelt": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -9205,7 +9205,7 @@
    "reachable": true
   },
   {
-   "order": 64003,
+   "order": 64005,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 1 Helmets",
    "rule": null,
@@ -9286,11 +9286,11 @@
  ],
  "Divine Orb": [
   {
-   "order": 46007,
+   "order": 46010,
    "file": "Currency/General.json",
    "block": "Tier 1 General",
-   "rule": "自动音效：神圣石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -9332,11 +9332,11 @@
  ],
  "Divine Vessel": [
   {
-   "order": 151016,
+   "order": 151011,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：禁灵之瓶",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -9488,7 +9488,7 @@
  ],
  "Dragonscale Boots": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -9543,7 +9543,7 @@
  ],
  "Dragonscale Gauntlets": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -9615,7 +9615,7 @@
  ],
  "Dreamquest Slippers": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -9702,7 +9702,7 @@
  ],
  "Driftwood Wand": [
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -9780,7 +9780,7 @@
  ],
  "Dusk Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -9807,7 +9807,7 @@
  ],
  "Duskwalk Slippers": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -9999,7 +9999,7 @@
  ],
  "Eelskin Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -10014,7 +10014,7 @@
  ],
  "Eelskin Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -10093,11 +10093,11 @@
  ],
  "Eldritch Chaos Orb": [
   {
-   "order": 46010,
+   "order": 46008,
    "file": "Currency/General.json",
    "block": "Tier 1 General",
-   "rule": "自动音效：古灵混沌石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -10105,11 +10105,11 @@
  ],
  "Eldritch Exalted Orb": [
   {
-   "order": 46013,
+   "order": 46014,
    "file": "Currency/General.json",
    "block": "Tier 2 General",
-   "rule": "自动音效：古灵崇高石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -10129,11 +10129,11 @@
  ],
  "Eldritch Orb of Annulment": [
   {
-   "order": 46014,
+   "order": 46013,
    "file": "Currency/General.json",
    "block": "Tier 2 General",
-   "rule": "自动音效：古灵剥离石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -10285,7 +10285,7 @@
  ],
  "Embroidered Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -10552,7 +10552,7 @@
  ],
  "Enthalpic Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -10793,7 +10793,7 @@
  ],
  "Eternal Burgonet": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -10862,11 +10862,11 @@
  ],
  "Eternal Orb": [
   {
-   "order": 46002,
+   "order": 46003,
    "file": "Currency/General.json",
    "block": "Tier 0 General",
-   "rule": "自动音效：永恒宝珠",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -10979,11 +10979,11 @@
  ],
  "Exalted Orb": [
   {
-   "order": 46019,
+   "order": 46021,
    "file": "Currency/General.json",
    "block": "Tier 3 General",
-   "rule": "自动音效：崇高石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -10991,7 +10991,7 @@
  ],
  "Exalted Shard": [
   {
-   "order": 46031,
+   "order": 46032,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
    "rule": null,
@@ -11081,11 +11081,11 @@
  ],
  "Exotic Coinage": [
   {
-   "order": 46023,
+   "order": 46022,
    "file": "Currency/General.json",
    "block": "Tier 3 General",
-   "rule": "自动音效：异域铸币",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -11353,7 +11353,7 @@
  ],
  "Ezomyte Burgonet": [
   {
-   "order": 64005,
+   "order": 64008,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 3 Helmets",
    "rule": null,
@@ -11546,8 +11546,8 @@
    "order": 46016,
    "file": "Currency/General.json",
    "block": "Tier 2 General",
-   "rule": "自动音效：费斯特的透镜",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -11555,7 +11555,7 @@
  ],
  "Faithful Helmet": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -11648,7 +11648,7 @@
  ],
  "Faun's Horn": [
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -11729,7 +11729,7 @@
  ],
  "Fencer Helm": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -11795,7 +11795,7 @@
  ],
  "Festival Mask": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -11891,11 +11891,11 @@
  ],
  "Fingerless Silk Gloves": [
   {
-   "order": 32003,
+   "order": 32001,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Perfect Defence",
-   "rule": "自动音效：丝绸手套",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "BaseDefencePercentile >= 99",
@@ -11910,7 +11910,7 @@
    "order": 63001,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 0 Gloves",
-   "rule": "#1 i86 Top Gloves",
+   "rule": "#1 i86 Top Gloves - 物品卡：丝绸手套",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -11920,10 +11920,10 @@
    "reachable": true
   },
   {
-   "order": 63002,
+   "order": 63005,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 1 Gloves",
-   "rule": "#1 i84 Top Gloves",
+   "rule": "#1 i84 Top Gloves - 物品卡：丝绸手套",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -11933,11 +11933,11 @@
    "reachable": true
   },
   {
-   "order": 63005,
+   "order": 63014,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 3 Gloves",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -12041,7 +12041,7 @@
  ],
  "Fishscale Gauntlets": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -12376,7 +12376,7 @@
  ],
  "Fluted Bascinet": [
   {
-   "order": 64005,
+   "order": 64008,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 3 Helmets",
    "rule": null,
@@ -12403,7 +12403,7 @@
  ],
  "Focused Amulet": [
   {
-   "order": 67008,
+   "order": 67015,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 4 Amulets",
    "rule": null,
@@ -12517,7 +12517,7 @@
  ],
  "Formless Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -12711,11 +12711,11 @@
  ],
  "Fracturing Orb": [
   {
-   "order": 46004,
+   "order": 46005,
    "file": "Currency/General.json",
    "block": "Tier 0 General",
-   "rule": "自动音效：破溃宝珠",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -12726,8 +12726,8 @@
    "order": 46015,
    "file": "Currency/General.json",
    "block": "Tier 2 General",
-   "rule": "自动音效：破溃碎片",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -13141,11 +13141,11 @@
  ],
  "Fugitive Boots": [
   {
-   "order": 32004,
+   "order": 32007,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Perfect Defence",
-   "rule": "自动音效：逃亡之靴",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "BaseDefencePercentile >= 99",
@@ -13160,7 +13160,7 @@
    "order": 62001,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 0 Boots",
-   "rule": "#1 i86 Top Boots",
+   "rule": "#1 i86 Top Boots - 物品卡：逃亡之靴",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -13170,10 +13170,10 @@
    "reachable": true
   },
   {
-   "order": 62002,
+   "order": 62003,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 1 Boots",
-   "rule": "#1 i84 Top Boots",
+   "rule": "#1 i84 Top Boots - 物品卡：逃亡之靴",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -13183,11 +13183,11 @@
    "reachable": true
   },
   {
-   "order": 62004,
+   "order": 62006,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -13210,7 +13210,7 @@
  ],
  "Fugitive Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -13407,7 +13407,7 @@
  ],
  "Gale Crown": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -13513,7 +13513,7 @@
  ],
  "Gemcutter's Prism": [
   {
-   "order": 46031,
+   "order": 46032,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
    "rule": null,
@@ -13647,7 +13647,7 @@
  ],
  "General's Helmet": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -13662,7 +13662,7 @@
  ],
  "Geodesic Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -13864,7 +13864,7 @@
    "reachable": true
   },
   {
-   "order": 64003,
+   "order": 64005,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 1 Helmets",
    "rule": null,
@@ -13921,7 +13921,7 @@
  ],
  "Gilded Sallet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -13999,7 +13999,7 @@
  ],
  "Gladiator Helmet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -14084,11 +14084,11 @@
  ],
  "Glassblower's Bauble": [
   {
-   "order": 46037,
+   "order": 46042,
    "file": "Currency/General.json",
    "block": "CustomTier 1 General",
-   "rule": "自动音效：玻璃弹珠",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -14096,7 +14096,7 @@
  ],
  "Gloam Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -14215,7 +14215,7 @@
  ],
  "Goat's Horn": [
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -14230,7 +14230,7 @@
  ],
  "Goathide Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -14272,7 +14272,7 @@
  ],
  "Goathide Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -14350,7 +14350,7 @@
  ],
  "Gold Amulet": [
   {
-   "order": 67005,
+   "order": 67012,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 3 Amulets",
    "rule": null,
@@ -14365,10 +14365,10 @@
  ],
  "Gold Flask": [
   {
-   "order": 74001,
+   "order": 74002,
    "file": "Flasks/Utility.json",
    "block": "Tier 0 Utility Flasks",
-   "rule": "#1 i84 Top Utility Flasks",
+   "rule": "#2 i84 Top Utility Flasks",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -14378,10 +14378,10 @@
    "reachable": true
   },
   {
-   "order": 74002,
+   "order": 74004,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
-   "rule": "#1 i82 Utility Flasks",
+   "rule": "#2 i82 Utility Flasks",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -14405,7 +14405,7 @@
  ],
  "Gold Ring": [
   {
-   "order": 69006,
+   "order": 69018,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 3 Rings",
    "rule": null,
@@ -14519,11 +14519,11 @@
  ],
  "Golden Key": [
   {
-   "order": 121006,
+   "order": 121007,
    "file": "Misc/General.json",
    "block": "Tier 1 Misc",
-   "rule": "自动音效：黄金钥匙",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -14598,7 +14598,7 @@
  ],
  "Golden Mask": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -14700,7 +14700,7 @@
  ],
  "Goliath Gauntlets": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -14727,7 +14727,7 @@
  ],
  "Goliath Greaves": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -14928,11 +14928,11 @@
  ],
  "Granite Flask": [
   {
-   "order": 74003,
+   "order": 74005,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
-   "rule": "自动音效：坚岩药剂",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Rarity <= Rare"
@@ -14984,8 +14984,8 @@
    "order": 71001,
    "file": "Equipment/League/Breach Grasping Mail.json",
    "block": "Breach Grasping Mail T1",
-   "rule": "自动音效：扼杀链甲",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Rarity <= Rare"
@@ -14993,11 +14993,11 @@
    "reachable": true
   },
   {
-   "order": 151011,
+   "order": 151004,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：扼杀链甲",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -15005,7 +15005,7 @@
  ],
  "Great Crown": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -15058,7 +15058,7 @@
  ],
  "Great Helmet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -15510,11 +15510,11 @@
  ],
  "Gripped Gloves": [
   {
-   "order": 32005,
+   "order": 32004,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Perfect Defence",
-   "rule": "自动音效：擒拿手套",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "BaseDefencePercentile >= 99",
@@ -15526,10 +15526,10 @@
    "reachable": true
   },
   {
-   "order": 63001,
+   "order": 63003,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 0 Gloves",
-   "rule": "#1 i86 Top Gloves",
+   "rule": "#3 i86 Top Gloves - 物品卡：擒拿手套",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -15539,10 +15539,10 @@
    "reachable": true
   },
   {
-   "order": 63002,
+   "order": 63007,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 1 Gloves",
-   "rule": "#1 i84 Top Gloves",
+   "rule": "#3 i84 Top Gloves - 物品卡：擒拿手套",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -15552,11 +15552,11 @@
    "reachable": true
   },
   {
-   "order": 63004,
+   "order": 63011,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -15567,7 +15567,7 @@
  ],
  "Grizzly Pelt": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -15621,7 +15621,7 @@
  ],
  "Guarding Gauntlets": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -15823,7 +15823,7 @@
  ],
  "Harlequin Mask": [
   {
-   "order": 64005,
+   "order": 64008,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 3 Helmets",
    "rule": null,
@@ -15905,7 +15905,7 @@
  ],
  "Harpyskin Boots": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -15920,7 +15920,7 @@
  ],
  "Harpyskin Gloves": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -16050,7 +16050,7 @@
    "reachable": true
   },
   {
-   "order": 64003,
+   "order": 64005,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 1 Helmets",
    "rule": null,
@@ -16134,7 +16134,7 @@
  ],
  "Heathen Wand": [
   {
-   "order": 93003,
+   "order": 93005,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 3 Wands",
    "rule": null,
@@ -16164,7 +16164,7 @@
  ],
  "Heavy Belt": [
   {
-   "order": 68004,
+   "order": 68007,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 2 Belts",
    "rule": null,
@@ -16231,7 +16231,7 @@
  ],
  "Helical Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -16781,10 +16781,10 @@
  ],
  "Hubris Circlet": [
   {
-   "order": 64001,
+   "order": 64002,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 0 Helmets",
-   "rule": "#1 i86 Top Helmets",
+   "rule": "#2 i86 Top Helmets",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -16794,10 +16794,10 @@
    "reachable": true
   },
   {
-   "order": 64002,
+   "order": 64004,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 1 Helmets",
-   "rule": "#1 i84 Top Helmets",
+   "rule": "#2 i84 Top Helmets",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -16807,7 +16807,7 @@
    "reachable": true
   },
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -16846,7 +16846,7 @@
  ],
  "Hunter Hood": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -16927,7 +16927,7 @@
  ],
  "Hydrascale Boots": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -16954,7 +16954,7 @@
  ],
  "Hydrascale Gauntlets": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -17114,7 +17114,7 @@
    "reachable": true
   },
   {
-   "order": 46031,
+   "order": 46032,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
    "rule": null,
@@ -17138,7 +17138,7 @@
  ],
  "Imp Crown": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -18172,7 +18172,7 @@
  ],
  "Infiltrator Boots": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -18187,7 +18187,7 @@
  ],
  "Infiltrator Mitts": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -18322,7 +18322,7 @@
  ],
  "Intrinsic Catalyst": [
   {
-   "order": 46031,
+   "order": 46032,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
    "rule": null,
@@ -18390,11 +18390,11 @@
  ],
  "Iolite Ring": [
   {
-   "order": 32012,
+   "order": 32016,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Over Quality",
-   "rule": "自动音效：青石戒指",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Quality > 20",
@@ -18403,11 +18403,11 @@
    "reachable": true
   },
   {
-   "order": 32022,
+   "order": 32026,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Strands Gear",
-   "rule": "自动音效：青石戒指",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "MemoryStrands >= 1",
@@ -18416,11 +18416,11 @@
    "reachable": true
   },
   {
-   "order": 32032,
+   "order": 32035,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Gear 84",
-   "rule": "自动音效：青石戒指",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "ItemLevel >= 84",
@@ -18429,10 +18429,10 @@
    "reachable": true
   },
   {
-   "order": 69001,
+   "order": 69005,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 0 Rings",
-   "rule": "#1 i86 Top Rings",
+   "rule": "#5 i86 Top Rings - 物品卡：青石戒指",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -18442,10 +18442,10 @@
    "reachable": true
   },
   {
-   "order": 69002,
+   "order": 69010,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 1 Rings",
-   "rule": "#1 i84 Top Rings",
+   "rule": "#5 i84 Top Rings - 物品卡：青石戒指",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -18455,11 +18455,11 @@
    "reachable": false
   },
   {
-   "order": 69005,
+   "order": 69016,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 2 Rings",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -18483,7 +18483,7 @@
  ],
  "Iron Circlet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -18501,8 +18501,8 @@
    "order": 72001,
    "file": "Equipment/League/Expedition Ward-Bases.json",
    "block": "Expedition Ward-Bases T1",
-   "rule": "自动音效：坚铁药剂",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Rarity <= Rare"
@@ -18510,11 +18510,11 @@
    "reachable": true
   },
   {
-   "order": 74005,
+   "order": 74006,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
-   "rule": "自动音效：坚铁药剂",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Rarity <= Rare"
@@ -18536,7 +18536,7 @@
  ],
  "Iron Gauntlets": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -18551,7 +18551,7 @@
  ],
  "Iron Greaves": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -18566,7 +18566,7 @@
  ],
  "Iron Hat": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -18581,7 +18581,7 @@
  ],
  "Iron Mask": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -18596,7 +18596,7 @@
  ],
  "Iron Ring": [
   {
-   "order": 69006,
+   "order": 69018,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 3 Rings",
    "rule": null,
@@ -18666,7 +18666,7 @@
  ],
  "Ironscale Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -18681,7 +18681,7 @@
  ],
  "Ironscale Gauntlets": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -18755,7 +18755,7 @@
  ],
  "Jade Amulet": [
   {
-   "order": 67004,
+   "order": 67010,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 2 Amulets",
    "rule": null,
@@ -18810,7 +18810,7 @@
  ],
  "Jade Flask": [
   {
-   "order": 74006,
+   "order": 74008,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
    "rule": null,
@@ -18911,7 +18911,7 @@
  ],
  "Jester Mask": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -19006,11 +19006,11 @@
  ],
  "Jeweller's Orb": [
   {
-   "order": 46040,
+   "order": 46038,
    "file": "Currency/General.json",
    "block": "CustomTier 1 General",
-   "rule": "自动音效：工匠石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -19018,11 +19018,11 @@
  ],
  "Jewellery Recombinator": [
   {
-   "order": 151004,
+   "order": 151010,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：珠宝重组器",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -19431,7 +19431,7 @@
    "reachable": true
   },
   {
-   "order": 93002,
+   "order": 93004,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 2 Wands",
    "rule": null,
@@ -19458,7 +19458,7 @@
  ],
  "Knight Helm": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -19597,7 +19597,7 @@
  ],
  "Lacquered Helmet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -19651,7 +19651,7 @@
  ],
  "Lapis Amulet": [
   {
-   "order": 67004,
+   "order": 67010,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 2 Amulets",
    "rule": null,
@@ -19908,7 +19908,7 @@
  ],
  "Leather Belt": [
   {
-   "order": 68004,
+   "order": 68007,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 2 Belts",
    "rule": null,
@@ -19961,7 +19961,7 @@
  ],
  "Leather Cap": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -19976,7 +19976,7 @@
  ],
  "Leather Hood": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -20016,7 +20016,7 @@
  ],
  "Leatherscale Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -20031,7 +20031,7 @@
  ],
  "Legion Boots": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -20058,7 +20058,7 @@
  ],
  "Legion Gloves": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -20178,7 +20178,7 @@
  ],
  "Lesser Eldritch Ember": [
   {
-   "order": 46031,
+   "order": 46032,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
    "rule": null,
@@ -20190,7 +20190,7 @@
  ],
  "Lesser Eldritch Ichor": [
   {
-   "order": 46031,
+   "order": 46032,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
    "rule": null,
@@ -20279,7 +20279,7 @@
    "reachable": true
   },
   {
-   "order": 63003,
+   "order": 63009,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 1 Gloves",
    "rule": null,
@@ -20349,7 +20349,7 @@
    "reachable": true
   },
   {
-   "order": 62003,
+   "order": 62005,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 1 Boots",
    "rule": null,
@@ -20364,7 +20364,7 @@
  ],
  "Leyline Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -20446,7 +20446,7 @@
    "reachable": true
   },
   {
-   "order": 64003,
+   "order": 64005,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 1 Helmets",
    "rule": null,
@@ -20611,10 +20611,10 @@
  ],
  "Lion Pelt": [
   {
-   "order": 64001,
+   "order": 64002,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 0 Helmets",
-   "rule": "#1 i86 Top Helmets",
+   "rule": "#2 i86 Top Helmets",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -20624,10 +20624,10 @@
    "reachable": true
   },
   {
-   "order": 64002,
+   "order": 64004,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 1 Helmets",
-   "rule": "#1 i84 Top Helmets",
+   "rule": "#2 i84 Top Helmets",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -20637,7 +20637,7 @@
    "reachable": true
   },
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -20829,7 +20829,7 @@
  ],
  "Lunaris Circlet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -21477,7 +21477,7 @@
  ],
  "Magistrate Crown": [
   {
-   "order": 64005,
+   "order": 64008,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 3 Helmets",
    "rule": null,
@@ -21628,7 +21628,7 @@
    "reachable": true
   },
   {
-   "order": 64003,
+   "order": 64005,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 1 Helmets",
    "rule": null,
@@ -21790,7 +21790,7 @@
  ],
  "Manifold Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -21874,7 +21874,7 @@
    "order": 67001,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 0 Amulets",
-   "rule": "#1 i86 Top Amulets",
+   "rule": "#1 i86 Top Amulets - 物品卡：大理石护身符",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -21884,10 +21884,10 @@
    "reachable": true
   },
   {
-   "order": 67002,
+   "order": 67004,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 1 Amulets",
-   "rule": "#1 i84 Top Amulets",
+   "rule": "#1 i84 Top Amulets - 物品卡：大理石护身符",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -21897,11 +21897,11 @@
    "reachable": true
   },
   {
-   "order": 67004,
+   "order": 67008,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 2 Amulets",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -21964,7 +21964,7 @@
  ],
  "Martyr Boots": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -21979,7 +21979,7 @@
  ],
  "Martyr Gloves": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -22130,7 +22130,7 @@
  ],
  "Mechalarm Belt": [
   {
-   "order": 68006,
+   "order": 68009,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 4 Belts",
    "rule": null,
@@ -22157,7 +22157,7 @@
  ],
  "Mechanical Belt": [
   {
-   "order": 68006,
+   "order": 68009,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 4 Belts",
    "rule": null,
@@ -22377,7 +22377,7 @@
  ],
  "Mesh Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -22392,7 +22392,7 @@
  ],
  "Mesh Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -22470,7 +22470,7 @@
  ],
  "Micro-Distillery Belt": [
   {
-   "order": 68006,
+   "order": 68009,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 4 Belts",
    "rule": null,
@@ -22527,7 +22527,7 @@
  ],
  "Mind Cage": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -22627,11 +22627,11 @@
  ],
  "Mirror of Kalandra": [
   {
-   "order": 46001,
+   "order": 46002,
    "file": "Currency/General.json",
    "block": "Tier 0 General",
-   "rule": "自动音效：卡兰德的魔镜",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -22729,7 +22729,7 @@
  ],
  "Moonlit Circlet": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -22744,7 +22744,7 @@
  ],
  "Moonstone Ring": [
   {
-   "order": 69005,
+   "order": 69017,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 2 Rings",
    "rule": null,
@@ -22814,7 +22814,7 @@
    "order": 113027,
    "file": "Maps/Fragments.json",
    "block": "Tier 3 Fragments",
-   "rule": "#11 __SOUND__:Mortal Hope",
+   "rule": "#11 __SOUND__:Mortal Hope - 物品卡：凡人的希望",
    "source": "rule",
    "hide": false,
    "conditions": [],
@@ -22898,7 +22898,7 @@
  ],
  "Murder Boots": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -22926,7 +22926,7 @@
  ],
  "Murder Mitts": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -23056,7 +23056,7 @@
  ],
  "Nameless Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -23083,7 +23083,7 @@
  ],
  "Necromancer Circlet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -23207,7 +23207,7 @@
  ],
  "Nexus Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -23234,7 +23234,7 @@
  ],
  "Nightmare Bascinet": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -23304,7 +23304,7 @@
  ],
  "Nightwind Slippers": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -23361,7 +23361,7 @@
  ],
  "Noble Tricorne": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -23376,7 +23376,7 @@
  ],
  "Noxious Catalyst": [
   {
-   "order": 46031,
+   "order": 46032,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
    "rule": null,
@@ -23388,7 +23388,7 @@
  ],
  "Nubuck Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -23403,7 +23403,7 @@
  ],
  "Nubuck Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -23558,7 +23558,7 @@
  ],
  "Omen Wand": [
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -23765,7 +23765,7 @@
  ],
  "Onyx Amulet": [
   {
-   "order": 67003,
+   "order": 67007,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 1 Amulets",
    "rule": null,
@@ -23819,11 +23819,11 @@
  ],
  "Opal Ring": [
   {
-   "order": 32013,
+   "order": 32015,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Over Quality",
-   "rule": "自动音效：蛋白石戒指",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Quality > 20",
@@ -23832,11 +23832,11 @@
    "reachable": true
   },
   {
-   "order": 32023,
+   "order": 32025,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Strands Gear",
-   "rule": "自动音效：蛋白石戒指",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "MemoryStrands >= 1",
@@ -23845,11 +23845,11 @@
    "reachable": true
   },
   {
-   "order": 32033,
+   "order": 32034,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Gear 84",
-   "rule": "自动音效：蛋白石戒指",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "ItemLevel >= 84",
@@ -23858,10 +23858,10 @@
    "reachable": true
   },
   {
-   "order": 69001,
+   "order": 69004,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 0 Rings",
-   "rule": "#1 i86 Top Rings",
+   "rule": "#4 i86 Top Rings - 物品卡：蛋白石戒指",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -23871,10 +23871,10 @@
    "reachable": true
   },
   {
-   "order": 69002,
+   "order": 69009,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 1 Rings",
-   "rule": "#1 i84 Top Rings",
+   "rule": "#4 i84 Top Rings - 物品卡：蛋白石戒指",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -23884,11 +23884,11 @@
    "reachable": false
   },
   {
-   "order": 69005,
+   "order": 69015,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 2 Rings",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -23993,10 +23993,10 @@
    "reachable": true
   },
   {
-   "order": 93001,
+   "order": 93002,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 0 Wands",
-   "rule": "#1 i83 Top Wands",
+   "rule": "#2 i83 Top Wands",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -24006,7 +24006,7 @@
    "reachable": true
   },
   {
-   "order": 93003,
+   "order": 93005,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 3 Wands",
    "rule": null,
@@ -24060,8 +24060,8 @@
    "order": 46034,
    "file": "Currency/General.json",
    "block": "CustomTier 2 General",
-   "rule": "自动音效：点金石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -24069,11 +24069,11 @@
  ],
  "Orb of Alteration": [
   {
-   "order": 46038,
+   "order": 46040,
    "file": "Currency/General.json",
    "block": "CustomTier 1 General",
-   "rule": "自动音效：改造石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -24081,11 +24081,11 @@
  ],
  "Orb of Annulment": [
   {
-   "order": 46021,
+   "order": 46019,
    "file": "Currency/General.json",
    "block": "Tier 3 General",
-   "rule": "自动音效：剥离石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -24093,11 +24093,11 @@
  ],
  "Orb of Augmentation": [
   {
-   "order": 46043,
+   "order": 46045,
    "file": "Currency/General.json",
    "block": "Tier 5 General",
-   "rule": "自动音效：增幅石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -24105,11 +24105,11 @@
  ],
  "Orb of Binding": [
   {
-   "order": 151013,
+   "order": 151016,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：高阶点金石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -24117,11 +24117,11 @@
  ],
  "Orb of Chance": [
   {
-   "order": 46039,
+   "order": 46041,
    "file": "Currency/General.json",
    "block": "CustomTier 1 General",
-   "rule": "自动音效：机会石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -24129,11 +24129,11 @@
  ],
  "Orb of Conflict": [
   {
-   "order": 46008,
+   "order": 46007,
    "file": "Currency/General.json",
    "block": "Tier 1 General",
-   "rule": "自动音效：冲突石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -24141,11 +24141,11 @@
  ],
  "Orb of Dominance": [
   {
-   "order": 151014,
+   "order": 151012,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：统御宝珠",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -24165,11 +24165,11 @@
  ],
  "Orb of Fusing": [
   {
-   "order": 46035,
+   "order": 46036,
    "file": "Currency/General.json",
    "block": "CustomTier 2 General",
-   "rule": "自动音效：链结石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -24177,7 +24177,7 @@
  ],
  "Orb of Intention": [
   {
-   "order": 46031,
+   "order": 46032,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
    "rule": null,
@@ -24189,11 +24189,11 @@
  ],
  "Orb of Regret": [
   {
-   "order": 46032,
+   "order": 46033,
    "file": "Currency/General.json",
    "block": "CustomTier 2 General",
-   "rule": "自动音效：后悔石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -24213,11 +24213,11 @@
  ],
  "Orb of Scouring": [
   {
-   "order": 46027,
+   "order": 46031,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
-   "rule": "自动音效：重铸石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -24237,11 +24237,11 @@
  ],
  "Orb of Transmutation": [
   {
-   "order": 46044,
+   "order": 46047,
    "file": "Currency/General.json",
    "block": "Tier 5 General",
-   "rule": "自动音效：蜕变石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -24249,11 +24249,11 @@
  ],
  "Orb of Unmaking": [
   {
-   "order": 46033,
+   "order": 46035,
    "file": "Currency/General.json",
    "block": "CustomTier 2 General",
-   "rule": "自动音效：粉碎石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -24273,7 +24273,7 @@
  ],
  "Organic Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -24365,11 +24365,11 @@
    "reachable": true
   },
   {
-   "order": 151007,
+   "order": 151002,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：华美箭袋",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -24656,7 +24656,7 @@
    "reachable": true
   },
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -24792,7 +24792,7 @@
    "reachable": true
   },
   {
-   "order": 62003,
+   "order": 62005,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 1 Boots",
    "rule": null,
@@ -24807,7 +24807,7 @@
  ],
  "Paladin Crown": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -24889,7 +24889,7 @@
    "reachable": true
   },
   {
-   "order": 63003,
+   "order": 63009,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 1 Gloves",
    "rule": null,
@@ -24933,7 +24933,7 @@
  ],
  "Paua Amulet": [
   {
-   "order": 67005,
+   "order": 67012,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 3 Amulets",
    "rule": null,
@@ -24973,7 +24973,7 @@
  ],
  "Paua Ring": [
   {
-   "order": 69006,
+   "order": 69018,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 3 Rings",
    "rule": null,
@@ -25000,7 +25000,7 @@
  ],
  "Pearlescent Amulet": [
   {
-   "order": 67008,
+   "order": 67015,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 4 Amulets",
    "rule": null,
@@ -25080,7 +25080,7 @@
  ],
  "Penitent Mask": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -25107,7 +25107,7 @@
  ],
  "Penumbra Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -25134,11 +25134,11 @@
  ],
  "Perandus Coin": [
   {
-   "order": 151001,
+   "order": 151006,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：普兰德斯金币",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -25718,7 +25718,7 @@
    "reachable": true
   },
   {
-   "order": 62003,
+   "order": 62005,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 1 Boots",
    "rule": null,
@@ -25803,7 +25803,7 @@
    "reachable": true
   },
   {
-   "order": 63003,
+   "order": 63009,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 1 Gloves",
    "rule": null,
@@ -25842,7 +25842,7 @@
  ],
  "Pig-Faced Bascinet": [
   {
-   "order": 64005,
+   "order": 64008,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 3 Helmets",
    "rule": null,
@@ -25978,7 +25978,7 @@
  ],
  "Plague Mask": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -26050,7 +26050,7 @@
  ],
  "Plated Gauntlets": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -26065,7 +26065,7 @@
  ],
  "Plated Greaves": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -26338,11 +26338,11 @@
  ],
  "Portal": [
   {
-   "order": 81003,
+   "order": 81004,
    "file": "Gems/Skill.json",
    "block": "Tier 0 Skill",
-   "rule": "自动音效：时空之门",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -26350,11 +26350,11 @@
  ],
  "Portal Scroll": [
   {
-   "order": 46045,
+   "order": 46044,
    "file": "Currency/General.json",
    "block": "Tier 5 General",
-   "rule": "自动音效：传送卷轴",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -26461,7 +26461,7 @@
  ],
  "Praetor Crown": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -26512,7 +26512,7 @@
  ],
  "Precursor Gauntlets": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -26527,7 +26527,7 @@
  ],
  "Precursor Greaves": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -26557,7 +26557,7 @@
  ],
  "Preserving Gauntlets": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -26951,11 +26951,11 @@
    "reachable": true
   },
   {
-   "order": 151009,
+   "order": 151001,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：三相珠宝",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": false
@@ -26975,7 +26975,7 @@
  ],
  "Prismatic Ring": [
   {
-   "order": 69004,
+   "order": 69012,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 1 Rings",
    "rule": null,
@@ -27107,10 +27107,10 @@
    "reachable": true
   },
   {
-   "order": 93001,
+   "order": 93002,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 0 Wands",
-   "rule": "#1 i83 Top Wands",
+   "rule": "#2 i83 Top Wands",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -27120,7 +27120,7 @@
    "reachable": true
   },
   {
-   "order": 93002,
+   "order": 93004,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 2 Wands",
    "rule": null,
@@ -27177,7 +27177,7 @@
    "reachable": true
   },
   {
-   "order": 93002,
+   "order": 93004,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 2 Wands",
    "rule": null,
@@ -27217,7 +27217,7 @@
  ],
  "Prophet Crown": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -27331,11 +27331,11 @@
  ],
  "Purity of Elements": [
   {
-   "order": 81004,
+   "order": 81003,
    "file": "Gems/Skill.json",
    "block": "Tier 0 Skill",
-   "rule": "自动音效：元素净化",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -27440,11 +27440,11 @@
  ],
  "Quartz Flask": [
   {
-   "order": 74004,
+   "order": 74007,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
-   "rule": "自动音效：石英药剂",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Rarity <= Rare"
@@ -27469,7 +27469,7 @@
  ],
  "Quartz Wand": [
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -27487,7 +27487,7 @@
    "order": 74001,
    "file": "Flasks/Utility.json",
    "block": "Tier 0 Utility Flasks",
-   "rule": "#1 i84 Top Utility Flasks",
+   "rule": "#1 i84 Top Utility Flasks - 物品卡：水银药剂",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -27497,10 +27497,10 @@
    "reachable": true
   },
   {
-   "order": 74002,
+   "order": 74003,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
-   "rule": "#1 i82 Utility Flasks",
+   "rule": "#1 i82 Utility Flasks - 物品卡：水银药剂",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -27602,7 +27602,7 @@
  ],
  "Ratcheting Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -27629,7 +27629,7 @@
  ],
  "Raven Mask": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -27669,7 +27669,7 @@
  ],
  "Rawhide Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -27709,7 +27709,7 @@
  ],
  "Rawhide Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -27830,7 +27830,7 @@
  ],
  "Reaver Helmet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -27971,11 +27971,11 @@
  ],
  "Reflecting Mist": [
   {
-   "order": 46005,
+   "order": 46001,
    "file": "Currency/General.json",
    "block": "Tier 0 General",
-   "rule": "自动音效：倒映薄雾",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -28049,11 +28049,11 @@
  ],
  "Regal Orb": [
   {
-   "order": 46022,
+   "order": 46020,
    "file": "Currency/General.json",
    "block": "Tier 3 General",
-   "rule": "自动音效：富豪石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -28061,7 +28061,7 @@
  ],
  "Regal Shard": [
   {
-   "order": 46047,
+   "order": 46048,
    "file": "Currency/General.json",
    "block": "Tier 5 General",
    "rule": null,
@@ -28085,7 +28085,7 @@
  ],
  "Regicide Mask": [
   {
-   "order": 64005,
+   "order": 64008,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 3 Helmets",
    "rule": null,
@@ -28100,7 +28100,7 @@
  ],
  "Reinforced Greaves": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -28347,7 +28347,7 @@
  ],
  "Ringmail Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -28377,7 +28377,7 @@
  ],
  "Ringmail Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -28458,7 +28458,7 @@
    "order": 112004,
    "file": "Maps/Fragment Splinters.json",
    "block": "Tier 2 Splinters",
-   "rule": "#1 No auto-sound for Ritual Splinter @ Tier 2 Splinters",
+   "rule": "#1 No auto-sound for Ritual Splinter @ Tier 2 Splinters - 物品卡：驱灵裂片",
    "source": "rule",
    "hide": false,
    "conditions": [],
@@ -28479,7 +28479,7 @@
  ],
  "Riveted Boots": [
   {
-   "order": 62005,
+   "order": 62008,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 3 Boots",
    "rule": null,
@@ -28506,7 +28506,7 @@
  ],
  "Riveted Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -28704,10 +28704,10 @@
  ],
  "Royal Burgonet": [
   {
-   "order": 64001,
+   "order": 64002,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 0 Helmets",
-   "rule": "#1 i86 Top Helmets",
+   "rule": "#2 i86 Top Helmets",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -28717,10 +28717,10 @@
    "reachable": true
   },
   {
-   "order": 64002,
+   "order": 64004,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 1 Helmets",
-   "rule": "#1 i84 Top Helmets",
+   "rule": "#2 i84 Top Helmets",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -28730,7 +28730,7 @@
    "reachable": true
   },
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -28872,11 +28872,11 @@
  ],
  "Ruby Amulet": [
   {
-   "order": 151006,
+   "order": 151013,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：血色护身符",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -28884,7 +28884,7 @@
  ],
  "Ruby Flask": [
   {
-   "order": 74006,
+   "order": 74008,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
    "rule": null,
@@ -28908,7 +28908,7 @@
  ],
  "Ruby Ring": [
   {
-   "order": 69005,
+   "order": 69017,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 2 Rings",
    "rule": null,
@@ -29177,7 +29177,7 @@
  ],
  "Runic Crest": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -29204,7 +29204,7 @@
  ],
  "Runic Crown": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -29243,7 +29243,7 @@
  ],
  "Runic Gages": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -29282,7 +29282,7 @@
  ],
  "Runic Gauntlets": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -29321,7 +29321,7 @@
  ],
  "Runic Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -29348,7 +29348,7 @@
  ],
  "Runic Greaves": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -29403,7 +29403,7 @@
  ],
  "Runic Helm": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -29442,7 +29442,7 @@
  ],
  "Runic Sabatons": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -29493,7 +29493,7 @@
  ],
  "Runic Sollerets": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -29532,7 +29532,7 @@
  ],
  "Rusted Coif": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -29592,7 +29592,7 @@
  ],
  "Rustic Sash": [
   {
-   "order": 68005,
+   "order": 68008,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 3 Belts",
    "rule": null,
@@ -29622,11 +29622,11 @@
  ],
  "Sacred Blossom": [
   {
-   "order": 113014,
+   "order": 113015,
    "file": "Maps/Fragments.json",
    "block": "Tier 2 Fragments",
-   "rule": "自动音效：神圣之花",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -29799,8 +29799,8 @@
    "order": 46009,
    "file": "Currency/General.json",
    "block": "Tier 1 General",
-   "rule": "自动音效：崇神石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -29856,11 +29856,11 @@
  ],
  "Sacrificial Garb": [
   {
-   "order": 32006,
+   "order": 32005,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Perfect Defence",
-   "rule": "自动音效：祭礼束衣",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "BaseDefencePercentile >= 99",
@@ -29875,8 +29875,8 @@
    "order": 32014,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Over Quality",
-   "rule": "自动音效：祭礼束衣",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Quality > 20",
@@ -29888,8 +29888,8 @@
    "order": 32024,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Strands Gear",
-   "rule": "自动音效：祭礼束衣",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "MemoryStrands >= 1",
@@ -29901,8 +29901,8 @@
    "order": 32029,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Gear 86",
-   "rule": "自动音效：祭礼束衣",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "ItemLevel >= 86",
@@ -29914,8 +29914,8 @@
    "order": 61007,
    "file": "Equipment/Armour/Body Armours.json",
    "block": "Tier 4 Body Armours",
-   "rule": "自动音效：祭礼束衣",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -29927,8 +29927,8 @@
    "order": 76001,
    "file": "Equipment/League/Sacrificial Garbs.json",
    "block": "Sacrificial Garbs T1",
-   "rule": "自动音效：祭礼束衣",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Rarity <= Rare"
@@ -29977,7 +29977,7 @@
  ],
  "Sage Gloves": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -29992,7 +29992,7 @@
  ],
  "Sage Slippers": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -30007,7 +30007,7 @@
  ],
  "Sage Wand": [
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -30143,7 +30143,7 @@
  ],
  "Sallet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -30186,7 +30186,7 @@
  ],
  "Samite Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -30201,7 +30201,7 @@
  ],
  "Samite Slippers": [
   {
-   "order": 62005,
+   "order": 62008,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 3 Boots",
    "rule": null,
@@ -30216,7 +30216,7 @@
  ],
  "Samnite Helmet": [
   {
-   "order": 64005,
+   "order": 64008,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 3 Helmets",
    "rule": null,
@@ -30297,11 +30297,11 @@
  ],
  "Sanctified Relic": [
   {
-   "order": 151012,
+   "order": 151003,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：圣洁遗物",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -30387,7 +30387,7 @@
  ],
  "Sapphire Flask": [
   {
-   "order": 74006,
+   "order": 74008,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
    "rule": null,
@@ -30413,7 +30413,7 @@
  ],
  "Sapphire Ring": [
   {
-   "order": 69005,
+   "order": 69017,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 2 Rings",
    "rule": null,
@@ -30505,7 +30505,7 @@
  ],
  "Satin Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -30520,7 +30520,7 @@
  ],
  "Satin Slippers": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -30727,7 +30727,7 @@
  ],
  "Scare Mask": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -30772,7 +30772,7 @@
  ],
  "Scholar Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -30926,11 +30926,11 @@
  ],
  "Scrap Metal": [
   {
-   "order": 46030,
+   "order": 46027,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
-   "rule": "自动音效：废金属",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -30938,7 +30938,7 @@
  ],
  "Scroll Fragment": [
   {
-   "order": 46047,
+   "order": 46048,
    "file": "Currency/General.json",
    "block": "Tier 5 General",
    "rule": null,
@@ -30953,8 +30953,8 @@
    "order": 46046,
    "file": "Currency/General.json",
    "block": "Tier 5 General",
-   "rule": "自动音效：知识卷轴",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -30962,10 +30962,10 @@
  ],
  "Seaglass Amulet": [
   {
-   "order": 67001,
+   "order": 67002,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 0 Amulets",
-   "rule": "#1 i86 Top Amulets",
+   "rule": "#2 i86 Top Amulets - 物品卡：海晶护符",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -30975,10 +30975,10 @@
    "reachable": true
   },
   {
-   "order": 67002,
+   "order": 67005,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 1 Amulets",
-   "rule": "#1 i84 Top Amulets",
+   "rule": "#2 i84 Top Amulets - 物品卡：海晶护符",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -30988,11 +30988,11 @@
    "reachable": true
   },
   {
-   "order": 67005,
+   "order": 67011,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 3 Amulets",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -31078,7 +31078,7 @@
  ],
  "Secutor Helm": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -31210,7 +31210,7 @@
  ],
  "Serpentscale Boots": [
   {
-   "order": 62005,
+   "order": 62008,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 3 Boots",
    "rule": null,
@@ -31237,7 +31237,7 @@
  ],
  "Serpentscale Gauntlets": [
   {
-   "order": 63005,
+   "order": 63015,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 3 Gloves",
    "rule": null,
@@ -31321,7 +31321,7 @@
  ],
  "Shackled Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -31405,7 +31405,7 @@
  ],
  "Shadowed Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -31432,7 +31432,7 @@
  ],
  "Shagreen Boots": [
   {
-   "order": 62005,
+   "order": 62008,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 3 Boots",
    "rule": null,
@@ -31447,7 +31447,7 @@
  ],
  "Shagreen Gloves": [
   {
-   "order": 63005,
+   "order": 63015,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 3 Gloves",
    "rule": null,
@@ -31501,7 +31501,7 @@
  ],
  "Sharkskin Boots": [
   {
-   "order": 62005,
+   "order": 62008,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 3 Boots",
    "rule": null,
@@ -31516,7 +31516,7 @@
  ],
  "Sharkskin Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -31857,7 +31857,7 @@
  ],
  "Siege Helmet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -31896,7 +31896,7 @@
  ],
  "Silk Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -31951,7 +31951,7 @@
  ],
  "Silk Slippers": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -31981,7 +31981,7 @@
  ],
  "Silken Hood": [
   {
-   "order": 64005,
+   "order": 64008,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 3 Helmets",
    "rule": null,
@@ -32050,10 +32050,10 @@
  ],
  "Silver Flask": [
   {
-   "order": 74001,
+   "order": 74002,
    "file": "Flasks/Utility.json",
    "block": "Tier 0 Utility Flasks",
-   "rule": "#1 i84 Top Utility Flasks",
+   "rule": "#2 i84 Top Utility Flasks",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -32063,10 +32063,10 @@
    "reachable": true
   },
   {
-   "order": 74002,
+   "order": 74004,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
-   "rule": "#1 i82 Utility Flasks",
+   "rule": "#2 i82 Utility Flasks",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -32090,11 +32090,11 @@
  ],
  "Silver Key": [
   {
-   "order": 121005,
+   "order": 121006,
    "file": "Misc/General.json",
    "block": "Tier 1 Misc",
-   "rule": "自动音效：白银钥匙",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -32142,11 +32142,11 @@
  ],
  "Simplex Amulet": [
   {
-   "order": 67007,
+   "order": 67014,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 4 Amulets",
-   "rule": "自动音效：朴实项链",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -32158,8 +32158,8 @@
    "order": 73002,
    "file": "Equipment/League/Heist Experimented.json",
    "block": "Heist Experimented T1",
-   "rule": "自动音效：朴实项链",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Rarity <= Rare"
@@ -32172,8 +32172,8 @@
    "order": 113013,
    "file": "Maps/Fragments.json",
    "block": "Tier 2 Fragments",
-   "rule": "自动音效：梦魇拟像",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -32251,7 +32251,7 @@
  ],
  "Sinner Tricorne": [
   {
-   "order": 64005,
+   "order": 64008,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 3 Helmets",
    "rule": null,
@@ -32389,10 +32389,10 @@
  ],
  "Slink Boots": [
   {
-   "order": 62001,
+   "order": 62002,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 0 Boots",
-   "rule": "#1 i86 Top Boots",
+   "rule": "#2 i86 Top Boots",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -32402,10 +32402,10 @@
    "reachable": true
   },
   {
-   "order": 62002,
+   "order": 62004,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 1 Boots",
-   "rule": "#1 i84 Top Boots",
+   "rule": "#2 i84 Top Boots",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -32415,7 +32415,7 @@
    "reachable": true
   },
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -32442,7 +32442,7 @@
  ],
  "Slink Gloves": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -32708,7 +32708,7 @@
  ],
  "Solaris Circlet": [
   {
-   "order": 64005,
+   "order": 64008,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 3 Helmets",
    "rule": null,
@@ -32735,7 +32735,7 @@
  ],
  "Soldier Boots": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -32763,7 +32763,7 @@
  ],
  "Soldier Gloves": [
   {
-   "order": 63005,
+   "order": 63015,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 3 Gloves",
    "rule": null,
@@ -32790,7 +32790,7 @@
  ],
  "Soldier Helmet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -32832,7 +32832,7 @@
  ],
  "Somatic Wand": [
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -32872,10 +32872,10 @@
  ],
  "Sorcerer Boots": [
   {
-   "order": 62001,
+   "order": 62002,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 0 Boots",
-   "rule": "#1 i86 Top Boots",
+   "rule": "#2 i86 Top Boots",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -32885,10 +32885,10 @@
    "reachable": true
   },
   {
-   "order": 62002,
+   "order": 62004,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 1 Boots",
-   "rule": "#1 i84 Top Boots",
+   "rule": "#2 i84 Top Boots",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -32898,7 +32898,7 @@
    "reachable": true
   },
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -32938,7 +32938,7 @@
  ],
  "Sorcerer Gloves": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -32966,7 +32966,7 @@
  ],
  "Sorrow Mask": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -33359,11 +33359,11 @@
  ],
  "Spiked Gloves": [
   {
-   "order": 32007,
+   "order": 32003,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Perfect Defence",
-   "rule": "自动音效：扣钉手套",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "BaseDefencePercentile >= 99",
@@ -33375,10 +33375,10 @@
    "reachable": true
   },
   {
-   "order": 63001,
+   "order": 63002,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 0 Gloves",
-   "rule": "#1 i86 Top Gloves",
+   "rule": "#2 i86 Top Gloves - 物品卡：扣钉手套",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -33388,10 +33388,10 @@
    "reachable": true
   },
   {
-   "order": 63002,
+   "order": 63006,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 1 Gloves",
-   "rule": "#1 i84 Top Gloves",
+   "rule": "#2 i84 Top Gloves - 物品卡：扣钉手套",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -33401,11 +33401,11 @@
    "reachable": true
   },
   {
-   "order": 63004,
+   "order": 63010,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -33592,7 +33592,7 @@
  ],
  "Spiraled Wand": [
   {
-   "order": 93004,
+   "order": 93006,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 4 Wands",
    "rule": null,
@@ -33864,7 +33864,7 @@
  ],
  "Stealth Boots": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -33891,7 +33891,7 @@
  ],
  "Stealth Gloves": [
   {
-   "order": 63005,
+   "order": 63015,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 3 Gloves",
    "rule": null,
@@ -33918,7 +33918,7 @@
  ],
  "Steel Circlet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -33933,7 +33933,7 @@
  ],
  "Steel Gauntlets": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -33961,7 +33961,7 @@
  ],
  "Steel Greaves": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -34016,11 +34016,11 @@
  ],
  "Steel Ring": [
   {
-   "order": 32015,
+   "order": 32010,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Over Quality",
-   "rule": "自动音效：合金戒指",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Quality > 20",
@@ -34029,11 +34029,11 @@
    "reachable": true
   },
   {
-   "order": 32025,
+   "order": 32021,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Strands Gear",
-   "rule": "自动音效：合金戒指",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "MemoryStrands >= 1",
@@ -34042,11 +34042,11 @@
    "reachable": true
   },
   {
-   "order": 32034,
+   "order": 32032,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Gear 84",
-   "rule": "自动音效：合金戒指",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "ItemLevel >= 84",
@@ -34058,7 +34058,7 @@
    "order": 69001,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 0 Rings",
-   "rule": "#1 i86 Top Rings",
+   "rule": "#1 i86 Top Rings - 物品卡：合金戒指",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -34068,10 +34068,10 @@
    "reachable": true
   },
   {
-   "order": 69002,
+   "order": 69006,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 1 Rings",
-   "rule": "#1 i84 Top Rings",
+   "rule": "#1 i84 Top Rings - 物品卡：合金戒指",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -34081,11 +34081,11 @@
    "reachable": false
   },
   {
-   "order": 69005,
+   "order": 69013,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 2 Rings",
    "rule": null,
-   "source": "tier_base",
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -34136,7 +34136,7 @@
  ],
  "Steelscale Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -34151,7 +34151,7 @@
  ],
  "Steelscale Gauntlets": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -34230,7 +34230,7 @@
  ],
  "Stibnite Flask": [
   {
-   "order": 74006,
+   "order": 74008,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
    "rule": null,
@@ -34386,7 +34386,7 @@
  ],
  "Stormrider Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -34413,7 +34413,7 @@
  ],
  "Strapped Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -34443,7 +34443,7 @@
  ],
  "Strapped Mitts": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -34458,7 +34458,7 @@
  ],
  "Studded Belt": [
   {
-   "order": 68005,
+   "order": 68008,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 3 Belts",
    "rule": null,
@@ -34500,10 +34500,10 @@
  ],
  "Stygian Vise": [
   {
-   "order": 68001,
+   "order": 68002,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 0 Belts",
-   "rule": "#1 i86 Top Belts",
+   "rule": "#2 i86 Top Belts - 物品卡：深渊腰带",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -34513,10 +34513,10 @@
    "reachable": true
   },
   {
-   "order": 68002,
+   "order": 68004,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 1 Belts",
-   "rule": "#1 i84 Top Belts",
+   "rule": "#2 i84 Top Belts - 物品卡：深渊腰带",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -34529,8 +34529,8 @@
    "order": 77001,
    "file": "Equipment/League/Stygian Vise.json",
    "block": "Stygian Vise T1",
-   "rule": "自动音效：深渊腰带",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Rarity <= Rare"
@@ -34616,7 +34616,7 @@
  ],
  "Sulphur Flask": [
   {
-   "order": 74006,
+   "order": 74008,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
    "rule": null,
@@ -34831,7 +34831,7 @@
  ],
  "Sunfire Circlet": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -34904,7 +34904,7 @@
  ],
  "Synaptic Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -35025,11 +35025,11 @@
  ],
  "Tainted Armourer's Scrap": [
   {
-   "order": 54010,
+   "order": 54009,
    "file": "Currency/Tainted Currency.json",
    "block": "Tier 4 Tainted",
-   "rule": "自动音效：污秽护甲片",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -35037,11 +35037,11 @@
  ],
  "Tainted Blacksmith's Whetstone": [
   {
-   "order": 54008,
+   "order": 54010,
    "file": "Currency/Tainted Currency.json",
    "block": "Tier 4 Tainted",
-   "rule": "自动音效：污秽磨刀石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -35061,11 +35061,11 @@
  ],
  "Tainted Chaos Orb": [
   {
-   "order": 54005,
+   "order": 54006,
    "file": "Currency/Tainted Currency.json",
    "block": "Tier 3 Tainted",
-   "rule": "自动音效：污秽混沌石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -35073,11 +35073,11 @@
  ],
  "Tainted Chromatic Orb": [
   {
-   "order": 54006,
+   "order": 54005,
    "file": "Currency/Tainted Currency.json",
    "block": "Tier 3 Tainted",
-   "rule": "自动音效：污秽幻色石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -35088,8 +35088,8 @@
    "order": 54001,
    "file": "Currency/Tainted Currency.json",
    "block": "Tier 1 Tainted",
-   "rule": "自动音效：污染神泪",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -35100,8 +35100,8 @@
    "order": 54004,
    "file": "Currency/Tainted Currency.json",
    "block": "Tier 3 Tainted",
-   "rule": "自动音效：污秽崇高石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -35109,11 +35109,11 @@
  ],
  "Tainted Jeweller's Orb": [
   {
-   "order": 54009,
+   "order": 54008,
    "file": "Currency/Tainted Currency.json",
    "block": "Tier 4 Tainted",
-   "rule": "自动音效：污秽工匠石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -35124,8 +35124,8 @@
    "order": 54002,
    "file": "Currency/Tainted Currency.json",
    "block": "Tier 2 Tainted",
-   "rule": "自动音效：污秽神秘石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -35148,8 +35148,8 @@
    "order": 54003,
    "file": "Currency/Tainted Currency.json",
    "block": "Tier 2 Tainted",
-   "rule": "自动音效：污秽链结石",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -35955,8 +35955,8 @@
    "order": 81011,
    "file": "Gems/Skill.json",
    "block": "Tier 2 Skill",
-   "rule": "自动音效：时空裂隙",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -35979,7 +35979,7 @@
  ],
  "Tenebrous Ring": [
   {
-   "order": 69007,
+   "order": 69019,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 4 Rings",
    "rule": null,
@@ -36169,11 +36169,11 @@
  ],
  "The Maven's Writ": [
   {
-   "order": 113006,
+   "order": 113007,
    "file": "Maps/Fragments.json",
    "block": "Tier 1 Fragments",
-   "rule": "自动音效：贤主敕令",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -36399,7 +36399,7 @@
  ],
  "Thwarting Gauntlets": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -36571,11 +36571,11 @@
    "reachable": true
   },
   {
-   "order": 151010,
+   "order": 151008,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：永恒珠宝",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": false
@@ -36764,7 +36764,7 @@
  ],
  "Tinker Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -36791,7 +36791,7 @@
  ],
  "Titan Gauntlets": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -36806,10 +36806,10 @@
  ],
  "Titan Greaves": [
   {
-   "order": 62001,
+   "order": 62002,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 0 Boots",
-   "rule": "#1 i86 Top Boots",
+   "rule": "#2 i86 Top Boots",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -36819,10 +36819,10 @@
    "reachable": true
   },
   {
-   "order": 62002,
+   "order": 62004,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 1 Boots",
-   "rule": "#1 i84 Top Boots",
+   "rule": "#2 i84 Top Boots",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -36832,7 +36832,7 @@
    "reachable": true
   },
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -37034,7 +37034,7 @@
  ],
  "Topaz Flask": [
   {
-   "order": 74006,
+   "order": 74008,
    "file": "Flasks/Utility.json",
    "block": "Tier 1 Utility Flasks",
    "rule": null,
@@ -37060,7 +37060,7 @@
  ],
  "Topaz Ring": [
   {
-   "order": 69005,
+   "order": 69017,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 2 Rings",
    "rule": null,
@@ -37173,7 +37173,7 @@
  ],
  "Tornado Wand": [
   {
-   "order": 93002,
+   "order": 93004,
    "file": "Equipment/Weapons/Wands.json",
    "block": "Tier 2 Wands",
    "rule": null,
@@ -37213,7 +37213,7 @@
  ],
  "Torture Cage": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -37310,7 +37310,7 @@
    "reachable": true
   },
   {
-   "order": 64003,
+   "order": 64005,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 1 Helmets",
    "rule": null,
@@ -37416,7 +37416,7 @@
  ],
  "Transmutation Shard": [
   {
-   "order": 46047,
+   "order": 46048,
    "file": "Currency/General.json",
    "block": "Tier 5 General",
    "rule": null,
@@ -37440,7 +37440,7 @@
  ],
  "Trapper Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -37455,7 +37455,7 @@
  ],
  "Trapper Mitts": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -37470,7 +37470,7 @@
  ],
  "Trapsetter Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -37569,11 +37569,11 @@
  ],
  "Treasure Key": [
   {
-   "order": 121007,
+   "order": 121005,
    "file": "Misc/General.json",
    "block": "Tier 1 Misc",
-   "rule": "自动音效：古铜钥匙",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -37581,7 +37581,7 @@
  ],
  "Tribal Circlet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -37626,7 +37626,7 @@
  ],
  "Tricorne": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -37720,7 +37720,7 @@
  ],
  "Turquoise Amulet": [
   {
-   "order": 67003,
+   "order": 67007,
    "file": "Equipment/Jewellery/Amulets.json",
    "block": "Tier 1 Amulets",
    "rule": null,
@@ -37930,7 +37930,7 @@
  ],
  "Two-Stone Ring": [
   {
-   "order": 69004,
+   "order": 69012,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 1 Rings",
    "rule": null,
@@ -37974,10 +37974,10 @@
    "reachable": true
   },
   {
-   "order": 62001,
+   "order": 62002,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 0 Boots",
-   "rule": "#1 i86 Top Boots",
+   "rule": "#2 i86 Top Boots",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -37987,10 +37987,10 @@
    "reachable": true
   },
   {
-   "order": 62002,
+   "order": 62004,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 1 Boots",
-   "rule": "#1 i84 Top Boots",
+   "rule": "#2 i84 Top Boots",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -38000,7 +38000,7 @@
    "reachable": true
   },
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -38244,11 +38244,11 @@
    "reachable": true
   },
   {
-   "order": 151005,
+   "order": 151009,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：潜能项链",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -38256,7 +38256,7 @@
  ],
  "Unset Ring": [
   {
-   "order": 69005,
+   "order": 69017,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 2 Rings",
    "rule": null,
@@ -38318,7 +38318,7 @@
    "reachable": true
   },
   {
-   "order": 46031,
+   "order": 46032,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
    "rule": null,
@@ -38383,7 +38383,7 @@
  ],
  "Ursine Pelt": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -38594,7 +38594,7 @@
  ],
  "Vaal Gauntlets": [
   {
-   "order": 63004,
+   "order": 63013,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 2 Gloves",
    "rule": null,
@@ -38674,7 +38674,7 @@
  ],
  "Vaal Greaves": [
   {
-   "order": 62004,
+   "order": 62007,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 2 Boots",
    "rule": null,
@@ -38728,7 +38728,7 @@
  ],
  "Vaal Mask": [
   {
-   "order": 64004,
+   "order": 64007,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 2 Helmets",
    "rule": null,
@@ -38755,11 +38755,11 @@
  ],
  "Vaal Orb": [
   {
-   "order": 46026,
+   "order": 46029,
    "file": "Currency/General.json",
    "block": "Tier 4 General",
-   "rule": "自动音效：瓦尔宝珠",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -38935,7 +38935,7 @@
    "order": 111002,
    "file": "Maps/Base Maps.json",
    "block": "Tier 0 Base Maps",
-   "rule": "#2 瓦尔密殿",
+   "rule": "#2 瓦尔密殿 - 物品卡：瓦尔密殿",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -38992,11 +38992,11 @@
  ],
  "Vanguard Belt": [
   {
-   "order": 68003,
+   "order": 68005,
    "file": "Equipment/Jewellery/Belts.json",
    "block": "Tier 2 Belts",
-   "rule": "自动音效：先锋腰带",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "AreaLevel >= 68",
@@ -39153,7 +39153,7 @@
    "reachable": true
   },
   {
-   "order": 62003,
+   "order": 62005,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 1 Boots",
    "rule": null,
@@ -39223,7 +39223,7 @@
    "reachable": true
   },
   {
-   "order": 63003,
+   "order": 63009,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 1 Gloves",
    "rule": null,
@@ -39238,7 +39238,7 @@
  ],
  "Velvet Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -39253,7 +39253,7 @@
  ],
  "Velvet Slippers": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -39316,11 +39316,11 @@
  ],
  "Vermillion Ring": [
   {
-   "order": 32016,
+   "order": 32011,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Over Quality",
-   "rule": "自动音效：朱砂之戒",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "Quality > 20",
@@ -39329,11 +39329,11 @@
    "reachable": true
   },
   {
-   "order": 32026,
+   "order": 32022,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Strands Gear",
-   "rule": "自动音效：朱砂之戒",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "MemoryStrands >= 1",
@@ -39342,11 +39342,11 @@
    "reachable": true
   },
   {
-   "order": 32035,
+   "order": 32033,
    "file": "Equipment/Crafting Priority.json",
    "block": "Crafting Gear 84",
-   "rule": "自动音效：朱砂之戒",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [
     "ItemLevel >= 84",
@@ -39355,10 +39355,10 @@
    "reachable": true
   },
   {
-   "order": 69001,
+   "order": 69003,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 0 Rings",
-   "rule": "#1 i86 Top Rings",
+   "rule": "#3 i86 Top Rings - 物品卡：朱砂之戒",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -39368,10 +39368,10 @@
    "reachable": true
   },
   {
-   "order": 69002,
+   "order": 69008,
    "file": "Equipment/Jewellery/Rings.json",
    "block": "Tier 1 Rings",
-   "rule": "#1 i84 Top Rings",
+   "rule": "#3 i84 Top Rings - 物品卡：朱砂之戒",
    "source": "rule",
    "hide": false,
    "conditions": [
@@ -39595,7 +39595,7 @@
  ],
  "Vine Circlet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -39686,7 +39686,7 @@
  ],
  "Visored Sallet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -40243,7 +40243,7 @@
    "reachable": true
   },
   {
-   "order": 62003,
+   "order": 62005,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 1 Boots",
    "rule": null,
@@ -40313,7 +40313,7 @@
    "reachable": true
   },
   {
-   "order": 63003,
+   "order": 63009,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 1 Gloves",
    "rule": null,
@@ -40430,11 +40430,11 @@
  ],
  "Weapon Recombinator": [
   {
-   "order": 151003,
+   "order": 151007,
    "file": "_legacy/Legacy.json",
    "block": "Tier 1 Legacy",
-   "rule": "自动音效：武器重组器",
-   "source": "auto_sound",
+   "rule": null,
+   "source": "card",
    "hide": false,
    "conditions": [],
    "reachable": true
@@ -40622,7 +40622,7 @@
  ],
  "Windbreak Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -40649,7 +40649,7 @@
  ],
  "Winter Crown": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -40751,7 +40751,7 @@
  ],
  "Wolf Pelt": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,
@@ -40796,7 +40796,7 @@
  ],
  "Wool Gloves": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -40811,7 +40811,7 @@
  ],
  "Wool Shoes": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -40856,7 +40856,7 @@
  ],
  "Wrapped Boots": [
   {
-   "order": 62006,
+   "order": 62009,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 4 Boots",
    "rule": null,
@@ -40871,7 +40871,7 @@
  ],
  "Wrapped Mitts": [
   {
-   "order": 63006,
+   "order": 63016,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 4 Gloves",
    "rule": null,
@@ -40955,7 +40955,7 @@
  ],
  "Wyrmscale Boots": [
   {
-   "order": 62005,
+   "order": 62008,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 3 Boots",
    "rule": null,
@@ -41010,7 +41010,7 @@
  ],
  "Wyrmscale Gauntlets": [
   {
-   "order": 63005,
+   "order": 63015,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 3 Gloves",
    "rule": null,
@@ -41080,7 +41080,7 @@
    "reachable": true
   },
   {
-   "order": 62003,
+   "order": 62005,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 1 Boots",
    "rule": null,
@@ -41150,7 +41150,7 @@
    "reachable": true
   },
   {
-   "order": 63003,
+   "order": 63009,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 1 Gloves",
    "rule": null,
@@ -41180,7 +41180,7 @@
  ],
  "Zealot Boots": [
   {
-   "order": 62005,
+   "order": 62008,
    "file": "Equipment/Armour/Boots.json",
    "block": "Tier 3 Boots",
    "rule": null,
@@ -41195,7 +41195,7 @@
  ],
  "Zealot Gloves": [
   {
-   "order": 63005,
+   "order": 63015,
    "file": "Equipment/Armour/Gloves.json",
    "block": "Tier 3 Gloves",
    "rule": null,
@@ -41210,7 +41210,7 @@
  ],
  "Zealot Helmet": [
   {
-   "order": 64006,
+   "order": 64009,
    "file": "Equipment/Armour/Helmets.json",
    "block": "Tier 4 Helmets",
    "rule": null,

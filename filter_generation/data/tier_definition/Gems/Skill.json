@@ -63,6 +63,20 @@
       "localization": {
         "en": "T0: 誓约/光环",
         "ch": "T0: 誓约/光环"
+      },
+      "item_overrides": {
+        "Portal": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/时空之门.mp3",
+            300
+          ]
+        },
+        "Purity of Elements": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/元素净化.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier Hide Skill": {
@@ -105,6 +119,14 @@
       "localization": {
         "en": "T2: Requires 12+",
         "ch": "T2: 需求 12 级及以上"
+      },
+      "item_overrides": {
+        "Temporal Rift": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/时空裂隙.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 3 Skill": {

@@ -33,6 +33,14 @@
       "localization": {
         "en": "T0: Special Maps",
         "ch": "T0: 特殊地图"
+      },
+      "item_overrides": {
+        "Vaal Temple Map": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/瓦尔密殿.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 1 Base Maps": {

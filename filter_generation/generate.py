@@ -132,8 +132,8 @@ _rgba_re = re.compile(r"rgba?(\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?")
 
 # Localization Terms
 TERMS = {
-    "en": {"Rule": "Rule", "Base": "Base", "Auto-Sound": "Auto-Sound", "Exact": "Exact", "Partial": "Partial", "Self": "Self-matched"},
-    "ch": {"Rule": "规则", "Base": "基础", "Auto-Sound": "自动音效", "Exact": "精确", "Partial": "模糊", "Self": "自选"}
+    "en": {"Rule": "Rule", "Base": "Base", "Auto-Sound": "Auto-Sound", "Exact": "Exact", "Partial": "Partial", "Self": "Self-matched", "Card": "Card"},
+    "ch": {"Rule": "规则", "Base": "基础", "Auto-Sound": "自动音效", "Exact": "精确", "Partial": "模糊", "Self": "自选", "Card": "物品卡"}
 }
 # Output language — CLI-configurable via --language; default 'ch' preserves prior behavior.
 LANG = _parsed.language
@@ -370,6 +370,38 @@ def resolve_tier_theme(theme_ref, tier_entry, tnum):
             print(f"[WARN] malformed {k} {v!r} not emitted "
                   f"(expected e.g. '0 Red Star'); fix the tier's theme block.")
     return row
+
+
+def split_by_override(bases, item_overrides):
+    """Split a block's base list into (bases, override) groups.
+
+    An item card can carry its own style override — in practice almost always a
+    sound. Since a filter block has ONE of each style line, a base with its own
+    override has to become its own block: same look, only the overridden channel
+    differing. That split is derived here, never authored — you tag the card and
+    the shape follows.
+
+    ⚠️ Overridden groups come FIRST, plain last. First-match-wins means a plain
+    block listing the base ahead of its override block would swallow it, which is
+    exactly the dead-claim class the index counts 86 of. Groups are ordered by
+    their override's JSON so a run is deterministic.
+
+    Returns [(bases, override_or_None), ...]; the plain group is omitted if empty.
+    """
+    if not item_overrides:
+        return [(bases, None)]
+    groups = {}
+    plain = []
+    for b in bases:
+        ovr = item_overrides.get(b)
+        if ovr:
+            groups.setdefault(json.dumps(ovr, sort_keys=True, ensure_ascii=False), []).append(b)
+        else:
+            plain.append(b)
+    out = [(v, json.loads(k)) for k, v in sorted(groups.items())]
+    if plain:
+        out.append((plain, None))
+    return out
 
 
 def tier_num_from_label(label):
@@ -737,35 +769,22 @@ def generate_filter():
             trace_tier(**_t, emitted=True, path="rules+base", is_hide=is_hide)
             all_rules = copy.deepcopy(map_doc.get("rules", []))
 
-            # --- AUTO-INJECT SOUND RULES FROM MAP ---
-            # basetype_sounds is GLOBAL: a base type with an entry gets a per-item
-            # sound in every category that carries it. `suppress_basetype_sounds` on a
-            # category's mapping _meta opts that category out, so the base keeps its
-            # per-item sound elsewhere while this category speaks with one voice - the
-            # tier's own sound. Uniques uses it: 19 of its blocks were per-item alerts
-            # that drowned out the tier ladder.
-            bt_sounds = {} if map_doc.get("_meta", {}).get("suppress_basetype_sounds") \
-                else sound_map.get("basetype_sounds", {})
-            for item_name in items:
-                if item_name in bt_sounds:
-                    s_data = bt_sounds[item_name]
-                    # Check if a rule already targets this item specifically
-                    already_handled = any(item_name in r.get("targets", []) for r in all_rules)
-                    if not already_handled:
-                        all_rules.append({
-                            "targets": [item_name],
-                            # Inherit the TIER's conditions. Tier conditions are emitted
-                            # only on the base block, and an injected rule authors none
-                            # of its own, so without this the sound block dropped every
-                            # gate its tier declared - Rarity <= Rare, Corrupted False,
-                            # the ItemLevel band. A unique Stygian Vise was rendering as
-                            # an ilvl-86 crafting base because its auto-sound block said
-                            # only BaseType == "Stygian Vise".
-                            "conditions": copy.deepcopy(tier_entry.get("conditions") or {}),
-                            "overrides": { "PlayAlertSound": [s_data["file"], s_data["volume"]] },
-                            "comment": f"__AUTO_SOUND__:{item_name}"
-                        })
-            # -----------------------------------------
+            # AUTO-SOUND IS GONE. A per-item sound is now an explicit override on the
+            # item CARD — `item_overrides` on this tier, keyed by base — and blocks
+            # split by it at emission time (see split_by_override).
+            #
+            # What was here injected a synthetic one-target rule per base carrying a
+            # `basetype_sounds` entry, unless `already_handled`: any rule in the file
+            # merely NAMING the base suppressed it. Not a rule that set a sound — one
+            # that mentioned the base at all. So a rule written for something else
+            # silenced the item across the whole file, including tiers no rule
+            # touched, and nine curated sounds reached the game nowhere. Chaos Orb's
+            # was silenced by a `StackSize >= 10` stack tier-up that cannot fire in
+            # Ruthless: a rule that never fires silencing a sound that would have.
+            #
+            # `suppress_basetype_sounds` dies with it — there is nothing left to
+            # suppress when the override is explicit data you can simply delete.
+            item_overrides = tier_entry.get("item_overrides") or {}
 
             pending_items = set(items)
             
@@ -843,26 +862,37 @@ def generate_filter():
                 groups = ([(exact_group, "Exact", True), (partial_group, "Partial", False)]
                           if rule_matches else [([], "Self", None)])
 
-                for subgroup, mode_label, is_strict in groups:
-                    if is_strict is not None and not subgroup: continue
-                    
-                    block_index += 1
-                    
-                    r_over = rule.get("overrides", {})
-                    
-                    raw_comment = rule.get('comment', '')
-                    if raw_comment.startswith("__AUTO_SOUND__:"):
-                        # Implicit Auto-Sound Rule
-                        item_key = raw_comment.split(":", 1)[1].strip()
-                        item_name_local = item_trans.get(item_key, item_key)
-                        
-                        rule_part = f"{tr('Auto-Sound')}：{item_name_local}"
+                # Expand each group by item-card override: a card with its own
+                # sound becomes its own block, overridden groups first (see
+                # split_by_override). A self-matched group names no bases, so
+                # there is no card to split on.
+                expanded = []
+                for _sg, _ml, _strict in groups:
+                    if _strict is None:
+                        expanded.append((_sg, _ml, _strict, None))
                     else:
-                        # Explicit User Rule
-                        rule_counter += 1
-                        # Localizable rule name: rule.localization[lang] -> comment -> "Rule"
-                        rule_name = rule.get("localization", {}).get(LANG) or raw_comment or tr('Rule')
-                        rule_part = f"#{rule_counter} {rule_name}"
+                        for _bases, _ovr in split_by_override(_sg, item_overrides):
+                            expanded.append((_bases, _ml, _strict, _ovr))
+                groups = expanded
+
+                for subgroup, mode_label, is_strict, card_over in groups:
+                    if is_strict is not None and not subgroup: continue
+
+                    block_index += 1
+
+                    # The card's override wins over the rule's, which wins over the
+                    # tier's — "tag the card" is the most specific statement there is.
+                    r_over = {**rule.get("overrides", {}), **(card_over or {})}
+
+                    raw_comment = rule.get('comment', '')
+                    rule_counter += 1
+                    # Localizable rule name: rule.localization[lang] -> comment -> "Rule"
+                    rule_name = rule.get("localization", {}).get(LANG) or raw_comment or tr('Rule')
+                    rule_part = f"#{rule_counter} {rule_name}"
+                    if card_over:
+                        # Name the card so a split block is self-explanatory in the output.
+                        rule_part += f" - {tr('Card')}：" + "/".join(
+                            item_trans.get(b, b) for b in subgroup[:3])
 
                     final_mode = tr(mode_label)
                     tier_display_r = tier_entry.get("localization", {}).get(LANG) or tier_entry.get("localization", {}).get("en") or f"Tier {tnum}"
@@ -945,15 +975,23 @@ def generate_filter():
                     else:
                         partial_pending.append(item)
 
-                for subgroup, mode_label, is_strict in [(exact_pending, "Exact", True), (partial_pending, "Partial", False)]:
+                base_groups = []
+                for _sg, _ml, _strict in [(exact_pending, "Exact", True), (partial_pending, "Partial", False)]:
+                    for _bases, _ovr in split_by_override(_sg, item_overrides):
+                        base_groups.append((_bases, _ml, _strict, _ovr))
+
+                for subgroup, mode_label, is_strict, card_over in base_groups:
                     if not subgroup: continue
-                    
+
                     block_index += 1
                     final_mode = tr(mode_label)
                     base_label = tr("Base")
                     tier_display = tier_entry.get("localization", {}).get(LANG) or tier_entry.get("localization", {}).get("en") or f"Tier {tnum}"
-                    out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -{tier_display} {loc_cat} - {base_label} - {final_mode}==")
-                    
+                    card_part = ""
+                    if card_over:
+                        card_part = f" - {tr('Card')}：" + "/".join(item_trans.get(b, b) for b in subgroup[:3])
+                    out_lines.append(f"\n#==[{block_index:05d}]- {item_class_header} -{tier_display} {loc_cat} - {base_label}{card_part} - {final_mode}==")
+
                     joined = '" "'.join(subgroup)
                     cmd = HIDE_CMD if is_hide else "Show"
                     bt_operator = " == " if is_strict else " "
@@ -980,23 +1018,31 @@ def generate_filter():
                         else:
                             block_lines.append(f"    {key} {norm_op(val)}")
 
-                    # Disabled/sentinel styles are OMITTED (see style_off).
-                    block_lines.append(f'    SetFontSize {ttheme.get("FontSize", DEFAULT_FONT_SIZE)}')
-                    if not style_off(ttheme.get("TextColor")):
-                        block_lines.append(f'    SetTextColor {base_text_col}')
-                    if not style_off(ttheme.get("BorderColor")):
-                        block_lines.append(f'    SetBorderColor {base_border_col}')
-                    if not style_off(ttheme.get("BackgroundColor")):
-                        block_lines.append(f'    SetBackgroundColor {base_background_col}')
+                    # Disabled/sentinel styles are OMITTED (see style_off). A card
+                    # override sits on top, exactly as a rule's would.
+                    c_over = card_over or {}
+                    block_lines.append(f'    SetFontSize {c_over.get("FontSize", ttheme.get("FontSize", DEFAULT_FONT_SIZE))}')
+                    c_text_raw = c_over["TextColor"] if "TextColor" in c_over else ttheme.get("TextColor")
+                    if not style_off(c_text_raw):
+                        block_lines.append(f'    SetTextColor {parse_rgba(c_over.get("TextColor"), base_text_col)}')
+                    c_border_raw = c_over["BorderColor"] if "BorderColor" in c_over else ttheme.get("BorderColor")
+                    if not style_off(c_border_raw):
+                        block_lines.append(f'    SetBorderColor {parse_rgba(c_over.get("BorderColor"), base_border_col)}')
+                    c_bg_raw = c_over["BackgroundColor"] if "BackgroundColor" in c_over else ttheme.get("BackgroundColor")
+                    if not style_off(c_bg_raw):
+                        block_lines.append(f'    SetBackgroundColor {parse_rgba(c_over.get("BackgroundColor"), base_background_col)}')
 
-                    sound_line = resolve_sound(tier_entry, sound_map)
+                    sound_line = resolve_sound(tier_entry, sound_map, c_over.get("PlayAlertSound"))
                     if sound_line:  block_lines.append(f"    {sound_line}")
-                    if base_play_eff and not style_off(base_play_eff): block_lines.append(f"    PlayEffect {base_play_eff}")
-                    if base_mini_icon and not style_off(base_mini_icon): block_lines.append(f"    MinimapIcon {base_mini_icon}")
-                    
+                    c_eff = c_over.get("PlayEffect", base_play_eff)
+                    if c_eff and not style_off(c_eff): block_lines.append(f"    PlayEffect {c_eff}")
+                    c_icon = c_over.get("MinimapIcon", base_mini_icon)
+                    if c_icon and not style_off(c_icon): block_lines.append(f"    MinimapIcon {c_icon}")
+
                     out_lines.append(block_text(block_lines, is_hide))
                     trace_block(order=block_index, file=rel_path.as_posix(),
-                                tier_key=t_lbl, tier_num=tnum, source="tier_base",
+                                tier_key=t_lbl, tier_num=tnum,
+                                source=("card" if card_over else "tier_base"),
                                 match=mode_label, rule=None,
                                 bases=list(subgroup), is_hide=is_hide,
                                 text=out_lines[-1])

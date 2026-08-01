@@ -32,6 +32,14 @@
       "localization": {
         "en": "T1: Top",
         "ch": "T1：顶级"
+      },
+      "item_overrides": {
+        "Tainted Divine Teardrop": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污染神泪.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 2 Tainted": {
@@ -50,6 +58,20 @@
       "localization": {
         "en": "T2: High",
         "ch": "T2：高价值"
+      },
+      "item_overrides": {
+        "Tainted Mythic Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽神秘石.mp3",
+            300
+          ]
+        },
+        "Tainted Orb of Fusing": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽链结石.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 3 Tainted": {
@@ -68,6 +90,26 @@
       "localization": {
         "en": "T3: Mid",
         "ch": "T3：中等"
+      },
+      "item_overrides": {
+        "Tainted Chaos Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽混沌石.mp3",
+            300
+          ]
+        },
+        "Tainted Chromatic Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽幻色石.mp3",
+            300
+          ]
+        },
+        "Tainted Exalted Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽崇高石.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 4 Tainted": {
@@ -86,6 +128,26 @@
       "localization": {
         "en": "T4: Low",
         "ch": "T4：低价值"
+      },
+      "item_overrides": {
+        "Tainted Armourer's Scrap": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽护甲片.mp3",
+            200
+          ]
+        },
+        "Tainted Blacksmith's Whetstone": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽磨刀石.mp3",
+            200
+          ]
+        },
+        "Tainted Jeweller's Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽工匠石.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier Hide Tainted": {

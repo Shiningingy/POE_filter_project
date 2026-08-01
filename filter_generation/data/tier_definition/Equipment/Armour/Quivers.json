@@ -145,6 +145,14 @@
       "localization": {
         "en": "T4: Trash net (shards)",
         "ch": "T4: 兜底（碎片）"
+      },
+      "item_overrides": {
+        "Artillery Quiver": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/火炮箭袋.mp3",
+            200
+          ]
+        }
       }
     }
   }
