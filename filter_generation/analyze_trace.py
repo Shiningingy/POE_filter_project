@@ -60,17 +60,80 @@ def conditions_of(block):
     )
 
 
-def load_mapping(rel_file):
-    """The authored base -> tier map for one category file."""
+def load_doc(rel_file):
     path = BASE_MAPPING_DIR / rel_file
     if not path.is_file():
         return {}
-    doc = json.loads(path.read_text(encoding="utf-8"))
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def load_mapping(rel_file):
+    """The authored base -> tier map for one category file."""
     out = defaultdict(set)
-    for base, tiers in doc.get("mapping", {}).items():
+    for base, tiers in load_doc(rel_file).get("mapping", {}).items():
         for t in (tiers if isinstance(tiers, list) else [tiers]):
             out[base].add(t)
     return out
+
+
+def silent_rules(blocks, tiers):
+    """Authored rules that emitted NO block anywhere in their file.
+
+    The second index axis. A rule can be perfectly well-formed JSON, appear in the
+    editor, and produce nothing: `Class ==` is exact and class names are plural
+    ("Blueprints", not "Blueprint"); a rule with conditions but no tier is skipped
+    outright; an earlier rule can steal every one of its targets via pending_items.
+    None of that is visible today — the rule simply sits there looking fine.
+
+    `disabled: true` rules are excluded: those are off on purpose. So are rules the
+    campaign picker explains — an unpicked weapon group takes its rules down with
+    it, and that is the selection-centric ladder working, not a defect.
+
+    That exclusion is decided PER RULE, not per file: a rule is campaign-explained
+    when every tier it could have attached to was gated. `_campaign/20 Armour
+    Progression.json` is why the coarser file-level test is not enough — it has
+    live tiers alongside gated ones, so judging by file called a dozen working
+    rules broken.
+    """
+    emitted = defaultdict(set)
+    for b in blocks:
+        if b.get("rule_authored") and b.get("rule_index") is not None:
+            emitted[b["file"]].add(b["rule_index"])
+
+    gated_keys = defaultdict(set)
+    for t in tiers:
+        if not t["emitted"] and t["reason"].startswith("campaign:"):
+            gated_keys[t["file"]].add(t["tier_key"])
+
+    out, gated = [], []
+    for rel_file in sorted({t["file"] for t in tiers}):
+        doc = load_doc(rel_file)
+        mapping = load_mapping(rel_file)
+        for i, rule in enumerate(doc.get("rules", [])):
+            if rule.get("disabled") or i in emitted[rel_file]:
+                continue
+
+            # Which tiers could this rule ever have emitted under? An explicit
+            # overrides.Tier names one; otherwise it rides the tiers its targets
+            # are mapped to.
+            tier_override = (rule.get("overrides") or {}).get("Tier")
+            if tier_override:
+                reachable_tiers = {tier_override} if isinstance(tier_override, str) else set(tier_override)
+            else:
+                reachable_tiers = set()
+                for tgt in rule.get("targets") or []:
+                    reachable_tiers |= mapping.get(tgt, set())
+
+            label = (rule.get("localization", {}) or {}).get("ch") or rule.get("comment") or f"rule #{i}"
+            rec = {
+                "file": rel_file, "rule_index": i, "label": label,
+                "targets": len(rule.get("targets") or []),
+                "tier": tier_override,
+                "conditions": sorted((rule.get("conditions") or {}).keys()),
+            }
+            explained = reachable_tiers and reachable_tiers <= gated_keys[rel_file]
+            (gated if explained else out).append(rec)
+    return out, gated
 
 
 def analyze(trace_path):
@@ -182,7 +245,24 @@ def analyze(trace_path):
     for reason, n in sorted(reasons.items(), key=lambda kv: -kv[1]):
         print(f"      {reason}: {n}")
 
+    quiet, quiet_gated = silent_rules(blocks, tiers)
+    print(f"\n  SILENT RULES         {len(quiet):>5} authored rules emitted NOTHING "
+          f"(not disabled, not campaign-gated)")
+    for r in quiet[:12]:
+        why = []
+        if not r["targets"] and not r["conditions"]:
+            why.append("no targets, no conditions")
+        if r["tier"] is None and not r["targets"]:
+            why.append("no tier to attach to")
+        print(f"      {r['file']} #{r['rule_index']} {r['label']!r}"
+              f" targets={r['targets']} tier={r['tier']!r}"
+              f"{'  <- ' + '; '.join(why) if why else ''}")
+    if len(quiet) > 12:
+        print(f"      … +{len(quiet) - 12} more")
+    print(f"      (+{len(quiet_gated)} whose every reachable tier is campaign-gated, working as designed)")
+
     return {
+        "silent_rules": quiet,
         "trace": str(trace_path),
         "index_size": len(index),
         "claimed_not_mapped": {f: sorted(v) for f, v in claimed_not_mapped.items()},
@@ -193,14 +273,62 @@ def analyze(trace_path):
     }
 
 
+def write_index(trace_path, out_dir):
+    """The derived index: base -> every occurrence, in emission order.
+
+    The inverse of `mapping`, and the artifact that replaces it (workstream C).
+    `mapping` is forward and authored ("Chaos Orb" -> "Tier 3 General"); this is
+    reverse and derived, so it can answer what nobody can see today: where does
+    this base appear, and can each of those claims actually fire?
+
+    ⚠️ Mode-specific. `excluded_modes` gives ruthless and standard different block
+    sets, so an occurrence list is only meaningful for the mode it was built from —
+    hence one file per mode.
+
+    `reachable` is deliberately NOT "wins". Which block catches a given drop
+    depends on the ITEM (an Opal Ring at ilvl 84 with Quality 21 lands somewhere
+    different from the same base at Quality 0), and the drop simulator already
+    answers that. This answers only the static half: is there an earlier claim at
+    least as permissive, making this one dead?
+    """
+    trace = json.loads(Path(trace_path).read_text(encoding="utf-8"))
+    mode = trace["meta"]["mode"]
+    blocks = sorted(trace["blocks"], key=lambda x: x["order"])
+    for b in blocks:
+        b["_conds"] = conditions_of(b)
+
+    index = defaultdict(list)
+    for b in blocks:
+        for base in b["bases"]:
+            prior = index[base]
+            reachable = not any(p["_conditions"] <= set(b["_conds"]) for p in prior)
+            prior.append({
+                "order": b["order"], "file": b["file"], "block": b["tier_key"],
+                "rule": b["rule"], "source": b["source"], "hide": b["is_hide"],
+                "conditions": sorted(b["_conds"]),
+                "reachable": reachable,
+                "_conditions": set(b["_conds"]),
+            })
+
+    out = {base: [{k: v for k, v in occ.items() if k != "_conditions"} for occ in occs]
+           for base, occs in sorted(index.items())}
+    path = out_dir / f"index-{mode}.json"
+    path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    unreachable = sum(1 for occs in out.values() for o in occs if not o["reachable"])
+    print(f"[OK] Index ({mode}): {len(out)} bases, "
+          f"{sum(len(v) for v in out.values())} occurrences, {unreachable} unreachable -> {path.name}")
+
+
 def main():
-    args = sys.argv[1:] or [str(p) for p in
-                            sorted((PROJECT_ROOT / "filter_generation" / "traces").glob("*.json"))
-                            if not p.name.startswith("analysis")]
+    traces_dir = PROJECT_ROOT / "filter_generation" / "traces"
+    args = sys.argv[1:] or [str(p) for p in sorted(traces_dir.glob("*.json"))
+                            if not p.name.startswith(("analysis", "index"))]
     reports = [analyze(a) for a in args]
-    out = PROJECT_ROOT / "filter_generation" / "traces" / "analysis.json"
+    out = traces_dir / "analysis.json"
     out.write_text(json.dumps(reports, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"\n[OK] Detail written to {out}")
+    for a in args:
+        write_index(a, traces_dir)
 
 
 if __name__ == "__main__":

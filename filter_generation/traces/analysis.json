@@ -1,6 +1,7 @@
 [
  {
-  "trace": "filter_generation/traces/ruthless-soft.json",
+  "silent_rules": [],
+  "trace": "G:\\POE_filter_development\\POE_filter_project\\filter_generation\\traces\\ruthless-soft.json",
   "index_size": 2228,
   "claimed_not_mapped": {
    "_campaign/40 Flask Progression.json": [
@@ -81,11 +82,11 @@
    "Equipment/Relics.json": [
     "Relics"
    ],
-   "Heist/Targets.json": [
-    "Heist Target"
-   ],
    "Equipment/VendorRecipes/Recipes.json": [
     "RGB Linked"
+   ],
+   "Heist/Targets.json": [
+    "Heist Target"
    ]
   },
   "shadowed": {
@@ -1630,6 +1631,2078 @@
      },
      "behind": {
       "order": 131022,
+      "file": "Uniques/General.json",
+      "tier_key": "T1",
+      "source": "rule",
+      "rule": "#13 __SOUND__:Prismatic Jewel"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "silent_rules": [
+   {
+    "file": "Divination Cards/_archived/Cards.json",
+    "rule_index": 5,
+    "label": "Bad Luck",
+    "targets": 1,
+    "tier": null,
+    "conditions": []
+   }
+  ],
+  "trace": "G:\\POE_filter_development\\POE_filter_project\\filter_generation\\traces\\standard-soft.json",
+  "index_size": 2260,
+  "claimed_not_mapped": {
+   "_campaign/40 Flask Progression.json": [
+    "Colossal Life Flask",
+    "Colossal Mana Flask",
+    "Divine Life Flask",
+    "Divine Mana Flask",
+    "Eternal Life Flask",
+    "Eternal Mana Flask",
+    "Giant Life Flask",
+    "Giant Mana Flask",
+    "Grand Life Flask",
+    "Grand Mana Flask",
+    "Greater Life Flask",
+    "Greater Mana Flask",
+    "Hallowed Life Flask",
+    "Hallowed Mana Flask",
+    "Large Life Flask",
+    "Large Mana Flask",
+    "Medium Life Flask",
+    "Medium Mana Flask",
+    "Sacred Life Flask",
+    "Sacred Mana Flask",
+    "Sanctified Life Flask",
+    "Sanctified Mana Flask",
+    "Small Life Flask",
+    "Small Mana Flask"
+   ],
+   "Currency/Harvest.json": [
+    "Crystallised Rancour"
+   ],
+   "Maps/Base Maps.json": [
+    "Vaal Temple Map"
+   ],
+   "Maps/Fragments.json": [
+    "Archive Reliquary Key",
+    "Cosmic Reliquary Key",
+    "Decaying Reliquary Key",
+    "Forgotten Reliquary Key",
+    "Lonely Reliquary Key",
+    "Oubliette Reliquary Key",
+    "Reverent Reliquary Key",
+    "Shiny Reliquary Key",
+    "Timeworn Reliquary Key",
+    "Traumatic Reliquary Key",
+    "Vaal Reliquary Key",
+    "Visceral Reliquary Key",
+    "Voidborn Reliquary Key"
+   ],
+   "Misc/General.json": [
+    "Ceremonial Voidstone",
+    "Decayed Voidstone",
+    "Eldritch Voidstone",
+    "Originator Voidstone"
+   ],
+   "Uniques/General.json": [
+    "Assassin's Garb",
+    "Cobalt Jewel",
+    "Crimson Jewel",
+    "Eternal Sword",
+    "Exquisite Leather",
+    "Gavel",
+    "Glorious Plate",
+    "Gut Ripper",
+    "Karui Chopper",
+    "Lunaris Circlet",
+    "Mesh Gloves",
+    "Mind Cage",
+    "Simple Robe",
+    "Soldier Boots",
+    "Sorcerer Gloves",
+    "Steel Gauntlets",
+    "Tomahawk",
+    "Viridian Jewel"
+   ]
+  },
+  "mapped_not_claimed": {
+   "Equipment/Relics.json": [
+    "Relics"
+   ],
+   "Equipment/VendorRecipes/Recipes.json": [
+    "RGB Linked"
+   ],
+   "Divination Cards/_archived/Cards.json": [
+    "A Chilling Wind",
+    "A Dab of Ink",
+    "A Dusty Memory",
+    "A Familiar Call",
+    "A Fate Worse Than Death",
+    "A Modest Request",
+    "A Mother's Parting Gift",
+    "A Note in the Wind",
+    "A Sea of Blue",
+    "A Stone Perfected",
+    "Acclimatisation",
+    "Akil's Prophecy",
+    "Alivia's Grace",
+    "Alluring Bounty",
+    "Alone in the Darkness",
+    "Altered Perception",
+    "Ambitious Obsession",
+    "Anarchy's Price",
+    "Apocalypse",
+    "Arrogance of the Vaal",
+    "Assassin's Favour",
+    "Assassin's Gift",
+    "Astral Protection",
+    "Atziri's Arsenal",
+    "Audacity",
+    "Auspicious Ambitions",
+    "Avian Pursuit",
+    "Azure Rage",
+    "Azyran's Reward",
+    "Baited Expectations",
+    "Beauty Through Death",
+    "Bijoux",
+    "Blind Venture",
+    "Boon of Justice",
+    "Boon of the First Ones",
+    "Bound by Flame",
+    "Boundless Realms",
+    "Bowyer's Dream",
+    "Broken Promises",
+    "Broken Truce",
+    "Brother's Gift",
+    "Brotherhood in Exile",
+    "Brush, Paint and Palette",
+    "Buried Treasure",
+    "Burning Blood",
+    "Call to the First Ones",
+    "Cameria's Cut",
+    "Cartographer's Delight",
+    "Chaotic Disposition",
+    "Chasing Risk",
+    "Checkmate",
+    "Choking Guilt",
+    "Costly Curio",
+    "Council of Cats",
+    "Coveted Possession",
+    "Cursed Words",
+    "Damnation",
+    "Dark Dreams",
+    "Dark Temptation",
+    "Darker Half",
+    "Deadly Joy",
+    "Death",
+    "Deathly Designs",
+    "Dementophobia",
+    "Demigod's Wager",
+    "Desecrated Virtue",
+    "Desperate Crusade",
+    "Dialla's Subjugation",
+    "Disdain",
+    "Divine Beauty",
+    "Divine Justice",
+    "Doedre's Madness",
+    "Doryani's Epiphany",
+    "Draped in Dreams",
+    "Duality",
+    "Dying Anguish",
+    "Dying Light",
+    "Earth Drinker",
+    "Echoes of Love",
+    "Eldritch Perfection",
+    "Emperor of Purity",
+    "Emperor's Luck",
+    "Endless Night",
+    "Etched in Blood",
+    "Eternal Bonds",
+    "Ever-Changing",
+    "Fateful Meeting",
+    "Father's Love",
+    "Fire Of Unknown Origin",
+    "Forbidden Power",
+    "Friendship",
+    "From Bone to Ashes",
+    "Further Invention",
+    "Gemcutter's Mercy",
+    "Gemcutter's Promise",
+    "Gift of Asenath",
+    "Gift of the Gemling Queen",
+    "Glimmer of Hope",
+    "Grave Knowledge",
+    "Guardian's Challenge",
+    "Harmony of Souls",
+    "Haunting Shadows",
+    "Heterochromia",
+    "History",
+    "Home",
+    "Hope",
+    "Hubris",
+    "Hunter's Resolve",
+    "Hunter's Reward",
+    "I See Brothers",
+    "Immortal Resolve",
+    "Imperfect Memories",
+    "Imperial Legacy",
+    "Jack in the Box",
+    "Judging Voices",
+    "Justified Ambition",
+    "Keeper's Corruption",
+    "Lachrymal Necrosis",
+    "Lantador's Lost Love",
+    "Last Hope",
+    "Last Stand",
+    "Left to Fate",
+    "Lethean Temptation",
+    "Light and Truth",
+    "Lingering Remnants",
+    "Lonely Warrior",
+    "Lost Worlds",
+    "Love Through Ice",
+    "Loyalty",
+    "Lucky Bastion",
+    "Lucky Connections",
+    "Lucky Deck",
+    "Luminous Trove",
+    "Lysah's Respite",
+    "Magnum Opus",
+    "Man With Bear",
+    "Matryoshka",
+    "Mawr Blaidd",
+    "Merciless Armament",
+    "Might is Right",
+    "Misery in Darkness",
+    "Mitts",
+    "Monochrome",
+    "More is Never Enough",
+    "No Traces",
+    "Nook's Crown",
+    "One Last Score",
+    "Outfoxed",
+    "Parasitic Passengers",
+    "Peaceful Moments",
+    "Perfection",
+    "Poisoned Faith",
+    "Prejudice",
+    "Pride Before the Fall",
+    "Pride of the First Ones",
+    "Prometheus' Armoury",
+    "Prosperity",
+    "Rain Tempter",
+    "Rats",
+    "Rebirth",
+    "Rebirth and Renewal",
+    "Reckless Ambition",
+    "Reflection of the Heart",
+    "Remembrance",
+    "Runic Luck",
+    "Sambodhi's Vow",
+    "Sambodhi's Wisdom",
+    "Scholar of the Seas",
+    "Shard of Fate",
+    "Silence and Frost",
+    "Society's Remorse",
+    "Something Dark",
+    "Squandered Prosperity",
+    "Struck by Lightning",
+    "Succor of the Sinless",
+    "Temperance",
+    "Terrible Secret of Space",
+    "The Academic",
+    "The Admirer",
+    "The Adventuring Spirit",
+    "The Aesthete",
+    "The Archmage's Right Hand",
+    "The Arena Champion",
+    "The Army of Blood",
+    "The Artist",
+    "The Aspirant",
+    "The Astromancer",
+    "The Avenger",
+    "The Awakened",
+    "The Battle Born",
+    "The Bear Woman",
+    "The Beast",
+    "The Betrayal",
+    "The Bitter Blossom",
+    "The Blazing Fire",
+    "The Blessing of Moosh",
+    "The Body",
+    "The Bones",
+    "The Brawny Battle Mage",
+    "The Breach",
+    "The Brittle Emperor",
+    "The Cache",
+    "The Cacophony",
+    "The Calling",
+    "The Card Sharp",
+    "The Cataclysm",
+    "The Catalyst",
+    "The Catch",
+    "The Celestial Justicar",
+    "The Celestial Stone",
+    "The Chains that Bind",
+    "The Chosen",
+    "The Coming Storm",
+    "The Conduit",
+    "The Craving",
+    "The Cursed King",
+    "The Damned",
+    "The Dapper Prodigy",
+    "The Dark Mage",
+    "The Darkest Dream",
+    "The Deal",
+    "The Deceiver",
+    "The Deep Ones",
+    "The Demoness",
+    "The Destination",
+    "The Doppelganger",
+    "The Dragon",
+    "The Dreamer",
+    "The Dreamland",
+    "The Drunken Aristocrat",
+    "The Dungeon Master",
+    "The Easy Stroll",
+    "The Eldritch Decay",
+    "The Encroaching Darkness",
+    "The Endless Darkness",
+    "The Endurance",
+    "The Enforcer",
+    "The Enthusiasts",
+    "The Escape",
+    "The Eternal War",
+    "The Ethereal",
+    "The Everlasting",
+    "The Explorer",
+    "The Eye of Terror",
+    "The Eye of the Dragon",
+    "The Fathomless Depths",
+    "The Feast",
+    "The Finishing Touch",
+    "The Fishmonger",
+    "The Fletcher",
+    "The Fool",
+    "The Forbidden Fruit",
+    "The Forgotten Treasure",
+    "The Formless Sea",
+    "The Forsaken",
+    "The Forward Gaze",
+    "The Fox",
+    "The Fox in the Brambles",
+    "The Garish Power",
+    "The Gemcutter",
+    "The Gentleman",
+    "The Gladiator",
+    "The Golden Era",
+    "The Greatest Intentions",
+    "The Gulf",
+    "The Hale Heart",
+    "The Harvester",
+    "The Hermit",
+    "The Heroic Shot",
+    "The Hive of Knowledge",
+    "The Hook",
+    "The Hunger",
+    "The Incantation",
+    "The Innocent",
+    "The Inoculated",
+    "The Insatiable",
+    "The Inventor",
+    "The Jester",
+    "The Jeweller's Boon",
+    "The Journalist",
+    "The Journey",
+    "The King's Blade",
+    "The King's Heart",
+    "The Lake",
+    "The Last Laugh",
+    "The Last One Standing",
+    "The Last Supper",
+    "The Leviathan",
+    "The Lich",
+    "The Life Thief",
+    "The Lion",
+    "The Long Con",
+    "The Long Watch",
+    "The Lord in Black",
+    "The Lord of Celebration",
+    "The Lover",
+    "The Lunaris Priestess",
+    "The Mad King",
+    "The Magma Crab",
+    "The Master Artisan",
+    "The Mayor",
+    "The Mercenary",
+    "The Messenger",
+    "The Metalsmith's Gift",
+    "The Mind's Eyes",
+    "The Miracle",
+    "The Mountain",
+    "The Oath",
+    "The Offering",
+    "The Offspring",
+    "The Old Man",
+    "The One That Got Away",
+    "The One With All",
+    "The Opulent",
+    "The Pack Leader",
+    "The Pact",
+    "The Penitent",
+    "The Poet",
+    "The Polymath",
+    "The Porcupine",
+    "The Price of Loyalty",
+    "The Price of Prescience",
+    "The Price of Protection",
+    "The Primordial",
+    "The Prince of Darkness",
+    "The Professor",
+    "The Progeny of Lunaris",
+    "The Queen",
+    "The Rabbit's Foot",
+    "The Rabid Rhoa",
+    "The Realm",
+    "The Return of the Rat",
+    "The Risk",
+    "The Rite of Elements",
+    "The Road to Power",
+    "The Rusted Bard",
+    "The Ruthless Ceinture",
+    "The Sacrifice",
+    "The Samurai's Eye",
+    "The Scarred Meadow",
+    "The Scavenger",
+    "The Seeker",
+    "The Sephirot",
+    "The Shepherd's Sandals",
+    "The Shieldbearer",
+    "The Shortcut",
+    "The Sigil",
+    "The Silly Boy",
+    "The Siren",
+    "The Skeleton",
+    "The Slumbering Beast",
+    "The Soul",
+    "The Spark and the Flame",
+    "The Spoiled Prince",
+    "The Standoff",
+    "The Stormcaller",
+    "The Strategist",
+    "The Summoner",
+    "The Sun",
+    "The Surgeon",
+    "The Surveyor",
+    "The Survivalist",
+    "The Sword King's Salute",
+    "The Thaumaturgist",
+    "The Throne",
+    "The Tinkerer's Table",
+    "The Tireless Extractor",
+    "The Tower",
+    "The Traitor",
+    "The Transformation",
+    "The Trial",
+    "The Tumbleweed",
+    "The Twilight Moon",
+    "The Twins",
+    "The Tyrant",
+    "The Undaunted",
+    "The Undisputed",
+    "The Unexpected Prize",
+    "The Union",
+    "The Valkyrie",
+    "The Vast",
+    "The Visionary",
+    "The Void",
+    "The Warden",
+    "The Warlord",
+    "The Watcher",
+    "The Web",
+    "The Wedding Gift",
+    "The White Knight",
+    "The Whiteout",
+    "The Wilted Rose",
+    "The Wind",
+    "The Witch",
+    "The Wolf",
+    "The Wolf's Legacy",
+    "The Wolf's Shadow",
+    "The Wolven King's Bite",
+    "The Wolverine",
+    "The World Eater",
+    "The Wrath",
+    "The Wretched",
+    "Thirst for Knowledge",
+    "Three Faces in the Dark",
+    "Three Voices",
+    "Time-Lost Relic",
+    "Toxic Tidings",
+    "Tranquillity",
+    "Treasure Hunter",
+    "Triskaidekaphobia",
+    "Turn the Other Cheek",
+    "Unchained",
+    "Underground Forest",
+    "Vanity",
+    "Vile Power",
+    "Vinia's Token",
+    "Void of the Elements",
+    "Volatile Power",
+    "When Currents Blaze",
+    "Who Asked",
+    "Winter's Embrace"
+   ],
+   "Heist/Targets.json": [
+    "Heist Target"
+   ]
+  },
+  "shadowed": {
+   "Opal Ring": [
+    {
+     "dead": {
+      "order": 79002,
+      "file": "Equipment/Jewellery/Rings.json",
+      "tier_key": "Tier 1 Rings",
+      "source": "rule",
+      "rule": "#1 i84 Top Rings"
+     },
+     "behind": {
+      "order": 32033,
+      "file": "Equipment/Crafting Priority.json",
+      "tier_key": "Crafting Gear 84",
+      "source": "auto_sound",
+      "rule": "自动音效：蛋白石戒指"
+     }
+    }
+   ],
+   "Crystal Belt": [
+    {
+     "dead": {
+      "order": 78001,
+      "file": "Equipment/Jewellery/Belts.json",
+      "tier_key": "Tier 0 Belts",
+      "source": "rule",
+      "rule": "#1 i86 Top Belts"
+     },
+     "behind": {
+      "order": 32028,
+      "file": "Equipment/Crafting Priority.json",
+      "tier_key": "Crafting Gear 86",
+      "source": "auto_sound",
+      "rule": "自动音效：水晶腰带"
+     }
+    }
+   ],
+   "Iolite Ring": [
+    {
+     "dead": {
+      "order": 79002,
+      "file": "Equipment/Jewellery/Rings.json",
+      "tier_key": "Tier 1 Rings",
+      "source": "rule",
+      "rule": "#1 i84 Top Rings"
+     },
+     "behind": {
+      "order": 32032,
+      "file": "Equipment/Crafting Priority.json",
+      "tier_key": "Crafting Gear 84",
+      "source": "auto_sound",
+      "rule": "自动音效：青石戒指"
+     }
+    }
+   ],
+   "Steel Ring": [
+    {
+     "dead": {
+      "order": 79002,
+      "file": "Equipment/Jewellery/Rings.json",
+      "tier_key": "Tier 1 Rings",
+      "source": "rule",
+      "rule": "#1 i84 Top Rings"
+     },
+     "behind": {
+      "order": 32034,
+      "file": "Equipment/Crafting Priority.json",
+      "tier_key": "Crafting Gear 84",
+      "source": "auto_sound",
+      "rule": "自动音效：合金戒指"
+     }
+    }
+   ],
+   "Vermillion Ring": [
+    {
+     "dead": {
+      "order": 79002,
+      "file": "Equipment/Jewellery/Rings.json",
+      "tier_key": "Tier 1 Rings",
+      "source": "rule",
+      "rule": "#1 i84 Top Rings"
+     },
+     "behind": {
+      "order": 32035,
+      "file": "Equipment/Crafting Priority.json",
+      "tier_key": "Crafting Gear 84",
+      "source": "auto_sound",
+      "rule": "自动音效：朱砂之戒"
+     }
+    }
+   ],
+   "Imperial Skean": [
+    {
+     "dead": {
+      "order": 97003,
+      "file": "Equipment/Weapons/Rune Daggers.json",
+      "tier_key": "Tier 3 Rune Daggers",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 93003,
+      "file": "Equipment/Weapons/Daggers.json",
+      "tier_key": "Tier 3 Daggers",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Siege Axe": [
+    {
+     "dead": {
+      "order": 141026,
+      "file": "Uniques/General.json",
+      "tier_key": "T2",
+      "source": "rule",
+      "rule": "#1 仿品 Replica T2"
+     },
+     "behind": {
+      "order": 141009,
+      "file": "Uniques/General.json",
+      "tier_key": "T0 Chase",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Perfect Adherent of Zarokh": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 41002,
+      "file": "Currency/Corpses.json",
+      "tier_key": "Tier 2 Corpses",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Perfect Astral Lich": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 41002,
+      "file": "Currency/Corpses.json",
+      "tier_key": "Tier 2 Corpses",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Perfect Conjuror of Rot": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 41002,
+      "file": "Currency/Corpses.json",
+      "tier_key": "Tier 2 Corpses",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Perfect Dancing Sword": [
+    {
+     "dead": {
+      "order": 96004,
+      "file": "Equipment/Weapons/One Hand Swords.json",
+      "tier_key": "Tier 4 Swords",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 41002,
+      "file": "Currency/Corpses.json",
+      "tier_key": "Tier 2 Corpses",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Adherent of Zarokh": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 41003,
+      "file": "Currency/Corpses.json",
+      "tier_key": "Tier 3 Corpses",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Astral Lich": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 41003,
+      "file": "Currency/Corpses.json",
+      "tier_key": "Tier 3 Corpses",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Conjuror of Rot": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 41003,
+      "file": "Currency/Corpses.json",
+      "tier_key": "Tier 3 Corpses",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Dancing Sword": [
+    {
+     "dead": {
+      "order": 96004,
+      "file": "Equipment/Weapons/One Hand Swords.json",
+      "tier_key": "Tier 4 Swords",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 41003,
+      "file": "Currency/Corpses.json",
+      "tier_key": "Tier 3 Corpses",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Imperfect Adherent of Zarokh": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 41003,
+      "file": "Currency/Corpses.json",
+      "tier_key": "Tier 3 Corpses",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Imperfect Astral Lich": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 41003,
+      "file": "Currency/Corpses.json",
+      "tier_key": "Tier 3 Corpses",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Imperfect Conjuror of Rot": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 41003,
+      "file": "Currency/Corpses.json",
+      "tier_key": "Tier 3 Corpses",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Imperfect Dancing Sword": [
+    {
+     "dead": {
+      "order": 96004,
+      "file": "Equipment/Weapons/One Hand Swords.json",
+      "tier_key": "Tier 4 Swords",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 41004,
+      "file": "Currency/Corpses.json",
+      "tier_key": "Tier 4 Corpses",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Essence of Desolation": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 44001,
+      "file": "Currency/Essences.json",
+      "tier_key": "Tier 0 Essences",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Accelerating Catalyst": [
+    {
+     "dead": {
+      "order": 46031,
+      "file": "Currency/General.json",
+      "tier_key": "Tier 4 General",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 46017,
+      "file": "Currency/General.json",
+      "tier_key": "Tier 2 General",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Dextral Catalyst": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 46017,
+      "file": "Currency/General.json",
+      "tier_key": "Tier 2 General",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Sinistral Catalyst": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 46017,
+      "file": "Currency/General.json",
+      "tier_key": "Tier 2 General",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Abrasive Catalyst": [
+    {
+     "dead": {
+      "order": 46031,
+      "file": "Currency/General.json",
+      "tier_key": "Tier 4 General",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 46025,
+      "file": "Currency/General.json",
+      "tier_key": "Tier 3 General",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Imbued Catalyst": [
+    {
+     "dead": {
+      "order": 46031,
+      "file": "Currency/General.json",
+      "tier_key": "Tier 4 General",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 46025,
+      "file": "Currency/General.json",
+      "tier_key": "Tier 3 General",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Unstable Catalyst": [
+    {
+     "dead": {
+      "order": 46031,
+      "file": "Currency/General.json",
+      "tier_key": "Tier 4 General",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 46025,
+      "file": "Currency/General.json",
+      "tier_key": "Tier 3 General",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Crystallised Rancour": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 48003,
+      "file": "Currency/Harvest.json",
+      "tier_key": "Tier 1 Harvest",
+      "source": "rule",
+      "rule": "#2 憎恨结晶"
+     }
+    }
+   ],
+   "Journey Tattoo of the Body": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 53001,
+      "file": "Currency/Runegrafts.json",
+      "tier_key": "Tier 0 Runegrafts",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Journey Tattoo of the Mind": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 53001,
+      "file": "Currency/Runegrafts.json",
+      "tier_key": "Tier 0 Runegrafts",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Journey Tattoo of the Soul": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 53001,
+      "file": "Currency/Runegrafts.json",
+      "tier_key": "Tier 0 Runegrafts",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Spidersilk Robe": [
+    {
+     "dead": {
+      "order": 141037,
+      "file": "Uniques/General.json",
+      "tier_key": "T3",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 141033,
+      "file": "Uniques/General.json",
+      "tier_key": "T2",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Champion Kite Shield": [
+    {
+     "dead": {
+      "order": 141011,
+      "file": "Uniques/General.json",
+      "tier_key": "T1",
+      "source": "rule",
+      "rule": "#2 秽生 Foulborn T1"
+     },
+     "behind": {
+      "order": 141009,
+      "file": "Uniques/General.json",
+      "tier_key": "T0 Chase",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Iron Flask": [
+    {
+     "dead": {
+      "order": 84005,
+      "file": "Flasks/Utility.json",
+      "tier_key": "Tier 1 Utility Flasks",
+      "source": "auto_sound",
+      "rule": "自动音效：坚铁药剂"
+     },
+     "behind": {
+      "order": 82001,
+      "file": "Equipment/League/Expedition Ward-Bases.json",
+      "tier_key": "Expedition Ward-Bases T1",
+      "source": "auto_sound",
+      "rule": "自动音效：坚铁药剂"
+     }
+    }
+   ],
+   "Autoexertion": [
+    {
+     "dead": {
+      "order": 92003,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 2 Support",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 91012,
+      "file": "Gems/Skill.json",
+      "tier_key": "Tier 2 Skill",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Holy Strike": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 91014,
+      "file": "Gems/Skill.json",
+      "tier_key": "Tier 4 Skill",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Eclipse Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92001,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 0 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Greater Chain Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92001,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 0 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Greater Multistrike Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92001,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 0 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Greater Spell Cascade Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92001,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 0 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Greater Spell Echo Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92001,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 0 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Annihilation Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Bloodsoaked Banner Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Bonespire Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Cast on Ward Break Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Companionship Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Congregation Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Cooldown Recovery Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Cull the Weak Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Divine Sentinel Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Eldritch Blasphemy Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Fissure Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Foulgrasp Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Frostmage Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Gluttony Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Greater Ancestral Call Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Greater Devour Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Greater Fork Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Greater Kinetic Instability Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Greater Unleash Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Hexpass Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Hextoad Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Hiveborn Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Invention Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Invert the Rules Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Lethal Dose Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Machinations Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Overheat Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Overloaded Intensity Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Pacifism Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Pyre Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Scornful Herald Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Transfusion Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Unholy Trinity Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Vaal Sacrifice Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Vaal Temptation Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Void Shockwave Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Voidstorm Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92002,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 1 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Hallow Support": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 92003,
+      "file": "Gems/Support.json",
+      "tier_key": "Tier 2 Support",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Piledriver": [
+    {
+     "dead": {
+      "order": 101002,
+      "file": "Equipment/Weapons/Two Hand Maces.json",
+      "tier_key": "Tier 3 Two Hand Maces",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 95002,
+      "file": "Equipment/Weapons/One Hand Maces.json",
+      "tier_key": "Tier 3 Maces",
+      "source": "tier_base",
+      "rule": null
+     }
+    }
+   ],
+   "Cobalt Jewel": [
+    {
+     "dead": {
+      "order": 141031,
+      "file": "Uniques/General.json",
+      "tier_key": "T2",
+      "source": "rule",
+      "rule": "#6 已腐化传奇珠宝 Corrupted Jewels"
+     },
+     "behind": {
+      "order": 141018,
+      "file": "Uniques/General.json",
+      "tier_key": "T1",
+      "source": "rule",
+      "rule": "#9 传奇珠宝 Unique Jewels"
+     }
+    }
+   ],
+   "Crimson Jewel": [
+    {
+     "dead": {
+      "order": 141031,
+      "file": "Uniques/General.json",
+      "tier_key": "T2",
+      "source": "rule",
+      "rule": "#6 已腐化传奇珠宝 Corrupted Jewels"
+     },
+     "behind": {
+      "order": 141018,
+      "file": "Uniques/General.json",
+      "tier_key": "T1",
+      "source": "rule",
+      "rule": "#9 传奇珠宝 Unique Jewels"
+     }
+    }
+   ],
+   "Viridian Jewel": [
+    {
+     "dead": {
+      "order": 141031,
+      "file": "Uniques/General.json",
+      "tier_key": "T2",
+      "source": "rule",
+      "rule": "#6 已腐化传奇珠宝 Corrupted Jewels"
+     },
+     "behind": {
+      "order": 141018,
+      "file": "Uniques/General.json",
+      "tier_key": "T1",
+      "source": "rule",
+      "rule": "#9 传奇珠宝 Unique Jewels"
+     }
+    }
+   ],
+   "Timeworn Reliquary Key": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 123001,
+      "file": "Maps/Fragments.json",
+      "tier_key": "Tier 0 Fragments",
+      "source": "rule",
+      "rule": "#1 圣物厅钥匙"
+     }
+    }
+   ],
+   "Vaal Reliquary Key": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 123001,
+      "file": "Maps/Fragments.json",
+      "tier_key": "Tier 0 Fragments",
+      "source": "rule",
+      "rule": "#1 圣物厅钥匙"
+     }
+    }
+   ],
+   "Timeless Jewel": [
+    {
+     "dead": {
+      "order": 161010,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "auto_sound",
+      "rule": "自动音效：永恒珠宝"
+     },
+     "behind": {
+      "order": 141008,
+      "file": "Uniques/General.json",
+      "tier_key": "T0 Chase",
+      "source": "rule",
+      "rule": "#8 Override for Timeless Jewel @ T0 Chase"
+     }
+    }
+   ],
+   "Prismatic Jewel": [
+    {
+     "dead": {
+      "order": 161009,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Tier 1 Legacy",
+      "source": "auto_sound",
+      "rule": "自动音效：三相珠宝"
+     },
+     "behind": {
+      "order": 141022,
       "file": "Uniques/General.json",
       "tier_key": "T1",
       "source": "rule",

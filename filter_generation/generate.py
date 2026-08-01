@@ -770,7 +770,13 @@ def generate_filter():
             pending_items = set(items)
             
             rule_counter = 0
-            for rule in all_rules:
+            # How many of all_rules are AUTHORED; anything at or past this index was
+            # injected by auto-sound above. Carried into the trace so "which authored
+            # rules emitted nothing" is answerable — a rule that produces no block is
+            # the silent-failure class this tree keeps growing (a `Class ==` with the
+            # wrong plural, conditions with no tier), and nothing surfaces it today.
+            authored_rule_count = len(map_doc.get("rules", []))
+            for rule_idx, rule in enumerate(all_rules):
                 if rule.get("disabled"): continue
                 
                 rule_targets = rule.get("targets", [])
@@ -917,6 +923,8 @@ def generate_filter():
                                 source=("auto_sound" if raw_comment.startswith("__AUTO_SOUND__:")
                                         else "rule"),
                                 match=mode_label, rule=rule_part,
+                                rule_index=rule_idx,
+                                rule_authored=(rule_idx < authored_rule_count),
                                 # "Self" blocks claim by their own conditions, so an
                                 # empty list here means "not expressible as bases".
                                 bases=list(subgroup), is_hide=is_hide,
