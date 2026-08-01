@@ -43,9 +43,11 @@ The rules, and where they come from in generate.py:
 from __future__ import annotations
 
 import argparse
+import csv
 import glob
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -57,6 +59,10 @@ TD = os.path.join(DATA, "tier_definition")
 # Authored entries that are deliberately not base type names - the generator
 # turns them into socket/link conditions rather than a BaseType line.
 PSEUDO_NAMES = {"6-Link", "6-Socket", "RGB Linked", "Relics", "Heist Target"}
+
+# Which catalogue the name checks actually used — printed, so a stale one is
+# visible rather than silently producing typo reports for valid items.
+LOADED_FROM: dict[str, str] = {}
 
 
 class Report:
@@ -109,7 +115,7 @@ def category_of(tier_doc: dict) -> tuple[str, dict] | tuple[None, None]:
 
 
 def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
-                names: set[str], rep: Report) -> None:
+                names: set[str], classes: set[str], rep: Report) -> None:
     """A rule only reaches an output block through generate.py:527-550.
 
     Both selection branches there end in a bare `continue` when the rule names
@@ -181,6 +187,35 @@ def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
                     f"it, so the rule emits NOTHING\n            "
                     f"defined tiers: {', '.join(sorted(defined)[:8])}")
 
+        check_operators(where, f"rule {label!r}", conds, rep)
+
+        # `Class ==` is an EXACT match and the game's class names are PLURAL —
+        # "Blueprints", not "Blueprint". The singular emits a block that cannot
+        # match anything, and nothing anywhere says so.
+        if classes:
+            cval = conds.get("Class")
+            for c in (cval if isinstance(cval, list) else [cval] if cval else []):
+                if not isinstance(c, str):
+                    continue
+                body = c.strip()
+                exact = body.startswith("==")
+                body = body[2:].strip() if exact else body
+                # ONLY exact matches. A partial `Class "Gems"` is a deliberate
+                # substring standing in for "Skill Gems" + "Support Gems", so
+                # checking it against the class list reports idiom as error.
+                if not exact:
+                    continue
+                for token in re.findall(r'"([^"]+)"', body) or ([body] if body else []):
+                    if token in classes:
+                        continue
+                    plural = f"{token}s"
+                    hint = f" — did you mean {plural!r}?" if plural in classes else ""
+                    why = ("`Class ==` is exact, so this block never matches"
+                           if exact else "partial match — verify it is intended")
+                    rep.add("ERROR" if exact else "WARN", where,
+                            f"rule {label!r}: Class {token!r} is not an item class"
+                            f"{hint}\n            {why}")
+
         if names:
             for t in rule.get("targets") or []:
                 if isinstance(t, str) and t not in PSEUDO_NAMES and t not in names:
@@ -190,10 +225,133 @@ def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
                             f"never matches in game")
 
 
+# Comparison operators PoE accepts. A value like ">=10" parses in JSON and reads
+# fine, and the GAME REJECTS THE ENTIRE FILTER over it.
+#
+# Matched by taking the operator GREEDILY. An alternation like `(==|<=|<|=)` looks
+# equivalent and is not: on "<= 67" the two-character branch fails (the next char
+# is a space), the engine backtracks to the single "<", and the "=" then reads as
+# the missing space — every correctly-spaced two-character operator in the tree
+# reported as a violation.
+_OP_RE = re.compile(r"^([=!<>]+)(.*)$")
+
+
+def load_base_names() -> set[str]:
+    """Every name a `BaseType` line may legally use.
+
+    ⚠️ `BaseItemTypes` ONLY. Do NOT union `GemEffects` in here.
+
+    23 transfigured gem names look like missing base types and are not: they are
+    GemEffects rows (BladefallAltX/Y/Z), matched in a filter by
+    `TransfiguredGem True`, never by name. Unioning GemEffects to make those
+    "pass" silently turns every genuinely invalid name into a pass too — it was
+    tried during 3.29 and converted 23 real errors into 23 green ticks.
+
+    ⚠️ And it must be a CURRENT dump. `data/from_ggpk/baseitemtypes.json` is a
+    pre-3.29 extract with 4196 names and no Enshrouding Crystals at all, so
+    checking against it reported 111 perfectly valid 3.29 bases as typos. A name
+    check is only ever as good as its catalogue, and a stale one is worse than no
+    check — it trains you to ignore the validator. So the newest dump under
+    data/source/ wins, and validate() prints which one it used.
+    """
+    roots = sorted(glob.glob(os.path.join(REPO, "data", "source", "*", "tables",
+                                          "English", "BaseItemTypes.json")))
+    best: set[str] = set()
+    for path in roots:
+        with open(path, encoding="utf-8") as fh:
+            got = {r["Name"] for r in json.load(fh) if r.get("Name")}
+        if len(got) > len(best):
+            best, LOADED_FROM["bases"] = got, os.path.relpath(path, REPO)
+    if best:
+        return best
+
+    path = os.path.join(REPO, "data", "from_ggpk", "baseitemtypes.json")
+    if not os.path.exists(path):
+        return set()
+    LOADED_FROM["bases"] = os.path.relpath(path, REPO) + " (STALE FALLBACK)"
+    with open(path, encoding="utf-8") as fh:
+        return {r["Name"] for r in json.load(fh) if r.get("Name")}
+
+
+def load_class_names() -> set[str]:
+    """Item class names, as `Class` conditions must spell them.
+
+    They are PLURAL in the game data — "Blueprints", not "Blueprint" — and
+    `Class ==` is an exact match, so the singular emits a block that can never
+    match anything. Read from BaseTypes.csv, which is the same source the backend
+    builds its class list from.
+    """
+    path = os.path.join(REPO, "data", "from_filter_blade", "BaseTypes.csv")
+    if not os.path.exists(path):
+        return set()
+    out: set[str] = set()
+    with open(path, encoding="utf-8-sig", newline="") as fh:
+        for row in csv.DictReader(fh):
+            cls = (row.get("Class") or "").strip()
+            if cls:
+                out.add(cls)
+    return out
+
+
+def check_style_grammar(where: str, label: str, style: dict, rep: Report) -> None:
+    """Beam and icon have a grammar, and one bad line kills the whole filter.
+
+        MinimapIcon <size 0-2> <colour> <shape>
+        PlayEffect  <colour> [Temp]
+
+    `Currency/_archived/Breach.json` carried `"RedStar"` — no size, no space —
+    for as long as inline style reached nothing. The moment a tier's own beam and
+    icon started being emitted it would have shipped onto the Breach splinter
+    block. Generation now drops a malformed value with a warning, so this is
+    about the authored intent being silently lost, not about a broken filter.
+    """
+    for key in ("MinimapIcon", "PlayEffect"):
+        if key not in style:
+            continue
+        val = style[key]
+        if val is None or (isinstance(val, str) and (val.startswith("disabled:") or val in ("inherit", "default"))):
+            continue  # deliberately off — emits no line
+        if not isinstance(val, str):
+            rep.add("ERROR", where, f"{label}: {key} is {type(val).__name__}, expected a string")
+            continue
+        parts = val.split()
+        ok = (len(parts) == 3 and parts[0] in ("0", "1", "2")) if key == "MinimapIcon" \
+            else (len(parts) == 1 or (len(parts) == 2 and parts[1] == "Temp"))
+        if not ok:
+            expect = "'<size 0-2> <colour> <shape>', e.g. '0 Red Star'" if key == "MinimapIcon" \
+                else "'<colour>' or '<colour> Temp', e.g. 'Red Temp'"
+            rep.add("ERROR", where,
+                    f"{label}: {key} {val!r} is malformed — expected {expect}\n            "
+                    f"generation DROPS it, so the icon simply never appears")
+
+
+def check_operators(where: str, label: str, conditions: dict, rep: Report) -> None:
+    """`StackSize >=10` is rejected by the game; `StackSize >= 10` parses."""
+    for key, val in (conditions or {}).items():
+        for v in (val if isinstance(val, list) else [val]):
+            if not isinstance(v, str):
+                continue
+            m = _OP_RE.match(v.strip())
+            # A violation only when an operator is IMMEDIATELY followed by its
+            # value: "RANGE >= 1 <= 5" and a bare value carry no leading operator,
+            # and ">= 10" already has its space.
+            if m and m.group(2) and not m.group(2).startswith(" "):
+                rep.add("WARN", where,
+                        f"{label}: {key} {v!r} has no space after its operator. The "
+                        f"GAME REJECTS THE WHOLE FILTER over this; generation "
+                        f"normalises it on emit, so fix it here before some other "
+                        f"consumer does not")
+
+
 def validate(only: str | None, catalog: str | None) -> Report:
     rep = Report()
 
-    names: set[str] = set()
+    # Base and class names load by DEFAULT now, from the in-repo GGPK extract.
+    # They used to need --catalog, so the checks that matter most in game were the
+    # ones nobody ran. `--catalog` still layers a specific league dump on top.
+    names: set[str] = load_base_names()
+    classes: set[str] = load_class_names()
+
     if catalog:
         root = os.path.join(REPO, "data", "source", catalog, "tables", "English",
                             "BaseItemTypes.json")
@@ -201,7 +359,7 @@ def validate(only: str | None, catalog: str | None) -> Report:
             rep.add("ERROR", "(catalog)", f"no dump at {root}")
         else:
             with open(root, encoding="utf-8") as fh:
-                names = {r["Name"] for r in json.load(fh) if r.get("Name")}
+                names |= {r["Name"] for r in json.load(fh) if r.get("Name")}
             uniq = os.path.join(REPO, "data", "unique_base_db.json")
             if os.path.exists(uniq):
                 blob = open(uniq, encoding="utf-8-sig").read()
@@ -258,6 +416,42 @@ def validate(only: str | None, catalog: str | None) -> Report:
 
         defined = {k for k in cat if k != "_meta"}
         tier_order = (cat.get("_meta") or {}).get("tier_order") or []
+
+        # --- per-tier checks: the block's own look, and the item CARDS on it ----
+        mapping_now = map_doc.get("mapping") or {}
+        for t_key, entry in cat.items():
+            if t_key == "_meta" or not isinstance(entry, dict):
+                continue
+            twhere = f"tier_definition/{rel}"
+            check_style_grammar(twhere, f"{t_key} theme", entry.get("theme") or {}, rep)
+            check_operators(twhere, f"{t_key} conditions", entry.get("conditions") or {}, rep)
+
+            for base, ovr in (entry.get("item_overrides") or {}).items():
+                label = f"{t_key} card {base!r}"
+                if not isinstance(ovr, dict):
+                    rep.add("ERROR", twhere, f"{label}: override is a {type(ovr).__name__}, expected an object")
+                    continue
+                check_style_grammar(twhere, label, ovr, rep)
+                if names and base not in PSEUDO_NAMES and base not in names:
+                    rep.add("WARN", twhere,
+                            f"{label}: not a base type — the card belongs to no item")
+                # A card whose base this tier never claims splits nothing. It is not
+                # harmful, but it is a tuned override doing nothing, which is exactly
+                # the class of silence this tree keeps producing.
+                #
+                # Skipped for underscore folders: there, a mapping value naming a
+                # tier the category does not define is REMAPPED onto the first
+                # non-hide tier rather than dropped (the "lumping" rule above), so
+                # a base can legitimately land on a tier it is not mapped to. Every
+                # _legacy card tripped this before the exemption.
+                claimed = mapping_now.get(base)
+                claims_here = (t_key in claimed) if isinstance(claimed, list) else (claimed == t_key)
+                targeted = any(base in (r.get("targets") or [])
+                               for r in (map_doc.get("rules") or []) if isinstance(r, dict))
+                if not claims_here and not targeted and not folder.startswith("_"):
+                    rep.add("WARN", twhere,
+                            f"{label}: {base!r} is not mapped to {t_key!r} and no rule "
+                            f"targets it, so this override never applies")
 
         for t in tier_order:
             if t not in defined:
@@ -317,7 +511,7 @@ def validate(only: str | None, catalog: str | None) -> Report:
                     f"tier {key!r} is undefined here; its {len(items)} item(s) are "
                     f"remapped onto the first non-hide tier and lose their ranking")
 
-        check_rules(map_doc, mapping, defined, rel, names, rep)
+        check_rules(map_doc, mapping, defined, rel, names, classes, rep)
 
     # tier_definitions with no mapping partner
     for path in sorted(glob.glob(os.path.join(TD, "**", "*.json"), recursive=True)):
@@ -340,6 +534,11 @@ def main() -> None:
 
     rep = validate(args.file, args.catalog)
     print("=== curation validation ===")
+    # A name check is only as good as its catalogue, so say which one was used.
+    # Checking 3.29 content against a pre-3.29 dump reported 111 valid bases as
+    # typos, which is exactly how a validator gets ignored.
+    if LOADED_FROM.get("bases"):
+        print(f"  base names from: {LOADED_FROM['bases']}")
     rep.dump(args.info)
     e, w, i = rep.count("ERROR"), rep.count("WARN"), rep.count("INFO")
     print(f"\n{e} error(s), {w} warning(s), {i} info"
