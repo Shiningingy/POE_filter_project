@@ -8,6 +8,7 @@ import MinimapIconPicker, { getIconStyle } from "./MinimapIconPicker";
 import PlayEffectPicker from "./PlayEffectPicker";
 import StylePresetPicker from "./StylePresetPicker";
 import { STRICTNESS_LEVELS } from "../utils/filterGenerator";
+import { DEFAULT_SOUND_VOLUME } from "../utils/filterStyle";
 
 interface StyleProps {
   FontSize?: number;
@@ -99,7 +100,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
     type: "default" | "sharket" | "custom";
     file: string;
     vol: number;
-  }>({ type: "default", file: "Default/AlertSound1.mp3", vol: 100 });
+  }>({ type: "default", file: "Default/AlertSound1.mp3", vol: DEFAULT_SOUND_VOLUME });
 
   useEffect(() => {
     if (showSoundPopup && availableSounds.defaults.length === 0) {
@@ -115,7 +116,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
       const soundData = style.PlayAlertSound;
       const [file, vol] = Array.isArray(soundData)
         ? soundData
-        : ["Default/AlertSound1.mp3", 100];
+        : ["Default/AlertSound1.mp3", DEFAULT_SOUND_VOLUME];
       let type: "default" | "sharket" | "custom" = "custom";
       if (file.startsWith("Default/")) type = "default";
       else if (file.startsWith("Sharket")) type = "sharket";
@@ -134,7 +135,7 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
 
   const handleTestSound = () => {
     const audio = new Audio(getSoundUrl(tempSound.file));
-    audio.volume = Math.min(1, tempSound.vol / 300);
+    audio.volume = Math.min(1, tempSound.vol / DEFAULT_SOUND_VOLUME);
     audio.play().catch((err) => alert("Play failed: " + err.message));
   };
 

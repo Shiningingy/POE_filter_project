@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
+import { DEFAULT_SOUND_VOLUME } from '../utils/filterStyle';
 import type { ReactElement } from 'react';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
@@ -553,7 +554,7 @@ const ImportForeignFilterView = ({ language }: Props) => {
     if (csa) return { path: (csa.values[0]?.value || '').replace(/\\/g, '/'), vol: parseInt(csa.values[1]?.value || '300', 10) };
     const pas = stmtOf(b, 'PlayAlertSound');
     if (pas) return { path: `Default/AlertSound${pas.values[0]?.value || '1'}.mp3`, vol: parseInt(pas.values[1]?.value || '300', 10) };
-    return { path: '', vol: 300 };
+    return { path: '', vol: DEFAULT_SOUND_VOLUME };
   };
   const soundLabel = (b: FilterBlock): string => {
     const csa = stmtOf(b, 'CustomAlertSound');

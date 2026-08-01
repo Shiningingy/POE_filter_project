@@ -904,6 +904,10 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                     language={language}
                     onClose={() => setShowSoundPicker(false)}
                     initialPath={activeStyle?.PlayAlertSound?.[0]}
+                    // Without this the picker opened at the default volume, so
+                    // confirming without touching the slider silently rewrote a
+                    // tuned 100 or 200 as 300.
+                    initialVolume={activeStyle?.PlayAlertSound?.[1]}
                     onConfirm={(path, vol) => {
                         handleUpdateStyle('PlayAlertSound', [path, vol]);
                         setShowSoundPicker(false);

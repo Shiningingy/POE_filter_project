@@ -3,6 +3,7 @@ import type { ItemProps, SimulationResult } from '../utils/simulatorEngine';
 import ContextMenu from './ContextMenu';
 import type { Language } from '../utils/localization';
 import { getSoundUrl } from '../utils/soundUtils';
+import { DEFAULT_SOUND_VOLUME } from '../utils/filterStyle';
 
 interface SimulatorItemProps {
     item: ItemProps & { id: number; x: number; y: number };
@@ -57,10 +58,14 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
 
         // soundData is usually [path, volume] or just path
         const path = Array.isArray(soundData) ? soundData[0] : soundData;
-        const vol = Array.isArray(soundData) ? soundData[1] : 100;
+        const vol = Array.isArray(soundData) ? soundData[1] : DEFAULT_SOUND_VOLUME;
 
         const audio = new Audio(getSoundUrl(path));
-        audio.volume = vol / 100;
+        // PoE volume is 0–300, and HTMLAudioElement.volume is 0–1. This divided by
+        // 100, so every sound at or above 100 pinned to full blast (and browsers
+        // reject a value > 1 outright) — the simulator was the only preview in the
+        // app doing that; every other one divides by 300.
+        audio.volume = Math.min(Math.max(vol / DEFAULT_SOUND_VOLUME, 0), 1);
         audio.play().catch(e => console.warn("Failed to play sound", e));
     };
 

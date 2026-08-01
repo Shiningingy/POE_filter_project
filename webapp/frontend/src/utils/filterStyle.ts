@@ -30,6 +30,22 @@
 export const DEFAULT_FONT_SIZE = 32;
 
 /**
+ * Volume for a NEWLY picked sound, and the divisor for in-app previews.
+ *
+ * PoE's sound volume runs 0–300, so 300 is "as authored". It lives here because
+ * five separate UIs pick sounds and they had drifted: the tier-block style editor
+ * defaulted a new sound to 100 while the sound picker, the item manager, the rule
+ * target manager and the foreign-filter importer all used 300 — so the same
+ * "choose this sound" action produced a different loudness depending on which
+ * panel you happened to be in.
+ *
+ * Existing data is deliberately tuned across the range (90 emitted lines at 100,
+ * 93 at 200, 231 at 300), so this only governs NEW picks — nothing already
+ * authored is rewritten.
+ */
+export const DEFAULT_SOUND_VOLUME = 300;
+
+/**
  * True when a theme/override style value means OMIT the line entirely: the
  * editor's 'disabled:' toggle, or the designer sentinels 'inherit' (TextColor
  * keeps the rarity colour) / 'default' (BackgroundColor keeps the game's default

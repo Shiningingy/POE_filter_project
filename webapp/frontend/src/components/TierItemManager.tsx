@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { DEFAULT_SOUND_VOLUME } from '../utils/filterStyle';
 import axios from 'axios';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
@@ -70,7 +71,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
 
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: TierItem } | null>(null);
   const [soundEditorItem, setSoundEditorItem] = useState<TierItem | null>(null);
-  const [soundEditorInitial, setSoundEditorInitial] = useState<{ path: string, volume: number, source: string }>({ path: '', volume: 300, source: '' });
+  const [soundEditorInitial, setSoundEditorInitial] = useState<{ path: string, volume: number, source: string }>({ path: '', volume: DEFAULT_SOUND_VOLUME, source: '' });
 
   // Play Sound Helper
   const playSound = (file: string, vol: number = 300) => {
@@ -82,7 +83,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
       
       const url = `/sounds/${cleanPath.replace(/\\/g, '/')}`;
       const audio = new Audio(url);
-      audio.volume = Math.min(Math.max(vol / 300, 0), 1);
+      audio.volume = Math.min(Math.max(vol / DEFAULT_SOUND_VOLUME, 0), 1);
       audio.play().catch(e => console.error("Failed to play sound", e));
   };
 

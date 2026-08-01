@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { DEFAULT_SOUND_VOLUME } from '../utils/filterStyle';
 import axios from 'axios';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
@@ -14,7 +15,7 @@ interface SoundPickerProps {
 
 const SoundPicker: React.FC<SoundPickerProps> = ({
   initialPath = '',
-  initialVolume = 300,
+  initialVolume = DEFAULT_SOUND_VOLUME,
   currentSource,
   language,
   onClose,
@@ -53,7 +54,7 @@ const SoundPicker: React.FC<SoundPickerProps> = ({
   const playPreview = (path: string) => {
     const url = `/sounds/${path.replace(/\\/g, '/')}`;
     const audio = new Audio(url);
-    audio.volume = Math.min(Math.max(volume / 300, 0), 1);
+    audio.volume = Math.min(Math.max(volume / DEFAULT_SOUND_VOLUME, 0), 1);
     audio.play().catch(e => console.error("Play failed", e));
   };
 
