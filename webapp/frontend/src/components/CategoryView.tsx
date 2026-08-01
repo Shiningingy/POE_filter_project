@@ -996,6 +996,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                                       onRefresh={() => fetchTierItems(sortedTierKeys)}
                                                       soundMap={soundMap}
                                                       tierStyle={resolved}
+                                                      itemOverrides={tierData?.item_overrides || {}}
                                                   />
                   <RuleManager
                     tierKey={tierKey}

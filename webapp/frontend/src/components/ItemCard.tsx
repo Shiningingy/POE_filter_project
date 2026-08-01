@@ -19,6 +19,9 @@ interface ItemCardProps {
   isStaged?: boolean;
   matchMode?: 'exact' | 'partial';
   hasSound?: boolean;
+  /** The card carries its own style override (see ItemCardStyleEditor). One badge
+   *  is enough: it says "this card does not just take the block's look". */
+  hasStyleOverride?: boolean;
   onPlaySound?: () => void;
   onContextMenu?: (e: React.MouseEvent) => void;
   onDelete?: (e: React.MouseEvent) => void;
@@ -40,6 +43,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
   isStaged,
   matchMode,
   hasSound,
+  hasStyleOverride,
   onPlaySound,
   onContextMenu,
   onDelete,
@@ -94,6 +98,9 @@ const ItemCard: React.FC<ItemCardProps> = ({
                     🔊
                 </span>
               )}
+              {hasStyleOverride && (
+                <span className="style-override-icon" title="Has its own style override">🎨</span>
+              )}
             </div>
           ) : (
              <div className="name-container">
@@ -109,6 +116,9 @@ const ItemCard: React.FC<ItemCardProps> = ({
                 >
                     🔊
                 </span>
+              )}
+              {hasStyleOverride && (
+                <span className="style-override-icon" title="Has its own style override">🎨</span>
               )}
             </div>
           )}
