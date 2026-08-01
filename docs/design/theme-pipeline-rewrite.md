@@ -65,14 +65,38 @@ like it works, and it is the thing to eliminate.
 - **Theme resolves per tier block.** `sharket_theme.json` demotes from authority to a
   **preset bank** you pick from — the decision already recorded in
   `decision_inline_theme_priority`, finally built.
-- **Auto-sound is deleted, and a per-item sound is not a rule either.** It lives on the
-  **item card** — a property of the item, like its name. This replaces the earlier plan to
-  convert the 122 synthesised sounds into explicit rules, which would have pushed the rule
-  count from 264 to ~380 purely to make magic visible. Nothing is converted, because
-  nothing needs to be: a sound stops being filter logic and becomes item data.
-  The generator then **splits a block by sound** — items sharing the look but carrying
-  their own sound each emit their own filter block. Mechanical, derived, never authored;
-  and safe under first-match-wins because the split sets are disjoint.
+- **Auto-sound is deleted, and a per-item sound is not a rule either.** It is an override
+  on the **item card**.
+
+  **What an item card is** (author, 2026-07-31 — an earlier draft of this document got it
+  wrong): the card is the **per-occurrence representation of a base type in the editor**.
+  It is *not* a matcher. It carries no conditions and no rules of its own; a card sitting
+  inside a rule is simply a quick reference to that base type. Matching stays entirely on
+  the rules axis, where it belongs.
+
+  A card exists to do four things: **quick move**, **individual style override**, show what
+  is in a category **at a glance**, and **hover for bonus info**. The override is any style
+  channel, not just sound — though in practice ~99% of use is sound.
+
+  Because a card is per *occurrence*, the same base has a separate card everywhere it
+  appears, each with its own override. That is what expresses "5 splinters sound different
+  from 50": the **rules** carry `StackSize >= 5` and `>= 50`, and the splinter's card
+  inside each rule carries that occurrence's sound. Nothing is duplicated and nothing can
+  drift, because there is no shared global entry to disagree with.
+
+  Generation then **splits a block by override** — each distinct card sound emits its own
+  filter block, same look, only the sound line differing. Derived, never authored: you tag
+  the card instead of inventing a rule.
+
+  ⚠️ **Ordering is generation's responsibility.** A split-out block must emit BEFORE the
+  plain claim of the same base, or first-match-wins swallows it — the same failure the
+  index already counts 86 of. Since the split is derived, the generator orders it; the
+  index's `reachable` flag is the check.
+
+  This retires the global `basetype_sounds` table (142 entries) and with it
+  `already_handled`, `suppress_basetype_sounds` and `suppress_auto_sound`. There is nothing
+  left to suppress once the card is the authority — which is exactly why the 9 curated
+  sounds that never play (below) fix themselves.
 - **Navigation becomes Title → Category → Subcategory → tier blocks**, Title and Category
   in the navbar, Subcategory expandable.
 
@@ -227,9 +251,29 @@ Fragments"` special case. After this the preview *cannot* disagree with the expo
 | per-item sound (today: `basetype_sounds` + 112 rules) | the **item card** |
 
 Note what that last row means: dropping `base_mapping` does **not** leave zero authored
-per-base data. The **item card is the surviving authored per-item store** — sound today,
-and the natural home for any other per-item fact that is about the *item* rather than
-about a block's matching. The index below stays purely derived; the card does not.
+per-base data. The **item card is the surviving authored store** — but per *occurrence*,
+not per base (see the card definition above), and it holds a style override rather than
+anything about matching. The index stays purely derived; the card does not.
+
+### ★ Measured: 9 curated per-item sounds never play
+
+Found from the author's observation that `StackSize` tier-ups are a softcore FilterBlade
+idiom rather than a Ruthless one. `Chaos Orb`, `Blue Pearl Amulet`, `Marble Amulet`,
+`Seaglass Amulet`, `Cerulean Ring`, `Quicksilver Flask`, `Vaal Temple Map`,
+`Ritual Splinter`, `Mortal Hope` — each has a curated file in `basetype_sounds`, and no
+emitted block plays it.
+
+The mechanism is `already_handled` (`generate.py:753`): auto-sound is skipped for a base if
+**any** rule in the file names it in `targets`. Not if that rule sets a sound — merely if
+it *mentions* the base. So one rule written for an unrelated purpose silences the item
+everywhere in its file, including tiers no rule touches. Blue Pearl Amulet is claimed by 5
+blocks; two are rules that carry no sound, and the other three get nothing because those
+two exist.
+
+Chaos Orb is the sharpest case: the rule doing the silencing is the `StackSize >= 10` stack
+tier-up, which cannot fire in Ruthless at all. **A rule that never fires silences a sound
+that would have.** Two unrelated features coupled through a shared side-channel — which is
+precisely what moving the override onto the card removes.
 
 In its place, a **generated index** (an editor convenience, never authored).
 
