@@ -6,9 +6,10 @@
 
 A tier key absent from the category's `_meta.tier_order` does NOT error. The
 generator appends it to the order and then skips it for having no tier entry
-(generate.py:386-394), so those items produce no output at all. Underscore
+(it skips labels the category does not define), so those items produce no
+output at all. Underscore
 folders (`_legacy`, `_campaign`) are exempt - they remap undeclared keys to
-their first non-hide tier on purpose (generate.py:365).
+their first non-hide tier on purpose.
 
 Found by `reconcile.py`; every dead key turned out to be the item CLASS name
 where the category's tier suffix was wanted ("Tier 1 Divination Cards" against a
@@ -110,7 +111,7 @@ def main() -> None:
                 mapping[name] = table[tier]
         jsonio.write_json(path, doc, style)
     print(f"\nWrote {total} entries across {len(planned)} files.")
-    print("Next: python filter_generation/generate.py --mode ruthless")
+    print("Next: node filter_generation/generate.mjs --mode ruthless")
 
 
 if __name__ == "__main__":

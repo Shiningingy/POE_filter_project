@@ -10,10 +10,10 @@ NOTE: json is written WITHOUT sort_keys — tier_definition key order drives
 generated-filter rule order, so insertion order must be preserved.
 
 The output tree is GITIGNORED, so a stale bundle is invisible to git and to
-anything that reads it. test_generator_parity.mjs feeds this bundle to the TS
-generator and the source tree to the Python one, then asserts the two agree —
-so a bundle that quietly failed to refresh turns that test into a comparison
-against frozen data that still reports PASS.
+anything that reads it. test_resolver_equivalence.mjs reads the editor's data
+through this bundle, so a bundle that quietly failed to refresh turns that test
+into a comparison against frozen data that still reports PASS — which it did, for
+an entire working session.
 
 Two things guard against that, and both are the point of this script beyond
 copying files:
@@ -56,8 +56,8 @@ def source_fingerprint() -> str:
     checkout, so they report "stale" on files that never changed and "fresh" on
     a tree someone rewound. Content is the only honest answer.
 
-    Reimplemented in JS in test_generator_parity.mjs on purpose: a verifier that
-    calls the thing it verifies proves nothing, and "Python silently did
+    Reimplemented in JS in test_resolver_equivalence.mjs on purpose: a verifier
+    that calls the thing it verifies proves nothing, and "Python silently did
     nothing" is precisely the failure being guarded.
     """
     h = hashlib.sha256()

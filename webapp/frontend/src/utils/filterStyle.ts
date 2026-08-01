@@ -3,14 +3,14 @@
  * come through here.
  *
  * Why this module exists: the project had FOUR resolvers that disagreed —
- * generate.py and filterGenerator.ts (the parity-guarded pair), styleResolver.ts
+ * generate.py and filterGenerator.ts (then a parity-guarded pair), styleResolver.ts
  * (the editor preview and Inspector raw text) and simulatorEngine.ts (the drop
  * simulator). The last two were unguarded and both diverged, so the editor
  * previewed styling the exported filter discarded, and authoring felt like it
  * worked when it did not.
  *
  * The rules below are not stylistic preferences. Every one was found by loading
- * a generated filter in game, after generation, the validator AND the 16/16
+ * a generated filter in game, after generation, the validator AND the then-16/16
  * parity test had all passed:
  *
  *   * Ruthless cannot `Hide` — GGG forbids it, so HIDE_CMD is `Minimal`, which
@@ -22,9 +22,14 @@
  *   * A CustomAlertSound path resolves against the FILTER's folder, not this
  *     repo — so no `sound_files\` prefix.
  *
- * Keep this module byte-faithful to filter_generation/generate.py: ADR-0001
- * makes the two generators a parity pair, and test_generator_parity.mjs enforces
- * it. Editing one without the other is what this module exists to stop.
+ * ⚠️ "Mirrors generate.py" in the comments here and in filterGenerator.ts is now
+ * HISTORY, not an instruction. ADR-0007 retired the Python generator; there is one
+ * engine. Those notes are kept because they record WHY a line behaves as it does —
+ * follow them as rationale, not as a second file to go and edit.
+ *
+ * The guard is now `test_generator_fixtures.mjs`: a synthetic tree with committed
+ * golden output. Change anything here and that diff is where it shows up — read it
+ * rather than regenerating past it.
  */
 
 export const DEFAULT_FONT_SIZE = 32;

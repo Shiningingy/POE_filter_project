@@ -57,7 +57,7 @@ conditions:
   # Free-text BaseType. Omit `==` for a SUBSTRING match, which is how one line can
   # stand in for a whole family: `BaseType "Deafening Essence of"` catches all 17
   # without naming them. A rule carrying this needs no targets - it selects its own
-  # items (generate.py:531). With `==` it is an exact whole-name match.
+  # items. With `==` it is an exact whole-name match.
   - { key: BaseType,  type: text, placeholder: "\"Deafening Essence of\"  —  omit == for a substring match", category: general, applies: [universal], simulatable: false, label: { en: "Base Type (text)", ch: "基础类型（文本）" } }
   - { key: Width,     type: number, default: ">= 1", category: general, applies: [universal], simulatable: true,  label: { en: "Width",      ch: "宽度" } }
   - { key: Height,    type: number, default: ">= 1", category: general, applies: [universal], simulatable: true,  label: { en: "Height",     ch: "高度" } }

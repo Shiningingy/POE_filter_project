@@ -3,7 +3,7 @@
 For dropping new-league sections into an existing filter without shipping the whole
 tree. Re-run after any theme or tier edit:
 
-    python filter_generation/generate.py --mode ruthless
+    node filter_generation/generate.mjs --mode ruthless
     python parsing_tool/extract_partial.py --sections 32 41 42 94 -o out/partial.filter
 
 --sections takes the leading digits of the block ids in the #==[NNNNN]== headers
@@ -44,7 +44,7 @@ def main():
     args = ap.parse_args()
 
     if not os.path.isfile(FILTER):
-        sys.exit('no generated filter at %s - run generate.py first' % FILTER)
+        sys.exit('no generated filter at %s - run generate.mjs first' % FILTER)
     blocks = parse_blocks(io.open(FILTER, encoding='utf-8').read())
 
     if args.list or not args.sections:

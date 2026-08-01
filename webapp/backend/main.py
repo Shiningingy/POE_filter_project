@@ -7,6 +7,7 @@ import json
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 import re
 import csv
@@ -122,6 +123,8 @@ DATA_DIR = PROJECT_ROOT / "data"
 
 VENV_PYTHON = PROJECT_ROOT / ".venv" / "Scripts" / "python.exe" if sys.platform == "win32" else PROJECT_ROOT / ".venv" / "bin" / "python"
 PYTHON_EXECUTABLE = str(VENV_PYTHON) if VENV_PYTHON.exists() else sys.executable
+# The generator is Node now (ADR-0007). PATH lookup, overridable for a pinned install.
+NODE_EXECUTABLE = os.environ.get("NODE") or "node"
 
 # --- Globals ---
 ITEM_CLASSES = []
@@ -1045,7 +1048,7 @@ def update_item_tier(request: UpdateItemTierRequest):
 def assert_tiers_exist(source_file: str, tiers: List[str]) -> None:
     """Reject a tier the target category does not define, before writing it.
 
-    generate.py:393 does `if t_lbl not in category_data: continue`, so an item
+    The generator skips any tier label the category does not define, so an item
     filed under an undefined tier emits NOTHING - the filter builds cleanly and
     the item is simply missing in game. That is how 525 curated entries went
     dark unnoticed. Catching it at write time turns a silent data-loss bug into
@@ -1316,7 +1319,7 @@ def get_items_by_tier(request: TierItemsRequest):
                     
                     absorbed: set[str] = set()
                     for idx, r in enumerate(rules):
-                        # applyToTier makes `targets` DEAD: generate.py:529 replaces
+                        # applyToTier makes `targets` DEAD: the generator replaces
                         # rule_matches with the tier's pending items and never reads
                         # them. A target listed here is not one the generator honours,
                         # so it must not become a card of its own.
@@ -1332,7 +1335,7 @@ def get_items_by_tier(request: TierItemsRequest):
                                     absorbed.add(t_over)
 
                     # ONE card per (item, tier). A live rule that names the item for a
-                    # tier discards it from pending_items (generate.py:639), so the
+                    # tier discards it from pendingItems, so the
                     # base block never follows: the mapping entry and the rule entry
                     # are the SAME emitted block, not two. Two RULES on one tier do
                     # emit twice, so only the mapping (None) entry is absorbed.
@@ -1378,20 +1381,46 @@ class GenerateRequest(BaseModel):
 
 @app.post("/api/generate")
 def generate_filter_file(request: GenerateRequest = Body(default=GenerateRequest())):
+    """Build the filter with the one generation engine (ADR-0007).
+
+    This used to run filter_generation/generate.py, a second implementation kept in
+    byte-parity with the TypeScript one. There is now a single engine — the same
+    filterGenerator.ts every visitor's browser runs — and generate.mjs is a thin CLI
+    around it. Local dev and the deployed site therefore cannot disagree, because
+    they are no longer two programs.
+
+    A JSON selection goes via a temp file: passing it as an argv string was fine
+    through subprocess, but the file form keeps the CLI's one quoting rule ("@path
+    or inline") the same everywhere it is called from.
+    """
     mode_arg = "ruthless" if request.game_mode == "ruthless" else "standard"
-    cmd = [
-        PYTHON_EXECUTABLE, str(FILTER_GEN_DIR / "generate.py"),
-        "--mode", mode_arg,
-        "--game-version", request.game_version,
-        "--strictness", request.strictness,
-        "--leveling-selection", json.dumps(request.leveling_selection or {}),
-    ]
+    sel_file = None
     try:
+        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False,
+                                         encoding="utf-8") as fh:
+            json.dump(request.leveling_selection or {}, fh)
+            sel_file = fh.name
+        cmd = [
+            NODE_EXECUTABLE, str(FILTER_GEN_DIR / "generate.mjs"),
+            "--mode", mode_arg,
+            "--game-version", request.game_version,
+            "--strictness", request.strictness,
+            "--leveling-selection", f"@{sel_file}",
+        ]
         result = subprocess.run(cmd, check=True, cwd=PROJECT_ROOT,
                                 capture_output=True, text=True)
         return {"message": "Success", "output": result.stdout}
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail=(
+            f"Node not found (tried {NODE_EXECUTABLE!r}). The filter generator runs on "
+            "Node now (ADR-0007). Install Node 20+, or set the NODE environment "
+            "variable to the executable."))
     except subprocess.CalledProcessError as e:
         raise HTTPException(status_code=500, detail=(e.stdout or "") + (e.stderr or ""))
+    finally:
+        if sel_file:
+            try: os.unlink(sel_file)
+            except OSError: pass
 
 @app.get("/api/class-hierarchy")
 def get_class_hierarchy():

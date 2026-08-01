@@ -48,8 +48,8 @@ as a TypeScript port that runs in the browser.
   forbids the `Hide` keyword in-game** — hidden tiers MUST emit `Minimal` (GGG's
   Ruthless-only Hide-equivalent; before it existed the workaround was FontSize 1 +
   transparent border/background). `HIDE_CMD` resolves to `Minimal` under ruthless in
-  BOTH generators. The browser TS generator is now mode-aware (`GeneratorData.mode`,
-  fed from `game_mode`); ruthless parity is guarded by `test_generator_parity.mjs`.
+  the generator. It is mode-aware via `GeneratorData.mode` (fed from `game_mode`), and
+  the ruthless case is pinned by the `ruthless-soft-ch` fixture golden.
 - **coverage: cherry-pick + safety net + catch-all** — a category does **not**
   have to name every base it covers, so "this base type is in no `base_mapping`"
   is *not* by itself a defect. Three layers, in emission order:
@@ -70,20 +70,33 @@ as a TypeScript port that runs in the browser.
   `parsing_tool/ggpk/reconcile.py` models exactly this — it counts `Class`
   conditions as coverage, so it reports what would fall through to 3, not what
   merely lacks a name.
-- **the dual generator** — see Invariant 1.
+- **the generation engine** — one, in TypeScript; see Invariant 1.
 - **demo / backend-free build** — the deployed site has no server; `clientData.ts` +
   `demoAdapter.ts` re-implement the FastAPI endpoints over a static bundle + localStorage.
 
 ## Architectural invariants (do not "clean these up" without a deliberate decision)
 
-1. **The generator is intentionally duplicated across two languages, kept in
-   byte-for-byte parity.** `filter_generation/generate.py` (Python — the
-   reference/oracle + local build) and `webapp/frontend/src/utils/filterGenerator.ts`
-   (TypeScript — the engine that actually ships to browsers) must emit identical output.
-   Guarded by `webapp/frontend/test_generator_parity.mjs`. **Editing generation logic
-   means editing BOTH and running the parity test.** Collapsing to a single engine is a
-   *legitimate but ADR-level* migration (it rewires the local Python build pipeline) —
-   not a casual cleanup. See [ADR-0001](docs/adr/0001-dual-generator-parity.md).
+1. **There is ONE generation engine, and the CLI must stay a shell around it.**
+   `webapp/frontend/src/utils/filterGenerator.ts` is the engine — the same module every
+   visitor's browser runs. `filter_generation/generate.mjs` is the CLI: it loads
+   `filter_generation/data/**`, calls `generateFilter`, writes the file, and holds **no
+   generation logic of its own**. That last clause is the invariant; a CLI that starts
+   deciding things is how this project ended up with two engines to keep in parity.
+   Python still does offline data prep (`parsing_tool/`, `create_demo_bundle.py`) — the
+   generator is what was retired, not the language.
+
+   Guarded by two tests that ask different questions:
+   `test_generator_fixtures.mjs` (synthetic tree + committed goldens — does the engine
+   emit what we decided?) and `test_resolver_equivalence.mjs` (does the editor preview
+   match the export?). Regenerate goldens with `--update`, then **read the diff** — that
+   diff is the behaviour change, and it is the only review the test gets.
+
+   This reverses the original dual-generator design. Parity proved the two engines
+   agreed; it could not see a mistake they shared, and there was one —
+   `match_modes` was written to `base_mapping` and read from `tier_definition`, so the
+   Partial toggle never worked while parity stayed green.
+   See [ADR-0007](docs/adr/0007-one-generation-engine.md), superseding
+   [ADR-0001](docs/adr/0001-dual-generator-parity.md).
 
 2. **`hideable` is a live UI-authoring guard, NOT dead code.** Both generators
    *intentionally* ignore it; it is enforced only in the editor. `hideable:false` means

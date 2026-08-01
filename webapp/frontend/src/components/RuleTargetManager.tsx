@@ -62,7 +62,7 @@ const RuleTargetManager: React.FC<RuleTargetManagerProps> = ({
   onRegisterTranslation,
 }) => {
   // A SELF-SELECTING rule carries no `targets` key at all - a BaseType/Class
-  // condition or a raw block does its own matching (generate.py:534). That is a
+  // condition or a raw block does its own matching. That is a
   // supported shape, not bad data, so every read here has to tolerate it.
   const targets = rule.targets || [];
   return (

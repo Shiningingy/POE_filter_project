@@ -1,10 +1,18 @@
+// THE generation engine — the only one (ADR-0007). The browser runs this module and
+// so does the CLI (filter_generation/generate.mjs), which is a shell around it and
+// must stay one. Guarded by test_generator_fixtures.mjs (synthetic tree + committed
+// goldens) and test_resolver_equivalence.mjs (preview == export).
+//
+// ⚠️ "Mirrors generate.py" below is HISTORY. That file is deleted; the notes stay
+// because they record why a behaviour exists, not because there is a second copy to
+// keep in step. See the header of filterStyle.ts.
 import { type Language } from './localization';
 
 // Strictness ladder (loosest -> strictest). A tier with `hide_at_strictness: N`
-// flips to Hide once the selected level's index >= N. Orthogonal to MODE. Kept
-// byte-identical to STRICTNESS_LEVELS in filter_generation/generate.py
-// (parity-guarded by test_generator_parity.mjs). Single source of truth for the
-// UI too — import from here so the ordered list (its index = the threshold) can't drift.
+// flips to Hide once the selected level's index >= N. Orthogonal to MODE. Single
+// source of truth for the UI too — import from here so the ordered list (its index
+// = the threshold) can't drift. The threshold is pinned from both sides by the
+// standard-regular-ch / standard-semistrict-ch fixtures.
 export const STRICTNESS_LEVELS = ['soft', 'regular', 'semistrict', 'strict', 'verystrict', 'uber', 'uberplus'] as const;
 export type StrictnessLevel = typeof STRICTNESS_LEVELS[number];
 
@@ -89,11 +97,10 @@ import {
   blockText, resolveSound, tierNumFromLabel,
 } from './filterStyle';
 
-// Generator-output vocabulary (terms that appear in filter comments). Co-located
-// with the generator and mirrored EXACTLY in filter_generation/generate.py
-// (TERMS) — the parity test (test_generator_parity.mjs) guards them. Deliberately
+// Generator-output vocabulary (terms that appear in filter comments). Deliberately
 // NOT in localization.ts, which is the UI translation table; these are
-// filter-artifact domain strings, a different concern.
+// filter-artifact domain strings, a different concern. Both languages are pinned by
+// the standard-soft-ch / standard-soft-en fixture pair.
 const TERMS: Record<string, Record<string, string>> = {
   en: { Rule: "Rule", Base: "Base", "Auto-Sound": "Auto-Sound", Exact: "Exact", Partial: "Partial", Self: "Self-matched", Card: "Card" },
   ch: { Rule: "规则", Base: "基础", "Auto-Sound": "自动音效", Exact: "精确", Partial: "模糊", Self: "自选", Card: "物品卡" },

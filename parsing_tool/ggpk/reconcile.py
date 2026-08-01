@@ -144,7 +144,7 @@ def read_destinations(where: dict, by_name: dict) -> tuple[list[dict], list[dict
     tier_definition's `_meta.tier_order` (declared), and the strings the
     base_mapping file actually uses (in-use). `Gems/Support.json` declares
     "Tier 1 Support" while all 213 of its entries say "Tier 1 Support Gems".
-    An undeclared key does not error - generate.py silently remaps it - so the
+    An undeclared key does not error - the generator silently remaps it - so the
     drift is invisible until someone writes the *declared* spelling next to the
     in-use one and the file ends up with both. In-use keys are offered first,
     since those are what the category is really made of, and the drift is
@@ -192,7 +192,7 @@ def read_destinations(where: dict, by_name: dict) -> tuple[list[dict], list[dict
         undeclared = [t for t in used if t not in {d["key"] for d in declared}]
         if undeclared:
             # Underscore folders remap undeclared keys to their first non-hide
-            # tier on purpose (generate.py:365). Everywhere else the key is
+            # tier on purpose. Everywhere else the key is
             # appended to tier_order, then skipped for having no tier entry -
             # so the items emit NOTHING, with no error.
             drops = not rel.startswith("_")
@@ -463,7 +463,7 @@ def summarise(rep: dict) -> None:
     if dropping:
         n = sum(sum(d["undeclared"].values()) for d in dropping)
         print(f"\n  !! SILENTLY DROPPED  {n} mapping entries emit NOTHING")
-        print(f"     Their tier key is not in the category's tier_order, so generate.py")
+        print(f"     Their tier key is not in the category's tier_order, so the generator")
         print(f"     appends it to the order and then skips it for having no tier entry.")
         print(f"     No error, no output. (Underscore folders are exempt - they remap.)")
         for d in dropping:

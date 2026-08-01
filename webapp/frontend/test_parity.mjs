@@ -204,7 +204,7 @@ console.log('misc endpoints:');
   const beBonus = await backendGet('/api/bonus-info');
   const clBonus = await client.loadBonusInfo();
   report('bonus-info', deepEqual(beBonus, clBonus));
-  report('merged theme = generate.py theme source', typeof (await client.getMergedTheme()) === 'object');
+  report('merged theme = generator theme source', typeof (await client.getMergedTheme()) === 'object');
 }
 
 console.log('VFS edit behavior (client-side only):');

@@ -31,16 +31,80 @@
 // they are frozen pre-rewrite migration evidence, and an oracle that must be
 // refreshed whenever output legitimately changes would either rot or destroy them.
 //
-// Usage (from webapp/frontend):  node test_resolver_equivalence.mjs   (no Python)
+// Usage (from webapp/frontend):  node test_resolver_equivalence.mjs
+//   Needs Python on PATH (override with PYTHON=...) — not for generation, only to
+//   bake the demo bundle this test reads the editor's data through.
 
 import { build } from 'esbuild';
-import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
+import { execSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { mkdtempSync, writeFileSync, rmSync, readFileSync, existsSync, readdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, dirname } from 'node:path';
+import { join, dirname, posix } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(HERE, '..', '..');
+const PY = process.env.PYTHON || 'python';
+const DEMO_DIR = join(HERE, 'public', 'demo_data');
+const INPUT_DIR = join(ROOT, 'filter_generation', 'data');
 const SHOW = 10;
+
+// ── Bake the demo bundle, and refuse to trust it ─────────────────────────────
+// This test reads the data through clientData — the DEPLOYED path — so it needs
+// webapp/frontend/public/demo_data, which create_demo_bundle.py writes and .gitignore
+// hides. That bake used to happen inside test_generator_parity.mjs; ADR-0007 deleted
+// that test, so the guard moved here rather than dying with it. It matters: the bundle
+// silently failed to refresh once and turned a whole session's PASSes into comparisons
+// against frozen data.
+//
+// The fingerprint is recomputed HERE, independently, because a verifier that asks the
+// suspect to verify itself is not a verifier. Canonical line per file, sorted by POSIX
+// relpath:  relpath \0 sha256(bytes) \n  — mirroring source_fingerprint() in the baker.
+const fingerprintInputs = (dir) => {
+  const files = [];
+  const walk = (abs, rel) => {
+    for (const e of readdirSync(abs, { withFileTypes: true })) {
+      const childRel = rel ? posix.join(rel, e.name) : e.name;
+      if (e.isDirectory()) walk(join(abs, e.name), childRel);
+      else if (e.isFile()) files.push([childRel, join(abs, e.name)]);
+    }
+  };
+  walk(dir, '');
+  files.sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
+  const h = createHash('sha256');
+  for (const [rel, abs] of files) {
+    h.update(rel, 'utf8');
+    h.update('\0');
+    h.update(createHash('sha256').update(readFileSync(abs)).digest('hex'), 'ascii');
+    h.update('\n');
+  }
+  return h.digest('hex');
+};
+
+console.log('Baking demo bundle (create_demo_bundle.py)…');
+try {
+  execSync(`${PY} filter_generation/create_demo_bundle.py`, { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+} catch (err) {
+  console.error('\nBAKE FAILED — create_demo_bundle.py did not exit cleanly.');
+  if (err.stdout?.length) console.error(err.stdout.toString());
+  if (err.stderr?.length) console.error(err.stderr.toString());
+  console.error(`(PYTHON=${PY}. On Windows, a bare "python" can resolve to the Microsoft ` +
+                'Store stub, which does not run anything. Set PYTHON= to a real interpreter.)');
+  process.exit(1);
+}
+const stampFile = join(DEMO_DIR, 'bake_stamp.json');
+if (!existsSync(stampFile)) {
+  console.error(`\nSTALE BUNDLE — no ${stampFile}. The bake reported success but left no ` +
+                'verified stamp, so the bundle is of unknown age. A pass here would be meaningless.');
+  process.exit(1);
+}
+const liveFingerprint = fingerprintInputs(INPUT_DIR);
+if (JSON.parse(readFileSync(stampFile, 'utf8')).source_fingerprint !== liveFingerprint) {
+  console.error('\nSTALE BUNDLE — demo_data was not rebuilt from the current filter_generation/data.');
+  process.exit(1);
+}
+console.log(`  bundle verified fresh (inputs ${liveFingerprint.slice(0, 16)}…)`);
 
 const tmp = mkdtempSync(join(tmpdir(), 'resolvereq-'));
 

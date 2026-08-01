@@ -1,17 +1,21 @@
-name: Generator parity
+name: Filter checks
 
-# Guards the dual generator (ADR-0001): filter_generation/generate.py (Python, the
-# reference/oracle) must stay BYTE-FOR-BYTE identical to
-# webapp/frontend/src/utils/filterGenerator.ts (TypeScript, the engine that ships to
-# browsers). A divergence once shipped silently — a SetBackgroundColor mismatch — because
-# this test wasn't run after a commit. Running it on every PR makes that unmissable.
+# Three guards, deliberately different in kind (ADR-0007 — there is ONE generation
+# engine now, so "do the two generators agree?" is no longer a question that exists):
+#
+#   fixtures     does the generator emit what we decided it should, on a synthetic
+#                tree with committed golden output? Catches engine behaviour changes.
+#   equivalence  do the editor preview and the exported filter agree? Catches the
+#                preview drifting from what actually ships.
+#   validation   does the curation emit at all? Catches items filed under a tier key
+#                the category does not define — which builds cleanly and drops them.
 
 on:
   push:            # every branch — immediate feedback while you work
   pull_request:    # and on PRs (the pre-merge gate)
 
 jobs:
-  parity:
+  parity:   # job id kept so existing branch-protection required-checks keep resolving
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,7 +23,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      # create_demo_bundle.py (run inside the parity test) imports the FastAPI backend.
+      # Python no longer generates the filter (ADR-0007) but still does offline data
+      # prep: create_demo_bundle.py imports the FastAPI backend, and the validator runs
+      # against the curation tree.
       - name: Install backend deps
         run: pip install -r webapp/backend/requirements.txt
 
@@ -34,19 +40,24 @@ jobs:
         working-directory: webapp/frontend
         run: npx tsc -b
 
-      # Bakes demo data, VERIFIES the bake is fresh (a stale bundle silently turned this
-      # into "fresh Python vs frozen data" and still reported PASS), then runs generate.py
-      # + filterGenerator.ts on identical inputs and asserts byte-for-byte agreement.
-      - name: Generator parity (generate.py == filterGenerator.ts)
+      # The generator's regression net. Synthetic tree, committed golden output — so a
+      # tier tweak never moves it, and anything that DOES move it is an engine change
+      # with a readable diff. This is what replaced dual-generator parity.
+      - name: Generator fixtures (engine emits the decided output)
         working-directory: webapp/frontend
-        run: node test_generator_parity.mjs
+        run: node test_generator_fixtures.mjs
 
-      # Guards the OTHER half: the editor preview must emit what the filter exports.
-      # Generator parity never covered this, because the preview is not one of the two
-      # generators — it was a third opinion, and it disagreed.
+      # The editor preview must emit what the filter exports. Bakes the demo bundle and
+      # verifies the bake is fresh first — a stale bundle once turned a whole session's
+      # PASSes into comparisons against frozen data.
       - name: Resolver equivalence (editor preview == exported filter)
         working-directory: webapp/frontend
         run: node test_resolver_equivalence.mjs
+
+      # The CLI must actually run. Cheap end-to-end check that esbuild resolves, the data
+      # tree loads and a filter comes out — none of which the in-process tests exercise.
+      - name: Generator CLI smoke test
+        run: node filter_generation/generate.mjs --mode ruthless --strictness soft --out /tmp/ci.filter
 
       # Guards the DATA, which neither test above looks at: both generators agree happily
       # on curation that emits nothing. Fails only on ERROR — curation that silently drops

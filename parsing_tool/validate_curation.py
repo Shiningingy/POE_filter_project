@@ -12,32 +12,36 @@ were simply absent in game.
 
 Exit code is non-zero if any ERROR is found, so it can gate a commit or a CI run.
 
-The rules, and where they come from in generate.py:
+The rules, and where they come from in the generator
+(webapp/frontend/src/utils/filterGenerator.ts - the only engine since ADR-0007;
+these used to cite generate.py line numbers, which is why they name behaviour
+rather than lines now):
 
   pairing      base_mapping/<p> is paired with tier_definition/<p> by relative
-               path (generate.py:249). A mapping file with no partner is skipped
-               entirely - the whole category vanishes with no message.
+               path. A mapping file with no partner is skipped entirely - the
+               whole category vanishes with no message.
 
-  dead key     generate.py:393-394 iterates the tier order and does
-                   `if t_lbl not in category_data: continue`
+  dead key     the generator walks the tier order and skips any label the
+               category does not define:
+                   `if (!(tLbl in categoryData)) continue`
                so a mapping value naming a tier the category does not define
                emits NOTHING. This is what silently killed 525 entries.
 
-  lumping      For underscore folders (_legacy, _campaign) generate.py:365-379
-               instead REMAPS unknown keys onto the first non-hide tier. Items
-               are not lost, but they all collapse into one bucket - the
-               "everything shows up in general" symptom. Warning, not error.
+  lumping      For underscore folders (_legacy, _campaign) it instead REMAPS
+               unknown keys onto the first non-hide tier. Items are not lost,
+               but they all collapse into one bucket - the "everything shows up
+               in general" symptom. Warning, not error.
 
-  no-op rule   Every branch that selects a rule's items (generate.py:527-550)
-               needs either `targets` or `applyToTier`. A rule with neither
-               falls through to `continue` and emits nothing - and worse, the
-               items it meant to condition stay in `pending_items`, so they
-               emit as an UNCONDITIONED base block instead. The intended
-               "narrower" rule silently becomes a wider one.
+  no-op rule   Every branch that selects a rule's items needs either `targets`,
+               `applyToTier`, or conditions of its own. A rule with none falls
+               through and emits nothing - and worse, the items it meant to
+               condition stay in `pendingItems`, so they emit as an
+               UNCONDITIONED base block instead. The intended "narrower" rule
+               silently becomes a wider one.
 
-  rule tier    A rule's overrides.Tier is compared to the tier being emitted
-               (generate.py:528). Naming a tier the category does not define
-               means the comparison never holds - the dead-key bug in rule form.
+  rule tier    A rule's overrides.Tier is compared to the tier being emitted.
+               Naming a tier the category does not define means the comparison
+               never holds - the dead-key bug in rule form.
 """
 
 from __future__ import annotations
@@ -116,7 +120,7 @@ def category_of(tier_doc: dict) -> tuple[str, dict] | tuple[None, None]:
 
 def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
                 names: set[str], classes: set[str], rep: Report) -> None:
-    """A rule only reaches an output block through generate.py:527-550.
+    """A rule only reaches an output block through the generator's rule loop.
 
     Both selection branches there end in a bare `continue` when the rule names
     no items, so a conditions-only rule is not "apply to everything" - it is
@@ -146,11 +150,11 @@ def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
         label = rule.get("comment") or (f"-> {tier}" if tier else f"rule #{i}")
 
         # A rule that brings its OWN selector - a `raw` block, or a BaseType/Class
-        # condition - is legitimate with no targets: generate.py:531 emits a block
+        # condition - is legitimate with no targets: the generator emits a block
         # with no generated BaseType line and the rule's own lines do the matching.
         # That is how one partial match stands in for a whole family
         # (`BaseType "Deafening Essence of"` for all 17). Not an error.
-        # Mirrors generate.py: ANY condition is a selector, not only BaseType/Class.
+        # Mirrors the generator: ANY condition is a selector, not only BaseType/Class.
         # A rule saying `Rarity Unique` + `LinkedSockets >= 6` needs no target list.
         self_selecting = bool(rule.get("raw")) or bool(conds)
 
@@ -172,18 +176,18 @@ def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
                 consequence = f"nothing is emitted for {tier!r}"
             rep.add("ERROR", where,
                     f"rule {label!r} has no 'targets' and no 'applyToTier', so "
-                    f"generate.py:545 skips it - {consequence}\n            "
+                    f"the generator skips it - {consequence}\n            "
                     f"fix: list the base types in 'targets'; or give the rule its "
                     f"own selector - a BaseType/Class condition, or a 'raw' block "
                     f"- which lets it match without naming items; or move the "
                     f"conditions onto the tier as class_condition:true "
-                    f"(generate.py:447) if they are meant to match by class")
+                    f"if they are meant to match by class")
             continue
 
         if tier and tier not in defined:
             rep.add("ERROR", where,
                     f"rule {label!r} overrides Tier to {tier!r}, which this "
-                    f"category does not define - generate.py:528 never matches "
+                    f"category does not define - the rule-tier comparison never matches "
                     f"it, so the rule emits NOTHING\n            "
                     f"defined tiers: {', '.join(sorted(defined)[:8])}")
 

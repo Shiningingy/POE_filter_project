@@ -1,7 +1,11 @@
 # ADR-0001: The filter generator is duplicated in Python and TypeScript, kept in byte-parity
 
 ## Status
-Accepted.
+**Superseded by [ADR-0007](0007-one-generation-engine.md).** There is one engine now —
+`filterGenerator.ts` — and `generate.py` is deleted. Kept here because the reasoning below
+is still the reason the duplication existed, and because ADR-0007 answers it point by
+point. Note the last bullet under Consequences: this ADR predicted its own reversal, and
+named the conditions.
 
 ## Context
 The app ships backend-free (a static site), so the filter must be generatable in the

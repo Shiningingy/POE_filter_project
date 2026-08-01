@@ -116,7 +116,7 @@ Then close the loop:
 ```bash
 python parsing_tool/ggpk/apply_decisions.py decisions.json          # dry run
 python parsing_tool/ggpk/apply_decisions.py decisions.json --write
-python filter_generation/generate.py --mode ruthless
+node filter_generation/generate.mjs --mode ruthless
 ```
 
 `apply_decisions.py` writes into `base_mapping` and fills missing zh from the
@@ -130,7 +130,7 @@ fixed. `skip` writes nothing at all.
 
 A tier key that isn't in the category's `tier_order` does **not** error. The
 generator appends it to the order, then skips it for having no tier entry
-([generate.py:386-394](../../filter_generation/generate.py#L386-L394)) — so the
+([filterGenerator.ts](../../webapp/frontend/src/utils/filterGenerator.ts)) — so the
 items produce no output at all. Underscore folders (`_legacy`, `_campaign`) are
 exempt: they remap undeclared keys to their first non-hide tier on purpose.
 
