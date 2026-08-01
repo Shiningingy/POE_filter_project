@@ -40,7 +40,6 @@ export interface FilterContext {
     mappings: Record<string, any>; // FilePath -> Content
     tierDefinitions: Record<string, any>; // FilePath -> Content
     theme: any; // Active Theme Data
-    overrides: any; // Custom Overrides
     globalAreaLevel?: number; // Environment context
 }
 

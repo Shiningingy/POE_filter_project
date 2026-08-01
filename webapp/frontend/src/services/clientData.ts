@@ -10,7 +10,6 @@
 // versions, the deployed site runs these.
 
 import axios from 'axios';
-import { mergeThemeOverrides } from '../utils/theme';
 
 export const VFS_PREFIX = 'demo_vfs_';
 
@@ -591,13 +590,6 @@ export const saveSettings = async (content: Record<string, any>) => {
   return { message: 'Success' };
 };
 
-export const getCustomOverrides = async () => {
-  const saved = localStorage.getItem('demo_custom_overrides');
-  if (saved) { try { return JSON.parse(saved); } catch { /* fall through */ } }
-  const bundle = await loadBundle();
-  return bundle?.customOverrides ?? {};
-};
-
 /** GET /api/themes - static list + presets saved/imported in this browser */
 export const themesList = async () => {
   let staticThemes: string[] = [];
@@ -629,9 +621,11 @@ export const themeData = async (themeName: string) => {
   return fetchStatic(`theme_${themeName}.json`);
 };
 
-/** Theme as the generator sees it (generate.py load_merged_theme): the preset
- *  selected in settings, with custom_overrides merged per category/tier. */
-export const getMergedTheme = async () => {
+/** The theme the generator resolves: the preset named in settings, falling back to
+ *  sharket. There is no override layer any more -- custom_overrides.json was a
+ *  category x tier patch file on top of the preset, from before the tier block owned
+ *  its look. A preset IS the unit now; the theme board bakes edits into one. */
+export const getActiveTheme = async () => {
   const settings = await getSettings();
   const baseName = settings.base_theme || 'sharket';
   let base: any = null;
@@ -639,8 +633,7 @@ export const getMergedTheme = async () => {
   if (!base || Object.keys(base).length === 0) {
     try { base = (await themeData('sharket'))?.theme_data; } catch { base = {}; }
   }
-  const overrides = await getCustomOverrides();
-  return mergeThemeOverrides(base, overrides);
+  return base || {};
 };
 
 /** GET /api/item-info/{base_type} (main.py get_item_info) */
@@ -671,8 +664,6 @@ export const getConfig = async (configPath: string) => {
     return { content: bundle?.theme ?? {} };
   } else if (configPath === 'theme/sharket/Sharket_sound_map.json') {
     return { content: bundle?.soundMap ?? {} };
-  } else if (configPath === 'theme/custom_overrides.json') {
-    return { content: await getCustomOverrides() };
   } else if (configPath === 'settings.json') {
     return { content: await getSettings() };
   }

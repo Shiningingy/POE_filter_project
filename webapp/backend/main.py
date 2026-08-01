@@ -784,22 +784,6 @@ def get_category_structure():
     if not path.exists(): return {"categories": []}
     with open(path, "r", encoding="utf-8") as f: return json.load(f)
 
-@app.get("/api/custom-overrides")
-def get_custom_overrides():
-    path = CONFIG_DATA_DIR / "theme" / "custom_overrides.json"
-    if not path.exists(): return {}
-    try: return json.load(open(path, "r", encoding="utf-8"))
-    except: return {}
-
-@app.post("/api/custom-overrides")
-async def save_custom_overrides(content: dict = Body(...)):
-    path = CONFIG_DATA_DIR / "theme" / "custom_overrides.json"
-    try:
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump(content, f, indent=4, ensure_ascii=False)
-        return {"message": "Success"}
-    except Exception as e: raise HTTPException(status_code=500, detail=str(e))
-
 @app.get("/api/settings")
 def get_settings():
     path = CONFIG_DATA_DIR / "settings.json"

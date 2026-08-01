@@ -90,7 +90,7 @@ def write_json(name: str, obj) -> None:
 
 def build_bundle() -> dict:
     bundle = {"mappings": {}, "tiers": {}, "theme": {}, "soundMap": {},
-              "settings": {}, "customOverrides": {}, "footer": ""}
+              "settings": {}, "footer": ""}
     base_mapping = backend.CONFIG_DATA_DIR / "base_mapping"
     tier_def = backend.CONFIG_DATA_DIR / "tier_definition"
     for p in sorted(base_mapping.rglob("*.json")):
@@ -104,7 +104,6 @@ def build_bundle() -> dict:
     if sound_map_file.exists():
         bundle["soundMap"] = json.loads(sound_map_file.read_text(encoding="utf-8"))
     bundle["settings"] = backend.get_settings()
-    bundle["customOverrides"] = backend.get_custom_overrides()
     footer_file = backend.CONFIG_DATA_DIR / "footer.filter"
     if footer_file.exists():
         bundle["footer"] = footer_file.read_text(encoding="utf-8")

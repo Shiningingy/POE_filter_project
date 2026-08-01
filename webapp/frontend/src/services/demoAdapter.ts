@@ -84,8 +84,6 @@ export const setupDemoAdapter = () => {
       } else if (path.includes('/api/class-items/')) {
         const cls = decodeURIComponent(path.split('/api/class-items/')[1] || 'All');
         respond(config, () => data.classItems(cls));
-      } else if (path.endsWith('/api/custom-overrides')) {
-        respond(config, () => data.getCustomOverrides());
       } else if (path.endsWith('/api/settings')) {
         respond(config, () => data.getSettings());
       } else if (path.includes('/api/mapping-info/')) {
@@ -114,7 +112,6 @@ export const setupDemoAdapter = () => {
           });
           if (bundle?.theme) files['theme/sharket/sharket_theme.json'] = bundle.theme;
           files['theme/sharket/Sharket_sound_map.json'] = await data.getSoundMap();
-          files['theme/custom_overrides.json'] = await data.getCustomOverrides();
           files['settings.json'] = await data.getSettings();
           Object.keys(localStorage).forEach(key => {
             try {
@@ -167,7 +164,7 @@ export const setupDemoAdapter = () => {
           // Ruthless (the default game_mode) must emit `Minimal`, not `Hide`.
           const mode = (genBody.game_mode || settings?.game_mode) === 'ruthless' ? 'ruthless' : 'standard';
           const filterText = generateFilter({
-            themeData: await data.getMergedTheme(),
+            themeData: await data.getActiveTheme(),
             soundMap: await data.getSoundMap(),
             allMappings: merged.mappings,
             allTierDefinitions: merged.tiers,
@@ -179,12 +176,6 @@ export const setupDemoAdapter = () => {
           });
           localStorage.setItem('demo_generated_filter', filterText);
           return { message: 'Success (generated in browser)', content: filterText };
-        });
-      } else if (path.endsWith('/api/custom-overrides')) {
-        const content = parseBody(config);
-        respond(config, async () => {
-          localStorage.setItem('demo_custom_overrides', JSON.stringify(content));
-          return { message: 'Saved overrides' };
         });
       } else if (path.includes('/api/themes/')) {
         const themeName = decodeURIComponent(path.split('/').pop() || '');
@@ -222,8 +213,11 @@ export const setupDemoAdapter = () => {
 
           const written: string[] = [];
           Object.entries(files).forEach(([rel, content]) => {
+            // Snapshots taken before the override layer was retired still carry this
+            // key. Skip it rather than choke on it — an old snapshot must still
+            // import; it just no longer restores a patch layer nothing reads.
             if (rel === 'theme/custom_overrides.json') {
-              localStorage.setItem('demo_custom_overrides', JSON.stringify(content));
+              /* ignored */
             } else {
               const themeMatch = rel.match(/^theme\/([^/]+)\/\1_theme\.json$/);
               if (themeMatch) {

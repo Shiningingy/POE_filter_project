@@ -181,6 +181,8 @@ const Sidebar: React.FC<SidebarProps> = ({
                       : "Reset all changes to default? This cannot be undone.")) {
                       Object.keys(localStorage).forEach(k => {
                           if (k.startsWith('demo_vfs_') || k.startsWith('demo_theme_')
+                              // demo_custom_overrides: the retired override layer. Still
+                              // cleared so a browser carrying the stale key is tidied up.
                               || k === 'demo_custom_overrides' || k === 'demo_generated_filter') {
                               localStorage.removeItem(k);
                           }

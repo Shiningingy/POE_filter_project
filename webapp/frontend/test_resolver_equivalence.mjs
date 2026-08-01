@@ -149,7 +149,7 @@ const { styleLines, soundLineFromPair } = await import(pathToFileURL(coreOut).hr
 const { generateFilter } = await import(pathToFileURL(genOut).href);
 
 const merged = await client.getMergedState();
-const themeData = await client.getMergedTheme();
+const themeData = await client.getActiveTheme();
 const soundMap = await client.getSoundMap();
 
 // Capture the oracle: every block the generator actually emitted, via onBlock.

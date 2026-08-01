@@ -105,19 +105,17 @@ try {
 const tmp = mkdtempSync(join(tmpdir(), 'poefilter-gen-'));
 try {
   const genOut = join(tmp, 'filterGenerator.mjs');
-  const themeOut = join(tmp, 'theme.mjs');
   const shared = {
     bundle: true, format: 'esm', platform: 'node',
     define: { 'import.meta.env.BASE_URL': '"/"' },
   };
   await esbuild.build({ ...shared, entryPoints: [join(FRONTEND, 'src/utils/filterGenerator.ts')], outfile: genOut });
-  await esbuild.build({ ...shared, entryPoints: [join(FRONTEND, 'src/utils/theme.ts')], outfile: themeOut });
 
   const { generateFilter } = await import(pathToFileURL(genOut).href);
-  const { mergeThemeOverrides } = await import(pathToFileURL(themeOut).href);
 
-  // Theme, as the app resolves it (clientData.getMergedTheme): the preset named in
-  // settings, with custom_overrides merged on top.
+  // Theme, as the app resolves it (clientData.getActiveTheme): the preset named in
+  // settings. There is no override layer — custom_overrides.json was a category x tier
+  // patch on top of the preset, from before the tier block owned its look.
   //
   // generate.py read settings from data/config/settings.json — a path that does not
   // exist — so it always silently fell back to 'sharket' and base_theme was a dead
@@ -131,7 +129,7 @@ try {
     if (baseThemeName !== 'sharket') console.warn(`[WARN] theme '${baseThemeName}' not found — falling back to sharket.`);
     baseTheme = readJson(join(DATA, 'theme', 'sharket', 'sharket_theme.json'), {});
   }
-  const themeData = mergeThemeOverrides(baseTheme, readJson(join(DATA, 'theme', 'custom_overrides.json'), {}));
+  const themeData = baseTheme || {};
 
   const footerFile = join(DATA, 'footer.filter');
   const blocks = tracePath ? [] : null;

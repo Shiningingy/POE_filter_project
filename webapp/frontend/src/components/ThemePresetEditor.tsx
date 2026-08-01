@@ -146,17 +146,20 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [themesRes, settingsRes, overridesRes, navRes] = await Promise.all([
+        const [themesRes, settingsRes, navRes] = await Promise.all([
             axios.get('/api/themes'),
             axios.get('/api/settings'),
-            axios.get('/api/custom-overrides'),
             axios.get('/api/category-structure')
         ]);
         setThemes(themesRes.data.themes || []);
         const base = settingsRes.data.base_theme || 'sharket';
         setCurrentThemeInUse(base);
         setActiveTheme(base);
-        setOverridesData(overridesRes.data || {});
+        // overridesData starts empty and stays SESSION-LOCAL: it is this editor's
+        // working buffer, not a stored layer. custom_overrides.json used to persist
+        // it and the generator merged it over the preset — a patch file keyed by
+        // category × tier, from before the tier block owned its look. Edits are now
+        // banked by "save as preset", which writes a real theme file.
         setNavGroups(navRes.data.categories || []);
       } catch (e) { console.error(e); }
     };
@@ -361,11 +364,10 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
           await axios.post(`/api/themes/${name}`, { theme_data: merged });
           setThemes(prev => prev.includes(name) ? prev : [...prev, name]);
           setShowSavePreset(false);
-          // Opt-in: make the new preset the base theme and reset the override
-          // layer (visually identical — the overrides were baked into the preset).
+          // Opt-in: make the new preset the base theme and clear the working buffer
+          // (visually identical — the edits were baked into the preset).
           if (window.confirm(t.hueGenSwitchConfirm)) {
               await axios.post('/api/settings', { base_theme: name });
-              await axios.post('/api/custom-overrides', {});
               setOverridesData({});
               setUnsavedOverrides(false);
               setActiveTheme(name);
@@ -496,11 +498,10 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
             {unsavedOverrides && <span className="unsaved-badge">● {t.unsavedOverrides}</span>}
           </div>
           <div className="header-actions">
-             <button className="save-btn primary-action-btn" disabled={!unsavedOverrides} onClick={async () => {
-                 await axios.post('/api/custom-overrides', overridesData);
-                 setUnsavedOverrides(false);
-                 alert(t.overridesSaved);
-             }}>💾 {t.saveOverrides}</button>
+             {/* Banking edits means writing a preset. There is no override layer to
+                 save to any more, and the merged-preset path was already lossless. */}
+             <button className="save-btn primary-action-btn" disabled={!unsavedOverrides}
+                     onClick={() => setShowSavePreset(true)}>💾 {t.hueGenSaveAsPreset}</button>
              <button className="close-btn" onClick={onClose}>×</button>
           </div>
         </div>

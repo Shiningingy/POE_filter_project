@@ -470,15 +470,12 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
       try {
           const settingsRes = await axios.get('/api/settings');
           const baseTheme = settingsRes.data.base_theme || 'sharket';
-          const [themeRes, overridesRes] = await Promise.all([
-              axios.get(`/api/themes/${baseTheme}`),
-              axios.get('/api/custom-overrides'),
-          ]);
+          const themeRes = await axios.get(`/api/themes/${baseTheme}`);
           // Served live in both modes (the demo adapter computes it from the
           // bundle + the user's in-browser edits).
           const b = await axios.get('/api/simulator-bundle');
           const mappings = b.data.mappings, tierDefinitions = b.data.tiers;
-          const ctx: FilterContext = { theme: themeRes.data.theme_data, overrides: overridesRes.data, mappings, tierDefinitions };
+          const ctx: FilterContext = { theme: themeRes.data.theme_data, mappings, tierDefinitions };
           setRuleContext(ctx);
           return ctx;
       } catch (e) { console.error('Failed to load rule context', e); return null; }

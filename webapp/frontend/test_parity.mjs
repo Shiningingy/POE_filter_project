@@ -197,14 +197,13 @@ console.log('misc endpoints:');
   report('simulator-bundle', simOk, simMsg);
 
   report('settings', deepEqual(await backendGet('/api/settings'), await client.getSettings()));
-  report('custom-overrides', deepEqual(await backendGet('/api/custom-overrides'), await client.getCustomOverrides()));
   report('themes list', deepEqual(await backendGet('/api/themes'), await client.themesList()));
   report('sound-map', deepEqual(await backendGet('/api/sound-map'), await client.getSoundMap()));
   report('item-info Chaos Orb', deepEqual(await backendGet('/api/item-info/Chaos%20Orb'), await client.itemInfo('Chaos Orb')));
   const beBonus = await backendGet('/api/bonus-info');
   const clBonus = await client.loadBonusInfo();
   report('bonus-info', deepEqual(beBonus, clBonus));
-  report('merged theme = generator theme source', typeof (await client.getMergedTheme()) === 'object');
+  report('active theme = generator theme source', typeof (await client.getActiveTheme()) === 'object');
 }
 
 console.log('VFS edit behavior (client-side only):');
