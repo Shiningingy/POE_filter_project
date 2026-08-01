@@ -315,7 +315,7 @@
         "Chaos Orb"
       ],
       "conditions": {
-        "StackSize": ">=10"
+        "StackSize": ">= 10"
       },
       "overrides": {
         "Tier": "Tier 3 General"

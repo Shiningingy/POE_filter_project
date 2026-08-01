@@ -1264,7 +1264,7 @@
       "targets": [],
       "conditions": {
         "Rarity": "Unique",
-        "LinkedSockets": ">=6"
+        "LinkedSockets": ">= 6"
       },
       "overrides": {
         "Tier": "T0 Chase",
@@ -1279,7 +1279,7 @@
       "targets": [],
       "conditions": {
         "Rarity": "Unique",
-        "LinkedSockets": ">=5"
+        "LinkedSockets": ">= 5"
       },
       "overrides": {
         "Tier": "T1",
@@ -1295,7 +1295,7 @@
       "conditions": {
         "Corrupted": "True",
         "Rarity": "Unique",
-        "CorruptedMods": ">=1"
+        "CorruptedMods": ">= 1"
       },
       "overrides": {
         "Tier": "T1",
@@ -1311,7 +1311,7 @@
       "targets": [],
       "conditions": {
         "Rarity": "Unique",
-        "CorruptedMods": ">=2",
+        "CorruptedMods": ">= 2",
         "Corrupted": "True"
       },
       "overrides": {
@@ -1328,7 +1328,7 @@
       "targets": [],
       "conditions": {
         "Rarity": "Unique",
-        "Quality": ">=21"
+        "Quality": ">= 21"
       },
       "overrides": {
         "Tier": "T0 Chase"

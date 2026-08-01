@@ -49,7 +49,7 @@
     {
       "targets": [],
       "conditions": {
-        "ItemLevel": ">=84"
+        "ItemLevel": ">= 84"
       },
       "overrides": {
         "Tier": "Tier 0 Tinctures"

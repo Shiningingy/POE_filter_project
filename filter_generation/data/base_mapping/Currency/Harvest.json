@@ -40,7 +40,7 @@
     {
       "targets": [],
       "conditions": {
-        "StackSize": ">=1000"
+        "StackSize": ">= 1000"
       },
       "overrides": {
         "Tier": "Tier 0 Harvest"
@@ -62,7 +62,7 @@
     {
       "targets": [],
       "conditions": {
-        "StackSize": ">=100"
+        "StackSize": ">= 100"
       },
       "overrides": {
         "Tier": "Tier 2 Harvest"

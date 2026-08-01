@@ -340,10 +340,17 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                                 `RANGE >= ${v1} <= 100`,
                               );
                             else
+                              // SPACE after the operator. PoE rejects `>=10`
+                              // outright and takes the whole filter down with it;
+                              // `>= 10` parses. This picker wrote the unspaced
+                              // form, so it was the SOURCE of every such value in
+                              // the tree — generation normalises on emit, which is
+                              // why nothing ever shipped broken and nothing ever
+                              // pointed here.
                               updateCondition(
                                 globalIndex,
                                 key,
-                                `${newOp}${v1}`,
+                                `${newOp} ${v1}`,
                               );
                           }}
                         >
@@ -359,7 +366,7 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                         <StableInput
                           value={v1}
                           onChange={(v) =>
-                            updateCondition(globalIndex, key, `${op1}${v}`)
+                            updateCondition(globalIndex, key, `${op1} ${v}`)
                           }
                         />
                       </>
