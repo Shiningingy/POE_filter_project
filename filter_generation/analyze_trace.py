@@ -1,5 +1,16 @@
 """Read a generation trace and answer what `mapping` alone cannot.
 
+⚠️ BROKEN RIGHT NOW — raises `KeyError: 'tiers'`. Not this file's fault, and not a reason
+to delete it: `generate.mjs --trace` (the Node CLI that replaced `generate.py --trace` in
+ADR-0007) emits only the `blocks` half of the trace. The `tiers` half — every tier
+CONSIDERED, with `{file, emitted, reason, mapped_items}` — is no longer produced, and that
+is the half that answers "which tiers carried mapped items and emitted nothing?".
+
+To revive: add an `onTier` observer to `GeneratorData` in filterGenerator.ts, symmetric
+with the existing `onBlock`, and have generate.mjs write `{blocks, tiers, meta}` again.
+Queued with workstream C, which is what needs it. See
+filter_generation/archive/retired-code/README.md.
+
 Usage:  python filter_generation/analyze_trace.py [traces/ruthless-soft.json ...]
 
 The theme-pipeline rewrite migrates each category from what its blocks ACTUALLY
