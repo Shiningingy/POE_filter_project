@@ -34,6 +34,20 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   const [overridesData, setOverridesData] = useState<any>({});
   const [navGroups, setNavGroups] = useState<any[]>([]);
 
+  // tier-definition path -> theme resolution key, straight from the tier definitions.
+  // `themeKeysLoaded` gates the nav: a leaf's bucket is unknown until this arrives, and
+  // rendering leaves before it would either hide them or guess a key. Set on success AND
+  // on failure - a failed fetch must degrade to a visible, disabled nav, never to an
+  // endless spinner (fetchThemeKeyByPath swallows its own errors and returns {}).
+  //
+  // ⚠️ MUST be declared above `leafKey` and the memos that call it. These are `const`
+  // bindings, so a memo running during render that reads them from higher up the file
+  // throws "Cannot access 'themeKeyByPath' before initialization" — which is exactly what
+  // happened, and it only showed up when the board was opened in a browser: tsc, the
+  // fixtures and the equivalence test were all still green.
+  const [themeKeyByPath, setThemeKeyByPath] = useState<Record<string, string>>({});
+  const [themeKeysLoaded, setThemeKeysLoaded] = useState(false);
+
   // selectedCategory holds the THEME RESOLUTION KEY (the tier definition's
   // theme_category), not the display name. "Default" is the global fallback bucket.
   const [selectedCategory, setSelectedCategory] = useState<string>('Default');
@@ -149,9 +163,6 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   // definitions, so this editor mirrors the editor's (renameable) tier names.
   const [tierLabelMap, setTierLabelMap] = useState<Record<string, Record<number, { en?: string; ch?: string }>>>({});
 
-  // tier-definition path -> theme resolution key, straight from the tier definitions.
-  const [themeKeyByPath, setThemeKeyByPath] = useState<Record<string, string>>({});
-
   const backgrounds = [
     { id: "Item_bg_coast.jpg", name: t.coast },
     { id: "Item_bg_forest.jpg", name: t.forest },
@@ -188,7 +199,11 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   // Tier display names from the tier definitions (shared module cache).
   useEffect(() => { fetchTierLabelMap().then(setTierLabelMap); }, []);
   // ...and, from the same cached walk, each leaf's theme resolution key.
-  useEffect(() => { fetchThemeKeyByPath().then(setThemeKeyByPath); }, []);
+  useEffect(() => {
+    fetchThemeKeyByPath()
+      .then(setThemeKeyByPath)
+      .finally(() => setThemeKeysLoaded(true));
+  }, []);
 
   // Fetch Base Theme Data
   useEffect(() => {
@@ -237,19 +252,28 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   }, [allLeaves, language, themeKeyByPath]);
 
   /**
-   * How many nav leaves share a resolution key — several legitimately do (all 7
+   * How many DISTINCT categories share a resolution key — several legitimately do (all 7
    * Campaign leaves resolve to `Campaign`), and editing one then changes all of them.
    * That is what the filter actually does, so the board says so rather than implying
    * each leaf has a private look.
+   *
+   * Keyed by tier_path, not by label: 10 of the 92 nav leaves are the SAME tier file
+   * listed under two nav paths (Contracts appears as both "Maps & Fragments › Heist ›
+   * Contracts" and "Heist Gear › Heist Contracts"). Counting labels made those look like
+   * two categories sharing a look, when they are one category shown twice — a warning
+   * that fires when nothing is shared trains you to ignore it.
    */
   const leavesPerKey = useMemo(() => {
+      const seenPath: Record<string, Set<string>> = {};
       const n: Record<string, string[]> = {};
       allLeaves.forEach(({ f }) => {
           const key = leafKey(f);
           if (!key) return;
-          const label = f.localization?.[language] || f.localization?.en || key;
-          if (!n[key]) n[key] = [];
-          if (!n[key].includes(label)) n[key].push(label);
+          const path = f.tier_path || f.path;
+          if (!seenPath[key]) { seenPath[key] = new Set(); n[key] = []; }
+          if (seenPath[key].has(path)) return;
+          seenPath[key].add(path);
+          n[key].push(f.localization?.[language] || f.localization?.en || key);
       });
       return n;
   }, [allLeaves, language, themeKeyByPath]);
@@ -259,6 +283,19 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
       const leaf = navLeaves.find(l => l.key === cat);
       return leaf?.label || getLocalizedCategory(cat);
   };
+
+  /**
+   * The label of the leaf actually clicked. `catLabel` resolves a KEY, and the first leaf
+   * holding that key wins — so with a shared bucket, clicking "Flask Progression" titled
+   * the panel "Weapon Progression". Name what was clicked; the shared-look pill beside it
+   * names the bucket.
+   */
+  const selectedLeafLabel = useMemo(() => {
+      if (selectedLeaf === '__default__') return null;
+      const hit = allLeaves.find(({ f }) => (f.path || leafKey(f)) === selectedLeaf);
+      if (!hit) return null;
+      return hit.f.localization?.[language] || hit.f.localization?.en || null;
+  }, [allLeaves, selectedLeaf, language, themeKeyByPath]);
 
   // Select a nav leaf: edits the leaf's resolution key but highlights only this leaf.
   const selectLeaf = (f: any) => {
@@ -272,8 +309,21 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
   const renderLeaf = (f: any) => {
       const key = leafKey(f);
-      if (!key) return null;
-      const label = f.localization?.[language] || f.localization?.en || key;
+      const label = f.localization?.[language] || f.localization?.en || f.path || '?';
+      // A leaf whose tier file did not resolve has no bucket to edit. Show it greyed with
+      // the reason rather than dropping it: a silently missing nav row is indistinguishable
+      // from "this category does not exist", and the validator's check_nav flags the same
+      // condition at build time.
+      if (!key) {
+          return (
+              <div key={f.path || label} className="category-item file-leaf unresolved"
+                   title={language === 'ch'
+                     ? `无法解析主题分类：找不到 ${f.tier_path}`
+                     : `no theme category: ${f.tier_path} did not load`}>
+                  {label} ⚠
+              </div>
+          );
+      }
       const id = f.path || key;
       return (
           <div
@@ -493,7 +543,8 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
     </div>
   );
 
-  if (!baseThemeData) {
+  // Wait for the tier walk too: until it lands no leaf knows which bucket it edits.
+  if (!baseThemeData || !themeKeysLoaded) {
     return (
       <div className="theme-editor-modal modal-overlay">
         <div className="modal-content main-content-frame">
@@ -672,7 +723,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
           <div className="preview-area" onClick={() => { setEditingTier(null); setIsBulkEditing(false); }} style={getBackgroundStyle()}>
             <div className="preview-header">
-              <h3>{catLabel(selectedCategory)}</h3>
+              <h3>{selectedLeafLabel || catLabel(selectedCategory)}</h3>
               {/* Several nav leaves can resolve to one theme key (all 7 Campaign leaves
                   do). Editing here changes every one of them, so name them rather than
                   let the author discover it in the exported filter. */}
@@ -1044,6 +1095,12 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
         .shared-key-note { font-size: 0.72rem; color: #b26a00; background: #fff5e0; border: 1px solid #f0d18a;
                            border-radius: 10px; padding: 2px 9px; white-space: nowrap; cursor: help; align-self: center; }
 
+        /* Keep the title on one line - the shared-look pill next to it was squeezing it. */
+        .preview-header h3 { flex-shrink: 0; white-space: nowrap; margin: 0; }
+
+        /* A leaf whose tier file did not resolve: visible, but not clickable into a bucket. */
+        .category-item.unresolved { color: #bbb; cursor: not-allowed; font-style: italic; }
+
         /* Sits over the right border so the whole edge is grabbable. */
         .resize-handle { position: absolute; top: 0; right: -3px; width: 7px; height: 100%; cursor: col-resize; z-index: 5; background: transparent; }
         .resize-handle:hover { background: rgba(33,150,243,0.25); }
@@ -1064,7 +1121,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
         .override-dot { color: #ff9800; font-weight: bold; font-size: 1.5rem; line-height: 0.5; }
         
         .preview-area { flex: 1; padding: 30px; overflow-y: auto; background-color: #111; color: #eee; display: flex; flex-direction: column; align-items: center; background-size: cover; background-position: center; transition: background 0.3s; }
-        .preview-header { width: 100%; max-width: 700px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 15px; }
+        .preview-header { width: 100%; max-width: 700px; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 15px; }
         .theme-badge { background: #222; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; color: #888; border: 1px solid #333; }
         
         .bg-picker { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; background: rgba(255,255,255,0.1); border-radius: 6px; }
