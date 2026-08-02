@@ -4,7 +4,7 @@ import { useTranslation, CLASS_KEY_MAP, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import SoundPicker from './SoundPicker';
 import LoadingOverlay from './LoadingOverlay';
-import { fetchTierLabelMap } from '../utils/tierLabels';
+import { fetchTierLabelMap, fetchThemeKeyByPath } from '../utils/tierLabels';
 import MinimapIconPicker, { getIconStyle, formatMinimapIcon } from './MinimapIconPicker';
 import PlayEffectPicker, { formatPlayEffect } from './PlayEffectPicker';
 import { getAssetUrl } from '../utils/assetUtils';
@@ -34,8 +34,8 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   const [overridesData, setOverridesData] = useState<any>({});
   const [navGroups, setNavGroups] = useState<any[]>([]);
 
-  // selectedCategory holds the THEME RESOLUTION KEY (target_category / theme_category),
-  // not the display name. "Default" is the global fallback bucket.
+  // selectedCategory holds the THEME RESOLUTION KEY (the tier definition's
+  // theme_category), not the display name. "Default" is the global fallback bucket.
   const [selectedCategory, setSelectedCategory] = useState<string>('Default');
   // selectedLeaf tracks the clicked nav leaf by its unique path (or '__default__')
   // so the active highlight is per-leaf — several leaves can share one resolution key.
@@ -92,12 +92,28 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
     return out;
   }, [navGroups, language]);
 
+  /**
+   * ★ The theme bucket a nav leaf edits — resolved from the leaf's TIER DEFINITION,
+   * which is what the generator reads.
+   *
+   * This used to be `f.target_category`, a value hand-typed into both
+   * category_structure.yaml and the compiled .json. It had drifted on 13 of 92 leaves,
+   * and because this key is the board's read AND write key, on those leaves the board
+   * showed a look the filter does not emit and banked edits into a bucket nothing
+   * reads — or, worse, into another category's real bucket (editing Contracts restyled
+   * every Map). See filterStyle.resolveThemeKey.
+   *
+   * Until the map loads we return '' rather than guessing, so a leaf is never
+   * momentarily bound to the wrong bucket and saved there.
+   */
+  const leafKey = (f: any): string => (f?.tier_path ? themeKeyByPath[f.tier_path] || '' : '');
+
   const navFilter = navQuery.trim().toLowerCase();
   const searchHits = useMemo(() => {
     if (!navFilter) return [];
     const hit = (s?: string) => !!s && s.toLowerCase().includes(navFilter);
     return allLeaves.filter(({ f, crumb }) =>
-      hit(f.target_category || f.localization?.en) ||
+      hit(leafKey(f) || f.localization?.en) ||
       hit(f.localization?.[language]) ||
       hit(f.localization?.en) ||
       hit(f.path) ||
@@ -132,6 +148,9 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   // theme-category -> tier number -> {en, ch} display names from the tier
   // definitions, so this editor mirrors the editor's (renameable) tier names.
   const [tierLabelMap, setTierLabelMap] = useState<Record<string, Record<number, { en?: string; ch?: string }>>>({});
+
+  // tier-definition path -> theme resolution key, straight from the tier definitions.
+  const [themeKeyByPath, setThemeKeyByPath] = useState<Record<string, string>>({});
 
   const backgrounds = [
     { id: "Item_bg_coast.jpg", name: t.coast },
@@ -168,6 +187,8 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
   // Tier display names from the tier definitions (shared module cache).
   useEffect(() => { fetchTierLabelMap().then(setTierLabelMap); }, []);
+  // ...and, from the same cached walk, each leaf's theme resolution key.
+  useEffect(() => { fetchThemeKeyByPath().then(setThemeKeyByPath); }, []);
 
   // Fetch Base Theme Data
   useEffect(() => {
@@ -202,16 +223,36 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
   const getTiers = (data: any, cat: string) => sortTierKeys(data?.[cat]);
 
-  // Flat nav leaves keyed by resolution key (target_category), for label lookup + initial select.
+  // Flat nav leaves keyed by resolution key, for label lookup + initial select.
+  // Walks subgroups too — keying only off top-level `files` missed the 10 leaves that
+  // live under one (Heist, and all of League-Specific).
   const navLeaves = useMemo(() => {
       const out: { key: string; label_en: string; label: string }[] = [];
-      navGroups.forEach((g: any) => (g.files || []).forEach((f: any) => {
-          const key = f.target_category || f.localization?.en;
+      allLeaves.forEach(({ f }) => {
+          const key = leafKey(f);
           if (!key) return;
           out.push({ key, label_en: f.localization?.en || key, label: f.localization?.[language] || f.localization?.en || key });
-      }));
+      });
       return out;
-  }, [navGroups, language]);
+  }, [allLeaves, language, themeKeyByPath]);
+
+  /**
+   * How many nav leaves share a resolution key — several legitimately do (all 7
+   * Campaign leaves resolve to `Campaign`), and editing one then changes all of them.
+   * That is what the filter actually does, so the board says so rather than implying
+   * each leaf has a private look.
+   */
+  const leavesPerKey = useMemo(() => {
+      const n: Record<string, string[]> = {};
+      allLeaves.forEach(({ f }) => {
+          const key = leafKey(f);
+          if (!key) return;
+          const label = f.localization?.[language] || f.localization?.en || key;
+          if (!n[key]) n[key] = [];
+          if (!n[key].includes(label)) n[key].push(label);
+      });
+      return n;
+  }, [allLeaves, language, themeKeyByPath]);
 
   const catLabel = (cat: string) => {
       if (cat === 'Default') return language === 'ch' ? '默认 (后备样式)' : 'Default (fallback)';
@@ -221,7 +262,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
   // Select a nav leaf: edits the leaf's resolution key but highlights only this leaf.
   const selectLeaf = (f: any) => {
-      const key = f.target_category || f.localization?.en;
+      const key = leafKey(f);
       if (!key) return;
       setSelectedCategory(key);
       setSelectedLeaf(f.path || key);
@@ -230,7 +271,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   };
 
   const renderLeaf = (f: any) => {
-      const key = f.target_category || f.localization?.en;
+      const key = leafKey(f);
       if (!key) return null;
       const label = f.localization?.[language] || f.localization?.en || key;
       const id = f.path || key;
@@ -531,7 +572,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                   </div>
                 ) : (
                   searchHits.map(({ f, crumb }) => {
-                    const key = f.target_category || f.localization?.en;
+                    const key = leafKey(f);
                     const id = f.path || key;
                     const label = f.localization?.[language] || f.localization?.en || key;
                     return (
@@ -573,7 +614,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                 // Auto-flatten a single-file, no-subgroup group into one clickable row.
                 if (!hasSub && directFiles.length === 1) {
                   const f = directFiles[0];
-                  const key = f.target_category || f.localization?.en;
+                  const key = leafKey(f);
                   const id = f.path || key;
                   const gLabel = group._meta?.localization?.[language] || group._meta?.localization?.en || f.localization?.[language] || key;
                   return (
@@ -632,6 +673,19 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
           <div className="preview-area" onClick={() => { setEditingTier(null); setIsBulkEditing(false); }} style={getBackgroundStyle()}>
             <div className="preview-header">
               <h3>{catLabel(selectedCategory)}</h3>
+              {/* Several nav leaves can resolve to one theme key (all 7 Campaign leaves
+                  do). Editing here changes every one of them, so name them rather than
+                  let the author discover it in the exported filter. */}
+              {(leavesPerKey[selectedCategory]?.length ?? 0) > 1 && (
+                <span
+                  className="shared-key-note"
+                  title={leavesPerKey[selectedCategory].join(' · ')}
+                >
+                  {language === 'ch'
+                    ? `共用样式「${selectedCategory}」，同时影响 ${leavesPerKey[selectedCategory].length} 个分类`
+                    : `shared look "${selectedCategory}" — also affects ${leavesPerKey[selectedCategory].length - 1} other ${leavesPerKey[selectedCategory].length - 1 === 1 ? 'category' : 'categories'}`}
+                </span>
+              )}
               <BackgroundSwitcher />
               <button className="hue-gen-btn primary-action-btn" onClick={(e) => { e.stopPropagation(); setShowHueGenerator(true); }}>
                 🎛 {t.hueGenOpen}
@@ -984,6 +1038,11 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
         .search-hit .hit-label { display: flex; align-items: center; gap: 4px; }
         .leaf-crumb { font-size: 0.68rem; color: #aaa; }
         .category-item.active .leaf-crumb { color: rgba(255,255,255,0.75); }
+
+        /* "this look is shared with N other categories" — a warning, not decoration:
+           it is the difference between editing one category and editing seven. */
+        .shared-key-note { font-size: 0.72rem; color: #b26a00; background: #fff5e0; border: 1px solid #f0d18a;
+                           border-radius: 10px; padding: 2px 9px; white-space: nowrap; cursor: help; align-self: center; }
 
         /* Sits over the right border so the whole edge is grabbable. */
         .resize-handle { position: absolute; top: 0; right: -3px; width: 7px; height: 100%; cursor: col-resize; z-index: 5; background: transparent; }

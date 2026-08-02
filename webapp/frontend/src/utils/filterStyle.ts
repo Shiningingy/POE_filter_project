@@ -208,6 +208,41 @@ export const tierNumFromLabel = (label: string): number => {
 };
 
 /**
+ * The theme resolution key for one tier-definition category — the `[category]`
+ * half of `theme[category]["Tier N"]`.
+ *
+ * ★ There is ONE source for this: the tier definition's own `_meta.theme_category`,
+ * falling back to its top-level key. The filter is emitted from the tier tree, so
+ * the tier tree decides which look a block wears. Everything that displays or edits
+ * a look must ask this function, or it is editing a different bucket than the one
+ * that ships.
+ *
+ * It exists because three answers to "which theme key?" coexisted, and the two
+ * non-authoritative ones had both drifted:
+ *   * `tier_definition._meta.theme_category` — what the generator reads (correct);
+ *   * `base_mapping._meta.theme_category` — declared by 82 files and WRONG on 8
+ *     (`Heist` for all four Heist files, `Currency` for Currency/General,
+ *     `Fragment Splinters`, `Mirror Ring Bases`). Every one of those wrong values is
+ *     an orphan theme key — a row nothing else points at — which is what a duplicate
+ *     identity decays into. It dies with `base_mapping`;
+ *   * `category_structure.json`'s `target_category` — hand-typed in BOTH the yaml
+ *     and the compiled json (the compiler is a known-broken DO-NOT-RUN script), so
+ *     it drifted on 13 of 92 nav leaves with nothing to catch it.
+ *
+ * That drift was not a cosmetic mismatch. The theme board used `target_category` as
+ * its read AND write key, so on those 13 leaves it showed a look the filter does not
+ * emit and banked edits where nothing reads them — and where the wrong key happened
+ * to be another category's real key, editing Contracts restyled every Map while
+ * Contracts itself never changed.
+ */
+export const resolveThemeKey = (categoryData: any, categoryKey: string): string =>
+  categoryData?._meta?.theme_category || categoryKey;
+
+/** The first non-comment top-level key of a tier-definition document. */
+export const topCategoryKey = (doc: any): string | undefined =>
+  Object.keys(doc || {}).find(k => !k.startsWith("//"));
+
+/**
  * The theme row a tier block resolves to: `theme[category]["Tier N"]`.
  *
  * Two fallbacks, and they are NOT symmetric — this asymmetry is load-bearing and

@@ -1,6 +1,14 @@
-# [parsing_tool group C: DO NOT RUN] Known regression - it rewrites
-# category_structure.json wrongly. Edit the yaml AND the json by hand instead.
-# See parsing_tool/README.md.
+# [parsing_tool group C: VERIFY BEFORE RUNNING] Compiles category_structure.yaml ->
+# category_structure.json.
+#
+# The regression that made this DO-NOT-RUN was `target_category`: `_default_target`
+# stamped one theme key over a whole group, but the theme key belongs to the tier
+# definition, so recompiling silently repointed leaves at keys that did not exist.
+# That field no longer exists anywhere - a nav leaf carries no theme key at all now
+# (see filterStyle.resolveThemeKey) - so the specific regression is gone.
+#
+# It is still not proven to reproduce the checked-in JSON byte-for-byte in every
+# other respect, so diff its output before replacing the committed file.
 import yaml
 import json
 import os
@@ -12,17 +20,15 @@ DATA_DIR = BASE_DIR / "filter_generation" / "data"
 YAML_FILE = DATA_DIR / "category_structure.yaml"
 JSON_FILE = DATA_DIR / "category_structure.json"
 
-def parse_group(group_key, group_data, path_prefix="", parent_default_target=None):
+def parse_group(group_key, group_data, path_prefix=""):
     """
     Parses a dictionary representing a group (Category or Subgroup).
     Returns a dictionary matching the JSON structure for a Category/Subgroup.
     """
-    
+
     # Metadata
     loc_en = group_key
     loc_ch = group_data.get("_name", group_key)
-    
-    default_target = group_data.get("_default_target", parent_default_target)
 
     # Disk-path base for shorthand children. Defaults to the display key chain
     # (path_prefix), but `_dir:` overrides it so a category can be displayed at a
@@ -53,30 +59,25 @@ def parse_group(group_key, group_data, path_prefix="", parent_default_target=Non
         is_subgroup = isinstance(value, dict) and "_name" in value
         
         if is_subgroup:
-            subgroups.append(parse_group(key, value, current_path, default_target))
+            subgroups.append(parse_group(key, value, current_path))
         else:
             # It's a file
-            # Value can be string (ch name) or dict ({name: ch, target: ...})
+            # Value can be string (ch name) or dict ({name: ch, path: ...})
             file_name_ch = value
-            target_cat = default_target
             # Path derives from the disk-path base, not the display key chain.
             file_path = f"{dir_base}/{key}.json" if dir_base else f"{key}.json"
-            
+
             if isinstance(value, dict):
                 file_name_ch = value.get("name", key)
-                if "target" in value:
-                    target_cat = value["target"]
                 if "path" in value:
                     file_path = value["path"]
-            
-            if target_cat is None:
-                target_cat = key # Default to file key if no default set
-                
+
+            # No theme key here on purpose: the tier definition at tier_path owns the
+            # look. See filterStyle.resolveThemeKey.
             file_obj = {
                 "path": file_path,
                 "tier_path": f"tier_definition/{file_path}",
                 "mapping_path": f"base_mapping/{file_path}",
-                "target_category": target_cat,
                 "localization": {
                     "en": key,
                     "ch": file_name_ch
@@ -106,6 +107,7 @@ def main():
             categories.append({"separator": cat_data["_separator"]})
             continue
         categories.append(parse_group(cat_key, cat_data, path_prefix=cat_key))
+
         
     output = {"categories": categories}
     

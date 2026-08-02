@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 // The simulator renders CSS rather than filter lines, but it must resolve the
 // SAME theme row the exported block gets — see filterStyle.resolveTierTheme.
-import { resolveTierTheme } from './filterStyle';
+import { resolveTierTheme, resolveThemeKey } from './filterStyle';
 
 export interface ItemProps {
     name: string; // BaseType
@@ -183,15 +183,15 @@ const resolveStyle = (
         if (tierDefContent) {
             const groupKey = Object.keys(tierDefContent).find(k => k !== '_meta' && !k.startsWith('//'));
             if (groupKey) {
-                category = tierDefContent[groupKey]?._meta?.theme_category || groupKey;
+                category = resolveThemeKey(tierDefContent[groupKey], groupKey);
             }
         } else {
-            // Tier def not loaded — fall back to base_mapping meta / path inference.
-            const mappingContent = context.mappings[matchedFile];
-            const metaCat = mappingContent?._meta?.theme_category;
-            if (metaCat) {
-                category = metaCat;
-            } else {
+            // Tier def not loaded — infer from the path. The base_mapping `_meta.theme_category`
+            // that used to be consulted here is a stale duplicate: 8 of the 82 files that declare
+            // it name a key the generator never resolves to (all four Heist files say "Heist",
+            // not "Heist Contracts"/"Heist Blueprints"/...), so falling back to it showed a style
+            // the filter does not emit — exactly what this module was fixed to stop doing.
+            {
                 const parts = matchedFile.split('/');
                 const relevantParts = parts.filter(p => p !== 'base_mapping' && !p.endsWith('.json'));
                 if (relevantParts.length > 0) category = relevantParts[relevantParts.length - 1];

@@ -10,6 +10,7 @@ import axios from 'axios';
 import { useTranslation, translations, RULE_FACTOR_LOCALIZATION } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import { resolveStyle } from '../utils/styleResolver';
+import { resolveThemeKey } from '../utils/filterStyle';
 import { STRICTNESS_LEVELS, type StrictnessLevel, type LevelingSelection, isLevelingSelected } from '../utils/filterGenerator';
 
 interface EditorViewProps {
@@ -170,7 +171,7 @@ const EditorView: React.FC<EditorViewProps> = ({
               rules = augmentedRules;
           }
 
-          const themeCategory = catData._meta?.theme_category || catKey;
+          const themeCategory = resolveThemeKey(catData, catKey);
           const resolvedStyle = resolveStyle(tierData, themeData, themeCategory, soundMap, inspectedTierKey);
 
           return {

@@ -1,19 +1,20 @@
-# ⚠️ DO NOT blindly run parsing_tool/generate_category_json.py over this file.
+# Nav structure: chapter separator -> group -> optional subgroup -> leaf.
+# Compiled to category_structure.json by parsing_tool/generate_category_json.py.
 #
-# It has drifted from the checked-in category_structure.json and a full recompile
-# is a REGRESSION: `_default_target: Stackable Currency` makes the compiler stamp
-# that on every currency leaf, but `target_category` is the THEME RESOLUTION KEY
-# (ThemePresetEditor.tsx:100/206) and must match the tier_definition's
-# `_meta.theme_category` - "Essences", "Fossils", "Delirium Orbs", ... The theme
-# file has no "Stackable Currency" entry at all, so recompiling silently points
-# five currency categories at a key that does not exist.
+# ⚠️ Still diff the compiler's output before replacing the .json - it is not proven
+# to reproduce the committed file byte-for-byte. For a small change (a nav add or
+# remove, ~10 lines) it remains easiest to edit BOTH files by hand.
 #
-# Note the MAPPING file's `_meta.theme_category` is NOT the one that matters:
-# generate.py reads the TIER file's. They disagree today (mapping says
-# "Stackable Currency", tier says "Essences") and the tier file wins.
+# ★ A LEAF CARRIES NO THEME KEY. It used to: `target: X` / `_default_target: X`
+# compiled to `target_category`, and the theme board used that as its read AND write
+# key. Being hand-typed in two files it drifted from the value the generator actually
+# reads - the tier definition's `_meta.theme_category` - on 13 of 92 leaves, so the
+# board showed looks the filter does not emit and banked edits where nothing reads
+# them (editing Contracts restyled every Map). Both keys are gone; the tier definition
+# at `tier_path` is the single source. See filterStyle.resolveThemeKey.
 #
-# Until the compiler is reconciled with the JSON, edit BOTH files by hand for a
-# small change - a nav add/remove is ~10 lines in each.
+# Do not reintroduce a theme key here. To give a category its own look, set
+# `_meta.theme_category` in its tier_definition file.
 
 _chapter_general:
   _separator:
@@ -22,16 +23,13 @@ _chapter_general:
 
 Currency:
   _name: 通货
-  _default_target: Stackable Currency
   General: 通用通货
   Gold:
     name: 金币
-    target: Gold
     path: Currency/Gold.json
 
 League Currency:
   _name: 联盟通货
-  _default_target: Stackable Currency
   Delirium Orbs:
     name: 雾魇宝珠
     path: Currency/Delirium Orbs.json
@@ -67,17 +65,14 @@ League Currency:
 
 Uniques:
   _name: 传奇物品
-  _default_target: Unique Items
   General: 传奇物品
 
 Gems:
   _name: 宝石
   Skill:
     name: 技能宝石
-    target: Skill Gems
   Support:
     name: 辅助宝石
-    target: Support Gems
 
 _chapter_maps:
   _separator:
@@ -86,17 +81,14 @@ _chapter_maps:
 
 Maps & Fragments:
   _name: 地图与碎片
-  _default_target: Maps
   Base Maps:
     name: 常规地图
     path: Maps/Base Maps.json
   Scarabs:
     name: 圣甲虫
-    target: Map Fragments
     path: Maps/Scarabs.json
   Fragments:
     name: 地图碎片与邀请
-    target: Map Fragments
     path: Maps/Fragments.json
   # Splinters are the FEEDERS - each stacks into something in Fragments above
   # (100 -> Emblem / Breachstone / Ritual Vessel, 300 -> Simulacrum, 10 Crescent
@@ -104,7 +96,6 @@ Maps & Fragments:
   # theme resolution; see the note in the commit that moved this here.
   Fragment Splinters:
     name: 碎片
-    target: Splinters
     path: Maps/Fragment Splinters.json
   Heist:
     _name: 赏金猎人
@@ -123,98 +114,71 @@ _chapter_general_gear:
 Armour:
   _name: 护甲
   _dir: Equipment/Armour
-  _default_target: Body Armours
   Body Armours: 胸甲
   Helmets:
     name: 头部
-    target: Helmets
   Gloves:
     name: 手套
-    target: Gloves
   Boots:
     name: 鞋子
-    target: Boots
   Shields:
     name: 盾
-    target: Shields
   Quivers:
     name: 箭袋
-    target: Quivers
 
 Weapons:
   _name: 武器
   _dir: Equipment/Weapons
-  _default_target: Bows
   Bows: 弓
   Wands:
     name: 法杖
-    target: Wands
   Claws:
     name: 爪
-    target: Claws
   Daggers:
     name: 匕首
-    target: Daggers
   Rune Daggers:
     name: 符文匕首
-    target: Rune Daggers
   Sceptres:
     name: 短杖
-    target: Sceptres
   Staves:
     name: 长杖
-    target: Staves
   Warstaves:
     name: 战杖
-    target: Warstaves
   One Hand Axes:
     name: 单手斧
-    target: One Hand Axes
   One Hand Maces:
     name: 单手锤
-    target: One Hand Maces
   One Hand Swords:
     name: 单手剑
-    target: One Hand Swords
   Two Hand Axes:
     name: 双手斧
-    target: Two Hand Axes
   Two Hand Maces:
     name: 双手锤
-    target: Two Hand Maces
   Two Hand Swords:
     name: 双手剑
-    target: Two Hand Swords
 
 Jewellery:
   _name: 首饰
   _dir: Equipment/Jewellery
-  _default_target: Amulets
   Amulets: 项链
   Rings:
     name: 戒指
-    target: Rings
   Belts:
     name: 腰带
-    target: Belts
 
 Flasks:
   _name: 药剂
-  _default_target: Life Flasks
   Life: 生命药剂
   Mana:
     name: 魔力药剂
-    target: Mana Flasks
   Utility:
     name: 功能药剂
-    target: Utility Flasks
   Tinctures:
     name: 酊剂
     path: Flasks/Tinctures.json
 
 Jewels:
   _name: 珠宝
-  _default_target: Jewels
   Base Jewels: 基础珠宝
   Cluster Jewels: 星团珠宝
   Abyss Jewels: 深渊珠宝
@@ -459,10 +423,8 @@ Heist Gear:
 
 Misc:
   _name: 杂项
-  _default_target: Misc
   General:
     name: 其他杂项
-    target: Quest Items
     path: Misc/General.json
 
 _Legacy:

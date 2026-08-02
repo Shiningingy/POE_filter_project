@@ -27,6 +27,7 @@ import CategoryRenameModal from "./CategoryRenameModal";
 import LoadingOverlay from "./LoadingOverlay";
 import { invalidateTierLabelMap } from "../utils/tierLabels";
 import { resolveStyle } from "../utils/styleResolver";
+import { resolveThemeKey } from "../utils/filterStyle";
 import { useTranslation, translations } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import tierTemplate from "../config/tierTemplate.json";
@@ -760,8 +761,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
 
   const catName =
     activeCategoryData._meta?.localization?.[language] || activeCategoryKey;
-  const themeCategory =
-    activeCategoryData._meta?.theme_category || activeCategoryKey;
+  const themeCategory = resolveThemeKey(activeCategoryData, activeCategoryKey);
 
   const tierOptions = sortedTierKeys.map((tk) => {
     const td = activeCategoryData[tk];

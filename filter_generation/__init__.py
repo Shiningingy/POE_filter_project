@@ -1,3 +1,10 @@
+# ⚠️ DEAD CODE - NOT A GENERATOR ANY MORE. Nothing imports this module, and it must
+# not be revived: ADR-0007 says there is ONE generation engine
+# (webapp/frontend/src/utils/filterGenerator.ts, driven from the CLI by
+# filter_generation/generate.mjs). This file predates even generate.py - it uses the
+# 'zh' language code (the app's is 'ch'), hardcoded relative Windows paths, and reads
+# theme_category with the wrong fallback. Kept only as the record of the original
+# shape; delete once nobody needs the archaeology.
 import json
 import re
 from pathlib import Path

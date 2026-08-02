@@ -10,6 +10,7 @@
 // versions, the deployed site runs these.
 
 import axios from 'axios';
+import { resolveThemeKey } from '../utils/filterStyle';
 
 export const VFS_PREFIX = 'demo_vfs_';
 
@@ -327,7 +328,10 @@ export const mappingInfo = async (fileName: string) => {
   const { mappings, tiers } = await getMergedState();
   const mappingContent = mappings[fileName];
   if (!mappingContent) throw new Error(`Mapping not found: ${fileName}`);
-  const themeCategory = mappingContent?._meta?.theme_category;
+  // The tier definition decides the look, so report ITS key — not the base_mapping
+  // duplicate this used to read, which is wrong on 8 of the 82 files that declare it
+  // (this panel said "Heist" for Contracts; the filter styles it "Heist Contracts").
+  let themeCategory: string | undefined;
 
   const availableTiers: any[] = [];
   const tierDefs = tiers[fileName];
@@ -335,6 +339,7 @@ export const mappingInfo = async (fileName: string) => {
     const categoryKey = Object.keys(tierDefs).find(k => !k.startsWith('//'));
     if (categoryKey) {
       const categoryData = tierDefs[categoryKey];
+      themeCategory = resolveThemeKey(categoryData, categoryKey);
       const catLoc = categoryData?._meta?.localization || {};
       const catEn = catLoc.en ?? categoryKey;
       const catCh = catLoc.ch ?? catEn;

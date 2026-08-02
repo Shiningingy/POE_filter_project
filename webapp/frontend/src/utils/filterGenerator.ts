@@ -94,7 +94,7 @@ interface GeneratorData {
 // block LOOKS belongs there; this file owns which blocks exist and in what order.
 import {
   DEFAULT_FONT_SIZE, styleOff, parseRgba, conditionLines, resolveTierTheme, splitByOverride,
-  blockText, resolveSound, tierNumFromLabel,
+  blockText, resolveSound, tierNumFromLabel, resolveThemeKey,
 } from './filterStyle';
 
 // Generator-output vocabulary (terms that appear in filter comments). Deliberately
@@ -255,7 +255,7 @@ export const generateFilter = (data: GeneratorData): string => {
       itemClassHeader = itemClass;
     }
 
-    const themeCatKey = meta.theme_category || categoryKey;
+    const themeCatKey = resolveThemeKey({ _meta: meta }, categoryKey);
     // (The theme-row lookup itself now lives in filterStyle.resolveTierTheme, so the
     // editor preview and the simulator resolve the identical row.)
 

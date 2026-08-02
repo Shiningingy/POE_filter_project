@@ -1669,7 +1669,11 @@ def get_mapping_info(file_name: str):
     path = safe_join(CONFIG_DATA_DIR / "base_mapping", file_name)
     try:
         with open(path, "r", encoding="utf-8") as f: mapping_content = json.load(f)
-        theme_category = mapping_content.get("_meta", {}).get("theme_category")
+        # The look comes from the TIER definition, so report its key (set below).
+        # This used to read the base_mapping duplicate, which is wrong on 8 of the 82
+        # files that declare it - it showed "Heist" for Contracts while the filter
+        # styles it "Heist Contracts". Keep in step with clientData.mappingInfo.
+        theme_category = None
         available_tiers = []
         # Load tiers from the matching tier_definition file (same relative path as the mapping file)
         tier_def_path = CONFIG_DATA_DIR / "tier_definition" / file_name
@@ -1680,6 +1684,7 @@ def get_mapping_info(file_name: str):
                 category_key = next((k for k in tier_defs if not k.startswith("//")), None)
                 if category_key:
                     category_data = tier_defs[category_key]
+                    theme_category = category_data.get("_meta", {}).get("theme_category") or category_key
                     cat_loc = category_data.get("_meta", {}).get("localization", {})
                     cat_en = cat_loc.get("en", category_key)
                     cat_ch = cat_loc.get("ch", cat_en)
