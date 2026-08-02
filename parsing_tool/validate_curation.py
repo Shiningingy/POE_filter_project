@@ -547,7 +547,89 @@ def validate(only: str | None, catalog: str | None) -> Report:
         if not os.path.exists(os.path.join(BM, rel.replace("/", os.sep))):
             rep.add("INFO", f"tier_definition/{rel}",
                     "no base_mapping partner (fine for a rules-only category)")
+
+    if not only:
+        check_nav(rep)
     return rep
+
+
+# Keys that would re-create the theme-category identity this repo just collapsed.
+# `target_category` was the compiled form; `target` / `_default_target` the yaml source.
+NAV_THEME_KEYS = ("target_category", "target", "_default_target", "theme_category")
+
+
+def check_nav(rep: Report) -> None:
+    """The nav must not name a theme, and every leaf must point at a real tier file.
+
+    A nav leaf carries NO theme key. The look belongs to the tier definition
+    (`_meta.theme_category`), which is what the generator reads. `target_category` used
+    to duplicate that answer, hand-typed into BOTH category_structure.yaml and the
+    compiled .json - so it drifted on 13 of 92 leaves, and because the theme board used
+    it as its read AND write key, those leaves showed a look the filter does not emit
+    and banked edits into a bucket nothing reads. Where the drifted value happened to be
+    another category's real key it was worse than useless: styling Contracts restyled
+    every Map and left Contracts untouched.
+
+    This check exists so that cannot come back quietly. It is cheap and it is exact:
+    the field is gone, so any occurrence is a reintroduction.
+    """
+    nav_rel = "filter_generation/data/category_structure.json"
+    nav_path = os.path.join(REPO, nav_rel)
+    if not os.path.exists(nav_path):
+        rep.add("ERROR", nav_rel, "nav structure is missing")
+        return
+    doc = load(nav_path, nav_rel, rep)
+    if doc is None:
+        return
+
+    leaves: list[tuple[str, dict]] = []
+
+    def walk(node: dict, crumb: str) -> None:
+        for leaf in node.get("files", []):
+            leaves.append((crumb, leaf))
+        for sub in node.get("subgroups", []):
+            name = (sub.get("_meta", {}).get("localization", {}).get("en")) or "?"
+            walk(sub, f"{crumb} › {name}" if crumb else name)
+
+    for group in doc.get("categories", []):
+        if "separator" in group:
+            continue
+        walk(group, (group.get("_meta", {}).get("localization", {}).get("en")) or "?")
+
+    for crumb, leaf in leaves:
+        label = leaf.get("localization", {}).get("en") or leaf.get("path") or "?"
+        where = f"{nav_rel} [{crumb} › {label}]"
+
+        for key in NAV_THEME_KEYS:
+            if key in leaf:
+                rep.add("ERROR", where,
+                        f"nav leaf declares {key!r} - a nav leaf must NOT name a theme. "
+                        f"The look comes from the tier definition's _meta.theme_category; "
+                        f"a second copy here drifts and silently styles the wrong category")
+
+        tier_path = leaf.get("tier_path")
+        if not tier_path:
+            rep.add("ERROR", where, "nav leaf has no 'tier_path', so it resolves to no look")
+            continue
+        if not os.path.exists(os.path.join(REPO, "filter_generation", "data",
+                                           tier_path.replace("/", os.sep))):
+            rep.add("ERROR", where,
+                    f"tier_path {tier_path!r} does not exist - the editor opens this leaf "
+                    f"onto nothing and it has no resolvable theme")
+
+    # The yaml is the nav's source; a key removed from the json but left here comes back
+    # the moment anyone recompiles.
+    yaml_rel = "filter_generation/data/category_structure.yaml"
+    yaml_path = os.path.join(REPO, yaml_rel)
+    if os.path.exists(yaml_path):
+        with open(yaml_path, encoding="utf-8") as fh:
+            for n, line in enumerate(fh, 1):
+                stripped = line.strip()
+                for key in ("target:", "_default_target:"):
+                    if stripped.startswith(key):
+                        rep.add("ERROR", f"{yaml_rel}:{n}",
+                                f"{key} sets a nav-level theme key; it is retired. "
+                                f"Set _meta.theme_category in the tier_definition instead")
 
 
 def main() -> None:
