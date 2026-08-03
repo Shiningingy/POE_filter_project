@@ -112,6 +112,49 @@ export const allTierDefinitions = {
     },
   },
 
+  // ★ Decorator tiers COMPOSE instead of terminating: they emit only the channels they
+  // state, then `Continue`, so a state layers over whatever styles the item next.
+  // Pinned here because three things are easy to regress and all are silent:
+  //   * no SetFontSize (styleLines always emits one; a decorator must not),
+  //   * no fallback to the theme row for unstated channels,
+  //   * the `Continue` line itself, last.
+  // The negative cases are pinned too: no conditions, and a hide tier, both emit NOTHING.
+  'Beta/Decorated.json': {
+    Decorated: {
+      _meta: {
+        theme_category: 'TestTheme',
+        item_class: { en: 'Decorated', ch: '装饰' },
+        localization: { en: 'Decorated', ch: '装饰' },
+        tier_order: ['Corrupted Overlay', 'Naked Overlay', 'Hidden Overlay'],
+        gen_order: -20,   // decorators must precede what they decorate
+      },
+      'Corrupted Overlay': {
+        decorator: true,
+        conditions: { Corrupted: 'True' },
+        // Border ONLY. TextColor/BackgroundColor are deliberately unstated, and the
+        // theme row for Tier 1 must NOT fill them in.
+        theme: { Tier: 1, BorderColor: '#ff0000ff' },
+        sound: { default_sound_id: -1, sharket_sound_id: null },
+        localization: { en: 'Corrupted', ch: '腐化' },
+      },
+      'Naked Overlay': {
+        decorator: true,
+        conditions: {},            // no conditions -> would repaint everything -> skipped
+        theme: { Tier: 2, BorderColor: '#00ff00ff' },
+        sound: { default_sound_id: -1, sharket_sound_id: null },
+        localization: { en: 'Naked', ch: '空' },
+      },
+      'Hidden Overlay': {
+        decorator: true,
+        is_hide_tier: true,        // hide + continue is a contradiction -> skipped
+        conditions: { Corrupted: 'False' },
+        theme: { Tier: 9, BorderColor: '#0000ffff' },
+        sound: { default_sound_id: -1, sharket_sound_id: null },
+        localization: { en: 'HiddenDeco', ch: '隐藏装饰' },
+      },
+    },
+  },
+
   // Underscore folder: a mapping value naming a tier this category does not define
   // is REMAPPED onto the first non-hide tier rather than dropped. Everywhere else
   // the same key silently emits nothing — the difference is the point.
@@ -222,6 +265,17 @@ export const allMappings = {
       item_class: { en: 'Classy', ch: '类别' },
       theme_category: 'TestTheme',
       excluded_modes: ['ruthless'],
+    },
+    mapping: {},
+    rules: [],
+  },
+
+  // A decorator matches by condition alone, so its mapping is deliberately empty.
+  'Beta/Decorated.json': {
+    _meta: {
+      localization: { ch: {} },
+      item_class: { en: 'Decorated', ch: '装饰' },
+      theme_category: 'TestTheme',
     },
     mapping: {},
     rules: [],

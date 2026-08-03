@@ -319,6 +319,42 @@ def load_class_names() -> set[str]:
     return out
 
 
+STYLE_CHANNELS = ("FontSize", "TextColor", "BorderColor", "BackgroundColor",
+                  "PlayEffect", "MinimapIcon")
+
+
+def check_decorator(where: str, label: str, tier: dict, rep: Report) -> None:
+    """A decorator composes instead of terminating - three ways it silently does nothing.
+
+    A decorator emits only the channels it states, then `Continue`, so a state is authored
+    once and layers over every preset (reference_poe_filter_format.md §3). Each failure
+    below makes the generator SKIP the block or emit a useless one, with nothing in the
+    output to notice - which is exactly the class of bug this validator exists for.
+    """
+    if not tier.get("decorator"):
+        return
+    if not tier.get("conditions"):
+        rep.add("ERROR", where,
+                f"{label}: decorator has no conditions. It is skipped - and if it were "
+                f"not, it would repaint every item in the game")
+    if tier.get("is_hide_tier"):
+        rep.add("ERROR", where,
+                f"{label}: a decorator cannot be a hide tier. Hiding an item and then "
+                f"asking later blocks to keep styling it is a contradiction, and under "
+                f"Ruthless hide is `Minimal`, which still draws a label")
+    theme = tier.get("theme") or {}
+    stated = [k for k in STYLE_CHANNELS if theme.get(k) is not None]
+    if not stated:
+        rep.add("ERROR", where,
+                f"{label}: decorator states no style channel, so it emits a bare "
+                f"`Continue` and changes nothing. A decorator exists to set one channel")
+    elif len(stated) > 2:
+        rep.add("WARN", where,
+                f"{label}: decorator sets {len(stated)} channels ({', '.join(stated)}). "
+                f"The more it claims, the less it can compose with - FilterBlade sets "
+                f"exactly one on 42 of its 44 decorators")
+
+
 def check_style_grammar(where: str, label: str, style: dict, rep: Report) -> None:
     """Beam and icon have a grammar, and one bad line kills the whole filter.
 
@@ -451,6 +487,7 @@ def validate(only: str | None, catalog: str | None) -> Report:
             twhere = f"tier_definition/{rel}"
             check_style_grammar(twhere, f"{t_key} theme", entry.get("theme") or {}, rep)
             check_operators(twhere, f"{t_key} conditions", entry.get("conditions") or {}, rep)
+            check_decorator(twhere, t_key, entry, rep)
 
             for base, ovr in (entry.get("item_overrides") or {}).items():
                 label = f"{t_key} card {base!r}"

@@ -56,7 +56,7 @@ export interface BlockRecord {
   file: string;      // tier_definition-relative path, POSIX
   tier_key: string;
   tier_num: number;
-  source: 'class_condition' | 'rule' | 'tier_base' | 'card';
+  source: 'class_condition' | 'rule' | 'tier_base' | 'card' | 'decorator';
   match: string | null;   // 'Exact' | 'Partial' (untranslated)
   rule: string | null;    // the rule's display part, when a rule emitted this
   bases: string[];
@@ -94,7 +94,7 @@ interface GeneratorData {
 // block LOOKS belongs there; this file owns which blocks exist and in what order.
 import {
   DEFAULT_FONT_SIZE, styleOff, parseRgba, conditionLines, resolveTierTheme, splitByOverride,
-  blockText, resolveSound, tierNumFromLabel, resolveThemeKey,
+  blockText, resolveSound, tierNumFromLabel, resolveThemeKey, decoratorStyleLines, CONTINUE_LINE,
 } from './filterStyle';
 
 // Generator-output vocabulary (terms that appear in filter comments). Deliberately
@@ -362,6 +362,40 @@ export const generateFilter = (data: GeneratorData): string => {
       // Tier label shown in comment headers (e.g. "T1: High End"); the filter
       // command + theme lookup still key off tnum above.
       const tierDisplay = tierEntry.localization?.[language] || tierEntry.localization?.en || `Tier ${tnum}`;
+
+      // --- Decorator tiers: COMPOSE instead of terminate ---
+      // States (corrupted, fractured, enchanted...) are authored once here and layer
+      // over whatever styles the item next, because `Continue` makes later blocks
+      // override only the properties they themselves set. See
+      // filterStyle.decoratorStyleLines and reference_poe_filter_format.md §3.
+      if (tierEntry.decorator) {
+        const decConditions = tierEntry.conditions || {};
+        // Conditions are the whole point - a decorator with none would repaint every
+        // item in the game.
+        if (Object.keys(decConditions).length === 0) continue;
+        // A hide that continues is a contradiction: it suppresses the item and then
+        // asks later blocks to keep styling it. Ruthless makes this worse, since hide
+        // is `Minimal` and still draws a label.
+        if (isHide) continue;
+        blockIndex++;
+        const decDisplay = tierEntry.localization?.[language] || tierEntry.localization?.en || tLbl;
+        outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${decDisplay} ${locCat} - Decorator==`);
+        const decLines = ["Show"];
+        emitConditions(decLines, decConditions);
+        // The tier's OWN theme only. No row lookup, no defaults - a decorator that
+        // filled in the rest would overwrite the preset it exists to decorate.
+        decLines.push(...decoratorStyleLines(tierEntry.theme || {}));
+        const decSound = resolveSound(tierEntry, soundMap);
+        if (decSound) decLines.push(`    ${decSound}`);
+        decLines.push(CONTINUE_LINE);
+        outLines.push(blockText(decLines, false));
+        data.onBlock?.({
+          order: blockIndex, file: relPath, tier_key: tLbl, tier_num: tnum,
+          source: 'decorator', match: null, rule: null, bases: [],
+          is_hide: false, text: outLines[outLines.length - 1],
+        });
+        continue;
+      }
 
       // --- Class-Condition tiers (e.g. _campaign/Armour.json) ---
       // Emit one Class-gated block (no BaseType enumeration) and skip normal

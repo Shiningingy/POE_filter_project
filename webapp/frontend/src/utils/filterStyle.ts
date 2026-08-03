@@ -395,6 +395,46 @@ export const conditionLines = (conditions: Record<string, any> | undefined | nul
   return lines;
 };
 
+/** The line that makes a block COMPOSE instead of terminate. */
+export const CONTINUE_LINE = "    Continue";
+
+/**
+ * ★ A DECORATOR block: it states one or two channels, then `Continue`s.
+ *
+ * Verified in game 2026-08-03 (see reference_poe_filter_format.md §3): without
+ * `Continue` the first matching block wins whole-block and evaluation stops; WITH it,
+ * later matching blocks override only the properties THEY set, and anything they leave
+ * unset keeps the earlier value. So a state — corrupted, fractured, enchanted — is
+ * authored once and layers over every preset: 29 + 8 instead of 29 x 8. FilterBlade
+ * runs 44 such blocks, 42 of which set exactly one channel.
+ *
+ * Two rules make it work, and both are why this cannot reuse `styleLines`:
+ *
+ *  1. **Only stated channels are emitted — no theme row, no defaults.** `styleLines`
+ *     always emits `SetFontSize` (defaulting to 32) and falls back to the theme row for
+ *     everything else. A decorator doing that would claim every channel and overwrite
+ *     the very preset it is supposed to decorate.
+ *  2. **The decorator must be emitted BEFORE what it decorates**, and the preset must
+ *     leave that channel unset. Ordering is `_meta.gen_order` (category-level), so a
+ *     decorator category wants a low one.
+ */
+export const decoratorStyleLines = (theme: any): string[] => {
+  const lines: string[] = [];
+  if (!theme) return lines;
+  const put = (key: string, fmt: (v: any) => string) => {
+    const v = theme[key];
+    if (v === undefined || v === null || styleOff(v)) return;
+    lines.push(`    ${fmt(v)}`);
+  };
+  put("FontSize", v => `SetFontSize ${v}`);
+  put("TextColor", v => `SetTextColor ${parseRgba(v)}`);
+  put("BorderColor", v => `SetBorderColor ${parseRgba(v)}`);
+  put("BackgroundColor", v => `SetBackgroundColor ${parseRgba(v)}`);
+  put("PlayEffect", v => `PlayEffect ${v}`);
+  put("MinimapIcon", v => `MinimapIcon ${v}`);
+  return lines;
+};
+
 /**
  * Emit a block's STYLE lines, in the generators' exact order.
  *

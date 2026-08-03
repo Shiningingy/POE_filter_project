@@ -6,6 +6,7 @@
 #    [11000] Alpha Alpha - 核心物品 Core
 #  [20000] Beta Beta
 #    [21000] Beta Beta - 类别 Classy
+#    [22000] Beta Beta - 装饰 Decorated
 #  [30000] 过渡 _campaign
 #    [31000] 过渡 _campaign - 进阶 Bands
 #  [40000] _legacy _legacy
@@ -92,6 +93,15 @@ Show
     SetTextColor 255 255 255 255
     SetBorderColor 255 0 0 255
     SetBackgroundColor 0 0 0 255
+
+
+#==[22000]-Beta Beta - 装饰 Decorated==
+
+#==[22001]- 装饰 -腐化 装饰 - Decorator==
+Show
+    Corrupted True
+    SetBorderColor 255 0 0 255
+    Continue
 
 
 #===================================================================================================================
