@@ -154,7 +154,7 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
 
     // 2 + 3. Resolve category + style from theme (shared with getMatchingRules).
     // No matched file -> empty key resolves to the Default theme bucket.
-    const { style, visible } = resolveStyle(matchedFile ?? '', tierKey, context);
+    const { style, visible } = resolveStyle(matchedFile ?? '', tierKey, context, item);
 
     return {
         visible,
@@ -166,12 +166,48 @@ export const evaluateItem = (item: ItemProps, context: FilterContext): Simulatio
     };
 };
 
+/**
+ * ★ Decorator tiers whose conditions match this item, in EMISSION order.
+ *
+ * A decorator sets one channel and `Continue`s, so several can stack under the block
+ * that finally claims the item. Order is `_meta.gen_order` then path — the generator's
+ * order — because when two decorators set the same channel the later one wins.
+ *
+ * The two skips mirror the generator exactly: a decorator with no conditions and one on
+ * a hide tier emit nothing, so they must not tint the simulation either.
+ */
+export const matchingDecorators = (
+    item: ItemProps,
+    context: FilterContext,
+): { path: string; key: string; tier: any }[] => {
+    const found: { path: string; key: string; tier: any; order: number }[] = [];
+    const defs = (context.tierDefinitions || {}) as Record<string, any>;
+    for (const [path, content] of Object.entries(defs)) {
+        const groupKey = Object.keys(content || {}).find(k => k !== '_meta' && !k.startsWith('//'));
+        if (!groupKey) continue;
+        const cat = content[groupKey];
+        const order = cat?._meta?.gen_order ?? 0;
+        for (const [key, tier] of Object.entries<any>(cat || {})) {
+            if (key === '_meta' || !tier || typeof tier !== 'object' || !tier.decorator) continue;
+            if (tier.is_hide_tier) continue;
+            if (!tier.conditions || Object.keys(tier.conditions).length === 0) continue;
+            if (!checkRuleMatch(item, { conditions: tier.conditions }, context.globalAreaLevel)) continue;
+            found.push({ path, key, tier, order });
+        }
+    }
+    found.sort((a, b) => a.order - b.order || (a.path < b.path ? -1 : a.path > b.path ? 1 : 0));
+    return found.map(({ path, key, tier }) => ({ path, key, tier }));
+};
+
 // Resolve the category + rendered style for a (file, tier) pair. Extracted from
 // evaluateItem so the rule-inspector (getMatchingRules) renders identical styles.
+// `item` is optional and only enables the decorator layer — callers that have no item
+// (a bare block preview) get exactly the pre-composition behaviour.
 const resolveStyle = (
     matchedFile: string | null,
     matchedTier: string,
-    context: FilterContext
+    context: FilterContext,
+    item?: ItemProps,
 ): { style: CSSProperties & { sound?: any }; visible: boolean; category: string } => {
     // 2. Resolve Category from the tier_definition's theme_category (matches the
     // Python/frontend generators). Falls back to the tier_definition's top-level key
@@ -240,13 +276,37 @@ const resolveStyle = (
         if (row && Object.keys(row).length > 0) themeStyle = row;
     }
 
+    // ★ The decorator layer sits BENEATH the block's own style, because `Continue` means
+    // later blocks override only the properties THEY set. So a decorator's channel
+    // survives exactly where the block omits one — which is why the omitted channels are
+    // separated out below instead of being spread as `undefined` and deleted wholesale.
+    let decoratorCss: CSSProperties = {};
+    if (item) {
+        for (const d of matchingDecorators(item, context)) {
+            const c: any = convertThemeStyle(d.tier.theme || {});
+            for (const k of Object.keys(c)) if (c[k] === undefined) delete c[k];
+            decoratorCss = { ...decoratorCss, ...c };
+        }
+    }
+
     if (themeStyle) {
-        const converted = convertThemeStyle(themeStyle);
-        style = { ...style, ...converted };
+        const converted: any = convertThemeStyle(themeStyle);
+        const emitted: any = {};
+        const omitted: string[] = [];
+        for (const [k, v] of Object.entries(converted)) {
+            if (v === undefined) omitted.push(k); else emitted[k] = v;
+        }
+        style = { ...style, ...decoratorCss };
+        // An omitted channel still clears the simulator's placeholder default (so the
+        // rarity colour can show), but NOT a decorator that deliberately painted it.
+        for (const k of omitted) if (!(k in decoratorCss)) delete (style as any)[k];
+        style = { ...style, ...emitted };
 
         Object.keys(style).forEach(key => {
             if ((style as any)[key] === undefined) delete (style as any)[key];
         });
+    } else {
+        style = { ...style, ...decoratorCss };
     }
 
     // `is_hide_tier` is what the generators actually gate on; the tier NAME
@@ -287,7 +347,7 @@ export const getMatchingRules = (item: ItemProps, context: FilterContext, limit 
             if (checkRuleMatch(item, rule, context.globalAreaLevel) && rule.overrides && rule.overrides.Tier) {
                 let tier = rule.overrides.Tier;
                 if (Array.isArray(tier)) tier = tier[0];
-                const { style, visible } = resolveStyle(path, tier, context);
+                const { style, visible } = resolveStyle(path, tier, context, item);
                 matches.push({
                     file: path,
                     ruleIndex: i,
@@ -308,7 +368,7 @@ export const getMatchingRules = (item: ItemProps, context: FilterContext, limit 
         if (matchKey) {
             let tier = mapping[matchKey];
             if (Array.isArray(tier)) tier = tier[0];
-            const { style, visible } = resolveStyle(path, tier, context);
+            const { style, visible } = resolveStyle(path, tier, context, item);
             matches.push({
                 file: path,
                 ruleIndex: null,

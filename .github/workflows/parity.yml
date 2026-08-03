@@ -47,6 +47,13 @@ jobs:
         working-directory: webapp/frontend
         run: node test_generator_fixtures.mjs
 
+      # Decorators compose per PROPERTY: a state survives exactly where the block that
+      # claims the item leaves that channel unset. The generator can be perfectly correct
+      # while the simulator shows the player something else, so the asymmetry is pinned.
+      - name: Decorator composition (simulator composes as the game does)
+        working-directory: webapp/frontend
+        run: node test_decorator_composition.mjs
+
       # The editor preview must emit what the filter exports. Bakes the demo bundle and
       # verifies the bake is fresh first — a stale bundle once turned a whole session's
       # PASSes into comparisons against frozen data.
