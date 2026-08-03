@@ -12,9 +12,9 @@
         "Tier 2 General",
         "Tier 3 General",
         "Tier 4 General",
-        "CustomTier 2 General",
-        "CustomTier 1 General",
         "Tier 5 General",
+        "Tier 6 General",
+        "Tier 7 General",
         "Tier Hide General"
       ]
     },
@@ -294,7 +294,7 @@
         }
       }
     },
-    "Tier 5 General": {
+    "Tier 7 General": {
       "hideable": false,
       "theme": {
         "Tier": 7,
@@ -357,7 +357,7 @@
         "ch": "隐藏"
       }
     },
-    "CustomTier 1 General": {
+    "Tier 6 General": {
       "theme": {
         "Tier": 6,
         "FontSize": 30,
@@ -413,7 +413,7 @@
         }
       }
     },
-    "CustomTier 2 General": {
+    "Tier 5 General": {
       "theme": {
         "Tier": 5,
         "FontSize": 35,

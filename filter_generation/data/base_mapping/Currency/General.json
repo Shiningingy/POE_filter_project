@@ -175,10 +175,10 @@
     "Gemcutter's Prism": "Tier 4 General",
     "Vaal Orb": "Tier 4 General",
     "Orb of Regret": [
-      "CustomTier 2 General"
+      "Tier 5 General"
     ],
     "Orb of Unmaking": [
-      "CustomTier 2 General"
+      "Tier 5 General"
     ],
     "Orb of Scouring": "Tier 4 General",
     "Maven's Chisel of Procurement": [
@@ -215,38 +215,38 @@
       "Tier 3 General"
     ],
     "Orb of Alchemy": [
-      "CustomTier 2 General"
+      "Tier 5 General"
     ],
     "Orb of Fusing": [
-      "CustomTier 2 General"
+      "Tier 5 General"
     ],
     "Glassblower's Bauble": [
-      "CustomTier 1 General"
+      "Tier 6 General"
     ],
     "Orb of Alteration": [
-      "CustomTier 1 General"
+      "Tier 6 General"
     ],
     "Orb of Chance": [
-      "CustomTier 1 General"
+      "Tier 6 General"
     ],
     "Jeweller's Orb": [
-      "CustomTier 1 General"
+      "Tier 6 General"
     ],
     "Chromatic Orb": [
       "Tier 4 General"
     ],
     "Armourer's Scrap": [
-      "CustomTier 1 General"
+      "Tier 6 General"
     ],
     "Blacksmith's Whetstone": [
-      "CustomTier 1 General"
+      "Tier 6 General"
     ],
-    "Orb of Augmentation": "Tier 5 General",
-    "Orb of Transmutation": "Tier 5 General",
+    "Orb of Augmentation": "Tier 7 General",
+    "Orb of Transmutation": "Tier 7 General",
     "Portal Scroll": [
-      "Tier 5 General"
+      "Tier 7 General"
     ],
-    "Scroll of Wisdom": "Tier 5 General",
+    "Scroll of Wisdom": "Tier 7 General",
     "Regal Orb": [
       "Tier 3 General"
     ],
@@ -259,13 +259,13 @@
     "Lesser Eldritch Ichor": [
       "Tier 4 General"
     ],
-    "Scroll Fragment": "Tier 5 General",
-    "Transmutation Shard": "Tier 5 General",
-    "Alteration Shard": "Tier 5 General",
-    "Alchemy Shard": "Tier 5 General",
-    "Regal Shard": "Tier 5 General",
+    "Scroll Fragment": "Tier 7 General",
+    "Transmutation Shard": "Tier 7 General",
+    "Alteration Shard": "Tier 7 General",
+    "Alchemy Shard": "Tier 7 General",
+    "Regal Shard": "Tier 7 General",
     "Chaos Shard": [
-      "CustomTier 2 General"
+      "Tier 5 General"
     ],
     "Blessing of Xoph": [],
     "Blessing of Tul": [],

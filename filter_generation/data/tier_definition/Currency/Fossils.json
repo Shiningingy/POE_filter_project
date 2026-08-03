@@ -10,7 +10,7 @@
         "Tier 0 Fossils",
         "Tier 1 Fossils",
         "Tier 2 Fossils",
-        "CustomTier 1 Fossils",
+        "Tier 3 Fossils",
         "Tier Hide Fossils"
       ]
     },
@@ -92,7 +92,7 @@
         "ch": "T1: 四孔/高价值化石"
       }
     },
-    "CustomTier 1 Fossils": {
+    "Tier 3 Fossils": {
       "theme": {
         "Tier": 3,
         "FontSize": 40,
