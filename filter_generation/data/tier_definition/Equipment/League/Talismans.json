@@ -8,6 +8,7 @@
       },
       "tier_order": [
         "Talismans T1",
+        "Talismans T2",
         "Talismans Hide"
       ]
     },
@@ -30,6 +31,23 @@
       "localization": {
         "en": "Talismans",
         "ch": "护身符"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
+      }
+    },
+    "Talismans T2": {
+      "hideable": true,
+      "theme": {
+        "Tier": 6
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Other Talismans",
+        "ch": "其余护身符"
       },
       "conditions": {
         "Rarity": "<= Rare"
