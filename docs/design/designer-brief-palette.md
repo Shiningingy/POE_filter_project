@@ -120,7 +120,35 @@ Candidates on our side: currency, uniques, maps and fragments, league mechanics.
 For each one, say **what makes it recognisable** — a hue family, a border treatment — while
 still reading as its rung.
 
-### (c) The second axis: beam and icon
+### (c) ★ States compose — author each one ONCE
+
+**Added 2026-08-03, after your `Continue` note. We tested it in game and you are right.**
+
+A block can set one property and then `Continue`, letting whatever styles the item next
+supply the rest. Later blocks override **only the properties they set**; anything they
+leave unset keeps the earlier value. Verified with three cases in game: a border from an
+earlier block survives onto a preset that sets only text and background.
+
+So a state — corrupted, fractured, enchanted, influenced — is authored **once** as a single
+channel and layers over every look we own. States **add** to presets instead of multiplying
+them: 29 + 8, not 29 × 8. That is almost certainly how we ended up with 519 colour
+combinations against FilterBlade's 138; they use exactly this (44 blocks with `Continue`,
+42 of which set a single channel — 37 border, 5 text).
+
+**What this asks of you:**
+
+1. **Which channel does each state own?** Border is the natural one (it's what FilterBlade
+   reserves for exactly this), but the choice is yours — it just has to be *the same
+   channel every time*, or the states collide with each other.
+2. **Which channel do the presets deliberately leave unset**, so the state can show
+   through? A preset that fills every channel cannot be decorated. This is the same
+   principle as the absent-colour rule above, now doing a second job.
+
+The eight equipment state borders in your §05 are exactly this pattern — they are not a
+special gear mechanism, they are eight overlays that happen to have been written against
+gear first.
+
+### (d) The second axis: beam and icon
 
 This is currently near-dead in our filter and is the natural home for "how much does this
 matter" and "what kind of thing is it":
@@ -155,7 +183,8 @@ it passed all our automated checks.
    styling at all**, or it becomes visible clutter. Do not design a "hidden" look.
 2. **Absent ≠ black.** Covered above, and worth repeating: omitting a colour is a design
    decision the filter format supports, and painting over the rarity colour is the single
-   easiest way to make equipment harder to read.
+   easiest way to make equipment harder to read. It is now doing double duty — an unset
+   channel is also what lets a state decorator (c) show through.
 3. **Background alpha matters.** The game's own default label is a dark background at alpha
    190. Fully opaque backgrounds read as heavier than anything the game draws itself.
 
