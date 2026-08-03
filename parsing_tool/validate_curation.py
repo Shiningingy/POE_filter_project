@@ -654,19 +654,14 @@ def check_nav(rep: Report) -> None:
                     f"tier_path {tier_path!r} does not exist - the editor opens this leaf "
                     f"onto nothing and it has no resolvable theme")
 
-    # The yaml is the nav's source; a key removed from the json but left here comes back
-    # the moment anyone recompiles.
-    yaml_rel = "filter_generation/data/category_structure.yaml"
-    yaml_path = os.path.join(REPO, yaml_rel)
-    if os.path.exists(yaml_path):
-        with open(yaml_path, encoding="utf-8") as fh:
-            for n, line in enumerate(fh, 1):
-                stripped = line.strip()
-                for key in ("target:", "_default_target:"):
-                    if stripped.startswith(key):
-                        rep.add("ERROR", f"{yaml_rel}:{n}",
-                                f"{key} sets a nav-level theme key; it is retired. "
-                                f"Set _meta.theme_category in the tier_definition instead")
+    # There used to be a second scan here, over category_structure.yaml, because a key
+    # removed from the json but left in the yaml would return on the next recompile.
+    # The yaml is retired (it had drifted to 27 groups against the json's 30, missing a
+    # whole league chapter and every campaign leaf, so compiling it DELETED content), and
+    # nothing regenerates the json any more. One nav, one file, nothing to cross-check.
+    #
+    # If a nav source is ever reintroduced it must be DERIVED from the json, and this
+    # check should come back with it.
 
 
 def main() -> None:

@@ -18,6 +18,19 @@ Moved with `git mv`, so `git log --follow` still reaches the full history of eac
 | `data_loader.py` | GGPK loader for `generate.py` | Its only caller was the Python generator, deleted in ADR-0007. No importers. |
 | `refine_sound_map.py` | wrote `Sharket_sound_map_v2.json` | The v2 file **does not exist and never did** — the output was never adopted, and nothing references the name. A tool whose product was thrown away. |
 | `migrate_item_overrides.py` | one-shot for workstream C | **Spent, and re-running it is destructive.** It rebuilt `item_overrides` from auto-sound's global table; auto-sound is deleted, so a re-run now writes from nothing. Its `--check` is only a dry-run of the same write ("would write" vs "wrote"), not an independent verifier — so it is not a reason to keep it live. |
+| `category_structure.yaml` + `generate_category_json.py` | the nav's "source" and its compiler | **A second identity for the nav, and it had drifted badly.** json: 30 groups / 96 leaves; yaml: 27 / 111. Nine groups existed only in the json — the entire *Curse of the Allflame* chapter and all seven campaign leaves — and six only in the yaml, long dead (`Act & Build-Specific`, `Campaign Flasks`, `Rare Items`, …). Compiling therefore **deleted a league's content and the campaign nav** while resurrecting retired groups. Retired 2026-08-03: `filter_generation/data/category_structure.json` is now the one nav file, edited directly. |
+
+## If a nav source is ever wanted again
+
+Generate it **from** `category_structure.json`, never the other way. The failure above was
+not the compiler being buggy — it was two hand-edited files claiming to describe the same
+nav, which is the identical shape of problem this branch removed for theme categories
+(`target_category` had drifted on 13 of 92 leaves for exactly the same reason). A derived
+view cannot drift; a second source always will.
+
+`validate_curation.check_nav` used to cross-check the yaml for retired theme keys. That
+scan is gone with the file, and its replacement note says to bring it back if a source
+ever returns.
 
 ## Why `__init__.py` is here as `.txt`
 

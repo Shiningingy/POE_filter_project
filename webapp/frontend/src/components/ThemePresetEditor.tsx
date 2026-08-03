@@ -110,8 +110,9 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
    * ★ The theme bucket a nav leaf edits — resolved from the leaf's TIER DEFINITION,
    * which is what the generator reads.
    *
-   * This used to be `f.target_category`, a value hand-typed into both
-   * category_structure.yaml and the compiled .json. It had drifted on 13 of 92 leaves,
+   * This used to be `f.target_category`, a value hand-typed into both the nav yaml and
+   * the compiled .json (that yaml is retired — see
+   * filter_generation/archive/retired-code/). It had drifted on 13 of 92 leaves,
    * and because this key is the board's read AND write key, on those leaves the board
    * showed a look the filter does not emit and banked edits into a bucket nothing
    * reads — or, worse, into another category's real bucket (editing Contracts restyled
