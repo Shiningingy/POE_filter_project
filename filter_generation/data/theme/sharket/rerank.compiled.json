@@ -1,0 +1,2024 @@
+[
+ {
+  "file": "Currency/Corpses.json",
+  "tier_key": "Tier 1 Corpses",
+  "Tier": 0,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Corpses.json",
+  "tier_key": "Tier 2 Corpses",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Corpses.json",
+  "tier_key": "Tier 3 Corpses",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Corpses.json",
+  "tier_key": "Tier 4 Corpses",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Corpses.json",
+  "tier_key": "Tier Net Corpses",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Delirium Orbs.json",
+  "tier_key": "Tier 0 Delirium Orbs",
+  "Tier": 2,
+  "how": "flat"
+ },
+ {
+  "file": "Currency/Enshrouding Crystals.json",
+  "tier_key": "Enshrouding Crystals",
+  "Tier": 2,
+  "how": "flat"
+ },
+ {
+  "file": "Currency/Essences.json",
+  "tier_key": "Tier 0 Essences",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Essences.json",
+  "tier_key": "Tier 1 Essences",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Essences.json",
+  "tier_key": "Tier 2 Essences",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Essences.json",
+  "tier_key": "Tier 3 Essences",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Fossils.json",
+  "tier_key": "Tier 0 Fossils",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Fossils.json",
+  "tier_key": "Tier 1 Fossils",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Fossils.json",
+  "tier_key": "Tier 2 Fossils",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Fossils.json",
+  "tier_key": "Tier 3 Fossils",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Currency/General.json",
+  "tier_key": "Tier 0 General",
+  "Tier": 0,
+  "how": "override"
+ },
+ {
+  "file": "Currency/General.json",
+  "tier_key": "Tier 1 General",
+  "Tier": 1,
+  "how": "override"
+ },
+ {
+  "file": "Currency/General.json",
+  "tier_key": "Tier 2 General",
+  "Tier": 1,
+  "how": "override"
+ },
+ {
+  "file": "Currency/General.json",
+  "tier_key": "Tier 3 General",
+  "Tier": 2,
+  "how": "override"
+ },
+ {
+  "file": "Currency/General.json",
+  "tier_key": "Tier 4 General",
+  "Tier": 2,
+  "how": "override"
+ },
+ {
+  "file": "Currency/General.json",
+  "tier_key": "Tier 5 General",
+  "Tier": 3,
+  "how": "override"
+ },
+ {
+  "file": "Currency/General.json",
+  "tier_key": "Tier 6 General",
+  "Tier": 3,
+  "how": "override"
+ },
+ {
+  "file": "Currency/General.json",
+  "tier_key": "Tier 7 General",
+  "Tier": 4,
+  "how": "override"
+ },
+ {
+  "file": "Currency/Gold.json",
+  "tier_key": "Tier 0 Gold",
+  "Tier": 5,
+  "how": "override"
+ },
+ {
+  "file": "Currency/Gold.json",
+  "tier_key": "Tier 1 Gold",
+  "Tier": 5,
+  "how": "override"
+ },
+ {
+  "file": "Currency/Gold.json",
+  "tier_key": "Tier 2 Gold",
+  "Tier": 5,
+  "how": "override"
+ },
+ {
+  "file": "Currency/Harvest.json",
+  "tier_key": "Tier 0 Harvest",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Harvest.json",
+  "tier_key": "Tier 1 Harvest",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Harvest.json",
+  "tier_key": "Tier 2 Harvest",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Harvest.json",
+  "tier_key": "Tier 3 Harvest",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Heist Currency.json",
+  "tier_key": "Tier 0 Heist Currency",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Heist Currency.json",
+  "tier_key": "Tier 1 Heist Currency",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Incursion Vials.json",
+  "tier_key": "Incursion Vials",
+  "Tier": 2,
+  "how": "flat"
+ },
+ {
+  "file": "Currency/Oils.json",
+  "tier_key": "Tier 0 Oils",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Oils.json",
+  "tier_key": "Tier 1 Oils",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Oils.json",
+  "tier_key": "Tier 2 Oils",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Oils.json",
+  "tier_key": "Tier 3 Oils",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Omens.json",
+  "tier_key": "Tier 0 Omens",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Omens.json",
+  "tier_key": "Tier 1 Omens",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Omens.json",
+  "tier_key": "Tier 2 Omens",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Runegrafts.json",
+  "tier_key": "Tier 0 Runegrafts",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Runegrafts.json",
+  "tier_key": "Tier 1 Runegrafts",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Runegrafts.json",
+  "tier_key": "Tier 2 Runegrafts",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Tainted Currency.json",
+  "tier_key": "Tier 1 Tainted",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Tainted Currency.json",
+  "tier_key": "Tier 2 Tainted",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Tainted Currency.json",
+  "tier_key": "Tier 3 Tainted",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Tainted Currency.json",
+  "tier_key": "Tier 4 Tainted",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Wombgifts.json",
+  "tier_key": "Tier 1 Wombgifts",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Wombgifts.json",
+  "tier_key": "Tier 2 Wombgifts",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Currency/Wombgifts.json",
+  "tier_key": "Tier Net Wombgifts",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Curse of the Allflame/Bottles.json",
+  "tier_key": "Bottles T0",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Curse of the Allflame/Ducats.json",
+  "tier_key": "Ducats T0",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Curse of the Allflame/Ducats.json",
+  "tier_key": "Ducats T1",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Curse of the Allflame/Enshrouded Gear.json",
+  "tier_key": "Enshrouded Gear",
+  "Tier": 2,
+  "how": "flat"
+ },
+ {
+  "file": "Curse of the Allflame/Mercenary Warrants.json",
+  "tier_key": "Mercenary Warrants T0",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Curse of the Allflame/Sulphur.json",
+  "tier_key": "Sulphur T0",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Curse of the Allflame/Sulphur.json",
+  "tier_key": "Sulphur T1",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Curse of the Allflame/Sulphur.json",
+  "tier_key": "Sulphur T2",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Curse of the Allflame/Voyage Charts.json",
+  "tier_key": "Voyage Charts T0",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Equipment/Crafting Priority.json",
+  "tier_key": "Crafting Over Quality",
+  "Tier": 2,
+  "how": "override"
+ },
+ {
+  "file": "Equipment/Crafting Priority.json",
+  "tier_key": "Crafting Perfect Defence",
+  "Tier": 2,
+  "how": "override"
+ },
+ {
+  "file": "Equipment/Crafting Priority.json",
+  "tier_key": "Crafting Strands Gear",
+  "Tier": 3,
+  "how": "override"
+ },
+ {
+  "file": "Equipment/Crafting Priority.json",
+  "tier_key": "Crafting Strands Weapons",
+  "Tier": 3,
+  "how": "override"
+ },
+ {
+  "file": "Equipment/Crafting Priority.json",
+  "tier_key": "Crafting Gear 84",
+  "Tier": 4,
+  "how": "override"
+ },
+ {
+  "file": "Equipment/Crafting Priority.json",
+  "tier_key": "Crafting Gear 85",
+  "Tier": 4,
+  "how": "override"
+ },
+ {
+  "file": "Equipment/Crafting Priority.json",
+  "tier_key": "Crafting Gear 86",
+  "Tier": 5,
+  "how": "override"
+ },
+ {
+  "file": "Equipment/Magic Net.json",
+  "tier_key": "Magic Good Jewellery",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Equipment/Magic Net.json",
+  "tier_key": "Magic Net",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Equipment/Relics.json",
+  "tier_key": "Relics T1",
+  "Tier": 2,
+  "how": "flat"
+ },
+ {
+  "file": "Equipment/Armour/Body Armours.json",
+  "tier_key": "Tier 0 Body Armours",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Body Armours.json",
+  "tier_key": "Tier 1 Body Armours",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Body Armours.json",
+  "tier_key": "Tier 2 Body Armours",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Body Armours.json",
+  "tier_key": "Tier 3 Body Armours",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Body Armours.json",
+  "tier_key": "Tier 4 Body Armours",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Boots.json",
+  "tier_key": "Tier 0 Boots",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Boots.json",
+  "tier_key": "Tier 1 Boots",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Boots.json",
+  "tier_key": "Tier 2 Boots",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Boots.json",
+  "tier_key": "Tier 3 Boots",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Boots.json",
+  "tier_key": "Tier 4 Boots",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Gloves.json",
+  "tier_key": "Tier 0 Gloves",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Gloves.json",
+  "tier_key": "Tier 1 Gloves",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Gloves.json",
+  "tier_key": "Tier 2 Gloves",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Gloves.json",
+  "tier_key": "Tier 3 Gloves",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Gloves.json",
+  "tier_key": "Tier 4 Gloves",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Helmets.json",
+  "tier_key": "Tier 0 Helmets",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Helmets.json",
+  "tier_key": "Tier 1 Helmets",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Helmets.json",
+  "tier_key": "Tier 2 Helmets",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Helmets.json",
+  "tier_key": "Tier 3 Helmets",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Helmets.json",
+  "tier_key": "Tier 4 Helmets",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Quivers.json",
+  "tier_key": "Tier 0 Quivers",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Quivers.json",
+  "tier_key": "Tier 1 Quivers",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Quivers.json",
+  "tier_key": "Tier 2 Quivers",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Quivers.json",
+  "tier_key": "Tier 3 Quivers",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Quivers.json",
+  "tier_key": "Tier 4 Quivers",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Shields.json",
+  "tier_key": "Tier 0 Shields",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Shields.json",
+  "tier_key": "Tier 1 Shields",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Shields.json",
+  "tier_key": "Tier 2 Shields",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Shields.json",
+  "tier_key": "Tier 3 Shields",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Armour/Shields.json",
+  "tier_key": "Tier 4 Shields",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Amulets.json",
+  "tier_key": "Tier 0 Amulets",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Amulets.json",
+  "tier_key": "Tier 1 Amulets",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Amulets.json",
+  "tier_key": "Tier 2 Amulets",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Amulets.json",
+  "tier_key": "Tier 3 Amulets",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Amulets.json",
+  "tier_key": "Tier 4 Amulets",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Belts.json",
+  "tier_key": "Tier 0 Belts",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Belts.json",
+  "tier_key": "Tier 1 Belts",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Belts.json",
+  "tier_key": "Tier 2 Belts",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Belts.json",
+  "tier_key": "Tier 3 Belts",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Belts.json",
+  "tier_key": "Tier 4 Belts",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Rings.json",
+  "tier_key": "Tier 0 Rings",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Rings.json",
+  "tier_key": "Tier 1 Rings",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Rings.json",
+  "tier_key": "Tier 2 Rings",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Rings.json",
+  "tier_key": "Tier 3 Rings",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Rings.json",
+  "tier_key": "Tier 4 Rings",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Trinkets.json",
+  "tier_key": "Tier 0 Trinkets",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Trinkets.json",
+  "tier_key": "Tier 1 Trinkets",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Trinkets.json",
+  "tier_key": "Tier 2 Trinkets",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Trinkets.json",
+  "tier_key": "Tier 3 Trinkets",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Jewellery/Trinkets.json",
+  "tier_key": "Tier 4 Trinkets",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/League/Breach Grasping Mail.json",
+  "tier_key": "Breach Grasping Mail T1",
+  "Tier": 2,
+  "how": "flat"
+ },
+ {
+  "file": "Equipment/League/Expedition Ward-Bases.json",
+  "tier_key": "Expedition Ward-Bases T1",
+  "Tier": 2,
+  "how": "flat"
+ },
+ {
+  "file": "Equipment/League/Heist Experimented.json",
+  "tier_key": "Heist Experimented T0",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/League/Heist Experimented.json",
+  "tier_key": "Heist Experimented T1",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/League/Heist Experimented.json",
+  "tier_key": "Heist Experimented T2",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/League/Mirror Ring Bases.json",
+  "tier_key": "Mirror of Kalandra Ring Bases T1",
+  "Tier": 2,
+  "how": "flat"
+ },
+ {
+  "file": "Equipment/League/Ritual BaseTypes.json",
+  "tier_key": "Ritual BaseTypes T0",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Equipment/League/Ritual BaseTypes.json",
+  "tier_key": "Ritual BaseTypes T1",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Equipment/League/Sacrificial Garbs.json",
+  "tier_key": "Sacrificial Garbs T1",
+  "Tier": 2,
+  "how": "flat"
+ },
+ {
+  "file": "Equipment/League/Stygian Vise.json",
+  "tier_key": "Stygian Vise T0",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/League/Stygian Vise.json",
+  "tier_key": "Stygian Vise T1",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/League/Talismans.json",
+  "tier_key": "Talismans T0",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/League/Talismans.json",
+  "tier_key": "Talismans T1",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/League/Talismans.json",
+  "tier_key": "Talismans T2",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Special/Fractured.json",
+  "tier_key": "Tier 0 Fractured",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Special/Fractured.json",
+  "tier_key": "Tier 1 Fractured",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Special/Fractured.json",
+  "tier_key": "Tier 2 Fractured",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Special/Influenced.json",
+  "tier_key": "Tier 0 Influenced",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Special/Influenced.json",
+  "tier_key": "Tier 1 Influenced",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/VendorRecipes/Chancing.json",
+  "tier_key": "Chancing Normal",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Equipment/VendorRecipes/Recipes.json",
+  "tier_key": "6-Link",
+  "Tier": 4,
+  "how": "override"
+ },
+ {
+  "file": "Equipment/VendorRecipes/Recipes.json",
+  "tier_key": "6-Socket",
+  "Tier": 5,
+  "how": "override"
+ },
+ {
+  "file": "Equipment/VendorRecipes/Recipes.json",
+  "tier_key": "RGB Linked",
+  "Tier": 5,
+  "how": "override"
+ },
+ {
+  "file": "Equipment/Weapons/Bows.json",
+  "tier_key": "Tier 0 Bows",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Bows.json",
+  "tier_key": "Tier 1 Bows",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Bows.json",
+  "tier_key": "Tier 2 Bows",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Bows.json",
+  "tier_key": "Tier 3 Bows",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Bows.json",
+  "tier_key": "Tier 4 Bows",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Claws.json",
+  "tier_key": "Tier 0 Claws",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Claws.json",
+  "tier_key": "Tier 1 Claws",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Claws.json",
+  "tier_key": "Tier 2 Claws",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Claws.json",
+  "tier_key": "Tier 3 Claws",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Claws.json",
+  "tier_key": "Tier 4 Claws",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Daggers.json",
+  "tier_key": "Tier 0 Daggers",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Daggers.json",
+  "tier_key": "Tier 1 Daggers",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Daggers.json",
+  "tier_key": "Tier 2 Daggers",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Daggers.json",
+  "tier_key": "Tier 3 Daggers",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Daggers.json",
+  "tier_key": "Tier 4 Daggers",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Axes.json",
+  "tier_key": "Tier 0 Axes",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Axes.json",
+  "tier_key": "Tier 1 Axes",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Axes.json",
+  "tier_key": "Tier 2 Axes",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Axes.json",
+  "tier_key": "Tier 3 Axes",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Axes.json",
+  "tier_key": "Tier 4 Axes",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Maces.json",
+  "tier_key": "Tier 0 Maces",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Maces.json",
+  "tier_key": "Tier 1 Maces",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Maces.json",
+  "tier_key": "Tier 2 Maces",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Maces.json",
+  "tier_key": "Tier 3 Maces",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Maces.json",
+  "tier_key": "Tier 4 Maces",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Swords.json",
+  "tier_key": "Tier 0 Swords",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Swords.json",
+  "tier_key": "Tier 1 Swords",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Swords.json",
+  "tier_key": "Tier 2 Swords",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Swords.json",
+  "tier_key": "Tier 3 Swords",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/One Hand Swords.json",
+  "tier_key": "Tier 4 Swords",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Rune Daggers.json",
+  "tier_key": "Tier 0 Rune Daggers",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Rune Daggers.json",
+  "tier_key": "Tier 1 Rune Daggers",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Rune Daggers.json",
+  "tier_key": "Tier 2 Rune Daggers",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Rune Daggers.json",
+  "tier_key": "Tier 3 Rune Daggers",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Rune Daggers.json",
+  "tier_key": "Tier 4 Rune Daggers",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Sceptres.json",
+  "tier_key": "Tier 0 Sceptres",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Sceptres.json",
+  "tier_key": "Tier 1 Sceptres",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Sceptres.json",
+  "tier_key": "Tier 2 Sceptres",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Sceptres.json",
+  "tier_key": "Tier 3 Sceptres",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Sceptres.json",
+  "tier_key": "Tier 4 Sceptres",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Staves.json",
+  "tier_key": "Tier 0 Staves",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Staves.json",
+  "tier_key": "Tier 1 Staves",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Staves.json",
+  "tier_key": "Tier 2 Staves",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Staves.json",
+  "tier_key": "Tier 3 Staves",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Staves.json",
+  "tier_key": "Tier 4 Staves",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Axes.json",
+  "tier_key": "Tier 0 Two Hand Axes",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Axes.json",
+  "tier_key": "Tier 1 Two Hand Axes",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Axes.json",
+  "tier_key": "Tier 2 Two Hand Axes",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Axes.json",
+  "tier_key": "Tier 3 Two Hand Axes",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Axes.json",
+  "tier_key": "Tier 4 Two Hand Axes",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Maces.json",
+  "tier_key": "Tier 0 Two Hand Maces",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Maces.json",
+  "tier_key": "Tier 1 Two Hand Maces",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Maces.json",
+  "tier_key": "Tier 2 Two Hand Maces",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Maces.json",
+  "tier_key": "Tier 3 Two Hand Maces",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Maces.json",
+  "tier_key": "Tier 4 Two Hand Maces",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Swords.json",
+  "tier_key": "Tier 0 Two Hand Swords",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Swords.json",
+  "tier_key": "Tier 1 Two Hand Swords",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Swords.json",
+  "tier_key": "Tier 2 Two Hand Swords",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Swords.json",
+  "tier_key": "Tier 3 Two Hand Swords",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Two Hand Swords.json",
+  "tier_key": "Tier 4 Two Hand Swords",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Wands.json",
+  "tier_key": "Tier 0 Wands",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Wands.json",
+  "tier_key": "Tier 1 Wands",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Wands.json",
+  "tier_key": "Tier 2 Wands",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Wands.json",
+  "tier_key": "Tier 3 Wands",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Wands.json",
+  "tier_key": "Tier 4 Wands",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Warstaves.json",
+  "tier_key": "Tier 0 Warstaves",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Warstaves.json",
+  "tier_key": "Tier 1 Warstaves",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Warstaves.json",
+  "tier_key": "Tier 2 Warstaves",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Warstaves.json",
+  "tier_key": "Tier 3 Warstaves",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Equipment/Weapons/Warstaves.json",
+  "tier_key": "Tier 4 Warstaves",
+  "Tier": 5,
+  "how": "gear"
+ },
+ {
+  "file": "Flasks/Life.json",
+  "tier_key": "Tier 0 Life Flasks",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Flasks/Life.json",
+  "tier_key": "Tier 1 Life Flasks",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Flasks/Life.json",
+  "tier_key": "Tier 2 Life Flasks",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Flasks/Mana.json",
+  "tier_key": "Tier 0 Mana Flasks",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Flasks/Mana.json",
+  "tier_key": "Tier 1 Mana Flasks",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Flasks/Mana.json",
+  "tier_key": "Tier 2 Mana Flasks",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Flasks/Tinctures.json",
+  "tier_key": "Tier 0 Tinctures",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Flasks/Tinctures.json",
+  "tier_key": "Tier 1 Tinctures",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Flasks/Utility.json",
+  "tier_key": "Tier 0 Utility Flasks",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Flasks/Utility.json",
+  "tier_key": "Tier 1 Utility Flasks",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Flasks/Utility.json",
+  "tier_key": "Tier 2 Utility Flasks",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Gems/Skill.json",
+  "tier_key": "Tier 0 Skill",
+  "Tier": 0,
+  "how": "value"
+ },
+ {
+  "file": "Gems/Skill.json",
+  "tier_key": "Tier 1 Skill",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Gems/Skill.json",
+  "tier_key": "Tier 2 Skill",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Gems/Skill.json",
+  "tier_key": "Tier 3 Skill",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Gems/Skill.json",
+  "tier_key": "Tier 4 Skill",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Gems/Skill.json",
+  "tier_key": "Tier Net Skill",
+  "Tier": 5,
+  "how": "value"
+ },
+ {
+  "file": "Gems/Support.json",
+  "tier_key": "Tier 0 Support",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Gems/Support.json",
+  "tier_key": "Tier 1 Support",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Gems/Support.json",
+  "tier_key": "Tier 2 Support",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Gems/Support.json",
+  "tier_key": "Tier Net Support",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Heist/Blueprints.json",
+  "tier_key": "CustomTier 1 Heist Blueprints",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Heist/Blueprints.json",
+  "tier_key": "Heist Blueprint T1",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Heist/Contracts.json",
+  "tier_key": "Heist Contract T0",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Heist/Contracts.json",
+  "tier_key": "Heist Contract T1",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Heist/Equipment.json",
+  "tier_key": "Heist Gear T1",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "Heist/Equipment.json",
+  "tier_key": "Heist Gear T2",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "Heist/Targets.json",
+  "tier_key": "Heist Target T1",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Jewels/Abyss Jewels.json",
+  "tier_key": "Tier 0 Abyss Jewels",
+  "Tier": 2,
+  "how": "override"
+ },
+ {
+  "file": "Jewels/Abyss Jewels.json",
+  "tier_key": "Tier 1 Abyss Jewels",
+  "Tier": 3,
+  "how": "override"
+ },
+ {
+  "file": "Jewels/Abyss Jewels.json",
+  "tier_key": "Tier 2 Abyss Jewels",
+  "Tier": 4,
+  "how": "override"
+ },
+ {
+  "file": "Jewels/Base Jewels.json",
+  "tier_key": "Tier 1 Base Jewels",
+  "Tier": 3,
+  "how": "override"
+ },
+ {
+  "file": "Jewels/Cluster Jewels.json",
+  "tier_key": "Tier 0 Cluster Jewels",
+  "Tier": 1,
+  "how": "override"
+ },
+ {
+  "file": "Jewels/Cluster Jewels.json",
+  "tier_key": "Tier 1 Cluster Jewels",
+  "Tier": 2,
+  "how": "override"
+ },
+ {
+  "file": "Jewels/Cluster Jewels.json",
+  "tier_key": "Tier 2 Cluster Jewels",
+  "Tier": 2,
+  "how": "override"
+ },
+ {
+  "file": "Jewels/Cluster Jewels.json",
+  "tier_key": "Tier 3 Cluster Jewels",
+  "Tier": 3,
+  "how": "override"
+ },
+ {
+  "file": "Jewels/Cluster Jewels.json",
+  "tier_key": "Tier 4 Cluster Jewels",
+  "Tier": 3,
+  "how": "override"
+ },
+ {
+  "file": "Jewels/Cluster Jewels.json",
+  "tier_key": "Tier 5 Cluster Jewels",
+  "Tier": 4,
+  "how": "override"
+ },
+ {
+  "file": "Jewels/Cluster Jewels.json",
+  "tier_key": "Tier 6 Cluster Jewels",
+  "Tier": 4,
+  "how": "override"
+ },
+ {
+  "file": "Maps/Base Maps.json",
+  "tier_key": "Tier 0 Base Maps",
+  "Tier": 1,
+  "how": "override"
+ },
+ {
+  "file": "Maps/Base Maps.json",
+  "tier_key": "Tier 1 Base Maps",
+  "Tier": 2,
+  "how": "override"
+ },
+ {
+  "file": "Maps/Base Maps.json",
+  "tier_key": "Tier 2 Base Maps",
+  "Tier": 2,
+  "how": "override"
+ },
+ {
+  "file": "Maps/Base Maps.json",
+  "tier_key": "Tier 3 Base Maps",
+  "Tier": 3,
+  "how": "override"
+ },
+ {
+  "file": "Maps/Base Maps.json",
+  "tier_key": "Tier 4 Base Maps",
+  "Tier": 3,
+  "how": "override"
+ },
+ {
+  "file": "Maps/Fragment Splinters.json",
+  "tier_key": "Tier 0 Splinters",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Maps/Fragment Splinters.json",
+  "tier_key": "Tier 1 Splinters",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Maps/Fragment Splinters.json",
+  "tier_key": "Tier 2 Splinters",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Maps/Fragments.json",
+  "tier_key": "Tier 0 Fragments",
+  "Tier": 0,
+  "how": "value"
+ },
+ {
+  "file": "Maps/Fragments.json",
+  "tier_key": "Tier 1 Fragments",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Maps/Fragments.json",
+  "tier_key": "Tier 2 Fragments",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Maps/Fragments.json",
+  "tier_key": "Tier 3 Fragments",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Maps/Fragments.json",
+  "tier_key": "Tier 4 Fragments",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Maps/Scarabs.json",
+  "tier_key": "Tier 0 Scarabs",
+  "Tier": 0,
+  "how": "value"
+ },
+ {
+  "file": "Maps/Scarabs.json",
+  "tier_key": "Tier 1 Scarabs",
+  "Tier": 1,
+  "how": "value"
+ },
+ {
+  "file": "Maps/Scarabs.json",
+  "tier_key": "Tier 2 Scarabs",
+  "Tier": 2,
+  "how": "value"
+ },
+ {
+  "file": "Maps/Scarabs.json",
+  "tier_key": "Tier 3 Scarabs",
+  "Tier": 3,
+  "how": "value"
+ },
+ {
+  "file": "Maps/Scarabs.json",
+  "tier_key": "Tier 4 Scarabs",
+  "Tier": 4,
+  "how": "value"
+ },
+ {
+  "file": "Misc/General.json",
+  "tier_key": "Tier 1 Misc",
+  "Tier": 2,
+  "how": "flat"
+ },
+ {
+  "file": "Uniques/General.json",
+  "tier_key": "T0 Chase",
+  "Tier": 0,
+  "how": "override"
+ },
+ {
+  "file": "Uniques/General.json",
+  "tier_key": "T1",
+  "Tier": 1,
+  "how": "override"
+ },
+ {
+  "file": "Uniques/General.json",
+  "tier_key": "T2",
+  "Tier": 2,
+  "how": "override"
+ },
+ {
+  "file": "Uniques/General.json",
+  "tier_key": "Other",
+  "Tier": 3,
+  "how": "override"
+ },
+ {
+  "file": "Uniques/General.json",
+  "tier_key": "T3",
+  "Tier": 3,
+  "how": "override"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Bows Progression",
+  "Tier": 0,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Claws Progression",
+  "Tier": 1,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Daggers Progression",
+  "Tier": 2,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "One Hand Axes Progression",
+  "Tier": 3,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "One Hand Maces Progression",
+  "Tier": 3,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "One Hand Swords Progression",
+  "Tier": 4,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Quivers Good Bases",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Rune Daggers Progression",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Sceptres Progression",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Staves Progression",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Thrusting One Hand Swords Progression",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Two Hand Axes Progression",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Two Hand Maces Progression",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Two Hand Swords Progression",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Wands Progression",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Warstaves Progression",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Bows Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Claws Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Daggers Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "One Hand Axes Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "One Hand Maces Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "One Hand Swords Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Quivers Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Rune Daggers Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Sceptres Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Staves Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Thrusting One Hand Swords Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Two Hand Axes Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Two Hand Maces Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Two Hand Swords Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Wands Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Warstaves Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "AR/ES Progression",
+  "Tier": 0,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "AR/EV Progression",
+  "Tier": 1,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "Armour Progression",
+  "Tier": 2,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "EV/ES Progression",
+  "Tier": 3,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "Energy Shield Progression",
+  "Tier": 3,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "Evasion Progression",
+  "Tier": 4,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "Movement Boots 25%+",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "Veiled Uniques",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "AR/ES Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "AR/EV Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "Armour Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "Boots Highlight (Unidentified)",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "EV/ES Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "Energy Shield Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "Evasion Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "Movement Boots 10% Act1",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "Movement Boots 15% Act2",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "Movement Boots 20% Act3",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/30 Jewellery Progression.json",
+  "tier_key": "Jewellery Good Rare",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "_campaign/30 Jewellery Progression.json",
+  "tier_key": "Jewellery Any Rare",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "_campaign/30 Jewellery Progression.json",
+  "tier_key": "Jewellery Good LowRarity",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "_campaign/40 Flask Progression.json",
+  "tier_key": "Quicksilver Highlight",
+  "Tier": 2,
+  "how": "gear"
+ },
+ {
+  "file": "_campaign/40 Flask Progression.json",
+  "tier_key": "Tinctures Highlight",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "_campaign/40 Flask Progression.json",
+  "tier_key": "Life Mana Progression",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "_campaign/50 Links Highlight.json",
+  "tier_key": "Camp 4-Link",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "_campaign/50 Links Highlight.json",
+  "tier_key": "Camp 3-Link",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "_campaign/60 Early Game Highlight.json",
+  "tier_key": "Act1 3-Socket Gear",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "_campaign/60 Early Game Highlight.json",
+  "tier_key": "Act1 Early Bodies",
+  "Tier": 4,
+  "how": "gear"
+ },
+ {
+  "file": "_campaign/70 Safety Net.json",
+  "tier_key": "Rare Safety Net",
+  "Tier": 3,
+  "how": "gear"
+ },
+ {
+  "file": "_legacy/Legacy.json",
+  "tier_key": "Tier 1 Legacy",
+  "Tier": 2,
+  "how": "value"
+ }
+]

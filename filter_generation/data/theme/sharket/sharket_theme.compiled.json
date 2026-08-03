@@ -1,0 +1,1250 @@
+{
+  "Corpses": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BackgroundColor": "#ffffffff",
+      "TextColor": "#be8c6eff",
+      "MinimapIcon": "0 White Circle",
+      "PlayEffect": "Brown"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Circle",
+      "PlayEffect": "Brown"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#be8c6ef0",
+      "TextColor": "#000000ff",
+      "MinimapIcon": "1 Yellow Circle",
+      "PlayEffect": "Brown Temp"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#91837bf0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#91837bff"
+    }
+  },
+  "Delirium Orbs": {
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#d2d2e6ff",
+      "BackgroundColor": "#3a3a4ef0",
+      "BorderColor": "#d2d2e6ff",
+      "MinimapIcon": "1 White Cross"
+    }
+  },
+  "Enshrouding Crystals": {
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#ff7828ff",
+      "BackgroundColor": "#3e1a06f0",
+      "MinimapIcon": "1 White Circle"
+    }
+  },
+  "Essences": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Circle",
+      "PlayEffect": "Blue"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#3c82fff0",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "1 Yellow Circle",
+      "PlayEffect": "Blue Temp"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#5e7193f0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#5e7193ff"
+    }
+  },
+  "Fossils": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Circle",
+      "PlayEffect": "Yellow"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#c88c00f0",
+      "TextColor": "#000000ff",
+      "MinimapIcon": "1 Yellow Circle",
+      "PlayEffect": "Yellow Temp"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#90805af0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#90805aff"
+    }
+  },
+  "General": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BackgroundColor": "#ffffffff",
+      "TextColor": "#ff0000ff",
+      "MinimapIcon": "0 White Diamond",
+      "PlayEffect": "Orange"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Diamond",
+      "PlayEffect": "Orange"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#ffaa00f0",
+      "TextColor": "#000000ff",
+      "MinimapIcon": "1 Yellow Diamond",
+      "PlayEffect": "Orange Temp"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#b49d6ff0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#b49d6fff"
+    }
+  },
+  "Gold": {
+    "Tier 5": {
+      "FontSize": 30,
+      "TextColor": "#6a665fff",
+      "BorderColor": "#4b4843ff"
+    }
+  },
+  "Harvest": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Circle",
+      "PlayEffect": "Green"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#6edc82f0",
+      "TextColor": "#000000ff",
+      "MinimapIcon": "1 Yellow Circle",
+      "PlayEffect": "Green Temp"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#95b39bf0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#95b39bff"
+    }
+  },
+  "Heist Currency": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#c82828f0",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "1 Yellow Pentagon",
+      "PlayEffect": "Red Temp"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#653939ff"
+    }
+  },
+  "Incursion Vials": {
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#6edc82ff",
+      "BackgroundColor": "#14371cf0",
+      "BorderColor": "#6edc82ff",
+      "MinimapIcon": "1 White Circle"
+    }
+  },
+  "Oils": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Circle",
+      "PlayEffect": "Yellow"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#ffe650f0",
+      "TextColor": "#000000ff",
+      "MinimapIcon": "1 Yellow Circle",
+      "PlayEffect": "Yellow Temp"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#d2cca3f0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#d2cca3ff"
+    }
+  },
+  "Omens": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Diamond",
+      "PlayEffect": "Orange"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#b49d6ff0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#b49d6fff"
+    }
+  },
+  "Runegrafts": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Diamond",
+      "PlayEffect": "Orange"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#b49d6ff0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#b49d6fff"
+    }
+  },
+  "Tainted Currency": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Diamond",
+      "PlayEffect": "Orange"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#ffaa00f0",
+      "TextColor": "#000000ff",
+      "MinimapIcon": "1 Yellow Diamond",
+      "PlayEffect": "Orange Temp"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#b49d6ff0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#b49d6fff"
+    }
+  },
+  "Wombgifts": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Star",
+      "PlayEffect": "Purple"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#61417af0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#61417aff"
+    }
+  },
+  "Curse of the Allflame": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#ff7828f0",
+      "TextColor": "#000000ff",
+      "MinimapIcon": "1 Yellow Circle",
+      "PlayEffect": "Orange Temp"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#9f7a65ff"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Circle",
+      "PlayEffect": "Orange"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#9f7a65f0",
+      "TextColor": "#000000ff"
+    }
+  },
+  "Enshrouded Gear": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#3e1a06f0"
+    }
+  },
+  "Crafting Bases": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Magic Net": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#1ec850f0",
+      "TextColor": "#000000ff",
+      "MinimapIcon": "1 Yellow Star",
+      "PlayEffect": "Green Temp"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#6a9877ff"
+    }
+  },
+  "Relics": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af0"
+    }
+  },
+  "Body Armours": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Boots": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Gloves": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Helmets": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Quivers": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Shields": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Amulets": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Belts": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Rings": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Trinkets": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Breach Grasping Mail": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#22063af0"
+    }
+  },
+  "Expedition Ward-Bases": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#143048f0"
+    }
+  },
+  "Heist Experimented": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    }
+  },
+  "Mirror of Kalandra Ring Bases": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af0"
+    }
+  },
+  "Ritual BaseTypes": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#961428f0",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "1 Yellow Cross",
+      "PlayEffect": "Red Temp"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#47242aff"
+    }
+  },
+  "Sacrificial Garbs": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af0"
+    }
+  },
+  "Stygian Vise": {
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    }
+  },
+  "Talismans": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    }
+  },
+  "Influenced": {
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    }
+  },
+  "Chancing": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#787878f0",
+      "TextColor": "#ffffffff",
+      "PlayEffect": "Grey Temp"
+    }
+  },
+  "Vendor Recipes": {
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#6c6c6cff"
+    },
+    "Tier 5": {
+      "FontSize": 30,
+      "BackgroundColor": "#303030d7",
+      "TextColor": "#5c5c5cff"
+    }
+  },
+  "Bows": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Claws": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Daggers": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "One Hand Axes": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "One Hand Maces": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "One Hand Swords": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Rune Daggers": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Sceptres": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Staves": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Two Hand Axes": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Two Hand Maces": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Two Hand Swords": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Wands": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Warstaves": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Life Flasks": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Raindrop",
+      "PlayEffect": "Red"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#957474f0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#957474ff"
+    }
+  },
+  "Mana Flasks": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Raindrop",
+      "PlayEffect": "Red"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#957474f0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#957474ff"
+    }
+  },
+  "Tinctures": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#eb6e6ef0",
+      "TextColor": "#000000ff",
+      "MinimapIcon": "1 Yellow Raindrop",
+      "PlayEffect": "Red Temp"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#957474ff"
+    }
+  },
+  "Utility Flasks": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Raindrop",
+      "PlayEffect": "Red"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#957474f0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#957474ff"
+    }
+  },
+  "Skill Gems": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BackgroundColor": "#ffffffff",
+      "TextColor": "#1ba29bff",
+      "MinimapIcon": "0 White Kite",
+      "PlayEffect": "Cyan"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Kite",
+      "PlayEffect": "Cyan"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#1ba29bf0",
+      "TextColor": "#000000ff",
+      "MinimapIcon": "1 Yellow Kite",
+      "PlayEffect": "Cyan Temp"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#5b7f7ef0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#5b7f7eff"
+    },
+    "Tier 5": {
+      "FontSize": 30,
+      "BackgroundColor": "#303030d7",
+      "TextColor": "#4d6c6bff"
+    }
+  },
+  "Support Gems": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Kite",
+      "PlayEffect": "Cyan"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#1ba29bf0",
+      "TextColor": "#000000ff",
+      "MinimapIcon": "1 Yellow Kite",
+      "PlayEffect": "Cyan Temp"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#5b7f7ef0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#5b7f7eff"
+    }
+  },
+  "Heist Blueprints": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#c82828f0",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "1 Yellow Pentagon",
+      "PlayEffect": "Red Temp"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#653939ff"
+    }
+  },
+  "Heist Contracts": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#c82828f0",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "1 Yellow Pentagon",
+      "PlayEffect": "Red Temp"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#653939ff"
+    }
+  },
+  "Heist Equipment": {
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    }
+  },
+  "Heist Targets": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#c82828f0",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "1 Yellow Pentagon",
+      "PlayEffect": "Red Temp"
+    }
+  },
+  "Jewels": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#fa50c3f0",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "1 Yellow Cross",
+      "PlayEffect": "Pink Temp"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#926483f0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#926483ff"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Cross",
+      "PlayEffect": "Pink"
+    }
+  },
+  "Maps": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Square",
+      "PlayEffect": "White"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#303030f5",
+      "MinimapIcon": "1 Yellow Square",
+      "PlayEffect": "White Temp"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#303030f0"
+    }
+  },
+  "Map Fragments": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Hexagon",
+      "PlayEffect": "Purple"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#462853f0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#462853ff"
+    },
+    "Tier 0": {
+      "FontSize": 45,
+      "BackgroundColor": "#ffffffff",
+      "TextColor": "#8214b4ff",
+      "MinimapIcon": "0 White Hexagon",
+      "PlayEffect": "Purple"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#8214b4f0",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "1 Yellow Hexagon",
+      "PlayEffect": "Purple Temp"
+    }
+  },
+  "Scarabs": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BackgroundColor": "#ffffffff",
+      "TextColor": "#00825aff",
+      "MinimapIcon": "0 White Hexagon",
+      "PlayEffect": "Green"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Hexagon",
+      "PlayEffect": "Green"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#00825af0",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "1 Yellow Hexagon",
+      "PlayEffect": "Green Temp"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#3f6257f0",
+      "TextColor": "#000000ff"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e6",
+      "TextColor": "#3f6257ff"
+    }
+  },
+  "Quest Items": {
+    "Tier 2": {
+      "FontSize": 40,
+      "TextColor": "#1ec850ff",
+      "BackgroundColor": "#0a3216f0",
+      "BorderColor": "#1ec850ff",
+      "MinimapIcon": "1 White Star"
+    }
+  },
+  "Uniques": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BackgroundColor": "#ffffffff",
+      "TextColor": "#af6025ff",
+      "MinimapIcon": "0 White Star",
+      "PlayEffect": "Brown"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Star",
+      "PlayEffect": "Brown"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#af6025f0",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "1 Yellow Star",
+      "PlayEffect": "Brown Temp"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#745e4ef0",
+      "TextColor": "#000000ff"
+    }
+  },
+  "Campaign": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BackgroundColor": "#ffffffff",
+      "TextColor": "#aaaaaaff"
+    },
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#2a2a2af5"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#2a2a2af0"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#505050e1"
+    },
+    "Tier 5": {
+      "FontSize": 30
+    }
+  },
+  "Legacy": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#787878f0",
+      "TextColor": "#ffffffff",
+      "PlayEffect": "Grey Temp"
+    }
+  }
+}
