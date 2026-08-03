@@ -7,7 +7,7 @@ onto the rewrite without translation.
 **Visual truth:** `Theme Standard - Plates, Beams & Icons.dc.html` in the theme project.
 Where this file and the board disagree, the board is right and this file is stale — say so.
 
-**Data:** `theme-presets.json` beside this file. 35 authored values, two worked goldens.
+**Data:** `theme-presets.json` beside this file. 41 authored values, two worked goldens. `accent-category-map.json` maps all 75 theme categories onto them.
 
 ---
 
@@ -15,7 +15,7 @@ Where this file and the board disagree, the board is right and this file is stal
 
 | rewrite concept | what this design puts in it |
 |---|---|
-| **preset bank** (`sharket_theme.json` demoted) | 16 accents x 7 rungs, colours only. **No FontSize** — as workstream E requires. |
+| **preset bank** (`sharket_theme.json` demoted) | 23 accents x 6 rungs (T0-T5), colours only. **No FontSize** — as workstream E requires. |
 | **tier block owns its look** | a block picks `accent + rung`. Two channels, not a colour each. |
 | **beam/icon as its own pickable axis** | fully **derived** — nothing to pick per block. Rung gives icon size+colour and beam persistence; accent gives shape and beam colour. |
 | **rule deviation** (1-2 channels) | the 5 state borders. One `Continue` rule each. This is the designer's "enhanced". |
@@ -34,8 +34,10 @@ block.rung     T0..T6               -> plate recipe, icon size+colour, beam pers
 ```
 
 **T0, T1 and T6 are house-fixed** — same in every category, because "this ends the run" and
-"this is the noise floor" mean the same thing everywhere. **T2-T5 are derived from the accent**
-at falling lightness. That is the whole colour system.
+"this is the noise floor" mean the same thing everywhere. An accent authors **two** colours:
+`solid` is T2's plate, `deep` is the shared plate for the whole T3-T5 tail. Rank inside the tail
+lives in the **text** (painted) or the **alpha** (rarity_through), never in a plate ramp — see
+`reply-04-plate-rule.md` for the NeverSink measurement that settled this.
 
 ### 2.1 Rarity-through
 
@@ -43,12 +45,12 @@ Every rung ships **two** variants and the block does not choose — the *item* d
 
 - **painted** — we set `SetTextColor`. Currency, gems, league items, anything whose rarity is meaningless.
 - **rarity-through** — we deliberately emit **no** `SetTextColor` so the game paints unique orange /
-  rare yellow / magic blue. Equipment, almost always. Plate goes dark and the **border** carries the rung.
+  rare yellow / magic blue. Equipment, almost always. Plate stays `accent.deep` and the rung is carried by **alpha** (245/240/225/210) plus size and icon — **never** by the border, which must stay free for states on the one class that holds all five.
 
 ⚠️ The bright plates are **not reusable** for rarity-through: rare yellow and magic blue both fall
 under 3:1 on them. This is why the two variants exist rather than one plate with optional text.
 
-T0 and T1 are painted in **every** family, gear included — a chase drop overrides rarity.
+T0 and T1 are painted in **every** family, gear included — a chase drop overrides rarity. T0 text is `accent.t0_text ?? accent.solid`; **no rung sets a border**, on any rung, because the border belongs to states.
 
 ### 2.2 Alpha
 
@@ -182,20 +184,19 @@ genuinely stack.
 |---|---|---|
 | Replica | 250 80 195 | uniques |
 | Foulborn | 160 45 255 | uniques, jewels |
-| Q21+ | 120 235 210 | **T0/T1 bases only** — quality never rescues a base you would not have picked up |
+| Q21+ | 120 235 210 | **T0-T2 bases only** — quality never rescues a base you would not have picked up |
 
 ⚠️ Q21+ is **scoped, not universal**. The game already prints "Superior" on anything 1-30, so the
-filter's job is only the 21-30 band, and only on bases already worth showing. Do not implement it
-as a global state.
+filter's job is only the 21-30 band, and only on bases already worth showing — **T0-T2, never lower**. Do not implement it as a global state.
 
 Worked stacking (all real combinations, see the board's §05):
 
 | item state | plate | text | border |
 |---|---|---|---|
-| Q23 on a T1 base | T1 | quality teal | — |
+| Q23 on a T2 base | T2 | quality teal | — |
 | Q23 on a T4 base | T4 | accent pale | — (quality ignored) |
-| T1 base, corrupted | T1 | rarity | corrupted red |
-| Q23 T1 base, corrupted | T1 | quality teal | corrupted red |
+| T2 base, corrupted | T2 | rarity | corrupted red |
+| Q23 T2 base, corrupted | T2 | quality teal | corrupted red |
 | Memory strand | own accent | white | enchanted cyan |
 
 Text and border are different channels, so nothing conflicts.

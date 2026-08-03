@@ -2,7 +2,7 @@
   "_about": "Answers to reply-to-designer-01 §3(a) and §3(b): accent per theme category, and the tier-count → rung mapping. Companion to theme-standard.md / theme-presets.json.",
   "_schema": 1,
   "new_accents": {
-    "_about": "SIX accents added — the 17 did not cover gear, bulk, flasks, quest, allflame or corpses. Same shape as theme-presets.json accents; append these there.",
+    "_about": "MERGED into theme-presets.json accents as of reply 06 — kept here for the rationale only. Do not treat this as a second bank.",
     "equipment": {
       "solid": "170 170 170",
       "deep": "42 42 42",
@@ -18,7 +18,7 @@
       "shape": null,
       "beam": "Grey",
       "icon_floor": "none",
-      "note": "Gold, Legacy, Vendor Recipes, Chancing. The noise floor as a category rather than a rung."
+      "note": "Legacy, vendor recipes, chancing. The noise floor as a category rather than a rung."
     },
     "flasks": {
       "solid": "235 110 110",
@@ -73,7 +73,7 @@
     "Wombgifts": "breach",
     "Breach": "breach",
     "Breach Grasping Mail": "breach",
-    "Gold": "vendor",
+    "Gold": "gold",
     "Legacy": "vendor",
     "Vendor Recipes": "vendor",
     "Chancing": "vendor",
@@ -139,49 +139,49 @@
     "Magic Net": "Utility rather than loot, so it sits with Quest Items on green. If you would rather it read as Bestiary brown, that is a one-line change."
   },
   "rung_by_depth": {
-    "_about": "§3(b) answered as a RULE rather than 15 hand tables — it derives from ladder depth, so new content maps itself and nothing needs re-authoring next league. Rungs are listed best-first, matching your ladders' own order. Applies PER LADDER (per file), not per theme category, since the aggregates span several files.",
+    "_about": "Six rungs, T0-T5 (there is no T6). Rungs listed best-first. Applies PER LADDER (per file), not per theme category.",
     "value": {
       "1": [
         "T2"
       ],
       "2": [
         "T2",
-        "T5"
+        "T4"
       ],
       "3": [
         "T1",
         "T3",
-        "T6"
+        "T4"
       ],
       "4": [
         "T1",
         "T2",
         "T3",
-        "T5"
+        "T4"
       ],
       "5": [
         "T0",
         "T1",
         "T2",
         "T3",
-        "T6"
+        "T4"
       ],
       "6": [
         "T0",
         "T1",
         "T2",
         "T3",
-        "T5",
-        "T6"
+        "T4",
+        "T5"
       ],
       "7": [
         "T0",
         "T1",
         "T2",
+        "T2",
         "T3",
         "T4",
-        "T5",
-        "T6"
+        "T5"
       ],
       "_for": "currency, league mechanics, consumables, maps, fragments, gems, jewels, uniques, flasks, quest"
     },
@@ -190,13 +190,13 @@
         "T3"
       ],
       "2": [
-        "T2",
+        "T3",
         "T4"
       ],
       "3": [
         "T2",
         "T3",
-        "T5"
+        "T4"
       ],
       "4": [
         "T2",
@@ -207,32 +207,32 @@
       "5": [
         "T2",
         "T3",
+        "T3",
         "T4",
-        "T5",
-        "T6"
+        "T5"
       ],
       "6": [
         "T1",
         "T2",
         "T3",
+        "T3",
         "T4",
-        "T5",
-        "T6"
+        "T5"
       ],
       "7": [
         "T0",
         "T1",
         "T2",
         "T3",
+        "T3",
         "T4",
-        "T5",
-        "T6"
+        "T5"
       ],
       "_for": "every category on the equipment accent, plus Heist Equipment / Experimented",
-      "_why": "A gear ladder is ilvl bands, not a value ladder — its top rung is a good crafting base, not a chase drop. So it starts at T2 and never reaches T0/T1 except where a chase gear drop exists."
+      "_why": "A gear ladder is ilvl bands, not a value ladder — its top rung is a good crafting base, not a chase drop."
     },
     "overrides": {
-      "_about": "Where depth alone gets it wrong. Everything not listed uses the table above.",
+      "_about": "Where depth alone gets it wrong.",
       "Currency/General.json (8)": [
         "T0",
         "T1",
@@ -241,20 +241,20 @@
         "T2",
         "T3",
         "T3",
-        "T6"
+        "T4"
       ],
       "Currency/Gold.json (3)": [
-        "T6",
-        "T6",
-        "T6"
+        "T5",
+        "T5",
+        "T5"
       ],
       "_legacy/Legacy.json (1)": [
-        "T6"
+        "T5"
       ],
       "Equipment/VendorRecipes/Recipes.json (3)": [
+        "T4",
         "T5",
-        "T6",
-        "T6"
+        "T5"
       ],
       "Equipment/Crafting Priority.json (7)": [
         "T2",
@@ -288,13 +288,13 @@
         "T2",
         "T3",
         "T3",
-        "T5",
-        "T5"
+        "T4",
+        "T4"
       ],
       "Jewels/Abyss Jewels.json (3)": [
         "T2",
         "T3",
-        "T5"
+        "T4"
       ],
       "Jewels/Base Jewels.json (1)": [
         "T3"
