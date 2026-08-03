@@ -7,14 +7,15 @@
         "ch": "仪式底材"
       },
       "tier_order": [
+        "Ritual BaseTypes T0",
         "Ritual BaseTypes T1",
         "Ritual BaseTypes Hide"
       ]
     },
-    "Ritual BaseTypes T1": {
+    "Ritual BaseTypes T0": {
       "hideable": true,
       "theme": {
-        "Tier": 5,
+        "Tier": 0,
         "FontSize": 40,
         "BorderColor": "#72adcbff",
         "BackgroundColor": "#0c1013ff"
@@ -24,8 +25,28 @@
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "Ritual BaseTypes",
-        "ch": "仪式底材"
+        "en": "T0: Top Ritual Bases",
+        "ch": "T0: 仪式底材"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
+      }
+    },
+    "Ritual BaseTypes T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 1,
+        "FontSize": 40,
+        "BorderColor": "#72adcbff",
+        "BackgroundColor": "#0c1013ff"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Other Ritual Bases",
+        "ch": "其余仪式底材"
       },
       "conditions": {
         "Rarity": "<= Rare"

@@ -7,14 +7,16 @@
         "ch": "夺宝奇兵实验底材"
       },
       "tier_order": [
+        "Heist Experimented T0",
         "Heist Experimented T1",
+        "Heist Experimented T2",
         "Heist Experimented Hide"
       ]
     },
-    "Heist Experimented T1": {
+    "Heist Experimented T0": {
       "hideable": true,
       "theme": {
-        "Tier": 5,
+        "Tier": 0,
         "FontSize": 35,
         "BorderColor": "#953788ff",
         "BackgroundColor": "#0d080cff"
@@ -24,8 +26,8 @@
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "Heist Experimented",
-        "ch": "夺宝奇兵实验底材"
+        "en": "T0: Chase (Amulets/Rings)",
+        "ch": "T0: 夺宝奇兵实验底材"
       },
       "conditions": {
         "Rarity": "<= Rare"
@@ -43,6 +45,43 @@
             300
           ]
         }
+      }
+    },
+    "Heist Experimented T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 1
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T1: Good Archetypes",
+        "ch": "T1: 夺宝奇兵实验底材"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
+      }
+    },
+    "Heist Experimented T2": {
+      "hideable": true,
+      "theme": {
+        "Tier": 2,
+        "FontSize": 35,
+        "BorderColor": "#953788ff",
+        "BackgroundColor": "#0d080cff"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Other Experimented Bases",
+        "ch": "其余夺宝奇兵实验底材"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Heist Experimented Hide": {
