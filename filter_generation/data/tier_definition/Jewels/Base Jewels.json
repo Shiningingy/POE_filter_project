@@ -7,79 +7,22 @@
         "ch": "基础珠宝"
       },
       "tier_order": [
-        "Tier 0 Base Jewels",
         "Tier 1 Base Jewels",
-        "Tier 2 Base Jewels",
         "Tier Hide Base Jewels"
       ]
-    },
-    "Tier 0 Base Jewels": {
-      "hideable": false,
-      "show_in_editor": false,
-      "theme": {
-        "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#7f1a49ff",
-        "BorderColor": "#ba266bff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star"
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "顶级底材.mp3"
-      },
-      "localization": {
-        "en": "T0: Top Value",
-        "ch": "T0: 顶级珠宝"
-      },
-      "conditions": {
-        "Rarity": "<= Rare"
-      }
     },
     "Tier 1 Base Jewels": {
       "hideable": false,
       "theme": {
-        "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#fcf2f7ff",
-        "BorderColor": "#f4b8d4ff",
-        "BackgroundColor": "#cb2a75ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond",
-        "PlayAlertSound": [
-          "Sharket掉落音效/常规珠宝.mp3",
-          200
-        ]
+        "Tier": 1
       },
       "sound": {
         "default_sound_id": 1,
         "sharket_sound_id": "高级通货.mp3"
       },
       "localization": {
-        "en": "T1: High Value",
-        "ch": "T1: 高级珠宝"
-      },
-      "conditions": {
-        "Rarity": "<= Rare"
-      }
-    },
-    "Tier 2 Base Jewels": {
-      "hideable": false,
-      "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#f2c0d7ff",
-        "BorderColor": "#e88db7ff",
-        "BackgroundColor": "#a1215dff"
-      },
-      "sound": {
-        "default_sound_id": 2,
-        "sharket_sound_id": "通货.mp3"
-      },
-      "localization": {
-        "en": "T2: Standard",
-        "ch": "T2: 常用珠宝"
+        "en": "T1: Always shown",
+        "ch": "T1: 基础珠宝"
       },
       "conditions": {
         "Rarity": "<= Rare"
