@@ -1,6 +1,7 @@
 import { translations, type Language } from './localization';
 import {
   resolveTierTheme, resolveSoundPair, soundLineFromPair, styleLines, conditionLines, blockText,
+  styleOff,
 } from './filterStyle';
 
 interface StyleProps {
@@ -32,14 +33,40 @@ interface StyleProps {
  * `tierKey` is needed because the theme row is keyed by tier NUMBER, which comes
  * from the key when the tier does not state `theme.Tier` explicitly.
  */
+/** Channels a decorator is allowed to paint. FontSize is excluded on purpose: a state
+ *  says "this item is corrupted", never "this item is bigger". */
+const DECORATABLE = ["TextColor", "BorderColor", "BackgroundColor", "PlayEffect", "MinimapIcon"] as const;
+
 export const resolveStyle = (
   tierData: any,
   themeData: any,
   themeCategory: string = "Default",
   soundMap?: any,
   tierKey: string = "",
+  decorators: any[] = [],
 ): StyleProps => {
-  const resolved: StyleProps = { ...resolveTierTheme(themeData, themeCategory, tierData, tierKey) };
+  const row = resolveTierTheme(themeData, themeCategory, tierData, tierKey);
+
+  // ★ Decorators sit BENEATH the block, because `Continue` lets later blocks override
+  // only the properties they set — so a state shows exactly where the block leaves that
+  // channel unset (reference_poe_filter_format.md §3). With no decorators this is
+  // literally the old behaviour: `base` is empty and every row entry is copied through,
+  // sentinels included.
+  const base: any = {};
+  for (const d of decorators) {
+    for (const k of DECORATABLE) {
+      const v = d?.theme?.[k];
+      if (v !== undefined && !styleOff(v)) base[k] = v;
+    }
+  }
+  const resolved: StyleProps = { ...base } as StyleProps;
+  for (const [k, v] of Object.entries(row)) {
+    if (v === undefined) continue;
+    // The block explicitly gives this channel up, and a decorator claimed it: the
+    // decorator wins. That asymmetry IS the feature.
+    if (styleOff(v) && k in base) continue;
+    (resolved as any)[k] = v;
+  }
 
   const pair = resolveSoundPair(tierData, soundMap);
   if (pair) {

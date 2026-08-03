@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { Language } from '../utils/localization';
 import SoundBulkEditor from '../components/SoundBulkEditor';
 import ThemePresetEditor from '../components/ThemePresetEditor';
+import DecoratorEditor from '../components/DecoratorEditor';
 
 interface ThemeViewProps {
   language: Language;
@@ -11,6 +12,7 @@ interface ThemeViewProps {
 const ThemeView: React.FC<ThemeViewProps> = ({ language, onJumpToRule }) => {
   const [showSoundBulkEditor, setShowSoundBulkEditor] = useState(false);
   const [showThemePresetEditor, setShowThemePresetEditor] = useState(false);
+  const [showDecoratorEditor, setShowDecoratorEditor] = useState(false);
 
   return (
     <div className="theme-view">
@@ -47,7 +49,26 @@ const ThemeView: React.FC<ThemeViewProps> = ({ language, onJumpToRule }) => {
             </button>
           </div>
         </div>
+        {/* State Decorators. Deliberately here and not in the nav: every nav leaf is a
+            slice of item space, while a decorator is a LAYER over all of them — and it
+            belongs beside the preset it composes with. */}
+        <div className="management-card">
+          <div className="card-icon">🩹</div>
+          <div className="card-content">
+            <h3>{language === 'ch' ? "状态叠加" : "State Decorators"}</h3>
+            <p>{language === 'ch'
+              ? "腐化、破碎等状态各写一次，叠加在所有外观之上。"
+              : "Corrupted, fractured and friends — authored once, layered over every look."}</p>
+            <button className="manage-btn" onClick={() => setShowDecoratorEditor(true)}>
+              {language === 'ch' ? "打开状态叠加编辑器" : "Open Decorator Editor"}
+            </button>
+          </div>
+        </div>
       </div>
+
+      {showDecoratorEditor && (
+        <DecoratorEditor language={language} onClose={() => setShowDecoratorEditor(false)} />
+      )}
 
       {showSoundBulkEditor && (
         <SoundBulkEditor

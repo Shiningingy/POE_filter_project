@@ -25,7 +25,8 @@ import TierOutlineRail from "./TierOutlineRail";
 import TierContextMenu from "./TierContextMenu";
 import CategoryRenameModal from "./CategoryRenameModal";
 import LoadingOverlay from "./LoadingOverlay";
-import { invalidateTierLabelMap } from "../utils/tierLabels";
+import { invalidateTierLabelMap, fetchDecorators } from "../utils/tierLabels";
+import type { DecoratorEntry } from "../utils/tierLabels";
 import { resolveStyle } from "../utils/styleResolver";
 import { resolveThemeKey } from "../utils/filterStyle";
 import { useTranslation, translations } from "../utils/localization";
@@ -107,6 +108,16 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     !!td?.is_hide_tier ||
     (typeof td?.hide_at_strictness === 'number' && strictnessIdx >= td.hide_at_strictness) ||
     !isLevelingSelected(td?.lv_group, levelingSelection);
+  // State decorators + which of them the preview is currently simulating. Empty by
+  // default, so a block previews undecorated until you ask a state question.
+  const [decorators, setDecorators] = useState<DecoratorEntry[]>([]);
+  const [activeStates, setActiveStates] = useState<string[]>([]);
+  useEffect(() => { fetchDecorators().then(setDecorators).catch(() => {}); }, []);
+  const activeDecorators = useMemo(
+    () => decorators.filter(d => activeStates.includes(d.key)),
+    [decorators, activeStates],
+  );
+
   // const [themeData, setThemeData] = useState<any>(null); // Lifted to EditorView
   // const [soundMap, setSoundMap] = useState<any>(null); // Lifted
   const [parsedConfig, setParsedConfig] = useState<any>(null);
@@ -789,6 +800,26 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       <div className="category-section">
         <div className="category-header">
           <h3>{catName}</h3>
+          {/* State toggles. A block preview shows a TIER, not an item, so whether a
+              decorator applies depends on state the block cannot know. Toggling one
+              recomposes every plate below exactly as the game would: the state paints
+              its channel only where this tier leaves that channel unset. */}
+          {decorators.length > 0 && (
+            <div className="state-toggles" title={language === 'ch'
+              ? '预览状态叠加效果'
+              : 'Preview how state decorators compose over this tier'}>
+              {decorators.map(d => (
+                <button
+                  key={d.key}
+                  className={`state-chip ${activeStates.includes(d.key) ? 'on' : ''}`}
+                  onClick={() => setActiveStates(s =>
+                    s.includes(d.key) ? s.filter(x => x !== d.key) : [...s, d.key])}
+                >
+                  {language === 'ch' ? d.ch : d.en}
+                </button>
+              ))}
+            </div>
+          )}
           <button
             className="bulk-edit-btn"
             onClick={() => {
@@ -824,6 +855,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                 themeCategory,
                 soundMap,
                 tierKey,
+                activeDecorators,
               );
               const toggleBoost = () => {
                 if (!onLevelingSelectionChange) return;
@@ -1147,6 +1179,11 @@ const CategoryView: React.FC<CategoryViewProps> = ({
             padding-top: 20px;
         }
         .category-header h3 { margin: 0; color: #333; }
+        .state-toggles { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+        .state-chip { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; cursor: pointer;
+                      background: #f2f3f5; border: 1px solid #ddd; color: #666; }
+        .state-chip:hover { border-color: #2196F3; }
+        .state-chip.on { background: #2196F3; border-color: #2196F3; color: #fff; font-weight: 600; }
         .bulk-edit-btn { background: #673ab7; color: white !important; border: none; padding: 6px 18px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; font-weight: bold; box-shadow: 0 2px 4px rgba(103, 58, 183, 0.2); transition: background 0.2s; }
         .bulk-edit-btn:hover { background: #5e35b1; }
         .add-tier-btn { width: 100%; padding: 12px; background: #fcfcfc; border: 2px dashed #ddd; color: #666 !important; cursor: pointer; border-radius: 6px; font-weight: bold; font-size: 0.9rem; transition: all 0.2s; }

@@ -1,0 +1,27 @@
+{
+  "States": {
+    "_meta": {
+      "theme_category": "States",
+      "localization": {
+        "en": "State Decorators",
+        "ch": "状态叠加"
+      },
+      "tier_order": [
+        "Corrupted"
+      ]
+    },
+    "Corrupted": {
+      "decorator": true,
+      "conditions": {
+        "Corrupted": "True"
+      },
+      "theme": {
+        "BorderColor": "#ff4d4dff"
+      },
+      "localization": {
+        "en": "Corrupted",
+        "ch": "腐化"
+      }
+    }
+  }
+}
