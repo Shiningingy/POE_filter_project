@@ -23,6 +23,21 @@ def lerp(a, b, t):
     return [round(a[i] + (b[i] - a[i]) * t) for i in range(3)]
 
 
+def lum255(c):
+    """Reply 03's luminance, on the 0-255 scale their worked example uses."""
+    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
+
+
+def muted(solid):
+    """reply 03 / 09: desaturate(solid, 0.70), then darken 0.10.
+
+    desaturate(c, f) = lerp(c, grey(lum(c)), f);  darken f = lerp(c, black, f).
+    """
+    g = lum255(solid)
+    des = [solid[i] + (g - solid[i]) * 0.70 for i in range(3)]
+    return [round(v * 0.90) for v in des]
+
+
 def resolve(expr, accent):
     """Evaluate one recipe colour expression -> 'r g b' or 'r g b a' or None."""
     if expr is None:
@@ -42,9 +57,17 @@ def resolve(expr, accent):
         return 'LUM'                                     # resolved by caller (needs the bg)
 
     solid, deep = rgb(accent['solid']), rgb(accent['deep'])
+    muted_c = muted(solid)
     out = None
     if e == 'accent.solid':                              out = solid
     elif e == 'accent.deep':                             out = deep
+    elif e == 'accent.muted':                            out = muted_c
+    elif e == 'accent.t0_text ?? accent.solid':
+        out = rgb(accent['t0_text']) if accent.get('t0_text') else solid
+    elif (m := re.fullmatch(r'accent\.muted darkened ([\d.]+)', e)):
+        out = lerp(muted_c, [0, 0, 0], float(m.group(1)))
+    elif (m := re.fullmatch(r'accent\.muted lightened ([\d.]+)', e)):
+        out = lerp(muted_c, [255, 255, 255], float(m.group(1)))
     elif (m := re.fullmatch(r'accent\.deep lightened ([\d.]+)', e)):
         out = lerp(deep, [255, 255, 255], float(m.group(1)))
     elif (m := re.fullmatch(r'accent\.deep darkened ([\d.]+)', e)):
@@ -85,27 +108,66 @@ def expand(rung, accent_name, variant='painted'):
     return out
 
 
-fails = 0
-for cat in ('currency', 'essences'):
-    g = P['goldens'][cat]
-    rows = g.get('painted', {k: v for k, v in g.items() if not k.startswith('_')})
-    print(f'=== {cat}')
-    for rung, want in rows.items():
-        if rung.startswith('_'):
-            continue
-        got = expand(rung, cat)
-        for key in ('text', 'bg', 'border', 'icon', 'beam', 'size'):
-            w, gt = want.get(key), got.get(key)
-            if str(w) != str(gt):
-                fails += 1
-                print(f'   MISMATCH {rung}.{key}: got {gt!r}  want {w!r}')
-        else:
-            pass
-    ok = all(str(want.get(k)) == str(expand(r, cat).get(k))
-             for r, want in rows.items() if not r.startswith('_')
-             for k in ('text', 'bg', 'border', 'icon', 'beam', 'size'))
-    print(f'   {"OK" if ok else "differs"} — {len([r for r in rows if not r.startswith("_")])} rungs checked')
+def check_goldens():
+    """Expand the two golden accents and diff. Returns the mismatch count."""
+    fails = 0
+    for cat in ('currency', 'essences'):
+        g = P['goldens'][cat]
+        rows = g.get('painted', {k: v for k, v in g.items() if not k.startswith('_')})
+        print(f'=== {cat}')
+        n = 0
+        for rung, want in rows.items():
+            if rung.startswith('_'):
+                continue
+            n += 1
+            got = expand(rung, cat)
+            for key in ('text', 'bg', 'border', 'icon', 'beam', 'size'):
+                w, gt = want.get(key), got.get(key)
+                if str(w) != str(gt):
+                    fails += 1
+                    print(f'   MISMATCH {rung}.{key}: got {gt!r}  want {w!r}')
+        print(f'   {"OK" if not fails else "differs"} — {n} rungs checked')
+    print()
+    print('UNDEFINED transform verbs:', sorted(UNDEFINED) or 'none')
+    return fails
 
-print()
-print('UNDEFINED transform verbs:', sorted(UNDEFINED) or 'none')
-sys.exit(1 if fails else 0)
+
+def wcag_luminance(c):
+    """WCAG relative luminance — NOT the same as reply 03's lum(), which is a plain
+    0-255 weighted average. This one linearises sRGB first, and is the only one valid
+    for a contrast ratio."""
+    def f(v):
+        v /= 255
+        return v / 12.92 if v <= 0.03928 else ((v + 0.055) / 1.055) ** 2.4
+    return 0.2126 * f(c[0]) + 0.7152 * f(c[1]) + 0.0722 * f(c[2])
+
+
+def check_t0_contrast(bar=3.0):
+    """Their reply-03 ask: 'assert every T0 text clears 4.5:1 on white'.
+
+    Reported at 3:1, the WCAG bar for LARGE text — T0 ships at 45px, so 3:1 is the
+    applicable threshold rather than 4.5:1. Both numbers are printed.
+    """
+    print('=== T0 text contrast on the white plate ===')
+    rows = []
+    for name, a in P['accents'].items():
+        if name.startswith('_') or not isinstance(a, dict):
+            continue
+        t0 = rgb(a.get('t0_text') or a['solid'])
+        ratio = 1.05 / (wcag_luminance(t0) + 0.05)
+        rows.append((ratio, name, t0, 't0_text' if a.get('t0_text') else 'solid'))
+    rows.sort()
+    fail = [r for r in rows if r[0] < bar]
+    for ratio, name, t0, src in rows:
+        mark = 'FAIL' if ratio < bar else '    '
+        print('   %s %-13s %-14s %.2f:1  (%s)' % (mark, name, ' '.join(map(str, t0)), ratio, src))
+    print('   %d of %d below %.1f:1 (large-text bar); %d below 4.5:1'
+          % (len(fail), len(rows), bar, len([r for r in rows if r[0] < 4.5])))
+    return len(fail)
+
+
+if __name__ == '__main__':
+    bad = check_goldens()
+    print()
+    check_t0_contrast()
+    sys.exit(1 if bad else 0)
