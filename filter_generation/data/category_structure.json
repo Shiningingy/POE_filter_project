@@ -223,12 +223,48 @@
       },
       "files": [
         {
-          "path": "Curse of the Allflame/League Items.json",
-          "tier_path": "tier_definition/Curse of the Allflame/League Items.json",
-          "mapping_path": "base_mapping/Curse of the Allflame/League Items.json",
+          "path": "Curse of the Allflame/Ducats.json",
+          "tier_path": "tier_definition/Curse of the Allflame/Ducats.json",
+          "mapping_path": "base_mapping/Curse of the Allflame/Ducats.json",
           "localization": {
-            "en": "League Items",
-            "ch": "联盟物品"
+            "en": "Ducats",
+            "ch": "达克特"
+          }
+        },
+        {
+          "path": "Curse of the Allflame/Voyage Charts.json",
+          "tier_path": "tier_definition/Curse of the Allflame/Voyage Charts.json",
+          "mapping_path": "base_mapping/Curse of the Allflame/Voyage Charts.json",
+          "localization": {
+            "en": "Voyage Charts",
+            "ch": "海图"
+          }
+        },
+        {
+          "path": "Curse of the Allflame/Sulphur.json",
+          "tier_path": "tier_definition/Curse of the Allflame/Sulphur.json",
+          "mapping_path": "base_mapping/Curse of the Allflame/Sulphur.json",
+          "localization": {
+            "en": "Sulphur",
+            "ch": "死者硫磺"
+          }
+        },
+        {
+          "path": "Curse of the Allflame/Mercenary Warrants.json",
+          "tier_path": "tier_definition/Curse of the Allflame/Mercenary Warrants.json",
+          "mapping_path": "base_mapping/Curse of the Allflame/Mercenary Warrants.json",
+          "localization": {
+            "en": "Mercenary Warrants",
+            "ch": "佣兵委托令"
+          }
+        },
+        {
+          "path": "Curse of the Allflame/Bottles.json",
+          "tier_path": "tier_definition/Curse of the Allflame/Bottles.json",
+          "mapping_path": "base_mapping/Curse of the Allflame/Bottles.json",
+          "localization": {
+            "en": "Bottles",
+            "ch": "瓶中信"
           }
         },
         {

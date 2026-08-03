@@ -1,0 +1,84 @@
+{
+  "Sulphur": {
+    "_meta": {
+      "theme_category": "Curse of the Allflame",
+      "localization": {
+        "en": "Sulphur",
+        "ch": "死者硫磺"
+      },
+      "tier_order": [
+        "Sulphur T0",
+        "Sulphur T1",
+        "Sulphur T2",
+        "Sulphur Hide"
+      ]
+    },
+    "Sulphur T0": {
+      "theme": {
+        "Tier": 2
+      },
+      "hideable": false,
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T0: 3000+",
+        "ch": "T0: 死者硫磺 3000+"
+      },
+      "conditions": {
+        "StackSize": ">= 3000"
+      }
+    },
+    "Sulphur T1": {
+      "theme": {
+        "Tier": 3
+      },
+      "hideable": false,
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T1: 500-3000",
+        "ch": "T1: 死者硫磺 500+"
+      },
+      "conditions": {
+        "StackSize": ">= 500"
+      }
+    },
+    "Sulphur T2": {
+      "theme": {
+        "Tier": 4
+      },
+      "hideable": false,
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T2: under 500",
+        "ch": "T2: 死者硫磺"
+      }
+    },
+    "Sulphur Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#a589dcff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#040208ff"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

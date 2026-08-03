@@ -1,0 +1,56 @@
+{
+  "Bottles": {
+    "_meta": {
+      "theme_category": "Curse of the Allflame",
+      "localization": {
+        "en": "Bottles",
+        "ch": "瓶中信"
+      },
+      "tier_order": [
+        "Bottles T0",
+        "Bottles Hide"
+      ]
+    },
+    "Bottles T0": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T0: Message in a Bottle",
+        "ch": "T0: 瓶中信"
+      },
+      "item_overrides": {
+        "Message in a Bottle": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/DOTA2_瓶.mp3",
+            300
+          ]
+        }
+      }
+    },
+    "Bottles Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#a589dcff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#040208ff"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

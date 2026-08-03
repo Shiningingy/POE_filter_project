@@ -1,9 +1,20 @@
-# Nav structure: chapter separator -> group -> optional subgroup -> leaf.
-# Compiled to category_structure.json by parsing_tool/generate_category_json.py.
+# ⚠️⚠️ THIS FILE IS STALE. IT IS NOT THE SOURCE OF THE NAV. ⚠️⚠️
 #
-# ⚠️ Still diff the compiler's output before replacing the .json - it is not proven
-# to reproduce the committed file byte-for-byte. For a small change (a nav add or
-# remove, ~10 lines) it remains easiest to edit BOTH files by hand.
+# `category_structure.json` is what the app reads, and the two have diverged badly:
+#
+#     json  30 groups,  96 leaves      <- live
+#     yaml  27 groups, 111 leaves      <- this file
+#
+# Missing from here but present in the json: the whole "Curse of the Allflame" chapter
+# and all seven campaign leaves. Present here but long dead: "Act & Build-Specific",
+# "Campaign Flasks", "Colors & Links", "Item Progression", "Other Normal & Magic",
+# "Rare Items".
+#
+# Compiling this file therefore DELETES a league's content and the campaign nav. Edit
+# `category_structure.json` directly. This file is kept only until it is either retired
+# or regenerated FROM the json; do not treat it as authoritative.
+#
+# Nav structure (for reading it): chapter separator -> group -> optional subgroup -> leaf.
 #
 # ★ A LEAF CARRIES NO THEME KEY. It used to: `target: X` / `_default_target: X`
 # compiled to `target_category`, and the theme board used that as its read AND write

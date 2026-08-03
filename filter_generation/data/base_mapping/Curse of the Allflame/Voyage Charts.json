@@ -1,0 +1,24 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Curse of the Allflame",
+    "localization": {
+      "ch": {
+        "Sandy Seabed Chart": "沙质海床海图",
+        "Coral Forest Chart": "珊瑚森林海图",
+        "Coral Reef Chart": "珊瑚礁海图",
+        "Thermal Vents Chart": "海底热泉海图"
+      }
+    }
+  },
+  "mapping": {
+    "Sandy Seabed Chart": "Voyage Charts T0",
+    "Coral Forest Chart": "Voyage Charts T0",
+    "Coral Reef Chart": "Voyage Charts T0",
+    "Thermal Vents Chart": "Voyage Charts T0"
+  },
+  "rules": []
+}

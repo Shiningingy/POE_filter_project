@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Curse of the Allflame",
+    "localization": {
+      "ch": {
+        "Message in a Bottle": "瓶中信"
+      }
+    }
+  },
+  "mapping": {
+    "Message in a Bottle": "Bottles T0"
+  },
+  "rules": []
+}

@@ -1,14 +1,23 @@
-# [parsing_tool group C: VERIFY BEFORE RUNNING] Compiles category_structure.yaml ->
-# category_structure.json.
+# [parsing_tool group C: ⚠️ DO NOT RUN - THE YAML IS STALE AND RUNNING THIS DESTROYS DATA]
 #
-# The regression that made this DO-NOT-RUN was `target_category`: `_default_target`
-# stamped one theme key over a whole group, but the theme key belongs to the tier
-# definition, so recompiling silently repointed leaves at keys that did not exist.
-# That field no longer exists anywhere - a nav leaf carries no theme key at all now
-# (see filterStyle.resolveThemeKey) - so the specific regression is gone.
+# Compiles category_structure.yaml -> category_structure.json. The `target_category`
+# regression that first earned this warning is genuinely fixed (a nav leaf carries no
+# theme key at all now - see filterStyle.resolveThemeKey), and an earlier edit relaxed
+# this header to "verify before running" on that basis. That was wrong, and measuring
+# the two files is what showed it:
 #
-# It is still not proven to reproduce the checked-in JSON byte-for-byte in every
-# other respect, so diff its output before replacing the committed file.
+#     category_structure.json   30 groups, 96 leaves   <- what the app actually reads
+#     category_structure.yaml   27 groups, 111 leaves  <- stale
+#
+# Nine groups exist in the JSON and NOT in the yaml, including the entire "Curse of the
+# Allflame" chapter and all seven campaign leaves. Six groups exist only in the yaml and
+# are long dead ("Act & Build-Specific", "Campaign Flasks", "Rare Items", ...).
+#
+# So a recompile does not merely churn formatting: it DELETES a league's content and the
+# campaign nav, and resurrects six retired groups. The JSON is the live artefact; the
+# yaml is a second, drifted identity for the same thing - the exact shape of problem this
+# branch removed for theme categories. Retire the yaml or regenerate it FROM the json;
+# do not compile the other way until that is settled.
 import yaml
 import json
 import os

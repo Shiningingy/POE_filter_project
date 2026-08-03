@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Curse of the Allflame",
+    "localization": {
+      "ch": {
+        "Mercenary Warrant": "佣兵委托令"
+      }
+    }
+  },
+  "mapping": {
+    "Mercenary Warrant": "Mercenary Warrants T0"
+  },
+  "rules": []
+}

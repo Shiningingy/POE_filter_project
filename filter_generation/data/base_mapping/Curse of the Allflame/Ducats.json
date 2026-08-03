@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Curse of the Allflame",
+    "localization": {
+      "ch": {
+        "Cyaxan's Ducat": "塞亚桑的达克特",
+        "Katakohi's Ducat": "卡塔科希的达克特",
+        "Tzamoto's Ducat": "查莫托的达克特",
+        "Merrick's Ducat": "梅里克的达克特",
+        "The Changeling's Ducat": "换生灵的达克特",
+        "The Genteel's Ducat": "高雅者的达克特",
+        "Kishara's Ducat": "奇萨拉的达克特",
+        "Telesia's Ducat": "泰蕾希亚的达克特",
+        "Rotmother's Ducat": "腐母的达克特",
+        "Brinehook's Ducat": "咸钩的达克特"
+      }
+    }
+  },
+  "mapping": {
+    "Cyaxan's Ducat": "Ducats T0",
+    "Katakohi's Ducat": "Ducats T0",
+    "Tzamoto's Ducat": "Ducats T0",
+    "Merrick's Ducat": "Ducats T1",
+    "The Changeling's Ducat": "Ducats T1",
+    "The Genteel's Ducat": "Ducats T1",
+    "Kishara's Ducat": "Ducats T1",
+    "Telesia's Ducat": "Ducats T1",
+    "Rotmother's Ducat": "Ducats T1",
+    "Brinehook's Ducat": "Ducats T1"
+  },
+  "rules": []
+}
