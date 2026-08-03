@@ -1,4 +1,4 @@
-# Reply 04 — reply 11 applied; four things stand between here and the compile
+# Reply 04 — reply 11 applied; five things stand between here and the compile
 
 Thank you for withdrawing reply 10's border rather than negotiating it — recording it on the
 board as a build constraint is exactly right, and it means I will not have to re-litigate it in
@@ -11,7 +11,9 @@ thresholds recorded. Nothing there needs another pass.
 
 I implemented the two newly-defined verbs and re-ran the goldens. **`t0_text` reproduces
 exactly** — both T0 rows are now byte-identical. `accent.muted` does not, and chasing why turned
-up three separate problems plus one of your own asks that fails.
+up three separate problems (§1–3). Then I built the compiler while waiting, and it broke two of
+your own assertions: the T0 contrast rule (§4) and the flat look's border legality (§5). Only §2/3
+actually blocks.
 
 ---
 
@@ -108,21 +110,76 @@ Worth knowing: `uniques` at 4.64:1 is the *only* accent that clears 4.5 without 
 a colour players already read as chase. That is a nice coincidence and probably not one to
 disturb.
 
+## 5. ★★ The flat look spends the border too — on a list that is entirely gear
+
+I built the compiler while waiting (details below) and implemented your `state_budget` legality
+test as a hard check. **It fails on your own flat list**, and it is the reply-10 problem again in
+a different place.
+
+`flat_look.legality` says *"these classes hold zero states, so the border is spare."* For
+`applies_to_painted` that is true. For **`applies_to_rarity_through` it is false on every single
+entry** — that list is gear *by construction*, which is why it is the rarity-through half:
+
+| flat rarity_through category | what its bases actually are |
+|---|---|
+| Sacrificial Garbs | Body Armours |
+| Breach Grasping Mail | Body Armours |
+| Mirror of Kalandra Ring Bases | Rings |
+| Expedition Ward-Bases | Helmets / Gloves / Boots (+1 Utility Flask) |
+| Relics | own class, bases unknown to GGPK — unresolved |
+| Enshrouded Gear | 3.29 content, bases not in the dump yet — unresolved |
+
+The first four are provably gear and gear holds all five states, so a full-strength accent border
+there is eaten by the rung the same way reply 10's was — except here it is the *state* that gets
+eaten, since the flat block comes after the decorator. The last two I cannot resolve, so the
+compiler treats them as stateful: a spurious plate is cosmetic, a spurious border costs a state.
+
+**The compiler currently drops the border on all six and reports it.** That is the safe direction,
+not a decision — the flat look then has no marker at all on gear, which was the whole point of the
+bright border.
+
+**A suggestion, since the constraint is now fixed and the channel is genuinely gone:** gear ranks
+on plate alpha `250 / 240 / 230 / 220 / 210`, so **alpha `255` is unused and sits just outside the
+ladder**. A flat gear block at full opacity reads as "off the ladder" without spending a channel,
+and it composes with every state border because it leaves the border alone. It also keeps your
+three-way reading of the border intact — it just makes the third case "plate at 255" instead.
+
+⚠️ One false positive to ignore: `Enshrouding Crystals` is on the *painted* list and is
+currency-like, so it holds no states; it only trips the check because its five bases are not in
+the GGPK dump either. The painted flat list is otherwise clean.
+
 ---
 
 ## What I need to compile
 
 Only item 2/3 genuinely blocks: **what is `accent.muted`, on both golden accents.** Give me two
-numbers per accent, or a corrected worked example, and the compiler runs. Items 1 and 4 I can
+numbers per accent, or a corrected worked example, and the compiler runs. Items 1, 4 and 5 I can
 work around — item 1 with a `t3_bg` override if you agree, item 4 by compiling what you have and
-raising the contrast failures as a list for the in-game sweep.
+handing you the contrast failures as a list for the in-game sweep, item 5 by dropping the border
+until you decide.
 
-Everything else is ready. The transform language is settled, T0 reproduces byte-for-byte, the
-group resolution is derived and tested, and the compile is a side file and a diff away.
+## Where things stand on my side — the compiler is built
 
-## Where things stand on my side
+`expand_goldens.py` implements every verb in the recipe with nothing undefined, plus the T0
+contrast assertion, and `compile_theme.py` is built on top of it rather than forked from it, so
+the golden diff stays the test that stops the compiler drifting from your recipe.
 
-`expand_goldens.py` now implements every verb in the recipe with nothing undefined, plus the T0
-contrast assertion, and is importable so the compiler can build on it. The border constraint is
-recorded in the repo's format reference as a game-and-architecture truth rather than a note on
-this handoff, so it survives past this project.
+It runs end to end today: **73 categories, 229 rows against the 998 that ship now.** Your
+prediction that the orphan rows disappear by construction is the right measure and it holds — a
+row exists only where a rung does. It writes to a side file, never to `sharket_theme.json`, and I
+generated a full Ruthless filter with it and format-checked the output: 532 blocks, no malformed
+icon lines, no styled hide block.
+
+Two things it turned up that are mine, not yours, but change the shape of the handover:
+
+- **The rung digit is the lookup key.** Our generator keys the theme by `Tier N`, so assigning a
+  rung and rewriting the block's tier number are two halves of one change. That is the deferred
+  re-rank, and it is now generated and ready rather than hypothetical.
+- **The theme file is largely bypassed.** An earlier workstream made the tier block own its look,
+  so 398 of 421 blocks carry a full inline style that wins over the theme row. The real compile
+  therefore rewrites the *blocks*, not the theme file. No change to your recipe — it changes where
+  the output lands, and it means the in-game diff you asked for will be a real diff rather than a
+  no-op.
+
+The border constraint is recorded in the repo's format reference as a game-and-architecture truth
+rather than a note on this handoff, so it survives past this project.
