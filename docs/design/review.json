@@ -1,0 +1,160 @@
+{
+  "format": "sharket-tier-review",
+  "version": 2,
+  "exported": "2026-08-02T23:52:22.675Z",
+  "notes": {
+    "General": {
+      "Tier 8": {
+        "d": "If we ever need this this is only for scrolls, and hide after strictness 2."
+      },
+      "_note": "Good for now."
+    },
+    "Gold": {
+      "Tier 0 Gold": {
+        "d": ""
+      },
+      "_note": "I think gold should be pretty sparse, in game is it like divided to <= 100, 100-500 ,500+ and 1000+ if beam only temporary small icons on 500+ and 1000+"
+    },
+    "Delirium Orbs": {
+      "_note": "Ruthelss only have its specific \"Delirium orb\" , so just i tier for it."
+    },
+    "Essences": {
+      "_note": "currently good."
+    },
+    "Fossils": {
+      "_note": "",
+      "CustomTier 1 Fossils": {
+        "a": "merge",
+        "d": "merge to tier4, i think you have merged it but now seems not in the root code XD"
+      }
+    },
+    "Harvest": {
+      "_note": "similiar as gold, but more visiable, divided by 0-50, 50-100, 100+ and 300+ in ruthless, where beam for 100+and 300+ could be perm."
+    },
+    "Heist Currency": {
+      "_note": "for this one, maybe it is good just to make it one tier, so it is noticeable and thats it. 40px with some general kind of hues for heist, like gery bg+white text+ red border."
+    },
+    "Enshrouding Crystals": {
+      "_note": "only 5 items in the category, make them 1 tier is enough, or merge the whole category into general currency."
+    },
+    "Incursion Vials": {
+      "_note": "two tier might be enough. vials is not that valuable in general."
+    },
+    "Tainted Currency": {
+      "_note": "hand-tuned earlier, looks good XD"
+    },
+    "Oils": {
+      "_note": "maybe merge into general currency."
+    },
+    "Omens": {
+      "_note": "hand-tuned earlier, looks good XD"
+    },
+    "Runegrafts": {
+      "_note": "hand-tuned earlier, looks good XD"
+    },
+    "Corpses": {
+      "_note": "seems we are not start from T0? then 1234+net is good already."
+    },
+    "Wombgifts": {
+      "_note": "2 tier is enough, ancient -> T1 and rest -> T2"
+    },
+    "Uniques": {
+      "_note": "hand-tuned earlier, looks good XD"
+    },
+    "Skill Gems": {
+      "_note": "hand-tuned earlier, looks good XD"
+    },
+    "Support Gems": {
+      "_note": "hand-tuned earlier, looks good XD"
+    },
+    "Curse of the Allflame": {
+      "_note": "we will have several sub categories here, for Ducat -> 2 ~3 tiers, Voyage map-> 1 tier, sulpur -> 3 tiers maybe same sound, and 0-500, 500-3000, 3000+. merc warrant -> 1 tier. Bottle -> 1 tier."
+    },
+    "Enshrouded Gear": {
+      "_note": "this is kind of unique condition? merge to unique maybe. this item is not natually droppable, it is good to keep it for new then we merge it to unique next league."
+    },
+    "Maps": {
+      "_note": "currently good."
+    },
+    "Scarabs": {
+      "_note": "currently good."
+    },
+    "Map Fragments": {
+      "_note": "not sure why splinters kicked in this, but could be a sub category of this, and then good as both are tuned earlier."
+    },
+    "Heist Contracts": {
+      "_note": "currently good."
+    },
+    "Heist Blueprints": {
+      "_note": "currently good."
+    },
+    "Body Armours": {
+      "_note": "seems you are merged all of those together, for equipments, i think i need actually looked into the editor to check if we are good, but as we ported filterblade base tiering, it is mostly fine for us. just keep in mind that general gear is mid game, and will hide trash magic + normal if they are trash bases. If you forget then we can disscuss on equipments."
+    },
+    "Life Flasks": {
+      "_note": "life flasks is mostly progressions, for mid-end game we only show certain ilvl lifeflasks, hide in mid strictness."
+    },
+    "Mana Flasks": {
+      "_note": "same as lifeflask"
+    },
+    "Tinctures": {
+      "_note": "same as ultitlty flask."
+    },
+    "Utility Flasks": {
+      "_note": "basically same as life flask, but actially 3 tiers is good, t1 for good 84+ or 83+ bases, t2 for 68+ good bases? (need to check mod range) and t3 for the rest."
+    },
+    "Jewels": {
+      "_note": "for normal jewels we just always show NMR ones, cluster jewels needs to be divided with their passivenum + enchantments, maybe small/medium/large as well, check filterblade. Abyssal jewels are divided by ilvl for 2~3 tiers"
+    },
+    "Trinkets": {
+      "_note": "just make it noticeable is fine, as a emphsised rare/magic item.  for theme maybe carry some general heist design"
+    },
+    "Relics": {
+      "_note": "just noticeable, the tiering is matter for unique relics mainly, which is handled in unique section."
+    },
+    "Vendor Recipes": {
+      "_note": "currently good."
+    },
+    "Chancing": {
+      "_note": "1 tier is enough, for this maybe not enabled by default, let the user decide, so we need somehow a chancing base picker XD"
+    },
+    "Crafting Bases": {
+      "_note": "currently good. could merge some from general equipment part maybe?"
+    },
+    "Influenced": {},
+    "Breach Grasping Mail": {
+      "_note": "1 tier is enough, not drop normally"
+    },
+    "Expedition Ward-Bases": {
+      "_note": "3-4 tiers, and the top tier need to consider both basetype + ilvl. while the rest are mainly divide by basetype."
+    },
+    "Heist Experimented": {
+      "_note": "3 tiers, fit the archtype nature of experimented basetypes"
+    },
+    "Mirror of Kalandra Ring Bases": {
+      "_note": "1 tier is enough, make it noticeable. this wont drop natually"
+    },
+    "Sacrificial Garbs": {
+      "_note": "1 tier, not usually drops"
+    },
+    "Ritual BaseTypes": {
+      "_note": "4 tiers, same reason as experimental base type, t0 for ilvl."
+    },
+    "Stygian Vise": {
+      "_note": "2-3 tiers, 86+ 84+ and 84- maybe "
+    },
+    "Talismans": {
+      "_note": "check filterbalde tiering, i'd say 3 tiers"
+    },
+    "Campaign": {
+      "_note": "currently good."
+    },
+    "Quest Items": {
+      "_note": "currently good. as manually tuned eariler"
+    },
+    "Legacy": {
+      "_note": "for this we might using sub categories, for now this can be the safe net, if we found something we add something XD"
+    }
+  },
+  "newCategories": []
+}
