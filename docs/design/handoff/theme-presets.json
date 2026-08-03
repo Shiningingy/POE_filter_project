@@ -1,0 +1,469 @@
+{
+  "_about": "Theme standard, workstream E. 35 authored values; every preset is derived from them. Companion to theme-standard.md. Visual truth is 'Theme Standard - Plates, Beams & Icons.dc.html'.",
+  "_schema": 1,
+  "_authored_value_count": 35,
+  "_rule": "A tier block authors exactly two values: accent + rung. Icon, beam and plate are pure functions of those. Presets carry NO FontSize.",
+  "rung_recipes": {
+    "_about": "T0/T1/T6 are house-fixed and identical in every category. T2-T5 are derived from the accent. 'painted' sets text; 'rarity_through' deliberately omits it so the game paints rarity.",
+    "T0": {
+      "name": "Drop everything",
+      "house_fixed": true,
+      "painted": {
+        "text": "255 0 0",
+        "bg": "255 255 255 255",
+        "border": null
+      },
+      "rarity_through": {
+        "text": "255 0 0",
+        "bg": "255 255 255 255",
+        "border": null,
+        "note": "chase overrides rarity — painted in every family, gear included"
+      },
+      "icon": {
+        "size": 0,
+        "colour": "White"
+      },
+      "beam": "persistent",
+      "size_px": 45
+    },
+    "T1": {
+      "name": "Very valuable",
+      "house_fixed": true,
+      "painted": {
+        "text": "255 255 255",
+        "bg": "210 0 0 255",
+        "border": null
+      },
+      "rarity_through": {
+        "text": "255 255 255",
+        "bg": "210 0 0 255",
+        "border": null,
+        "note": "chase overrides rarity"
+      },
+      "icon": {
+        "size": 0,
+        "colour": "Red"
+      },
+      "beam": "persistent",
+      "size_px": 45
+    },
+    "T2": {
+      "name": "Worth picking up",
+      "painted": {
+        "text": "black_or_white_by_luminance",
+        "bg": "accent.solid @ 240",
+        "border": null
+      },
+      "rarity_through": {
+        "text": null,
+        "bg": "accent.deep lightened 0.15 @ 235",
+        "border": null
+      },
+      "icon": {
+        "size": 1,
+        "colour": "Yellow"
+      },
+      "beam": "temp",
+      "size_px": 40
+    },
+    "T3": {
+      "name": "Situational / bulk",
+      "painted": {
+        "text": "0 0 0",
+        "bg": "accent.muted @ 230",
+        "bg_currency": "170 158 130 230",
+        "border": null
+      },
+      "rarity_through": {
+        "text": null,
+        "bg": "accent.muted_deep @ 230",
+        "border": null
+      },
+      "icon": null,
+      "beam": null,
+      "size_px": 35,
+      "note": "Currency keeps Sharket's tan. Every other category mutes its own accent."
+    },
+    "T4": {
+      "name": "Useful, not valuable",
+      "painted": {
+        "text": "accent.solid mixed 0.65 toward white",
+        "bg": "accent lerp(solid,deep,0.72) @ 230",
+        "border": null
+      },
+      "rarity_through": {
+        "text": null,
+        "bg": "accent.deep darkened 0.3 @ 225",
+        "border": null
+      },
+      "icon": null,
+      "beam": null,
+      "size_px": 35
+    },
+    "T5": {
+      "name": "The family's own floor",
+      "painted": {
+        "text": "accent.solid",
+        "bg": "accent.deep @ 222",
+        "border": null
+      },
+      "rarity_through": {
+        "text": null,
+        "bg": "accent.deep darkened 0.5 @ 220",
+        "border": null
+      },
+      "icon": null,
+      "beam": null,
+      "size_px": 30
+    },
+    "T6": {
+      "name": "Noise floor, still shown",
+      "house_fixed": true,
+      "painted": {
+        "text": "150 145 138",
+        "bg": "48 48 48 215",
+        "border": null
+      },
+      "rarity_through": {
+        "text": null,
+        "bg": null,
+        "border": null,
+        "note": "bare game default — emit no colour lines at all"
+      },
+      "icon": null,
+      "beam": null,
+      "size_px": 30
+    }
+  },
+  "accents": {
+    "_about": "16 categories. solid + deep are the only authored colours; every T2-T5 plate is a transform of them. shape and beam are the icon/beam axis. icon_floor is the lowest rung drawing an icon.",
+    "currency": {
+      "solid": "255 170 0",
+      "deep": "70 46 0",
+      "shape": "Diamond",
+      "beam": "Orange",
+      "icon_floor": "T2",
+      "note": "The house accent. Every other row is measured against this one."
+    },
+    "fragments": {
+      "solid": "130 20 180",
+      "deep": "40 8 55",
+      "shape": "Hexagon",
+      "beam": "Purple",
+      "icon_floor": "T2",
+      "text": "black",
+      "border": "accent",
+      "note": "Purple as the atlas shows it. Splinters are drop-disabled."
+    },
+    "scarabs": {
+      "solid": "0 130 90",
+      "deep": "0 42 30",
+      "shape": "Hexagon",
+      "beam": "Green",
+      "icon_floor": "T2",
+      "note": "Sharket's scarab green — near the atlas family without joining it."
+    },
+    "essences": {
+      "solid": "60 130 255",
+      "deep": "12 30 62",
+      "shape": "Circle",
+      "beam": "Blue",
+      "icon_floor": "T2",
+      "note": "Unchanged from Sharket."
+    },
+    "div_cards": {
+      "solid": "14 186 255",
+      "deep": "10 44 62",
+      "shape": "Triangle",
+      "beam": "Blue",
+      "icon_floor": "T2",
+      "note": "Widest value spread of any category; needs its own blue."
+    },
+    "gems": {
+      "solid": "27 162 155",
+      "deep": "0 40 38",
+      "shape": "Kite",
+      "beam": "Cyan",
+      "icon_floor": "T2",
+      "note": "Most often misread as currency."
+    },
+    "uniques": {
+      "solid": "175 96 37",
+      "deep": "52 28 10",
+      "shape": "Star",
+      "beam": "Brown",
+      "icon_floor": "T2",
+      "note": "The one hue players read without being taught."
+    },
+    "blight_oils": {
+      "solid": "255 230 80",
+      "deep": "70 60 10",
+      "shape": "Circle",
+      "beam": "Yellow",
+      "icon_floor": "T2",
+      "note": "Held clear of currency orange so a Golden Oil is never a Divine."
+    },
+    "fossils": {
+      "solid": "200 140 0",
+      "deep": "58 40 0",
+      "shape": "Circle",
+      "beam": "Yellow",
+      "icon_floor": "T2",
+      "note": "Warm but darker than currency; resonators share it."
+    },
+    "delirium": {
+      "solid": "210 210 230",
+      "deep": "58 58 78",
+      "shape": "Cross",
+      "beam": "Grey",
+      "icon_floor": "T2",
+      "note": "Grey-lilac, matching the orbs themselves."
+    },
+    "heist": {
+      "solid": "200 40 40",
+      "deep": "58 8 8",
+      "shape": "Cross",
+      "beam": "Red",
+      "icon_floor": "T2",
+      "note": "Red as FilterBlade has it — never with a white plate, so it cannot read as mirror-class."
+    },
+    "expedition": {
+      "solid": "130 200 255",
+      "deep": "20 48 72",
+      "shape": "Cross",
+      "beam": "Blue",
+      "icon_floor": "T2",
+      "note": "Logbooks and reroll currency."
+    },
+    "harvest": {
+      "solid": "110 220 130",
+      "deep": "20 55 28",
+      "shape": "Circle",
+      "beam": "Green",
+      "icon_floor": "T2",
+      "note": "Unchanged from Sharket."
+    },
+    "breach": {
+      "solid": "160 45 255",
+      "deep": "34 6 58",
+      "shape": "Cross",
+      "beam": "Purple",
+      "icon_floor": "T2",
+      "text": "white",
+      "note": "Foulborn uniques and wombgifts only. Same purple band as fragments, told apart by white text."
+    },
+    "ritual": {
+      "solid": "150 20 40",
+      "deep": "48 8 16",
+      "shape": "Cross",
+      "beam": "Red",
+      "icon_floor": "T2",
+      "note": "Blood, and far enough from Heist red that the shapes are not doing all the work."
+    },
+    "jewels": {
+      "solid": "250 80 195",
+      "deep": "58 12 42",
+      "shape": "Cross",
+      "beam": "Pink",
+      "icon_floor": "T2",
+      "note": "Pink is otherwise unused, which makes a jewel drop unmistakable."
+    },
+    "maps": {
+      "solid": "200 200 200",
+      "deep": "48 48 48",
+      "shape": "Square",
+      "beam": "White",
+      "icon_floor": "T3",
+      "plate": "item_rarity",
+      "icon_colour": "map_tier",
+      "note": "TWO exceptions: plate follows item rarity, icon colour follows map tier. Floor drops to T3 so white maps keep an icon."
+    }
+  },
+  "state_borders": {
+    "_about": "Rule deviations, border channel only, one Continue rule each. rank breaks ties when states stack — higher rank wins.",
+    "enchanted": {
+      "rank": 1,
+      "border": "70 200 235"
+    },
+    "fractured": {
+      "rank": 2,
+      "border": "160 200 255"
+    },
+    "influenced": {
+      "rank": 3,
+      "border": "150 0 255"
+    },
+    "linked": {
+      "rank": 4,
+      "border": "0 255 0"
+    },
+    "corrupted": {
+      "rank": 5,
+      "border": "225 25 55"
+    }
+  },
+  "text_swaps": {
+    "_about": "Properties that BEAT rarity take the text, freeing the border for real states. Own block, not a rule deviation.",
+    "replica": {
+      "text": "250 80 195",
+      "scope": [
+        "uniques"
+      ]
+    },
+    "foulborn": {
+      "text": "160 45 255",
+      "scope": [
+        "uniques",
+        "jewels"
+      ]
+    },
+    "quality": {
+      "text": "120 235 210",
+      "scope": [
+        "equipment",
+        "gems"
+      ],
+      "only_on_rungs": [
+        "T0",
+        "T1"
+      ],
+      "condition": "Quality >= 21",
+      "note": "Scoped, NOT universal. Game already prints 'Superior' for 1-30; only 21-30 matters, and only on a base already worth showing."
+    }
+  },
+  "state_budget": {
+    "_about": "How many border states each class can actually hold. Gear is the only class that can hold all five.",
+    "currency/shards/div_cards/fragments/scarabs": [],
+    "gems": [
+      "corrupted"
+    ],
+    "jewels": [
+      "corrupted"
+    ],
+    "maps": [
+      "corrupted",
+      "enchanted"
+    ],
+    "heist": [
+      "corrupted",
+      "enchanted"
+    ],
+    "uniques": [
+      "corrupted",
+      "linked"
+    ],
+    "equipment": [
+      "corrupted",
+      "influenced",
+      "fractured",
+      "enchanted",
+      "linked"
+    ]
+  },
+  "size_map": {
+    "_about": "Shipped SEPARATELY from presets — presets carry colours only, per workstream E. The player retunes this.",
+    "T0": 45,
+    "T1": 45,
+    "T2": 40,
+    "T3": 35,
+    "T4": 35,
+    "T5": 30,
+    "T6": 30,
+    "_note": "30 is below the game's own 32 on purpose. No hide style: Ruthless draws Minimal, so a hidden block emits no style lines at all."
+  },
+  "goldens": {
+    "_about": "Implement the transforms in rung_recipes, expand these two accents, and compare. Pure function, no I/O.",
+    "currency": {
+      "_tier_to_rung": {
+        "mirror-class": "T0",
+        "divine-class": "T1",
+        "high (2 tiers)": "T2",
+        "mid (3 tiers)": "T3",
+        "scrolls": "T6"
+      },
+      "_skips": [
+        "T4",
+        "T5"
+      ],
+      "T0": {
+        "text": "255 0 0",
+        "bg": "255 255 255 255",
+        "border": null,
+        "icon": "0 White Diamond",
+        "beam": "Orange",
+        "size": 45
+      },
+      "T1": {
+        "text": "255 255 255",
+        "bg": "210 0 0 255",
+        "border": null,
+        "icon": "0 Red Diamond",
+        "beam": "Orange",
+        "size": 45
+      },
+      "T2": {
+        "text": "0 0 0",
+        "bg": "255 170 0 240",
+        "border": null,
+        "icon": "1 Yellow Diamond",
+        "beam": "Orange Temp",
+        "size": 40
+      },
+      "T3": {
+        "text": "0 0 0",
+        "bg": "170 158 130 230",
+        "border": null,
+        "icon": null,
+        "beam": null,
+        "size": 35
+      },
+      "T6": {
+        "text": "150 145 138",
+        "bg": "48 48 48 215",
+        "border": null,
+        "icon": null,
+        "beam": null,
+        "size": 30
+      }
+    },
+    "essences": {
+      "_tier_to_rung": {
+        "T1 special": "T0",
+        "deafening": "T2",
+        "low": "T5"
+      },
+      "painted": {
+        "T0": {
+          "text": "60 130 255",
+          "bg": "255 255 255 255",
+          "border": null,
+          "icon": "0 White Circle",
+          "beam": "Blue",
+          "size": 45
+        },
+        "T2": {
+          "text": "255 255 255",
+          "bg": "60 130 255 240",
+          "border": null,
+          "icon": "1 Yellow Circle",
+          "beam": "Blue Temp",
+          "size": 40
+        },
+        "T5": {
+          "text": "60 130 255",
+          "bg": "12 30 62 222",
+          "border": null,
+          "icon": null,
+          "beam": null,
+          "size": 30
+        }
+      },
+      "rarity_through_note": "Essences are always painted — rarity is meaningless on them. The rarity_through column exists for equipment; see the board's §01 right-hand column."
+    }
+  },
+  "open_questions": [
+    "Fragments vs Breach: both purple, separated by text colour and shape. Author: 'fine for now.'",
+    "Icon floor per category (§4.1) — needs an in-game sweep. Seed from NeverSink, then remove.",
+    "Tree-side, unrelated to colour: Jewels key names after the 3-file split; whether Fractured.json comes off Body Armours."
+  ]
+}

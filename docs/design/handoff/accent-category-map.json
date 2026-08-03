@@ -1,0 +1,304 @@
+{
+  "_about": "Answers to reply-to-designer-01 §3(a) and §3(b): accent per theme category, and the tier-count → rung mapping. Companion to theme-standard.md / theme-presets.json.",
+  "_schema": 1,
+  "new_accents": {
+    "_about": "SIX accents added — the 17 did not cover gear, bulk, flasks, quest, allflame or corpses. Same shape as theme-presets.json accents; append these there.",
+    "equipment": {
+      "solid": "170 170 170",
+      "deep": "42 42 42",
+      "shape": null,
+      "beam": null,
+      "icon_floor": "none",
+      "rarity_through": true,
+      "note": "ALL gear classes share ONE accent. Gear is separated by the game's own rarity text, never by class colour — 30 weapon/armour ladders wearing 30 hues is the thing this design exists to prevent. No icon, no beam: gear is judged by reading the label."
+    },
+    "vendor": {
+      "solid": "120 120 120",
+      "deep": "34 34 34",
+      "shape": null,
+      "beam": "Grey",
+      "icon_floor": "none",
+      "note": "Gold, Legacy, Vendor Recipes, Chancing. The noise floor as a category rather than a rung."
+    },
+    "flasks": {
+      "solid": "235 110 110",
+      "deep": "58 20 20",
+      "shape": "Raindrop",
+      "beam": "Red",
+      "icon_floor": "T2",
+      "note": "Life/Mana/Utility/Tinctures. Uses Raindrop — one of the four shapes held in reserve; a flask is not any of the other eight."
+    },
+    "quest": {
+      "solid": "30 200 80",
+      "deep": "10 50 22",
+      "shape": "Star",
+      "beam": "Green",
+      "icon_floor": "T2",
+      "note": "Quest Items, Magic Net. Green is the game's own quest convention. Always visible regardless of strictness."
+    },
+    "allflame": {
+      "solid": "255 120 40",
+      "deep": "62 26 6",
+      "shape": "Circle",
+      "beam": "Orange",
+      "icon_floor": "T2",
+      "note": "Curse of the Allflame, Enshrouding Crystals, Enshrouded Gear. Ember orange, clear of currency's yellow-orange."
+    },
+    "corpses": {
+      "solid": "190 140 110",
+      "deep": "50 32 24",
+      "shape": "Circle",
+      "beam": "Brown",
+      "icon_floor": "T2",
+      "note": "Necropolis corpses. Flesh tone — deliberately unlike anything tradeable."
+    }
+  },
+  "accent_by_category": {
+    "_about": "All 75. Several share one accent, as you said was fine. 'equipment' covers every gear class.",
+    "General": "currency",
+    "Omens": "currency",
+    "Runegrafts": "currency",
+    "Tainted Currency": "currency",
+    "Heist Currency": "heist",
+    "Essences": "essences",
+    "Fossils": "fossils",
+    "Oils": "blight_oils",
+    "Harvest": "harvest",
+    "Incursion Vials": "harvest",
+    "Delirium Orbs": "delirium",
+    "Corpses": "corpses",
+    "Enshrouding Crystals": "allflame",
+    "Curse of the Allflame": "allflame",
+    "Enshrouded Gear": "allflame",
+    "Wombgifts": "breach",
+    "Breach": "breach",
+    "Breach Grasping Mail": "breach",
+    "Gold": "vendor",
+    "Legacy": "vendor",
+    "Vendor Recipes": "vendor",
+    "Chancing": "vendor",
+    "Maps": "maps",
+    "Map Fragments": "fragments",
+    "Scarabs": "scarabs",
+    "Skill Gems": "gems",
+    "Support Gems": "gems",
+    "Jewels": "jewels",
+    "Uniques": "uniques",
+    "Heist Contracts": "heist",
+    "Heist Blueprints": "heist",
+    "Heist Targets": "heist",
+    "Heist Equipment": "equipment",
+    "Heist Experimented": "equipment",
+    "Ritual BaseTypes": "ritual",
+    "Expedition Ward-Bases": "expedition",
+    "Quest Items": "quest",
+    "Magic Net": "quest",
+    "Life Flasks": "flasks",
+    "Mana Flasks": "flasks",
+    "Utility Flasks": "flasks",
+    "Tinctures": "flasks",
+    "Amulets": "equipment",
+    "Belts": "equipment",
+    "Body Armours": "equipment",
+    "Boots": "equipment",
+    "Bows": "equipment",
+    "Claws": "equipment",
+    "Crafting Bases": "equipment",
+    "Daggers": "equipment",
+    "Gloves": "equipment",
+    "Helmets": "equipment",
+    "Influenced": "equipment",
+    "Mirror of Kalandra Ring Bases": "equipment",
+    "One Hand Axes": "equipment",
+    "One Hand Maces": "equipment",
+    "One Hand Swords": "equipment",
+    "Quivers": "equipment",
+    "Relics": "equipment",
+    "Rings": "equipment",
+    "Rune Daggers": "equipment",
+    "Sacrificial Garbs": "equipment",
+    "Sceptres": "equipment",
+    "Shields": "equipment",
+    "Staves": "equipment",
+    "Stygian Vise": "equipment",
+    "Talismans": "equipment",
+    "Trinkets": "equipment",
+    "Two Hand Axes": "equipment",
+    "Two Hand Maces": "equipment",
+    "Two Hand Swords": "equipment",
+    "Wands": "equipment",
+    "Warstaves": "equipment",
+    "Campaign": "equipment",
+    "States": "__not_an_accent__"
+  },
+  "notes_on_judgement_calls": {
+    "Heist split": "Contracts / Blueprints / Targets / Heist Currency take the heist accent. Heist Equipment and Heist Experimented are GEAR — rarity matters on them, so they go to equipment and lose the red. Heist red identifies the mechanic's own drops, not gear that happens to come from it.",
+    "Campaign": "62 rungs of weapon/armour progression → equipment, same as the rest of gear. Its ladder is per-file; see rung_by_depth.gear.",
+    "Body Armours": "10 rungs because Fractured.json still resolves here. Take it off, per your recommendation — see the reply's §2.",
+    "States": "_decorators/States.json is the state-border decorator file, not a themed category. It emits from state_borders in theme-presets.json and takes no accent.",
+    "Magic Net": "Utility rather than loot, so it sits with Quest Items on green. If you would rather it read as Bestiary brown, that is a one-line change."
+  },
+  "rung_by_depth": {
+    "_about": "§3(b) answered as a RULE rather than 15 hand tables — it derives from ladder depth, so new content maps itself and nothing needs re-authoring next league. Rungs are listed best-first, matching your ladders' own order. Applies PER LADDER (per file), not per theme category, since the aggregates span several files.",
+    "value": {
+      "1": [
+        "T2"
+      ],
+      "2": [
+        "T2",
+        "T5"
+      ],
+      "3": [
+        "T1",
+        "T3",
+        "T6"
+      ],
+      "4": [
+        "T1",
+        "T2",
+        "T3",
+        "T5"
+      ],
+      "5": [
+        "T0",
+        "T1",
+        "T2",
+        "T3",
+        "T6"
+      ],
+      "6": [
+        "T0",
+        "T1",
+        "T2",
+        "T3",
+        "T5",
+        "T6"
+      ],
+      "7": [
+        "T0",
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6"
+      ],
+      "_for": "currency, league mechanics, consumables, maps, fragments, gems, jewels, uniques, flasks, quest"
+    },
+    "gear": {
+      "1": [
+        "T3"
+      ],
+      "2": [
+        "T2",
+        "T4"
+      ],
+      "3": [
+        "T2",
+        "T3",
+        "T5"
+      ],
+      "4": [
+        "T2",
+        "T3",
+        "T4",
+        "T5"
+      ],
+      "5": [
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6"
+      ],
+      "6": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6"
+      ],
+      "7": [
+        "T0",
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6"
+      ],
+      "_for": "every category on the equipment accent, plus Heist Equipment / Experimented",
+      "_why": "A gear ladder is ilvl bands, not a value ladder — its top rung is a good crafting base, not a chase drop. So it starts at T2 and never reaches T0/T1 except where a chase gear drop exists."
+    },
+    "overrides": {
+      "_about": "Where depth alone gets it wrong. Everything not listed uses the table above.",
+      "Currency/General.json (8)": [
+        "T0",
+        "T1",
+        "T1",
+        "T2",
+        "T2",
+        "T3",
+        "T3",
+        "T6"
+      ],
+      "Currency/Gold.json (3)": [
+        "T6",
+        "T6",
+        "T6"
+      ],
+      "_legacy/Legacy.json (1)": [
+        "T6"
+      ],
+      "Equipment/VendorRecipes/Recipes.json (3)": [
+        "T5",
+        "T6",
+        "T6"
+      ],
+      "Equipment/Crafting Priority.json (7)": [
+        "T2",
+        "T2",
+        "T3",
+        "T3",
+        "T4",
+        "T4",
+        "T5"
+      ],
+      "Maps/Base Maps.json (5)": [
+        "T1",
+        "T2",
+        "T2",
+        "T3",
+        "T3"
+      ],
+      "Misc/General.json — Quest Items (1)": [
+        "T2"
+      ],
+      "Uniques/General.json (5)": [
+        "T0",
+        "T1",
+        "T2",
+        "T3",
+        "T3"
+      ],
+      "Jewels/Cluster Jewels.json (7)": [
+        "T1",
+        "T2",
+        "T2",
+        "T3",
+        "T3",
+        "T5",
+        "T5"
+      ],
+      "Jewels/Abyss Jewels.json (3)": [
+        "T2",
+        "T3",
+        "T5"
+      ],
+      "Jewels/Base Jewels.json (1)": [
+        "T3"
+      ]
+    }
+  }
+}
