@@ -15,13 +15,42 @@
       "targets": [],
       "conditions": {
         "FracturedItem": "True",
+        "Mirrored": "False",
+        "Corrupted": "False",
         "ItemLevel": ">= 84",
         "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Fractured"
       },
-      "comment": "High Level Fractured Items"
+      "comment": "Fractured, ilvl 84+"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "FracturedItem": "True",
+        "Mirrored": "False",
+        "Corrupted": "False",
+        "ItemLevel": ">= 68",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Fractured"
+      },
+      "comment": "Fractured, ilvl 68+"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "FracturedItem": "True",
+        "Mirrored": "False",
+        "Corrupted": "False",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 2 Fractured"
+      },
+      "comment": "Fractured, any"
     }
   ]
 }

@@ -75,52 +75,6 @@
         "en": "Hide",
         "ch": "隐藏"
       }
-    },
-    "Tier 0 Heist Equipment": {
-      "theme": {
-        "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#6f2a6dff",
-        "BorderColor": "#9d439aff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star"
-      },
-      "localization": {
-        "en": "T0: Heist Equipment",
-        "ch": "T0: 赏金猎人装备"
-      },
-      "show_in_editor": true
-    },
-    "Tier 1 Heist Equipment": {
-      "theme": {
-        "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#fbf4fbff",
-        "BorderColor": "#eac3e8ff",
-        "BackgroundColor": "#ab49a8ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond"
-      },
-      "localization": {
-        "en": "T1: Heist Equipment",
-        "ch": "T1: 赏金猎人装备"
-      },
-      "show_in_editor": true
-    },
-    "Tier 3 Heist Equipment": {
-      "theme": {
-        "Tier": 3,
-        "FontSize": 40,
-        "TextColor": "#d590d3ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#361735ff"
-      },
-      "localization": {
-        "en": "T3: Heist Equipment",
-        "ch": "T3: 赏金猎人装备"
-      },
-      "show_in_editor": true
     }
   }
 }

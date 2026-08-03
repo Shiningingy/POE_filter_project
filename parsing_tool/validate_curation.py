@@ -355,6 +355,35 @@ def check_decorator(where: str, label: str, tier: dict, rep: Report) -> None:
                 f"exactly one on 42 of its 44 decorators")
 
 
+def check_silent_tier(where: str, label: str, tier: dict, has_bases: bool,
+                      has_rule: bool, rep: Report) -> None:
+    """A tier that can never emit a block - and says nothing about it.
+
+    Conditions are a FILTER over the bases a tier claims, not a matcher in their own
+    right: only `class_condition` makes a tier emit from conditions alone. So a rung with
+    `AreaLevel >= 68, Rarity Rare`, no mapped bases and no rule targeting it produces
+    NOTHING, and looks identical in the editor to one that works.
+
+    Measured when this check was written: 28 such rungs, all equipment - `Body Armours`
+    T1-T4 hold 121 bases between them while T0, the "top bases" rung, holds none;
+    `One Hand Axes` has bases only in T3/T4. That is unfinished curation rather than a
+    bug, which is exactly why it needs saying out loud - it is invisible otherwise.
+    """
+    if tier.get("is_hide_tier") or tier.get("decorator") or tier.get("class_condition"):
+        return
+    if has_bases or has_rule:
+        return
+    if not tier.get("conditions"):
+        rep.add("WARN", where,
+                f"{label}: no bases, no rule and no conditions - this tier is scaffolding "
+                f"and emits nothing")
+    else:
+        rep.add("WARN", where,
+                f"{label}: has conditions but NO bases and no rule, so it emits nothing. "
+                f"Conditions filter the bases a tier claims; only class_condition matches "
+                f"on conditions alone")
+
+
 def check_style_grammar(where: str, label: str, style: dict, rep: Report) -> None:
     """Beam and icon have a grammar, and one bad line kills the whole filter.
 
@@ -488,6 +517,13 @@ def validate(only: str | None, catalog: str | None) -> Report:
             check_style_grammar(twhere, f"{t_key} theme", entry.get("theme") or {}, rep)
             check_operators(twhere, f"{t_key} conditions", entry.get("conditions") or {}, rep)
             check_decorator(twhere, t_key, entry, rep)
+            claims = any(t_key == v or (isinstance(v, list) and t_key in v)
+                         for v in mapping_now.values())
+            aimed = any((r.get("overrides") or {}).get("Tier") == t_key
+                        or (isinstance((r.get("overrides") or {}).get("Tier"), list)
+                            and t_key in (r.get("overrides") or {}).get("Tier"))
+                        for r in (map_doc.get("rules") or []))
+            check_silent_tier(twhere, t_key, entry, claims, aimed, rep)
 
             for base, ovr in (entry.get("item_overrides") or {}).items():
                 label = f"{t_key} card {base!r}"
