@@ -128,6 +128,17 @@ def main():
         else:
             returned_ok.append((base, ver))
 
+    # ⚠️ "Removed Items" means NO LONGER DROPS, not "basetype deleted": all 61 items GGG
+    # retired in 3.29 are still in BaseItemTypes. So a retired base stays MATCHABLE — which
+    # is exactly why _legacy/Legacy.json is right to keep them, and why check 6 below can
+    # never catch a retirement. The third source settles the disagreements: FilterBlade
+    # tracks basetypes closely and is maintained per league.
+    fb_names = None
+    fbp = os.path.join(ROOT, "data", "from_filter_blade", "3.29", "FilterBlade.ruthlessfilter")
+    if os.path.exists(fbp):
+        txt = io.open(fbp, encoding="utf-8", errors="replace").read()
+        fb_names = set(re.findall(r'"([^"]+)"', txt))
+
     print("=== 1. BASES WE CURATE THAT GGG HAS RETIRED ===")
     if not dead:
         print("   none")
@@ -135,11 +146,22 @@ def main():
     for base, ver, files, complete in dead:
         for f in files:
             by_file[f].append((base, ver))
+    disputed = []
     for f in sorted(by_file):
         print("   %s  (%d)" % (f, len(by_file[f])))
         for base, ver in sorted(by_file[f]):
-            print("        %-42s removed in %s" % (base, ver))
+            tag = ""
+            if fb_names is not None:
+                if base in fb_names:
+                    tag = "   ⚠️ but FILTERBLADE 3.29 STILL LISTS IT"
+                    disputed.append((base, ver, f))
+                else:
+                    tag = "   (FilterBlade agrees — not listed)"
+            print("        %-42s removed in %s%s" % (base, ver, tag))
     print("   TOTAL: %d bases across %d files" % (len(dead), len(by_file)))
+    if fb_names is not None:
+        print("   Of those, %d are DISPUTED — GGG says removed, FilterBlade still matches." % len(disputed))
+        print("   FilterBlade tracks basetypes per league, so a dispute is worth a look before acting.")
     print()
 
     if returned_ok:

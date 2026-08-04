@@ -17,6 +17,31 @@ Each post carries the same sections:
 | **Renamed Items** | a stale name in `base_mapping` silently matches nothing |
 | **Map Tiers** | the map ladder |
 
+## ⚠️ "Removed Items" means NO LONGER DROPS — the basetype survives
+
+**All 61 items GGG retired in 3.29 are still in `BaseItemTypes`.** Retirement stops the drop;
+it does not delete the base. Three consequences:
+
+- A retired base stays **matchable**, which is exactly why `_legacy/Legacy.json` is right to
+  keep them — a player's stash still holds the item.
+- **Basetype survival is therefore not evidence of anything.** It is true of every retired
+  item, so it cannot distinguish "reworked into a unique's base" from "plainly retired".
+- The "not in `BaseItemTypes`" check can never catch a retirement. It catches a different bug
+  — a name that matches nothing at all.
+
+## Three sources, and they answer different questions
+
+| source | answers |
+|---|---|
+| GGPK `BaseItemTypes` | what **exists** (ADR-0004) |
+| this timeline | what **drops**, per version |
+| `data/from_filter_blade/` | what a maintained filter **still matches** |
+| `data/from_wiki/ruthless_droppability.json` | what Ruthless **subtracts further** |
+
+`reconcile.py` triangulates the first three and flags **disputes** — GGG says removed but
+FilterBlade still lists it. FilterBlade tracks basetypes closely per league, so a dispute is
+worth a look before acting on it. On the 3.29 run there were **0 disputes across 58 items**.
+
 ## ⚠️ Status is a TIMELINE, not a flag
 
 GGG brings drop-disabled content back. Tattoos were removed and returned; six divination
