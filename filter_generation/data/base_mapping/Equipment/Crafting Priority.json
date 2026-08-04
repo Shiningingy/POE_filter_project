@@ -81,7 +81,10 @@
         "Velour Boots": "丝绒之靴",
         "Void Sceptre": "虚影短杖",
         "Warlock Boots": "咒士之靴",
-        "Whalebone Rapier": "鲸骨细刃"
+        "Whalebone Rapier": "鲸骨细刃",
+        "Runic Crown": "符文王冠",
+        "Runic Gauntlets": "符文手甲",
+        "Runic Sabatons": "符文战靴"
       }
     }
   },
@@ -425,6 +428,21 @@
       "Crafting Over Quality",
       "Crafting Strands Gear",
       "Crafting Gear 85"
+    ],
+    "Runic Crown": [
+      "Crafting Over Quality",
+      "Crafting Strands Gear",
+      "Crafting Gear 84"
+    ],
+    "Runic Gauntlets": [
+      "Crafting Over Quality",
+      "Crafting Strands Gear",
+      "Crafting Gear 84"
+    ],
+    "Runic Sabatons": [
+      "Crafting Over Quality",
+      "Crafting Strands Gear",
+      "Crafting Gear 84"
     ]
   },
   "rules": []
