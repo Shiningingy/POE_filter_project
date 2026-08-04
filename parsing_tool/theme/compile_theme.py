@@ -13,9 +13,9 @@ test that stops this drifting from the recipe.
 ⚠️ NEVER writes sharket_theme.json. It writes sharket_theme.compiled.json beside it, because
 this changes every colour in the filter at once and the shipping file is hand-tuned.
 
-⚠️ `accent.muted` IS NOT SETTLED — see docs/design/reply-to-designer-04.md. It is used by
-exactly two rungs (T3 plate, T4 text) and neither golden reproduces. Every row that depends
-on it is tagged in the summary, and MUTED_IS_PROVISIONAL stays True until the designer answers.
+`accent.muted` is now AUTHORED, one value per accent (reply 12) — it was a formula for three
+drops and never reproduced either golden. Both goldens now expand BYTE-EXACT, which is the
+test that stops this drifting from the recipe.
 """
 import json, io, os, re, sys, collections
 
@@ -29,8 +29,6 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, HERE)
 
 from expand_goldens import P, resolve, rgb, lerp, luminance, muted, H  # noqa: E402
-
-MUTED_IS_PROVISIONAL = True
 
 DATA = os.path.join(ROOT, "filter_generation", "data")
 TD = os.path.join(DATA, "tier_definition")
@@ -146,6 +144,81 @@ def holds_states(theme_cat):
     return STATEFUL.get(theme_cat, True)      # unresolved -> assume stateful
 
 
+def _gear_group_for_category():
+    """theme_category -> 'armour' | 'weapons' | 'jewellery' | 'fallback'.
+
+    DERIVED, never hand-mapped: GGPK BaseItemTypes -> ItemClasses -> class_hierarchy, whose
+    intermediate nodes ARE the designer's groups. `_meta.item_class` is NOT usable here — it
+    is a display label ("Breach Grasping Mail", "Crafting Priority"), not a game class.
+    A genuinely mixed-class category (Campaign, Crafting Bases, Uniques, Legacy) takes the
+    `fallback` group, which is what the designer specified.
+    """
+    paths, b2c = _class_paths(), _base_to_class()
+    td_theme = {}
+    for dp, dn, fns in os.walk(TD):
+        dn[:] = [x for x in dn if not x.startswith("_arch")]
+        for fn in fns:
+            if not fn.endswith(".json"):
+                continue
+            rel = os.path.relpath(os.path.join(dp, fn), TD).replace(os.sep, "/")
+            try:
+                d = json.load(io.open(os.path.join(dp, fn), encoding="utf-8"))
+            except Exception:
+                continue
+            top = [k for k in d if not k.startswith("//") and isinstance(d[k], dict)]
+            if top:
+                td_theme[rel] = d[top[0]].get("_meta", {}).get("theme_category") or top[0]
+
+    counts = collections.defaultdict(collections.Counter)
+    bm = os.path.join(DATA, "base_mapping")
+    for dp, dn, fns in os.walk(bm):
+        dn[:] = [x for x in dn if not x.startswith("_arch")]
+        for fn in fns:
+            if not fn.endswith(".json"):
+                continue
+            rel = os.path.relpath(os.path.join(dp, fn), bm).replace(os.sep, "/")
+            cat = td_theme.get(rel)
+            if not cat:
+                continue
+            try:
+                d = json.load(io.open(os.path.join(dp, fn), encoding="utf-8"))
+            except Exception:
+                continue
+            bases = list((d.get("mapping") or {}).keys())
+            for r in (d.get("rules") or []):
+                bases += list(r.get("targets") or [])
+            for b in bases:
+                p = paths.get(b2c.get(b) or "") or ""
+                for g in ("armour", "weapons", "jewellery"):
+                    if p.startswith("equipment/" + g):
+                        counts[cat][g] += 1
+    out = {}
+    for cat, c in counts.items():
+        out[cat] = list(c)[0] if len(c) == 1 else "fallback"
+    return out
+
+
+GEAR_GROUP = _gear_group_for_category()
+GROUPS = {k: v for k, v in P["gear_ladder"]["groups"].items() if not k.startswith("_")}
+
+
+def group_of(theme_cat):
+    return GROUPS.get(GEAR_GROUP.get(theme_cat, "fallback"), GROUPS["fallback"])
+
+
+def resolve_g(expr, accent, theme_cat):
+    """resolve(), but `group.hue` / `group.deep` first — the gear ladder and the flat gear
+    form are keyed on the GROUP, not the accent."""
+    if expr is None:
+        return None
+    e = str(expr).strip()
+    m = re.match(r"^group\.(hue|deep)(.*)$", e)
+    if not m:
+        return resolve(expr, accent)
+    g = group_of(theme_cat)
+    return resolve(str(g[m.group(1)]) + m.group(2), accent)
+
+
 # ── the ladder: which rungs a file has, in order ────────────────────────────────
 def is_hide(key, tier):
     return bool(tier.get("is_hide_tier")) or "hide" in key.lower()
@@ -237,13 +310,13 @@ def flat_row(accent_name, variant, theme_cat):
     rec = P["flat_look"]["recipe_" + variant]
     acc = P["accents"][accent_name]
     row = {"FontSize": rec["size_px"]}
-    txt = resolve(rec.get("text"), acc)
+    txt = resolve_g(rec.get("text"), acc, theme_cat)
     if txt:
         row["TextColor"] = hexify(txt)
-    bg = resolve(rec.get("bg"), acc)
+    bg = resolve_g(rec.get("bg"), acc, theme_cat)
     if bg:
         row["BackgroundColor"] = hexify(bg)
-    bd = resolve(rec.get("border"), acc)
+    bd = resolve_g(rec.get("border"), acc, theme_cat)
     if bd and holds_states(theme_cat):
         # Their own legality test, failing on their own list: every flat rarity_through
         # category IS gear, and gear holds all five states. Dropping the border is the
@@ -270,23 +343,27 @@ def rung_row(rung, accent_name, variant, theme_cat):
     # where the budget is empty. Everyone else keeps the 48 48 48 plate.
     if rung == "T5" and v == "painted" and holds_states(theme_cat):
         src = rec.get("painted_with_states") or src
+    # ★ Gear does not use the rung recipe at all below T0 — it has its own ladder, keyed on
+    # the GROUP hue and ranked by plate alpha, because the border is unavailable (reply 11).
+    if variant == "rarity_through" and accent_name == "equipment":
+        src = P["gear_ladder"]["ladder"].get(rung, src)
     uses_muted = any("muted" in str(src.get(k) or "") for k in ("text", "bg", "border"))
 
     row = {"FontSize": SIZE.get(rung, rec.get("size_px", 32))}
-    bg = resolve(src.get("bg"), acc)
+    bg = resolve_g(src.get("bg"), acc, theme_cat)
     if acc.get("plate") == "never":
         bg = None                                    # gold: no plate at any rung
     if bg and not bg.startswith("<"):
         row["BackgroundColor"] = hexify(bg)
 
-    text = resolve(src.get("text"), acc)
+    text = resolve_g(src.get("text"), acc, theme_cat)
     if text == "LUM":
         base = rgb(bg) if bg and not bg.startswith("<") else [0, 0, 0]
         text = "0 0 0" if luminance(base) > 0.5 else "255 255 255"
     if text and not text.startswith("<"):
         row["TextColor"] = hexify(text)
 
-    bd = resolve(src.get("border"), acc)
+    bd = resolve_g(src.get("border"), acc, theme_cat)
     if bd and not bd.startswith("<"):
         row["BorderColor"] = hexify(bd)
 
@@ -381,9 +458,8 @@ if __name__ == "__main__":
         for (kind, tc, acc, why), n in sorted(seen.items()):
             print("     [%s] %-32s accent=%-11s %s" % (kind, tc, acc, why))
         print()
-    print("%d rows depend on `accent.muted`, which is NOT SETTLED (reply-to-designer-04 §2/§3)."
-          % provisional)
-    print("   Everything else is final. Those rows are T3 plates and T4 text.")
+    print("%d rows use the authored `accent.muted` (T3 plate / T4 text). Both goldens expand "
+          "byte-exact." % provisional)
 
     cur = os.path.join(THEME, "sharket_theme.json")
     if "--diff" in sys.argv and os.path.exists(cur):

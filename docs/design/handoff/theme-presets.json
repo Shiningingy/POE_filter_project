@@ -1,7 +1,7 @@
 {
   "_about": "Theme standard, workstream E. 24 accents + 6 rung recipes + 5 states + 7 exceptions; every preset is derived from them. Companion to theme-standard.md. Visual truth is 'Theme Standard - Plates, Beams & Icons.dc.html'.",
   "_schema": 1,
-  "_authored_value_count": 42,
+  "_authored_value_count": 65,
   "_rule": "A tier block authors exactly two values: accent + rung. Icon, beam and plate are pure functions of those. Presets carry NO FontSize.",
   "rung_recipes": {
     "_about": "T0/T1/T6 are house-fixed in STRUCTURE (white plate + red border; the red T1 plate; the T6 grey) but T0's TEXT is accent.solid — see t0_text_rule. T2-T5 are derived from the accent. 'painted' sets text; 'rarity_through' deliberately omits it so the game paints rarity.",
@@ -140,16 +140,22 @@
       "accents_needing_t0_text": {
         "currency": "255 0 0",
         "blight_oils": "150 120 0",
-        "delirium": "90 90 120"
-      }
-    },
-    "_derived_accent_values": {
-      "_about": "Answers 'accent.muted / muted_deep are undefined'. Formulas, not new authored values — you were right that 23 x 2 hand values is 46 things to keep in step.",
-      "lum": "0.2126*R + 0.7152*G + 0.0722*B",
-      "muted": "desaturate(solid, 0.70) then darken 0.10 — where desaturate(c,f) = lerp(c, grey(lum(c)), f)",
-      "worked_currency": "solid 255 170 0 -> lum 176 -> desaturate .70 -> 196 175 132 -> darken .10 -> 176 157 119 (muted); x0.33 -> 58 52 39 (muted_deep)",
-      "note": "Currency's authored tan is 170 158 130 and the formula lands on 176 157 119 — within a few units, and currency keeps its literal bg_currency anyway so your byte-identical golden is unaffected. The formula only has to be right for the other 22.",
-      "_note": "muted_deep is retired: T3-T5 share accent.deep, so nothing needs it. muted is now used for TEXT only."
+        "delirium": "90 90 120",
+        "maps": "90 90 90",
+        "harvest": "20 110 55",
+        "expedition": "30 90 150",
+        "div_cards": "0 95 140",
+        "quest": "15 110 45",
+        "equipment": "85 85 85",
+        "allflame": "165 60 0",
+        "fossils": "130 90 0",
+        "corpses": "120 80 60",
+        "jewels": "175 30 130"
+      },
+      "contrast_bar": "3:1, not 4.5:1 — your call and it is the right one: T0 ships at 45px, which is large text by any standard. 4.5:1 is unreachable anyway (pure red on white is 4.00:1 by construction, so currency's own t0_text could never pass).",
+      "resolution": "13 accents now carry an explicit t0_text — the original 3 plus the 10 your check caught. Each is its accent darkened until it clears 3:1 on white, so the family still reads. maps / harvest / expedition were the urgent ones: 1.67:1 is, as you put it, a rumour.",
+      "dark_plate_considered": "DECLINED, though it was the better engineering answer. A dark T0 plate would let every accent through at full saturation and delete this whole class of problem — but the white plate IS the halo, it is Sharket's mirror look, and with the border unavailable the plate is the only channel T0 has left to distinguish itself from T1's red. Ten authored values is the cheaper price.",
+      "keep_uniques": "uniques at 4.64:1 is the only accent that clears 4.5 unaided and is already the colour players read as chase. Left alone."
     },
     "_plate_rule": {
       "_about": "MEASURED FROM NEVERSINK (2026-08-03): their filters hold ONE background per category across ~50 consecutive blocks (47 0 74, 40 0 40, 20 20 0, 0 40 15). They never ramp a hue through four steps. That ruled out my original T2-T5 lightness ramp.",
@@ -163,6 +169,14 @@
       "why": "Gear is the only class that holds all five state borders. If the rung spends the border, the five Continue deviations have nothing to layer onto on exactly the class that needs them. §6's invariant holds without exception: the border is the only channel free on every item in every category.",
       "how_the_rung_reads_instead": "Same hue throughout (accent.deep), ranked by ALPHA — 245 / 240 / 225 / 210 — plus SetFontSize and the icon. Alpha is not a state channel, so nothing competes.",
       "note": "The painted column ranks by text; the rarity_through column ranks by alpha. Both keep one hue and both leave the border alone."
+    },
+    "_muted_is_authored": {
+      "decision": "accent.muted is an AUTHORED value, one per accent — not a formula. Your §1-3 are right and they are one problem, not three: the formula did not survive contact with either golden, and it is used in exactly two places.",
+      "the_two_places": "T3's PLATE and T4's TEXT — and they are now THE SAME VALUE. That is deliberate and it is the property that makes the tail cohere: the text at T4 is the colour of the plate two rungs above it.",
+      "currency": "170 158 130 — Sharket's own authored tan, which is what reply 05 reverted T3 to. So no t3_bg override is needed: the literal you spotted IS accent.muted, it was just wearing a formula's name.",
+      "essences": "140 152 178. The old golden's 146 156 178 was, as you worked out, a survivor of reply 03's retired 'muted lightened 0.25'. Discard it.",
+      "what_this_retires": "The lum / desaturate / darken chain from reply 03. Delete it — the arithmetic you recomputed was wrong (you are right about the blue channel) and there is nothing left that needs it.",
+      "count": "24 values, one per accent, listed on each accent as `muted`. That takes the authored total to ~65 and it is worth it: every one is inspectable, and a wrong muted is visible on the board rather than emergent from a formula."
     }
   },
   "accents": {
@@ -174,7 +188,8 @@
       "beam": "Orange",
       "icon_floor": "T2",
       "note": "The house accent. Every other row is measured against this one.",
-      "t0_text": "255 0 0"
+      "t0_text": "255 0 0",
+      "muted": "170 158 130"
     },
     "fragments": {
       "solid": "130 20 180",
@@ -184,7 +199,8 @@
       "icon_floor": "T2",
       "text": "black",
       "border": "accent",
-      "note": "Purple as the atlas shows it. Splinters are drop-disabled."
+      "note": "Purple as the atlas shows it. Splinters are drop-disabled.",
+      "muted": "150 120 160"
     },
     "scarabs": {
       "solid": "0 130 90",
@@ -192,7 +208,8 @@
       "shape": "Hexagon",
       "beam": "Green",
       "icon_floor": "T2",
-      "note": "Sharket's scarab green — near the atlas family without joining it."
+      "note": "Sharket's scarab green — near the atlas family without joining it.",
+      "muted": "110 145 130"
     },
     "essences": {
       "solid": "60 130 255",
@@ -200,7 +217,8 @@
       "shape": "Circle",
       "beam": "Blue",
       "icon_floor": "T2",
-      "note": "Unchanged from Sharket."
+      "note": "Unchanged from Sharket.",
+      "muted": "140 152 178"
     },
     "div_cards": {
       "solid": "14 186 255",
@@ -208,7 +226,9 @@
       "shape": "Triangle",
       "beam": "Blue",
       "icon_floor": "T2",
-      "note": "Widest value spread of any category; needs its own blue."
+      "note": "Widest value spread of any category; needs its own blue.",
+      "muted": "130 165 185",
+      "t0_text": "0 95 140"
     },
     "gems": {
       "solid": "27 162 155",
@@ -216,7 +236,8 @@
       "shape": "Kite",
       "beam": "Cyan",
       "icon_floor": "T2",
-      "note": "Most often misread as currency."
+      "note": "Most often misread as currency.",
+      "muted": "120 155 152"
     },
     "uniques": {
       "solid": "175 96 37",
@@ -224,7 +245,8 @@
       "shape": "Star",
       "beam": "Brown",
       "icon_floor": "T2",
-      "note": "The one hue players read without being taught."
+      "note": "The one hue players read without being taught.",
+      "muted": "175 145 115"
     },
     "blight_oils": {
       "solid": "255 230 80",
@@ -233,7 +255,8 @@
       "beam": "Yellow",
       "icon_floor": "T2",
       "note": "Held clear of currency orange so a Golden Oil is never a Divine.",
-      "t0_text": "150 120 0"
+      "t0_text": "150 120 0",
+      "muted": "190 180 120"
     },
     "fossils": {
       "solid": "200 140 0",
@@ -241,7 +264,9 @@
       "shape": "Circle",
       "beam": "Yellow",
       "icon_floor": "T2",
-      "note": "Warm but darker than currency; resonators share it."
+      "note": "Warm but darker than currency; resonators share it.",
+      "muted": "180 155 105",
+      "t0_text": "130 90 0"
     },
     "delirium": {
       "solid": "210 210 230",
@@ -250,7 +275,8 @@
       "beam": "Grey",
       "icon_floor": "T2",
       "note": "Grey-lilac, matching the orbs. ⚠️ MEASURED: buys exactly ONE base — Delirium Orb is ruthless_exclusive and the fifteen Standard variants are retired. Still worth it to make the orb unmistakable, but it is one line, not a family.",
-      "t0_text": "90 90 120"
+      "t0_text": "90 90 120",
+      "muted": "175 175 185"
     },
     "heist": {
       "solid": "200 40 40",
@@ -258,7 +284,8 @@
       "shape": "Pentagon",
       "beam": "Red",
       "icon_floor": "T3",
-      "note": "Red accent, Pentagon shape, icon_floor T3. Heist is MAPLIKE: a contract is somewhere you go, so it never drops to the bulk rungs. See _heist_rule."
+      "note": "Red accent, Pentagon shape, icon_floor T3. Heist is MAPLIKE: a contract is somewhere you go, so it never drops to the bulk rungs. See _heist_rule.",
+      "muted": "180 130 125"
     },
     "expedition": {
       "solid": "130 200 255",
@@ -266,7 +293,9 @@
       "shape": "Pentagon",
       "beam": "Blue",
       "icon_floor": "T2",
-      "note": "Logbooks and reroll currency. Maplike like heist — Pentagon, and a logbook is a destination too."
+      "note": "Logbooks and reroll currency. Maplike like heist — Pentagon, and a logbook is a destination too.",
+      "muted": "155 175 195",
+      "t0_text": "30 90 150"
     },
     "harvest": {
       "solid": "110 220 130",
@@ -274,7 +303,9 @@
       "shape": "Circle",
       "beam": "Green",
       "icon_floor": "T2",
-      "note": "Unchanged from Sharket."
+      "note": "Unchanged from Sharket.",
+      "muted": "145 180 150",
+      "t0_text": "20 110 55"
     },
     "breach": {
       "solid": "160 45 255",
@@ -283,7 +314,8 @@
       "beam": "Purple",
       "icon_floor": "T2",
       "text": "white",
-      "note": "Foulborn uniques and wombgifts only, since splinters are drop-disabled. Star, because a foulborn unique IS a unique — which is also what separates it from fragments' Hexagon. Same purple band as fragments, told apart by white text."
+      "note": "Foulborn uniques and wombgifts only, since splinters are drop-disabled. Star, because a foulborn unique IS a unique — which is also what separates it from fragments' Hexagon. Same purple band as fragments, told apart by white text.",
+      "muted": "160 130 180"
     },
     "ritual": {
       "solid": "150 20 40",
@@ -291,7 +323,8 @@
       "shape": "Cross",
       "beam": "Red",
       "icon_floor": "T2",
-      "note": "Blood, and far enough from Heist red that the shapes are not doing all the work."
+      "note": "Blood, and far enough from Heist red that the shapes are not doing all the work.",
+      "muted": "165 120 125"
     },
     "jewels": {
       "solid": "250 80 195",
@@ -299,7 +332,9 @@
       "shape": "Cross",
       "beam": "Pink",
       "icon_floor": "T2",
-      "note": "Pink is otherwise unused, which makes a jewel drop unmistakable."
+      "note": "Pink is otherwise unused, which makes a jewel drop unmistakable.",
+      "muted": "195 145 180",
+      "t0_text": "175 30 130"
     },
     "maps": {
       "solid": "200 200 200",
@@ -309,7 +344,9 @@
       "icon_floor": "T3",
       "plate": "item_rarity",
       "icon_colour": "map_tier",
-      "note": "TWO exceptions: plate follows item rarity, icon colour follows map tier. Floor drops to T3 so white maps keep an icon."
+      "note": "TWO exceptions: plate follows item rarity, icon colour follows map tier. Floor drops to T3 so white maps keep an icon.",
+      "muted": "175 175 175",
+      "t0_text": "90 90 90"
     },
     "equipment": {
       "solid": "170 170 170",
@@ -317,7 +354,9 @@
       "shape": null,
       "beam": null,
       "icon_floor": "none",
-      "note": "SUPERSEDED as a single accent — see gear_ladder.groups (armour, weapons, jewellery, flasks). Kept as the fallback for any gear category not in a group. shape stays null: gear is iconless below T0."
+      "note": "SUPERSEDED as a single accent — see gear_ladder.groups (armour, weapons, jewellery, flasks). Kept as the fallback for any gear category not in a group. shape stays null: gear is iconless below T0.",
+      "muted": "150 150 150",
+      "t0_text": "85 85 85"
     },
     "vendor": {
       "solid": "120 120 120",
@@ -325,7 +364,8 @@
       "shape": null,
       "beam": "Grey",
       "icon_floor": "none",
-      "note": "Legacy, vendor recipes, chancing. The noise floor as a category rather than a rung."
+      "note": "Legacy, vendor recipes, chancing. The noise floor as a category rather than a rung.",
+      "muted": "140 140 140"
     },
     "flasks": {
       "solid": "235 110 110",
@@ -333,7 +373,8 @@
       "shape": "Raindrop",
       "beam": "Red",
       "icon_floor": "T2",
-      "note": "Life/Mana/Utility/Tinctures. Uses Raindrop — one of the four shapes held in reserve; a flask is not any of the other eight."
+      "note": "Life/Mana/Utility/Tinctures. Uses Raindrop — one of the four shapes held in reserve; a flask is not any of the other eight.",
+      "muted": "195 150 145"
     },
     "quest": {
       "solid": "30 200 80",
@@ -341,7 +382,9 @@
       "shape": "Star",
       "beam": "Green",
       "icon_floor": "T2",
-      "note": "Quest Items, Magic Net. Green is the game's own quest convention. Always visible regardless of strictness."
+      "note": "Quest Items, Magic Net. Green is the game's own quest convention. Always visible regardless of strictness.",
+      "muted": "140 180 150",
+      "t0_text": "15 110 45"
     },
     "allflame": {
       "solid": "255 120 40",
@@ -349,7 +392,9 @@
       "shape": "Circle",
       "beam": "Orange",
       "icon_floor": "T2",
-      "note": "Curse of the Allflame, Enshrouding Crystals, Enshrouded Gear. Ember orange, clear of currency's yellow-orange."
+      "note": "Curse of the Allflame, Enshrouding Crystals, Enshrouded Gear. Ember orange, clear of currency's yellow-orange.",
+      "muted": "195 155 125",
+      "t0_text": "165 60 0"
     },
     "corpses": {
       "solid": "190 140 110",
@@ -357,7 +402,9 @@
       "shape": "Circle",
       "beam": "Brown",
       "icon_floor": "T2",
-      "note": "Necropolis. A flesh tone, deliberately unlike anything tradeable. MEASURED: 114 bases in the 3.29 CN GGPK, 102 mapped across five rungs — real content."
+      "note": "Necropolis. A flesh tone, deliberately unlike anything tradeable. MEASURED: 114 bases in the 3.29 CN GGPK, 102 mapped across five rungs — real content.",
+      "muted": "180 155 135",
+      "t0_text": "120 80 60"
     },
     "gold": {
       "solid": "150 133 100",
@@ -366,7 +413,8 @@
       "beam": null,
       "icon_floor": "none",
       "plate": "never",
-      "note": "EXCEPTION: gold is auto-collected, so its label is a readout rather than a call to action. It never emits SetBackgroundColor at ANY rung — always the borderless form. No icon, no beam either."
+      "note": "EXCEPTION: gold is auto-collected, so its label is a readout rather than a call to action. It never emits SetBackgroundColor at ANY rung — always the borderless form. No icon, no beam either.",
+      "muted": "150 133 100"
     }
   },
   "state_borders": {
@@ -519,12 +567,13 @@
         "size": 35
       },
       "T4": {
-        "text": "176 157 119",
+        "text": "170 158 130",
         "bg": "80 80 80 230",
         "border": null,
         "icon": null,
         "beam": null,
-        "size": 35
+        "size": 35,
+        "_note": "Same value as T3's plate. Not a coincidence — see rung_recipes._muted_is_authored."
       }
     },
     "essences": {
@@ -551,7 +600,7 @@
           "size": 40
         },
         "T4": {
-          "text": "146 156 178",
+          "text": "140 152 178",
           "bg": "80 80 80 230",
           "border": null,
           "icon": null,
@@ -634,8 +683,8 @@
   "_q21_scope": "T0-T2 only. Stated in one place so it cannot drift: the board had it as T0/T1 in two spots and T0-T2 in two others.",
   "flat_look": {
     "_about": "A look OFF the ladder, for categories that have no tiers because ranking them is a category error. Author's call: 'special items like quest could have its own theme, they usually have no tiers.'",
-    "why_a_bright_border": "No rung sets a border at FULL accent strength — T5 sets a deliberately dim one — so full strength means 'you need this, it is not worth an amount'. Three readings of the border channel, all distinguishable: full accent = flat, dim accent = T5 floor, none = a ranked rung.",
-    "legality": "Same test as the T5 borderless form — these classes hold zero states, so the border is spare. Assert it the same way.",
+    "why_a_bright_border": "Two markers, one per form. PAINTED (zero-state classes): a border at FULL accent strength — no rung sets one there, T5's is deliberately dim. GEAR: plate alpha 255, just above the ladder's 250. Neither spends a channel a state needs.",
+    "legality": "Painted form: state_budget[class] must be empty — true for all four entries. Gear form: no legality test needed, because it spends nothing. That is why it is the safer shape.",
     "does_not_apply_to": "Not every one-rung category is flat. Legacy and Chancing have one rung because they are BULK, and bulk is a rank — they stay on the ladder at T5. Flat is for utility.",
     "implementation": "A block sets flat: true instead of a rung. The compiler emits the recipe above and skips the rung lookup entirely — so rung_by_depth is not consulted for these categories.",
     "recipe_painted": {
@@ -648,12 +697,12 @@
     },
     "recipe_rarity_through": {
       "text": null,
-      "bg": "accent.deep @ 240",
-      "border": "accent.solid",
+      "bg": "group.deep @ 255",
+      "border": null,
       "size_px": 40,
       "icon": null,
       "beam": null,
-      "_why": "⚠️ Half the flat categories are GEAR (equipment accent). Gear never takes a text colour — rarity is the most valuable thing on the label — and the equipment accent declares shape: null, so an icon line could not be written even if we wanted one. So the gear form is border + plate only, no text, NO ICON."
+      "_why": "YOUR SUGGESTION, adopted — it is better than mine. The gear ladder runs plate alpha 250/240/230/220/210, so alpha 255 is unused and sits just outside it: full opacity reads as 'off the ladder' without spending a channel, and it leaves the border alone so every state border still composes."
     },
     "applies_to_painted": [
       "Quest Items",
@@ -670,9 +719,9 @@
       "Relics"
     ],
     "icon_disambiguation": "Flat draws '1 White <shape>' and the maps exception draws '1 White Square' for white-tier maps — same colour, two meanings. SHAPE disambiguates: Square is a map, any other shape at 1 White is unranked. Encode it that way rather than treating White as a single semantic.",
-    "validator": "Two errors to assert: (1) a flat block on a gear-accent category that emits SetTextColor; (2) a flat block whose accent has shape: null that emits a MinimapIcon line at all — that is the malformed-icon case that costs a whole filter load.",
+    "validator": "Errors to assert: (1) a flat PAINTED block on a class whose state_budget is non-empty; (2) any flat block that emits SetTextColor on a gear-accent category; (3) any flat block emitting a MinimapIcon where the accent's shape is null.",
     "removed": "Magic Net has 3 real rungs (Magic Good Jewellery / Magic Net / Normal Net) — it is a ladder, so it goes on the ladder. Stygian Vise has 2 and is a judgement call; left OFF the flat list for now since two rungs is a rank.",
-    "caution": "⚠️ Relics: 7 of its 14 GGPK bases are named [DO NOT USE] and our category holds one base. Half-dead class — worth confirming before spending a look on it."
+    "caution": "⚠️ Relics: 7 of its 14 GGPK bases are [DO NOT USE] and our category holds one. Enshrouded Gear's bases are not in the dump yet. Both stay on the gear form, which is safe by construction — a spurious plate is cosmetic, and there is no border to be spurious about."
   },
   "rung_by_depth_note": "Depth 1 no longer implies T2/T3 automatically: check flat_look.applies_to first.",
   "gear_ladder": {

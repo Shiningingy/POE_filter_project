@@ -23,19 +23,18 @@ def lerp(a, b, t):
     return [round(a[i] + (b[i] - a[i]) * t) for i in range(3)]
 
 
-def lum255(c):
-    """Reply 03's luminance, on the 0-255 scale their worked example uses."""
-    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
+def muted(accent):
+    """`accent.muted` is AUTHORED, one value per accent — reply 12.
 
-
-def muted(solid):
-    """reply 03 / 09: desaturate(solid, 0.70), then darken 0.10.
-
-    desaturate(c, f) = lerp(c, grey(lum(c)), f);  darken f = lerp(c, black, f).
+    It was a formula for three drops and never reproduced either golden: the desaturate step
+    was nine units out on blue, and the two currency goldens then disagreed with each other
+    because T3's plate was Sharket's literal tan wearing a formula's name. Authoring it makes
+    T3's plate and T4's text the SAME value on purpose — the tail reads as one family — and
+    kills the `lum`/`desaturate`/`darken` chain entirely.
     """
-    g = lum255(solid)
-    des = [solid[i] + (g - solid[i]) * 0.70 for i in range(3)]
-    return [round(v * 0.90) for v in des]
+    if not accent.get("muted"):
+        raise KeyError("accent has no authored `muted` — reply 12 requires one per accent")
+    return rgb(accent["muted"])
 
 
 def resolve(expr, accent):
@@ -57,7 +56,7 @@ def resolve(expr, accent):
         return 'LUM'                                     # resolved by caller (needs the bg)
 
     solid, deep = rgb(accent['solid']), rgb(accent['deep'])
-    muted_c = muted(solid)
+    muted_c = muted(accent)
     out = None
     if e == 'accent.solid':                              out = solid
     elif e == 'accent.deep':                             out = deep

@@ -3,7 +3,7 @@
     "Tier 0": {
       "FontSize": 45,
       "BackgroundColor": "#ffffffff",
-      "TextColor": "#be8c6eff",
+      "TextColor": "#78503cff",
       "MinimapIcon": "0 White Circle",
       "PlayEffect": "Brown"
     },
@@ -23,13 +23,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#91837bf0",
+      "BackgroundColor": "#b49b87f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#91837bff"
+      "TextColor": "#b49b87ff"
     }
   },
   "Delirium Orbs": {
@@ -66,13 +66,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#5e7193f0",
+      "BackgroundColor": "#8c98b2f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#5e7193ff"
+      "TextColor": "#8c98b2ff"
     }
   },
   "Fossils": {
@@ -92,13 +92,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#90805af0",
+      "BackgroundColor": "#b49b69f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#90805aff"
+      "TextColor": "#b49b69ff"
     }
   },
   "General": {
@@ -125,20 +125,20 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#b49d6ff0",
+      "BackgroundColor": "#aa9e82f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#b49d6fff"
+      "TextColor": "#aa9e82ff"
     }
   },
   "Gold": {
     "Tier 5": {
       "FontSize": 30,
-      "TextColor": "#6a665fff",
-      "BorderColor": "#4b4843ff"
+      "TextColor": "#807155ff",
+      "BorderColor": "#5a503cff"
     }
   },
   "Harvest": {
@@ -158,13 +158,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#95b39bf0",
+      "BackgroundColor": "#91b496f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#95b39bff"
+      "TextColor": "#91b496ff"
     }
   },
   "Heist Currency": {
@@ -178,7 +178,7 @@
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#653939ff"
+      "TextColor": "#b4827dff"
     }
   },
   "Incursion Vials": {
@@ -207,13 +207,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#d2cca3f0",
+      "BackgroundColor": "#beb478f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#d2cca3ff"
+      "TextColor": "#beb478ff"
     }
   },
   "Omens": {
@@ -226,13 +226,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#b49d6ff0",
+      "BackgroundColor": "#aa9e82f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#b49d6fff"
+      "TextColor": "#aa9e82ff"
     }
   },
   "Runegrafts": {
@@ -245,13 +245,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#b49d6ff0",
+      "BackgroundColor": "#aa9e82f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#b49d6fff"
+      "TextColor": "#aa9e82ff"
     }
   },
   "Tainted Currency": {
@@ -271,13 +271,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#b49d6ff0",
+      "BackgroundColor": "#aa9e82f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#b49d6fff"
+      "TextColor": "#aa9e82ff"
     }
   },
   "Wombgifts": {
@@ -290,13 +290,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#61417af0",
+      "BackgroundColor": "#a082b4f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#61417aff"
+      "TextColor": "#a082b4ff"
     }
   },
   "Curse of the Allflame": {
@@ -310,7 +310,7 @@
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#9f7a65ff"
+      "TextColor": "#c39b7dff"
     },
     "Tier 1": {
       "FontSize": 45,
@@ -321,31 +321,32 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#9f7a65f0",
+      "BackgroundColor": "#c39b7df0",
       "TextColor": "#000000ff"
     }
   },
   "Enshrouded Gear": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#3e1a06f0"
+      "BackgroundColor": "#2a2a2aff"
     }
   },
   "Crafting Bases": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#2a2a2af0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#2a2a2ae6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#2a2a2adc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#2a2a2ad2"
     }
   },
   "Magic Net": {
@@ -359,215 +360,225 @@
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#6a9877ff"
+      "TextColor": "#8cb496ff"
     }
   },
   "Relics": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#2a2a2aff"
     }
   },
   "Body Armours": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#1a1e23f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#1a1e23e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#1a1e23dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#1a1e23d2"
     }
   },
   "Boots": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#1a1e23f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#1a1e23e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#1a1e23dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#1a1e23d2"
     }
   },
   "Gloves": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#1a1e23f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#1a1e23e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#1a1e23dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#1a1e23d2"
     }
   },
   "Helmets": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#1a1e23f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#1a1e23e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#1a1e23dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#1a1e23d2"
     }
   },
   "Quivers": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#1a1e23f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#1a1e23e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#1a1e23dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#1a1e23d2"
     }
   },
   "Shields": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#1a1e23f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#1a1e23e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#1a1e23dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#1a1e23d2"
     }
   },
   "Amulets": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#242014f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#242014e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#242014dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#242014d2"
     }
   },
   "Belts": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#242014f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#242014e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#242014dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#242014d2"
     }
   },
   "Rings": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#242014f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#242014e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#242014dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#242014d2"
     }
   },
   "Trinkets": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#2a2a2af0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#2a2a2ae6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#2a2a2adc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#2a2a2ad2"
     }
   },
   "Breach Grasping Mail": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#22063af0"
+      "BackgroundColor": "#1a1e23ff"
     }
   },
   "Expedition Ward-Bases": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#143048f0"
+      "BackgroundColor": "#1a1e23ff"
     }
   },
   "Heist Experimented": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#2a2a2af0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#2a2a2ae6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#2a2a2adc"
     }
   },
   "Mirror of Kalandra Ring Bases": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#242014ff"
     }
   },
   "Ritual BaseTypes": {
@@ -581,47 +592,47 @@
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#47242aff"
+      "TextColor": "#a5787dff"
     }
   },
   "Sacrificial Garbs": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#1a1e23ff"
     }
   },
   "Stygian Vise": {
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#242014e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#242014dc"
     }
   },
   "Talismans": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#242014f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#242014e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#242014dc"
     }
   },
   "Influenced": {
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#2a2a2ae6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#2a2a2adc"
     }
   },
   "Chancing": {
@@ -636,250 +647,264 @@
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#6c6c6cff"
+      "TextColor": "#8c8c8cff"
     },
     "Tier 5": {
       "FontSize": 30,
       "BackgroundColor": "#303030d7",
-      "TextColor": "#5c5c5cff"
+      "TextColor": "#777777ff"
     }
   },
   "Bows": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#221a16f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#221a16e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#221a16dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#221a16d2"
     }
   },
   "Claws": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#221a16f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#221a16e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#221a16dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#221a16d2"
     }
   },
   "Daggers": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#221a16f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#221a16e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#221a16dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#221a16d2"
     }
   },
   "One Hand Axes": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#221a16f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#221a16e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#221a16dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#221a16d2"
     }
   },
   "One Hand Maces": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#221a16f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#221a16e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#221a16dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#221a16d2"
     }
   },
   "One Hand Swords": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#221a16f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#221a16e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#221a16dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#221a16d2"
     }
   },
   "Rune Daggers": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#221a16f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#221a16e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#221a16dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#221a16d2"
     }
   },
   "Sceptres": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#221a16f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#221a16e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#221a16dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#221a16d2"
     }
   },
   "Staves": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#221a16f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#221a16e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#221a16dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#221a16d2"
     }
   },
   "Two Hand Axes": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#221a16f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#221a16e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#221a16dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#221a16d2"
     }
   },
   "Two Hand Maces": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#221a16f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#221a16e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#221a16dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#221a16d2"
     }
   },
   "Two Hand Swords": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#221a16f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#221a16e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#221a16dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#221a16d2"
     }
   },
   "Wands": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#221a16f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#221a16e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#221a16dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#221a16d2"
     }
   },
   "Warstaves": {
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#221a16f0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#221a16e6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#221a16dc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#221a16d2"
     }
   },
   "Life Flasks": {
@@ -892,13 +917,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#957474f0",
+      "BackgroundColor": "#c39691f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#957474ff"
+      "TextColor": "#c39691ff"
     }
   },
   "Mana Flasks": {
@@ -911,13 +936,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#957474f0",
+      "BackgroundColor": "#c39691f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#957474ff"
+      "TextColor": "#c39691ff"
     }
   },
   "Tinctures": {
@@ -931,7 +956,7 @@
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#957474ff"
+      "TextColor": "#c39691ff"
     }
   },
   "Utility Flasks": {
@@ -944,13 +969,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#957474f0",
+      "BackgroundColor": "#c39691f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#957474ff"
+      "TextColor": "#c39691ff"
     }
   },
   "Skill Gems": {
@@ -977,18 +1002,18 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#5b7f7ef0",
+      "BackgroundColor": "#789b98f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#5b7f7eff"
+      "TextColor": "#789b98ff"
     },
     "Tier 5": {
       "FontSize": 30,
       "BackgroundColor": "#303030d7",
-      "TextColor": "#4d6c6bff"
+      "TextColor": "#668481ff"
     }
   },
   "Support Gems": {
@@ -1008,13 +1033,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#5b7f7ef0",
+      "BackgroundColor": "#789b98f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#5b7f7eff"
+      "TextColor": "#789b98ff"
     }
   },
   "Heist Blueprints": {
@@ -1028,7 +1053,7 @@
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#653939ff"
+      "TextColor": "#b4827dff"
     }
   },
   "Heist Contracts": {
@@ -1042,17 +1067,17 @@
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#653939ff"
+      "TextColor": "#b4827dff"
     }
   },
   "Heist Equipment": {
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#2a2a2ae6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#2a2a2adc"
     }
   },
   "Heist Targets": {
@@ -1074,13 +1099,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#926483f0",
+      "BackgroundColor": "#c391b4f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#926483ff"
+      "TextColor": "#c391b4ff"
     },
     "Tier 1": {
       "FontSize": 45,
@@ -1119,13 +1144,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#462853f0",
+      "BackgroundColor": "#9678a0f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#462853ff"
+      "TextColor": "#9678a0ff"
     },
     "Tier 0": {
       "FontSize": 45,
@@ -1166,13 +1191,13 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#3f6257f0",
+      "BackgroundColor": "#6e9182f0",
       "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
-      "TextColor": "#3f6257ff"
+      "TextColor": "#6e9182ff"
     }
   },
   "Quest Items": {
@@ -1208,35 +1233,35 @@
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#745e4ef0",
+      "BackgroundColor": "#af9173f0",
       "TextColor": "#000000ff"
     }
   },
   "Campaign": {
     "Tier 0": {
       "FontSize": 45,
-      "BackgroundColor": "#ffffffff",
-      "TextColor": "#aaaaaaff"
+      "BackgroundColor": "#aaaaaaff",
+      "TextColor": "#ffffffff"
     },
     "Tier 1": {
       "FontSize": 45,
-      "BackgroundColor": "#d20000ff",
-      "TextColor": "#ffffffff"
+      "BackgroundColor": "#2a2a2afa"
     },
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af5"
+      "BackgroundColor": "#2a2a2af0"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#2a2a2ae6"
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#505050e1"
+      "BackgroundColor": "#2a2a2adc"
     },
     "Tier 5": {
-      "FontSize": 30
+      "FontSize": 30,
+      "BackgroundColor": "#2a2a2ad2"
     }
   },
   "Legacy": {
