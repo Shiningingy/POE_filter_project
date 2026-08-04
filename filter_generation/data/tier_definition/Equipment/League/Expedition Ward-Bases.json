@@ -26,14 +26,6 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
-      },
-      "item_overrides": {
-        "Iron Flask": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/坚铁药剂.mp3",
-            200
-          ]
-        }
       }
     },
     "Expedition Ward-Bases Hide": {

@@ -2,7 +2,6 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Iron Flask": "坚铁药剂",
         "Runic Crest": "符文之冠",
         "Runic Crown": "符文王冠",
         "Runic Gages": "符文笼手",
@@ -21,7 +20,6 @@
     "theme_category": "Expedition Ward-Bases"
   },
   "mapping": {
-    "Iron Flask": "Expedition Ward-Bases T1",
     "Runic Crest": "Expedition Ward-Bases T1",
     "Runic Crown": "Expedition Ward-Bases T1",
     "Runic Gages": "Expedition Ward-Bases T1",
