@@ -22,13 +22,7 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#8b6a0eff",
-        "BorderColor": "#b08611ff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star"
+        "Tier": 0
       },
       "sound": {
         "default_sound_id": 6,
@@ -74,13 +68,7 @@
     "Tier 1 General": {
       "hideable": false,
       "theme": {
-        "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#544008ff",
-        "BorderColor": "#745706ff",
-        "BackgroundColor": "#dfa916ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond"
+        "Tier": 1
       },
       "sound": {
         "default_sound_id": 1,
@@ -120,16 +108,11 @@
     "Tier 2 General": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#000000ff",
-        "BorderColor": "#4a3807ff",
-        "BackgroundColor": "#b08611ff",
+        "Tier": 1,
         "PlayAlertSound": [
           "Sharket掉落音效/高级通货.mp3",
           200
-        ],
-        "MinimapIcon": "2 Yellow Diamond"
+        ]
       },
       "sound": {
         "default_sound_id": 2,
@@ -169,16 +152,11 @@
     "Tier 3 General": {
       "hideable": false,
       "theme": {
-        "Tier": 3,
-        "FontSize": 40,
-        "TextColor": "#f1d074ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#463507ff",
+        "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/通货.mp3",
           100
-        ],
-        "MinimapIcon": "1 Yellow Diamond"
+        ]
       },
       "sound": {
         "default_sound_id": 2,
@@ -236,16 +214,11 @@
     "Tier 4 General": {
       "hideable": false,
       "theme": {
-        "Tier": 4,
-        "FontSize": 35,
-        "TextColor": "#f1d074ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#332705ff",
+        "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/通货.mp3",
           100
-        ],
-        "MinimapIcon": "0 Yellow Diamond"
+        ]
       },
       "sound": {
         "default_sound_id": 2,
@@ -297,11 +270,7 @@
     "Tier 7 General": {
       "hideable": false,
       "theme": {
-        "Tier": 7,
-        "FontSize": 30,
-        "TextColor": "#c4a245ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#171202ff"
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,
@@ -342,11 +311,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#f1d074ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#090701ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,
@@ -359,11 +324,7 @@
     },
     "Tier 6 General": {
       "theme": {
-        "Tier": 6,
-        "FontSize": 30,
-        "TextColor": "#c4a245ff",
-        "BorderColor": "#00000000",
-        "MinimapIcon": "0 Yellow Diamond"
+        "Tier": 3
       },
       "hideable": false,
       "sound": {
@@ -415,11 +376,7 @@
     },
     "Tier 5 General": {
       "theme": {
-        "Tier": 5,
-        "FontSize": 35,
-        "TextColor": "#f1d074ff",
-        "BorderColor": "#00000000",
-        "MinimapIcon": "0 Yellow Diamond"
+        "Tier": 3
       },
       "hideable": false,
       "sound": {

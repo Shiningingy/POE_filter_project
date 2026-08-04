@@ -15,12 +15,7 @@
     "Heist Gear T1": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#eac8e9ff",
-        "BorderColor": "#d69fd4ff",
-        "BackgroundColor": "#883a85ff",
-        "MinimapIcon": "1 Grey Circle",
+        "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/高级赏金装备.mp3",
           300
@@ -39,10 +34,6 @@
       "hideable": true,
       "theme": {
         "Tier": 4,
-        "FontSize": 35,
-        "TextColor": "#d590d3ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#271127ff",
         "PlayAlertSound": [
           "Sharket掉落音效/赏金装备.mp3",
           300
@@ -61,11 +52,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#d590d3ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#070307ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,

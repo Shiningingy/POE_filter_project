@@ -94,12 +94,6 @@
       "show_in_editor": true,
       "theme": {
         "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#7f421aff",
-        "BorderColor": "#ba6126ff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star",
         "PlayAlertSound": [
           "Sharket掉落音效/神装.mp3",
           300
@@ -122,12 +116,6 @@
       "hideable": false,
       "theme": {
         "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#000000ff",
-        "BorderColor": "#5d2e0eff",
-        "BackgroundColor": "#cb6a2aff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond",
         "PlayAlertSound": [
           "Sharket掉落音效/超级传奇.mp3",
           300
@@ -149,11 +137,6 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#f7e5d9ff",
-        "BorderColor": "#eaba99ff",
-        "BackgroundColor": "#a15421ff",
-        "MinimapIcon": "1 Brown Circle",
         "PlayAlertSound": [
           "Sharket掉落音效/高级传奇.mp3",
           300
@@ -175,10 +158,6 @@
       "hideable": false,
       "theme": {
         "Tier": 3,
-        "FontSize": 40,
-        "TextColor": "#e5a880ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#3f210dff",
         "PlayAlertSound": [
           "Sharket掉落音效/传奇.mp3",
           300
@@ -201,10 +180,6 @@
       "hideable": false,
       "theme": {
         "Tier": 3,
-        "FontSize": 40,
-        "TextColor": "#e5a880ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#3f210dff",
         "PlayAlertSound": [
           "Sharket掉落音效/哇哦传奇.mp3",
           300
@@ -226,11 +201,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#e5a880ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#080402ff"
+        "Tier": 9
       },
       "conditions": {
         "Rarity": "Unique"

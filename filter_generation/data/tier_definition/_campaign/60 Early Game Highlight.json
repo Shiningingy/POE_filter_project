@@ -26,10 +26,7 @@
         "ItemLevel": "<= 14"
       },
       "theme": {
-        "Tier": 6,
-        "FontSize": 30,
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#020302ff"
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": -1,
@@ -57,10 +54,7 @@
       },
       "hideable": true,
       "theme": {
-        "Tier": 6,
-        "FontSize": 30,
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#020302ff"
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,

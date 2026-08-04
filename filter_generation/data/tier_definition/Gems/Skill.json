@@ -20,12 +20,6 @@
       "hideable": false,
       "theme": {
         "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#0c4f4bff",
-        "BorderColor": "#0c6e67ff",
-        "BackgroundColor": "#22d3c7ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond",
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
           100
@@ -45,12 +39,6 @@
       "show_in_editor": false,
       "theme": {
         "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#137770ff",
-        "BorderColor": "#199a91ff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star",
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
           200
@@ -83,11 +71,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#7beae2ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#010908ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,
@@ -102,15 +86,10 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#000000ff",
-        "BorderColor": "#0b4642ff",
-        "BackgroundColor": "#1ba79dff",
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
           100
-        ],
-        "MinimapIcon": "0 Red Circle"
+        ]
       },
       "sound": {
         "default_sound_id": -1,
@@ -133,15 +112,10 @@
       "hideable": false,
       "theme": {
         "Tier": 3,
-        "FontSize": 40,
-        "TextColor": "#7beae2ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#0b423eff",
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
           100
-        ],
-        "MinimapIcon": "0 Red Circle"
+        ]
       },
       "sound": {
         "default_sound_id": -1,
@@ -156,15 +130,10 @@
       "hideable": false,
       "theme": {
         "Tier": 4,
-        "FontSize": 35,
-        "TextColor": "#7beae2ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#08302eff",
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
           100
-        ],
-        "MinimapIcon": "0 Red Circle"
+        ]
       },
       "sound": {
         "default_sound_id": -1,
@@ -179,14 +148,10 @@
       "hideable": false,
       "theme": {
         "Tier": 5,
-        "FontSize": 35,
-        "TextColor": "#7beae2ff",
-        "BorderColor": "#00000000",
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
           100
-        ],
-        "MinimapIcon": "0 Red Circle"
+        ]
       },
       "sound": {
         "default_sound_id": -1,

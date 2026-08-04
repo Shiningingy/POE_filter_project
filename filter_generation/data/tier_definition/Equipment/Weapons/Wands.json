@@ -22,12 +22,7 @@
       },
       "hideable": false,
       "theme": {
-        "Tier": 0,
-        "FontSize": 45,
-        "BorderColor": "#ffffffff",
-        "BackgroundColor": "#0f1115ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star"
+        "Tier": 2
       },
       "sound": {
         "default_sound_id": 6,
@@ -54,12 +49,7 @@
       },
       "hideable": false,
       "theme": {
-        "Tier": 1,
-        "FontSize": 45,
-        "BorderColor": "#7398c9ff",
-        "BackgroundColor": "#0b0c0fff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond"
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": 1,
@@ -78,10 +68,7 @@
       },
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "BorderColor": "#476690ff",
-        "BackgroundColor": "#090a0cff"
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": 2,
@@ -104,10 +91,7 @@
     "Tier 3 Wands": {
       "hideable": false,
       "theme": {
-        "Tier": 3,
-        "FontSize": 40,
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#060709ff"
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,
@@ -126,10 +110,7 @@
     "Tier 4 Wands": {
       "hideable": false,
       "theme": {
-        "Tier": 4,
-        "FontSize": 35,
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#040506ff"
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": -1,
@@ -149,10 +130,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#000000ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,

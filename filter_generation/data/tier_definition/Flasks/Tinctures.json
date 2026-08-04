@@ -16,13 +16,7 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#4f6f2aff",
-        "BorderColor": "#6b943dff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star",
+        "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/高级酊剂.mp3",
           200
@@ -43,13 +37,7 @@
     "Tier 1 Tinctures": {
       "hideable": false,
       "theme": {
-        "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#273715ff",
-        "BorderColor": "#37501bff",
-        "BackgroundColor": "#7eae47ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond",
+        "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/酊剂.mp3",
           200
@@ -71,11 +59,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#b5d590ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#050703ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,

@@ -21,13 +21,7 @@
       },
       "hideable": false,
       "theme": {
-        "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#6f612aff",
-        "BorderColor": "#96874aff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star",
+        "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/6连装备.mp3",
           300
@@ -51,11 +45,7 @@
       },
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#ffffffff",
-        "BorderColor": "#dcd4b7ff",
-        "BackgroundColor": "#827540ff",
+        "Tier": 5,
         "PlayAlertSound": [
           "Sharket掉落音效/6洞装备.mp3",
           300
@@ -79,11 +69,7 @@
       },
       "hideable": false,
       "theme": {
-        "Tier": 3,
-        "FontSize": 40,
-        "TextColor": "#d5c790ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#332e19ff",
+        "Tier": 5,
         "PlayAlertSound": [
           "Sharket掉落音效/幻色装.mp3",
           100
@@ -100,11 +86,7 @@
     },
     "Tier Hide Sockets Colors Links": {
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#d5c790ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#070603ff"
+        "Tier": 9
       },
       "localization": {
         "en": "Hide",

@@ -23,12 +23,6 @@
       "hideable": false,
       "theme": {
         "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#000000ff",
-        "BorderColor": "#183044ff",
-        "BackgroundColor": "#497fabff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond",
         "PlayAlertSound": [
           "Sharket掉落音效/超级圣甲虫.mp3",
           300
@@ -47,11 +41,6 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#d3e2eeff",
-        "BorderColor": "#9fbdd6ff",
-        "BackgroundColor": "#3a6588ff",
-        "MinimapIcon": "1 Orange Circle",
         "PlayAlertSound": [
           "Sharket掉落音效/高级圣甲虫.mp3",
           300
@@ -70,10 +59,6 @@
       "hideable": false,
       "theme": {
         "Tier": 3,
-        "FontSize": 40,
-        "TextColor": "#90b6d5ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#172836ff",
         "PlayAlertSound": [
           "Sharket掉落音效/高级圣甲虫.mp3",
           300
@@ -92,10 +77,6 @@
       "hideable": false,
       "theme": {
         "Tier": 4,
-        "FontSize": 35,
-        "TextColor": "#90b6d5ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#111d27ff",
         "PlayAlertSound": [
           "Sharket掉落音效/圣甲虫.mp3",
           100
@@ -114,11 +95,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#90b6d5ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#030507ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,
@@ -132,12 +109,6 @@
     "Tier 0 Scarabs": {
       "theme": {
         "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#2a506fff",
-        "BorderColor": "#43759dff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star",
         "PlayAlertSound": [
           "Sharket掉落音效/超级圣甲虫.mp3",
           100

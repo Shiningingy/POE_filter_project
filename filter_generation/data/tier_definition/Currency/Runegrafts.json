@@ -16,13 +16,7 @@
     "Tier 1 Runegrafts": {
       "hideable": false,
       "theme": {
-        "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#494713ff",
-        "BorderColor": "#676414ff",
-        "BackgroundColor": "#c4bf31ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond",
+        "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/符文.mp3",
           300
@@ -41,11 +35,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#e0dd85ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#080802ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,
@@ -58,13 +48,7 @@
     },
     "Tier 0 Runegrafts": {
       "theme": {
-        "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#6d6b1cff",
-        "BorderColor": "#8f8b24ff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star",
+        "Tier": 1,
         "PlayAlertSound": [
           "Sharket掉落音效/666.mp3",
           100
@@ -78,12 +62,7 @@
     },
     "Tier 2 Runegrafts": {
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#000000ff",
-        "BorderColor": "#414010ff",
-        "BackgroundColor": "#9b9727ff",
-        "MinimapIcon": "1 Grey Circle",
+        "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/文身.mp3",
           100

@@ -28,10 +28,7 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 6,
-        "FontSize": 30,
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#020302ff"
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": -1,
@@ -57,10 +54,7 @@
         "AreaLevel": "RANGE >= 10 <= 67"
       },
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#000000ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,
@@ -86,10 +80,7 @@
         "AreaLevel": "RANGE >= 10 <= 67"
       },
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#000000ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,
@@ -114,10 +105,7 @@
         "AreaLevel": "RANGE >= 34 <= 67"
       },
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#000000ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,

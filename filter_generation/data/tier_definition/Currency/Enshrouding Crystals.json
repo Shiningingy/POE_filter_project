@@ -14,13 +14,7 @@
     "Enshrouding Crystals": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#000000ff",
-        "BorderColor": "#c1dcb7ff",
-        "BackgroundColor": "#528240ff",
-        "PlayEffect": "Green",
-        "MinimapIcon": "1 Green Circle"
+        "Tier": 2
       },
       "sound": {
         "default_sound_id": 2,
@@ -35,11 +29,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#a2d590ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#040703ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,

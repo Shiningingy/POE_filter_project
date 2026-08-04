@@ -13,7 +13,7 @@
     },
     "Voyage Charts T0": {
       "theme": {
-        "Tier": 3
+        "Tier": 2
       },
       "hideable": false,
       "sound": {
@@ -29,11 +29,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#a589dcff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#040208ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,

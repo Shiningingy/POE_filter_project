@@ -17,7 +17,7 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 2
       },
       "sound": {
         "default_sound_id": 6,
@@ -35,7 +35,7 @@
     "Tier 1 Abyss Jewels": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": 1,
@@ -53,7 +53,7 @@
     "Tier 2 Abyss Jewels": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": 2,
@@ -71,11 +71,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#e580afff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#080205ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,

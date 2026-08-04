@@ -17,13 +17,7 @@
     "Tier 1 Fossils": {
       "hideable": false,
       "theme": {
-        "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#4d2b00ff",
-        "BorderColor": "#7a4500ff",
-        "BackgroundColor": "#f58b00ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond"
+        "Tier": 2
       },
       "sound": {
         "default_sound_id": 1,
@@ -37,11 +31,7 @@
     "Tier 2 Fossils": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#000000ff",
-        "BorderColor": "#522e00ff",
-        "BackgroundColor": "#c26e00ff"
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": 2,
@@ -56,11 +46,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#ffbd66ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#0a0600ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,
@@ -75,13 +61,7 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#995700ff",
-        "BorderColor": "#d17700ff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star"
+        "Tier": 1
       },
       "sound": {
         "default_sound_id": 6,
@@ -94,11 +74,7 @@
     },
     "Tier 3 Fossils": {
       "theme": {
-        "Tier": 3,
-        "FontSize": 40,
-        "TextColor": "#ffbd66ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#4d2b00ff"
+        "Tier": 4
       },
       "hideable": false,
       "sound": {

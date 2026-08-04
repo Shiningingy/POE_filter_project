@@ -15,13 +15,7 @@
     "Heist Contract T0": {
       "hideable": false,
       "theme": {
-        "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#6f2a6dff",
-        "BorderColor": "#9d439aff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star"
+        "Tier": 2
       },
       "sound": {
         "default_sound_id": 6,
@@ -35,11 +29,7 @@
     "Heist Contract T1": {
       "hideable": true,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#eac8e9ff",
-        "BorderColor": "#d69fd4ff",
-        "BackgroundColor": "#883a85ff"
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,
@@ -54,11 +44,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#d590d3ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#070307ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,

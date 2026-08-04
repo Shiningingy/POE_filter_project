@@ -16,13 +16,7 @@
     "Tier 1 Omens": {
       "hideable": false,
       "theme": {
-        "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#000000ff",
-        "BorderColor": "#531d09ff",
-        "BackgroundColor": "#d35122ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond"
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": 2,
@@ -36,11 +30,7 @@
     "Tier 2 Omens": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#f7d6caff",
-        "BorderColor": "#eead96ff",
-        "BackgroundColor": "#a7401bff"
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,
@@ -55,11 +45,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#ea997bff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#090301ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,
@@ -72,13 +58,7 @@
     },
     "Tier 0 Omens": {
       "theme": {
-        "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#843315ff",
-        "BorderColor": "#c14b1fff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star"
+        "Tier": 1
       },
       "localization": {
         "en": "T0: Omens",

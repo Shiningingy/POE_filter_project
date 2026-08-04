@@ -18,12 +18,7 @@
     "Enshrouded Gear": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "BorderColor": "#906447ff",
-        "BackgroundColor": "#0d0a07ff",
-        "PlayEffect": "Orange",
-        "MinimapIcon": "1 Orange Star"
+        "Tier": 2
       },
       "sound": {
         "default_sound_id": 2,
@@ -38,10 +33,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#000000ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,

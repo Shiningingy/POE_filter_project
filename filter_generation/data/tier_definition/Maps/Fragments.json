@@ -19,12 +19,6 @@
       "hideable": false,
       "theme": {
         "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#000000ff",
-        "BorderColor": "#133f58ff",
-        "BackgroundColor": "#368dbfff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond",
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
           300
@@ -57,11 +51,6 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#dbecf5ff",
-        "BorderColor": "#a0cbe4ff",
-        "BackgroundColor": "#2b6f97ff",
-        "MinimapIcon": "1 Orange Circle",
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
           300
@@ -100,10 +89,6 @@
       "hideable": false,
       "theme": {
         "Tier": 3,
-        "FontSize": 40,
-        "TextColor": "#88beddff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#112c3cff",
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
           300
@@ -136,10 +121,6 @@
       "hideable": false,
       "theme": {
         "Tier": 4,
-        "FontSize": 35,
-        "TextColor": "#88beddff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#0c202cff",
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
           100
@@ -158,11 +139,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#88beddff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#020608ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,
@@ -178,12 +155,6 @@
       "show_in_editor": false,
       "theme": {
         "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#225877ff",
-        "BorderColor": "#3181afff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star",
         "PlayAlertSound": [
           "Sharket掉落音效/超级地图碎片.mp3",
           200

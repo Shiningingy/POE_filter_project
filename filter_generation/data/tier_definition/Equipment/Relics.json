@@ -14,11 +14,7 @@
     "Relics T1": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#f2e8deff",
-        "BorderColor": "#dac2a9ff",
-        "BackgroundColor": "#88613aff"
+        "Tier": 2
       },
       "sound": {
         "default_sound_id": -1,
@@ -38,11 +34,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#d5b390ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#070503ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,

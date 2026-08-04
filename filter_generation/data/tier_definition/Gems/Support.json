@@ -17,13 +17,7 @@
     "Tier 1 Support": {
       "hideable": false,
       "theme": {
-        "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#10383cff",
-        "BorderColor": "#125259ff",
-        "BackgroundColor": "#33b3c1ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond",
+        "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/强辅技能石.mp3",
           100
@@ -42,13 +36,7 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#207079ff",
-        "BorderColor": "#2c99a5ff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star",
+        "Tier": 1,
         "PlayAlertSound": [
           "Sharket掉落音效/稀有技能石.mp3",
           300
@@ -67,11 +55,7 @@
       "hideable": true,
       "is_hide_tier": true,
       "theme": {
-        "Tier": 9,
-        "FontSize": 30,
-        "TextColor": "#86d6dfff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#020708ff"
+        "Tier": 9
       },
       "sound": {
         "default_sound_id": -1,
@@ -85,16 +69,11 @@
     "Tier 2 Support": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#000000ff",
-        "BorderColor": "#113c40ff",
-        "BackgroundColor": "#298e99ff",
+        "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/辅助技能石.mp3",
           100
-        ],
-        "MinimapIcon": "0 Cyan Circle"
+        ]
       },
       "sound": {
         "default_sound_id": -1,
@@ -108,12 +87,7 @@
     "Tier Net Support": {
       "hideable": false,
       "theme": {
-        "Tier": 3,
-        "FontSize": 40,
-        "TextColor": "#86d6dfff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#10383cff",
-        "MinimapIcon": "0 Cyan Circle",
+        "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/辅助技能石.mp3",
           100
