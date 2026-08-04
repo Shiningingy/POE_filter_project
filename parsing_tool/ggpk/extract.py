@@ -303,8 +303,8 @@ def verify(tables_dir: str, spec: dict, languages: list[str],
 # --------------------------------------------------------------------------- #
 
 def stage(label: str, cfg: dict, spec: dict, counts: dict[str, int],
-          schema: dict, source: str) -> str:
-    out = os.path.join(REPO, "data", "source", label)
+          schema: dict, source: str, out_root: str | None = None) -> str:
+    out = os.path.join(out_root or os.path.join(REPO, "data", "source"), label)
     if os.path.isdir(out):
         shutil.rmtree(out)
     os.makedirs(out, exist_ok=True)
@@ -356,13 +356,22 @@ def main() -> None:
                     help="default: English + Traditional Chinese (cdn), "
                          "English + Simplified Chinese (local)")
     ap.add_argument("--tables", nargs="+", help="limit to these tables (debugging)")
+    # tables.json is the contract for what THIS repo's catalog may know about, so a
+    # separate project sharing the pipeline brings its own spec and its own output
+    # root rather than widening ours. Same validation, same manifest.
+    ap.add_argument("--spec", default=SPEC_PATH, metavar="PATH",
+                    help="curated table list (default: parsing_tool/ggpk/tables.json)")
+    ap.add_argument("--out-dir", metavar="PATH",
+                    help="write <label>/ here instead of data/source/")
     ap.add_argument("--drop-column", action="append", default=[], metavar="Table.Column",
                     help="skip a column this client is too old to have")
     ap.add_argument("--offline", action="store_true",
                     help="reuse the cached schema instead of refetching")
     args = ap.parse_args()
 
-    spec = json.load(open(SPEC_PATH, encoding="utf-8"))
+    if not os.path.exists(args.spec):
+        die(f"no spec at {args.spec}")
+    spec = json.load(open(args.spec, encoding="utf-8"))
     languages = args.languages or DEFAULT_LANGUAGES[args.source]
 
     if args.source == "cdn":
@@ -396,7 +405,7 @@ def main() -> None:
     run_exporter(cfg)
     exported = {t["name"] for t in cfg["tables"]}
     counts = verify(os.path.join(WORK, "tables"), spec, languages, exported)
-    out = stage(label, cfg, spec, counts, schema, source_desc)
+    out = stage(label, cfg, spec, counts, schema, source_desc, args.out_dir)
 
     log(f"\nWrote {os.path.relpath(out, REPO)}")
     log("  tables/<Language>/<Table>.json  +  manifest.json")
