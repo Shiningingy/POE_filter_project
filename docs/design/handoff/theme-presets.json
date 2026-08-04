@@ -433,12 +433,15 @@
     },
     "linked": {
       "rank": 4,
-      "border": "0 255 0"
+      "border": "0 255 0",
+      "condition": "LinkedSockets >= 6",
+      "note": "⚠️ SIX, not five. In Ruthless a 6-link is a chase drop and a 5-link is common enough to be noise — the author's own framing, and it is the right one. A 5-link gets NO state border: if it deserves attention it deserves a rung, which is a matching decision rather than a decoration."
     },
     "corrupted": {
       "rank": 5,
       "border": "225 25 55"
-    }
+    },
+    "_conditions": "Thresholds, so none of these need guessing: corrupted = Corrupted True; influenced = HasInfluence any; fractured = FracturedItem True; enchanted = AnyEnchantment True; linked = LinkedSockets >= 6."
   },
   "text_swaps": {
     "_about": "Properties that BEAT rarity take the text, freeing the border for real states. Own block, not a rule deviation.",
@@ -723,7 +726,6 @@
     "removed": "Magic Net has 3 real rungs (Magic Good Jewellery / Magic Net / Normal Net) — it is a ladder, so it goes on the ladder. Stygian Vise has 2 and is a judgement call; left OFF the flat list for now since two rungs is a rank.",
     "caution": "⚠️ Relics: 7 of its 14 GGPK bases are [DO NOT USE] and our category holds one. Enshrouded Gear's bases are not in the dump yet. Both stay on the gear form, which is safe by construction — a spurious plate is cosmetic, and there is no border to be spurious about."
   },
-  "rung_by_depth_note": "Depth 1 no longer implies T2/T3 automatically: check flat_look.applies_to first.",
   "gear_ladder": {
     "_about": "Sharket's COLOURS on a plate-ranked ladder. His structure (rung on the border) was measured unbuildable — see border_is_unavailable.",
     "what_sharket_does": {
@@ -835,5 +837,56 @@
     "start_here": "General 48 blocks / 43 icons, and Map Fragments 42 / 19 — where a floor either pays or spams.",
     "biggest_subtraction": "⚠️ Legacy draws an icon AND a beam on all 17 of its blocks. On the vendor accent with icon_floor: none that is the single biggest removal in the sweep.",
     "no_vocabulary_to_preserve": "The current filter has 15 distinct icon values but 245 of 285 are just two — '1 White Diamond' (123) and '0 White Star' (122). The nine-shape vocabulary replaces nothing."
+  },
+  "rung_by_depth": {
+    "_about": "⚠️ RESTORED after being lost in the six-rung rewrite. This is the map from a category's tier DEPTH to the rungs its tiers take. Its absence is what compiled Legacy and Chancing to T2 — the money plate with a Temp beam — on bulk. If this key is missing again, that is the regression.",
+    "_rule": "Check flat_look.applies_to_* FIRST — flat categories skip this table entirely. Then overrides. Then the template for the category's depth.",
+    "templates": {
+      "1": [
+        "T2"
+      ],
+      "2": [
+        "T2",
+        "T4"
+      ],
+      "3": [
+        "T1",
+        "T2",
+        "T4"
+      ],
+      "4": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "5": [
+        "T0",
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "6": [
+        "T0",
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5"
+      ],
+      "7+": "T0, T1, T2, T3, T4, T5 with the surplus doubling on T2 and T3 — the two rungs designed to be shared. Never invent a seventh rung."
+    },
+    "overrides": {
+      "_legacy/Legacy.json": [
+        "T5"
+      ],
+      "Currency/Chancing.json": [
+        "T5"
+      ],
+      "_why": "⚠️ THE ONE CASE THE DEPTH RULE GETS BACKWARDS. Depth 1 normally means 'this category has one thing to say and it is worth saying' -> T2. Legacy and Chancing have depth 1 for the opposite reason: they are BULK, and bulk is a rank. Without these two lines they compile to the loudest non-chase rung in the filter, doing the exact opposite of their job.",
+      "_audit": "The code side audited all seven depth-1 categories: only these two are wrong. Allflame one-offs, Heist Targets and the Campaign safety net all belong at T2."
+    },
+    "_validator": "A depth-1 category resolving to T2 that is NOT in flat_look and NOT in overrides is worth a warning, not an error — it is right five times out of seven, but it is the shape of this bug."
   }
 }

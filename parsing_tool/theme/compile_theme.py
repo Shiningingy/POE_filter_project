@@ -51,6 +51,7 @@ SIZE = {k: v for k, v in P["size_map"].items() if not k.startswith("_")}
 STATEFUL_HIERARCHY_ROOTS = ("equipment", "gems", "jewels", "maps", "flasks")
 VIOLATIONS = []
 RERANK = []          # (tier_definition rel, tier_key, new theme.Tier, how it was decided)
+DEPTH1_WARN = []     # depth-1 -> T2 with no flat entry and no override (reply 13)
 
 
 def _class_paths():
@@ -280,27 +281,33 @@ def override_key(rel, theme_cat, depth):
     return None
 
 
-# ⚠️ CODE-SIDE OVERLAY — a conflict between the designer's prose and their data, not a guess.
-# `flat_look.does_not_apply_to` states plainly: "Legacy and Chancing have one rung because they
-# are BULK, and bulk is a rank — they stay on the ladder at T5." Their v2 map carried
-# `_legacy/Legacy.json (1): ["T5"]` to say so, and it was dropped in the six-rung rewrite. With
-# no override, depth 1 falls to the `value` template = T2 — the money plate WITH a Temp beam,
-# on 17 Legacy blocks and 3 Chancing ones. That is the loudest non-chase rung in the filter
-# doing the exact opposite of what bulk should do.
+# The two bulk overrides now come from the KIT (reply 13 restored `rung_by_depth` to
+# theme-presets.json), so the local overlay is gone. Two wrinkles the kit does not resolve:
 #
-# Applied here, in OUR file rather than by editing theirs, and raised in reply 05. Delete this
-# the moment the overrides come back in accent-category-map.json.
-LOCAL_RUNG_OVERRIDES = {
-    ("_legacy/Legacy.json", 1): ["T5"],
-    ("Equipment/VendorRecipes/Chancing.json", 1): ["T5"],
-}
+#  1. `rung_by_depth` now exists in BOTH handoff files and they DISAGREE — presets says depth 3
+#     is T1 T2 T4, the map says T1 T3 T4. The map is treated as primary because it is the only
+#     one with the `gear` template and the ten file-specific overrides; presets contributes its
+#     overrides on top. Raised in reply 06.
+#  2. Their override key is `Currency/Chancing.json`; our file is
+#     `Equipment/VendorRecipes/Chancing.json`. Aliased below rather than silently missing — an
+#     override that does not match is exactly how this bug got here in the first place.
+PRESET_RUNG = P.get("rung_by_depth") or {}
+PATH_ALIAS = {"Currency/Chancing.json": "Equipment/VendorRecipes/Chancing.json"}
+# ⚠️ Discriminate metadata keys by VALUE TYPE, never by a leading underscore. In this tree an
+# underscore prefix is NOT a metadata marker — `_legacy/`, `_campaign/` and `_decorators/` are
+# real, live directories. Filtering `_`-prefixed keys silently dropped the `_legacy/Legacy.json`
+# override and put bulk straight back on T2, which is the very bug reply 13 restored the table
+# to fix. Same shape as `_archived/` being walked by the generator.
+KIT_OVERRIDES = {}
+for _k, _v in (PRESET_RUNG.get("overrides") or {}).items():
+    if isinstance(_v, list):
+        KIT_OVERRIDES[PATH_ALIAS.get(_k, _k)] = _v
 
 
 def rungs_for(rel, theme_cat, accent, depth):
     """-> (list_of_rung_names, how_it_was_decided)"""
-    local = LOCAL_RUNG_OVERRIDES.get((rel, depth))
-    if local:
-        return local, "LOCAL-OVERLAY (designer prose; see LOCAL_RUNG_OVERRIDES)"
+    if rel in KIT_OVERRIDES:
+        return KIT_OVERRIDES[rel], "kit-override (theme-presets.rung_by_depth)"
     ok = override_key(rel, theme_cat, depth)
     if ok:
         got = RUNG["overrides"][ok]
@@ -426,6 +433,11 @@ def compile_theme():
         names, how = rungs_for(rel, theme_cat, accent, depth)
         if "MISMATCH" in how or "NO-ENTRY" in how:
             mismatched.append((rel, theme_cat, depth, how, len(names)))
+        # The designer's own suggestion (reply 13): a depth-1 category landing on T2 with no
+        # flat entry and no override is the exact shape of the Legacy/Chancing regression.
+        # A WARNING, never an error — it is correct five times in seven.
+        if depth == 1 and names == ["T2"] and not how.startswith(("override", "kit-override")):
+            DEPTH1_WARN.append((rel, theme_cat, accent))
         n_muted = 0
         for i, (tk, _) in enumerate(rungs):
             if i >= len(names):
@@ -476,6 +488,13 @@ if __name__ == "__main__":
         print("⚠️ %d state-budget violation(s) — border DROPPED, see reply-to-designer-04:" % len(seen))
         for (kind, tc, acc, why), n in sorted(seen.items()):
             print("     [%s] %-32s accent=%-11s %s" % (kind, tc, acc, why))
+        print()
+    if DEPTH1_WARN:
+        print("depth-1 categories landing on T2 with no flat entry and no override (%d):"
+              % len(DEPTH1_WARN))
+        for rel, tc, acc in DEPTH1_WARN:
+            print("     %-46s %-24s accent=%s" % (rel, tc, acc))
+        print("   Right five times in seven — but this is the shape of the Legacy/Chancing bug.")
         print()
     print("%d rows use the authored `accent.muted` (T3 plate / T4 text). Both goldens expand "
           "byte-exact." % provisional)

@@ -831,7 +831,7 @@
   "file": "Equipment/VendorRecipes/Chancing.json",
   "tier_key": "Chancing Normal",
   "Tier": 5,
-  "how": "LOCAL-OVERLAY (designer prose; see LOCAL_RUNG_OVERRIDES)"
+  "how": "kit-override (theme-presets.rung_by_depth)"
  },
  {
   "file": "Equipment/VendorRecipes/Recipes.json",
@@ -2019,6 +2019,6 @@
   "file": "_legacy/Legacy.json",
   "tier_key": "Tier 1 Legacy",
   "Tier": 5,
-  "how": "LOCAL-OVERLAY (designer prose; see LOCAL_RUNG_OVERRIDES)"
+  "how": "kit-override (theme-presets.rung_by_depth)"
  }
 ]

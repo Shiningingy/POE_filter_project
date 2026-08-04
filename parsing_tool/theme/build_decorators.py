@@ -39,8 +39,11 @@ CONDITIONS = {
     "fractured":  {"FracturedItem": "True"},
     "influenced": {"HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord"},
     "enchanted":  {"AnyEnchantment": "True"},
-    # "linked" is deliberately absent — the designer specified the state but not the socket
-    # threshold, and 5-link vs 6-link is a play-feel call in Ruthless. Asked; not guessed.
+    # SIX, not five (reply 13): in Ruthless a 6-link is a chase drop and a 5-link is common
+    # enough to be noise, so green on every 5-link would spend the loudest state colour on
+    # something you walk past. A 5-link gets no state border at all — if it deserves attention
+    # it deserves a RUNG, which is a matching decision and belongs in the tree.
+    "linked":     {"LinkedSockets": ">= 6"},
 }
 
 LABELS = {
@@ -48,6 +51,7 @@ LABELS = {
     "fractured":  {"en": "Fractured", "ch": "破碎"},
     "influenced": {"en": "Influenced", "ch": "势力"},
     "enchanted":  {"en": "Enchanted", "ch": "附魔"},
+    "linked":     {"en": "Linked", "ch": "连接"},
 }
 
 
