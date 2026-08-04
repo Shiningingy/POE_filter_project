@@ -636,11 +636,10 @@
     }
   },
   "Chancing": {
-    "Tier 2": {
-      "FontSize": 40,
-      "BackgroundColor": "#787878f0",
-      "TextColor": "#ffffffff",
-      "PlayEffect": "Grey Temp"
+    "Tier 5": {
+      "FontSize": 30,
+      "BackgroundColor": "#303030d7",
+      "TextColor": "#777777ff"
     }
   },
   "Vendor Recipes": {
@@ -1265,11 +1264,10 @@
     }
   },
   "Legacy": {
-    "Tier 2": {
-      "FontSize": 40,
-      "BackgroundColor": "#787878f0",
-      "TextColor": "#ffffffff",
-      "PlayEffect": "Grey Temp"
+    "Tier 5": {
+      "FontSize": 30,
+      "BackgroundColor": "#303030d7",
+      "TextColor": "#777777ff"
     }
   }
 }

@@ -280,8 +280,27 @@ def override_key(rel, theme_cat, depth):
     return None
 
 
+# ⚠️ CODE-SIDE OVERLAY — a conflict between the designer's prose and their data, not a guess.
+# `flat_look.does_not_apply_to` states plainly: "Legacy and Chancing have one rung because they
+# are BULK, and bulk is a rank — they stay on the ladder at T5." Their v2 map carried
+# `_legacy/Legacy.json (1): ["T5"]` to say so, and it was dropped in the six-rung rewrite. With
+# no override, depth 1 falls to the `value` template = T2 — the money plate WITH a Temp beam,
+# on 17 Legacy blocks and 3 Chancing ones. That is the loudest non-chase rung in the filter
+# doing the exact opposite of what bulk should do.
+#
+# Applied here, in OUR file rather than by editing theirs, and raised in reply 05. Delete this
+# the moment the overrides come back in accent-category-map.json.
+LOCAL_RUNG_OVERRIDES = {
+    ("_legacy/Legacy.json", 1): ["T5"],
+    ("Equipment/VendorRecipes/Chancing.json", 1): ["T5"],
+}
+
+
 def rungs_for(rel, theme_cat, accent, depth):
     """-> (list_of_rung_names, how_it_was_decided)"""
+    local = LOCAL_RUNG_OVERRIDES.get((rel, depth))
+    if local:
+        return local, "LOCAL-OVERLAY (designer prose; see LOCAL_RUNG_OVERRIDES)"
     ok = override_key(rel, theme_cat, depth)
     if ok:
         got = RUNG["overrides"][ok]

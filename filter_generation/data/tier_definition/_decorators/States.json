@@ -7,8 +7,12 @@
         "ch": "状态叠加"
       },
       "tier_order": [
-        "Corrupted"
-      ]
+        "Corrupted",
+        "Influenced",
+        "Fractured",
+        "Enchanted"
+      ],
+      "_emission_note": "Order is the REVERSE of state_borders.rank: rank 1 is highest priority, and `Continue` means the LAST matching block wins the channel, so the highest priority must be emitted last. Enchanted beats corrupted."
     },
     "Corrupted": {
       "decorator": true,
@@ -16,11 +20,50 @@
         "Corrupted": "True"
       },
       "theme": {
-        "BorderColor": "#ff4d4dff"
+        "BorderColor": "#e11937ff"
       },
       "localization": {
         "en": "Corrupted",
         "ch": "腐化"
+      }
+    },
+    "Influenced": {
+      "decorator": true,
+      "conditions": {
+        "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord"
+      },
+      "theme": {
+        "BorderColor": "#9600ffff"
+      },
+      "localization": {
+        "en": "Influenced",
+        "ch": "势力"
+      }
+    },
+    "Fractured": {
+      "decorator": true,
+      "conditions": {
+        "FracturedItem": "True"
+      },
+      "theme": {
+        "BorderColor": "#a0c8ffff"
+      },
+      "localization": {
+        "en": "Fractured",
+        "ch": "破碎"
+      }
+    },
+    "Enchanted": {
+      "decorator": true,
+      "conditions": {
+        "AnyEnchantment": "True"
+      },
+      "theme": {
+        "BorderColor": "#46c8ebff"
+      },
+      "localization": {
+        "en": "Enchanted",
+        "ch": "附魔"
       }
     }
   }
