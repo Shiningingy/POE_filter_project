@@ -44,8 +44,7 @@
         "Saqawine Talisman": "苍空护身符",
         "Farric Talisman": "大地护身符",
         "Black Maw Talisman": "Black Maw护身符",
-        "Greatwolf Talisman": "狼王魔符",
-        "Rot Head Talisman": "腐首魔符"
+        "Greatwolf Talisman": "狼王魔符"
       }
     },
     "item_class": {
@@ -97,8 +96,7 @@
     "Saqawine Talisman": "Talismans T2",
     "Farric Talisman": "Talismans T2",
     "Black Maw Talisman": "Talismans T2",
-    "Greatwolf Talisman": "Talismans T0",
-    "Rot Head Talisman": "Talismans T0"
+    "Greatwolf Talisman": "Talismans T0"
   },
   "rules": []
 }

@@ -1,0 +1,295 @@
+{
+  "_about": "Per-version events from GGG's official Item Filter Information posts. See README.md. An item's CURRENT status is its LAST event, never the first one found — GGG returns drop-disabled content (Tattoos removed 3.22, returned 3.24; six divination cards returned 3.26).",
+  "_schema": 1,
+  "_source": "thread_index.json holds the post URL per version.",
+  "_completeness": "Each section carries `_complete`. false means the capture was truncated and the list is a floor, not a census — never conclude 'not removed' from an incomplete list.",
+  "versions": {
+    "3.29.0": {
+      "league": "Allflame",
+      "thread": 3986972,
+      "new_conditions": [{"name": "Vestigial", "values": "True/False"}],
+      "removed_conditions": [],
+      "removed_items": {
+        "_complete": true,
+        "Amulets": [
+          "Bonespire Talisman", "Ashscale Talisman", "Lone Antler Talisman", "Deep One Talisman",
+          "Breakrib Talisman", "Deadhand Talisman", "Undying Flesh Talisman", "Rot Head Talisman",
+          "Mandible Talisman", "Chrysalis Talisman", "Writhing Talisman", "Hexclaw Talisman",
+          "Primal Skull Talisman", "Wereclaw Talisman", "Splitnewt Talisman", "Clutching Talisman",
+          "Avian Twins Talisman", "Fangjaw Talisman", "Horned Talisman", "Spinefuse Talisman",
+          "Three Rat Talisman", "Monkey Twins Talisman", "Longtooth Talisman", "Rotfeather Talisman",
+          "Monkey Paw Talisman", "Three Hands Talisman"
+        ],
+        "Map Fragments": [
+          "Unrelenting Timeless Karui Emblem", "Unrelenting Timeless Maraketh Emblem",
+          "Unrelenting Timeless Eternal Emblem", "Unrelenting Timeless Templar Emblem",
+          "Unrelenting Timeless Vaal Emblem"
+        ],
+        "Incubators": [
+          "Whispering Incubator", "Fine Incubator", "Singular Incubator", "Cartographer's Incubator",
+          "Otherworldly Incubator", "Abyssal Incubator", "Fragmented Incubator", "Skittering Incubator",
+          "Infused Incubator", "Fossilised Incubator", "Kalguuran Incubator", "Diviner's Incubator",
+          "Primal Incubator", "Enchanted Incubator", "Geomancer's Incubator", "Ornate Incubator",
+          "Time-Lost Incubator", "Celestial Armoursmith's Incubator", "Celestial Blacksmith's Incubator",
+          "Celestial Jeweller's Incubator", "Eldritch Incubator", "Obscured Incubator",
+          "Foreboding Incubator", "Thaumaturge's Incubator", "Mysterious Incubator",
+          "Gemcutter's Incubator", "Feral Incubator", "Blighted Incubator", "Challenging Incubator",
+          "Maddening Incubator"
+        ]
+      },
+      "returning_items": {"_complete": true, "items": []},
+      "renamed_items": {
+        "_complete": true,
+        "pairs": [
+          ["Dark Pact", "Dark Bargain"],
+          ["Dark Pact of Trarthus", "Dark Bargain of Trarthus"],
+          ["Minion Pact Support", "Communion Support"],
+          ["Abyss Scarab of Edifice", "Abyss Scarab of Crystals"],
+          ["Abyss Scarab of Profound Depth", "Abyss Scarab of the Consort"],
+          ["Omen of Blanching", "Omen of Trichromatism"],
+          ["Allflame Ember of K'tash", "Allflame Ember of K'Tash"],
+          ["Enshrouded Astrolabe", "Deceptive Astrolabe"]
+        ],
+        "_captured_soul_chain": "This post also reshuffles 13 'Captured Soul of ...' Pantheon names. They rename in a CHAIN every league (A->B while B->C), so a per-league pair list is only meaningful applied in order. We do not curate Pantheon souls; recorded as a group rather than expanded."
+      },
+      "new_items": {
+        "_complete": false,
+        "_note": "Captured as a summary only. Stackable Currency (18, incl. Scrying Orb, Enshrouding Crystals, Ducats, Dead Man's Sulphur, Message in a Bottle), Skill Gems (4), Support Gems (2, Coursing Current / Crystalfall), Map Fragments (8, Trarthan Scarabs + Zorath's Eye), Amulets (40+ new Talismans incl. Chimeral/Squid/Shield Crab/Savage Crab/Pearlescent), One Hand Swords (Ghostflame Blade), Enshrouded Items (5: Gloves, Boots, Helmet, Shield, Body Armour), Charts (3: Sandy Seabed, Coral Forest, Coral Reef), Divination Cards (3)."
+      }
+    },
+
+    "3.28.0": {
+      "league": "Mirage",
+      "thread": 3914212,
+      "new_conditions": [{"name": "Imbued", "values": "True/False"}],
+      "removed_conditions": [],
+      "removed_items": {
+        "_complete": false,
+        "_truncated_as": "... and 145 map names (Bone Crypt through Chambers of Impurity)",
+        "items": [
+          "Cartographer's Chisel", "Kalguuran Delirium Orb", "Foreboding Delirium Orb",
+          "Obscured Delirium Orb", "Augmentation Implant", "Regal Implant", "Exalted Implant",
+          "Unstable Implant", "Orb of Horizons", "Harbinger's Orb", "Engineer's Orb",
+          "Infused Engineer's Orb", "Binding Shard", "Horizon Shard", "Harbinger's Shard",
+          "Engineer's Shard", "Ancient Shard", "Time-light Scroll", "Fragmentation Scroll",
+          "Deregulation Scroll", "Electroshock Scroll", "Haemocombustion Scroll", "Specularity Scroll",
+          "Harbinger Map", "Archon Kite Shield Piece", "Legion Sword Piece", "Cloth Belt Piece",
+          "Blunt Arrow Quiver Piece", "Callous Mask Piece", "Singular Scouting Report",
+          "Otherworldly Scouting Report", "Comprehensive Scouting Report", "Vaal Scouting Report",
+          "Delirious Scouting Report", "Operative's Scouting Report", "Blighted Scouting Report",
+          "Influenced Scouting Report", "Explorer's Scouting Report", "Fleshgraft",
+          "Battering Uulgraft", "Spiking Uulgraft", "Impaling Uulgraft", "Hardening Uulgraft",
+          "Molten Xophgraft", "Erupting Xophgraft", "Flamecaller Xophgraft", "Stoking Xophgraft",
+          "Storming Eshgraft", "Replicating Eshgraft", "Draining Eshgraft", "Jolting Eshgraft",
+          "Squalling Tulgraft", "Freezing Tulgraft", "Summoning Tulgraft", "Aegis Tulgraft",
+          "Growing Wombgift", "The Cartographer", "The Obscured", "The Puzzle", "The Messenger",
+          "The Journey", "The Landing", "The Side Quest", "The Bargain", "The Eye of Terror",
+          "The Cheater", "Desecrated Virtue", "The Emptiness", "Harbinger Scarab",
+          "Harbinger Scarab of Obelisks", "Harbinger Scarab of Warhoards",
+          "Harbinger Scarab of Regency", "Scarab of Hunted Traitors"
+        ]
+      },
+      "returning_items": {"_complete": true, "items": []},
+      "renamed_items": {
+        "_complete": false,
+        "pairs": [
+          ["Sweep", "Holy Sweep"],
+          ["Lesser Multiple Projectiles Support", "Multiple Projectiles Support"],
+          ["Scarab of Bisection", "Scarab of the Sinistral"],
+          ["Scarab of Unity", "Scarab of the Dextral"],
+          ["Grasping Voidstone", "Eldritch Voidstone"],
+          ["Omniscient Voidstone", "Originator Voidstone"]
+        ],
+        "_truncated_as": "multiple Breach Scarab renamings; Influencing Scarab renamings; Legion/Abyss/Betrayal Scarab changes; plus the Captured Soul chain"
+      }
+    },
+
+    "3.27.0": {
+      "league": "Keepers",
+      "thread": 3870283,
+      "new_conditions": [{"name": "Foulborn", "values": "True/False"}],
+      "removed_conditions": [],
+      "removed_items": {
+        "_complete": true,
+        "items": ["Bestiary Orb", "Carved Wand", "Engraved Wand", "Imbued Wand"]
+      },
+      "returning_items": {"_complete": true, "items": []},
+      "renamed_items": {
+        "_complete": true,
+        "pairs": [
+          ["Maven's Invitation: The Hidden", "Maven's Invitation: The Remembered"],
+          ["Runegraft of Recompense", "Runegraft of Refraction"]
+        ],
+        "_captured_soul_chain": "11 further Pantheon renames, recorded as a group."
+      }
+    },
+
+    "3.26.0": {
+      "league": "Mercenaries",
+      "thread": 3788869,
+      "_title_note": "posted as 'Secrets of the Atlas' — marketing name, not the league name",
+      "new_conditions": [
+        {"name": "ZanaMemory", "values": "True/False"},
+        {"name": "MemoryStrands", "values": "0-100"}
+      ],
+      "removed_conditions": [],
+      "removed_items": {
+        "_complete": true,
+        "items": [
+          "Niko's Memory", "Alva's Memory", "Kirac's Memory", "Einhar's Memory",
+          "Sun Rune", "Bound Rune", "Life Rune", "War Rune", "River Rune", "Bounty Rune",
+          "Journey Rune", "Mountain Rune", "Time Rune", "Power Rune"
+        ]
+      },
+      "returning_items": {
+        "_complete": true,
+        "items": ["Sambodhi's Wisdom", "The Bargain", "The Mayor", "Monochrome",
+                  "Squandered Prosperity", "Underground Forest"]
+      },
+      "renamed_items": {
+        "_complete": true,
+        "pairs": [
+          ["Veiled Orb", "Veiled Exalted Orb"],
+          ["Betrayal Scarab of Intelligence", "Betrayal Scarab of the Allflame"]
+        ],
+        "_captured_soul_chain": "9 further Pantheon renames, recorded as a group."
+      }
+    },
+
+    "3.25.0": {
+      "league": "Settlers",
+      "thread": 3532553,
+      "new_conditions": [],
+      "removed_conditions": [],
+      "removed_items": {
+        "_complete": true,
+        "items": ["Necropolis Allflames", "Ancestral Protector", "Ancestral Warchief",
+                  "Vaal Ancestral Warchief", "Earthbreaker Support", "Filled Coffin", "Oil Extractor"]
+      },
+      "returning_items": {
+        "_complete": true,
+        "items": ["Friendship", "Rebirth and Renewal", "More is Never Enough", "The Long Watch"]
+      },
+      "renamed_items": {
+        "_complete": true,
+        "pairs": [
+          ["Riposte", "Glacial Shield Swipe"], ["Vengeance", "Crushing Fist"],
+          ["Reckoning", "Swordstorm"], ["Call to Arms", "Autoexertion"],
+          ["Perfect Fossil", "Opulent Fossil"],
+          ["Cartography Scarab", "Cartography Scarab of Escalation"],
+          ["Cartography Scarab of Ascension", "Cartography Scarab of Risk"],
+          ["Cartography Scarab of Duplication", "Cartography Scarab of the Multitude"],
+          ["Reliquary Scarab", "Titanic Scarab"],
+          ["Reliquary Scarab of Overlords", "Titanic Scarab of Treasures"],
+          ["Reliquary Scarab of Vision", "Titanic Scarab of Legend"],
+          ["Divination Scarab", "Divination Scarab of The Cloister"],
+          ["Divination Scarab of Curation", "Divination Scarab of Plenty"],
+          ["Divination Scarab of Completion", "Divination Scarab of Pilfering"],
+          ["Harbinger Scarab of Discernment", "Harbinger Scarab of Obelisks"],
+          ["Domination Scarab of Abnormality", "Domination Scarab of Apparitions"],
+          ["Domination Scarab of Teachings", "Domination Scarab of Evolution"],
+          ["Ritual Scarab of Recognition", "Ritual Scarab of Wisps"],
+          ["Blight Scarab of Oils", "Blight Scarab of the Blightheart"],
+          ["Mysterious Scarab", "Scarab of Divinity"],
+          ["Taxing Gauntlets", "Preserving Gauntlets"],
+          ["Gruelling Gauntlets", "Guarding Gauntlets"],
+          ["Debilitation Gauntlets", "Thwarting Gauntlets"],
+          ["Gauche Gloves", "Tinker Gloves"],
+          ["Southswing Gloves", "Apprentice Gloves"],
+          ["Sinistral Gloves", "Trapsetter Gloves"]
+        ],
+        "_captured_soul_chain": "8 further Pantheon renames, recorded as a group."
+      }
+    },
+
+    "3.24.0": {
+      "league": "Necropolis",
+      "thread": 3497460,
+      "new_conditions": [],
+      "removed_conditions": [],
+      "removed_items": {
+        "_complete": true,
+        "_note": "The whole Rusted/Polished/Gilded/Winged scarab generation, plus compasses, sextants and Maven's Invitations.",
+        "items": [
+          "Surveyor's Compass", "Charged Compass", "Awakened Sextant", "Elevated Sextant",
+          "Maven's Invitation: The Formed", "Maven's Invitation: The Twisted",
+          "Maven's Invitation: The Forgotten", "Maven's Invitation: The Hidden",
+          "Maven's Invitation: The Feared", "Maven's Invitation: The Elderslayers",
+          "Maven's Invitation: The Atlas",
+          "Rusted Breach Scarab", "Polished Breach Scarab", "Gilded Breach Scarab", "Winged Breach Scarab",
+          "Rusted Cartography Scarab", "Polished Cartography Scarab", "Gilded Cartography Scarab", "Winged Cartography Scarab",
+          "Rusted Reliquary Scarab", "Polished Reliquary Scarab", "Gilded Reliquary Scarab", "Winged Reliquary Scarab",
+          "Rusted Bestiary Scarab", "Polished Bestiary Scarab", "Gilded Bestiary Scarab", "Winged Bestiary Scarab",
+          "Rusted Shaper Scarab", "Polished Shaper Scarab", "Gilded Shaper Scarab", "Winged Shaper Scarab",
+          "Rusted Elder Scarab", "Polished Elder Scarab", "Gilded Elder Scarab", "Winged Elder Scarab",
+          "Rusted Sulphite Scarab", "Polished Sulphite Scarab", "Gilded Sulphite Scarab", "Winged Sulphite Scarab",
+          "Rusted Divination Scarab", "Polished Divination Scarab", "Gilded Divination Scarab", "Winged Divination Scarab",
+          "Rusted Torment Scarab", "Polished Torment Scarab", "Gilded Torment Scarab", "Winged Torment Scarab",
+          "Rusted Ambush Scarab", "Polished Ambush Scarab", "Gilded Ambush Scarab", "Winged Ambush Scarab",
+          "Rusted Harbinger Scarab", "Polished Harbinger Scarab", "Gilded Harbinger Scarab", "Winged Harbinger Scarab",
+          "Rusted Expedition Scarab", "Polished Expedition Scarab", "Gilded Expedition Scarab", "Winged Expedition Scarab",
+          "Rusted Legion Scarab", "Polished Legion Scarab", "Gilded Legion Scarab", "Winged Legion Scarab",
+          "Rusted Ultimatum Scarab", "Polished Ultimatum Scarab", "Gilded Ultimatum Scarab", "Winged Ultimatum Scarab",
+          "Rusted Blight Scarab", "Polished Blight Scarab", "Gilded Blight Scarab", "Winged Blight Scarab",
+          "Rusted Abyss Scarab", "Polished Abyss Scarab", "Gilded Abyss Scarab", "Winged Abyss Scarab"
+        ]
+      },
+      "returning_items": {
+        "_complete": true,
+        "_note": "★ THE PROOF THAT REMOVAL IS NOT PERMANENT — all 53 Tattoos came back.",
+        "items": [
+          "Tattoo of the Ngamahu Firewalker", "Tattoo of the Ngamahu Shaman", "Tattoo of the Ngamahu Warrior",
+          "Tattoo of the Ngamahu Warmonger", "Tattoo of the Ngamahu Woodcarver", "Tattoo of the Kitava Blood Drinker",
+          "Tattoo of the Kitava Rebel", "Tattoo of the Kitava Warrior", "Tattoo of the Kitava Heart Eater",
+          "Tattoo of the Kitava Shaman", "Tattoo of the Tukohama Shaman", "Tattoo of the Tukohama Warrior",
+          "Tattoo of the Tukohama Brawler", "Tattoo of the Tukohama Warmonger", "Tattoo of the Tukohama Warcaller",
+          "Tattoo of the Rongokurai Warrior", "Tattoo of the Rongokurai Brute", "Tattoo of the Rongokurai Goliath",
+          "Tattoo of the Rongokurai Turtle", "Tattoo of the Rongokurai Guard", "Tattoo of the Tasalio Bladedancer",
+          "Tattoo of the Tasalio Tideshifter", "Tattoo of the Tasalio Shaman", "Tattoo of the Tasalio Warrior",
+          "Tattoo of the Tasalio Scout", "Tattoo of the Arohongui Moonwarden", "Tattoo of the Arohongui Scout",
+          "Tattoo of the Arohongui Warrior", "Tattoo of the Arohongui Warmonger", "Tattoo of the Arohongui Shaman",
+          "Tattoo of the Ramako Scout", "Tattoo of the Ramako Archer", "Tattoo of the Ramako Sniper",
+          "Tattoo of the Ramako Fleetfoot", "Tattoo of the Ramako Shaman", "Tattoo of the Hinekora Warrior",
+          "Tattoo of the Hinekora Deathwarden", "Tattoo of the Hinekora Shaman", "Tattoo of the Hinekora Storyteller",
+          "Tattoo of the Hinekora Warmonger", "Tattoo of the Tawhoa Naturalist", "Tattoo of the Tawhoa Scout",
+          "Tattoo of the Tawhoa Warrior", "Tattoo of the Tawhoa Herbalist", "Tattoo of the Tawhoa Shaman",
+          "Tattoo of the Valako Stormrider", "Tattoo of the Valako Scout", "Tattoo of the Valako Warrior",
+          "Tattoo of the Valako Shieldbearer", "Tattoo of the Valako Shaman", "Journey Tattoo of the Body",
+          "Journey Tattoo of the Mind", "Journey Tattoo of the Soul"
+        ]
+      },
+      "renamed_items": {"_complete": true, "pairs": [["Veiled Chaos Orb", "Veiled Orb"]]}
+    },
+
+    "3.23.0": {
+      "league": "Affliction",
+      "thread": 3452297,
+      "_extraction": "partial — captured as a summary, not verbatim",
+      "new_conditions": [{"name": "TransfiguredGem", "values": "True/False"}],
+      "removed_conditions": [{"name": "GemQualityType"}],
+      "removed_items": {"_complete": false, "items": ["Metamorph Brain", "Metamorph Eye", "Silver Coin"]},
+      "returning_items": {"_complete": false, "items": ["Omen of Amelioration", "Omen of Fortune"]},
+      "renamed_items": {
+        "_complete": false,
+        "pairs": [["Amorphous Delirium Orb", "Challenging Delirium Orb"]],
+        "_captured_soul_chain": "further Pantheon renames"
+      },
+      "_note": "★ This is the post that published `TransfiguredGem`. We discovered that keyword by hand and recorded it in CLAUDE.md as a game truth; it had been documented since 2023."
+    },
+
+    "3.22.0": {
+      "league": "Ancestor",
+      "thread": 3410483,
+      "new_conditions": [],
+      "removed_conditions": [],
+      "removed_items": {"_complete": true, "items": ["Magmatic Ore", "Igneous Geode", "Crystalline Geode"]},
+      "returning_items": {"_complete": true, "items": []},
+      "renamed_items": {
+        "_complete": true,
+        "pairs": [["Active Skill Gem", "Skill Gem"], ["Support Skill Gem", "Support Gem"]],
+        "_note": "★ These two are ITEM CLASS renames, not base renames — a `Class ==` match on the old spelling emits nothing.",
+        "_captured_soul_chain": "11 Pantheon renames, recorded as a group."
+      }
+    }
+  }
+}
