@@ -255,12 +255,56 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     fetchItems();
   }, []);
 
+  // The item classes this category actually holds, in a stable order.
+  // Before the 23 per-class equipment ladders collapsed into `Rare Equipment`, the FILE
+  // was the class filter — one category, one class, and a tier column could only ever
+  // show that class. One category now holds 905 bases across 23 classes, so without
+  // scoping, `Tier 3` mixes body armours, bows and rings into a single 300-item column.
+  // ⚠️ Derived from the items TIERED INTO this category, not from `items` — that is
+  // `/api/class-items/All`, every base in the game, so counting its classes would report
+  // all 66 for every category and scope nothing.
+  const categoryClasses = useMemo(() => {
+    const ladder = new Set(availableTiers.map(o => o.key));
+    const seen = new Set<string>();
+    items.forEach(i => {
+      if (!i.item_class) return;
+      if ((i.current_tier || []).some(t => ladder.has(t))) seen.add(i.item_class);
+    });
+    return Array.from(seen).sort();
+  }, [items, availableTiers]);
+
+  // Only multi-class categories need scoping. Currency and the like keep today's behaviour,
+  // where `item_class` is meaningless and every tier column shows everything.
+  const scopeToClass = categoryClasses.length > 1;
+
+  // Counts are of the category's own bases, so the dropdown reads "Bows (28)" not "Bows (168)".
+  const classCounts = useMemo(() => {
+    const ladder = new Set(availableTiers.map(o => o.key));
+    const c: Record<string, number> = {};
+    items.forEach(i => {
+      if (!i.item_class) return;
+      if ((i.current_tier || []).some(t => ladder.has(t))) {
+        c[i.item_class] = (c[i.item_class] || 0) + 1;
+      }
+    });
+    return c;
+  }, [items, availableTiers]);
+
+  // `initialClassName` is the CATEGORY name, which for a multi-class category ("Rare
+  // Equipment") is not an item class at all — leaving it selected matches nothing and the
+  // board renders empty. Land on a real class instead.
+  useEffect(() => {
+    if (scopeToClass && !categoryClasses.includes(selectedClass)) {
+      setSelectedClass(categoryClasses[0]);
+    }
+  }, [scopeToClass, categoryClasses, selectedClass]);
+
   const columns = useMemo(() => {
     const cols: Record<string, Item[]> = {
       'untiered': []
     };
-    availableTiers.forEach(tier => { 
-        cols[tier.key] = []; 
+    availableTiers.forEach(tier => {
+        cols[tier.key] = [];
     });
 
     items.forEach(item => {
@@ -276,10 +320,14 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       // 1. Tiered Columns Filtering
       if (isItemTiered) {
           const searchLower = debouncedSearchTermTiered.toLowerCase();
-          const matchesSearch = !debouncedSearchTermTiered || 
-                               item.name.toLowerCase().includes(searchLower) || 
+          const matchesSearch = !debouncedSearchTermTiered ||
+                               item.name.toLowerCase().includes(searchLower) ||
                                (item.name_ch && item.name_ch.toLowerCase().includes(searchLower));
-          if (matchesSearch) {
+          // Search stays global, exactly as it already does for the untiered pool: if you
+          // typed a name you want to find it whatever class it is in.
+          const inScope = !scopeToClass || !!debouncedSearchTermTiered
+                          || item.item_class === selectedClass;
+          if (matchesSearch && inScope) {
               effectiveTiers.forEach(t => {
                   const targetCol = t || 'untiered';
                   if (cols[targetCol]) cols[targetCol].push(item);
@@ -331,7 +379,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
     });
 
     return cols;
-  }, [items, stagedChanges, debouncedSearchTermTiered, debouncedSearchTermPool, availableTiers, selectedSubType, showAllClasses, selectedClass]);
+  }, [items, stagedChanges, debouncedSearchTermTiered, debouncedSearchTermPool, availableTiers, selectedSubType, showAllClasses, selectedClass, scopeToClass]);
 
   const handleDragStart = (event: DragStartEvent) => {
     const activeIdStr = event.active.id as string;
@@ -665,14 +713,16 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
             <h2>{t.bulkEdit}: {classLabel(selectedClass)}</h2>
             <div className="class-select-wrapper">
                 <span className="label">{t.itemClass}:</span>
-                <select 
+                <select
                     className="class-select"
-                    value={selectedClass} 
+                    value={selectedClass}
                     onChange={e => setSelectedClass(e.target.value)}
                 >
-                    {itemClasses.map(c => (
+                    {/* A multi-class category offers only the classes it holds — picking one
+                        it does not contain would render an empty board. */}
+                    {(scopeToClass ? categoryClasses : itemClasses).map(c => (
                         <option key={c} value={c}>
-                            {classLabel(c)}
+                            {classLabel(c)}{scopeToClass ? ` (${classCounts[c] || 0})` : ''}
                         </option>
                     ))}
                 </select>
