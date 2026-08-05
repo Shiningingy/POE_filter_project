@@ -55,3 +55,11 @@ filter_generation/data/settings.json
 **/.ipynb_checkpoints/
 
 bash.exe.stackdump
+
+# Generated filter output. Regenerate with:
+#   node filter_generation/generate.mjs --mode ruthless --game-version poe1
+# Tracked until 2026-08-05; every regeneration showed as a diff and had to be
+# committed before any push. The FilterBlade reference filters under
+# data/from_filter_blade/ stay tracked - they are source data, not output.
+filter_generation/complete_filter.filter
+filter_generation/*.filter
