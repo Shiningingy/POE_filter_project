@@ -1,8 +1,22 @@
-# Pending features — deferred to ship a usable filter first
+# Equipment reshape — the plan of record
 
-Decided 2026-08-05. Shipping beats feature work; these are parked with enough context to
-restart cold. Nothing here blocks generation — the filter builds, the validator reports 0
-errors, and every guard is green.
+★ **Direction settled 2026-08-05, second pass: RESHAPE FIRST, then ship.**
+
+An earlier decision the same day was "ship a usable filter, defer features". That was
+reconsidered once the scale of the equipment problem was clear: *a poor filter only receives
+negative feedback and is unusable at all*, so shipping the current one as a checkpoint was
+rejected in favour of shipping the reshaped one.
+
+Consequences, so nobody re-litigates them:
+
+- **All theme work is deferred until every category is settled.** Not just the known defects —
+  the theme will need new designs once equipment reshapes, so fixing anything now is
+  throwaway. That explicitly includes the Uniques/Jewels rarity-through regression
+  (`compile_theme.py:420`), which is a real in-game defect and is being left alone on purpose.
+- **No release tag in the meantime.** `v3.29-ruthless-pre-rewrite` remains the standing
+  fallback.
+- Nothing below blocks generation — the filter builds, validator reports 0 errors, every guard
+  is green. It is shippable-if-forced, just not what we intend to ship.
 
 ---
 
