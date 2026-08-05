@@ -15,6 +15,7 @@
         "Tier 5 General",
         "Tier 6 General",
         "Tier 7 General",
+        "Tier 8 General",
         "Tier Hide General"
       ]
     },
@@ -292,16 +293,33 @@
             "Sharket掉落音效/蜕变石.mp3",
             100
           ]
+        }
+      }
+    },
+    "Tier 8 General": {
+      "hideable": false,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T8: 卷轴",
+        "ch": "T8: 卷轴"
+      },
+      "hide_at_strictness": 1,
+      "item_overrides": {
+        "Scroll of Wisdom": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/知识卷轴.mp3",
+            100
+          ]
         },
         "Portal Scroll": {
           "PlayAlertSound": [
             "Sharket掉落音效/传送卷轴.mp3",
-            100
-          ]
-        },
-        "Scroll of Wisdom": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/知识卷轴.mp3",
             100
           ]
         }
