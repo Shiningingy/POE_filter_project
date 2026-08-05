@@ -50,6 +50,8 @@ interface BulkTierEditorProps {
   defaultMappingPath?: string;
   /** Lifts the T0 protect-guard for the session — see EditorView's adminMode. */
   adminMode?: boolean;
+  /** Arm the rank brush on open, so "rank this tier" is one click from the tier card. */
+  initialBrush?: string | null;
 }
 
 const ARMOUR_CLASSES = ["Body Armours", "Gloves", "Boots", "Helmets", "Shields"];
@@ -166,7 +168,8 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   onClose,
   onSave,
   defaultMappingPath,
-  adminMode = false
+  adminMode = false,
+  initialBrush = null
 }) => {
   const t = useTranslation(language);
   const [items, setItems] = useState<Item[]>([]);
@@ -186,7 +189,8 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   // tier columns is one selection, not two.
   const [selected, setSelected] = useState<Set<string>>(new Set());
   // Null = normal drag-and-drop. A tier key (or 'untiered') = click-to-paint.
-  const [brushTier, setBrushTier] = useState<string | null>(null);
+  // Opened from a tier card, the brush arrives already armed for that tier.
+  const [brushTier, setBrushTier] = useState<string | null>(initialBrush);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: Item, tierKey: string } | null>(null);
   const [selectedSubType, setSelectedSubType] = useState('All');

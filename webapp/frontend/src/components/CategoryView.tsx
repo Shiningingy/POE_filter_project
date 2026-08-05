@@ -77,6 +77,12 @@ interface CategoryViewProps {
   adminMode?: boolean;
 }
 
+/* A base-ranked tier can hold ~100 bases (Body Armours T4 has 94). Past this many the
+ * ladder stops reading as a ladder - you cannot see the tiers for the basetypes - so the
+ * list collapses to a card. Sound and override editing stays reachable behind "Show all".
+ */
+const COLLAPSE_ITEMS_AT = 12;
+
 const CategoryView: React.FC<CategoryViewProps> = ({
   configContent,
   onConfigContentChange,
@@ -124,6 +130,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
 
   const [showBulkEditor, setShowBulkEditor] = useState(false);
   const [activeBulkClass, setActiveBulkClass] = useState<string | null>(null);
+  // Tiers whose full base list the user asked to see, overriding the collapsed card.
+  const [expandedTiers, setExpandedTiers] = useState<Set<string>>(new Set());
+  // Which tier the rank brush should arrive armed for, when opened from a tier card.
+  const [bulkInitialBrush, setBulkInitialBrush] = useState<string | null>(null);
   const [activeBulkOptions, setActiveBulkOptions] = useState<any[]>([]);
 
   // Context Menu State
@@ -1010,7 +1020,65 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                       `}</style>
                     </div>
                   )}
-                                                  <TierItemManager 
+                                                  {/* ★ A base-ranked tier can hold ~100 bases (Body Armours T4 has 94),
+                                                      and rendering them all makes the ladder unreadable — you cannot see
+                                                      the tiers for the basetypes. Collapse to a card that states the
+                                                      count and opens the rank brush, with the full list one click away
+                                                      so per-item sounds and overrides are still reachable. */}
+                                                  {items.length > COLLAPSE_ITEMS_AT && !expandedTiers.has(tierKey) ? (
+                                                      <div className="tier-bases-card">
+                                                          <div className="tbc-main">
+                                                              <span className="tbc-count">{items.length}</span>
+                                                              <span className="tbc-label">
+                                                                  {language === 'ch' ? '个底材' : items.length === 1 ? 'base' : 'bases'}
+                                                              </span>
+                                                              <span className="tbc-sample">
+                                                                  {items.slice(0, 4).map(i =>
+                                                                      language === 'ch' ? (i.name_ch || i.name) : i.name).join(' · ')}
+                                                                  {items.length > 4 ? ' …' : ''}
+                                                              </span>
+                                                          </div>
+                                                          <div className="tbc-actions">
+                                                              <button
+                                                                  className="tbc-btn primary"
+                                                                  onClick={(e) => {
+                                                                      e.stopPropagation();
+                                                                      setActiveBulkClass(themeCategory);
+                                                                      setActiveBulkOptions(tierOptions);
+                                                                      setBulkInitialBrush(tierKey);
+                                                                      setShowBulkEditor(true);
+                                                                  }}
+                                                              >
+                                                                  🖌 {language === 'ch' ? '刷入底材' : 'Rank bases'}
+                                                              </button>
+                                                              <button
+                                                                  className="tbc-btn"
+                                                                  onClick={(e) => {
+                                                                      e.stopPropagation();
+                                                                      setExpandedTiers(s => new Set(s).add(tierKey));
+                                                                  }}
+                                                              >
+                                                                  ▾ {language === 'ch' ? '展开列表' : 'Show all'}
+                                                              </button>
+                                                          </div>
+                                                          <style>{`
+                                                            .tier-bases-card { display: flex; align-items: center; justify-content: space-between;
+                                                              gap: 12px; flex-wrap: wrap; margin: 6px 0 2px; padding: 8px 12px;
+                                                              background: #23242b; border: 1px solid #3a3c46; border-radius: 6px; }
+                                                            .tbc-main { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+                                                            .tbc-count { font-size: 1.15rem; font-weight: 700; color: #e0b93a; }
+                                                            .tbc-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: .5px; color: #8a8a92; }
+                                                            .tbc-sample { font-size: 0.76rem; color: #9aa0ab; overflow: hidden;
+                                                              text-overflow: ellipsis; white-space: nowrap; max-width: 46ch; }
+                                                            .tbc-actions { display: flex; gap: 6px; }
+                                                            .tbc-btn { font-size: 0.74rem; padding: 3px 10px; border-radius: 4px;
+                                                              border: 1px solid #3a3c46; background: #2b2d36; color: #c7ccd4; cursor: pointer; }
+                                                            .tbc-btn:hover { border-color: #e0b93a; color: #e0b93a; }
+                                                            .tbc-btn.primary { border-color: #4a5568; color: #e6e8ec; }
+                                                          `}</style>
+                                                      </div>
+                                                  ) : (
+                                                  <TierItemManager
                                                       tierKey={tierKey}
                                                       items={items}
                                                       allTiers={tierOptions}
@@ -1030,6 +1098,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                                       tierStyle={resolved}
                                                       itemOverrides={tierData?.item_overrides || {}}
                                                   />
+                                                  )}
                   <RuleManager
                     tierKey={tierKey}
                     themeData={themeData}
@@ -1095,7 +1164,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
           className={activeBulkClass}
           availableTiers={activeBulkOptions}
           language={language}
-          onClose={() => setShowBulkEditor(false)}
+          onClose={() => { setShowBulkEditor(false); setBulkInitialBrush(null); }}
+          initialBrush={bulkInitialBrush}
           onSave={() => fetchTierItems(sortedTierKeys)}
           defaultMappingPath={defaultMappingPath}
           adminMode={adminMode}
