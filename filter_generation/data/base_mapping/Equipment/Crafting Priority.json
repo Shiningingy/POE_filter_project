@@ -93,11 +93,13 @@
       "Crafting Perfect Defence"
     ],
     "Archon Kite Shield": [
-      "Crafting Perfect Defence"
+      "Crafting Perfect Defence",
+      "Crafting Gear 86 Rank B"
     ],
     "Artillery Quiver": [
       "Crafting Over Quality",
-      "Crafting Strands Weapons"
+      "Crafting Strands Weapons",
+      "Crafting Gear 86 Rank B"
     ],
     "Battered Foil": [
       "Crafting Over Quality",
@@ -108,13 +110,16 @@
     ],
     "Broadhead Arrow Quiver": [
       "Crafting Over Quality",
-      "Crafting Strands Weapons"
+      "Crafting Strands Weapons",
+      "Crafting Gear 86 Rank B"
     ],
     "Cardinal Round Shield": [
-      "Crafting Perfect Defence"
+      "Crafting Perfect Defence",
+      "Crafting Gear 86 Rank B"
     ],
     "Colossal Tower Shield": [
-      "Crafting Perfect Defence"
+      "Crafting Perfect Defence",
+      "Crafting Gear 86 Rank B"
     ],
     "Conquest Lamellar": [
       "Crafting Perfect Defence",
@@ -146,20 +151,24 @@
       "Crafting Gear 85"
     ],
     "Ezomyte Tower Shield": [
-      "Crafting Perfect Defence"
+      "Crafting Perfect Defence",
+      "Crafting Gear 86 Rank B"
     ],
     "Feathered Arrow Quiver": [
       "Crafting Over Quality",
-      "Crafting Strands Weapons"
+      "Crafting Strands Weapons",
+      "Crafting Gear 86 Rank B"
     ],
     "Fingerless Silk Gloves": [
       "Crafting Perfect Defence"
     ],
     "Fossilised Spirit Shield": [
-      "Crafting Perfect Defence"
+      "Crafting Perfect Defence",
+      "Crafting Gear 86 Rank B"
     ],
     "Fugitive Boots": [
-      "Crafting Perfect Defence"
+      "Crafting Perfect Defence",
+      "Crafting Gear 86 Rank B"
     ],
     "Gemini Claw": [
       "Crafting Over Quality",
@@ -206,7 +215,8 @@
       "Crafting Strands Weapons"
     ],
     "Lacquered Buckler": [
-      "Crafting Perfect Defence"
+      "Crafting Perfect Defence",
+      "Crafting Gear 86 Rank B"
     ],
     "Leviathan Gauntlets": [
       "Crafting Perfect Defence",
@@ -285,7 +295,8 @@
     ],
     "Primal Arrow Quiver": [
       "Crafting Over Quality",
-      "Crafting Strands Weapons"
+      "Crafting Strands Weapons",
+      "Crafting Gear 86 Rank B"
     ],
     "Profane Wand": [
       "Crafting Over Quality",
@@ -305,13 +316,29 @@
     ],
     "Reflex Bow": [
       "Crafting Over Quality",
-      "Crafting Strands Weapons"
+      "Crafting Strands Weapons",
+      "Crafting Gear 86 Rank B"
     ],
     "Royal Plate": [
       "Crafting Perfect Defence",
       "Crafting Over Quality",
       "Crafting Strands Gear",
       "Crafting Gear 86"
+    ],
+    "Runic Crown": [
+      "Crafting Over Quality",
+      "Crafting Strands Gear",
+      "Crafting Gear 84"
+    ],
+    "Runic Gauntlets": [
+      "Crafting Over Quality",
+      "Crafting Strands Gear",
+      "Crafting Gear 84"
+    ],
+    "Runic Sabatons": [
+      "Crafting Over Quality",
+      "Crafting Strands Gear",
+      "Crafting Gear 84"
     ],
     "Sacred Chainmail": [
       "Crafting Perfect Defence",
@@ -327,7 +354,8 @@
     ],
     "Short Bow": [
       "Crafting Over Quality",
-      "Crafting Strands Weapons"
+      "Crafting Strands Weapons",
+      "Crafting Gear 86 Rank B"
     ],
     "Siege Axe": [
       "Crafting Over Quality",
@@ -338,7 +366,8 @@
     ],
     "Spine Bow": [
       "Crafting Over Quality",
-      "Crafting Strands Weapons"
+      "Crafting Strands Weapons",
+      "Crafting Gear 86 Rank B"
     ],
     "Steel Ring": [
       "Crafting Over Quality",
@@ -346,7 +375,8 @@
       "Crafting Gear 84"
     ],
     "Supreme Spiked Shield": [
-      "Crafting Perfect Defence"
+      "Crafting Perfect Defence",
+      "Crafting Gear 86 Rank B"
     ],
     "Syndicate's Garb": [
       "Crafting Perfect Defence",
@@ -356,10 +386,12 @@
     ],
     "Thicket Bow": [
       "Crafting Over Quality",
-      "Crafting Strands Weapons"
+      "Crafting Strands Weapons",
+      "Crafting Gear 86 Rank B"
     ],
     "Titanium Spirit Shield": [
-      "Crafting Perfect Defence"
+      "Crafting Perfect Defence",
+      "Crafting Gear 86 Rank B"
     ],
     "Torturer's Mask": [
       "Crafting Perfect Defence",
@@ -374,12 +406,14 @@
       "Crafting Gear 86"
     ],
     "Two-Toned Boots": [
-      "Crafting Perfect Defence"
+      "Crafting Perfect Defence",
+      "Crafting Gear 86 Rank B"
     ],
     "Vaal Axe": [
       "Crafting Over Quality",
       "Crafting Strands Weapons"
     ],
+    "Vanguard Belt": "Crafting Gear 86 Rank B",
     "Velour Boots": [
       "Crafting Perfect Defence",
       "Crafting Over Quality",
@@ -428,21 +462,6 @@
       "Crafting Over Quality",
       "Crafting Strands Gear",
       "Crafting Gear 85"
-    ],
-    "Runic Crown": [
-      "Crafting Over Quality",
-      "Crafting Strands Gear",
-      "Crafting Gear 84"
-    ],
-    "Runic Gauntlets": [
-      "Crafting Over Quality",
-      "Crafting Strands Gear",
-      "Crafting Gear 84"
-    ],
-    "Runic Sabatons": [
-      "Crafting Over Quality",
-      "Crafting Strands Gear",
-      "Crafting Gear 84"
     ]
   },
   "rules": []

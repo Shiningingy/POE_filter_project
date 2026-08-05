@@ -12,6 +12,7 @@
         "Crafting Strands Weapons",
         "Crafting Strands Gear",
         "Crafting Gear 86",
+        "Crafting Gear 86 Rank B",
         "Crafting Gear 85",
         "Crafting Gear 84",
         "Tier Hide Crafting Priority"
@@ -269,7 +270,27 @@
             200
           ]
         }
-      }
+      },
+      "hide_at_strictness": 6
+    },
+    "Crafting Gear 86 Rank B": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "ItemLevel": ">= 86"
+      },
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Gear base i86+ (Rank B)",
+        "ch": "精品底材 i86+ (B)"
+      },
+      "hide_at_strictness": 5
     },
     "Crafting Gear 85": {
       "hideable": true,
@@ -287,7 +308,8 @@
       "localization": {
         "en": "Gear base i85+",
         "ch": "精品底材 i85+"
-      }
+      },
+      "hide_at_strictness": 5
     },
     "Crafting Gear 84": {
       "hideable": true,
@@ -331,7 +353,8 @@
             200
           ]
         }
-      }
+      },
+      "hide_at_strictness": 5
     },
     "Tier Hide Crafting Priority": {
       "hideable": true,
