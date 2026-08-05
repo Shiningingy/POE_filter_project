@@ -414,272 +414,272 @@
     "how": "flat"
   },
   {
-    "file": "Equipment/Armour/Body Armours.json",
-    "tier_key": "Tier 0 Body Armours",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Body Armours.json",
-    "tier_key": "Tier 1 Body Armours",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Body Armours.json",
-    "tier_key": "Tier 2 Body Armours",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Body Armours.json",
-    "tier_key": "Tier 3 Body Armours",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Body Armours.json",
-    "tier_key": "Tier 4 Body Armours",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Boots.json",
-    "tier_key": "Tier 0 Boots",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Boots.json",
-    "tier_key": "Tier 1 Boots",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Boots.json",
-    "tier_key": "Tier 2 Boots",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Boots.json",
-    "tier_key": "Tier 3 Boots",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Boots.json",
-    "tier_key": "Tier 4 Boots",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Gloves.json",
-    "tier_key": "Tier 0 Gloves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Gloves.json",
-    "tier_key": "Tier 1 Gloves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Gloves.json",
-    "tier_key": "Tier 2 Gloves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Gloves.json",
-    "tier_key": "Tier 3 Gloves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Gloves.json",
-    "tier_key": "Tier 4 Gloves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Helmets.json",
-    "tier_key": "Tier 0 Helmets",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Helmets.json",
-    "tier_key": "Tier 1 Helmets",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Helmets.json",
-    "tier_key": "Tier 2 Helmets",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Helmets.json",
-    "tier_key": "Tier 3 Helmets",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Helmets.json",
-    "tier_key": "Tier 4 Helmets",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Quivers.json",
-    "tier_key": "Tier 0 Quivers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Quivers.json",
-    "tier_key": "Tier 1 Quivers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Quivers.json",
-    "tier_key": "Tier 2 Quivers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Quivers.json",
-    "tier_key": "Tier 3 Quivers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Quivers.json",
-    "tier_key": "Tier 4 Quivers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Shields.json",
-    "tier_key": "Tier 0 Shields",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Shields.json",
-    "tier_key": "Tier 1 Shields",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Shields.json",
-    "tier_key": "Tier 2 Shields",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Shields.json",
-    "tier_key": "Tier 3 Shields",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Armour/Shields.json",
-    "tier_key": "Tier 4 Shields",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Amulets.json",
-    "tier_key": "Tier 0 Amulets",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Amulets.json",
-    "tier_key": "Tier 1 Amulets",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Amulets.json",
-    "tier_key": "Tier 2 Amulets",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Amulets.json",
-    "tier_key": "Tier 3 Amulets",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Amulets.json",
-    "tier_key": "Tier 4 Amulets",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Belts.json",
-    "tier_key": "Tier 0 Belts",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Belts.json",
-    "tier_key": "Tier 1 Belts",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Belts.json",
-    "tier_key": "Tier 2 Belts",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Belts.json",
-    "tier_key": "Tier 3 Belts",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Belts.json",
-    "tier_key": "Tier 4 Belts",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Rings.json",
-    "tier_key": "Tier 0 Rings",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Rings.json",
-    "tier_key": "Tier 1 Rings",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Rings.json",
-    "tier_key": "Tier 2 Rings",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Rings.json",
-    "tier_key": "Tier 3 Rings",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Jewellery/Rings.json",
-    "tier_key": "Tier 4 Rings",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
@@ -852,422 +852,422 @@
     "how": "override"
   },
   {
-    "file": "Equipment/Weapons/Bows.json",
-    "tier_key": "Tier 0 Bows",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Bows.json",
-    "tier_key": "Tier 1 Bows",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Bows.json",
-    "tier_key": "Tier 2 Bows",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Bows.json",
-    "tier_key": "Tier 3 Bows",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Bows.json",
-    "tier_key": "Tier 4 Bows",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Claws.json",
-    "tier_key": "Tier 0 Claws",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Claws.json",
-    "tier_key": "Tier 1 Claws",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Claws.json",
-    "tier_key": "Tier 2 Claws",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Claws.json",
-    "tier_key": "Tier 3 Claws",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Claws.json",
-    "tier_key": "Tier 4 Claws",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Daggers.json",
-    "tier_key": "Tier 0 Daggers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Daggers.json",
-    "tier_key": "Tier 1 Daggers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Daggers.json",
-    "tier_key": "Tier 2 Daggers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Daggers.json",
-    "tier_key": "Tier 3 Daggers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Daggers.json",
-    "tier_key": "Tier 4 Daggers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Axes.json",
-    "tier_key": "Tier 0 Axes",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Axes.json",
-    "tier_key": "Tier 1 Axes",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Axes.json",
-    "tier_key": "Tier 2 Axes",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Axes.json",
-    "tier_key": "Tier 3 Axes",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Axes.json",
-    "tier_key": "Tier 4 Axes",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Maces.json",
-    "tier_key": "Tier 0 Maces",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Maces.json",
-    "tier_key": "Tier 1 Maces",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Maces.json",
-    "tier_key": "Tier 2 Maces",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Maces.json",
-    "tier_key": "Tier 3 Maces",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Maces.json",
-    "tier_key": "Tier 4 Maces",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Swords.json",
-    "tier_key": "Tier 0 Swords",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Swords.json",
-    "tier_key": "Tier 1 Swords",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Swords.json",
-    "tier_key": "Tier 2 Swords",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Swords.json",
-    "tier_key": "Tier 3 Swords",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/One Hand Swords.json",
-    "tier_key": "Tier 4 Swords",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Rune Daggers.json",
-    "tier_key": "Tier 0 Rune Daggers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Rune Daggers.json",
-    "tier_key": "Tier 1 Rune Daggers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Rune Daggers.json",
-    "tier_key": "Tier 2 Rune Daggers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Rune Daggers.json",
-    "tier_key": "Tier 3 Rune Daggers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Rune Daggers.json",
-    "tier_key": "Tier 4 Rune Daggers",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Sceptres.json",
-    "tier_key": "Tier 0 Sceptres",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Sceptres.json",
-    "tier_key": "Tier 1 Sceptres",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Sceptres.json",
-    "tier_key": "Tier 2 Sceptres",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Sceptres.json",
-    "tier_key": "Tier 3 Sceptres",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Sceptres.json",
-    "tier_key": "Tier 4 Sceptres",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Staves.json",
-    "tier_key": "Tier 0 Staves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Staves.json",
-    "tier_key": "Tier 1 Staves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Staves.json",
-    "tier_key": "Tier 2 Staves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Staves.json",
-    "tier_key": "Tier 3 Staves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Staves.json",
-    "tier_key": "Tier 4 Staves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Axes.json",
-    "tier_key": "Tier 0 Two Hand Axes",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Axes.json",
-    "tier_key": "Tier 1 Two Hand Axes",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Axes.json",
-    "tier_key": "Tier 2 Two Hand Axes",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Axes.json",
-    "tier_key": "Tier 3 Two Hand Axes",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Axes.json",
-    "tier_key": "Tier 4 Two Hand Axes",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Maces.json",
-    "tier_key": "Tier 0 Two Hand Maces",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Maces.json",
-    "tier_key": "Tier 1 Two Hand Maces",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Maces.json",
-    "tier_key": "Tier 2 Two Hand Maces",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Maces.json",
-    "tier_key": "Tier 3 Two Hand Maces",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Maces.json",
-    "tier_key": "Tier 4 Two Hand Maces",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Swords.json",
-    "tier_key": "Tier 0 Two Hand Swords",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Swords.json",
-    "tier_key": "Tier 1 Two Hand Swords",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Swords.json",
-    "tier_key": "Tier 2 Two Hand Swords",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Swords.json",
-    "tier_key": "Tier 3 Two Hand Swords",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Two Hand Swords.json",
-    "tier_key": "Tier 4 Two Hand Swords",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Wands.json",
-    "tier_key": "Tier 0 Wands",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Wands.json",
-    "tier_key": "Tier 1 Wands",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Wands.json",
-    "tier_key": "Tier 2 Wands",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Wands.json",
-    "tier_key": "Tier 3 Wands",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Wands.json",
-    "tier_key": "Tier 4 Wands",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Warstaves.json",
-    "tier_key": "Tier 0 Warstaves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 0 Rare Equipment",
     "Tier": 2,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Warstaves.json",
-    "tier_key": "Tier 1 Warstaves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 1 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Warstaves.json",
-    "tier_key": "Tier 2 Warstaves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 2 Rare Equipment",
     "Tier": 3,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Warstaves.json",
-    "tier_key": "Tier 3 Warstaves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 3 Rare Equipment",
     "Tier": 4,
     "how": "gear"
   },
   {
-    "file": "Equipment/Weapons/Warstaves.json",
-    "tier_key": "Tier 4 Warstaves",
+    "file": "Equipment/Rare Equipment.json",
+    "tier_key": "Tier 4 Rare Equipment",
     "Tier": 5,
     "how": "gear"
   },

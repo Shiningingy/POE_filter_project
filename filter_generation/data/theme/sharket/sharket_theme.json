@@ -1269,5 +1269,23 @@
       "BackgroundColor": "#303030d7",
       "TextColor": "#777777ff"
     }
+  },
+  "Rare Equipment": {
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#1a1e23f0"
+    },
+    "Tier 3": {
+      "FontSize": 35,
+      "BackgroundColor": "#1a1e23e6"
+    },
+    "Tier 4": {
+      "FontSize": 35,
+      "BackgroundColor": "#1a1e23dc"
+    },
+    "Tier 5": {
+      "FontSize": 30,
+      "BackgroundColor": "#1a1e23d2"
+    }
   }
 }

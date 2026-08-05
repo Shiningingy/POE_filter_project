@@ -1,0 +1,4313 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Rare Equipment",
+      "ch": "常规装备"
+    },
+    "gen_order": 3,
+    "localization": {
+      "ch": {
+        "Vaal Regalia": "瓦尔法衣",
+        "Astral Plate": "星芒战铠",
+        "Zodiac Leather": "星辰皮甲",
+        "Saintly Chainmail": "圣洁锁甲",
+        "Carnal Armour": "禁礼之甲",
+        "Plate Vest": "铁制背心",
+        "Chestplate": "胸甲",
+        "Copper Plate": "铜锻板甲",
+        "War Plate": "战争之铠",
+        "Full Plate": "连身铠甲",
+        "Arena Plate": "斗者之铠",
+        "Lordly Plate": "领主护铠",
+        "Bronze Plate": "青铜铠甲",
+        "Battle Plate": "战铠",
+        "Sun Plate": "日光之铠",
+        "Colosseum Plate": "决斗之铠",
+        "Majestic Plate": "庄严之铠",
+        "Golden Plate": "金耀之铠",
+        "Crusader Plate": "征战重铠",
+        "Gladiator Plate": "角斗重铠",
+        "Shabby Jerkin": "破旧外套",
+        "Strapped Leather": "扣环皮甲",
+        "Buckskin Tunic": "鹿皮外套",
+        "Wild Leather": "狂野部族皮甲",
+        "Full Leather": "连身皮甲",
+        "Sun Leather": "日光皮甲",
+        "Thief's Garb": "窃贼之装",
+        "Eelskin Tunic": "鳗皮之衣",
+        "Frontier Leather": "边戍皮甲",
+        "Glorious Leather": "荣耀皮甲",
+        "Coronal Leather": "光耀皮甲",
+        "Cutthroat's Garb": "死神之装",
+        "Sharkskin Tunic": "鲨皮之衣",
+        "Destiny Leather": "命运皮甲",
+        "Exquisite Leather": "精制皮甲",
+        "Simple Robe": "简易之袍",
+        "Silken Vest": "绸缎背心",
+        "Scholar's Robe": "学者之袍",
+        "Silken Garb": "丝绸之衣",
+        "Mage's Vestment": "博学长衣",
+        "Silk Robe": "丝质之袍",
+        "Cabalist Regalia": "秘术法衣",
+        "Sage's Robe": "贤者之袍",
+        "Silken Wrap": "丝绒背心",
+        "Conjurer's Vestment": "咒者长衣",
+        "Spidersilk Robe": "蛛丝之袍",
+        "Destroyer Regalia": "灭世法衣",
+        "Savant's Robe": "智者之袍",
+        "Necromancer Silks": "操灵者背心",
+        "Occultist's Vestment": "秘术长衣",
+        "Widowsilk Robe": "毒蛛丝之袍",
+        "Scale Vest": "细鳞背心",
+        "Light Brigandine": "轻锁甲",
+        "Scale Doublet": "合身鳞甲",
+        "Infantry Brigandine": "步兵锁甲",
+        "Full Scale Armour": "连身鳞甲",
+        "Soldier's Brigandine": "战士锁甲",
+        "Field Lamellar": "野战薄甲",
+        "Wyrmscale Doublet": "龙鳞战甲",
+        "Hussar Brigandine": "轻骑锁甲",
+        "Full Wyrmscale": "连身龙鳞战甲",
+        "Commander's Brigandine": "指挥者锁甲",
+        "Battle Lamellar": "争战鳞甲",
+        "Dragonscale Doublet": "龙鳞护甲",
+        "Desert Brigandine": "荒野锁铠",
+        "Full Dragonscale": "连身龙鳞铠",
+        "Chainmail Vest": "锁链背心",
+        "Chainmail Tunic": "链甲外衣",
+        "Ringmail Coat": "环甲外套",
+        "Chainmail Doublet": "护体锁甲",
+        "Full Ringmail": "连身环甲",
+        "Full Chainmail": "连身锁甲",
+        "Holy Chainmail": "圣语锁甲",
+        "Latticed Ringmail": "精制环甲",
+        "Crusader Chainmail": "圣战锁甲",
+        "Ornate Ringmail": "华丽环甲",
+        "Chain Hauberk": "锁子长甲",
+        "Devout Chainmail": "虔诚链甲",
+        "Loricated Ringmail": "覆体环甲",
+        "Conquest Chainmail": "征战锁甲",
+        "Elegant Ringmail": "权贵环甲",
+        "Saint's Hauberk": "圣者链甲",
+        "Padded Vest": "薄衬衣",
+        "Oiled Vest": "防水背心",
+        "Padded Jacket": "长袖棉袄",
+        "Oiled Coat": "防水外衣",
+        "Scarlet Raiment": "炽红之衣",
+        "Waxed Garb": "蜡封束衣",
+        "Bone Armour": "骨制战甲",
+        "Quilted Jacket": "菱纹外衣",
+        "Sleek Coat": "滑布外套",
+        "Crimson Raiment": "绯红之衣",
+        "Lacquered Garb": "漆彩束衣",
+        "Crypt Armour": "地穴战甲",
+        "Sentinel Jacket": "哨兵之衣",
+        "Varnished Coat": "映彩外套",
+        "Blood Raiment": "血色之衣",
+        "Sacrificial Garb": "祭礼束衣",
+        "Titan Plate": "泰坦战铠",
+        "Legion Plate": "军团战铠",
+        "Royal Plate": "皇家战铠",
+        "Supreme Leather": "至尊皮甲",
+        "Astral Leather": "星界皮甲",
+        "Syndicate's Garb": "辛迪加之装",
+        "Arcane Vestment": "秘法长衣",
+        "Nightweave Robe": "夜纹之袍",
+        "Twilight Regalia": "暮光法衣",
+        "Full Wyvernscale": "连身腾龙鳞甲",
+        "Marshall's Brigandine": "元帅锁铠",
+        "Conquest Lamellar": "征服盔甲",
+        "Grand Ringmail": "雄壮环甲",
+        "Paladin's Hauberk": "圣骑士链甲",
+        "Sacred Chainmail": "神圣锁甲",
+        "Sanguine Raiment": "血痕之衣",
+        "Torturer Garb": "刑罚者束衣",
+        "Necrotic Armour": "幽魂之甲",
+        "Glorious Plate": "荣耀战铠",
+        "Assassin's Garb": "暗影之装",
+        "Sadist Garb": "狂虐者束衣",
+        "Triumphant Lamellar": "胜利盔甲",
+        "General's Brigandine": "将军铠甲",
+        "Sorcerer Boots": "术士长靴",
+        "Slink Boots": "迷踪短靴",
+        "Fugitive Boots": "逃亡之靴",
+        "Dragonscale Boots": "龙鳞长靴",
+        "Iron Greaves": "铁锻胫甲",
+        "Steel Greaves": "冷钢胫甲",
+        "Plated Greaves": "坚铁胫甲",
+        "Reinforced Greaves": "强化胫甲",
+        "Antique Greaves": "古钢胫甲",
+        "Ancient Greaves": "远古胫甲",
+        "Goliath Greaves": "巨灵胫甲",
+        "Vaal Greaves": "瓦尔胫甲",
+        "Titan Greaves": "巨人胫甲",
+        "Rawhide Boots": "生皮短靴",
+        "Goathide Boots": "羊皮短靴",
+        "Deerskin Boots": "鹿皮短靴",
+        "Nubuck Boots": "砂影短靴",
+        "Eelskin Boots": "鳗皮短靴",
+        "Sharkskin Boots": "鲨皮短靴",
+        "Shagreen Boots": "粗革短靴",
+        "Stealth Boots": "匿踪短靴",
+        "Wool Shoes": "羊毛之鞋",
+        "Velvet Slippers": "丝绒便鞋",
+        "Silk Slippers": "丝绸便鞋",
+        "Scholar Boots": "学者长靴",
+        "Satin Slippers": "缎布便鞋",
+        "Samite Slippers": "绣布便鞋",
+        "Conjurer Boots": "咒者长靴",
+        "Arcanist Slippers": "秘术便鞋",
+        "Leatherscale Boots": "粗鳞皮靴",
+        "Ironscale Boots": "铁影长靴",
+        "Bronzescale Boots": "铜影长靴",
+        "Steelscale Boots": "钢影长靴",
+        "Serpentscale Boots": "蛇鳞长靴",
+        "Wyrmscale Boots": "地蝮鳞长靴",
+        "Hydrascale Boots": "火蝮鳞长靴",
+        "Chain Boots": "链甲长靴",
+        "Ringmail Boots": "环甲筒靴",
+        "Mesh Boots": "网眼长靴",
+        "Riveted Boots": "仪式短靴",
+        "Zealot Boots": "狂热者长靴",
+        "Soldier Boots": "战士之靴",
+        "Legion Boots": "军团长靴",
+        "Wrapped Boots": "裹趾凉鞋",
+        "Strapped Boots": "扣环短靴",
+        "Clasped Boots": "环带长靴",
+        "Shackled Boots": "缚足长靴",
+        "Trapper Boots": "猎人之靴",
+        "Ambush Boots": "伏击之靴",
+        "Carnal Boots": "禁礼之靴",
+        "Assassin's Boots": "暗影之靴",
+        "Two-Toned Boots": "异色鞋(冰闪)",
+        "Precursor Greaves": "先驱胫甲",
+        "Leviathan Greaves": "海怪胫甲",
+        "Harpyskin Boots": "鹰妖皮靴",
+        "Velour Boots": "丝绒之靴",
+        "Sage Slippers": "贤者便鞋",
+        "Warlock Boots": "咒士之靴",
+        "Chimerascale Boots": "奇美拉鳞长靴",
+        "Wyvernscale Boots": "腾龙鳞长靴",
+        "Martyr Boots": "先烈长靴",
+        "Paladin Boots": "圣骑士长靴",
+        "Infiltrator Boots": "渗透者长靴",
+        "Phantom Boots": "幻影长靴",
+        "Dreamquest Slippers": "探梦之鞋",
+        "Nightwind Slippers": "夜风之鞋",
+        "Duskwalk Slippers": "踏暮之鞋",
+        "Cloudwhisper Boots": "唤云之靴",
+        "Windbreak Boots": "破风之靴",
+        "Stormrider Boots": "御风之靴",
+        "Brimstone Treads": "踏烟之履",
+        "Darksteel Treads": "乌钢之履",
+        "Basemetal Treads": "劣金之履",
+        "Runic Greaves": "符文胫甲",
+        "Runic Sollerets": "符文护腿",
+        "Runic Sabatons": "符文战靴",
+        "Crusader Boots": "圣战长靴",
+        "Murder Boots": "暗影者长靴",
+        "Fingerless Silk Gloves": "丝绸手套",
+        "Gripped Gloves": "擒拿手套",
+        "Spiked Gloves": "扣钉手套",
+        "Apothecary's Gloves": "药剂师手套",
+        "Iron Gauntlets": "铁锻护手",
+        "Plated Gauntlets": "坚铁护手",
+        "Bronze Gauntlets": "青铜护手",
+        "Steel Gauntlets": "冷钢护手",
+        "Antique Gauntlets": "古钢护手",
+        "Ancient Gauntlets": "远古护手",
+        "Goliath Gauntlets": "巨灵护手",
+        "Vaal Gauntlets": "瓦尔护手",
+        "Rawhide Gloves": "生皮手套",
+        "Goathide Gloves": "羊皮手套",
+        "Deerskin Gloves": "鹿皮手套",
+        "Nubuck Gloves": "砂影手套",
+        "Eelskin Gloves": "鳗皮手套",
+        "Sharkskin Gloves": "鲨皮手套",
+        "Shagreen Gloves": "粗革手套",
+        "Stealth Gloves": "匿踪手套",
+        "Wool Gloves": "羊毛手套",
+        "Velvet Gloves": "丝绒手套",
+        "Silk Gloves": "丝绸手套",
+        "Embroidered Gloves": "刺绣手套",
+        "Satin Gloves": "缎布手套",
+        "Samite Gloves": "绣布手套",
+        "Conjurer Gloves": "咒者手套",
+        "Arcanist Gloves": "秘术手套",
+        "Fishscale Gauntlets": "鱼鳞手套",
+        "Ironscale Gauntlets": "铁影手套",
+        "Bronzescale Gauntlets": "铜影手套",
+        "Steelscale Gauntlets": "钢影护手",
+        "Serpentscale Gauntlets": "蛇鳞手套",
+        "Wyrmscale Gauntlets": "蝮鳞手套",
+        "Hydrascale Gauntlets": "火蝮鳞手套",
+        "Dragonscale Gauntlets": "龙鳞手套",
+        "Chain Gloves": "链甲手套",
+        "Ringmail Gloves": "环甲手套",
+        "Mesh Gloves": "网眼手套",
+        "Riveted Gloves": "仪式手套",
+        "Zealot Gloves": "狂热者手套",
+        "Soldier Gloves": "战士手套",
+        "Legion Gloves": "军团手套",
+        "Crusader Gloves": "圣战手套",
+        "Wrapped Mitts": "裹趾护手",
+        "Strapped Mitts": "扣环护手",
+        "Clasped Mitts": "环带护手",
+        "Trapper Mitts": "猎人护手",
+        "Ambush Mitts": "伏击护手",
+        "Carnal Mitts": "禁礼护手",
+        "Assassin's Mitts": "暗影护手",
+        "Murder Mitts": "暗影者护手",
+        "Precursor Gauntlets": "先驱护手",
+        "Leviathan Gauntlets": "海怪护手",
+        "Harpyskin Gloves": "鹰妖皮手套",
+        "Velour Gloves": "丝绒手套",
+        "Sage Gloves": "贤者手套",
+        "Warlock Gloves": "咒士手套",
+        "Chimerascale Gauntlets": "奇美拉鳞手套",
+        "Wyvernscale Gauntlets": "腾龙鳞手套",
+        "Martyr Gloves": "先烈手套",
+        "Paladin Gloves": "圣骑士手套",
+        "Infiltrator Mitts": "渗透者护手",
+        "Phantom Mitts": "幻影护手",
+        "Thwarting Gauntlets": "御敌护手",
+        "Guarding Gauntlets": "护卫手甲",
+        "Preserving Gauntlets": "历战手甲",
+        "Trapsetter Gloves": "布陷者手套",
+        "Apprentice Gloves": "学徒手套",
+        "Tinker Gloves": "工匠手套",
+        "Nexus Gloves": "枢纽手套",
+        "Aetherwind Gloves": "灵风手套",
+        "Leyline Gloves": "雷线手套",
+        "Runic Gloves": "符文手套",
+        "Runic Gages": "符文笼手",
+        "Runic Gauntlets": "符文手甲",
+        "Sorcerer Gloves": "术士手套",
+        "Slink Gloves": "迷踪手套",
+        "Titan Gauntlets": "巨人护手",
+        "Hubris Circlet": "灵主之环",
+        "Lion Pelt": "狮首皮盔",
+        "Royal Burgonet": "皇室坚盔",
+        "Bone Helmet": "唤骨头盔",
+        "Iron Hat": "粗铁盔",
+        "Cone Helmet": "锥顶盔",
+        "Barbute Helmet": "轻骑盔",
+        "Close Helmet": "护面盔",
+        "Gladiator Helmet": "角斗者之盔",
+        "Reaver Helmet": "掠夺者之盔",
+        "Siege Helmet": "破城之盔",
+        "Samnite Helmet": "萨姆尼盔",
+        "Ezomyte Burgonet": "艾兹麦坚盔",
+        "Leather Cap": "皮帽",
+        "Tricorne": "三角帽",
+        "Leather Hood": "革兜",
+        "Wolf Pelt": "狼首皮盔",
+        "Hunter Hood": "猎者之兜",
+        "Noble Tricorne": "贵族三角帽",
+        "Ursine Pelt": "熊首皮盔",
+        "Silken Hood": "绸缎之兜",
+        "Vine Circlet": "藤蔓之冠",
+        "Iron Circlet": "铁锻之冠",
+        "Torture Cage": "刑罚头笼",
+        "Tribal Circlet": "祭仪之冠",
+        "Bone Circlet": "灵骨之冠",
+        "Lunaris Circlet": "月影之冠",
+        "Steel Circlet": "冷钢之冠",
+        "Necromancer Circlet": "操灵者之冠",
+        "Solaris Circlet": "日耀之冠",
+        "Mind Cage": "灵能之笼",
+        "Battered Helm": "残破之盔",
+        "Sallet": "轻铁护盔",
+        "Visored Sallet": "清视护盔",
+        "Gilded Sallet": "金面护盔",
+        "Secutor Helm": "精兵之盔",
+        "Fencer Helm": "击剑士之盔",
+        "Lacquered Helmet": "漆彩之盔",
+        "Fluted Bascinet": "全罩战盔",
+        "Pig-Faced Bascinet": "猪面头盔",
+        "Nightmare Bascinet": "梦魇战盔",
+        "Rusted Coif": "锈铁链盔",
+        "Soldier Helmet": "士兵之盔",
+        "Great Helmet": "巨盔",
+        "Crusader Helmet": "圣战之盔",
+        "Aventail Helmet": "战意之盔",
+        "Zealot Helmet": "热战之盔",
+        "Great Crown": "强化巨盔",
+        "Magistrate Crown": "行政者战冠",
+        "Prophet Crown": "箴言战冠",
+        "Praetor Crown": "领主战冠",
+        "Scare Mask": "幽惧之面",
+        "Plague Mask": "疫灾之面",
+        "Iron Mask": "铁锻之面",
+        "Festival Mask": "节庆之面",
+        "Golden Mask": "黄金之面",
+        "Raven Mask": "祸鸦之面",
+        "Callous Mask": "无情之面",
+        "Regicide Mask": "弑君之面",
+        "Harlequin Mask": "鹰喙之面",
+        "Vaal Mask": "瓦尔之面",
+        "General's Helmet": "将军战盔",
+        "Conqueror's Helmet": "霸王战盔",
+        "Giantslayer Helmet": "巨人屠夫战盔",
+        "Dire Pelt": "恐兽皮盔",
+        "Grizzly Pelt": "灰熊皮盔",
+        "Majestic Pelt": "威武皮盔",
+        "Moonlit Circlet": "月辉之冠",
+        "Sunfire Circlet": "阳炎之冠",
+        "Lich's Circlet": "巫妖之冠",
+        "Knight Helm": "骑士之盔",
+        "Conquest Helmet": "征服之盔",
+        "Haunted Bascinet": "魂萦战盔",
+        "Faithful Helmet": "信仰之盔",
+        "Paladin Crown": "圣骑士头冠",
+        "Divine Crown": "神启头冠",
+        "Jester Mask": "弄臣之面",
+        "Ancient Mask": "上古之面",
+        "Torturer's Mask": "刑罚者之面",
+        "Blizzard Crown": "暴雪之冠",
+        "Winter Crown": "寒冬之冠",
+        "Gale Crown": "飓风之冠",
+        "Archdemon Crown": "大恶魔之冠",
+        "Demon Crown": "恶魔之冠",
+        "Imp Crown": "小鬼之冠",
+        "Atonement Mask": "赎罪面具",
+        "Penitent Mask": "忏悔面具",
+        "Sorrow Mask": "悲伤面具",
+        "Runic Helm": "符文头盔",
+        "Runic Crest": "符文之冠",
+        "Runic Crown": "符文王冠",
+        "Deicide Mask": "弑神之面",
+        "Sinner Tricorne": "罪者之帽",
+        "Eternal Burgonet": "永恒坚盔",
+        "Broadhead Arrow Quiver": "宽矢箭袋",
+        "Spike-Point Arrow Quiver": "刺锋箭袋",
+        "Penetrating Arrow Quiver": "穿射箭袋",
+        "Vile Arrow Quiver": "恶矢箭袋",
+        "Blunt Arrow Quiver": "钝矢箭袋",
+        "Fire Arrow Quiver": "火灵箭袋",
+        "Artillery Quiver": "火炮箭袋",
+        "Feathered Arrow Quiver": "飞羽箭袋",
+        "Blazing Arrow Quiver": "燃矢箭袋",
+        "Heavy Arrow Quiver": "重矢箭袋",
+        "Primal Arrow Quiver": "原矢箭袋",
+        "Two-Point Arrow Quiver": "双锋箭袋",
+        "Sharktooth Arrow Quiver": "鲨齿箭袋",
+        "Serrated Arrow Quiver": "锯齿箭袋",
+        "Titanium Spirit Shield": "巨人魔盾",
+        "Archon Kite Shield": "威能鸢盾",
+        "Champion Kite Shield": "斗士鸢盾",
+        "Harmonic Spirit Shield": "和谐魔盾",
+        "Splintered Tower Shield": "朽木塔盾",
+        "Corroded Tower Shield": "斑驳塔盾",
+        "Rawhide Tower Shield": "生皮塔盾",
+        "Cedar Tower Shield": "松木塔盾",
+        "Copper Tower Shield": "铜锻塔盾",
+        "Reinforced Tower Shield": "强化塔盾",
+        "Painted Tower Shield": "彩绘塔盾",
+        "Buckskin Tower Shield": "鹿皮塔盾",
+        "Mahogany Tower Shield": "桃木塔盾",
+        "Bronze Tower Shield": "青铜塔盾",
+        "Girded Tower Shield": "征战塔盾",
+        "Crested Tower Shield": "荣冠塔盾",
+        "Shagreen Tower Shield": "粗革塔盾",
+        "Ebony Tower Shield": "乌木塔盾",
+        "Ezomyte Tower Shield": "艾兹麦塔盾",
+        "Goathide Buckler": "羊皮轻盾",
+        "Pine Buckler": "松木轻盾",
+        "Painted Buckler": "彩绘轻盾",
+        "Hammered Buckler": "铆钉轻盾",
+        "War Buckler": "战争轻盾",
+        "Gilded Buckler": "金面轻盾",
+        "Oak Buckler": "橡木轻盾",
+        "Enameled Buckler": "釉彩轻盾",
+        "Corrugated Buckler": "波纹轻盾",
+        "Battle Buckler": "斗者轻盾",
+        "Golden Buckler": "金阳轻盾",
+        "Ironwood Buckler": "钢木轻盾",
+        "Lacquered Buckler": "漆彩轻盾",
+        "Vaal Buckler": "瓦尔轻盾",
+        "Crusader Buckler": "圣战轻盾",
+        "Imperial Buckler": "帝国轻盾",
+        "Twig Spirit Shield": "残枝魔盾",
+        "Yew Spirit Shield": "紫衫魔盾",
+        "Bone Spirit Shield": "骨制魔盾",
+        "Tarnished Spirit Shield": "环形魔盾",
+        "Jingling Spirit Shield": "灵相魔盾",
+        "Brass Spirit Shield": "铜锻魔盾",
+        "Walnut Spirit Shield": "桃木魔盾",
+        "Ivory Spirit Shield": "象牙魔盾",
+        "Ancient Spirit Shield": "远古魔盾",
+        "Chiming Spirit Shield": "魂相魔盾",
+        "Thorium Spirit Shield": "暗金魔盾",
+        "Lacewood Spirit Shield": "软橡魔盾",
+        "Vaal Spirit Shield": "瓦尔魔盾",
+        "Rotted Round Shield": "朽木圆盾",
+        "Fir Round Shield": "杉木圆盾",
+        "Studded Round Shield": "铆钉圆盾",
+        "Scarlet Round Shield": "炽红圆盾",
+        "Splendid Round Shield": "光辉圆盾",
+        "Maple Round Shield": "枫木圆盾",
+        "Spiked Round Shield": "尖刺圆盾",
+        "Crimson Round Shield": "绯红圆盾",
+        "Baroque Round Shield": "古代圆盾",
+        "Teak Round Shield": "柚木圆盾",
+        "Spiny Round Shield": "棘刺圆盾",
+        "Cardinal Round Shield": "祭者圆盾",
+        "Elegant Round Shield": "权贵圆盾",
+        "Plank Kite Shield": "朽木鸢盾",
+        "Linden Kite Shield": "椴木鸢盾",
+        "Reinforced Kite Shield": "强化鸢盾",
+        "Layered Kite Shield": "层板鸢盾",
+        "Ceremonial Kite Shield": "祭仪鸢盾",
+        "Etched Kite Shield": "刻文鸢盾",
+        "Steel Kite Shield": "冷钢鸢盾",
+        "Laminated Kite Shield": "合板鸢盾",
+        "Angelic Kite Shield": "天使鸢盾",
+        "Branded Kite Shield": "圣记鸢盾",
+        "Mosaic Kite Shield": "厚装鸢盾",
+        "Spiked Bundle": "尖木刺盾",
+        "Driftwood Spiked Shield": "朽木刺盾",
+        "Alloyed Spiked Shield": "合金刺盾",
+        "Burnished Spiked Shield": "冷芒刺盾",
+        "Ornate Spiked Shield": "华丽刺盾",
+        "Redwood Spiked Shield": "红木刺盾",
+        "Compound Spiked Shield": "复合刺盾",
+        "Polished Spiked Shield": "光辉刺盾",
+        "Sovereign Spiked Shield": "王权刺盾",
+        "Alder Spiked Shield": "桤木刺盾",
+        "Ezomyte Spiked Shield": "艾兹麦刺盾",
+        "Mirrored Spiked Shield": "钢镜刺盾",
+        "Supreme Spiked Shield": "霸者刺盾",
+        "Exhausting Spirit Shield": "力竭魔盾",
+        "Subsuming Spirit Shield": "归纳魔盾",
+        "Transfer-attuned Spirit Shield": "适应型魔盾",
+        "Endothermic Buckler": "吸热型轻盾",
+        "Polar Buckler": "极地轻盾",
+        "Cold-attuned Buckler": "适寒型轻盾",
+        "Exothermic Tower Shield": "排热型塔盾",
+        "Magmatic Tower Shield": "熔岩塔盾",
+        "Heat-attuned Tower Shield": "适热型塔盾",
+        "Fossilised Spirit Shield": "石化魔盾",
+        "Colossal Tower Shield": "巨型塔盾",
+        "Pinnacle Tower Shield": "坚毅塔盾",
+        "Spine Bow": "脊弓",
+        "Thicket Bow": "林野猎弓",
+        "Imperial Bow": "帝国之弓",
+        "Maraketh Bow": "马拉克斯弓",
+        "Crude Bow": "粗制弓",
+        "Short Bow": "短弓",
+        "Long Bow": "长弓",
+        "Composite Bow": "合成弓",
+        "Recurve Bow": "反曲弓",
+        "Bone Bow": "骨制弓",
+        "Royal Bow": "皇家猎弓",
+        "Death Bow": "死亡之弓",
+        "Grove Bow": "丛林猎弓",
+        "Reflex Bow": "反射弓",
+        "Decurve Bow": "直弓",
+        "Compound Bow": "复合弓",
+        "Sniper Bow": "狙击弓",
+        "Ivory Bow": "象牙弓",
+        "Highborn Bow": "贵族之弓",
+        "Steelwood Bow": "钢木之弓",
+        "Ranger Bow": "游侠弓",
+        "Assassin Bow": "暗影弓",
+        "Hedron Bow": "多面弓",
+        "Foundry Bow": "铸造弓",
+        "Solarine Bow": "日裔弓",
+        "Harbinger Bow": "先驱者之弓",
+        "Decimation Bow": "猎魂之弓",
+        "Citadel Bow": "城塞战弓",
+        "Imperial Claw": "帝国战爪",
+        "Gemini Claw": "双子战爪",
+        "Great White Claw": "白灵之爪",
+        "Terror Claw": "恐惧之牙",
+        "Vaal Claw": "瓦尔战爪",
+        "Nailed Fist": "拳钉",
+        "Sharktooth Claw": "鲨颚爪",
+        "Awl": "凿钉",
+        "Cat's Paw": "猫爪刃",
+        "Blinder": "袭眼钩",
+        "Timeworn Claw": "远古战爪",
+        "Sparkling Claw": "眩目爪刃",
+        "Fright Claw": "恐惧之爪",
+        "Double Claw": "双刃爪",
+        "Thresher Claw": "撕裂尖爪",
+        "Gouger": "穿体凿",
+        "Tiger's Paw": "虎爪刃",
+        "Gut Ripper": "裂脏钩",
+        "Prehistoric Claw": "史前战爪",
+        "Noble Claw": "贵族战爪",
+        "Eagle Claw": "鹰爪刃",
+        "Twin Claw": "重刃爪",
+        "Shadow Fangs": "暗影之牙",
+        "Malign Fangs": "恶毒之牙",
+        "Void Fangs": "虚空之牙",
+        "Eye Gouger": "刺眼钩",
+        "Hellion's Paw": "魔爪刃",
+        "Throat Stabber": "刺喉刃",
+        "Ambusher": "伏击刺刃",
+        "Imperial Skean": "帝国短匕",
+        "Demon Dagger": "魔灵短匕",
+        "Glass Shank": "玻璃利片",
+        "Skinning Knife": "剥皮刀",
+        "Stiletto": "锐利刺匕",
+        "Flaying Knife": "残体利刃",
+        "Prong Dagger": "尖耙短匕",
+        "Poignard": "夺命刺",
+        "Trisula": "三叉短匕",
+        "Gutting Knife": "重伤短刀",
+        "Sai": "战叉",
+        "Hollowpoint Dagger": "折叠匕首",
+        "Pressurised Dagger": "冲压匕首",
+        "Pneumatic Dagger": "气动匕首",
+        "Slaughter Knife": "猎者之刃",
+        "Royal Skean": "皇家短匕",
+        "Siege Axe": "破城斧",
+        "Reaver Axe": "残暴之斧",
+        "Runic Hatchet": "密文之斧",
+        "Vaal Hatchet": "瓦尔战斧",
+        "Rusted Hatchet": "锈斧",
+        "Jade Hatchet": "碎玉斧",
+        "Boarding Axe": "万用手斧",
+        "Cleaver": "切割者",
+        "Broad Axe": "阔斧",
+        "Arming Axe": "长柄斧",
+        "Decorative Axe": "富贵之斧",
+        "Spectral Axe": "幽魂之斧",
+        "Etched Hatchet": "蚀刻战斧",
+        "Jasper Axe": "灵玉斧",
+        "Tomahawk": "征战之斧",
+        "Wrist Chopper": "断腕之刃",
+        "War Axe": "行军斧",
+        "Chest Splitter": "开膛利刃",
+        "Ceremonial Axe": "血仪之斧",
+        "Wraith Axe": "凶灵之斧",
+        "Engraved Hatchet": "雕文战斧",
+        "Karui Axe": "卡鲁古斧",
+        "Butcher Axe": "屠戮之斧",
+        "Infernal Axe": "狱火之刃",
+        "Maltreatment Axe": "凌虐斧",
+        "Disapprobation Axe": "否认斧",
+        "Psychotic Axe": "癫狂斧",
+        "Royal Axe": "皇家之斧",
+        "Behemoth Mace": "巴哈姆特",
+        "Nightmare Mace": "梦魇之锤",
+        "Piledriver": "扫荡者",
+        "Driftwood Club": "朽木之棒",
+        "Tribal Club": "祭仪之杵",
+        "Spiked Club": "钝钉木棒",
+        "Stone Hammer": "石锤",
+        "War Hammer": "战锤",
+        "Bladed Mace": "多刃锤",
+        "Ceremonial Mace": "祭礼之锤",
+        "Dream Mace": "梦境之锤",
+        "Wyrm Mace": "古龙之锤",
+        "Petrified Club": "坚石木棒",
+        "Barbed Club": "锐刺木棒",
+        "Rock Breaker": "破岩锤",
+        "Battle Hammer": "强化战锤",
+        "Flanged Mace": "护体之锤",
+        "Ornate Mace": "华丽之锤",
+        "Phantom Mace": "幻象之锤",
+        "Dragon Mace": "龙之锤",
+        "Ancestral Club": "祖灵之杵",
+        "Tenderizer": "裂肉之锤",
+        "Gavel": "坚锤",
+        "Legion Hammer": "军团之锤",
+        "Pernach": "锋刃重锤",
+        "Flare Mace": "明亮锤",
+        "Crack Mace": "开裂锤",
+        "Boom Mace": "风雷锤",
+        "Auric Mace": "圣约之锤",
+        "Jewelled Foil": "宝饰细剑",
+        "Corsair Sword": "海贼长刀",
+        "Eternal Sword": "永恒之剑",
+        "Vaal Rapier": "瓦尔细剑",
+        "Whalebone Rapier": "鲸骨细刃",
+        "Battered Foil": "钝刃细剑",
+        "Basket Rapier": "练武者细剑",
+        "Jagged Foil": "锯状薄刃",
+        "Antique Rapier": "古代细剑",
+        "Elegant Foil": "贵族细剑",
+        "Thorn Rapier": "棘刺细剑",
+        "Smallsword": "小剑",
+        "Wyrmbone Rapier": "龙骨细剑",
+        "Burnished Foil": "冷芒刺剑",
+        "Estoc": "穿甲刺剑",
+        "Serrated Foil": "锯齿细剑",
+        "Primeval Rapier": "古典刺剑",
+        "Fancy Foil": "华丽细剑",
+        "Apex Rapier": "锐锋细剑",
+        "Courtesan Sword": "花魁之剑",
+        "Dragonbone Rapier": "龙骨细剑",
+        "Tempered Foil": "强化细剑",
+        "Spiraled Foil": "螺纹细剑",
+        "Harpy Rapier": "魔喙细剑",
+        "Dragoon Sword": "骑兵军刀",
+        "Imperfect Dancing Sword": "残次舞动之剑",
+        "Dancing Sword": "舞动之剑",
+        "Perfect Dancing Sword": "完美舞动之剑",
+        "Rusted Spike": "锈刺剑",
+        "Maligaro's Spike": "马雷格罗的尖刺",
+        "Rusted Sword": "锈剑",
+        "Copper Sword": "青铜短剑",
+        "Sabre": "旧军刀",
+        "Broad Sword": "阔剑",
+        "War Sword": "征战之剑",
+        "Ancient Sword": "远古之剑",
+        "Elegant Sword": "贵族之剑",
+        "Dusk Blade": "暮色之刃",
+        "Hook Sword": "钩爪剑",
+        "Variscite Blade": "碧铜短剑",
+        "Cutlass": "军用长刃",
+        "Baselard": "冷光长剑",
+        "Battle Sword": "士兵长剑",
+        "Elder Sword": "智者长剑",
+        "Graceful Sword": "权贵之剑",
+        "Twilight Blade": "暮光长剑",
+        "Grappler": "捕捉者",
+        "Gemstone Sword": "宝石之剑",
+        "Gladius": "斗士长剑",
+        "Legion Sword": "军团长剑",
+        "Vaal Blade": "瓦尔军刃",
+        "Tiger Hook": "虎钩",
+        "Fickle Spiritblade": "无常魂刃",
+        "Capricious Spiritblade": "莫测魂刃",
+        "Anarchic Spiritblade": "无序魂刃",
+        "Midnight Blade": "夜语长剑",
+        "Reaver Sword": "残暴巨剑",
+        "Ghostflame Blade": "鬼火长剑",
+        "Golden Kris": "金光波刃",
+        "Platinum Kris": "白金波刃",
+        "Copper Kris": "铜锻波刃",
+        "Ezomyte Dagger": "艾兹麦之匕",
+        "Carving Knife": "刻骨刀",
+        "Boot Knife": "窃者短刃",
+        "Skean": "双刃匕",
+        "Imp Dagger": "魔性之刃",
+        "Butcher Knife": "屠兽利刃",
+        "Boot Blade": "窃者短匕",
+        "Flickerflame Blade": "火焰刀",
+        "Flashfire Blade": "闪火刀",
+        "Infernal Blade": "炼狱刀",
+        "Fiend Dagger": "兽血短匕",
+        "Void Sceptre": "虚影短杖",
+        "Sambar Sceptre": "恶魔短杖",
+        "Opal Sceptre": "灵石短杖",
+        "Driftwood Sceptre": "朽木短杖",
+        "Darkwood Sceptre": "乌木短杖",
+        "Bronze Sceptre": "铜锻短杖",
+        "Quartz Sceptre": "石英短杖",
+        "Iron Sceptre": "冷铁短杖",
+        "Ochre Sceptre": "赤色短杖",
+        "Ritual Sceptre": "祭仪短杖",
+        "Shadow Sceptre": "影语短杖",
+        "Grinning Fetish": "远古之祭",
+        "Horned Sceptre": "犄角短杖",
+        "Sekhem": "威能短杖",
+        "Crystal Sceptre": "水晶短杖",
+        "Lead Sceptre": "铅铸短杖",
+        "Blood Sceptre": "血色短杖",
+        "Royal Sceptre": "皇家短杖",
+        "Abyssal Sceptre": "深渊短杖",
+        "Stag Sceptre": "灵鹿短杖",
+        "Karui Sceptre": "卡鲁短杖",
+        "Tyrant's Sekhem": "暴君之统",
+        "Platinum Sceptre": "白金短杖",
+        "Vaal Sceptre": "瓦尔短杖",
+        "Carnal Sceptre": "禁礼短杖",
+        "Oscillating Sceptre": "摇摆短杖",
+        "Stabilising Sceptre": "平稳短杖",
+        "Alternating Sceptre": "变化短杖",
+        "Imperial Staff": "帝国长杖",
+        "Eclipse Staff": "月蚀长杖",
+        "Lathi": "武术长杖",
+        "Gnarled Branch": "朽木之干",
+        "Primitive Staff": "粗制长杖",
+        "Long Staff": "长杖",
+        "Royal Staff": "皇家长杖",
+        "Crescent Staff": "新月长杖",
+        "Woodful Staff": "坚木长杖",
+        "Quarterstaff": "细柄长杖",
+        "Highborn Staff": "贵族长杖",
+        "Moon Staff": "月神长杖",
+        "Primordial Staff": "史典长杖",
+        "Transformer Staff": "变形长杖",
+        "Reciprocation Staff": "交换长杖",
+        "Battery Staff": "蓄能长杖",
+        "Despot Axe": "霸主巨斧",
+        "Vaal Axe": "瓦尔巨斧",
+        "Ezomyte Axe": "艾兹麦巨斧",
+        "Fleshripper": "裂肉者",
+        "Stone Axe": "石斧",
+        "Jade Chopper": "碎玉大斧",
+        "Woodsplitter": "柴斧",
+        "Poleaxe": "巨战斧",
+        "Double Axe": "双刃巨斧",
+        "Gilded Axe": "金柄之斧",
+        "Shadow Axe": "幽影巨斧",
+        "Dagger Axe": "匕斧",
+        "Jasper Chopper": "灵玉巨斧",
+        "Timber Axe": "裂木巨斧",
+        "Headsman Axe": "行刑巨斧",
+        "Labrys": "双影巨斧",
+        "Noble Axe": "权贵巨斧",
+        "Abyssal Axe": "深渊巨斧",
+        "Karui Chopper": "卡鲁巨斧",
+        "Talon Axe": "猛禽爪斧",
+        "Sundering Axe": "裂甲巨斧",
+        "Void Axe": "虚影巨斧",
+        "Prime Cleaver": "首要砍刀",
+        "Honed Cleaver": "磨利砍刀",
+        "Apex Cleaver": "锋锐砍刀",
+        "Coronal Maul": "花冠重锤",
+        "Meatgrinder": "戮魂重锤",
+        "Terror Maul": "惧灵重锤",
+        "Driftwood Maul": "朽木巨锤",
+        "Tribal Maul": "祭仪巨锤",
+        "Mallet": "千斤锤",
+        "Sledgehammer": "冷铁重锤",
+        "Jagged Maul": "狼牙重锤",
+        "Brass Maul": "铜影巨锤",
+        "Fright Maul": "恐惧重锤",
+        "Morning Star": "晨星",
+        "Totemic Maul": "图腾巨锤",
+        "Great Mallet": "刚猛巨锤",
+        "Steelhead": "沉钢重锤",
+        "Spiny Maul": "凶刺巨锤",
+        "Plated Maul": "华丽重锤",
+        "Dread Maul": "威权巨锤",
+        "Solar Maul": "日光锤",
+        "Karui Maul": "卡鲁重锤",
+        "Colossus Mallet": "巨型重锤",
+        "Imperial Maul": "帝国重锤",
+        "Blunt Force Condenser": "钝击之力凝聚器",
+        "Crushing Force Magnifier": "破坏之力放大器",
+        "Impact Force Propagator": "冲击之力扩散器",
+        "Exquisite Blade": "精致之刃",
+        "Lion Sword": "狮爪巨剑",
+        "Vaal Greatsword": "瓦尔巨剑",
+        "Corroded Blade": "锈斑巨剑",
+        "Longsword": "大剑",
+        "Bastard Sword": "重剑",
+        "Two-Handed Sword": "双手剑",
+        "Etched Greatsword": "术雕巨剑",
+        "Ornate Sword": "名贵巨剑",
+        "Spectral Sword": "幽魂巨剑",
+        "Curved Blade": "弯刃",
+        "Butcher Sword": "冷血巨剑",
+        "Footman Sword": "士兵巨剑",
+        "Highland Blade": "高山重刃",
+        "Engraved Greatsword": "符文巨剑",
+        "Tiger Sword": "虎牙巨剑",
+        "Wraith Sword": "凶灵巨剑",
+        "Lithe Blade": "细刃",
+        "Headman's Sword": "行刑巨剑",
+        "Ezomyte Blade": "艾兹麦巨剑",
+        "Infernal Sword": "狱炎重剑",
+        "Rebuking Blade": "责难刀",
+        "Blasting Blade": "爆破刀",
+        "Banishing Blade": "放逐刀",
+        "Opal Wand": "灵石法杖",
+        "Profane Wand": "亵渎法杖",
+        "Prophecy Wand": "箴言法杖",
+        "Convoking Wand": "召集法杖",
+        "Driftwood Wand": "朽木法杖",
+        "Goat's Horn": "羊角法杖",
+        "Somatic Wand": "肉体法杖",
+        "Quartz Wand": "石英法杖",
+        "Calling Wand": "召唤法杖",
+        "Spiraled Wand": "螺纹法杖",
+        "Sage Wand": "贤者法杖",
+        "Pagan Wand": "异教法杖",
+        "Faun's Horn": "兽角法杖",
+        "Blasting Wand": "爆破法杖",
+        "Crystal Wand": "水晶法杖",
+        "Coiled Wand": "盘曲法杖",
+        "Convening Wand": "召集法杖",
+        "Omen Wand": "灵兆法杖",
+        "Heathen Wand": "异徒法杖",
+        "Demon's Horn": "魔角法杖",
+        "Kinetic Wand": "念动法杖",
+        "Tornado Wand": "狂风法杖",
+        "Assembler Wand": "装配法杖",
+        "Congregator Wand": "集合法杖",
+        "Accumulator Wand": "蓄能法杖",
+        "Judgement Staff": "审判长杖",
+        "Ezomyte Staff": "艾兹麦长杖",
+        "Maelström Staff": "风暴长杖",
+        "Iron Staff": "铁锻长杖",
+        "Coiled Staff": "强化长杖",
+        "Vile Staff": "毒牙长杖",
+        "Military Staff": "军用长杖",
+        "Serpentine Staff": "蛇纹长杖",
+        "Foul Staff": "恶灵长杖",
+        "Capacity Rod": "载荷之杖",
+        "Potentiality Rod": "潜力之杖",
+        "Eventuality Rod": "潜能之杖",
+        "Blue Pearl Amulet": "碧珠护身符",
+        "Marble Amulet": "大理石护身符",
+        "Seaglass Amulet": "海晶护符",
+        "Onyx Amulet": "黑曜护身符",
+        "Coral Amulet": "珊瑚护身符",
+        "Paua Amulet": "海灵护身符",
+        "Amber Amulet": "琥珀护身符",
+        "Jade Amulet": "翠玉护身符",
+        "Lapis Amulet": "海玉护身符",
+        "Astrolabe Amulet": "星盘项链",
+        "Simplex Amulet": "朴实项链",
+        "Focused Amulet": "聚焦项链",
+        "Gold Amulet": "帝金护身符",
+        "Agate Amulet": "玛瑙护身符",
+        "Turquoise Amulet": "青玉护身符",
+        "Citrine Amulet": "黄晶护身符",
+        "Pearlescent Amulet": "珠光护身符",
+        "Stygian Vise": "深渊腰带",
+        "Crystal Belt": "水晶腰带",
+        "Leather Belt": "皮革腰带",
+        "Vanguard Belt": "先锋腰带",
+        "Rustic Sash": "素布腰带",
+        "Studded Belt": "扣钉腰带",
+        "Micro-Distillery Belt": "低酿腰带",
+        "Mechanical Belt": "机关腰带",
+        "Mechalarm Belt": "警戒腰带",
+        "Heavy Belt": "重革腰带",
+        "Chain Belt": "扣链腰带",
+        "Cloth Belt": "饰布腰带",
+        "Opal Ring": "蛋白石戒指",
+        "Steel Ring": "合金戒指",
+        "Vermillion Ring": "朱砂之戒",
+        "Iolite Ring": "青石戒指",
+        "Diamond Ring": "宝钻戒指",
+        "Coral Ring": "珊瑚戒指",
+        "Iron Ring": "锻铁戒指",
+        "Paua Ring": "海灵戒指",
+        "Unset Ring": "潜能之戒",
+        "Sapphire Ring": "蓝玉戒指",
+        "Topaz Ring": "黄玉戒指",
+        "Ruby Ring": "红玉戒指",
+        "Gold Ring": "金光戒指",
+        "Moonstone Ring": "月光石戒指",
+        "Prismatic Ring": "三相戒指",
+        "Bone Ring": "骨环",
+        "Dusk Ring": "戒指：暮色",
+        "Penumbra Ring": "戒指：半影",
+        "Gloam Ring": "戒指：薄暮",
+        "Tenebrous Ring": "戒指：暗黑",
+        "Shadowed Ring": "戒指：暗影",
+        "Nameless Ring": "无名戒指",
+        "Cogwork Ring": "齿轮戒指",
+        "Geodesic Ring": "地线戒指",
+        "Composite Ring": "复合戒指",
+        "Manifold Ring": "集成戒指",
+        "Ratcheting Ring": "渐变戒指",
+        "Helical Ring": "螺纹戒指",
+        "Cryonic Ring": "冰凝戒指",
+        "Enthalpic Ring": "炽能戒指",
+        "Synaptic Ring": "突触戒指",
+        "Organic Ring": "有机戒指",
+        "Fugitive Ring": "逃亡戒指",
+        "Formless Ring": "无形戒指",
+        "Cerulean Ring": "天蓝之戒",
+        "Two-Stone Ring": "双玉戒指",
+        "Amethyst Ring": "紫晶戒指"
+      }
+    }
+  },
+  "mapping": {
+    "Abyssal Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Abyssal Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Accumulator Wand": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Aetherwind Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Agate Amulet": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Alder Spiked Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Alloyed Spiked Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Alternating Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Amber Amulet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Ambush Boots": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Ambush Mitts": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Ambusher": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Amethyst Ring": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Anarchic Spiritblade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ancestral Club": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ancient Gauntlets": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Ancient Greaves": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Ancient Mask": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Ancient Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ancient Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Angelic Kite Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Antique Gauntlets": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Antique Greaves": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Antique Rapier": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Apex Cleaver": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Apex Rapier": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Apothecary's Gloves": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Apprentice Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Arcane Vestment": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Arcanist Gloves": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Arcanist Slippers": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Archdemon Crown": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Archon Kite Shield": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Arena Plate": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Arming Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Artillery Quiver": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Assassin Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Assassin's Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Assassin's Garb": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Assassin's Mitts": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Assembler Wand": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Astral Leather": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Astral Plate": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Astrolabe Amulet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Atonement Mask": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Auric Mace": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Aventail Helmet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Awl": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Banishing Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Barbed Club": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Barbute Helmet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Baroque Round Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Baselard": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Basemetal Treads": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Basket Rapier": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Bastard Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Battered Foil": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Battered Helm": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Battery Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Battle Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Battle Hammer": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Battle Lamellar": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Battle Plate": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Battle Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Behemoth Mace": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Bladed Mace": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Blasting Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Blasting Wand": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Blazing Arrow Quiver": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Blinder": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Blizzard Crown": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Blood Raiment": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Blood Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Blue Pearl Amulet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Blunt Arrow Quiver": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Blunt Force Condenser": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Boarding Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Bone Armour": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Bone Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Bone Circlet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Bone Helmet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Bone Ring": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Bone Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Boom Mace": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Boot Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Boot Knife": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Branded Kite Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Brass Maul": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Brass Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Brimstone Treads": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Broad Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Broad Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Broadhead Arrow Quiver": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Bronze Gauntlets": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Bronze Plate": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Bronze Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Bronze Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Bronzescale Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Bronzescale Gauntlets": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Buckskin Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Buckskin Tunic": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Burnished Foil": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Burnished Spiked Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Butcher Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Butcher Knife": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Butcher Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Cabalist Regalia": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Calling Wand": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Callous Mask": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Capacity Rod": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Capricious Spiritblade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Cardinal Round Shield": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Carnal Armour": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Carnal Boots": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Carnal Mitts": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Carnal Sceptre": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Carving Knife": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Cat's Paw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Cedar Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ceremonial Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ceremonial Kite Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ceremonial Mace": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Cerulean Ring": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Chain Belt": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Chain Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Chain Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Chain Hauberk": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Chainmail Doublet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Chainmail Tunic": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Chainmail Vest": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Champion Kite Shield": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Chest Splitter": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Chestplate": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Chimerascale Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Chimerascale Gauntlets": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Chiming Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Citadel Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Citrine Amulet": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Clasped Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Clasped Mitts": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Cleaver": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Close Helmet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Cloth Belt": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Cloudwhisper Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Cogwork Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Coiled Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Coiled Wand": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Cold-attuned Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Colossal Tower Shield": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Colosseum Plate": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Colossus Mallet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Commander's Brigandine": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Composite Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Composite Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Compound Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Compound Spiked Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Cone Helmet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Congregator Wand": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Conjurer Boots": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Conjurer Gloves": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Conjurer's Vestment": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Conqueror's Helmet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Conquest Chainmail": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Conquest Helmet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Conquest Lamellar": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Convening Wand": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Convoking Wand": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Copper Kris": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Copper Plate": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Copper Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Copper Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Coral Amulet": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Coral Ring": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Coronal Leather": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Coronal Maul": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Corroded Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Corroded Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Corrugated Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Corsair Sword": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Courtesan Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Crack Mace": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Crescent Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Crested Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Crimson Raiment": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Crimson Round Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Crude Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Crusader Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Crusader Buckler": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Crusader Chainmail": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Crusader Gloves": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Crusader Helmet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Crusader Plate": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Crushing Force Magnifier": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Cryonic Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Crypt Armour": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Crystal Belt": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Crystal Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Crystal Wand": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Curved Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Cutlass": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Cutthroat's Garb": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Dagger Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Dancing Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Darksteel Treads": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Darkwood Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Death Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Decimation Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Decorative Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Decurve Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Deerskin Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Deerskin Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Deicide Mask": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Demon Crown": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Demon Dagger": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Demon's Horn": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Desert Brigandine": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Despot Axe": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Destiny Leather": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Destroyer Regalia": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Devout Chainmail": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Diamond Ring": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Dire Pelt": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Disapprobation Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Divine Crown": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Double Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Double Claw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Dragon Mace": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Dragonbone Rapier": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Dragonscale Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Dragonscale Doublet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Dragonscale Gauntlets": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Dragoon Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Dread Maul": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Dream Mace": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Dreamquest Slippers": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Driftwood Club": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Driftwood Maul": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Driftwood Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Driftwood Spiked Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Driftwood Wand": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Dusk Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Dusk Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Duskwalk Slippers": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Eagle Claw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ebony Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Eclipse Staff": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Eelskin Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Eelskin Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Eelskin Tunic": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Elder Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Elegant Foil": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Elegant Ringmail": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Elegant Round Shield": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Elegant Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Embroidered Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Enameled Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Endothermic Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Engraved Greatsword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Engraved Hatchet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Enthalpic Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Estoc": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Etched Greatsword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Etched Hatchet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Etched Kite Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Eternal Burgonet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Eternal Sword": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Eventuality Rod": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Exhausting Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Exothermic Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Exquisite Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Exquisite Leather": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Eye Gouger": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ezomyte Axe": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Ezomyte Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ezomyte Burgonet": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Ezomyte Dagger": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ezomyte Spiked Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ezomyte Staff": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Ezomyte Tower Shield": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Faithful Helmet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Fancy Foil": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Faun's Horn": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Feathered Arrow Quiver": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Fencer Helm": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Festival Mask": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Fickle Spiritblade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Field Lamellar": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Fiend Dagger": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Fingerless Silk Gloves": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Fir Round Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Fire Arrow Quiver": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Fishscale Gauntlets": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Flanged Mace": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Flare Mace": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Flashfire Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Flaying Knife": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Fleshripper": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Flickerflame Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Fluted Bascinet": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Focused Amulet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Footman Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Formless Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Fossilised Spirit Shield": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Foul Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Foundry Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Fright Claw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Fright Maul": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Frontier Leather": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Fugitive Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Fugitive Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Full Chainmail": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Full Dragonscale": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Full Leather": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Full Plate": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Full Ringmail": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Full Scale Armour": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Full Wyrmscale": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Full Wyvernscale": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Gale Crown": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Gavel": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Gemini Claw": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Gemstone Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "General's Brigandine": [
+      "Tier 4 Rare Equipment"
+    ],
+    "General's Helmet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Geodesic Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ghostflame Blade": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Giantslayer Helmet": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Gilded Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Gilded Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Gilded Sallet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Girded Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Gladiator Helmet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Gladiator Plate": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Gladius": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Glass Shank": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Gloam Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Glorious Leather": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Glorious Plate": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Gnarled Branch": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Goat's Horn": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Goathide Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Goathide Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Goathide Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Gold Amulet": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Gold Ring": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Golden Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Golden Kris": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Golden Mask": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Golden Plate": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Goliath Gauntlets": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Goliath Greaves": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Gouger": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Graceful Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Grand Ringmail": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Grappler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Great Crown": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Great Helmet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Great Mallet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Great White Claw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Grinning Fetish": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Gripped Gloves": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Grizzly Pelt": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Grove Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Guarding Gauntlets": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Gut Ripper": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Gutting Knife": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Hammered Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Harbinger Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Harlequin Mask": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Harmonic Spirit Shield": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Harpy Rapier": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Harpyskin Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Harpyskin Gloves": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Haunted Bascinet": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Headman's Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Headsman Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Heat-attuned Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Heathen Wand": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Heavy Arrow Quiver": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Heavy Belt": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Hedron Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Helical Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Hellion's Paw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Highborn Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Highborn Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Highland Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Hollowpoint Dagger": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Holy Chainmail": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Honed Cleaver": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Hook Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Horned Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Hubris Circlet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Hunter Hood": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Hussar Brigandine": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Hydrascale Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Hydrascale Gauntlets": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Imp Crown": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Imp Dagger": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Impact Force Propagator": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Imperfect Dancing Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Imperial Bow": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Imperial Buckler": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Imperial Claw": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Imperial Maul": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Imperial Skean": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Imperial Staff": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Infantry Brigandine": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Infernal Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Infernal Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Infernal Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Infiltrator Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Infiltrator Mitts": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Iolite Ring": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Iron Circlet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Iron Gauntlets": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Iron Greaves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Iron Hat": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Iron Mask": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Iron Ring": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Iron Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Iron Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ironscale Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ironscale Gauntlets": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ironwood Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ivory Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ivory Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Jade Amulet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Jade Chopper": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Jade Hatchet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Jagged Foil": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Jagged Maul": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Jasper Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Jasper Chopper": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Jester Mask": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Jewelled Foil": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Jingling Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Judgement Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Karui Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Karui Chopper": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Karui Maul": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Karui Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Kinetic Wand": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Knight Helm": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Labrys": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Lacewood Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Lacquered Buckler": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Lacquered Garb": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Lacquered Helmet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Laminated Kite Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Lapis Amulet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Lathi": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Latticed Ringmail": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Layered Kite Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Lead Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Leather Belt": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Leather Cap": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Leather Hood": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Leatherscale Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Legion Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Legion Gloves": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Legion Hammer": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Legion Plate": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Legion Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Leviathan Gauntlets": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Leviathan Greaves": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Leyline Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Lich's Circlet": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Light Brigandine": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Linden Kite Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Lion Pelt": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Lion Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Lithe Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Long Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Long Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Longsword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Lordly Plate": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Loricated Ringmail": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Lunaris Circlet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Maelström Staff": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Mage's Vestment": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Magistrate Crown": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Magmatic Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Mahogany Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Majestic Pelt": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Majestic Plate": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Maligaro's Spike": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Malign Fangs": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Mallet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Maltreatment Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Manifold Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Maple Round Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Maraketh Bow": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Marble Amulet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Marshall's Brigandine": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Martyr Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Martyr Gloves": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Meatgrinder": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Mechalarm Belt": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Mechanical Belt": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Mesh Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Mesh Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Micro-Distillery Belt": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Midnight Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Military Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Mind Cage": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Mirrored Spiked Shield": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Moon Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Moonlit Circlet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Moonstone Ring": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Morning Star": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Mosaic Kite Shield": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Murder Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Murder Mitts": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Nailed Fist": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Nameless Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Necromancer Circlet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Necromancer Silks": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Necrotic Armour": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Nexus Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Nightmare Bascinet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Nightmare Mace": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Nightweave Robe": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Nightwind Slippers": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Noble Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Noble Claw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Noble Tricorne": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Nubuck Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Nubuck Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Oak Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Occultist's Vestment": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ochre Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Oiled Coat": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Oiled Vest": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Omen Wand": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Onyx Amulet": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Opal Ring": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Opal Sceptre": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Opal Wand": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Organic Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ornate Mace": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ornate Ringmail": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ornate Spiked Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ornate Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Oscillating Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Padded Jacket": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Padded Vest": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Pagan Wand": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Painted Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Painted Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Paladin Boots": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Paladin Crown": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Paladin Gloves": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Paladin's Hauberk": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Paua Amulet": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Paua Ring": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Pearlescent Amulet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Penetrating Arrow Quiver": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Penitent Mask": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Penumbra Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Perfect Dancing Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Pernach": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Petrified Club": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Phantom Boots": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Phantom Mace": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Phantom Mitts": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Pig-Faced Bascinet": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Piledriver": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Pine Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Pinnacle Tower Shield": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Plague Mask": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Plank Kite Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Plate Vest": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Plated Gauntlets": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Plated Greaves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Plated Maul": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Platinum Kris": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Platinum Sceptre": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Pneumatic Dagger": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Poignard": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Polar Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Poleaxe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Polished Spiked Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Potentiality Rod": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Praetor Crown": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Precursor Gauntlets": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Precursor Greaves": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Prehistoric Claw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Preserving Gauntlets": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Pressurised Dagger": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Primal Arrow Quiver": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Prime Cleaver": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Primeval Rapier": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Primitive Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Primordial Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Prismatic Ring": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Profane Wand": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Prong Dagger": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Prophecy Wand": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Prophet Crown": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Psychotic Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Quarterstaff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Quartz Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Quartz Wand": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Quilted Jacket": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ranger Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ratcheting Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Raven Mask": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Rawhide Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Rawhide Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Rawhide Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Reaver Axe": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Reaver Helmet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Reaver Sword": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Rebuking Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Reciprocation Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Recurve Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Redwood Spiked Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Reflex Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Regicide Mask": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Reinforced Greaves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Reinforced Kite Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Reinforced Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ringmail Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ringmail Coat": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ringmail Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ritual Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Riveted Boots": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Riveted Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Rock Breaker": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Rotted Round Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Royal Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Royal Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Royal Burgonet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Royal Plate": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Royal Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Royal Skean": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Royal Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Ruby Ring": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Runic Crest": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Runic Crown": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Runic Gages": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Runic Gauntlets": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Runic Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Runic Greaves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Runic Hatchet": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Runic Helm": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Runic Sabatons": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Runic Sollerets": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Rusted Coif": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Rusted Hatchet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Rusted Spike": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Rusted Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Rustic Sash": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Sabre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sacred Chainmail": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Sacrificial Garb": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sadist Garb": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Sage Gloves": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Sage Slippers": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Sage Wand": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sage's Robe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sai": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Saint's Hauberk": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Saintly Chainmail": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Sallet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sambar Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Samite Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Samite Slippers": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Samnite Helmet": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Sanguine Raiment": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Sapphire Ring": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Satin Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Satin Slippers": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Savant's Robe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Scale Doublet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Scale Vest": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Scare Mask": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Scarlet Raiment": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Scarlet Round Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Scholar Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Scholar's Robe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Seaglass Amulet": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Secutor Helm": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sekhem": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sentinel Jacket": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Serpentine Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Serpentscale Boots": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Serpentscale Gauntlets": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Serrated Arrow Quiver": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Serrated Foil": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Shabby Jerkin": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Shackled Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Shadow Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Shadow Fangs": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Shadow Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Shadowed Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Shagreen Boots": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Shagreen Gloves": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Shagreen Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sharkskin Boots": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Sharkskin Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sharkskin Tunic": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sharktooth Arrow Quiver": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sharktooth Claw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Short Bow": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Siege Axe": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Siege Helmet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Silk Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Silk Robe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Silk Slippers": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Silken Garb": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Silken Hood": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Silken Vest": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Silken Wrap": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Simple Robe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Simplex Amulet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sinner Tricorne": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Skean": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Skinning Knife": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Slaughter Knife": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sledgehammer": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sleek Coat": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Slink Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Slink Gloves": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Smallsword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sniper Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Solar Maul": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Solarine Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Solaris Circlet": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Soldier Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Soldier Gloves": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Soldier Helmet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Soldier's Brigandine": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Somatic Wand": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sorcerer Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Sorcerer Gloves": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Sorrow Mask": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sovereign Spiked Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sparkling Claw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Spectral Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Spectral Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Spidersilk Robe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Spike-Point Arrow Quiver": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Spiked Bundle": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Spiked Club": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Spiked Gloves": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Spiked Round Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Spine Bow": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Spiny Maul": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Spiny Round Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Spiraled Foil": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Spiraled Wand": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Splendid Round Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Splintered Tower Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Stabilising Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Stag Sceptre": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Stealth Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Stealth Gloves": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Steel Circlet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Steel Gauntlets": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Steel Greaves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Steel Kite Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Steel Ring": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Steelhead": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Steelscale Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Steelscale Gauntlets": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Steelwood Bow": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Stiletto": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Stone Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Stone Hammer": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Stormrider Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Strapped Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Strapped Leather": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Strapped Mitts": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Studded Belt": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Studded Round Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Stygian Vise": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Subsuming Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sun Leather": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sun Plate": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sundering Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Sunfire Circlet": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Supreme Leather": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Supreme Spiked Shield": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Synaptic Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Syndicate's Garb": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Talon Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Tarnished Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Teak Round Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Tempered Foil": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Tenderizer": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Tenebrous Ring": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Terror Claw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Terror Maul": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Thicket Bow": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Thief's Garb": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Thorium Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Thorn Rapier": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Thresher Claw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Throat Stabber": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Thwarting Gauntlets": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Tiger Hook": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Tiger Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Tiger's Paw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Timber Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Timeworn Claw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Tinker Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Titan Gauntlets": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Titan Greaves": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Titan Plate": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Titanium Spirit Shield": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Tomahawk": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Topaz Ring": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Tornado Wand": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Torture Cage": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Torturer Garb": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Torturer's Mask": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Totemic Maul": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Transfer-attuned Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Transformer Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Trapper Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Trapper Mitts": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Trapsetter Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Tribal Circlet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Tribal Club": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Tribal Maul": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Tricorne": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Trisula": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Triumphant Lamellar": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Turquoise Amulet": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Twig Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Twilight Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Twilight Regalia": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Twin Claw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Two-Handed Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Two-Point Arrow Quiver": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Two-Stone Ring": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Two-Toned Boots": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Tyrant's Sekhem": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Unset Ring": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Ursine Pelt": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Vaal Axe": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Vaal Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Vaal Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Vaal Claw": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Vaal Gauntlets": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Vaal Greatsword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Vaal Greaves": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Vaal Hatchet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Vaal Mask": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Vaal Rapier": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Vaal Regalia": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Vaal Sceptre": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Vaal Spirit Shield": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Vanguard Belt": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Variscite Blade": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Varnished Coat": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Velour Boots": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Velour Gloves": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Velvet Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Velvet Slippers": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Vermillion Ring": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Vile Arrow Quiver": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Vile Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Vine Circlet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Visored Sallet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Void Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Void Fangs": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Void Sceptre": [
+      "Tier 2 Rare Equipment"
+    ],
+    "Walnut Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "War Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "War Buckler": [
+      "Tier 4 Rare Equipment"
+    ],
+    "War Hammer": [
+      "Tier 4 Rare Equipment"
+    ],
+    "War Plate": [
+      "Tier 4 Rare Equipment"
+    ],
+    "War Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Warlock Boots": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Warlock Gloves": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Waxed Garb": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Whalebone Rapier": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Widowsilk Robe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Wild Leather": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Windbreak Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Winter Crown": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Wolf Pelt": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Woodful Staff": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Woodsplitter": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Wool Gloves": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Wool Shoes": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Wraith Axe": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Wraith Sword": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Wrapped Boots": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Wrapped Mitts": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Wrist Chopper": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Wyrm Mace": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Wyrmbone Rapier": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Wyrmscale Boots": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Wyrmscale Doublet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Wyrmscale Gauntlets": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Wyvernscale Boots": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Wyvernscale Gauntlets": [
+      "Tier 1 Rare Equipment"
+    ],
+    "Yew Spirit Shield": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Zealot Boots": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Zealot Gloves": [
+      "Tier 3 Rare Equipment"
+    ],
+    "Zealot Helmet": [
+      "Tier 4 Rare Equipment"
+    ],
+    "Zodiac Leather": [
+      "Tier 3 Rare Equipment"
+    ]
+  },
+  "rules": [
+    {
+      "targets": [
+        "Vaal Regalia"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Body Armours] Vaal Regalia i86"
+    },
+    {
+      "targets": [
+        "Astral Plate"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Body Armours] Astral Plate i86"
+    },
+    {
+      "targets": [
+        "Zodiac Leather"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Body Armours] Zodiac Leather i86"
+    },
+    {
+      "targets": [
+        "Sorcerer Boots",
+        "Slink Boots",
+        "Titan Greaves",
+        "Two-Toned Boots",
+        "Fugitive Boots"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Boots] i86 Top Boots"
+    },
+    {
+      "targets": [
+        "Sorcerer Boots",
+        "Slink Boots",
+        "Titan Greaves",
+        "Two-Toned Boots",
+        "Fugitive Boots"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/精品装备.mp3",
+          300
+        ]
+      },
+      "comment": "[Boots] i84 Top Boots"
+    },
+    {
+      "targets": [
+        "Fingerless Silk Gloves",
+        "Gripped Gloves",
+        "Spiked Gloves",
+        "Apothecary's Gloves"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Gloves] i86 Top Gloves"
+    },
+    {
+      "targets": [
+        "Fingerless Silk Gloves",
+        "Gripped Gloves",
+        "Spiked Gloves",
+        "Apothecary's Gloves"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/精品装备.mp3",
+          300
+        ]
+      },
+      "comment": "[Gloves] i84 Top Gloves"
+    },
+    {
+      "targets": [
+        "Hubris Circlet",
+        "Lion Pelt",
+        "Royal Burgonet",
+        "Bone Helmet"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Helmets] i86 Top Helmets"
+    },
+    {
+      "targets": [
+        "Hubris Circlet",
+        "Lion Pelt",
+        "Royal Burgonet",
+        "Bone Helmet"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/精品装备.mp3",
+          300
+        ]
+      },
+      "comment": "[Helmets] i84 Top Helmets"
+    },
+    {
+      "targets": [
+        "Broadhead Arrow Quiver",
+        "Spike-Point Arrow Quiver",
+        "Penetrating Arrow Quiver"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Quivers] i86 Top Quivers"
+    },
+    {
+      "targets": [
+        "Broadhead Arrow Quiver",
+        "Spike-Point Arrow Quiver",
+        "Penetrating Arrow Quiver"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/精品装备.mp3",
+          300
+        ]
+      },
+      "comment": "[Quivers] i84 Top Quivers"
+    },
+    {
+      "targets": [
+        "Titanium Spirit Shield",
+        "Archon Kite Shield"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Shields] i86 Top Shields"
+    },
+    {
+      "targets": [
+        "Titanium Spirit Shield",
+        "Archon Kite Shield"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/精品装备.mp3",
+          300
+        ]
+      },
+      "comment": "[Shields] i84 Top Shields"
+    },
+    {
+      "targets": [
+        "Spine Bow",
+        "Thicket Bow",
+        "Imperial Bow"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Bows] i86 Top Bows"
+    },
+    {
+      "targets": [
+        "Spine Bow",
+        "Thicket Bow",
+        "Imperial Bow"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/精品装备.mp3",
+          300
+        ]
+      },
+      "comment": "[Bows] i84 Top Bows"
+    },
+    {
+      "targets": [
+        "Imperial Claw",
+        "Gemini Claw",
+        "Great White Claw"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Claws] i86 Top Claws"
+    },
+    {
+      "targets": [
+        "Imperial Claw",
+        "Gemini Claw",
+        "Great White Claw"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/精品装备.mp3",
+          300
+        ]
+      },
+      "comment": "[Claws] i84 Top Claws"
+    },
+    {
+      "targets": [
+        "Ambusher",
+        "Imperial Skean",
+        "Demon Dagger"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Daggers] i86 Top Daggers"
+    },
+    {
+      "targets": [
+        "Ambusher",
+        "Imperial Skean",
+        "Demon Dagger"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/精品装备.mp3",
+          300
+        ]
+      },
+      "comment": "[Daggers] i84 Top Daggers"
+    },
+    {
+      "targets": [
+        "Siege Axe",
+        "Reaver Axe",
+        "Runic Hatchet"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 83",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[One Hand Axes] i83 Top Axes"
+    },
+    {
+      "targets": [
+        "Behemoth Mace",
+        "Nightmare Mace"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 83",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[One Hand Maces] i83 Top Maces"
+    },
+    {
+      "targets": [
+        "Jewelled Foil",
+        "Corsair Sword",
+        "Eternal Sword"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 83",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[One Hand Swords] i83 Top Swords"
+    },
+    {
+      "targets": [
+        "Golden Kris",
+        "Platinum Kris",
+        "Ezomyte Dagger"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Rune Daggers] i86 Top Rune Daggers"
+    },
+    {
+      "targets": [
+        "Void Sceptre",
+        "Sambar Sceptre"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 83",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Sceptres] i83 Top Sceptres"
+    },
+    {
+      "targets": [
+        "Imperial Staff",
+        "Eclipse Staff"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 83",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Staves] i83 Top Staves"
+    },
+    {
+      "targets": [
+        "Despot Axe",
+        "Vaal Axe",
+        "Fleshripper"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 83",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Two Hand Axes] i83 Top 2H Axes"
+    },
+    {
+      "targets": [
+        "Coronal Maul",
+        "Meatgrinder"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 83",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Two Hand Maces] i83 Top 2H Maces"
+    },
+    {
+      "targets": [
+        "Exquisite Blade"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 83",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Two Hand Swords] i83 Top 2H Swords"
+    },
+    {
+      "targets": [
+        "Opal Wand",
+        "Profane Wand",
+        "Convoking Wand"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 83",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Wands] i83 Top Wands"
+    },
+    {
+      "targets": [
+        "Judgement Staff",
+        "Ezomyte Staff"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 83",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Warstaves] i83 Top Warstaves"
+    },
+    {
+      "targets": [
+        "Blue Pearl Amulet",
+        "Marble Amulet",
+        "Seaglass Amulet"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Amulets] i86 Top Amulets"
+    },
+    {
+      "targets": [
+        "Blue Pearl Amulet",
+        "Marble Amulet",
+        "Seaglass Amulet"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/精品装备.mp3",
+          300
+        ]
+      },
+      "comment": "[Amulets] i84 Top Amulets"
+    },
+    {
+      "targets": [
+        "Stygian Vise",
+        "Crystal Belt"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Belts] i86 Top Belts"
+    },
+    {
+      "targets": [
+        "Stygian Vise",
+        "Crystal Belt"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/精品装备.mp3",
+          300
+        ]
+      },
+      "comment": "[Belts] i84 Top Belts"
+    },
+    {
+      "targets": [
+        "Opal Ring",
+        "Steel Ring",
+        "Vermillion Ring",
+        "Iolite Ring",
+        "Cerulean Ring"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
+      },
+      "comment": "[Rings] i86 Top Rings"
+    },
+    {
+      "targets": [
+        "Opal Ring",
+        "Steel Ring",
+        "Vermillion Ring",
+        "Iolite Ring",
+        "Cerulean Ring"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 84",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 1 Rare Equipment",
+        "PlayAlertSound": [
+          "Sharket掉落音效/精品装备.mp3",
+          300
+        ]
+      },
+      "comment": "[Rings] i84 Top Rings"
+    }
+  ]
+}
