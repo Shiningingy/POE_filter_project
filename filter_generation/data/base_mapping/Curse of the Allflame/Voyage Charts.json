@@ -15,10 +15,10 @@
     }
   },
   "mapping": {
-    "Sandy Seabed Chart": "Voyage Charts T0",
-    "Coral Forest Chart": "Voyage Charts T0",
-    "Coral Reef Chart": "Voyage Charts T0",
-    "Thermal Vents Chart": "Voyage Charts T0"
+    "Sandy Seabed Chart": "Voyage Charts",
+    "Coral Forest Chart": "Voyage Charts",
+    "Coral Reef Chart": "Voyage Charts",
+    "Thermal Vents Chart": "Voyage Charts"
   },
   "rules": []
 }

@@ -144,17 +144,17 @@
     "match_modes": {}
   },
   "mapping": {
-    "Bane of the Loyal": "Tier 1 Misc",
-    "Cogs of Disruption": "Tier 1 Misc",
-    "Cube Of Absorption": "Tier 1 Misc",
-    "Portal Shredder": "Tier 1 Misc",
-    "Rod of Detonation": "Tier 1 Misc",
-    "Sand of Eternity": "Tier 1 Misc",
-    "Silver Key": "Tier 1 Misc",
-    "Heart of the Gargoyle": "Tier 1 Misc",
-    "Orb of Elemental Dispersion": "Tier 1 Misc",
-    "Golden Key": "Tier 1 Misc",
-    "Treasure Key": "Tier 1 Misc"
+    "Bane of the Loyal": "Misc",
+    "Cogs of Disruption": "Misc",
+    "Cube Of Absorption": "Misc",
+    "Portal Shredder": "Misc",
+    "Rod of Detonation": "Misc",
+    "Sand of Eternity": "Misc",
+    "Silver Key": "Misc",
+    "Heart of the Gargoyle": "Misc",
+    "Orb of Elemental Dispersion": "Misc",
+    "Golden Key": "Misc",
+    "Treasure Key": "Misc"
   },
   "rules": [
     {
@@ -164,7 +164,7 @@
         "BaseType": "\"Contract\""
       },
       "overrides": {
-        "Tier": "Tier 1 Misc",
+        "Tier": "Misc",
         "PlayAlertSound": [
           "Sharket掉落音效/主线契约.mp3",
           300
@@ -185,7 +185,7 @@
       ],
       "conditions": {},
       "overrides": {
-        "Tier": "Tier 1 Misc",
+        "Tier": "Misc",
         "PlayAlertSound": [
           "Sharket掉落音效/迷宫饰品.mp3",
           300
@@ -202,7 +202,7 @@
       ],
       "conditions": {},
       "overrides": {
-        "Tier": "Tier 1 Misc",
+        "Tier": "Misc",
         "PlayAlertSound": [
           "Sharket掉落音效/虚空石.mp3",
           300
@@ -216,7 +216,7 @@
         "Class": "\"Quest Items\""
       },
       "overrides": {
-        "Tier": "Tier 1 Misc"
+        "Tier": "Misc"
       },
       "comment": "其他任务物品"
     }

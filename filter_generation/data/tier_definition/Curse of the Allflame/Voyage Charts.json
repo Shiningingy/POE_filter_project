@@ -7,11 +7,11 @@
         "ch": "海图"
       },
       "tier_order": [
-        "Voyage Charts T0",
+        "Voyage Charts",
         "Voyage Charts Hide"
       ]
     },
-    "Voyage Charts T0": {
+    "Voyage Charts": {
       "theme": {
         "Tier": 2
       },

@@ -7,7 +7,7 @@
         "ch": "雾魇宝珠"
       },
       "tier_order": [
-        "Tier 0 Delirium Orbs",
+        "Delirium Orbs",
         "Tier Hide Delirium Orbs"
       ]
     },
@@ -26,7 +26,7 @@
         "ch": "隐藏"
       }
     },
-    "Tier 0 Delirium Orbs": {
+    "Delirium Orbs": {
       "hideable": false,
       "show_in_editor": false,
       "theme": {

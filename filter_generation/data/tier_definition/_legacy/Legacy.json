@@ -7,11 +7,11 @@
         "ch": "历史物品"
       },
       "tier_order": [
-        "Tier 1 Legacy",
+        "Legacy",
         "Tier Hide Legacy"
       ]
     },
-    "Tier 1 Legacy": {
+    "Legacy": {
       "hideable": false,
       "theme": {
         "Tier": 5

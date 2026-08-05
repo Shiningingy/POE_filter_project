@@ -7,11 +7,11 @@
         "ch": "祭礼束衣"
       },
       "tier_order": [
-        "Sacrificial Garbs T1",
+        "Sacrificial Garbs",
         "Sacrificial Garbs Hide"
       ]
     },
-    "Sacrificial Garbs T1": {
+    "Sacrificial Garbs": {
       "hideable": true,
       "theme": {
         "Tier": 2

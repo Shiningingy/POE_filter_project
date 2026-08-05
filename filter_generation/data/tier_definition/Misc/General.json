@@ -7,10 +7,10 @@
         "ch": "其他杂项"
       },
       "tier_order": [
-        "Tier 1 Misc"
+        "Misc"
       ]
     },
-    "Tier 1 Misc": {
+    "Misc": {
       "hideable": false,
       "theme": {
         "Tier": 2

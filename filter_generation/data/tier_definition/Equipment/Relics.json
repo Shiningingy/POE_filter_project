@@ -7,11 +7,11 @@
         "ch": "遗物"
       },
       "tier_order": [
-        "Relics T1",
+        "Relics",
         "Relics Hide"
       ]
     },
-    "Relics T1": {
+    "Relics": {
       "hideable": false,
       "theme": {
         "Tier": 2

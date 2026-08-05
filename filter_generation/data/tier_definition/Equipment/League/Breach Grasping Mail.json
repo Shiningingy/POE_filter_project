@@ -7,11 +7,11 @@
         "ch": "扼杀链甲"
       },
       "tier_order": [
-        "Breach Grasping Mail T1",
+        "Breach Grasping Mail",
         "Breach Grasping Mail Hide"
       ]
     },
-    "Breach Grasping Mail T1": {
+    "Breach Grasping Mail": {
       "hideable": true,
       "theme": {
         "Tier": 2

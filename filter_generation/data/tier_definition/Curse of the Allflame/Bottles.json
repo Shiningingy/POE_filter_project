@@ -7,11 +7,11 @@
         "ch": "瓶中信"
       },
       "tier_order": [
-        "Bottles T0",
+        "Bottles",
         "Bottles Hide"
       ]
     },
-    "Bottles T0": {
+    "Bottles": {
       "hideable": false,
       "theme": {
         "Tier": 2

@@ -7,11 +7,11 @@
         "ch": "赏金猎人目标"
       },
       "tier_order": [
-        "Heist Target T1",
+        "Heist Target",
         "Heist Target Hide"
       ]
     },
-    "Heist Target T1": {
+    "Heist Target": {
       "hideable": false,
       "class_condition": true,
       "conditions": {

@@ -7,11 +7,11 @@
         "ch": "魔镜戒指底材"
       },
       "tier_order": [
-        "Mirror of Kalandra Ring Bases T1",
+        "Mirror of Kalandra Ring Bases",
         "Mirror of Kalandra Ring Bases Hide"
       ]
     },
-    "Mirror of Kalandra Ring Bases T1": {
+    "Mirror of Kalandra Ring Bases": {
       "hideable": true,
       "theme": {
         "Tier": 2

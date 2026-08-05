@@ -7,11 +7,11 @@
         "ch": "佣兵委托令"
       },
       "tier_order": [
-        "Mercenary Warrants T0",
+        "Mercenary Warrants",
         "Mercenary Warrants Hide"
       ]
     },
-    "Mercenary Warrants T0": {
+    "Mercenary Warrants": {
       "theme": {
         "Tier": 2
       },
