@@ -54,7 +54,7 @@ interface BulkTierEditorProps {
 
 const ARMOUR_CLASSES = ["Body Armours", "Gloves", "Boots", "Helmets", "Shields"];
 
-const SortableItem = ({ id, item, color, isStaged, language, onContextMenu, disabled, selectable, selected, onToggleSelect }: { id: string, item: Item, color: string, isStaged: boolean, language: Language, onContextMenu: (e: React.MouseEvent) => void, disabled?: boolean, selectable?: boolean, selected?: boolean, onToggleSelect?: () => void }) => {
+const SortableItem = ({ id, item, color, isStaged, language, onContextMenu, disabled, selectable, selected, onToggleSelect, onPaint }: { id: string, item: Item, color: string, isStaged: boolean, language: Language, onContextMenu: (e: React.MouseEvent) => void, disabled?: boolean, selectable?: boolean, selected?: boolean, onToggleSelect?: () => void, onPaint?: () => void }) => {
   const {
     attributes,
     listeners,
@@ -70,6 +70,30 @@ const SortableItem = ({ id, item, color, isStaged, language, onContextMenu, disa
     opacity: isDragging ? 0.5 : 1,
     cursor: disabled ? 'default' : undefined
   };
+
+  // With a brush picked, a click PAINTS instead of dragging. Ranking 24 weapon bases is
+  // 24 clicks that way versus 24 drags across a scrolling column, which is the whole reason
+  // this mode exists. dnd-kit's listeners are suppressed so the click is not eaten by a drag.
+  if (onPaint) {
+    return (
+      <div
+        ref={setNodeRef}
+        style={{ ...style, cursor: 'copy' }}
+        {...attributes}
+        className="sortable-wrap painting"
+        onClick={(e) => { e.stopPropagation(); onPaint(); }}
+      >
+        <ItemCard
+          item={item}
+          language={language}
+          color={color}
+          isStaged={isStaged}
+          onContextMenu={onContextMenu}
+          className={`${disabled ? 'locked' : ''}`}
+        />
+      </div>
+    );
+  }
 
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...(disabled ? {} : listeners)} className="sortable-wrap">
@@ -161,6 +185,8 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   // Multi-select for bulk actions. Keyed by item NAME, so an item shown in two
   // tier columns is one selection, not two.
   const [selected, setSelected] = useState<Set<string>>(new Set());
+  // Null = normal drag-and-drop. A tier key (or 'untiered') = click-to-paint.
+  const [brushTier, setBrushTier] = useState<string | null>(null);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: Item, tierKey: string } | null>(null);
   const [selectedSubType, setSelectedSubType] = useState('All');
@@ -580,6 +606,31 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
       }
   };
 
+  /* Paint one item into the brushed tier.
+   *
+   * ⚠️ Replaces membership WITHIN THIS LADDER ONLY. 551 of 607 equipment bases sit in more
+   * than one file - Magmatic Tower Shield is in both Shields.json and Heist Experimented.json,
+   * Vaal Greaves in Boots, Uniques AND the campaign progression - so blindly overwriting
+   * current_tier would silently drop a base out of its league or campaign ladder. Tiers that
+   * belong to other files are carried through untouched.
+   */
+  const applyBrush = (item: Item) => {
+    if (!brushTier) return;
+    const ladder = new Set(availableTiers.map(o => o.key));
+    const current = stagedChanges[item.name] ?? item.current_tier ?? [];
+    const kept = current.filter(t => !ladder.has(t));
+    const next = brushTier === 'untiered' ? kept : [...kept, brushTier];
+
+    const sortedNext = [...next].sort();
+    const sortedOrig = [...(item.current_tier || [])].sort();
+    setStagedChanges(prev => {
+      const out = { ...prev };
+      if (JSON.stringify(sortedNext) === JSON.stringify(sortedOrig)) delete out[item.name];
+      else out[item.name] = next;
+      return out;
+    });
+  };
+
   const getTierColor = (tierKey: string | null | any) => {
     if (!tierKey || typeof tierKey !== 'string') return 'white';
     const match = tierKey.match(/Tier (\d+)/);
@@ -641,13 +692,53 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
           </div>
         </div>
 
+        {/* Rank brush: pick a tier, then click bases. Drag-and-drop is fine for moving one
+            item; ranking a whole class is dozens of moves, and that is what this is for. */}
+        <div className="bulk-toolbar brush-bar">
+          <span className="label">{language === 'ch' ? "笔刷：" : "Brush:"}</span>
+          <button
+            className={`brush-swatch ${brushTier === null ? 'active' : ''}`}
+            onClick={() => setBrushTier(null)}
+            title={language === 'ch' ? "关闭笔刷，恢复拖拽" : "Brush off — drag and drop"}
+          >
+            {language === 'ch' ? "关闭" : "Off"}
+          </button>
+          {availableTiers
+            .filter(o => o.show_in_editor !== false && !o.is_hide_tier)
+            .map(o => (
+              <button
+                key={o.key}
+                className={`brush-swatch ${brushTier === o.key ? 'active' : ''}`}
+                style={{ background: getTierColor(o.key) }}
+                onClick={() => setBrushTier(brushTier === o.key ? null : o.key)}
+                title={o.key}
+              >
+                {o.label || o.key}
+              </button>
+            ))}
+          <button
+            className={`brush-swatch ${brushTier === 'untiered' ? 'active' : ''}`}
+            onClick={() => setBrushTier(brushTier === 'untiered' ? null : 'untiered')}
+            title={language === 'ch' ? "移出本类阶级" : "Remove from this ladder"}
+          >
+            {language === 'ch' ? "未分类" : "Untiered"}
+          </button>
+          {brushTier && (
+            <span className="brush-hint">
+              {language === 'ch'
+                ? "点击物品即可刷入该阶级（其他文件的归属会保留）"
+                : "Click items to paint. Memberships in other files are kept."}
+            </span>
+          )}
+        </div>
+
         <div className="bulk-toolbar">
           <div className="filter-options">
               <label className="checkbox-label">
-                  <input 
-                    type="checkbox" 
-                    checked={showAllClasses} 
-                    onChange={e => setShowAllClasses(e.target.checked)} 
+                  <input
+                    type="checkbox"
+                    checked={showAllClasses}
+                    onChange={e => setShowAllClasses(e.target.checked)}
                   />
                   {language === 'ch' ? "显示全物品类" : "Show All Classes"}
               </label>
@@ -731,6 +822,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                             language={language}
                             onContextMenu={(e) => handleItemRightClick(e, item, 'untiered')}
                             disabled={isItemLocked}
+                            onPaint={brushTier && !isItemLocked ? () => applyBrush(item) : undefined}
                         />
                     );
                 })}
@@ -771,9 +863,10 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                                                     language={language}
                                                     onContextMenu={(e) => handleItemRightClick(e, item, tier.key)}
                                                     disabled={isItemLocked}
-                                                    selectable={!isItemLocked}
+                                                    selectable={!isItemLocked && !brushTier}
                                                     selected={selected.has(item.name)}
                                                     onToggleSelect={() => toggleSelected(item.name)}
+                                                    onPaint={brushTier && !isItemLocked ? () => applyBrush(item) : undefined}
                                                 />
                                             );
                                         })}
@@ -855,6 +948,21 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         .close-btn:hover { color: #666; }
         
         .bulk-toolbar { padding: 10px 25px; background: white; display: flex; gap: 25px; align-items: center; border-bottom: 1px solid #ddd; }
+        /* Rank brush */
+        .brush-bar { gap: 8px; flex-wrap: wrap; background: #f7f8fa; }
+        .brush-swatch { border: 1px solid #c3c8d0; border-radius: 4px; padding: 4px 10px;
+                        font-size: 12px; cursor: pointer; background: #fff; color: #222;
+                        white-space: nowrap; }
+        .brush-swatch:hover { border-color: #7a8496; }
+        .brush-swatch.active { outline: 2px solid #2f6feb; outline-offset: 1px;
+                               border-color: #2f6feb; font-weight: 600; }
+        .brush-hint { font-size: 12px; color: #5b6472; margin-left: 4px; }
+        /* Painting mode: the whole card is one big click target, so make that obvious and
+           kill the drag affordance -- a half-started drag that turns into a click is the
+           thing that makes bulk work feel unreliable. */
+        .sortable-wrap.painting { user-select: none; }
+        .sortable-wrap.painting:hover { outline: 2px solid #2f6feb; outline-offset: -1px;
+                                        border-radius: 6px; }
         .search-box { flex-grow: 0; width: 300px; padding: 10px 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
         .apply-btn { padding: 10px 25px; background: #4CAF50; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: background 0.2s; }
         .apply-btn:hover { background: #43a047; }
