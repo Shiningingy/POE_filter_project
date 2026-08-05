@@ -37,10 +37,55 @@ That single mismatch explains everything found on 2026-08-05: the 10 hand-writte
 for 5 bases × 2 bands, ~90 hand-written ilvl rules across equipment, the silent `Tier 0`
 scaffolds, and `Body Armours` missing the 84 rung all 11 of its siblings have.
 
+### ★ CORRECTION 2026-08-05 — the rank is PER PURPOSE, not global
+
+An earlier draft of this doc (and my earlier reading) said "base → one global rank". **That is
+wrong**, confirmed by the author against FilterBlade's own UI and then measured:
+
+```
+exotic->fractured            436 bases
+crafting->qualityperfection  104 bases
+    in fractured but NOT crafting : 340
+    in crafting but NOT fractured :   8
+```
+
+Fractured is ~4x more permissive. FilterBlade's editor shows RANK A/B/C/D **per purpose page**,
+each with a checkbox toggling whether that rank is shown for that purpose — so a base can be
+rank A for fractured and unranked for crafting. Same base, different rank, different purpose.
+
+**This makes the import trivial: membership IS the rank.** No inference, no scoring. For each
+block in `FilterBlade.ruthlessfilter`, record `$type->` (the purpose), the `BaseType ==` list,
+and the block's conditions. That mapping is the whole dataset.
+
+Measured purpose sizes (Ruthless file, 3.29):
+
+```
+uniques 527 · gems->special 472 · divination 454 · exotic->fractured 436
+rare->exotic->veiled 364 · rr 323 · gems->generic 294 · gear->memorystrand 277
+influenced->all 185 · uniques->foulborn 175 · currency 136
+crafting->generalgear 132 · crafting->qualityperfection 104
+```
+
+Rank semantics, measured against the author's screenshot (ES body armours):
+
+| rank | reaches | meaning |
+|---|---|---|
+| **A** | the `crafting->*` blocks — the only rank that does | worth crafting on |
+| **B** | `influenced->all`, `rr`, veiled | worth picking up as a rare |
+| **C** | 6-link, memory-strand only | worth it for one mechanic |
+| **D** | uniques / fractured only; `Silk Robe` hits **zero** blocks | never shown as a base |
+
+**Author's decision (2026-08-05): copy their per-purpose ranks rather than invent our own.**
+
+---
+
 **Two decisions must be made before any code:**
 
-1. **Which purpose blocks do we want?** FilterBlade's ~12 are trade-shaped — `rareid` presumes
+1. **Which purpose blocks do we want?** FilterBlade's ~13 are trade-shaped — `rareid` presumes
    you identify rares to sell, which Ruthless has no economy for. This list IS the spec.
+   ⚠️ But note the author's read: *Ruthless is much closer to softcore than people assume*, and
+   the Ruthless file is MORE permissive than softcore on cluster jewels, not less. So do not
+   assume a purpose is irrelevant to Ruthless without checking their ruthless file first.
 2. **Where do thresholds come from?** Theirs is per-BASE, not per-class. Our measured
    per-category grouping is a starting approximation, not their data:
 
