@@ -8,6 +8,7 @@
       },
       "tier_order": [
         "Magic Good Jewellery",
+        "Magic Hide Endgame",
         "Magic Net",
         "Normal Net",
         "Tier Hide Magic Net"
@@ -30,6 +31,28 @@
       "localization": {
         "en": "Good magic jewellery / talismans",
         "ch": "优质魔法首饰/魔符"
+      }
+    },
+    "Magic Hide Endgame": {
+      "class_condition": true,
+      "hideable": true,
+      "is_hide_tier": true,
+      "conditions": {
+        "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+        "Rarity": "Magic",
+        "AreaLevel": ">= 72",
+        "Identified": "False"
+      },
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide unidentified magic gear (area 72+)",
+        "ch": "其余魔法装备 72+"
       }
     },
     "Magic Net": {

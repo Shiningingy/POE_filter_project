@@ -196,11 +196,33 @@ Today at 68+: `Normal Net` is already a hide tier; `Magic Net` (24 classes) and
    anyway, and a base worth crafting hits the crafting layer, which should be
    strictness-controlled rather than a general rule.
 
-⚠️ **Still open: the band boundary.** Author is deciding. Candidates discussed: show 68-74 /
-hide 75+ (mirrors the campaign's 34-67 step, one stage later); show 68-79 / hide 80+; hide
-from 68 outright; or a three-band fade (68-74 all, 75-82 jewellery only, 83+ none). Nothing
-else about this is blocked — constraints 3 and 4 already hold, so the work is a RANGE plus
-`Identified False` on one tier.
+### ✅ BUILT 2026-08-06 — boundary AreaLevel 72
+
+`Magic Hide Endgame` sits between `Magic Good Jewellery` and `Magic Net`:
+
+```
+Class == <24 equipment classes>
+Rarity Magic
+AreaLevel >= 72
+Identified False
+```
+
+Verified in the output at **soft** strictness, where no gate fires, which is the whole
+point — the band is progression-driven and strictness plays no part:
+
+| situation | outcome |
+|---|---|
+| area 68-71, magic trash | falls past the hide → shown by `Magic Net` |
+| area 72+, unidentified magic trash | hidden |
+| area 72+, **identified** magic | falls past → shown |
+| magic talisman / good jewellery, any level | claimed first by name → shown |
+
+The hide emits `Minimal` with NO style lines, per the Ruthless invariant that a styled
+`Minimal` still draws a label.
+
+⚠️ Area 72 is map tier **5** by the standard `area = 67 + tier` formula; tier 6 is area 73.
+The author wrote "below 72 (Tier 6)", and 72 was taken as the literal number. Change the
+one condition to `>= 73` if the intent was "from T6 onward".
 
 ⚠️ 41 of the 43 talismans are absent from `items_db.json` (post-dump 3.29 bases), so any
 class-derived reasoning about them is blind until that DB is refreshed.
