@@ -4,7 +4,7 @@
       "theme_category": "Rare Equipment",
       "localization": {
         "en": "Rare Equipment",
-        "ch": "常规装备"
+        "ch": "黄装"
       },
       "tier_order": [
         "Tier 1 Rare Equipment",
@@ -29,7 +29,7 @@
       },
       "localization": {
         "en": "T1: Top rare bases",
-        "ch": "T1: 顶级稀有底材"
+        "ch": "T1: 顶级黄装"
       },
       "hide_at_strictness": 5,
       "item_overrides": {
@@ -68,7 +68,7 @@
       },
       "localization": {
         "en": "T2: Good rare bases",
-        "ch": "T2: 优质稀有底材"
+        "ch": "T2: 优质黄装"
       },
       "hide_at_strictness": 3,
       "item_overrides": {
@@ -169,7 +169,7 @@
       },
       "localization": {
         "en": "T3: Usable rare bases",
-        "ch": "T3: 可用稀有底材"
+        "ch": "T3: 可用黄装"
       },
       "conditions": {
         "AreaLevel": ">= 68",
