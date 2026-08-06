@@ -3635,38 +3635,8 @@
   "rules": [
     {
       "targets": [
-        "Vaal Regalia"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 86",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Body Armours] Vaal Regalia i86"
-    },
-    {
-      "targets": [
-        "Astral Plate"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 86",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Body Armours] Astral Plate i86"
-    },
-    {
-      "targets": [
+        "Astral Plate",
+        "Vaal Regalia",
         "Zodiac Leather"
       ],
       "conditions": {
@@ -3679,635 +3649,155 @@
           300
         ]
       },
-      "comment": "[Body Armours] Zodiac Leather i86"
-    },
-    {
-      "targets": [
-        "Sorcerer Boots",
-        "Slink Boots",
-        "Titan Greaves",
-        "Two-Toned Boots",
-        "Fugitive Boots"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 86",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Boots] i86 Top Boots"
-    },
-    {
-      "targets": [
-        "Sorcerer Boots",
-        "Slink Boots",
-        "Titan Greaves",
-        "Two-Toned Boots",
-        "Fugitive Boots"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 84",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 1 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/精品装备.mp3",
-          300
-        ]
-      },
-      "comment": "[Boots] i84 Top Boots"
-    },
-    {
-      "targets": [
-        "Fingerless Silk Gloves",
-        "Gripped Gloves",
-        "Spiked Gloves",
-        "Apothecary's Gloves"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 86",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Gloves] i86 Top Gloves"
-    },
-    {
-      "targets": [
-        "Fingerless Silk Gloves",
-        "Gripped Gloves",
-        "Spiked Gloves",
-        "Apothecary's Gloves"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 84",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 1 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/精品装备.mp3",
-          300
-        ]
-      },
-      "comment": "[Gloves] i84 Top Gloves"
-    },
-    {
-      "targets": [
-        "Hubris Circlet",
-        "Lion Pelt",
-        "Royal Burgonet",
-        "Bone Helmet"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 86",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Helmets] i86 Top Helmets"
-    },
-    {
-      "targets": [
-        "Hubris Circlet",
-        "Lion Pelt",
-        "Royal Burgonet",
-        "Bone Helmet"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 84",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 1 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/精品装备.mp3",
-          300
-        ]
-      },
-      "comment": "[Helmets] i84 Top Helmets"
-    },
-    {
-      "targets": [
-        "Broadhead Arrow Quiver",
-        "Spike-Point Arrow Quiver",
-        "Penetrating Arrow Quiver"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 86",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Quivers] i86 Top Quivers"
-    },
-    {
-      "targets": [
-        "Broadhead Arrow Quiver",
-        "Spike-Point Arrow Quiver",
-        "Penetrating Arrow Quiver"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 84",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 1 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/精品装备.mp3",
-          300
-        ]
-      },
-      "comment": "[Quivers] i84 Top Quivers"
-    },
-    {
-      "targets": [
-        "Titanium Spirit Shield",
-        "Archon Kite Shield"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 86",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Shields] i86 Top Shields"
-    },
-    {
-      "targets": [
-        "Titanium Spirit Shield",
-        "Archon Kite Shield"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 84",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 1 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/精品装备.mp3",
-          300
-        ]
-      },
-      "comment": "[Shields] i84 Top Shields"
-    },
-    {
-      "targets": [
-        "Spine Bow",
-        "Thicket Bow",
-        "Imperial Bow"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 86",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Bows] i86 Top Bows"
-    },
-    {
-      "targets": [
-        "Spine Bow",
-        "Thicket Bow",
-        "Imperial Bow"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 84",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 1 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/精品装备.mp3",
-          300
-        ]
-      },
-      "comment": "[Bows] i84 Top Bows"
-    },
-    {
-      "targets": [
-        "Imperial Claw",
-        "Gemini Claw",
-        "Great White Claw"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 86",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Claws] i86 Top Claws"
-    },
-    {
-      "targets": [
-        "Imperial Claw",
-        "Gemini Claw",
-        "Great White Claw"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 84",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 1 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/精品装备.mp3",
-          300
-        ]
-      },
-      "comment": "[Claws] i84 Top Claws"
+      "comment": "DEAD: no overrides.Tier, so this rule emits nothing. These bases need a tier (Body Armours' missing rung)."
     },
     {
       "targets": [
         "Ambusher",
+        "Apothecary's Gloves",
+        "Archon Kite Shield",
+        "Blue Pearl Amulet",
+        "Bone Helmet",
+        "Broadhead Arrow Quiver",
+        "Cerulean Ring",
+        "Crystal Belt",
+        "Demon Dagger",
+        "Ezomyte Dagger",
+        "Fingerless Silk Gloves",
+        "Fugitive Boots",
+        "Gemini Claw",
+        "Golden Kris",
+        "Great White Claw",
+        "Gripped Gloves",
+        "Hubris Circlet",
+        "Imperial Bow",
+        "Imperial Claw",
         "Imperial Skean",
-        "Demon Dagger"
+        "Iolite Ring",
+        "Lion Pelt",
+        "Marble Amulet",
+        "Opal Ring",
+        "Penetrating Arrow Quiver",
+        "Platinum Kris",
+        "Royal Burgonet",
+        "Seaglass Amulet",
+        "Slink Boots",
+        "Sorcerer Boots",
+        "Spike-Point Arrow Quiver",
+        "Spiked Gloves",
+        "Spine Bow",
+        "Steel Ring",
+        "Stygian Vise",
+        "Thicket Bow",
+        "Titan Greaves",
+        "Titanium Spirit Shield",
+        "Two-Toned Boots",
+        "Vermillion Ring"
       ],
       "conditions": {
         "ItemLevel": ">= 86",
         "Rarity": "<= Rare"
       },
       "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
         "PlayAlertSound": [
           "Sharket掉落音效/顶级底材.mp3",
           300
-        ]
+        ],
+        "Tier": "Tier 0 Rare Equipment"
       },
-      "comment": "[Daggers] i86 Top Daggers"
+      "comment": "Tier 0 Rare Equipment, >= 86"
     },
     {
       "targets": [
         "Ambusher",
+        "Apothecary's Gloves",
+        "Archon Kite Shield",
+        "Blue Pearl Amulet",
+        "Bone Helmet",
+        "Broadhead Arrow Quiver",
+        "Cerulean Ring",
+        "Crystal Belt",
+        "Demon Dagger",
+        "Fingerless Silk Gloves",
+        "Fugitive Boots",
+        "Gemini Claw",
+        "Great White Claw",
+        "Gripped Gloves",
+        "Hubris Circlet",
+        "Imperial Bow",
+        "Imperial Claw",
         "Imperial Skean",
-        "Demon Dagger"
+        "Iolite Ring",
+        "Lion Pelt",
+        "Marble Amulet",
+        "Opal Ring",
+        "Penetrating Arrow Quiver",
+        "Royal Burgonet",
+        "Seaglass Amulet",
+        "Slink Boots",
+        "Sorcerer Boots",
+        "Spike-Point Arrow Quiver",
+        "Spiked Gloves",
+        "Spine Bow",
+        "Steel Ring",
+        "Stygian Vise",
+        "Thicket Bow",
+        "Titan Greaves",
+        "Titanium Spirit Shield",
+        "Two-Toned Boots",
+        "Vermillion Ring"
       ],
       "conditions": {
         "ItemLevel": ">= 84",
         "Rarity": "<= Rare"
       },
       "overrides": {
-        "Tier": "Tier 1 Rare Equipment",
         "PlayAlertSound": [
           "Sharket掉落音效/精品装备.mp3",
           300
-        ]
+        ],
+        "Tier": "Tier 1 Rare Equipment"
       },
-      "comment": "[Daggers] i84 Top Daggers"
-    },
-    {
-      "targets": [
-        "Siege Axe",
-        "Reaver Axe",
-        "Runic Hatchet"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 83",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[One Hand Axes] i83 Top Axes"
+      "comment": "Tier 1 Rare Equipment, >= 84"
     },
     {
       "targets": [
         "Behemoth Mace",
-        "Nightmare Mace"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 83",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[One Hand Maces] i83 Top Maces"
-    },
-    {
-      "targets": [
-        "Jewelled Foil",
-        "Corsair Sword",
-        "Eternal Sword"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 83",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[One Hand Swords] i83 Top Swords"
-    },
-    {
-      "targets": [
-        "Golden Kris",
-        "Platinum Kris",
-        "Ezomyte Dagger"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 86",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Rune Daggers] i86 Top Rune Daggers"
-    },
-    {
-      "targets": [
-        "Void Sceptre",
-        "Sambar Sceptre"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 83",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Sceptres] i83 Top Sceptres"
-    },
-    {
-      "targets": [
-        "Imperial Staff",
-        "Eclipse Staff"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 83",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Staves] i83 Top Staves"
-    },
-    {
-      "targets": [
-        "Despot Axe",
-        "Vaal Axe",
-        "Fleshripper"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 83",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Two Hand Axes] i83 Top 2H Axes"
-    },
-    {
-      "targets": [
+        "Convoking Wand",
         "Coronal Maul",
-        "Meatgrinder"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 83",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Two Hand Maces] i83 Top 2H Maces"
-    },
-    {
-      "targets": [
-        "Exquisite Blade"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 83",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Two Hand Swords] i83 Top 2H Swords"
-    },
-    {
-      "targets": [
+        "Corsair Sword",
+        "Despot Axe",
+        "Eclipse Staff",
+        "Eternal Sword",
+        "Exquisite Blade",
+        "Ezomyte Staff",
+        "Fleshripper",
+        "Imperial Staff",
+        "Jewelled Foil",
+        "Judgement Staff",
+        "Meatgrinder",
+        "Nightmare Mace",
         "Opal Wand",
         "Profane Wand",
-        "Convoking Wand"
+        "Reaver Axe",
+        "Runic Hatchet",
+        "Sambar Sceptre",
+        "Siege Axe",
+        "Vaal Axe",
+        "Void Sceptre"
       ],
       "conditions": {
         "ItemLevel": ">= 83",
         "Rarity": "<= Rare"
       },
       "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
         "PlayAlertSound": [
           "Sharket掉落音效/顶级底材.mp3",
           300
-        ]
+        ],
+        "Tier": "Tier 0 Rare Equipment"
       },
-      "comment": "[Wands] i83 Top Wands"
-    },
-    {
-      "targets": [
-        "Judgement Staff",
-        "Ezomyte Staff"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 83",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Warstaves] i83 Top Warstaves"
-    },
-    {
-      "targets": [
-        "Blue Pearl Amulet",
-        "Marble Amulet",
-        "Seaglass Amulet"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 86",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Amulets] i86 Top Amulets"
-    },
-    {
-      "targets": [
-        "Blue Pearl Amulet",
-        "Marble Amulet",
-        "Seaglass Amulet"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 84",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 1 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/精品装备.mp3",
-          300
-        ]
-      },
-      "comment": "[Amulets] i84 Top Amulets"
-    },
-    {
-      "targets": [
-        "Stygian Vise",
-        "Crystal Belt"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 86",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Belts] i86 Top Belts"
-    },
-    {
-      "targets": [
-        "Stygian Vise",
-        "Crystal Belt"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 84",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 1 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/精品装备.mp3",
-          300
-        ]
-      },
-      "comment": "[Belts] i84 Top Belts"
-    },
-    {
-      "targets": [
-        "Opal Ring",
-        "Steel Ring",
-        "Vermillion Ring",
-        "Iolite Ring",
-        "Cerulean Ring"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 86",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/顶级底材.mp3",
-          300
-        ]
-      },
-      "comment": "[Rings] i86 Top Rings"
-    },
-    {
-      "targets": [
-        "Opal Ring",
-        "Steel Ring",
-        "Vermillion Ring",
-        "Iolite Ring",
-        "Cerulean Ring"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 84",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 1 Rare Equipment",
-        "PlayAlertSound": [
-          "Sharket掉落音效/精品装备.mp3",
-          300
-        ]
-      },
-      "comment": "[Rings] i84 Top Rings"
+      "comment": "Tier 0 Rare Equipment, >= 83"
     }
   ]
 }
