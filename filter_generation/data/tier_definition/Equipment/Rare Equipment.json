@@ -7,136 +7,12 @@
         "ch": "常规装备"
       },
       "tier_order": [
-        "Tier 0 Rare Equipment",
         "Tier 1 Rare Equipment",
         "Tier 2 Rare Equipment",
         "Tier 3 Rare Equipment",
         "Tier 4 Rare Equipment",
         "Tier Hide Rare Equipment"
       ]
-    },
-    "Tier 0 Rare Equipment": {
-      "conditions": {
-        "AreaLevel": ">= 68",
-        "Rarity": "<= Rare"
-      },
-      "hideable": false,
-      "theme": {
-        "Tier": 2
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "顶级底材.mp3"
-      },
-      "localization": {
-        "en": "T0: Top Bases",
-        "ch": "T0: 顶级底材"
-      },
-      "show_in_editor": false,
-      "item_overrides": {
-        "Fugitive Boots": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/逃亡之靴.mp3",
-            200
-          ]
-        },
-        "Apothecary's Gloves": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/药剂师手套.mp3",
-            200
-          ]
-        },
-        "Fingerless Silk Gloves": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/丝绸手套.mp3",
-            200
-          ]
-        },
-        "Gripped Gloves": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/擒拿手套.mp3",
-            200
-          ]
-        },
-        "Spiked Gloves": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/扣钉手套.mp3",
-            200
-          ]
-        },
-        "Bone Helmet": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/唤骨头盔.mp3",
-            200
-          ]
-        },
-        "Convoking Wand": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/召集法杖.mp3",
-            200
-          ]
-        },
-        "Blue Pearl Amulet": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/碧珠护身符.mp3",
-            200
-          ]
-        },
-        "Marble Amulet": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/大理石护身符.mp3",
-            200
-          ]
-        },
-        "Seaglass Amulet": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/海晶护符.mp3",
-            200
-          ]
-        },
-        "Crystal Belt": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/水晶腰带.mp3",
-            200
-          ]
-        },
-        "Stygian Vise": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/深渊腰带.mp3",
-            200
-          ]
-        },
-        "Cerulean Ring": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/天蓝之戒.mp3",
-            200
-          ]
-        },
-        "Iolite Ring": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/青石戒指.mp3",
-            200
-          ]
-        },
-        "Opal Ring": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/蛋白石戒指.mp3",
-            200
-          ]
-        },
-        "Steel Ring": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/合金戒指.mp3",
-            200
-          ]
-        },
-        "Vermillion Ring": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/朱砂之戒.mp3",
-            200
-          ]
-        }
-      }
     },
     "Tier 1 Rare Equipment": {
       "conditions": {
@@ -157,66 +33,6 @@
       },
       "hide_at_strictness": 5,
       "item_overrides": {
-        "Fugitive Boots": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/逃亡之靴.mp3",
-            200
-          ]
-        },
-        "Apothecary's Gloves": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/药剂师手套.mp3",
-            200
-          ]
-        },
-        "Fingerless Silk Gloves": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/丝绸手套.mp3",
-            200
-          ]
-        },
-        "Gripped Gloves": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/擒拿手套.mp3",
-            200
-          ]
-        },
-        "Spiked Gloves": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/扣钉手套.mp3",
-            200
-          ]
-        },
-        "Bone Helmet": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/唤骨头盔.mp3",
-            200
-          ]
-        },
-        "Blue Pearl Amulet": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/碧珠护身符.mp3",
-            200
-          ]
-        },
-        "Marble Amulet": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/大理石护身符.mp3",
-            200
-          ]
-        },
-        "Seaglass Amulet": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/海晶护符.mp3",
-            200
-          ]
-        },
-        "Crystal Belt": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/水晶腰带.mp3",
-            200
-          ]
-        },
         "Stygian Vise": {
           "PlayAlertSound": [
             "Sharket掉落音效/深渊腰带.mp3",
@@ -226,30 +42,6 @@
         "Amethyst Ring": {
           "PlayAlertSound": [
             "Sharket掉落音效/紫晶戒指.mp3",
-            200
-          ]
-        },
-        "Cerulean Ring": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/天蓝之戒.mp3",
-            200
-          ]
-        },
-        "Iolite Ring": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/青石戒指.mp3",
-            200
-          ]
-        },
-        "Opal Ring": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/蛋白石戒指.mp3",
-            200
-          ]
-        },
-        "Steel Ring": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/合金戒指.mp3",
             200
           ]
         },

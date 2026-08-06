@@ -292,8 +292,8 @@
         "Tier": 5
       },
       "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
       },
       "localization": {
         "en": "Gear base i86+",
@@ -325,8 +325,8 @@
         "Tier": 5
       },
       "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
+        "default_sound_id": 1,
+        "sharket_sound_id": "精品装备.mp3"
       },
       "localization": {
         "en": "Gear base i86+ (Rank B)",
@@ -344,8 +344,8 @@
         "Tier": 4
       },
       "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
       },
       "localization": {
         "en": "Gear base i85+",
@@ -363,8 +363,8 @@
         "Tier": 4
       },
       "sound": {
-        "default_sound_id": -1,
-        "sharket_sound_id": null
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
       },
       "localization": {
         "en": "Gear base i84+",

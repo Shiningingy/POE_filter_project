@@ -102,7 +102,8 @@
     "Antique Greaves": "Crafting Strands T3",
     "Apothecary's Gloves": [
       "Crafting Perfect Defence",
-      "Crafting Strands T2"
+      "Crafting Strands T2",
+      "Crafting Gear 85"
     ],
     "Arcane Vestment": "Crafting Strands T3",
     "Arcanist Gloves": "Crafting Strands T3",
@@ -110,7 +111,8 @@
     "Archon Kite Shield": [
       "Crafting Perfect Defence",
       "Crafting Gear 86 Rank B",
-      "Crafting Strands T2"
+      "Crafting Strands T2",
+      "Crafting Gear 86"
     ],
     "Artillery Quiver": [
       "Crafting Over Quality",
@@ -120,7 +122,10 @@
     "Assassin's Boots": "Crafting Strands T2",
     "Assassin's Mitts": "Crafting Strands T3",
     "Astral Leather": "Crafting Strands T2",
-    "Astral Plate": "Crafting Strands T3",
+    "Astral Plate": [
+      "Crafting Strands T3",
+      "Crafting Gear 86"
+    ],
     "Basket Rapier": "Crafting Strands T3",
     "Battered Foil": [
       "Crafting Over Quality",
@@ -128,16 +133,21 @@
     ],
     "Behemoth Mace": "Crafting Strands T3",
     "Blasting Wand": "Crafting Strands T3",
-    "Blue Pearl Amulet": "Crafting Strands T2",
+    "Blue Pearl Amulet": [
+      "Crafting Strands T2",
+      "Crafting Gear 85"
+    ],
     "Bone Helmet": [
       "Crafting Perfect Defence",
-      "Crafting Strands T2"
+      "Crafting Strands T2",
+      "Crafting Gear 85"
     ],
     "Bone Ring": "Crafting Strands T2",
     "Broadhead Arrow Quiver": [
       "Crafting Over Quality",
       "Crafting Gear 86 Rank B",
-      "Crafting Strands T2"
+      "Crafting Strands T2",
+      "Crafting Gear 86"
     ],
     "Cardinal Round Shield": [
       "Crafting Perfect Defence",
@@ -147,7 +157,10 @@
     "Carnal Boots": "Crafting Strands T3",
     "Carnal Mitts": "Crafting Strands T3",
     "Carnal Sceptre": "Crafting Strands T3",
-    "Cerulean Ring": "Crafting Strands T2",
+    "Cerulean Ring": [
+      "Crafting Strands T2",
+      "Crafting Gear 84"
+    ],
     "Chain Belt": "Crafting Strands T3",
     "Champion Kite Shield": "Crafting Strands T3",
     "Chimerascale Boots": "Crafting Strands T2",
@@ -228,7 +241,8 @@
     ],
     "Fingerless Silk Gloves": [
       "Crafting Perfect Defence",
-      "Crafting Strands T2"
+      "Crafting Strands T2",
+      "Crafting Gear 85"
     ],
     "Fleshripper": "Crafting Strands T3",
     "Fluted Bascinet": "Crafting Strands T3",
@@ -240,7 +254,8 @@
     "Fugitive Boots": [
       "Crafting Perfect Defence",
       "Crafting Gear 86 Rank B",
-      "Crafting Strands T2"
+      "Crafting Strands T2",
+      "Crafting Gear 86"
     ],
     "Full Dragonscale": "Crafting Strands T3",
     "Full Wyvernscale": "Crafting Strands T2",
@@ -267,7 +282,8 @@
     "Grand Ringmail": "Crafting Strands T2",
     "Gripped Gloves": [
       "Crafting Perfect Defence",
-      "Crafting Strands T2"
+      "Crafting Strands T2",
+      "Crafting Gear 85"
     ],
     "Grizzly Pelt": "Crafting Strands T2",
     "Grove Bow": "Crafting Strands T3",
@@ -286,7 +302,10 @@
     "Heathen Wand": "Crafting Strands T3",
     "Heavy Arrow Quiver": "Crafting Strands T3",
     "Heavy Belt": "Crafting Strands T2",
-    "Hubris Circlet": "Crafting Strands T2",
+    "Hubris Circlet": [
+      "Crafting Strands T2",
+      "Crafting Gear 85"
+    ],
     "Hydrascale Boots": "Crafting Strands T2",
     "Hydrascale Gauntlets": "Crafting Strands T2",
     "Imperial Bow": "Crafting Strands T3",
@@ -352,7 +371,10 @@
       "Crafting Gear 85",
       "Crafting Strands T1"
     ],
-    "Lion Pelt": "Crafting Strands T2",
+    "Lion Pelt": [
+      "Crafting Strands T2",
+      "Crafting Gear 85"
+    ],
     "Maelström Staff": "Crafting Strands T3",
     "Magistrate Crown": "Crafting Strands T3",
     "Majestic Pelt": [
@@ -362,7 +384,10 @@
       "Crafting Strands T1"
     ],
     "Maraketh Bow": "Crafting Strands T3",
-    "Marble Amulet": "Crafting Strands T2",
+    "Marble Amulet": [
+      "Crafting Strands T2",
+      "Crafting Gear 85"
+    ],
     "Marshall's Brigandine": "Crafting Strands T2",
     "Martyr Boots": "Crafting Strands T2",
     "Martyr Gloves": "Crafting Strands T2",
@@ -417,6 +442,7 @@
     "Paladin's Hauberk": "Crafting Strands T2",
     "Paua Amulet": "Crafting Strands T3",
     "Paua Ring": "Crafting Strands T3",
+    "Penetrating Arrow Quiver": "Crafting Gear 86",
     "Phantom Boots": [
       "Crafting Perfect Defence",
       "Crafting Over Quality",
@@ -471,7 +497,10 @@
     "Regicide Mask": "Crafting Strands T3",
     "Riveted Boots": "Crafting Strands T3",
     "Royal Axe": "Crafting Strands T3",
-    "Royal Burgonet": "Crafting Strands T2",
+    "Royal Burgonet": [
+      "Crafting Strands T2",
+      "Crafting Gear 85"
+    ],
     "Royal Plate": [
       "Crafting Perfect Defence",
       "Crafting Over Quality",
@@ -516,7 +545,10 @@
     "Samnite Helmet": "Crafting Strands T3",
     "Sanguine Raiment": "Crafting Strands T2",
     "Sapphire Ring": "Crafting Strands T2",
-    "Seaglass Amulet": "Crafting Strands T3",
+    "Seaglass Amulet": [
+      "Crafting Strands T3",
+      "Crafting Gear 85"
+    ],
     "Serpentscale Boots": "Crafting Strands T3",
     "Serpentscale Gauntlets": "Crafting Strands T3",
     "Shagreen Boots": "Crafting Strands T3",
@@ -533,16 +565,24 @@
     ],
     "Silken Hood": "Crafting Strands T3",
     "Sinner Tricorne": "Crafting Strands T3",
-    "Slink Boots": "Crafting Strands T2",
+    "Slink Boots": [
+      "Crafting Strands T2",
+      "Crafting Gear 86"
+    ],
     "Slink Gloves": "Crafting Strands T2",
     "Solaris Circlet": "Crafting Strands T3",
     "Soldier Boots": "Crafting Strands T2",
     "Soldier Gloves": "Crafting Strands T3",
-    "Sorcerer Boots": "Crafting Strands T2",
+    "Sorcerer Boots": [
+      "Crafting Strands T2",
+      "Crafting Gear 86"
+    ],
     "Sorcerer Gloves": "Crafting Strands T2",
+    "Spike-Point Arrow Quiver": "Crafting Gear 86",
     "Spiked Gloves": [
       "Crafting Perfect Defence",
-      "Crafting Strands T2"
+      "Crafting Strands T2",
+      "Crafting Gear 85"
     ],
     "Spine Bow": [
       "Crafting Over Quality",
@@ -558,7 +598,10 @@
       "Crafting Strands T1"
     ],
     "Studded Belt": "Crafting Strands T3",
-    "Stygian Vise": "Crafting Strands T1",
+    "Stygian Vise": [
+      "Crafting Strands T1",
+      "Crafting Gear 86"
+    ],
     "Sundering Axe": "Crafting Strands T3",
     "Sunfire Circlet": "Crafting Strands T2",
     "Supreme Leather": "Crafting Strands T2",
@@ -579,12 +622,16 @@
       "Crafting Strands T2"
     ],
     "Titan Gauntlets": "Crafting Strands T2",
-    "Titan Greaves": "Crafting Strands T2",
+    "Titan Greaves": [
+      "Crafting Strands T2",
+      "Crafting Gear 86"
+    ],
     "Titan Plate": "Crafting Strands T2",
     "Titanium Spirit Shield": [
       "Crafting Perfect Defence",
       "Crafting Gear 86 Rank B",
-      "Crafting Strands T2"
+      "Crafting Strands T2",
+      "Crafting Gear 86"
     ],
     "Topaz Ring": "Crafting Strands T2",
     "Tornado Wand": "Crafting Strands T2",
@@ -607,7 +654,8 @@
     "Two-Toned Boots": [
       "Crafting Perfect Defence",
       "Crafting Gear 86 Rank B",
-      "Crafting Strands T2"
+      "Crafting Strands T2",
+      "Crafting Gear 86"
     ],
     "Unset Ring": "Crafting Strands T2",
     "Vaal Axe": [
@@ -617,7 +665,10 @@
     "Vaal Gauntlets": "Crafting Strands T2",
     "Vaal Greaves": "Crafting Strands T2",
     "Vaal Mask": "Crafting Strands T2",
-    "Vaal Regalia": "Crafting Strands T3",
+    "Vaal Regalia": [
+      "Crafting Strands T3",
+      "Crafting Gear 86"
+    ],
     "Vaal Sceptre": "Crafting Strands T3",
     "Vaal Spirit Shield": "Crafting Strands T3",
     "Vanguard Belt": [
@@ -678,7 +729,10 @@
     ],
     "Zealot Boots": "Crafting Strands T3",
     "Zealot Gloves": "Crafting Strands T3",
-    "Zodiac Leather": "Crafting Strands T3"
+    "Zodiac Leather": [
+      "Crafting Strands T3",
+      "Crafting Gear 86"
+    ]
   },
   "rules": []
 }
