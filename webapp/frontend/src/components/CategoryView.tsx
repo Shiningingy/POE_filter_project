@@ -435,11 +435,32 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         tier_key: tierKey ?? null,
         suppress_auto: suppressAuto ?? false,
       });
-      // The endpoint appends a RULE to the mapping file, but only tier ITEMS were
-      // refreshed here. The sound indicator is driven by categoryRules, which comes
-      // from configContent, so a sound set this way stayed invisible until the
-      // category happened to be reloaded - it looked like it worked "occasionally".
-      // Pull the rules back in for the open category.
+      // ONE `next`, patched twice, updated once. Building it separately per patch
+      // reads `parsedConfig` again before React has re-rendered, so the second
+      // update is computed from the pre-patch config and silently discards the first.
+      let next: any = null;
+      const take = () => (next ??= JSON.parse(JSON.stringify(parsedConfig)));
+
+      // The override lands in tier_definition[cat][tier].item_overrides, which is
+      // what the card reads through `itemOverrides`. Only the MAPPING was refreshed
+      // here (for rules), so the write succeeded, the filter emitted the sound, and
+      // the editor showed nothing — indistinguishable from "adding a sound does
+      // nothing". Mirror the backend's own merge, including its empty-card removal.
+      if (activeCategoryKey && tierKey && parsedConfig?.[activeCategoryKey]?.[tierKey]) {
+        const entry = take()[activeCategoryKey][tierKey];
+        const card = { ...(entry.item_overrides?.[item.name] || {}) };
+        for (const k of removeKeys || []) delete card[k];
+        Object.assign(card, overrides || {});
+        const all = { ...(entry.item_overrides || {}) };
+        if (Object.keys(card).length) all[item.name] = card;
+        else delete all[item.name];
+        if (Object.keys(all).length) entry.item_overrides = all;
+        else delete entry.item_overrides;
+      }
+
+      // The sound indicator is also driven by categoryRules, which comes from
+      // configContent, so a sound set this way stayed invisible until the category
+      // happened to be reloaded — it looked like it worked "occasionally".
       const rel = (p?: string) => (p || "").replace(/^base_mapping\//, "");
       if (activeCategoryKey && defaultMappingPath &&
           rel(item.source) === rel(defaultMappingPath)) {
@@ -447,12 +468,12 @@ const CategoryView: React.FC<CategoryViewProps> = ({
           `${API_BASE_URL}/api/config/${defaultMappingPath}?t=${Date.now()}`);
         const rules = res.data?.content?.rules;
         if (Array.isArray(rules)) {
-          const next = JSON.parse(JSON.stringify(parsedConfig));
-          next[activeCategoryKey].rules = rules;
-          if (next[activeCategoryKey]._meta?.rules) delete next[activeCategoryKey]._meta.rules;
-          updateConfig(next);
+          const cfg = take();
+          cfg[activeCategoryKey].rules = rules;
+          if (cfg[activeCategoryKey]._meta?.rules) delete cfg[activeCategoryKey]._meta.rules;
         }
       }
+      if (next) updateConfig(next);
       fetchTierItems(sortedTierKeys);
     } catch (err) {
       console.error(err);
