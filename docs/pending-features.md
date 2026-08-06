@@ -227,6 +227,48 @@ one condition to `>= 73` if the intent was "from T6 onward".
 ⚠️ 41 of the 43 talismans are absent from `items_db.json` (post-dump 3.29 bases), so any
 class-derived reasoning about them is blind until that DB is refreshed.
 
+## 6b. ★ The two "theme defects" are NOT defects — checked 2026-08-06
+
+Both were recorded as bugs to fix before the theme pass. Neither is.
+
+**Uniques/Jewels "lost rarity-through" (`compile_theme.py:420`) — a DESIGN DECISION, not a
+bug.** The recorded fix is "remove the explicit `TextColor` so the game paints the rarity
+colour". Measured contrast if that were done (PoE's unique text is `#af6025`):
+
+| row | background | now | if TextColor removed |
+|---|---|---|---|
+| Uniques T0 | `#ffffff` | 4.64:1 | 4.64:1 ✅ — its text already IS `#af6025` |
+| Uniques T1 | `#d20000` | 5.61:1 | **1.21:1** |
+| Uniques T2 | `#af6025` | 4.64:1 | **1.00:1 — invisible** |
+| Uniques T3 | `#af9173` | 7.12:1 | **1.57:1** |
+| Jewels T1–T4 | various | 3.00–8.03:1 | **1.21–1.78:1** |
+
+7 of 8 rows would become unreadable. Those saturated backgrounds *require* an explicit text
+colour — the rarity signal was deliberately moved from the text to the background. Going
+rarity-through means **re-choosing every background** dark/neutral enough for the orange to
+read. That is designer work, so it belongs in the handoff as a question, not in a bugfix.
+
+**`Campaign / Aggressive Magic Hide` pointing at a non-existent `Tier 9` row — harmless.**
+It is the only tier in the tree aimed at a missing row. It cannot matter: the generator
+forces `isHide = true` for any `lv_group.axis === 'aggressive'` tier
+(`filterGenerator.ts:333`), so the absent `is_hide_tier` is covered, and in Ruthless a hide
+emits `Minimal` with NO style lines. Verified by generating with
+`--leveling-selection '{"hide_unselected":true}'`: it emits `Minimal` plus conditions only.
+
+## 6c. Theme state, measured 2026-08-06 (post-reshape)
+
+- **1** tier points at a missing theme row (the harmless one above).
+- **31** theme rows are shared by 2+ tiers. Most are legitimate — Campaign's 38 per-class
+  "Rares" tiers *should* look alike. The ones that are ours and want distinct looks:
+  `Crafting Bases Tier 4` ×4, `Crafting Bases Tier 2` ×3, `Rare Equipment Tier 3` ×3
+  (Fractured borrows it), `Jewels Tier 3` ×4.
+- **Fractured has no theme category of its own** — it points at `Rare Equipment`.
+- **Influenced has 4 tiers and only 2 rows** (Tier 3, Tier 4), so T1/T2/T3 look identical.
+- `_decorators/States` has no theme entry by design — decorators carry inline style.
+
+⚠️ `sharket_theme.json` is HAND-TUNED. Any fix must be a surgical edit; regenerating it
+would flatten the tuning (`build_standard_theme.py` is group B for exactly this reason).
+
 ## 7. Open — not yet decided
 
 - **`AreaLevel >= 68` vs `ItemLevel >= 68`.** Ours gates the ladder on `AreaLevel`, theirs
