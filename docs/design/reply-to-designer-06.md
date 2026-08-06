@@ -90,12 +90,100 @@ the data rather than invented.
 
 ---
 
+---
+
+# Addendum — the equipment tree was rebuilt before this went out
+
+This reply sat unsent while the author reshaped equipment. Everything above still stands;
+the numbers and one part of the kit do not. Sending both together.
+
+## ⚠️ 3. 23 of your accent assignments now point at categories that no longer exist
+
+This is the Chancing problem again, at scale — an override that no longer matches, missing
+silently. The 23 per-class equipment categories were collapsed into **one**:
+
+```
+Amulets · Belts · Body Armours · Boots · Bows · Claws · Daggers · Gloves · Helmets
+One Hand Axes/Maces/Swords · Quivers · Rings · Rune Daggers · Sceptres · Shields
+Staves · Two Hand Axes/Maces/Swords · Wands · Warstaves          →   Rare Equipment
+```
+
+**The good news is that it costs you no decisions.** All 23 carried the *same* value,
+`"equipment"`, so the kit needs one line added and 23 removed:
+
+```json
+"Rare Equipment": "equipment"
+```
+
+`Rare Equipment` is the **only** live theme category with no accent assignment — everything
+else in the tree is still covered. `Fractured` is covered indirectly: it has no theme entry
+of its own and reads `Rare Equipment`'s, which is worth knowing since it is now four real
+tiers rather than an empty shell.
+
+Three hues were flattened in the merge: weapons `#221a16`, armour `#1a1e23` and jewellery
+`#242014` became one, and armour's won because it covered the most bases. Whether that
+family distinction should return — and as what — is an open question for you, not a
+decision we have made.
+
+## ⚠️ 4. Chancing is now empty by design
+
+Your override points at `Currency/Chancing.json` (ours is
+`Equipment/VendorRecipes/Chancing.json`, §2 above) — and the category now ships with **no
+bases at all**. It is the player's own chase list, filled in by them, so its look only ever
+applies to items they add. Still worth a rung; just not one you can preview.
+
+Two of the ten bases we had removed were not base types at all — `Brine Crown` and
+`Death's Hand` are uniques, so they had never matched anything in game.
+
+## What is new since you last saw the tree
+
+Four purposes that were empty shells or partial now carry real ranked tiers. These are all
+new surfaces that will want looks:
+
+| category | was | now |
+|---|---|---|
+| Fractured | 0 bases, 3 condition-only rules | **436 bases**, 3 ranks + a catch-all |
+| Influenced | 0 bases, empty shell | **175 bases**, 3 ranks + a net |
+| Memory strands | 63 bases in 2 tiers | **277 bases**, 3 ranks + a 60+ tier |
+| Crafting | 8 tiers | **12 tiers** |
+| Magic at endgame | strictness only | an `AreaLevel` band, progression-driven |
+
+**I have sent a page with the whole settled tree** — every category and tier in emission
+order, with its labels, base count, strictness gate and current colours as swatches, plus
+the rows that are shared. That is the thing "structure before theme" was waiting for.
+
+## ★ The rarity-through question is yours, and it is measurable
+
+`Uniques` and `Jewels` set an explicit `TextColor` on every row, where most categories leave
+it unset so the game paints the item's own rarity colour. That was recorded on our side as a
+defect to fix. It is not — measured before touching it:
+
+| row | background | contrast now | if `TextColor` were removed |
+|---|---|---|---|
+| Uniques T0 | `#ffffff` | 4.64:1 | 4.64:1 — already rarity-through, its text *is* `#af6025` |
+| Uniques T1 | `#d20000` | 5.61:1 | **1.21:1** |
+| Uniques T2 | `#af6025` | 4.64:1 | **1.00:1 — invisible** |
+| Uniques T3 | `#af9173` | 7.12:1 | **1.57:1** |
+| Jewels T1–T4 | various | 3.00–8.03:1 | **1.21–1.78:1** |
+
+Seven of eight rows would become unreadable, and Uniques T2 exactly disappears because its
+background *is* the unique orange. So those backgrounds are not accidental — the rarity
+signal was deliberately moved from the text to the plate. Going rarity-through is not a key
+removal, it is a re-choice of every background dark enough for `#af6025` to read. **Your
+call which way; we have stopped treating it as a bug.**
+
+One boundary that follows from the format: a **hide** block in Ruthless emits `Minimal` with
+*no* style lines at all, so hidden rungs never need designing.
+
 ## State of the compile
 
-Applied to the tree and green: validator 0 errors, generator fixtures 8/8, resolver equivalence
-164/164, decorator composition 7/7, format check 531 blocks with 0 problems. **15 of 524 blocks
-after the last decorator set their own border**, so states compose on 509 — unchanged by this
-round, which is what we wanted.
+Green after the rebuild: validator **0 errors**, generator fixtures **8/8**, resolver
+equivalence **110/110**, decorator composition **7/7**, filter round-trip clean.
 
-The author is doing a manual pass now (a per-item sound sweep, some tier sorting), then it gets
-loaded in game. I will send you what that turns up, along with anything the icon floor wants.
+Block count is **416**, down from 531 — the drop is the collapse, not lost coverage: the set
+of items the filter matches was verified identical at every step. **15 of the 411 blocks
+after the last decorator set their own border**, so states still compose on **396**. The
+count moved with the tree; the ratio did not.
+
+The author is sweeping per-item sounds now, then it gets loaded in game. I will send you what
+that turns up, along with anything the icon floor wants.
