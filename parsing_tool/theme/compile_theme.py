@@ -284,30 +284,26 @@ def override_key(rel, theme_cat, depth):
 # The two bulk overrides now come from the KIT (reply 13 restored `rung_by_depth` to
 # theme-presets.json), so the local overlay is gone. Two wrinkles the kit does not resolve:
 #
-#  1. `rung_by_depth` now exists in BOTH handoff files and they DISAGREE — presets says depth 3
-#     is T1 T2 T4, the map says T1 T3 T4. The map is treated as primary because it is the only
-#     one with the `gear` template and the ten file-specific overrides; presets contributes its
-#     overrides on top. Raised in reply 06.
-#  2. Their override key is `Currency/Chancing.json`; our file is
-#     `Equipment/VendorRecipes/Chancing.json`. Aliased below rather than silently missing — an
-#     override that does not match is exactly how this bug got here in the first place.
-PRESET_RUNG = P.get("rung_by_depth") or {}
-PATH_ALIAS = {"Currency/Chancing.json": "Equipment/VendorRecipes/Chancing.json"}
-# ⚠️ Discriminate metadata keys by VALUE TYPE, never by a leading underscore. In this tree an
-# underscore prefix is NOT a metadata marker — `_legacy/`, `_campaign/` and `_decorators/` are
-# real, live directories. Filtering `_`-prefixed keys silently dropped the `_legacy/Legacy.json`
-# override and put bulk straight back on T2, which is the very bug reply 13 restored the table
-# to fix. Same shape as `_archived/` being walked by the generator.
-KIT_OVERRIDES = {}
-for _k, _v in (PRESET_RUNG.get("overrides") or {}).items():
-    if isinstance(_v, list):
-        KIT_OVERRIDES[PATH_ALIAS.get(_k, _k)] = _v
+# Both wrinkles are RESOLVED by the schema-2 kit (designer reply 14):
+#
+#  1. `rung_by_depth` had existed in BOTH handoff files and they disagreed on depth 3. The map
+#     is now its single owner and the presets copy is a pointer, so there is nothing left to
+#     reconcile. Depth 3 settled as `T1 T2 T4`, asserted as `_invariants.painted_t3_needs_t2`:
+#     T3 is the muted accent plate and only means something below a full-strength T2, so a
+#     3-deep ladder using T1 T3 T4 would name its own family more weakly than a 2-deep one.
+#  2. The Chancing override was repathed to `Equipment/VendorRecipes/Chancing.json`, so the
+#     alias is gone. Per `_invariants.no_silent_misses` a path that does not resolve is an
+#     ERROR on both sides, never a fallback — an override that quietly misses is how bulk
+#     reached T2 and how Chancing went unstyled.
+#
+# ⚠️ Metadata keys are still discriminated by VALUE TYPE, never by a leading underscore. In
+# this tree an underscore prefix is NOT a metadata marker — `_legacy/`, `_campaign/` and
+# `_decorators/` are real, live directories, and filtering `_`-prefixed keys once dropped the
+# `_legacy/Legacy.json` override and put bulk straight back on T2.
 
 
 def rungs_for(rel, theme_cat, accent, depth):
     """-> (list_of_rung_names, how_it_was_decided)"""
-    if rel in KIT_OVERRIDES:
-        return KIT_OVERRIDES[rel], "kit-override (theme-presets.rung_by_depth)"
     ok = override_key(rel, theme_cat, depth)
     if ok:
         got = RUNG["overrides"][ok]

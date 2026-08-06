@@ -1,7 +1,7 @@
 {
-  "_about": "Theme standard, workstream E. 24 accents + 6 rung recipes + 5 states + 7 exceptions; every preset is derived from them. Companion to theme-standard.md. Visual truth is 'Theme Standard - Plates, Beams & Icons.dc.html'.",
+  "_about": "Theme standard, workstream E. 26 accents + 6 rung recipes + 5 states + 7 exceptions; every preset is derived from them. Companion to theme-standard.md. Visual truth is 'Theme Standard - Plates, Beams & Icons.dc.html'.",
   "_schema": 1,
-  "_authored_value_count": 65,
+  "_authored_value_count": 72,
   "_rule": "A tier block authors exactly two values: accent + rung. Icon, beam and plate are pure functions of those. Presets carry NO FontSize.",
   "rung_recipes": {
     "_about": "T0/T1/T6 are house-fixed in STRUCTURE (white plate + red border; the red T1 plate; the T6 grey) but T0's TEXT is accent.solid — see t0_text_rule. T2-T5 are derived from the accent. 'painted' sets text; 'rarity_through' deliberately omits it so the game paints rarity.",
@@ -150,10 +150,11 @@
         "allflame": "165 60 0",
         "fossils": "130 90 0",
         "corpses": "120 80 60",
-        "jewels": "175 30 130"
+        "jewels": "175 30 130",
+        "recipes": "40 105 120"
       },
       "contrast_bar": "3:1, not 4.5:1 — your call and it is the right one: T0 ships at 45px, which is large text by any standard. 4.5:1 is unreachable anyway (pure red on white is 4.00:1 by construction, so currency's own t0_text could never pass).",
-      "resolution": "13 accents now carry an explicit t0_text — the original 3 plus the 10 your check caught. Each is its accent darkened until it clears 3:1 on white, so the family still reads. maps / harvest / expedition were the urgent ones: 1.67:1 is, as you put it, a rumour.",
+      "resolution": "14 accents now carry an explicit t0_text — the original 3, the 10 your check caught, and recipes, added with the accent itself. Each is its accent darkened until it clears 3:1 on white, so the family still reads. maps / harvest / expedition were the urgent ones: 1.67:1 is, as you put it, a rumour.",
       "dark_plate_considered": "DECLINED, though it was the better engineering answer. A dark T0 plate would let every accent through at full saturation and delete this whole class of problem — but the white plate IS the halo, it is Sharket's mirror look, and with the border unavailable the plate is the only channel T0 has left to distinguish itself from T1's red. Ten authored values is the cheaper price.",
       "keep_uniques": "uniques at 4.64:1 is the only accent that clears 4.5 unaided and is already the colour players read as chase. Left alone."
     },
@@ -168,7 +169,9 @@
       "_about": "CORRECTION to an error I introduced: rarity_through does NOT put the rung on the border.",
       "why": "Gear is the only class that holds all five state borders. If the rung spends the border, the five Continue deviations have nothing to layer onto on exactly the class that needs them. §6's invariant holds without exception: the border is the only channel free on every item in every category.",
       "how_the_rung_reads_instead": "Same hue throughout (accent.deep), ranked by ALPHA — 245 / 240 / 225 / 210 — plus SetFontSize and the icon. Alpha is not a state channel, so nothing competes.",
-      "note": "The painted column ranks by text; the rarity_through column ranks by alpha. Both keep one hue and both leave the border alone."
+      "note": "The painted column ranks by text; the rarity_through column ranks by alpha. Both keep one hue and both leave the border alone.",
+    "it_is_an_accent_property": "rarity_through is declared ONCE, on the accent, and is never a per-row choice. Only equipment has it. A painted accent always sets TextColor; a rarity_through accent never does. There is no third case.",
+    "uniques_and_jewels": "NOT A DEFECT, and not a choice either — closed. Your measurement is the argument for keeping them: 7 of 8 rows fall below 2:1 without their TextColor, and Uniques T2 lands at exactly 1.00:1 because its plate IS the unique orange. That is not an accident to correct; it is the design — on a painted accent the rarity signal moved to the PLATE, which is why the plate can be the rarity colour and the text still has to be readable. Rarity-through is for the accent whose plate is deliberately neutral. Do not re-choose those backgrounds."
     },
     "_muted_is_authored": {
       "decision": "accent.muted is an AUTHORED value, one per accent — not a formula. Your §1-3 are right and they are one problem, not three: the formula did not survive contact with either golden, and it is used in exactly two places.",
@@ -180,7 +183,7 @@
     }
   },
   "accents": {
-    "_about": "24 accents. solid + deep are the only authored colours; every T2/T3 plate is a transform of them. shape and beam are the icon/beam axis. icon_floor is the lowest rung drawing an icon. Below T3 the accent leaves the plate and survives as text.",
+    "_about": "26 accents. solid + deep are the only authored colours; every T2/T3 plate is a transform of them. shape and beam are the icon/beam axis. icon_floor is the lowest rung drawing an icon. Below T3 the accent leaves the plate and survives as text.",
     "currency": {
       "solid": "255 170 0",
       "deep": "70 46 0",
@@ -354,9 +357,28 @@
       "shape": null,
       "beam": null,
       "icon_floor": "none",
-      "note": "SUPERSEDED as a single accent — see gear_ladder.groups (armour, weapons, jewellery, flasks). Kept as the fallback for any gear category not in a group. shape stays null: gear is iconless below T0.",
+      "note": "SUPERSEDED as a single accent — see gear_ladder.groups (armour, weapons, jewellery, flasks). Kept as the fallback for any gear category not in a group. shape stays null: gear is iconless below T0. ⚠️ After the equipment reshape this accent covers ONE category where it used to cover 23: Rare Equipment. The per-class hues did not survive the collapse and should not be reinvented there — see gear_ladder.groups.fallback.",
       "muted": "150 150 150",
       "t0_text": "85 85 85"
+    },
+    "tainted": {
+      "solid": "205 40 95",
+      "deep": "46 6 24",
+      "shape": "Diamond",
+      "beam": "Red",
+      "icon_floor": "T2",
+      "note": "SPLIT OFF currency at the designer's call — Tainted Mythic Orb was reading as ordinary currency at every rung. Keeps currency's Diamond, because it IS currency; the hue is vaal crimson, the colour corruption already wears in game. ⚠️ REVISED from an earlier 210 55 30: at 8° from heist and with a near-clone muted it failed the bar this bank sets for itself on the ritual card — 'far enough from Heist red that the shapes are not doing all the work'. At 340° it sits 11° off ritual, 20° off heist and 20° off jewels, all clear of the ≥6° rule, and at roughly twice ritual's luminance. Clears 5.17:1 on white, so no t0_text.",
+      "muted": "178 112 150"
+    },
+    "recipes": {
+      "solid": "220 238 242",
+      "deep": "26 38 42",
+      "shape": "Moon",
+      "beam": "White",
+      "icon_floor": "T2",
+      "note": "SPLIT OFF vendor at the designer's call. FilterBlade and Sharket both put a white-ish plate on 6-socket and RGB — it is the chromatic-recipe signal and players already read it. Vendor bulk stays grey for Legacy and Chancing; a recipe you can act on is not bulk. Moon comes out of reserve: recipes are the one iconless-by-inheritance category that genuinely wants findability on the ground.",
+      "muted": "165 182 188",
+      "t0_text": "40 105 120"
     },
     "vendor": {
       "solid": "120 120 120",
@@ -364,7 +386,7 @@
       "shape": null,
       "beam": "Grey",
       "icon_floor": "none",
-      "note": "Legacy, vendor recipes, chancing. The noise floor as a category rather than a rung.",
+      "note": "Legacy and Chancing only — Vendor Recipes split off onto its own `recipes` accent. The noise floor as a category rather than a rung.",
       "muted": "140 140 140"
     },
     "flasks": {
@@ -615,9 +637,11 @@
     }
   },
   "open_questions": [
-    "Fragments vs Breach: both purple, separated by text colour and shape. Author: 'fine for now.'",
-    "Icon floor per category (§4.1) — needs an in-game sweep. Seed from NeverSink, then remove.",
-    "Tree-side, unrelated to colour: Jewels key names after the 3-file split; whether Fractured.json comes off Body Armours."
+    "Icon floor per category (§4.1) — needs an in-game sweep. Legacy is the biggest single cut (17/17 draw an icon AND a beam on the vendor accent, whose floor is none); General is 48/43.",
+    "Fragments vs Breach in a real map: both purple, separated on text (black vs white) and shape (Hexagon vs Star). Author: 'fine for now.'",
+    "Gold auto-pickup confirmation in Ruthless — the whole plate: never exception rests on it.",
+    "Ward bases: COMPOSITION is the author's call (cross-class Ward concept vs split on item class). The look needs nothing either way — Expedition Ward-Bases already has its own accent rather than a gear group hue, which is the cross-class answer; if it splits, Iron Flask simply lands on the flasks accent. If it ever wants a ladder, its three ilvl bands (24-25 / 48-49 / 68-69) map to gear depth 3 = T2 T3 T4.",
+    "Campaign Safety Net / Aggressive Magic Hide points at a Tier 9 row Campaign does not have. It reads as a hide ('Hide Magic after Act 3') but is not flagged as one — flag it hide and it emits Minimal and needs no row. If it is genuinely meant to show, it is Campaign T5."
   ],
   "_text_brightness_ladder": {
     "_about": "Six rungs, T0-T5. Plate luminance falls monotonically; the accent appears on the plate only at T2/T3 and as text at T4.",
@@ -628,14 +652,13 @@
     "rule": "Plate luminance strictly descends. Rarity-through drops the text and ranks on the same plates, border always free for states."
   },
   "_category_exceptions": {
-    "_about": "Eight. An exception substitutes one accent into a rung and never changes the rung's structure — except gold, maps and heist, which are noted.",
+    "_about": "Seven. An exception substitutes one accent into a rung and never changes the rung's structure — except gold, maps and heist, which are noted. ⚠️ corrupted_tainted was RETIRED: tainted currency is now an ordinary accent (205 40 95) in the bank, not a structural exception, so it costs no exception at all. The old entry described the grey-plate treatment that split replaced.",
     "currency": "none needed — it IS the house ladder",
     "gold": "plate: never, at any rung. Auto-collected, so the label is informational. Closes Currency/Gold.json completely: no plate, no beam, no icon.",
     "uniques": "brown substitutes into the accent slot; the one gear family that paints its text",
     "maps": "rarity_through (no text colour) + icon colour from map tier + icon_floor T3",
     "gems": "teal substitution",
     "divination_cards": "own blue — widest value spread of any category",
-    "corrupted_tainted": "a STATE, not a category: grey plate + red border wherever it appears",
     "heist": "rung = area quality (handpicked list of nine); floor is T3, never the bulk rungs; Pentagon + icon_floor T3. Matching-side change; see _heist_rule."
   },
   "_heist_rule": {
@@ -675,13 +698,13 @@
       "Star",
       "Cross",
       "Kite",
-      "Pentagon"
+      "Pentagon",
+      "Moon"
     ],
     "reserved": [
-      "Moon",
       "UpsideDownHouse"
     ],
-    "note": "Raindrop -> flasks, Pentagon -> maplike (heist, expedition). Two shapes held for future league content. Wombgifts take Star with the rest of Breach, NOT Hexagon — Hexagon is atlas keys (fragments, scarabs, breachstones)."
+    "note": "Raindrop -> flasks, Pentagon -> maplike (heist, expedition), Moon -> vendor recipes. Tainted takes Diamond, shared with currency — same shape, different hue, which is the correct reading: tainted currency IS currency. One shape held for future league content. Wombgifts take Star with the rest of Breach, NOT Hexagon — Hexagon is atlas keys (fragments, scarabs, breachstones)."
   },
   "_q21_scope": "T0-T2 only. Stated in one place so it cannot drift: the board had it as T0/T1 in two spots and T0-T2 in two others.",
   "flat_look": {
@@ -723,7 +746,7 @@
     ],
     "icon_disambiguation": "Flat draws '1 White <shape>' and the maps exception draws '1 White Square' for white-tier maps — same colour, two meanings. SHAPE disambiguates: Square is a map, any other shape at 1 White is unranked. Encode it that way rather than treating White as a single semantic.",
     "validator": "Errors to assert: (1) a flat PAINTED block on a class whose state_budget is non-empty; (2) any flat block that emits SetTextColor on a gear-accent category; (3) any flat block emitting a MinimapIcon where the accent's shape is null.",
-    "removed": "Magic Net has 3 real rungs (Magic Good Jewellery / Magic Net / Normal Net) — it is a ladder, so it goes on the ladder. Stygian Vise has 2 and is a judgement call; left OFF the flat list for now since two rungs is a rank.",
+    "removed": "Magic Net is now a 4-rung AreaLevel band over magic gear — a ladder, and a gear one, so it moved off the quest accent onto equipment with its own override. Stygian Vise has 2 rungs and is a judgement call; left OFF the flat list for now since two rungs is a rank.",
     "caution": "⚠️ Relics: 7 of its 14 GGPK bases are [DO NOT USE] and our category holds one. Enshrouded Gear's bases are not in the dump yet. Both stay on the gear form, which is safe by construction — a spurious plate is cosmetic, and there is no border to be spurious about."
   },
   "gear_ladder": {
@@ -811,7 +834,9 @@
       "fallback": {
         "hue": "170 170 170",
         "deep": "42 42 42",
-        "covers": "genuinely mixed-class categories: Campaign, Crafting Bases, Influenced, Heist Experimented, Uniques, Legacy"
+        "covers": "genuinely mixed-class categories: Rare Equipment, Fractured, Influenced, Crafting Bases, Magic Net, Heist Experimented, Uniques, Legacy",
+        "_campaign_is_not_here_any_more": "Campaign's four files split BY CLASS (10 Weapon / 20 Armour / 30 Jewellery / 40 Flask), so group_resolution resolves them to weapons, armour, jewellery and flasks with no hand-mapping. Campaign is where the gear family distinction now lives.",
+        "_rare_equipment": "The 23 per-class categories collapsed into one mixed file, so one hue is the honest answer there. Armour's 130 150 175 winning that merge was an accident of coverage, not a decision — use the fallback grey."
       }
     },
     "_why_four": "Sharket has ~30 class hues, which is the variance the author asked to cut. One shared grey was my over-correction. Four groups answers the only question a gear drop poses at distance — weapon or chest — without 30 colours to learn.",
@@ -839,54 +864,8 @@
     "no_vocabulary_to_preserve": "The current filter has 15 distinct icon values but 245 of 285 are just two — '1 White Diamond' (123) and '0 White Star' (122). The nine-shape vocabulary replaces nothing."
   },
   "rung_by_depth": {
-    "_about": "⚠️ RESTORED after being lost in the six-rung rewrite. This is the map from a category's tier DEPTH to the rungs its tiers take. Its absence is what compiled Legacy and Chancing to T2 — the money plate with a Temp beam — on bulk. If this key is missing again, that is the regression.",
-    "_rule": "Check flat_look.applies_to_* FIRST — flat categories skip this table entirely. Then overrides. Then the template for the category's depth.",
-    "templates": {
-      "1": [
-        "T2"
-      ],
-      "2": [
-        "T2",
-        "T4"
-      ],
-      "3": [
-        "T1",
-        "T2",
-        "T4"
-      ],
-      "4": [
-        "T1",
-        "T2",
-        "T3",
-        "T4"
-      ],
-      "5": [
-        "T0",
-        "T1",
-        "T2",
-        "T3",
-        "T4"
-      ],
-      "6": [
-        "T0",
-        "T1",
-        "T2",
-        "T3",
-        "T4",
-        "T5"
-      ],
-      "7+": "T0, T1, T2, T3, T4, T5 with the surplus doubling on T2 and T3 — the two rungs designed to be shared. Never invent a seventh rung."
-    },
-    "overrides": {
-      "_legacy/Legacy.json": [
-        "T5"
-      ],
-      "Currency/Chancing.json": [
-        "T5"
-      ],
-      "_why": "⚠️ THE ONE CASE THE DEPTH RULE GETS BACKWARDS. Depth 1 normally means 'this category has one thing to say and it is worth saying' -> T2. Legacy and Chancing have depth 1 for the opposite reason: they are BULK, and bulk is a rank. Without these two lines they compile to the loudest non-chase rung in the filter, doing the exact opposite of their job.",
-      "_audit": "The code side audited all seven depth-1 categories: only these two are wrong. Allflame one-offs, Heist Targets and the Campaign safety net all belong at T2."
-    },
-    "_validator": "A depth-1 category resolving to T2 that is NOT in flat_look and NOT in overrides is worth a warning, not an error — it is right five times out of seven, but it is the shape of this bug."
+    "_moved": "⚠️ THIS TABLE NOW LIVES IN accent-category-map.json AND ONLY THERE. Two copies existed and they disagreed at depth 3; the map's copy was the only one with a gear template and the file overrides, so it is primary. Do not restore a copy here — a second copy is how they drifted.",
+    "_why_it_matters": "Its absence is what compiled Legacy and Chancing to T2 — the money plate with a Temp beam — on bulk. If a category's rungs come out loud and wrong, this table is the first thing to check.",
+    "_depth3": "Resolved to T1 T2 T4. T3 is the muted accent plate and only means something below the full-strength T2; with one accent rung there is nothing for it to be muted against, so a 3-deep ladder would name its family more weakly than a 2-deep one. Recorded as an invariant, not a preference: see _invariants.painted_t3_needs_t2 in the map."
   }
 }

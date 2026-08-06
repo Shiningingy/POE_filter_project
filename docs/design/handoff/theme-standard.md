@@ -228,7 +228,7 @@ keeps this from growing back into 519 triples.
 3. **Maps** — plate follows item **rarity**, not the rung. Rung carried by size and icon.
 4. **Gems** — teal substitution. Largest category, most often misread as currency.
 5. **Divination cards** — own blue. Widest value spread of any category.
-6. **Corrupted/tainted** — a *state*, not a category: grey plate + red border, everywhere.
+6. ~~**Corrupted/tainted**~~ — RETIRED. Tainted currency is now an ordinary accent (`205 40 95`, vaal crimson, keeps currency's Diamond), not a structural exception. The old grey plate said "corrupted" by giving up the hue, which left a Tainted Mythic Orb reading as ordinary currency at every rung.
 
 ⚠️ Maps carry **two** independent exceptions (plate = item rarity in §8.3, icon = map tier in §4.2).
 Those are different item properties. Both are intended.

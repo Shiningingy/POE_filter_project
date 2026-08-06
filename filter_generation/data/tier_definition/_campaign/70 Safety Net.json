@@ -98,6 +98,7 @@
     "Aggressive Magic Hide": {
       "_lv": true,
       "hideable": true,
+      "is_hide_tier": true,
       "class_condition": true,
       "conditions": {
         "Class": "== \"Bows\" \"Claws\" \"Daggers\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Quivers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Wands\" \"Warstaves\" \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Amulets\" \"Belts\" \"Rings\"",
