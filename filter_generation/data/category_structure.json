@@ -827,8 +827,8 @@
     {
       "_meta": {
         "localization": {
-          "en": "Heist Gear",
-          "ch": "赏金猎人装备"
+          "en": "Heist Specific",
+          "ch": "赏金猎人"
         }
       },
       "files": [

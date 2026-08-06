@@ -15,16 +15,5 @@
     ],
     "gen_order": -110
   },
-  "mapping": {
-    "Harbinger Bow": "Chancing Normal",
-    "Vaal Regalia": "Chancing Normal",
-    "Assassin's Garb": "Chancing Normal",
-    "Brine Crown": "Chancing Normal",
-    "Two-Stone Ring": "Chancing Normal",
-    "Occultist's Vestment": "Chancing Normal",
-    "Murder Mitts": "Chancing Normal",
-    "Imperial Bow": "Chancing Normal",
-    "Opal Ring": "Chancing Normal",
-    "Death's Hand": "Chancing Normal"
-  }
+  "mapping": {}
 }
