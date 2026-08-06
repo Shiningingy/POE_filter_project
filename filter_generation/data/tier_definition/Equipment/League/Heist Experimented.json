@@ -41,6 +41,18 @@
             "Sharket掉落音效/朴实项链.mp3",
             300
           ]
+        },
+        "Geodesic Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/地线戒指.mp3",
+            300
+          ]
+        },
+        "Cogwork Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/齿轮戒指.mp3",
+            300
+          ]
         }
       }
     },
@@ -76,6 +88,20 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Micro-Distillery Belt": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/低酿腰带.mp3",
+            300
+          ]
+        },
+        "Mechalarm Belt": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/警戒腰带.mp3",
+            300
+          ]
+        }
       }
     },
     "Heist Experimented Hide": {

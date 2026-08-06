@@ -133,6 +133,14 @@
       "localization": {
         "en": "T4: Low Value",
         "ch": "T4: 低价值碎片"
+      },
+      "item_overrides": {
+        "Sacrifice at Midnight": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/午夜的奉献.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier Hide Fragments": {
