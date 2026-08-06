@@ -367,13 +367,13 @@
   },
   {
     "file": "Equipment/Crafting Priority.json",
-    "tier_key": "Crafting Strands Gear",
+    "tier_key": "Crafting Strands T2",
     "Tier": 3,
     "how": "override"
   },
   {
     "file": "Equipment/Crafting Priority.json",
-    "tier_key": "Crafting Strands Weapons",
+    "tier_key": "Crafting Strands T2",
     "Tier": 3,
     "how": "override"
   },

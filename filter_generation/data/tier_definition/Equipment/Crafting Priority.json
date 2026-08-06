@@ -9,8 +9,10 @@
       "tier_order": [
         "Crafting Perfect Defence",
         "Crafting Over Quality",
-        "Crafting Strands Weapons",
-        "Crafting Strands Gear",
+        "Crafting Strands 60+",
+        "Crafting Strands T1",
+        "Crafting Strands T2",
+        "Crafting Strands T3",
         "Crafting Gear 86",
         "Crafting Gear 86 Rank B",
         "Crafting Gear 85",
@@ -151,44 +153,31 @@
         }
       }
     },
-    "Crafting Strands Weapons": {
+    "Crafting Strands 60+": {
+      "class_condition": true,
       "hideable": true,
       "conditions": {
         "Rarity": "<= Rare",
-        "MemoryStrands": ">= 1",
-        "ItemLevel": ">= 83"
+        "MemoryStrands": ">= 60"
       },
       "theme": {
-        "Tier": 3
+        "Tier": 2
       },
       "sound": {
         "default_sound_id": -1,
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "Weapon base with Memory Strands",
-        "ch": "追忆武器底材"
+        "en": "Memory Strands 60+ (any base)",
+        "ch": "追忆防具/首饰底材 60+"
       },
-      "item_overrides": {
-        "Artillery Quiver": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/火炮箭袋.mp3",
-            200
-          ]
-        },
-        "Convoking Wand": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/召集法杖.mp3",
-            200
-          ]
-        }
-      }
+      "hide_at_strictness": 6
     },
-    "Crafting Strands Gear": {
+    "Crafting Strands T1": {
       "hideable": true,
       "conditions": {
         "Rarity": "<= Rare",
-        "MemoryStrands": ">= 1"
+        "MemoryStrands": ">= 30"
       },
       "theme": {
         "Tier": 3
@@ -198,9 +187,10 @@
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "Gear base with Memory Strands",
-        "ch": "追忆防具/首饰底材"
+        "en": "Memory Strands 30+ (rank 1)",
+        "ch": "追忆武器底材 T1"
       },
+      "hide_at_strictness": 5,
       "item_overrides": {
         "Crystal Belt": {
           "PlayAlertSound": [
@@ -239,6 +229,58 @@
           ]
         }
       }
+    },
+    "Crafting Strands T2": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "MemoryStrands": ">= 30"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Memory Strands 30+ (rank 2)",
+        "ch": "追忆防具/首饰底材 T2"
+      },
+      "hide_at_strictness": 3,
+      "item_overrides": {
+        "Artillery Quiver": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/火炮箭袋.mp3",
+            200
+          ]
+        },
+        "Convoking Wand": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/召集法杖.mp3",
+            200
+          ]
+        }
+      }
+    },
+    "Crafting Strands T3": {
+      "hideable": true,
+      "conditions": {
+        "Rarity": "<= Rare",
+        "MemoryStrands": ">= 30"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Memory Strands 30+ (rank 3)",
+        "ch": "追忆防具/首饰底材 T3"
+      },
+      "hide_at_strictness": 3
     },
     "Crafting Gear 86": {
       "hideable": true,
