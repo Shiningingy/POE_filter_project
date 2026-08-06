@@ -151,7 +151,61 @@ hand-added Runic pieces (keep those).
 Influenced needs more than a matrix: their section has the 3-rank matrix **plus** per-influence
 base lists (Shaper/Elder/Crusader/Hunter/Redeemer/Warlord) and per-influence class lists.
 
-## 6. Open — not yet decided
+## 6. ★ The magic/normal net should follow AreaLevel, not strictness
+
+**The complaint (author, from play):** FilterBlade still shows magic equipment in T16 maps,
+which is annoying, and the only way to stop it there is to raise strictness. *"This should be
+something auto-fit in progress, not a strictness control"* — like our campaign's hide-magic-
+after-Act-3 behaviour.
+
+**Measured — they are right, and it is structural.** FilterBlade barely uses `AreaLevel` for
+magic at endgame at all: their magic handling is gated by `ItemLevel`, by mods (`magicid` =
+identified magic with good rolls) and by `%D`, i.e. strictness. There is no "where you are"
+axis in it.
+
+**We already have the mechanism, and it stops dead at 67.** The campaign uses AreaLevel
+RANGES, which are progression-driven and strictness-free:
+
+```
+Normal Declutter        AreaLevel 10-67   Rarity Normal
+Magic Declutter         AreaLevel 10-67   Rarity Magic
+Aggressive Magic Hide   AreaLevel 34-67   Rarity Magic
+```
+
+Above 68 there is a single flat layer, so a white map and a T16 are treated identically.
+That is the "midgame >= 68 / endgame" third layer CLAUDE.md describes and that was never
+built. Map area levels run T1 = 68 to T16 = 83, so bands are directly expressible.
+
+Today at 68+: `Normal Net` is already a hide tier; `Magic Net` (24 classes) and
+`Magic Good Jewellery` SHOW, gated only at strictness 1 and 2 respectively.
+
+### Design constraints (author, 2026-08-06)
+
+1. **This layer is for hiding trash equipment — mainly armour/weapons.** Some items only
+   ever drop as magic, so it must not become a blanket magic hide.
+2. **Add `Identified False` to the hide**, so a magic base someone identified for its mods
+   survives. (`Identified` is available: `filter_conditions.yaml:67`, bool, universal.)
+3. **The hide must be LOWER priority than the crafting layer**, so good jewellery bases are
+   never swallowed by it — those stay strictness-controlled.
+   ✅ **Already true**: `Crafting Priority` gen_order -10, `Rare Equipment` 3, `Magic Net` 5.
+   The magic net is already the last equipment layer to speak.
+4. **Do not hide everything** — talismans can drop magic and still be good.
+   ✅ **Already true**: all 43 talismans are mapped into `Magic Good Jewellery`, which sits
+   FIRST in `tier_order`, so a magic talisman is claimed there before the generic net.
+5. **Normal at 68+ stays as-is — decided, no change.** You can scour a magic to normal
+   anyway, and a base worth crafting hits the crafting layer, which should be
+   strictness-controlled rather than a general rule.
+
+⚠️ **Still open: the band boundary.** Author is deciding. Candidates discussed: show 68-74 /
+hide 75+ (mirrors the campaign's 34-67 step, one stage later); show 68-79 / hide 80+; hide
+from 68 outright; or a three-band fade (68-74 all, 75-82 jewellery only, 83+ none). Nothing
+else about this is blocked — constraints 3 and 4 already hold, so the work is a RANGE plus
+`Identified False` on one tier.
+
+⚠️ 41 of the 43 talismans are absent from `items_db.json` (post-dump 3.29 bases), so any
+class-derived reasoning about them is blind until that DB is refreshed.
+
+## 7. Open — not yet decided
 
 - **`AreaLevel >= 68` vs `ItemLevel >= 68`.** Ours gates the ladder on `AreaLevel`, theirs
   on `ItemLevel`. ADR-0006 says these are not interchangeable: `AreaLevel` decides *where
@@ -161,7 +215,7 @@ base lists (Shaper/Elder/Crusader/Hunter/Redeemer/Warlord) and per-influence cla
 - `Ghostflame Blade` and `Pearlescent Amulet` are in our tree but not `items_db.json` —
   post-dump 3.29 bases; the DB needs a refresh before class is derived from it.
 
-## 7. Deferred features (unchanged)
+## 8. Deferred features (unchanged)
 
 - **Match presets / predefined rules** — the same 24-class list is repeated across 13 tiers
   in 6 files in 4 textually-different forms. Nothing has drifted yet; nothing prevents it.
