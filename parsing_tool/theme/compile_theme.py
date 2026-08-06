@@ -268,8 +268,13 @@ def ladders():
 def override_key(rel, theme_cat, depth):
     """Their override keys are annotated: 'Currency/General.json (8)' and
     'Misc/General.json — Quest Items (1)'. The separator is an EM DASH."""
-    for k in RUNG["overrides"]:
-        if k.startswith("_"):
+    for k, v in RUNG["overrides"].items():
+        # ⚠️ Discriminate metadata by VALUE TYPE, never by a leading underscore. `_legacy/`,
+        # `_campaign/` and `_decorators/` are real, live directories in this tree, so
+        # `k.startswith("_")` silently dropped the `_legacy/Legacy.json (1)` override and put
+        # bulk back on T2 — the precise bug reply 06 reported and reply 13 restored the table
+        # to fix. It was fixed in the KIT_OVERRIDES path and missed in this one.
+        if not isinstance(v, list):
             continue
         body = re.sub(r"\s*\(\d+\)\s*$", "", k)
         parts = [x.strip() for x in body.split("—")]

@@ -1382,7 +1382,7 @@
  {
   "file": "_legacy/Legacy.json",
   "tier_key": "Legacy",
-  "Tier": 2,
-  "how": "value"
+  "Tier": 5,
+  "how": "override"
  }
 ]
