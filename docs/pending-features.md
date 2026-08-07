@@ -269,66 +269,81 @@ emits `Minimal` with NO style lines. Verified by generating with
 ⚠️ `sharket_theme.json` is HAND-TUNED. Any fix must be a surgical edit; regenerating it
 would flatten the tuning (`build_standard_theme.py` is group B for exactly this reason).
 
-## 6d. ★ NEXT UP — the queue as of 2026-08-07
+## 6d. ★ STATE AND ROADMAP — 2026-08-07, after the first two in-game loads
 
-★ Sections A / B / C of the previous 6d are **DONE** and are not repeated here; see
-`docs/design/reply-to-designer-07.md` (crafting accent), the `feat(ggpk)` commits (the
-`_legacy` audit) and `reply-to-designer-08/09/10.md`. What follows is what is actually left.
+★ **The filter has been LOADED IN GAME**, twice, and shipped as
+`Sharket3.29无情_合同工版本V4.ruthlessfilter` (mode=ruthless, strictness=soft; V3 kept as the
+fallback). That is the first real-world read this whole effort has had.
 
-### A. Blocked on the designer — `docs/design/reply-to-designer-10.md`
+### Done this round
 
-1. ★ **The `map_special` swap cannot fire.** Our special-map tier resolves to rung T1, and
-   their `_swaps_never_paint_the_house_rungs` forbids a swap there. Their two rules together
-   say *a special map may not be at T0 or T1*, which is a **matching** constraint arriving
-   from the theme side — the first time that has happened. Ten rules share one look today.
-2. **T17 / Vaal Temple: ramp or house red?** Their own `t17_falls_out` reads as though a T17
-   should be on the ramp (white plate + swap = deep violet). It currently wears the red plate,
-   so it is neither. ⚠️ If the answer is "ramp", the theme has told the matching side to
-   delete a rule — fine, but it should be a decision.
-3. **Expedition Logbooks (2 rules) are not maps** — no MapTier for the ramp, no plate for a
-   swap. They sit in the special-map tier because it used to mean "special things".
-4. **Per-band icon colour is unbuilt.** Their maps exception asks for it; the ramp is
-   per-MapTier on the RULE while the icon comes from the rung's ROW, so the icon is one colour
-   for all sixteen tiers. Same shape as the plate problem, needs the same call.
-5. Still owed by them: the **icon floor sweep**.
+| area | state |
+|---|---|
+| **Equipment reshape** | all 5 purposes expressed, 0 bases lost |
+| **Designer theme** | replies 14–19 taken; crafting swap, T0 rules, map ramp, 6-Link, uniques |
+| **`_legacy` sweep** | 158 live bases resolved; **0 outstanding**, 69 author-confirmed |
+| **GGG feed** | 3.19–3.29 extracted verbatim, GGPK-verified, in-repo |
+| **Maps** | tier on the plate, specials on the rule, all blocks ≥ 4.00:1 |
+| **Sounds** | Quest Items + Fragments ported; scroll and bulk-currency progression gates |
+| **Guards** | `check_shadowed_blocks` + `check_range_syntax`, both proved to fire |
 
-### B. Author's, and only the author can do them
+### ★ Blocked on the designer
 
-1. ⚠️ **The map ramp needs eyes in game.** Their own warning: interpolated middles are where a
-   ramp stops being readable, and **T12–T15 are four plates inside 32 luminance points**.
-2. ⚠️ **`equipment.deep` may sit too close to the map floor** — reply 17 §5. If the load
-   confirms it, the fix is one authored value (`42 42 42` → ~`52 52 52`) and every gear ladder
-   benefits. Explicitly a load question, not a calculation.
-3. **Nothing has been loaded in game.** Every format bug this project has found passed
-   generation, the validator and every guard first.
+1. **Uniques T1** — fixed locally with FilterBlade's brown-on-dark-red, but reply 12 asks
+   whether their own *"T1 is RELATIVE, so it renders in the family's vocabulary"* rule makes
+   this the general case rather than a local exception.
+2. **`T3 普通` vs `其他传奇`** — the override doubles T3 so both render identically. Asked
+   whether both tiers should exist at all.
+3. **Icon floor sweep** — theirs, still owed.
 
-### C. Data, mechanical, ours whenever wanted
+### ★ Ours, in priority order
 
-1. **18 rows in `_legacy` are still unresolved.** ⚠️ Note the earlier "0 outstanding" was
-   scoped to the LIVE set; extending the claimant check to UNKNOWN surfaced these. They are
-   Recombinators, Alchemical Resonators, Regrading Lenses, Perandus Coin, 4 Omens,
-   Chayula's Flawless Breachstone, Ancient Reliquary Key — all **pre-3.19**, which is the
-   oldest thread extracted. `data/from_ggg/thread_index.json` lists 21 unfetched threads back
-   to 2.3.0.
-2. **An UNKNOWN is a gap in OUR reading, never evidence about the item.** Medicine Chest and
-   Maligaro's Map were introduced in 3.1.0 and are alive; Maven's Beacon, Elder's Orb and
-   Shaper's Key are the same vintage and are dead. The feed cannot separate them for us until
-   it is read back that far.
-3. **`Trinkets` emits exactly ONE block** (`Thief's Trinket`); its other four tiers have
-   conditions but no bases and no rule, so they emit nothing — 4 of the validator's 9 warnings.
-   ⚠️ Not a Ruthless-dead category: the wiki says `Thief's Trinket` is drop-disabled and the
-   wiki is WRONG, which is now recorded in `_author_corrections.drops_after_all`.
-4. **The remaining sound gap is 15 rows** — equipment and the four retired Guardian maps.
-   `docs/sharket-sound-gap.md`; the author's scope was Misc Map Items + Quest Items, both done.
+1. ⚠️ **`gen_order` audit — AHEAD OF EVERYTHING ELSE.** 52 of ~67 categories have **no
+   explicit `gen_order` and sort by FILENAME**. A purpose with a negative gen_order and a
+   loose condition can reach across the whole tree silently: the Influenced net
+   (`gen_order -40`, no `Class`) beat `Base Maps` (alphabetical, ~121000) by eighty thousand
+   positions and ate every influenced map. **No guard sees this class** — the shadowing check
+   finds blocks nothing *can* reach; this was reachable in principle and beaten in practice.
+   Found only because the author photographed a purple border.
+2. **Theme rework (feature)** — collapse `theme_category × Tier N`. Measured: 51 categories /
+   142 rows encoding only **85 distinct (accent, rung) pairs**; `equipment` alone spans 13
+   categories. It compiles from house `rung_recipes` + `accents` + `_category_exceptions`,
+   which IS the model and is what the picker should present (hue + rung + exceptions, not 51
+   categories). ★ The author's framing: *"the thing I see is not the thing the designer
+   ships"* — there are **four layers** between recipe and screen (recipe → compiled rows →
+   tier inline → rule overrides → decorators), and **every defect this session came from
+   layers 2–4, none from layer 1**. The map work is the pilot: a rule override carried a
+   whole look.
+3. **Logbooks → expedition accent** (reply 18) — a category move, not a look.
+4. **18 unresolved `_legacy` rows** — needs 3.21 and older; 21 threads unfetched.
+5. **15 remaining sound rows** — equipment, plus 4 retired Guardian maps not worth porting.
+6. **Kit-consistency checker** (~40 lines) — parse `_note` prose for `T<n>` sequences and
+   assert they match the array beside them. Would have caught all **four** prose-vs-array
+   drifts.
+7. **Strictness gates** — author deferred; soft is enough for now.
 
-### D. Standing
+### ⚠️ Traps that cost real time — do not re-derive
 
-- **Per-item sounds are the AUTHOR's work** unless a bulk import is asked for.
-- ⚠️ **A sound ported onto a base the author is about to home is worse than no sound** — it
-  claims the base earlier and silently kills their placement. That happened this session with
-  Chronicle of Atzoatl; the symptom was "I added it in the bulk editor and nothing happened".
-- The designer has **repo access**, so `docs/design/reply-*.md` is the channel and every
-  measurement is reproducible from the scripts rather than pasted.
+- **A per-item sound CARD cannot be conditioned.** `{...rule.overrides, ...cardOver}` means a
+  card beats a rule, so a "silent" rule emits with the sound still attached. Hit twice.
+- **A generator that CONSUMES its source cannot be re-run** once the data is hand-authored.
+  Re-running `build_map_tier_ramp.py` over hand-picked bands replaced them, and deleting the
+  `_generated` rules then took the bands too.
+- **`RANGE >= a <= b` is split positionally** — a bad token emits a condition the game
+  ACCEPTS and misreads. `MapTier 0 10` made most maps match nothing, and it loaded fine.
+- **A band rule with no `Rarity` gate eats unique maps.**
+- **Editor saves race with our edits.** Fixes were overwritten twice; regenerate and re-check
+  after every author save.
+- **The Ruthless wiki has a known-bad row** (`Thief's Trinket` drops) — in
+  `_author_corrections.drops_after_all`.
+- **Verify in `--mode ruthless`.** A whole session was verified in `standard` by mistake.
+
+### The pattern worth keeping
+
+Five defects came out of the two in-game loads. **None was a wrong decision; all five were
+relationships between correct pieces** — a stale override against a new plate, an equipment
+purpose against a map, a positional split against a typo, a band against a rarity. Four were
+invisible to every guard. That is what the in-game read buys and what no test replaces.
 
 ## 7. Open — not yet decided
 
