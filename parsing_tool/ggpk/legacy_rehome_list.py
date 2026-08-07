@@ -31,6 +31,20 @@ verdict = json.load(io.open(os.path.join(
     ROOT, "data", "from_ggg", "legacy_verdict.json"), encoding="utf-8"))
 live = {k: v for k, v in verdict.items() if v["verdict"].startswith("LIVE")}
 
+# ★ "live" is not "unhomed". A base listed under `_legacy` in base_mapping can already be
+# claimed on screen by an earlier SUBSTRING rule — `BaseType "Tattoo of"` takes all 53
+# tattoos, `"Runegraft of"` takes the runegrafts, `"Astrolabe"` takes the astrolabes — and
+# under first-match-wins it never reaches the Legacy block at all. The mapping entry is then
+# cosmetic and there is no work. who_claims.py resolves this against the EMITTED filter;
+# without it this list reported 158 rows of work where 21 existed.
+claims = {}
+cp = os.path.join(ROOT, "data", "from_ggg", "legacy_claimants.json")
+if os.path.exists(cp):
+    claims = json.load(io.open(cp, encoding="utf-8"))
+if claims:
+    live = {k: v for k, v in live.items()
+            if claims.get(k, {}).get("state") in ("needs re-homing", "GAP — nothing shows it")}
+
 # ── Id -> zh, via the CN dump; Name -> Id, via the English dump ─────────────────
 def rows(label, lang, table="BaseItemTypes.json"):
     p = os.path.join(SRC, label, "tables", lang, table)
@@ -66,11 +80,17 @@ groups = collections.defaultdict(list)
 for n, v in live.items():
     groups[v["class"]].append(n)
 
-md = ["# Re-home list — live content sitting in `_legacy/Legacy.json`",
+md = ["# Re-home list — live content that nothing else already shows",
       "",
-      "%d bases. Source: GGG's official Item Filter Information threads, verified against"
-      " GGPK `BaseItemTypes`; the Ruthless wiki has already subtracted anything this mode"
-      " does not drop. Every row is live in Ruthless right now." % len(live),
+      "**%d bases.** Each one is live in Ruthless (GGG's Item Filter Information threads,"
+      " GGPK-verified, minus what the Ruthless wiki disables) AND falls through to the"
+      " Legacy block in the emitted filter." % len(live),
+      "",
+      "★ This is the short list, not the long one. %d bases are live-but-listed-under-_legacy;"
+      " the other %d are already claimed on screen by an earlier rule — mostly SUBSTRING"
+      " matches (`Tattoo of` takes 50, `Runegraft of` 10, `Astrolabe` 9), so their mapping"
+      " entry is cosmetic and there is nothing to do. See `who_claims.py`."
+      % (len(claims) if claims else len(live), (len(claims) - len(live)) if claims else 0),
       "",
       "zh names are GGPK's own, joined on `Id` (ADR-0004). A blank zh cell means the CN dump"
       " has no row for that Id — do not fill it in by hand.",

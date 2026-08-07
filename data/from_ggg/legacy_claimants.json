@@ -1,0 +1,1108 @@
+{
+ "Abyss Scarab of Descending": {
+  "class": "Map Fragments",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Adherent of Zarokh": {
+  "class": "Corpses",
+  "claimed_by": "Corpses -T3: 常用尸体 尸体 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Anarchy Scarab of the Exceptional": {
+  "class": "Map Fragments",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Annihilation Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Astral Lich": {
+  "class": "Corpses",
+  "claimed_by": "Corpses -T3: 常用尸体 尸体 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Betrayal Scarab of Unbreaking": {
+  "class": "Map Fragments",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Blessed Call Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -兜底：其他辅助宝石 辅助宝石 - Class Condition",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "3.28.0"
+ },
+ "Bloodsoaked Banner Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Bonespire Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Cast on Ward Break Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Chaotic Astrolabe": {
+  "class": "Stackable Currency",
+  "claimed_by": "General -T2: 高价值通货 可堆叠通货 - #1 星盘 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Coin of Desecration": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Coin of Knowledge": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Coin of Power": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Coin of Restoration": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Coin of Skill": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Companionship Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Congregation Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Conjuror of Rot": {
+  "class": "Corpses",
+  "claimed_by": "Corpses -T3: 常用尸体 尸体 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Cooldown Recovery Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Cord Belt": {
+  "class": "Belts",
+  "claimed_by": "首饰 -稀有首饰 首饰过渡 - Class Condition",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "3.28.0"
+ },
+ "Corvine Charm": {
+  "class": "Charms",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.23.0"
+ },
+ "Crystallised Rancour": {
+  "class": "Stackable Currency",
+  "claimed_by": "Harvest -T1: 中量命能 庄园 - #2 憎恨结晶 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Cull the Weak Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Dextral Catalyst": {
+  "class": "Stackable Currency",
+  "claimed_by": "General -T2: 高价值通货 可堆叠通货 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Divine Blast": {
+  "class": "Skill Gems",
+  "claimed_by": "Skill -T1: 保留技能 / 改造 技能宝石 - #1 改造技能石 Transfigured - 自选",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "3.28.0"
+ },
+ "Divine Sentinel Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Eclipse Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T0: 精选 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Eldritch Blasphemy Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Essence of Desolation": {
+  "class": "Stackable Currency",
+  "claimed_by": "Essences -T0: 顶级/核心 可堆叠通货 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Excommunicate Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -兜底：其他辅助宝石 辅助宝石 - Class Condition",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "3.28.0"
+ },
+ "Exemplar Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -兜底：其他辅助宝石 辅助宝石 - Class Condition",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "3.28.0"
+ },
+ "Expedition Scarab of Infusion": {
+  "class": "Map Fragments",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Fissure Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Flesh of Xesht": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Foulgrasp Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Frostmage Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Fruiting Astrolabe": {
+  "class": "Stackable Currency",
+  "claimed_by": "General -T2: 高价值通货 可堆叠通货 - #1 星盘 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Fungal Astrolabe": {
+  "class": "Stackable Currency",
+  "claimed_by": "General -T2: 高价值通货 可堆叠通货 - #1 星盘 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Gluttony Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Grasping Astrolabe": {
+  "class": "Stackable Currency",
+  "claimed_by": "General -T2: 高价值通货 可堆叠通货 - #1 星盘 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Greater Ancestral Call Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Greater Chain Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T0: 精选 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Greater Devour Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Greater Fork Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Greater Kinetic Instability Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Greater Multistrike Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T0: 精选 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Greater Spell Cascade Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T0: 精选 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Greater Spell Echo Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T0: 精选 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Greater Unleash Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Hallow Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T2: 一般辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Hexpass Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Hextoad Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Hiveborn Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Holy Hammers": {
+  "class": "Skill Gems",
+  "claimed_by": "Skill -T1: 保留技能 / 改造 技能宝石 - #1 改造技能石 Transfigured - 自选",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "3.28.0"
+ },
+ "Holy Strike": {
+  "class": "Skill Gems",
+  "claimed_by": "Skill -T1: 保留技能 / 改造 技能宝石 - #1 改造技能石 Transfigured - 自选",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "3.28.0"
+ },
+ "Imperfect Adherent of Zarokh": {
+  "class": "Corpses",
+  "claimed_by": "Corpses -T3: 常用尸体 尸体 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Imperfect Astral Lich": {
+  "class": "Corpses",
+  "claimed_by": "Corpses -T3: 常用尸体 尸体 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Imperfect Conjuror of Rot": {
+  "class": "Corpses",
+  "claimed_by": "Corpses -T3: 常用尸体 尸体 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Invention Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Invert the Rules Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Journey Tattoo of the Body": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T0: 符文嫁接/纹身 可堆叠通货 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.24.0"
+ },
+ "Journey Tattoo of the Mind": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T0: 符文嫁接/纹身 可堆叠通货 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.24.0"
+ },
+ "Journey Tattoo of the Soul": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T0: 符文嫁接/纹身 可堆叠通货 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.24.0"
+ },
+ "Kalguuran Scarab of Enriching": {
+  "class": "Map Fragments",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Lethal Dose Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Lightless Astrolabe": {
+  "class": "Stackable Currency",
+  "claimed_by": "General -T2: 高价值通货 可堆叠通货 - #1 星盘 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Lupine Charm": {
+  "class": "Charms",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.23.0"
+ },
+ "Machinations Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Memory of Loneliness": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Memory of Reverence": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Memory of Trauma": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Nameless Astrolabe": {
+  "class": "Stackable Currency",
+  "claimed_by": "General -T2: 高价值通货 可堆叠通货 - #1 星盘 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Overheat Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Overloaded Intensity Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Pacifism Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Perfect Adherent of Zarokh": {
+  "class": "Corpses",
+  "claimed_by": "Corpses -T2: 高价值尸体 尸体 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Perfect Astral Lich": {
+  "class": "Corpses",
+  "claimed_by": "Corpses -T2: 高价值尸体 尸体 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Perfect Conjuror of Rot": {
+  "class": "Corpses",
+  "claimed_by": "Corpses -T2: 高价值尸体 尸体 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Pyre Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Refracting Fog": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Ritual Scarab of Corpses": {
+  "class": "Map Fragments",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Runegraft of Connection": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1: 符文嵌板 可堆叠通货 - #1 所有符文 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Runegraft of Consecration": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1: 符文嵌板 可堆叠通货 - #1 所有符文 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Runegraft of Fury": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1: 符文嵌板 可堆叠通货 - #1 所有符文 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Runegraft of Rallying": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1: 符文嵌板 可堆叠通货 - #1 所有符文 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Runegraft of Resurgence": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1: 符文嵌板 可堆叠通货 - #1 所有符文 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Runegraft of Rotblood": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1: 符文嵌板 可堆叠通货 - #1 所有符文 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Runegraft of Suffering": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1: 符文嵌板 可堆叠通货 - #1 所有符文 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Runegraft of the Agile": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1: 符文嵌板 可堆叠通货 - #1 所有符文 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Runegraft of the Imbued": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1: 符文嵌板 可堆叠通货 - #1 所有符文 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Runegraft of the Spellbound": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1: 符文嵌板 可堆叠通货 - #1 所有符文 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Runic Astrolabe": {
+  "class": "Stackable Currency",
+  "claimed_by": "General -T2: 高价值通货 可堆叠通货 - #1 星盘 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Scarab of the Dextral": {
+  "class": "Map Fragments",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Scornful Herald Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Shield of Light": {
+  "class": "Skill Gems",
+  "claimed_by": "Skill -T1: 保留技能 / 改造 技能宝石 - #1 改造技能石 Transfigured - 自选",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "3.28.0"
+ },
+ "Sinistral Catalyst": {
+  "class": "Stackable Currency",
+  "claimed_by": "General -T2: 高价值通货 可堆叠通货 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Tattoo of the Arohongui Moonwarden": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Arohongui Scout": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Arohongui Shaman": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Arohongui Warmonger": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Arohongui Warrior": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Hinekora Deathwarden": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Hinekora Shaman": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Hinekora Storyteller": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Hinekora Warmonger": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Hinekora Warrior": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Kitava Blood Drinker": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Kitava Heart Eater": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Kitava Rebel": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Kitava Shaman": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Kitava Warrior": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Ngamahu Firewalker": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Ngamahu Shaman": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Ngamahu Warmonger": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Ngamahu Warrior": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Ngamahu Woodcarver": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Ramako Archer": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Ramako Fleetfoot": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Ramako Scout": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Ramako Shaman": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Ramako Sniper": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Rongokurai Brute": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Rongokurai Goliath": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Rongokurai Guard": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Rongokurai Turtle": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Rongokurai Warrior": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tasalio Bladedancer": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tasalio Scout": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tasalio Shaman": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tasalio Tideshifter": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tasalio Warrior": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tawhoa Herbalist": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tawhoa Naturalist": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tawhoa Scout": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tawhoa Shaman": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tawhoa Warrior": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tukohama Brawler": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tukohama Shaman": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tukohama Warcaller": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tukohama Warmonger": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Tukohama Warrior": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Valako Scout": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Valako Shaman": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Valako Shieldbearer": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Valako Stormrider": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Tattoo of the Valako Warrior": {
+  "class": "Stackable Currency",
+  "claimed_by": "Runegrafts -T1:纹身 可堆叠通货 - #1 所有纹身 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.24.0"
+ },
+ "Templar Astrolabe": {
+  "class": "Stackable Currency",
+  "claimed_by": "General -T2: 高价值通货 可堆叠通货 - #1 星盘 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "The Black Barya": {
+  "class": "Map Fragments",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.28.0"
+ },
+ "Timeless Astrolabe": {
+  "class": "Stackable Currency",
+  "claimed_by": "General -T2: 高价值通货 可堆叠通货 - #1 星盘 - 自选",
+  "how": "substring",
+  "state": "covered by substring",
+  "added": "3.28.0"
+ },
+ "Transfusion Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Unholy Trinity Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Ursine Charm": {
+  "class": "Charms",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.23.0"
+ },
+ "Vaal Sacrifice Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Vaal Temptation Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Void Shockwave Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Voidstorm Support": {
+  "class": "Support Gems",
+  "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ },
+ "Volatile Vaal Orb": {
+  "class": "Stackable Currency",
+  "claimed_by": "Tainted Currency -T2：高价值 可堆叠通货 - 基础 - 物品卡：无常瓦尔宝珠 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "3.28.0"
+ }
+}
