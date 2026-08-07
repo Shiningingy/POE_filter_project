@@ -632,20 +632,20 @@
  {
   "file": "Equipment/VendorRecipes/Recipes.json",
   "tier_key": "6-Link",
-  "Tier": 4,
-  "how": "override"
+  "Tier": 1,
+  "how": "value"
  },
  {
   "file": "Equipment/VendorRecipes/Recipes.json",
   "tier_key": "6-Socket",
-  "Tier": 5,
-  "how": "override"
+  "Tier": 2,
+  "how": "value"
  },
  {
   "file": "Equipment/VendorRecipes/Recipes.json",
   "tier_key": "RGB Linked",
-  "Tier": 5,
-  "how": "override"
+  "Tier": 4,
+  "how": "value"
  },
  {
   "file": "Flasks/Life.json",

@@ -1,7 +1,25 @@
 # READ ME FIRST — importing this kit
 
 Everything in this folder is current as of 2026-08-07. If you only read one file, read this one,
-then `reply-18-swap-deadlock.md` (answers reply 10), then `reply-17-maps-tier-plate.md` (reply 09).
+then `reply-19-six-link-icon-grant.md` (answers reply 11), then `reply-18-swap-deadlock.md`.
+
+## Latest round (reply 19) — two calls
+
+- **6-Link → T1. Delete `Recipes.json`'s override entirely** — it takes the plain depth-3 value
+  template: 6-Link T1, 6-Socket T2, RGB Linked T4. The `linked` state threshold was set at six on
+  the words "a 6-link is a chase drop"; the rung has to pay that. 6-Socket at T2 puts the
+  white-cyan plate on the item the accent was split off for.
+- **Suppress the `linked` state on the 6-Link block** — its own condition *is* the state's
+  condition, so the border would say what the block already is. Keeps it free for `corrupted`.
+  New rule: `_states_can_be_redundant`.
+- **`icon_floor` is a GRANT, not a gate.** `rung_recipes.T3.icon = null` is the default; a
+  per-category floor overrides it. So the map bands draw as specified — Red T11–17, Yellow
+  T6–10, White T1–5 — with size from the rung (2 at T3) and colour from the band.
+- **New named pattern: `_overrides_are_written_against_contents`.** Chancing, Magic Net and
+  Recipes were all overrides written against a category's *name* rather than what its file holds.
+  The tell is a note that only restates the category name.
+- **Build order for maps accepted as given**: special-map tier first, then move Vaal Temple, then
+  delete the T17 rule, then the icon bands.
 
 ## Latest round (reply 18) — the swap deadlock, resolved by restating a rule
 

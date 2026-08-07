@@ -220,11 +220,6 @@
         "T5"
       ],
       "_chancing_note": "REPATHED. Was Currency/Chancing.json, which matches nothing on your side. The category now ships with no bases at all — it is the player's own chase list — so this rung only ever applies to items they add. Still T5: it is bulk, and bulk is a rank.",
-      "Equipment/VendorRecipes/Recipes.json (3)": [
-        "T4",
-        "T5",
-        "T5"
-      ],
       "Equipment/Crafting Priority.json (10)": [
         "T0",
         "T2",
@@ -277,7 +272,8 @@
       "_removed": {
         "Misc/General.json — Quest Items (1)": "DELETED. Quest Items is in flat_look.applies_to_painted, and flat categories skip this table entirely. A line that can never be read is a line that can only mislead."
       },
-      "_note_discipline": "⚠️ A NOTE MUST NOT RESTATE A VALUE THAT LIVES IN AN ARRAY. Twice this drop a _note said REVISED beside an unrevised array, and that is the third instance of one file disagreeing with itself in this thread. The array is the value; the note says WHY and never WHAT. If a note contains a rung name, it is either quoting the array (fragile) or contradicting it (a bug waiting) — the only exception is a note explaining why a rung was NOT chosen, which names a value that appears nowhere else by construction."
+      "_note_discipline": "⚠️ A NOTE MUST NOT RESTATE A VALUE THAT LIVES IN AN ARRAY. Twice this drop a _note said REVISED beside an unrevised array, and that is the third instance of one file disagreeing with itself in this thread. The array is the value; the note says WHY and never WHAT. If a note contains a rung name, it is either quoting the array (fragile) or contradicting it (a bug waiting) — the only exception is a note explaining why a rung was NOT chosen, which names a value that appears nowhere else by construction.",
+      "_recipes_note": "⚠️ OVERRIDE DELETED code-side, applying reply 19 §1 — the array had not been removed when the prose said it should be. Was T4 T5 T5, which put a 6-Link on T4. Their own reply 06 set the `linked` state threshold at SIX because 'in Ruthless a 6-link is a chase drop', so the state channel and the rung channel were describing different games. The file now takes the plain depth-3 value template. This is the third override written against a category NAME rather than its CONTENTS (after Chancing and Magic Net): the category is called Vendor Recipes and holds sockets, colours and links."
     },
     "expected_after_the_reshape": {
       "_about": "Not overrides — these fall straight out of the gear template. Listed because the tree emits them WRONG today, so they are the check that the template is being applied at all.",

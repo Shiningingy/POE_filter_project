@@ -519,15 +519,24 @@
     }
   },
   "Vendor Recipes": {
+    "Tier 1": {
+      "FontSize": 45,
+      "BackgroundColor": "#d20000ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "0 Red Moon",
+      "PlayEffect": "White"
+    },
+    "Tier 2": {
+      "FontSize": 40,
+      "BackgroundColor": "#dceef2f0",
+      "TextColor": "#000000ff",
+      "MinimapIcon": "1 Yellow Moon",
+      "PlayEffect": "White Temp"
+    },
     "Tier 4": {
       "FontSize": 35,
       "BackgroundColor": "#505050e6",
       "TextColor": "#a5b6bcff"
-    },
-    "Tier 5": {
-      "FontSize": 30,
-      "BackgroundColor": "#303030d7",
-      "TextColor": "#8c9ba0ff"
     }
   },
   "Life Flasks": {
