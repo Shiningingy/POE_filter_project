@@ -38,6 +38,20 @@
         "Tier": "Tier 1 Mana Flasks"
       },
       "comment": "High Quality Mana Flasks"
+    },
+    {
+      "targets": [
+        "Divine Mana Flask",
+        "Eternal Mana Flask"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 82",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier i82 Mana Flasks"
+      },
+      "comment": "i82+ Divine/Eternal (off by default)"
     }
   ]
 }

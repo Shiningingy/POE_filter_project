@@ -25,7 +25,7 @@
       "theme": {
         "Tier": 0,
         "FontSize": 45,
-        "BackgroundColor": "#ffffffff",
+        "BackgroundColor": "#fffffff0",
         "TextColor": "#ff0000ff",
         "MinimapIcon": "2 Red Diamond",
         "PlayEffect": "Orange",
@@ -79,8 +79,8 @@
       "hideable": false,
       "theme": {
         "Tier": 1,
-        "FontSize": 40,
-        "BackgroundColor": "#ffffffff",
+        "FontSize": 45,
+        "BackgroundColor": "#fffffff0",
         "TextColor": "#ff0000ff",
         "MinimapIcon": "0 Red Diamond",
         "PlayEffect": "Orange",
@@ -138,9 +138,9 @@
           "Sharket掉落音效/高级通货.mp3",
           200
         ],
-        "FontSize": 40,
-        "BackgroundColor": "#ffffffff",
-        "TextColor": "#ff0000ff",
+        "FontSize": 45,
+        "BackgroundColor": "#ff0000f0",
+        "TextColor": "#ffffffff",
         "MinimapIcon": "0 Red Diamond",
         "PlayEffect": "Orange"
       },
@@ -187,8 +187,8 @@
           "Sharket掉落音效/通货.mp3",
           100
         ],
-        "FontSize": 40,
-        "BackgroundColor": "#d20000ff",
+        "FontSize": 45,
+        "BackgroundColor": "#ff0000f0",
         "TextColor": "#ffffffff",
         "MinimapIcon": "1 Red Diamond",
         "PlayEffect": "Orange"
@@ -248,8 +248,8 @@
           "Sharket掉落音效/通货.mp3",
           100
         ],
-        "FontSize": 40,
-        "BackgroundColor": "#ffaa00f0",
+        "FontSize": 45,
+        "BackgroundColor": "#ffa500f0",
         "TextColor": "#000000ff",
         "MinimapIcon": "1 Red Diamond",
         "PlayEffect": "Orange Temp"
@@ -304,7 +304,11 @@
     "Tier 7 General": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 40,
+        "BackgroundColor": "#000000f0",
+        "TextColor": "#aa9e82ff",
+        "BorderColor": "disabled:#ffffffFF"
       },
       "sound": {
         "default_sound_id": -1,
@@ -318,7 +322,10 @@
     "Tier 8 General": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BackgroundColor": "disabled:#505050e6",
+        "TextColor": "disabled:#ffffffff"
       },
       "sound": {
         "default_sound_id": -1,
@@ -348,7 +355,7 @@
     "Tier 6 General": {
       "theme": {
         "Tier": 3,
-        "FontSize": 35,
+        "FontSize": 40,
         "BackgroundColor": "#aa9e82f0",
         "TextColor": "#000000ff",
         "MinimapIcon": "0 White Diamond"
@@ -387,7 +394,7 @@
       "theme": {
         "Tier": 3,
         "FontSize": 40,
-        "BackgroundColor": "#ffaa00f0",
+        "BackgroundColor": "#ffa500f0",
         "TextColor": "#000000ff",
         "PlayEffect": "Orange Temp",
         "MinimapIcon": "1 Yellow Diamond"

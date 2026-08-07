@@ -59,7 +59,8 @@
       "hideable": false,
       "theme": {
         "Tier": 5,
-        "PlayAlertSound": "disabled:"
+        "PlayAlertSound": "disabled:",
+        "FontSize": 35
       },
       "sound": {
         "default_sound_id": 1,

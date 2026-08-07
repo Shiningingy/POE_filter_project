@@ -36,9 +36,7 @@
       "hideable": false,
       "theme": {
         "Tier": 3,
-        "FontSize": 35,
-        "BackgroundColor": "#beb478f0",
-        "TextColor": "#000000ff",
+        "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/圣油.mp3",
           100
@@ -58,9 +56,7 @@
       "hideable": false,
       "theme": {
         "Tier": 4,
-        "FontSize": 35,
-        "BackgroundColor": "#505050e6",
-        "TextColor": "#beb478ff",
+        "FontSize": 40,
         "PlayAlertSound": "disabled:",
         "MinimapIcon": "0 White Circle"
       },

@@ -37,9 +37,7 @@
     "Sulphur T1": {
       "theme": {
         "Tier": 2,
-        "FontSize": 35,
-        "BackgroundColor": "#c39b7df0",
-        "TextColor": "#000000ff",
+        "FontSize": 40,
         "PlayAlertSound": [
           "Default/AlertSound3.mp3",
           300

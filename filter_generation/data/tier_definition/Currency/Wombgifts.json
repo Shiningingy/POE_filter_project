@@ -64,9 +64,7 @@
       },
       "theme": {
         "Tier": 4,
-        "FontSize": 35,
-        "BackgroundColor": "#505050e6",
-        "TextColor": "#a082b4ff",
+        "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/孕育赠礼.mp3",
           300

@@ -19,7 +19,6 @@
       "theme": {
         "Tier": 2,
         "FontSize": 40,
-        "BackgroundColor": "#2a2a2af0",
         "PlayAlertSound": [
           "Sharket掉落音效/破碎装备.mp3",
           200

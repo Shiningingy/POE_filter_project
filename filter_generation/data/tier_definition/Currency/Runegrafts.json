@@ -68,8 +68,6 @@
           100
         ],
         "FontSize": 40,
-        "BackgroundColor": "#ffaa00f0",
-        "TextColor": "#000000ff",
         "PlayEffect": "Orange Temp",
         "MinimapIcon": "1 Yellow Diamond"
       },

@@ -50,9 +50,9 @@
         "AreaLevel": ">= 78"
       },
       "overrides": {
-        "Tier": "Tier 4 Base Maps"
+        "Tier": "Tier Hide Base Maps"
       },
-      "comment": "白图静音 (running T11+)",
+      "comment": "白图隐藏 (running T11+)",
       "_generated": "progression_mute"
     },
     {
@@ -64,9 +64,9 @@
         "AreaLevel": ">= 83"
       },
       "overrides": {
-        "Tier": "Tier 3 Base Maps"
+        "Tier": "Tier Hide Base Maps"
       },
-      "comment": "黄图静音 (running T16)",
+      "comment": "黄图隐藏 (running T16)",
       "_generated": "progression_mute"
     },
     {

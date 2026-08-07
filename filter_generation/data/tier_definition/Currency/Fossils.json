@@ -19,8 +19,6 @@
       "theme": {
         "Tier": 2,
         "FontSize": 45,
-        "BackgroundColor": "#d20000ff",
-        "TextColor": "#ffffffff",
         "MinimapIcon": "1 Red Circle",
         "PlayEffect": "Orange",
         "PlayAlertSound": [
@@ -50,8 +48,6 @@
       "theme": {
         "Tier": 3,
         "FontSize": 40,
-        "BackgroundColor": "#ffaa00f0",
-        "TextColor": "#000000ff",
         "PlayAlertSound": [
           "Sharket掉落音效/化石.mp3",
           200
@@ -127,8 +123,6 @@
       "theme": {
         "Tier": 4,
         "FontSize": 40,
-        "BackgroundColor": "#c88c00f0",
-        "TextColor": "#000000ff",
         "PlayAlertSound": [
           "Sharket掉落音效/化石.mp3",
           300

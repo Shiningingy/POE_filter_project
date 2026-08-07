@@ -8,7 +8,9 @@
       },
       "tier_order": [
         "Tier 1 Life Flasks",
+        "Tier i82 Life Flasks",
         "Tier 2 Life Flasks",
+        "Tier Hybrid Flasks",
         "Tier Hide Life Flasks"
       ]
     },
@@ -50,9 +52,53 @@
       },
       "hide_at_strictness": 3
     },
+    "Tier i82 Life Flasks": {
+      "_note": "OFF BY DEFAULT. hide_at_strictness 0 means 'hide from soft upward', i.e. at every level — that is how a tier ships disabled but stays user-enablable: clear the gate in the Strictness Gates editor and it shows. ilvl 82 is not the base's drop level (Divine 60 / Eternal 65) but the MOD ceiling: Chemist's (FlaskChargesUsed5) and Ample (FlaskExtraCharges5), the two prefixes worth keeping a flask for, both require level 82 in Mods.json. Same breakpoint Utility Flasks already uses.",
+      "hideable": true,
+      "theme": {
+        "Tier": 3,
+        "PlayAlertSound": "disabled:"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T2: i82+ Divine/Eternal (off by default)",
+        "ch": "T2: i82+ 顶级词缀（默认关闭）"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
+      },
+      "hide_at_strictness": 0
+    },
+    "Tier Hybrid Flasks": {
+      "_note": "Hybrid Flasks had no home anywhere in the tree, so all six drew a full label in maps off the final show-all layer. Author's call: useless, hide by default, user can turn it on. So this is a GATED hide (hide_at_strictness 0) and NOT is_hide_tier — the 🔒 protect toggle clears a gate but cannot undo is_hide_tier, so only the gated form is one click away from showing. They live in this file because Life.json's _meta already carries all six Hybrid translations.",
+      "hideable": true,
+      "class_condition": true,
+      "theme": {
+        "Tier": 4,
+        "PlayAlertSound": "disabled:"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hybrid Flasks (off by default)",
+        "ch": "复合药剂（默认关闭）"
+      },
+      "conditions": {
+        "Class": "== \"Hybrid Flasks\"",
+        "Rarity": "<= Rare"
+      },
+      "hide_at_strictness": 0
+    },
     "Tier Hide Life Flasks": {
+      "_note": "The Minimal net. Without a class_condition this tier only caught bases explicitly mapped to it (one: Small Life Flask), so every other life flask fell through the whole tree to the final show-all layer and drew a full label in maps. AreaLevel >= 68 keeps the campaign untouched — the _campaign module owns everything below 68 and emits first.",
       "hideable": true,
       "is_hide_tier": true,
+      "class_condition": true,
       "theme": {
         "Tier": 9
       },
@@ -63,6 +109,10 @@
       "localization": {
         "en": "Hide",
         "ch": "隐藏"
+      },
+      "conditions": {
+        "Class": "== \"Life Flasks\"",
+        "AreaLevel": ">= 68"
       }
     }
   }

@@ -81,9 +81,7 @@
       "hideable": true,
       "theme": {
         "Tier": 3,
-        "FontSize": 35,
-        "BackgroundColor": "#b27096f0",
-        "TextColor": "#000000ff",
+        "FontSize": 40,
         "PlayAlertSound": "disabled:",
         "PlayEffect": "Red Temp",
         "MinimapIcon": "0 Yellow Diamond"
@@ -127,9 +125,7 @@
       "hideable": true,
       "theme": {
         "Tier": 4,
-        "FontSize": 35,
-        "BackgroundColor": "#505050e6",
-        "TextColor": "#b27096ff",
+        "FontSize": 40,
         "MinimapIcon": "0 White Diamond"
       },
       "sound": {

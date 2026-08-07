@@ -177,7 +177,7 @@
           "Sharket掉落音效/传奇.mp3",
           300
         ],
-        "FontSize": 35,
+        "FontSize": 40,
         "BackgroundColor": "#1f1010f0",
         "TextColor": "#af6025ff",
         "MinimapIcon": "0 Brown Star",
@@ -204,7 +204,7 @@
           "Sharket掉落音效/哇哦传奇.mp3",
           300
         ],
-        "FontSize": 35,
+        "FontSize": 40,
         "BackgroundColor": "#1f1010e6",
         "TextColor": "#af9173ff",
         "MinimapIcon": "0 Brown Star",

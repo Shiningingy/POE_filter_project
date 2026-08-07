@@ -8,6 +8,7 @@
       },
       "tier_order": [
         "Tier 1 Mana Flasks",
+        "Tier i82 Mana Flasks",
         "Tier 2 Mana Flasks",
         "Tier Hide Mana Flasks"
       ]
@@ -50,9 +51,31 @@
       },
       "hide_at_strictness": 3
     },
+    "Tier i82 Mana Flasks": {
+      "_note": "OFF BY DEFAULT — see the twin in Life.json for why 82 and why hide_at_strictness 0 rather than is_hide_tier.",
+      "hideable": true,
+      "theme": {
+        "Tier": 3,
+        "PlayAlertSound": "disabled:"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T2: i82+ Divine/Eternal (off by default)",
+        "ch": "T2: i82+ 顶级词缀（默认关闭）"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
+      },
+      "hide_at_strictness": 0
+    },
     "Tier Hide Mana Flasks": {
+      "_note": "The Minimal net — nothing was mapped here at all, so every mana flask fell to the final show-all layer. AreaLevel >= 68 leaves the campaign to the _campaign module.",
       "hideable": true,
       "is_hide_tier": true,
+      "class_condition": true,
       "theme": {
         "Tier": 9
       },
@@ -63,6 +86,10 @@
       "localization": {
         "en": "Hide",
         "ch": "隐藏"
+      },
+      "conditions": {
+        "Class": "== \"Mana Flasks\"",
+        "AreaLevel": ">= 68"
       }
     }
   }

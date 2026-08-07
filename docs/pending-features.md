@@ -326,6 +326,117 @@ fallback). That is the first real-world read this whole effort has had.
    assert they match the array beside them. Would have caught all **four** prose-vs-array
    drifts.
 7. **Strictness gates** — author deferred; soft is enough for now.
+8. ★ **"True minimal" — a Ruthless hide that actually hides** (author, 2026-08-07). Our
+   `HIDE_CMD` is `Minimal` because GGG forbids `Hide` in Ruthless, and we emit no style lines
+   on it — but **`Minimal` still draws a label**, so every "hidden" item in this filter is
+   still on screen. The author's proposal: hide with a **`Show`** whose label cannot be seen —
+   `SetFontSize 1` plus `SetTextColor`/`SetBackgroundColor`/`SetBorderColor` at **alpha 0**,
+   and `DisableDropSound`.
+   - **Corroboration**: Sharket's own standard filter already reaches for the same idea from
+     the legal end — its hide blocks carry `SetFontSize 17` + `DisableDropSound` rather than a
+     bare `Hide`, and two blocks go to `SetFontSize 1`. So the tiny-font idiom is Sharket's,
+     not an invention.
+   - ⚠️ **Two things need an in-game check before this ships**, and neither can be settled
+     from the format doc: whether the game **clamps** `FontSize` into 18–45 (if it does, size 1
+     renders at 18 and the *alpha* is doing all the work), and whether an alpha-0 label still
+     takes a highlight on Alt — which would be a feature, not a bug, since a Ruthless player
+     wants the item findable but silent.
+   - This would change what "hide" means everywhere, so it is a **format-level decision**, not
+     a category fix. Do not apply it piecemeal.
+
+### ★★ THE THEME WAS REPLACED BY A COPY — 2026-08-07, V5
+
+The author's verdict on the compiled theme was *"a visual disaster"* and, on the first
+attempt to fix it by raising contrast, *"raising the contrast is not a fix."* They were
+right, and the measurement says why in two numbers:
+
+| | text luminance | plate luminance | gap |
+|---|---|---|---|
+| FilterBlade | 0.660 | 0.051 | **0.61** |
+| ours (before) | 0.213 | 0.159 | **0.05** |
+
+Of FilterBlade's 529 styled blocks, **two** put text and plate both in the middle band. We
+put nearly everything there, so 4.5:1 between two mid-tones is still grey on grey. Their
+rule is not a palette:
+
+> **One of text and plate must be extreme. Never both in the middle.**
+
+**The author's call was to COPY rather than design** — Sharket first, FilterBlade to fill
+gaps — after two proposals failed the only test that counts. `parsing_tool/theme/
+apply_filterblade_palette.py` holds the table; every value in it is measured out of a
+reference filter, none is chosen.
+
+**Sharket already had the answer.** Its filter annotates each colour with its own theme name
+(`SetTextColor 0 0 0 # T4通货`), so its palette extracts BY NAME — 74 entries. Its low rungs
+are *family colour on pure black*: `170 158 130 on 0 0 0` (7.92:1), `14 186 255 on 0 0 0`
+(9.49:1), `136 136 255 on 0 0 0` (7.01:1). **`accent.muted on 80 80 80` was a corruption of
+exactly that** — the same idea with both values dragged to the middle.
+
+**23 accents collapsed to 11 families.** Currency absorbed **19 categories**: Ritual, Harvest,
+Breach, Expedition, Delirium, Allflame ×3, Wombgifts, Runegrafts, Corpses, Tainted, Oils,
+Legacy, Chancing, Enshrouding, Incursion Vials, Omens, General, Ward-Bases. Measured
+justification: a (text, plate) pair on their side encodes the item's **role** and is reused —
+`0 240 190 on 20 20 0` covers 22 categories, and `255 0 255 on 100 0 100` covers 21 under a
+tier literally named `anyremaining`. 60% of their pairs are shared; 41% of ours were private.
+Category is carried by the item's NAME and its icon shape/beam, not by plate hue.
+
+⚠️ The evidence contradicted the brief on one point and it is recorded rather than quietly
+followed: the author named fossil and essence as families keeping a private hue. **FilterBlade
+gives them none** — essence, fossil, oil, delirium, harvest, breach, ritual and expedition all
+wear the shared currency ladder. The essence blue in our data came from SHARKET. Kept as the
+author's exception.
+
+**Result:** blocks under 3.0:1 went **40 → 0**; blocks under 40px **173 → 6** (the author's
+scroll and gold exceptions). Worst pair left is Uniques T3 at 4.01:1 — Sharket's own
+`175 96 37 on 30 15 8`, and the author's pinned family hue.
+
+#### ⚠️ Four things that nearly shipped as bugs, all caught by reading a dry run
+
+1. **The palette did not reach the screen.** 42 inline tier styles beat the theme rows; after
+   rewriting every currency row, `General T5` still emitted the old `0 0 0 on 255 170 0`.
+   This is the author's *"the thing I see is not the thing the designer ships"*, measured.
+2. **`disabled:` is an omit-sentinel, not a colour.** Scrolls carry `disabled:#ffffffff` so the
+   block emits no colour line. Stripping it would have PAINTED the scrolls.
+3. **All three Gold tiers share `theme.Tier 5`** — they would have become one identical grey,
+   and the kit forbids gold a plate at any rung. Gold exempted; it was only a size complaint.
+4. **Currency's 9 tiers collapse onto 4 rungs**, so Exalt-level and Chaos-level would have
+   become one look. Its ladder is now written PER TIER from Sharket's named steps.
+
+★ The general form of (3) and (4) is now a reported check in the applier: **several tiers can
+share one `theme.Tier`, and a rung-keyed rewrite silently merges them.** That is the same
+defect class as the theme rework's "142 rows encode only 85 distinct pairs".
+
+### ★ Designer — changing hands (author, 2026-08-07)
+
+The author's call: **find a new designer, and write a new handbook for them once the planned
+theme rework has landed.** Sequencing matters and is deliberate — the rework collapses
+`theme_category × Tier N` into the (accent, rung) model that is already the real one, so a
+handbook written before it would describe 51 categories that are about to stop existing.
+
+What that changes for us, starting now:
+
+- **Stop deferring decisions to the current designer.** Items previously parked as "blocked on
+  the designer" (icon floor sweep, Uniques T1 as general case vs local exception, `accent.muted`)
+  are ours to settle from measurement.
+- **`docs/design/reply-to-designer-*.md` is a closed thread**, kept as the record of why each
+  colour is what it is. The handbook replaces it as the outgoing channel.
+- **The kit stays the source of hues** until the rework — `theme-presets.json` accents are
+  still the authored values; what lapses is the *escalation path*, not the palette.
+
+⚠️ **What the new handbook has to say that this one did not.** The failures in this thread were
+never taste, they were delivery, so the handbook should be built around them:
+
+1. **Every rung pairing must carry its own contrast number.** `T4 = accent.muted on 80 80 80` is
+   a legal-looking recipe that fails on **12 of 26 accents** (median 3.02:1) — nobody could see
+   that from the prose, and it shipped.
+2. **A recipe is a claim about all 26 accents, not about the one it was designed against.**
+   Four separate prose-vs-array drifts came from writing a rule against one category's contents.
+3. **State the plate the colour speaks against.** `120 235 210` measures 9.99:1 on gear's
+   near-black and ~1.3:1 on a light map plate — the same colour, two different answers.
+4. **Size is not a value axis.** Measured across all 7 FilterBlade strictness files: their font
+   size barely moves (median 45 at every level) while the block *count* falls 692 → 309.
+   Strictness removes items; it does not shrink them. Our ladder spent 30–45px encoding value
+   and produced the "too small" half of this complaint.
 
 ### ⚠️ Traps that cost real time — do not re-derive
 
