@@ -68,6 +68,12 @@
             "Sharket掉落音效/污秽链结石.mp3",
             300
           ]
+        },
+        "Volatile Vaal Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/哇哦运气真好.mp3",
+            300
+          ]
         }
       }
     },

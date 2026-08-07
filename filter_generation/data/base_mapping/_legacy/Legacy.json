@@ -339,7 +339,19 @@
       "ch": "历史物品"
     },
     "theme_category": "Legacy",
-    "match_modes": {}
+    "match_modes": {},
+    "author_confirmed_legacy": {
+      "_about": "Bases that the FEED reports as live but that belong here anyway, confirmed by the author from play. Recorded so the legacy audit stops re-raising them as work every run — the audit can only see what GGG publishes, and GGG does not publish temporary drop-disables.",
+      "Coin of Desecration": "temporarily drop-disabled",
+      "Coin of Knowledge": "temporarily drop-disabled",
+      "Coin of Power": "temporarily drop-disabled",
+      "Coin of Restoration": "temporarily drop-disabled",
+      "Coin of Skill": "temporarily drop-disabled",
+      "The Black Barya": "drop-disabled",
+      "Corvine Charm": "drop-disabled",
+      "Lupine Charm": "drop-disabled",
+      "Ursine Charm": "drop-disabled"
+    }
   },
   "mapping": {
     "Chayula's Flawless Breachstone": "Legacy",

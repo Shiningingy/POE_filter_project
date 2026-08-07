@@ -118,7 +118,14 @@
         "Allflame Ember of Flesh": "血肉之不灭余烬",
         "Allflame Ember of Toads": "蟾蜍之不灭余烬",
         "Kalguuran Scarab of Refinement": "精炼之卡古兰圣甲虫",
-        "Allflame Ember of K'Tash": "科塔席之不灭余烬"
+        "Allflame Ember of K'Tash": "科塔席之不灭余烬",
+        "Abyss Scarab of Descending": "下降之深渊圣甲虫",
+        "Anarchy Scarab of the Exceptional": "卓越之混乱圣甲虫",
+        "Betrayal Scarab of Unbreaking": "不破之背叛者圣甲虫",
+        "Expedition Scarab of Infusion": "灌注之先祖秘藏圣甲虫",
+        "Ritual Scarab of Corpses": "尸骸之仪式圣甲虫",
+        "Scarab of the Dextral": "右旋之圣甲虫",
+        "Kalguuran Scarab of Enriching": "富足之卡古兰圣甲虫"
       }
     },
     "item_class": {
@@ -301,6 +308,27 @@
     ],
     "Kalguuran Scarab of Refinement": [
       "Tier 3 Scarabs"
+    ],
+    "Abyss Scarab of Descending": [
+      "Tier 2 Scarabs"
+    ],
+    "Anarchy Scarab of the Exceptional": [
+      "Tier 1 Scarabs"
+    ],
+    "Betrayal Scarab of Unbreaking": [
+      "Tier 1 Scarabs"
+    ],
+    "Expedition Scarab of Infusion": [
+      "Tier 1 Scarabs"
+    ],
+    "Ritual Scarab of Corpses": [
+      "Tier 3 Scarabs"
+    ],
+    "Scarab of the Dextral": [
+      "Tier 2 Scarabs"
+    ],
+    "Kalguuran Scarab of Enriching": [
+      "Tier 2 Scarabs"
     ]
   },
   "rules": []

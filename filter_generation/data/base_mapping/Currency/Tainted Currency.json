@@ -12,7 +12,8 @@
         "Tainted Catalyst": "污秽催化剂",
         "Tainted Blacksmith's Whetstone": "污秽磨刀石",
         "Tainted Jeweller's Orb": "污秽工匠石",
-        "Tainted Armourer's Scrap": "污秽护甲片"
+        "Tainted Armourer's Scrap": "污秽护甲片",
+        "Volatile Vaal Orb": "无常瓦尔宝珠"
       }
     },
     "item_class": {
@@ -41,7 +42,10 @@
       "Tier 4 Tainted"
     ],
     "Tainted Jeweller's Orb": "Tier 4 Tainted",
-    "Tainted Armourer's Scrap": "Tier 4 Tainted"
+    "Tainted Armourer's Scrap": "Tier 4 Tainted",
+    "Volatile Vaal Orb": [
+      "Tier 2 Tainted"
+    ]
   },
   "rules": []
 }

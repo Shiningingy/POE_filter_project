@@ -96,6 +96,17 @@ md = ["# Re-home list — live content that nothing else already shows",
       " has no row for that Id — do not fill it in by hand.",
       ""]
 
+if not groups:
+    # An empty work list must SAY it is empty. A file that renders as a bare header reads
+    # as "the generator broke", which is the same failure as a stale cache serving quietly.
+    md += ["## Nothing outstanding",
+           "",
+           "Every live base is claimed by a real block, or is recorded in",
+           "`_legacy/Legacy.json` `_meta.author_confirmed_legacy` as belonging here.",
+           "",
+           "Re-run `who_claims.py` after any curation change to regenerate this.",
+           ""]
+
 for cls in sorted(groups, key=lambda c: -len(groups[c])):
     names = sorted(groups[cls])
     md += ["## %s — %d" % (cls, len(names)),

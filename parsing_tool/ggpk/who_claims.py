@@ -110,6 +110,21 @@ def main():
     verdict = json.load(io.open(VERDICT, encoding="utf-8"))
     live = {k: v for k, v in verdict.items() if v["verdict"].startswith("LIVE")}
 
+    # ⚠️ The feed cannot see a TEMPORARY drop-disable — GGG announces retirements, not
+    # pauses — so a base can read "live since 3.28" and still correctly belong in Legacy.
+    # The author's play knowledge is the only source for those, and without recording it the
+    # audit re-raises the same rows as work on every run. `_meta.author_confirmed_legacy`
+    # is where that lives; it is a decision, not data, and it sits with the data it governs.
+    lgm = json.load(io.open(os.path.join(
+        ROOT, "filter_generation", "data", "base_mapping", "_legacy", "Legacy.json"),
+        encoding="utf-8")).get("_meta", {}).get("author_confirmed_legacy", {})
+    confirmed = {k: v for k, v in lgm.items() if not k.startswith("_")}
+    for n in confirmed:
+        live.pop(n, None)
+    if confirmed:
+        print("author-confirmed legacy, excluded from the work list: %d  (%s)"
+              % (len(confirmed), ", ".join(sorted(confirmed)[:3]) + " …"))
+
     rows, buckets = {}, collections.Counter()
     for n in sorted(live):
         h, cmd, how = claim(n)

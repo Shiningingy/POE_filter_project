@@ -1,9 +1,9 @@
 {
  "Abyss Scarab of Descending": {
   "class": "Map Fragments",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "claimed_by": "地图碎片 -T2: 稀有圣甲虫 地图碎片 - 基础 - 精确",
   "how": "exact",
-  "state": "needs re-homing",
+  "state": "covered by exact",
   "added": "3.28.0"
  },
  "Adherent of Zarokh": {
@@ -15,9 +15,9 @@
  },
  "Anarchy Scarab of the Exceptional": {
   "class": "Map Fragments",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "claimed_by": "地图碎片 -T1: 顶级圣甲虫 地图碎片 - 基础 - 精确",
   "how": "exact",
-  "state": "needs re-homing",
+  "state": "covered by exact",
   "added": "3.28.0"
  },
  "Annihilation Support": {
@@ -36,9 +36,9 @@
  },
  "Betrayal Scarab of Unbreaking": {
   "class": "Map Fragments",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "claimed_by": "地图碎片 -T1: 顶级圣甲虫 地图碎片 - 基础 - 精确",
   "how": "exact",
-  "state": "needs re-homing",
+  "state": "covered by exact",
   "added": "3.28.0"
  },
  "Blessed Call Support": {
@@ -76,41 +76,6 @@
   "state": "covered by substring",
   "added": "3.28.0"
  },
- "Coin of Desecration": {
-  "class": "Stackable Currency",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
-  "how": "exact",
-  "state": "needs re-homing",
-  "added": "3.28.0"
- },
- "Coin of Knowledge": {
-  "class": "Stackable Currency",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
-  "how": "exact",
-  "state": "needs re-homing",
-  "added": "3.28.0"
- },
- "Coin of Power": {
-  "class": "Stackable Currency",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
-  "how": "exact",
-  "state": "needs re-homing",
-  "added": "3.28.0"
- },
- "Coin of Restoration": {
-  "class": "Stackable Currency",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
-  "how": "exact",
-  "state": "needs re-homing",
-  "added": "3.28.0"
- },
- "Coin of Skill": {
-  "class": "Stackable Currency",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
-  "how": "exact",
-  "state": "needs re-homing",
-  "added": "3.28.0"
- },
  "Companionship Support": {
   "class": "Support Gems",
   "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
@@ -145,13 +110,6 @@
   "how": "class net",
   "state": "covered by class net",
   "added": "3.28.0"
- },
- "Corvine Charm": {
-  "class": "Charms",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
-  "how": "exact",
-  "state": "needs re-homing",
-  "added": "3.23.0"
  },
  "Crystallised Rancour": {
   "class": "Stackable Currency",
@@ -225,9 +183,9 @@
  },
  "Expedition Scarab of Infusion": {
   "class": "Map Fragments",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "claimed_by": "地图碎片 -T1: 顶级圣甲虫 地图碎片 - 基础 - 精确",
   "how": "exact",
-  "state": "needs re-homing",
+  "state": "covered by exact",
   "added": "3.28.0"
  },
  "Fissure Support": {
@@ -239,9 +197,9 @@
  },
  "Flesh of Xesht": {
   "class": "Stackable Currency",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "claimed_by": "General -T1: 神圣石级 可堆叠通货 - 基础 - 精确",
   "how": "exact",
-  "state": "needs re-homing",
+  "state": "covered by exact",
   "added": "3.28.0"
  },
  "Foulgrasp Support": {
@@ -449,9 +407,9 @@
  },
  "Kalguuran Scarab of Enriching": {
   "class": "Map Fragments",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "claimed_by": "地图碎片 -T2: 稀有圣甲虫 地图碎片 - 基础 - 精确",
   "how": "exact",
-  "state": "needs re-homing",
+  "state": "covered by exact",
   "added": "3.28.0"
  },
  "Lethal Dose Support": {
@@ -468,13 +426,6 @@
   "state": "covered by substring",
   "added": "3.28.0"
  },
- "Lupine Charm": {
-  "class": "Charms",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
-  "how": "exact",
-  "state": "needs re-homing",
-  "added": "3.23.0"
- },
  "Machinations Support": {
   "class": "Support Gems",
   "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
@@ -484,23 +435,23 @@
  },
  "Memory of Loneliness": {
   "class": "Stackable Currency",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "claimed_by": "General -T2: 高价值通货 可堆叠通货 - #2 回忆 - 精确",
   "how": "exact",
-  "state": "needs re-homing",
+  "state": "covered by exact",
   "added": "3.28.0"
  },
  "Memory of Reverence": {
   "class": "Stackable Currency",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "claimed_by": "General -T2: 高价值通货 可堆叠通货 - #2 回忆 - 精确",
   "how": "exact",
-  "state": "needs re-homing",
+  "state": "covered by exact",
   "added": "3.28.0"
  },
  "Memory of Trauma": {
   "class": "Stackable Currency",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "claimed_by": "General -T2: 高价值通货 可堆叠通货 - #2 回忆 - 精确",
   "how": "exact",
-  "state": "needs re-homing",
+  "state": "covered by exact",
   "added": "3.28.0"
  },
  "Nameless Astrolabe": {
@@ -561,16 +512,16 @@
  },
  "Refracting Fog": {
   "class": "Stackable Currency",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "claimed_by": "General -T0: 顶级通货 可堆叠通货 - 基础 - 精确",
   "how": "exact",
-  "state": "needs re-homing",
+  "state": "covered by exact",
   "added": "3.28.0"
  },
  "Ritual Scarab of Corpses": {
   "class": "Map Fragments",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "claimed_by": "地图碎片 -T3: 少见圣甲虫 地图碎片 - 基础 - 精确",
   "how": "exact",
-  "state": "needs re-homing",
+  "state": "covered by exact",
   "added": "3.28.0"
  },
  "Runegraft of Connection": {
@@ -652,9 +603,9 @@
  },
  "Scarab of the Dextral": {
   "class": "Map Fragments",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "claimed_by": "地图碎片 -T2: 稀有圣甲虫 地图碎片 - 基础 - 精确",
   "how": "exact",
-  "state": "needs re-homing",
+  "state": "covered by exact",
   "added": "3.28.0"
  },
  "Scornful Herald Support": {
@@ -1035,13 +986,6 @@
   "state": "covered by substring",
   "added": "3.28.0"
  },
- "The Black Barya": {
-  "class": "Map Fragments",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
-  "how": "exact",
-  "state": "needs re-homing",
-  "added": "3.28.0"
- },
  "Timeless Astrolabe": {
   "class": "Stackable Currency",
   "claimed_by": "General -T2: 高价值通货 可堆叠通货 - #1 星盘 - 自选",
@@ -1062,13 +1006,6 @@
   "how": "exact",
   "state": "covered by exact",
   "added": "3.28.0"
- },
- "Ursine Charm": {
-  "class": "Charms",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
-  "how": "exact",
-  "state": "needs re-homing",
-  "added": "3.23.0"
  },
  "Vaal Sacrifice Support": {
   "class": "Support Gems",
