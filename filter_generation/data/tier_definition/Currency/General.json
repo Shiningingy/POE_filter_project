@@ -313,32 +313,6 @@
       "localization": {
         "en": "T7: 低价值通货",
         "ch": "T7: 低价值通货"
-      },
-      "item_overrides": {
-        "Orb of Augmentation": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/增幅石.mp3",
-            100
-          ]
-        },
-        "Orb of Transmutation": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/蜕变石.mp3",
-            100
-          ]
-        },
-        "Armourer's Scrap": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/护甲片.mp3",
-            100
-          ]
-        },
-        "Blacksmith's Whetstone": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/磨刀石.mp3",
-            100
-          ]
-        }
       }
     },
     "Tier 8 General": {

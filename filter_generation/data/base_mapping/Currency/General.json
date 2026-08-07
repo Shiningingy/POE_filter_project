@@ -328,6 +328,90 @@
   "rules": [
     {
       "targets": [
+        "Orb of Transmutation",
+        "Orb of Augmentation",
+        "Armourer's Scrap",
+        "Blacksmith's Whetstone"
+      ],
+      "conditions": {
+        "AreaLevel": ">= 83"
+      },
+      "overrides": {
+        "Tier": "Tier 7 General"
+      },
+      "comment": "散件静音 (T16+)",
+      "_generated": "progression_mute"
+    },
+    {
+      "targets": [
+        "Orb of Transmutation"
+      ],
+      "conditions": {
+        "AreaLevel": "<= 82"
+      },
+      "overrides": {
+        "Tier": "Tier 7 General",
+        "PlayAlertSound": [
+          "Sharket掉落音效/蜕变石.mp3",
+          100
+        ]
+      },
+      "comment": "Orb of Transmutation · T16 前有音效",
+      "_generated": "progression_mute"
+    },
+    {
+      "targets": [
+        "Orb of Augmentation"
+      ],
+      "conditions": {
+        "AreaLevel": "<= 82"
+      },
+      "overrides": {
+        "Tier": "Tier 7 General",
+        "PlayAlertSound": [
+          "Sharket掉落音效/增幅石.mp3",
+          100
+        ]
+      },
+      "comment": "Orb of Augmentation · T16 前有音效",
+      "_generated": "progression_mute"
+    },
+    {
+      "targets": [
+        "Armourer's Scrap"
+      ],
+      "conditions": {
+        "AreaLevel": "<= 82"
+      },
+      "overrides": {
+        "Tier": "Tier 7 General",
+        "PlayAlertSound": [
+          "Sharket掉落音效/护甲片.mp3",
+          100
+        ]
+      },
+      "comment": "Armourer's Scrap · T16 前有音效",
+      "_generated": "progression_mute"
+    },
+    {
+      "targets": [
+        "Blacksmith's Whetstone"
+      ],
+      "conditions": {
+        "AreaLevel": "<= 82"
+      },
+      "overrides": {
+        "Tier": "Tier 7 General",
+        "PlayAlertSound": [
+          "Sharket掉落音效/磨刀石.mp3",
+          100
+        ]
+      },
+      "comment": "Blacksmith's Whetstone · T16 前有音效",
+      "_generated": "progression_mute"
+    },
+    {
+      "targets": [
         "Scroll of Wisdom"
       ],
       "conditions": {

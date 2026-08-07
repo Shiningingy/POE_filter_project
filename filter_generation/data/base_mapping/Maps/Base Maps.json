@@ -42,6 +42,34 @@
   },
   "rules": [
     {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "Rarity": "<= Rare",
+        "MapTier": "RANGE >= 1 <= 5",
+        "AreaLevel": ">= 78"
+      },
+      "overrides": {
+        "Tier": "Tier 4 Base Maps"
+      },
+      "comment": "白图静音 (running T11+)",
+      "_generated": "progression_mute"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "Rarity": "<= Rare",
+        "MapTier": "RANGE >= 6 <= 10",
+        "AreaLevel": ">= 83"
+      },
+      "overrides": {
+        "Tier": "Tier 3 Base Maps"
+      },
+      "comment": "黄图静音 (running T16)",
+      "_generated": "progression_mute"
+    },
+    {
       "comment": "T17 Maps",
       "localization": {
         "en": "T17 Maps",
