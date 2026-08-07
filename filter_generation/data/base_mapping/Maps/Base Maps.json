@@ -256,8 +256,7 @@
         "Rarity": "<= Rare"
       },
       "overrides": {
-        "Tier": "Tier 2 Base Maps",
-        "BackgroundColor": "#ece6e5f0"
+        "Tier": "Tier 2 Base Maps"
       },
       "comment": "11-15",
       "_generated": "map_tier_ramp"
