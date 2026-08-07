@@ -295,6 +295,11 @@ fallback). That is the first real-world read this whole effort has had.
 2. **`T3 普通` vs `其他传奇`** — the override doubles T3 so both render identically. Asked
    whether both tiers should exist at all.
 3. **Icon floor sweep** — theirs, still owed.
+4. **Uniques T3 is the thinnest rung at 3.97:1** (`175 96 37` on `31 16 16`) — FilterBlade's
+   own pairing and over the 3:1 large-text floor, so it is legal rather than wrong. The author
+   has seen it in game and accepted it *for now*. If it wants more, lift the plate toward
+   `#2a1616` rather than touching the text: the brown is the family hue and every other rung
+   depends on it staying exactly `175 96 37`.
 
 ### ★ Ours, in priority order
 
