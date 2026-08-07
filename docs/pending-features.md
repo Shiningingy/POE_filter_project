@@ -269,145 +269,66 @@ emits `Minimal` with NO style lines. Verified by generating with
 ⚠️ `sharket_theme.json` is HAND-TUNED. Any fix must be a surgical edit; regenerating it
 would flatten the tuning (`build_standard_theme.py` is group B for exactly this reason).
 
-## 6d. ★ NEXT UP — the queue as of 2026-08-06, after the theme adoption
+## 6d. ★ NEXT UP — the queue as of 2026-08-07
 
-The equipment reshape and the theme adoption are **done and committed**. These are the live
-items, in the order they matter.
+★ Sections A / B / C of the previous 6d are **DONE** and are not repeated here; see
+`docs/design/reply-to-designer-07.md` (crafting accent), the `feat(ggpk)` commits (the
+`_legacy` audit) and `reply-to-designer-08/09/10.md`. What follows is what is actually left.
 
-### A. ★ Crafting bases look exactly like ordinary rare equipment — author wants an accent
+### A. Blocked on the designer — `docs/design/reply-to-designer-10.md`
 
-Measured: `Crafting Bases`, `Rare Equipment`, `Influenced` and `Trinkets` compile to
-**byte-identical rows** — `#2a2a2a` at f0/e6/dc/d2, sizes 40/35/35/30. All four take the
-`equipment` accent, which reply 14 pointed at the neutral fallback. That decision was
-justified for `Rare Equipment` alone ("a single mixed file honestly has one hue to give")
-but applies to every equipment-accent category.
+1. ★ **The `map_special` swap cannot fire.** Our special-map tier resolves to rung T1, and
+   their `_swaps_never_paint_the_house_rungs` forbids a swap there. Their two rules together
+   say *a special map may not be at T0 or T1*, which is a **matching** constraint arriving
+   from the theme side — the first time that has happened. Ten rules share one look today.
+2. **T17 / Vaal Temple: ramp or house red?** Their own `t17_falls_out` reads as though a T17
+   should be on the ramp (white plate + swap = deep violet). It currently wears the red plate,
+   so it is neither. ⚠️ If the answer is "ramp", the theme has told the matching side to
+   delete a rule — fine, but it should be a decision.
+3. **Expedition Logbooks (2 rules) are not maps** — no MapTier for the ramp, no plate for a
+   swap. They sit in the special-map tier because it used to mean "special things".
+4. **Per-band icon colour is unbuilt.** Their maps exception asks for it; the ramp is
+   per-MapTier on the RULE while the icon comes from the rung's ROW, so the icon is one colour
+   for all sixteen tiers. Same shape as the plate problem, needs the same call.
+5. Still owed by them: the **icon floor sweep**.
 
-For Fractured and Influenced this is fine and reply 14 says why — their **state border**
-decorator separates them ("same accent, same rank, same look, with the state border saying
-fractured"). **Crafting has no such channel**, so a top crafting base is indistinguishable
-from a random rare, even though `Crafting Priority` emits FIRST at `gen_order -10` precisely
-to say "this one is worth crafting on". The precedence we built is invisible on screen, and
-it contradicts the standard's own §02 premise that you can tell categories apart at a glance.
+### B. Author's, and only the author can do them
 
-**Author's call: crafting bases should read as exceptional — "like red on white".**
+1. ⚠️ **The map ramp needs eyes in game.** Their own warning: interpolated middles are where a
+   ramp stops being readable, and **T12–T15 are four plates inside 32 luminance points**.
+2. ⚠️ **`equipment.deep` may sit too close to the map floor** — reply 17 §5. If the load
+   confirms it, the fix is one authored value (`42 42 42` → ~`52 52 52`) and every gear ladder
+   benefits. Explicitly a load question, not a calculation.
+3. **Nothing has been loaded in game.** Every format bug this project has found passed
+   generation, the validator and every guard first.
 
-★ **Measured properly for reply 07, and the author's instinct is FilterBlade's, exactly.** I
-had recorded red-on-white as a conflict with the reserved T0 idiom. It is not a conflict — it
-is the same answer:
+### C. Data, mechanical, ours whenever wanted
 
-- **`0 240 190` (cyan-green) is FilterBlade's crafting look** — text + border + `0 75 30`
-  plate on `crafting->qualityperfection`. And it is **not a category colour**: it appears in
-  **24 purposes** (`rareid` 53 blocks, `exoticmods` 16, `magicid` 13, `exoticbases` 7,
-  **`gear->memorystrand` 7**, `exotic->fractured`, `heist->contract`, `jewels->abyss`…). It
-  means *"this instance beats its rarity"* — a **state**, not an accent.
-- **Their escalation inside it is the designer's own vocabulary**: Q28+ = swap (all three
-  channels), Q24+ = enhanced (text+border, plate steps down), floor = **border-only decorator**.
-- ★ **Their red-on-white is `exoticbases` top = `Iron Flask` at ilvl 84+, ONE base**, with
-  `text 255 0 0 / border 255 0 0 / bg 255 255 255 / Red Star / PlayEffect Red` — which *is* our
-  T0 recipe, reached from the other side. So "red on white" is a **rung assignment for the top
-  of the crafting ladder**, not a category colour. (It is also the ward base from reply 06 §6.)
-- ★ **The kit already has the mechanism**: `text_swaps` — *"Properties that BEAT rarity take
-  the text, freeing the border for real states."* Its `quality` entry is `120 235 210`, scope
-  `equipment`+`gems`, rungs T0–T2, `Quality >= 21`. **They and FilterBlade picked the same
-  colour for the same idea independently.** The ask is just to generalise the *condition* from
-  one property to the crafting purpose.
-- ⚠️ **`text_swaps` is NOT BUILT** — zero readers, and `120 235 210` appears nowhere in the
-  output. The swap and the crafting answer are one build, which is why it waits on the answer.
-- ⚠️ **Cost, unchanged: crafting bases lose rarity-through.** All 39 crafting blocks carry
-  `Rarity <= Rare`, so today the text says Normal / Magic / Rare. FilterBlade pays it.
-
-Measurements behind the ask: Crafting Priority emits **39 blocks over 282 bases**; **all 282
-are also in Rare Equipment's lists**; and for **115 of 282** the best crafting block draws
-*byte-identically* to the plain-rare block for the same base (e.g. `Conquest Lamellar`, both
-`SetFontSize 40` + `SetBackgroundColor 42 42 42 240`). The other 167 get one rung, which reads
-as "ranks higher", not "is exceptional".
-
-### B. ★ `_legacy` holds live 3.29 content — 327 bases, needs an audit
-
-Author's report, verified. `_legacy/Legacy.json` is one flat rung (T5, bulk) and contains:
-
-| class | n | note |
-|---|---|---|
-| Support Gems | **46** | the new exceptional supports — live |
-| Corpses | **9** | live |
-| Map Fragments | 18 | scarabs, Divine Vessel |
-| Misc Map Items | **2** | `Primeval Remnant` / `Primordial Remnant` — memory boss entry tickets, live |
-| Skill Gems | 5 | Divine Blast, Vaal Breach etc. |
-| Stackable Currency | 159 | the genuinely retired bulk |
-
-Anything still dropping needs re-homing to its real category; the rest stays.
-
-⚠️ **BLOCKED — do not audit this from the tree alone.** It needs TWO sources and neither is
-ready:
-
-1. **GGG's filter-info feed** says what exists in the game. `data/from_ggg/` has **34 threads
-   indexed and 0 fetched**; `timeline.json` covers only 8 versions (3.29.0 → 3.22.0) and
-   **6 of its 25 sections are `_complete: false`**. Its own note: *"false means the capture
-   was truncated and the list is a floor, not a census — never conclude 'not removed' from
-   an incomplete list."* **None of `Divine Vessel`, `Primeval Remnant`, `Annihilation
-   Support` or `Astral Lich` appear in it at all.** So the feed cannot currently answer the
-   question for the very items in dispute. Extracting the remaining 26 posts is the
-   prerequisite.
-2. **The Ruthless wiki** says what drops *in Ruthless*, which the GGG feed never does —
-   droppability is per-MODE (`reference_ruthless_exclusive_drops`; the page 403s every fetch,
-   so it is hand-saved and parsed by `parse_ruthless_wiki.py`).
-
-★ **Worked example of why both are needed: `Divine Vessel` is drop-disabled in Ruthless right
-now** (author, from play). It is live in the game, so source 1 would say "keep it" — and it
-belongs in `_legacy` anyway. Re-homing on GGPK presence alone would have been wrong.
-
-### C. Reply 07 to the designer — WRITTEN, `docs/design/reply-to-designer-07.md`
-
-Re-measured before sending. **Two of the four items I had listed here were wrong and are
-retracted in the reply itself** — both worth keeping written down, because each was a
-measurement mistake rather than a data change:
-
-- ⚠️ **"`Heist Blueprints` is inverted" — FALSE.** I read the tier *keys* in the file. Rules
-  drive emission for that category, and the rule order is right: `[101001]` (enchanted, T2,
-  size 40, red plate) emits before `[101002]`. **A tier file's key order is not the emission
-  order whenever rules select the tier** — the general lesson.
-- ⚠️ **"depth-2 `T2 T4` skips the family colour" — FALSE.** T4 puts the accent in the TEXT
-  (`Life Flasks` T4 = `#505050` plate with `#c39691` text; Heist `#b4827d`; Ritual `#a5787d`).
-  That is `_muted_is_authored` working as designed — T3's plate and T4's text are the same
-  value. All 8 depth-2 value ladders are fine; no pair table is needed.
-
-What the reply actually asks and reports:
-
-1. ★ **Crafting bases** — the one real question, now with FilterBlade corroboration and a
-   *small* ask. See A above; the sharpened version is that crafting does **not** need a 27th
-   accent, it needs their existing **`text_swaps`** mechanism generalised from "quality beats
-   rarity" to "crafting-worthiness beats rarity". ⚠️ `text_swaps` **has zero readers on our
-   side** — no code path, and `120 235 210` appears nowhere in the output — so the swap and
-   the crafting answer are one build.
-2. **`Magic Net`** — ✅ **FIXED AND LANDED**, not just reported. Their override annotated `(4)`
-   counted the three hide tiers; the ladder has 2 visible, so `T3 T4 T5 T5` truncated to the
-   adjacent `T3 T4`. `rungs_for()` now **discards** a stale override and falls back to the
-   template instead of truncating, still warning loudly. Magic Net's floor moved T4 → T5
-   (size 35/alpha 220 → 30/210); exactly 1 block changed in the whole filter.
-3. **`painted_t3_needs_t2` — per file or per category?** `Jewels/Base Jewels.json` resolves to
-   `T3` alone (painted accent, no T2), but all three Jewels files share `theme_category:
-   "Jewels"` so the merged rows do have a T2. The invariants are becoming validator checks, so
-   the scope decides whether this fires.
-4. **Their depth-1 → T2 warning fires 4×** — Bottles / Mercenary Warrants / Voyage Charts (all
-   → `Curse of the Allflame`) and `Heist/Targets.json`. All four look correct to us; confirming
-   so it gets silenced deliberately rather than by fatigue.
-5. **`theme-standard.md` in the kit is stale** — `T6` on 8 lines, a shape list of 8 against
-   `_shape_reserve`'s 10 assigned + 1 reserved, and a currency table ending at `T6 = scrolls`
-   while their own `Currency/General.json (9)` override ends at T4. We follow the machine files.
+1. **18 rows in `_legacy` are still unresolved.** ⚠️ Note the earlier "0 outstanding" was
+   scoped to the LIVE set; extending the claimant check to UNKNOWN surfaced these. They are
+   Recombinators, Alchemical Resonators, Regrading Lenses, Perandus Coin, 4 Omens,
+   Chayula's Flawless Breachstone, Ancient Reliquary Key — all **pre-3.19**, which is the
+   oldest thread extracted. `data/from_ggg/thread_index.json` lists 21 unfetched threads back
+   to 2.3.0.
+2. **An UNKNOWN is a gap in OUR reading, never evidence about the item.** Medicine Chest and
+   Maligaro's Map were introduced in 3.1.0 and are alive; Maven's Beacon, Elder's Orb and
+   Shaper's Key are the same vintage and are dead. The feed cannot separate them for us until
+   it is read back that far.
+3. **`Trinkets` emits exactly ONE block** (`Thief's Trinket`); its other four tiers have
+   conditions but no bases and no rule, so they emit nothing — 4 of the validator's 9 warnings.
+   ⚠️ Not a Ruthless-dead category: the wiki says `Thief's Trinket` is drop-disabled and the
+   wiki is WRONG, which is now recorded in `_author_corrections.drops_after_all`.
+4. **The remaining sound gap is 15 rows** — equipment and the four retired Guardian maps.
+   `docs/sharket-sound-gap.md`; the author's scope was Misc Map Items + Quest Items, both done.
 
 ### D. Standing
 
-- ⚠️ **Nothing from this session has been loaded in game.** Guards are all green, which is
-  historically the exact state that hides format bugs.
-- **Per-item sound sweep is the AUTHOR's work**, not the assistant's, unless a bulk import is
-  explicitly requested. The editor display bug is fixed, so sounds now show as they are set.
-- Sound coverage by tree, if a bulk import is ever wanted: `_campaign` 4% of tiers, Equipment
-  39%, Heist 42%, Currency 80%.
-
-⚠️ **Do NOT adopt the `sharket_theme.json` inside the designer's project export.** It is a
-pre-reshape snapshot: still has the 23 per-class equipment categories, missing `General`,
-`Corpses`, `Scarabs`, `Crafting Bases` and 25 more, **0 of 51 categories identical to ours**.
-The kit files are the deliverable; `compile_theme.py` + `adopt_compiled_theme.py` is the path.
+- **Per-item sounds are the AUTHOR's work** unless a bulk import is asked for.
+- ⚠️ **A sound ported onto a base the author is about to home is worse than no sound** — it
+  claims the base earlier and silently kills their placement. That happened this session with
+  Chronicle of Atzoatl; the symptom was "I added it in the bulk editor and nothing happened".
+- The designer has **repo access**, so `docs/design/reply-*.md` is the channel and every
+  measurement is reproducible from the scripts rather than pasted.
 
 ## 7. Open — not yet decided
 
