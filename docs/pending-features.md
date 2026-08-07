@@ -269,6 +269,101 @@ emits `Minimal` with NO style lines. Verified by generating with
 ⚠️ `sharket_theme.json` is HAND-TUNED. Any fix must be a surgical edit; regenerating it
 would flatten the tuning (`build_standard_theme.py` is group B for exactly this reason).
 
+## 6d. ★ NEXT UP — the queue as of 2026-08-06, after the theme adoption
+
+The equipment reshape and the theme adoption are **done and committed**. These are the live
+items, in the order they matter.
+
+### A. ★ Crafting bases look exactly like ordinary rare equipment — author wants an accent
+
+Measured: `Crafting Bases`, `Rare Equipment`, `Influenced` and `Trinkets` compile to
+**byte-identical rows** — `#2a2a2a` at f0/e6/dc/d2, sizes 40/35/35/30. All four take the
+`equipment` accent, which reply 14 pointed at the neutral fallback. That decision was
+justified for `Rare Equipment` alone ("a single mixed file honestly has one hue to give")
+but applies to every equipment-accent category.
+
+For Fractured and Influenced this is fine and reply 14 says why — their **state border**
+decorator separates them ("same accent, same rank, same look, with the state border saying
+fractured"). **Crafting has no such channel**, so a top crafting base is indistinguishable
+from a random rare, even though `Crafting Priority` emits FIRST at `gen_order -10` precisely
+to say "this one is worth crafting on". The precedence we built is invisible on screen, and
+it contradicts the standard's own §02 premise that you can tell categories apart at a glance.
+
+**Author's call: crafting bases should read as exceptional — "like red on white".** Note
+that red-on-white is currently reserved: it is the T0 idiom, used by exactly ONE row in the
+whole tree (`General Tier 0`, the mirror rung). So this needs the designer, not a local edit
+— either crafting gets its own accent, or a sixth state decorator, or the reservation moves.
+⚠️ Giving crafting its own painted accent costs rarity-through: a white base's rarity is
+arguably the point on a crafting base.
+
+### B. ★ `_legacy` holds live 3.29 content — 327 bases, needs an audit
+
+Author's report, verified. `_legacy/Legacy.json` is one flat rung (T5, bulk) and contains:
+
+| class | n | note |
+|---|---|---|
+| Support Gems | **46** | the new exceptional supports — live |
+| Corpses | **9** | live |
+| Map Fragments | 18 | scarabs, Divine Vessel |
+| Misc Map Items | **2** | `Primeval Remnant` / `Primordial Remnant` — memory boss entry tickets, live |
+| Skill Gems | 5 | Divine Blast, Vaal Breach etc. |
+| Stackable Currency | 159 | the genuinely retired bulk |
+
+Anything still dropping needs re-homing to its real category; the rest stays.
+
+⚠️ **BLOCKED — do not audit this from the tree alone.** It needs TWO sources and neither is
+ready:
+
+1. **GGG's filter-info feed** says what exists in the game. `data/from_ggg/` has **34 threads
+   indexed and 0 fetched**; `timeline.json` covers only 8 versions (3.29.0 → 3.22.0) and
+   **6 of its 25 sections are `_complete: false`**. Its own note: *"false means the capture
+   was truncated and the list is a floor, not a census — never conclude 'not removed' from
+   an incomplete list."* **None of `Divine Vessel`, `Primeval Remnant`, `Annihilation
+   Support` or `Astral Lich` appear in it at all.** So the feed cannot currently answer the
+   question for the very items in dispute. Extracting the remaining 26 posts is the
+   prerequisite.
+2. **The Ruthless wiki** says what drops *in Ruthless*, which the GGG feed never does —
+   droppability is per-MODE (`reference_ruthless_exclusive_drops`; the page 403s every fetch,
+   so it is hand-saved and parsed by `parse_ruthless_wiki.py`).
+
+★ **Worked example of why both are needed: `Divine Vessel` is drop-disabled in Ruthless right
+now** (author, from play). It is live in the game, so source 1 would say "keep it" — and it
+belongs in `_legacy` anyway. Re-homing on GGPK presence alone would have been wrong.
+
+### C. Reply 07 to the designer — four items, all measured
+
+1. ★ **The three depth-2 rung pairs.** The standard says pick the pair by what the two tiers
+   MEAN and names three; the kit's `rung_by_depth` hands every depth-2 ladder `T2 T4`
+   mechanically. That default jumps full-accent plate → neutral grey `#505050`, skipping T3
+   (the muted accent) which is what carries family identity. **8 value categories affected**:
+   Life/Mana Flasks, Tinctures, Ducats, Ritual BaseTypes, Heist Currency/Contracts/Blueprints.
+   Gear depth-2 is unaffected (alpha steps of one hue). The pair data is a live artifact and
+   is not in the exported file — ask for it.
+2. **`Magic Net`** — overridden as depth 4 (`T3 T4 T5 T5`) but has 2 visible tiers, so it
+   truncates to `T3 T4`: two adjacent rungs, which their own `two_tier_never_adjacent`
+   forbids. The gear template at depth 2 gives `T3 T5`, which is what their reasoning asks for.
+3. **`Heist Blueprints` is inverted** — rungs run `T4` then `T2`, so its quiet tier comes
+   first. Every other 2-tier category runs loud→quiet.
+4. **`theme-standard.md` in the kit is stale** — its prose still describes a 7-rung `T0..T6`
+   scale with `T6 = scrolls`. Both machine files define T0–T5 and the `.dc.html` says
+   outright "There is no T6". We follow the machine files.
+
+Plus item A above, which is the biggest.
+
+### D. Standing
+
+- ⚠️ **Nothing from this session has been loaded in game.** Guards are all green, which is
+  historically the exact state that hides format bugs.
+- **Per-item sound sweep is the AUTHOR's work**, not the assistant's, unless a bulk import is
+  explicitly requested. The editor display bug is fixed, so sounds now show as they are set.
+- Sound coverage by tree, if a bulk import is ever wanted: `_campaign` 4% of tiers, Equipment
+  39%, Heist 42%, Currency 80%.
+
+⚠️ **Do NOT adopt the `sharket_theme.json` inside the designer's project export.** It is a
+pre-reshape snapshot: still has the 23 per-class equipment categories, missing `General`,
+`Corpses`, `Scarabs`, `Crafting Bases` and 25 more, **0 of 51 categories identical to ours**.
+The kit files are the deliverable; `compile_theme.py` + `adopt_compiled_theme.py` is the path.
+
 ## 7. Open — not yet decided
 
 - **`AreaLevel >= 68` vs `ItemLevel >= 68`.** Ours gates the ladder on `AreaLevel`, theirs
