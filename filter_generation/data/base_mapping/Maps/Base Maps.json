@@ -73,73 +73,271 @@
       }
     },
     {
-      "comment": "Conquer Influenced Maps",
-      "localization": {
-        "en": "Influenced Maps",
-        "ch": "势力地图"
-      },
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "HasInfluence": "Crusader Hunter Redeemer Warlord"
+        "HasInfluence": "Crusader Hunter Redeemer Warlord",
+        "MapTier": ">= 11"
       },
       "overrides": {
         "Tier": "Tier 0 Base Maps",
         "PlayAlertSound": [
           "Sharket掉落音效/圣战地图.mp3",
           300
-        ]
-      }
+        ],
+        "BackgroundColor": "#d2c4c2f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "Conquer Influenced Maps · red",
+      "localization": {
+        "en": "Influenced Maps",
+        "ch": "势力地图"
+      },
+      "_generated": "map_specials"
     },
     {
-      "comment": "Zana Memory",
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "HasInfluence": "Crusader Hunter Redeemer Warlord",
+        "MapTier": "RANGE >= 6 <= 10"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/圣战地图.mp3",
+          300
+        ],
+        "BackgroundColor": "#969278f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "Conquer Influenced Maps · yellow",
+      "localization": {
+        "en": "Influenced Maps",
+        "ch": "势力地图"
+      },
+      "_generated": "map_specials"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "HasInfluence": "Crusader Hunter Redeemer Warlord",
+        "MapTier": "RANGE >= 1 <= 5"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/圣战地图.mp3",
+          300
+        ],
+        "BackgroundColor": "#6e6e70f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "Conquer Influenced Maps · white",
+      "localization": {
+        "en": "Influenced Maps",
+        "ch": "势力地图"
+      },
+      "_generated": "map_specials"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "ZanaMemory": "True",
+        "MapTier": ">= 11"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "BackgroundColor": "#d2c4c2f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "Zana Memory · red",
       "localization": {
         "en": "Zana Memory",
         "ch": "扎娜的记忆"
       },
+      "_generated": "map_specials"
+    },
+    {
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "ZanaMemory": "True"
+        "ZanaMemory": "True",
+        "MapTier": "RANGE >= 6 <= 10"
       },
       "overrides": {
-        "Tier": "Tier 0 Base Maps"
-      }
+        "Tier": "Tier 0 Base Maps",
+        "BackgroundColor": "#969278f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "Zana Memory · yellow",
+      "localization": {
+        "en": "Zana Memory",
+        "ch": "扎娜的记忆"
+      },
+      "_generated": "map_specials"
     },
     {
-      "comment": "Enchanted Maps",
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "ZanaMemory": "True",
+        "MapTier": "RANGE >= 1 <= 5"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "BackgroundColor": "#6e6e70f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "Zana Memory · white",
+      "localization": {
+        "en": "Zana Memory",
+        "ch": "扎娜的记忆"
+      },
+      "_generated": "map_specials"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "AnyEnchantment": "True",
+        "MapTier": ">= 11"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "BackgroundColor": "#d2c4c2f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "Enchanted Maps · red",
       "localization": {
         "en": "Enchanted Maps",
         "ch": "附魔地图"
       },
+      "_generated": "map_specials"
+    },
+    {
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "AnyEnchantment": "True"
+        "AnyEnchantment": "True",
+        "MapTier": "RANGE >= 6 <= 10"
       },
       "overrides": {
-        "Tier": "Tier 0 Base Maps"
-      }
+        "Tier": "Tier 0 Base Maps",
+        "BackgroundColor": "#969278f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "Enchanted Maps · yellow",
+      "localization": {
+        "en": "Enchanted Maps",
+        "ch": "附魔地图"
+      },
+      "_generated": "map_specials"
     },
     {
-      "comment": "8-Mod Corrupted Maps",
-      "localization": {
-        "en": "8-Mod Corrupted Maps",
-        "ch": "8 词缀污染地图"
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "AnyEnchantment": "True",
+        "MapTier": "RANGE >= 1 <= 5"
       },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "BackgroundColor": "#6e6e70f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "Enchanted Maps · white",
+      "localization": {
+        "en": "Enchanted Maps",
+        "ch": "附魔地图"
+      },
+      "_generated": "map_specials"
+    },
+    {
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
         "Corrupted": "True",
-        "Identified": "True"
+        "Identified": "True",
+        "MapTier": ">= 11"
       },
       "overrides": {
         "Tier": "Tier 0 Base Maps",
         "PlayAlertSound": [
           "Sharket掉落音效/超级天灾地图.mp3",
           300
-        ]
-      }
+        ],
+        "BackgroundColor": "#d2c4c2f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "8-Mod Corrupted Maps · red",
+      "localization": {
+        "en": "8-Mod Corrupted Maps",
+        "ch": "8 词缀污染地图"
+      },
+      "_generated": "map_specials"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "Corrupted": "True",
+        "Identified": "True",
+        "MapTier": "RANGE >= 6 <= 10"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级天灾地图.mp3",
+          300
+        ],
+        "BackgroundColor": "#969278f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "8-Mod Corrupted Maps · yellow",
+      "localization": {
+        "en": "8-Mod Corrupted Maps",
+        "ch": "8 词缀污染地图"
+      },
+      "_generated": "map_specials"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "Corrupted": "True",
+        "Identified": "True",
+        "MapTier": "RANGE >= 1 <= 5"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级天灾地图.mp3",
+          300
+        ],
+        "BackgroundColor": "#6e6e70f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "8-Mod Corrupted Maps · white",
+      "localization": {
+        "en": "8-Mod Corrupted Maps",
+        "ch": "8 词缀污染地图"
+      },
+      "_generated": "map_specials"
     },
     {
       "targets": [],
@@ -371,16 +569,61 @@
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "ElderMap": "True"
+        "ElderMap": "True",
+        "MapTier": ">= 11"
       },
       "overrides": {
         "Tier": "Tier 0 Base Maps",
         "PlayAlertSound": [
           "Sharket掉落音效/裂界地图.mp3",
           300
-        ]
+        ],
+        "BackgroundColor": "#d2c4c2f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
       },
-      "comment": "Elder Maps"
+      "comment": "Elder Maps · red",
+      "_generated": "map_specials"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "ElderMap": "True",
+        "MapTier": "RANGE >= 6 <= 10"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/裂界地图.mp3",
+          300
+        ],
+        "BackgroundColor": "#969278f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "Elder Maps · yellow",
+      "_generated": "map_specials"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "ElderMap": "True",
+        "MapTier": "RANGE >= 1 <= 5"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/裂界地图.mp3",
+          300
+        ],
+        "BackgroundColor": "#6e6e70f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "Elder Maps · white",
+      "_generated": "map_specials"
     },
     {
       "targets": [

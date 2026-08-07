@@ -359,7 +359,8 @@
       "icon_floor": "none",
       "note": "SUPERSEDED as a single accent — see gear_ladder.groups (armour, weapons, jewellery, flasks). Kept as the fallback for any gear category not in a group. shape stays null: gear is iconless below T0. ⚠️ After the equipment reshape this accent covers ONE category where it used to cover 23: Rare Equipment. The per-class hues did not survive the collapse and should not be reinvented there — see gear_ladder.groups.fallback.",
       "muted": "150 150 150",
-      "t0_text": "85 85 85"
+      "t0_text": "255 0 0",
+      "_t0_text_author_call": "⚠️ AUTHOR'S CALL, code-side — was 85 85 85. They want the gear T0 to read as the currency T0 does: red on white. Note this DEPARTS from _t0_text_rule ('the white plate is the house part; the text is the family'), because red is not the equipment family — it is the house chase idiom. The author's argument is that T0 means the same thing in every family and should look it, which is the same reasoning you used for T0 being CATEGORICAL while T1 is relative (reply 16). Please confirm or overrule."
     },
     "tainted": {
       "solid": "205 40 95",

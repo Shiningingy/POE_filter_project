@@ -70,7 +70,11 @@
         "PlayAlertSound": [
           "Sharket掉落音效/幻色装.mp3",
           100
-        ]
+        ],
+        "FontSize": 35,
+        "BackgroundColor": "#505050e6",
+        "TextColor": "#a5b6bcff",
+        "MinimapIcon": "0 White Moon"
       },
       "sound": {
         "default_sound_id": -1,

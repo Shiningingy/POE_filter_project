@@ -343,7 +343,7 @@
     "Tier 0": {
       "FontSize": 45,
       "BackgroundColor": "#ffffffff",
-      "TextColor": "#555555ff"
+      "TextColor": "#ff0000ff"
     },
     "Tier 2": {
       "FontSize": 40,
