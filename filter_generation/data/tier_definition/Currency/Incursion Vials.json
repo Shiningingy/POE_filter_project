@@ -15,11 +15,6 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#6edc82ff",
-        "BackgroundColor": "#14371cf0",
-        "BorderColor": "#6edc82ff",
-        "MinimapIcon": "1 White Circle",
         "PlayAlertSound": [
           "Sharket掉落音效/魔瓶.mp3",
           300

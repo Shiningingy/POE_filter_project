@@ -308,8 +308,8 @@
  {
   "file": "Curse of the Allflame/Bottles.json",
   "tier_key": "Bottles",
-  "Tier": 2,
-  "how": "value"
+  "Tier": 0,
+  "how": "override"
  },
  {
   "file": "Curse of the Allflame/Ducats.json",

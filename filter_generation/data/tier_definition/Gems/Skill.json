@@ -42,12 +42,7 @@
         "PlayAlertSound": [
           "Sharket掉落音效/DOTA2_嘿真棒.mp3",
           200
-        ],
-        "FontSize": 45,
-        "BackgroundColor": "#ffffffff",
-        "TextColor": "#1ba29bff",
-        "MinimapIcon": "0 White Kite",
-        "PlayEffect": "Cyan"
+        ]
       },
       "sound": {
         "default_sound_id": 6,

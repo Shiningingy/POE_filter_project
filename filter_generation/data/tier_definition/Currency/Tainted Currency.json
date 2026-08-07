@@ -46,11 +46,6 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "BackgroundColor": "#cd285ff0",
-        "TextColor": "#ffffffff",
-        "MinimapIcon": "1 Yellow Diamond",
-        "PlayEffect": "Red Temp",
         "PlayAlertSound": "disabled:"
       },
       "sound": {

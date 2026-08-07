@@ -16,11 +16,6 @@
     "Sulphur T0": {
       "theme": {
         "Tier": 1,
-        "FontSize": 45,
-        "BackgroundColor": "#d20000ff",
-        "TextColor": "#ffffffff",
-        "MinimapIcon": "0 Red Circle",
-        "PlayEffect": "Orange",
         "PlayAlertSound": [
           "Default/AlertSound10.mp3",
           300
@@ -68,9 +63,6 @@
     "Sulphur T2": {
       "theme": {
         "Tier": 4,
-        "FontSize": 35,
-        "BackgroundColor": "#505050e6",
-        "TextColor": "#c39b7dff",
         "PlayAlertSound": [
           "Default/AlertSound2.mp3",
           300

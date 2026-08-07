@@ -14,11 +14,6 @@
     "Mercenary Warrants": {
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "BackgroundColor": "#ff7828f0",
-        "TextColor": "#000000ff",
-        "MinimapIcon": "1 Yellow Circle",
-        "PlayEffect": "Orange Temp",
         "PlayAlertSound": [
           "Sharket掉落音效/你是主人，还是奴隶.mp3",
           300

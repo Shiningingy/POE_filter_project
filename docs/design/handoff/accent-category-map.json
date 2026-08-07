@@ -9,7 +9,8 @@
     "Magic Net moved quest -> equipment, with its own override.",
     "Crafting Priority override rewritten for 10 tiers (was 7).",
     "Gear depth 2 changed T3,T4 -> T3,T5: two-tier ladders never use adjacent rungs, and gear was the one table breaking my own rule.",
-    "Quest Items override deleted — Quest Items is flat, and flat categories skip this table entirely, so that line could only ever mislead."
+    "Quest Items override deleted — Quest Items is flat, and flat categories skip this table entirely, so that line could only ever mislead.",
+    "v2.2: Crafting Priority array corrected to T0-first and Magic Net key/array to (2)/T3 T5 — the notes had been revised and the arrays had not. See overrides._note_discipline."
   ],
   "accent_by_category": {
     "_about": "52 entries, one per live theme category in the settled tree. Every key here MUST name a live category and every live category MUST appear — see _invariants.no_silent_misses.",
@@ -202,6 +203,10 @@
         "T4"
       ],
       "_general_note": "Nine visible tiers now, was eight. The pairs sharing a row are deliberate: nine tiers into a six-rung ladder means T1-T4 each carry two. General never reaches T5 — it has no floor below scrolls.",
+      "Curse of the Allflame/Bottles.json (1)": [
+        "T0"
+      ],
+      "_bottles_note": "⚠️ AUTHOR'S CALL, added code-side after reply 08 went out — you have not seen this one yet, please confirm or overrule. Your depth-1 allowlist reasoned that a 3.29 drop's worth is not yet known, so 'worth picking up' is the honest rung. The author does know this one, and their tier was already NAMED 'T0: 瓶中信' while resolving lower — the label was promising what the rung would not pay. Only Bottles moves; Mercenary Warrants and Voyage Charts keep theirs and their allowlist entries stand. This is also the first T0 row on the allflame accent, so the first use of its t0_text. (Per _note_discipline this note names no value: it says why, the array says what.)",
       "Currency/Gold.json (3)": [
         "T5",
         "T5",
@@ -270,7 +275,8 @@
       ],
       "_removed": {
         "Misc/General.json — Quest Items (1)": "DELETED. Quest Items is in flat_look.applies_to_painted, and flat categories skip this table entirely. A line that can never be read is a line that can only mislead."
-      }
+      },
+      "_note_discipline": "⚠️ A NOTE MUST NOT RESTATE A VALUE THAT LIVES IN AN ARRAY. Twice this drop a _note said REVISED beside an unrevised array, and that is the third instance of one file disagreeing with itself in this thread. The array is the value; the note says WHY and never WHAT. If a note contains a rung name, it is either quoting the array (fragile) or contradicting it (a bug waiting) — the only exception is a note explaining why a rung was NOT chosen, which names a value that appears nowhere else by construction."
     },
     "expected_after_the_reshape": {
       "_about": "Not overrides — these fall straight out of the gear template. Listed because the tree emits them WRONG today, so they are the check that the template is being applied at all.",
@@ -309,7 +315,7 @@
     "no_silent_misses": "accent_by_category keys and live theme categories must be the SAME SET, and every rung override path must resolve to a real file. A miss on either side is an ERROR, never a fallback — an override that quietly does not match is how bulk reached T2 and how Chancing went unstyled.",
     "depth1_t2_warning_allowlist": {
       "_about": "Your reply-13 warning, confirmed on all four. Silencing them deliberately, which is the point of an allowlist — a warning nobody can clear is a warning everybody stops reading.",
-      "Curse of the Allflame/Bottles.json": "3.29 league drop. T2 is what new league content wants: you do not yet know what it is worth, so 'worth picking up' is the honest rung.",
+      "Curse of the Allflame/Bottles.json": "⚠️ SUPERSEDED — this file now carries an explicit override, so the warning no longer fires for it and this entry is inert. Kept as the record of why the default was chosen. Your reasoning held for the other three; it did not hold here, because the author knows what this item is worth. See rung_by_depth.overrides._bottles_note.",
       "Curse of the Allflame/Mercenary Warrants.json": "same.",
       "Curse of the Allflame/Voyage Charts.json": "same.",
       "Heist/Targets.json": "smuggler's caches — the thing the contract was for. T2 is correct and heist never reaches the bulk rungs anyway (see _heist_rule).",

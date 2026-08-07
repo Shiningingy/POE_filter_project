@@ -19,8 +19,6 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "BackgroundColor": "#2a2a2aff",
         "PlayAlertSound": [
           "Sharket掉落音效/一定有好事发生.mp3",
           300

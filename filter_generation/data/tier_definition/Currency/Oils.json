@@ -18,11 +18,6 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "BackgroundColor": "#ffe650f0",
-        "TextColor": "#000000ff",
-        "MinimapIcon": "1 Yellow Circle",
-        "PlayEffect": "Yellow Temp",
         "PlayAlertSound": [
           "Sharket掉落音效/高级圣油.mp3",
           200
@@ -98,11 +93,6 @@
       "show_in_editor": false,
       "theme": {
         "Tier": 1,
-        "FontSize": 45,
-        "BackgroundColor": "#d20000ff",
-        "TextColor": "#ffffffff",
-        "MinimapIcon": "0 Red Circle",
-        "PlayEffect": "Yellow",
         "PlayAlertSound": [
           "Sharket掉落音效/超级圣油.mp3",
           200

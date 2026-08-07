@@ -14,12 +14,7 @@
     "Bottles": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "BackgroundColor": "#ff7828f0",
-        "TextColor": "#000000ff",
-        "MinimapIcon": "1 Yellow Circle",
-        "PlayEffect": "Orange Temp",
+        "Tier": 0,
         "PlayAlertSound": [
           "Sharket掉落音效/DOTA2_瓶.mp3",
           300

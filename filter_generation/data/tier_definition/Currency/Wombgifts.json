@@ -42,11 +42,6 @@
       "conditions": {},
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "BackgroundColor": "#a02dfff0",
-        "TextColor": "#ffffffff",
-        "MinimapIcon": "1 Yellow Star",
-        "PlayEffect": "Purple Temp",
         "PlayAlertSound": [
           "Sharket掉落音效/孕育赠礼.mp3",
           300

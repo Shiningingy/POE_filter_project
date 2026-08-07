@@ -18,11 +18,6 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "BackgroundColor": "#6edc82f0",
-        "TextColor": "#000000ff",
-        "MinimapIcon": "1 Yellow Circle",
-        "PlayEffect": "Green Temp",
         "PlayAlertSound": [
           "Sharket掉落音效/发财啦.mp3",
           300
@@ -41,9 +36,6 @@
       "hideable": false,
       "theme": {
         "Tier": 3,
-        "FontSize": 35,
-        "BackgroundColor": "#91b496f0",
-        "TextColor": "#000000ff",
         "PlayAlertSound": [
           "Sharket掉落音效/种子种子.mp3",
           100
@@ -62,9 +54,6 @@
       "hideable": false,
       "theme": {
         "Tier": 4,
-        "FontSize": 35,
-        "BackgroundColor": "#505050e6",
-        "TextColor": "#91b496ff",
         "PlayAlertSound": [
           "Sharket掉落音效/命能.mp3",
           100
@@ -99,11 +88,6 @@
       "show_in_editor": false,
       "theme": {
         "Tier": 1,
-        "FontSize": 45,
-        "BackgroundColor": "#d20000ff",
-        "TextColor": "#ffffffff",
-        "MinimapIcon": "0 Red Circle",
-        "PlayEffect": "Green",
         "PlayAlertSound": [
           "Sharket掉落音效/666.mp3",
           200

@@ -59,12 +59,7 @@
       "hideable": true,
       "conditions": {},
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "BackgroundColor": "#be8c6ef0",
-        "TextColor": "#000000ff",
-        "MinimapIcon": "1 Yellow Circle",
-        "PlayEffect": "Brown Temp"
+        "Tier": 2
       },
       "sound": {
         "default_sound_id": -1,

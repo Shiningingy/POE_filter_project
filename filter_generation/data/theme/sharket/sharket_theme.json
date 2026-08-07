@@ -306,6 +306,13 @@
     }
   },
   "Curse of the Allflame": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BackgroundColor": "#ffffffff",
+      "TextColor": "#a53c00ff",
+      "MinimapIcon": "0 White Circle",
+      "PlayEffect": "Orange"
+    },
     "Tier 2": {
       "FontSize": 40,
       "BackgroundColor": "#ff7828f0",
@@ -350,7 +357,8 @@
     },
     "Tier 4": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2adc"
+      "BackgroundColor": "#2a2a2adc",
+      "TextColor": "#78ebd2ff"
     },
     "Tier 5": {
       "FontSize": 30,

@@ -17,11 +17,6 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "BackgroundColor": "#ffaa00f0",
-        "TextColor": "#000000ff",
-        "MinimapIcon": "1 Yellow Diamond",
-        "PlayEffect": "Orange Temp",
         "PlayAlertSound": [
           "Sharket掉落音效/预兆.mp3",
           300
@@ -40,9 +35,6 @@
       "hideable": false,
       "theme": {
         "Tier": 4,
-        "FontSize": 35,
-        "BackgroundColor": "#505050e6",
-        "TextColor": "#aa9e82ff",
         "PlayAlertSound": [
           "Sharket掉落音效/预兆.mp3",
           300
@@ -75,11 +67,6 @@
     "Tier 0 Omens": {
       "theme": {
         "Tier": 1,
-        "FontSize": 45,
-        "BackgroundColor": "#d20000ff",
-        "TextColor": "#ffffffff",
-        "MinimapIcon": "0 Red Diamond",
-        "PlayEffect": "Orange",
         "PlayAlertSound": [
           "Sharket掉落音效/高级预兆.mp3",
           300
