@@ -67,7 +67,9 @@
         "Traumatic Fragment": "创痛碎片",
         "Reverent Fragment": "虔敬碎片",
         "Lonely Fragment": "孤寂碎片",
-        "Crescent Splinter": "新月裂片"
+        "Crescent Splinter": "新月裂片",
+        "Chronicle of Atzoatl": "阿佐亚特编年史",
+        "Inscribed Ultimatum": "贪婪战书"
       }
     },
     "item_class": {
@@ -194,6 +196,12 @@
     ],
     "Crescent Splinter": [
       "Tier 3 Fragments"
+    ],
+    "Chronicle of Atzoatl": [
+      "Tier 1 Fragments"
+    ],
+    "Inscribed Ultimatum": [
+      "Tier 1 Fragments"
     ]
   },
   "rules": [

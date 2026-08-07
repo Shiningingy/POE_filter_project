@@ -154,9 +154,56 @@
     "Heart of the Gargoyle": "Misc",
     "Orb of Elemental Dispersion": "Misc",
     "Golden Key": "Misc",
-    "Treasure Key": "Misc"
+    "Treasure Key": "Misc",
+    "Medicine Chest": "Misc",
+    "The Maven's Beacon": "Misc",
+    "Maligaro's Map": "Misc",
+    "The Shaper's Key": "Misc"
   },
   "rules": [
+    {
+      "targets": [
+        "Medicine Chest"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Misc",
+        "PlayAlertSound": [
+          "Sharket掉落音效/医药箱.mp3",
+          200
+        ]
+      },
+      "comment": "医药箱"
+    },
+    {
+      "targets": [
+        "The Maven's Beacon"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Misc",
+        "PlayAlertSound": [
+          "Sharket掉落音效/贤主信标.mp3",
+          300
+        ]
+      },
+      "comment": "贤主信标"
+    },
+    {
+      "targets": [
+        "Maligaro's Map",
+        "The Shaper's Key"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Misc",
+        "PlayAlertSound": [
+          "Sharket掉落音效/任务物品.mp3",
+          200
+        ]
+      },
+      "comment": "任务物品"
+    },
     {
       "targets": [],
       "conditions": {

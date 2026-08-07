@@ -121,6 +121,12 @@
             "Sharket掉落音效/崇神石.mp3",
             300
           ]
+        },
+        "Imprint": {
+          "PlayAlertSound": [
+            "Default/AlertSound10.mp3",
+            200
+          ]
         }
       }
     },

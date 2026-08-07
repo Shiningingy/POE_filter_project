@@ -44,6 +44,18 @@
             "Sharket掉落音效/贤主敕令.mp3",
             300
           ]
+        },
+        "Chronicle of Atzoatl": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/阿佐亚特编年史.mp3",
+            300
+          ]
+        },
+        "Inscribed Ultimatum": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/贪婪战书.mp3",
+            300
+          ]
         }
       }
     },
