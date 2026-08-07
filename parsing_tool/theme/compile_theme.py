@@ -326,11 +326,24 @@ def override_key(rel, theme_cat, depth):
 
 def rungs_for(rel, theme_cat, accent, depth):
     """-> (list_of_rung_names, how_it_was_decided)"""
+    template = "gear" if accent in GEAR_ACCENTS else "value"
     ok = override_key(rel, theme_cat, depth)
     if ok:
         got = RUNG["overrides"][ok]
-        return got, ("override" if len(got) == depth else "override:DEPTH-MISMATCH")
-    template = "gear" if accent in GEAR_ACCENTS else "value"
+        if len(got) == depth:
+            return got, "override"
+        # ⚠️ A stale override is DISCARDED, not truncated. The compile loop stops at
+        # `i >= len(names)`, so a longer list quietly keeps its FIRST `depth` rungs — and the
+        # top of a designer's list is the loud end, so the survivors come out adjacent. That
+        # is `Equipment/Magic Net.json (4)`: the annotation counted the three hide tiers, the
+        # ladder has 2 visible, and `T3 T4 T5 T5` truncated to `T3 T4` — two adjacent rungs,
+        # which `_invariants.two_tier_never_adjacent` forbids precisely because the step is
+        # invisible when only two things exist to compare. The gear template gives `T3 T5`,
+        # which is also what their own note asked for ("Top rung T3"), so the fallback is
+        # not a guess. It stays a LOUD warning either way — `no_silent_misses` is the point:
+        # an override that half-matches is the same bug as one that does not match at all.
+        return (RUNG[template].get(str(depth), got[:depth]),
+                "override:DEPTH-MISMATCH->" + template)
     table = RUNG[template]
     if str(depth) in table:
         return table[str(depth)], template

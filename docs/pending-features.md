@@ -289,12 +289,38 @@ from a random rare, even though `Crafting Priority` emits FIRST at `gen_order -1
 to say "this one is worth crafting on". The precedence we built is invisible on screen, and
 it contradicts the standard's own §02 premise that you can tell categories apart at a glance.
 
-**Author's call: crafting bases should read as exceptional — "like red on white".** Note
-that red-on-white is currently reserved: it is the T0 idiom, used by exactly ONE row in the
-whole tree (`General Tier 0`, the mirror rung). So this needs the designer, not a local edit
-— either crafting gets its own accent, or a sixth state decorator, or the reservation moves.
-⚠️ Giving crafting its own painted accent costs rarity-through: a white base's rarity is
-arguably the point on a crafting base.
+**Author's call: crafting bases should read as exceptional — "like red on white".**
+
+★ **Measured properly for reply 07, and the author's instinct is FilterBlade's, exactly.** I
+had recorded red-on-white as a conflict with the reserved T0 idiom. It is not a conflict — it
+is the same answer:
+
+- **`0 240 190` (cyan-green) is FilterBlade's crafting look** — text + border + `0 75 30`
+  plate on `crafting->qualityperfection`. And it is **not a category colour**: it appears in
+  **24 purposes** (`rareid` 53 blocks, `exoticmods` 16, `magicid` 13, `exoticbases` 7,
+  **`gear->memorystrand` 7**, `exotic->fractured`, `heist->contract`, `jewels->abyss`…). It
+  means *"this instance beats its rarity"* — a **state**, not an accent.
+- **Their escalation inside it is the designer's own vocabulary**: Q28+ = swap (all three
+  channels), Q24+ = enhanced (text+border, plate steps down), floor = **border-only decorator**.
+- ★ **Their red-on-white is `exoticbases` top = `Iron Flask` at ilvl 84+, ONE base**, with
+  `text 255 0 0 / border 255 0 0 / bg 255 255 255 / Red Star / PlayEffect Red` — which *is* our
+  T0 recipe, reached from the other side. So "red on white" is a **rung assignment for the top
+  of the crafting ladder**, not a category colour. (It is also the ward base from reply 06 §6.)
+- ★ **The kit already has the mechanism**: `text_swaps` — *"Properties that BEAT rarity take
+  the text, freeing the border for real states."* Its `quality` entry is `120 235 210`, scope
+  `equipment`+`gems`, rungs T0–T2, `Quality >= 21`. **They and FilterBlade picked the same
+  colour for the same idea independently.** The ask is just to generalise the *condition* from
+  one property to the crafting purpose.
+- ⚠️ **`text_swaps` is NOT BUILT** — zero readers, and `120 235 210` appears nowhere in the
+  output. The swap and the crafting answer are one build, which is why it waits on the answer.
+- ⚠️ **Cost, unchanged: crafting bases lose rarity-through.** All 39 crafting blocks carry
+  `Rarity <= Rare`, so today the text says Normal / Magic / Rare. FilterBlade pays it.
+
+Measurements behind the ask: Crafting Priority emits **39 blocks over 282 bases**; **all 282
+are also in Rare Equipment's lists**; and for **115 of 282** the best crafting block draws
+*byte-identically* to the plain-rare block for the same base (e.g. `Conquest Lamellar`, both
+`SetFontSize 40` + `SetBackgroundColor 42 42 42 240`). The other 167 get one rung, which reads
+as "ranks higher", not "is exceptional".
 
 ### B. ★ `_legacy` holds live 3.29 content — 327 bases, needs an audit
 
@@ -330,25 +356,44 @@ ready:
 now** (author, from play). It is live in the game, so source 1 would say "keep it" — and it
 belongs in `_legacy` anyway. Re-homing on GGPK presence alone would have been wrong.
 
-### C. Reply 07 to the designer — four items, all measured
+### C. Reply 07 to the designer — WRITTEN, `docs/design/reply-to-designer-07.md`
 
-1. ★ **The three depth-2 rung pairs.** The standard says pick the pair by what the two tiers
-   MEAN and names three; the kit's `rung_by_depth` hands every depth-2 ladder `T2 T4`
-   mechanically. That default jumps full-accent plate → neutral grey `#505050`, skipping T3
-   (the muted accent) which is what carries family identity. **8 value categories affected**:
-   Life/Mana Flasks, Tinctures, Ducats, Ritual BaseTypes, Heist Currency/Contracts/Blueprints.
-   Gear depth-2 is unaffected (alpha steps of one hue). The pair data is a live artifact and
-   is not in the exported file — ask for it.
-2. **`Magic Net`** — overridden as depth 4 (`T3 T4 T5 T5`) but has 2 visible tiers, so it
-   truncates to `T3 T4`: two adjacent rungs, which their own `two_tier_never_adjacent`
-   forbids. The gear template at depth 2 gives `T3 T5`, which is what their reasoning asks for.
-3. **`Heist Blueprints` is inverted** — rungs run `T4` then `T2`, so its quiet tier comes
-   first. Every other 2-tier category runs loud→quiet.
-4. **`theme-standard.md` in the kit is stale** — its prose still describes a 7-rung `T0..T6`
-   scale with `T6 = scrolls`. Both machine files define T0–T5 and the `.dc.html` says
-   outright "There is no T6". We follow the machine files.
+Re-measured before sending. **Two of the four items I had listed here were wrong and are
+retracted in the reply itself** — both worth keeping written down, because each was a
+measurement mistake rather than a data change:
 
-Plus item A above, which is the biggest.
+- ⚠️ **"`Heist Blueprints` is inverted" — FALSE.** I read the tier *keys* in the file. Rules
+  drive emission for that category, and the rule order is right: `[101001]` (enchanted, T2,
+  size 40, red plate) emits before `[101002]`. **A tier file's key order is not the emission
+  order whenever rules select the tier** — the general lesson.
+- ⚠️ **"depth-2 `T2 T4` skips the family colour" — FALSE.** T4 puts the accent in the TEXT
+  (`Life Flasks` T4 = `#505050` plate with `#c39691` text; Heist `#b4827d`; Ritual `#a5787d`).
+  That is `_muted_is_authored` working as designed — T3's plate and T4's text are the same
+  value. All 8 depth-2 value ladders are fine; no pair table is needed.
+
+What the reply actually asks and reports:
+
+1. ★ **Crafting bases** — the one real question, now with FilterBlade corroboration and a
+   *small* ask. See A above; the sharpened version is that crafting does **not** need a 27th
+   accent, it needs their existing **`text_swaps`** mechanism generalised from "quality beats
+   rarity" to "crafting-worthiness beats rarity". ⚠️ `text_swaps` **has zero readers on our
+   side** — no code path, and `120 235 210` appears nowhere in the output — so the swap and
+   the crafting answer are one build.
+2. **`Magic Net`** — ✅ **FIXED AND LANDED**, not just reported. Their override annotated `(4)`
+   counted the three hide tiers; the ladder has 2 visible, so `T3 T4 T5 T5` truncated to the
+   adjacent `T3 T4`. `rungs_for()` now **discards** a stale override and falls back to the
+   template instead of truncating, still warning loudly. Magic Net's floor moved T4 → T5
+   (size 35/alpha 220 → 30/210); exactly 1 block changed in the whole filter.
+3. **`painted_t3_needs_t2` — per file or per category?** `Jewels/Base Jewels.json` resolves to
+   `T3` alone (painted accent, no T2), but all three Jewels files share `theme_category:
+   "Jewels"` so the merged rows do have a T2. The invariants are becoming validator checks, so
+   the scope decides whether this fires.
+4. **Their depth-1 → T2 warning fires 4×** — Bottles / Mercenary Warrants / Voyage Charts (all
+   → `Curse of the Allflame`) and `Heist/Targets.json`. All four look correct to us; confirming
+   so it gets silenced deliberately rather than by fatigue.
+5. **`theme-standard.md` in the kit is stale** — `T6` on 8 lines, a shape list of 8 against
+   `_shape_reserve`'s 10 assigned + 1 reserved, and a currency table ending at `T6 = scrolls`
+   while their own `Currency/General.json (9)` override ends at T4. We follow the machine files.
 
 ### D. Standing
 

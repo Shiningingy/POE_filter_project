@@ -423,13 +423,13 @@
   "file": "Equipment/Magic Net.json",
   "tier_key": "Magic Good Jewellery",
   "Tier": 3,
-  "how": "override:DEPTH-MISMATCH"
+  "how": "override:DEPTH-MISMATCH->gear"
  },
  {
   "file": "Equipment/Magic Net.json",
   "tier_key": "Magic Net",
-  "Tier": 4,
-  "how": "override:DEPTH-MISMATCH"
+  "Tier": 5,
+  "how": "override:DEPTH-MISMATCH->gear"
  },
  {
   "file": "Equipment/Rare Equipment.json",
