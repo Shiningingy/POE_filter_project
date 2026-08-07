@@ -17,6 +17,7 @@
     "Tier 0 Influenced": {
       "hideable": false,
       "conditions": {
+        "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
         "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord",
         "Rarity": "<= Rare"
       },
@@ -35,6 +36,7 @@
     "Tier 1 Influenced": {
       "hideable": false,
       "conditions": {
+        "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
         "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord",
         "Rarity": "<= Rare"
       },
@@ -54,6 +56,7 @@
     "Tier 2 Influenced": {
       "hideable": true,
       "conditions": {
+        "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
         "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord",
         "Rarity": "<= Rare"
       },
@@ -74,6 +77,7 @@
       "class_condition": true,
       "hideable": true,
       "conditions": {
+        "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
         "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord",
         "Rarity": "<= Rare"
       },

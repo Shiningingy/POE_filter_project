@@ -75,17 +75,22 @@
         "en": "T17 Maps",
         "ch": "T17 地图"
       },
-      "targets": [],
+      "targets": [
+        "Nightmare Map"
+      ],
       "conditions": {
         "Class": "== \"Maps\"",
-        "MapTier": "== 17"
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Base Maps",
         "PlayAlertSound": [
           "Sharket掉落音效/天灾地图.mp3",
           300
-        ]
+        ],
+        "TextColor": "#78148cff",
+        "PlayEffect": "Purple",
+        "MinimapIcon": "2 Purple Square"
       }
     },
     {
@@ -140,8 +145,8 @@
       "overrides": {
         "Tier": "Tier 0 Base Maps",
         "BackgroundColor": "#d2c4c2f0",
-        "TextColor": "#6e148cff",
-        "FontSize": 45
+        "FontSize": 45,
+        "TextColor": "#78148cff"
       },
       "comment": "Zana Memory · red",
       "localization": {
@@ -176,12 +181,13 @@
         "Class": "== \"Maps\"",
         "Corrupted": "True",
         "Identified": "True",
-        "MapTier": ">= 11"
+        "MapTier": ">= 11",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Base Maps",
         "PlayAlertSound": [
-          "Sharket掉落音效/超级天灾地图.mp3",
+          "Sharket掉落音效/特殊地图.mp3",
           300
         ],
         "BackgroundColor": "#d2c4c2f0",
@@ -244,8 +250,8 @@
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "ElderMap": "True",
-        "MapTier": ">= 11"
+        "MapTier": ">= 11",
+        "HasInfluence": "Elder"
       },
       "overrides": {
         "Tier": "Tier 0 Base Maps",
@@ -328,6 +334,24 @@
         "Tier": "Tier 3 Base Maps"
       },
       "comment": "6-10"
+    },
+    {
+      "targets": [
+        "Valdo Map"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级天灾地图.mp3",
+          300
+        ],
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#781464ff",
+        "MinimapIcon": "2 Purple Square",
+        "PlayEffect": "Purple"
+      },
+      "comment": "Valdo Maps"
     }
   ]
 }
