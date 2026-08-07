@@ -1299,7 +1299,7 @@
       },
       "overrides": {
         "Tier": "T1",
-        "BorderColor": "#f90101ff",
+        "BorderColor": "#ff0000ff",
         "PlayAlertSound": [
           "Sharket掉落音效/瓦尔传奇.mp3",
           300
@@ -1316,7 +1316,7 @@
       },
       "overrides": {
         "Tier": "T0 Chase",
-        "BorderColor": "#f50000ff",
+        "BorderColor": "#ff0000ff",
         "PlayAlertSound": [
           "Sharket掉落音效/天灾传奇.mp3",
           300
