@@ -541,7 +541,12 @@ def compile_theme():
             continue                                   # decorator file, takes no accent
         depth = len(rungs)
         flat = theme_cat in FLAT_PAINTED or theme_cat in FLAT_RARITY
-        variant = "rarity_through" if (accent in GEAR_ACCENTS or accent == "maps") else "painted"
+        # ⚠️ MAPS PAINT NOW (reply 17). They were rarity_through, which was the stale half of
+        # a contradiction the designer had carried for rounds: `_invariants` said only the
+        # equipment accent has rarity_through, `_category_exceptions.maps` said maps do too.
+        # The tier ramp forces the resolution — the game's white Normal-map text on a 242
+        # plate is unreadable, so maps must paint. The invariant was right.
+        variant = "rarity_through" if accent in GEAR_ACCENTS else "painted"
         rows = out.setdefault(theme_cat, {})
 
         if flat:

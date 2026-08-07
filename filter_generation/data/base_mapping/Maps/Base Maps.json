@@ -142,64 +142,212 @@
       }
     },
     {
-      "comment": "T16 Maps",
-      "localization": {
-        "en": "T16 Maps",
-        "ch": "T16 地图"
-      },
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
         "MapTier": "== 16"
       },
       "overrides": {
-        "Tier": "Tier 1 Base Maps"
-      }
+        "Tier": "Tier 1 Base Maps",
+        "BackgroundColor": "#f2eeeef0"
+      },
+      "comment": "T16",
+      "_generated": "map_tier_ramp"
     },
     {
-      "comment": "Red Maps (T11-T15)",
-      "localization": {
-        "en": "Red Maps (T11-T15)",
-        "ch": "红色地图 (T11-T15)"
-      },
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "MapTier": "RANGE >= 11 <= 15"
+        "MapTier": "== 15"
       },
       "overrides": {
-        "Tier": "Tier 2 Base Maps"
-      }
+        "Tier": "Tier 2 Base Maps",
+        "BackgroundColor": "#ece6e5f0"
+      },
+      "comment": "T15",
+      "_generated": "map_tier_ramp"
     },
     {
-      "comment": "Yellow Maps (T6-T10)",
-      "localization": {
-        "en": "Yellow Maps (T6-T10)",
-        "ch": "黄色地图 (T6-T10)"
-      },
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "MapTier": "RANGE >= 6 <= 10"
+        "MapTier": "== 14"
       },
       "overrides": {
-        "Tier": "Tier 3 Base Maps"
-      }
+        "Tier": "Tier 2 Base Maps",
+        "BackgroundColor": "#e5dddcf0"
+      },
+      "comment": "T14",
+      "_generated": "map_tier_ramp"
     },
     {
-      "comment": "White Maps (T1-T5)",
-      "localization": {
-        "en": "White Maps (T1-T5)",
-        "ch": "白色地图 (T1-T5)"
-      },
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "MapTier": "RANGE >= 1 <= 5"
+        "MapTier": "== 13"
       },
       "overrides": {
-        "Tier": "Tier 4 Base Maps"
-      }
+        "Tier": "Tier 2 Base Maps",
+        "BackgroundColor": "#dfd5d4f0"
+      },
+      "comment": "T13",
+      "_generated": "map_tier_ramp"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "MapTier": "== 12"
+      },
+      "overrides": {
+        "Tier": "Tier 2 Base Maps",
+        "BackgroundColor": "#d8cccbf0"
+      },
+      "comment": "T12",
+      "_generated": "map_tier_ramp"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "MapTier": "== 11"
+      },
+      "overrides": {
+        "Tier": "Tier 2 Base Maps",
+        "BackgroundColor": "#d2c4c2f0"
+      },
+      "comment": "T11",
+      "_generated": "map_tier_ramp"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "MapTier": "== 10"
+      },
+      "overrides": {
+        "Tier": "Tier 3 Base Maps",
+        "BackgroundColor": "#c8c29cf0"
+      },
+      "comment": "T10",
+      "_generated": "map_tier_ramp"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "MapTier": "== 9"
+      },
+      "overrides": {
+        "Tier": "Tier 3 Base Maps",
+        "BackgroundColor": "#bcb693f0"
+      },
+      "comment": "T9",
+      "_generated": "map_tier_ramp"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "MapTier": "== 8"
+      },
+      "overrides": {
+        "Tier": "Tier 3 Base Maps",
+        "BackgroundColor": "#afaa8af0"
+      },
+      "comment": "T8",
+      "_generated": "map_tier_ramp"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "MapTier": "== 7"
+      },
+      "overrides": {
+        "Tier": "Tier 3 Base Maps",
+        "BackgroundColor": "#a29e81f0"
+      },
+      "comment": "T7",
+      "_generated": "map_tier_ramp"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "MapTier": "== 6"
+      },
+      "overrides": {
+        "Tier": "Tier 3 Base Maps",
+        "BackgroundColor": "#969278f0"
+      },
+      "comment": "T6",
+      "_generated": "map_tier_ramp"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "MapTier": "== 5"
+      },
+      "overrides": {
+        "Tier": "Tier 4 Base Maps",
+        "BackgroundColor": "#929294f0"
+      },
+      "comment": "T5",
+      "_generated": "map_tier_ramp"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "MapTier": "== 4"
+      },
+      "overrides": {
+        "Tier": "Tier 4 Base Maps",
+        "BackgroundColor": "#89898bf0"
+      },
+      "comment": "T4",
+      "_generated": "map_tier_ramp"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "MapTier": "== 3"
+      },
+      "overrides": {
+        "Tier": "Tier 4 Base Maps",
+        "BackgroundColor": "#808082f0"
+      },
+      "comment": "T3",
+      "_generated": "map_tier_ramp"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "MapTier": "== 2"
+      },
+      "overrides": {
+        "Tier": "Tier 4 Base Maps",
+        "BackgroundColor": "#777779f0"
+      },
+      "comment": "T2",
+      "_generated": "map_tier_ramp"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "MapTier": "== 1"
+      },
+      "overrides": {
+        "Tier": "Tier 4 Base Maps",
+        "BackgroundColor": "#6e6e70f0"
+      },
+      "comment": "T1",
+      "_generated": "map_tier_ramp"
     },
     {
       "disabled": true,

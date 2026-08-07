@@ -203,10 +203,6 @@
         "T4"
       ],
       "_general_note": "Nine visible tiers now, was eight. The pairs sharing a row are deliberate: nine tiers into a six-rung ladder means T1-T4 each carry two. General never reaches T5 — it has no floor below scrolls.",
-      "Curse of the Allflame/Bottles.json (1)": [
-        "T0"
-      ],
-      "_bottles_note": "⚠️ AUTHOR'S CALL, added code-side after reply 08 went out — you have not seen this one yet, please confirm or overrule. Your depth-1 allowlist reasoned that a 3.29 drop's worth is not yet known, so 'worth picking up' is the honest rung. The author does know this one, and their tier was already NAMED 'T0: 瓶中信' while resolving lower — the label was promising what the rung would not pay. Only Bottles moves; Mercenary Warrants and Voyage Charts keep theirs and their allowlist entries stand. This is also the first T0 row on the allflame accent, so the first use of its t0_text. (Per _note_discipline this note names no value: it says why, the array says what.)",
       "Currency/Gold.json (3)": [
         "T5",
         "T5",
@@ -215,6 +211,10 @@
       "_legacy/Legacy.json (1)": [
         "T5"
       ],
+      "Curse of the Allflame/Bottles.json (1)": [
+        "T0"
+      ],
+      "_bottles_note": "Author's call, accepted. Its tier was already NAMED T0 while resolving lower — a label promising what the rung would not pay, which is the smallest possible version of the crafting problem and the same bug class. First use of the allflame accent's t0_text. Only Bottles moves.",
       "Equipment/VendorRecipes/Chancing.json (1)": [
         "T5"
       ],
@@ -315,12 +315,12 @@
     "no_silent_misses": "accent_by_category keys and live theme categories must be the SAME SET, and every rung override path must resolve to a real file. A miss on either side is an ERROR, never a fallback — an override that quietly does not match is how bulk reached T2 and how Chancing went unstyled.",
     "depth1_t2_warning_allowlist": {
       "_about": "Your reply-13 warning, confirmed on all four. Silencing them deliberately, which is the point of an allowlist — a warning nobody can clear is a warning everybody stops reading.",
-      "Curse of the Allflame/Bottles.json": "⚠️ SUPERSEDED — this file now carries an explicit override, so the warning no longer fires for it and this entry is inert. Kept as the record of why the default was chosen. Your reasoning held for the other three; it did not hold here, because the author knows what this item is worth. See rung_by_depth.overrides._bottles_note.",
       "Curse of the Allflame/Mercenary Warrants.json": "same.",
       "Curse of the Allflame/Voyage Charts.json": "same.",
       "Heist/Targets.json": "smuggler's caches — the thing the contract was for. T2 is correct and heist never reaches the bulk rungs anyway (see _heist_rule).",
-      "_keep_warning": "Do NOT widen the allowlist to the whole category or to depth-1 generally. It caught Legacy and Chancing, and it will catch the next one."
+      "_keep_warning": "Do NOT widen the allowlist to the whole category or to depth-1 generally. It caught Legacy and Chancing, and it will catch the next one.",
+      "_bottles_removed": "Bottles is off this list: it has an override now, so the warning cannot fire, and an allowlist entry that can never be reached is the drift we are policing."
     },
-    "rarity_through_is_an_accent_property": "rarity_through is declared once, on the ACCENT, and never chosen per row. Only the equipment accent has it. A painted accent always sets TextColor; a rarity_through accent never does. There is no third case, so 'row X is missing a TextColor' is not a finding — see the reply's answer on Uniques and Jewels."
+    "rarity_through_is_an_accent_property": "rarity_through is declared once, on the ACCENT, and never chosen per row. Only the equipment accent has it. A painted accent always sets TextColor; a rarity_through accent never does. There is no third case, so 'row X is missing a TextColor' is not a finding — see the reply's answer on Uniques and Jewels. ⚠️ MAPS NO LONGER CLAIM IT — _category_exceptions.maps used to say rarity_through while this invariant said only equipment has it. The maps plate ramp settles it: maps paint. The invariant was right; the exception was the stale one."
   }
 }

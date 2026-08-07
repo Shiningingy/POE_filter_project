@@ -740,13 +740,15 @@
     },
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#303030f5",
+      "BackgroundColor": "#c8c8c8f0",
+      "TextColor": "#000000ff",
       "MinimapIcon": "1 Yellow Square",
       "PlayEffect": "White Temp"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#303030f0"
+      "BackgroundColor": "#afafaff0",
+      "TextColor": "#000000ff"
     }
   },
   "Map Fragments": {
