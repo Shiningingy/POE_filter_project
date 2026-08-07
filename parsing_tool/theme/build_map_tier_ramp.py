@@ -122,6 +122,7 @@ def main():
         if r.get("_generated") == GEN_TAG:
             mt = int(str(r["conditions"]["MapTier"]).split()[-1])
             r["overrides"]["BackgroundColor"] = hexify(R[mt], alpha_for(tier))
+            r["overrides"]["TextColor"] = "#000000ff"
             base_icon = ((theme.get("Tier %s" % (((tcat.get(tier) or {}).get("theme") or {})
                           .get("Tier"))) or {}).get("MinimapIcon") or "")
             if base_icon:
@@ -141,6 +142,12 @@ def main():
                 ov = collections.OrderedDict(r.get("overrides") or {})
                 ov["Tier"] = tier
                 ov["BackgroundColor"] = hexify(R[mt], alpha_for(tier))
+                # ⚠️ THE RAMP OWNS THE TEXT TOO. It only overrode the PLATE, so a tier whose
+                # inline TextColor was chosen for its OLD plate kept it — T16 carried
+                # #ffffff from when that rung was the house red, and landed white-on-242,
+                # about 1.1:1 and unreadable. Whoever sets the plate must set the contrast
+                # against it; the ramp is light at every anchor, so the text is black.
+                ov["TextColor"] = "#000000ff"
                 base_icon = ((theme.get("Tier %s" % (((tcat.get(tier) or {}).get("theme") or {})
                               .get("Tier"))) or {}).get("MinimapIcon") or "")
                 if base_icon:

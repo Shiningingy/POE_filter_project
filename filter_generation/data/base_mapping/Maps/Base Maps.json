@@ -70,6 +70,29 @@
       "_generated": "progression_mute"
     },
     {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "HasInfluence": "Crusader Hunter Redeemer Warlord"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/圣战地图.mp3",
+          300
+        ],
+        "BackgroundColor": "#d2c4c2f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 45
+      },
+      "comment": "Conquer Influenced Maps · red",
+      "localization": {
+        "en": "Influenced Maps",
+        "ch": "势力地图"
+      },
+      "_generated": "map_specials"
+    },
+    {
       "comment": "T17 Maps",
       "localization": {
         "en": "T17 Maps",
@@ -114,27 +137,37 @@
       }
     },
     {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "HasInfluence": "Crusader Hunter Redeemer Warlord"
-      },
+      "targets": [
+        "Shaper Guardian Map"
+      ],
+      "conditions": {},
       "overrides": {
         "Tier": "Tier 0 Base Maps",
         "PlayAlertSound": [
-          "Sharket掉落音效/圣战地图.mp3",
+          "Sharket掉落音效/塑界地图.mp3",
+          300
+        ]
+      },
+      "comment": "Override for Shaper Guardian Map @ Tier 0 Base Maps",
+      "sound_scope": true
+    },
+    {
+      "targets": [
+        "Valdo Map"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级天灾地图.mp3",
           300
         ],
-        "BackgroundColor": "#d2c4c2f0",
-        "TextColor": "#6e148cff",
-        "FontSize": 45
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#781464ff",
+        "MinimapIcon": "2 Purple Square",
+        "PlayEffect": "Purple"
       },
-      "comment": "Conquer Influenced Maps · red",
-      "localization": {
-        "en": "Influenced Maps",
-        "ch": "势力地图"
-      },
-      "_generated": "map_specials"
+      "comment": "Valdo Maps"
     },
     {
       "targets": [],
@@ -160,7 +193,8 @@
       "conditions": {
         "Class": "== \"Maps\"",
         "AnyEnchantment": "True",
-        "MapTier": ">= 11"
+        "MapTier": ">= 11",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Base Maps",
@@ -205,7 +239,8 @@
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "MapTier": "== 16"
+        "MapTier": "== 16",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 1 Base Maps",
@@ -218,7 +253,7 @@
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "MapTier": "== 15",
+        "MapTier": "RANGE >= 11 <= 15",
         "Rarity": "<= Rare"
       },
       "overrides": {
@@ -251,7 +286,8 @@
       "conditions": {
         "Class": "== \"Maps\"",
         "MapTier": ">= 11",
-        "HasInfluence": "Elder"
+        "HasInfluence": "Elder",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Base Maps",
@@ -265,21 +301,6 @@
       },
       "comment": "Elder Maps · red",
       "_generated": "map_specials"
-    },
-    {
-      "targets": [
-        "Shaper Guardian Map"
-      ],
-      "conditions": {},
-      "overrides": {
-        "Tier": "Tier 0 Base Maps",
-        "PlayAlertSound": [
-          "Sharket掉落音效/塑界地图.mp3",
-          300
-        ]
-      },
-      "comment": "Override for Shaper Guardian Map @ Tier 0 Base Maps",
-      "sound_scope": true
     },
     {
       "targets": [
@@ -334,24 +355,6 @@
         "Tier": "Tier 3 Base Maps"
       },
       "comment": "6-10"
-    },
-    {
-      "targets": [
-        "Valdo Map"
-      ],
-      "conditions": {},
-      "overrides": {
-        "Tier": "Tier 0 Base Maps",
-        "PlayAlertSound": [
-          "Sharket掉落音效/超级天灾地图.mp3",
-          300
-        ],
-        "TextColor": "#ffffffff",
-        "BackgroundColor": "#781464ff",
-        "MinimapIcon": "2 Purple Square",
-        "PlayEffect": "Purple"
-      },
-      "comment": "Valdo Maps"
     }
   ]
 }
