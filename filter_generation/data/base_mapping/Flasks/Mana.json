@@ -30,7 +30,6 @@
     {
       "targets": [],
       "conditions": {
-        "ItemLevel": ">= 82",
         "Quality": ">= 20",
         "Class": "== \"Mana Flasks\"",
         "Rarity": "<= Rare"

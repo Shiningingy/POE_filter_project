@@ -361,13 +361,13 @@
  },
  {
   "file": "Equipment/Crafting Priority.json",
-  "tier_key": "Crafting Over Quality",
+  "tier_key": "Crafting Perfect Defence",
   "Tier": 2,
   "how": "override"
  },
  {
   "file": "Equipment/Crafting Priority.json",
-  "tier_key": "Crafting Perfect Defence",
+  "tier_key": "Crafting Over Quality",
   "Tier": 2,
   "how": "override"
  },
@@ -385,26 +385,14 @@
  },
  {
   "file": "Equipment/Crafting Priority.json",
-  "tier_key": "Crafting Gear 84",
-  "Tier": 4,
-  "how": "override"
- },
- {
-  "file": "Equipment/Crafting Priority.json",
-  "tier_key": "Crafting Gear 85",
-  "Tier": 4,
-  "how": "override"
- },
- {
-  "file": "Equipment/Crafting Priority.json",
   "tier_key": "Crafting Strands T2",
-  "Tier": 5,
+  "Tier": 4,
   "how": "override"
  },
  {
   "file": "Equipment/Crafting Priority.json",
   "tier_key": "Crafting Strands T3",
-  "Tier": 5,
+  "Tier": 4,
   "how": "override"
  },
  {
@@ -416,6 +404,18 @@
  {
   "file": "Equipment/Crafting Priority.json",
   "tier_key": "Crafting Gear 86 Rank B",
+  "Tier": 5,
+  "how": "override"
+ },
+ {
+  "file": "Equipment/Crafting Priority.json",
+  "tier_key": "Crafting Gear 85",
+  "Tier": 5,
+  "how": "override"
+ },
+ {
+  "file": "Equipment/Crafting Priority.json",
+  "tier_key": "Crafting Gear 84",
   "Tier": 5,
   "how": "override"
  },
@@ -1003,13 +1003,13 @@
  },
  {
   "file": "Uniques/General.json",
-  "tier_key": "Other",
+  "tier_key": "T3",
   "Tier": 3,
   "how": "override"
  },
  {
   "file": "Uniques/General.json",
-  "tier_key": "T3",
+  "tier_key": "Other",
   "Tier": 3,
   "how": "override"
  },
@@ -1021,49 +1021,37 @@
  },
  {
   "file": "_campaign/10 Weapon Progression.json",
-  "tier_key": "Claws Progression",
+  "tier_key": "Bows Rares",
   "Tier": 2,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/10 Weapon Progression.json",
-  "tier_key": "Daggers Progression",
+  "tier_key": "Claws Progression",
   "Tier": 3,
-  "how": "gear:PADDED"
- },
- {
-  "file": "_campaign/10 Weapon Progression.json",
-  "tier_key": "One Hand Axes Progression",
-  "Tier": 3,
-  "how": "gear:PADDED"
- },
- {
-  "file": "_campaign/10 Weapon Progression.json",
-  "tier_key": "One Hand Maces Progression",
-  "Tier": 4,
-  "how": "gear:PADDED"
- },
- {
-  "file": "_campaign/10 Weapon Progression.json",
-  "tier_key": "One Hand Swords Progression",
-  "Tier": 5,
-  "how": "gear:PADDED"
- },
- {
-  "file": "_campaign/10 Weapon Progression.json",
-  "tier_key": "Bows Rares",
-  "Tier": 5,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/10 Weapon Progression.json",
   "tier_key": "Claws Rares",
-  "Tier": 5,
+  "Tier": 3,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Daggers Progression",
+  "Tier": 4,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/10 Weapon Progression.json",
   "tier_key": "Daggers Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "One Hand Axes Progression",
   "Tier": 5,
   "how": "gear:PADDED"
  },
@@ -1075,13 +1063,37 @@
  },
  {
   "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "One Hand Maces Progression",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
   "tier_key": "One Hand Maces Rares",
   "Tier": 5,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "One Hand Swords Progression",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
   "tier_key": "One Hand Swords Rares",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Thrusting One Hand Swords Progression",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/10 Weapon Progression.json",
+  "tier_key": "Thrusting One Hand Swords Rares",
   "Tier": 5,
   "how": "gear:PADDED"
  },
@@ -1130,18 +1142,6 @@
  {
   "file": "_campaign/10 Weapon Progression.json",
   "tier_key": "Staves Rares",
-  "Tier": 5,
-  "how": "gear:PADDED"
- },
- {
-  "file": "_campaign/10 Weapon Progression.json",
-  "tier_key": "Thrusting One Hand Swords Progression",
-  "Tier": 5,
-  "how": "gear:PADDED"
- },
- {
-  "file": "_campaign/10 Weapon Progression.json",
-  "tier_key": "Thrusting One Hand Swords Rares",
   "Tier": 5,
   "how": "gear:PADDED"
  },
@@ -1207,49 +1207,43 @@
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "AR/ES Progression",
+  "tier_key": "Veiled Uniques",
   "Tier": 1,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "AR/EV Progression",
+  "tier_key": "Movement Boots 25%+",
   "Tier": 2,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "Armour Progression",
+  "tier_key": "Movement Boots 20% Act3",
   "Tier": 3,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "EV/ES Progression",
+  "tier_key": "Movement Boots 15% Act2",
   "Tier": 3,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "Energy Shield Progression",
+  "tier_key": "Movement Boots 10% Act1",
   "Tier": 4,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "Evasion Progression",
+  "tier_key": "Boots Highlight (Unidentified)",
   "Tier": 5,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "AR/ES Rares",
-  "Tier": 5,
-  "how": "gear:PADDED"
- },
- {
-  "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "AR/EV Rares",
+  "tier_key": "Armour Progression",
   "Tier": 5,
   "how": "gear:PADDED"
  },
@@ -1261,19 +1255,19 @@
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "Boots Highlight (Unidentified)",
+  "tier_key": "AR/EV Progression",
   "Tier": 5,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "EV/ES Rares",
+  "tier_key": "AR/EV Rares",
   "Tier": 5,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "Energy Shield Rares",
+  "tier_key": "Evasion Progression",
   "Tier": 5,
   "how": "gear:PADDED"
  },
@@ -1285,31 +1279,37 @@
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "Movement Boots 10% Act1",
+  "tier_key": "EV/ES Progression",
   "Tier": 5,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "Movement Boots 15% Act2",
+  "tier_key": "EV/ES Rares",
   "Tier": 5,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "Movement Boots 20% Act3",
+  "tier_key": "Energy Shield Progression",
   "Tier": 5,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "Movement Boots 25%+",
+  "tier_key": "Energy Shield Rares",
   "Tier": 5,
   "how": "gear:PADDED"
  },
  {
   "file": "_campaign/20 Armour Progression.json",
-  "tier_key": "Veiled Uniques",
+  "tier_key": "AR/ES Progression",
+  "Tier": 5,
+  "how": "gear:PADDED"
+ },
+ {
+  "file": "_campaign/20 Armour Progression.json",
+  "tier_key": "AR/ES Rares",
   "Tier": 5,
   "how": "gear:PADDED"
  },
@@ -1321,31 +1321,31 @@
  },
  {
   "file": "_campaign/30 Jewellery Progression.json",
-  "tier_key": "Jewellery Any Rare",
+  "tier_key": "Jewellery Good LowRarity",
   "Tier": 3,
   "how": "gear"
  },
  {
   "file": "_campaign/30 Jewellery Progression.json",
-  "tier_key": "Jewellery Good LowRarity",
+  "tier_key": "Jewellery Any Rare",
   "Tier": 4,
   "how": "gear"
  },
  {
   "file": "_campaign/40 Flask Progression.json",
-  "tier_key": "Quicksilver Highlight",
+  "tier_key": "Life Mana Progression",
   "Tier": 2,
   "how": "gear"
  },
  {
   "file": "_campaign/40 Flask Progression.json",
-  "tier_key": "Tinctures Highlight",
+  "tier_key": "Quicksilver Highlight",
   "Tier": 3,
   "how": "gear"
  },
  {
   "file": "_campaign/40 Flask Progression.json",
-  "tier_key": "Life Mana Progression",
+  "tier_key": "Tinctures Highlight",
   "Tier": 4,
   "how": "gear"
  },

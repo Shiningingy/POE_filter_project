@@ -17,7 +17,16 @@
     "Tier 1 Essences": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BackgroundColor": "#3c82fff0",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "1 Yellow Circle",
+        "PlayEffect": "Blue Temp",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级精华.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": 1,
@@ -31,7 +40,16 @@
     "Tier 2 Essences": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 35,
+        "BackgroundColor": "#8c98b2f0",
+        "TextColor": "#000000ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/精华.mp3",
+          200
+        ],
+        "MinimapIcon": "1 Yellow Circle",
+        "PlayEffect": "Blue Temp"
       },
       "sound": {
         "default_sound_id": 2,
@@ -45,7 +63,15 @@
     "Tier 3 Essences": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BackgroundColor": "#505050e6",
+        "TextColor": "#8c98b2ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/是精华哎.mp3",
+          300
+        ],
+        "MinimapIcon": "0 Yellow Circle"
       },
       "sound": {
         "default_sound_id": -1,
@@ -75,7 +101,16 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "BackgroundColor": "#ffffffff",
+        "TextColor": "#ff0000ff",
+        "MinimapIcon": "2 Red Circle",
+        "PlayEffect": "Blue",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级精华.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 6,

@@ -23,7 +23,16 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "BackgroundColor": "#ffffffff",
+        "TextColor": "#ff0000ff",
+        "MinimapIcon": "2 Red Diamond",
+        "PlayEffect": "Orange",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级通货.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": 6,
@@ -69,7 +78,16 @@
     "Tier 1 General": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 40,
+        "BackgroundColor": "#ffffffff",
+        "TextColor": "#ff0000ff",
+        "MinimapIcon": "0 Red Diamond",
+        "PlayEffect": "Orange",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级通货.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 1,
@@ -113,7 +131,12 @@
         "PlayAlertSound": [
           "Sharket掉落音效/高级通货.mp3",
           200
-        ]
+        ],
+        "FontSize": 40,
+        "BackgroundColor": "#ffffffff",
+        "TextColor": "#ff0000ff",
+        "MinimapIcon": "0 Red Diamond",
+        "PlayEffect": "Orange"
       },
       "sound": {
         "default_sound_id": 2,
@@ -157,7 +180,12 @@
         "PlayAlertSound": [
           "Sharket掉落音效/通货.mp3",
           100
-        ]
+        ],
+        "FontSize": 40,
+        "BackgroundColor": "#d20000ff",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "1 Red Diamond",
+        "PlayEffect": "Orange"
       },
       "sound": {
         "default_sound_id": 2,
@@ -178,12 +206,6 @@
           "PlayAlertSound": [
             "Sharket掉落音效/葬礼徽章.mp3",
             200
-          ]
-        },
-        "Chaos Orb": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/混沌石.mp3",
-            300
           ]
         },
         "Exalted Orb": {
@@ -219,7 +241,12 @@
         "PlayAlertSound": [
           "Sharket掉落音效/通货.mp3",
           100
-        ]
+        ],
+        "FontSize": 40,
+        "BackgroundColor": "#ffaa00f0",
+        "TextColor": "#000000ff",
+        "MinimapIcon": "1 Red Diamond",
+        "PlayEffect": "Orange Temp"
       },
       "sound": {
         "default_sound_id": 2,
@@ -293,6 +320,18 @@
             "Sharket掉落音效/蜕变石.mp3",
             100
           ]
+        },
+        "Armourer's Scrap": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/护甲片.mp3",
+            100
+          ]
+        },
+        "Blacksmith's Whetstone": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/磨刀石.mp3",
+            100
+          ]
         }
       }
     },
@@ -342,7 +381,11 @@
     },
     "Tier 6 General": {
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 35,
+        "BackgroundColor": "#aa9e82f0",
+        "TextColor": "#000000ff",
+        "MinimapIcon": "0 White Diamond"
       },
       "hideable": false,
       "sound": {
@@ -354,24 +397,6 @@
         "ch": "T6： 改造石级"
       },
       "item_overrides": {
-        "Armourer's Scrap": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/护甲片.mp3",
-            100
-          ]
-        },
-        "Blacksmith's Whetstone": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/磨刀石.mp3",
-            100
-          ]
-        },
-        "Glassblower's Bauble": {
-          "PlayAlertSound": [
-            "Sharket掉落音效/玻璃弹珠.mp3",
-            100
-          ]
-        },
         "Jeweller's Orb": {
           "PlayAlertSound": [
             "Sharket掉落音效/工匠石.mp3",
@@ -394,7 +419,12 @@
     },
     "Tier 5 General": {
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "BackgroundColor": "#ffaa00f0",
+        "TextColor": "#000000ff",
+        "PlayEffect": "Orange Temp",
+        "MinimapIcon": "1 Yellow Diamond"
       },
       "hideable": false,
       "sound": {
@@ -428,6 +458,12 @@
           "PlayAlertSound": [
             "Sharket掉落音效/粉碎石.mp3",
             200
+          ]
+        },
+        "Glassblower's Bauble": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/玻璃弹珠.mp3",
+            100
           ]
         }
       }

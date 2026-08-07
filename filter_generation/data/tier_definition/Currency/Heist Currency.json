@@ -16,7 +16,16 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BackgroundColor": "#c82828f0",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "1 Yellow Pentagon",
+        "PlayEffect": "Red Temp",
+        "PlayAlertSound": [
+          "Sharket掉落音效/赏金印记.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 6,
@@ -30,7 +39,14 @@
     "Tier 1 Heist Currency": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BackgroundColor": "#505050e6",
+        "TextColor": "#b4827dff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/赏金印记.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": -1,

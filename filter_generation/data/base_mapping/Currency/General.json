@@ -221,7 +221,7 @@
       "Tier 5 General"
     ],
     "Glassblower's Bauble": [
-      "Tier 6 General"
+      "Tier 5 General"
     ],
     "Orb of Alteration": [
       "Tier 6 General"
@@ -236,10 +236,10 @@
       "Tier 4 General"
     ],
     "Armourer's Scrap": [
-      "Tier 6 General"
+      "Tier 7 General"
     ],
     "Blacksmith's Whetstone": [
-      "Tier 6 General"
+      "Tier 7 General"
     ],
     "Orb of Augmentation": "Tier 7 General",
     "Orb of Transmutation": "Tier 7 General",
@@ -262,8 +262,12 @@
     "Scroll Fragment": "Tier 8 General",
     "Transmutation Shard": "Tier 7 General",
     "Alteration Shard": "Tier 7 General",
-    "Alchemy Shard": "Tier 7 General",
-    "Regal Shard": "Tier 7 General",
+    "Alchemy Shard": [
+      "Tier 6 General"
+    ],
+    "Regal Shard": [
+      "Tier 4 General"
+    ],
     "Chaos Shard": [
       "Tier 5 General"
     ],

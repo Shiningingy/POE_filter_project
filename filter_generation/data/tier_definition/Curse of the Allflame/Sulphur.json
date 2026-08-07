@@ -15,7 +15,16 @@
     },
     "Sulphur T0": {
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "BackgroundColor": "#d20000ff",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "0 Red Circle",
+        "PlayEffect": "Orange",
+        "PlayAlertSound": [
+          "Default/AlertSound10.mp3",
+          300
+        ]
       },
       "hideable": false,
       "sound": {
@@ -32,7 +41,16 @@
     },
     "Sulphur T1": {
       "theme": {
-        "Tier": 3
+        "Tier": 2,
+        "FontSize": 35,
+        "BackgroundColor": "#c39b7df0",
+        "TextColor": "#000000ff",
+        "PlayAlertSound": [
+          "Default/AlertSound3.mp3",
+          300
+        ],
+        "MinimapIcon": "1 Yellow Circle",
+        "PlayEffect": "Orange Temp"
       },
       "hideable": false,
       "sound": {
@@ -49,7 +67,14 @@
     },
     "Sulphur T2": {
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BackgroundColor": "#505050e6",
+        "TextColor": "#c39b7dff",
+        "PlayAlertSound": [
+          "Default/AlertSound2.mp3",
+          300
+        ]
       },
       "hideable": false,
       "sound": {

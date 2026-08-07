@@ -17,7 +17,16 @@
     "Tier 1 Oils": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BackgroundColor": "#ffe650f0",
+        "TextColor": "#000000ff",
+        "MinimapIcon": "1 Yellow Circle",
+        "PlayEffect": "Yellow Temp",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级圣油.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 1,
@@ -31,7 +40,15 @@
     "Tier 2 Oils": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 35,
+        "BackgroundColor": "#beb478f0",
+        "TextColor": "#000000ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/圣油.mp3",
+          100
+        ],
+        "MinimapIcon": "0 Yellow Circle"
       },
       "sound": {
         "default_sound_id": 2,
@@ -45,7 +62,12 @@
     "Tier 3 Oils": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BackgroundColor": "#505050e6",
+        "TextColor": "#beb478ff",
+        "PlayAlertSound": "disabled:",
+        "MinimapIcon": "0 White Circle"
       },
       "sound": {
         "default_sound_id": -1,
@@ -75,7 +97,16 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "BackgroundColor": "#d20000ff",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "0 Red Circle",
+        "PlayEffect": "Yellow",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级圣油.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 6,

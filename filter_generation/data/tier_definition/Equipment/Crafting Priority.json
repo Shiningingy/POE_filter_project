@@ -237,7 +237,7 @@
         "MemoryStrands": ">= 30"
       },
       "theme": {
-        "Tier": 5
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,
@@ -270,7 +270,7 @@
         "MemoryStrands": ">= 30"
       },
       "theme": {
-        "Tier": 5
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,
@@ -341,7 +341,7 @@
         "ItemLevel": ">= 85"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": 6,
@@ -360,7 +360,7 @@
         "ItemLevel": ">= 84"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": 6,

@@ -13,7 +13,16 @@
     },
     "Voyage Charts": {
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BackgroundColor": "#ff7828f0",
+        "TextColor": "#000000ff",
+        "MinimapIcon": "1 Yellow Circle",
+        "PlayEffect": "Orange Temp",
+        "PlayAlertSound": [
+          "Sharket掉落音效/DOTA2_开船.mp3",
+          300
+        ]
       },
       "hideable": false,
       "sound": {

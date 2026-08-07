@@ -260,8 +260,25 @@ def ladders():
             meta = cat.get("_meta", {})
             rungs = [(k, v) for k, v in cat.items()
                      if not k.startswith("_") and isinstance(v, dict) and not is_hide(k, v)]
-            # best-first, to line up with the designer's best-first rung lists
-            rungs.sort(key=lambda kv: (tier_num(kv[0], kv[1]), kv[0]))
+            # Best-first, to line up with the designer's best-first rung lists.
+            #
+            # ⚠️ `_meta.tier_order` FIRST when present. Sorting by tier_num() alone is
+            # circular: it ranks each tier by the `theme.Tier` that this very compile is
+            # about to overwrite, so the result depends on the previous theme rather than on
+            # what the file says. It is stable only while the old ranks already agree — and
+            # wrong for exactly the ladders the reshape changed. It put Crafting Priority's
+            # memory strands on the floor (T5) and its ilvl bands above them (T4), inverting
+            # the designer's own "strands through the middle, the four ilvl bands at the
+            # floor". `tier_order` is the authored best-first sequence and says so directly;
+            # Currency/General's is T0 T1 T1 T2 T2 T3 T3 T4 T4, which is the case the old
+            # comment here worried about and which tier_order gets right anyway (the hazard
+            # was the raw KEY order, authored 0,1,2,3,4,7,6,5 — not tier_order).
+            declared = meta.get("tier_order")
+            if isinstance(declared, list) and declared:
+                pos = {k: i for i, k in enumerate(declared)}
+                rungs.sort(key=lambda kv: (pos.get(kv[0], len(pos)), kv[0]))
+            else:
+                rungs.sort(key=lambda kv: (tier_num(kv[0], kv[1]), kv[0]))
             yield rel, top[0], meta.get("theme_category") or top[0], rungs
 
 

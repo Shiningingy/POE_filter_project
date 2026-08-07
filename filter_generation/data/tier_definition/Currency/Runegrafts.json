@@ -20,7 +20,12 @@
         "PlayAlertSound": [
           "Sharket掉落音效/符文.mp3",
           300
-        ]
+        ],
+        "FontSize": 40,
+        "BackgroundColor": "#ffaa00f0",
+        "TextColor": "#000000ff",
+        "MinimapIcon": "1 Yellow Diamond",
+        "PlayEffect": "Orange Temp"
       },
       "sound": {
         "default_sound_id": 2,
@@ -66,7 +71,12 @@
         "PlayAlertSound": [
           "Sharket掉落音效/文身.mp3",
           100
-        ]
+        ],
+        "FontSize": 40,
+        "BackgroundColor": "#ffaa00f0",
+        "TextColor": "#000000ff",
+        "PlayEffect": "Orange Temp",
+        "MinimapIcon": "1 Yellow Diamond"
       },
       "localization": {
         "en": "T1:纹身",

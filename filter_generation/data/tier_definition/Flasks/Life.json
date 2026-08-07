@@ -45,7 +45,8 @@
         "ch": "T1: 顶级生命药剂"
       },
       "conditions": {
-        "Rarity": "<= Rare"
+        "Rarity": "<= Rare",
+        "AreaLevel": "<= 72"
       },
       "hide_at_strictness": 3
     },

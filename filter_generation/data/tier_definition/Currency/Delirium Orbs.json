@@ -30,7 +30,16 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#d2d2e6ff",
+        "BackgroundColor": "#3a3a4ef0",
+        "BorderColor": "#d2d2e6ff",
+        "MinimapIcon": "1 White Cross",
+        "PlayAlertSound": [
+          "Sharket掉落音效/雾魇宝珠.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 6,

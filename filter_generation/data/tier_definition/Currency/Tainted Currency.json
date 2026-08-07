@@ -17,7 +17,13 @@
     "Tier 1 Tainted": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "BackgroundColor": "#d20000ff",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "2 Red Diamond",
+        "PlayEffect": "Red",
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 1,
@@ -39,7 +45,13 @@
     "Tier 2 Tainted": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BackgroundColor": "#cd285ff0",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "1 Yellow Diamond",
+        "PlayEffect": "Red Temp",
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": 2,
@@ -67,7 +79,13 @@
     "Tier 3 Tainted": {
       "hideable": true,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 35,
+        "BackgroundColor": "#b27096f0",
+        "TextColor": "#000000ff",
+        "PlayAlertSound": "disabled:",
+        "PlayEffect": "Red Temp",
+        "MinimapIcon": "0 Yellow Diamond"
       },
       "sound": {
         "default_sound_id": 3,
@@ -95,13 +113,23 @@
             "Sharket掉落音效/污秽崇高石.mp3",
             300
           ]
+        },
+        "Tainted Catalyst": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/高级催化剂.mp3",
+            300
+          ]
         }
       }
     },
     "Tier 4 Tainted": {
       "hideable": true,
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 35,
+        "BackgroundColor": "#505050e6",
+        "TextColor": "#b27096ff",
+        "MinimapIcon": "0 White Diamond"
       },
       "sound": {
         "default_sound_id": -1,

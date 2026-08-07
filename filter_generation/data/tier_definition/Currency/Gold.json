@@ -18,9 +18,13 @@
       "show_in_editor": false,
       "theme": {
         "Tier": 5,
-        "PlayEffect": null,
+        "PlayEffect": "Red Temp",
         "MinimapIcon": null,
-        "PlayAlertSound": "disabled:"
+        "PlayAlertSound": "disabled:",
+        "FontSize": 40,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#5a503cff",
+        "BackgroundColor": "disabled:#ffffffFF"
       },
       "sound": {
         "default_sound_id": 6,
@@ -37,7 +41,10 @@
         "Tier": 5,
         "PlayEffect": null,
         "MinimapIcon": null,
-        "PlayAlertSound": "disabled:"
+        "PlayAlertSound": "disabled:",
+        "FontSize": 35,
+        "TextColor": "#807155ff",
+        "BorderColor": "#5a503cff"
       },
       "sound": {
         "default_sound_id": 6,

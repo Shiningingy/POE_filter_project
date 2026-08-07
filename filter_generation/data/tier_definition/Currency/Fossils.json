@@ -17,7 +17,16 @@
     "Tier 1 Fossils": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 45,
+        "BackgroundColor": "#d20000ff",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "1 Red Circle",
+        "PlayEffect": "Orange",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级化石.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": 1,
@@ -26,12 +35,29 @@
       "localization": {
         "en": "T2: 三孔/特殊化石",
         "ch": "T2: 三孔/特殊化石"
+      },
+      "item_overrides": {
+        "Powerful Chaotic Resonator": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/高级共振器.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 2 Fossils": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "BackgroundColor": "#ffaa00f0",
+        "TextColor": "#000000ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/化石.mp3",
+          200
+        ],
+        "PlayEffect": "Orange Temp",
+        "MinimapIcon": "1 Yellow Circle"
       },
       "sound": {
         "default_sound_id": 2,
@@ -40,6 +66,14 @@
       "localization": {
         "en": "T3: 双孔/高级化石",
         "ch": "T3: 双孔/高级化石"
+      },
+      "item_overrides": {
+        "Potent Chaotic Resonator": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/共振器.mp3",
+            200
+          ]
+        }
       }
     },
     "Tier Hide Fossils": {
@@ -61,7 +95,16 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "BackgroundColor": "#ffffffff",
+        "TextColor": "#ff0000ff",
+        "MinimapIcon": "2 Red Circle",
+        "PlayEffect": "Orange",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级化石.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 6,
@@ -70,11 +113,28 @@
       "localization": {
         "en": "T1: 四孔/高价值化石",
         "ch": "T1: 四孔/高价值化石"
+      },
+      "item_overrides": {
+        "Prime Chaotic Resonator": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/高级共振器.mp3",
+            200
+          ]
+        }
       }
     },
     "Tier 3 Fossils": {
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 40,
+        "BackgroundColor": "#c88c00f0",
+        "TextColor": "#000000ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/化石.mp3",
+          300
+        ],
+        "PlayEffect": "Yellow Temp",
+        "MinimapIcon": "0 Yellow Circle"
       },
       "hideable": false,
       "sound": {
@@ -84,6 +144,14 @@
       "localization": {
         "en": "Custom Tier #1",
         "ch": "自定义阶级 #1"
+      },
+      "item_overrides": {
+        "Primitive Chaotic Resonator": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/共振器.mp3",
+            300
+          ]
+        }
       }
     }
   }
