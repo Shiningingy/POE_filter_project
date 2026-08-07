@@ -37,21 +37,33 @@ for r in bt:
         CLS[r["Name"]] = cn.get(r.get("ItemClassesKey"), "?")
 
 # ── the feed, newest first ──────────────────────────────────────────────────────
-VERSIONS = ["3.29.0", "3.28.0"]          # the two we have verbatim
+def _vkey(s):
+    return tuple(int(x) for x in re.findall(r"\d+", s))
+
 feed = {}
-for v in VERSIONS:
-    p = os.path.join(FEED, v + ".json")
-    if os.path.exists(p):
-        feed[v] = json.load(io.open(p, encoding="utf-8"))
+for fn in os.listdir(FEED):
+    if fn.endswith(".json"):
+        feed[fn[:-5]] = json.load(io.open(os.path.join(FEED, fn), encoding="utf-8"))
+VERSIONS = sorted(feed, key=_vkey, reverse=True)      # NEWEST FIRST — load-bearing
+
 
 def latest_event(name):
-    """-> (version, 'removed'|'new') for the most recent event naming this base."""
-    for v in VERSIONS:                    # VERSIONS is newest-first
+    """-> (version, 'removed'|'new'|'returning') for the MOST RECENT event naming this base.
+
+    ⚠️ First match wins BECAUSE the list is newest-first, and that is the whole point:
+    status is a timeline, not a flag. The grafts are the worked example — added in 3.27,
+    removed in 3.28, so scanning oldest-first would call them live. `returning` counts as
+    live: GGG brings content back (Tattoos returned in 3.24 after being removed, six div
+    cards returned in 3.26), so a removal is never proof of a current state on its own.
+    """
+    for v in VERSIONS:
         f = feed.get(v, {})
         if name in f.get("removed_items", []):
             return v, "removed"
         if name in f.get("new_items", []):
             return v, "new"
+        if name in f.get("returning_items", []):
+            return v, "returning"
     return None, None
 
 # ── Ruthless ────────────────────────────────────────────────────────────────────
@@ -85,9 +97,9 @@ for n in legacy:
     if ev == "removed":
         verdict[n] = ("RETIRED %s" % v, "feed")
     elif sub:
-        verdict[n] = ("drop-disabled in RUTHLESS", sub + (" (live in the game since %s)" % v if ev == "new" else ""))
-    elif ev == "new":
-        verdict[n] = ("LIVE since %s" % v, "feed")
+        verdict[n] = ("drop-disabled in RUTHLESS", sub + (" (live in the game since %s)" % v if ev in ("new", "returning") else ""))
+    elif ev in ("new", "returning"):
+        verdict[n] = ("LIVE since %s" % v, "feed:" + ev)
     else:
         verdict[n] = ("UNKNOWN", "needs an older thread")
 
