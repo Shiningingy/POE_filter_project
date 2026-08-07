@@ -31,6 +31,12 @@ APPLY = "--apply" in sys.argv
 GEN_TAG = "map_tier_ramp"   # marks rules this script owns, so a re-run rebuilds them
 
 BAND_TIERS = {           # our band rule -> the MapTiers it covers, best-first
+    # ⚠️ DO NOT put "Tier 0 Base Maps" here. BAND_TIERS is keyed on the TIER, and that tier
+    # holds the ten SPECIAL-map rules (influenced, Zana, enchanted, 8-mod, Elder, Shaper
+    # Guardian, both logbooks, Vaal Temple) — not a band. Adding it replaced all ten with a
+    # single generated T17 rule and silently deleted the whole special-map ladder. T17 needs
+    # the ramp plate on the TOP RUNG, which is a job for the special-map rebuild, not for a
+    # band table that assumes one tier means one contiguous MapTier range.
     "Tier 1 Base Maps": [16],
     "Tier 2 Base Maps": [15, 14, 13, 12, 11],
     "Tier 3 Base Maps": [10, 9, 8, 7, 6],
@@ -87,6 +93,14 @@ def main():
         bg = (theme.get("Tier %s" % rung) or {}).get("BackgroundColor") or "#000000ff"
         return bg[-2:] if len(bg) == 9 else "ff"
 
+    def icon_for(mt):
+        """Reply 18 §2(4): THREE values, not sixteen — Red T11-17, Yellow T6-10, White T1-5.
+        The anchors are the atlas bands precisely so plate and icon never disagree; one icon
+        colour across sixteen tiers is the minimap half of the design going silent. The SIZE
+        stays the rung's, so only the colour is overridden."""
+        band = "Red" if mt >= 11 else ("Yellow" if mt >= 6 else "White")
+        return band
+
     def hexify(rgb, a):
         return "#" + "".join("%02x" % int(x) for x in rgb.split()) + a
 
@@ -108,6 +122,12 @@ def main():
         if r.get("_generated") == GEN_TAG:
             mt = int(str(r["conditions"]["MapTier"]).split()[-1])
             r["overrides"]["BackgroundColor"] = hexify(R[mt], alpha_for(tier))
+            base_icon = ((theme.get("Tier %s" % (((tcat.get(tier) or {}).get("theme") or {})
+                          .get("Tier"))) or {}).get("MinimapIcon") or "")
+            if base_icon:
+                parts = base_icon.split()
+                if len(parts) == 3:
+                    r["overrides"]["MinimapIcon"] = "%s %s %s" % (parts[0], icon_for(mt), parts[2])
             out.append(r)
             made += 1
             continue
@@ -121,6 +141,12 @@ def main():
                 ov = collections.OrderedDict(r.get("overrides") or {})
                 ov["Tier"] = tier
                 ov["BackgroundColor"] = hexify(R[mt], alpha_for(tier))
+                base_icon = ((theme.get("Tier %s" % (((tcat.get(tier) or {}).get("theme") or {})
+                              .get("Tier"))) or {}).get("MinimapIcon") or "")
+                if base_icon:
+                    parts = base_icon.split()
+                    if len(parts) == 3:
+                        ov["MinimapIcon"] = "%s %s %s" % (parts[0], icon_for(mt), parts[2])
                 nr["overrides"] = ov
                 nr["comment"] = "T%d" % mt
                 nr["_generated"] = GEN_TAG

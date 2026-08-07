@@ -106,7 +106,8 @@
     "Magic Net": "MOVED quest -> equipment. It was on green when it was a 3-rung utility net; it is now an AreaLevel band over magic gear, and gear is judged by the rarity the game paints. Green would promise 'always shown, always needed', which an endgame declutter band is not. Its own override keeps its top rung off T2.",
     "Heist split": "Contracts / Blueprints / Targets / Heist Currency take the heist accent. Heist Equipment and Heist Experimented are GEAR — rarity matters on them, so they go to equipment and lose the red.",
     "Campaign": "equipment accent, but its four files split by CLASS (10 Weapon / 20 Armour / 30 Jewellery / 40 Flask), so group_resolution gives them the weapons, armour, jewellery and flasks hues automatically. Campaign is where the gear family distinction now lives — see the reply's answer to your §3.",
-    "States": "_decorators/States.json is the state-border decorator file, not a themed category. It emits from state_borders in theme-presets.json and takes no accent."
+    "States": "_decorators/States.json is the state-border decorator file, not a themed category. It emits from state_borders in theme-presets.json and takes no accent.",
+    "Expedition logbooks": "Logbooks move OFF the maps accent onto expedition, where the accent note already described them. They have no MapTier, so the maps ramp has nothing to say about them and the map_special swap has no tier plate to speak against. The enchanted logbook becomes the enchanted STATE on the same block rather than its own tier."
   },
   "rung_by_depth": {
     "_about": "Six rungs, T0-T5 (there is no T6). Rungs listed best-first. Applies PER LADDER (per file), not per theme category.",

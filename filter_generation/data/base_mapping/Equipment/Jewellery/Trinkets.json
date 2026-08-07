@@ -11,8 +11,17 @@
     },
     "theme_category": "Trinkets"
   },
-  "mapping": {
-    "Thief's Trinket": "Tier 1 Trinkets"
-  },
-  "rules": []
+  "mapping": {},
+  "rules": [
+    {
+      "targets": [],
+      "conditions": {
+        "BaseType": "\"Thief's Trinket\""
+      },
+      "overrides": {
+        "Tier": "Tier 0 Trinkets"
+      },
+      "comment": ""
+    }
+  ]
 }
