@@ -33,7 +33,7 @@
     "Heist Gear T2": {
       "hideable": true,
       "theme": {
-        "Tier": 4,
+        "Tier": 5,
         "PlayAlertSound": [
           "Sharket掉落音效/赏金装备.mp3",
           300

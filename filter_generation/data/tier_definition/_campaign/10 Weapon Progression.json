@@ -54,7 +54,7 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 0
+        "Tier": 1
       },
       "sound": {
         "default_sound_id": -1,
@@ -104,7 +104,7 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 1
+        "Tier": 2
       },
       "sound": {
         "default_sound_id": -1,
@@ -154,7 +154,7 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": -1,
@@ -254,7 +254,7 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 3
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,
@@ -304,7 +304,7 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": -1,

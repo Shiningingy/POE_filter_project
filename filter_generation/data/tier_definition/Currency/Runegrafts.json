@@ -16,7 +16,7 @@
     "Tier 1 Runegrafts": {
       "hideable": false,
       "theme": {
-        "Tier": 3,
+        "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/符文.mp3",
           300

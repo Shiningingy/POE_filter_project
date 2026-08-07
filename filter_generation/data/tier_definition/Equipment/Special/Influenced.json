@@ -21,7 +21,7 @@
         "Rarity": "<= Rare"
       },
       "theme": {
-        "Tier": 3
+        "Tier": 2
       },
       "sound": {
         "default_sound_id": 6,
@@ -39,7 +39,7 @@
         "Rarity": "<= Rare"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": 1,
@@ -78,7 +78,7 @@
         "Rarity": "<= Rare"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": -1,

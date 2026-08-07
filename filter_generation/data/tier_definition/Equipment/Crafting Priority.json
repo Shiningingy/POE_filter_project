@@ -161,7 +161,7 @@
         "MemoryStrands": ">= 60"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": -1,
@@ -237,7 +237,7 @@
         "MemoryStrands": ">= 30"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": -1,
@@ -270,7 +270,7 @@
         "MemoryStrands": ">= 30"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": -1,
