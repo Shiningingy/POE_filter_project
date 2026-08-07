@@ -20,12 +20,26 @@
   "state": "covered by exact",
   "added": "3.28.0"
  },
+ "Ancient Reliquary Key": {
+  "class": "Vault Keys",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
+ },
  "Annihilation Support": {
   "class": "Support Gems",
   "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
   "how": "exact",
   "state": "covered by exact",
   "added": "3.28.0"
+ },
+ "Armour Recombinator": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 物品卡：护甲重组器 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
  },
  "Astral Lich": {
   "class": "Corpses",
@@ -62,6 +76,13 @@
   "state": "covered by exact",
   "added": "3.28.0"
  },
+ "Breach Ring": {
+  "class": "Rings",
+  "claimed_by": "首饰 -稀有首饰 首饰过渡 - Class Condition",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "UNKNOWN"
+ },
  "Cast on Ward Break Support": {
   "class": "Support Gems",
   "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
@@ -75,6 +96,20 @@
   "how": "substring",
   "state": "covered by substring",
   "added": "3.28.0"
+ },
+ "Charan's Sword": {
+  "class": "One Hand Swords",
+  "claimed_by": "连接装备 -四连（至第五章） 连接突显 - Class Condition",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "UNKNOWN"
+ },
+ "Chayula's Flawless Breachstone": {
+  "class": "Breachstones",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
  },
  "Companionship Support": {
   "class": "Support Gems",
@@ -160,6 +195,13 @@
   "state": "covered by exact",
   "added": "3.28.0"
  },
+ "Engraved Ultimatum": {
+  "class": "Maps",
+  "claimed_by": "Base Maps -T0: 特殊地图 常规地图 - #1 T17 地图 - 自选",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "3.19.0"
+ },
  "Essence of Desolation": {
   "class": "Stackable Currency",
   "claimed_by": "Essences -T0: 顶级/核心 可堆叠通货 - 基础 - 精确",
@@ -243,6 +285,13 @@
   "how": "substring",
   "state": "covered by substring",
   "added": "3.28.0"
+ },
+ "Grasping Mail": {
+  "class": "Body Armours",
+  "claimed_by": "连接装备 -四连（至第五章） 连接突显 - Class Condition",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "UNKNOWN"
  },
  "Greater Ancestral Call Support": {
   "class": "Support Gems",
@@ -370,6 +419,13 @@
   "state": "covered by exact",
   "added": "3.28.0"
  },
+ "Imprint": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
+ },
  "Invention Support": {
   "class": "Support Gems",
   "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
@@ -383,6 +439,13 @@
   "how": "exact",
   "state": "covered by exact",
   "added": "3.28.0"
+ },
+ "Jewellery Recombinator": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 物品卡：珠宝重组器 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
  },
  "Journey Tattoo of the Body": {
   "class": "Stackable Currency",
@@ -461,6 +524,41 @@
   "state": "covered by substring",
   "added": "3.28.0"
  },
+ "Omen of Acceleration": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.22.0"
+ },
+ "Omen of Bequeathal": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.22.0"
+ },
+ "Omen of Resurgence": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.22.0"
+ },
+ "Omen of Revenge": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "3.22.0"
+ },
+ "Ornate Quiver": {
+  "class": "Quivers",
+  "claimed_by": "连接装备 -四连（至第五章） 连接突显 - Class Condition",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "UNKNOWN"
+ },
  "Overheat Support": {
   "class": "Support Gems",
   "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
@@ -481,6 +579,13 @@
   "how": "exact",
   "state": "covered by exact",
   "added": "3.28.0"
+ },
+ "Perandus Coin": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 物品卡：普兰德斯金币 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
  },
  "Perfect Adherent of Zarokh": {
   "class": "Corpses",
@@ -503,6 +608,62 @@
   "state": "covered by exact",
   "added": "3.28.0"
  },
+ "Potent Alchemical Resonator": {
+  "class": "Delve Socketable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
+ },
+ "Powerful Alchemical Resonator": {
+  "class": "Delve Socketable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
+ },
+ "Prime Alchemical Resonator": {
+  "class": "Delve Socketable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
+ },
+ "Prime Regrading Lens": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
+ },
+ "Primeval Remnant": {
+  "class": "Misc Map Items",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
+ },
+ "Primitive Alchemical Resonator": {
+  "class": "Delve Socketable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
+ },
+ "Primordial Remnant": {
+  "class": "Misc Map Items",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
+ },
+ "Prismatic Jewel": {
+  "class": "Jewels",
+  "claimed_by": "Unique Items -T1: 高价值 传奇物品 - #13 __SOUND__:Prismatic Jewel - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "UNKNOWN"
+ },
  "Pyre Support": {
   "class": "Support Gems",
   "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
@@ -517,12 +678,26 @@
   "state": "covered by exact",
   "added": "3.28.0"
  },
+ "Ring": {
+  "class": "Rings",
+  "claimed_by": "首饰 -稀有首饰 首饰过渡 - Class Condition",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "3.19.0"
+ },
  "Ritual Scarab of Corpses": {
   "class": "Map Fragments",
   "claimed_by": "地图碎片 -T3: 少见圣甲虫 地图碎片 - 基础 - 精确",
   "how": "exact",
   "state": "covered by exact",
   "added": "3.28.0"
+ },
+ "Ruby Amulet": {
+  "class": "Amulets",
+  "claimed_by": "首饰 -稀有首饰 首饰过渡 - Class Condition",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "UNKNOWN"
  },
  "Runegraft of Connection": {
   "class": "Stackable Currency",
@@ -601,6 +776,13 @@
   "state": "covered by substring",
   "added": "3.28.0"
  },
+ "Sanctified Relic": {
+  "class": "Sanctified Relics",
+  "claimed_by": "Relics -遗物 遗物 - Class Condition",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "3.20.0"
+ },
  "Scarab of the Dextral": {
   "class": "Map Fragments",
   "claimed_by": "地图碎片 -T2: 稀有圣甲虫 地图碎片 - 基础 - 精确",
@@ -614,6 +796,13 @@
   "how": "exact",
   "state": "covered by exact",
   "added": "3.28.0"
+ },
+ "Secondary Regrading Lens": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
  },
  "Shield of Light": {
   "class": "Skill Gems",
@@ -993,6 +1182,20 @@
   "state": "covered by substring",
   "added": "3.28.0"
  },
+ "Timeless Jewel": {
+  "class": "Jewels",
+  "claimed_by": "Unique Items -T0: 顶级传奇 传奇物品 - #8 Override for Timeless Jewel @ T0 Chase - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "UNKNOWN"
+ },
+ "Timeworn Reliquary Key": {
+  "class": "Vault Keys",
+  "claimed_by": "Fragments -T0: 顶级/核心 碎片 - #1 圣物厅钥匙 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "UNKNOWN"
+ },
  "Transfusion Support": {
   "class": "Support Gems",
   "claimed_by": "Support -T1: 特殊辅助 辅助宝石 - 基础 - 精确",
@@ -1006,6 +1209,34 @@
   "how": "exact",
   "state": "covered by exact",
   "added": "3.28.0"
+ },
+ "Unset Amulet": {
+  "class": "Amulets",
+  "claimed_by": "首饰 -稀有首饰 首饰过渡 - Class Condition",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "UNKNOWN"
+ },
+ "Unshaping Orb": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
+ },
+ "Vaal Breach": {
+  "class": "Skill Gems",
+  "claimed_by": "Skill -T1: 保留技能 / 改造 技能宝石 - #1 改造技能石 Transfigured - 自选",
+  "how": "class net",
+  "state": "covered by class net",
+  "added": "UNKNOWN"
+ },
+ "Vaal Reliquary Key": {
+  "class": "Vault Keys",
+  "claimed_by": "Fragments -T0: 顶级/核心 碎片 - #1 圣物厅钥匙 - 精确",
+  "how": "exact",
+  "state": "covered by exact",
+  "added": "UNKNOWN"
  },
  "Vaal Sacrifice Support": {
   "class": "Support Gems",
@@ -1041,5 +1272,12 @@
   "how": "exact",
   "state": "covered by exact",
   "added": "3.28.0"
+ },
+ "Weapon Recombinator": {
+  "class": "Stackable Currency",
+  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 物品卡：武器重组器 - 精确",
+  "how": "exact",
+  "state": "needs re-homing",
+  "added": "UNKNOWN"
  }
 }

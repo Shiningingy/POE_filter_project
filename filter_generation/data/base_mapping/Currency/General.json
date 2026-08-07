@@ -95,7 +95,8 @@
         "Sacred Crystallised Lifeforce": "神圣白晶命能",
         "Facetor's Lens": "费斯特的透镜",
         "Refracting Fog": "折射之雾",
-        "Flesh of Xesht": "薛斯的血肉"
+        "Flesh of Xesht": "薛斯的血肉",
+        "Imprint": "印记"
       }
     },
     "item_class": {
@@ -318,6 +319,9 @@
       "Tier 0 General"
     ],
     "Flesh of Xesht": [
+      "Tier 1 General"
+    ],
+    "Imprint": [
       "Tier 1 General"
     ]
   },

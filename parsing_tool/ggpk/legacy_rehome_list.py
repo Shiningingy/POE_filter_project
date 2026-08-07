@@ -42,8 +42,15 @@ cp = os.path.join(ROOT, "data", "from_ggg", "legacy_claimants.json")
 if os.path.exists(cp):
     claims = json.load(io.open(cp, encoding="utf-8"))
 if claims:
-    live = {k: v for k, v in live.items()
-            if claims.get(k, {}).get("state") in ("needs re-homing", "GAP — nothing shows it")}
+    # ⚠️ The CLAIMANT state decides, not the live/unknown verdict. who_claims.py runs over
+    # both sets because "does anything show it?" is independent of "is it live?" — an UNKNOWN
+    # base falling through to Legacy is just as much work as a LIVE one, and filtering to
+    # LIVE here dropped 16 of 20 rows on the run that caught it.
+    live = {k: (verdict.get(k) or {"verdict": "UNKNOWN", "class": v.get("class")})
+            for k, v in claims.items()
+            if v.get("state") in ("needs re-homing", "GAP — nothing shows it")}
+    for k in live:
+        live[k] = dict(live[k], **{"class": claims[k].get("class") or live[k].get("class")})
 
 # ── Id -> zh, via the CN dump; Name -> Id, via the English dump ─────────────────
 def rows(label, lang, table="BaseItemTypes.json"):

@@ -65,8 +65,8 @@
   "class": "Stackable Currency"
  },
  "Birth of the Three": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki: all divination cards",
   "class": "Divination Cards"
  },
  "Blessed Call Support": {
@@ -75,8 +75,8 @@
   "class": "Support Gems"
  },
  "Blessing of God": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki: all divination cards",
   "class": "Divination Cards"
  },
  "Blighted Incubator": {
@@ -285,8 +285,8 @@
   "class": "Stackable Currency"
  },
  "Engraved Ultimatum": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.19.0",
+  "source": "feed:new",
   "class": "Maps"
  },
  "Enkindling Orb": {
@@ -650,208 +650,208 @@
   "class": "Charms"
  },
  "Lycia's Invocation of Acrobatics": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Ancestral Bond": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Arrow Dancing": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Avatar of Fire": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Blood Magic": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Call to Arms": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Conduit": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Crimson Dance": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Divine Shield": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Eldritch Battery": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Elemental Equilibrium": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Elemental Overload": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Eternal Youth": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Ghost Dance": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Ghost Reaver": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Glancing Blows": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Hex Master": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Imbalanced Guard": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Iron Grip": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Iron Reflexes": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Iron Will": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Lethe Shade": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Magebane": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Mind over Matter": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Minion Instability": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Pain Attunement": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Perfect Agony": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Point Blank": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Precise Technique": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Resolute Technique": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Runebinder": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Solipsism": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Supreme Ego": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Unwavering Stance": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Vaal Pact": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Versatile Combatant": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Wicked Ward": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Wind Dancer": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of Zealot's Oath": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of the Agnostic": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Lycia's Invocation of the Impaler": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Machinations Support": {
@@ -910,23 +910,23 @@
   "class": "Stackable Currency"
  },
  "Omen of Acceleration": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.22.0",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Omen of Bequeathal": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.22.0",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Omen of Resurgence": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.22.0",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Omen of Revenge": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.22.0",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Orb of Binding": {
@@ -1055,8 +1055,8 @@
   "class": "Stackable Currency"
  },
  "Ring": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.19.0",
+  "source": "feed:new",
   "class": "Rings"
  },
  "Ritual Scarab of Corpses": {
@@ -1140,8 +1140,8 @@
   "class": "Incubators"
  },
  "Sanctified Relic": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.20.0",
+  "source": "feed:new",
   "class": "Sanctified Relics"
  },
  "Saqawine Lure": {
@@ -1190,8 +1190,8 @@
   "class": "Incubators"
  },
  "Soul Quenched": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki: all divination cards",
   "class": "Divination Cards"
  },
  "Spinefuse Talisman": {
@@ -1475,13 +1475,13 @@
   "class": "Map Fragments"
  },
  "The Master": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki: all divination cards",
   "class": "Divination Cards"
  },
  "The Sustenance": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki: all divination cards",
   "class": "Divination Cards"
  },
  "Three Hands Talisman": {

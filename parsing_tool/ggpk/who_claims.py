@@ -108,7 +108,13 @@ def main():
         return "", "", "none"
 
     verdict = json.load(io.open(VERDICT, encoding="utf-8"))
-    live = {k: v for k, v in verdict.items() if v["verdict"].startswith("LIVE")}
+    # ★ EVERY base, not just the LIVE ones. "Is it live?" and "does anything show it?" are
+    # independent, and running the claimant check on only one of them was the same mistake
+    # twice: an UNKNOWN base already claimed by a block is not a question either. The
+    # reliquary keys are the case — no feed thread names them, so they read as unknown,
+    # while a block claims them by substring and they have never needed a decision.
+    live = {k: v for k, v in verdict.items()
+            if v["verdict"].startswith("LIVE") or v["verdict"] == "UNKNOWN"}
 
     # ⚠️ The feed cannot see a TEMPORARY drop-disable — GGG announces retirements, not
     # pauses — so a base can read "live since 3.28" and still correctly belong in Legacy.

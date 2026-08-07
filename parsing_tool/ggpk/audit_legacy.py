@@ -56,14 +56,18 @@ def latest_event(name):
     live: GGG brings content back (Tattoos returned in 3.24 after being removed, six div
     cards returned in 3.26), so a removal is never proof of a current state on its own.
     """
+    # ⚠️ CASE-INSENSITIVE. GGG's forum prose does not always match GGPK's canonical casing —
+    # the 3.20 addendum writes "Lycia's Invocation of Mind Over Matter" and "of The Agnostic"
+    # where the game has "Mind over Matter" and "the Agnostic". Exact matching drops those
+    # silently, which is the worst possible failure here: the row stays UNKNOWN and reads as
+    # "no source names it" when a source names it plainly.
+    key = name.casefold()
     for v in VERSIONS:
         f = feed.get(v, {})
-        if name in f.get("removed_items", []):
-            return v, "removed"
-        if name in f.get("new_items", []):
-            return v, "new"
-        if name in f.get("returning_items", []):
-            return v, "returning"
+        for sec, ev in (("removed_items", "removed"), ("new_items", "new"),
+                        ("returning_items", "returning")):
+            if any(x.casefold() == key for x in f.get(sec, [])):
+                return v, ev
     return None, None
 
 # ── Ruthless ────────────────────────────────────────────────────────────────────
@@ -81,7 +85,10 @@ def ruthless_subtracts(n):
     Ruthless filter, so the wiki gets the last word on anything still in the game."""
     if n in disabled:
         return "wiki"
-    if CLS.get(n) == "Divination Card" and any("all divination cards" in b for b in bullets):
+    # ⚠️ GGPK's class name is PLURAL — "Divination Cards", "Incubators". The singular
+    # spelling here matched nothing, so the wiki's "All divination cards" bullet never
+    # fired and five cards read as UNKNOWN while the wiki disables the entire class.
+    if CLS.get(n) == "Divination Cards" and any("all divination cards" in b for b in bullets):
         return "wiki: all divination cards"
     if CLS.get(n) == "Incubators" and any("all incubators" in b for b in bullets):
         return "wiki: all incubators"
