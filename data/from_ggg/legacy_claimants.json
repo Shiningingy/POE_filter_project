@@ -636,22 +636,8 @@
   "state": "needs re-homing",
   "added": "UNKNOWN"
  },
- "Primeval Remnant": {
-  "class": "Misc Map Items",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
-  "how": "exact",
-  "state": "needs re-homing",
-  "added": "UNKNOWN"
- },
  "Primitive Alchemical Resonator": {
   "class": "Delve Socketable Currency",
-  "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
-  "how": "exact",
-  "state": "needs re-homing",
-  "added": "UNKNOWN"
- },
- "Primordial Remnant": {
-  "class": "Misc Map Items",
   "claimed_by": "Legacy -显示历史物品 历史物品 - 基础 - 精确",
   "how": "exact",
   "state": "needs re-homing",

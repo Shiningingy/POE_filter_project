@@ -74,6 +74,12 @@ def latest_event(name):
 rw = json.load(io.open(os.path.join(
     ROOT, "data", "from_wiki", "ruthless_droppability.json"), encoding="utf-8"))
 disabled = set(rw["drop_disabled"])
+# ⚠️ The wiki is the ONLY per-mode source and it is community-maintained, so it lags. The
+# author's play knowledge overrides it, one base at a time, and those corrections live in
+# `_author_corrections.drops_after_all` beside the parsed data — not in the parser, because
+# re-parsing the saved page would otherwise silently restore the wrong answer.
+disabled -= set(k for k in (rw.get("_author_corrections", {})
+                            .get("drops_after_all", {}) or {}) if not k.startswith("_"))
 bullets = [b.lower() for b in rw["sections"]["removed_items"]["bullets"]]
 
 def ruthless_subtracts(n):

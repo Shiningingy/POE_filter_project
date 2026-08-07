@@ -158,5 +158,11 @@
         "Delirium Orb - replaces all other Delirium Orbs"
       ]
     }
+  },
+  "_author_corrections": {
+    "_about": "⚠️ THE WIKI IS NOT INFALLIBLE. It is the only per-mode source we have, and it is community-maintained and lags. These are entries the AUTHOR has contradicted from play. Each one REMOVES a base from drop_disabled; nothing here adds to it. Kept beside the parsed data rather than in the parser, because re-parsing the saved page must not lose them — the page will still say the old thing.",
+    "drops_after_all": {
+      "Thief's Trinket": "Drops in Ruthless — author, from play (observed last league). The wiki lists it under removed_items. This is the single known-bad wiki row and it had already been noticed once before without being written down anywhere the code could read."
+    }
   }
 }

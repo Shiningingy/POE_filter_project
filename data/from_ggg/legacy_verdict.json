@@ -274,6 +274,11 @@
   "source": "wiki (live in the game since 3.26.0)",
   "class": "Stackable Currency"
  },
+ "Elder's Orb": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Quest Items"
+ },
  "Eldritch Blasphemy Support": {
   "verdict": "LIVE since 3.28.0",
   "source": "feed:new",
@@ -889,6 +894,11 @@
   "source": "wiki: all incubators (live in the game since 3.28.0)",
   "class": "Incubators"
  },
+ "Mirrored Tablet": {
+  "verdict": "LIVE since 3.19.0",
+  "source": "feed:new",
+  "class": "Misc Map Items"
+ },
  "Monkey Paw Talisman": {
   "verdict": "RETIRED 3.29.0",
   "source": "feed",
@@ -1478,6 +1488,16 @@
   "verdict": "drop-disabled in RUTHLESS",
   "source": "wiki: all divination cards",
   "class": "Divination Cards"
+ },
+ "The Maven's Beacon": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Quest Items"
+ },
+ "The Shaper's Key": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Quest Items"
  },
  "The Sustenance": {
   "verdict": "drop-disabled in RUTHLESS",
