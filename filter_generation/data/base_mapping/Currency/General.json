@@ -327,6 +327,54 @@
   },
   "rules": [
     {
+      "targets": [
+        "Scroll of Wisdom"
+      ],
+      "conditions": {
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {
+        "Tier": "Tier 8 General",
+        "PlayAlertSound": [
+          "Sharket掉落音效/知识卷轴.mp3",
+          100
+        ]
+      },
+      "comment": "Scroll of Wisdom · 战役内有音效",
+      "_generated": "scroll_campaign_gate"
+    },
+    {
+      "targets": [
+        "Portal Scroll"
+      ],
+      "conditions": {
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {
+        "Tier": "Tier 8 General",
+        "PlayAlertSound": [
+          "Sharket掉落音效/传送卷轴.mp3",
+          100
+        ]
+      },
+      "comment": "Portal Scroll · 战役内有音效",
+      "_generated": "scroll_campaign_gate"
+    },
+    {
+      "targets": [
+        "Portal Scroll",
+        "Scroll of Wisdom"
+      ],
+      "conditions": {
+        "AreaLevel": ">= 68"
+      },
+      "overrides": {
+        "Tier": "Tier 8 General"
+      },
+      "comment": "卷轴 · 战役后静音",
+      "_generated": "scroll_campaign_gate"
+    },
+    {
       "targets": [],
       "conditions": {
         "BaseType": "\"Astrolabe\"",

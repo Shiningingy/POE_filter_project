@@ -192,6 +192,7 @@ def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
                     f"defined tiers: {', '.join(sorted(defined)[:8])}")
 
         check_operators(where, f"rule {label!r}", conds, rep)
+        check_range_syntax(where, f"rule {label!r}", conds, rep)
 
         # `Class ==` is an EXACT match and the game's class names are PLURAL —
         # "Blueprints", not "Blueprint". The singular emits a block that cannot
@@ -382,6 +383,30 @@ def check_silent_tier(where: str, label: str, tier: dict, has_bases: bool,
                 f"{label}: has conditions but NO bases and no rule, so it emits nothing. "
                 f"Conditions filter the bases a tier claims; only class_condition matches "
                 f"on conditions alone")
+
+
+def check_range_syntax(where: str, label: str, conditions: dict, rep: Report) -> None:
+    """`RANGE >= a <= b` has a grammar, and a broken one LOADS FINE.
+
+    conditionLines splits it positionally into two lines, so `RANGE >= 6 0 10` emits
+    `MapTier >= 6` and `MapTier 0 10`. The game accepts that without complaint -- it reads
+    as an implicit-equals list -- so the block silently matches MapTier 0 or 10 instead of
+    6 through 10, and every map in between falls through to whatever comes next.
+
+    Found in the wild: both map band rules carried `0` where `<=` belonged, so T1-T5 and
+    T6-T10 (most maps in the game) were matching almost nothing. The filter LOADED, which
+    is exactly why this needs a checker rather than an in-game read.
+    """
+    OPS = ("<=", ">=", "<", ">", "==")
+    for key, val in (conditions or {}).items():
+        if not isinstance(val, str) or not val.startswith("RANGE "):
+            continue
+        parts = val.split()
+        if len(parts) != 5 or parts[1] not in OPS or parts[3] not in OPS:
+            rep.add("ERROR", where,
+                    f"{label}: malformed RANGE on {key} -> {val!r}. Expected "
+                    f"'RANGE <op> <value> <op> <value>'; it is split positionally, so a bad "
+                    f"token emits a condition the game accepts and misreads")
 
 
 def check_style_grammar(where: str, label: str, style: dict, rep: Report) -> None:

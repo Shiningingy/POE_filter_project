@@ -53,7 +53,11 @@
         "MapTier": "== 17"
       },
       "overrides": {
-        "Tier": "Tier 0 Base Maps"
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/天灾地图.mp3",
+          300
+        ]
       }
     },
     {
@@ -69,15 +73,18 @@
         "MapTier": ">= 16"
       },
       "overrides": {
-        "Tier": "Tier 0 Base Maps"
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/瓦尔密殿.mp3",
+          300
+        ]
       }
     },
     {
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "HasInfluence": "Crusader Hunter Redeemer Warlord",
-        "MapTier": ">= 11"
+        "HasInfluence": "Crusader Hunter Redeemer Warlord"
       },
       "overrides": {
         "Tier": "Tier 0 Base Maps",
@@ -87,7 +94,7 @@
         ],
         "BackgroundColor": "#d2c4c2f0",
         "TextColor": "#6e148cff",
-        "FontSize": 40
+        "FontSize": 45
       },
       "comment": "Conquer Influenced Maps · red",
       "localization": {
@@ -100,104 +107,15 @@
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "HasInfluence": "Crusader Hunter Redeemer Warlord",
-        "MapTier": "RANGE >= 6 <= 10"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Base Maps",
-        "PlayAlertSound": [
-          "Sharket掉落音效/圣战地图.mp3",
-          300
-        ],
-        "BackgroundColor": "#969278f0",
-        "TextColor": "#6e148cff",
-        "FontSize": 40
-      },
-      "comment": "Conquer Influenced Maps · yellow",
-      "localization": {
-        "en": "Influenced Maps",
-        "ch": "势力地图"
-      },
-      "_generated": "map_specials"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "HasInfluence": "Crusader Hunter Redeemer Warlord",
-        "MapTier": "RANGE >= 1 <= 5"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Base Maps",
-        "PlayAlertSound": [
-          "Sharket掉落音效/圣战地图.mp3",
-          300
-        ],
-        "BackgroundColor": "#6e6e70f0",
-        "TextColor": "#6e148cff",
-        "FontSize": 40
-      },
-      "comment": "Conquer Influenced Maps · white",
-      "localization": {
-        "en": "Influenced Maps",
-        "ch": "势力地图"
-      },
-      "_generated": "map_specials"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "ZanaMemory": "True",
-        "MapTier": ">= 11"
+        "ZanaMemory": "True"
       },
       "overrides": {
         "Tier": "Tier 0 Base Maps",
         "BackgroundColor": "#d2c4c2f0",
         "TextColor": "#6e148cff",
-        "FontSize": 40
+        "FontSize": 45
       },
       "comment": "Zana Memory · red",
-      "localization": {
-        "en": "Zana Memory",
-        "ch": "扎娜的记忆"
-      },
-      "_generated": "map_specials"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "ZanaMemory": "True",
-        "MapTier": "RANGE >= 6 <= 10"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Base Maps",
-        "BackgroundColor": "#969278f0",
-        "TextColor": "#6e148cff",
-        "FontSize": 40
-      },
-      "comment": "Zana Memory · yellow",
-      "localization": {
-        "en": "Zana Memory",
-        "ch": "扎娜的记忆"
-      },
-      "_generated": "map_specials"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "ZanaMemory": "True",
-        "MapTier": "RANGE >= 1 <= 5"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Base Maps",
-        "BackgroundColor": "#6e6e70f0",
-        "TextColor": "#6e148cff",
-        "FontSize": 40
-      },
-      "comment": "Zana Memory · white",
       "localization": {
         "en": "Zana Memory",
         "ch": "扎娜的记忆"
@@ -218,46 +136,6 @@
         "FontSize": 40
       },
       "comment": "Enchanted Maps · red",
-      "localization": {
-        "en": "Enchanted Maps",
-        "ch": "附魔地图"
-      },
-      "_generated": "map_specials"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "AnyEnchantment": "True",
-        "MapTier": "RANGE >= 6 <= 10"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Base Maps",
-        "BackgroundColor": "#969278f0",
-        "TextColor": "#6e148cff",
-        "FontSize": 40
-      },
-      "comment": "Enchanted Maps · yellow",
-      "localization": {
-        "en": "Enchanted Maps",
-        "ch": "附魔地图"
-      },
-      "_generated": "map_specials"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "AnyEnchantment": "True",
-        "MapTier": "RANGE >= 1 <= 5"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Base Maps",
-        "BackgroundColor": "#6e6e70f0",
-        "TextColor": "#6e148cff",
-        "FontSize": 40
-      },
-      "comment": "Enchanted Maps · white",
       "localization": {
         "en": "Enchanted Maps",
         "ch": "附魔地图"
@@ -293,56 +171,6 @@
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "Corrupted": "True",
-        "Identified": "True",
-        "MapTier": "RANGE >= 6 <= 10"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Base Maps",
-        "PlayAlertSound": [
-          "Sharket掉落音效/超级天灾地图.mp3",
-          300
-        ],
-        "BackgroundColor": "#969278f0",
-        "TextColor": "#6e148cff",
-        "FontSize": 40
-      },
-      "comment": "8-Mod Corrupted Maps · yellow",
-      "localization": {
-        "en": "8-Mod Corrupted Maps",
-        "ch": "8 词缀污染地图"
-      },
-      "_generated": "map_specials"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "Corrupted": "True",
-        "Identified": "True",
-        "MapTier": "RANGE >= 1 <= 5"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Base Maps",
-        "PlayAlertSound": [
-          "Sharket掉落音效/超级天灾地图.mp3",
-          300
-        ],
-        "BackgroundColor": "#6e6e70f0",
-        "TextColor": "#6e148cff",
-        "FontSize": 40
-      },
-      "comment": "8-Mod Corrupted Maps · white",
-      "localization": {
-        "en": "8-Mod Corrupted Maps",
-        "ch": "8 词缀污染地图"
-      },
-      "_generated": "map_specials"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
         "MapTier": "== 16"
       },
       "overrides": {
@@ -356,195 +184,14 @@
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "MapTier": "== 15"
+        "MapTier": "== 15",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 2 Base Maps",
         "BackgroundColor": "#ece6e5f0"
       },
-      "comment": "T15",
-      "_generated": "map_tier_ramp"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "== 14"
-      },
-      "overrides": {
-        "Tier": "Tier 2 Base Maps",
-        "BackgroundColor": "#e5dddcf0"
-      },
-      "comment": "T14",
-      "_generated": "map_tier_ramp"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "== 13"
-      },
-      "overrides": {
-        "Tier": "Tier 2 Base Maps",
-        "BackgroundColor": "#dfd5d4f0"
-      },
-      "comment": "T13",
-      "_generated": "map_tier_ramp"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "== 12"
-      },
-      "overrides": {
-        "Tier": "Tier 2 Base Maps",
-        "BackgroundColor": "#d8cccbf0"
-      },
-      "comment": "T12",
-      "_generated": "map_tier_ramp"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "== 11"
-      },
-      "overrides": {
-        "Tier": "Tier 2 Base Maps",
-        "BackgroundColor": "#d2c4c2f0"
-      },
-      "comment": "T11",
-      "_generated": "map_tier_ramp"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "== 10"
-      },
-      "overrides": {
-        "Tier": "Tier 3 Base Maps",
-        "BackgroundColor": "#c8c29cf0"
-      },
-      "comment": "T10",
-      "_generated": "map_tier_ramp"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "== 9"
-      },
-      "overrides": {
-        "Tier": "Tier 3 Base Maps",
-        "BackgroundColor": "#bcb693f0"
-      },
-      "comment": "T9",
-      "_generated": "map_tier_ramp"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "== 8"
-      },
-      "overrides": {
-        "Tier": "Tier 3 Base Maps",
-        "BackgroundColor": "#afaa8af0"
-      },
-      "comment": "T8",
-      "_generated": "map_tier_ramp"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "== 7"
-      },
-      "overrides": {
-        "Tier": "Tier 3 Base Maps",
-        "BackgroundColor": "#a29e81f0"
-      },
-      "comment": "T7",
-      "_generated": "map_tier_ramp"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "== 6"
-      },
-      "overrides": {
-        "Tier": "Tier 3 Base Maps",
-        "BackgroundColor": "#969278f0"
-      },
-      "comment": "T6",
-      "_generated": "map_tier_ramp"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "== 5"
-      },
-      "overrides": {
-        "Tier": "Tier 4 Base Maps",
-        "BackgroundColor": "#929294f0"
-      },
-      "comment": "T5",
-      "_generated": "map_tier_ramp"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "== 4"
-      },
-      "overrides": {
-        "Tier": "Tier 4 Base Maps",
-        "BackgroundColor": "#89898bf0"
-      },
-      "comment": "T4",
-      "_generated": "map_tier_ramp"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "== 3"
-      },
-      "overrides": {
-        "Tier": "Tier 4 Base Maps",
-        "BackgroundColor": "#808082f0"
-      },
-      "comment": "T3",
-      "_generated": "map_tier_ramp"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "== 2"
-      },
-      "overrides": {
-        "Tier": "Tier 4 Base Maps",
-        "BackgroundColor": "#777779f0"
-      },
-      "comment": "T2",
-      "_generated": "map_tier_ramp"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "== 1"
-      },
-      "overrides": {
-        "Tier": "Tier 4 Base Maps",
-        "BackgroundColor": "#6e6e70f0"
-      },
-      "comment": "T1",
+      "comment": "11-15",
       "_generated": "map_tier_ramp"
     },
     {
@@ -580,49 +227,9 @@
         ],
         "BackgroundColor": "#d2c4c2f0",
         "TextColor": "#6e148cff",
-        "FontSize": 40
+        "FontSize": 45
       },
       "comment": "Elder Maps · red",
-      "_generated": "map_specials"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "ElderMap": "True",
-        "MapTier": "RANGE >= 6 <= 10"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Base Maps",
-        "PlayAlertSound": [
-          "Sharket掉落音效/裂界地图.mp3",
-          300
-        ],
-        "BackgroundColor": "#969278f0",
-        "TextColor": "#6e148cff",
-        "FontSize": 40
-      },
-      "comment": "Elder Maps · yellow",
-      "_generated": "map_specials"
-    },
-    {
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "ElderMap": "True",
-        "MapTier": "RANGE >= 1 <= 5"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Base Maps",
-        "PlayAlertSound": [
-          "Sharket掉落音效/裂界地图.mp3",
-          300
-        ],
-        "BackgroundColor": "#6e6e70f0",
-        "TextColor": "#6e148cff",
-        "FontSize": 40
-      },
-      "comment": "Elder Maps · white",
       "_generated": "map_specials"
     },
     {
@@ -671,6 +278,28 @@
       },
       "comment": "日志",
       "raw": "Rarity <= Rare"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "<= Rare",
+        "MapTier": "RANGE >= 1 <= 5"
+      },
+      "overrides": {
+        "Tier": "Tier 4 Base Maps"
+      },
+      "comment": "1-5"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "<= Rare",
+        "MapTier": "RANGE >= 6 <= 10"
+      },
+      "overrides": {
+        "Tier": "Tier 3 Base Maps"
+      },
+      "comment": "6-10"
     }
   ]
 }

@@ -18,7 +18,16 @@
     "Tier 0 Base Maps": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "BackgroundColor": "#ffffffff",
+        "TextColor": "#ff0000ff",
+        "MinimapIcon": "0 Red Square",
+        "PlayEffect": "White",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级地图.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": 6,
@@ -40,7 +49,16 @@
     "Tier 1 Base Maps": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BackgroundColor": "#d20000ff",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "2 Red Square",
+        "PlayEffect": "Red",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级地图.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 1,
@@ -54,7 +72,16 @@
     "Tier 2 Base Maps": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "BackgroundColor": "#e14141f0",
+        "TextColor": "#000000ff",
+        "MinimapIcon": "1 Red Square",
+        "PlayEffect": "Red Temp",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级地图.mp3",
+          100
+        ]
       },
       "sound": {
         "default_sound_id": 2,
@@ -68,7 +95,16 @@
     "Tier 3 Base Maps": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "BackgroundColor": "#b7b950f0",
+        "TextColor": "#000000ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/中级地图.mp3",
+          100
+        ],
+        "MinimapIcon": "0 Yellow Square",
+        "PlayEffect": "Yellow Temp"
       },
       "sound": {
         "default_sound_id": 2,
@@ -82,7 +118,16 @@
     "Tier 4 Base Maps": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "BackgroundColor": "#afafaff0",
+        "TextColor": "#000000ff",
+        "PlayEffect": "White Temp",
+        "MinimapIcon": "0 White Square",
+        "PlayAlertSound": [
+          "Sharket掉落音效/地图.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": -1,
