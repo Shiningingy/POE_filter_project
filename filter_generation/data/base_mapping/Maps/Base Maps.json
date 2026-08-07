@@ -243,8 +243,7 @@
         "Rarity": "<= Rare"
       },
       "overrides": {
-        "Tier": "Tier 1 Base Maps",
-        "BackgroundColor": "#f2eeeef0"
+        "Tier": "Tier 1 Base Maps"
       },
       "comment": "T16",
       "_generated": "map_tier_ramp"
