@@ -52,6 +52,9 @@ STATEFUL_HIERARCHY_ROOTS = ("equipment", "gems", "jewels", "maps", "flasks")
 VIOLATIONS = []
 RERANK = []          # (tier_definition rel, tier_key, new theme.Tier, how it was decided)
 DEPTH1_WARN = []     # depth-1 -> T2 with no flat entry and no override (reply 13)
+SWAP_NOTES = []      # text swaps declared but not applied, and why (reply 15)
+SWAP_APPLIED = []    # (theme_cat, rung, swap name)
+SWAPS = {}           # (theme_cat, rung) -> (colour, swap name); filled in compile_theme()
 
 
 def _class_paths():
@@ -389,6 +392,62 @@ def flat_row(accent_name, variant, theme_cat):
     return row
 
 
+def _swap_targets():
+    """Resolve every `text_swaps` entry whose condition names a TIER FILE to the theme
+    category that file feeds. -> {(theme_cat, rung): (colour, swap_name)}
+
+    A swap is the designer's answer to "this instance beats its rarity" (reply 15): it takes
+    the TEXT, which leaves the border free for the four equipment states. Only the swaps that
+    fire on a whole BLOCK land here — `crafting` is the one, its condition being "block
+    originates in Equipment/Crafting Priority.json" rather than an item property.
+
+    ⚠️ `_swaps_never_paint_the_house_rungs` GOVERNS, and is applied as an intersection rather
+    than trusted from `only_on_rungs`. The kit still carries `quality.only_on_rungs =
+    T0 T1 T2` from before that rule existed, while `_q21_scope` in the same file says "T2
+    only" — two fields, one stale. Deriving the answer from the governing rule means the
+    stale field cannot produce a wrong colour, and it is reported instead.
+    """
+    file_to_cat = {rel: tc for rel, _c, tc, _r in ladders()}
+    cat_files = {}
+    for rel, tc in file_to_cat.items():
+        cat_files.setdefault(tc, []).append(rel)
+
+    out = {}
+    for name, sw in (P.get("text_swaps") or {}).items():
+        if name.startswith("_") or not isinstance(sw, dict):
+            continue
+        cond = str(sw.get("condition") or "")
+        # ⚠️ Match against the KNOWN files rather than regexing a path out of prose. Our tier
+        # paths contain spaces ("Equipment/Crafting Priority.json"), so any character class
+        # loose enough to hold the path also swallows the sentence around it — a `[\w /_-]+`
+        # first attempt read the whole phrase "block originates in Equipment/Crafting
+        # Priority.json" as the filename and reported it missing. Substring-testing the real
+        # paths cannot over-match, and an unmatched condition is then genuinely a property
+        # swap rather than a parse failure wearing the same face.
+        rel = next((r for r in sorted(file_to_cat, key=len, reverse=True) if r in cond), None)
+        if rel is None:
+            if ".json" in cond:
+                SWAP_NOTES.append("%s: condition names a .json we do not have — %r" % (name, cond))
+            continue                       # property-condition swap: not a whole-block swap
+        tc = file_to_cat[rel]
+        # ⚠️ The swap paints a theme ROW, and rows are keyed per CATEGORY. If a second file
+        # ever joins this category its blocks would be painted too, silently claiming
+        # "worth crafting" for items that are not. Refuse rather than over-paint.
+        if len(cat_files.get(tc, [])) != 1:
+            SWAP_NOTES.append("%s: '%s' is fed by %d files (%s) — a row-level swap would paint "
+                              "them all; needs a rule-level deviation instead"
+                              % (name, tc, len(cat_files[tc]), ", ".join(sorted(cat_files[tc]))))
+            continue
+        asked = [r for r in (sw.get("only_on_rungs") or []) if r not in ("T0", "T1")]
+        dropped = [r for r in (sw.get("only_on_rungs") or []) if r in ("T0", "T1")]
+        if dropped:
+            SWAP_NOTES.append("%s: %s dropped by _swaps_never_paint_the_house_rungs"
+                              % (name, " ".join(dropped)))
+        for r in asked:
+            out[(tc, r)] = (sw["text"], name)
+    return out
+
+
 def rung_row(rung, accent_name, variant, theme_cat):
     """-> (row, uses_muted)"""
     rec = P["rung_recipes"][rung]
@@ -402,7 +461,29 @@ def rung_row(rung, accent_name, variant, theme_cat):
         src = rec.get("painted_with_states") or src
     # ★ Gear does not use the rung recipe at all below T0 — it has its own ladder, keyed on
     # the GROUP hue and ranked by plate alpha, because the border is unavailable (reply 11).
-    if variant == "rarity_through" and accent_name == "equipment":
+    #
+    # ⚠️ BELOW T0/T1, and the exclusion is load-bearing rather than tidy. The T0 recipe's own
+    # note is "chase overrides rarity — painted in every family, gear included", which is the
+    # same house-fix the `v = painted if rung in (T0, T1)` line above already applies; letting
+    # gear_ladder win here silently undid it. Nothing caught it because until reply 15 promoted
+    # Perfect Defence, NO equipment-accent category had a T0 rung at all — the gear ladder's T0
+    # had never once been rendered. It was authored for Sharket's class hues (white on a
+    # mid-dark steel blue, 3.03:1) and reply 14 then flattened those three hues to the neutral
+    # fallback 170 170 170, which turns the same recipe into WHITE ON LIGHT GREY at 2.32:1 —
+    # below the 3:1 large-text floor and, on a rung whose whole job is "drop everything",
+    # the least visible label in the filter. The house T0 gives 7.46:1.
+    #
+    # ⚠️ T0 ONLY, deliberately, and T1 is left alone even though the same argument reaches it.
+    # The kit CONTRADICTS ITSELF here and the contradiction is now load-bearing:
+    #   rung_recipes.T0.rarity_through  "chase overrides rarity — painted in every family,
+    #                                    gear included"
+    #   gear_ladder.what_we_take        "T0's treatment: white text on the group hue"
+    # Both cannot hold. Excluding T0 is forced — the alternative is unreadable — but excluding
+    # T1 as well would restyle Campaign T1 from its dark plate to the house white-on-red, a
+    # large visible change to a category nobody asked about, on the strength of a document
+    # that disagrees with itself. So: fix the defect, ship nothing extra, and put the T1 half
+    # of the question to the designer with the T0 measurement as the evidence.
+    if variant == "rarity_through" and accent_name == "equipment" and rung != "T0":
         src = P["gear_ladder"]["ladder"].get(rung, src)
     uses_muted = any("muted" in str(src.get(k) or "") for k in ("text", "bg", "border"))
 
@@ -432,6 +513,17 @@ def rung_row(rung, accent_name, variant, theme_cat):
     bm = rec.get("beam")
     if bm and acc.get("beam"):
         row["PlayEffect"] = ("%s Temp" % acc["beam"]) if bm == "temp" else acc["beam"]
+
+    # ★ TEXT SWAP, last — it deliberately OVERWRITES whatever the rung recipe set, including
+    # the rarity_through omission. That omission is the whole point of the gear ladder (an
+    # absent TextColor lets the game paint rarity), so spending it is a real cost and the
+    # designer scoped it to exactly the two rungs where the plate is the neutral 42 42 42 and
+    # the text was carrying nothing else. Measured: on those rungs 115 of 282 crafting bases
+    # were drawing byte-identically to a plain rare of the same base.
+    sw = SWAPS.get((theme_cat, rung))
+    if sw:
+        row["TextColor"] = hexify(sw[0])
+        SWAP_APPLIED.append((theme_cat, rung, sw[1]))
     return row, uses_muted
 
 
@@ -439,6 +531,7 @@ def rung_row(rung, accent_name, variant, theme_cat):
 def compile_theme():
     out, report, provisional = {}, [], 0
     unmapped, mismatched = [], []
+    SWAPS.update(_swap_targets())
     for rel, catkey, theme_cat, rungs in ladders():
         accent = ACCENT_BY_CAT.get(theme_cat)
         if not accent:
@@ -526,6 +619,21 @@ if __name__ == "__main__":
         for rel, tc, acc in DEPTH1_WARN:
             print("     %-46s %-24s accent=%s" % (rel, tc, acc))
         print("   Right five times in seven — but this is the shape of the Legacy/Chancing bug.")
+        print()
+    if SWAP_APPLIED:
+        print("text swaps applied to %d row(s):" % len(SWAP_APPLIED))
+        for tc, rung, name in sorted(SWAP_APPLIED):
+            print("     %-24s %-4s <- %s" % (tc, rung, name))
+    declared = [k for k, v in (P.get("text_swaps") or {}).items()
+                if not k.startswith("_") and isinstance(v, dict)]
+    landed = {n for _t, _r, n in SWAP_APPLIED}
+    if set(declared) - landed:
+        print("   ⚠️ declared but NOT applied: %s" % ", ".join(sorted(set(declared) - landed)))
+        print("      (a property-condition swap needs a rule-level deviation, which is not"
+              " built — these are NOT silently on)")
+    for n in SWAP_NOTES:
+        print("     · %s" % n)
+    if SWAP_APPLIED or SWAP_NOTES:
         print()
     print("%d rows use the authored `accent.muted` (T3 plate / T4 text). Both goldens expand "
           "byte-exact." % provisional)

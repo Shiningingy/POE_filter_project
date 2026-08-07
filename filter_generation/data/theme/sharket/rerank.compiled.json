@@ -362,7 +362,7 @@
  {
   "file": "Equipment/Crafting Priority.json",
   "tier_key": "Crafting Perfect Defence",
-  "Tier": 2,
+  "Tier": 0,
   "how": "override"
  },
  {
@@ -423,13 +423,13 @@
   "file": "Equipment/Magic Net.json",
   "tier_key": "Magic Good Jewellery",
   "Tier": 3,
-  "how": "override:DEPTH-MISMATCH->gear"
+  "how": "override"
  },
  {
   "file": "Equipment/Magic Net.json",
   "tier_key": "Magic Net",
   "Tier": 5,
-  "how": "override:DEPTH-MISMATCH->gear"
+  "how": "override"
  },
  {
   "file": "Equipment/Rare Equipment.json",

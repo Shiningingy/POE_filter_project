@@ -220,7 +220,7 @@
         "T5"
       ],
       "Equipment/Crafting Priority.json (10)": [
-        "T2",
+        "T0",
         "T2",
         "T3",
         "T3",
@@ -231,14 +231,12 @@
         "T5",
         "T5"
       ],
-      "_crafting_note": "Rewritten for the 12-tier reshape (10 visible + 2 hide). In emission order: Perfect Defence T2, Over Quality T2, Strands 60+ T3, Strands T1 T3, Strands T2 T4, Strands T3 T4, Gear 86 / 86 Rank B / 85 / 84 all T5. The two property hits sit at the top because a perfect roll or a Q21+ base is a reason to stop; the four ilvl bands sit at the floor because an i84 base is bulk by volume. Over Quality also takes the quality text swap at T2 — the swap's whole scope is T0-T2, so it lands exactly where this override puts it.",
-      "Equipment/Magic Net.json (4)": [
+      "_crafting_note": "⚠️ REVISED: Perfect Defence moves T2 -> T0. The author asked for red-on-white and I flagged it as a conflict with the reserved T0 idiom; it is not a conflict, it is the same answer reached from the other side, and FilterBlade spends red-on-white on exactly one base too. A 99th-percentile i84 base IS drop-everything, and my own note already said so in words — 'a reason to stop moving' is T0's definition. Only the top row moves; Over Quality stays at T2 so the quality swap still has its rung. In emission order: Perfect Defence T0, Over Quality T2, Strands 60+ T3, Strands T1 T3, Strands T2 T4, Strands T3 T4, Gear 86 / 86 Rank B / 85 / 84 all T5. The two property hits sit at the top because a perfect roll or a Q21+ base is a reason to stop; the four ilvl bands sit at the floor because an i84 base is bulk by volume. Over Quality also takes the quality text swap at T2 — the swap's whole scope is T0-T2, so it lands exactly where this override puts it.",
+      "Equipment/Magic Net.json (2)": [
         "T3",
-        "T4",
-        "T5",
         "T5"
       ],
-      "_magic_net_note": "The gear template would open this at T2. A declutter net's best tier is not 'worth picking up' — it is 'not yet worth hiding'. Top rung T3, floor doubled.",
+      "_magic_net_note": "⚠️ ANNOTATION CORRECTED to (2): three of its five tiers are hides and hides are never counted. T3 T5 confirmed — the gear depth-2 template gives it, which means the override now agrees with the template and could be deleted. Keeping it is deliberate: it is the one ladder whose top rung is an argument ('not yet worth hiding', not 'worth picking up') and losing that reasoning to a template match would invite someone to open it at T2 later. The gear template would still do that.",
       "Maps/Base Maps.json (5)": [
         "T1",
         "T2",
@@ -306,9 +304,17 @@
   },
   "_invariants": {
     "_about": "Four assertions. Each one is a bug this thread has already shipped once.",
-    "painted_t3_needs_t2": "In a PAINTED ladder (any accent without rarity_through), if any tier resolves to T3 then some tier must resolve to T2. T3 is the muted accent plate; it only means something below the full-strength one. Does not apply to gear ladders, where rungs are alpha steps.",
+    "painted_t3_needs_t2": "SCOPE: per THEME CATEGORY, not per ladder — your reading is right, and Base Jewels is the case that proves it. The invariant is a claim about RECOGNITION (can a player name this family?), and the player sees the merged category, not the file it came from. rung_by_depth is scoped per ladder because emission is; this check is not emission. So: within a painted theme category, if any tier resolves to T3 then some tier must resolve to T2. T3 is the muted accent plate; it only means something below the full-strength one. Does not apply to gear ladders, where rungs are alpha steps.",
     "two_tier_never_adjacent": "A 2-deep ladder must not use two adjacent rungs. Legal pairs: T2/T4, T3/T5, T1/T3, T0/T2 …",
     "no_silent_misses": "accent_by_category keys and live theme categories must be the SAME SET, and every rung override path must resolve to a real file. A miss on either side is an ERROR, never a fallback — an override that quietly does not match is how bulk reached T2 and how Chancing went unstyled.",
+    "depth1_t2_warning_allowlist": {
+      "_about": "Your reply-13 warning, confirmed on all four. Silencing them deliberately, which is the point of an allowlist — a warning nobody can clear is a warning everybody stops reading.",
+      "Curse of the Allflame/Bottles.json": "3.29 league drop. T2 is what new league content wants: you do not yet know what it is worth, so 'worth picking up' is the honest rung.",
+      "Curse of the Allflame/Mercenary Warrants.json": "same.",
+      "Curse of the Allflame/Voyage Charts.json": "same.",
+      "Heist/Targets.json": "smuggler's caches — the thing the contract was for. T2 is correct and heist never reaches the bulk rungs anyway (see _heist_rule).",
+      "_keep_warning": "Do NOT widen the allowlist to the whole category or to depth-1 generally. It caught Legacy and Chancing, and it will catch the next one."
+    },
     "rarity_through_is_an_accent_property": "rarity_through is declared once, on the ACCENT, and never chosen per row. Only the equipment accent has it. A painted accent always sets TextColor; a rarity_through accent never does. There is no third case, so 'row X is missing a TextColor' is not a finding — see the reply's answer on Uniques and Jewels."
   }
 }

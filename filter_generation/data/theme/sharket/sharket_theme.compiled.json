@@ -333,13 +333,20 @@
     }
   },
   "Crafting Bases": {
+    "Tier 0": {
+      "FontSize": 45,
+      "BackgroundColor": "#ffffffff",
+      "TextColor": "#555555ff"
+    },
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#2a2a2af0"
+      "BackgroundColor": "#2a2a2af0",
+      "TextColor": "#78ebd2ff"
     },
     "Tier 3": {
       "FontSize": 35,
-      "BackgroundColor": "#2a2a2ae6"
+      "BackgroundColor": "#2a2a2ae6",
+      "TextColor": "#78ebd2ff"
     },
     "Tier 4": {
       "FontSize": 35,

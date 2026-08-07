@@ -30,7 +30,7 @@
         "ItemLevel": ">= 84"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 0
       },
       "sound": {
         "default_sound_id": -1,

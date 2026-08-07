@@ -466,7 +466,8 @@
     "_conditions": "Thresholds, so none of these need guessing: corrupted = Corrupted True; influenced = HasInfluence any; fractured = FracturedItem True; enchanted = AnyEnchantment True; linked = LinkedSockets >= 6."
   },
   "text_swaps": {
-    "_about": "Properties that BEAT rarity take the text, freeing the border for real states. Own block, not a rule deviation.",
+    "_about": "Properties that BEAT rarity take the text, freeing the border for real states. Own block, not a rule deviation. Four swaps now — crafting joined at the code side's ask, and it is the one that generalises the channel from a property to a claim.",
+    "_never_on_t0_t1": "See _swaps_never_paint_the_house_rungs. A swap needs a neutral plate to speak against.",
     "replica": {
       "text": "250 80 195",
       "scope": [
@@ -479,6 +480,21 @@
         "uniques",
         "jewels"
       ]
+    },
+    "crafting": {
+      "text": "120 235 210",
+      "scope": [
+        "equipment"
+      ],
+      "only_on_rungs": [
+        "T2",
+        "T3"
+      ],
+      "condition": "block originates in Equipment/Crafting Priority.json",
+      "answer": "YES — generalise. The swap channel already means 'this instance beats its rarity'; 'this base is worth crafting' is the same claim about the same item, so it takes the same colour rather than a 27th accent. Same value as quality (120 235 210) DELIBERATELY: they are one idea, and FilterBlade reaching 0 240 190 for the identical set of purposes independently is the corroboration.",
+      "why_t2_t3_only": "⚠️ THE SCOPE IS NARROWER THAN FILTERBLADE'S, on purpose. A swap only fires where the plate is NEUTRAL — T2 and T3 on the equipment accent, the grey 42 42 42 where the text is otherwise doing nothing but rarity. That is exactly where your 115 identical rows are. At T0/T1 the house reds already say 'exceptional' louder than any text could, so the swap yields; below T3 the block is bulk by volume and has nothing to claim.",
+      "what_this_costs": "Crafting bases lose rarity-through at T2/T3 ONLY, not across the ladder. The four ilvl bands sit at T4/T5 and keep it. So the loss lands where you are going to scour the item anyway — the base, the ilvl and the roll are the signal — and the rarity channel survives untouched at the floor, where an i84 base's rarity IS the only thing distinguishing it. That split is the reason to take the swap rather than FilterBlade's whole-purpose version.",
+      "note": "Fires on the BLOCK, not on a property threshold — 'this block is in Crafting Priority' is the condition. That is what separates it from quality, which fires on Quality >= 21 wherever that is true."
     },
     "quality": {
       "text": "120 235 210",
@@ -706,7 +722,8 @@
     ],
     "note": "Raindrop -> flasks, Pentagon -> maplike (heist, expedition), Moon -> vendor recipes. Tainted takes Diamond, shared with currency — same shape, different hue, which is the correct reading: tainted currency IS currency. One shape held for future league content. Wombgifts take Star with the rest of Breach, NOT Hexagon — Hexagon is atlas keys (fragments, scarabs, breachstones)."
   },
-  "_q21_scope": "T0-T2 only. Stated in one place so it cannot drift: the board had it as T0/T1 in two spots and T0-T2 in two others.",
+  "_q21_scope": "T2 only, narrowed from T0-T2 by _swaps_never_paint_the_house_rungs. In practice nothing moved: Over Quality is the block this was written for and it sits at T2 in the Crafting Priority override, exactly where the swap now fires.",
+  "_swaps_never_paint_the_house_rungs": "⚠️ NEW, and it governs all four swaps. A text swap only fires where the PLATE IS NEUTRAL — never on T0 or T1. Those two rungs are house-fixed idioms (red on white, white on red) whose own colours are the whole signal; a swap there would overwrite a louder statement with a quieter one. This is what keeps the crafting swap and the new Perfect Defence T0 from colliding.",
   "flat_look": {
     "_about": "A look OFF the ladder, for categories that have no tiers because ranking them is a category error. Author's call: 'special items like quest could have its own theme, they usually have no tiers.'",
     "why_a_bright_border": "Two markers, one per form. PAINTED (zero-state classes): a border at FULL accent strength — no rung sets one there, T5's is deliberately dim. GEAR: plate alpha 255, just above the ladder's 250. Neither spends a channel a state needs.",

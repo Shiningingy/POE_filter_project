@@ -1,3 +1,7 @@
+> ⚠️ **Rungs are T0–T5. There is no T6.** This file previously said otherwise in eight places;
+> all are corrected as of 2026-08-06. Where prose and the machine files disagree, **the machine
+> files win** — `theme-presets.json` owns the looks, `accent-category-map.json` owns the routing.
+
 # Theme standard — handoff for the code side
 
 **Status:** design settled with the filter's author over this session. This is workstream **E**
@@ -30,12 +34,12 @@ A block authors **two** values. Everything else is a pure function of them.
 
 ```
 block.accent   e.g. "essences"      -> plate hue, icon shape, beam colour
-block.rung     T0..T6               -> plate recipe, icon size+colour, beam persistence
+block.rung     T0..T5               -> plate recipe, icon size+colour, beam persistence
 ```
 
-**T0, T1 and T6 are house-fixed** — same in every category, because "this ends the run" and
+**T0, T1, T4 and T5 are house-fixed** — same in every category, because "this ends the run" and
 "this is the noise floor" mean the same thing everywhere. An accent authors **two** colours:
-`solid` is T2's plate, `deep` is the shared plate for the whole T3-T5 tail. Rank inside the tail
+`solid` is T2's plate, `muted` is T3's plate and T4's text. Rank inside the tail
 lives in the **text** (painted) or the **alpha** (rarity_through), never in a plate ramp — see
 `reply-04-plate-rule.md` for the NeverSink measurement that settled this.
 
@@ -56,7 +60,7 @@ T0 and T1 are painted in **every** family, gear included — a chase drop overri
 
 T0/T1 opaque; then **240 -> 235 -> 230 -> 225 -> 215**. All above the game's own 190 on purpose:
 the plate carries the rank, so it must read as denser than the default rather than dissolving into
-it. Only T6 rarity-through drops to the bare game default (no `SetBackgroundColor` at all).
+it. Only rarity-through gear drops to the bare game default (no `SetBackgroundColor` at all).
 
 ## 3. Tiers share looks — this is the part that shrinks the file
 
@@ -70,8 +74,8 @@ have, uses **five** rungs across its whole ladder and skips two:
 | T1 | divine-class |
 | T2 | high (2 tiers share it) |
 | T3 | mid (3 tiers share it) |
-| T6 | scrolls |
-| T4, T5 | **unused** — currency has no unsellable band and no floor below scrolls |
+| T4 | scrolls |
+| T5 | **unused** — currency has no floor below scrolls |
 
 So: **~4 looks per category, however many tiers point at them.** Measured depth distribution is
 27 categories with 2 rungs, 14 with 3, 11 with 4, 6 with 5, 25 with 6, 4 with 7 — which is why
@@ -93,11 +97,12 @@ MinimapIcon <size> <colour> <shape>
 | T0 | 0 | White |
 | T1 | 0 | Red |
 | T2 | 1 | Yellow |
-| T3-T6 | — | no icon by default |
+| T3-T5 | — | no icon by default |
 
-**Shapes are per accent, eight total** — Diamond stackable currency, Circle crafting consumables,
-Square maps, Hexagon atlas keys, Triangle div cards, Star uniques, Cross league one-offs, Kite gems.
-Moon, Raindrop, Pentagon and UpsideDownHouse stay unassigned as headroom.
+**Shapes are per accent, ten assigned** — Diamond stackable currency (and tainted, which IS currency),
+Circle crafting consumables, Square maps, Hexagon atlas keys, Triangle div cards, Star uniques,
+Cross league one-offs, Kite gems, Raindrop flasks, Pentagon maplike, Moon vendor recipes.
+Only UpsideDownHouse stays unassigned as headroom.
 
 ### 4.1 The floor is per-category and gets swept DOWN
 
@@ -136,13 +141,13 @@ author wants judged per block rather than derived:
 |---|---|---|
 | persistent | don't miss this — survives the portal | T0, T1 |
 | `Temp` | just a reminder — flashes and stops | T2 |
-| omitted | the default, and the majority | T3-T6 |
+| omitted | the default, and the majority | T3-T5 |
 
 Current state for contrast: 196 of 198 beams are `White` and `Temp` is used **zero** times.
 NeverSink uses `Temp` **4,602** times, mostly paired with Grey — measured, not recalled.
 
 ⚠️ `Currency/Gold.json` sets `PlayEffect: null` while the theme row carries a White beam, so Gold
-beams today. Under this design Gold is T6 -> no beam, which closes that conflict at the source.
+beams today. Under this design Gold is T5 -> no beam, which closes that conflict at the source.
 The rewrite doc flags this as the designer's to fix; it is fixed here.
 
 ## 6. States — 5 border deviations
@@ -211,7 +216,7 @@ retune it:
 | 45 | T0, T1 |
 | 40 | T2 |
 | 35 | T3, T4 |
-| 30 | T5, T6 |
+| 30 | T5 |
 
 30 is deliberately **below the game's own 32** so gold and vendor bulk are present without competing.
 There is no hide style and no T7: Ruthless draws `Minimal` for a hidden item, so a hidden block
@@ -256,6 +261,6 @@ Mapping onto the rewrite's own Verification list:
    means "let the game paint it".
 4. **Icon/beam validity.** Every emitted `MinimapIcon` is `<0|1|2> <name> <shape>`; every
    `PlayEffect` is `<name> [Temp]`. Malformed = whole filter rejected, so validate at emit.
-5. **Gold emits no beam and no icon** (T6). Regression for the `Currency/Gold.json` conflict.
+5. **Gold emits no beam and no icon** (T5). Regression for the `Currency/Gold.json` conflict.
 6. **In-game load.** Non-negotiable per the rewrite doc: every bug last session passed generation,
    the validator *and* parity, and was caught only by loading the filter.
