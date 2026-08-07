@@ -119,7 +119,9 @@
         "PlayAlertSound": [
           "Sharket掉落音效/超级传奇.mp3",
           300
-        ]
+        ],
+        "BackgroundColor": "#350d0dff",
+        "TextColor": "#af6025ff"
       },
       "conditions": {
         "Rarity": "Unique"
