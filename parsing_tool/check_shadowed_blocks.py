@@ -50,7 +50,7 @@ def parse(path):
         m = re.match(r"^(Show|Hide|Minimal)\b", ln)
         if m:
             cur = {"hdr": pending[-1] if pending else "", "cmd": m.group(1),
-                   "conds": set(), "ex": [], "sub": [], "snd": None}
+                   "conds": set(), "ex": [], "sub": [], "cls": None, "snd": None}
             out.append(cur)
             pending = []
             continue
@@ -67,6 +67,9 @@ def parse(path):
             names = re.findall(r'"([^"]+)"', m.group(2))
             (cur["ex"] if m.group(1) else cur["sub"]).extend(names)
             continue
+        m = re.match(r"Class\s+(==\s*)?(.*)$", s)
+        if m:
+            cur["cls"] = re.findall(r'"([^"]+)"', m.group(2)) or None
         cur["conds"].add(s)
     return out
 
@@ -89,12 +92,31 @@ def main():
     universe = set()
     for b in blocks:
         universe |= set(b["ex"]) | set(b["sub"])
+
+    # ⚠️ CLASS-ONLY BLOCKS MUST COUNT. The first version skipped any block with no BaseType,
+    # which silently excluded every class net — and a class-wide HIDE swallowing a base a
+    # later Show block names is precisely the failure the author says is the only one that
+    # matters. Reporting "0 items never appear" while unable to see the commonest cause is
+    # worse than reporting nothing. Class membership comes from GGPK (ADR-0004).
+    bt = json.load(io.open(os.path.join(ROOT, "data", "source", "3.29.0.4.2", "tables",
+                                        "English", "BaseItemTypes.json"), encoding="utf-8"))
+    ic = json.load(io.open(os.path.join(ROOT, "data", "source", "3.29.0.4.2", "tables",
+                                        "English", "ItemClasses.json"), encoding="utf-8"))
+    cnm = {i: r.get("Name") for i, r in enumerate(ic)}
+    CLS = {}
+    for r in bt:
+        if r.get("Name") and r["Name"] not in CLS:
+            CLS[r["Name"]] = cnm.get(r.get("ItemClassesKey"))
+
     claims = collections.defaultdict(list)
     for i, b in enumerate(blocks):
-        if not (b["ex"] or b["sub"]):
+        named = bool(b["ex"] or b["sub"])
+        if not named and not b["cls"]:
             continue
         for n in universe:
-            if n in b["ex"] or any(p in n for p in b["sub"]):
+            if b["cls"] and CLS.get(n) not in b["cls"]:
+                continue
+            if not named or n in b["ex"] or any(p in n for p in b["sub"]):
                 claims[n].append(i)
 
     # ⚠️ A BLOCK IS DEAD ONLY IF **EVERY** BASE IT MATCHES IS TAKEN. A first version flagged
@@ -126,23 +148,46 @@ def main():
             by = culprit[bi].most_common(1)[0][0]
             dead[bi] = {"by": by, "bases": sorted(taken)}
 
+    # ★ SEVERITY, and the author's framing is the right one: "stricter blocks have priority
+    # over more general ones" is the DESIGN, not a defect. A corrupted unique jewel losing to
+    # the plain unique-jewel rule is correct — it is a unique jewel and should read as one.
+    #
+    # So Show-behind-Show is almost never worth acting on: the item still appears, with a
+    # different look or sound. What actually costs the player something is:
+    #
+    #   SHOW BEHIND HIDE — the item is claimed by a hiding block first and never appears.
+    #   That is the only shadow that loses information rather than nuance.
+    #
+    # Reported in that order, and the exit code follows the hidden ones alone, so a
+    # cosmetic overlap can never fail a build.
+    hidden = {i: d for i, d in dead.items()
+              if blocks[i]["cmd"] == "Show" and blocks[d["by"]]["cmd"] != "Show"}
     lost = {i: d for i, d in dead.items()
-            if blocks[i]["snd"] and blocks[i]["snd"] != blocks[d["by"]]["snd"]}
+            if i not in hidden and blocks[i]["snd"]
+            and blocks[i]["snd"] != blocks[d["by"]]["snd"]}
 
     print("=== shadowed blocks ===")
-    print("  emitted blocks              : %d" % len(blocks))
-    print("  blocks nothing can reach    : %d" % len(dead))
-    print("  ...of which lose a SOUND    : %d" % len(lost))
+    print("  emitted blocks                    : %d" % len(blocks))
+    print("  blocks nothing can reach          : %d" % len(dead))
+    print("  ★ SHOW blocks hidden by an earlier block : %d" % len(hidden))
+    print("  ...cosmetic (Show behind Show, different sound) : %d" % len(lost))
     print()
-    if lost:
-        print("★ SOUND LOSSES — the dead block plays something the winner does not:")
-        for i in sorted(lost):
+    if hidden:
+        print("★★ ITEMS THAT NEVER APPEAR — a Show block claimed by a hiding block first:")
+        for i in sorted(hidden):
             d = dead[i]
             print("  %s" % label(blocks[i]["hdr"]))
-            print("      shadowed by %s" % label(blocks[d["by"]]["hdr"]))
-            print("      would have played %s" % (blocks[i]["snd"] or "")[:70])
-            print("      e.g. %s" % ", ".join(sorted(d["bases"])[:4]))
-    return 1 if lost else 0
+            print("      HIDDEN BY %s  [%s]" % (label(blocks[d["by"]]["hdr"]),
+                                                blocks[d["by"]]["cmd"]))
+            print("      e.g. %s" % ", ".join(sorted(d["bases"])[:6]))
+    if lost:
+        print()
+        print("cosmetic — the dead block plays a different sound, item still shows:")
+        for i in sorted(lost):
+            d = dead[i]
+            print("  %-56s <- %s" % (label(blocks[i]["hdr"])[:56],
+                                     label(blocks[d["by"]]["hdr"])[:46]))
+    return 1 if hidden else 0
 
 
 if __name__ == "__main__":
