@@ -30,7 +30,16 @@
         "ItemLevel": ">= 84"
       },
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "BackgroundColor": "#ffffffff",
+        "TextColor": "#ff0000ff",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ],
+        "PlayEffect": "Red",
+        "MinimapIcon": "0 Red UpsideDownHouse"
       },
       "sound": {
         "default_sound_id": -1,
@@ -92,7 +101,14 @@
         "Quality": "> 20"
       },
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ],
+        "MinimapIcon": "1 Yellow UpsideDownHouse",
+        "PlayEffect": "White Temp"
       },
       "sound": {
         "default_sound_id": -1,
@@ -161,7 +177,14 @@
         "MemoryStrands": ">= 60"
       },
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ],
+        "MinimapIcon": "2 Yellow UpsideDownHouse",
+        "PlayEffect": "White Temp"
       },
       "sound": {
         "default_sound_id": -1,
@@ -180,7 +203,13 @@
         "MemoryStrands": ">= 30"
       },
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ],
+        "MinimapIcon": "2 Yellow UpsideDownHouse"
       },
       "sound": {
         "default_sound_id": -1,
@@ -237,7 +266,12 @@
         "MemoryStrands": ">= 30"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": -1,
@@ -270,7 +304,12 @@
         "MemoryStrands": ">= 30"
       },
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": -1,
@@ -289,7 +328,12 @@
         "ItemLevel": ">= 86"
       },
       "theme": {
-        "Tier": 5
+        "Tier": 5,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/优质底材.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 6,
@@ -322,7 +366,12 @@
         "ItemLevel": ">= 86"
       },
       "theme": {
-        "Tier": 5
+        "Tier": 5,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/优质底材.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 1,
@@ -341,7 +390,12 @@
         "ItemLevel": ">= 85"
       },
       "theme": {
-        "Tier": 5
+        "Tier": 5,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/底材.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": 6,
@@ -360,7 +414,12 @@
         "ItemLevel": ">= 84"
       },
       "theme": {
-        "Tier": 5
+        "Tier": 5,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/底材.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": 6,

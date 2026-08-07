@@ -41,7 +41,7 @@
           "Sharket掉落音效/圣油.mp3",
           100
         ],
-        "MinimapIcon": "0 Yellow Circle"
+        "MinimapIcon": "2 Yellow Circle"
       },
       "sound": {
         "default_sound_id": 2,
@@ -58,7 +58,7 @@
         "Tier": 4,
         "FontSize": 40,
         "PlayAlertSound": "disabled:",
-        "MinimapIcon": "0 White Circle"
+        "MinimapIcon": "2 White Circle"
       },
       "sound": {
         "default_sound_id": -1,

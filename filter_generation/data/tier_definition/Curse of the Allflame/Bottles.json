@@ -18,7 +18,8 @@
         "PlayAlertSound": [
           "Sharket掉落音效/DOTA2_瓶.mp3",
           300
-        ]
+        ],
+        "FontSize": 45
       },
       "sound": {
         "default_sound_id": 2,

@@ -101,7 +101,7 @@
         "FontSize": 45,
         "BackgroundColor": "#ffffffff",
         "TextColor": "#af6025ff",
-        "MinimapIcon": "2 Brown Star",
+        "MinimapIcon": "0 Brown Star",
         "PlayEffect": "Brown"
       },
       "conditions": {
@@ -128,7 +128,7 @@
         "BackgroundColor": "#350d0dff",
         "TextColor": "#af6025ff",
         "FontSize": 45,
-        "MinimapIcon": "2 Brown Star",
+        "MinimapIcon": "0 Brown Star",
         "PlayEffect": "Brown"
       },
       "conditions": {
@@ -151,7 +151,7 @@
           "Sharket掉落音效/高级传奇.mp3",
           300
         ],
-        "FontSize": 40,
+        "FontSize": 45,
         "BackgroundColor": "#af6025f0",
         "TextColor": "#000000ff",
         "MinimapIcon": "1 Brown Star",
@@ -177,10 +177,10 @@
           "Sharket掉落音效/传奇.mp3",
           300
         ],
-        "FontSize": 40,
+        "FontSize": 45,
         "BackgroundColor": "#1f1010f0",
         "TextColor": "#af6025ff",
-        "MinimapIcon": "0 Brown Star",
+        "MinimapIcon": "2 Brown Star",
         "PlayEffect": "Brown Temp"
       },
       "conditions": {
@@ -205,9 +205,9 @@
           300
         ],
         "FontSize": 40,
-        "BackgroundColor": "#1f1010e6",
-        "TextColor": "#af9173ff",
-        "MinimapIcon": "0 Brown Star",
+        "BackgroundColor": "#1f1010f0",
+        "TextColor": "#af6025ff",
+        "MinimapIcon": "2 Brown Star",
         "PlayEffect": "Brown Temp"
       },
       "conditions": {

@@ -161,7 +161,9 @@
     "Tier 3 Rare Equipment": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 40,
+        "PlayAlertSound": "disabled:"
       },
       "sound": {
         "default_sound_id": -1,

@@ -21,7 +21,7 @@
         "FontSize": 45,
         "BackgroundColor": "#d20000ff",
         "TextColor": "#ffffffff",
-        "MinimapIcon": "2 Red Star",
+        "MinimapIcon": "0 Red Star",
         "PlayEffect": "Purple",
         "PlayAlertSound": [
           "Sharket掉落音效/超级孕育赠礼.mp3",
@@ -69,7 +69,7 @@
           "Sharket掉落音效/孕育赠礼.mp3",
           300
         ],
-        "MinimapIcon": "0 White Star"
+        "MinimapIcon": "2 White Star"
       },
       "sound": {
         "default_sound_id": -1,

@@ -22,7 +22,12 @@
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
           300
-        ]
+        ],
+        "FontSize": 45,
+        "BackgroundColor": "#d20000ff",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "0 Red Hexagon",
+        "PlayEffect": "Purple"
       },
       "sound": {
         "default_sound_id": 6,
@@ -66,7 +71,10 @@
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
           300
-        ]
+        ],
+        "FontSize": 40,
+        "MinimapIcon": "1 Red Hexagon",
+        "PlayEffect": "Purple Temp"
       },
       "sound": {
         "default_sound_id": 1,
@@ -104,7 +112,10 @@
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
           300
-        ]
+        ],
+        "FontSize": 40,
+        "MinimapIcon": "2 Red Hexagon",
+        "PlayEffect": "Purple Temp"
       },
       "sound": {
         "default_sound_id": 2,
@@ -136,7 +147,9 @@
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
           100
-        ]
+        ],
+        "FontSize": 40,
+        "MinimapIcon": "2 White Hexagon"
       },
       "sound": {
         "default_sound_id": -1,

@@ -27,7 +27,7 @@
         "FontSize": 45,
         "BackgroundColor": "#fffffff0",
         "TextColor": "#ff0000ff",
-        "MinimapIcon": "2 Red Diamond",
+        "MinimapIcon": "0 Red Diamond",
         "PlayEffect": "Orange",
         "PlayAlertSound": [
           "Sharket掉落音效/超级通货.mp3",
@@ -358,7 +358,7 @@
         "FontSize": 40,
         "BackgroundColor": "#aa9e82f0",
         "TextColor": "#000000ff",
-        "MinimapIcon": "0 White Diamond"
+        "MinimapIcon": "2 White Diamond"
       },
       "hideable": false,
       "sound": {
@@ -397,7 +397,7 @@
         "BackgroundColor": "#ffa500f0",
         "TextColor": "#000000ff",
         "PlayEffect": "Orange Temp",
-        "MinimapIcon": "1 Yellow Diamond"
+        "MinimapIcon": "2 Yellow Diamond"
       },
       "hideable": false,
       "sound": {

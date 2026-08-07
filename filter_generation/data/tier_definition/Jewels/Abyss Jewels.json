@@ -17,7 +17,14 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "FontSize": 40,
+        "MinimapIcon": "1 Red Cross",
+        "PlayEffect": "Pink Temp",
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          200
+        ]
       },
       "sound": {
         "default_sound_id": 6,
@@ -35,7 +42,13 @@
     "Tier 1 Abyss Jewels": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级通货.mp3",
+          200
+        ],
+        "MinimapIcon": "2 Yellow Cross"
       },
       "sound": {
         "default_sound_id": 1,
@@ -53,7 +66,13 @@
     "Tier 2 Abyss Jewels": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/通货.mp3",
+          100
+        ],
+        "MinimapIcon": "2 White Cross"
       },
       "sound": {
         "default_sound_id": 2,

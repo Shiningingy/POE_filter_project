@@ -23,7 +23,7 @@
         "FontSize": 45,
         "BackgroundColor": "#ffffffff",
         "TextColor": "#78503cff",
-        "MinimapIcon": "2 Red Circle",
+        "MinimapIcon": "0 Red Circle",
         "PlayEffect": "Brown"
       },
       "sound": {
@@ -43,7 +43,7 @@
         "FontSize": 45,
         "BackgroundColor": "#d20000ff",
         "TextColor": "#ffffffff",
-        "MinimapIcon": "1 Yellow Circle",
+        "MinimapIcon": "0 Yellow Circle",
         "PlayEffect": "Brown"
       },
       "sound": {

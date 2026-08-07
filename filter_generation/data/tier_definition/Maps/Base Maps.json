@@ -53,7 +53,7 @@
         "FontSize": 40,
         "BackgroundColor": "#d20000ff",
         "TextColor": "#ffffffff",
-        "MinimapIcon": "2 Red Square",
+        "MinimapIcon": "1 Red Square",
         "PlayEffect": "Red",
         "PlayAlertSound": [
           "Sharket掉落音效/超级地图.mp3",
@@ -103,7 +103,7 @@
           "Sharket掉落音效/中级地图.mp3",
           100
         ],
-        "MinimapIcon": "0 Yellow Square",
+        "MinimapIcon": "2 Yellow Square",
         "PlayEffect": "Yellow Temp"
       },
       "sound": {
@@ -123,7 +123,7 @@
         "BackgroundColor": "#afafaff0",
         "TextColor": "#000000ff",
         "PlayEffect": "White Temp",
-        "MinimapIcon": "0 White Square",
+        "MinimapIcon": "2 White Square",
         "PlayAlertSound": [
           "Sharket掉落音效/地图.mp3",
           300

@@ -21,7 +21,7 @@
         "FontSize": 45,
         "BackgroundColor": "#d20000ff",
         "TextColor": "#ffffffff",
-        "MinimapIcon": "2 Red Diamond",
+        "MinimapIcon": "0 Red Diamond",
         "PlayEffect": "Red",
         "PlayAlertSound": "disabled:"
       },
@@ -84,7 +84,7 @@
         "FontSize": 40,
         "PlayAlertSound": "disabled:",
         "PlayEffect": "Red Temp",
-        "MinimapIcon": "0 Yellow Diamond"
+        "MinimapIcon": "2 Yellow Diamond"
       },
       "sound": {
         "default_sound_id": 3,
@@ -126,7 +126,7 @@
       "theme": {
         "Tier": 4,
         "FontSize": 40,
-        "MinimapIcon": "0 White Diamond"
+        "MinimapIcon": "2 White Diamond"
       },
       "sound": {
         "default_sound_id": -1,

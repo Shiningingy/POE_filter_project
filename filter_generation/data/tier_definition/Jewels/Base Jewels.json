@@ -14,7 +14,14 @@
     "Base Jewels": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/常规珠宝.mp3",
+          200
+        ],
+        "MinimapIcon": "2 Blue Moon",
+        "PlayEffect": "Blue Temp"
       },
       "sound": {
         "default_sound_id": 1,

@@ -69,7 +69,8 @@
         "Lonely Fragment": "孤寂碎片",
         "Crescent Splinter": "新月裂片",
         "Chronicle of Atzoatl": "阿佐亚特编年史",
-        "Inscribed Ultimatum": "贪婪战书"
+        "Inscribed Ultimatum": "贪婪战书",
+        "Offering to the Goddess": "女神祭品"
       }
     },
     "item_class": {
@@ -202,6 +203,9 @@
     ],
     "Inscribed Ultimatum": [
       "Tier 1 Fragments"
+    ],
+    "Offering to the Goddess": [
+      "Tier 3 Fragments"
     ]
   },
   "rules": [

@@ -23,13 +23,13 @@
     },
     "Tier 3": {
       "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "BackgroundColor": "#312207f0",
+      "TextColor": "#b8ae97ff"
     },
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#aa9e82ff"
     }
   },
   "Delirium Orbs": {
@@ -66,13 +66,13 @@
     },
     "Tier 3": {
       "FontSize": 40,
-      "BackgroundColor": "#000000f0",
+      "BackgroundColor": "#071631f0",
       "TextColor": "#82b4ffff"
     },
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#82b4ffff"
     }
   },
   "Fossils": {
@@ -92,13 +92,13 @@
     },
     "Tier 3": {
       "FontSize": 40,
-      "BackgroundColor": "#000000f0",
+      "BackgroundColor": "#261d12f0",
       "TextColor": "#c8a56eff"
     },
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#c8a56eff"
     }
   },
   "General": {
@@ -125,13 +125,13 @@
     },
     "Tier 3": {
       "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "BackgroundColor": "#312207f0",
+      "TextColor": "#b8ae97ff"
     },
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#aa9e82ff"
     }
   },
   "Gold": {
@@ -159,13 +159,13 @@
     },
     "Tier 3": {
       "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "BackgroundColor": "#312207f0",
+      "TextColor": "#b8ae97ff"
     },
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#aa9e82ff"
     }
   },
   "Heist Currency": {
@@ -179,7 +179,7 @@
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#f5be00ff"
     }
   },
   "Incursion Vials": {
@@ -201,20 +201,20 @@
     },
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#ffa500f0",
+      "BackgroundColor": "#ffe650f0",
       "TextColor": "#000000ff",
       "MinimapIcon": "1 Yellow Circle",
       "PlayEffect": "Yellow Temp"
     },
     "Tier 3": {
       "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "BackgroundColor": "#312b07f0",
+      "TextColor": "#ffe650ff"
     },
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#ffe650ff"
     }
   },
   "Omens": {
@@ -235,7 +235,7 @@
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#aa9e82ff"
     }
   },
   "Runegrafts": {
@@ -256,7 +256,7 @@
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#aa9e82ff"
     }
   },
   "Tainted Currency": {
@@ -276,13 +276,13 @@
     },
     "Tier 3": {
       "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "BackgroundColor": "#312207f0",
+      "TextColor": "#b8ae97ff"
     },
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#aa9e82ff"
     }
   },
   "Wombgifts": {
@@ -303,7 +303,7 @@
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#aa9e82ff"
     }
   },
   "Curse of the Allflame": {
@@ -324,7 +324,7 @@
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#aa9e82ff"
     },
     "Tier 1": {
       "FontSize": 45,
@@ -461,7 +461,7 @@
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#aa9e82ff"
     }
   },
   "Sacrificial Garbs": {
@@ -516,7 +516,7 @@
     "Tier 5": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#8c8c8cff"
+      "TextColor": "#aa9e82cc"
     }
   },
   "Vendor Recipes": {
@@ -537,7 +537,7 @@
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#aa9e82ff"
     }
   },
   "Life Flasks": {
@@ -551,7 +551,7 @@
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#b8daf2ff"
     }
   },
   "Mana Flasks": {
@@ -565,7 +565,7 @@
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#b8daf2ff"
     }
   },
   "Tinctures": {
@@ -579,7 +579,7 @@
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#b8daf2ff"
     }
   },
   "Utility Flasks": {
@@ -600,7 +600,7 @@
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#b8daf2ff"
     }
   },
   "Skill Gems": {
@@ -627,18 +627,18 @@
     },
     "Tier 3": {
       "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#1ca69fff"
+      "BackgroundColor": "#0d2b2af0",
+      "TextColor": "#21c5bcff"
     },
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#1ca69fff"
     },
     "Tier 5": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#8c8c8cff"
+      "TextColor": "#1ca69fcc"
     }
   },
   "Support Gems": {
@@ -658,13 +658,13 @@
     },
     "Tier 3": {
       "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#1ca69fff"
+      "BackgroundColor": "#0d2b2af0",
+      "TextColor": "#21c5bcff"
     },
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#1ca69fff"
     }
   },
   "Heist Blueprints": {
@@ -678,7 +678,7 @@
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#f5be00ff"
     }
   },
   "Heist Contracts": {
@@ -692,7 +692,7 @@
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#f5be00ff"
     }
   },
   "Heist Equipment": {
@@ -724,13 +724,13 @@
     },
     "Tier 3": {
       "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#c46fffff"
+      "BackgroundColor": "#200731f0",
+      "TextColor": "#ca7fffff"
     },
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#c46fffff"
     },
     "Tier 1": {
       "FontSize": 45,
@@ -779,7 +779,7 @@
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#d265ffff"
     },
     "Tier 0": {
       "FontSize": 45,
@@ -790,8 +790,8 @@
     },
     "Tier 3": {
       "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#d265ffff"
+      "BackgroundColor": "#250731f0",
+      "TextColor": "#d87affff"
     }
   },
   "Scarabs": {
@@ -811,20 +811,20 @@
     },
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#b400fff0",
+      "BackgroundColor": "#00825af0",
       "TextColor": "#ffffffff",
       "MinimapIcon": "1 Yellow Hexagon",
       "PlayEffect": "Green Temp"
     },
     "Tier 3": {
       "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#d265ffff"
+      "BackgroundColor": "#073124f0",
+      "TextColor": "#00cf90ff"
     },
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#c8c8c8ff"
+      "TextColor": "#00ab76ff"
     }
   },
   "Quest Items": {
@@ -890,7 +890,7 @@
     "Tier 5": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
-      "TextColor": "#8c8c8cff"
+      "TextColor": "#aa9e82cc"
     }
   }
 }

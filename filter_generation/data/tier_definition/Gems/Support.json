@@ -21,7 +21,10 @@
         "PlayAlertSound": [
           "Sharket掉落音效/强辅技能石.mp3",
           100
-        ]
+        ],
+        "FontSize": 40,
+        "MinimapIcon": "1 Yellow Kite",
+        "PlayEffect": "Cyan Temp"
       },
       "sound": {
         "default_sound_id": -1,
@@ -40,7 +43,12 @@
         "PlayAlertSound": [
           "Sharket掉落音效/稀有技能石.mp3",
           300
-        ]
+        ],
+        "FontSize": 45,
+        "BackgroundColor": "#d20000ff",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "0 Red Kite",
+        "PlayEffect": "Cyan"
       },
       "sound": {
         "default_sound_id": 6,
@@ -73,7 +81,9 @@
         "PlayAlertSound": [
           "Sharket掉落音效/辅助技能石.mp3",
           100
-        ]
+        ],
+        "FontSize": 40,
+        "MinimapIcon": "2 Yellow Kite"
       },
       "sound": {
         "default_sound_id": -1,
@@ -91,7 +101,9 @@
         "PlayAlertSound": [
           "Sharket掉落音效/辅助技能石.mp3",
           100
-        ]
+        ],
+        "FontSize": 40,
+        "MinimapIcon": "2 White Kite"
       },
       "sound": {
         "default_sound_id": -1,

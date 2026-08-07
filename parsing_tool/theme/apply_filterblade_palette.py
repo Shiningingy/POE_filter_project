@@ -75,24 +75,39 @@ APPLY = "--apply" in sys.argv
 # FAMILY COLOUR ON PURE BLACK. Our `accent.muted on 80 80 80` was a corruption of exactly
 # this — same idea with both values dragged into the middle.
 DARK = "0 0 0"            # Sharket's low-rung plate
-NEUTRAL = "200 200 200"   # Sharket's 白地图 neutral, 12.55:1 on black
-BULK = "140 140 140"      # one step quieter, still 6.6:1 — never a marginal value
+
+# ★★ THE FAMILY COLOUR SURVIVES EVERY RUNG. NO NEUTRAL GREY RUNG EXISTS.
+#
+# The first version of this ladder ended `200 200 200` then `140 140 140` on black, on the
+# reasoning that a bottom rung is "bulk". The author rejected it on the right grounds:
+#
+#   "support gems are not good ... they tiered low in their category doesn't mean they are
+#    invaluable. neither sharket/filterblade apply this theme to supportgem/essence right?"
+#
+# Correct, and Sharket settles it. It has FOUR gem tiers and the cyan `27 162 155` is in
+# every one of them:
+#     T1技能宝石   27 162 155  on 255 255 255      family colour as text
+#     T2技能宝石   255 0 0     on 27 162 155       family colour as plate
+#     T3技能宝石   0 0 0       on 27 162 155       family colour as plate
+#     T4技能宝石   27 162 155  on 27 51 52         family colour as text, dark TINTED plate
+# and its lowest currency rung is `170 158 130 on 0 0 0` — the tan, not a grey.
+#
+# ⚠️ `200 200 200` DOES appear in Sharket, and reading it as a bulk marker is what caused
+# this: it is the WHITE MAP colour (白地图), a family colour in its own right. Sharket has
+# no neutral rung at all. Rank at the bottom is carried by the PLATE (dark tint -> black)
+# and by size, never by draining the hue out of the label.
 
 # ---------------------------------------------------------------------------
 # THE LADDER. Every pair below appears verbatim in their soft filter; the count
 # is how many of their blocks wear it, so a value with a high count is one of
 # their load-bearing looks rather than an incidental one.
 #
-#   T2  black on the family's BRIGHT plate      "worth picking up"
-#   T3  the family colour as TEXT on near-black "a good one of these"
-#   T4  white on near-black                     "one of these"
-#   T5  their bulk grey on near-black           "bulk"
-#
-# T4 and T5 are deliberately identical across every family. That is their model,
-# not a shortcut: at the bulk rungs an item is told apart by its NAME and its icon,
-# and spending a hue there is what forced us to dim things to keep them apart.
+#   T2  black-or-white on the family's BRIGHT plate   "worth picking up"
+#   T3  the family colour on the family's DARK TINT   "a good one of these"
+#   T4  the family colour on PURE BLACK               "one of these"
+#   T5  the same at 80% opacity                       "bulk"
 LADDER = {
-    #  family        T2 bright plate  T3 colour-on-black   source
+    #  family        T2 bright plate  T3/T4 family text    source
     # --- SHARKET, by its own theme name -------------------------------------
     "currency":    ("255 165 0",     "170 158 130"),  # T3通货 10.63:1 / T5通货 7.92:1
     "uniques":     ("175 96 37",     "175 96 37"),    # T2传奇② 4.52 / T3传奇 — already ours
@@ -107,6 +122,26 @@ LADDER = {
     # 2.39:1, 2.08:1, 4.82:1, and the 80 80 80 plate we inherited the bug from.
     # Covered but not good, so this is a fill, not a gap.
     "fragments":   ("180 0 255",     "180 0 255"),    # FB x3 black-on-purple 4.38:1
+    # ★ SCARABS KEEP THEIR OWN GREEN (author, 2026-08-07: "also found on scarab").
+    # Folding them into fragments was wrong on the author's own rule — hues go to
+    # CATEGORIES, not league mechanics, and scarabs are core atlas content with a real
+    # four-step value ladder of their own. Sharket 3.15 predates the scarab rework so it
+    # has no entry, and its 地图碎片 rows are its weakest anywhere (2.39:1, 2.08:1, and the
+    # 80 80 80 plate this whole bug came from) — so the green comes from the kit's own
+    # `scarabs` accent, itself recorded as "Sharket's scarab green, near the atlas family
+    # without joining it". Black on it is 4.34:1, so T2 takes white automatically.
+    "scarabs":     ("0 130 90",      "0 130 90"),
+    # ★ OILS KEEP THEIR OWN YELLOW (author, 2026-08-07: "low tier oils are still somehow
+    # low visibility"). Their contrast was fine — 7.00:1 and 7.92:1 — so this was never a
+    # legibility fault; it was SATURATION. The currency tan (184 174 151 / 170 158 130) is
+    # a desaturated beige and reads quiet on a busy screen, and oils are colour-coded in
+    # game, so draining them to beige throws away a signal the game already gives.
+    # ⚠️ Folding oils into currency also undid a separation the kit made deliberately:
+    # blight_oils is "held clear of currency orange so a Golden Oil is never a Divine" —
+    # and the merged Oils T1 was emitting 0 0 0 on 255 165 0, the currency orange, which is
+    # exactly that collision. Sharket 3.15 predates Blight and has no oil rows, so this is
+    # the kit's own authored value rather than a fill.
+    "blight_oils": ("255 230 80",    "255 230 80"),
     "jewels":      ("150 0 255",     "150 0 255"),    # FB x8 / x9
     "heist":       ("245 190 0",     "245 190 0"),    # FB x4 on 20 20 0, 10.84:1
     "gold":        ("235 200 110",   "235 200 110"),  # FB x1 on 20 20 0, 11.52:1
@@ -118,10 +153,10 @@ COLLAPSE = {
     "currency": "currency", "allflame": "currency", "corpses": "currency",
     "harvest": "currency", "delirium": "currency", "tainted": "currency",
     "breach": "currency", "ritual": "currency", "expedition": "currency",
-    "blight_oils": "currency", "wombgifts": "currency", "recipes": "currency",
+    "blight_oils": "blight_oils", "wombgifts": "currency", "recipes": "currency",
     "vendor": "currency",
     "essences": "essences", "fossils": "fossils",
-    "fragments": "fragments", "scarabs": "fragments",
+    "fragments": "fragments", "scarabs": "scarabs",
     "div_cards": "div_cards", "uniques": "uniques", "gems": "gems",
     "jewels": "jewels", "heist": "heist", "quest": "quest",
     "flasks": "flasks", "gold": "gold",
@@ -187,17 +222,27 @@ def lighten(colour, plate, target=T3_TARGET):
     return "255 255 255"
 
 
+def deepen(colour):
+    """The family's own near-black — Sharket's `27 51 52` under its `27 162 155` gems.
+    Hue and saturation pinned, lightness dropped to ~11%, so the plate still belongs to the
+    family instead of being a neutral black."""
+    import colorsys
+    h, l, s = colorsys.rgb_to_hls(*[v / 255.0 for v in rgb(colour)])
+    c = colorsys.hls_to_rgb(h, 0.11, min(1.0, s * 0.75))
+    return "%d %d %d" % tuple(int(round(v * 255)) for v in c)
+
+
 def rungs_for(fam):
-    """Four rungs, all Sharket idioms:
+    """Four rungs, all Sharket idioms, and the FAMILY COLOUR IS IN EVERY ONE:
 
-        T2  black on the family's BRIGHT plate   "worth picking up"
-        T3  the family colour on PURE BLACK      "a good one of these"
-        T4  200 200 200 on pure black            "one of these"
-        T5  140 140 140 on pure black            "bulk"
+        T2  black-or-white on the family's BRIGHT plate   "worth picking up"
+        T3  the family colour on the family's DARK TINT   "a good one of these"
+        T4  the family colour on PURE BLACK               "one of these"
+        T5  the same, at 80% opacity                      "bulk"
 
-    T4 and T5 are identical in every family on purpose — that is both references' model.
-    At the bulk rungs an item is told apart by its NAME and its icon; spending a hue there
-    is exactly what forced the dimming that started this."""
+    The PLATE descends (bright -> family near-black -> pure black) and size carries the
+    rest. The hue never drains out, because a low tier inside a category is not a low-value
+    item — a T4 support gem is still a support gem."""
     bright, accent = LADDER[fam]
     # T2's text is black-or-white BY PLATE LUMINANCE — Sharket's own rule, and both
     # references carry each pairing (`0 0 0 on 175 96 37` and `255 255 255 on 175 96 37`
@@ -207,15 +252,17 @@ def rungs_for(fam):
     # 4.38 -> 4.79. Choosing "whichever is higher" instead would have flipped Uniques for
     # a 0.12 gain and overwritten work that was already accepted in game.
     t2 = "0 0 0" if con((0, 0, 0), rgb(bright)) >= 4.5 else "255 255 255"
+    tint = deepen(bright)
     if fam in PINNED:
         t3_txt, t3_bg = PINNED[fam]
     else:
-        t3_txt, t3_bg = lighten(accent, DARK), DARK
+        t3_txt, t3_bg = lighten(accent, tint), tint
+    low = lighten(accent, DARK)
     return {
         "Tier 2": (hx(t2), hx(bright, "f0"), con(rgb(t2), rgb(bright))),
         "Tier 3": (hx(t3_txt), hx(t3_bg, "f0"), con(rgb(t3_txt), rgb(t3_bg))),
-        "Tier 4": (hx(NEUTRAL), hx(DARK, "f0"), con(rgb(NEUTRAL), rgb(DARK))),
-        "Tier 5": (hx(BULK), hx(DARK, "f0"), con(rgb(BULK), rgb(DARK))),
+        "Tier 4": (hx(low), hx(DARK, "f0"), con(rgb(low), rgb(DARK))),
+        "Tier 5": (hx(low, "cc"), hx(DARK, "f0"), con(rgb(low), rgb(DARK))),
     }
 
 
