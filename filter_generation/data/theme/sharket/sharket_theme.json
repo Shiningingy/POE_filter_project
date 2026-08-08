@@ -830,8 +830,8 @@
   "Quest Items": {
     "Tier 2": {
       "FontSize": 40,
-      "TextColor": "#000000ff",
-      "BackgroundColor": "#4ae63af0",
+      "TextColor": "#4ae63aff",
+      "BackgroundColor": "#0c3614f0",
       "BorderColor": "#1ec850ff",
       "MinimapIcon": "1 White Star"
     }

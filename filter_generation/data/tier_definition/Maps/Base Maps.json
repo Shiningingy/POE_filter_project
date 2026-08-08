@@ -20,14 +20,15 @@
       "theme": {
         "Tier": 1,
         "FontSize": 45,
-        "BackgroundColor": "#ffffffff",
-        "TextColor": "#ff0000ff",
-        "MinimapIcon": "0 Red Square",
+        "BackgroundColor": "#f8f8f2ff",
+        "TextColor": "#1d407cff",
+        "MinimapIcon": "0 White Star",
         "PlayEffect": "White",
         "PlayAlertSound": [
           "Sharket掉落音效/超级地图.mp3",
           300
-        ]
+        ],
+        "BorderColor": "#2b5eb6ff"
       },
       "sound": {
         "default_sound_id": 6,
@@ -50,15 +51,16 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "BackgroundColor": "#d20000ff",
-        "TextColor": "#ffffffff",
-        "MinimapIcon": "1 Red Square",
+        "FontSize": 45,
+        "BackgroundColor": "#30110fff",
+        "TextColor": "#ff5a50ff",
+        "MinimapIcon": "1 Red Diamond",
         "PlayEffect": "Red",
         "PlayAlertSound": [
           "Sharket掉落音效/超级地图.mp3",
           200
-        ]
+        ],
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": 1,
@@ -73,15 +75,16 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "BackgroundColor": "#e14141f0",
-        "TextColor": "#000000ff",
+        "FontSize": 42,
+        "BackgroundColor": "#0f203eff",
+        "TextColor": "#ff5a50ff",
         "MinimapIcon": "1 Red Square",
         "PlayEffect": "Red Temp",
         "PlayAlertSound": [
           "Sharket掉落音效/高级地图.mp3",
           100
-        ]
+        ],
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": 2,
@@ -97,14 +100,15 @@
       "theme": {
         "Tier": 3,
         "FontSize": 40,
-        "BackgroundColor": "#b7b950f0",
-        "TextColor": "#000000ff",
+        "BackgroundColor": "#0f203eff",
+        "TextColor": "#ffff77ff",
         "PlayAlertSound": [
           "Sharket掉落音效/中级地图.mp3",
           100
         ],
         "MinimapIcon": "2 Yellow Square",
-        "PlayEffect": "Yellow Temp"
+        "PlayEffect": "Yellow Temp",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": 2,
@@ -120,14 +124,15 @@
       "theme": {
         "Tier": 3,
         "FontSize": 40,
-        "BackgroundColor": "#afafaff0",
-        "TextColor": "#000000ff",
+        "BackgroundColor": "#0f203eff",
+        "TextColor": "#c8c8c8ff",
         "PlayEffect": "White Temp",
         "MinimapIcon": "2 White Square",
         "PlayAlertSound": [
           "Sharket掉落音效/地图.mp3",
           300
-        ]
+        ],
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": -1,

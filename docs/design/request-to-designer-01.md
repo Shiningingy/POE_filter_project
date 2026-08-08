@@ -40,28 +40,15 @@ squint. We can see the mitigation in your own notes — the plates are far apart
 at 91% value vs blood `150 20 40` at 59%), so the plates may separate what the hues do not.
 **Your call**: is the plate separation the intended distinguisher, or does one hue move?
 
-## ★ What we actually need: five families have no values
+## Scope is correct as delivered
 
-The patch has 15 sections. Mapped onto our twelve families, these are absent — not thin,
-absent:
-
-| family | blocks | note |
-|---|---|---|
-| **Uniques** | 38 | `175 96 37` is **pinned** and every rung is keyed to it — we need the rung assignment, not a new colour. Handbook §6: lift the plate, never the text |
-| **Map Fragments** | 39 | our most icon-heavy category, and one of two at 100% icon density |
-| **Divination Cards** | — | 470 bases; widest value spread of any category |
-| **Heist** | 6 categories | blueprints, contracts, currency, targets, equipment, experimented |
-| **Flasks** | 4 categories | life, mana, utility, tinctures |
-
-Two more we think need **nothing**, but please confirm rather than leave implicit:
-
-- **Quest items** — pinned green `74 230 58`, PoE's own convention. Assume unchanged?
-- **Gold** — never emits a background at any rung, and its three tiers share one rung today.
-  Does it get rung assignments, or stay hand-set?
+The patch covers 15 sections and leaves Uniques, Map Fragments, Divination Cards, Heist,
+Flasks, Quest and Gold untouched. **That is right** — the author considers those good in
+their current state and scoped you to the families that were not. No action wanted there.
 
 `Jewels`, `Sockets & Links` and `Legacy` are present but partial (T2 rarity grammar, three
-socket looks, a border mark). If those are deliberate — i.e. the rest inherits — say so and we
-will treat them as complete.
+socket looks, a border mark). We are reading those as deliberate — the rest inherits — and
+will treat them as complete unless you say otherwise.
 
 ## We do NOT need the prose twin
 

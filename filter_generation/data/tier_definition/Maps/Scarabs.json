@@ -28,10 +28,11 @@
           300
         ],
         "FontSize": 45,
-        "BackgroundColor": "#d20000ff",
-        "TextColor": "#ffffffff",
-        "MinimapIcon": "0 Red Hexagon",
-        "PlayEffect": "Green"
+        "BackgroundColor": "#aae63cff",
+        "TextColor": "#000000ff",
+        "MinimapIcon": "1 Yellow Diamond",
+        "PlayEffect": "Green",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": 6,
@@ -50,9 +51,12 @@
           "Sharket掉落音效/高级圣甲虫.mp3",
           300
         ],
-        "FontSize": 40,
+        "FontSize": 45,
         "MinimapIcon": "1 Yellow Hexagon",
-        "PlayEffect": "Green Temp"
+        "PlayEffect": "Green Temp",
+        "TextColor": "#aae63cff",
+        "BackgroundColor": "#202c0bff",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": 1,
@@ -71,9 +75,12 @@
           "Sharket掉落音效/高级圣甲虫.mp3",
           300
         ],
-        "FontSize": 40,
+        "FontSize": 45,
         "MinimapIcon": "2 Yellow Hexagon",
-        "PlayEffect": "Green Temp"
+        "PlayEffect": "Green Temp",
+        "TextColor": "#aae63cff",
+        "BackgroundColor": "#000000ff",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": 2,
@@ -92,8 +99,11 @@
           "Sharket掉落音效/圣甲虫.mp3",
           100
         ],
-        "FontSize": 40,
-        "MinimapIcon": "2 White Hexagon"
+        "FontSize": 45,
+        "MinimapIcon": "2 White Hexagon",
+        "TextColor": "#aae63ccc",
+        "BackgroundColor": "#000000ff",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": -1,
@@ -125,7 +135,12 @@
         "PlayAlertSound": [
           "Sharket掉落音效/超级圣甲虫.mp3",
           100
-        ]
+        ],
+        "TextColor": "#587414ff",
+        "BackgroundColor": "#f8f8f2ff",
+        "BorderColor": "#587414ff",
+        "FontSize": 45,
+        "MinimapIcon": "0 Yellow Star"
       },
       "localization": {
         "en": "T0: Scarabs",

@@ -21,7 +21,11 @@
         "PlayAlertSound": [
           "Sharket掉落音效/发财啦.mp3",
           300
-        ]
+        ],
+        "TextColor": "#2ecc71ff",
+        "BackgroundColor": "#092715ff",
+        "BorderColor": "#00000000",
+        "FontSize": 40
       },
       "sound": {
         "default_sound_id": 1,
@@ -39,7 +43,11 @@
         "PlayAlertSound": [
           "Sharket掉落音效/种子种子.mp3",
           100
-        ]
+        ],
+        "TextColor": "#2ecc71ff",
+        "BackgroundColor": "#000000ff",
+        "BorderColor": "#00000000",
+        "FontSize": 40
       },
       "sound": {
         "default_sound_id": 2,
@@ -57,7 +65,11 @@
         "PlayAlertSound": [
           "Sharket掉落音效/命能.mp3",
           100
-        ]
+        ],
+        "TextColor": "#2ecc71ff",
+        "BackgroundColor": "#000000ff",
+        "BorderColor": "#00000000",
+        "FontSize": 40
       },
       "sound": {
         "default_sound_id": -1,
@@ -91,7 +103,12 @@
         "PlayAlertSound": [
           "Sharket掉落音效/666.mp3",
           200
-        ]
+        ],
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#2ecc71ff",
+        "BorderColor": "#00000000",
+        "FontSize": 45,
+        "MinimapIcon": "1 Yellow Circle"
       },
       "sound": {
         "default_sound_id": 6,

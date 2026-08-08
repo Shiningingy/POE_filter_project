@@ -249,6 +249,21 @@
         "Tier": "Misc"
       },
       "comment": "其他任务物品"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "\"Misc Map Items\""
+      },
+      "overrides": {
+        "Tier": "Misc"
+      },
+      "comment": "其他异界物品",
+      "localization": {
+        "en": "All other Misc Map Items",
+        "ch": "其他异界物品"
+      },
+      "_note": "THE SIBLING OF 其他任务物品. That rule nets Class \"Quest Items\"; nothing netted Class \"Misc Map Items\", so all 30 of them - every Maven's Invitation, Writhing/Screaming/Polaric/Incandescent Invitation, the five Breachstones, Chronicle of Atzoatl, Inscribed Ultimatum, Mirrored Tablet - fell through the whole tree to the [99999] catch-all. Author found it on Writhing and Polaric. Substring match, not ==, exactly as the quest net does it."
     }
   ]
 }

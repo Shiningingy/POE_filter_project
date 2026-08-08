@@ -14,7 +14,11 @@
     },
     "Ducats T0": {
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#00a070ff",
+        "BorderColor": "#00000000",
+        "FontSize": 45
       },
       "hideable": false,
       "sound": {
@@ -29,7 +33,11 @@
     "Ducats T1": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#00a070ff",
+        "BorderColor": "#00000000",
+        "FontSize": 43
       },
       "sound": {
         "default_sound_id": -1,

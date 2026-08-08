@@ -25,14 +25,15 @@
       "theme": {
         "Tier": 0,
         "FontSize": 45,
-        "BackgroundColor": "#fffffff0",
+        "BackgroundColor": "#ffffffff",
         "TextColor": "#ff0000ff",
-        "MinimapIcon": "0 Red Diamond",
+        "MinimapIcon": "0 Red Circle",
         "PlayEffect": "Orange",
         "PlayAlertSound": [
           "Sharket掉落音效/超级通货.mp3",
           300
-        ]
+        ],
+        "BorderColor": "#ff0000ff"
       },
       "sound": {
         "default_sound_id": 6,
@@ -80,14 +81,15 @@
       "theme": {
         "Tier": 1,
         "FontSize": 45,
-        "BackgroundColor": "#fffffff0",
-        "TextColor": "#ff0000ff",
-        "MinimapIcon": "0 Red Diamond",
+        "BackgroundColor": "#d20000ff",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "0 Red Circle",
         "PlayEffect": "Orange",
         "PlayAlertSound": [
           "Sharket掉落音效/高级通货.mp3",
           200
-        ]
+        ],
+        "BorderColor": "#ffffffff"
       },
       "sound": {
         "default_sound_id": 1,
@@ -139,10 +141,11 @@
           200
         ],
         "FontSize": 45,
-        "BackgroundColor": "#ff0000f0",
+        "BackgroundColor": "#f05a23ff",
         "TextColor": "#ffffffff",
-        "MinimapIcon": "0 Red Diamond",
-        "PlayEffect": "Orange"
+        "MinimapIcon": "1 Green Circle",
+        "PlayEffect": "Orange",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": 2,
@@ -188,10 +191,11 @@
           100
         ],
         "FontSize": 45,
-        "BackgroundColor": "#ff0000f0",
-        "TextColor": "#ffffffff",
-        "MinimapIcon": "1 Red Diamond",
-        "PlayEffect": "Orange"
+        "BackgroundColor": "#ffaa00ff",
+        "TextColor": "#000000ff",
+        "MinimapIcon": "2 Orange Circle",
+        "PlayEffect": "Orange",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": 2,
@@ -249,10 +253,11 @@
           100
         ],
         "FontSize": 45,
-        "BackgroundColor": "#ffa500f0",
+        "BackgroundColor": "#aa9e82ff",
         "TextColor": "#000000ff",
-        "MinimapIcon": "1 Red Diamond",
-        "PlayEffect": "Orange Temp"
+        "MinimapIcon": "2 Yellow Circle",
+        "PlayEffect": "Orange Temp",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": 2,

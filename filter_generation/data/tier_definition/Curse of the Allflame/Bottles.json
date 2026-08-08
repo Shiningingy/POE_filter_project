@@ -19,7 +19,11 @@
           "Sharket掉落音效/DOTA2_瓶.mp3",
           300
         ],
-        "FontSize": 45
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#00a070ff",
+        "BorderColor": "#ffffffff",
+        "MinimapIcon": "1 Yellow Circle"
       },
       "sound": {
         "default_sound_id": 2,

@@ -19,12 +19,15 @@
       "theme": {
         "Tier": 2,
         "FontSize": 45,
-        "MinimapIcon": "1 Red Circle",
+        "MinimapIcon": "1 Green Circle",
         "PlayEffect": "Orange",
         "PlayAlertSound": [
           "Sharket掉落音效/高级化石.mp3",
           300
-        ]
+        ],
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#d20000ff",
+        "BorderColor": "#00ff00ff"
       },
       "sound": {
         "default_sound_id": 1,
@@ -47,13 +50,16 @@
       "hideable": false,
       "theme": {
         "Tier": 3,
-        "FontSize": 40,
+        "FontSize": 45,
         "PlayAlertSound": [
           "Sharket掉落音效/化石.mp3",
           200
         ],
         "PlayEffect": "Orange Temp",
-        "MinimapIcon": "2 Yellow Circle"
+        "MinimapIcon": "2 Orange Circle",
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#ffaa00ff",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": 2,
@@ -100,7 +106,8 @@
         "PlayAlertSound": [
           "Sharket掉落音效/高级化石.mp3",
           200
-        ]
+        ],
+        "BorderColor": "#ff0000ff"
       },
       "sound": {
         "default_sound_id": 6,
@@ -122,13 +129,16 @@
     "Tier 3 Fossils": {
       "theme": {
         "Tier": 4,
-        "FontSize": 40,
+        "FontSize": 45,
         "PlayAlertSound": [
           "Sharket掉落音效/化石.mp3",
           300
         ],
         "PlayEffect": "Yellow Temp",
-        "MinimapIcon": "2 Yellow Circle"
+        "MinimapIcon": "2 Yellow Circle",
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#aa9e82ff",
+        "BorderColor": "#00000000"
       },
       "hideable": false,
       "sound": {

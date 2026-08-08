@@ -61,6 +61,30 @@
             "Sharket掉落音效/贪婪战书.mp3",
             300
           ]
+        },
+        "Writhing Invitation": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/蠕动的邀请.mp3",
+            300
+          ]
+        },
+        "Screaming Invitation": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/咆哮的邀请.mp3",
+            300
+          ]
+        },
+        "Polaric Invitation": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/极星的邀请.mp3",
+            300
+          ]
+        },
+        "Incandescent Invitation": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/炽焰的邀请.mp3",
+            300
+          ]
         }
       }
     },
