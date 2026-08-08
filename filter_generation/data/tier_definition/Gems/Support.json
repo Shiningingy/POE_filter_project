@@ -22,9 +22,12 @@
           "Sharket掉落音效/强辅技能石.mp3",
           100
         ],
-        "FontSize": 40,
+        "FontSize": 45,
         "MinimapIcon": "1 Yellow Kite",
-        "PlayEffect": "Cyan Temp"
+        "PlayEffect": "Cyan Temp",
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#1ba29bff",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": -1,
@@ -45,10 +48,11 @@
           300
         ],
         "FontSize": 45,
-        "BackgroundColor": "#d20000ff",
+        "BackgroundColor": "#1ba29bff",
         "TextColor": "#ffffffff",
-        "MinimapIcon": "0 Red Kite",
-        "PlayEffect": "Cyan"
+        "MinimapIcon": "1 Yellow Kite",
+        "PlayEffect": "Cyan",
+        "BorderColor": "#ffffffff"
       },
       "sound": {
         "default_sound_id": 6,
@@ -82,8 +86,11 @@
           "Sharket掉落音效/辅助技能石.mp3",
           100
         ],
-        "FontSize": 40,
-        "MinimapIcon": "2 Yellow Kite"
+        "FontSize": 43,
+        "MinimapIcon": "2 Yellow Kite",
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#1ba29bff",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": -1,
@@ -103,7 +110,10 @@
           100
         ],
         "FontSize": 40,
-        "MinimapIcon": "2 White Kite"
+        "MinimapIcon": "2 White Kite",
+        "TextColor": "#1ba29bff",
+        "BackgroundColor": "#1b3334ff",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": -1,

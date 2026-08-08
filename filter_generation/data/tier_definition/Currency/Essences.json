@@ -21,7 +21,11 @@
         "PlayAlertSound": [
           "Sharket掉落音效/高级精华.mp3",
           300
-        ]
+        ],
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#006effff",
+        "BorderColor": "#00000000",
+        "FontSize": 45
       },
       "sound": {
         "default_sound_id": 1,
@@ -57,12 +61,15 @@
       "hideable": false,
       "theme": {
         "Tier": 4,
-        "FontSize": 40,
+        "FontSize": 43,
         "PlayAlertSound": [
           "Sharket掉落音效/是精华哎.mp3",
           300
         ],
-        "MinimapIcon": "2 Yellow Circle"
+        "MinimapIcon": "2 Yellow Circle",
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#006effff",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": -1,
@@ -94,14 +101,15 @@
       "theme": {
         "Tier": 1,
         "FontSize": 45,
-        "BackgroundColor": "#ffffffff",
-        "TextColor": "#ff0000ff",
-        "MinimapIcon": "0 Red Circle",
+        "BackgroundColor": "#006effff",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "1 Yellow Circle",
         "PlayEffect": "Blue",
         "PlayAlertSound": [
           "Sharket掉落音效/高级精华.mp3",
           200
-        ]
+        ],
+        "BorderColor": "#ffffffff"
       },
       "sound": {
         "default_sound_id": 6,

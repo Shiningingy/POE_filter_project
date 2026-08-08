@@ -23,7 +23,11 @@
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
           100
-        ]
+        ],
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#1ba29bff",
+        "BorderColor": "#00000000",
+        "FontSize": 45
       },
       "sound": {
         "default_sound_id": -1,
@@ -42,7 +46,12 @@
         "PlayAlertSound": [
           "Sharket掉落音效/DOTA2_嘿真棒.mp3",
           200
-        ]
+        ],
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#1ba29bff",
+        "BorderColor": "#ffffffff",
+        "FontSize": 45,
+        "MinimapIcon": "1 Yellow Circle"
       },
       "sound": {
         "default_sound_id": 6,
@@ -89,7 +98,11 @@
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
           100
-        ]
+        ],
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#1ba29bff",
+        "BorderColor": "#00000000",
+        "FontSize": 43
       },
       "sound": {
         "default_sound_id": -1,
@@ -115,7 +128,11 @@
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
           100
-        ]
+        ],
+        "TextColor": "#1ba29bff",
+        "BackgroundColor": "#1b3334ff",
+        "BorderColor": "#00000000",
+        "FontSize": 40
       },
       "sound": {
         "default_sound_id": -1,
@@ -133,7 +150,11 @@
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
           100
-        ]
+        ],
+        "TextColor": "#1ba29bff",
+        "BackgroundColor": "#1b3334ff",
+        "BorderColor": "#00000000",
+        "FontSize": 40
       },
       "sound": {
         "default_sound_id": -1,
@@ -151,7 +172,11 @@
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
           100
-        ]
+        ],
+        "TextColor": "#1ba29bff",
+        "BackgroundColor": "#1b3334ff",
+        "BorderColor": "#00000000",
+        "FontSize": 40
       },
       "sound": {
         "default_sound_id": -1,

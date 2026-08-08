@@ -83,6 +83,52 @@ MAP = {
 
     ("Delirium Orbs", "R2 (single tier)"): ("Currency/Delirium Orbs.json", "Delirium Orbs"),
 
+    # ------------------------------------------------------------------ tier -> rung, ours
+    # The kit gives these sections rung-keyed values but no `_tier_map` line, so the
+    # assignment is a value judgement. Made here against the kit's OWN behavioural tests
+    # rather than by ordering, and each merge picks the ADJACENT PAIR THAT IS MOST ALIKE —
+    # merging the two middles preserves the loud end and the quiet end, which are the two
+    # the player actually reads.
+    #
+    # CORPSES — 4 real tiers (2 / 32 / 37 / 31 bases) onto 4 rungs, no merge needed. The
+    # `Tier Net` holds 0 bases, so it shares R5 with the tier above rather than earning one.
+    ("Corpses", "R2"): ("Currency/Corpses.json", "Tier 1 Corpses"),
+    ("Corpses", "R3"): ("Currency/Corpses.json", "Tier 2 Corpses"),
+    ("Corpses", "R4"): ("Currency/Corpses.json", "Tier 3 Corpses"),
+    ("Corpses", "R5"): ("Currency/Corpses.json", "Tier 4 Corpses"),
+
+    # OILS — 4 tiers, 3 rungs. Tier 0 (Reflective/Tainted/Golden/Silver) is genuine chase;
+    # Tier 1 (Opalescent/Black/Crimson) and Tier 2 (Violet/Indigo/Azure) are adjacent rungs
+    # of the same enchant ladder and are the pair to merge; Tier 3 is the bulk.
+    ("Oils", "R2"): ("Currency/Oils.json", "Tier 0 Oils"),
+    ("Oils", "R3"): ("Currency/Oils.json", "Tier 1 Oils"),
+    ("Oils", "R4"): ("Currency/Oils.json", "Tier 3 Oils"),
+
+    # ESSENCES — same shape. ⚠️ Tiers 1-3 hold ZERO mapped bases; they are driven by RULES
+    # (`T7`, `T6和T5`, `剩余`), so base count says nothing here and the ladder has to be read
+    # off the rule names instead.
+    ("Essences", "R2"): ("Currency/Essences.json", "Tier 0 Essences"),
+    ("Essences", "R3"): ("Currency/Essences.json", "Tier 1 Essences"),
+    ("Essences", "R4"): ("Currency/Essences.json", "Tier 3 Essences"),
+
+    # SKILL GEMS — the 178-base `需求 12 级及以上` tier is the bulk and takes R4, which is what
+    # the kit means by "R4 = skill AND support (same value)"; the two level-gated tiers below
+    # it are what "R5 = low-value gems only" describes.
+    # ★ ONE RUNG, SEVERAL TIERS — the kit's "R4 = skill AND support (same value); the split
+    # between them was rank-by-category, not the test" is only expressible if a single rung
+    # can land on tiers in two different files, so these carry lists.
+    ("Skill Gems", "R2"): [("Gems/Skill.json", "Tier 0 Skill"),
+                           ("Gems/Support.json", "Tier 0 Support")],
+    ("Skill Gems", "R3"): [("Gems/Skill.json", "Tier 1 Skill"),
+                           ("Gems/Support.json", "Tier 1 Support")],
+    ("Skill Gems", "R4"): [("Gems/Skill.json", "Tier 2 Skill"),
+                           ("Gems/Support.json", "Tier 2 Support")],
+    # R5 is "low-value gems only": both level-gated skill tiers and the two class nets.
+    ("Skill Gems", "R5"): [("Gems/Skill.json", "Tier 3 Skill"),
+                           ("Gems/Skill.json", "Tier 4 Skill"),
+                           ("Gems/Skill.json", "Tier Net Skill"),
+                           ("Gems/Support.json", "Tier Net Support")],
+
     # Resolved by NAME from `_tier_map`: "瓶中信 R2 · 高级达克特 R3 · 普通达克特 ... 死者硫磺-by-stack
     # · charts own blue"
     ("Curse of the Allflame", "R2 瓶中信"):      ("Curse of the Allflame/Bottles.json", "Bottles"),
@@ -95,16 +141,29 @@ MAP = {
 
 # Sections we deliberately leave for a human; the reason is printed, never silently dropped.
 DEFER = {
-    "Skill Gems": "rung-keyed, 6 tiers vs 4 rungs, no _tier_map line -> which tier takes which rung is a value call",
-    "Corpses": "rung-keyed, 5 tiers vs 4 rungs, no _tier_map line",
-    "Oils": "rung-keyed, 4 tiers vs 3 rungs, no _tier_map line",
-    "Essences": "rung-keyed, 4 tiers vs 3 rungs, no _tier_map line",
     "Legacy": "border mark only; `items keep family/rarity look - retire the text ladder` is a structural change",
     "Sockets & Links": "no theme category - these are rule overrides in VendorRecipes",
     "Jewels (normal & abyss)": "a rarity grammar (white/magic/rare), not a rung ladder",
 }
 
 STYLE = ("TextColor", "BackgroundColor", "BorderColor", "FontSize", "MinimapIcon", "PlayEffect")
+
+
+def family_shape(doc, default="Circle"):
+    """The shape this category already uses, taken from its own complete icons. Falls back
+    to Circle — the shape the kit uses across the whole currency family, and all the
+    categories that lack a sibling icon are currency-like."""
+    seen = collections.Counter()
+    for _cat, body in doc.items():
+        if not isinstance(body, dict):
+            continue
+        for k, v in body.items():
+            if k == "_meta" or not isinstance(v, dict):
+                continue
+            ic = (v.get("theme") or {}).get("MinimapIcon")
+            if isinstance(ic, str) and len(ic.split()) == 3:
+                seen[ic.split()[2]] += 1
+    return seen.most_common(1)[0][0] if seen else default
 
 
 def main():
@@ -130,7 +189,8 @@ def main():
             if not tgt:
                 unmapped.append((sec, key))
                 continue
-            touched[tgt[0]].append((tgt[1], sec, key, spec))
+            for rel, tier in ([tgt] if isinstance(tgt, tuple) else tgt):
+                touched[rel].append((tier, sec, key, spec))
 
     for rel, items in sorted(touched.items()):
         path = os.path.join(TD, rel.replace("/", os.sep))
@@ -151,6 +211,17 @@ def main():
             for k in STYLE:
                 if k in spec:
                     th[k] = spec[k]
+            # ⚠️ THE KIT WRITES `MinimapIcon` AS "<size> <colour>" AND LEAVES THE SHAPE TO
+            # THE FAMILY. That split is sound design, but the game format needs all three
+            # parts and generation DROPS a malformed icon SILENTLY — so those icons would
+            # simply never appear. Fixing them by hand does not survive: re-applying a later
+            # revision writes the two-part value straight back over the repair, which is
+            # exactly what happened between rev 1 and rev 2. So the fill happens HERE, on
+            # every apply, and the shape comes from whatever complete icon the category
+            # already uses rather than being invented.
+            ic = th.get("MinimapIcon")
+            if isinstance(ic, str) and len(ic.split()) == 2:
+                th["MinimapIcon"] = "%s %s" % (ic, family_shape(d))
             # ⚠️ A `disabled:` value is an omit-sentinel, not a colour (scrolls carry one).
             # The patch never sends one, so nothing here can resurrect a muted rung by
             # accident — but if a future kit does, it must be passed through verbatim.
