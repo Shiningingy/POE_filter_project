@@ -43,7 +43,7 @@
       },
       "hideable": false,
       "theme": {
-        "Tier": 2,
+        "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/6洞装备.mp3",
           300
@@ -66,7 +66,7 @@
       },
       "hideable": false,
       "theme": {
-        "Tier": 4,
+        "Tier": 5,
         "PlayAlertSound": [
           "Sharket掉落音效/幻色装.mp3",
           100

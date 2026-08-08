@@ -17,7 +17,7 @@
     "Tier 0 Fractured": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
+        "Tier": 3,
         "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/破碎装备.mp3",
@@ -46,7 +46,7 @@
     "Tier 1 Fractured": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": 1,
@@ -67,7 +67,7 @@
     "Tier 2 Fractured": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": 2,

@@ -14,7 +14,7 @@
     "Incursion Vials": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
+        "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/魔瓶.mp3",
           300

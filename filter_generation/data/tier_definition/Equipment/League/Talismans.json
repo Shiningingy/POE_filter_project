@@ -16,7 +16,7 @@
     "Talismans T0": {
       "hideable": true,
       "theme": {
-        "Tier": 2,
+        "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/魔符.mp3",
           100
@@ -37,7 +37,7 @@
     "Talismans T1": {
       "hideable": true,
       "theme": {
-        "Tier": 3
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,
@@ -54,7 +54,7 @@
     "Talismans T2": {
       "hideable": true,
       "theme": {
-        "Tier": 4
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": -1,

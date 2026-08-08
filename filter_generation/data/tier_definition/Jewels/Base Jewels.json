@@ -14,7 +14,7 @@
     "Base Jewels": {
       "hideable": false,
       "theme": {
-        "Tier": 3,
+        "Tier": 4,
         "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/常规珠宝.mp3",

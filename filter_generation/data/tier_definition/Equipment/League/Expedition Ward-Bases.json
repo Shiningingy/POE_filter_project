@@ -14,7 +14,7 @@
     "Expedition Ward-Bases": {
       "hideable": true,
       "theme": {
-        "Tier": 2
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,

@@ -24,7 +24,7 @@
         "AreaLevel": ">= 68"
       },
       "theme": {
-        "Tier": 3
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,
@@ -124,7 +124,7 @@
         "AreaLevel": "RANGE >= 68 <= 72"
       },
       "theme": {
-        "Tier": 3
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,

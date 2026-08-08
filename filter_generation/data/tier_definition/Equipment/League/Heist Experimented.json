@@ -16,7 +16,7 @@
     "Heist Experimented T0": {
       "hideable": true,
       "theme": {
-        "Tier": 2
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": -1,
@@ -59,7 +59,7 @@
     "Heist Experimented T1": {
       "hideable": true,
       "theme": {
-        "Tier": 3
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,
@@ -76,7 +76,7 @@
     "Heist Experimented T2": {
       "hideable": true,
       "theme": {
-        "Tier": 4
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": -1,

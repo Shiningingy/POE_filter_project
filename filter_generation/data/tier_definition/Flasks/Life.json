@@ -17,7 +17,7 @@
     "Tier 1 Life Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
+        "Tier": 3,
         "PlayAlertSound": "disabled:"
       },
       "sound": {
@@ -35,7 +35,7 @@
     "Tier 2 Life Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 4,
+        "Tier": 5,
         "PlayAlertSound": "disabled:"
       },
       "sound": {
@@ -56,7 +56,7 @@
       "_note": "OFF BY DEFAULT. hide_at_strictness 0 means 'hide from soft upward', i.e. at every level — that is how a tier ships disabled but stays user-enablable: clear the gate in the Strictness Gates editor and it shows. ilvl 82 is not the base's drop level (Divine 60 / Eternal 65) but the MOD ceiling: Chemist's (FlaskChargesUsed5) and Ample (FlaskExtraCharges5), the two prefixes worth keeping a flask for, both require level 82 in Mods.json. Same breakpoint Utility Flasks already uses.",
       "hideable": true,
       "theme": {
-        "Tier": 3,
+        "Tier": 4,
         "PlayAlertSound": "disabled:"
       },
       "sound": {
@@ -77,7 +77,7 @@
       "hideable": true,
       "class_condition": true,
       "theme": {
-        "Tier": 4,
+        "Tier": 5,
         "PlayAlertSound": "disabled:"
       },
       "sound": {

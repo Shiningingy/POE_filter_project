@@ -199,7 +199,7 @@
       "class_condition": true,
       "hideable": false,
       "theme": {
-        "Tier": 3,
+        "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/哇哦传奇.mp3",
           300

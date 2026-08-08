@@ -17,7 +17,7 @@
       "hideable": true,
       "conditions": {},
       "theme": {
-        "Tier": 1,
+        "Tier": 3,
         "FontSize": 45,
         "BackgroundColor": "#d20000ff",
         "TextColor": "#ffffffff",
@@ -41,7 +41,7 @@
       "hideable": true,
       "conditions": {},
       "theme": {
-        "Tier": 2,
+        "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/孕育赠礼.mp3",
           300
@@ -63,7 +63,7 @@
         "Class": "== \"Wombgifts\""
       },
       "theme": {
-        "Tier": 4,
+        "Tier": 5,
         "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/孕育赠礼.mp3",

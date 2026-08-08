@@ -16,7 +16,7 @@
     "Tier 1 Runegrafts": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
+        "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/符文.mp3",
           300
@@ -48,7 +48,7 @@
     },
     "Tier 0 Runegrafts": {
       "theme": {
-        "Tier": 1,
+        "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/666.mp3",
           100
@@ -62,7 +62,7 @@
     },
     "Tier 2 Runegrafts": {
       "theme": {
-        "Tier": 4,
+        "Tier": 5,
         "PlayAlertSound": [
           "Sharket掉落音效/文身.mp3",
           100

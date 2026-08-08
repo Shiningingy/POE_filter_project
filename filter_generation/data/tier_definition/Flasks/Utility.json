@@ -16,7 +16,7 @@
     "Tier 1 Utility Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
+        "Tier": 3,
         "PlayAlertSound": "disabled:"
       },
       "sound": {
@@ -94,7 +94,7 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 1,
+        "Tier": 2,
         "PlayAlertSound": "disabled:"
       },
       "sound": {

@@ -55,7 +55,7 @@
       },
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": 2,
@@ -70,7 +70,7 @@
     "Tier 3 Trinkets": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": -1,

@@ -15,7 +15,7 @@
     "Heist Blueprint T1": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": -1,
@@ -43,7 +43,7 @@
     },
     "CustomTier 1 Heist Blueprints": {
       "theme": {
-        "Tier": 2,
+        "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/高级蓝图.mp3",
           300

@@ -15,7 +15,7 @@
     "Ritual BaseTypes T0": {
       "hideable": true,
       "theme": {
-        "Tier": 2
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,
@@ -32,7 +32,7 @@
     "Ritual BaseTypes T1": {
       "hideable": true,
       "theme": {
-        "Tier": 4
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": -1,

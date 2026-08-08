@@ -30,7 +30,7 @@
         "ItemLevel": ">= 84"
       },
       "theme": {
-        "Tier": 0,
+        "Tier": 2,
         "FontSize": 45,
         "BackgroundColor": "#ffffffff",
         "TextColor": "#ff0000ff",
@@ -101,7 +101,7 @@
         "Quality": "> 20"
       },
       "theme": {
-        "Tier": 2,
+        "Tier": 3,
         "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/顶级底材.mp3",
