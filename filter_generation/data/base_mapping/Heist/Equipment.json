@@ -81,7 +81,7 @@
     {
       "targets": [],
       "conditions": {
-        "Class": "\"Heist Gear\""
+        "Class": "== \"Heist Gear\" \"Heist Tools\" \"Heist Cloaks\" \"Heist Brooches\""
       },
       "overrides": {
         "Tier": "Heist Gear T2",
