@@ -1098,8 +1098,9 @@
   "Class Nets": {
     "Tier 0": {
       "FontSize": 40,
-      "BackgroundColor": "#2e4a5af0",
-      "TextColor": "#cfe0e8ff"
+      "BackgroundColor": "#000000ff",
+      "TextColor": "#ff5ac8ff",
+      "BorderColor": "#00000000"
     }
   }
 }
