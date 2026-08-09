@@ -36,7 +36,7 @@
           200
         ],
         "FontSize": 45,
-        "MinimapIcon": "1 Yellow Circle"
+        "MinimapIcon": "1 Yellow Cross"
       },
       "sound": {
         "default_sound_id": 6,

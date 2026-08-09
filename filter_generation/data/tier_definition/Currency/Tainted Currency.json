@@ -19,7 +19,7 @@
       "theme": {
         "Tier": 1,
         "FontSize": 45,
-        "MinimapIcon": "0 Red Circle",
+        "MinimapIcon": "0 Red Diamond",
         "PlayEffect": "Red",
         "PlayAlertSound": "disabled:",
         "BorderColor": "#ff0000ff"

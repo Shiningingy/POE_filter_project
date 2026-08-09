@@ -20,7 +20,7 @@
       "theme": {
         "Tier": 1,
         "FontSize": 45,
-        "MinimapIcon": "0 White Star",
+        "MinimapIcon": "0 White Square",
         "PlayEffect": "White",
         "PlayAlertSound": [
           "Sharket掉落音效/超级地图.mp3",
@@ -50,7 +50,7 @@
       "theme": {
         "Tier": 2,
         "FontSize": 45,
-        "MinimapIcon": "1 Red Diamond",
+        "MinimapIcon": "1 Red Square",
         "PlayEffect": "Red",
         "PlayAlertSound": [
           "Sharket掉落音效/超级地图.mp3",
