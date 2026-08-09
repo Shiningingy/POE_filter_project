@@ -160,9 +160,14 @@
     }
   },
   "_author_corrections": {
-    "_about": "⚠️ THE WIKI IS NOT INFALLIBLE. It is the only per-mode source we have, and it is community-maintained and lags. These are entries the AUTHOR has contradicted from play. Each one REMOVES a base from drop_disabled; nothing here adds to it. Kept beside the parsed data rather than in the parser, because re-parsing the saved page must not lose them — the page will still say the old thing.",
+    "_about": "⚠️ THE WIKI IS NOT INFALLIBLE. It is the only per-mode source we have, and it is community-maintained and lags. These are entries the AUTHOR has contradicted from play, in BOTH directions: `drops_after_all` removes a base from drop_disabled, `does_not_drop` adds one the wiki never listed. Kept beside the parsed data rather than in the parser, because re-parsing the saved page must not lose them — the page will still say the old thing.",
     "drops_after_all": {
       "Thief's Trinket": "Drops in Ruthless — author, from play (observed last league). The wiki lists it under removed_items. This is the single known-bad wiki row and it had already been noticed once before without being written down anywhere the code could read."
+    },
+    "does_not_drop": {
+      "Scrying Orb": "Drop-disabled in Ruthless — author, 2026-08-09. New in this patch (ilvl 78) and the wiki has no row for it either way, so reconcile surfaced it as a decision.",
+      "Artifacts (Black Scythe / Broken Circle / Order / Sun — all tiers)": "AUTO-COLLECTED, like Gold — author, 2026-08-09. Not a drop-disabled item: it exists and is picked up without a click, so it needs no filter treatment and no sound. The four 神器 sounds lost in the port are correctly silent.",
+      "Bestiary nets (Necromancy Net, Reinforced Iron Net, ...)": "Legacy — author, 2026-08-09. The 猎魔夹 sound is correctly silent."
     }
   }
 }
