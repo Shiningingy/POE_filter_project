@@ -1,102 +1,137 @@
 # -*- coding: utf-8 -*-
-"""Remove inline tier style that is a COPY of a theme row, keeping real author choices.
+"""Hand a tier's colour back to its rung, by clearing the stale inline snapshot.
 
-⚠️ WHY THIS EXISTS. Inline `tier.theme` style WINS over `sharket_theme.json` — the tier block
-owns its look (`resolveTierTheme`, "THE TIER BLOCK OWNS ITS LOOK"). That is correct and
-deliberate. The hazard is a stale COPY: while the copy equals the row, nothing is visibly
-wrong, so it survives every review. The moment the rung moves, the copy silently vetoes the
-move and the block keeps its old look while the theme file says otherwise.
+    python parsing_tool/theme/clear_stale_inline.py Currency/General.json
+    python parsing_tool/theme/clear_stale_inline.py Currency/General.json --apply
 
-That is not hypothetical. `Curse of the Allflame/Bottles.json` was re-ranked T2 -> T0 on the
-author's call; `adopt_compiled_theme` wrote `theme.Tier: 0`, the theme file grew a correct
-`Tier 0` row (white plate, allflame's 165 60 0 t0_text) -- and the emitted block did not
-change one byte, because the tier still carried a verbatim copy of the old T2 row.
+★ WHY THIS EXISTS. The model is: a block authors its RUNG, the theme supplies the look for
+that rung, and inline style is for genuine per-block exceptions. But `reseed_tier_styles.py`
+(since retired) had pre-filled every block's inline with a SNAPSHOT of its fully-resolved
+style, and inline WINS over the row -- so 398 of 421 blocks carried a copy of the answer.
 
-THE TEST: an inline block that exactly equals SOME row of its own category is a copy and is
-removed. One that differs from every row is an author decision -- the currency sweep is 30 of
-these -- and is never touched. Removing a copy cannot change output: the row it is deleted in
-favour of is the value it held.
+That was harmless while the copy matched. **The re-tier broke it**: rungs moved, the snapshots
+did not follow, and each block kept the look of the rung it used to be on. The rung became
+decorative. Author, from game: *"chaos orb is the same as alteration orb"* -- `Tier 4 General`
+(rung 2) and `Tier 6 General` (rung 3) both still carry `#aa9e82`, the tan from the old
+nine-tier scale, differing only in alpha.
 
-`PlayAlertSound` is NOT a style key and is never removed: the generator reads it off the tier
-directly and it has no theme-row equivalent.
+`apply_compiled.py` does this same clear, but only as part of applying the COMPILED theme --
+which the author rejected ("a visual disaster") in favour of the Sharket copy. This does the
+clear alone, against whatever theme is live.
+
+WHAT IS PRESERVED, and why each one matters:
+
+  PlayAlertSound      NOT a style channel. The generator reads `tier.theme.PlayAlertSound`
+                      above `sound.sharket_sound_id`; clearing it would silently retune the
+                      sound of a fifth of the tree.
+  Tier                the rung itself -- the thing we are handing control back TO.
+  disabled: / inherit / default
+                      omit-SENTINELS, not colours. `Tier 8 General` disables its plate and
+                      text on purpose so the game paints the label; dropping the sentinel
+                      would let the row paint over an authored silence.
+  FontSize, PlayEffect, MinimapIcon
+                      left alone BY DEFAULT (`--colours-only`, the default). Size is the
+                      author's axis and is hand-tuned -- *"i will tune the size and you will
+                      check the theme"* -- so a blanket clear would destroy that work. Pass
+                      `--all-channels` to hand those back too.
+
+⚠️ A CLEARED CHANNEL MUST HAVE A ROW TO FALL BACK TO. `theme[cat]["Tier N"]` falls back to
+`{}`, never to Default, so clearing a channel whose rung has no row emits a bare label. This
+refuses to clear in that case and says so.
 """
-import io, json, os, sys
+import io, json, os, sys, collections
 
-try:                                   # console is GBK on this box; the report has ⚠️ in it
+try:
     sys.stdout.reconfigure(encoding="utf-8")
 except Exception:
     pass
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(HERE))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TD = os.path.join(ROOT, "filter_generation", "data", "tier_definition")
-THEME = os.path.join(ROOT, "filter_generation", "data", "theme", "sharket",
-                     "sharket_theme.json")
-STYLE = {"FontSize", "BackgroundColor", "TextColor", "BorderColor",
-         "MinimapIcon", "PlayEffect"}
-APPLY = "--apply" in sys.argv
+THEME = os.path.join(ROOT, "filter_generation", "data", "theme", "sharket", "sharket_theme.json")
+
+COLOURS = ["TextColor", "BorderColor", "BackgroundColor"]
+EXTRAS = ["FontSize", "PlayEffect", "MinimapIcon"]
+KEEP = {"Tier", "PlayAlertSound"}
+
+
+def sentinel(v):
+    return v is None or (isinstance(v, str) and
+                         (v.startswith("disabled:") or v in ("inherit", "default")))
 
 
 def main():
-    theme = json.load(io.open(THEME, encoding="utf-8"))
-    cleared, kept, files = [], [], 0
-    for dp, dn, fns in os.walk(TD):
-        dn[:] = [d for d in dn if not d.startswith("_arch")]
-        for fn in sorted(fns):
-            if not fn.endswith(".json"):
-                continue
-            p = os.path.join(dp, fn)
-            rel = os.path.relpath(p, TD).replace(os.sep, "/")
-            raw = io.open(p, encoding="utf-8").read()
-            d = json.loads(raw)
-            top = [k for k in d if not k.startswith("//") and isinstance(d[k], dict)]
-            if not top:
-                continue
-            cat = d[top[0]]
-            tc = (cat.get("_meta") or {}).get("theme_category") or top[0]
-            if tc == "States":
-                continue                      # decorators own their look by definition
-            rows = theme.get(tc) or {}
-            dirty = False
-            for k, v in cat.items():
-                if k.startswith("_") or not isinstance(v, dict):
-                    continue
-                th = v.get("theme") or {}
-                inline = {x: th[x] for x in STYLE if x in th}
-                if not inline:
-                    continue
-                # ⚠️ THE TIER'S OWN ROW, and nothing else. A first version matched ANY row in
-                # the category, which is not a copy test at all — it deletes any inline block
-                # that happens to equal some other rung, and that is precisely how an author
-                # says "this tier ranks T3 but should LOOK like T2". It reverted six blocks of
-                # the currency sweep (`T5:点金石级` carries the T2 plate on a T3 rung, on
-                # purpose) plus the Tattoo rule. Matching only `Tier <own>` makes the removal
-                # byte-safe by construction: the row it falls back to IS the value deleted.
-                own = "Tier %s" % th.get("Tier")
-                rv = rows.get(own)
-                match = own if (rv is not None
-                                and all(rv.get(x) == vv for x, vv in inline.items())
-                                and len(inline) == len([x for x in rv if x in STYLE])) else None
-                if match:
-                    cleared.append((rel, k, th.get("Tier"), match, sorted(inline)))
-                    for x in inline:
-                        th.pop(x, None)
-                    dirty = True
-                else:
-                    kept.append((rel, k, th.get("Tier")))
-            if dirty and APPLY:
-                io.open(p, "w", encoding="utf-8").write(
-                    json.dumps(d, ensure_ascii=False, indent=2) + "\n")
-                files += 1
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    apply_ = "--apply" in sys.argv
+    channels = COLOURS + (EXTRAS if "--all-channels" in sys.argv else [])
+    if not args:
+        print(__doc__.strip().split("\n")[2].strip())
+        return 2
 
-    print("inline style that COPIES ITS OWN row -> cleared : %d" % len(cleared))
-    for rel, k, t, match, keys in cleared:
-        print("    %-46s %-30s %s" % (rel, k, match))
+    rel = args[0].replace("\\", "/")
+    path = os.path.join(TD, *rel.split("/"))
+    if not os.path.exists(path):
+        print("no such tier file: %s" % path)
+        return 2
+
+    T = json.load(io.open(THEME, encoding="utf-8"))
+    d = json.load(io.open(path, encoding="utf-8"), object_pairs_hook=collections.OrderedDict)
+
+    cleared, kept, blocked = [], [], []
+    for cat, body in d.items():
+        if not isinstance(body, dict):
+            continue
+        tcat = (body.get("_meta") or {}).get("theme_category") or cat
+        rows = T.get(tcat) or T.get("Default") or {}
+        for tier, node in body.items():
+            if tier == "_meta" or not isinstance(node, dict):
+                continue
+            th = node.get("theme")
+            if not isinstance(th, dict):
+                continue
+            row = rows.get("Tier %s" % th.get("Tier")) or {}
+            for ch in list(th):
+                if ch in KEEP or ch not in channels:
+                    continue
+                v = th[ch]
+                if sentinel(v):
+                    kept.append((tier, ch, "sentinel — authored silence"))
+                    continue
+                if ch not in row:
+                    # Not necessarily wrong — an absent channel means "let the game paint it",
+                    # which for a border means no border at all. But it is a CHANGE the rung
+                    # cannot express, so refuse and report rather than silently drop it.
+                    blocked.append((tier, ch, "rung %s supplies no %s — clearing would DROP "
+                                    "the channel, not re-derive it" % (th.get("Tier"), ch)))
+                    continue
+                cleared.append((tier, ch, v, row[ch], v == row[ch]))
+                if apply_:
+                    del th[ch]
+
+    print("=== %s ===" % rel)
+    print("  cleared : %d   (%d were already identical to the row — pure redundancy)"
+          % (len(cleared), sum(1 for c in cleared if c[4])))
+    print("  kept    : %d sentinels" % len(kept))
+    print("  blocked : %d (no row to fall back to)" % len(blocked))
     print()
-    print("inline style that DIFFERS (author's own) -> kept : %d" % len(kept))
-    print()
-    print(("wrote %d files" % files) if APPLY else "(dry run -- pass --apply)")
+    print("  %-20s %-16s %-22s %-22s" % ("tier", "channel", "inline was", "rung now supplies"))
+    print("  " + "-" * 84)
+    for tier, ch, was, now, same in cleared:
+        print("  %-20s %-16s %-22s %-22s %s"
+              % (tier[:20], ch, str(was)[:22], str(now)[:22], "" if not same else "(same)"))
+    for tier, ch, why in kept + blocked:
+        print("  %-20s %-16s %s" % (tier[:20], ch, why))
+
+    if apply_:
+        io.open(path, "w", encoding="utf-8").write(
+            json.dumps(d, ensure_ascii=False, indent=2) + "\n")
+        print()
+        print("written: %s" % rel)
+    else:
+        print()
+        print("(review only -- pass --apply)")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
