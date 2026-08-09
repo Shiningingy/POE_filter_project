@@ -133,7 +133,7 @@
     "Tier 4 Tainted": {
       "hideable": true,
       "theme": {
-        "Tier": 4,
+        "Tier": 3,
         "FontSize": 40,
         "MinimapIcon": "2 White Diamond",
         "TextColor": "#f5554bff",

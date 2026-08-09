@@ -37,7 +37,7 @@
     "Tier 1 Tinctures": {
       "hideable": false,
       "theme": {
-        "Tier": 5,
+        "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/酊剂.mp3",
           200

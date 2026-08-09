@@ -132,7 +132,7 @@
     "Tier 3 Fragments": {
       "hideable": false,
       "theme": {
-        "Tier": 4,
+        "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
           300
@@ -167,7 +167,7 @@
     "Tier 4 Fragments": {
       "hideable": false,
       "theme": {
-        "Tier": 5,
+        "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
           100

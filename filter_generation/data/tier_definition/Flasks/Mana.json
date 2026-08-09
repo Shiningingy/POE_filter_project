@@ -34,7 +34,7 @@
     "Tier 2 Mana Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 5,
+        "Tier": 4,
         "PlayAlertSound": "disabled:"
       },
       "sound": {

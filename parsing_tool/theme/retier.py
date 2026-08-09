@@ -33,16 +33,28 @@ only T5 (no floor below scrolls)":
 Roughly one rung per decade of value — five orders of magnitude across six rungs, which is
 why "roughly that level" is precise enough and nobody has to price anything exactly.
 
-⚠️ CONSEQUENCE FOR THE TABLE BELOW. It was written against the wrong labels — "R3 = Exalted,
-R4 = Chaos, R5 = alch and below" — so every judgement from R2 down landed 1-2 rungs QUIETER
-than the anchor it claims to match. A tier judged Exalted-level got R3 where a real Exalted
-Orb sits at R2; one judged alch-level got R5 where a real Alchemy Orb sits at R3. 79 tiers
-ended up on R5, i.e. below a Scroll of Wisdom, which is not credible for most of them.
+★ RECALIBRATED 2026-08-09. The table below was first written against the WRONG labels —
+"R3 = Exalted, R4 = Chaos, R5 = alch and below" — so every judgement from R2 down sat 1-2
+rungs quieter than the anchor it claimed to match, and 79 tiers ended up on R5, i.e. below a
+Scroll of Wisdom. The author confirmed the anchor holds for Ruthless as-is: *"currency are
+rarer in ruthless but the relevant value stay the same"* — scarcer, same relative order — so
+the fix is per-tier moves, not a shift of the whole ladder.
 
-This is LATENT, not shipped: the copy-forward carried each tier's existing look into its new
-rung, so the miscalibration does not reach the filter today. It becomes real at the
-`family x rung` collapse, when the rung alone decides the look. Re-derive the table against
-the anchor above BEFORE that collapse.
+15 tiers moved, all upward, and each one is a thing that trades above the rung it was on:
+
+    R4 -> R3   things that beat a scroll : common fragments, common oils, common omens,
+               Splinters T1 (labelled 值得停下 — "worth stopping for"), common essences,
+               common scarabs, low tainted currency, other uniques
+    R5 -> R4   things that are not floor : single splinters, the top life/mana flasks
+               (labelled 顶级 yet painted as noise), tinctures, low-value fragments,
+               other blueprints, other contracts
+
+★ The author had already found this by eye before the anchor error was traced: *"just find
+lowtier oils are still somehow low visibility"* — `Oils Tier 3` was on R4, scroll level, for
+an item that is not scroll-level. The in-game read and the arithmetic agreed.
+
+Everything genuinely below scroll stays on R5: gold (auto-collected, the label is a readout),
+the equipment nets, RGB linked, legacy, the trinket bottoms.
 
 ⚠️ THIS PASS IS DELIBERATELY VISUALLY NEUTRAL. Moving a tier to a rung whose row does not
 exist would hand it the `{}` fallback — bare `SetFontSize 32`, no colour — which is exactly
@@ -83,7 +95,7 @@ ANCHOR = {0: "顶级通货 Mirror", 1: "神圣石级 Divine", 2: "高价值通�
 RETIER = {
     # --- league currency: valuable but not chase; tops out around Exalted -------------
     "Enshrouding Crystals": 3, "Incursion Vials": 3, "Enshrouded Gear": 3,
-    "Tier 0 Omens": 2, "Tier 1 Omens": 3, "Tier 2 Omens": 4,
+    "Tier 0 Omens": 2, "Tier 1 Omens": 3, "Tier 2 Omens": 3,   # omens are priced currency
     "Tier 0 Runegrafts": 3, "Tier 1 Runegrafts": 4, "Tier 2 Runegrafts": 5,
     "Tier 1 Wombgifts": 3, "Tier 2 Wombgifts": 4, "Tier Net Wombgifts": 5,
     "Tier 0 Heist Currency": 4, "Tier 1 Heist Currency": 5,
@@ -122,15 +134,17 @@ RETIER = {
     "6-Link": 1, "6-Socket": 3, "RGB Linked": 5,
 
     # --- flasks --------------------------------------------------------------------------
+    # ★ the T2 flasks are labelled 顶级生命/魔力药剂 — a flask you actually use is not floor
     "Tier 1 Life Flasks": 3, "Tier i82 Life Flasks": 4,
-    "Tier 2 Life Flasks": 5, "Tier Hybrid Flasks": 5,
-    "Tier 1 Mana Flasks": 3, "Tier i82 Mana Flasks": 4, "Tier 2 Mana Flasks": 5,
-    "Tier 0 Tinctures": 3, "Tier 1 Tinctures": 5,
+    "Tier 2 Life Flasks": 4, "Tier Hybrid Flasks": 5,
+    "Tier 1 Mana Flasks": 3, "Tier i82 Mana Flasks": 4, "Tier 2 Mana Flasks": 4,
+    "Tier 0 Tinctures": 3, "Tier 1 Tinctures": 4,
     "Tier 0 Utility Flasks": 2, "Tier 1 Utility Flasks": 3, "Tier 2 Utility Flasks": 4,
 
     # --- heist ---------------------------------------------------------------------------
-    "CustomTier 1 Heist Blueprints": 3, "Heist Blueprint T1": 5,
-    "Heist Contract T0": 3, "Heist Contract T1": 5,
+    # a blueprint or contract is runnable content, not noise
+    "CustomTier 1 Heist Blueprints": 3, "Heist Blueprint T1": 4,
+    "Heist Contract T0": 3, "Heist Contract T1": 4,
     "Heist Gear T1": 4, "Heist Gear T2": 5, "Heist Target": 3,
 
     # --- jewels: a 12-passive large cluster is a genuine chase --------------------------
@@ -145,14 +159,24 @@ RETIER = {
     # Maven's Writ, the invitations) — genuinely a rung apart, so collapsing them would throw
     # away the most valuable distinction in the category.
     "Tier 0 Fragments": 1, "Tier 1 Fragments": 2, "Tier 2 Fragments": 3,
-    "Tier 3 Fragments": 4, "Tier 4 Fragments": 5,
-    "Tier 0 Splinters": 3, "Tier 1 Splinters": 4, "Tier 2 Splinters": 5,
+    "Tier 3 Fragments": 3, "Tier 4 Fragments": 4,
+    # `Tier 1 Splinters` is literally labelled 值得停下 — "worth stopping for" — and was on
+    # the scroll rung; one splinter still beats a Scroll of Wisdom, so T2 leaves the floor.
+    "Tier 0 Splinters": 3, "Tier 1 Splinters": 3, "Tier 2 Splinters": 4,
 
     # --- misc / quest --------------------------------------------------------------------
     "Misc": 3, "Legacy": 5,
 
     # --- uniques: the chase family, and 175 96 37 is pinned ------------------------------
-    "T0 Chase": 0, "T1": 1, "T2": 2, "T3": 3, "Other": 4,
+    # `Other` is the unique net: in Ruthless a unique is always worth one look, so it does
+    # not belong on the scroll rung.
+    "T0 Chase": 0, "T1": 1, "T2": 2, "T3": 3, "Other": 3,
+
+    # --- ★ 2026-08-09: bottoms of league ladders that trade above a scroll ----------------
+    # These were never in the table — they kept the designer patch's rung, which put them on
+    # R4 (scroll level). Each is a real, priced item; the author reported the oils one from
+    # play before the anchor error was traced.
+    "Tier 3 Oils": 3, "Tier 3 Essences": 3, "Tier 4 Scarabs": 3, "Tier 4 Tainted": 3,
 }
 
 

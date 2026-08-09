@@ -94,7 +94,7 @@
     "Tier 4 Scarabs": {
       "hideable": false,
       "theme": {
-        "Tier": 4,
+        "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/圣甲虫.mp3",
           100

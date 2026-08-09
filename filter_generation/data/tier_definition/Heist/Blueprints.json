@@ -15,7 +15,7 @@
     "Heist Blueprint T1": {
       "hideable": false,
       "theme": {
-        "Tier": 5
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,

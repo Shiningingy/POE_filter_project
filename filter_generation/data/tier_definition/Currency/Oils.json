@@ -59,7 +59,7 @@
     "Tier 3 Oils": {
       "hideable": false,
       "theme": {
-        "Tier": 4,
+        "Tier": 3,
         "FontSize": 40,
         "PlayAlertSound": "disabled:",
         "MinimapIcon": "2 White Circle",

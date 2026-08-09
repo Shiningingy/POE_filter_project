@@ -60,7 +60,7 @@
     "Tier 3 Essences": {
       "hideable": false,
       "theme": {
-        "Tier": 4,
+        "Tier": 3,
         "FontSize": 43,
         "PlayAlertSound": [
           "Sharket掉落音效/是精华哎.mp3",

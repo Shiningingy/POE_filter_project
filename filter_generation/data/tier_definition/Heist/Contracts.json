@@ -29,7 +29,7 @@
     "Heist Contract T1": {
       "hideable": true,
       "theme": {
-        "Tier": 5
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,

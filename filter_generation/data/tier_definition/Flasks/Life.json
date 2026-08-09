@@ -35,7 +35,7 @@
     "Tier 2 Life Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 5,
+        "Tier": 4,
         "PlayAlertSound": "disabled:"
       },
       "sound": {
