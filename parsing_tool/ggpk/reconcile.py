@@ -224,19 +224,36 @@ def read_class_coverage() -> dict[str, list[str]]:
     Categories that select by Class cover every member of that class without
     naming one, so those bases are handled even though no mapping mentions them.
     """
+    # ⚠️ BOTH ROOTS. This scanned `tier_definition` only, but 29 `Class` conditions live in
+    # `base_mapping` rules — including `Class == "Maps"`, which meant 246 maps were reported
+    # as never-mapped backlog while a class rule was matching every one of them. Same shape
+    # as the substring gap below: coverage the queue could not see, so it invented work.
     cover = collections.defaultdict(set)
-    for path in glob.glob(os.path.join(TIER_DEFINITION, "**", "*.json"), recursive=True):
-        rel = os.path.relpath(path, TIER_DEFINITION).replace("\\", "/")
+    scan_files = [(TIER_DEFINITION, "tier_definition", p) for p in
+                  glob.glob(os.path.join(TIER_DEFINITION, "**", "*.json"), recursive=True)]
+    scan_files += [(BASE_MAPPING, "base_mapping", p) for p in
+                   glob.glob(os.path.join(BASE_MAPPING, "**", "*.json"), recursive=True)]
+    for root, tag, path in scan_files:
+        rel = "%s/%s" % (tag, os.path.relpath(path, root).replace("\\", "/"))
         try:
             with open(path, encoding="utf-8-sig") as fh:
                 doc = json.load(fh)
         except Exception as exc:
-            die(f"tier_definition/{rel} is not valid JSON: {exc}")
+            die(f"{rel} is not valid JSON: {exc}")
 
         def scan(obj):
             if isinstance(obj, dict):
+                # ⚠️ A `Class` NETS ITS CLASS ONLY IF NOTHING NARROWS IT. `Class` sitting
+                # beside a `BaseType` in the same conditions block is a GUARD on that
+                # BaseType, not a net: Currency/General has
+                # `BaseType "Astrolabe" + Class Stackable Currency`, which covers astrolabes
+                # and nothing else. Crediting it retired all 226 uncurated stackable
+                # currencies from the queue while every one of them still fell to the
+                # catch-all — the exact inverse of the bug fixed above, and the more
+                # dangerous direction, because it hides work instead of inventing it.
+                guarded = "BaseType" in obj
                 for k, v in obj.items():
-                    if k == "Class":
+                    if k == "Class" and not guarded:
                         for val in (v if isinstance(v, list) else [v]):
                             if not isinstance(val, str):
                                 continue
@@ -244,7 +261,7 @@ def read_class_coverage() -> dict[str, list[str]]:
                                 token = token.strip().lstrip("=").strip().strip('"')
                                 if token:
                                     cover[token].add(rel)
-                    else:
+                    elif k != "Class":
                         scan(v)
             elif isinstance(obj, list):
                 for item in obj:
