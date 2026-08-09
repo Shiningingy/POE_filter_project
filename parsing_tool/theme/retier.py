@@ -14,15 +14,35 @@ the screen for it", "would you turn around for it" — none of which mention a c
 pass writes those answers into `theme.Tier`.
 
 ★ ANCHORED ON CURRENCY, because currency is the yardstick everything in PoE is priced in,
-and it is our most granular ladder (9 tiers against a median of 3-4). Per the kit's
-`_tier_map`, `Currency Tier N = RN`:
+and it is our most granular ladder (9 tiers against a median of 3-4).
 
-    R0  顶级通货      Mirror          R3  崇高石级   Exalted
-    R1  神圣石级      Divine          R4  混沌石级   Chaos
-    R2  高价值通货                     R5  点金石级 and below
+⚠️ THE ANCHOR IS NOT `Currency Tier N = RN`. This file said that, and it was wrong — the
+table below was built on it, so the table inherits the error (see the audit note at the
+bottom). The SHIPPED currency ladder pairs nine tiers onto five rungs, which is what
+`apply_designer_patch.py` means by "collapses nine tiers onto five rungs" and what
+`docs/design/handoff/reply-05-six-rungs.md` means by "currency now uses T0-T4 and skips
+only T5 (no floor below scrolls)":
+
+    R0  T0 顶级通货                    Mirror
+    R1  T1 神圣石级  + T2 高价值通货     Divine / high value
+    R2  T3 崇高石级  + T4 混沌石级       Exalted / Chaos
+    R3  T5 点金石级  + T6 改造石级       Alchemy / Alteration
+    R4  T7 低价值通货 + T8 卷轴          low value / scrolls
+    R5  --                            the floor, BELOW scroll level (currency has nothing here)
 
 Roughly one rung per decade of value — five orders of magnitude across six rungs, which is
 why "roughly that level" is precise enough and nobody has to price anything exactly.
+
+⚠️ CONSEQUENCE FOR THE TABLE BELOW. It was written against the wrong labels — "R3 = Exalted,
+R4 = Chaos, R5 = alch and below" — so every judgement from R2 down landed 1-2 rungs QUIETER
+than the anchor it claims to match. A tier judged Exalted-level got R3 where a real Exalted
+Orb sits at R2; one judged alch-level got R5 where a real Alchemy Orb sits at R3. 79 tiers
+ended up on R5, i.e. below a Scroll of Wisdom, which is not credible for most of them.
+
+This is LATENT, not shipped: the copy-forward carried each tier's existing look into its new
+rung, so the miscalibration does not reach the filter today. It becomes real at the
+`family x rung` collapse, when the rung alone decides the look. Re-derive the table against
+the anchor above BEFORE that collapse.
 
 ⚠️ THIS PASS IS DELIBERATELY VISUALLY NEUTRAL. Moving a tier to a rung whose row does not
 exist would hand it the `{}` fallback — bare `SetFontSize 32`, no colour — which is exactly
