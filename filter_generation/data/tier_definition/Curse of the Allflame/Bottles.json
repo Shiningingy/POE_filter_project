@@ -20,8 +20,6 @@
           300
         ],
         "FontSize": 45,
-        "TextColor": "#ffffffff",
-        "BackgroundColor": "#00a070ff",
         "BorderColor": "#ffffffff",
         "MinimapIcon": "1 Yellow Circle"
       },

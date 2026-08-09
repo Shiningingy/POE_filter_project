@@ -21,8 +21,6 @@
       "theme": {
         "Tier": 0,
         "FontSize": 45,
-        "BackgroundColor": "#d44a6eff",
-        "TextColor": "#000000ff",
         "MinimapIcon": "1 Yellow Circle",
         "PlayEffect": "Brown",
         "BorderColor": "#00000000"
@@ -42,8 +40,6 @@
       "theme": {
         "Tier": 1,
         "FontSize": 40,
-        "BackgroundColor": "#2d1119ff",
-        "TextColor": "#eb5a82ff",
         "MinimapIcon": "0 Yellow Circle",
         "PlayEffect": "Brown",
         "BorderColor": "#00000000"
@@ -62,8 +58,6 @@
       "conditions": {},
       "theme": {
         "Tier": 2,
-        "TextColor": "#eb5a82ff",
-        "BackgroundColor": "#000000ff",
         "BorderColor": "#00000000",
         "FontSize": 40
       },
@@ -81,8 +75,6 @@
       "conditions": {},
       "theme": {
         "Tier": 3,
-        "TextColor": "#eb5a82cc",
-        "BackgroundColor": "#000000ff",
         "BorderColor": "#00000000",
         "FontSize": 40
       },

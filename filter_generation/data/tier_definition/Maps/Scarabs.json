@@ -28,8 +28,6 @@
           300
         ],
         "FontSize": 45,
-        "BackgroundColor": "#aae63cff",
-        "TextColor": "#000000ff",
         "MinimapIcon": "1 Yellow Diamond",
         "PlayEffect": "Green",
         "BorderColor": "#00000000"
@@ -54,8 +52,6 @@
         "FontSize": 45,
         "MinimapIcon": "1 Yellow Hexagon",
         "PlayEffect": "Green Temp",
-        "TextColor": "#aae63cff",
-        "BackgroundColor": "#202c0bff",
         "BorderColor": "#00000000"
       },
       "sound": {
@@ -78,8 +74,6 @@
         "FontSize": 45,
         "MinimapIcon": "2 Yellow Hexagon",
         "PlayEffect": "Green Temp",
-        "TextColor": "#aae63cff",
-        "BackgroundColor": "#000000ff",
         "BorderColor": "#00000000"
       },
       "sound": {
@@ -101,8 +95,6 @@
         ],
         "FontSize": 45,
         "MinimapIcon": "2 White Hexagon",
-        "TextColor": "#aae63ccc",
-        "BackgroundColor": "#000000ff",
         "BorderColor": "#00000000"
       },
       "sound": {
@@ -136,8 +128,6 @@
           "Sharket掉落音效/超级圣甲虫.mp3",
           100
         ],
-        "TextColor": "#587414ff",
-        "BackgroundColor": "#f8f8f2ff",
         "BorderColor": "#587414ff",
         "FontSize": 45,
         "MinimapIcon": "0 Yellow Star"
