@@ -27,7 +27,7 @@ WHAT IT CATCHES, all of which happened in this project:
 ⚠️ IT DOES NOT CATCH A DELETED BLOCK. A block that stopped being emitted at all is a
 different failure and needs a count, not this.
 """
-import io, json, os, re, sys, collections
+import io, json, os, re, sys, time, collections
 
 try:
     sys.stdout.reconfigure(encoding="utf-8")
@@ -79,20 +79,60 @@ def label(h):
     return "[%s] %s" % (m.group(1), m.group(2)) if m else "(no header)"
 
 
+def newest_data_mtime():
+    """When the curation last changed — the thing a filter is supposed to be built FROM."""
+    newest, where = 0.0, None
+    for root in ("filter_generation/data/tier_definition",
+                 "filter_generation/data/base_mapping",
+                 "filter_generation/data/theme"):
+        for dp, _d, fs in os.walk(os.path.join(ROOT, root)):
+            for fn in fs:
+                if not fn.endswith(".json"):
+                    continue
+                t = os.path.getmtime(os.path.join(dp, fn))
+                if t > newest:
+                    newest, where = t, os.path.join(os.path.basename(dp), fn)
+    return newest, where
+
+
 def main():
-    if not os.path.exists(FILTER):
-        print("no %s — run: node filter_generation/generate.mjs --out out/audit.filter"
-              % os.path.relpath(FILTER, ROOT))
+    # ★ TAKE THE PATH. This ignored argv entirely and always read the hardcoded
+    # `out/audit.filter`, so every invocation that passed a filter — `... check.py
+    # out/nets.filter` — silently reported on a DIFFERENT, older file and printed a
+    # confident "0 SHOW blocks hidden". An entire session's worth of green guards were
+    # measured against a snapshot from the previous day.
+    #
+    # ⚠️ THIS IS THE THIRD TIME THIS EXACT SHAPE HAS BITTEN. `create_demo_bundle.py`
+    # no-ops as a CLI script so the parity test compared fresh output against a frozen
+    # bundle and reported 16/16; `reconcile.py` read a hardcoded Traditional-Chinese leg
+    # while Simplified sat beside it. A tool that quietly substitutes its own input for
+    # yours does not fail — it passes, which is why it survives.
+    path = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 and not sys.argv[1].startswith("-") \
+        else FILTER
+    if not os.path.exists(path):
+        print("no %s — run: node filter_generation/generate.mjs --out %s"
+              % (os.path.relpath(path, ROOT), os.path.relpath(path, ROOT)))
         return 2
-    blocks = parse(FILTER)
+
+    # ⚠️ AND SAY WHEN THE ANSWER IS ABOUT A STALE FILE. Shadowing is a property of the
+    # EMITTED filter, so a filter older than the curation it came from answers a question
+    # about the past. Loud, because the failure mode is a PASS.
+    fm = os.path.getmtime(path)
+    dm, where = newest_data_mtime()
+    print("reading %s" % os.path.relpath(path, ROOT))
+    if dm > fm:
+        print("  ⚠️  STALE: this filter is older than the curation it should be built from")
+        print("      filter   %s" % time.strftime("%Y-%m-%d %H:%M", time.localtime(fm)))
+        print("      data     %s  (%s)" % (time.strftime("%Y-%m-%d %H:%M", time.localtime(dm)),
+                                           where))
+        print("      -> regenerate before trusting anything below")
+    print()
+
+    blocks = parse(path)
 
     # base -> the blocks naming it, in emission order. Substring matchers are expanded
     # against the names any block mentions, which is enough: a base no block names cannot
     # be shadowed by a BaseType rule.
-    universe = set()
-    for b in blocks:
-        universe |= set(b["ex"]) | set(b["sub"])
-
     # ⚠️ CLASS-ONLY BLOCKS MUST COUNT. The first version skipped any block with no BaseType,
     # which silently excluded every class net — and a class-wide HIDE swallowing a base a
     # later Show block names is precisely the failure the author says is the only one that
@@ -107,6 +147,28 @@ def main():
     for r in bt:
         if r.get("Name") and r["Name"] not in CLS:
             CLS[r["Name"]] = cnm.get(r.get("ItemClassesKey"))
+
+    universe = set()
+    for b in blocks:
+        universe |= set(b["ex"]) | set(b["sub"])
+
+    # ★ AND A CLASS BLOCK'S UNIVERSE IS ITS WHOLE CLASS, not just the bases somebody named.
+    #
+    # `matched` is intersected with this universe, and a block is called dead when every base
+    # it matches is taken. For a class NET that is exactly backwards: the whole point of
+    # `Class == "Breachstones"` is the 24 breachstones NO block names, so its match set came
+    # out EMPTY — and an empty set trivially equals the empty taken-set, so every net was
+    # reported as unreachable. The Heist gear net was reported dead behind the 14 bases its
+    # T1 lists, while it is the only thing showing the other 46.
+    #
+    # A net exists precisely for the bases nothing names, so those bases have to be in the
+    # universe or the check inverts on the one block shape it most needs to get right.
+    named_classes = set()
+    for b in blocks:
+        if b["cls"]:
+            named_classes |= set(b["cls"])
+    if named_classes:
+        universe |= {n for n, c in CLS.items() if c in named_classes}
 
     claims = collections.defaultdict(list)
     for i, b in enumerate(blocks):
