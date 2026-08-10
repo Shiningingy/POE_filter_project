@@ -218,21 +218,23 @@
       "PlayEffect": "Yellow"
     },
     "Tier 2": {
-      "FontSize": 40,
-      "BackgroundColor": "#ffe650f0",
+      "FontSize": 45,
+      "BackgroundColor": "#ffe650ff",
       "TextColor": "#000000ff",
-      "MinimapIcon": "1 Yellow Circle",
-      "PlayEffect": "Yellow Temp"
+      "BorderColor": "#00000000",
+      "MinimapIcon": "1 Yellow Circle"
     },
     "Tier 3": {
       "FontSize": 40,
-      "BackgroundColor": "#beb478f0",
-      "TextColor": "#000000ff"
+      "BackgroundColor": "#302c0fff",
+      "TextColor": "#ffe650ff",
+      "BorderColor": "#00000000"
     },
     "Tier 4": {
       "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#ffe650ff"
+      "BackgroundColor": "#000000ff",
+      "TextColor": "#ffe650ff",
+      "BorderColor": "#00000000"
     }
   },
   "Omens": {
