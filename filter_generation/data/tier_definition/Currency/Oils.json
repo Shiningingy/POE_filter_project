@@ -97,8 +97,7 @@
           200
         ],
         "BorderColor": "#00000000",
-        "FontSize": 45,
-        "MinimapIcon": "1 Yellow Circle"
+        "FontSize": 45
       },
       "sound": {
         "default_sound_id": 6,

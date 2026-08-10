@@ -103,7 +103,6 @@
         "FontSize": 45,
         "BackgroundColor": "#006effff",
         "TextColor": "#ffffffff",
-        "MinimapIcon": "1 Yellow Circle",
         "PlayEffect": "Blue",
         "PlayAlertSound": [
           "Sharket掉落音效/高级精华.mp3",

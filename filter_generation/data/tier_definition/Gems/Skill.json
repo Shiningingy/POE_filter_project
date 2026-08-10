@@ -50,8 +50,7 @@
         "TextColor": "#ffffffff",
         "BackgroundColor": "#1ba29bff",
         "BorderColor": "#ffffffff",
-        "FontSize": 45,
-        "MinimapIcon": "1 Yellow Circle"
+        "FontSize": 45
       },
       "sound": {
         "default_sound_id": 6,

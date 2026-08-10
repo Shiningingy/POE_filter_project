@@ -23,7 +23,6 @@
         "FontSize": 45,
         "BackgroundColor": "#d44a6eff",
         "TextColor": "#000000ff",
-        "MinimapIcon": "1 Yellow Circle",
         "PlayEffect": "Brown",
         "BorderColor": "#00000000"
       },
@@ -102,7 +101,7 @@
         "Class": "== \"Corpses\""
       },
       "theme": {
-        "Tier": 4
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": -1,
