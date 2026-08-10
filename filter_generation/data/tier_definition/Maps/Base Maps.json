@@ -20,6 +20,8 @@
       "theme": {
         "Tier": 1,
         "FontSize": 45,
+        "BackgroundColor": "#f8f8f2ff",
+        "TextColor": "#1d407cff",
         "MinimapIcon": "0 White Square",
         "PlayEffect": "White",
         "PlayAlertSound": [
@@ -50,6 +52,8 @@
       "theme": {
         "Tier": 2,
         "FontSize": 45,
+        "BackgroundColor": "#30110fff",
+        "TextColor": "#ff5a50ff",
         "MinimapIcon": "1 Red Square",
         "PlayEffect": "Red",
         "PlayAlertSound": [
@@ -72,6 +76,8 @@
       "theme": {
         "Tier": 2,
         "FontSize": 42,
+        "BackgroundColor": "#0f203eff",
+        "TextColor": "#ff5a50ff",
         "MinimapIcon": "1 Red Square",
         "PlayEffect": "Red Temp",
         "PlayAlertSound": [
@@ -94,6 +100,8 @@
       "theme": {
         "Tier": 3,
         "FontSize": 40,
+        "BackgroundColor": "#0f203eff",
+        "TextColor": "#ffff77ff",
         "PlayAlertSound": [
           "Sharket掉落音效/中级地图.mp3",
           100
@@ -116,6 +124,8 @@
       "theme": {
         "Tier": 3,
         "FontSize": 40,
+        "BackgroundColor": "#0f203eff",
+        "TextColor": "#c8c8c8ff",
         "PlayEffect": "White Temp",
         "MinimapIcon": "2 White Square",
         "PlayAlertSound": [

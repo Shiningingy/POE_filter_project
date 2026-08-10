@@ -32,6 +32,8 @@
       "theme": {
         "Tier": 2,
         "FontSize": 45,
+        "BackgroundColor": "#ffffffff",
+        "TextColor": "#ff0000ff",
         "PlayAlertSound": [
           "Sharket掉落音效/顶级底材.mp3",
           300

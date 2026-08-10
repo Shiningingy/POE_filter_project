@@ -25,6 +25,8 @@
         "FontSize": 45,
         "MinimapIcon": "1 Yellow Kite",
         "PlayEffect": "Cyan Temp",
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#1ba29bff",
         "BorderColor": "#00000000"
       },
       "sound": {
@@ -46,6 +48,8 @@
           300
         ],
         "FontSize": 45,
+        "BackgroundColor": "#1ba29bff",
+        "TextColor": "#ffffffff",
         "MinimapIcon": "1 Yellow Kite",
         "PlayEffect": "Cyan",
         "BorderColor": "#ffffffff"
@@ -84,6 +88,8 @@
         ],
         "FontSize": 43,
         "MinimapIcon": "2 Yellow Kite",
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#1ba29bff",
         "BorderColor": "#00000000"
       },
       "sound": {
@@ -105,6 +111,8 @@
         ],
         "FontSize": 40,
         "MinimapIcon": "2 White Kite",
+        "TextColor": "#1ba29bff",
+        "BackgroundColor": "#1b3334ff",
         "BorderColor": "#00000000"
       },
       "sound": {

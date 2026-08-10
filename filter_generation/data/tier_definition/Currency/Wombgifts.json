@@ -19,6 +19,8 @@
       "theme": {
         "Tier": 3,
         "FontSize": 45,
+        "BackgroundColor": "#d20000ff",
+        "TextColor": "#ffffffff",
         "MinimapIcon": "0 Red Star",
         "PlayEffect": "Purple",
         "PlayAlertSound": [

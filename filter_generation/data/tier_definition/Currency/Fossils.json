@@ -25,6 +25,8 @@
           "Sharket掉落音效/高级化石.mp3",
           300
         ],
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#d20000ff",
         "BorderColor": "#00ff00ff"
       },
       "sound": {
@@ -55,6 +57,8 @@
         ],
         "PlayEffect": "Orange Temp",
         "MinimapIcon": "2 Orange Circle",
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#ffaa00ff",
         "BorderColor": "#00000000"
       },
       "sound": {
@@ -95,6 +99,8 @@
       "theme": {
         "Tier": 1,
         "FontSize": 45,
+        "BackgroundColor": "#ffffffff",
+        "TextColor": "#ff0000ff",
         "MinimapIcon": "0 Red Circle",
         "PlayEffect": "Orange",
         "PlayAlertSound": [
@@ -130,6 +136,8 @@
         ],
         "PlayEffect": "Yellow Temp",
         "MinimapIcon": "2 Yellow Circle",
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#aa9e82ff",
         "BorderColor": "#00000000"
       },
       "hideable": false,

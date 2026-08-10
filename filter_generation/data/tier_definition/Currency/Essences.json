@@ -22,6 +22,8 @@
           "Sharket掉落音效/高级精华.mp3",
           300
         ],
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#006effff",
         "BorderColor": "#00000000",
         "FontSize": 45
       },
@@ -65,6 +67,8 @@
           300
         ],
         "MinimapIcon": "2 Yellow Circle",
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#006effff",
         "BorderColor": "#00000000"
       },
       "sound": {
@@ -97,6 +101,8 @@
       "theme": {
         "Tier": 1,
         "FontSize": 45,
+        "BackgroundColor": "#006effff",
+        "TextColor": "#ffffffff",
         "MinimapIcon": "1 Yellow Circle",
         "PlayEffect": "Blue",
         "PlayAlertSound": [

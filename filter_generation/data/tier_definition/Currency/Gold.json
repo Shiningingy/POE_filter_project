@@ -22,6 +22,8 @@
         "MinimapIcon": null,
         "PlayAlertSound": "disabled:",
         "FontSize": 40,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#5a503cff",
         "BackgroundColor": "disabled:#ffffffFF"
       },
       "sound": {
@@ -40,7 +42,9 @@
         "PlayEffect": null,
         "MinimapIcon": null,
         "PlayAlertSound": "disabled:",
-        "FontSize": 35
+        "FontSize": 35,
+        "TextColor": "#807155ff",
+        "BorderColor": "#5a503cff"
       },
       "sound": {
         "default_sound_id": 6,

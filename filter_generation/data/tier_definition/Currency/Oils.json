@@ -22,6 +22,8 @@
           "Sharket掉落音效/高级圣油.mp3",
           200
         ],
+        "TextColor": "#ffe650ff",
+        "BackgroundColor": "#302c0fff",
         "BorderColor": "#00000000",
         "FontSize": 40
       },
@@ -61,6 +63,8 @@
         "FontSize": 40,
         "PlayAlertSound": "disabled:",
         "MinimapIcon": "2 White Circle",
+        "TextColor": "#ffe650ff",
+        "BackgroundColor": "#000000ff",
         "BorderColor": "#00000000"
       },
       "sound": {
@@ -96,6 +100,8 @@
           "Sharket掉落音效/超级圣油.mp3",
           200
         ],
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#ffe650ff",
         "BorderColor": "#00000000",
         "FontSize": 45,
         "MinimapIcon": "1 Yellow Circle"
