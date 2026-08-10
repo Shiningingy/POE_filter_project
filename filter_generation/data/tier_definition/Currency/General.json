@@ -25,7 +25,7 @@
       "theme": {
         "Tier": 0,
         "FontSize": 45,
-        "MinimapIcon": "0 Red Diamond",
+        "MinimapIcon": "0 Red Circle",
         "PlayEffect": "Orange",
         "PlayAlertSound": [
           "Sharket掉落音效/超级通货.mp3",
@@ -79,7 +79,7 @@
       "theme": {
         "Tier": 1,
         "FontSize": 45,
-        "MinimapIcon": "0 Red Diamond",
+        "MinimapIcon": "0 Red Circle",
         "PlayEffect": "Orange",
         "PlayAlertSound": [
           "Sharket掉落音效/高级通货.mp3",
@@ -137,7 +137,7 @@
           200
         ],
         "FontSize": 45,
-        "MinimapIcon": "1 Green Diamond",
+        "MinimapIcon": "1 Green Circle",
         "PlayEffect": "Orange",
         "BorderColor": "#00000000"
       },
@@ -185,7 +185,7 @@
           100
         ],
         "FontSize": 45,
-        "MinimapIcon": "2 Orange Diamond",
+        "MinimapIcon": "2 Orange Circle",
         "PlayEffect": "Orange",
         "BorderColor": "#00000000"
       },
@@ -245,7 +245,7 @@
           100
         ],
         "FontSize": 45,
-        "MinimapIcon": "2 Yellow Diamond",
+        "MinimapIcon": "2 Yellow Circle",
         "PlayEffect": "Orange Temp",
         "BorderColor": "#00000000"
       },

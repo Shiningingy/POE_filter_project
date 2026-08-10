@@ -51,7 +51,7 @@
         "BackgroundColor": "#1ba29bff",
         "BorderColor": "#ffffffff",
         "FontSize": 45,
-        "MinimapIcon": "1 Yellow Kite"
+        "MinimapIcon": "1 Yellow Circle"
       },
       "sound": {
         "default_sound_id": 6,

@@ -39,7 +39,7 @@
         "BackgroundColor": "#d2d2e6ff",
         "BorderColor": "#00000000",
         "FontSize": 45,
-        "MinimapIcon": "1 Yellow Cross"
+        "MinimapIcon": "1 Yellow Circle"
       },
       "sound": {
         "default_sound_id": 6,

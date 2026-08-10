@@ -30,7 +30,7 @@
         "FontSize": 45,
         "BackgroundColor": "#aae63cff",
         "TextColor": "#000000ff",
-        "MinimapIcon": "1 Yellow Hexagon",
+        "MinimapIcon": "1 Yellow Diamond",
         "PlayEffect": "Green",
         "BorderColor": "#00000000"
       },
@@ -140,7 +140,7 @@
         "BackgroundColor": "#f8f8f2ff",
         "BorderColor": "#587414ff",
         "FontSize": 45,
-        "MinimapIcon": "0 Yellow Hexagon"
+        "MinimapIcon": "0 Yellow Star"
       },
       "localization": {
         "en": "T0: Scarabs",
