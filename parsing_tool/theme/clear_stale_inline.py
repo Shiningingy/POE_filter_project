@@ -82,7 +82,18 @@ def main():
         if not isinstance(body, dict):
             continue
         tcat = (body.get("_meta") or {}).get("theme_category") or cat
-        rows = T.get(tcat) or T.get("Default") or {}
+        # ⚠️ NEVER VIA `Default`. This read `T[tcat] or T["Default"]`, so a category with no
+        # rows of its own had its inline cleared and was handed DEFAULT's colours. That is
+        # what the author saw as "the voyage chart also fallback to general". A category
+        # without its own rows has NOTHING to hand control back to, so there is nothing safe
+        # to clear — say so and stop, rather than substituting another family's ladder.
+        rows = T.get(tcat)
+        if rows is None:
+            print("=== %s ===" % rel)
+            print("  ★ theme category %r has NO rows of its own." % tcat)
+            print("     Clearing would hand every block to `Default` — a different family's")
+            print("     ladder. Give the category rows first, then re-run.")
+            return 2
         for tier, node in body.items():
             if tier == "_meta" or not isinstance(node, dict):
                 continue

@@ -226,8 +226,8 @@
     },
     "Tier 3": {
       "FontSize": 40,
-      "BackgroundColor": "#312b07f0",
-      "TextColor": "#ffe650ff"
+      "BackgroundColor": "#beb478f0",
+      "TextColor": "#000000ff"
     },
     "Tier 4": {
       "FontSize": 40,
