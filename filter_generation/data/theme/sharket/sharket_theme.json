@@ -124,8 +124,8 @@
     },
     "Tier 2": {
       "FontSize": 40,
-      "BackgroundColor": "#ffa500f0",
-      "TextColor": "#000000ff",
+      "BackgroundColor": "#f05a23f0",
+      "TextColor": "#ffffffff",
       "MinimapIcon": "1 Yellow Diamond",
       "PlayEffect": "Orange Temp"
     },
