@@ -15,30 +15,38 @@
       "PlayEffect": "Brown"
     },
     "Tier 2": {
-      "FontSize": 40,
-      "BackgroundColor": "#ffa500f0",
       "TextColor": "#000000ff",
-      "MinimapIcon": "1 Yellow Circle",
-      "PlayEffect": "Brown Temp"
+      "BackgroundColor": "#d44a6eff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Diamond"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#312207f0",
-      "TextColor": "#b8ae97ff"
+      "TextColor": "#eb5a82ff",
+      "BackgroundColor": "#2d1119ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "TextColor": "#eb5a82ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    },
+    "Tier 5": {
+      "TextColor": "#eb5a82cc",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     }
   },
   "Delirium Orbs": {
     "Tier 2": {
-      "FontSize": 40,
       "TextColor": "#000000ff",
-      "BackgroundColor": "#ffa500f0",
-      "BorderColor": "#d2d2e6ff",
-      "MinimapIcon": "1 White Cross"
+      "BackgroundColor": "#d2d2e6ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Diamond"
     }
   },
   "Enshrouding Crystals": {
@@ -64,80 +72,95 @@
       "PlayEffect": "Blue"
     },
     "Tier 2": {
-      "FontSize": 40,
-      "BackgroundColor": "#3c82fff0",
-      "TextColor": "#000000ff",
-      "MinimapIcon": "1 Yellow Circle",
-      "PlayEffect": "Blue Temp"
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#006effff",
+      "BorderColor": "#ffffffff",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Diamond"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#071631f0",
-      "TextColor": "#82b4ffff"
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#006effff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#82b4ffff"
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#006effff",
+      "BorderColor": "#00000000",
+      "FontSize": 43
     }
   },
   "Fossils": {
     "Tier 1": {
-      "FontSize": 45,
-      "BackgroundColor": "#d20000ff",
       "TextColor": "#ffffffff",
-      "MinimapIcon": "0 Red Circle",
-      "PlayEffect": "Yellow"
+      "BackgroundColor": "#d20000ff",
+      "BorderColor": "#00ff00ff",
+      "FontSize": 45,
+      "MinimapIcon": "1 Green Circle"
     },
     "Tier 2": {
-      "FontSize": 40,
-      "BackgroundColor": "#d2b287f0",
       "TextColor": "#000000ff",
-      "MinimapIcon": "1 Yellow Circle",
-      "PlayEffect": "Yellow Temp"
+      "BackgroundColor": "#ffaa00ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "2 Orange Circle"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#261d12f0",
-      "TextColor": "#c8a56eff"
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#aa9e82ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "2 Yellow Circle"
     },
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
       "TextColor": "#c8a56eff"
+    },
+    "Tier 0": {
+      "TextColor": "#ff0000ff",
+      "BackgroundColor": "#ffffffff",
+      "BorderColor": "#ff0000ff",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Circle"
     }
   },
   "General": {
     "Tier 0": {
-      "FontSize": 45,
-      "BackgroundColor": "#ffffffff",
       "TextColor": "#ff0000ff",
-      "MinimapIcon": "0 White Diamond",
-      "PlayEffect": "Orange"
+      "BackgroundColor": "#ffffffff",
+      "BorderColor": "#ff0000ff",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Circle"
     },
     "Tier 1": {
-      "FontSize": 45,
-      "BackgroundColor": "#d20000ff",
       "TextColor": "#ffffffff",
-      "MinimapIcon": "0 Red Diamond",
-      "PlayEffect": "Orange"
+      "BackgroundColor": "#d20000ff",
+      "BorderColor": "#ffffffff",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Circle"
     },
     "Tier 2": {
-      "FontSize": 40,
-      "BackgroundColor": "#f05a23f0",
       "TextColor": "#ffffffff",
-      "MinimapIcon": "1 Yellow Diamond",
-      "PlayEffect": "Orange Temp"
+      "BackgroundColor": "#f05a23ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Green Circle"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#312207f0",
-      "TextColor": "#b8ae97ff"
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#ffaa00ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "2 Orange Circle"
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#aa9e82ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "2 Yellow Circle"
     }
   },
   "Gold": {
@@ -150,28 +173,34 @@
   },
   "Harvest": {
     "Tier 1": {
-      "FontSize": 45,
-      "BackgroundColor": "#d20000ff",
-      "TextColor": "#ffffffff",
-      "MinimapIcon": "0 Red Circle",
-      "PlayEffect": "Green"
+      "TextColor": "#2ecc71ff",
+      "BackgroundColor": "#092715ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     },
     "Tier 2": {
-      "FontSize": 40,
-      "BackgroundColor": "#ffa500f0",
-      "TextColor": "#000000ff",
-      "MinimapIcon": "1 Yellow Circle",
-      "PlayEffect": "Green Temp"
+      "TextColor": "#2ecc71ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#312207f0",
-      "TextColor": "#b8ae97ff"
+      "TextColor": "#2ecc71ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     },
     "Tier 4": {
       "FontSize": 40,
       "BackgroundColor": "#000000f0",
       "TextColor": "#aa9e82ff"
+    },
+    "Tier 0": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#2ecc71ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Diamond"
     }
   },
   "Heist Currency": {
@@ -218,23 +247,23 @@
       "PlayEffect": "Yellow"
     },
     "Tier 2": {
-      "FontSize": 45,
-      "BackgroundColor": "#ffe650ff",
       "TextColor": "#000000ff",
+      "BackgroundColor": "#ffe650ff",
       "BorderColor": "#00000000",
-      "MinimapIcon": "1 Yellow Circle"
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Diamond"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#302c0fff",
       "TextColor": "#ffe650ff",
-      "BorderColor": "#00000000"
+      "BackgroundColor": "#302c0fff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000ff",
       "TextColor": "#ffe650ff",
-      "BorderColor": "#00000000"
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     }
   },
   "Omens": {
@@ -300,28 +329,30 @@
   },
   "Tainted Currency": {
     "Tier 1": {
+      "TextColor": "#ff0000ff",
+      "BackgroundColor": "#ffffffff",
+      "BorderColor": "#ff0000ff",
       "FontSize": 45,
-      "BackgroundColor": "#d20000ff",
-      "TextColor": "#ffffffff",
-      "MinimapIcon": "0 Red Diamond",
-      "PlayEffect": "Red"
+      "MinimapIcon": "0 Red Circle"
     },
     "Tier 2": {
-      "FontSize": 40,
-      "BackgroundColor": "#ffa500f0",
-      "TextColor": "#000000ff",
-      "MinimapIcon": "1 Yellow Diamond",
-      "PlayEffect": "Red Temp"
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#961428ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Red Diamond"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#312207f0",
-      "TextColor": "#b8ae97ff"
+      "TextColor": "#f5554bff",
+      "BackgroundColor": "#2f100eff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "TextColor": "#f5554bff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     }
   },
   "Wombgifts": {
@@ -766,26 +797,29 @@
       "PlayEffect": "Cyan"
     },
     "Tier 2": {
-      "FontSize": 40,
-      "BackgroundColor": "#1ba29bf0",
-      "TextColor": "#000000ff",
-      "MinimapIcon": "1 Yellow Kite",
-      "PlayEffect": "Cyan Temp"
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#1ba29bff",
+      "BorderColor": "#ffffffff",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Diamond"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#0d2b2af0",
-      "TextColor": "#21c5bcff"
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#1ba29bff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#1ca69fff"
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#1ba29bff",
+      "BorderColor": "#00000000",
+      "FontSize": 43
     },
     "Tier 5": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#1ca69fcc"
+      "TextColor": "#1ba29bff",
+      "BackgroundColor": "#1b3334ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     }
   },
   "Support Gems": {
@@ -988,35 +1022,36 @@
   },
   "Scarabs": {
     "Tier 0": {
+      "TextColor": "#587414ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "BorderColor": "#587414ff",
       "FontSize": 45,
-      "BackgroundColor": "#ffffffff",
-      "TextColor": "#00825aff",
-      "MinimapIcon": "0 White Hexagon",
-      "PlayEffect": "Green"
+      "MinimapIcon": "0 Yellow Star"
     },
     "Tier 1": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#aae63cff",
+      "BorderColor": "#00000000",
       "FontSize": 45,
-      "BackgroundColor": "#d20000ff",
-      "TextColor": "#ffffffff",
-      "MinimapIcon": "0 Red Hexagon",
-      "PlayEffect": "Green"
+      "MinimapIcon": "1 Yellow Diamond"
     },
     "Tier 2": {
-      "FontSize": 40,
-      "BackgroundColor": "#00825af0",
-      "TextColor": "#ffffffff",
-      "MinimapIcon": "1 Yellow Hexagon",
-      "PlayEffect": "Green Temp"
+      "TextColor": "#aae63cff",
+      "BackgroundColor": "#202c0bff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#073124f0",
-      "TextColor": "#00cf90ff"
+      "TextColor": "#aae63cff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#00ab76ff"
+      "TextColor": "#aae63ccc",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
     }
   },
   "Quest Items": {

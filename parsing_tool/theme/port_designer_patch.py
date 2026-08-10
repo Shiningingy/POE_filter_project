@@ -38,7 +38,7 @@ except Exception:
     pass
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-PATCH = os.path.join(ROOT, "docs", "design", "handoff", "theme-patch-rev22.json")
+PATCH = os.path.join(ROOT, "docs", "design", "handoff", "theme-patch-rev23.json")
 THEME = os.path.join(ROOT, "filter_generation", "data", "theme", "sharket", "sharket_theme.json")
 APPLY = "--apply" in sys.argv
 
@@ -109,7 +109,7 @@ def main():
             T.setdefault(cat, collections.OrderedDict())[row] = vals
             wrote.append((cat, row, key, before, vals))
 
-    print("=== port rev-22 patch -> theme rows ===")
+    print("=== port rev-23 patch -> theme rows ===")
     print("  rows written : %d" % len(wrote))
     print("  skipped      : %d" % len(skipped))
     print("  sections needing a human : %d" % len(unmapped))

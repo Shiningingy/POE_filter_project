@@ -1,6 +1,6 @@
 {
   "_about": "Rung vocabulary + colour values for Sharket 3.29 Ruthless (CN). Every pairing carries its measured WCAG contrast and names the plate it speaks against (handbook §7). Prose twin: 'Theme Proposal 3.29.dc.html' — run the consistency check over both.",
-  "date": "2026-08-07 (rev 2 — currency ladder per author note)",
+  "date": "2026-08-10",
   "contrast_floors": {
     "dark_plate_text": ">= 4.5:1 vs its own plate (R3/R4 dark tints and black)",
     "bright_or_white_plate_text": ">= 3.0:1 at FontSize 45 — the measured band: house T0 4.00, FilterBlade vermilion 3.39, Sharket gems 3.14; the plate is the extreme and size carries the rest",
@@ -17,7 +17,7 @@
       "test_ch": "点击之前你会先截图发给朋友。",
       "recipe": "HOUSE, pinned: TextColor 255 0 0 / BackgroundColor 255 255 255 255 / BorderColor 255 0 0",
       "FontSize": 45,
-      "MinimapIcon": "0 Red",
+      "MinimapIcon": "0 Red Circle",
       "contrast": "4.00 vs 255 255 255 (accepted twice in game)"
     },
     {
@@ -28,7 +28,7 @@
       "test_ch": "无论在做什么都立刻停下，哪怕正在战斗。",
       "recipe": "HOUSE, pinned: TextColor 255 255 255 / BackgroundColor 210 0 0 / BorderColor 255 255 255",
       "FontSize": 45,
-      "MinimapIcon": "0 Red",
+      "MinimapIcon": "0 Red Circle",
       "contrast": "5.61 vs 210 0 0"
     },
     {
@@ -39,7 +39,7 @@
       "test_ch": "你会停下脚步，横穿屏幕去捡它。",
       "recipe": "Hue families: WHITE text on the FAMILY plate, WHITE border, icon 1 Yellow (border + icon carry the rank over R3). Light-hue families: black on bright plate. House R0/R1 white plate stays the house’s alone.",
       "FontSize": 45,
-      "MinimapIcon": "1 Yellow",
+      "MinimapIcon": "1 Yellow Diamond",
       "contrast": "per family; FS45 band floor 3.0 — white on gems cyan 3.14, white on allflame green 3.35, white on essence blue 4.49, corpses black-on-bright 5.00"
     },
     {
@@ -92,7 +92,7 @@
         "TextColor": "0 0 0",
         "BackgroundColor": "212 74 110",
         "FontSize": 45,
-        "MinimapIcon": "1 Yellow",
+        "MinimapIcon": "1 Yellow Diamond",
         "contrast": 5
       },
       "R3": {
@@ -127,7 +127,7 @@
         "FontSize": 45,
         "contrast": 3.35,
         "band": "FS45 band",
-        "MinimapIcon": "1 Yellow"
+        "MinimapIcon": "1 Yellow Diamond"
       },
       "R3": {
         "TextColor": "255 255 255",
@@ -265,7 +265,7 @@
       "BackgroundColor": "210 0 0",
       "BorderColor": "255 255 255",
       "FontSize": 45,
-      "MinimapIcon": "0 Red",
+      "MinimapIcon": "0 Red Circle",
       "contrast": 5.61,
       "examples": "Chaos stays here"
     },
@@ -363,7 +363,7 @@
       "BorderColor": "255 255 255",
       "FontSize": 45,
       "contrast": 3.14,
-      "MinimapIcon": "1 Yellow",
+      "MinimapIcon": "1 Yellow Diamond",
       "note": "white border + icon carry the rank; R3 is the same pair bare"
     },
     "R3": {
@@ -397,7 +397,7 @@
         "BackgroundColor": "255 230 80",
         "FontSize": 45,
         "contrast": 16.69,
-        "MinimapIcon": "1 Yellow"
+        "MinimapIcon": "1 Yellow Diamond"
       },
       "R3": {
         "tier": "T2 中级圣油",
@@ -492,7 +492,7 @@
         "BackgroundColor": "210 210 230",
         "FontSize": 45,
         "contrast": 14.1,
-        "MinimapIcon": "1 Yellow",
+        "MinimapIcon": "1 Yellow Diamond",
         "note": "single-rung family; anything above is a re-tier into the T0 house lock"
       }
     }
@@ -640,7 +640,7 @@
         "TextColor": "0 0 0",
         "BackgroundColor": "46 204 113",
         "FontSize": 45,
-        "MinimapIcon": "1 Yellow",
+        "MinimapIcon": "1 Yellow Diamond",
         "contrast": 9.99
       },
       "R3 中量命能": {
@@ -750,5 +750,6 @@
       "note": "neutral dark plate is free — the old tainted grey plate retired in rev 16"
     },
     "jewellery": "the game's own bright rarity plates with black text — unchanged, and now the loudest gear look by plate area"
-  }
+  },
+  "version": "rev 23"
 }

@@ -27,7 +27,7 @@
       "BackgroundColor": "#d20000ff",
       "BorderColor": "#ffffffff",
       "FontSize": 45,
-      "MinimapIcon": "0 Red"
+      "MinimapIcon": "0 Red Circle"
     },
     "Tier 2": {
       "TextColor": "#ffffffff",
@@ -57,7 +57,7 @@
       "BackgroundColor": "#1ba29bff",
       "BorderColor": "#ffffffff",
       "FontSize": 45,
-      "MinimapIcon": "1 Yellow"
+      "MinimapIcon": "1 Yellow Diamond"
     },
     "R3": {
       "TextColor": "#ffffffff",
@@ -84,7 +84,7 @@
       "BackgroundColor": "#00a070ff",
       "BorderColor": "#ffffffff",
       "FontSize": 45,
-      "MinimapIcon": "1 Yellow"
+      "MinimapIcon": "1 Yellow Diamond"
     },
     "R3 高级达克特": {
       "TextColor": "#ffffffff",
@@ -103,7 +103,7 @@
       "BackgroundColor": "#00a070ff",
       "BorderColor": "#ffffffff",
       "FontSize": 45,
-      "MinimapIcon": "1 Yellow"
+      "MinimapIcon": "1 Yellow Diamond"
     },
     "海图 (own blue, one tier)": {
       "TextColor": "#ffffffff",
@@ -118,7 +118,7 @@
       "BackgroundColor": "#d44a6eff",
       "BorderColor": "#00000000",
       "FontSize": 45,
-      "MinimapIcon": "1 Yellow"
+      "MinimapIcon": "1 Yellow Diamond"
     },
     "R3": {
       "TextColor": "#eb5a82ff",
@@ -145,7 +145,7 @@
       "BackgroundColor": "#ffe650ff",
       "BorderColor": "#00000000",
       "FontSize": 45,
-      "MinimapIcon": "1 Yellow"
+      "MinimapIcon": "1 Yellow Diamond"
     },
     "R3": {
       "TextColor": "#ffe650ff",
@@ -196,7 +196,7 @@
       "BackgroundColor": "#006effff",
       "BorderColor": "#ffffffff",
       "FontSize": 45,
-      "MinimapIcon": "1 Yellow"
+      "MinimapIcon": "1 Yellow Diamond"
     },
     "R3": {
       "TextColor": "#ffffffff",
@@ -217,7 +217,7 @@
       "BackgroundColor": "#d2d2e6ff",
       "BorderColor": "#00000000",
       "FontSize": 45,
-      "MinimapIcon": "1 Yellow"
+      "MinimapIcon": "1 Yellow Diamond"
     }
   },
   "Harvest": {
@@ -226,7 +226,7 @@
       "BackgroundColor": "#2ecc71ff",
       "BorderColor": "#00000000",
       "FontSize": 45,
-      "MinimapIcon": "1 Yellow"
+      "MinimapIcon": "1 Yellow Diamond"
     },
     "Tier 1": {
       "TextColor": "#2ecc71ff",
@@ -429,5 +429,8 @@
       "BorderColor": "#00000000",
       "FontSize": 40
     }
-  }
+  },
+  "_version": "rev 23",
+  "_date": "2026-08-10",
+  "_icon_grammar": "Shape vocabulary: Circle / Star / Diamond / Cross ONLY (Kite, Square, Hexagon retired). Star = white-plate category top. Diamond = a family’s loudest bright-plate rung (hue-family R2). Circle = the currency band grammar (band-class rows). Cross = jewels + safety-net catch-alls."
 }
