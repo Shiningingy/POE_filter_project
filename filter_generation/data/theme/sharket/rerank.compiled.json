@@ -817,13 +817,37 @@
  },
  {
   "file": "Jewels/Abyss Jewels.json",
-  "tier_key": "Tier 2 Abyss Jewels",
+  "tier_key": "Tier 2 Abyss Jewels Rare",
+  "Tier": 4,
+  "how": "override"
+ },
+ {
+  "file": "Jewels/Abyss Jewels.json",
+  "tier_key": "Tier 2 Abyss Jewels Magic",
+  "Tier": 4,
+  "how": "override"
+ },
+ {
+  "file": "Jewels/Abyss Jewels.json",
+  "tier_key": "Tier 2 Abyss Jewels Normal",
   "Tier": 4,
   "how": "override"
  },
  {
   "file": "Jewels/Base Jewels.json",
-  "tier_key": "Base Jewels",
+  "tier_key": "Base Jewels Rare",
+  "Tier": 3,
+  "how": "override"
+ },
+ {
+  "file": "Jewels/Base Jewels.json",
+  "tier_key": "Base Jewels Magic",
+  "Tier": 3,
+  "how": "override"
+ },
+ {
+  "file": "Jewels/Base Jewels.json",
+  "tier_key": "Base Jewels Normal",
   "Tier": 3,
   "how": "override"
  },

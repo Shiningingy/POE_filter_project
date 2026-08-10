@@ -4,7 +4,7 @@
   "strictness": "soft",
   "language": "ch",
   "leveling_selection": {},
-  "blocks": 455
+  "blocks": 459
  },
  "blocks": [
   {
@@ -5516,7 +5516,7 @@
   {
    "order": 111003,
    "file": "Jewels/Abyss Jewels.json",
-   "tier_key": "Tier 2 Abyss Jewels",
+   "tier_key": "Tier 2 Abyss Jewels Rare",
    "tier_num": 4,
    "source": "tier_base",
    "match": "Exact",
@@ -5529,12 +5529,48 @@
     "Searching Eye Jewel"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Assembled Eye Jewel\" \"Ghastly Eye Jewel\" \"Hypnotic Eye Jewel\" \"Murderous Eye Jewel\" \"Searching Eye Jewel\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 196 111 255 255\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 100\n    MinimapIcon 2 White Cross\n"
+   "text": "Show\n    BaseType == \"Assembled Eye Jewel\" \"Ghastly Eye Jewel\" \"Hypnotic Eye Jewel\" \"Murderous Eye Jewel\" \"Searching Eye Jewel\"\n    Rarity Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 255 119 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 100\n    MinimapIcon 0 Yellow Cross\n"
+  },
+  {
+   "order": 111004,
+   "file": "Jewels/Abyss Jewels.json",
+   "tier_key": "Tier 2 Abyss Jewels Magic",
+   "tier_num": 4,
+   "source": "tier_base",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Assembled Eye Jewel",
+    "Ghastly Eye Jewel",
+    "Hypnotic Eye Jewel",
+    "Murderous Eye Jewel",
+    "Searching Eye Jewel"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Assembled Eye Jewel\" \"Ghastly Eye Jewel\" \"Hypnotic Eye Jewel\" \"Murderous Eye Jewel\" \"Searching Eye Jewel\"\n    Rarity Magic\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 136 136 255 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 100\n    MinimapIcon 0 Blue Cross\n"
+  },
+  {
+   "order": 111005,
+   "file": "Jewels/Abyss Jewels.json",
+   "tier_key": "Tier 2 Abyss Jewels Normal",
+   "tier_num": 4,
+   "source": "tier_base",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Assembled Eye Jewel",
+    "Ghastly Eye Jewel",
+    "Hypnotic Eye Jewel",
+    "Murderous Eye Jewel",
+    "Searching Eye Jewel"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Assembled Eye Jewel\" \"Ghastly Eye Jewel\" \"Hypnotic Eye Jewel\" \"Murderous Eye Jewel\" \"Searching Eye Jewel\"\n    Rarity Normal\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 160 160 160 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 100\n    MinimapIcon 0 White Cross\n"
   },
   {
    "order": 112001,
    "file": "Jewels/Base Jewels.json",
-   "tier_key": "Base Jewels",
+   "tier_key": "Base Jewels Rare",
    "tier_num": 4,
    "source": "tier_base",
    "match": "Exact",
@@ -5545,7 +5581,39 @@
     "Viridian Jewel"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Cobalt Jewel\" \"Crimson Jewel\" \"Viridian Jewel\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 196 111 255 255\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\常规珠宝.mp3\" 200\n    PlayEffect Blue Temp\n    MinimapIcon 2 Blue Moon\n"
+   "text": "Show\n    BaseType == \"Cobalt Jewel\" \"Crimson Jewel\" \"Viridian Jewel\"\n    Rarity Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 255 119 255\n    CustomAlertSound \"Sharket掉落音效\\常规珠宝.mp3\" 200\n    PlayEffect Blue Temp\n    MinimapIcon 0 Yellow Cross\n"
+  },
+  {
+   "order": 112002,
+   "file": "Jewels/Base Jewels.json",
+   "tier_key": "Base Jewels Magic",
+   "tier_num": 4,
+   "source": "tier_base",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Cobalt Jewel",
+    "Crimson Jewel",
+    "Viridian Jewel"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Cobalt Jewel\" \"Crimson Jewel\" \"Viridian Jewel\"\n    Rarity Magic\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 136 136 255 255\n    CustomAlertSound \"Sharket掉落音效\\常规珠宝.mp3\" 200\n    PlayEffect Blue Temp\n    MinimapIcon 0 Blue Cross\n"
+  },
+  {
+   "order": 112003,
+   "file": "Jewels/Base Jewels.json",
+   "tier_key": "Base Jewels Normal",
+   "tier_num": 4,
+   "source": "tier_base",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Cobalt Jewel",
+    "Crimson Jewel",
+    "Viridian Jewel"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Cobalt Jewel\" \"Crimson Jewel\" \"Viridian Jewel\"\n    Rarity Normal\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 160 160 160 255\n    CustomAlertSound \"Sharket掉落音效\\常规珠宝.mp3\" 200\n    PlayEffect Blue Temp\n    MinimapIcon 0 White Cross\n"
   },
   {
    "order": 113001,

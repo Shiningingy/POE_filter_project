@@ -95,6 +95,14 @@ INLINE_PORTED_TIERS = {
     ("Equipment/VendorRecipes/Recipes.json", "6-Link"),
     ("Equipment/VendorRecipes/Recipes.json", "6-Socket"),
     ("Equipment/VendorRecipes/Recipes.json", "RGB Linked"),
+    # rev-23 "Jewels (normal & abyss)" — a RARITY grammar, three looks for one rung, so it
+    # cannot be a rung row either. Split into three tiers each; the plate IS the rarity.
+    ("Jewels/Base Jewels.json", "Base Jewels Rare"),
+    ("Jewels/Base Jewels.json", "Base Jewels Magic"),
+    ("Jewels/Base Jewels.json", "Base Jewels Normal"),
+    ("Jewels/Abyss Jewels.json", "Tier 2 Abyss Jewels Rare"),
+    ("Jewels/Abyss Jewels.json", "Tier 2 Abyss Jewels Magic"),
+    ("Jewels/Abyss Jewels.json", "Tier 2 Abyss Jewels Normal"),
 }
 STYLE_KEYS = ("TextColor", "BackgroundColor", "BorderColor", "FontSize", "MinimapIcon", "PlayEffect")
 

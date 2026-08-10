@@ -6,21 +6,27 @@
         "en": "Base Jewels",
         "ch": "基础珠宝"
       },
+      "//": "Rev-23 'Jewels (normal & abyss)' is a RARITY grammar: three looks for one tier, picked by the item's rarity. It needs no new mechanism — the three tiers below partition the single `Rarity <= Rare` this category used to carry, exactly the precision-beats-ordering pattern ADR-0006 describes and the one Abyss Jewels already uses for ItemLevel. Normal/Magic/Rare are mutually exclusive, so emission order cannot change what matches. Sound and beam are copied from the tier they replace, unchanged, because behaviour here is the author's call and this pass is a look.",
       "tier_order": [
-        "Base Jewels",
+        "Base Jewels Rare",
+        "Base Jewels Magic",
+        "Base Jewels Normal",
         "Tier Hide Base Jewels"
       ]
     },
-    "Base Jewels": {
+    "Base Jewels Rare": {
       "hideable": false,
       "theme": {
         "Tier": 4,
-        "FontSize": 40,
+        "FontSize": 45,
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#ffff77ff",
+        "BorderColor": "#00000000",
         "PlayAlertSound": [
           "Sharket掉落音效/常规珠宝.mp3",
           200
         ],
-        "MinimapIcon": "2 Blue Moon",
+        "MinimapIcon": "0 Yellow Cross",
         "PlayEffect": "Blue Temp"
       },
       "sound": {
@@ -28,11 +34,65 @@
         "sharket_sound_id": "高级通货.mp3"
       },
       "localization": {
-        "en": "T1: Always shown",
-        "ch": "T1: 基础珠宝"
+        "en": "T1: Always shown (Rare)",
+        "ch": "T1: 基础珠宝 (稀有)"
       },
       "conditions": {
-        "Rarity": "<= Rare"
+        "Rarity": "Rare"
+      }
+    },
+    "Base Jewels Magic": {
+      "hideable": false,
+      "theme": {
+        "Tier": 4,
+        "FontSize": 45,
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#8888ffff",
+        "BorderColor": "#00000000",
+        "PlayAlertSound": [
+          "Sharket掉落音效/常规珠宝.mp3",
+          200
+        ],
+        "MinimapIcon": "0 Blue Cross",
+        "PlayEffect": "Blue Temp"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "高级通货.mp3"
+      },
+      "localization": {
+        "en": "T1: Always shown (Magic)",
+        "ch": "T1: 基础珠宝 (魔法)"
+      },
+      "conditions": {
+        "Rarity": "Magic"
+      }
+    },
+    "Base Jewels Normal": {
+      "hideable": false,
+      "theme": {
+        "Tier": 4,
+        "FontSize": 45,
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#a0a0a0ff",
+        "BorderColor": "#00000000",
+        "PlayAlertSound": [
+          "Sharket掉落音效/常规珠宝.mp3",
+          200
+        ],
+        "MinimapIcon": "0 White Cross",
+        "PlayEffect": "Blue Temp"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "高级通货.mp3"
+      },
+      "localization": {
+        "en": "T1: Always shown (Normal)",
+        "ch": "T1: 基础珠宝 (普通)"
+      },
+      "conditions": {
+        "Rarity": "Normal"
       }
     },
     "Tier Hide Base Jewels": {
