@@ -23,7 +23,7 @@
         "TextColor": "#ffffffff",
         "BackgroundColor": "#00a070ff",
         "BorderColor": "#ffffffff",
-        "MinimapIcon": "1 Yellow Circle"
+        "MinimapIcon": "1 Yellow Diamond"
       },
       "sound": {
         "default_sound_id": 2,

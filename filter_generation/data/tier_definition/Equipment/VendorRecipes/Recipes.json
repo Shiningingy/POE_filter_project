@@ -24,7 +24,12 @@
         "PlayAlertSound": [
           "Sharket掉落音效/6连装备.mp3",
           300
-        ]
+        ],
+        "TextColor": "#ff0000ff",
+        "BackgroundColor": "#ffffffff",
+        "BorderColor": "#ff0000ff",
+        "FontSize": 45,
+        "MinimapIcon": "0 Red Star"
       },
       "sound": {
         "default_sound_id": 6,
@@ -47,7 +52,12 @@
         "PlayAlertSound": [
           "Sharket掉落音效/6洞装备.mp3",
           300
-        ]
+        ],
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#d20000ff",
+        "BorderColor": "#00ff00ff",
+        "FontSize": 45,
+        "MinimapIcon": "0 Green Star"
       },
       "sound": {
         "default_sound_id": 2,
@@ -72,7 +82,10 @@
           100
         ],
         "FontSize": 40,
-        "MinimapIcon": "2 White Moon"
+        "MinimapIcon": "2 Yellow Circle",
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#aa9e82ff",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": -1,

@@ -24,7 +24,7 @@
         "BackgroundColor": "#00a070ff",
         "BorderColor": "#ffffffff",
         "FontSize": 45,
-        "MinimapIcon": "1 Yellow Circle"
+        "MinimapIcon": "1 Yellow Diamond"
       },
       "hideable": false,
       "sound": {
