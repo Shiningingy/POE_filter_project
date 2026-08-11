@@ -51,7 +51,7 @@
         "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/666.mp3",
-          100
+          300
         ]
       },
       "localization": {
@@ -65,7 +65,7 @@
         "Tier": 5,
         "PlayAlertSound": [
           "Sharket掉落音效/文身.mp3",
-          100
+          300
         ],
         "FontSize": 40,
         "PlayEffect": "Orange Temp",

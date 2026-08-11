@@ -19,7 +19,7 @@
         "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/高级酊剂.mp3",
-          200
+          300
         ]
       },
       "sound": {
@@ -40,7 +40,7 @@
         "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/酊剂.mp3",
-          200
+          300
         ]
       },
       "sound": {

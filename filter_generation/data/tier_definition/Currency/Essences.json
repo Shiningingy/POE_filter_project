@@ -43,7 +43,7 @@
         "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/精华.mp3",
-          200
+          300
         ],
         "MinimapIcon": "2 Yellow Circle",
         "PlayEffect": "Blue Temp"
@@ -106,7 +106,7 @@
         "PlayEffect": "Blue",
         "PlayAlertSound": [
           "Sharket掉落音效/高级精华.mp3",
-          200
+          300
         ],
         "BorderColor": "#ffffffff"
       },

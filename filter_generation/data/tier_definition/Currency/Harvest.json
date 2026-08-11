@@ -42,7 +42,7 @@
         "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/种子种子.mp3",
-          100
+          300
         ],
         "TextColor": "#2ecc71ff",
         "BackgroundColor": "#000000ff",
@@ -64,7 +64,7 @@
         "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/命能.mp3",
-          100
+          300
         ],
         "TextColor": "#2ecc71ff",
         "BackgroundColor": "#000000ff",
@@ -102,7 +102,7 @@
         "Tier": 1,
         "PlayAlertSound": [
           "Sharket掉落音效/666.mp3",
-          200
+          300
         ],
         "TextColor": "#000000ff",
         "BackgroundColor": "#2ecc71ff",

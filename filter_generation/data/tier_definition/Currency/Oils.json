@@ -20,7 +20,7 @@
         "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/高级圣油.mp3",
-          200
+          300
         ],
         "BorderColor": "#00000000",
         "FontSize": 40
@@ -41,7 +41,7 @@
         "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/圣油.mp3",
-          100
+          300
         ],
         "MinimapIcon": "2 Yellow Circle"
       },
@@ -94,7 +94,7 @@
         "Tier": 1,
         "PlayAlertSound": [
           "Sharket掉落音效/超级圣油.mp3",
-          200
+          300
         ],
         "BorderColor": "#00000000",
         "FontSize": 45

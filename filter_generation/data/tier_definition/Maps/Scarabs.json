@@ -97,7 +97,7 @@
         "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/圣甲虫.mp3",
-          100
+          300
         ],
         "FontSize": 45,
         "MinimapIcon": "2 White Hexagon",
@@ -134,7 +134,7 @@
         "Tier": 0,
         "PlayAlertSound": [
           "Sharket掉落音效/超级圣甲虫.mp3",
-          100
+          300
         ],
         "TextColor": "#587414ff",
         "BackgroundColor": "#f8f8f2ff",

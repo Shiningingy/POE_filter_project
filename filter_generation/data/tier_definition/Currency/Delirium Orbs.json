@@ -33,7 +33,7 @@
         "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/雾魇宝珠.mp3",
-          200
+          300
         ],
         "TextColor": "#000000ff",
         "BackgroundColor": "#d2d2e6ff",
@@ -52,7 +52,7 @@
         "Delirium Orb": {
           "PlayAlertSound": [
             "Sharket掉落音效/雾魇宝珠.mp3",
-            200
+            300
           ]
         }
       }

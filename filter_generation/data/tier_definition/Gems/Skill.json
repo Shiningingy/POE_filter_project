@@ -22,7 +22,7 @@
         "Tier": 1,
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
-          100
+          300
         ],
         "TextColor": "#ffffffff",
         "BackgroundColor": "#1ba29bff",
@@ -45,7 +45,7 @@
         "Tier": 0,
         "PlayAlertSound": [
           "Sharket掉落音效/DOTA2_嘿真棒.mp3",
-          200
+          300
         ],
         "TextColor": "#ffffffff",
         "BackgroundColor": "#1ba29bff",
@@ -96,7 +96,7 @@
         "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
-          100
+          300
         ],
         "TextColor": "#000000ff",
         "BackgroundColor": "#1ba29bff",
@@ -126,7 +126,7 @@
         "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
-          100
+          300
         ],
         "TextColor": "#1ba29bff",
         "BackgroundColor": "#1b3334ff",
@@ -148,7 +148,7 @@
         "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
-          100
+          300
         ],
         "TextColor": "#1ba29bff",
         "BackgroundColor": "#1b3334ff",
@@ -170,7 +170,7 @@
         "Tier": 5,
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
-          100
+          300
         ],
         "TextColor": "#1ba29bff",
         "BackgroundColor": "#1b3334ff",

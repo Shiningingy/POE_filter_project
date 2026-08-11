@@ -19,7 +19,7 @@
         "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/魔符.mp3",
-          100
+          300
         ]
       },
       "sound": {

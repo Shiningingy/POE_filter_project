@@ -34,25 +34,25 @@
         "Granite Flask": {
           "PlayAlertSound": [
             "Sharket掉落音效/坚岩药剂.mp3",
-            200
+            300
           ]
         },
         "Iron Flask": {
           "PlayAlertSound": [
             "Sharket掉落音效/坚铁药剂.mp3",
-            200
+            300
           ]
         },
         "Quartz Flask": {
           "PlayAlertSound": [
             "Sharket掉落音效/石英药剂.mp3",
-            200
+            300
           ]
         },
         "Quicksilver Flask": {
           "PlayAlertSound": [
             "Sharket掉落音效/水银药剂.mp3",
-            200
+            300
           ]
         }
       }
@@ -112,7 +112,7 @@
         "Quicksilver Flask": {
           "PlayAlertSound": [
             "Sharket掉落音效/水银药剂.mp3",
-            200
+            300
           ]
         },
         "Silver Flask": {

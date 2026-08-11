@@ -112,7 +112,7 @@
         "Blood-filled Vessel": {
           "PlayAlertSound": [
             "Sharket掉落音效/浸血法器.mp3",
-            200
+            300
           ]
         },
         "Sacred Blossom": {
@@ -170,7 +170,7 @@
         "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
-          100
+          300
         ],
         "FontSize": 40,
         "MinimapIcon": "2 White Hexagon"
@@ -214,7 +214,7 @@
         "Tier": 1,
         "PlayAlertSound": [
           "Sharket掉落音效/超级地图碎片.mp3",
-          200
+          300
         ]
       },
       "sound": {

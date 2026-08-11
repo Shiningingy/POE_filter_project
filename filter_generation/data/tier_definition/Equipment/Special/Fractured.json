@@ -21,7 +21,7 @@
         "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/破碎装备.mp3",
-          200
+          300
         ],
         "TextColor": "disabled:#ffffffFF",
         "BorderColor": "disabled:#ffffffFF"

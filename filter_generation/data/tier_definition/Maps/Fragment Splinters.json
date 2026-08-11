@@ -44,7 +44,7 @@
         "Ritual Splinter": {
           "PlayAlertSound": [
             "Sharket掉落音效/驱灵裂片.mp3",
-            100
+            300
           ]
         }
       }

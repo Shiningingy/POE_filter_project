@@ -353,7 +353,7 @@
         "Tier": "Tier 7 General",
         "PlayAlertSound": [
           "Sharket掉落音效/蜕变石.mp3",
-          100
+          300
         ]
       },
       "comment": "Orb of Transmutation · T16 前有音效",
@@ -370,7 +370,7 @@
         "Tier": "Tier 7 General",
         "PlayAlertSound": [
           "Sharket掉落音效/增幅石.mp3",
-          100
+          300
         ]
       },
       "comment": "Orb of Augmentation · T16 前有音效",
@@ -387,7 +387,7 @@
         "Tier": "Tier 7 General",
         "PlayAlertSound": [
           "Sharket掉落音效/护甲片.mp3",
-          100
+          300
         ]
       },
       "comment": "Armourer's Scrap · T16 前有音效",
@@ -404,7 +404,7 @@
         "Tier": "Tier 7 General",
         "PlayAlertSound": [
           "Sharket掉落音效/磨刀石.mp3",
-          100
+          300
         ]
       },
       "comment": "Blacksmith's Whetstone · T16 前有音效",
@@ -421,7 +421,7 @@
         "Tier": "Tier 8 General",
         "PlayAlertSound": [
           "Sharket掉落音效/知识卷轴.mp3",
-          100
+          300
         ]
       },
       "comment": "Scroll of Wisdom · 战役内有音效",
@@ -438,7 +438,7 @@
         "Tier": "Tier 8 General",
         "PlayAlertSound": [
           "Sharket掉落音效/传送卷轴.mp3",
-          100
+          300
         ]
       },
       "comment": "Portal Scroll · 战役内有音效",

@@ -24,7 +24,7 @@
         "BorderColor": "#00000000",
         "PlayAlertSound": [
           "Sharket掉落音效/常规珠宝.mp3",
-          200
+          300
         ],
         "MinimapIcon": "0 Yellow Cross",
         "PlayEffect": "Blue Temp"
@@ -51,7 +51,7 @@
         "BorderColor": "#00000000",
         "PlayAlertSound": [
           "Sharket掉落音效/常规珠宝.mp3",
-          200
+          300
         ],
         "MinimapIcon": "0 Blue Cross",
         "PlayEffect": "Blue Temp"
@@ -78,7 +78,7 @@
         "BorderColor": "#00000000",
         "PlayAlertSound": [
           "Sharket掉落音效/常规珠宝.mp3",
-          200
+          300
         ],
         "MinimapIcon": "0 White Cross",
         "PlayEffect": "Blue Temp"

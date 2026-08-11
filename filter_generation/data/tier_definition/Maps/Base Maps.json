@@ -58,7 +58,7 @@
         "PlayEffect": "Red",
         "PlayAlertSound": [
           "Sharket掉落音效/超级地图.mp3",
-          200
+          300
         ],
         "BorderColor": "#00000000"
       },
@@ -82,7 +82,7 @@
         "PlayEffect": "Red Temp",
         "PlayAlertSound": [
           "Sharket掉落音效/高级地图.mp3",
-          100
+          300
         ],
         "BorderColor": "#00000000"
       },
@@ -104,7 +104,7 @@
         "TextColor": "#ffff77ff",
         "PlayAlertSound": [
           "Sharket掉落音效/中级地图.mp3",
-          100
+          300
         ],
         "MinimapIcon": "2 Yellow Square",
         "PlayEffect": "Yellow Temp",

@@ -83,7 +83,7 @@
         "PlayEffect": "Orange",
         "PlayAlertSound": [
           "Sharket掉落音效/高级通货.mp3",
-          200
+          300
         ],
         "BorderColor": "#ffffffff"
       },
@@ -123,7 +123,7 @@
         "Imprint": {
           "PlayAlertSound": [
             "Default/AlertSound10.mp3",
-            200
+            300
           ]
         }
       }
@@ -134,7 +134,7 @@
         "Tier": 1,
         "PlayAlertSound": [
           "Sharket掉落音效/高级通货.mp3",
-          200
+          300
         ],
         "FontSize": 45,
         "MinimapIcon": "1 Green Circle",
@@ -182,7 +182,7 @@
         "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/通货.mp3",
-          100
+          300
         ],
         "FontSize": 45,
         "MinimapIcon": "2 Orange Circle",
@@ -207,7 +207,7 @@
         "Burial Medallion": {
           "PlayAlertSound": [
             "Sharket掉落音效/葬礼徽章.mp3",
-            200
+            300
           ]
         },
         "Exalted Orb": {
@@ -219,7 +219,7 @@
         "Exotic Coinage": {
           "PlayAlertSound": [
             "Sharket掉落音效/异域铸币.mp3",
-            200
+            300
           ]
         },
         "Orb of Annulment": {
@@ -242,7 +242,7 @@
         "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/通货.mp3",
-          100
+          300
         ],
         "FontSize": 45,
         "MinimapIcon": "2 Yellow Circle",
@@ -261,7 +261,7 @@
         "Blessed Orb": {
           "PlayAlertSound": [
             "Sharket掉落音效/祝福石.mp3",
-            200
+            300
           ]
         },
         "Chaos Orb": {
@@ -273,7 +273,7 @@
         "Chromatic Orb": {
           "PlayAlertSound": [
             "Sharket掉落音效/幻色石.mp3",
-            100
+            300
           ]
         },
         "Orb of Scouring": {
@@ -285,7 +285,7 @@
         "Scrap Metal": {
           "PlayAlertSound": [
             "Sharket掉落音效/废金属.mp3",
-            200
+            300
           ]
         },
         "Vaal Orb": {
@@ -364,19 +364,19 @@
         "Jeweller's Orb": {
           "PlayAlertSound": [
             "Sharket掉落音效/工匠石.mp3",
-            100
+            300
           ]
         },
         "Orb of Alteration": {
           "PlayAlertSound": [
             "Sharket掉落音效/改造石.mp3",
-            200
+            300
           ]
         },
         "Orb of Chance": {
           "PlayAlertSound": [
             "Sharket掉落音效/机会石.mp3",
-            200
+            300
           ]
         }
       }
@@ -407,7 +407,7 @@
         "Orb of Fusing": {
           "PlayAlertSound": [
             "Sharket掉落音效/链结石.mp3",
-            200
+            300
           ]
         },
         "Orb of Regret": {
@@ -419,13 +419,13 @@
         "Orb of Unmaking": {
           "PlayAlertSound": [
             "Sharket掉落音效/粉碎石.mp3",
-            200
+            300
           ]
         },
         "Glassblower's Bauble": {
           "PlayAlertSound": [
             "Sharket掉落音效/玻璃弹珠.mp3",
-            100
+            300
           ]
         }
       }

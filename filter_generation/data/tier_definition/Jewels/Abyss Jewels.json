@@ -26,7 +26,7 @@
         "PlayEffect": "Pink Temp",
         "PlayAlertSound": [
           "Sharket掉落音效/顶级底材.mp3",
-          200
+          300
         ]
       },
       "sound": {
@@ -49,7 +49,7 @@
         "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/高级通货.mp3",
-          200
+          300
         ],
         "MinimapIcon": "2 Yellow Cross"
       },
@@ -76,7 +76,7 @@
         "BorderColor": "#00000000",
         "PlayAlertSound": [
           "Sharket掉落音效/通货.mp3",
-          100
+          300
         ],
         "MinimapIcon": "0 Yellow Cross"
       },
@@ -102,7 +102,7 @@
         "BorderColor": "#00000000",
         "PlayAlertSound": [
           "Sharket掉落音效/通货.mp3",
-          100
+          300
         ],
         "MinimapIcon": "0 Blue Cross"
       },
@@ -128,7 +128,7 @@
         "BorderColor": "#00000000",
         "PlayAlertSound": [
           "Sharket掉落音效/通货.mp3",
-          100
+          300
         ],
         "MinimapIcon": "0 White Cross"
       },

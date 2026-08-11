@@ -40,19 +40,19 @@
         "Breach Ring": {
           "PlayAlertSound": [
             "Sharket掉落音效/裂隙戒指.mp3",
-            200
+            300
           ]
         },
         "Divine Vessel": {
           "PlayAlertSound": [
             "Sharket掉落音效/禁灵之瓶.mp3",
-            100
+            300
           ]
         },
         "Grasping Mail": {
           "PlayAlertSound": [
             "Sharket掉落音效/扼杀链甲.mp3",
-            200
+            300
           ]
         },
         "Jewellery Recombinator": {
@@ -76,13 +76,13 @@
         "Ornate Quiver": {
           "PlayAlertSound": [
             "Sharket掉落音效/华美箭袋.mp3",
-            200
+            300
           ]
         },
         "Perandus Coin": {
           "PlayAlertSound": [
             "Sharket掉落音效/普兰德斯金币.mp3",
-            100
+            300
           ]
         },
         "Prismatic Jewel": {
@@ -94,7 +94,7 @@
         "Ruby Amulet": {
           "PlayAlertSound": [
             "Sharket掉落音效/血色护身符.mp3",
-            200
+            300
           ]
         },
         "Sanctified Relic": {
@@ -112,7 +112,7 @@
         "Unset Amulet": {
           "PlayAlertSound": [
             "Sharket掉落音效/潜能项链.mp3",
-            200
+            300
           ]
         },
         "Weapon Recombinator": {

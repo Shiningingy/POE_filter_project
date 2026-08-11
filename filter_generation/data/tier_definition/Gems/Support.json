@@ -20,7 +20,7 @@
         "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/强辅技能石.mp3",
-          100
+          300
         ],
         "FontSize": 45,
         "MinimapIcon": "1 Yellow Kite",
@@ -84,7 +84,7 @@
         "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/辅助技能石.mp3",
-          100
+          300
         ],
         "FontSize": 43,
         "MinimapIcon": "2 Yellow Kite",
@@ -107,7 +107,7 @@
         "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/辅助技能石.mp3",
-          100
+          300
         ],
         "FontSize": 40,
         "MinimapIcon": "2 White Kite",

@@ -53,7 +53,7 @@
         "FontSize": 45,
         "PlayAlertSound": [
           "Sharket掉落音效/化石.mp3",
-          200
+          300
         ],
         "PlayEffect": "Orange Temp",
         "MinimapIcon": "2 Orange Circle",
@@ -73,7 +73,7 @@
         "Potent Chaotic Resonator": {
           "PlayAlertSound": [
             "Sharket掉落音效/共振器.mp3",
-            200
+            300
           ]
         }
       }
@@ -105,7 +105,7 @@
         "PlayEffect": "Orange",
         "PlayAlertSound": [
           "Sharket掉落音效/高级化石.mp3",
-          200
+          300
         ],
         "BorderColor": "#ff0000ff"
       },
@@ -121,7 +121,7 @@
         "Prime Chaotic Resonator": {
           "PlayAlertSound": [
             "Sharket掉落音效/高级共振器.mp3",
-            200
+            300
           ]
         }
       }

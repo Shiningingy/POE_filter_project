@@ -168,7 +168,7 @@
         "Tier": "Misc",
         "PlayAlertSound": [
           "Sharket掉落音效/医药箱.mp3",
-          200
+          300
         ]
       },
       "comment": "医药箱"
@@ -182,7 +182,7 @@
         "Tier": "Misc",
         "PlayAlertSound": [
           "Sharket掉落音效/任务物品.mp3",
-          200
+          300
         ]
       },
       "comment": "任务物品"

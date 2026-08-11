@@ -152,13 +152,13 @@
         "Tainted Armourer's Scrap": {
           "PlayAlertSound": [
             "Sharket掉落音效/污秽护甲片.mp3",
-            200
+            300
           ]
         },
         "Tainted Blacksmith's Whetstone": {
           "PlayAlertSound": [
             "Sharket掉落音效/污秽磨刀石.mp3",
-            200
+            300
           ]
         },
         "Tainted Jeweller's Orb": {

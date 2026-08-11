@@ -24,7 +24,7 @@
         "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/药不能停.mp3",
-          100
+          300
         ]
       },
       "sound": {
@@ -53,7 +53,7 @@
         "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/水银药剂.mp3",
-          100
+          300
         ]
       },
       "sound": {
@@ -82,7 +82,7 @@
         "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/酊剂.mp3",
-          100
+          300
         ]
       },
       "sound": {

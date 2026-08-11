@@ -53,43 +53,43 @@
         "Apothecary's Gloves": {
           "PlayAlertSound": [
             "Sharket掉落音效/药剂师手套.mp3",
-            200
+            300
           ]
         },
         "Bone Helmet": {
           "PlayAlertSound": [
             "Sharket掉落音效/唤骨头盔.mp3",
-            200
+            300
           ]
         },
         "Fingerless Silk Gloves": {
           "PlayAlertSound": [
             "Sharket掉落音效/丝绸手套.mp3",
-            200
+            300
           ]
         },
         "Fugitive Boots": {
           "PlayAlertSound": [
             "Sharket掉落音效/逃亡之靴.mp3",
-            200
+            300
           ]
         },
         "Gripped Gloves": {
           "PlayAlertSound": [
             "Sharket掉落音效/擒拿手套.mp3",
-            200
+            300
           ]
         },
         "Sacrificial Garb": {
           "PlayAlertSound": [
             "Sharket掉落音效/祭礼束衣.mp3",
-            200
+            300
           ]
         },
         "Spiked Gloves": {
           "PlayAlertSound": [
             "Sharket掉落音效/扣钉手套.mp3",
-            200
+            300
           ]
         }
       }
@@ -122,49 +122,49 @@
         "Artillery Quiver": {
           "PlayAlertSound": [
             "Sharket掉落音效/火炮箭袋.mp3",
-            200
+            300
           ]
         },
         "Convoking Wand": {
           "PlayAlertSound": [
             "Sharket掉落音效/召集法杖.mp3",
-            200
+            300
           ]
         },
         "Crystal Belt": {
           "PlayAlertSound": [
             "Sharket掉落音效/水晶腰带.mp3",
-            200
+            300
           ]
         },
         "Iolite Ring": {
           "PlayAlertSound": [
             "Sharket掉落音效/青石戒指.mp3",
-            200
+            300
           ]
         },
         "Opal Ring": {
           "PlayAlertSound": [
             "Sharket掉落音效/蛋白石戒指.mp3",
-            200
+            300
           ]
         },
         "Sacrificial Garb": {
           "PlayAlertSound": [
             "Sharket掉落音效/祭礼束衣.mp3",
-            200
+            300
           ]
         },
         "Steel Ring": {
           "PlayAlertSound": [
             "Sharket掉落音效/合金戒指.mp3",
-            200
+            300
           ]
         },
         "Vermillion Ring": {
           "PlayAlertSound": [
             "Sharket掉落音效/朱砂之戒.mp3",
-            200
+            300
           ]
         }
       }
@@ -224,37 +224,37 @@
         "Crystal Belt": {
           "PlayAlertSound": [
             "Sharket掉落音效/水晶腰带.mp3",
-            200
+            300
           ]
         },
         "Iolite Ring": {
           "PlayAlertSound": [
             "Sharket掉落音效/青石戒指.mp3",
-            200
+            300
           ]
         },
         "Opal Ring": {
           "PlayAlertSound": [
             "Sharket掉落音效/蛋白石戒指.mp3",
-            200
+            300
           ]
         },
         "Sacrificial Garb": {
           "PlayAlertSound": [
             "Sharket掉落音效/祭礼束衣.mp3",
-            200
+            300
           ]
         },
         "Steel Ring": {
           "PlayAlertSound": [
             "Sharket掉落音效/合金戒指.mp3",
-            200
+            300
           ]
         },
         "Vermillion Ring": {
           "PlayAlertSound": [
             "Sharket掉落音效/朱砂之戒.mp3",
-            200
+            300
           ]
         }
       }
@@ -286,13 +286,13 @@
         "Artillery Quiver": {
           "PlayAlertSound": [
             "Sharket掉落音效/火炮箭袋.mp3",
-            200
+            300
           ]
         },
         "Convoking Wand": {
           "PlayAlertSound": [
             "Sharket掉落音效/召集法杖.mp3",
-            200
+            300
           ]
         }
       }
@@ -332,7 +332,7 @@
         "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/优质底材.mp3",
-          200
+          300
         ]
       },
       "sound": {
@@ -347,13 +347,13 @@
         "Crystal Belt": {
           "PlayAlertSound": [
             "Sharket掉落音效/水晶腰带.mp3",
-            200
+            300
           ]
         },
         "Sacrificial Garb": {
           "PlayAlertSound": [
             "Sharket掉落音效/祭礼束衣.mp3",
-            200
+            300
           ]
         }
       },
@@ -370,7 +370,7 @@
         "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/优质底材.mp3",
-          200
+          300
         ]
       },
       "sound": {
@@ -433,25 +433,25 @@
         "Iolite Ring": {
           "PlayAlertSound": [
             "Sharket掉落音效/青石戒指.mp3",
-            200
+            300
           ]
         },
         "Opal Ring": {
           "PlayAlertSound": [
             "Sharket掉落音效/蛋白石戒指.mp3",
-            200
+            300
           ]
         },
         "Steel Ring": {
           "PlayAlertSound": [
             "Sharket掉落音效/合金戒指.mp3",
-            200
+            300
           ]
         },
         "Vermillion Ring": {
           "PlayAlertSound": [
             "Sharket掉落音效/朱砂之戒.mp3",
-            200
+            300
           ]
         }
       },

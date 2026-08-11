@@ -79,7 +79,7 @@
         "Tier": 5,
         "PlayAlertSound": [
           "Sharket掉落音效/幻色装.mp3",
-          100
+          300
         ],
         "FontSize": 40,
         "MinimapIcon": "2 Yellow Circle",

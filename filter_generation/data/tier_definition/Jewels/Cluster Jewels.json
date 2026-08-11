@@ -81,7 +81,7 @@
         "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/高级通货.mp3",
-          200
+          300
         ],
         "MinimapIcon": "2 Yellow Cross"
       },
@@ -107,7 +107,7 @@
         "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/顶级底材.mp3",
-          200
+          300
         ],
         "MinimapIcon": "2 White Cross"
       },
@@ -132,7 +132,7 @@
         "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/顶级底材.mp3",
-          200
+          300
         ],
         "MinimapIcon": "2 Red Cross"
       },
@@ -157,7 +157,7 @@
         "FontSize": 40,
         "PlayAlertSound": [
           "Sharket掉落音效/顶级底材.mp3",
-          200
+          300
         ],
         "MinimapIcon": "2 White Cross"
       },
