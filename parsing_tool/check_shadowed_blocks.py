@@ -95,6 +95,21 @@ def newest_data_mtime():
     return newest, where
 
 
+def show_path(path):
+    """A readable path that survives a DIFFERENT DRIVE.
+
+    ⚠️ os.path.relpath raises ValueError across Windows mounts, and the shipped filter always
+    lives under the user's Documents on C: while this repo is on G: — so every attempt to run
+    this guard on the artifact that actually reaches the game crashed. It read as a clean pass
+    to anything that filtered the output, which is the failure mode this file exists to warn
+    about two comments below.
+    """
+    try:
+        return os.path.relpath(path, ROOT)
+    except ValueError:
+        return path
+
+
 def main():
     # ★ TAKE THE PATH. This ignored argv entirely and always read the hardcoded
     # `out/audit.filter`, so every invocation that passed a filter — `... check.py
@@ -111,7 +126,7 @@ def main():
         else FILTER
     if not os.path.exists(path):
         print("no %s — run: node filter_generation/generate.mjs --out %s"
-              % (os.path.relpath(path, ROOT), os.path.relpath(path, ROOT)))
+              % (show_path(path), show_path(path)))
         return 2
 
     # ⚠️ AND SAY WHEN THE ANSWER IS ABOUT A STALE FILE. Shadowing is a property of the
@@ -119,7 +134,7 @@ def main():
     # about the past. Loud, because the failure mode is a PASS.
     fm = os.path.getmtime(path)
     dm, where = newest_data_mtime()
-    print("reading %s" % os.path.relpath(path, ROOT))
+    print("reading %s" % show_path(path))
     if dm > fm:
         print("  ⚠️  STALE: this filter is older than the curation it should be built from")
         print("      filter   %s" % time.strftime("%Y-%m-%d %H:%M", time.localtime(fm)))
