@@ -5,7 +5,7 @@
       "BackgroundColor": "#d44a6eff",
       "BorderColor": "#00000000",
       "FontSize": 45,
-      "MinimapIcon": "1 Yellow Diamond"
+      "MinimapIcon": "1 Yellow Kite"
     },
     "Tier 1": {
       "TextColor": "#eb5a82ff",
@@ -60,7 +60,7 @@
       "BackgroundColor": "#006effff",
       "BorderColor": "#ffffffff",
       "FontSize": 45,
-      "MinimapIcon": "1 Yellow Diamond"
+      "MinimapIcon": "1 Yellow Raindrop"
     },
     "Tier 2": {
       "TextColor": "#ffffffff",
@@ -86,28 +86,27 @@
       "BackgroundColor": "#ffffffff",
       "BorderColor": "#ff0000ff",
       "FontSize": 45,
-      "MinimapIcon": "0 Red Circle"
+      "MinimapIcon": "0 Red Star"
     },
     "Tier 2": {
       "TextColor": "#ffffffff",
       "BackgroundColor": "#d20000ff",
       "BorderColor": "#00ff00ff",
       "FontSize": 45,
-      "MinimapIcon": "1 Green Circle"
+      "MinimapIcon": "1 Green Diamond"
     },
     "Tier 3": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#ffaa00ff",
       "BorderColor": "#00000000",
       "FontSize": 45,
-      "MinimapIcon": "2 Orange Circle"
+      "MinimapIcon": "2 Orange Diamond"
     },
     "Tier 4": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#aa9e82ff",
       "BorderColor": "#00000000",
-      "FontSize": 45,
-      "MinimapIcon": "2 Yellow Circle"
+      "FontSize": 45
     }
   },
   "General": {
@@ -116,35 +115,33 @@
       "BackgroundColor": "#ffffffff",
       "BorderColor": "#ff0000ff",
       "FontSize": 45,
-      "MinimapIcon": "0 Red Circle"
+      "MinimapIcon": "0 Red Star"
     },
     "Tier 1": {
       "TextColor": "#ffffffff",
       "BackgroundColor": "#d20000ff",
       "BorderColor": "#ffffffff",
       "FontSize": 45,
-      "MinimapIcon": "0 Red Circle"
+      "MinimapIcon": "0 Red Diamond"
     },
     "Tier 2": {
       "TextColor": "#ffffffff",
       "BackgroundColor": "#f05a23ff",
       "BorderColor": "#00000000",
       "FontSize": 45,
-      "MinimapIcon": "1 Green Circle"
+      "MinimapIcon": "1 Green Diamond"
     },
     "Tier 3": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#ffaa00ff",
       "BorderColor": "#00000000",
-      "FontSize": 45,
-      "MinimapIcon": "2 Orange Circle"
+      "FontSize": 45
     },
     "Tier 4": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#aa9e82ff",
       "BorderColor": "#00000000",
-      "FontSize": 45,
-      "MinimapIcon": "2 Yellow Circle"
+      "FontSize": 45
     }
   },
   "Gold": {
@@ -311,7 +308,7 @@
       "BackgroundColor": "#ffffffff",
       "BorderColor": "#ff0000ff",
       "FontSize": 45,
-      "MinimapIcon": "0 Red Circle"
+      "MinimapIcon": "0 Red Star"
     },
     "Tier 2": {
       "TextColor": "#ffffffff",
@@ -348,21 +345,25 @@
       "PlayEffect": "Purple Temp"
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#ebafbeff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Pink Diamond"
     },
     "Tier 3": {
+      "TextColor": "#ff0000ff",
+      "BackgroundColor": "#ffffffff",
+      "BorderColor": "#ff0000ff",
       "FontSize": 45,
-      "BackgroundColor": "#d20000ff",
-      "TextColor": "#ffffffff",
       "MinimapIcon": "0 Red Star",
       "PlayEffect": "Purple"
     },
     "Tier 5": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "TextColor": "#ff5ac8ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     }
   },
   "Curse of the Allflame": {
@@ -473,20 +474,30 @@
   },
   "Trinkets": {
     "Tier 2": {
-      "FontSize": 40,
-      "BackgroundColor": "#2a2a2af0"
+      "TextColor": "#6f3a6eff",
+      "BackgroundColor": "#f8f8f2ff",
+      "BorderColor": "#6f3a6eff",
+      "FontSize": 45,
+      "MinimapIcon": "0 Purple Star"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#2a2a2ae6"
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Purple Moon"
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#2a2a2adc"
+      "TextColor": "#d590d3ff",
+      "BackgroundColor": "#281b28ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     },
     "Tier 5": {
-      "FontSize": 40,
-      "BackgroundColor": "#2a2a2ad2"
+      "TextColor": "#d590d3ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     }
   },
   "Breach Grasping Mail": {
@@ -515,16 +526,23 @@
       "BackgroundColor": "#2a2a2af0"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#2a2a2ae6"
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Purple Moon"
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#2a2a2adc"
+      "TextColor": "#d590d3ff",
+      "BackgroundColor": "#281b28ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     },
     "Tier 5": {
-      "FontSize": 40,
-      "BackgroundColor": "#2a2a2adc"
+      "TextColor": "#d590d3ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     }
   },
   "Mirror of Kalandra Ring Bases": {
@@ -582,34 +600,50 @@
       "BackgroundColor": "#242014f0"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#242014e6"
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#c878e6ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Purple Moon"
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#242014dc"
+      "TextColor": "#c878e6ff",
+      "BackgroundColor": "#26172cff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     },
     "Tier 5": {
-      "FontSize": 40,
-      "BackgroundColor": "#242014dc"
+      "TextColor": "#c878e6ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     }
   },
   "Influenced": {
     "Tier 2": {
-      "FontSize": 40,
-      "BackgroundColor": "#2a2a2af0"
+      "TextColor": "#ffff77ff",
+      "BackgroundColor": "#202020ff",
+      "BorderColor": "#966effff",
+      "FontSize": 45,
+      "MinimapIcon": "1 Purple Star"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#2a2a2ae6"
+      "TextColor": "#ffff77ff",
+      "BackgroundColor": "#202020ff",
+      "BorderColor": "#966effff",
+      "FontSize": 40
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#2a2a2adc"
+      "TextColor": "#ffff77ff",
+      "BackgroundColor": "#202020ff",
+      "BorderColor": "#966effff",
+      "FontSize": 40
     },
     "Tier 5": {
-      "FontSize": 40,
-      "BackgroundColor": "#2a2a2ad2"
+      "TextColor": "#8888ffff",
+      "BackgroundColor": "#202020ff",
+      "BorderColor": "#966effff",
+      "FontSize": 40
     }
   },
   "Chancing": {
@@ -764,7 +798,7 @@
       "BackgroundColor": "#1ba29bff",
       "BorderColor": "#ffffffff",
       "FontSize": 45,
-      "MinimapIcon": "1 Yellow Diamond"
+      "MinimapIcon": "1 Yellow Triangle"
     },
     "Tier 1": {
       "TextColor": "#ffffffff",
@@ -1006,7 +1040,7 @@
       "BackgroundColor": "#aae63cff",
       "BorderColor": "#00000000",
       "FontSize": 45,
-      "MinimapIcon": "1 Yellow Diamond"
+      "MinimapIcon": "1 Yellow Hexagon"
     },
     "Tier 2": {
       "TextColor": "#aae63cff",
@@ -1085,8 +1119,10 @@
       "BackgroundColor": "#2a2a2af0"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#2a2a2ae6"
+      "TextColor": "#ffff77ff",
+      "BackgroundColor": "#202020ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     },
     "Tier 4": {
       "FontSize": 40,
@@ -1106,10 +1142,10 @@
   },
   "Class Nets": {
     "Tier 0": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000ff",
       "TextColor": "#ff5ac8ff",
-      "BorderColor": "#00000000"
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
     }
   }
 }

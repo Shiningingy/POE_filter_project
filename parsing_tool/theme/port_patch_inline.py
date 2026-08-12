@@ -32,7 +32,7 @@ except Exception:
     pass
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-PATCH = os.path.join(ROOT, "docs", "design", "handoff", "theme-patch-rev23.json")
+PATCH = os.path.join(ROOT, "docs", "design", "handoff", "theme-patch-rev25.json")
 TD = os.path.join(ROOT, "filter_generation", "data", "tier_definition")
 APPLY = "--apply" in sys.argv
 
@@ -62,6 +62,12 @@ STYLE = ("TextColor", "BackgroundColor", "BorderColor", "FontSize", "MinimapIcon
 
 def main():
     P = json.load(io.open(PATCH, encoding="utf-8"))
+    # Channels the patch has any opinion about, computed from the patch itself so a future rev
+    # that starts describing beams is honoured without editing this file.
+    global MODELLED
+    MODELLED = {k for sec, body in P.items() if not sec.startswith("_") and isinstance(body, dict)
+                for node in body.values() if isinstance(node, dict)
+                for k in STYLE if k in node and node[k] is not None}
     files, wrote, missing = {}, [], []
 
     for section, pkey, rel, tier in TABLE:
@@ -87,9 +93,19 @@ def main():
             continue
         th = target.setdefault("theme", collections.OrderedDict())
         before = collections.OrderedDict((k, th[k]) for k in STYLE if k in th)
+        # ★ AN OMITTED KEY IS A REMOVAL — but only for a channel the patch MODELS.
+        # rev 25 states its icon floor (icons at R0-R2 only) by dropping MinimapIcon from the
+        # rows beneath it, so for icons absence is a decision and a write-only porter cannot
+        # express it — that is the half-port that made rev 23 inert.
+        #
+        # ⚠️ `PlayEffect` is in ZERO of the patch's 79 rows: the kit does not describe beams.
+        # Deleting on absence there stripped all five map beams on the first run. Absence of
+        # an opinion is not an opinion. Same rule as port_designer_patch.modelled_channels().
         for k in STYLE:
             if k in node and node[k] is not None:
                 th[k] = node[k]
+            elif k in th and k in MODELLED:
+                del th[k]
         after = collections.OrderedDict((k, th[k]) for k in STYLE if k in th)
         if before != after:
             wrote.append((rel, tier, pkey, before, after))
