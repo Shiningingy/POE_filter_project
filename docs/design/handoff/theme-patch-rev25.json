@@ -1,0 +1,576 @@
+{
+  "_about": "Theme patch for Sharket 3.29 Ruthless (CN) — drop-in values in sharket_theme.json format. rev 22 (loudness flipped: jewellery keeps bright plates; weapons/armour quiet) (equipment slot split + net accent, request-02), 2026-08-08 (corpses moved to 343° per request-01; maps T0 = 9.49) from 'Theme Proposal 3.29.dc.html'; every pairing carries a measured WCAG ratio in the proposal + theme_rungs_3.29.json. Tier keys follow each category's existing tier_definition (see _tier_map). Colours are #rrggbbaa.",
+  "_tier_map": {
+    "Currency": "band ladder: Tier 0=R0 T1通货 · Tier 1=R1 house red · Tier 2=R2 FB vermilion · Tier 3=R3 T3通货 · Tier 4=R4 T4通货 tan · Tier 9/R5=EMIT NOTHING (game default; scrolls/gold keep hand-set FS35)",
+    "Skill Gems + Support Gems": "R4 = skill AND support (same value); R5 = low-value gems only",
+    "Curse of the Allflame": "瓶中信 R2 · 高级达克特 R3 · 普通达克特/佣兵委托令(out)/死者硫磺-by-stack · charts own blue · NO R5; 穿越魔瓶→Vaal, 笼罩水晶→Legion, 佣兵委托令→own key (re-pick, blood plate taken)",
+    "Harvest": "Tier 0 大量=R2 · Tier 1 中量=R3 · Tier 2+3 少量/命能 MERGED=R4 · Tier 9 hide",
+    "Maps": "Tier 0 特殊 · NEW T17 key needed · Tier 1 T16 red-tint · Tier 2 红图 · Tier 3 黄图 · Tier 4 白图 · Tier 9 hide",
+    "Scarabs": "Tier 0 white-plate top · Tier 1 顶级 · Tier 2 稀有 · Tier 3 少见 · Tier 4 普通 — all FS45",
+    "Tainted Currency": "Tier 1=R0 house · Tier 2 blood · Tier 3 tint (hideable) · Tier 4 black (hideable) · Tier 9 hide",
+    "Fossils & Resonators": "R0 premium(12 fossils+prime resonators) · R1 rest-good · R2 mid · R3 common — currency bands verbatim",
+    "Legacy": "border mark ONLY (150 150 150); items keep family/rarity look — retire the text ladder",
+    "Deep tiers (all categories)": "audit finding A: replace desaturated Tier 6/7/8/12 with family hue at alpha cc on solid black, or emit nothing",
+    "Net": "Ask 2: ONE fixed look per item-class net, emitted last ahead of the magenta. No ladder, no icon. Escalation (only if in-game salience fails): plate #301126ff.",
+    "Equipment loudness": "rev 22: jewellery keeps bright rarity plates (loud, unchanged). Weapons/armour = rarity text on quiet #202020ff.",
+    "Wombgifts": "rev 24: T1 reserved for the house chase pair (empty today — promote a base into it, don't restyle T2). T2 (all 4 bases) = black on blush 235 175 190, 11.41:1, FS45 — plate channel only, no text-hue collision. Net = the net look. Hide below.",
+    "Authoring pass (rev 25)": "Heist Experimented + Trinkets = heist violet walk (trinket T0 lock = white-plate top) · Talismans = freed amethyst walk · Influenced = STATUS: influence border #966effff on rev-22 gear rows (5th reserved border use) · Campaign = one gear-rare row, declutters are Hides · Class Nets = the net accent 1:1 · Moon = league-gear icon shape. Memory-Stranded / ID-Mods dropped (no longer in repo).",
+    "Talismans fallback": "Ships on amethyst 200 120 230 (confirmed). If the in-game eyeball vs heist violet fails: fallback = retired allflame violet #aa78ffff (262°, Δ40°, contrasts pre-measured) — never a small hue nudge."
+  },
+  "Currency": {
+    "Tier 0": {
+      "TextColor": "#ff0000ff",
+      "BackgroundColor": "#ffffffff",
+      "BorderColor": "#ff0000ff",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Star"
+    },
+    "Tier 1": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#d20000ff",
+      "BorderColor": "#ffffffff",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Diamond"
+    },
+    "Tier 2": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#f05a23ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Green Diamond"
+    },
+    "Tier 3": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#ffaa00ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
+    },
+    "Tier 4": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#aa9e82ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
+    }
+  },
+  "Skill Gems": {
+    "R2": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#1ba29bff",
+      "BorderColor": "#ffffffff",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Triangle"
+    },
+    "R3": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#1ba29bff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
+    },
+    "R4": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#1ba29bff",
+      "BorderColor": "#00000000",
+      "FontSize": 43
+    },
+    "R5": {
+      "TextColor": "#1ba29bff",
+      "BackgroundColor": "#1b3334ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  },
+  "Curse of the Allflame": {
+    "R2 瓶中信": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#00a070ff",
+      "BorderColor": "#ffffffff",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Diamond"
+    },
+    "R3 高级达克特": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#00a070ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
+    },
+    "R4 普通达克特": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#00a070ff",
+      "BorderColor": "#00000000",
+      "FontSize": 43
+    },
+    "R2 大量死者硫磺": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#00a070ff",
+      "BorderColor": "#ffffffff",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Diamond"
+    },
+    "海图 (own blue, one tier)": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#0084a8ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
+    }
+  },
+  "Corpses": {
+    "R2": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#d44a6eff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Kite"
+    },
+    "R3": {
+      "TextColor": "#eb5a82ff",
+      "BackgroundColor": "#2d1119ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    },
+    "R4": {
+      "TextColor": "#eb5a82ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    },
+    "R5": {
+      "TextColor": "#eb5a82cc",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  },
+  "Oils": {
+    "R2": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#ffe650ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Diamond"
+    },
+    "R3": {
+      "TextColor": "#ffe650ff",
+      "BackgroundColor": "#302c0fff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    },
+    "R4": {
+      "TextColor": "#ffe650ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  },
+  "Fossils & Resonators": {
+    "R0 premium": {
+      "TextColor": "#ff0000ff",
+      "BackgroundColor": "#ffffffff",
+      "BorderColor": "#ff0000ff",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Star"
+    },
+    "R1 good": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#d20000ff",
+      "BorderColor": "#00ff00ff",
+      "FontSize": 45,
+      "MinimapIcon": "1 Green Diamond"
+    },
+    "R2 mid": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#ffaa00ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "2 Orange Diamond"
+    },
+    "R3 common": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#aa9e82ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
+    }
+  },
+  "Essences": {
+    "R2": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#006effff",
+      "BorderColor": "#ffffffff",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Raindrop"
+    },
+    "R3": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#006effff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
+    },
+    "R4": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#006effff",
+      "BorderColor": "#00000000",
+      "FontSize": 43
+    }
+  },
+  "Delirium Orbs": {
+    "R2 (single tier)": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#d2d2e6ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Diamond"
+    }
+  },
+  "Harvest": {
+    "Tier 0": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#2ecc71ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Diamond"
+    },
+    "Tier 1": {
+      "TextColor": "#2ecc71ff",
+      "BackgroundColor": "#092715ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    },
+    "Tier 2": {
+      "TextColor": "#2ecc71ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    },
+    "Tier 3": {
+      "TextColor": "#2ecc71ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  },
+  "Maps": {
+    "Tier 0": {
+      "TextColor": "#1d407cff",
+      "BackgroundColor": "#f8f8f2ff",
+      "BorderColor": "#2b5eb6ff",
+      "FontSize": 45,
+      "MinimapIcon": "0 White Star"
+    },
+    "T17 (new key)": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#6c34b4ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Purple Square"
+    },
+    "Tier 1 (T16)": {
+      "TextColor": "#ff5a50ff",
+      "BackgroundColor": "#30110fff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Red Square"
+    },
+    "Tier 2 (红图)": {
+      "TextColor": "#ff5a50ff",
+      "BackgroundColor": "#0f203eff",
+      "BorderColor": "#00000000",
+      "FontSize": 42
+    },
+    "Tier 3 (黄图)": {
+      "TextColor": "#ffff77ff",
+      "BackgroundColor": "#0f203eff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    },
+    "Tier 4 (白图)": {
+      "TextColor": "#c8c8c8ff",
+      "BackgroundColor": "#0f203eff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  },
+  "Scarabs": {
+    "Tier 0": {
+      "TextColor": "#587414ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "BorderColor": "#587414ff",
+      "FontSize": 45,
+      "MinimapIcon": "0 Yellow Star"
+    },
+    "Tier 1": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#aae63cff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Hexagon"
+    },
+    "Tier 2": {
+      "TextColor": "#aae63cff",
+      "BackgroundColor": "#202c0bff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
+    },
+    "Tier 3": {
+      "TextColor": "#aae63cff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
+    },
+    "Tier 4": {
+      "TextColor": "#aae63ccc",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
+    }
+  },
+  "Tainted Currency": {
+    "Tier 1": {
+      "TextColor": "#ff0000ff",
+      "BackgroundColor": "#ffffffff",
+      "BorderColor": "#ff0000ff",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Star"
+    },
+    "Tier 2": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#961428ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Red Diamond"
+    },
+    "Tier 3": {
+      "TextColor": "#f5554bff",
+      "BackgroundColor": "#2f100eff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    },
+    "Tier 4": {
+      "TextColor": "#f5554bff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  },
+  "Legacy": {
+    "border mark only": {
+      "BorderColor": "#969696ff",
+      "_note": "items keep family/rarity text+plate; retire the Legacy text ladder"
+    }
+  },
+  "Sockets & Links": {
+    "6-link": {
+      "TextColor": "#ff0000ff",
+      "BackgroundColor": "#ffffffff",
+      "BorderColor": "#ff0000ff",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Star"
+    },
+    "6-socket": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#d20000ff",
+      "BorderColor": "#00ff00ff",
+      "FontSize": 45,
+      "MinimapIcon": "0 Green Star"
+    },
+    "RGB linked": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#aa9e82ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  },
+  "Jewels (normal & abyss)": {
+    "T2 white": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#a0a0a0ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "0 White Cross"
+    },
+    "T2 magic": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#8888ffff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "0 Blue Cross"
+    },
+    "T2 rare": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#ffff77ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "0 Yellow Cross"
+    }
+  },
+  "Net": {
+    "net (all classes)": {
+      "TextColor": "#ff5ac8ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  },
+  "Equipment loudness": {
+    "weapons_armour rare": {
+      "TextColor": "#ffff77ff",
+      "BackgroundColor": "#202020ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45
+    },
+    "weapons_armour magic": {
+      "TextColor": "#8888ffff",
+      "BackgroundColor": "#202020ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    },
+    "weapons_armour normal": {
+      "TextColor": "#a0a0a0ff",
+      "BackgroundColor": "#202020ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  },
+  "_version": "rev 25",
+  "_date": "2026-08-12",
+  "_icon_grammar": "rev 24 — CATEGORY-KEYED shapes: Diamond = currency & currency-kin (currency, fossils, oils, harvest, delirium, sulphur/ducats, wombgifts, tainted) · Square = maps/fragments/div cards · Hexagon = scarabs · Triangle = gems · Raindrop = essences · Kite = corpses · Cross = jewels + safety nets. Star = the one SHARED shape: house-band chase rows only (Mirror-class, 6L/6S, category white-plate tops). ICON FLOOR: icons at R0-R2 only, and the floor reads the PROMISE, not the paint — jewels borrow the rarity-plate grammar (visually rung-4) but pass the R2 test in Ruthless, so they KEEP their Crosses; the footer [99999] emergency keeps 2 White Cross; the net accent stays iconless. Scrolls, tan-band currency, common fossils carry none.",
+  "Wombgifts": {
+    "Tier 1 Wombgifts (reserved)": {
+      "TextColor": "#ff0000ff",
+      "BackgroundColor": "#ffffffff",
+      "BorderColor": "#ff0000ff",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Star"
+    },
+    "Tier 2 Wombgifts": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#ebafbeff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Pink Diamond"
+    },
+    "Tier Net Wombgifts": {
+      "TextColor": "#ff5ac8ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  },
+  "Heist Experimented": {
+    "Heist Experimented T0": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Purple Moon"
+    },
+    "Heist Experimented T1": {
+      "TextColor": "#d590d3ff",
+      "BackgroundColor": "#281b28ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    },
+    "Heist Experimented T2": {
+      "TextColor": "#d590d3ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  },
+  "Trinkets": {
+    "Tier 0 Trinkets": {
+      "TextColor": "#6f3a6eff",
+      "BackgroundColor": "#f8f8f2ff",
+      "BorderColor": "#6f3a6eff",
+      "FontSize": 45,
+      "MinimapIcon": "0 Purple Star"
+    },
+    "Tier 1 Trinkets": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#d590d3ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Purple Moon"
+    },
+    "Tier 2 Trinkets": {
+      "TextColor": "#d590d3ff",
+      "BackgroundColor": "#281b28ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    },
+    "Tier 3 Trinkets": {
+      "TextColor": "#d590d3ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    },
+    "Tier 4 Trinkets": {
+      "TextColor": "#d590d3cc",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  },
+  "Talismans": {
+    "Talismans T0": {
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#c878e6ff",
+      "BorderColor": "#00000000",
+      "FontSize": 45,
+      "MinimapIcon": "1 Purple Moon"
+    },
+    "Talismans T1": {
+      "TextColor": "#c878e6ff",
+      "BackgroundColor": "#26172cff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    },
+    "Talismans T2": {
+      "TextColor": "#c878e6ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  },
+  "Influenced": {
+    "Tier 0 Influenced": {
+      "TextColor": "#ffff77ff",
+      "BackgroundColor": "#202020ff",
+      "BorderColor": "#966effff",
+      "FontSize": 45,
+      "MinimapIcon": "1 Purple Star"
+    },
+    "Tier 1 Influenced": {
+      "TextColor": "#ffff77ff",
+      "BackgroundColor": "#202020ff",
+      "BorderColor": "#966effff",
+      "FontSize": 40
+    },
+    "Tier 2 Influenced": {
+      "TextColor": "#ffff77ff",
+      "BackgroundColor": "#202020ff",
+      "BorderColor": "#966effff",
+      "FontSize": 40
+    },
+    "Tier 3 Influenced": {
+      "TextColor": "#8888ffff",
+      "BackgroundColor": "#202020ff",
+      "BorderColor": "#966effff",
+      "FontSize": 40
+    }
+  },
+  "Campaign": {
+    "Rare Safety Net": {
+      "TextColor": "#ffff77ff",
+      "BackgroundColor": "#202020ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  },
+  "Class Nets": {
+    "all Tier 0 net rows": {
+      "TextColor": "#ff5ac8ff",
+      "BackgroundColor": "#000000ff",
+      "BorderColor": "#00000000",
+      "FontSize": 40
+    }
+  }
+}
