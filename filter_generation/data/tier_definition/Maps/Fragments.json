@@ -18,17 +18,16 @@
     "Tier 1 Fragments": {
       "hideable": false,
       "theme": {
-        "Tier": 1,
-        "FontSize": 42,
-        "TextColor": "#ffffffff",
-        "BorderColor": "#c8a860ff",
-        "BackgroundColor": "#282213ff",
-        "PlayEffect": "Orange",
-        "MinimapIcon": "1 Orange Diamond",
+        "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
           300
-        ]
+        ],
+        "FontSize": 45,
+        "BackgroundColor": "#d20000ff",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "0 Red Hexagon",
+        "PlayEffect": "Purple"
       },
       "sound": {
         "default_sound_id": 6,
@@ -37,21 +36,69 @@
       "localization": {
         "en": "T1: High Value",
         "ch": "T1: 顶级碎片"
+      },
+      "item_overrides": {
+        "An Audience With The King": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/谒王之约.mp3",
+            300
+          ]
+        },
+        "The Maven's Writ": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/贤主敕令.mp3",
+            300
+          ]
+        },
+        "Chronicle of Atzoatl": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/阿佐亚特编年史.mp3",
+            300
+          ]
+        },
+        "Inscribed Ultimatum": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/贪婪战书.mp3",
+            300
+          ]
+        },
+        "Writhing Invitation": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/蠕动的邀请.mp3",
+            300
+          ]
+        },
+        "Screaming Invitation": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/咆哮的邀请.mp3",
+            300
+          ]
+        },
+        "Polaric Invitation": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/极星的邀请.mp3",
+            300
+          ]
+        },
+        "Incandescent Invitation": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/炽焰的邀请.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 2 Fragments": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 39,
-        "TextColor": "#d0b578ff",
-        "BorderColor": "#c8a860ff",
-        "BackgroundColor": "#101016ff",
-        "MinimapIcon": "1 Orange Circle",
+        "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
           300
-        ]
+        ],
+        "FontSize": 40,
+        "MinimapIcon": "1 Red Hexagon",
+        "PlayEffect": "Purple Temp"
       },
       "sound": {
         "default_sound_id": 1,
@@ -60,20 +107,39 @@
       "localization": {
         "en": "T2: Decent Value",
         "ch": "T2: 高价值碎片"
+      },
+      "item_overrides": {
+        "Blood-filled Vessel": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/浸血法器.mp3",
+            300
+          ]
+        },
+        "Sacred Blossom": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/神圣之花.mp3",
+            300
+          ]
+        },
+        "Simulacrum": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/梦魇拟像.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 3 Fragments": {
       "hideable": false,
       "theme": {
         "Tier": 3,
-        "FontSize": 36,
-        "TextColor": "#d8c290ff",
-        "BorderColor": "#6e5c35ff",
-        "BackgroundColor": "#0a0a0dff",
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
           300
-        ]
+        ],
+        "FontSize": 40,
+        "MinimapIcon": "2 Red Hexagon",
+        "PlayEffect": "Purple Temp"
       },
       "sound": {
         "default_sound_id": 2,
@@ -82,20 +148,32 @@
       "localization": {
         "en": "T3: Mid Value",
         "ch": "T3: 普通碎片"
+      },
+      "item_overrides": {
+        "Crescent Splinter": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/新月裂片.mp3",
+            300
+          ]
+        },
+        "Mortal Hope": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/凡人的希望.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 4 Fragments": {
       "hideable": false,
       "theme": {
         "Tier": 4,
-        "FontSize": 34,
-        "TextColor": "#ac9e82ff",
-        "BorderColor": "#3c321dff",
-        "BackgroundColor": "#00000000",
         "PlayAlertSound": [
           "Sharket掉落音效/地图碎片.mp3",
-          100
-        ]
+          300
+        ],
+        "FontSize": 40,
+        "MinimapIcon": "2 White Hexagon"
       },
       "sound": {
         "default_sound_id": -1,
@@ -104,6 +182,14 @@
       "localization": {
         "en": "T4: Low Value",
         "ch": "T4: 低价值碎片"
+      },
+      "item_overrides": {
+        "Sacrifice at Midnight": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/午夜的奉献.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier Hide Fragments": {
@@ -125,16 +211,10 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#000000ff",
-        "BorderColor": "#ffffffff",
-        "BackgroundColor": "#c8a860ff",
-        "PlayEffect": "Orange",
-        "MinimapIcon": "0 Orange Star",
+        "Tier": 1,
         "PlayAlertSound": [
           "Sharket掉落音效/超级地图碎片.mp3",
-          200
+          300
         ]
       },
       "sound": {

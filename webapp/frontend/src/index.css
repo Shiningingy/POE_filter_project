@@ -194,6 +194,17 @@ button:focus-visible {
 }
 .sound-icon:hover { opacity: 1; transform: scale(1.2); color: #1976D2; }
 
+/* A card carrying its own style override. Deliberately ONE badge, styled like the
+   sound icon it sits beside: the card only has to say "this is not simply the
+   block's look", and the mini editor shows which channels. */
+.style-override-icon {
+    font-size: 0.95rem;
+    cursor: default;
+    opacity: 0.75;
+    line-height: 1;
+    margin-left: 2px;
+}
+
 /* Corner Indicators */
 .rule-source-badge-tl {
   position: absolute;
@@ -309,3 +320,10 @@ button:focus-visible {
 }
 .item-card-del-btn:hover { color: #fa5252; background: rgba(250, 82, 82, 0.1); border-radius: 3px; }
 
+
+/* Rarity's two legal spellings: a value LIST or a COMPARISON. Mode chips reuse
+   the multiselect chip styling so the control reads as one family. */
+.rarity-picker { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+.rarity-mode { display: flex; gap: 4px; }
+.rarity-compare { display: flex; gap: 4px; }
+.rarity-compare select { flex: 1; min-width: 0; }

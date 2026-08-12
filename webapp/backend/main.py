@@ -7,6 +7,7 @@ import json
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 import re
 import csv
@@ -122,6 +123,8 @@ DATA_DIR = PROJECT_ROOT / "data"
 
 VENV_PYTHON = PROJECT_ROOT / ".venv" / "Scripts" / "python.exe" if sys.platform == "win32" else PROJECT_ROOT / ".venv" / "bin" / "python"
 PYTHON_EXECUTABLE = str(VENV_PYTHON) if VENV_PYTHON.exists() else sys.executable
+# The generator is Node now (ADR-0007). PATH lookup, overridable for a pinned install.
+NODE_EXECUTABLE = os.environ.get("NODE") or "node"
 
 # --- Globals ---
 ITEM_CLASSES = []
@@ -781,22 +784,6 @@ def get_category_structure():
     if not path.exists(): return {"categories": []}
     with open(path, "r", encoding="utf-8") as f: return json.load(f)
 
-@app.get("/api/custom-overrides")
-def get_custom_overrides():
-    path = CONFIG_DATA_DIR / "theme" / "custom_overrides.json"
-    if not path.exists(): return {}
-    try: return json.load(open(path, "r", encoding="utf-8"))
-    except: return {}
-
-@app.post("/api/custom-overrides")
-async def save_custom_overrides(content: dict = Body(...)):
-    path = CONFIG_DATA_DIR / "theme" / "custom_overrides.json"
-    try:
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump(content, f, indent=4, ensure_ascii=False)
-        return {"message": "Success"}
-    except Exception as e: raise HTTPException(status_code=500, detail=str(e))
-
 @app.get("/api/settings")
 def get_settings():
     path = CONFIG_DATA_DIR / "settings.json"
@@ -1045,7 +1032,7 @@ def update_item_tier(request: UpdateItemTierRequest):
 def assert_tiers_exist(source_file: str, tiers: List[str]) -> None:
     """Reject a tier the target category does not define, before writing it.
 
-    generate.py:393 does `if t_lbl not in category_data: continue`, so an item
+    The generator skips any tier label the category does not define, so an item
     filed under an undefined tier emits NOTHING - the filter builds cleanly and
     the item is simply missing in game. That is how 525 curated entries went
     dark unnoticed. Catching it at write time turns a silent data-loss bug into
@@ -1214,117 +1201,71 @@ def update_item_tiers_bulk(request: BulkTierRequest):
 
 @app.post("/api/update-item-override")
 def update_item_override(request: UpdateItemOverrideRequest):
-    if request.source_file.startswith("base_mapping/"):
-        file_path = safe_join(CONFIG_DATA_DIR, request.source_file)
-    else:
-        file_path = safe_join(CONFIG_DATA_DIR / "base_mapping", request.source_file)
+    """Write an item CARD's style override: tier_definition[cat][tier].item_overrides[base].
+
+    The card is the per-occurrence representation of a base in the editor, and
+    `(tier, base)` identifies that occurrence — within a tier, `pending_items`
+    guarantees a base is claimed by exactly one emitted block, whether that block
+    came from a rule or from the tier's own base list. So one write reaches the
+    right block either way, and `rule_index` is no longer needed to disambiguate.
+
+    This replaces a much larger routine that synthesised RULES to carry a sound:
+    tier-scoped `sound_scope` rules, `suppress_auto_sound` rules whose entire job
+    was to exist so auto-sound would skip the item, first-match-wins insertion
+    ordering against older bare rules, and a pruning pass to drop rules that had
+    been emptied. All of it existed because sound had to be expressed as filter
+    logic. It no longer does, so the whole apparatus goes and the write is a dict
+    assignment.
+
+    Sound is the common case but nothing here is sound-specific — any style
+    channel the mini style editor exposes lands the same way.
+    """
+    rel = request.source_file
+    if rel.startswith("base_mapping/"):
+        rel = rel[len("base_mapping/"):]
+    file_path = safe_join(CONFIG_DATA_DIR / "tier_definition", rel)
+
+    if not request.tier_key:
+        raise HTTPException(status_code=400,
+                            detail="tier_key is required: an override belongs to one occurrence")
 
     try:
         with file_lock(file_path):
-            with open(file_path, "r", encoding="utf-8") as f: data = json.load(f)
-            rules = data.get("rules", [])
-            target = None
+            with open(file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            category_key = next((k for k in data if not k.startswith("//")), None)
+            if not category_key:
+                raise HTTPException(status_code=400, detail=f"no category in {rel}")
+            entry = data[category_key].get(request.tier_key)
+            if not isinstance(entry, dict):
+                raise HTTPException(status_code=404,
+                                    detail=f"no tier {request.tier_key!r} in {rel}")
 
-            if request.rule_index is not None and 0 <= request.rule_index < len(rules):
-                # (A) The card is a target of this rule. The rule's conditions ARE
-                # the block, so the sound has to live on the rule. A rule with
-                # several targets therefore shares one sound - that is the block,
-                # not a limitation we can route around here.
-                target = rules[request.rule_index]
-            elif request.tier_key:
-                # (B) Plain tier card: a rule pinned to THIS tier, so the same base
-                # can speak differently in each tier it appears in.
-                for r in rules:
-                    if (r.get("targets") == [request.item_name]
-                            and not r.get("conditions")
-                            and (r.get("overrides") or {}).get("Tier") == request.tier_key):
-                        target = r
-                        break
-                if target is None and not request.overrides and request.remove_keys:
-                    # CLEARING and there is no tier-scoped rule: the sound is coming
-                    # from one of the older bare global rules, and the card is the
-                    # only place the user can reach it. Clear that instead of
-                    # silently doing nothing.
-                    for r in rules:
-                        if r.get("targets") == [request.item_name] and not r.get("conditions"):
-                            target = r
-                            break
-                if target is None and request.suppress_auto and request.remove_keys:
-                    # Nothing to clear because the sound is INJECTED from the sound
-                    # map's basetype_sounds. generate.py skips that injection for any
-                    # item a rule already targets, so an otherwise-empty pinned rule
-                    # is what "no auto-sound here" looks like.
-                    target = {
-                        "targets": [request.item_name],
-                        "conditions": {},
-                        "overrides": {"Tier": request.tier_key},
-                        "comment": f"No auto-sound for {request.item_name} @ {request.tier_key}",
-                        "sound_scope": True,
-                        "suppress_auto_sound": True,
-                    }
-                    rules.append(target)
-                if target is None and request.overrides:
-                    target = {
-                        "targets": [request.item_name],
-                        "conditions": {},
-                        "overrides": {"Tier": request.tier_key},
-                        "comment": f"Override for {request.item_name} @ {request.tier_key}",
-                        # Marks a rule that exists ONLY to scope a sound, so it can be
-                        # dropped again when the sound is cleared. Two hand-authored
-                        # rules (Crystallised Rancour, the 7 Vaal gems) are Tier-only
-                        # on purpose, so "Tier-only" alone is NOT safe to prune.
-                        "sound_scope": True,
-                    }
-                    # First match wins: the tier-scoped rule is the more specific one
-                    # and must be seen before any bare global rule for the same item.
-                    insert_at = len(rules)
-                    for i, r in enumerate(rules):
-                        if (r.get("targets") == [request.item_name]
-                                and not r.get("conditions")
-                                and not (r.get("overrides") or {}).get("Tier")):
-                            insert_at = i
-                            break
-                    rules.insert(insert_at, target)
+            overrides = dict(entry.get("item_overrides") or {})
+            card = dict(overrides.get(request.item_name) or {})
+            for k in (request.remove_keys or []):
+                card.pop(k, None)
+            card.update(request.overrides or {})
+
+            # An empty card says nothing, and a card that says nothing is just the
+            # block's own look — so it is removed rather than left as an override
+            # that would split a block for no reason.
+            if card:
+                overrides[request.item_name] = card
             else:
-                # (C) Legacy bare global rule. Kept so the 40 already-tuned overrides
-                # keep resolving; new writes from the editor always carry a scope.
-                for r in rules:
-                    if r.get("targets") == [request.item_name] and not r.get("conditions"):
-                        target = r
-                        break
-                if target is None and request.overrides:
-                    target = {"targets": [request.item_name], "conditions": {},
-                              "overrides": request.overrides,
-                              "comment": f"Override for {request.item_name}"}
-                    rules.append(target)
+                overrides.pop(request.item_name, None)
 
-            if target is not None:
-                target.setdefault("overrides", {})
-                for k in (request.remove_keys or []):
-                    target["overrides"].pop(k, None)
-                target["overrides"].update(request.overrides)
+            if overrides:
+                entry["item_overrides"] = overrides
+            else:
+                entry.pop("item_overrides", None)
 
-            # A bare rule with nothing left to say would emit a block identical to the
-            # tier's own, so drop it - that IS the fallback to the tier sound. Only
-            # ever touches the item's OWN rule; a rule carrying conditions (Replica,
-            # Foulborn, six-link…) is somebody else's and is left alone above.
-            # A sound-scope rule reduced to just its Tier is equally empty.
-            def _is_spent(r):
-                ov = r.get("overrides") or {}
-                if r.get("conditions") or r.get("raw") or r.get("applyToTier"):
-                    return False
-                if r.get("suppress_auto_sound"):
-                    # Its whole job is to exist, so the auto-sound injection skips
-                    # this item. Empty is the point - never prune it.
-                    return False
-                if r.get("sound_scope"):
-                    return set(ov.keys()) <= {"Tier"}
-                return not ov
-            rules = [r for r in rules if not _is_spent(r)]
-            data["rules"] = rules
             write_json_atomic(file_path, data)
         return {"message": "Success"}
-    except Exception as e: raise HTTPException(status_code=500, detail=str(e))
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/tier-items")
 def get_items_by_tier(request: TierItemsRequest):
@@ -1362,7 +1303,7 @@ def get_items_by_tier(request: TierItemsRequest):
                     
                     absorbed: set[str] = set()
                     for idx, r in enumerate(rules):
-                        # applyToTier makes `targets` DEAD: generate.py:529 replaces
+                        # applyToTier makes `targets` DEAD: the generator replaces
                         # rule_matches with the tier's pending items and never reads
                         # them. A target listed here is not one the generator honours,
                         # so it must not become a card of its own.
@@ -1378,7 +1319,7 @@ def get_items_by_tier(request: TierItemsRequest):
                                     absorbed.add(t_over)
 
                     # ONE card per (item, tier). A live rule that names the item for a
-                    # tier discards it from pending_items (generate.py:639), so the
+                    # tier discards it from pendingItems, so the
                     # base block never follows: the mapping entry and the rule entry
                     # are the SAME emitted block, not two. Two RULES on one tier do
                     # emit twice, so only the mapping (None) entry is absorbed.
@@ -1424,20 +1365,46 @@ class GenerateRequest(BaseModel):
 
 @app.post("/api/generate")
 def generate_filter_file(request: GenerateRequest = Body(default=GenerateRequest())):
+    """Build the filter with the one generation engine (ADR-0007).
+
+    This used to run filter_generation/generate.py, a second implementation kept in
+    byte-parity with the TypeScript one. There is now a single engine — the same
+    filterGenerator.ts every visitor's browser runs — and generate.mjs is a thin CLI
+    around it. Local dev and the deployed site therefore cannot disagree, because
+    they are no longer two programs.
+
+    A JSON selection goes via a temp file: passing it as an argv string was fine
+    through subprocess, but the file form keeps the CLI's one quoting rule ("@path
+    or inline") the same everywhere it is called from.
+    """
     mode_arg = "ruthless" if request.game_mode == "ruthless" else "standard"
-    cmd = [
-        PYTHON_EXECUTABLE, str(FILTER_GEN_DIR / "generate.py"),
-        "--mode", mode_arg,
-        "--game-version", request.game_version,
-        "--strictness", request.strictness,
-        "--leveling-selection", json.dumps(request.leveling_selection or {}),
-    ]
+    sel_file = None
     try:
+        with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False,
+                                         encoding="utf-8") as fh:
+            json.dump(request.leveling_selection or {}, fh)
+            sel_file = fh.name
+        cmd = [
+            NODE_EXECUTABLE, str(FILTER_GEN_DIR / "generate.mjs"),
+            "--mode", mode_arg,
+            "--game-version", request.game_version,
+            "--strictness", request.strictness,
+            "--leveling-selection", f"@{sel_file}",
+        ]
         result = subprocess.run(cmd, check=True, cwd=PROJECT_ROOT,
                                 capture_output=True, text=True)
         return {"message": "Success", "output": result.stdout}
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail=(
+            f"Node not found (tried {NODE_EXECUTABLE!r}). The filter generator runs on "
+            "Node now (ADR-0007). Install Node 20+, or set the NODE environment "
+            "variable to the executable."))
     except subprocess.CalledProcessError as e:
         raise HTTPException(status_code=500, detail=(e.stdout or "") + (e.stderr or ""))
+    finally:
+        if sel_file:
+            try: os.unlink(sel_file)
+            except OSError: pass
 
 @app.get("/api/class-hierarchy")
 def get_class_hierarchy():
@@ -1702,7 +1669,11 @@ def get_mapping_info(file_name: str):
     path = safe_join(CONFIG_DATA_DIR / "base_mapping", file_name)
     try:
         with open(path, "r", encoding="utf-8") as f: mapping_content = json.load(f)
-        theme_category = mapping_content.get("_meta", {}).get("theme_category")
+        # The look comes from the TIER definition, so report its key (set below).
+        # This used to read the base_mapping duplicate, which is wrong on 8 of the 82
+        # files that declare it - it showed "Heist" for Contracts while the filter
+        # styles it "Heist Contracts". Keep in step with clientData.mappingInfo.
+        theme_category = None
         available_tiers = []
         # Load tiers from the matching tier_definition file (same relative path as the mapping file)
         tier_def_path = CONFIG_DATA_DIR / "tier_definition" / file_name
@@ -1713,6 +1684,7 @@ def get_mapping_info(file_name: str):
                 category_key = next((k for k in tier_defs if not k.startswith("//")), None)
                 if category_key:
                     category_data = tier_defs[category_key]
+                    theme_category = category_data.get("_meta", {}).get("theme_category") or category_key
                     cat_loc = category_data.get("_meta", {}).get("localization", {})
                     cat_en = cat_loc.get("en", category_key)
                     cat_ch = cat_loc.get("ch", cat_en)

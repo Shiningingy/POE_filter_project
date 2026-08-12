@@ -7,14 +7,14 @@
         "ch": "扼杀链甲"
       },
       "tier_order": [
-        "Breach Grasping Mail T1",
+        "Breach Grasping Mail",
         "Breach Grasping Mail Hide"
       ]
     },
-    "Breach Grasping Mail T1": {
+    "Breach Grasping Mail": {
       "hideable": true,
       "theme": {
-        "Tier": 5
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": -1,
@@ -26,6 +26,14 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Grasping Mail": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/扼杀链甲.mp3",
+            300
+          ]
+        }
       }
     },
     "Breach Grasping Mail Hide": {

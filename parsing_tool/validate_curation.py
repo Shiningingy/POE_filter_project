@@ -12,40 +12,46 @@ were simply absent in game.
 
 Exit code is non-zero if any ERROR is found, so it can gate a commit or a CI run.
 
-The rules, and where they come from in generate.py:
+The rules, and where they come from in the generator
+(webapp/frontend/src/utils/filterGenerator.ts - the only engine since ADR-0007;
+these used to cite generate.py line numbers, which is why they name behaviour
+rather than lines now):
 
   pairing      base_mapping/<p> is paired with tier_definition/<p> by relative
-               path (generate.py:249). A mapping file with no partner is skipped
-               entirely - the whole category vanishes with no message.
+               path. A mapping file with no partner is skipped entirely - the
+               whole category vanishes with no message.
 
-  dead key     generate.py:393-394 iterates the tier order and does
-                   `if t_lbl not in category_data: continue`
+  dead key     the generator walks the tier order and skips any label the
+               category does not define:
+                   `if (!(tLbl in categoryData)) continue`
                so a mapping value naming a tier the category does not define
                emits NOTHING. This is what silently killed 525 entries.
 
-  lumping      For underscore folders (_legacy, _campaign) generate.py:365-379
-               instead REMAPS unknown keys onto the first non-hide tier. Items
-               are not lost, but they all collapse into one bucket - the
-               "everything shows up in general" symptom. Warning, not error.
+  lumping      For underscore folders (_legacy, _campaign) it instead REMAPS
+               unknown keys onto the first non-hide tier. Items are not lost,
+               but they all collapse into one bucket - the "everything shows up
+               in general" symptom. Warning, not error.
 
-  no-op rule   Every branch that selects a rule's items (generate.py:527-550)
-               needs either `targets` or `applyToTier`. A rule with neither
-               falls through to `continue` and emits nothing - and worse, the
-               items it meant to condition stay in `pending_items`, so they
-               emit as an UNCONDITIONED base block instead. The intended
-               "narrower" rule silently becomes a wider one.
+  no-op rule   Every branch that selects a rule's items needs either `targets`,
+               `applyToTier`, or conditions of its own. A rule with none falls
+               through and emits nothing - and worse, the items it meant to
+               condition stay in `pendingItems`, so they emit as an
+               UNCONDITIONED base block instead. The intended "narrower" rule
+               silently becomes a wider one.
 
-  rule tier    A rule's overrides.Tier is compared to the tier being emitted
-               (generate.py:528). Naming a tier the category does not define
-               means the comparison never holds - the dead-key bug in rule form.
+  rule tier    A rule's overrides.Tier is compared to the tier being emitted.
+               Naming a tier the category does not define means the comparison
+               never holds - the dead-key bug in rule form.
 """
 
 from __future__ import annotations
 
 import argparse
+import csv
 import glob
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -57,6 +63,10 @@ TD = os.path.join(DATA, "tier_definition")
 # Authored entries that are deliberately not base type names - the generator
 # turns them into socket/link conditions rather than a BaseType line.
 PSEUDO_NAMES = {"6-Link", "6-Socket", "RGB Linked", "Relics", "Heist Target"}
+
+# Which catalogue the name checks actually used — printed, so a stale one is
+# visible rather than silently producing typo reports for valid items.
+LOADED_FROM: dict[str, str] = {}
 
 
 class Report:
@@ -109,8 +119,8 @@ def category_of(tier_doc: dict) -> tuple[str, dict] | tuple[None, None]:
 
 
 def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
-                names: set[str], rep: Report) -> None:
-    """A rule only reaches an output block through generate.py:527-550.
+                names: set[str], classes: set[str], rep: Report) -> None:
+    """A rule only reaches an output block through the generator's rule loop.
 
     Both selection branches there end in a bare `continue` when the rule names
     no items, so a conditions-only rule is not "apply to everything" - it is
@@ -140,11 +150,11 @@ def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
         label = rule.get("comment") or (f"-> {tier}" if tier else f"rule #{i}")
 
         # A rule that brings its OWN selector - a `raw` block, or a BaseType/Class
-        # condition - is legitimate with no targets: generate.py:531 emits a block
+        # condition - is legitimate with no targets: the generator emits a block
         # with no generated BaseType line and the rule's own lines do the matching.
         # That is how one partial match stands in for a whole family
         # (`BaseType "Deafening Essence of"` for all 17). Not an error.
-        # Mirrors generate.py: ANY condition is a selector, not only BaseType/Class.
+        # Mirrors the generator: ANY condition is a selector, not only BaseType/Class.
         # A rule saying `Rarity Unique` + `LinkedSockets >= 6` needs no target list.
         self_selecting = bool(rule.get("raw")) or bool(conds)
 
@@ -166,20 +176,50 @@ def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
                 consequence = f"nothing is emitted for {tier!r}"
             rep.add("ERROR", where,
                     f"rule {label!r} has no 'targets' and no 'applyToTier', so "
-                    f"generate.py:545 skips it - {consequence}\n            "
+                    f"the generator skips it - {consequence}\n            "
                     f"fix: list the base types in 'targets'; or give the rule its "
                     f"own selector - a BaseType/Class condition, or a 'raw' block "
                     f"- which lets it match without naming items; or move the "
                     f"conditions onto the tier as class_condition:true "
-                    f"(generate.py:447) if they are meant to match by class")
+                    f"if they are meant to match by class")
             continue
 
         if tier and tier not in defined:
             rep.add("ERROR", where,
                     f"rule {label!r} overrides Tier to {tier!r}, which this "
-                    f"category does not define - generate.py:528 never matches "
+                    f"category does not define - the rule-tier comparison never matches "
                     f"it, so the rule emits NOTHING\n            "
                     f"defined tiers: {', '.join(sorted(defined)[:8])}")
+
+        check_operators(where, f"rule {label!r}", conds, rep)
+        check_range_syntax(where, f"rule {label!r}", conds, rep)
+
+        # `Class ==` is an EXACT match and the game's class names are PLURAL —
+        # "Blueprints", not "Blueprint". The singular emits a block that cannot
+        # match anything, and nothing anywhere says so.
+        if classes:
+            cval = conds.get("Class")
+            for c in (cval if isinstance(cval, list) else [cval] if cval else []):
+                if not isinstance(c, str):
+                    continue
+                body = c.strip()
+                exact = body.startswith("==")
+                body = body[2:].strip() if exact else body
+                # ONLY exact matches. A partial `Class "Gems"` is a deliberate
+                # substring standing in for "Skill Gems" + "Support Gems", so
+                # checking it against the class list reports idiom as error.
+                if not exact:
+                    continue
+                for token in re.findall(r'"([^"]+)"', body) or ([body] if body else []):
+                    if token in classes:
+                        continue
+                    plural = f"{token}s"
+                    hint = f" — did you mean {plural!r}?" if plural in classes else ""
+                    why = ("`Class ==` is exact, so this block never matches"
+                           if exact else "partial match — verify it is intended")
+                    rep.add("ERROR" if exact else "WARN", where,
+                            f"rule {label!r}: Class {token!r} is not an item class"
+                            f"{hint}\n            {why}")
 
         if names:
             for t in rule.get("targets") or []:
@@ -190,10 +230,244 @@ def check_rules(map_doc: dict, mapping: dict, defined: set[str], rel: str,
                             f"never matches in game")
 
 
+# Comparison operators PoE accepts. A value like ">=10" parses in JSON and reads
+# fine, and the GAME REJECTS THE ENTIRE FILTER over it.
+#
+# Matched by taking the operator GREEDILY. An alternation like `(==|<=|<|=)` looks
+# equivalent and is not: on "<= 67" the two-character branch fails (the next char
+# is a space), the engine backtracks to the single "<", and the "=" then reads as
+# the missing space — every correctly-spaced two-character operator in the tree
+# reported as a violation.
+_OP_RE = re.compile(r"^([=!<>]+)(.*)$")
+
+
+def load_base_names() -> set[str]:
+    """Every name a `BaseType` line may legally use.
+
+    ⚠️ `BaseItemTypes` ONLY. Do NOT union `GemEffects` in here.
+
+    23 transfigured gem names look like missing base types and are not: they are
+    GemEffects rows (BladefallAltX/Y/Z), matched in a filter by
+    `TransfiguredGem True`, never by name. Unioning GemEffects to make those
+    "pass" silently turns every genuinely invalid name into a pass too — it was
+    tried during 3.29 and converted 23 real errors into 23 green ticks.
+
+    ⚠️ And it must be a CURRENT dump, sourced from the GGPK extraction pipeline
+    (`parsing_tool/ggpk/extract.py`), which stages each run as
+    `data/source/<label>/`. The MANIFESTS there are tracked while the `tables/`
+    beside them are gitignored, so the newest label is always KNOWN even when its
+    data is absent — and on a fresh clone or in CI it always is.
+
+    So the manifest picks the label (newest `extracted_at`), and the tables are
+    then either present or not. If not, this returns nothing and the name checks
+    are SKIPPED, loudly, naming the command that would fix it.
+
+    It deliberately does NOT fall back to `data/from_ggpk/baseitemtypes.json`:
+    that is a pre-3.29 extract with 4196 names and no Enshrouding Crystals at all,
+    and quietly checking 3.29 content against it reported 111 valid bases as
+    typos. A name check is only ever as good as its catalogue, and a stale one is
+    worse than no check — it trains you to ignore the validator.
+    """
+    manifests = glob.glob(os.path.join(REPO, "data", "source", "*", "manifest.json"))
+    labels: list[tuple[str, str, str]] = []
+    for m in manifests:
+        try:
+            with open(m, encoding="utf-8") as fh:
+                doc = json.load(fh)
+            labels.append((doc.get("extracted_at") or "",
+                           doc.get("label") or os.path.basename(os.path.dirname(m)),
+                           doc.get("source") or ""))
+        except Exception:
+            continue
+    if not labels:
+        LOADED_FROM["skip"] = "no data/source/*/manifest.json — run parsing_tool/ggpk/extract.py"
+        return set()
+
+    _, label, src = max(labels)
+    path = os.path.join(REPO, "data", "source", label, "tables", "English", "BaseItemTypes.json")
+    if not os.path.exists(path):
+        LOADED_FROM["skip"] = (
+            f"newest catalogue is {label!r} but its tables are not extracted here "
+            f"(data/source/**  is gitignored) — name checks SKIPPED. "
+            # The flag has to match how THIS label was made: cn-3.29 came from a
+            # local install, so suggesting --source cdn would just fail.
+            f"Run: python parsing_tool/ggpk/extract.py "
+            f"--source {'local' if 'local' in src.lower() else 'cdn'} --label {label}")
+        return set()
+
+    LOADED_FROM["bases"] = f"{label} ({os.path.relpath(path, REPO)})"
+    with open(path, encoding="utf-8") as fh:
+        return {r["Name"] for r in json.load(fh) if r.get("Name")}
+
+
+def load_class_names() -> set[str]:
+    """Item class names, as `Class` conditions must spell them.
+
+    They are PLURAL in the game data — "Blueprints", not "Blueprint" — and
+    `Class ==` is an exact match, so the singular emits a block that can never
+    match anything. Read from BaseTypes.csv, which is the same source the backend
+    builds its class list from.
+    """
+    path = os.path.join(REPO, "data", "from_filter_blade", "BaseTypes.csv")
+    if not os.path.exists(path):
+        return set()
+    out: set[str] = set()
+    with open(path, encoding="utf-8-sig", newline="") as fh:
+        for row in csv.DictReader(fh):
+            cls = (row.get("Class") or "").strip()
+            if cls:
+                out.add(cls)
+    return out
+
+
+STYLE_CHANNELS = ("FontSize", "TextColor", "BorderColor", "BackgroundColor",
+                  "PlayEffect", "MinimapIcon")
+
+
+def check_decorator(where: str, label: str, tier: dict, rep: Report) -> None:
+    """A decorator composes instead of terminating - three ways it silently does nothing.
+
+    A decorator emits only the channels it states, then `Continue`, so a state is authored
+    once and layers over every preset (reference_poe_filter_format.md §3). Each failure
+    below makes the generator SKIP the block or emit a useless one, with nothing in the
+    output to notice - which is exactly the class of bug this validator exists for.
+    """
+    if not tier.get("decorator"):
+        return
+    if not tier.get("conditions"):
+        rep.add("ERROR", where,
+                f"{label}: decorator has no conditions. It is skipped - and if it were "
+                f"not, it would repaint every item in the game")
+    if tier.get("is_hide_tier"):
+        rep.add("ERROR", where,
+                f"{label}: a decorator cannot be a hide tier. Hiding an item and then "
+                f"asking later blocks to keep styling it is a contradiction, and under "
+                f"Ruthless hide is `Minimal`, which still draws a label")
+    theme = tier.get("theme") or {}
+    stated = [k for k in STYLE_CHANNELS if theme.get(k) is not None]
+    if not stated:
+        rep.add("ERROR", where,
+                f"{label}: decorator states no style channel, so it emits a bare "
+                f"`Continue` and changes nothing. A decorator exists to set one channel")
+    elif len(stated) > 2:
+        rep.add("WARN", where,
+                f"{label}: decorator sets {len(stated)} channels ({', '.join(stated)}). "
+                f"The more it claims, the less it can compose with - FilterBlade sets "
+                f"exactly one on 42 of its 44 decorators")
+
+
+def check_silent_tier(where: str, label: str, tier: dict, has_bases: bool,
+                      has_rule: bool, rep: Report) -> None:
+    """A tier that can never emit a block - and says nothing about it.
+
+    Conditions are a FILTER over the bases a tier claims, not a matcher in their own
+    right: only `class_condition` makes a tier emit from conditions alone. So a rung with
+    `AreaLevel >= 68, Rarity Rare`, no mapped bases and no rule targeting it produces
+    NOTHING, and looks identical in the editor to one that works.
+
+    Measured when this check was written: 28 such rungs, all equipment - `Body Armours`
+    T1-T4 hold 121 bases between them while T0, the "top bases" rung, holds none;
+    `One Hand Axes` has bases only in T3/T4. That is unfinished curation rather than a
+    bug, which is exactly why it needs saying out loud - it is invisible otherwise.
+    """
+    if tier.get("is_hide_tier") or tier.get("decorator") or tier.get("class_condition"):
+        return
+    if has_bases or has_rule:
+        return
+    if not tier.get("conditions"):
+        rep.add("WARN", where,
+                f"{label}: no bases, no rule and no conditions - this tier is scaffolding "
+                f"and emits nothing")
+    else:
+        rep.add("WARN", where,
+                f"{label}: has conditions but NO bases and no rule, so it emits nothing. "
+                f"Conditions filter the bases a tier claims; only class_condition matches "
+                f"on conditions alone")
+
+
+def check_range_syntax(where: str, label: str, conditions: dict, rep: Report) -> None:
+    """`RANGE >= a <= b` has a grammar, and a broken one LOADS FINE.
+
+    conditionLines splits it positionally into two lines, so `RANGE >= 6 0 10` emits
+    `MapTier >= 6` and `MapTier 0 10`. The game accepts that without complaint -- it reads
+    as an implicit-equals list -- so the block silently matches MapTier 0 or 10 instead of
+    6 through 10, and every map in between falls through to whatever comes next.
+
+    Found in the wild: both map band rules carried `0` where `<=` belonged, so T1-T5 and
+    T6-T10 (most maps in the game) were matching almost nothing. The filter LOADED, which
+    is exactly why this needs a checker rather than an in-game read.
+    """
+    OPS = ("<=", ">=", "<", ">", "==")
+    for key, val in (conditions or {}).items():
+        if not isinstance(val, str) or not val.startswith("RANGE "):
+            continue
+        parts = val.split()
+        if len(parts) != 5 or parts[1] not in OPS or parts[3] not in OPS:
+            rep.add("ERROR", where,
+                    f"{label}: malformed RANGE on {key} -> {val!r}. Expected "
+                    f"'RANGE <op> <value> <op> <value>'; it is split positionally, so a bad "
+                    f"token emits a condition the game accepts and misreads")
+
+
+def check_style_grammar(where: str, label: str, style: dict, rep: Report) -> None:
+    """Beam and icon have a grammar, and one bad line kills the whole filter.
+
+        MinimapIcon <size 0-2> <colour> <shape>
+        PlayEffect  <colour> [Temp]
+
+    `Currency/_archived/Breach.json` carried `"RedStar"` — no size, no space —
+    for as long as inline style reached nothing. The moment a tier's own beam and
+    icon started being emitted it would have shipped onto the Breach splinter
+    block. Generation now drops a malformed value with a warning, so this is
+    about the authored intent being silently lost, not about a broken filter.
+    """
+    for key in ("MinimapIcon", "PlayEffect"):
+        if key not in style:
+            continue
+        val = style[key]
+        if val is None or (isinstance(val, str) and (val.startswith("disabled:") or val in ("inherit", "default"))):
+            continue  # deliberately off — emits no line
+        if not isinstance(val, str):
+            rep.add("ERROR", where, f"{label}: {key} is {type(val).__name__}, expected a string")
+            continue
+        parts = val.split()
+        ok = (len(parts) == 3 and parts[0] in ("0", "1", "2")) if key == "MinimapIcon" \
+            else (len(parts) == 1 or (len(parts) == 2 and parts[1] == "Temp"))
+        if not ok:
+            expect = "'<size 0-2> <colour> <shape>', e.g. '0 Red Star'" if key == "MinimapIcon" \
+                else "'<colour>' or '<colour> Temp', e.g. 'Red Temp'"
+            rep.add("ERROR", where,
+                    f"{label}: {key} {val!r} is malformed — expected {expect}\n            "
+                    f"generation DROPS it, so the icon simply never appears")
+
+
+def check_operators(where: str, label: str, conditions: dict, rep: Report) -> None:
+    """`StackSize >=10` is rejected by the game; `StackSize >= 10` parses."""
+    for key, val in (conditions or {}).items():
+        for v in (val if isinstance(val, list) else [val]):
+            if not isinstance(v, str):
+                continue
+            m = _OP_RE.match(v.strip())
+            # A violation only when an operator is IMMEDIATELY followed by its
+            # value: "RANGE >= 1 <= 5" and a bare value carry no leading operator,
+            # and ">= 10" already has its space.
+            if m and m.group(2) and not m.group(2).startswith(" "):
+                rep.add("WARN", where,
+                        f"{label}: {key} {v!r} has no space after its operator. The "
+                        f"GAME REJECTS THE WHOLE FILTER over this; generation "
+                        f"normalises it on emit, so fix it here before some other "
+                        f"consumer does not")
+
+
 def validate(only: str | None, catalog: str | None) -> Report:
     rep = Report()
 
-    names: set[str] = set()
+    # Base and class names load by DEFAULT now, from the in-repo GGPK extract.
+    # They used to need --catalog, so the checks that matter most in game were the
+    # ones nobody ran. `--catalog` still layers a specific league dump on top.
+    names: set[str] = load_base_names()
+    classes: set[str] = load_class_names()
+
     if catalog:
         root = os.path.join(REPO, "data", "source", catalog, "tables", "English",
                             "BaseItemTypes.json")
@@ -201,7 +475,7 @@ def validate(only: str | None, catalog: str | None) -> Report:
             rep.add("ERROR", "(catalog)", f"no dump at {root}")
         else:
             with open(root, encoding="utf-8") as fh:
-                names = {r["Name"] for r in json.load(fh) if r.get("Name")}
+                names |= {r["Name"] for r in json.load(fh) if r.get("Name")}
             uniq = os.path.join(REPO, "data", "unique_base_db.json")
             if os.path.exists(uniq):
                 blob = open(uniq, encoding="utf-8-sig").read()
@@ -258,6 +532,50 @@ def validate(only: str | None, catalog: str | None) -> Report:
 
         defined = {k for k in cat if k != "_meta"}
         tier_order = (cat.get("_meta") or {}).get("tier_order") or []
+
+        # --- per-tier checks: the block's own look, and the item CARDS on it ----
+        mapping_now = map_doc.get("mapping") or {}
+        for t_key, entry in cat.items():
+            if t_key == "_meta" or not isinstance(entry, dict):
+                continue
+            twhere = f"tier_definition/{rel}"
+            check_style_grammar(twhere, f"{t_key} theme", entry.get("theme") or {}, rep)
+            check_operators(twhere, f"{t_key} conditions", entry.get("conditions") or {}, rep)
+            check_decorator(twhere, t_key, entry, rep)
+            claims = any(t_key == v or (isinstance(v, list) and t_key in v)
+                         for v in mapping_now.values())
+            aimed = any((r.get("overrides") or {}).get("Tier") == t_key
+                        or (isinstance((r.get("overrides") or {}).get("Tier"), list)
+                            and t_key in (r.get("overrides") or {}).get("Tier"))
+                        for r in (map_doc.get("rules") or []))
+            check_silent_tier(twhere, t_key, entry, claims, aimed, rep)
+
+            for base, ovr in (entry.get("item_overrides") or {}).items():
+                label = f"{t_key} card {base!r}"
+                if not isinstance(ovr, dict):
+                    rep.add("ERROR", twhere, f"{label}: override is a {type(ovr).__name__}, expected an object")
+                    continue
+                check_style_grammar(twhere, label, ovr, rep)
+                if names and base not in PSEUDO_NAMES and base not in names:
+                    rep.add("WARN", twhere,
+                            f"{label}: not a base type — the card belongs to no item")
+                # A card whose base this tier never claims splits nothing. It is not
+                # harmful, but it is a tuned override doing nothing, which is exactly
+                # the class of silence this tree keeps producing.
+                #
+                # Skipped for underscore folders: there, a mapping value naming a
+                # tier the category does not define is REMAPPED onto the first
+                # non-hide tier rather than dropped (the "lumping" rule above), so
+                # a base can legitimately land on a tier it is not mapped to. Every
+                # _legacy card tripped this before the exemption.
+                claimed = mapping_now.get(base)
+                claims_here = (t_key in claimed) if isinstance(claimed, list) else (claimed == t_key)
+                targeted = any(base in (r.get("targets") or [])
+                               for r in (map_doc.get("rules") or []) if isinstance(r, dict))
+                if not claims_here and not targeted and not folder.startswith("_"):
+                    rep.add("WARN", twhere,
+                            f"{label}: {base!r} is not mapped to {t_key!r} and no rule "
+                            f"targets it, so this override never applies")
 
         for t in tier_order:
             if t not in defined:
@@ -317,7 +635,7 @@ def validate(only: str | None, catalog: str | None) -> Report:
                     f"tier {key!r} is undefined here; its {len(items)} item(s) are "
                     f"remapped onto the first non-hide tier and lose their ranking")
 
-        check_rules(map_doc, mapping, defined, rel, names, rep)
+        check_rules(map_doc, mapping, defined, rel, names, classes, rep)
 
     # tier_definitions with no mapping partner
     for path in sorted(glob.glob(os.path.join(TD, "**", "*.json"), recursive=True)):
@@ -327,7 +645,84 @@ def validate(only: str | None, catalog: str | None) -> Report:
         if not os.path.exists(os.path.join(BM, rel.replace("/", os.sep))):
             rep.add("INFO", f"tier_definition/{rel}",
                     "no base_mapping partner (fine for a rules-only category)")
+
+    if not only:
+        check_nav(rep)
     return rep
+
+
+# Keys that would re-create the theme-category identity this repo just collapsed.
+# `target_category` was the compiled form; `target` / `_default_target` the yaml source.
+NAV_THEME_KEYS = ("target_category", "target", "_default_target", "theme_category")
+
+
+def check_nav(rep: Report) -> None:
+    """The nav must not name a theme, and every leaf must point at a real tier file.
+
+    A nav leaf carries NO theme key. The look belongs to the tier definition
+    (`_meta.theme_category`), which is what the generator reads. `target_category` used
+    to duplicate that answer, hand-typed into BOTH category_structure.yaml and the
+    compiled .json - so it drifted on 13 of 92 leaves, and because the theme board used
+    it as its read AND write key, those leaves showed a look the filter does not emit
+    and banked edits into a bucket nothing reads. Where the drifted value happened to be
+    another category's real key it was worse than useless: styling Contracts restyled
+    every Map and left Contracts untouched.
+
+    This check exists so that cannot come back quietly. It is cheap and it is exact:
+    the field is gone, so any occurrence is a reintroduction.
+    """
+    nav_rel = "filter_generation/data/category_structure.json"
+    nav_path = os.path.join(REPO, nav_rel)
+    if not os.path.exists(nav_path):
+        rep.add("ERROR", nav_rel, "nav structure is missing")
+        return
+    doc = load(nav_path, nav_rel, rep)
+    if doc is None:
+        return
+
+    leaves: list[tuple[str, dict]] = []
+
+    def walk(node: dict, crumb: str) -> None:
+        for leaf in node.get("files", []):
+            leaves.append((crumb, leaf))
+        for sub in node.get("subgroups", []):
+            name = (sub.get("_meta", {}).get("localization", {}).get("en")) or "?"
+            walk(sub, f"{crumb} › {name}" if crumb else name)
+
+    for group in doc.get("categories", []):
+        if "separator" in group:
+            continue
+        walk(group, (group.get("_meta", {}).get("localization", {}).get("en")) or "?")
+
+    for crumb, leaf in leaves:
+        label = leaf.get("localization", {}).get("en") or leaf.get("path") or "?"
+        where = f"{nav_rel} [{crumb} › {label}]"
+
+        for key in NAV_THEME_KEYS:
+            if key in leaf:
+                rep.add("ERROR", where,
+                        f"nav leaf declares {key!r} - a nav leaf must NOT name a theme. "
+                        f"The look comes from the tier definition's _meta.theme_category; "
+                        f"a second copy here drifts and silently styles the wrong category")
+
+        tier_path = leaf.get("tier_path")
+        if not tier_path:
+            rep.add("ERROR", where, "nav leaf has no 'tier_path', so it resolves to no look")
+            continue
+        if not os.path.exists(os.path.join(REPO, "filter_generation", "data",
+                                           tier_path.replace("/", os.sep))):
+            rep.add("ERROR", where,
+                    f"tier_path {tier_path!r} does not exist - the editor opens this leaf "
+                    f"onto nothing and it has no resolvable theme")
+
+    # There used to be a second scan here, over category_structure.yaml, because a key
+    # removed from the json but left in the yaml would return on the next recompile.
+    # The yaml is retired (it had drifted to 27 groups against the json's 30, missing a
+    # whole league chapter and every campaign leaf, so compiling it DELETED content), and
+    # nothing regenerates the json any more. One nav, one file, nothing to cross-check.
+    #
+    # If a nav source is ever reintroduced it must be DERIVED from the json, and this
+    # check should come back with it.
 
 
 def main() -> None:
@@ -340,6 +735,13 @@ def main() -> None:
 
     rep = validate(args.file, args.catalog)
     print("=== curation validation ===")
+    # A name check is only as good as its catalogue, so say which one was used.
+    # Checking 3.29 content against a pre-3.29 dump reported 111 valid bases as
+    # typos, which is exactly how a validator gets ignored.
+    if LOADED_FROM.get("bases"):
+        print(f"  base names from: {LOADED_FROM['bases']}")
+    if LOADED_FROM.get("skip"):
+        print(f"  ⚠️ {LOADED_FROM['skip']}")
     rep.dump(args.info)
     e, w, i = rep.count("ERROR"), rep.count("WARN"), rep.count("INFO")
     print(f"\n{e} error(s), {w} warning(s), {i} info"

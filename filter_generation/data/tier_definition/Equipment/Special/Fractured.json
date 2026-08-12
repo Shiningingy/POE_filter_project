@@ -1,7 +1,7 @@
 {
   "Fractured": {
     "_meta": {
-      "theme_category": "Body Armours",
+      "theme_category": "Rare Equipment",
       "localization": {
         "en": "Fractured",
         "ch": "破碎装备"
@@ -10,13 +10,21 @@
         "Tier 0 Fractured",
         "Tier 1 Fractured",
         "Tier 2 Fractured",
+        "Tier 3 Fractured",
         "Tier Hide Fractured"
       ]
     },
     "Tier 0 Fractured": {
       "hideable": false,
       "theme": {
-        "Tier": 0
+        "Tier": 3,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/破碎装备.mp3",
+          300
+        ],
+        "TextColor": "disabled:#ffffffFF",
+        "BorderColor": "disabled:#ffffffFF"
       },
       "sound": {
         "default_sound_id": 6,
@@ -26,12 +34,19 @@
         "en": "T0: Top Fractured",
         "ch": "T0: 顶级破碎底材"
       },
-      "show_in_editor": false
+      "show_in_editor": false,
+      "conditions": {
+        "FracturedItem": "True",
+        "Mirrored": "False",
+        "Corrupted": "False",
+        "Rarity": "<= Rare"
+      },
+      "hide_at_strictness": 6
     },
     "Tier 1 Fractured": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": 1,
@@ -40,12 +55,19 @@
       "localization": {
         "en": "T1: High iLvl",
         "ch": "T1: 高级破碎装备"
-      }
+      },
+      "conditions": {
+        "FracturedItem": "True",
+        "Mirrored": "False",
+        "Corrupted": "False",
+        "Rarity": "<= Rare"
+      },
+      "hide_at_strictness": 5
     },
     "Tier 2 Fractured": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": 2,
@@ -54,7 +76,36 @@
       "localization": {
         "en": "T2: Standard",
         "ch": "T2: 常规破碎装备"
-      }
+      },
+      "conditions": {
+        "FracturedItem": "True",
+        "Mirrored": "False",
+        "Corrupted": "False",
+        "Rarity": "<= Rare"
+      },
+      "hide_at_strictness": 3
+    },
+    "Tier 3 Fractured": {
+      "class_condition": true,
+      "hideable": true,
+      "conditions": {
+        "FracturedItem": "True",
+        "Mirrored": "False",
+        "Corrupted": "False",
+        "Rarity": "<= Rare"
+      },
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Any other fractured item",
+        "ch": "其他破碎物品"
+      },
+      "hide_at_strictness": 3
     },
     "Tier Hide Fractured": {
       "hideable": true,

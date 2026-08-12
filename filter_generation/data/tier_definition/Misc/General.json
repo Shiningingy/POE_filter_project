@@ -7,13 +7,13 @@
         "ch": "其他杂项"
       },
       "tier_order": [
-        "Tier 1 Misc"
+        "Misc"
       ]
     },
-    "Tier 1 Misc": {
+    "Misc": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": 1,
@@ -22,6 +22,26 @@
       "localization": {
         "en": "Other Misc",
         "ch": "其他杂项"
+      },
+      "item_overrides": {
+        "Golden Key": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/黄金钥匙.mp3",
+            300
+          ]
+        },
+        "Silver Key": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/白银钥匙.mp3",
+            300
+          ]
+        },
+        "Treasure Key": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/古铜钥匙.mp3",
+            300
+          ]
+        }
       }
     }
   }

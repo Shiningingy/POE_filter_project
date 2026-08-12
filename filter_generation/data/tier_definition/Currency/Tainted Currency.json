@@ -17,7 +17,14 @@
     "Tier 1 Tainted": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "BackgroundColor": "#ffffffff",
+        "TextColor": "#ff0000ff",
+        "MinimapIcon": "0 Red Circle",
+        "PlayEffect": "Red",
+        "PlayAlertSound": "disabled:",
+        "BorderColor": "#ff0000ff"
       },
       "sound": {
         "default_sound_id": 1,
@@ -26,12 +33,26 @@
       "localization": {
         "en": "T1: Top",
         "ch": "T1：顶级"
+      },
+      "item_overrides": {
+        "Tainted Divine Teardrop": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污染神泪.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 2 Tainted": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 2,
+        "PlayAlertSound": "disabled:",
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#961428ff",
+        "BorderColor": "#00000000",
+        "FontSize": 45,
+        "MinimapIcon": "1 Red Diamond"
       },
       "sound": {
         "default_sound_id": 2,
@@ -40,12 +61,39 @@
       "localization": {
         "en": "T2: High",
         "ch": "T2：高价值"
+      },
+      "item_overrides": {
+        "Tainted Mythic Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽神秘石.mp3",
+            300
+          ]
+        },
+        "Tainted Orb of Fusing": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽链结石.mp3",
+            300
+          ]
+        },
+        "Volatile Vaal Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/哇哦运气真好.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 3 Tainted": {
       "hideable": true,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "PlayAlertSound": "disabled:",
+        "PlayEffect": "Red Temp",
+        "MinimapIcon": "2 Yellow Diamond",
+        "TextColor": "#f5554bff",
+        "BackgroundColor": "#2f100eff",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": 3,
@@ -54,12 +102,43 @@
       "localization": {
         "en": "T3: Mid",
         "ch": "T3：中等"
+      },
+      "item_overrides": {
+        "Tainted Chaos Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽混沌石.mp3",
+            300
+          ]
+        },
+        "Tainted Chromatic Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽幻色石.mp3",
+            300
+          ]
+        },
+        "Tainted Exalted Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽崇高石.mp3",
+            300
+          ]
+        },
+        "Tainted Catalyst": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/高级催化剂.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 4 Tainted": {
       "hideable": true,
       "theme": {
-        "Tier": 4
+        "Tier": 3,
+        "FontSize": 40,
+        "MinimapIcon": "2 White Diamond",
+        "TextColor": "#f5554bff",
+        "BackgroundColor": "#000000ff",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": -1,
@@ -68,6 +147,26 @@
       "localization": {
         "en": "T4: Low",
         "ch": "T4：低价值"
+      },
+      "item_overrides": {
+        "Tainted Armourer's Scrap": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽护甲片.mp3",
+            300
+          ]
+        },
+        "Tainted Blacksmith's Whetstone": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽磨刀石.mp3",
+            300
+          ]
+        },
+        "Tainted Jeweller's Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/污秽工匠石.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier Hide Tainted": {

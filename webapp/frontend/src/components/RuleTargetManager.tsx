@@ -1,4 +1,5 @@
 import React from "react";
+import { DEFAULT_SOUND_VOLUME } from '../utils/filterStyle';
 import type { Language } from "../utils/localization";
 import ItemCard from "./ItemCard";
 import { SOUND_OVERRIDE_KEYS } from "../utils/themeSoundExport";
@@ -61,7 +62,7 @@ const RuleTargetManager: React.FC<RuleTargetManagerProps> = ({
   onRegisterTranslation,
 }) => {
   // A SELF-SELECTING rule carries no `targets` key at all - a BaseType/Class
-  // condition or a raw block does its own matching (generate.py:534). That is a
+  // condition or a raw block does its own matching. That is a
   // supported shape, not bad data, so every read here has to tolerate it.
   const targets = rule.targets || [];
   return (
@@ -95,7 +96,7 @@ const RuleTargetManager: React.FC<RuleTargetManagerProps> = ({
 
                           const handlePlaySound = () => {
                               let file: string | null = null;
-                              let vol = 300;
+                              let vol = DEFAULT_SOUND_VOLUME;
 
                               if (hasExplicitSound) {
                                   const val = rule.overrides?.[soundOverrideKey!];
@@ -116,7 +117,7 @@ const RuleTargetManager: React.FC<RuleTargetManagerProps> = ({
                               if (file) {
                                   const url = `/sounds/${file.replace(/\\/g, '/')}`;
                                   const audio = new Audio(url);
-                                  audio.volume = Math.min(Math.max(vol / 300, 0), 1);
+                                  audio.volume = Math.min(Math.max(vol / DEFAULT_SOUND_VOLUME, 0), 1);
                                   audio.play().catch(e => console.error("Play failed", e));
                               }
                           };

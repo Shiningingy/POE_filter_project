@@ -16,13 +16,7 @@
     "Tier 1 Utility Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#f4e7f8ff",
-        "BorderColor": "#dfb0eeff",
-        "BackgroundColor": "#9f36bfff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond",
+        "Tier": 3,
         "PlayAlertSound": "disabled:"
       },
       "sound": {
@@ -35,16 +29,38 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Granite Flask": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/坚岩药剂.mp3",
+            300
+          ]
+        },
+        "Iron Flask": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/坚铁药剂.mp3",
+            300
+          ]
+        },
+        "Quartz Flask": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/石英药剂.mp3",
+            300
+          ]
+        },
+        "Quicksilver Flask": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/水银药剂.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 2 Utility Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#dfb7ebff",
-        "BorderColor": "#c988ddff",
-        "BackgroundColor": "#7e2b97ff",
+        "Tier": 4,
         "PlayAlertSound": "disabled:"
       },
       "sound": {
@@ -78,13 +94,7 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#632277ff",
-        "BorderColor": "#9231afff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star",
+        "Tier": 2,
         "PlayAlertSound": "disabled:"
       },
       "sound": {
@@ -97,6 +107,20 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Quicksilver Flask": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/水银药剂.mp3",
+            300
+          ]
+        },
+        "Silver Flask": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/真银药剂.mp3",
+            300
+          ]
+        }
       }
     }
   }

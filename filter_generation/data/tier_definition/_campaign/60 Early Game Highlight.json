@@ -26,7 +26,7 @@
         "ItemLevel": "<= 14"
       },
       "theme": {
-        "Tier": 6
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": -1,
@@ -54,7 +54,7 @@
       },
       "hideable": true,
       "theme": {
-        "Tier": 6
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": -1,

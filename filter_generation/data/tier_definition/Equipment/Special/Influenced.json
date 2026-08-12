@@ -9,20 +9,20 @@
       "tier_order": [
         "Tier 0 Influenced",
         "Tier 1 Influenced",
+        "Tier 2 Influenced",
+        "Tier 3 Influenced",
         "Tier Hide Influenced"
       ]
     },
     "Tier 0 Influenced": {
-      "class_condition": true,
       "hideable": false,
       "conditions": {
         "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
         "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord",
-        "Rarity": "<= Rare",
-        "ItemLevel": ">= 86"
+        "Rarity": "<= Rare"
       },
       "theme": {
-        "Tier": 0
+        "Tier": 2
       },
       "sound": {
         "default_sound_id": 6,
@@ -34,7 +34,6 @@
       }
     },
     "Tier 1 Influenced": {
-      "class_condition": true,
       "hideable": false,
       "conditions": {
         "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
@@ -42,7 +41,7 @@
         "Rarity": "<= Rare"
       },
       "theme": {
-        "Tier": 1
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": 1,
@@ -51,7 +50,49 @@
       "localization": {
         "en": "Influenced",
         "ch": "T1: 势力装备"
-      }
+      },
+      "hide_at_strictness": 6
+    },
+    "Tier 2 Influenced": {
+      "hideable": true,
+      "conditions": {
+        "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+        "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord",
+        "Rarity": "<= Rare"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Influenced, rank t2high",
+        "ch": "T1: 势力装备 T2HIGH"
+      },
+      "hide_at_strictness": 5
+    },
+    "Tier 3 Influenced": {
+      "class_condition": true,
+      "hideable": true,
+      "conditions": {
+        "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+        "HasInfluence": "Shaper Elder Crusader Hunter Redeemer Warlord",
+        "Rarity": "<= Rare"
+      },
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Any other influenced item",
+        "ch": "T0: 顶级势力装备 (net)"
+      },
+      "hide_at_strictness": 4
     },
     "Tier Hide Influenced": {
       "hideable": true,

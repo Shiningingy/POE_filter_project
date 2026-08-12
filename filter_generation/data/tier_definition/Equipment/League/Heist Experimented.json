@@ -7,11 +7,73 @@
         "ch": "夺宝奇兵实验底材"
       },
       "tier_order": [
+        "Heist Experimented T0",
         "Heist Experimented T1",
+        "Heist Experimented T2",
         "Heist Experimented Hide"
       ]
     },
+    "Heist Experimented T0": {
+      "hideable": true,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T0: Chase (Amulets/Rings)",
+        "ch": "T0: 夺宝奇兵实验底材"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Astrolabe Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/星盘项链.mp3",
+            300
+          ]
+        },
+        "Simplex Amulet": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/朴实项链.mp3",
+            300
+          ]
+        },
+        "Geodesic Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/地线戒指.mp3",
+            300
+          ]
+        },
+        "Cogwork Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/齿轮戒指.mp3",
+            300
+          ]
+        }
+      }
+    },
     "Heist Experimented T1": {
+      "hideable": true,
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T1: Good Archetypes",
+        "ch": "T1: 夺宝奇兵实验底材"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
+      }
+    },
+    "Heist Experimented T2": {
       "hideable": true,
       "theme": {
         "Tier": 5
@@ -21,11 +83,25 @@
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "Heist Experimented",
-        "ch": "夺宝奇兵实验底材"
+        "en": "Other Experimented Bases",
+        "ch": "其余夺宝奇兵实验底材"
       },
       "conditions": {
         "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Micro-Distillery Belt": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/低酿腰带.mp3",
+            300
+          ]
+        },
+        "Mechalarm Belt": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/警戒腰带.mp3",
+            300
+          ]
+        }
       }
     },
     "Heist Experimented Hide": {

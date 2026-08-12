@@ -54,7 +54,7 @@ cd webapp/frontend && npm run build:demo && npx vite preview
 To generate a filter from the command line:
 
 ```bash
-python filter_generation/generate.py --mode standard --game-version poe1
+node filter_generation/generate.mjs --mode standard --game-version poe1
 ```
 
 ## Acknowledgements

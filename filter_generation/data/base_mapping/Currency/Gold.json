@@ -23,7 +23,7 @@
     {
       "targets": [],
       "conditions": {
-        "StackSize": ">=3000"
+        "StackSize": ">= 3000"
       },
       "overrides": {
         "Tier": "Tier 0 Gold"
@@ -36,7 +36,7 @@
         "Gold"
       ],
       "conditions": {
-        "StackSize": ">=100"
+        "StackSize": ">= 100"
       },
       "overrides": {
         "Tier": "Tier 1 Gold"

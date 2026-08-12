@@ -1,0 +1,490 @@
+# Equipment reshape — the plan of record
+
+★ **Direction settled 2026-08-05: RESHAPE FIRST, then ship.** Shape confirmed against
+FilterBlade's own editor structure 2026-08-06.
+
+*A poor filter only receives negative feedback and is unusable at all*, so shipping the
+current filter as a checkpoint was rejected in favour of shipping the reshaped one.
+
+Consequences, so nobody re-litigates them:
+
+- **All theme work is deferred until every category is settled.** Not just the known
+  defects — the theme will need new designs once equipment reshapes, so fixing anything
+  now is throwaway. That explicitly includes the Uniques/Jewels rarity-through regression
+  (`compile_theme.py:420`), a real in-game defect being left alone on purpose.
+- **No release tag in the meantime.** `v3.29-ruthless-pre-rewrite` remains the fallback.
+- Nothing below blocks generation — the filter builds, validator reports 0 errors.
+
+---
+
+## 0. The evidence base
+
+`parsing_tool/extract_filterblade_ranks.py` (group A, read-only) parses
+`data/from_filter_blade/3.29/FilterBlade.ruthlessfilter` into
+`data/from_filter_blade/3.29/ruthless_ranks.json` — **900 blocks, 140 purposes, 2739
+bases**, each block with its purpose, bucket, conditions and BaseType list.
+
+Their editor structure is in `data/from_filter_blade/upstream/CustomizerDefault.options`
+and is the authority on *shape*; the compiled filter is the authority on *content*.
+Screenshots of the live UI: `data/from_filter_blade/UI_1.png`, `UI_2.png`.
+
+⚠️ **The parser must not key off indentation.** Block bodies are tab-indented in some
+sections and flush-left in others (`$type->rr->amuring`), so an indentation rule silently
+read whole purposes as empty. It must not key off capitalisation either — their prose
+comments are capitalised (`Level 85 crafting bases`). Only an explicit keyword allowlist
+separates body from comment. This bug cost a wrong "jewellery is unranked" conclusion.
+
+## 1. What is already correct — do not rebuild it
+
+★★ **Our per-class T1/T2/T3 ladder IS FilterBlade's `rr` ladder, verified exact.**
+259 bases agree, **0 disagree**, 2 unranked by them (`Thief's Trinket` — Heist;
+`Ghostflame Blade` — post-dump base). Our T4 is the deliberate catch-all net (their t4 plus
+everything unranked).
+
+Also measured: `rr` + `rr->amuring` + `rr->belts` **== `rare->exotic->veiled` exactly** —
+same 364 bases, same ranks, zero disagreements. Veiled is not a separate ranking, it is the
+same base ladder pointed at a different mechanic. **Ruthless has no veiled rares (author),
+so that purpose is dropped — and dropping it costs no rank data.**
+
+## 2. The corrected model
+
+★ **The ilvl threshold is a property of the CLASS, via a named split — not per base.**
+This supersedes the earlier reading in this doc, which cited Gemini Claw 83 / Imperial Bow
+86 / Jewelled Foil 83 as proof of a per-base threshold. Those are just Claws / Bows /
+Thrusting Swords under a declared class split. Their own warning says it outright:
+*"Any Gloves will be part of and ONLY of the level 85 rules."*
+
+`BaseTypeMatrix("EgHighLevelCraftingBases", "1.0", "LevelSplit1", true,
+[[T1:0..T1:3], [T2:0..T2:3], [T3:0..T3:3]])` — 3 ranks × 4 ilvl bands, verified against
+every base in the purpose (every class sits in exactly one band):
+
+| band | classes |
+|---|---|
+| **86** | Body Armours, Boots, Shields, Bows, Belts, Quivers |
+| **85** | Amulets, Gloves, Helmets |
+| **84** | Rings, Rune Daggers, Sceptres, Staves, Wands *(caster)* |
+| **83** | Claws, 1H/2H Axes, Maces, Swords, Warstaves *(attack)* |
+
+So the authoring model is **base → rank, per purpose**; everything else is derived. Their
+whole equipment editor is one control, `BaseTypeMatrix(name, ver, splitter, …, ranks)`,
+reused per purpose with the splitter choosing the column layout (`Default` / `ClassSplit`
+/ `LevelSplit1`).
+
+★ **The rank is PER PURPOSE.** Measured: 268 of 368 bases get a different rank in
+different purposes. It cannot be collapsed to one global rank. **Membership IS the rank**,
+so the import is mechanical — no scoring, no inference.
+
+## 3. Decisions taken (author, 2026-08-06)
+
+1. **Collapse the 24 per-class ladder files into ONE category, `Rare Equipment`.**
+   Class becomes a matrix column derived from GGPK, not a file location.
+2. **Adopt four purposes**: High Level Crafting Bases, Fractured Items, Memory-Stranded
+   Items, Influenced Items. Veiled dropped (see §1).
+3. ★ **Our layout diverges from theirs deliberately.** They tick Rank A/B/C/Untiered which
+   all share one look. **We use Tier 1/2/3/4, each with its own theme.** This needs no new
+   mechanism — a purpose category is a `theme_category` with a real tier ladder, which is
+   what `theme_category × Tier N` already does.
+4. **The editor is an extension of the existing bulk editor**, not a new surface — the rank
+   brush and collapsed base card already shipped; what is missing is a purpose-scoped
+   endpoint returning the candidate pool grouped by class.
+
+### Why the collapse is safe (measured, not assumed)
+
+- All 24 ladders are **uniform**: `hide_at_strictness` T1=5/T2=3/T3=2/T4=1, `theme.Tier`
+  2/3/3/4/5/9, same sounds, same `AreaLevel >= 68 · Rarity Rare`.
+- `_meta.item_class` reaches **only comment headers** in `filterGenerator.ts`
+  (lines 382/416/543/614) — never an emitted condition. The collapse cannot change matching.
+- 60 `item_overrides` across the 24 files, **0 collisions**.
+- Only 2 bases appear in two ladder files, and both are misfilings (below).
+
+⚠️ **Trinkets is the one genuine outlier** — 1 base (`Thief's Trinket`, a Heist item), no
+`AreaLevel` gate, own labels, no sounds. Kept out of the collapse.
+
+★ **34 ladder bases are filed under the wrong class** (GGPK is the authority): 24 Thrusting
+One Hand Swords under One Hand Swords, 4 Rune Daggers under Daggers, **3 Corpses**
+(`Dancing Sword` variants) under One Hand Swords, `Maligaro's Spike` (Quest Item),
+`Piledriver` (Two Hand Mace), `Reaver Sword` (Two Hand Sword). Harmless today because
+`item_class` only reaches comments — but they would poison the new matrix's class columns.
+Deriving class from GGPK fixes all 34 for free. Same principle as ADR-0004.
+
+## 4. ★ T0 is a duplicate of the Crafting purpose — and less accurate
+
+The 33 rules across the ladder files are a **hand-written LevelSplit**: the same top-N
+bases listed twice, once at `ItemLevel >= 86` → `Tier 0`, once at `>= 84` → `Tier 1`
+(heavy weapons: one rule at 83). 33 of those targets are already in `Crafting Priority`,
+but gated wrong:
+
+| class | our T0 gate | their band |
+|---|---|---|
+| Claws | `>= 86` | **83** — 3 levels too strict |
+| Rings, Daggers, Sceptres, Wands, Rune Daggers | `>= 86` | **84** |
+| Gloves, Helmets, Amulets | `>= 86` | **85** |
+
+⚠️ **Body Armours' 3 rules carry no `overrides.Tier`, so they are dead** — that is the
+"missing 84 rung all 11 siblings have". A rule with conditions but no tier is skipped
+outright (`reference_rule_gotchas`).
+
+**Plan: T0 stops being a ladder rung and is absorbed into the Crafting purpose**, keeping
+our ~14 extra bases (`Sorcerer Boots`, `Hubris Circlet`, `Lion Pelt`, `Royal Burgonet`,
+`Imperial Staff`, `Coronal Maul`, `Great White Claw`, …) — deliberate "best base for the
+slot" curation — while adopting **their** per-class bands.
+
+## 5. Import backlog, measured
+
+"We have" below means the purpose membership is recorded, not merely that the base exists
+somewhere in our tree (every base does, via the ladder).
+
+| their purpose | bases | we express | gap |
+|---|---|---|---|
+| `rr` (+amuring/belts) | 364 | ✅ per-class T1–T3 | **0 — verified exact** |
+| `crafting->generalgear` | 132 | 33 (the `t1` rung only) | **99** |
+| `crafting->qualityperfection` | 104 | partial | — |
+| `gear->memorystrand` | 277 | 63 in Crafting Strands | **214** |
+| `exotic->fractured` | 436 | 0 — empty shell, 3 condition-only rules | **436** |
+| `influenced->all` | 185 | 0 — empty category | **185** |
+| `6l` / `magicid` / `rareid` / `exoticbases` | 47/22/45/98 | not expressed | — |
+
+⚠️ `Crafting Gear 86`/`85` are **byte-identical** to their `t1_86`/`t1_85` — a past import
+took the t1 rung only and dropped t2/t3. `Crafting Gear 84` = their `t1_84` plus 3
+hand-added Runic pieces (keep those).
+
+Influenced needs more than a matrix: their section has the 3-rank matrix **plus** per-influence
+base lists (Shaper/Elder/Crusader/Hunter/Redeemer/Warlord) and per-influence class lists.
+
+## 6. ★ The magic/normal net should follow AreaLevel, not strictness
+
+**The complaint (author, from play):** FilterBlade still shows magic equipment in T16 maps,
+which is annoying, and the only way to stop it there is to raise strictness. *"This should be
+something auto-fit in progress, not a strictness control"* — like our campaign's hide-magic-
+after-Act-3 behaviour.
+
+**Measured — they are right, and it is structural.** FilterBlade barely uses `AreaLevel` for
+magic at endgame at all: their magic handling is gated by `ItemLevel`, by mods (`magicid` =
+identified magic with good rolls) and by `%D`, i.e. strictness. There is no "where you are"
+axis in it.
+
+**We already have the mechanism, and it stops dead at 67.** The campaign uses AreaLevel
+RANGES, which are progression-driven and strictness-free:
+
+```
+Normal Declutter        AreaLevel 10-67   Rarity Normal
+Magic Declutter         AreaLevel 10-67   Rarity Magic
+Aggressive Magic Hide   AreaLevel 34-67   Rarity Magic
+```
+
+Above 68 there is a single flat layer, so a white map and a T16 are treated identically.
+That is the "midgame >= 68 / endgame" third layer CLAUDE.md describes and that was never
+built. Map area levels run T1 = 68 to T16 = 83, so bands are directly expressible.
+
+Today at 68+: `Normal Net` is already a hide tier; `Magic Net` (24 classes) and
+`Magic Good Jewellery` SHOW, gated only at strictness 1 and 2 respectively.
+
+### Design constraints (author, 2026-08-06)
+
+1. **This layer is for hiding trash equipment — mainly armour/weapons.** Some items only
+   ever drop as magic, so it must not become a blanket magic hide.
+2. **Add `Identified False` to the hide**, so a magic base someone identified for its mods
+   survives. (`Identified` is available: `filter_conditions.yaml:67`, bool, universal.)
+3. **The hide must be LOWER priority than the crafting layer**, so good jewellery bases are
+   never swallowed by it — those stay strictness-controlled.
+   ✅ **Already true**: `Crafting Priority` gen_order -10, `Rare Equipment` 3, `Magic Net` 5.
+   The magic net is already the last equipment layer to speak.
+4. **Do not hide everything** — talismans can drop magic and still be good.
+   ✅ **Already true**: all 43 talismans are mapped into `Magic Good Jewellery`, which sits
+   FIRST in `tier_order`, so a magic talisman is claimed there before the generic net.
+5. **Normal at 68+ stays as-is — decided, no change.** You can scour a magic to normal
+   anyway, and a base worth crafting hits the crafting layer, which should be
+   strictness-controlled rather than a general rule.
+
+### ✅ BUILT 2026-08-06 — boundary AreaLevel 72
+
+`Magic Hide Endgame` sits between `Magic Good Jewellery` and `Magic Net`:
+
+```
+Class == <24 equipment classes>
+Rarity Magic
+AreaLevel >= 72
+Identified False
+```
+
+Verified in the output at **soft** strictness, where no gate fires, which is the whole
+point — the band is progression-driven and strictness plays no part:
+
+| situation | outcome |
+|---|---|
+| area 68-71, magic trash | falls past the hide → shown by `Magic Net` |
+| area 72+, unidentified magic trash | hidden |
+| area 72+, **identified** magic | falls past → shown |
+| magic talisman / good jewellery, any level | claimed first by name → shown |
+
+The hide emits `Minimal` with NO style lines, per the Ruthless invariant that a styled
+`Minimal` still draws a label.
+
+⚠️ Area 72 is map tier **5** by the standard `area = 67 + tier` formula; tier 6 is area 73.
+The author wrote "below 72 (Tier 6)", and 72 was taken as the literal number. Change the
+one condition to `>= 73` if the intent was "from T6 onward".
+
+⚠️ 41 of the 43 talismans are absent from `items_db.json` (post-dump 3.29 bases), so any
+class-derived reasoning about them is blind until that DB is refreshed.
+
+## 6b. ★ The two "theme defects" are NOT defects — checked 2026-08-06
+
+Both were recorded as bugs to fix before the theme pass. Neither is.
+
+**Uniques/Jewels "lost rarity-through" (`compile_theme.py:420`) — a DESIGN DECISION, not a
+bug.** The recorded fix is "remove the explicit `TextColor` so the game paints the rarity
+colour". Measured contrast if that were done (PoE's unique text is `#af6025`):
+
+| row | background | now | if TextColor removed |
+|---|---|---|---|
+| Uniques T0 | `#ffffff` | 4.64:1 | 4.64:1 ✅ — its text already IS `#af6025` |
+| Uniques T1 | `#d20000` | 5.61:1 | **1.21:1** |
+| Uniques T2 | `#af6025` | 4.64:1 | **1.00:1 — invisible** |
+| Uniques T3 | `#af9173` | 7.12:1 | **1.57:1** |
+| Jewels T1–T4 | various | 3.00–8.03:1 | **1.21–1.78:1** |
+
+7 of 8 rows would become unreadable. Those saturated backgrounds *require* an explicit text
+colour — the rarity signal was deliberately moved from the text to the background. Going
+rarity-through means **re-choosing every background** dark/neutral enough for the orange to
+read. That is designer work, so it belongs in the handoff as a question, not in a bugfix.
+
+**`Campaign / Aggressive Magic Hide` pointing at a non-existent `Tier 9` row — harmless.**
+It is the only tier in the tree aimed at a missing row. It cannot matter: the generator
+forces `isHide = true` for any `lv_group.axis === 'aggressive'` tier
+(`filterGenerator.ts:333`), so the absent `is_hide_tier` is covered, and in Ruthless a hide
+emits `Minimal` with NO style lines. Verified by generating with
+`--leveling-selection '{"hide_unselected":true}'`: it emits `Minimal` plus conditions only.
+
+## 6c. Theme state, measured 2026-08-06 (post-reshape)
+
+- **1** tier points at a missing theme row (the harmless one above).
+- **31** theme rows are shared by 2+ tiers. Most are legitimate — Campaign's 38 per-class
+  "Rares" tiers *should* look alike. The ones that are ours and want distinct looks:
+  `Crafting Bases Tier 4` ×4, `Crafting Bases Tier 2` ×3, `Rare Equipment Tier 3` ×3
+  (Fractured borrows it), `Jewels Tier 3` ×4.
+- **Fractured has no theme category of its own** — it points at `Rare Equipment`.
+- **Influenced has 4 tiers and only 2 rows** (Tier 3, Tier 4), so T1/T2/T3 look identical.
+- `_decorators/States` has no theme entry by design — decorators carry inline style.
+
+⚠️ `sharket_theme.json` is HAND-TUNED. Any fix must be a surgical edit; regenerating it
+would flatten the tuning (`build_standard_theme.py` is group B for exactly this reason).
+
+## 6d. ★ STATE AND ROADMAP — 2026-08-07, after the first two in-game loads
+
+★ **The filter has been LOADED IN GAME**, twice, and shipped as
+`Sharket3.29无情_合同工版本V4.ruthlessfilter` (mode=ruthless, strictness=soft; V3 kept as the
+fallback). That is the first real-world read this whole effort has had.
+
+### Done this round
+
+| area | state |
+|---|---|
+| **Equipment reshape** | all 5 purposes expressed, 0 bases lost |
+| **Designer theme** | replies 14–19 taken; crafting swap, T0 rules, map ramp, 6-Link, uniques |
+| **`_legacy` sweep** | 158 live bases resolved; **0 outstanding**, 69 author-confirmed |
+| **GGG feed** | 3.19–3.29 extracted verbatim, GGPK-verified, in-repo |
+| **Maps** | tier on the plate, specials on the rule, all blocks ≥ 4.00:1 |
+| **Sounds** | Quest Items + Fragments ported; scroll and bulk-currency progression gates |
+| **Guards** | `check_shadowed_blocks` + `check_range_syntax`, both proved to fire |
+
+### ★ Blocked on the designer
+
+1. **Uniques T1** — fixed locally with FilterBlade's brown-on-dark-red, but reply 12 asks
+   whether their own *"T1 is RELATIVE, so it renders in the family's vocabulary"* rule makes
+   this the general case rather than a local exception.
+2. **`T3 普通` vs `其他传奇`** — the override doubles T3 so both render identically. Asked
+   whether both tiers should exist at all.
+3. **Icon floor sweep** — theirs, still owed.
+4. **Uniques T3 is the thinnest rung at 3.97:1** (`175 96 37` on `31 16 16`) — FilterBlade's
+   own pairing and over the 3:1 large-text floor, so it is legal rather than wrong. The author
+   has seen it in game and accepted it *for now*. If it wants more, lift the plate toward
+   `#2a1616` rather than touching the text: the brown is the family hue and every other rung
+   depends on it staying exactly `175 96 37`.
+
+### ★ Ours, in priority order
+
+1. ⚠️ **`gen_order` audit — AHEAD OF EVERYTHING ELSE.** 52 of ~67 categories have **no
+   explicit `gen_order` and sort by FILENAME**. A purpose with a negative gen_order and a
+   loose condition can reach across the whole tree silently: the Influenced net
+   (`gen_order -40`, no `Class`) beat `Base Maps` (alphabetical, ~121000) by eighty thousand
+   positions and ate every influenced map. **No guard sees this class** — the shadowing check
+   finds blocks nothing *can* reach; this was reachable in principle and beaten in practice.
+   Found only because the author photographed a purple border.
+2. **Theme rework (feature)** — collapse `theme_category × Tier N`. Measured: 51 categories /
+   142 rows encoding only **85 distinct (accent, rung) pairs**; `equipment` alone spans 13
+   categories. It compiles from house `rung_recipes` + `accents` + `_category_exceptions`,
+   which IS the model and is what the picker should present (hue + rung + exceptions, not 51
+   categories). ★ The author's framing: *"the thing I see is not the thing the designer
+   ships"* — there are **four layers** between recipe and screen (recipe → compiled rows →
+   tier inline → rule overrides → decorators), and **every defect this session came from
+   layers 2–4, none from layer 1**. The map work is the pilot: a rule override carried a
+   whole look.
+3. **Logbooks → expedition accent** (reply 18) — a category move, not a look.
+4. **18 unresolved `_legacy` rows** — needs 3.21 and older; 21 threads unfetched.
+5. **15 remaining sound rows** — equipment, plus 4 retired Guardian maps not worth porting.
+6. **Kit-consistency checker** (~40 lines) — parse `_note` prose for `T<n>` sequences and
+   assert they match the array beside them. Would have caught all **four** prose-vs-array
+   drifts.
+7. **Strictness gates** — author deferred; soft is enough for now.
+8. ★ **"True minimal" — a Ruthless hide that actually hides** (author, 2026-08-07). Our
+   `HIDE_CMD` is `Minimal` because GGG forbids `Hide` in Ruthless, and we emit no style lines
+   on it — but **`Minimal` still draws a label**, so every "hidden" item in this filter is
+   still on screen. The author's proposal: hide with a **`Show`** whose label cannot be seen —
+   `SetFontSize 1` plus `SetTextColor`/`SetBackgroundColor`/`SetBorderColor` at **alpha 0**,
+   and `DisableDropSound`.
+   - **Corroboration**: Sharket's own standard filter already reaches for the same idea from
+     the legal end — its hide blocks carry `SetFontSize 17` + `DisableDropSound` rather than a
+     bare `Hide`, and two blocks go to `SetFontSize 1`. So the tiny-font idiom is Sharket's,
+     not an invention.
+   - ⚠️ **Two things need an in-game check before this ships**, and neither can be settled
+     from the format doc: whether the game **clamps** `FontSize` into 18–45 (if it does, size 1
+     renders at 18 and the *alpha* is doing all the work), and whether an alpha-0 label still
+     takes a highlight on Alt — which would be a feature, not a bug, since a Ruthless player
+     wants the item findable but silent.
+   - This would change what "hide" means everywhere, so it is a **format-level decision**, not
+     a category fix. Do not apply it piecemeal.
+
+### ★★ THE THEME WAS REPLACED BY A COPY — 2026-08-07, V5
+
+The author's verdict on the compiled theme was *"a visual disaster"* and, on the first
+attempt to fix it by raising contrast, *"raising the contrast is not a fix."* They were
+right, and the measurement says why in two numbers:
+
+| | text luminance | plate luminance | gap |
+|---|---|---|---|
+| FilterBlade | 0.660 | 0.051 | **0.61** |
+| ours (before) | 0.213 | 0.159 | **0.05** |
+
+Of FilterBlade's 529 styled blocks, **two** put text and plate both in the middle band. We
+put nearly everything there, so 4.5:1 between two mid-tones is still grey on grey. Their
+rule is not a palette:
+
+> **One of text and plate must be extreme. Never both in the middle.**
+
+**The author's call was to COPY rather than design** — Sharket first, FilterBlade to fill
+gaps — after two proposals failed the only test that counts. `parsing_tool/theme/
+apply_filterblade_palette.py` holds the table; every value in it is measured out of a
+reference filter, none is chosen.
+
+**Sharket already had the answer.** Its filter annotates each colour with its own theme name
+(`SetTextColor 0 0 0 # T4通货`), so its palette extracts BY NAME — 74 entries. Its low rungs
+are *family colour on pure black*: `170 158 130 on 0 0 0` (7.92:1), `14 186 255 on 0 0 0`
+(9.49:1), `136 136 255 on 0 0 0` (7.01:1). **`accent.muted on 80 80 80` was a corruption of
+exactly that** — the same idea with both values dragged to the middle.
+
+**23 accents collapsed to 11 families.** Currency absorbed **19 categories**: Ritual, Harvest,
+Breach, Expedition, Delirium, Allflame ×3, Wombgifts, Runegrafts, Corpses, Tainted, Oils,
+Legacy, Chancing, Enshrouding, Incursion Vials, Omens, General, Ward-Bases. Measured
+justification: a (text, plate) pair on their side encodes the item's **role** and is reused —
+`0 240 190 on 20 20 0` covers 22 categories, and `255 0 255 on 100 0 100` covers 21 under a
+tier literally named `anyremaining`. 60% of their pairs are shared; 41% of ours were private.
+Category is carried by the item's NAME and its icon shape/beam, not by plate hue.
+
+⚠️ The evidence contradicted the brief on one point and it is recorded rather than quietly
+followed: the author named fossil and essence as families keeping a private hue. **FilterBlade
+gives them none** — essence, fossil, oil, delirium, harvest, breach, ritual and expedition all
+wear the shared currency ladder. The essence blue in our data came from SHARKET. Kept as the
+author's exception.
+
+**Result:** blocks under 3.0:1 went **40 → 0**; blocks under 40px **173 → 6** (the author's
+scroll and gold exceptions). Worst pair left is Uniques T3 at 4.01:1 — Sharket's own
+`175 96 37 on 30 15 8`, and the author's pinned family hue.
+
+#### ⚠️ Four things that nearly shipped as bugs, all caught by reading a dry run
+
+1. **The palette did not reach the screen.** 42 inline tier styles beat the theme rows; after
+   rewriting every currency row, `General T5` still emitted the old `0 0 0 on 255 170 0`.
+   This is the author's *"the thing I see is not the thing the designer ships"*, measured.
+2. **`disabled:` is an omit-sentinel, not a colour.** Scrolls carry `disabled:#ffffffff` so the
+   block emits no colour line. Stripping it would have PAINTED the scrolls.
+3. **All three Gold tiers share `theme.Tier 5`** — they would have become one identical grey,
+   and the kit forbids gold a plate at any rung. Gold exempted; it was only a size complaint.
+4. **Currency's 9 tiers collapse onto 4 rungs**, so Exalt-level and Chaos-level would have
+   become one look. Its ladder is now written PER TIER from Sharket's named steps.
+
+★ The general form of (3) and (4) is now a reported check in the applier: **several tiers can
+share one `theme.Tier`, and a rung-keyed rewrite silently merges them.** That is the same
+defect class as the theme rework's "142 rows encode only 85 distinct pairs".
+
+### ★ Designer — changing hands (author, 2026-08-07)
+
+The author's call: **find a new designer, and write a new handbook for them once the planned
+theme rework has landed.** Sequencing matters and is deliberate — the rework collapses
+`theme_category × Tier N` into the (accent, rung) model that is already the real one, so a
+handbook written before it would describe 51 categories that are about to stop existing.
+
+What that changes for us, starting now:
+
+- **Stop deferring decisions to the current designer.** Items previously parked as "blocked on
+  the designer" (icon floor sweep, Uniques T1 as general case vs local exception, `accent.muted`)
+  are ours to settle from measurement.
+- **`docs/design/reply-to-designer-*.md` is a closed thread**, kept as the record of why each
+  colour is what it is. The handbook replaces it as the outgoing channel.
+- **The kit stays the source of hues** until the rework — `theme-presets.json` accents are
+  still the authored values; what lapses is the *escalation path*, not the palette.
+
+⚠️ **What the new handbook has to say that this one did not.** The failures in this thread were
+never taste, they were delivery, so the handbook should be built around them:
+
+1. **Every rung pairing must carry its own contrast number.** `T4 = accent.muted on 80 80 80` is
+   a legal-looking recipe that fails on **12 of 26 accents** (median 3.02:1) — nobody could see
+   that from the prose, and it shipped.
+2. **A recipe is a claim about all 26 accents, not about the one it was designed against.**
+   Four separate prose-vs-array drifts came from writing a rule against one category's contents.
+3. **State the plate the colour speaks against.** `120 235 210` measures 9.99:1 on gear's
+   near-black and ~1.3:1 on a light map plate — the same colour, two different answers.
+4. **Size is not a value axis.** Measured across all 7 FilterBlade strictness files: their font
+   size barely moves (median 45 at every level) while the block *count* falls 692 → 309.
+   Strictness removes items; it does not shrink them. Our ladder spent 30–45px encoding value
+   and produced the "too small" half of this complaint.
+
+### ⚠️ Traps that cost real time — do not re-derive
+
+- **A per-item sound CARD cannot be conditioned.** `{...rule.overrides, ...cardOver}` means a
+  card beats a rule, so a "silent" rule emits with the sound still attached. Hit twice.
+- **A generator that CONSUMES its source cannot be re-run** once the data is hand-authored.
+  Re-running `build_map_tier_ramp.py` over hand-picked bands replaced them, and deleting the
+  `_generated` rules then took the bands too.
+- **`RANGE >= a <= b` is split positionally** — a bad token emits a condition the game
+  ACCEPTS and misreads. `MapTier 0 10` made most maps match nothing, and it loaded fine.
+- **A band rule with no `Rarity` gate eats unique maps.**
+- **Editor saves race with our edits.** Fixes were overwritten twice; regenerate and re-check
+  after every author save.
+- **The Ruthless wiki has a known-bad row** (`Thief's Trinket` drops) — in
+  `_author_corrections.drops_after_all`.
+- **Verify in `--mode ruthless`.** A whole session was verified in `standard` by mistake.
+
+### The pattern worth keeping
+
+Five defects came out of the two in-game loads. **None was a wrong decision; all five were
+relationships between correct pieces** — a stale override against a new plate, an equipment
+purpose against a map, a positional split against a typo, a band against a rarity. Four were
+invisible to every guard. That is what the in-game read buys and what no test replaces.
+
+## 7. Open — not yet decided
+
+- **`AreaLevel >= 68` vs `ItemLevel >= 68`.** Ours gates the ladder on `AreaLevel`, theirs
+  on `ItemLevel`. ADR-0006 says these are not interchangeable: `AreaLevel` decides *where
+  you are*, `ItemLevel` decides *what it can roll*. For a "is this base worth picking up"
+  ladder, ItemLevel is arguably the right axis. **Needs an author call.**
+- Whether the ~14 extra T0 bases stay (proposed: yes, see §4).
+- `Ghostflame Blade` and `Pearlescent Amulet` are in our tree but not `items_db.json` —
+  post-dump 3.29 bases; the DB needs a refresh before class is derived from it.
+
+## 8. Deferred features (unchanged)
+
+- **Match presets / predefined rules** — the same 24-class list is repeated across 13 tiers
+  in 6 files in 4 textually-different forms. Nothing has drifted yet; nothing prevents it.
+  ⚠️ Boundary to write down when building: decorators are already property-matchers; the
+  difference is that a decorator paints one channel and composes via `Continue`, while these
+  are full blocks that terminate.
+- **Cluster jewel passive-type axis** — `EnchantmentPassiveNode` is declared `type: select`
+  with 22 options but the game matches on **substring** and FilterBlade uses 41. A fixed
+  list is the wrong control.
+- **Editable tier conditions in-app** — theirs is `QuickUI(rule, "SH", [conditions…],
+  label)`, i.e. the section declares which conditions are editable. Ours are read-only.
+- **`from_tier` selector** — subsumed by the purpose model; all silent tiers need bases,
+  not a new primitive.
+- **Weapon ranking for the 8 unnamed classes** — FilterBlade names no top base for One Hand
+  Axes/Maces, Sceptres, Staves, Two Hand Axes/Maces/Swords, Warstaves. That is a signal, not
+  an omission: the rungs may want deleting rather than filling. **Do not invent a ranking.**

@@ -1,0 +1,49 @@
+{
+ "_source": "WebFetch forum/view-thread/3452297 (Affliction), 2026-08-06",
+ "new_items": [
+  "I See Brothers",
+  "Assassin's Gift",
+  "Eldritch Perfection",
+  "Who Asked",
+  "Tainted Catalyst",
+  "Composite Ring",
+  "Manifold Ring",
+  "Ratcheting Ring",
+  "Helical Ring",
+  "Focused Amulet",
+  "Ironwood Tincture",
+  "Ashbark Tincture",
+  "Fulgurite Tincture",
+  "Poisonberry Tincture",
+  "Rosethorn Tincture",
+  "Oakbranch Tincture",
+  "Borealwood Tincture",
+  "Blood Sap Tincture",
+  "Ursine Charm",
+  "Lupine Charm",
+  "Corvine Charm"
+ ],
+ "removed_items": [
+  "Metamorph Brain",
+  "Metamorph Eye",
+  "Metamorph Liver",
+  "Metamorph Lung",
+  "Metamorph Heart",
+  "Silver Coin"
+ ],
+ "returning_items": [
+  "Inscribed Ultimatum",
+  "Omen of Amelioration",
+  "Omen of Return",
+  "Omen of Death-dancing",
+  "Omen of Refreshment",
+  "Omen of the Soul Devourer",
+  "Omen of Fortune",
+  "Omen of the Jeweller",
+  "Omen of Connections",
+  "Omen of Blanching",
+  "Omen of Adrenaline",
+  "Omen of Death's Door",
+  "Omen of Brilliance"
+ ]
+}

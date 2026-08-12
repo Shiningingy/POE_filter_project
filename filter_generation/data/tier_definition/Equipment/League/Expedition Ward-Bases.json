@@ -7,14 +7,14 @@
         "ch": "先祖秘藏结界底材"
       },
       "tier_order": [
-        "Expedition Ward-Bases T1",
+        "Expedition Ward-Bases",
         "Expedition Ward-Bases Hide"
       ]
     },
-    "Expedition Ward-Bases T1": {
+    "Expedition Ward-Bases": {
       "hideable": true,
       "theme": {
-        "Tier": 5
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,

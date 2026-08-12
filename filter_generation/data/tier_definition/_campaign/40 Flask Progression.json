@@ -21,13 +21,10 @@
       "hideable": true,
       "conditions": {},
       "theme": {
-        "Tier": 5,
-        "FontSize": 35,
-        "BorderColor": "#51713dff",
-        "BackgroundColor": "#050604ff",
+        "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/药不能停.mp3",
-          100
+          300
         ]
       },
       "sound": {
@@ -53,13 +50,10 @@
         "ItemLevel": "<= 72"
       },
       "theme": {
-        "Tier": 4,
-        "FontSize": 35,
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#050604ff",
+        "Tier": 3,
         "PlayAlertSound": [
           "Sharket掉落音效/水银药剂.mp3",
-          100
+          300
         ]
       },
       "sound": {
@@ -86,12 +80,9 @@
       },
       "theme": {
         "Tier": 4,
-        "FontSize": 35,
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#050604ff",
         "PlayAlertSound": [
           "Sharket掉落音效/酊剂.mp3",
-          100
+          300
         ]
       },
       "sound": {

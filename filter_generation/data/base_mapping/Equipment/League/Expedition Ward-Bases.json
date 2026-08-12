@@ -2,7 +2,6 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Iron Flask": "坚铁药剂",
         "Runic Crest": "符文之冠",
         "Runic Crown": "符文王冠",
         "Runic Gages": "符文笼手",
@@ -21,16 +20,15 @@
     "theme_category": "Expedition Ward-Bases"
   },
   "mapping": {
-    "Iron Flask": "Expedition Ward-Bases T1",
-    "Runic Crest": "Expedition Ward-Bases T1",
-    "Runic Crown": "Expedition Ward-Bases T1",
-    "Runic Gages": "Expedition Ward-Bases T1",
-    "Runic Gauntlets": "Expedition Ward-Bases T1",
-    "Runic Gloves": "Expedition Ward-Bases T1",
-    "Runic Greaves": "Expedition Ward-Bases T1",
-    "Runic Helm": "Expedition Ward-Bases T1",
-    "Runic Sabatons": "Expedition Ward-Bases T1",
-    "Runic Sollerets": "Expedition Ward-Bases T1"
+    "Runic Crest": "Expedition Ward-Bases",
+    "Runic Crown": "Expedition Ward-Bases",
+    "Runic Gages": "Expedition Ward-Bases",
+    "Runic Gauntlets": "Expedition Ward-Bases",
+    "Runic Gloves": "Expedition Ward-Bases",
+    "Runic Greaves": "Expedition Ward-Bases",
+    "Runic Helm": "Expedition Ward-Bases",
+    "Runic Sabatons": "Expedition Ward-Bases",
+    "Runic Sollerets": "Expedition Ward-Bases"
   },
   "rules": []
 }

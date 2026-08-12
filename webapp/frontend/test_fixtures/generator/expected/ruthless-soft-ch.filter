@@ -1,0 +1,133 @@
+#========================================
+#  FILTER OVERVIEW
+#========================================
+#  [00000] 自定义规则
+#  [10000] Alpha Alpha
+#    [11000] Alpha Alpha - 核心物品 Core
+#  [20000] Beta Beta
+#    [21000] Beta Beta - 装饰 Decorated
+#  [30000] 过渡 _campaign
+#    [31000] 过渡 _campaign - 进阶 Bands
+#  [40000] _legacy _legacy
+#    [41000] _legacy _legacy - 旧物 Old
+#========================================
+
+
+#==[00000]-自定义规则==
+# 在此添加自定义规则将会覆盖所有过滤器设定.
+
+
+#===================================================================================================================
+# [[10000]] Alpha Alpha
+#===================================================================================================================
+
+#==[11000]-Alpha Alpha - 核心物品 Core==
+
+#==[11001]- 核心物品 -T1: 顶级 核心物品 - #1 堆叠 - 精确==
+Show
+    BaseType == "Alpha Base"
+    StackSize >= 10
+    SetFontSize 45
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 0 0 255
+    SetBackgroundColor 0 0 0 255
+    CustomAlertSound "special.mp3" 300
+    PlayEffect Red
+    MinimapIcon 0 Red Star
+
+
+#==[11002]- 核心物品 -T2: 中等 核心物品 - #1 corrupted - 自选==
+Show
+    Corrupted True
+    SetFontSize 40
+    SetTextColor 204 204 204 204
+    SetBorderColor 255 0 255 255
+    SetBackgroundColor 17 17 17 255
+    PlayAlertSound 2 300
+
+
+#==[11003]- 核心物品 -T2: 中等 核心物品 - 基础 - 物品卡：乙基 - 精确==
+Show
+    BaseType == "Beta Base"
+    SetFontSize 40
+    SetTextColor 18 52 86 255
+    SetBorderColor 0 255 0 255
+    SetBackgroundColor 17 17 17 255
+    CustomAlertSound "card.mp3" 250
+
+
+#==[11004]- 核心物品 -T2: 中等 核心物品 - 基础 - 模糊==
+Show
+    BaseType "Gamma Base"
+    SetFontSize 40
+    SetTextColor 204 204 204 204
+    SetBorderColor 0 255 0 255
+    SetBackgroundColor 17 17 17 255
+    PlayAlertSound 2 300
+
+
+#==[11005]- 核心物品 -T3: 低级 核心物品 - #1 raw - 自选==
+Show
+    SetFontSize 44
+    CustomAlertSound "x.mp3" 200
+    SetFontSize 35
+
+
+#==[11006]- 核心物品 -T3: 低级 核心物品 - 基础 - 精确==
+Show
+    BaseType == "Delta Base"
+    ItemLevel >= 68
+    Rarity <= Rare
+    SetFontSize 35
+
+
+#==[11007]- 核心物品 -T4: 裸色 核心物品 - 基础 - 精确==
+Show
+    BaseType == "Zeta Base"
+    SetFontSize 34
+    SetBorderColor 0 0 0 0
+
+
+#==[11008]- 核心物品 -隐藏 核心物品 - 基础 - 精确==
+Minimal
+    BaseType == "Epsilon Base"
+
+
+#===================================================================================================================
+# [[20000]] Beta Beta
+#===================================================================================================================
+
+#==[21000]-Beta Beta - 装饰 Decorated==
+
+#==[21001]- 装饰 -腐化 装饰 - Decorator==
+Show
+    Corrupted True
+    SetBorderColor 255 0 0 255
+    Continue
+
+
+#===================================================================================================================
+# [[30000]] 过渡 _campaign
+#===================================================================================================================
+
+#==[31000]-过渡 _campaign - 进阶 Bands==
+
+#===================================================================================================================
+# [[40000]] _legacy _legacy
+#===================================================================================================================
+
+#==[41000]-_legacy _legacy - 旧物 Old==
+
+#==[41001]- 旧物 -历史 旧物 - 基础 - 精确==
+Show
+    BaseType == "Ghost Base" "Old Base"
+    SetFontSize 45
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 0 0 255
+    SetBackgroundColor 0 0 0 255
+
+
+# fixture footer
+Show
+    SetFontSize 18
+

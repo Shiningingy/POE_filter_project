@@ -7,9 +7,30 @@
         "ch": "深渊腰带"
       },
       "tier_order": [
+        "Stygian Vise T0",
         "Stygian Vise T1",
         "Stygian Vise Hide"
       ]
+    },
+    "Stygian Vise T0": {
+      "class_condition": true,
+      "hideable": true,
+      "conditions": {
+        "BaseType": "== \"Stygian Vise\"",
+        "ItemLevel": ">= 86",
+        "Rarity": "<= Rare"
+      },
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T0: Top Bases (86+)",
+        "ch": "T0: 顶级底材(86+)"
+      }
     },
     "Stygian Vise T1": {
       "hideable": true,
@@ -26,6 +47,14 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Stygian Vise": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/深渊腰带.mp3",
+            300
+          ]
+        }
       }
     },
     "Stygian Vise Hide": {

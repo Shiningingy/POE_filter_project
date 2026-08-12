@@ -1,0 +1,146 @@
+#========================================
+#  FILTER OVERVIEW
+#========================================
+#  [00000] Custom Rules
+#  [10000] Alpha
+#    [11000] Alpha Alpha - Core Items Core
+#  [20000] Beta
+#    [21000] Beta Beta - Classy Classy
+#    [22000] Beta Beta - Decorated Decorated
+#  [30000] _campaign
+#    [31000] 过渡 _campaign - Bands Bands
+#  [40000] _legacy
+#    [41000] _legacy _legacy - Old Old
+#========================================
+
+
+#==[00000]-Custom Rules==
+# Add custom rules here to override all filter settings.
+
+
+#===================================================================================================================
+# [[10000]] Alpha
+#===================================================================================================================
+
+#==[11000]-Alpha Alpha - Core Items Core==
+
+#==[11001]- Core Items -T1: Top Core Items - #1 Stacked - Exact==
+Show
+    BaseType == "Alpha Base"
+    StackSize >= 10
+    SetFontSize 45
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 0 0 255
+    SetBackgroundColor 0 0 0 255
+    CustomAlertSound "special.mp3" 300
+    PlayEffect Red
+    MinimapIcon 0 Red Star
+
+
+#==[11002]- Core Items -T2: Mid Core Items - #1 corrupted - Self-matched==
+Show
+    Corrupted True
+    SetFontSize 40
+    SetTextColor 204 204 204 204
+    SetBorderColor 255 0 255 255
+    SetBackgroundColor 17 17 17 255
+    PlayAlertSound 2 300
+
+
+#==[11003]- Core Items -T2: Mid Core Items - Base - Card：Beta Base - Exact==
+Show
+    BaseType == "Beta Base"
+    SetFontSize 40
+    SetTextColor 18 52 86 255
+    SetBorderColor 0 255 0 255
+    SetBackgroundColor 17 17 17 255
+    CustomAlertSound "card.mp3" 250
+
+
+#==[11004]- Core Items -T2: Mid Core Items - Base - Partial==
+Show
+    BaseType "Gamma Base"
+    SetFontSize 40
+    SetTextColor 204 204 204 204
+    SetBorderColor 0 255 0 255
+    SetBackgroundColor 17 17 17 255
+    PlayAlertSound 2 300
+
+
+#==[11005]- Core Items -T3: Low Core Items - #1 raw - Self-matched==
+Show
+    SetFontSize 44
+    CustomAlertSound "x.mp3" 200
+    SetFontSize 35
+
+
+#==[11006]- Core Items -T3: Low Core Items - Base - Exact==
+Show
+    BaseType == "Delta Base"
+    ItemLevel >= 68
+    Rarity <= Rare
+    SetFontSize 35
+
+
+#==[11007]- Core Items -T4: Bare Core Items - Base - Exact==
+Show
+    BaseType == "Zeta Base"
+    SetFontSize 34
+    SetBorderColor 0 0 0 0
+
+
+#==[11008]- Core Items -Hide Core Items - Base - Exact==
+Hide
+    BaseType == "Epsilon Base"
+
+
+#===================================================================================================================
+# [[20000]] Beta
+#===================================================================================================================
+
+#==[21000]-Beta Beta - Classy Classy==
+
+#==[21001]- Classy -Net Classy - Class Condition==
+Show
+    Class == "Bows"
+    Rarity Magic Rare
+    SetFontSize 45
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 0 0 255
+    SetBackgroundColor 0 0 0 255
+
+
+#==[22000]-Beta Beta - Decorated Decorated==
+
+#==[22001]- Decorated -Corrupted Decorated - Decorator==
+Show
+    Corrupted True
+    SetBorderColor 255 0 0 255
+    Continue
+
+
+#===================================================================================================================
+# [[30000]] _campaign
+#===================================================================================================================
+
+#==[31000]-过渡 _campaign - Bands Bands==
+
+#===================================================================================================================
+# [[40000]] _legacy
+#===================================================================================================================
+
+#==[41000]-_legacy _legacy - Old Old==
+
+#==[41001]- Old -Legacy Old - Base - Exact==
+Show
+    BaseType == "Ghost Base" "Old Base"
+    SetFontSize 45
+    SetTextColor 255 255 255 255
+    SetBorderColor 255 0 0 255
+    SetBackgroundColor 0 0 0 255
+
+
+# fixture footer
+Show
+    SetFontSize 18
+

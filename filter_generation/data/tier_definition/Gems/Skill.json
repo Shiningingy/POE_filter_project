@@ -20,16 +20,14 @@
       "hideable": false,
       "theme": {
         "Tier": 1,
-        "FontSize": 42,
-        "TextColor": "#00ffffff",
-        "BorderColor": "#00ffffff",
-        "BackgroundColor": "#004040ff",
-        "PlayEffect": "Cyan",
-        "MinimapIcon": "0 Red Circle",
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
-          100
-        ]
+          300
+        ],
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#1ba29bff",
+        "BorderColor": "#00000000",
+        "FontSize": 45
       },
       "sound": {
         "default_sound_id": -1,
@@ -45,16 +43,14 @@
       "show_in_editor": false,
       "theme": {
         "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#137770ff",
-        "BorderColor": "#199a91ff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star",
         "PlayAlertSound": [
-          "Sharket掉落音效/技能宝石.mp3",
-          200
-        ]
+          "Sharket掉落音效/DOTA2_嘿真棒.mp3",
+          300
+        ],
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#1ba29bff",
+        "BorderColor": "#ffffffff",
+        "FontSize": 45
       },
       "sound": {
         "default_sound_id": 6,
@@ -63,6 +59,20 @@
       "localization": {
         "en": "T0: 誓约/光环",
         "ch": "T0: 誓约/光环"
+      },
+      "item_overrides": {
+        "Portal": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/时空之门.mp3",
+            300
+          ]
+        },
+        "Purity of Elements": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/元素净化.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier Hide Skill": {
@@ -84,15 +94,14 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#000000ff",
-        "BorderColor": "#0b4642ff",
-        "BackgroundColor": "#1ba79dff",
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
-          100
+          300
         ],
-        "MinimapIcon": "0 Red Circle"
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#1ba29bff",
+        "BorderColor": "#00000000",
+        "FontSize": 43
       },
       "sound": {
         "default_sound_id": -1,
@@ -101,21 +110,28 @@
       "localization": {
         "en": "T2: Requires 12+",
         "ch": "T2: 需求 12 级及以上"
+      },
+      "item_overrides": {
+        "Temporal Rift": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/时空裂隙.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 3 Skill": {
       "hideable": false,
       "theme": {
         "Tier": 3,
-        "FontSize": 40,
-        "TextColor": "#7beae2ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#0b423eff",
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
-          100
+          300
         ],
-        "MinimapIcon": "0 Red Circle"
+        "TextColor": "#1ba29bff",
+        "BackgroundColor": "#1b3334ff",
+        "BorderColor": "#00000000",
+        "FontSize": 40
       },
       "sound": {
         "default_sound_id": -1,
@@ -130,15 +146,14 @@
       "hideable": false,
       "theme": {
         "Tier": 4,
-        "FontSize": 35,
-        "TextColor": "#7beae2ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#08302eff",
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
-          100
+          300
         ],
-        "MinimapIcon": "0 Red Circle"
+        "TextColor": "#1ba29bff",
+        "BackgroundColor": "#1b3334ff",
+        "BorderColor": "#00000000",
+        "FontSize": 40
       },
       "sound": {
         "default_sound_id": -1,
@@ -153,14 +168,14 @@
       "hideable": false,
       "theme": {
         "Tier": 5,
-        "FontSize": 35,
-        "TextColor": "#7beae2ff",
-        "BorderColor": "#00000000",
         "PlayAlertSound": [
           "Sharket掉落音效/技能宝石.mp3",
-          100
+          300
         ],
-        "MinimapIcon": "0 Red Circle"
+        "TextColor": "#1ba29bff",
+        "BackgroundColor": "#1b3334ff",
+        "BorderColor": "#00000000",
+        "FontSize": 40
       },
       "sound": {
         "default_sound_id": -1,

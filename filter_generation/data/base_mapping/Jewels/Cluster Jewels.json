@@ -14,19 +14,16 @@
       "Tier 0 Cluster Jewels",
       "Tier 1 Cluster Jewels",
       "Tier 2 Cluster Jewels",
-      "Tier 3 Cluster Jewels"
+      "Tier 6 Cluster Jewels"
     ],
     "Medium Cluster Jewel": [
-      "Tier 0 Cluster Jewels",
-      "Tier 1 Cluster Jewels",
-      "Tier 2 Cluster Jewels",
-      "Tier 3 Cluster Jewels"
+      "Tier 3 Cluster Jewels",
+      "Tier 4 Cluster Jewels",
+      "Tier 6 Cluster Jewels"
     ],
     "Small Cluster Jewel": [
-      "Tier 0 Cluster Jewels",
-      "Tier 1 Cluster Jewels",
-      "Tier 2 Cluster Jewels",
-      "Tier 3 Cluster Jewels"
+      "Tier 5 Cluster Jewels",
+      "Tier 6 Cluster Jewels"
     ]
   },
   "rules": []

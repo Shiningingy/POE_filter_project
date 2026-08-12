@@ -12,7 +12,7 @@
     "theme_category": "Breach Grasping Mail"
   },
   "mapping": {
-    "Grasping Mail": "Breach Grasping Mail T1"
+    "Grasping Mail": "Breach Grasping Mail"
   },
   "rules": []
 }

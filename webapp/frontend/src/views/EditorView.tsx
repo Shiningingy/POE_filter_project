@@ -10,8 +10,8 @@ import axios from 'axios';
 import { useTranslation, translations, RULE_FACTOR_LOCALIZATION } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import { resolveStyle } from '../utils/styleResolver';
+import { resolveThemeKey } from '../utils/filterStyle';
 import { STRICTNESS_LEVELS, type StrictnessLevel, type LevelingSelection, isLevelingSelected } from '../utils/filterGenerator';
-import { mergeThemeOverrides } from '../utils/theme';
 
 interface EditorViewProps {
   selectedFile: CategoryFile | null;
@@ -92,25 +92,14 @@ const EditorView: React.FC<EditorViewProps> = ({
   const API_BASE_URL = '';
 
   // Hoisted out of the mount effect so the sound editor can re-run the SAME load
-  // after it writes. The old inline refetch hardcoded the 'sharket' theme and
-  // skipped the overrides merge, so it could not be reused for anything else.
+  // after it writes. The old inline refetch hardcoded the 'sharket' theme, so it
+  // could not be reused for anything else.
   const loadTheme = useCallback(async () => {
       try {
-          const [settingsRes, overridesRes] = await Promise.all([
-              axios.get(`${API_BASE_URL}/api/settings`),
-              axios.get(`${API_BASE_URL}/api/custom-overrides`)
-          ]);
-
+          const settingsRes = await axios.get(`${API_BASE_URL}/api/settings`);
           const baseTheme = settingsRes.data.base_theme || 'sharket';
-          const overrides = overridesRes.data || {};
-
           const themeRes = await axios.get(`${API_BASE_URL}/api/themes/${baseTheme}`);
-          const baseThemeData = themeRes.data.theme_data;
-
-          // Merge Base + Overrides
-          const mergedTheme = mergeThemeOverrides(baseThemeData, overrides);
-
-          setThemeData(mergedTheme);
+          setThemeData(themeRes.data.theme_data);
           setSoundMap(themeRes.data.sound_map_data);
       } catch (err) {
           console.error("Failed to load theme", err);
@@ -182,8 +171,8 @@ const EditorView: React.FC<EditorViewProps> = ({
               rules = augmentedRules;
           }
 
-          const themeCategory = catData._meta?.theme_category || catKey;
-          const resolvedStyle = resolveStyle(tierData, themeData, themeCategory, soundMap);
+          const themeCategory = resolveThemeKey(catData, catKey);
+          const resolvedStyle = resolveStyle(tierData, themeData, themeCategory, soundMap, inspectedTierKey);
 
           return {
               key: inspectedTierKey,

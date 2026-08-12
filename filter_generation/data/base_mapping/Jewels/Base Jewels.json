@@ -12,9 +12,21 @@
     }
   },
   "mapping": {
-    "Cobalt Jewel": "Tier 1 Base Jewels",
-    "Crimson Jewel": "Tier 1 Base Jewels",
-    "Viridian Jewel": "Tier 1 Base Jewels"
+    "Cobalt Jewel": [
+      "Base Jewels Rare",
+      "Base Jewels Magic",
+      "Base Jewels Normal"
+    ],
+    "Crimson Jewel": [
+      "Base Jewels Rare",
+      "Base Jewels Magic",
+      "Base Jewels Normal"
+    ],
+    "Viridian Jewel": [
+      "Base Jewels Rare",
+      "Base Jewels Magic",
+      "Base Jewels Normal"
+    ]
   },
   "rules": []
 }

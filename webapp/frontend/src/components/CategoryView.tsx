@@ -25,8 +25,10 @@ import TierOutlineRail from "./TierOutlineRail";
 import TierContextMenu from "./TierContextMenu";
 import CategoryRenameModal from "./CategoryRenameModal";
 import LoadingOverlay from "./LoadingOverlay";
-import { invalidateTierLabelMap } from "../utils/tierLabels";
+import { invalidateTierLabelMap, fetchDecorators } from "../utils/tierLabels";
+import type { DecoratorEntry } from "../utils/tierLabels";
 import { resolveStyle } from "../utils/styleResolver";
+import { resolveThemeKey } from "../utils/filterStyle";
 import { useTranslation, translations } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import tierTemplate from "../config/tierTemplate.json";
@@ -75,6 +77,12 @@ interface CategoryViewProps {
   adminMode?: boolean;
 }
 
+/* A base-ranked tier can hold ~100 bases (Body Armours T4 has 94). Past this many the
+ * ladder stops reading as a ladder - you cannot see the tiers for the basetypes - so the
+ * list collapses to a card. Sound and override editing stays reachable behind "Show all".
+ */
+const COLLAPSE_ITEMS_AT = 12;
+
 const CategoryView: React.FC<CategoryViewProps> = ({
   configContent,
   onConfigContentChange,
@@ -106,12 +114,26 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     !!td?.is_hide_tier ||
     (typeof td?.hide_at_strictness === 'number' && strictnessIdx >= td.hide_at_strictness) ||
     !isLevelingSelected(td?.lv_group, levelingSelection);
+  // State decorators + which of them the preview is currently simulating. Empty by
+  // default, so a block previews undecorated until you ask a state question.
+  const [decorators, setDecorators] = useState<DecoratorEntry[]>([]);
+  const [activeStates, setActiveStates] = useState<string[]>([]);
+  useEffect(() => { fetchDecorators().then(setDecorators).catch(() => {}); }, []);
+  const activeDecorators = useMemo(
+    () => decorators.filter(d => activeStates.includes(d.key)),
+    [decorators, activeStates],
+  );
+
   // const [themeData, setThemeData] = useState<any>(null); // Lifted to EditorView
   // const [soundMap, setSoundMap] = useState<any>(null); // Lifted
   const [parsedConfig, setParsedConfig] = useState<any>(null);
 
   const [showBulkEditor, setShowBulkEditor] = useState(false);
   const [activeBulkClass, setActiveBulkClass] = useState<string | null>(null);
+  // Tiers whose full base list the user asked to see, overriding the collapsed card.
+  const [expandedTiers, setExpandedTiers] = useState<Set<string>>(new Set());
+  // Which tier the rank brush should arrive armed for, when opened from a tier card.
+  const [bulkInitialBrush, setBulkInitialBrush] = useState<string | null>(null);
   const [activeBulkOptions, setActiveBulkOptions] = useState<any[]>([]);
 
   // Context Menu State
@@ -311,6 +333,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         themeData,
         themeCategory,
         soundMap,
+        tierKey,
       ),
       visibility: tierHidden(newConfig[activeCategoryKey][tierKey]),
       category: themeCategory,
@@ -341,7 +364,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
     onInspectTier({
       key: tierKey,
       name: td.localization?.[language] || tierKey,
-      style: resolveStyle(td, themeData, themeCategory, soundMap),
+      style: resolveStyle(td, themeData, themeCategory, soundMap, tierKey),
       visibility: tierHidden(td),
       category: themeCategory,
       rules: getAugmentedRules(baseRules, items),
@@ -412,11 +435,32 @@ const CategoryView: React.FC<CategoryViewProps> = ({
         tier_key: tierKey ?? null,
         suppress_auto: suppressAuto ?? false,
       });
-      // The endpoint appends a RULE to the mapping file, but only tier ITEMS were
-      // refreshed here. The sound indicator is driven by categoryRules, which comes
-      // from configContent, so a sound set this way stayed invisible until the
-      // category happened to be reloaded - it looked like it worked "occasionally".
-      // Pull the rules back in for the open category.
+      // ONE `next`, patched twice, updated once. Building it separately per patch
+      // reads `parsedConfig` again before React has re-rendered, so the second
+      // update is computed from the pre-patch config and silently discards the first.
+      let next: any = null;
+      const take = () => (next ??= JSON.parse(JSON.stringify(parsedConfig)));
+
+      // The override lands in tier_definition[cat][tier].item_overrides, which is
+      // what the card reads through `itemOverrides`. Only the MAPPING was refreshed
+      // here (for rules), so the write succeeded, the filter emitted the sound, and
+      // the editor showed nothing — indistinguishable from "adding a sound does
+      // nothing". Mirror the backend's own merge, including its empty-card removal.
+      if (activeCategoryKey && tierKey && parsedConfig?.[activeCategoryKey]?.[tierKey]) {
+        const entry = take()[activeCategoryKey][tierKey];
+        const card = { ...(entry.item_overrides?.[item.name] || {}) };
+        for (const k of removeKeys || []) delete card[k];
+        Object.assign(card, overrides || {});
+        const all = { ...(entry.item_overrides || {}) };
+        if (Object.keys(card).length) all[item.name] = card;
+        else delete all[item.name];
+        if (Object.keys(all).length) entry.item_overrides = all;
+        else delete entry.item_overrides;
+      }
+
+      // The sound indicator is also driven by categoryRules, which comes from
+      // configContent, so a sound set this way stayed invisible until the category
+      // happened to be reloaded — it looked like it worked "occasionally".
       const rel = (p?: string) => (p || "").replace(/^base_mapping\//, "");
       if (activeCategoryKey && defaultMappingPath &&
           rel(item.source) === rel(defaultMappingPath)) {
@@ -424,12 +468,12 @@ const CategoryView: React.FC<CategoryViewProps> = ({
           `${API_BASE_URL}/api/config/${defaultMappingPath}?t=${Date.now()}`);
         const rules = res.data?.content?.rules;
         if (Array.isArray(rules)) {
-          const next = JSON.parse(JSON.stringify(parsedConfig));
-          next[activeCategoryKey].rules = rules;
-          if (next[activeCategoryKey]._meta?.rules) delete next[activeCategoryKey]._meta.rules;
-          updateConfig(next);
+          const cfg = take();
+          cfg[activeCategoryKey].rules = rules;
+          if (cfg[activeCategoryKey]._meta?.rules) delete cfg[activeCategoryKey]._meta.rules;
         }
       }
+      if (next) updateConfig(next);
       fetchTierItems(sortedTierKeys);
     } catch (err) {
       console.error(err);
@@ -611,7 +655,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       onInspectTier({
         key: tierKey,
         name: tierName,
-        style: resolveStyle(tierData, themeData, themeCategory, soundMap),
+        style: resolveStyle(tierData, themeData, themeCategory, soundMap, tierKey),
         visibility: tierHidden(tierData),
         category: themeCategory,
         rules: newRules.filter(
@@ -759,8 +803,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
 
   const catName =
     activeCategoryData._meta?.localization?.[language] || activeCategoryKey;
-  const themeCategory =
-    activeCategoryData._meta?.theme_category || activeCategoryKey;
+  const themeCategory = resolveThemeKey(activeCategoryData, activeCategoryKey);
 
   const tierOptions = sortedTierKeys.map((tk) => {
     const td = activeCategoryData[tk];
@@ -788,6 +831,26 @@ const CategoryView: React.FC<CategoryViewProps> = ({
       <div className="category-section">
         <div className="category-header">
           <h3>{catName}</h3>
+          {/* State toggles. A block preview shows a TIER, not an item, so whether a
+              decorator applies depends on state the block cannot know. Toggling one
+              recomposes every plate below exactly as the game would: the state paints
+              its channel only where this tier leaves that channel unset. */}
+          {decorators.length > 0 && (
+            <div className="state-toggles" title={language === 'ch'
+              ? '预览状态叠加效果'
+              : 'Preview how state decorators compose over this tier'}>
+              {decorators.map(d => (
+                <button
+                  key={d.key}
+                  className={`state-chip ${activeStates.includes(d.key) ? 'on' : ''}`}
+                  onClick={() => setActiveStates(s =>
+                    s.includes(d.key) ? s.filter(x => x !== d.key) : [...s, d.key])}
+                >
+                  {language === 'ch' ? d.ch : d.en}
+                </button>
+              ))}
+            </div>
+          )}
           <button
             className="bulk-edit-btn"
             onClick={() => {
@@ -822,6 +885,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                 themeData,
                 themeCategory,
                 soundMap,
+                tierKey,
+                activeDecorators,
               );
               const toggleBoost = () => {
                 if (!onLevelingSelectionChange) return;
@@ -976,7 +1041,65 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                       `}</style>
                     </div>
                   )}
-                                                  <TierItemManager 
+                                                  {/* ★ A base-ranked tier can hold ~100 bases (Body Armours T4 has 94),
+                                                      and rendering them all makes the ladder unreadable — you cannot see
+                                                      the tiers for the basetypes. Collapse to a card that states the
+                                                      count and opens the rank brush, with the full list one click away
+                                                      so per-item sounds and overrides are still reachable. */}
+                                                  {items.length > COLLAPSE_ITEMS_AT && !expandedTiers.has(tierKey) ? (
+                                                      <div className="tier-bases-card">
+                                                          <div className="tbc-main">
+                                                              <span className="tbc-count">{items.length}</span>
+                                                              <span className="tbc-label">
+                                                                  {language === 'ch' ? '个底材' : items.length === 1 ? 'base' : 'bases'}
+                                                              </span>
+                                                              <span className="tbc-sample">
+                                                                  {items.slice(0, 4).map(i =>
+                                                                      language === 'ch' ? (i.name_ch || i.name) : i.name).join(' · ')}
+                                                                  {items.length > 4 ? ' …' : ''}
+                                                              </span>
+                                                          </div>
+                                                          <div className="tbc-actions">
+                                                              <button
+                                                                  className="tbc-btn primary"
+                                                                  onClick={(e) => {
+                                                                      e.stopPropagation();
+                                                                      setActiveBulkClass(themeCategory);
+                                                                      setActiveBulkOptions(tierOptions);
+                                                                      setBulkInitialBrush(tierKey);
+                                                                      setShowBulkEditor(true);
+                                                                  }}
+                                                              >
+                                                                  🖌 {language === 'ch' ? '刷入底材' : 'Rank bases'}
+                                                              </button>
+                                                              <button
+                                                                  className="tbc-btn"
+                                                                  onClick={(e) => {
+                                                                      e.stopPropagation();
+                                                                      setExpandedTiers(s => new Set(s).add(tierKey));
+                                                                  }}
+                                                              >
+                                                                  ▾ {language === 'ch' ? '展开列表' : 'Show all'}
+                                                              </button>
+                                                          </div>
+                                                          <style>{`
+                                                            .tier-bases-card { display: flex; align-items: center; justify-content: space-between;
+                                                              gap: 12px; flex-wrap: wrap; margin: 6px 0 2px; padding: 8px 12px;
+                                                              background: #23242b; border: 1px solid #3a3c46; border-radius: 6px; }
+                                                            .tbc-main { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+                                                            .tbc-count { font-size: 1.15rem; font-weight: 700; color: #e0b93a; }
+                                                            .tbc-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: .5px; color: #8a8a92; }
+                                                            .tbc-sample { font-size: 0.76rem; color: #9aa0ab; overflow: hidden;
+                                                              text-overflow: ellipsis; white-space: nowrap; max-width: 46ch; }
+                                                            .tbc-actions { display: flex; gap: 6px; }
+                                                            .tbc-btn { font-size: 0.74rem; padding: 3px 10px; border-radius: 4px;
+                                                              border: 1px solid #3a3c46; background: #2b2d36; color: #c7ccd4; cursor: pointer; }
+                                                            .tbc-btn:hover { border-color: #e0b93a; color: #e0b93a; }
+                                                            .tbc-btn.primary { border-color: #4a5568; color: #e6e8ec; }
+                                                          `}</style>
+                                                      </div>
+                                                  ) : (
+                                                  <TierItemManager
                                                       tierKey={tierKey}
                                                       items={items}
                                                       allTiers={tierOptions}
@@ -994,7 +1117,9 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                                       onRefresh={() => fetchTierItems(sortedTierKeys)}
                                                       soundMap={soundMap}
                                                       tierStyle={resolved}
+                                                      itemOverrides={tierData?.item_overrides || {}}
                                                   />
+                                                  )}
                   <RuleManager
                     tierKey={tierKey}
                     themeData={themeData}
@@ -1060,7 +1185,8 @@ const CategoryView: React.FC<CategoryViewProps> = ({
           className={activeBulkClass}
           availableTiers={activeBulkOptions}
           language={language}
-          onClose={() => setShowBulkEditor(false)}
+          onClose={() => { setShowBulkEditor(false); setBulkInitialBrush(null); }}
+          initialBrush={bulkInitialBrush}
           onSave={() => fetchTierItems(sortedTierKeys)}
           defaultMappingPath={defaultMappingPath}
           adminMode={adminMode}
@@ -1144,6 +1270,11 @@ const CategoryView: React.FC<CategoryViewProps> = ({
             padding-top: 20px;
         }
         .category-header h3 { margin: 0; color: #333; }
+        .state-toggles { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+        .state-chip { font-size: 0.75rem; padding: 3px 10px; border-radius: 20px; cursor: pointer;
+                      background: #f2f3f5; border: 1px solid #ddd; color: #666; }
+        .state-chip:hover { border-color: #2196F3; }
+        .state-chip.on { background: #2196F3; border-color: #2196F3; color: #fff; font-weight: 600; }
         .bulk-edit-btn { background: #673ab7; color: white !important; border: none; padding: 6px 18px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; font-weight: bold; box-shadow: 0 2px 4px rgba(103, 58, 183, 0.2); transition: background 0.2s; }
         .bulk-edit-btn:hover { background: #5e35b1; }
         .add-tier-btn { width: 100%; padding: 12px; background: #fcfcfc; border: 2px dashed #ddd; color: #666 !important; cursor: pointer; border-radius: 6px; font-weight: bold; font-size: 0.9rem; transition: all 0.2s; }

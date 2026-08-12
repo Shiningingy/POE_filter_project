@@ -1,0 +1,323 @@
+{
+  "_about": "PRIMARY owner of accent routing AND rung_by_depth. theme-presets.json owns the LOOKS (accents, rung recipes, states, exceptions); this file owns the ROUTING (which category takes which accent, which depth takes which rungs). Companion to theme-standard.md.",
+  "_schema": 2,
+  "_changed_in_v2": [
+    "rung_by_depth now lives HERE and only here — the presets copy is deleted (it had no gear template and none of the file overrides, so it could not stand alone).",
+    "Depth 3 conflict resolved to T1 T2 T4 (the presets value), by the invariant in _invariants.painted_t3_needs_t2.",
+    "Chancing repathed: Currency/Chancing.json -> Equipment/VendorRecipes/Chancing.json.",
+    "23 per-class equipment categories removed, Rare Equipment added. Breach removed (no such theme category in the settled tree).",
+    "Magic Net moved quest -> equipment, with its own override.",
+    "Crafting Priority override rewritten for 10 tiers (was 7).",
+    "Gear depth 2 changed T3,T4 -> T3,T5: two-tier ladders never use adjacent rungs, and gear was the one table breaking my own rule.",
+    "Quest Items override deleted — Quest Items is flat, and flat categories skip this table entirely, so that line could only ever mislead.",
+    "v2.2: Crafting Priority array corrected to T0-first and Magic Net key/array to (2)/T3 T5 — the notes had been revised and the arrays had not. See overrides._note_discipline."
+  ],
+  "accent_by_category": {
+    "_about": "52 entries, one per live theme category in the settled tree. Every key here MUST name a live category and every live category MUST appear — see _invariants.no_silent_misses.",
+    "General": "currency",
+    "Omens": "currency",
+    "Runegrafts": "currency",
+    "Tainted Currency": "tainted",
+    "Heist Currency": "heist",
+    "Essences": "essences",
+    "Fossils": "fossils",
+    "Oils": "blight_oils",
+    "Harvest": "harvest",
+    "Incursion Vials": "harvest",
+    "Delirium Orbs": "delirium",
+    "Corpses": "corpses",
+    "Enshrouding Crystals": "allflame",
+    "Curse of the Allflame": "allflame",
+    "Enshrouded Gear": "allflame",
+    "Wombgifts": "breach",
+    "Breach Grasping Mail": "breach",
+    "Gold": "gold",
+    "Legacy": "vendor",
+    "Vendor Recipes": "recipes",
+    "Chancing": "vendor",
+    "Maps": "maps",
+    "Map Fragments": "fragments",
+    "Scarabs": "scarabs",
+    "Skill Gems": "gems",
+    "Support Gems": "gems",
+    "Jewels": "jewels",
+    "Uniques": "uniques",
+    "Heist Contracts": "heist",
+    "Heist Blueprints": "heist",
+    "Heist Targets": "heist",
+    "Heist Equipment": "equipment",
+    "Heist Experimented": "equipment",
+    "Ritual BaseTypes": "ritual",
+    "Expedition Ward-Bases": "expedition",
+    "Quest Items": "quest",
+    "Magic Net": "equipment",
+    "Life Flasks": "flasks",
+    "Mana Flasks": "flasks",
+    "Utility Flasks": "flasks",
+    "Tinctures": "flasks",
+    "Trinkets": "equipment",
+    "Relics": "equipment",
+    "Talismans": "equipment",
+    "Stygian Vise": "equipment",
+    "Sacrificial Garbs": "equipment",
+    "Mirror of Kalandra Ring Bases": "equipment",
+    "Crafting Bases": "equipment",
+    "Influenced": "equipment",
+    "Campaign": "equipment",
+    "Rare Equipment": "equipment",
+    "States": "__not_an_accent__"
+  },
+  "removed_in_v2": {
+    "_about": "Kept as a record so nobody re-adds them. These are not categories any more; an accent for a category that does not exist is the Chancing bug wearing a different hat.",
+    "collapsed_into_Rare Equipment": [
+      "Amulets",
+      "Belts",
+      "Body Armours",
+      "Boots",
+      "Bows",
+      "Claws",
+      "Daggers",
+      "Gloves",
+      "Helmets",
+      "One Hand Axes",
+      "One Hand Maces",
+      "One Hand Swords",
+      "Quivers",
+      "Rings",
+      "Rune Daggers",
+      "Sceptres",
+      "Shields",
+      "Staves",
+      "Two Hand Axes",
+      "Two Hand Maces",
+      "Two Hand Swords",
+      "Wands",
+      "Warstaves"
+    ],
+    "_note_23": "All 23 carried \"equipment\", so the collapse cost no decisions — exactly as you said.",
+    "Breach": "No theme category by this name in the settled tree. The breach accent survives on Wombgifts and Breach Grasping Mail."
+  },
+  "notes_on_judgement_calls": {
+    "Rare Equipment": "Takes the equipment accent and the gear_ladder FALLBACK hue (170 170 170 / deep 42 42 42) — NOT armour's 130 150 175. Armour's hue winning the merge was an accident of coverage; the fallback is the authored answer for a genuinely mixed-class category, and it already exists for exactly this case.",
+    "Fractured": "Needs nothing of its own. It reads Rare Equipment's accent, ranks on the same gear rungs, and the fractured STATE BORDER is what says 'fractured'. Its rows coinciding with Rare Equipment's by rank is correct and should stay — same accent, same rank, same look, with the border carrying the property. That is the state channel doing its job, not a shared-row defect.",
+    "Influenced": "Same shape as Fractured — equipment accent, fallback hue, influenced state border. Its four tiers all landing on Tier 4 today IS a defect: it is a four-deep gear ladder and should resolve T2 T3 T4 T5 off the template.",
+    "Tainted Currency": "MOVED currency -> tainted. Tainted Mythic Orb was reading as ordinary currency at every rung; the split adds red across the whole ladder rather than at one tier. Keeps currency's Diamond, because it is currency.",
+    "Vendor Recipes": "MOVED vendor -> recipes. A white-ish plate on 6-socket and RGB is what FilterBlade and Sharket both do and what players already read. Legacy and Chancing stay on vendor grey — they are bulk; a recipe you can act on is not.",
+    "Magic Net": "MOVED quest -> equipment. It was on green when it was a 3-rung utility net; it is now an AreaLevel band over magic gear, and gear is judged by the rarity the game paints. Green would promise 'always shown, always needed', which an endgame declutter band is not. Its own override keeps its top rung off T2.",
+    "Heist split": "Contracts / Blueprints / Targets / Heist Currency take the heist accent. Heist Equipment and Heist Experimented are GEAR — rarity matters on them, so they go to equipment and lose the red.",
+    "Campaign": "equipment accent, but its four files split by CLASS (10 Weapon / 20 Armour / 30 Jewellery / 40 Flask), so group_resolution gives them the weapons, armour, jewellery and flasks hues automatically. Campaign is where the gear family distinction now lives — see the reply's answer to your §3.",
+    "States": "_decorators/States.json is the state-border decorator file, not a themed category. It emits from state_borders in theme-presets.json and takes no accent.",
+    "Expedition logbooks": "Logbooks move OFF the maps accent onto expedition, where the accent note already described them. They have no MapTier, so the maps ramp has nothing to say about them and the map_special swap has no tier plate to speak against. The enchanted logbook becomes the enchanted STATE on the same block rather than its own tier."
+  },
+  "rung_by_depth": {
+    "_about": "Six rungs, T0-T5 (there is no T6). Rungs listed best-first. Applies PER LADDER (per file), not per theme category.",
+    "_rule": "Check flat_look.applies_to_* in theme-presets.json FIRST — flat categories skip this table entirely. Then overrides. Then the template for the ladder's depth. Depth counts VISIBLE tiers; a hide tier emits Minimal with no style lines and is never counted.",
+    "value": {
+      "1": [
+        "T2"
+      ],
+      "2": [
+        "T2",
+        "T4"
+      ],
+      "3": [
+        "T1",
+        "T2",
+        "T4"
+      ],
+      "4": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "5": [
+        "T0",
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "6": [
+        "T0",
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5"
+      ],
+      "7+": "T0 T1 T2 T3 T4 T5 with the surplus doubling on T2 and T3 — the two rungs designed to be shared. Never invent a seventh rung.",
+      "_for": "currency, league mechanics, consumables, maps, fragments, gems, jewels, uniques, flasks, quest",
+      "_depth3_resolution": "T1 T2 T4, not T1 T3 T4. The two files disagreed here and the invariant settles it without taste: T3 is the MUTED accent plate and exists only to be told apart from T2's full-strength one. With a single accent rung there is nothing to tell it apart from, so a 3-deep ladder would show its category more weakly than a 2-deep one — a ladder getting deeper making its own family harder to name. See _invariants.painted_t3_needs_t2."
+    },
+    "gear": {
+      "1": [
+        "T3"
+      ],
+      "2": [
+        "T3",
+        "T5"
+      ],
+      "3": [
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "4": [
+        "T2",
+        "T3",
+        "T4",
+        "T5"
+      ],
+      "5": [
+        "T2",
+        "T3",
+        "T3",
+        "T4",
+        "T5"
+      ],
+      "6": [
+        "T1",
+        "T2",
+        "T3",
+        "T3",
+        "T4",
+        "T5"
+      ],
+      "7+": "T0 T1 T2 T3 T3 T4 T5, surplus doubling on T3.",
+      "_for": "every category on the equipment accent — Rare Equipment, Fractured, Influenced, Campaign, Crafting Bases, Trinkets, Relics, Talismans, Stygian Vise, Magic Net, Heist Equipment / Experimented",
+      "_why": "A gear ladder is ilvl bands, not a value ladder — its top rung is a good crafting base, not a chase drop.",
+      "_depth2_fix": "Was T3 T4. Changed to T3 T5: the board's own rule is that a two-tier ladder never uses ADJACENT rungs, because that distinction is invisible when only two things exist to compare. The value table already obeyed it (T2 T4); gear was the table breaking it.",
+      "_t3_is_not_muted_here": "On gear the rungs are alpha steps of one hue, not accent saturations, so painted_t3_needs_t2 does not apply and a gear ladder may open at T3."
+    },
+    "overrides": {
+      "_about": "Where depth alone gets it wrong. Paths are OURS-side canonical — an override that does not match must fail loudly, never silently.",
+      "Currency/General.json (9)": [
+        "T0",
+        "T1",
+        "T1",
+        "T2",
+        "T2",
+        "T3",
+        "T3",
+        "T4",
+        "T4"
+      ],
+      "_general_note": "Nine visible tiers now, was eight. The pairs sharing a row are deliberate: nine tiers into a six-rung ladder means T1-T4 each carry two. General never reaches T5 — it has no floor below scrolls.",
+      "Currency/Gold.json (3)": [
+        "T5",
+        "T5",
+        "T5"
+      ],
+      "_legacy/Legacy.json (1)": [
+        "T5"
+      ],
+      "Curse of the Allflame/Bottles.json (1)": [
+        "T0"
+      ],
+      "_bottles_note": "Author's call, accepted. Its tier was already NAMED T0 while resolving lower — a label promising what the rung would not pay, which is the smallest possible version of the crafting problem and the same bug class. First use of the allflame accent's t0_text. Only Bottles moves.",
+      "Equipment/VendorRecipes/Chancing.json (1)": [
+        "T5"
+      ],
+      "_chancing_note": "REPATHED. Was Currency/Chancing.json, which matches nothing on your side. The category now ships with no bases at all — it is the player's own chase list — so this rung only ever applies to items they add. Still T5: it is bulk, and bulk is a rank.",
+      "Equipment/Crafting Priority.json (10)": [
+        "T0",
+        "T2",
+        "T3",
+        "T3",
+        "T4",
+        "T4",
+        "T5",
+        "T5",
+        "T5",
+        "T5"
+      ],
+      "_crafting_note": "⚠️ REVISED: Perfect Defence moves T2 -> T0. The author asked for red-on-white and I flagged it as a conflict with the reserved T0 idiom; it is not a conflict, it is the same answer reached from the other side, and FilterBlade spends red-on-white on exactly one base too. A 99th-percentile i84 base IS drop-everything, and my own note already said so in words — 'a reason to stop moving' is T0's definition. Only the top row moves; Over Quality stays at T2 so the quality swap still has its rung. In emission order: Perfect Defence T0, Over Quality T2, Strands 60+ T3, Strands T1 T3, Strands T2 T4, Strands T3 T4, Gear 86 / 86 Rank B / 85 / 84 all T5. The two property hits sit at the top because a perfect roll or a Q21+ base is a reason to stop; the four ilvl bands sit at the floor because an i84 base is bulk by volume. Over Quality also takes the quality text swap at T2 — the swap's whole scope is T0-T2, so it lands exactly where this override puts it.",
+      "Equipment/Magic Net.json (2)": [
+        "T3",
+        "T5"
+      ],
+      "_magic_net_note": "⚠️ ANNOTATION CORRECTED to (2): three of its five tiers are hides and hides are never counted. T3 T5 confirmed — the gear depth-2 template gives it, which means the override now agrees with the template and could be deleted. Keeping it is deliberate: it is the one ladder whose top rung is an argument ('not yet worth hiding', not 'worth picking up') and losing that reasoning to a template match would invite someone to open it at T2 later. The gear template would still do that.",
+      "Maps/Base Maps.json (5)": [
+        "T1",
+        "T2",
+        "T2",
+        "T3",
+        "T3"
+      ],
+      "Uniques/General.json (5)": [
+        "T0",
+        "T1",
+        "T2",
+        "T3",
+        "T3"
+      ],
+      "Jewels/Cluster Jewels.json (7)": [
+        "T1",
+        "T2",
+        "T2",
+        "T3",
+        "T3",
+        "T4",
+        "T4"
+      ],
+      "Jewels/Abyss Jewels.json (3)": [
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "Jewels/Base Jewels.json (1)": [
+        "T3"
+      ],
+      "_removed": {
+        "Misc/General.json — Quest Items (1)": "DELETED. Quest Items is in flat_look.applies_to_painted, and flat categories skip this table entirely. A line that can never be read is a line that can only mislead."
+      },
+      "_note_discipline": "⚠️ A NOTE MUST NOT RESTATE A VALUE THAT LIVES IN AN ARRAY. Twice this drop a _note said REVISED beside an unrevised array, and that is the third instance of one file disagreeing with itself in this thread. The array is the value; the note says WHY and never WHAT. If a note contains a rung name, it is either quoting the array (fragile) or contradicting it (a bug waiting) — the only exception is a note explaining why a rung was NOT chosen, which names a value that appears nowhere else by construction.",
+      "_recipes_note": "⚠️ OVERRIDE DELETED code-side, applying reply 19 §1 — the array had not been removed when the prose said it should be. Was T4 T5 T5, which put a 6-Link on T4. Their own reply 06 set the `linked` state threshold at SIX because 'in Ruthless a 6-link is a chase drop', so the state channel and the rung channel were describing different games. The file now takes the plain depth-3 value template. This is the third override written against a category NAME rather than its CONTENTS (after Chancing and Magic Net): the category is called Vendor Recipes and holds sockets, colours and links."
+    },
+    "expected_after_the_reshape": {
+      "_about": "Not overrides — these fall straight out of the gear template. Listed because the tree emits them WRONG today, so they are the check that the template is being applied at all.",
+      "Equipment/Special/Influenced.json (4)": [
+        "T2",
+        "T3",
+        "T4",
+        "T5"
+      ],
+      "Equipment/Rare Equipment.json (4)": [
+        "T2",
+        "T3",
+        "T4",
+        "T5"
+      ],
+      "Equipment/Special/Fractured.json (4)": [
+        "T2",
+        "T3",
+        "T4",
+        "T5"
+      ],
+      "Equipment/Jewellery/Trinkets.json (5)": [
+        "T2",
+        "T3",
+        "T3",
+        "T4",
+        "T5"
+      ],
+      "_fractured_and_rare_equipment_share_rows": "By rank, and that is correct — same accent, same rung, same look, with the fractured border saying the rest. Do not split them."
+    }
+  },
+  "_invariants": {
+    "_about": "Four assertions. Each one is a bug this thread has already shipped once.",
+    "painted_t3_needs_t2": "SCOPE: per THEME CATEGORY, not per ladder — your reading is right, and Base Jewels is the case that proves it. The invariant is a claim about RECOGNITION (can a player name this family?), and the player sees the merged category, not the file it came from. rung_by_depth is scoped per ladder because emission is; this check is not emission. So: within a painted theme category, if any tier resolves to T3 then some tier must resolve to T2. T3 is the muted accent plate; it only means something below the full-strength one. Does not apply to gear ladders, where rungs are alpha steps.",
+    "two_tier_never_adjacent": "A 2-deep ladder must not use two adjacent rungs. Legal pairs: T2/T4, T3/T5, T1/T3, T0/T2 …",
+    "no_silent_misses": "accent_by_category keys and live theme categories must be the SAME SET, and every rung override path must resolve to a real file. A miss on either side is an ERROR, never a fallback — an override that quietly does not match is how bulk reached T2 and how Chancing went unstyled.",
+    "depth1_t2_warning_allowlist": {
+      "_about": "Your reply-13 warning, confirmed on all four. Silencing them deliberately, which is the point of an allowlist — a warning nobody can clear is a warning everybody stops reading.",
+      "Curse of the Allflame/Mercenary Warrants.json": "same.",
+      "Curse of the Allflame/Voyage Charts.json": "same.",
+      "Heist/Targets.json": "smuggler's caches — the thing the contract was for. T2 is correct and heist never reaches the bulk rungs anyway (see _heist_rule).",
+      "_keep_warning": "Do NOT widen the allowlist to the whole category or to depth-1 generally. It caught Legacy and Chancing, and it will catch the next one.",
+      "_bottles_removed": "Bottles is off this list: it has an override now, so the warning cannot fire, and an allowlist entry that can never be reached is the drift we are policing."
+    },
+    "rarity_through_is_an_accent_property": "rarity_through is declared once, on the ACCENT, and never chosen per row. Only the equipment accent has it. A painted accent always sets TextColor; a rarity_through accent never does. There is no third case, so 'row X is missing a TextColor' is not a finding — see the reply's answer on Uniques and Jewels. ⚠️ MAPS NO LONGER CLAIM IT — _category_exceptions.maps used to say rarity_through while this invariant said only equipment has it. The maps plate ramp settles it: maps paint. The invariant was right; the exception was the stale one."
+  }
+}

@@ -11,12 +11,14 @@
       "theme_category": "Chancing"
     },
     "Chancing Normal": {
+      "_note": "OFF BY DEFAULT (author, 2026-08-07). Its only condition is `Rarity == Normal` — no Class, no BaseType — so the moment anything is mapped or ruled into it, it shows every white item in the game. It emits nothing TODAY (no bases, no rule, which is what the standing validator warning is about), but that is an accident of being unwired, not a safeguard, and it ends the first time someone adds a base. ⚠️ `hideable` had to flip to true first: false PROTECTS a tier and clears any gate, so it is the one value that makes a tier ungateable. hide_at_strictness 0 hides it at every level and the 🔒 protect toggle turns it back on in one click — same mechanism as the flask i82 and Hybrid tiers.",
       "conditions": {
         "Rarity": "== Normal"
       },
-      "hideable": false,
+      "hideable": true,
+      "hide_at_strictness": 0,
       "theme": {
-        "Tier": 2
+        "Tier": 5
       },
       "sound": {
         "default_sound_id": 1,
@@ -25,6 +27,14 @@
       "localization": {
         "en": "Chancing Targets (Normal)",
         "ch": "机会目标（普通品质）"
+      },
+      "item_overrides": {
+        "Opal Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/蛋白石戒指.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier Hide Chancing Bases": {

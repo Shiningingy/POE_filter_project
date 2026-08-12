@@ -93,7 +93,10 @@
         "Scrap Metal": "废金属",
         "Fracturing Shard": "破溃碎片",
         "Sacred Crystallised Lifeforce": "神圣白晶命能",
-        "Facetor's Lens": "费斯特的透镜"
+        "Facetor's Lens": "费斯特的透镜",
+        "Refracting Fog": "折射之雾",
+        "Flesh of Xesht": "薛斯的血肉",
+        "Imprint": "印记"
       }
     },
     "item_class": {
@@ -175,10 +178,10 @@
     "Gemcutter's Prism": "Tier 4 General",
     "Vaal Orb": "Tier 4 General",
     "Orb of Regret": [
-      "CustomTier 2 General"
+      "Tier 5 General"
     ],
     "Orb of Unmaking": [
-      "CustomTier 2 General"
+      "Tier 5 General"
     ],
     "Orb of Scouring": "Tier 4 General",
     "Maven's Chisel of Procurement": [
@@ -215,38 +218,38 @@
       "Tier 3 General"
     ],
     "Orb of Alchemy": [
-      "CustomTier 2 General"
+      "Tier 5 General"
     ],
     "Orb of Fusing": [
-      "CustomTier 2 General"
+      "Tier 5 General"
     ],
     "Glassblower's Bauble": [
-      "CustomTier 1 General"
+      "Tier 5 General"
     ],
     "Orb of Alteration": [
-      "CustomTier 1 General"
+      "Tier 6 General"
     ],
     "Orb of Chance": [
-      "CustomTier 1 General"
+      "Tier 6 General"
     ],
     "Jeweller's Orb": [
-      "CustomTier 1 General"
+      "Tier 6 General"
     ],
     "Chromatic Orb": [
       "Tier 4 General"
     ],
     "Armourer's Scrap": [
-      "CustomTier 1 General"
+      "Tier 7 General"
     ],
     "Blacksmith's Whetstone": [
-      "CustomTier 1 General"
+      "Tier 7 General"
     ],
-    "Orb of Augmentation": "Tier 5 General",
-    "Orb of Transmutation": "Tier 5 General",
+    "Orb of Augmentation": "Tier 7 General",
+    "Orb of Transmutation": "Tier 7 General",
     "Portal Scroll": [
-      "Tier 5 General"
+      "Tier 8 General"
     ],
-    "Scroll of Wisdom": "Tier 5 General",
+    "Scroll of Wisdom": "Tier 8 General",
     "Regal Orb": [
       "Tier 3 General"
     ],
@@ -259,13 +262,17 @@
     "Lesser Eldritch Ichor": [
       "Tier 4 General"
     ],
-    "Scroll Fragment": "Tier 5 General",
-    "Transmutation Shard": "Tier 5 General",
-    "Alteration Shard": "Tier 5 General",
-    "Alchemy Shard": "Tier 5 General",
-    "Regal Shard": "Tier 5 General",
+    "Scroll Fragment": "Tier 8 General",
+    "Transmutation Shard": "Tier 7 General",
+    "Alteration Shard": "Tier 7 General",
+    "Alchemy Shard": [
+      "Tier 6 General"
+    ],
+    "Regal Shard": [
+      "Tier 4 General"
+    ],
     "Chaos Shard": [
-      "CustomTier 2 General"
+      "Tier 5 General"
     ],
     "Blessing of Xoph": [],
     "Blessing of Tul": [],
@@ -307,20 +314,149 @@
     "Sacred Crystallised Lifeforce": [
       "Tier 1 General"
     ],
-    "Facetor's Lens": "Tier 2 General"
+    "Facetor's Lens": "Tier 2 General",
+    "Refracting Fog": [
+      "Tier 0 General"
+    ],
+    "Flesh of Xesht": [
+      "Tier 1 General"
+    ],
+    "Imprint": [
+      "Tier 1 General"
+    ]
   },
   "rules": [
     {
       "targets": [
-        "Chaos Orb"
+        "Orb of Transmutation",
+        "Orb of Augmentation",
+        "Armourer's Scrap",
+        "Blacksmith's Whetstone"
       ],
       "conditions": {
-        "StackSize": ">=10"
+        "AreaLevel": ">= 83"
       },
       "overrides": {
-        "Tier": "Tier 3 General"
+        "Tier": "Tier 7 General"
       },
-      "comment": ""
+      "comment": "散件静音 (T16+)",
+      "_generated": "progression_mute"
+    },
+    {
+      "targets": [
+        "Orb of Transmutation"
+      ],
+      "conditions": {
+        "AreaLevel": "<= 82"
+      },
+      "overrides": {
+        "Tier": "Tier 7 General",
+        "PlayAlertSound": [
+          "Sharket掉落音效/蜕变石.mp3",
+          300
+        ]
+      },
+      "comment": "Orb of Transmutation · T16 前有音效",
+      "_generated": "progression_mute"
+    },
+    {
+      "targets": [
+        "Orb of Augmentation"
+      ],
+      "conditions": {
+        "AreaLevel": "<= 82"
+      },
+      "overrides": {
+        "Tier": "Tier 7 General",
+        "PlayAlertSound": [
+          "Sharket掉落音效/增幅石.mp3",
+          300
+        ]
+      },
+      "comment": "Orb of Augmentation · T16 前有音效",
+      "_generated": "progression_mute"
+    },
+    {
+      "targets": [
+        "Armourer's Scrap"
+      ],
+      "conditions": {
+        "AreaLevel": "<= 82"
+      },
+      "overrides": {
+        "Tier": "Tier 7 General",
+        "PlayAlertSound": [
+          "Sharket掉落音效/护甲片.mp3",
+          300
+        ]
+      },
+      "comment": "Armourer's Scrap · T16 前有音效",
+      "_generated": "progression_mute"
+    },
+    {
+      "targets": [
+        "Blacksmith's Whetstone"
+      ],
+      "conditions": {
+        "AreaLevel": "<= 82"
+      },
+      "overrides": {
+        "Tier": "Tier 7 General",
+        "PlayAlertSound": [
+          "Sharket掉落音效/磨刀石.mp3",
+          300
+        ]
+      },
+      "comment": "Blacksmith's Whetstone · T16 前有音效",
+      "_generated": "progression_mute"
+    },
+    {
+      "targets": [
+        "Scroll of Wisdom"
+      ],
+      "conditions": {
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {
+        "Tier": "Tier 8 General",
+        "PlayAlertSound": [
+          "Sharket掉落音效/知识卷轴.mp3",
+          300
+        ]
+      },
+      "comment": "Scroll of Wisdom · 战役内有音效",
+      "_generated": "scroll_campaign_gate"
+    },
+    {
+      "targets": [
+        "Portal Scroll"
+      ],
+      "conditions": {
+        "AreaLevel": "<= 67"
+      },
+      "overrides": {
+        "Tier": "Tier 8 General",
+        "PlayAlertSound": [
+          "Sharket掉落音效/传送卷轴.mp3",
+          300
+        ]
+      },
+      "comment": "Portal Scroll · 战役内有音效",
+      "_generated": "scroll_campaign_gate"
+    },
+    {
+      "targets": [
+        "Portal Scroll",
+        "Scroll of Wisdom"
+      ],
+      "conditions": {
+        "AreaLevel": ">= 68"
+      },
+      "overrides": {
+        "Tier": "Tier 8 General"
+      },
+      "comment": "卷轴 · 战役后静音",
+      "_generated": "scroll_campaign_gate"
     },
     {
       "targets": [],
@@ -336,6 +472,22 @@
         ]
       },
       "comment": "星盘"
+    },
+    {
+      "targets": [
+        "Memory of Loneliness",
+        "Memory of Reverence",
+        "Memory of Trauma"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 2 General",
+        "PlayAlertSound": [
+          "Sharket掉落音效/回忆.mp3",
+          300
+        ]
+      },
+      "comment": "回忆"
     }
   ]
 }

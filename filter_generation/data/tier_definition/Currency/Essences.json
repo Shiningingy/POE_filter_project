@@ -17,7 +17,15 @@
     "Tier 1 Essences": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 2,
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级精华.mp3",
+          300
+        ],
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#006effff",
+        "BorderColor": "#00000000",
+        "FontSize": 45
       },
       "sound": {
         "default_sound_id": 1,
@@ -31,7 +39,14 @@
     "Tier 2 Essences": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 3,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/精华.mp3",
+          300
+        ],
+        "MinimapIcon": "2 Yellow Circle",
+        "PlayEffect": "Blue Temp"
       },
       "sound": {
         "default_sound_id": 2,
@@ -45,7 +60,16 @@
     "Tier 3 Essences": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 43,
+        "PlayAlertSound": [
+          "Sharket掉落音效/是精华哎.mp3",
+          300
+        ],
+        "MinimapIcon": "2 Yellow Circle",
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#006effff",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": -1,
@@ -75,7 +99,16 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 1,
+        "FontSize": 45,
+        "BackgroundColor": "#006effff",
+        "TextColor": "#ffffffff",
+        "PlayEffect": "Blue",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级精华.mp3",
+          300
+        ],
+        "BorderColor": "#ffffffff"
       },
       "sound": {
         "default_sound_id": 6,

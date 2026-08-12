@@ -30,32 +30,16 @@
     "match_modes": {}
   },
   "mapping": {
-    "Divine Life Flask": "Tier 1 Life Flasks",
-    "Eternal Life Flask": "Tier 1 Life Flasks",
-    "Hallowed Life Flask": "Tier 1 Life Flasks",
+    "Divine Life Flask": "Tier 2 Life Flasks",
+    "Eternal Life Flask": "Tier 2 Life Flasks",
     "Small Life Flask": [
       "Tier Hide Life Flasks"
-    ],
-    "Medium Life Flask": "Tier 1 Life Flasks",
-    "Large Life Flask": "Tier 1 Life Flasks",
-    "Greater Life Flask": "Tier 1 Life Flasks",
-    "Grand Life Flask": "Tier 1 Life Flasks",
-    "Giant Life Flask": "Tier 1 Life Flasks",
-    "Colossal Life Flask": "Tier 1 Life Flasks",
-    "Sacred Life Flask": "Tier 1 Life Flasks",
-    "Sanctified Life Flask": "Tier 1 Life Flasks",
-    "Small Hybrid Flask": "Tier 1 Life Flasks",
-    "Medium Hybrid Flask": "Tier 1 Life Flasks",
-    "Large Hybrid Flask": "Tier 1 Life Flasks",
-    "Colossal Hybrid Flask": "Tier 1 Life Flasks",
-    "Sacred Hybrid Flask": "Tier 1 Life Flasks",
-    "Hallowed Hybrid Flask": "Tier 1 Life Flasks"
+    ]
   },
   "rules": [
     {
       "targets": [],
       "conditions": {
-        "ItemLevel": ">= 82",
         "Quality": ">= 20",
         "Class": "== \"Life Flasks\"",
         "Rarity": "<= Rare"
@@ -64,6 +48,20 @@
         "Tier": "Tier 1 Life Flasks"
       },
       "comment": "High Quality Life Flasks"
+    },
+    {
+      "targets": [
+        "Divine Life Flask",
+        "Eternal Life Flask"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 82",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier i82 Life Flasks"
+      },
+      "comment": "i82+ Divine/Eternal (off by default)"
     }
   ]
 }

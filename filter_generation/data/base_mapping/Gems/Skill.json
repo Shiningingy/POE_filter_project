@@ -786,11 +786,28 @@
       "overrides": {
         "Tier": "Tier 0 Skill",
         "PlayAlertSound": [
-          "Sharket掉落音效/瓦尔技能石.mp3",
+          "Sharket掉落音效/666.mp3",
           300
         ]
       },
       "comment": "特挑瓦尔技能石"
+    },
+    {
+      "targets": [
+        "Pact of Beidat",
+        "Pact of Ghorr",
+        "Pact of K'Tash",
+        "Pact of Lycia"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 0 Skill",
+        "PlayAlertSound": [
+          "Sharket掉落音效/Dota2_Pact.mp3",
+          300
+        ]
+      },
+      "comment": "Pact特殊音效"
     }
   ]
 }

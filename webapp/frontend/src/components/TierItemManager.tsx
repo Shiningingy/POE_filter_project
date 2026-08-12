@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { DEFAULT_SOUND_VOLUME } from '../utils/filterStyle';
 import axios from 'axios';
 import { useTranslation } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ContextMenu from './ContextMenu';
 import ItemCard from './ItemCard';
 import SoundPicker from './SoundPicker';
+import ItemCardStyleEditor from './ItemCardStyleEditor';
 import { SOUND_OVERRIDE_KEYS } from '../utils/themeSoundExport';
 
 interface TierItem {
@@ -40,6 +42,8 @@ interface TierItemManagerProps {
   onRefresh?: () => void;
   soundMap?: any;
   tierStyle?: any;
+  /** The tier's item_overrides — one entry per CARD that has its own style. */
+  itemOverrides?: Record<string, any>;
   /** Admin mode lifts the protect-guard on `show_in_editor: false` tiers (the 57
    *  T0 chase rungs), so their items can be deleted and re-tiered by hand. */
   adminMode?: boolean;
@@ -59,6 +63,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
   onRefresh,
   soundMap,
   tierStyle,
+  itemOverrides = {},
   adminMode = false
 }) => {
   const t = useTranslation(language);
@@ -70,7 +75,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
 
   const [contextMenu, setContextMenu] = useState<{ x: number, y: number, item: TierItem } | null>(null);
   const [soundEditorItem, setSoundEditorItem] = useState<TierItem | null>(null);
-  const [soundEditorInitial, setSoundEditorInitial] = useState<{ path: string, volume: number, source: string }>({ path: '', volume: 300, source: '' });
+  const [soundEditorInitial, setSoundEditorInitial] = useState<{ path: string, volume: number, source: string }>({ path: '', volume: DEFAULT_SOUND_VOLUME, source: '' });
 
   // Play Sound Helper
   const playSound = (file: string, vol: number = 300) => {
@@ -82,14 +87,22 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
       
       const url = `/sounds/${cleanPath.replace(/\\/g, '/')}`;
       const audio = new Audio(url);
-      audio.volume = Math.min(Math.max(vol / 300, 0), 1);
+      audio.volume = Math.min(Math.max(vol / DEFAULT_SOUND_VOLUME, 0), 1);
       audio.play().catch(e => console.error("Failed to play sound", e));
   };
 
   const resolveItemSound = (item: TierItem) => {
       let soundFile: string | null = null;
-      let soundVol = 300;
+      let soundVol = DEFAULT_SOUND_VOLUME;
       let sourceLabel = "";
+
+      // 0. The CARD's own override wins over everything: it is the most specific
+      //    statement there is, and the generator splits the block out for it.
+      const cardSound = (itemOverrides[item.name] || {}).PlayAlertSound;
+      if (Array.isArray(cardSound)) {
+          return { soundFile: cardSound[0], soundVol: cardSound[1],
+                   sourceLabel: (t as any).fromCard || "Card override" };
+      }
 
       // 1. Check Rule Override
       if (item.rule_index !== undefined && item.rule_index !== null) {
@@ -301,6 +314,23 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
     return colors[num] || '#ddd';
   };
 
+  // The card's own style override. Sound keeps its one-click entry because it is
+  // ~99% of use; everything else lives behind this one door rather than growing
+  // the right-click menu a row per channel.
+  const [styleEditorItem, setStyleEditorItem] = useState<TierItem | null>(null);
+
+  const handleCardStyle = (item: TierItem) => {
+    setStyleEditorItem(item);
+    setContextMenu(null);
+  };
+
+  const onCardStyleConfirm = (overrides: Record<string, any>, removeKeys: string[]) => {
+    if (styleEditorItem) {
+      onUpdateOverride(styleEditorItem, overrides, removeKeys.length ? removeKeys : undefined, tierKey);
+    }
+    setStyleEditorItem(null);
+  };
+
   const handleSoundOverride = (item: TierItem) => {
     const { soundFile, soundVol, sourceLabel } = resolveItemSound(item);
     // Say so up front when the sound will land on a shared rule. The rule's
@@ -417,6 +447,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           language={language}
           matchMode={item.match_mode || 'exact'}
           hasSound={hasIcon}
+          hasStyleOverride={Object.keys(itemOverrides[item.name] || {}).some(k => k !== 'PlayAlertSound')}
           onPlaySound={() => soundFile && playSound(soundFile, soundVol)}
           onContextMenu={(e) => handleRightClick(e, item)}
           onDelete={
@@ -512,6 +543,17 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
         </div>
       )}
 
+      {styleEditorItem && (
+        <ItemCardStyleEditor
+          itemName={styleEditorItem.name_ch || styleEditorItem.name}
+          value={itemOverrides[styleEditorItem.name] || {}}
+          blockStyle={tierStyle || {}}
+          language={language}
+          onConfirm={onCardStyleConfirm}
+          onClose={() => setStyleEditorItem(null)}
+        />
+      )}
+
       {contextMenu && (
         <ContextMenu 
           x={contextMenu.x}
@@ -542,6 +584,10 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                 // Replica rule's sound, because that block emits first). Use
                 // "go to rule" instead when the sound should belong to the rule.
                 { divider: true, label: '', onClick: () => {} },
+                {
+                    label: `🎨 ${(t as any).cardStyleTitle || "Card style"}`,
+                    onClick: () => handleCardStyle(contextMenu.item)
+                },
                 {
                     label: `🎵 ${(t as any).soundSelection || "Sound Selection"}`,
                     onClick: () => handleSoundOverride(contextMenu.item)
@@ -587,6 +633,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
                     onClick: () => toggleItemMode(contextMenu.item)
                 },
                 { divider: true, label: '', onClick: () => {} },
+                { label: `🎨 ${(t as any).cardStyleTitle || "Card style"}`, onClick: () => handleCardStyle(contextMenu.item) },
                 { label: `🎵 ${(t as any).soundSelection || "Sound Selection"}`, onClick: () => handleSoundOverride(contextMenu.item) },
                 ...(hasOwnSound(contextMenu.item) ? [{
                     label: `🔇 ${(t as any).clearSound || "Clear sound (use tier)"}`,

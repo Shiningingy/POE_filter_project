@@ -8,7 +8,10 @@
       },
       "tier_order": [
         "Magic Good Jewellery",
+        "Magic Hide Endgame",
         "Magic Net",
+        "Rare Hide Endgame",
+        "Rare Net",
         "Normal Net",
         "Tier Hide Magic Net"
       ]
@@ -30,6 +33,28 @@
       "localization": {
         "en": "Good magic jewellery / talismans",
         "ch": "优质魔法首饰/魔符"
+      }
+    },
+    "Magic Hide Endgame": {
+      "class_condition": true,
+      "hideable": true,
+      "is_hide_tier": true,
+      "conditions": {
+        "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+        "Rarity": "Magic",
+        "AreaLevel": ">= 72",
+        "Identified": "False"
+      },
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide unidentified magic gear (area 72+)",
+        "ch": "其余魔法装备 72+"
       }
     },
     "Magic Net": {
@@ -87,6 +112,49 @@
       "localization": {
         "en": "Hide",
         "ch": "隐藏"
+      }
+    },
+    "Rare Net": {
+      "_note": "THE MISSING SIBLING. This file already netted Normal and Magic gear at AreaLevel >= 68; Rare had nothing, so a rare whose base is not among Rare Equipment's 643 curated BaseTypes fell through the entire tree to the [99999] green catch-all. Found in game on a 寒光刺剑 / Pecoraro (drop 62) — one of 17 equipment bases out of 1005 that no BaseType line names. Patching those 17 would fix today and re-open the moment GGG adds a base, which is exactly how this one got in; a class net closes it permanently. ⚠️ Rung 3, not 4: this category's theme has only Tier 3 and Tier 5 rows, and a MISSING row inside an existing category falls back to {} rather than to Default - the block emitted a bare SetFontSize 32 with no plate. Tier 3 is also correctly louder than the magic net's Tier 5.",
+      "class_condition": true,
+      "hideable": true,
+      "conditions": {
+        "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+        "Rarity": "Rare",
+        "AreaLevel": "RANGE >= 68 <= 72"
+      },
+      "theme": {
+        "Tier": 4
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "All other rare equipment (to T5)",
+        "ch": "其余稀有装备（至 T5）"
+      }
+    },
+    "Rare Hide Endgame": {
+      "_note": "The other half of Rare Net: past T5 the uncurated rares go quiet. Author's call — 'should show and then minimal after T5'.",
+      "class_condition": true,
+      "hideable": true,
+      "is_hide_tier": true,
+      "conditions": {
+        "Class": "== \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"",
+        "Rarity": "Rare",
+        "AreaLevel": ">= 73"
+      },
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide other rare equipment (past T5)",
+        "ch": "其余稀有装备 T5 后隐藏"
       }
     }
   }

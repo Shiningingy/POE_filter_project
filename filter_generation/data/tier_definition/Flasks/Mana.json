@@ -7,8 +7,8 @@
         "ch": "魔力药剂"
       },
       "tier_order": [
-        "Tier 0 Mana Flasks",
         "Tier 1 Mana Flasks",
+        "Tier i82 Mana Flasks",
         "Tier 2 Mana Flasks",
         "Tier Hide Mana Flasks"
       ]
@@ -16,13 +16,7 @@
     "Tier 1 Mana Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#c7c2efff",
-        "BorderColor": "#9d94ebff",
-        "BackgroundColor": "#4031c4ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond",
+        "Tier": 3,
         "PlayAlertSound": "disabled:"
       },
       "sound": {
@@ -30,8 +24,8 @@
         "sharket_sound_id": "高级通货.mp3"
       },
       "localization": {
-        "en": "T1: Divine/Eternal",
-        "ch": "T1: 顶级魔力药剂"
+        "en": "T1: Over-quality",
+        "ch": "T1: 超额品质"
       },
       "conditions": {
         "Rarity": "<= Rare"
@@ -40,11 +34,7 @@
     "Tier 2 Mana Flasks": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#a59ee6ff",
-        "BorderColor": "#8e85e0ff",
-        "BackgroundColor": "#32279bff",
+        "Tier": 4,
         "PlayAlertSound": "disabled:"
       },
       "sound": {
@@ -52,16 +42,40 @@
         "sharket_sound_id": "通货.mp3"
       },
       "localization": {
-        "en": "T2: High Level",
-        "ch": "T2: 高级魔力药剂"
+        "en": "T1: Divine/Eternal",
+        "ch": "T1: 顶级魔力药剂"
+      },
+      "conditions": {
+        "Rarity": "<= Rare",
+        "AreaLevel": "<= 72"
+      },
+      "hide_at_strictness": 3
+    },
+    "Tier i82 Mana Flasks": {
+      "_note": "OFF BY DEFAULT — see the twin in Life.json for why 82 and why hide_at_strictness 0 rather than is_hide_tier.",
+      "hideable": true,
+      "theme": {
+        "Tier": 4,
+        "PlayAlertSound": "disabled:"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T2: i82+ Divine/Eternal (off by default)",
+        "ch": "T2: i82+ 顶级词缀（默认关闭）"
       },
       "conditions": {
         "Rarity": "<= Rare"
-      }
+      },
+      "hide_at_strictness": 0
     },
     "Tier Hide Mana Flasks": {
+      "_note": "The Minimal net — nothing was mapped here at all, so every mana flask fell to the final show-all layer. AreaLevel >= 68 leaves the campaign to the _campaign module.",
       "hideable": true,
       "is_hide_tier": true,
+      "class_condition": true,
       "theme": {
         "Tier": 9
       },
@@ -72,24 +86,10 @@
       "localization": {
         "en": "Hide",
         "ch": "隐藏"
-      }
-    },
-    "Tier 0 Mana Flasks": {
-      "hideable": false,
-      "show_in_editor": false,
-      "theme": {
-        "Tier": 0
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "顶级底材.mp3"
-      },
-      "localization": {
-        "en": "T0: Absolute Top",
-        "ch": "T0: 顶级/核心"
       },
       "conditions": {
-        "Rarity": "<= Rare"
+        "Class": "== \"Mana Flasks\"",
+        "AreaLevel": ">= 68"
       }
     }
   }

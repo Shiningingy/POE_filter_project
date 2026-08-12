@@ -12,9 +12,10 @@
         "Tier 2 General",
         "Tier 3 General",
         "Tier 4 General",
-        "CustomTier 2 General",
-        "CustomTier 1 General",
         "Tier 5 General",
+        "Tier 6 General",
+        "Tier 7 General",
+        "Tier 8 General",
         "Tier Hide General"
       ]
     },
@@ -22,7 +23,15 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 0,
+        "FontSize": 45,
+        "MinimapIcon": "0 Red Circle",
+        "PlayEffect": "Orange",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级通货.mp3",
+          300
+        ],
+        "BorderColor": "#ff0000ff"
       },
       "sound": {
         "default_sound_id": 6,
@@ -31,12 +40,52 @@
       "localization": {
         "en": "T0: Absolute Top",
         "ch": "T0: 顶级通货"
+      },
+      "item_overrides": {
+        "Albino Rhoa Feather": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/白化的羽毛.mp3",
+            300
+          ]
+        },
+        "Eternal Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/永恒宝珠.mp3",
+            300
+          ]
+        },
+        "Fracturing Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/破溃宝珠.mp3",
+            300
+          ]
+        },
+        "Mirror of Kalandra": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/卡兰德的魔镜.mp3",
+            300
+          ]
+        },
+        "Reflecting Mist": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/倒映薄雾.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 1 General": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 1,
+        "FontSize": 45,
+        "MinimapIcon": "0 Red Circle",
+        "PlayEffect": "Orange",
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级通货.mp3",
+          300
+        ],
+        "BorderColor": "#ffffffff"
       },
       "sound": {
         "default_sound_id": 1,
@@ -45,21 +94,52 @@
       "localization": {
         "en": "T1: Divine+",
         "ch": "T1: 神圣石级"
+      },
+      "item_overrides": {
+        "Divine Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/神圣石.mp3",
+            300
+          ]
+        },
+        "Eldritch Chaos Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/古灵混沌石.mp3",
+            300
+          ]
+        },
+        "Orb of Conflict": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/冲突石.mp3",
+            300
+          ]
+        },
+        "Sacred Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/崇神石.mp3",
+            300
+          ]
+        },
+        "Imprint": {
+          "PlayAlertSound": [
+            "Default/AlertSound10.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 2 General": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#000000ff",
-        "BorderColor": "#4a3807ff",
-        "BackgroundColor": "#b08611ff",
+        "Tier": 1,
         "PlayAlertSound": [
           "Sharket掉落音效/高级通货.mp3",
-          200
+          300
         ],
-        "MinimapIcon": "2 Yellow Diamond"
+        "FontSize": 45,
+        "MinimapIcon": "1 Green Circle",
+        "PlayEffect": "Orange",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": 2,
@@ -68,21 +148,46 @@
       "localization": {
         "en": "T2: High Value",
         "ch": "T2: 高价值通货"
+      },
+      "item_overrides": {
+        "Eldritch Exalted Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/古灵崇高石.mp3",
+            300
+          ]
+        },
+        "Eldritch Orb of Annulment": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/古灵剥离石.mp3",
+            300
+          ]
+        },
+        "Facetor's Lens": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/费斯特的透镜.mp3",
+            300
+          ]
+        },
+        "Fracturing Shard": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/破溃碎片.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 3 General": {
       "hideable": false,
       "theme": {
-        "Tier": 3,
-        "FontSize": 40,
-        "TextColor": "#f1d074ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#463507ff",
+        "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/通货.mp3",
-          100
+          300
         ],
-        "MinimapIcon": "1 Yellow Diamond"
+        "FontSize": 45,
+        "MinimapIcon": "2 Orange Circle",
+        "PlayEffect": "Orange",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": 2,
@@ -91,21 +196,58 @@
       "localization": {
         "en": "T3: Exalt Level",
         "ch": "T3: 崇高石级"
+      },
+      "item_overrides": {
+        "Ancient Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/远古石.mp3",
+            300
+          ]
+        },
+        "Burial Medallion": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/葬礼徽章.mp3",
+            300
+          ]
+        },
+        "Exalted Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/崇高石.mp3",
+            300
+          ]
+        },
+        "Exotic Coinage": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/异域铸币.mp3",
+            300
+          ]
+        },
+        "Orb of Annulment": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/剥离石.mp3",
+            300
+          ]
+        },
+        "Regal Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/富豪石.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier 4 General": {
       "hideable": false,
       "theme": {
-        "Tier": 4,
-        "FontSize": 35,
-        "TextColor": "#f1d074ff",
-        "BorderColor": "#00000000",
-        "BackgroundColor": "#332705ff",
+        "Tier": 2,
         "PlayAlertSound": [
           "Sharket掉落音效/通货.mp3",
-          100
+          300
         ],
-        "MinimapIcon": "0 Yellow Diamond"
+        "FontSize": 45,
+        "MinimapIcon": "2 Yellow Circle",
+        "PlayEffect": "Orange Temp",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": 2,
@@ -114,12 +256,52 @@
       "localization": {
         "en": "T4: Chaos Level",
         "ch": "T4: 混沌石级"
+      },
+      "item_overrides": {
+        "Blessed Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/祝福石.mp3",
+            300
+          ]
+        },
+        "Chaos Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/混沌石.mp3",
+            300
+          ]
+        },
+        "Chromatic Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/幻色石.mp3",
+            300
+          ]
+        },
+        "Orb of Scouring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/重铸石.mp3",
+            300
+          ]
+        },
+        "Scrap Metal": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/废金属.mp3",
+            300
+          ]
+        },
+        "Vaal Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/瓦尔宝珠.mp3",
+            300
+          ]
+        }
       }
     },
-    "Tier 5 General": {
+    "Tier 7 General": {
       "hideable": false,
       "theme": {
-        "Tier": 7
+        "Tier": 4,
+        "FontSize": 40,
+        "BorderColor": "disabled:#ffffffFF"
       },
       "sound": {
         "default_sound_id": -1,
@@ -129,6 +311,24 @@
         "en": "T7: 低价值通货",
         "ch": "T7: 低价值通货"
       }
+    },
+    "Tier 8 General": {
+      "hideable": false,
+      "theme": {
+        "Tier": 4,
+        "FontSize": 35,
+        "BackgroundColor": "disabled:#505050e6",
+        "TextColor": "disabled:#ffffffff"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T8: 卷轴",
+        "ch": "T8: 卷轴"
+      },
+      "hide_at_strictness": 1
     },
     "Tier Hide General": {
       "hideable": true,
@@ -145,14 +345,11 @@
         "ch": "隐藏"
       }
     },
-    "CustomTier 1 General": {
+    "Tier 6 General": {
       "theme": {
-        "Tier": 6,
-        "FontSize": 36,
-        "TextColor": "#FFFFFF",
-        "BorderColor": "#AAAAAA",
-        "BackgroundColor": "#222222",
-        "MinimapIcon": "0 Yellow Diamond"
+        "Tier": 3,
+        "FontSize": 40,
+        "MinimapIcon": "2 White Diamond"
       },
       "hideable": false,
       "sound": {
@@ -162,16 +359,34 @@
       "localization": {
         "en": "T6： 改造石级",
         "ch": "T6： 改造石级"
+      },
+      "item_overrides": {
+        "Jeweller's Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/工匠石.mp3",
+            300
+          ]
+        },
+        "Orb of Alteration": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/改造石.mp3",
+            300
+          ]
+        },
+        "Orb of Chance": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/机会石.mp3",
+            300
+          ]
+        }
       }
     },
-    "CustomTier 2 General": {
+    "Tier 5 General": {
       "theme": {
-        "Tier": 5,
-        "FontSize": 36,
-        "TextColor": "#FFFFFF",
-        "BorderColor": "#AAAAAA",
-        "BackgroundColor": "#222222",
-        "MinimapIcon": "0 Yellow Diamond"
+        "Tier": 3,
+        "FontSize": 40,
+        "PlayEffect": "Orange Temp",
+        "MinimapIcon": "2 Yellow Diamond"
       },
       "hideable": false,
       "sound": {
@@ -181,6 +396,38 @@
       "localization": {
         "en": "T5:点金石级",
         "ch": "T5:点金石级"
+      },
+      "item_overrides": {
+        "Orb of Alchemy": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/点金石.mp3",
+            300
+          ]
+        },
+        "Orb of Fusing": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/链结石.mp3",
+            300
+          ]
+        },
+        "Orb of Regret": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/后悔石.mp3",
+            300
+          ]
+        },
+        "Orb of Unmaking": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/粉碎石.mp3",
+            300
+          ]
+        },
+        "Glassblower's Bauble": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/玻璃弹珠.mp3",
+            300
+          ]
+        }
       }
     }
   }

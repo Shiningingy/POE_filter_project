@@ -7,14 +7,14 @@
         "ch": "祭礼束衣"
       },
       "tier_order": [
-        "Sacrificial Garbs T1",
+        "Sacrificial Garbs",
         "Sacrificial Garbs Hide"
       ]
     },
-    "Sacrificial Garbs T1": {
+    "Sacrificial Garbs": {
       "hideable": true,
       "theme": {
-        "Tier": 5
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": -1,
@@ -26,6 +26,14 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Sacrificial Garb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/祭礼束衣.mp3",
+            300
+          ]
+        }
       }
     },
     "Sacrificial Garbs Hide": {

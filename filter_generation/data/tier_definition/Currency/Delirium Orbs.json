@@ -7,7 +7,7 @@
         "ch": "雾魇宝珠"
       },
       "tier_order": [
-        "Tier 0 Delirium Orbs",
+        "Delirium Orbs",
         "Tier Hide Delirium Orbs"
       ]
     },
@@ -26,11 +26,19 @@
         "ch": "隐藏"
       }
     },
-    "Tier 0 Delirium Orbs": {
+    "Delirium Orbs": {
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 2,
+        "PlayAlertSound": [
+          "Sharket掉落音效/雾魇宝珠.mp3",
+          300
+        ],
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#d2d2e6ff",
+        "BorderColor": "#00000000",
+        "FontSize": 45
       },
       "sound": {
         "default_sound_id": 6,
@@ -39,6 +47,14 @@
       "localization": {
         "en": "T0: Absolute Top",
         "ch": "T0: 顶级/核心"
+      },
+      "item_overrides": {
+        "Delirium Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/雾魇宝珠.mp3",
+            300
+          ]
+        }
       }
     }
   }

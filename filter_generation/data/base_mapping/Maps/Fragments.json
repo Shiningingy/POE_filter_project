@@ -67,7 +67,14 @@
         "Traumatic Fragment": "创痛碎片",
         "Reverent Fragment": "虔敬碎片",
         "Lonely Fragment": "孤寂碎片",
-        "Crescent Splinter": "新月裂片"
+        "Crescent Splinter": "新月裂片",
+        "Chronicle of Atzoatl": "阿佐亚特编年史",
+        "Inscribed Ultimatum": "贪婪战书",
+        "Offering to the Goddess": "女神祭品",
+        "Writhing Invitation": "蠕动的邀请",
+        "Screaming Invitation": "咆哮的邀请",
+        "Polaric Invitation": "极星的邀请",
+        "Incandescent Invitation": "炽焰的邀请"
       }
     },
     "item_class": {
@@ -194,6 +201,27 @@
     ],
     "Crescent Splinter": [
       "Tier 3 Fragments"
+    ],
+    "Chronicle of Atzoatl": [
+      "Tier 1 Fragments"
+    ],
+    "Inscribed Ultimatum": [
+      "Tier 1 Fragments"
+    ],
+    "Offering to the Goddess": [
+      "Tier 3 Fragments"
+    ],
+    "Writhing Invitation": [
+      "Tier 1 Fragments"
+    ],
+    "Screaming Invitation": [
+      "Tier 1 Fragments"
+    ],
+    "Polaric Invitation": [
+      "Tier 1 Fragments"
+    ],
+    "Incandescent Invitation": [
+      "Tier 1 Fragments"
     ]
   },
   "rules": [

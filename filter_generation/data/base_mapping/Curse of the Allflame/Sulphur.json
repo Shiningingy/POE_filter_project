@@ -1,0 +1,22 @@
+{
+  "_meta": {
+    "item_class": {
+      "en": "Stackable Currency",
+      "ch": "可堆叠通货"
+    },
+    "theme_category": "Curse of the Allflame",
+    "localization": {
+      "ch": {
+        "Dead Man's Sulphur": "死者硫磺"
+      }
+    }
+  },
+  "mapping": {
+    "Dead Man's Sulphur": [
+      "Sulphur T0",
+      "Sulphur T1",
+      "Sulphur T2"
+    ]
+  },
+  "rules": []
+}

@@ -1,10 +1,18 @@
+// THE generation engine — the only one (ADR-0007). The browser runs this module and
+// so does the CLI (filter_generation/generate.mjs), which is a shell around it and
+// must stay one. Guarded by test_generator_fixtures.mjs (synthetic tree + committed
+// goldens) and test_resolver_equivalence.mjs (preview == export).
+//
+// ⚠️ "Mirrors generate.py" below is HISTORY. That file is deleted; the notes stay
+// because they record why a behaviour exists, not because there is a second copy to
+// keep in step. See the header of filterStyle.ts.
 import { type Language } from './localization';
 
 // Strictness ladder (loosest -> strictest). A tier with `hide_at_strictness: N`
-// flips to Hide once the selected level's index >= N. Orthogonal to MODE. Kept
-// byte-identical to STRICTNESS_LEVELS in filter_generation/generate.py
-// (parity-guarded by test_generator_parity.mjs). Single source of truth for the
-// UI too — import from here so the ordered list (its index = the threshold) can't drift.
+// flips to Hide once the selected level's index >= N. Orthogonal to MODE. Single
+// source of truth for the UI too — import from here so the ordered list (its index
+// = the threshold) can't drift. The threshold is pinned from both sides by the
+// standard-regular-ch / standard-semistrict-ch fixtures.
 export const STRICTNESS_LEVELS = ['soft', 'regular', 'semistrict', 'strict', 'verystrict', 'uber', 'uberplus'] as const;
 export type StrictnessLevel = typeof STRICTNESS_LEVELS[number];
 
@@ -42,6 +50,20 @@ export const isLevelingSelected = (lvGroup: any, selection?: LevelingSelection):
 // TYPES
 // ===========================
 
+/** One emitted block, reported through GeneratorData.onBlock. */
+export interface BlockRecord {
+  order: number;
+  file: string;      // tier_definition-relative path, POSIX
+  tier_key: string;
+  tier_num: number;
+  source: 'class_condition' | 'rule' | 'tier_base' | 'card' | 'decorator';
+  match: string | null;   // 'Exact' | 'Partial' (untranslated)
+  rule: string | null;    // the rule's display part, when a rule emitted this
+  bases: string[];
+  is_hide: boolean;
+  text: string;           // the block exactly as written to the filter
+}
+
 interface GeneratorData {
   themeData: any;
   soundMap: any;
@@ -52,22 +74,36 @@ interface GeneratorData {
   strictness?: string; // strictness ladder level (default 'soft' = loosest)
   leveling_selection?: LevelingSelection; // Campaign picker selection (default: all selected)
   mode?: string; // 'ruthless' | 'standard' (default). Ruthless hides via 'Minimal' (Hide is invalid there) + excluded_modes.
+  // Opt-in observer: called once per emitted block, with the block text and the
+  // (file, tier) it came from. Inert when absent, so it costs the browser nothing.
+  //
+  // This is what generate.py's `--trace` was for, and it is why deleting the
+  // Python generator did not take the capability with it: the resolver-equivalence
+  // test needs "which block did this tier actually emit", which cannot be read back
+  // out of the finished filter text (the headers are localized and lossy).
+  onBlock?: (rec: BlockRecord) => void;
 }
 
 // ===========================
 // CONFIG
 // ===========================
 
-const DEFAULT_FONT_SIZE = 32;
+// Style/emission primitives live in ONE place now (filterStyle.ts) so the editor
+// preview, the Inspector and the drop simulator cannot drift from what actually
+// gets exported — they did, in four different directions. Anything touching how a
+// block LOOKS belongs there; this file owns which blocks exist and in what order.
+import {
+  DEFAULT_FONT_SIZE, styleOff, parseRgba, conditionLines, resolveTierTheme, splitByOverride,
+  blockText, resolveSound, tierNumFromLabel, resolveThemeKey, decoratorStyleLines, CONTINUE_LINE,
+} from './filterStyle';
 
-// Generator-output vocabulary (terms that appear in filter comments). Co-located
-// with the generator and mirrored EXACTLY in filter_generation/generate.py
-// (TERMS) — the parity test (test_generator_parity.mjs) guards them. Deliberately
+// Generator-output vocabulary (terms that appear in filter comments). Deliberately
 // NOT in localization.ts, which is the UI translation table; these are
-// filter-artifact domain strings, a different concern.
+// filter-artifact domain strings, a different concern. Both languages are pinned by
+// the standard-soft-ch / standard-soft-en fixture pair.
 const TERMS: Record<string, Record<string, string>> = {
-  en: { Rule: "Rule", Base: "Base", "Auto-Sound": "Auto-Sound", Exact: "Exact", Partial: "Partial", Self: "Self-matched" },
-  ch: { Rule: "规则", Base: "基础", "Auto-Sound": "自动音效", Exact: "精确", Partial: "模糊", Self: "自选" },
+  en: { Rule: "Rule", Base: "Base", "Auto-Sound": "Auto-Sound", Exact: "Exact", Partial: "Partial", Self: "Self-matched", Card: "Card" },
+  ch: { Rule: "规则", Base: "基础", "Auto-Sound": "自动音效", Exact: "精确", Partial: "模糊", Self: "自选", Card: "物品卡" },
 };
 
 const FOLDER_LOCALIZATION: Record<string, string> = {
@@ -86,154 +122,6 @@ const FOLDER_LOCALIZATION: Record<string, string> = {
   "Uniques": "传奇",
   "_campaign": "过渡",
   "Heist": "赏金猎人"
-};
-
-// ===========================
-// UTILITIES
-// ===========================
-
-// True when a theme/override style value means OMIT the line entirely: the
-// editor's 'disabled:' toggle, or the designer sentinels 'inherit' (TextColor
-// keeps the rarity colour) / 'default' (BackgroundColor keeps the game's default
-// label bg). Mirrors style_off() in generate.py — the editor preview
-// (styleResolver) omits these too, so preview == export.
-// ALSO true for an ABSENT value. An absent key is the designer's primary way of
-// saying "let the game paint this": 441 of the 998 theme rows omit `TextColor` on
-// purpose — every gear class, Campaign, and every rarity-inherited family gives up
-// its text channel so the RARITY colour shows through. We were falling through to
-// parseRgba(undefined) = white and painting over it, so a rare staff rendered with
-// a white name and read as a plain normal item. Same for the 98 rows omitting
-// `BackgroundColor`, which want the game's own 0 0 0 190 label.
-const styleOff = (value: any): boolean =>
-  value === undefined || value === null ||
-  (typeof value === 'string' && (value.startsWith('disabled:') || value === 'inherit' || value === 'default'));
-
-const parseRgba = (value: any, defaultValue: string = "255 255 255 255"): string => {
-  if (!value || value === -1) return defaultValue;
-  if (typeof value === "string" && value.startsWith("disabled:")) return defaultValue;
-  
-  if (typeof value === "string" && value.startsWith("#")) {
-    const hexv = value.replace("#", "");
-    // Require valid hex chars too (parity with generate.py): a bad-char string
-    // of the right length would otherwise yield "NaN NaN NaN 255" here while
-    // Python's int(..,16) raises — both must fall through to the default.
-    if ((hexv.length === 6 || hexv.length === 8) && /^[0-9a-fA-F]+$/.test(hexv)) {
-      const r = parseInt(hexv.substring(0, 2), 16);
-      const g = parseInt(hexv.substring(2, 4), 16);
-      const b = parseInt(hexv.substring(4, 6), 16);
-      const a = hexv.length === 8 ? parseInt(hexv.substring(6, 8), 16) : 255;
-      return `${r} ${g} ${b} ${a}`;
-    }
-  }
-  return defaultValue;
-};
-
-/** [file, volume] -> a filter sound line, or null. */
-const soundLineFromPair = (pair: any): string | null => {
-  if (!pair || !Array.isArray(pair) || pair.length !== 2) return null;
-  const [file, vol] = pair;
-  if (typeof file !== "string") return null;
-  if (file.startsWith("Default/AlertSound")) {
-    const numMatch = file.match(/\d+/);
-    const num = numMatch ? numMatch[0] : "1";
-    return `PlayAlertSound ${num} ${vol}`;
-  }
-  const winPath = file.replace(/\//g, "\\");
-  // NO "sound_files\" prefix: the game resolves a CustomAlertSound path relative to
-  // the FILTER's own folder, not to this repo. Players drop the shipped
-  // `Sharket掉落音效\` folder next to the .filter, which is what Sharket's own
-  // released filter emits. Prefixing our repo's container directory made every alert
-  // silently fail to load in game. (Mirrors generate.py.)
-  return `CustomAlertSound "${winPath}" ${vol}`;
-};
-
-/**
- * PoE needs a SPACE between a comparison operator and its value: the game rejects
- * `StackSize >=10` outright ("cannot be recognised") while `StackSize >= 10` parses.
- * Both spellings are authorable in the editor and the tree contains both — `>= 300`
- * and `>= 50` alongside `>=10`, `>=100`, `>=1000`, `>=3000` — so one bad line broke
- * the whole filter in game. Normalising on emit fixes every existing case and any
- * future one, instead of chasing the data. Mirrors norm_op() in generate.py.
- */
-const normOp = (val: any): any => {
-  if (typeof val !== "string") return val;
-  const m = val.trim().match(/^(==|!=|<=|>=|<|>|=)\s*(\S.*)$/);
-  return m ? `${m[1]} ${m[2]}` : val;
-};
-
-const STYLE_PREFIXES = ["    Set", "    PlayEffect", "    MinimapIcon",
-                       "    CustomAlertSound", "    PlayAlertSound"];
-
-/**
- * Join a block, dropping style lines when it is a hide block.
- *
- * A `Hide` block renders nothing, so its styling was always dead weight. Under
- * RUTHLESS it is worse than dead: GGG does not permit `Hide` there, so HIDE_CMD
- * is `Minimal` — which still DRAWS a label. Emitting a font size and a plate on
- * it makes the very thing we are trying to quieten more visible, not less.
- * NeverSink's Ruthless filter emits conditions only on its Minimal blocks
- * ("Hide-Section replaced with minimal"). Mirrors block_text() in generate.py.
- */
-const blockText = (blockLines: string[], isHide: boolean): string => {
-  const kept = isHide
-    ? blockLines.filter((l) => !STYLE_PREFIXES.some((p) => l.startsWith(p)))
-    : blockLines;
-  return kept.join('\n') + '\n';
-};
-
-/** Priority: rule override -> tier theme.PlayAlertSound -> sharket -> default */
-const resolveSound = (tierEntry: any, soundMap: any, overrideSound?: [string, number]): string | null => {
-  let line = soundLineFromPair(overrideSound);
-  if (line) return line;
-
-  // The tier style editor writes the sound it picks to theme.PlayAlertSound.
-  // Nothing read it, so choosing a sound for a tier appeared to save and then did
-  // nothing. A rule's own override still wins, which is why this sits below.
-  // An EXPLICIT disable silences the tier outright and must NOT fall through to
-  // the `sound` block below — that fallback is the whole reason a tier could not be
-  // muted from the editor before: clearing the picked sound just re-exposed whatever
-  // sharket_sound_id/default_sound_id the tier was seeded with. Checked on the raw
-  // string, not via styleOff(), because styleOff(undefined) is true and an ABSENT
-  // PlayAlertSound must still fall through.
-  const themeSnd = (tierEntry.theme || {}).PlayAlertSound;
-  if (typeof themeSnd === "string" &&
-      (themeSnd.startsWith("disabled:") || themeSnd === "inherit" || themeSnd === "default")) {
-    return null;
-  }
-  line = soundLineFromPair(themeSnd);
-  if (line) return line;
-
-  const sb = tierEntry.sound || {};
-  // sharket_sound_id was authored WITH the ".mp3" extension in 192 of 197 tiers,
-  // but class_sounds is keyed by the bare stem ("顶级底材", not "顶级底材.mp3").
-  // The old exact-match lookup missed nearly every tier and fell through to
-  // default_sound_id, so a tier asking for a custom Sharket sound played a stock
-  // PoE alert instead, or was silent where default_sound_id was -1.
-  const sid = sb.sharket_sound_id;
-  const classSounds = soundMap?.class_sounds || {};
-  if (sid) {
-    let s = classSounds[sid];
-    if (s === undefined && typeof sid === "string" && sid.toLowerCase().endsWith(".mp3")) {
-      s = classSounds[sid.slice(0, -4)];
-    }
-    if (s !== undefined) {
-      const winPath = s.file.replace(/\//g, "\\");
-      return `CustomAlertSound "${winPath}" ${s.volume}`;
-    }
-  }
-
-  if (sb.default_sound_id !== undefined && sb.default_sound_id !== -1) {
-    return `PlayAlertSound ${sb.default_sound_id} 300`;
-  }
-
-  return null;
-};
-
-const tierNumFromLabel = (label: string): number => {
-  if (label.includes("Tier 0")) return 0;
-  if (label.includes("Hide")) return 9;
-  const m = label.match(/Tier\s+(\d+)/);
-  return m ? parseInt(m[1]) : 99;
 };
 
 const headerLine = (index: number, text: string): string => {
@@ -269,28 +157,11 @@ export const generateFilter = (data: GeneratorData): string => {
     return false;
   };
 
-  // Emit condition lines for a block. Mirrors generate.py: list → repeated AND
-  // lines, "RANGE a b c d" → two lines, Rarity → strip a leading "==", else
-  // "key value".
+  // Condition emission is shared (filterStyle.conditionLines) so the preview and
+  // the simulator cannot spell a condition differently from the export — the
+  // operator-spacing bug that broke the filter in game was exactly that class.
   const emitConditions = (lines: string[], conditions: any): void => {
-    if (!conditions) return;
-    Object.entries(conditions).forEach(([key, val]: [string, any]) => {
-      if (Array.isArray(val)) {
-        val.forEach((v: string) => lines.push(`    ${key} ${normOp(v)}`));
-      } else if (typeof val === 'string' && val.startsWith("RANGE ")) {
-        const parts = val.split(" ");
-        if (parts.length >= 5) {
-          lines.push(`    ${key} ${parts[1]} ${parts[2]}`);
-          lines.push(`    ${key} ${parts[3]} ${parts[4]}`);
-        }
-      } else if (key === "Rarity") {
-        const clean = typeof val === 'string' && val.trim().startsWith("==")
-          ? val.trim().slice(2).trim() : val;
-        lines.push(`    ${key} ${normOp(clean)}`);
-      } else {
-        lines.push(`    ${key} ${normOp(val)}`);
-      }
-    });
+    lines.push(...conditionLines(conditions));
   };
 
   const overview: string[] = [
@@ -384,8 +255,9 @@ export const generateFilter = (data: GeneratorData): string => {
       itemClassHeader = itemClass;
     }
 
-    const themeCatKey = meta.theme_category || categoryKey;
-    const themeRef = (themeData || {})[themeCatKey] || (themeData || {})["Default"] || {};
+    const themeCatKey = resolveThemeKey({ _meta: meta }, categoryKey);
+    // (The theme-row lookup itself now lives in filterStyle.resolveTierTheme, so the
+    // editor preview and the simulator resolve the identical row.)
 
     // --- Breadcrumbs ---
     const breadcrumbs: string[] = [];
@@ -480,7 +352,7 @@ export const generateFilter = (data: GeneratorData): string => {
       const themeTierOverride = tierEntry.theme?.Tier;
       if (themeTierOverride !== undefined && themeTierOverride !== null) tnum = themeTierOverride;
 
-      let ttheme = themeRef[`Tier ${tnum}`] || {};
+      let ttheme = resolveTierTheme(themeData, themeCatKey, tierEntry, tLbl);
       let baseTextCol = parseRgba(ttheme.TextColor);
       let baseBorderCol = parseRgba(ttheme.BorderColor);
       let baseBgCol = parseRgba(ttheme.BackgroundColor, "0 0 0 255");
@@ -491,6 +363,40 @@ export const generateFilter = (data: GeneratorData): string => {
       // command + theme lookup still key off tnum above.
       const tierDisplay = tierEntry.localization?.[language] || tierEntry.localization?.en || `Tier ${tnum}`;
 
+      // --- Decorator tiers: COMPOSE instead of terminate ---
+      // States (corrupted, fractured, enchanted...) are authored once here and layer
+      // over whatever styles the item next, because `Continue` makes later blocks
+      // override only the properties they themselves set. See
+      // filterStyle.decoratorStyleLines and reference_poe_filter_format.md §3.
+      if (tierEntry.decorator) {
+        const decConditions = tierEntry.conditions || {};
+        // Conditions are the whole point - a decorator with none would repaint every
+        // item in the game.
+        if (Object.keys(decConditions).length === 0) continue;
+        // A hide that continues is a contradiction: it suppresses the item and then
+        // asks later blocks to keep styling it. Ruthless makes this worse, since hide
+        // is `Minimal` and still draws a label.
+        if (isHide) continue;
+        blockIndex++;
+        const decDisplay = tierEntry.localization?.[language] || tierEntry.localization?.en || tLbl;
+        outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${decDisplay} ${locCat} - Decorator==`);
+        const decLines = ["Show"];
+        emitConditions(decLines, decConditions);
+        // The tier's OWN theme only. No row lookup, no defaults - a decorator that
+        // filled in the rest would overwrite the preset it exists to decorate.
+        decLines.push(...decoratorStyleLines(tierEntry.theme || {}));
+        const decSound = resolveSound(tierEntry, soundMap);
+        if (decSound) decLines.push(`    ${decSound}`);
+        decLines.push(CONTINUE_LINE);
+        outLines.push(blockText(decLines, false));
+        data.onBlock?.({
+          order: blockIndex, file: relPath, tier_key: tLbl, tier_num: tnum,
+          source: 'decorator', match: null, rule: null, bases: [],
+          is_hide: false, text: outLines[outLines.length - 1],
+        });
+        continue;
+      }
+
       // --- Class-Condition tiers (e.g. _campaign/Armour.json) ---
       // Emit one Class-gated block (no BaseType enumeration) and skip normal
       // BaseType processing. Mirrors generate.py.
@@ -498,7 +404,8 @@ export const generateFilter = (data: GeneratorData): string => {
         const tierConditions = tierEntry.conditions || {};
         if (Object.keys(tierConditions).length === 0) continue;
         const themeTnum = tierEntry.theme?.Tier ?? tnum;
-        ttheme = themeRef[`Tier ${themeTnum}`] || ttheme;
+        const ccRow = resolveTierTheme(themeData, themeCatKey, tierEntry, `Tier ${themeTnum}`);
+        ttheme = Object.keys(ccRow).length > 0 ? ccRow : ttheme;
         baseTextCol = parseRgba(ttheme.TextColor);
         baseBorderCol = parseRgba(ttheme.BorderColor);
         baseBgCol = parseRgba(ttheme.BackgroundColor, "0 0 0 255");
@@ -520,40 +427,28 @@ export const generateFilter = (data: GeneratorData): string => {
         if (basePlayEff && !styleOff(basePlayEff)) ccLines.push(`    PlayEffect ${basePlayEff}`);
         if (baseMiniIcon && !styleOff(baseMiniIcon)) ccLines.push(`    MinimapIcon ${baseMiniIcon}`);
         outLines.push(blockText(ccLines, isHide));
+        data.onBlock?.({
+          order: blockIndex, file: relPath, tier_key: tLbl, tier_num: tnum,
+          source: 'class_condition', match: null, rule: null, bases: [],
+          is_hide: isHide, text: outLines[outLines.length - 1],
+        });
         continue;
       }
 
       // Create a fresh deep copy of rules for this tier
       const allRules = JSON.parse(JSON.stringify(mapDoc.rules || []));
 
-      // Auto-Inject Sound Rules.
-      // basetype_sounds is GLOBAL: a base type with an entry gets a per-item sound in
-      // every category that carries it. `suppress_basetype_sounds` on a category's
-      // mapping _meta opts that category out, so the base keeps its per-item sound
-      // elsewhere while this category speaks with one voice - the tier's own sound.
-      const btSounds = (mapDoc._meta || {}).suppress_basetype_sounds
-        ? {}
-        : (soundMap?.basetype_sounds || {});
-      items.forEach(item => {
-        if (btSounds[item]) {
-          const sData = btSounds[item];
-          const handled = allRules.some((r: any) => r.targets?.includes(item));
-          if (!handled) {
-            allRules.push({
-              targets: [item],
-              // Inherit the TIER's conditions. Tier conditions are emitted only on
-              // the base block, and an injected rule authors none of its own, so
-              // without this the sound block dropped every gate its tier declared -
-              // Rarity <= Rare, Corrupted False, the ItemLevel band. A unique
-              // Stygian Vise was rendering as an ilvl-86 crafting base because its
-              // auto-sound block said only BaseType == "Stygian Vise".
-              conditions: JSON.parse(JSON.stringify(tierEntry.conditions || {})),
-              overrides: { PlayAlertSound: [sData.file, sData.volume] },
-              comment: `__AUTO_SOUND__:${item}`
-            });
-          }
-        }
-      });
+      // AUTO-SOUND IS GONE. A per-item sound is an explicit override on the item
+      // CARD — `item_overrides` on this tier, keyed by base — and blocks split by it
+      // at emission (splitByOverride). Mirrors generate.py.
+      //
+      // What was here injected a synthetic one-target rule per base with a
+      // `basetype_sounds` entry, unless any rule in the file merely NAMED the base.
+      // Not a rule that set a sound — one that mentioned it. So a rule written for
+      // something else silenced the item across its whole file, and nine curated
+      // sounds reached the game nowhere; Chaos Orb's was silenced by a
+      // `StackSize >= 10` tier-up that cannot even fire in Ruthless.
+      const itemOverrides = tierEntry.item_overrides || {};
 
       const pendingItems = new Set(items);
       let ruleCounter = 0;
@@ -620,23 +515,28 @@ export const generateFilter = (data: GeneratorData): string => {
             ? [[exactGroup, "Exact", true], [partialGroup, "Partial", false]]
             : [[[], "Self", null]];
 
-        for (const [subgroup, modeLabel, isStrict] of groups) {
+        // Expand each group by item-card override: a card with its own sound
+        // becomes its own block, overridden groups first. A self-matched group
+        // names no bases, so there is no card to split on. Mirrors generate.py.
+        const expanded: Array<[string[], string, boolean | null, any]> = [];
+        for (const [sg, ml, strict] of groups) {
+          if (strict === null) expanded.push([sg as string[], ml, strict, null]);
+          else for (const [b, o] of splitByOverride(sg as string[], itemOverrides)) expanded.push([b, ml, strict, o]);
+        }
+
+        for (const [subgroup, modeLabel, isStrict, cardOver] of expanded) {
           if (isStrict !== null && subgroup.length === 0) continue;
 
           blockIndex++;
-          const rOver = rule.overrides || {};
+          // Card override wins over the rule's, which wins over the tier's.
+          const rOver = { ...(rule.overrides || {}), ...(cardOver || {}) };
           const rawComment = rule.comment || '';
-          let rulePart = "";
-
-          if (rawComment.startsWith("__AUTO_SOUND__:")) {
-            const itemKey = rawComment.split(":")[1].trim();
-            const itemLocal = itemTrans[itemKey] || itemKey;
-            rulePart = `${term('Auto-Sound')}：${itemLocal}`;
-          } else {
-            ruleCounter++;
-            // Localizable rule name: rule.localization[lang] -> comment -> "Rule"
-            const ruleName = (rule.localization || {})[language] || rawComment || term('Rule');
-            rulePart = `#${ruleCounter} ${ruleName}`;
+          ruleCounter++;
+          // Localizable rule name: rule.localization[lang] -> comment -> "Rule"
+          const ruleName = (rule.localization || {})[language] || rawComment || term('Rule');
+          let rulePart = `#${ruleCounter} ${ruleName}`;
+          if (cardOver) {
+            rulePart += ` - ${term('Card')}：` + subgroup.slice(0, 3).map((b) => itemTrans[b] || b).join('/');
           }
 
           const finalMode = term(modeLabel);
@@ -673,6 +573,12 @@ export const generateFilter = (data: GeneratorData): string => {
           if (rIcon && !styleOff(rIcon)) blockLines.push(`    MinimapIcon ${rIcon}`);
 
           outLines.push(blockText(blockLines, isHide));
+          data.onBlock?.({
+            order: blockIndex, file: relPath, tier_key: tLbl, tier_num: tnum,
+            source: cardOver ? 'card' : 'rule', match: modeLabel as string | null,
+            rule: rulePart, bases: [...(subgroup as string[])], is_hide: isHide,
+            text: outLines[outLines.length - 1],
+          });
         }
 
         ruleMatches.forEach(m => pendingItems.delete(m));
@@ -680,17 +586,32 @@ export const generateFilter = (data: GeneratorData): string => {
 
       // Base Block
       if (pendingItems.size > 0) {
-        const matchModes = meta.match_modes || {};
+        // From the MAPPING's _meta, not the tier definition's — the editor writes it
+        // there (clientData.updateItem / main.py update_item), and no tier_definition
+        // file has ever carried the key. Reading `meta` here meant the Partial toggle
+        // did nothing: the card showed a Partial badge and the filter still emitted
+        // `BaseType ==`. Both generators had it wrong identically, which is why
+        // dual-generator parity never saw it. Same trap the line below this block was
+        // already fixed for ("translations come from map_doc, NOT tier definition").
+        const matchModes = mapMeta.match_modes || {};
         const exactPending = Array.from(pendingItems).filter((item: string) => (matchModes[item] || 'exact') === 'exact').sort();
         const partialPending = Array.from(pendingItems).filter((item: string) => matchModes[item] === 'partial').sort();
 
-        for (const [subgroup, modeLabel, isStrict] of [[exactPending, "Exact", true], [partialPending, "Partial", false]] as const) {
+        const baseGroups: Array<[string[], string, boolean, any]> = [];
+        for (const [sg, ml, strict] of [[exactPending, "Exact", true], [partialPending, "Partial", false]] as const) {
+          for (const [b, o] of splitByOverride(sg as string[], itemOverrides)) baseGroups.push([b, ml, strict, o]);
+        }
+
+        for (const [subgroup, modeLabel, isStrict, cardOver] of baseGroups) {
           if (subgroup.length === 0) continue;
 
           blockIndex++;
           const finalMode = term(modeLabel);
           const baseLabel = term('Base');
-          outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${tierDisplay} ${locCat} - ${baseLabel} - ${finalMode}==`);
+          const cardPart = cardOver
+            ? ` - ${term('Card')}：` + subgroup.slice(0, 3).map((b) => itemTrans[b] || b).join('/')
+            : '';
+          outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${tierDisplay} ${locCat} - ${baseLabel}${cardPart} - ${finalMode}==`);
 
           const cmd = isHide ? HIDE_CMD : "Show";
           const btOp = isStrict ? " == " : " ";
@@ -704,17 +625,30 @@ export const generateFilter = (data: GeneratorData): string => {
           emitConditions(blockLines, tierEntry.conditions);
 
           // Disabled/sentinel styles are OMITTED (see styleOff; mirrors generate.py).
-          blockLines.push(`    SetFontSize ${ttheme.FontSize || DEFAULT_FONT_SIZE}`);
-          if (!styleOff(ttheme.TextColor)) blockLines.push(`    SetTextColor ${baseTextCol}`);
-          if (!styleOff(ttheme.BorderColor)) blockLines.push(`    SetBorderColor ${baseBorderCol}`);
-          if (!styleOff(ttheme.BackgroundColor)) blockLines.push(`    SetBackgroundColor ${baseBgCol}`);
+          // A card override sits on top, exactly as a rule's would.
+          const cOver = cardOver || {};
+          blockLines.push(`    SetFontSize ${cOver.FontSize || ttheme.FontSize || DEFAULT_FONT_SIZE}`);
+          const cTextRaw = 'TextColor' in cOver ? cOver.TextColor : ttheme.TextColor;
+          if (!styleOff(cTextRaw)) blockLines.push(`    SetTextColor ${parseRgba(cOver.TextColor, baseTextCol)}`);
+          const cBorderRaw = 'BorderColor' in cOver ? cOver.BorderColor : ttheme.BorderColor;
+          if (!styleOff(cBorderRaw)) blockLines.push(`    SetBorderColor ${parseRgba(cOver.BorderColor, baseBorderCol)}`);
+          const cBgRaw = 'BackgroundColor' in cOver ? cOver.BackgroundColor : ttheme.BackgroundColor;
+          if (!styleOff(cBgRaw)) blockLines.push(`    SetBackgroundColor ${parseRgba(cOver.BackgroundColor, baseBgCol)}`);
 
-          const soundLine = resolveSound(tierEntry, soundMap);
+          const soundLine = resolveSound(tierEntry, soundMap, cOver.PlayAlertSound);
           if (soundLine) blockLines.push(`    ${soundLine}`);
-          if (basePlayEff && !styleOff(basePlayEff)) blockLines.push(`    PlayEffect ${basePlayEff}`);
-          if (baseMiniIcon && !styleOff(baseMiniIcon)) blockLines.push(`    MinimapIcon ${baseMiniIcon}`);
+          const cEff = cOver.PlayEffect ?? basePlayEff;
+          if (cEff && !styleOff(cEff)) blockLines.push(`    PlayEffect ${cEff}`);
+          const cIcon = cOver.MinimapIcon ?? baseMiniIcon;
+          if (cIcon && !styleOff(cIcon)) blockLines.push(`    MinimapIcon ${cIcon}`);
 
           outLines.push(blockText(blockLines, isHide));
+          data.onBlock?.({
+            order: blockIndex, file: relPath, tier_key: tLbl, tier_num: tnum,
+            source: cardOver ? 'card' : 'tier_base', match: modeLabel as string | null,
+            rule: null, bases: [...(subgroup as string[])], is_hide: isHide,
+            text: outLines[outLines.length - 1],
+          });
         }
       }
     }

@@ -1,0 +1,67 @@
+{
+  "Ducats": {
+    "_meta": {
+      "theme_category": "Curse of the Allflame",
+      "localization": {
+        "en": "Ducats",
+        "ch": "达克特"
+      },
+      "tier_order": [
+        "Ducats T0",
+        "Ducats T1",
+        "Ducats Hide"
+      ]
+    },
+    "Ducats T0": {
+      "theme": {
+        "Tier": 2,
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#00a070ff",
+        "BorderColor": "#00000000",
+        "FontSize": 45
+      },
+      "hideable": false,
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T0: Top Ducats",
+        "ch": "T0: 达克特"
+      }
+    },
+    "Ducats T1": {
+      "hideable": false,
+      "theme": {
+        "Tier": 4,
+        "TextColor": "#000000ff",
+        "BackgroundColor": "#00a070ff",
+        "BorderColor": "#00000000",
+        "FontSize": 43
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "T1: Other Ducats",
+        "ch": "其余达克特"
+      }
+    },
+    "Ducats Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

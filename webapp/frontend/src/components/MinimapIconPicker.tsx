@@ -46,7 +46,15 @@ export const ICON_SHAPES = [
 /** Localize a stored "size color shape" MinimapIcon string for display. */
 export const formatMinimapIcon = (value: string, t: any): string => {
   const [size, color, shape] = value.split(" ");
-  const sizeKey = size === "0" ? "small" : size === "1" ? "medium" : "large";
+  // ⚠️ IN POE, 0 IS THE LARGEST ICON. This was inverted here and in sizeLabel below, so
+  // picking "Large" wrote a 2 — the SMALLEST icon — and a whole authoring sweep came out
+  // upside down: top tiers got the smallest icons and safety nets the biggest. Two
+  // independent sources agree on the direction: FilterBlade's Ruthless filter gives its
+  // chase unique tiers (ex6link, exforgesword, 3xabyss) `0 Red Star` while its quiet ones
+  // (hideable, earlyleague) get `2 Brown Star`; and the designer kit's icon ladder reads
+  // "0 at T0/T1, 1 at T2, 2 at T3 ... a white map gets the smallest icon", white maps
+  // being T3. Their font-35 blocks use size 2 and size 0 appears only at font 45.
+  const sizeKey = size === "0" ? "large" : size === "1" ? "medium" : "small";
   return [t[sizeKey], t[color] || color, t[shape] || shape]
     .filter(Boolean)
     .join(" ");
@@ -104,8 +112,9 @@ const MinimapIconPicker: React.FC<MinimapIconPickerProps> = ({
     }
   }, [value]);
 
+  // 0 is the LARGEST icon in PoE — see the note in formatMinimapIcon above.
   const sizeLabel = (s: number) =>
-    s === 0 ? t.small : s === 1 ? t.medium : t.large;
+    s === 0 ? t.large : s === 1 ? t.medium : t.small;
 
   return (
     <div className="mm-icon-picker modal-overlay" onClick={onClose}>

@@ -1,0 +1,1657 @@
+{
+ "Abyss Scarab of Descending": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Map Fragments"
+ },
+ "Abyssal Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Adherent of Zarokh": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Corpses"
+ },
+ "Anarchy Scarab of the Exceptional": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Map Fragments"
+ },
+ "Ancient Reliquary Key": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Vault Keys"
+ },
+ "Annihilation Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Armour Recombinator": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Stackable Currency"
+ },
+ "Ashscale Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Astral Lich": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Corpses"
+ },
+ "Avian Twins Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Awakener's Orb": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki",
+  "class": "Stackable Currency"
+ },
+ "Betrayal Scarab of Unbreaking": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Map Fragments"
+ },
+ "Binding Shard": {
+  "verdict": "RETIRED 3.28.0",
+  "source": "feed",
+  "class": "Stackable Currency"
+ },
+ "Birth of the Three": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki: all divination cards",
+  "class": "Divination Cards"
+ },
+ "Blessed Call Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Blessing of God": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki: all divination cards",
+  "class": "Divination Cards"
+ },
+ "Blighted Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Bloodsoaked Banner Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Bonespire Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Bonespire Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Breach Ring": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Rings"
+ },
+ "Breakrib Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Cartographer's Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Cast on Ward Break Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Celestial Armoursmith's Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Celestial Blacksmith's Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Chaotic Astrolabe": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Charan's Sword": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "One Hand Swords"
+ },
+ "Chayula's Flawless Breachstone": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Breachstones"
+ },
+ "Chrysalis Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Clutching Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Coin of Desecration": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Coin of Knowledge": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Coin of Power": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Coin of Restoration": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Coin of Skill": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Companionship Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Congregation Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Conjuror of Rot": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Corpses"
+ },
+ "Cooldown Recovery Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Cord Belt": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Belts"
+ },
+ "Corvine Charm": {
+  "verdict": "LIVE since 3.23.0",
+  "source": "feed:new",
+  "class": "Charms"
+ },
+ "Craicic Lure": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Map Fragments"
+ },
+ "Crusader's Exalted Orb": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki",
+  "class": "Stackable Currency"
+ },
+ "Crystallised Rancour": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Cull the Weak Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Deadhand Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Deep One Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Dextral Catalyst": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Divine Blast": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Skill Gems"
+ },
+ "Divine Sentinel Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Divine Vessel": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki",
+  "class": "Map Fragments"
+ },
+ "Diviner's Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Eclipse Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Elder's Exalted Orb": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki (live in the game since 3.26.0)",
+  "class": "Stackable Currency"
+ },
+ "Elder's Orb": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Quest Items"
+ },
+ "Eldritch Blasphemy Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Engineer's Shard": {
+  "verdict": "RETIRED 3.28.0",
+  "source": "feed",
+  "class": "Stackable Currency"
+ },
+ "Engraved Ultimatum": {
+  "verdict": "LIVE since 3.19.0",
+  "source": "feed:new",
+  "class": "Maps"
+ },
+ "Enkindling Orb": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki",
+  "class": "Stackable Currency"
+ },
+ "Essence of Desolation": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Excommunicate Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Exemplar Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Expedition Scarab of Infusion": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Map Fragments"
+ },
+ "Fangjaw Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Farric Lure": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Map Fragments"
+ },
+ "Fenumal Lure": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Map Fragments"
+ },
+ "Fine Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Fissure Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Flesh of Xesht": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Foreboding Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Fossilised Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Foulgrasp Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Fragmented Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Frostmage Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Fruiting Astrolabe": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Fungal Astrolabe": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Geomancer's Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Gluttony Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Golden Blade": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "One Hand Swords"
+ },
+ "Golden Bracers": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Gloves"
+ },
+ "Golden Caligae": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Boots"
+ },
+ "Golden Flame": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Shields"
+ },
+ "Golden Hoop": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Rings"
+ },
+ "Golden Mantle": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Body Armours"
+ },
+ "Golden Obi": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Belts"
+ },
+ "Golden Visage": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Helmets"
+ },
+ "Golden Wreath": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Helmets"
+ },
+ "Grasping Astrolabe": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Grasping Mail": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Body Armours"
+ },
+ "Greater Ancestral Call Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Greater Chain Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Greater Devour Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Greater Fork Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Greater Kinetic Instability Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Greater Multistrike Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Greater Spell Cascade Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Greater Spell Echo Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Greater Unleash Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Hallow Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Harbinger's Orb": {
+  "verdict": "RETIRED 3.28.0",
+  "source": "feed",
+  "class": "Stackable Currency"
+ },
+ "Harbinger's Shard": {
+  "verdict": "RETIRED 3.28.0",
+  "source": "feed",
+  "class": "Stackable Currency"
+ },
+ "Hexclaw Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Hexpass Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Hextoad Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Hiveborn Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Holy Hammers": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Skill Gems"
+ },
+ "Holy Strike": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Skill Gems"
+ },
+ "Honoured Incubator": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki: all incubators (live in the game since 3.28.0)",
+  "class": "Incubators"
+ },
+ "Horizon Shard": {
+  "verdict": "RETIRED 3.28.0",
+  "source": "feed",
+  "class": "Stackable Currency"
+ },
+ "Horned Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Hunter's Exalted Orb": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki",
+  "class": "Stackable Currency"
+ },
+ "Imperfect Adherent of Zarokh": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Corpses"
+ },
+ "Imperfect Astral Lich": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Corpses"
+ },
+ "Imperfect Conjuror of Rot": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Corpses"
+ },
+ "Imprint": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Stackable Currency"
+ },
+ "Infused Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Instilling Orb": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki",
+  "class": "Stackable Currency"
+ },
+ "Invention Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Invert the Rules Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Jewellery Recombinator": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Stackable Currency"
+ },
+ "Journey Tattoo of the Body": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Journey Tattoo of the Mind": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Journey Tattoo of the Soul": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Kalguuran Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Kalguuran Scarab of Enriching": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Map Fragments"
+ },
+ "Lethal Dose Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Lightless Astrolabe": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lone Antler Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Longtooth Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Lupine Charm": {
+  "verdict": "LIVE since 3.23.0",
+  "source": "feed:new",
+  "class": "Charms"
+ },
+ "Lycia's Invocation of Acrobatics": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Ancestral Bond": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Arrow Dancing": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Avatar of Fire": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Blood Magic": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Call to Arms": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Conduit": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Crimson Dance": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Divine Shield": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Eldritch Battery": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Elemental Equilibrium": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Elemental Overload": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Eternal Youth": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Ghost Dance": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Ghost Reaver": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Glancing Blows": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Hex Master": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Imbalanced Guard": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Iron Grip": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Iron Reflexes": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Iron Will": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Lethe Shade": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Magebane": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Mind over Matter": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Minion Instability": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Pain Attunement": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Perfect Agony": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Point Blank": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Precise Technique": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Resolute Technique": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Runebinder": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Solipsism": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Supreme Ego": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Unwavering Stance": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Vaal Pact": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Versatile Combatant": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Wicked Ward": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Wind Dancer": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of Zealot's Oath": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of the Agnostic": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Lycia's Invocation of the Impaler": {
+  "verdict": "LIVE since 3.20.1",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Machinations Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Maddening Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Mandible Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Memory of Loneliness": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Memory of Reverence": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Memory of Trauma": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Miraged Incubator": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki: all incubators (live in the game since 3.28.0)",
+  "class": "Incubators"
+ },
+ "Mirrored Tablet": {
+  "verdict": "LIVE since 3.19.0",
+  "source": "feed:new",
+  "class": "Misc Map Items"
+ },
+ "Monkey Paw Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Monkey Twins Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Mysterious Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Nameless Astrolabe": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Omen of Acceleration": {
+  "verdict": "LIVE since 3.22.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Omen of Bequeathal": {
+  "verdict": "LIVE since 3.22.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Omen of Resurgence": {
+  "verdict": "LIVE since 3.22.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Omen of Revenge": {
+  "verdict": "LIVE since 3.22.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Orb of Binding": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki",
+  "class": "Stackable Currency"
+ },
+ "Orb of Dominance": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki",
+  "class": "Stackable Currency"
+ },
+ "Ornate Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Ornate Quiver": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Quivers"
+ },
+ "Otherworldly Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Overheat Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Overloaded Intensity Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Pacifism Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Perandus Coin": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Stackable Currency"
+ },
+ "Perfect Adherent of Zarokh": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Corpses"
+ },
+ "Perfect Astral Lich": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Corpses"
+ },
+ "Perfect Conjuror of Rot": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Corpses"
+ },
+ "Potent Alchemical Resonator": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Delve Socketable Currency"
+ },
+ "Powerful Alchemical Resonator": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Delve Socketable Currency"
+ },
+ "Primal Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Primal Skull Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Prime Alchemical Resonator": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Delve Socketable Currency"
+ },
+ "Prime Regrading Lens": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Stackable Currency"
+ },
+ "Primeval Remnant": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Misc Map Items"
+ },
+ "Primitive Alchemical Resonator": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Delve Socketable Currency"
+ },
+ "Primordial Remnant": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Misc Map Items"
+ },
+ "Prismatic Jewel": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Jewels"
+ },
+ "Pyre Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Redeemer's Exalted Orb": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki",
+  "class": "Stackable Currency"
+ },
+ "Refracting Fog": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Ring": {
+  "verdict": "LIVE since 3.19.0",
+  "source": "feed:new",
+  "class": "Rings"
+ },
+ "Ritual Scarab of Corpses": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Map Fragments"
+ },
+ "Rot Head Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Rotfeather Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Ruby Amulet": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Amulets"
+ },
+ "Runegraft of Connection": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Runegraft of Consecration": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Runegraft of Fury": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Runegraft of Rallying": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Runegraft of Resurgence": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Runegraft of Rotblood": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Runegraft of Suffering": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Runegraft of the Agile": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Runegraft of the Imbued": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Runegraft of the Spellbound": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Runic Astrolabe": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Sacred Incubator": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki: all incubators (live in the game since 3.28.0)",
+  "class": "Incubators"
+ },
+ "Sanctified Relic": {
+  "verdict": "LIVE since 3.20.0",
+  "source": "feed:new",
+  "class": "Sanctified Relics"
+ },
+ "Saqawine Lure": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Map Fragments"
+ },
+ "Scarab of the Dextral": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Map Fragments"
+ },
+ "Scornful Herald Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Secondary Regrading Lens": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Stackable Currency"
+ },
+ "Shaper's Exalted Orb": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki (live in the game since 3.26.0)",
+  "class": "Stackable Currency"
+ },
+ "Shield of Light": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Skill Gems"
+ },
+ "Singular Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Sinistral Catalyst": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Skittering Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Soul Quenched": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki: all divination cards",
+  "class": "Divination Cards"
+ },
+ "Spinefuse Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Splitnewt Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Stacked Deck": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Arohongui Moonwarden": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Arohongui Scout": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Arohongui Shaman": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Arohongui Warmonger": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Arohongui Warrior": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Hinekora Deathwarden": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Hinekora Shaman": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Hinekora Storyteller": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Hinekora Warmonger": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Hinekora Warrior": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Kitava Blood Drinker": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Kitava Heart Eater": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Kitava Rebel": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Kitava Shaman": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Kitava Warrior": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Ngamahu Firewalker": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Ngamahu Shaman": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Ngamahu Warmonger": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Ngamahu Warrior": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Ngamahu Woodcarver": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Ramako Archer": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Ramako Fleetfoot": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Ramako Scout": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Ramako Shaman": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Ramako Sniper": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Rongokurai Brute": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Rongokurai Goliath": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Rongokurai Guard": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Rongokurai Turtle": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Rongokurai Warrior": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tasalio Bladedancer": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tasalio Scout": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tasalio Shaman": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tasalio Tideshifter": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tasalio Warrior": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tawhoa Herbalist": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tawhoa Naturalist": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tawhoa Scout": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tawhoa Shaman": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tawhoa Warrior": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tukohama Brawler": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tukohama Shaman": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tukohama Warcaller": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tukohama Warmonger": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Tukohama Warrior": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Valako Scout": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Valako Shaman": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Valako Shieldbearer": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Valako Stormrider": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Tattoo of the Valako Warrior": {
+  "verdict": "LIVE since 3.24.0",
+  "source": "feed:returning",
+  "class": "Stackable Currency"
+ },
+ "Templar Astrolabe": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Thaumaturge's Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "The Black Barya": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Map Fragments"
+ },
+ "The Master": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki: all divination cards",
+  "class": "Divination Cards"
+ },
+ "The Maven's Beacon": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Quest Items"
+ },
+ "The Shaper's Key": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Quest Items"
+ },
+ "The Sustenance": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki: all divination cards",
+  "class": "Divination Cards"
+ },
+ "Three Hands Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Three Rat Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Timeless Astrolabe": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Timeless Jewel": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Jewels"
+ },
+ "Timeworn Reliquary Key": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Vault Keys"
+ },
+ "Transfusion Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Undying Flesh Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Unholy Trinity Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Unrelenting Timeless Eternal Emblem": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Map Fragments"
+ },
+ "Unrelenting Timeless Karui Emblem": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Map Fragments"
+ },
+ "Unrelenting Timeless Maraketh Emblem": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Map Fragments"
+ },
+ "Unrelenting Timeless Templar Emblem": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Map Fragments"
+ },
+ "Unrelenting Timeless Vaal Emblem": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Map Fragments"
+ },
+ "Unset Amulet": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Amulets"
+ },
+ "Unshaping Orb": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Stackable Currency"
+ },
+ "Ursine Charm": {
+  "verdict": "LIVE since 3.23.0",
+  "source": "feed:new",
+  "class": "Charms"
+ },
+ "Vaal Breach": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Skill Gems"
+ },
+ "Vaal Reliquary Key": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Vault Keys"
+ },
+ "Vaal Sacrifice Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Vaal Temptation Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Veiled Chaos Orb": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki (live in the game since 3.26.0)",
+  "class": "Stackable Currency"
+ },
+ "Veiled Exalted Orb": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki",
+  "class": "Stackable Currency"
+ },
+ "Void Shockwave Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Voidstorm Support": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Support Gems"
+ },
+ "Volatile Vaal Orb": {
+  "verdict": "LIVE since 3.28.0",
+  "source": "feed:new",
+  "class": "Stackable Currency"
+ },
+ "Warlord's Exalted Orb": {
+  "verdict": "drop-disabled in RUTHLESS",
+  "source": "wiki",
+  "class": "Stackable Currency"
+ },
+ "Weapon Recombinator": {
+  "verdict": "UNKNOWN",
+  "source": "needs an older thread",
+  "class": "Stackable Currency"
+ },
+ "Wereclaw Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ },
+ "Whispering Incubator": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Incubators"
+ },
+ "Writhing Talisman": {
+  "verdict": "RETIRED 3.29.0",
+  "source": "feed",
+  "class": "Amulets"
+ }
+}

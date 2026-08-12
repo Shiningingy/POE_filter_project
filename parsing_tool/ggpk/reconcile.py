@@ -144,7 +144,7 @@ def read_destinations(where: dict, by_name: dict) -> tuple[list[dict], list[dict
     tier_definition's `_meta.tier_order` (declared), and the strings the
     base_mapping file actually uses (in-use). `Gems/Support.json` declares
     "Tier 1 Support" while all 213 of its entries say "Tier 1 Support Gems".
-    An undeclared key does not error - generate.py silently remaps it - so the
+    An undeclared key does not error - the generator silently remaps it - so the
     drift is invisible until someone writes the *declared* spelling next to the
     in-use one and the file ends up with both. In-use keys are offered first,
     since those are what the category is really made of, and the drift is
@@ -192,7 +192,7 @@ def read_destinations(where: dict, by_name: dict) -> tuple[list[dict], list[dict
         undeclared = [t for t in used if t not in {d["key"] for d in declared}]
         if undeclared:
             # Underscore folders remap undeclared keys to their first non-hide
-            # tier on purpose (generate.py:365). Everywhere else the key is
+            # tier on purpose. Everywhere else the key is
             # appended to tier_order, then skipped for having no tier entry -
             # so the items emit NOTHING, with no error.
             drops = not rel.startswith("_")
@@ -224,19 +224,36 @@ def read_class_coverage() -> dict[str, list[str]]:
     Categories that select by Class cover every member of that class without
     naming one, so those bases are handled even though no mapping mentions them.
     """
+    # ⚠️ BOTH ROOTS. This scanned `tier_definition` only, but 29 `Class` conditions live in
+    # `base_mapping` rules — including `Class == "Maps"`, which meant 246 maps were reported
+    # as never-mapped backlog while a class rule was matching every one of them. Same shape
+    # as the substring gap below: coverage the queue could not see, so it invented work.
     cover = collections.defaultdict(set)
-    for path in glob.glob(os.path.join(TIER_DEFINITION, "**", "*.json"), recursive=True):
-        rel = os.path.relpath(path, TIER_DEFINITION).replace("\\", "/")
+    scan_files = [(TIER_DEFINITION, "tier_definition", p) for p in
+                  glob.glob(os.path.join(TIER_DEFINITION, "**", "*.json"), recursive=True)]
+    scan_files += [(BASE_MAPPING, "base_mapping", p) for p in
+                   glob.glob(os.path.join(BASE_MAPPING, "**", "*.json"), recursive=True)]
+    for root, tag, path in scan_files:
+        rel = "%s/%s" % (tag, os.path.relpath(path, root).replace("\\", "/"))
         try:
             with open(path, encoding="utf-8-sig") as fh:
                 doc = json.load(fh)
         except Exception as exc:
-            die(f"tier_definition/{rel} is not valid JSON: {exc}")
+            die(f"{rel} is not valid JSON: {exc}")
 
         def scan(obj):
             if isinstance(obj, dict):
+                # ⚠️ A `Class` NETS ITS CLASS ONLY IF NOTHING NARROWS IT. `Class` sitting
+                # beside a `BaseType` in the same conditions block is a GUARD on that
+                # BaseType, not a net: Currency/General has
+                # `BaseType "Astrolabe" + Class Stackable Currency`, which covers astrolabes
+                # and nothing else. Crediting it retired all 226 uncurated stackable
+                # currencies from the queue while every one of them still fell to the
+                # catch-all — the exact inverse of the bug fixed above, and the more
+                # dangerous direction, because it hides work instead of inventing it.
+                guarded = "BaseType" in obj
                 for k, v in obj.items():
-                    if k == "Class":
+                    if k == "Class" and not guarded:
                         for val in (v if isinstance(v, list) else [v]):
                             if not isinstance(val, str):
                                 continue
@@ -244,7 +261,7 @@ def read_class_coverage() -> dict[str, list[str]]:
                                 token = token.strip().lstrip("=").strip().strip('"')
                                 if token:
                                     cover[token].add(rel)
-                    else:
+                    elif k != "Class":
                         scan(v)
             elif isinstance(obj, list):
                 for item in obj:
@@ -254,18 +271,85 @@ def read_class_coverage() -> dict[str, list[str]]:
     return {c: sorted(f) for c, f in cover.items()}
 
 
+def read_basetype_substring_coverage() -> dict[str, list[str]]:
+    """SUBSTRING `BaseType` patterns -> the files that match on them.
+
+    ★ A bare `BaseType "Tattoo of"` is a substring match in PoE and covers all 53 tattoos in
+    one line. `read_class_coverage` only credits `Class`, so every base a substring rule
+    already claims was reported as undecided work: all 7 Forbidden Tattoos added this league
+    landed in the "to decide" queue while `BaseType "Tattoo of"` was live in the shipped
+    filter and catching every one of them.
+
+    That matters beyond the noise — a queue that asks about things already handled trains you
+    to skim it, and the whole value of this queue is that every row is a real question.
+
+    ⚠️ ONLY BARE PATTERNS COUNT. `BaseType == "X"` is exact and is already handled by the
+    `mapping` check; treating an exact value as a substring would credit `"Chaos Orb"` with
+    covering every base containing that text, which is the opposite error.
+    """
+    cover = collections.defaultdict(set)
+    roots = ((TIER_DEFINITION, "tier_definition"), (BASE_MAPPING, "base_mapping"))
+    for root, tag in roots:
+        for path in glob.glob(os.path.join(root, "**", "*.json"), recursive=True):
+            rel = "%s/%s" % (tag, os.path.relpath(path, root).replace("\\", "/"))
+            try:
+                with open(path, encoding="utf-8-sig") as fh:
+                    doc = json.load(fh)
+            except Exception:
+                continue                       # read_class_coverage already dies on bad JSON
+
+            def scan(obj):
+                if isinstance(obj, dict):
+                    for k, v in obj.items():
+                        if k == "BaseType":
+                            for val in (v if isinstance(v, list) else [v]):
+                                if not isinstance(val, str) or val.strip().startswith("=="):
+                                    continue
+                                for token in (re.findall(r'"([^"]+)"', val) or [val]):
+                                    token = token.strip()
+                                    if token:
+                                        cover[token].add(rel)
+                        else:
+                            scan(v)
+                elif isinstance(obj, list):
+                    for item in obj:
+                        scan(item)
+
+            scan(doc)
+    return {p: sorted(f) for p, f in cover.items()}
+
+
 # --------------------------------------------------------------------------- #
 # report
 # --------------------------------------------------------------------------- #
 
 def build(label: str, baseline: str | None) -> dict:
     t = load_tables(label)
-    tc = {}
-    tc_path = os.path.join(REPO, "data", "source", label, "tables",
-                           "Traditional Chinese", "BaseItemTypes.json")
-    if os.path.exists(tc_path):
-        with open(tc_path, encoding="utf-8") as fh:
-            tc = {r["Id"]: r["Name"] for r in json.load(fh)}
+
+    # ★ SIMPLIFIED FIRST, TRADITIONAL ONLY AS A FALLBACK.
+    #
+    # We ship a Simplified-Chinese filter, so Simplified is the answer. Traditional exists
+    # here for a real reason — the China client lags the international patch by about a week,
+    # so early in a league the Simplified leg does not exist yet and Traditional is the only
+    # Chinese we have. That is a FALLBACK, and it was written as the only source: this read
+    # `Traditional Chinese` unconditionally, so it reported 神聖碎片 for Divine Shard while
+    # `Simplified Chinese/BaseItemTypes.json` sat beside it saying 神性碎片.
+    #
+    # ⚠️ Those are not character variants of one string — they are different translations
+    # (聖 "holy" vs 性 "nature"). Applying a queue built from the Traditional leg would write
+    # names into the tree that the Simplified client never shows, which is the
+    # official-translations-only invariant failing through a pipeline instead of by hand.
+    #
+    # Fallback rows are FLAGGED (`zh_fallback`), never silently mixed in, so a decision made
+    # during the lag window is visibly provisional and can be re-run once the CN leg lands.
+    def zh_leg(lang):
+        p = os.path.join(REPO, "data", "source", label, "tables", lang, "BaseItemTypes.json")
+        if not os.path.exists(p):
+            return {}
+        with open(p, encoding="utf-8") as fh:
+            return {r["Id"]: r["Name"] for r in json.load(fh)}
+
+    sc, tc = zh_leg("Simplified Chinese"), zh_leg("Traditional Chinese")
 
     classes, words = t["ItemClasses"], t["Words"]
 
@@ -278,12 +362,16 @@ def build(label: str, baseline: str | None) -> dict:
         id_to_name[row["Id"]] = name
         cls = classes[row["ItemClassesKey"]] if isinstance(row.get("ItemClassesKey"), int) else None
         e = by_name.setdefault(name, {"ids": [], "class_id": None, "class_name": None,
-                                      "drop_level": None, "zh": None})
+                                      "drop_level": None, "zh": None, "zh_fallback": False})
         e["ids"].append(row["Id"])
         if cls:
             e["class_id"], e["class_name"] = cls["Id"], cls["Name"]
         e["drop_level"] = row.get("DropLevel")
-        e["zh"] = e["zh"] or tc.get(row["Id"])
+        if not e["zh"]:
+            e["zh"] = sc.get(row["Id"])
+            if not e["zh"]:
+                e["zh"] = tc.get(row["Id"])
+                e["zh_fallback"] = bool(e["zh"])   # Traditional stand-in — see zh_leg above
 
     def word(idx):
         return words[idx]["Text"] if isinstance(idx, int) and idx < len(words) else None
@@ -293,6 +381,15 @@ def build(label: str, baseline: str | None) -> dict:
 
     where, metas = read_curation()
     cover = read_class_coverage()
+    sub_cover = read_basetype_substring_coverage()
+
+    def covered_by_substring(name):
+        """The files whose bare `BaseType` pattern already claims this base."""
+        hits = set()
+        for pat, files in sub_cover.items():
+            if pat in name:
+                hits.update(files)
+        return sorted(hits)
     destinations, drift = read_destinations(where, by_name)
     live = {n: f for n, f in where.items() if not all(p.startswith("_legacy/") for p in f)}
 
@@ -312,9 +409,15 @@ def build(label: str, baseline: str | None) -> dict:
         info = by_name[name]
         if info["class_id"] in NON_DROP_CLASSES:
             continue
+        # `[DNT]`/`[UNUSED]` are dev rows the game ships but never drops. The README's own
+        # rule says to filter them; one leaked into the queue as a decision to make.
+        if name.startswith("[DNT]") or name.startswith("[UNUSED]"):
+            continue
         if name in where:
             new_done.append(name)
         elif info["class_name"] in cover:
+            new_done.append(name)
+        elif covered_by_substring(name):
             new_done.append(name)
         else:
             new_items.append(row(name, info))
@@ -329,7 +432,11 @@ def build(label: str, baseline: str | None) -> dict:
             continue
         if info["class_id"] in NON_DROP_CLASSES:
             continue
+        if name.startswith("[DNT]") or name.startswith("[UNUSED]"):
+            continue
         if info["class_name"] in cover:
+            continue
+        if covered_by_substring(name):
             continue
         if info["class_name"] in DEAD_LEAGUE_CLASSES:
             quiet[info["class_name"]] += 1
@@ -463,7 +570,7 @@ def summarise(rep: dict) -> None:
     if dropping:
         n = sum(sum(d["undeclared"].values()) for d in dropping)
         print(f"\n  !! SILENTLY DROPPED  {n} mapping entries emit NOTHING")
-        print(f"     Their tier key is not in the category's tier_order, so generate.py")
+        print(f"     Their tier key is not in the category's tier_order, so the generator")
         print(f"     appends it to the order and then skips it for having no tier entry.")
         print(f"     No error, no output. (Underscore folders are exempt - they remap.)")
         for d in dropping:

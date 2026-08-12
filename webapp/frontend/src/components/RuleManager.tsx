@@ -303,7 +303,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
     setContextMenu({ x: e.clientX, y: e.clientY, ruleIndex: globalIndex });
   };
 
-  // A self-selecting rule has no `targets` key (generate.py:534), so both of these
+  // A self-selecting rule has no `targets` key, so both of these
   // have to cope with it being absent - adding the first target is exactly how a
   // user converts such a rule into a normal one.
   const addTarget = (globalIndex: number, itemName: string) => {

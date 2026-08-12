@@ -16,7 +16,7 @@
     "Tier 1 Splinters": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": 2,
@@ -30,7 +30,7 @@
     "Tier 2 Splinters": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 4
       },
       "sound": {
         "default_sound_id": -1,
@@ -39,6 +39,14 @@
       "localization": {
         "en": "T2: Single / small",
         "ch": "T2: 单个 / 小堆"
+      },
+      "item_overrides": {
+        "Ritual Splinter": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/驱灵裂片.mp3",
+            300
+          ]
+        }
       }
     },
     "Tier Hide Splinters": {
@@ -59,7 +67,7 @@
     "Tier 0 Splinters": {
       "hideable": false,
       "theme": {
-        "Tier": 0
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": -1,

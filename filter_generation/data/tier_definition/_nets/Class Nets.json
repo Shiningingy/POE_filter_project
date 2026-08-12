@@ -1,0 +1,131 @@
+{
+  "//": "★ THE 'WE FORGOT THIS' LAYER. One net per item class whose members we curate by NAME, catching anything we never got to. Two-level unknown: a net means we know the class and have not curated the item; the [99999] catch-all in footer.filter means we do not know the class at all.",
+  "//order": "⚠️ THESE MUST EMIT LAST. `Stackable Currency` is curated across EIGHTEEN category files, so a net placed after any one of them would swallow every category that emits later - Gold, Harvest, Heist Currency, Incursion Vials, Oils, Omens, Runegrafts, Tainted Currency, Wombgifts all sort after Currency/General. That is exactly how the Influenced net (gen_order -40, no Class) beat Base Maps by eighty thousand positions and ate every influenced map. `gen_order: 1000` in the base_mapping side puts the whole group behind every real category; check_cross_category_claims.py is the guard.",
+  "//look": "⚠️ THE STYLE HERE IS A PLACEHOLDER. Request 02 asks the designer for a `net` accent - one fixed look, deliberately NOT a rung ladder, because 'we forgot this' has no value ranking. Until it lands these carry a neutral steel-blue that is legible, obviously not content, and calmer than the catch-all's alarm green. Do not tune it by hand; swap it for the accent when it arrives.",
+  "//scope": "Divination Cards get NO net on purpose - they do not drop in Ruthless (data/from_wiki/ruthless_droppability.json, 'All divination cards'). Maps already has a real class net. Sourced from reconcile.py's backlog, guard-aware.",
+  "Class Nets": {
+    "_meta": {
+      "tier_order": [
+        "Net Stackable Currency",
+        "Net Map Fragments",
+        "Net Breachstones",
+        "Net Vault Keys",
+        "Net Idols",
+        "Net Sanctum Research"
+      ],
+      "localization": {
+        "en": "Class Nets",
+        "ch": "兜底层"
+      },
+      "theme_category": "Class Nets"
+    },
+    "Net Stackable Currency": {
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Stackable Currency\""
+      },
+      "hideable": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Uncurated Currency",
+        "ch": "未收录：通货"
+      }
+    },
+    "Net Map Fragments": {
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Map Fragments\""
+      },
+      "hideable": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Uncurated Fragment",
+        "ch": "未收录：地图碎片"
+      }
+    },
+    "Net Breachstones": {
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Breachstones\""
+      },
+      "hideable": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Uncurated Breachstone",
+        "ch": "未收录：裂隙石"
+      }
+    },
+    "Net Vault Keys": {
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Vault Keys\""
+      },
+      "hideable": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Uncurated Vault Key",
+        "ch": "未收录：金库钥匙"
+      }
+    },
+    "Net Idols": {
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Idols\""
+      },
+      "hideable": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Uncurated Idol",
+        "ch": "未收录：神像"
+      }
+    },
+    "Net Sanctum Research": {
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Sanctum Research\""
+      },
+      "hideable": false,
+      "theme": {
+        "Tier": 0
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Uncurated Sanctum",
+        "ch": "未收录：圣域"
+      }
+    }
+  }
+}

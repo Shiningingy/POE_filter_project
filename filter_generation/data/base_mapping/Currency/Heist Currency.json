@@ -24,7 +24,7 @@
     {
       "targets": [],
       "conditions": {
-        "StackSize": ">=200"
+        "StackSize": ">= 200"
       },
       "overrides": {
         "Tier": "Tier 0 Heist Currency"

@@ -17,7 +17,16 @@
       "hideable": true,
       "conditions": {},
       "theme": {
-        "Tier": 1
+        "Tier": 3,
+        "FontSize": 45,
+        "BackgroundColor": "#d20000ff",
+        "TextColor": "#ffffffff",
+        "MinimapIcon": "0 Red Star",
+        "PlayEffect": "Purple",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级孕育赠礼.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": -1,
@@ -32,7 +41,11 @@
       "hideable": true,
       "conditions": {},
       "theme": {
-        "Tier": 2
+        "Tier": 4,
+        "PlayAlertSound": [
+          "Sharket掉落音效/孕育赠礼.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": -1,
@@ -50,7 +63,13 @@
         "Class": "== \"Wombgifts\""
       },
       "theme": {
-        "Tier": 5
+        "Tier": 5,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/孕育赠礼.mp3",
+          300
+        ],
+        "MinimapIcon": "2 White Star"
       },
       "sound": {
         "default_sound_id": -1,

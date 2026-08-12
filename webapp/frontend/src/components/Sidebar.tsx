@@ -6,8 +6,11 @@ export interface CategoryFile {
   path: string;
   tier_path: string;
   mapping_path: string;
-  target_category: string;
   localization: { en: string; ch: string };
+  // NOTE: no `target_category`. A nav leaf does not decide which look it wears - the
+  // tier definition at `tier_path` does, via filterStyle.resolveThemeKey. Re-adding a
+  // theme key here re-creates the identity that drifted on 13 of 92 leaves and had the
+  // theme board editing the wrong bucket.
 }
 
 interface SidebarProps {
@@ -181,6 +184,8 @@ const Sidebar: React.FC<SidebarProps> = ({
                       : "Reset all changes to default? This cannot be undone.")) {
                       Object.keys(localStorage).forEach(k => {
                           if (k.startsWith('demo_vfs_') || k.startsWith('demo_theme_')
+                              // demo_custom_overrides: the retired override layer. Still
+                              // cleared so a browser carrying the stale key is tidied up.
                               || k === 'demo_custom_overrides' || k === 'demo_generated_filter') {
                               localStorage.removeItem(k);
                           }

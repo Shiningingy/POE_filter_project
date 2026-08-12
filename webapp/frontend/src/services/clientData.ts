@@ -10,7 +10,7 @@
 // versions, the deployed site runs these.
 
 import axios from 'axios';
-import { mergeThemeOverrides } from '../utils/theme';
+import { resolveThemeKey } from '../utils/filterStyle';
 
 export const VFS_PREFIX = 'demo_vfs_';
 
@@ -235,17 +235,36 @@ export const tierItems = async (tierKeys: string[], classFilter?: string | null)
         const baseTiers = Array.isArray(tval) ? tval : [tval];
         baseTiers.forEach(t => finalTierEntries.push([t, null]));
       }
+      // A live rule that names this item for a tier CONSUMES it: the generator deletes
+      // every matched target from pendingItems, so the tier's base block never emits it.
+      // The mapping entry and the rule entry are therefore the SAME emitted block, not two.
+      const absorbed = new Set<string>();
       rules.forEach((r, idx) => {
+        // applyToTier makes `targets` DEAD — the generator replaces ruleMatches with the
+        // tier's pending items and never reads them, so a target listed here is not one it
+        // honours and must not become a card of its own.
+        if (r?.applyToTier) return;
         const rt = r?.targets;
         if (Array.isArray(rt) && rt.length > 0 && rt.includes(itemName)) {
           const tOver = r?.overrides?.Tier;
-          if (tOver) finalTierEntries.push([tOver, idx]);
+          if (tOver) {
+            finalTierEntries.push([tOver, idx]);
+            if (!r?.disabled) absorbed.add(tOver);
+          }
         }
       });
 
-      for (const [tierKey, ruleIdx] of finalTierEntries) {
+      // Only the mapping (null) entry is absorbed — two RULES on one tier really do emit
+      // two blocks. Mirrors get_items_by_tier in main.py; without it the deployed site
+      // showed a phantom card for every item a rule already claimed (Tier 7 General read
+      // 14 occurrences against the filter's actual 10).
+      const entries = absorbed.size
+        ? finalTierEntries.filter(([t, r]) => r !== null || !absorbed.has(t))
+        : finalTierEntries;
+
+      for (const [tierKey, ruleIdx] of entries) {
         if (!tierKeySet.has(tierKey)) continue;
-        const currentTiersList = [...new Set(finalTierEntries.map(([t]) => t))];
+        const currentTiersList = [...new Set(entries.map(([t]) => t))];
         let itemMode = 'exact';
         if (ruleIdx !== null) {
           itemMode = rules[ruleIdx]?.targetMatchModes?.[itemName] ?? 'exact';
@@ -328,7 +347,10 @@ export const mappingInfo = async (fileName: string) => {
   const { mappings, tiers } = await getMergedState();
   const mappingContent = mappings[fileName];
   if (!mappingContent) throw new Error(`Mapping not found: ${fileName}`);
-  const themeCategory = mappingContent?._meta?.theme_category;
+  // The tier definition decides the look, so report ITS key — not the base_mapping
+  // duplicate this used to read, which is wrong on 8 of the 82 files that declare it
+  // (this panel said "Heist" for Contracts; the filter styles it "Heist Contracts").
+  let themeCategory: string | undefined;
 
   const availableTiers: any[] = [];
   const tierDefs = tiers[fileName];
@@ -336,6 +358,7 @@ export const mappingInfo = async (fileName: string) => {
     const categoryKey = Object.keys(tierDefs).find(k => !k.startsWith('//'));
     if (categoryKey) {
       const categoryData = tierDefs[categoryKey];
+      themeCategory = resolveThemeKey(categoryData, categoryKey);
       const catLoc = categoryData?._meta?.localization || {};
       const catEn = catLoc.en ?? categoryKey;
       const catCh = catLoc.ch ?? catEn;
@@ -591,13 +614,6 @@ export const saveSettings = async (content: Record<string, any>) => {
   return { message: 'Success' };
 };
 
-export const getCustomOverrides = async () => {
-  const saved = localStorage.getItem('demo_custom_overrides');
-  if (saved) { try { return JSON.parse(saved); } catch { /* fall through */ } }
-  const bundle = await loadBundle();
-  return bundle?.customOverrides ?? {};
-};
-
 /** GET /api/themes - static list + presets saved/imported in this browser */
 export const themesList = async () => {
   let staticThemes: string[] = [];
@@ -629,9 +645,11 @@ export const themeData = async (themeName: string) => {
   return fetchStatic(`theme_${themeName}.json`);
 };
 
-/** Theme as the generator sees it (generate.py load_merged_theme): the preset
- *  selected in settings, with custom_overrides merged per category/tier. */
-export const getMergedTheme = async () => {
+/** The theme the generator resolves: the preset named in settings, falling back to
+ *  sharket. There is no override layer any more -- custom_overrides.json was a
+ *  category x tier patch file on top of the preset, from before the tier block owned
+ *  its look. A preset IS the unit now; the theme board bakes edits into one. */
+export const getActiveTheme = async () => {
   const settings = await getSettings();
   const baseName = settings.base_theme || 'sharket';
   let base: any = null;
@@ -639,8 +657,7 @@ export const getMergedTheme = async () => {
   if (!base || Object.keys(base).length === 0) {
     try { base = (await themeData('sharket'))?.theme_data; } catch { base = {}; }
   }
-  const overrides = await getCustomOverrides();
-  return mergeThemeOverrides(base, overrides);
+  return base || {};
 };
 
 /** GET /api/item-info/{base_type} (main.py get_item_info) */
@@ -671,8 +688,6 @@ export const getConfig = async (configPath: string) => {
     return { content: bundle?.theme ?? {} };
   } else if (configPath === 'theme/sharket/Sharket_sound_map.json') {
     return { content: bundle?.soundMap ?? {} };
-  } else if (configPath === 'theme/custom_overrides.json') {
-    return { content: await getCustomOverrides() };
   } else if (configPath === 'settings.json') {
     return { content: await getSettings() };
   }

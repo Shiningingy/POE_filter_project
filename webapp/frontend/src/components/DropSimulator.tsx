@@ -121,7 +121,6 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
         const settingsRes = await axios.get('/api/settings');
         const baseTheme = settingsRes.data.base_theme || 'sharket';
         const themeRes = await axios.get(`/api/themes/${baseTheme}`);
-        const overridesRes = await axios.get('/api/custom-overrides');
 
         // Served live in both modes (the demo adapter computes it from the
         // bundle + the user's in-browser edits).
@@ -131,7 +130,6 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
 
         setContext({
             theme: themeRes.data.theme_data,
-            overrides: overridesRes.data,
             mappings,
             tierDefinitions,
             globalAreaLevel

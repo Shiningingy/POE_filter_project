@@ -435,7 +435,7 @@ def main() -> None:
 
     if items_to_add.get("Maps/Scarabs.json"):
         print(f"\n=== NOTE: Maps/Scarabs.json is NEW ({len(items_to_add['Maps/Scarabs.json'])} scarabs) ===")
-        print("  Remember to add it to category_structure.yaml under 'Maps & Fragments'.")
+        print("  Remember to add it to category_structure.json under 'Maps & Fragments'.")
 
 
     print(f"\n=== Summary ===")

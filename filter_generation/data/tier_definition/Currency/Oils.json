@@ -17,7 +17,13 @@
     "Tier 1 Oils": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 2,
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级圣油.mp3",
+          300
+        ],
+        "BorderColor": "#00000000",
+        "FontSize": 40
       },
       "sound": {
         "default_sound_id": 1,
@@ -31,7 +37,13 @@
     "Tier 2 Oils": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 3,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/圣油.mp3",
+          300
+        ],
+        "MinimapIcon": "2 Yellow Circle"
       },
       "sound": {
         "default_sound_id": 2,
@@ -45,7 +57,11 @@
     "Tier 3 Oils": {
       "hideable": false,
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "FontSize": 40,
+        "PlayAlertSound": "disabled:",
+        "MinimapIcon": "2 White Circle",
+        "BorderColor": "#00000000"
       },
       "sound": {
         "default_sound_id": -1,
@@ -75,7 +91,13 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0
+        "Tier": 1,
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级圣油.mp3",
+          300
+        ],
+        "BorderColor": "#00000000",
+        "FontSize": 45
       },
       "sound": {
         "default_sound_id": 6,

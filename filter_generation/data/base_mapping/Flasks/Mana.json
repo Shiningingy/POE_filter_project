@@ -23,24 +23,13 @@
     "theme_category": "Mana Flasks"
   },
   "mapping": {
-    "Divine Mana Flask": "Tier 1 Mana Flasks",
-    "Eternal Mana Flask": "Tier 1 Mana Flasks",
-    "Hallowed Mana Flask": "Tier 1 Mana Flasks",
-    "Small Mana Flask": "Tier 1 Mana Flasks",
-    "Medium Mana Flask": "Tier 1 Mana Flasks",
-    "Large Mana Flask": "Tier 1 Mana Flasks",
-    "Greater Mana Flask": "Tier 1 Mana Flasks",
-    "Grand Mana Flask": "Tier 1 Mana Flasks",
-    "Giant Mana Flask": "Tier 1 Mana Flasks",
-    "Colossal Mana Flask": "Tier 1 Mana Flasks",
-    "Sacred Mana Flask": "Tier 1 Mana Flasks",
-    "Sanctified Mana Flask": "Tier 1 Mana Flasks"
+    "Divine Mana Flask": "Tier 2 Mana Flasks",
+    "Eternal Mana Flask": "Tier 2 Mana Flasks"
   },
   "rules": [
     {
       "targets": [],
       "conditions": {
-        "ItemLevel": ">= 82",
         "Quality": ">= 20",
         "Class": "== \"Mana Flasks\"",
         "Rarity": "<= Rare"
@@ -49,6 +38,20 @@
         "Tier": "Tier 1 Mana Flasks"
       },
       "comment": "High Quality Mana Flasks"
+    },
+    {
+      "targets": [
+        "Divine Mana Flask",
+        "Eternal Mana Flask"
+      ],
+      "conditions": {
+        "ItemLevel": ">= 82",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier i82 Mana Flasks"
+      },
+      "comment": "i82+ Divine/Eternal (off by default)"
     }
   ]
 }

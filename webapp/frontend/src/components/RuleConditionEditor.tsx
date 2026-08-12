@@ -142,6 +142,7 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
             RULE_FACTOR_LOCALIZATION[key]?.[language] ||
             key;
           const isSelect = tmp?.type === "select";
+          const isRarity = tmp?.type === "rarity";
           const isMulti = tmp?.type === "multiselect";
           const isClass = tmp?.type === "class_picker";
           const isText = tmp?.type === "text";
@@ -172,7 +173,87 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                 </button>
               </div>
               <div className="inputs">
-                {isBool ? (
+                {isRarity ? (
+                  // Rarity is the one condition with two legal spellings, and the
+                  // old single select could express neither of the ones we use:
+                  //   LIST     `Rarity Magic Rare`  - any one of the ticked values
+                  //   COMPARE  `Rarity <= Rare`     - Normal<Magic<Rare<Unique
+                  // `Magic Rare` genuinely needs the list (as one comparison it
+                  // would be >= Magic AND <= Rare, two lines), so both stay.
+                  (() => {
+                    const opts: string[] = tmp.options || ["Normal", "Magic", "Rare", "Unique"];
+                    const raw = (currentVal || "").trim();
+                    const cmp = raw.match(/^(==|!=|<=|>=|<|>)\s*(\S*)$/);
+                    const picked = cmp ? [] : raw.split(/\s+/).filter(Boolean);
+                    const setList = (vals: string[]) =>
+                      updateCondition(globalIndex, key, vals.join(" "));
+                    return (
+                      <div className="rarity-picker">
+                        <div className="rarity-mode">
+                          <button
+                            type="button"
+                            className={`multi-chip ${!cmp ? "on" : ""}`}
+                            onClick={() => !cmp || setList([opts[2]])}
+                          >
+                            {(translations[language] as any).rarityAnyOf || "is one of"}
+                          </button>
+                          <button
+                            type="button"
+                            className={`multi-chip ${cmp ? "on" : ""}`}
+                            onClick={() => cmp || updateCondition(globalIndex, key, "<= Rare")}
+                          >
+                            {(translations[language] as any).rarityCompare || "compare"}
+                          </button>
+                        </div>
+                        {cmp ? (
+                          <div className="rarity-compare">
+                            <select
+                              value={cmp[1]}
+                              onChange={(e) =>
+                                updateCondition(globalIndex, key, `${e.target.value} ${cmp[2] || opts[2]}`)
+                              }
+                            >
+                              {["<=", "<", "==", ">", ">=", "!="].map((o) => (
+                                <option key={o} value={o}>{o}</option>
+                              ))}
+                            </select>
+                            <select
+                              value={cmp[2] || opts[2]}
+                              onChange={(e) =>
+                                updateCondition(globalIndex, key, `${cmp[1]} ${e.target.value}`)
+                              }
+                            >
+                              {opts.map((o) => (
+                                <option key={o} value={o}>
+                                  {(translations[language] as any)[o] || o}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+                        ) : (
+                          <div className="multi-picker">
+                            {opts.map((opt) => (
+                              <button
+                                key={opt}
+                                type="button"
+                                className={`multi-chip ${picked.includes(opt) ? "on" : ""}`}
+                                onClick={() =>
+                                  setList(
+                                    picked.includes(opt)
+                                      ? picked.filter((p) => p !== opt)
+                                      : opts.filter((o) => picked.includes(o) || o === opt),
+                                  )
+                                }
+                              >
+                                {(translations[language] as any)[opt] || opt}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })()
+                ) : isBool ? (
                   <select
                     value={currentVal || ""}
                     onChange={(e) =>
@@ -340,10 +421,17 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                                 `RANGE >= ${v1} <= 100`,
                               );
                             else
+                              // SPACE after the operator. PoE rejects `>=10`
+                              // outright and takes the whole filter down with it;
+                              // `>= 10` parses. This picker wrote the unspaced
+                              // form, so it was the SOURCE of every such value in
+                              // the tree — generation normalises on emit, which is
+                              // why nothing ever shipped broken and nothing ever
+                              // pointed here.
                               updateCondition(
                                 globalIndex,
                                 key,
-                                `${newOp}${v1}`,
+                                `${newOp} ${v1}`,
                               );
                           }}
                         >
@@ -359,7 +447,7 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                         <StableInput
                           value={v1}
                           onChange={(v) =>
-                            updateCondition(globalIndex, key, `${op1}${v}`)
+                            updateCondition(globalIndex, key, `${op1} ${v}`)
                           }
                         />
                       </>

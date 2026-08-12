@@ -1,0 +1,20 @@
+{
+  "//": "Mapping side of the class nets. There are no bases here BY DESIGN — every tier is a `class_condition`, matching on Class alone. This file exists because the generator iterates categories from base_mapping (filterGenerator.ts:188), so a category with no mapping file never emits at all.",
+  "//gen_order": "⚠️ 1000 IS LOAD-BEARING. Categories sort by `_meta.gen_order` ascending, then by filename; the values in use elsewhere run -110..5, so 1000 puts every net behind every real category. First-match-wins means a net that emits early eats the curated blocks it was meant to back up — `Stackable Currency` alone is curated across 18 files. Do not lower this, and do not give a net a per-category home.",
+  "_meta": {
+    "item_class": {
+      "en": "Class Nets",
+      "ch": "兜底层"
+    },
+    "localization": {
+      "en": "Class Nets",
+      "ch": "兜底层",
+      "ch_items": {}
+    },
+    "theme_category": "Class Nets",
+    "match_modes": {},
+    "gen_order": 1000
+  },
+  "mapping": {},
+  "rules": []
+}

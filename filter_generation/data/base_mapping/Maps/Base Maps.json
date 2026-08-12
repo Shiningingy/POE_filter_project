@@ -42,18 +42,78 @@
   },
   "rules": [
     {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "Rarity": "<= Rare",
+        "MapTier": "RANGE >= 1 <= 5",
+        "AreaLevel": ">= 78"
+      },
+      "overrides": {
+        "Tier": "Tier Hide Base Maps"
+      },
+      "comment": "白图隐藏 (running T11+)",
+      "_generated": "progression_mute"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "Rarity": "<= Rare",
+        "MapTier": "RANGE >= 6 <= 10",
+        "AreaLevel": ">= 83"
+      },
+      "overrides": {
+        "Tier": "Tier Hide Base Maps"
+      },
+      "comment": "黄图隐藏 (running T16)",
+      "_generated": "progression_mute"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "HasInfluence": "Crusader Hunter Redeemer Warlord"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/圣战地图.mp3",
+          300
+        ],
+        "BackgroundColor": "#d2c4c2f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 45
+      },
+      "comment": "Conquer Influenced Maps · red",
+      "localization": {
+        "en": "Influenced Maps",
+        "ch": "势力地图"
+      },
+      "_generated": "map_specials"
+    },
+    {
       "comment": "T17 Maps",
       "localization": {
         "en": "T17 Maps",
         "ch": "T17 地图"
       },
-      "targets": [],
+      "targets": [
+        "Nightmare Map"
+      ],
       "conditions": {
         "Class": "== \"Maps\"",
-        "MapTier": "== 17"
+        "Rarity": "<= Rare"
       },
       "overrides": {
-        "Tier": "Tier 0 Base Maps"
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/天灾地图.mp3",
+          300
+        ],
+        "TextColor": "#78148cff",
+        "PlayEffect": "Purple",
+        "MinimapIcon": "0 Purple Square"
       }
     },
     {
@@ -69,137 +129,137 @@
         "MapTier": ">= 16"
       },
       "overrides": {
-        "Tier": "Tier 0 Base Maps"
-      }
-    },
-    {
-      "comment": "Conquer Influenced Maps",
-      "localization": {
-        "en": "Influenced Maps",
-        "ch": "势力地图"
-      },
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "HasInfluence": "Crusader Hunter Redeemer Warlord"
-      },
-      "overrides": {
         "Tier": "Tier 0 Base Maps",
         "PlayAlertSound": [
-          "Sharket掉落音效/圣战地图.mp3",
+          "Sharket掉落音效/瓦尔密殿.mp3",
           300
         ]
       }
     },
     {
-      "comment": "Zana Memory",
-      "localization": {
-        "en": "Zana Memory",
-        "ch": "扎娜的记忆"
+      "targets": [
+        "Shaper Guardian Map"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/塑界地图.mp3",
+          300
+        ]
       },
+      "comment": "Override for Shaper Guardian Map @ Tier 0 Base Maps",
+      "sound_scope": true
+    },
+    {
+      "targets": [
+        "Valdo Map"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "PlayAlertSound": [
+          "Sharket掉落音效/超级天灾地图.mp3",
+          300
+        ],
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#781464ff",
+        "MinimapIcon": "0 Purple Square",
+        "PlayEffect": "Purple"
+      },
+      "comment": "Valdo Maps"
+    },
+    {
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
         "ZanaMemory": "True"
       },
       "overrides": {
-        "Tier": "Tier 0 Base Maps"
-      }
+        "Tier": "Tier 0 Base Maps",
+        "BackgroundColor": "#d2c4c2f0",
+        "FontSize": 45,
+        "TextColor": "#78148cff"
+      },
+      "comment": "Zana Memory · red",
+      "localization": {
+        "en": "Zana Memory",
+        "ch": "扎娜的记忆"
+      },
+      "_generated": "map_specials"
     },
     {
-      "comment": "Enchanted Maps",
+      "targets": [],
+      "conditions": {
+        "Class": "== \"Maps\"",
+        "AnyEnchantment": "True",
+        "MapTier": ">= 11",
+        "Rarity": "<= Rare"
+      },
+      "overrides": {
+        "Tier": "Tier 0 Base Maps",
+        "BackgroundColor": "#d2c4c2f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "Enchanted Maps · red",
       "localization": {
         "en": "Enchanted Maps",
         "ch": "附魔地图"
       },
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "AnyEnchantment": "True"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Base Maps"
-      }
+      "_generated": "map_specials"
     },
     {
-      "comment": "8-Mod Corrupted Maps",
-      "localization": {
-        "en": "8-Mod Corrupted Maps",
-        "ch": "8 词缀污染地图"
-      },
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
         "Corrupted": "True",
-        "Identified": "True"
+        "Identified": "True",
+        "MapTier": ">= 11",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Base Maps",
         "PlayAlertSound": [
-          "Sharket掉落音效/超级天灾地图.mp3",
+          "Sharket掉落音效/特殊地图.mp3",
           300
-        ]
-      }
+        ],
+        "BackgroundColor": "#d2c4c2f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 40
+      },
+      "comment": "8-Mod Corrupted Maps · red",
+      "localization": {
+        "en": "8-Mod Corrupted Maps",
+        "ch": "8 词缀污染地图"
+      },
+      "_generated": "map_specials"
     },
     {
-      "comment": "T16 Maps",
-      "localization": {
-        "en": "T16 Maps",
-        "ch": "T16 地图"
-      },
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "MapTier": "== 16"
+        "MapTier": "== 16",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 1 Base Maps"
-      }
+      },
+      "comment": "T16",
+      "_generated": "map_tier_ramp"
     },
     {
-      "comment": "Red Maps (T11-T15)",
-      "localization": {
-        "en": "Red Maps (T11-T15)",
-        "ch": "红色地图 (T11-T15)"
-      },
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "MapTier": "RANGE >= 11 <= 15"
+        "MapTier": "RANGE >= 11 <= 15",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 2 Base Maps"
-      }
-    },
-    {
-      "comment": "Yellow Maps (T6-T10)",
-      "localization": {
-        "en": "Yellow Maps (T6-T10)",
-        "ch": "黄色地图 (T6-T10)"
       },
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "RANGE >= 6 <= 10"
-      },
-      "overrides": {
-        "Tier": "Tier 3 Base Maps"
-      }
-    },
-    {
-      "comment": "White Maps (T1-T5)",
-      "localization": {
-        "en": "White Maps (T1-T5)",
-        "ch": "白色地图 (T1-T5)"
-      },
-      "targets": [],
-      "conditions": {
-        "Class": "== \"Maps\"",
-        "MapTier": "RANGE >= 1 <= 5"
-      },
-      "overrides": {
-        "Tier": "Tier 4 Base Maps"
-      }
+      "comment": "11-15",
+      "_generated": "map_tier_ramp"
     },
     {
       "disabled": true,
@@ -223,31 +283,22 @@
       "targets": [],
       "conditions": {
         "Class": "== \"Maps\"",
-        "ElderMap": "True"
+        "MapTier": ">= 11",
+        "HasInfluence": "Elder",
+        "Rarity": "<= Rare"
       },
       "overrides": {
         "Tier": "Tier 0 Base Maps",
         "PlayAlertSound": [
           "Sharket掉落音效/裂界地图.mp3",
           300
-        ]
+        ],
+        "BackgroundColor": "#d2c4c2f0",
+        "TextColor": "#6e148cff",
+        "FontSize": 45
       },
-      "comment": "Elder Maps"
-    },
-    {
-      "targets": [
-        "Shaper Guardian Map"
-      ],
-      "conditions": {},
-      "overrides": {
-        "Tier": "Tier 0 Base Maps",
-        "PlayAlertSound": [
-          "Sharket掉落音效/塑界地图.mp3",
-          300
-        ]
-      },
-      "comment": "Override for Shaper Guardian Map @ Tier 0 Base Maps",
-      "sound_scope": true
+      "comment": "Elder Maps · red",
+      "_generated": "map_specials"
     },
     {
       "targets": [
@@ -280,6 +331,30 @@
       },
       "comment": "日志",
       "raw": "Rarity <= Rare"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "<= Rare",
+        "MapTier": "RANGE >= 1 <= 5",
+        "AreaLevel": "<= 77"
+      },
+      "overrides": {
+        "Tier": "Tier 4 Base Maps"
+      },
+      "comment": "1-5"
+    },
+    {
+      "targets": [],
+      "conditions": {
+        "Rarity": "<= Rare",
+        "MapTier": "RANGE >= 6 <= 10",
+        "AreaLevel": "<= 82"
+      },
+      "overrides": {
+        "Tier": "Tier 3 Base Maps"
+      },
+      "comment": "6-10"
     }
   ]
 }

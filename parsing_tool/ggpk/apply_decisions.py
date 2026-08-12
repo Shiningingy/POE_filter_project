@@ -169,7 +169,7 @@ def main() -> None:
     total = sum(len(v) for v in planned.values())
     if args.write:
         print(f"\nWrote {total} entries across {len(planned)} files.")
-        print("Next: python filter_generation/generate.py --mode ruthless")
+        print("Next: node filter_generation/generate.mjs --mode ruthless")
     else:
         print(f"\nDry run - nothing written. {total} entries across {len(planned)} files.")
         print("Re-run with --write to apply.")

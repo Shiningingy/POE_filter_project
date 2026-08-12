@@ -1,0 +1,119 @@
+{
+  "Breach": {
+    "_meta": {
+      "theme_category": "Breach",
+      "localization": {
+        "en": "Breach",
+        "ch": "裂隙"
+      },
+      "tier_order": [
+        "Tier 0 Breach",
+        "Tier 1 Breach",
+        "Tier 2 Breach",
+        "Tier 3 Breach",
+        "Tier Hide Breach"
+      ]
+    },
+    "Tier 0 Breach": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 0,
+        "FontSize": 45,
+        "TextColor": "#7c1d66ff",
+        "BorderColor": "#b62b95ff",
+        "BackgroundColor": "#f8f8f2ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "0 White Star"
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T0: Flawless/Blessing",
+        "ch": "T0: 无瑕裂隙石/祝福"
+      }
+    },
+    "Tier 1 Breach": {
+      "hideable": false,
+      "theme": {
+        "Tier": 1,
+        "FontSize": 45,
+        "TextColor": "#ffffffff",
+        "BorderColor": "#410b35ff",
+        "BackgroundColor": "#c62fa3ff",
+        "PlayEffect": "White",
+        "MinimapIcon": "1 White Diamond"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "高级通货.mp3"
+      },
+      "localization": {
+        "en": "T1: High Breach",
+        "ch": "T1: 高级裂隙通货"
+      }
+    },
+    "Tier 2 Breach": {
+      "hideable": false,
+      "theme": {
+        "Tier": 2,
+        "FontSize": 40,
+        "TextColor": "#f3cdebff",
+        "BorderColor": "#e58fd1ff",
+        "BackgroundColor": "#9d2581ff"
+      },
+      "sound": {
+        "default_sound_id": 2,
+        "sharket_sound_id": "通货.mp3"
+      },
+      "localization": {
+        "en": "T2: Standard Breach",
+        "ch": "T2: 常用裂隙通货"
+      }
+    },
+    "Tier 3 Breach": {
+      "hideable": false,
+      "theme": {
+        "Tier": 3,
+        "FontSize": 40,
+        "TextColor": "#e283ccff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#3e0f33ff",
+        "PlayEffect": "Red",
+        "PlayAlertSound": [
+          "Default/AlertSound3.mp3",
+          300
+        ]
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": "裂片.mp3"
+      },
+      "localization": {
+        "en": "T3: Splinters",
+        "ch": "T3: 裂隙裂片"
+      }
+    },
+    "Tier Hide Breach": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9,
+        "FontSize": 30,
+        "TextColor": "#e283ccff",
+        "BorderColor": "#00000000",
+        "BackgroundColor": "#080207ff"
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

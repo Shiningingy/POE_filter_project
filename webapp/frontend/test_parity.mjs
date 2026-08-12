@@ -165,7 +165,10 @@ for (const q of ['chaos', 'ring', '精华', 'orb']) {
 }
 
 console.log('mapping-info parity:');
-for (const f of ['Currency/General.json', 'Equipment/Weapons/Bows.json']) {
+// `Equipment/Weapons/Bows.json` used to be the second fixture. The equipment reshape
+// collapsed 23 per-class files into one, so the test was asking both sides about a file
+// neither has — and getting a matching "not found" would have been a false PASS anyway.
+for (const f of ['Currency/General.json', 'Equipment/Rare Equipment.json']) {
   try {
     const be = await backendGet(`/api/mapping-info/${f}`);
     const cl = await client.mappingInfo(f);
@@ -197,14 +200,13 @@ console.log('misc endpoints:');
   report('simulator-bundle', simOk, simMsg);
 
   report('settings', deepEqual(await backendGet('/api/settings'), await client.getSettings()));
-  report('custom-overrides', deepEqual(await backendGet('/api/custom-overrides'), await client.getCustomOverrides()));
   report('themes list', deepEqual(await backendGet('/api/themes'), await client.themesList()));
   report('sound-map', deepEqual(await backendGet('/api/sound-map'), await client.getSoundMap()));
   report('item-info Chaos Orb', deepEqual(await backendGet('/api/item-info/Chaos%20Orb'), await client.itemInfo('Chaos Orb')));
   const beBonus = await backendGet('/api/bonus-info');
   const clBonus = await client.loadBonusInfo();
   report('bonus-info', deepEqual(beBonus, clBonus));
-  report('merged theme = generate.py theme source', typeof (await client.getMergedTheme()) === 'object');
+  report('active theme = generator theme source', typeof (await client.getActiveTheme()) === 'object');
 }
 
 console.log('VFS edit behavior (client-side only):');

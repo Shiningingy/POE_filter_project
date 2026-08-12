@@ -4,7 +4,7 @@ import { useTranslation, CLASS_KEY_MAP, CLASS_CH } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import SoundPicker from './SoundPicker';
 import LoadingOverlay from './LoadingOverlay';
-import { fetchTierLabelMap } from '../utils/tierLabels';
+import { fetchTierLabelMap, fetchThemeKeyByPath } from '../utils/tierLabels';
 import MinimapIconPicker, { getIconStyle, formatMinimapIcon } from './MinimapIconPicker';
 import PlayEffectPicker, { formatPlayEffect } from './PlayEffectPicker';
 import { getAssetUrl } from '../utils/assetUtils';
@@ -34,8 +34,22 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   const [overridesData, setOverridesData] = useState<any>({});
   const [navGroups, setNavGroups] = useState<any[]>([]);
 
-  // selectedCategory holds the THEME RESOLUTION KEY (target_category / theme_category),
-  // not the display name. "Default" is the global fallback bucket.
+  // tier-definition path -> theme resolution key, straight from the tier definitions.
+  // `themeKeysLoaded` gates the nav: a leaf's bucket is unknown until this arrives, and
+  // rendering leaves before it would either hide them or guess a key. Set on success AND
+  // on failure - a failed fetch must degrade to a visible, disabled nav, never to an
+  // endless spinner (fetchThemeKeyByPath swallows its own errors and returns {}).
+  //
+  // ⚠️ MUST be declared above `leafKey` and the memos that call it. These are `const`
+  // bindings, so a memo running during render that reads them from higher up the file
+  // throws "Cannot access 'themeKeyByPath' before initialization" — which is exactly what
+  // happened, and it only showed up when the board was opened in a browser: tsc, the
+  // fixtures and the equivalence test were all still green.
+  const [themeKeyByPath, setThemeKeyByPath] = useState<Record<string, string>>({});
+  const [themeKeysLoaded, setThemeKeysLoaded] = useState(false);
+
+  // selectedCategory holds the THEME RESOLUTION KEY (the tier definition's
+  // theme_category), not the display name. "Default" is the global fallback bucket.
   const [selectedCategory, setSelectedCategory] = useState<string>('Default');
   // selectedLeaf tracks the clicked nav leaf by its unique path (or '__default__')
   // so the active highlight is per-leaf — several leaves can share one resolution key.
@@ -92,12 +106,29 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
     return out;
   }, [navGroups, language]);
 
+  /**
+   * ★ The theme bucket a nav leaf edits — resolved from the leaf's TIER DEFINITION,
+   * which is what the generator reads.
+   *
+   * This used to be `f.target_category`, a value hand-typed into both the nav yaml and
+   * the compiled .json (that yaml is retired — see
+   * filter_generation/archive/retired-code/). It had drifted on 13 of 92 leaves,
+   * and because this key is the board's read AND write key, on those leaves the board
+   * showed a look the filter does not emit and banked edits into a bucket nothing
+   * reads — or, worse, into another category's real bucket (editing Contracts restyled
+   * every Map). See filterStyle.resolveThemeKey.
+   *
+   * Until the map loads we return '' rather than guessing, so a leaf is never
+   * momentarily bound to the wrong bucket and saved there.
+   */
+  const leafKey = (f: any): string => (f?.tier_path ? themeKeyByPath[f.tier_path] || '' : '');
+
   const navFilter = navQuery.trim().toLowerCase();
   const searchHits = useMemo(() => {
     if (!navFilter) return [];
     const hit = (s?: string) => !!s && s.toLowerCase().includes(navFilter);
     return allLeaves.filter(({ f, crumb }) =>
-      hit(f.target_category || f.localization?.en) ||
+      hit(leafKey(f) || f.localization?.en) ||
       hit(f.localization?.[language]) ||
       hit(f.localization?.en) ||
       hit(f.path) ||
@@ -146,17 +177,20 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [themesRes, settingsRes, overridesRes, navRes] = await Promise.all([
+        const [themesRes, settingsRes, navRes] = await Promise.all([
             axios.get('/api/themes'),
             axios.get('/api/settings'),
-            axios.get('/api/custom-overrides'),
             axios.get('/api/category-structure')
         ]);
         setThemes(themesRes.data.themes || []);
         const base = settingsRes.data.base_theme || 'sharket';
         setCurrentThemeInUse(base);
         setActiveTheme(base);
-        setOverridesData(overridesRes.data || {});
+        // overridesData starts empty and stays SESSION-LOCAL: it is this editor's
+        // working buffer, not a stored layer. custom_overrides.json used to persist
+        // it and the generator merged it over the preset — a patch file keyed by
+        // category × tier, from before the tier block owned its look. Edits are now
+        // banked by "save as preset", which writes a real theme file.
         setNavGroups(navRes.data.categories || []);
       } catch (e) { console.error(e); }
     };
@@ -165,6 +199,12 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
   // Tier display names from the tier definitions (shared module cache).
   useEffect(() => { fetchTierLabelMap().then(setTierLabelMap); }, []);
+  // ...and, from the same cached walk, each leaf's theme resolution key.
+  useEffect(() => {
+    fetchThemeKeyByPath()
+      .then(setThemeKeyByPath)
+      .finally(() => setThemeKeysLoaded(true));
+  }, []);
 
   // Fetch Base Theme Data
   useEffect(() => {
@@ -199,16 +239,45 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
   const getTiers = (data: any, cat: string) => sortTierKeys(data?.[cat]);
 
-  // Flat nav leaves keyed by resolution key (target_category), for label lookup + initial select.
+  // Flat nav leaves keyed by resolution key, for label lookup + initial select.
+  // Walks subgroups too — keying only off top-level `files` missed the 10 leaves that
+  // live under one (Heist, and all of League-Specific).
   const navLeaves = useMemo(() => {
       const out: { key: string; label_en: string; label: string }[] = [];
-      navGroups.forEach((g: any) => (g.files || []).forEach((f: any) => {
-          const key = f.target_category || f.localization?.en;
+      allLeaves.forEach(({ f }) => {
+          const key = leafKey(f);
           if (!key) return;
           out.push({ key, label_en: f.localization?.en || key, label: f.localization?.[language] || f.localization?.en || key });
-      }));
+      });
       return out;
-  }, [navGroups, language]);
+  }, [allLeaves, language, themeKeyByPath]);
+
+  /**
+   * How many DISTINCT categories share a resolution key — several legitimately do (all 7
+   * Campaign leaves resolve to `Campaign`), and editing one then changes all of them.
+   * That is what the filter actually does, so the board says so rather than implying
+   * each leaf has a private look.
+   *
+   * Keyed by tier_path, not by label: 10 of the 92 nav leaves are the SAME tier file
+   * listed under two nav paths (Contracts appears as both "Maps & Fragments › Heist ›
+   * Contracts" and "Heist Gear › Heist Contracts"). Counting labels made those look like
+   * two categories sharing a look, when they are one category shown twice — a warning
+   * that fires when nothing is shared trains you to ignore it.
+   */
+  const leavesPerKey = useMemo(() => {
+      const seenPath: Record<string, Set<string>> = {};
+      const n: Record<string, string[]> = {};
+      allLeaves.forEach(({ f }) => {
+          const key = leafKey(f);
+          if (!key) return;
+          const path = f.tier_path || f.path;
+          if (!seenPath[key]) { seenPath[key] = new Set(); n[key] = []; }
+          if (seenPath[key].has(path)) return;
+          seenPath[key].add(path);
+          n[key].push(f.localization?.[language] || f.localization?.en || key);
+      });
+      return n;
+  }, [allLeaves, language, themeKeyByPath]);
 
   const catLabel = (cat: string) => {
       if (cat === 'Default') return language === 'ch' ? '默认 (后备样式)' : 'Default (fallback)';
@@ -216,9 +285,22 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
       return leaf?.label || getLocalizedCategory(cat);
   };
 
+  /**
+   * The label of the leaf actually clicked. `catLabel` resolves a KEY, and the first leaf
+   * holding that key wins — so with a shared bucket, clicking "Flask Progression" titled
+   * the panel "Weapon Progression". Name what was clicked; the shared-look pill beside it
+   * names the bucket.
+   */
+  const selectedLeafLabel = useMemo(() => {
+      if (selectedLeaf === '__default__') return null;
+      const hit = allLeaves.find(({ f }) => (f.path || leafKey(f)) === selectedLeaf);
+      if (!hit) return null;
+      return hit.f.localization?.[language] || hit.f.localization?.en || null;
+  }, [allLeaves, selectedLeaf, language, themeKeyByPath]);
+
   // Select a nav leaf: edits the leaf's resolution key but highlights only this leaf.
   const selectLeaf = (f: any) => {
-      const key = f.target_category || f.localization?.en;
+      const key = leafKey(f);
       if (!key) return;
       setSelectedCategory(key);
       setSelectedLeaf(f.path || key);
@@ -227,9 +309,22 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   };
 
   const renderLeaf = (f: any) => {
-      const key = f.target_category || f.localization?.en;
-      if (!key) return null;
-      const label = f.localization?.[language] || f.localization?.en || key;
+      const key = leafKey(f);
+      const label = f.localization?.[language] || f.localization?.en || f.path || '?';
+      // A leaf whose tier file did not resolve has no bucket to edit. Show it greyed with
+      // the reason rather than dropping it: a silently missing nav row is indistinguishable
+      // from "this category does not exist", and the validator's check_nav flags the same
+      // condition at build time.
+      if (!key) {
+          return (
+              <div key={f.path || label} className="category-item file-leaf unresolved"
+                   title={language === 'ch'
+                     ? `无法解析主题分类：找不到 ${f.tier_path}`
+                     : `no theme category: ${f.tier_path} did not load`}>
+                  {label} ⚠
+              </div>
+          );
+      }
       const id = f.path || key;
       return (
           <div
@@ -361,11 +456,10 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
           await axios.post(`/api/themes/${name}`, { theme_data: merged });
           setThemes(prev => prev.includes(name) ? prev : [...prev, name]);
           setShowSavePreset(false);
-          // Opt-in: make the new preset the base theme and reset the override
-          // layer (visually identical — the overrides were baked into the preset).
+          // Opt-in: make the new preset the base theme and clear the working buffer
+          // (visually identical — the edits were baked into the preset).
           if (window.confirm(t.hueGenSwitchConfirm)) {
               await axios.post('/api/settings', { base_theme: name });
-              await axios.post('/api/custom-overrides', {});
               setOverridesData({});
               setUnsavedOverrides(false);
               setActiveTheme(name);
@@ -450,7 +544,8 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
     </div>
   );
 
-  if (!baseThemeData) {
+  // Wait for the tier walk too: until it lands no leaf knows which bucket it edits.
+  if (!baseThemeData || !themeKeysLoaded) {
     return (
       <div className="theme-editor-modal modal-overlay">
         <div className="modal-content main-content-frame">
@@ -496,11 +591,10 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
             {unsavedOverrides && <span className="unsaved-badge">● {t.unsavedOverrides}</span>}
           </div>
           <div className="header-actions">
-             <button className="save-btn primary-action-btn" disabled={!unsavedOverrides} onClick={async () => {
-                 await axios.post('/api/custom-overrides', overridesData);
-                 setUnsavedOverrides(false);
-                 alert(t.overridesSaved);
-             }}>💾 {t.saveOverrides}</button>
+             {/* Banking edits means writing a preset. There is no override layer to
+                 save to any more, and the merged-preset path was already lossless. */}
+             <button className="save-btn primary-action-btn" disabled={!unsavedOverrides}
+                     onClick={() => setShowSavePreset(true)}>💾 {t.hueGenSaveAsPreset}</button>
              <button className="close-btn" onClick={onClose}>×</button>
           </div>
         </div>
@@ -530,7 +624,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                   </div>
                 ) : (
                   searchHits.map(({ f, crumb }) => {
-                    const key = f.target_category || f.localization?.en;
+                    const key = leafKey(f);
                     const id = f.path || key;
                     const label = f.localization?.[language] || f.localization?.en || key;
                     return (
@@ -572,7 +666,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                 // Auto-flatten a single-file, no-subgroup group into one clickable row.
                 if (!hasSub && directFiles.length === 1) {
                   const f = directFiles[0];
-                  const key = f.target_category || f.localization?.en;
+                  const key = leafKey(f);
                   const id = f.path || key;
                   const gLabel = group._meta?.localization?.[language] || group._meta?.localization?.en || f.localization?.[language] || key;
                   return (
@@ -630,7 +724,20 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
           <div className="preview-area" onClick={() => { setEditingTier(null); setIsBulkEditing(false); }} style={getBackgroundStyle()}>
             <div className="preview-header">
-              <h3>{catLabel(selectedCategory)}</h3>
+              <h3>{selectedLeafLabel || catLabel(selectedCategory)}</h3>
+              {/* Several nav leaves can resolve to one theme key (all 7 Campaign leaves
+                  do). Editing here changes every one of them, so name them rather than
+                  let the author discover it in the exported filter. */}
+              {(leavesPerKey[selectedCategory]?.length ?? 0) > 1 && (
+                <span
+                  className="shared-key-note"
+                  title={leavesPerKey[selectedCategory].join(' · ')}
+                >
+                  {language === 'ch'
+                    ? `共用样式「${selectedCategory}」，同时影响 ${leavesPerKey[selectedCategory].length} 个分类`
+                    : `shared look "${selectedCategory}" — also affects ${leavesPerKey[selectedCategory].length - 1} other ${leavesPerKey[selectedCategory].length - 1 === 1 ? 'category' : 'categories'}`}
+                </span>
+              )}
               <BackgroundSwitcher />
               <button className="hue-gen-btn primary-action-btn" onClick={(e) => { e.stopPropagation(); setShowHueGenerator(true); }}>
                 🎛 {t.hueGenOpen}
@@ -904,6 +1011,10 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                     language={language}
                     onClose={() => setShowSoundPicker(false)}
                     initialPath={activeStyle?.PlayAlertSound?.[0]}
+                    // Without this the picker opened at the default volume, so
+                    // confirming without touching the slider silently rewrote a
+                    // tuned 100 or 200 as 300.
+                    initialVolume={activeStyle?.PlayAlertSound?.[1]}
                     onConfirm={(path, vol) => {
                         handleUpdateStyle('PlayAlertSound', [path, vol]);
                         setShowSoundPicker(false);
@@ -980,6 +1091,17 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
         .leaf-crumb { font-size: 0.68rem; color: #aaa; }
         .category-item.active .leaf-crumb { color: rgba(255,255,255,0.75); }
 
+        /* "this look is shared with N other categories" — a warning, not decoration:
+           it is the difference between editing one category and editing seven. */
+        .shared-key-note { font-size: 0.72rem; color: #b26a00; background: #fff5e0; border: 1px solid #f0d18a;
+                           border-radius: 10px; padding: 2px 9px; white-space: nowrap; cursor: help; align-self: center; }
+
+        /* Keep the title on one line - the shared-look pill next to it was squeezing it. */
+        .preview-header h3 { flex-shrink: 0; white-space: nowrap; margin: 0; }
+
+        /* A leaf whose tier file did not resolve: visible, but not clickable into a bucket. */
+        .category-item.unresolved { color: #bbb; cursor: not-allowed; font-style: italic; }
+
         /* Sits over the right border so the whole edge is grabbable. */
         .resize-handle { position: absolute; top: 0; right: -3px; width: 7px; height: 100%; cursor: col-resize; z-index: 5; background: transparent; }
         .resize-handle:hover { background: rgba(33,150,243,0.25); }
@@ -1000,7 +1122,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
         .override-dot { color: #ff9800; font-weight: bold; font-size: 1.5rem; line-height: 0.5; }
         
         .preview-area { flex: 1; padding: 30px; overflow-y: auto; background-color: #111; color: #eee; display: flex; flex-direction: column; align-items: center; background-size: cover; background-position: center; transition: background 0.3s; }
-        .preview-header { width: 100%; max-width: 700px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 15px; }
+        .preview-header { width: 100%; max-width: 700px; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 15px; }
         .theme-badge { background: #222; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; color: #888; border: 1px solid #333; }
         
         .bg-picker { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; background: rgba(255,255,255,0.1); border-radius: 6px; }

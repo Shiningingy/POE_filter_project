@@ -1,14 +1,15 @@
-// Shared theme helpers. Extracted from three byte-identical inline copies
-// (clientData.getMergedTheme, EditorView.loadTheme, ThemePresetEditor.handleSaveAsPreset)
-// so the base+overrides merge lives in one place.
+// Shared theme helpers.
+//
+// The stored override layer is retired: nothing merges a patch file over the active
+// preset any more. This survives as the theme board's ONE remaining use — folding its
+// session-local edit buffer into the base theme to write a new preset.
 
 type ThemeMap = Record<string, Record<string, any>>;
 
 /**
  * Deep-merge custom overrides onto a base theme, per category → tier.
- * Mirrors the generator's merge (generate.py load_merged_theme): the base is
- * deep-cloned (never mutated), then each override style is shallow-merged onto
- * the matching base tier, creating the category/tier if absent.
+ * The base is deep-cloned (never mutated), then each override style is
+ * shallow-merged onto the matching base tier, creating the category/tier if absent.
  */
 export function mergeThemeOverrides(
   base: ThemeMap | null | undefined,

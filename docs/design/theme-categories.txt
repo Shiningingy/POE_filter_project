@@ -1,0 +1,78 @@
+The 75 live theme categories, with how many real rungs each has and which tier files
+feed it. Map each to one of the 17 accents - several may share one.
+
+Amulets                      5 rung(s)   Equipment/Jewellery/Amulets.json
+Belts                        5 rung(s)   Equipment/Jewellery/Belts.json
+Body Armours                 10 rung(s)   Equipment/Armour/Body Armours.json, Equipment/Special/Fractured.json, 
+Boots                        5 rung(s)   Equipment/Armour/Boots.json
+Bows                         5 rung(s)   Equipment/Weapons/Bows.json
+Breach                       4 rung(s)   Currency/_archived/Breach.json
+Breach Grasping Mail         1 rung(s)   Equipment/League/Breach Grasping Mail.json
+Campaign                     62 rung(s)   _campaign/10 Weapon Progression.json, _campaign/20 Armour Progression.
+Chancing                     1 rung(s)   Equipment/VendorRecipes/Chancing.json
+Claws                        5 rung(s)   Equipment/Weapons/Claws.json
+Corpses                      5 rung(s)   Currency/Corpses.json
+Crafting Bases               7 rung(s)   Equipment/Crafting Priority.json
+Curse of the Allflame        8 rung(s)   Curse of the Allflame/Bottles.json, Curse of the Allflame/Ducats.json,
+Daggers                      5 rung(s)   Equipment/Weapons/Daggers.json
+Delirium Orbs                1 rung(s)   Currency/Delirium Orbs.json
+Enshrouded Gear              1 rung(s)   Curse of the Allflame/Enshrouded Gear.json
+Enshrouding Crystals         1 rung(s)   Currency/Enshrouding Crystals.json
+Essences                     4 rung(s)   Currency/Essences.json
+Expedition Ward-Bases        1 rung(s)   Equipment/League/Expedition Ward-Bases.json
+Fossils                      4 rung(s)   Currency/Fossils.json
+General                      8 rung(s)   Currency/General.json
+Gloves                       5 rung(s)   Equipment/Armour/Gloves.json
+Gold                         3 rung(s)   Currency/Gold.json
+Harvest                      4 rung(s)   Currency/Harvest.json
+Heist Blueprints             2 rung(s)   Heist/Blueprints.json
+Heist Contracts              2 rung(s)   Heist/Contracts.json
+Heist Currency               2 rung(s)   Currency/Heist Currency.json
+Heist Equipment              5 rung(s)   Heist/Equipment.json
+Heist Experimented           3 rung(s)   Equipment/League/Heist Experimented.json
+Heist Targets                1 rung(s)   Heist/Targets.json
+Helmets                      5 rung(s)   Equipment/Armour/Helmets.json
+Incursion Vials              1 rung(s)   Currency/Incursion Vials.json
+Influenced                   2 rung(s)   Equipment/Special/Influenced.json
+Jewels                       11 rung(s)   Jewels/Abyss Jewels.json, Jewels/Base Jewels.json, Jewels/Cluster Jewe
+Legacy                       1 rung(s)   _legacy/Legacy.json
+Life Flasks                  3 rung(s)   Flasks/Life.json
+Magic Net                    2 rung(s)   Equipment/Magic Net.json
+Mana Flasks                  3 rung(s)   Flasks/Mana.json
+Map Fragments                8 rung(s)   Maps/Fragment Splinters.json, Maps/Fragments.json
+Maps                         5 rung(s)   Maps/Base Maps.json
+Mirror of Kalandra Ring Bases 1 rung(s)   Equipment/League/Mirror Ring Bases.json
+Oils                         4 rung(s)   Currency/Oils.json
+Omens                        3 rung(s)   Currency/Omens.json
+One Hand Axes                5 rung(s)   Equipment/Weapons/One Hand Axes.json
+One Hand Maces               5 rung(s)   Equipment/Weapons/One Hand Maces.json
+One Hand Swords              5 rung(s)   Equipment/Weapons/One Hand Swords.json
+Quest Items                  1 rung(s)   Misc/General.json
+Quivers                      5 rung(s)   Equipment/Armour/Quivers.json
+Relics                       1 rung(s)   Equipment/Relics.json
+Rings                        5 rung(s)   Equipment/Jewellery/Rings.json
+Ritual BaseTypes             2 rung(s)   Equipment/League/Ritual BaseTypes.json
+Rune Daggers                 5 rung(s)   Equipment/Weapons/Rune Daggers.json
+Runegrafts                   3 rung(s)   Currency/Runegrafts.json
+Sacrificial Garbs            1 rung(s)   Equipment/League/Sacrificial Garbs.json
+Scarabs                      5 rung(s)   Maps/Scarabs.json
+Sceptres                     5 rung(s)   Equipment/Weapons/Sceptres.json
+Shields                      5 rung(s)   Equipment/Armour/Shields.json
+Skill Gems                   6 rung(s)   Gems/Skill.json
+States                       1 rung(s)   _decorators/States.json
+Staves                       5 rung(s)   Equipment/Weapons/Staves.json
+Stygian Vise                 2 rung(s)   Equipment/League/Stygian Vise.json
+Support Gems                 4 rung(s)   Gems/Support.json
+Tainted Currency             4 rung(s)   Currency/Tainted Currency.json
+Talismans                    3 rung(s)   Equipment/League/Talismans.json
+Tinctures                    2 rung(s)   Flasks/Tinctures.json
+Trinkets                     5 rung(s)   Equipment/Jewellery/Trinkets.json
+Two Hand Axes                5 rung(s)   Equipment/Weapons/Two Hand Axes.json
+Two Hand Maces               5 rung(s)   Equipment/Weapons/Two Hand Maces.json
+Two Hand Swords              5 rung(s)   Equipment/Weapons/Two Hand Swords.json
+Uniques                      5 rung(s)   Uniques/General.json
+Utility Flasks               3 rung(s)   Flasks/Utility.json
+Vendor Recipes               3 rung(s)   Equipment/VendorRecipes/Recipes.json
+Wands                        5 rung(s)   Equipment/Weapons/Wands.json
+Warstaves                    5 rung(s)   Equipment/Weapons/Warstaves.json
+Wombgifts                    3 rung(s)   Currency/Wombgifts.json

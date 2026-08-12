@@ -16,7 +16,11 @@
     "Tier 1 Omens": {
       "hideable": false,
       "theme": {
-        "Tier": 1
+        "Tier": 3,
+        "PlayAlertSound": [
+          "Sharket掉落音效/预兆.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": 2,
@@ -30,7 +34,11 @@
     "Tier 2 Omens": {
       "hideable": false,
       "theme": {
-        "Tier": 2
+        "Tier": 3,
+        "PlayAlertSound": [
+          "Sharket掉落音效/预兆.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": -1,
@@ -58,7 +66,11 @@
     },
     "Tier 0 Omens": {
       "theme": {
-        "Tier": 0
+        "Tier": 2,
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级预兆.mp3",
+          300
+        ]
       },
       "localization": {
         "en": "T0: Omens",

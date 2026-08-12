@@ -94,16 +94,15 @@
       "show_in_editor": true,
       "theme": {
         "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#ffffffff",
-        "BorderColor": "#ffffffff",
-        "BackgroundColor": "#be6928ff",
-        "PlayEffect": "Brown",
-        "MinimapIcon": "0 Brown Star",
         "PlayAlertSound": [
           "Sharket掉落音效/神装.mp3",
           300
-        ]
+        ],
+        "FontSize": 45,
+        "BackgroundColor": "#ffffffff",
+        "TextColor": "#af6025ff",
+        "MinimapIcon": "0 Brown Star",
+        "PlayEffect": "Brown"
       },
       "conditions": {
         "Rarity": "Unique"
@@ -122,16 +121,15 @@
       "hideable": false,
       "theme": {
         "Tier": 1,
-        "FontSize": 42,
-        "TextColor": "#ffffffff",
-        "BorderColor": "#be6928ff",
-        "BackgroundColor": "#261508ff",
-        "PlayEffect": "Brown",
-        "MinimapIcon": "1 Brown Diamond",
         "PlayAlertSound": [
           "Sharket掉落音效/超级传奇.mp3",
           300
-        ]
+        ],
+        "BackgroundColor": "#350d0dff",
+        "TextColor": "#af6025ff",
+        "FontSize": 45,
+        "MinimapIcon": "0 Brown Star",
+        "PlayEffect": "Brown"
       },
       "conditions": {
         "Rarity": "Unique"
@@ -149,15 +147,15 @@
       "hideable": false,
       "theme": {
         "Tier": 2,
-        "FontSize": 39,
-        "TextColor": "#c88048ff",
-        "BorderColor": "#be6928ff",
-        "BackgroundColor": "#101016ff",
-        "MinimapIcon": "1 Brown Circle",
         "PlayAlertSound": [
           "Sharket掉落音效/高级传奇.mp3",
           300
-        ]
+        ],
+        "FontSize": 45,
+        "BackgroundColor": "#af6025f0",
+        "TextColor": "#000000ff",
+        "MinimapIcon": "1 Brown Star",
+        "PlayEffect": "Brown"
       },
       "conditions": {
         "Rarity": "Unique"
@@ -175,14 +173,15 @@
       "hideable": false,
       "theme": {
         "Tier": 3,
-        "FontSize": 36,
-        "TextColor": "#d29668ff",
-        "BorderColor": "#693a16ff",
-        "BackgroundColor": "#0a0a0dff",
         "PlayAlertSound": [
           "Sharket掉落音效/传奇.mp3",
           300
-        ]
+        ],
+        "FontSize": 45,
+        "BackgroundColor": "#1f1010f0",
+        "TextColor": "#af6025ff",
+        "MinimapIcon": "2 Brown Star",
+        "PlayEffect": "Brown Temp"
       },
       "conditions": {
         "Rarity": "Unique"
@@ -201,14 +200,15 @@
       "hideable": false,
       "theme": {
         "Tier": 3,
-        "FontSize": 36,
-        "TextColor": "#d29668ff",
-        "BorderColor": "#693a16ff",
-        "BackgroundColor": "#0a0a0dff",
         "PlayAlertSound": [
           "Sharket掉落音效/哇哦传奇.mp3",
           300
-        ]
+        ],
+        "FontSize": 40,
+        "BackgroundColor": "#1f1010f0",
+        "TextColor": "#af6025ff",
+        "MinimapIcon": "2 Brown Star",
+        "PlayEffect": "Brown Temp"
       },
       "conditions": {
         "Rarity": "Unique"

@@ -15,12 +15,7 @@
     "Heist Gear T1": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 39,
-        "TextColor": "#bfbf84ff",
-        "BorderColor": "#b4b46eff",
-        "BackgroundColor": "#101016ff",
-        "MinimapIcon": "1 Grey Circle",
+        "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/高级赏金装备.mp3",
           300
@@ -38,11 +33,7 @@
     "Heist Gear T2": {
       "hideable": true,
       "theme": {
-        "Tier": 4,
-        "FontSize": 34,
-        "TextColor": "#a4a488ff",
-        "BorderColor": "#363621ff",
-        "BackgroundColor": "#00000000",
+        "Tier": 5,
         "PlayAlertSound": [
           "Sharket掉落音效/赏金装备.mp3",
           300
@@ -71,36 +62,6 @@
         "en": "Hide",
         "ch": "隐藏"
       }
-    },
-    "Tier 0 Heist Equipment": {
-      "theme": {
-        "Tier": 0
-      },
-      "localization": {
-        "en": "T0: Heist Equipment",
-        "ch": "T0: 赏金猎人装备"
-      },
-      "show_in_editor": true
-    },
-    "Tier 1 Heist Equipment": {
-      "theme": {
-        "Tier": 1
-      },
-      "localization": {
-        "en": "T1: Heist Equipment",
-        "ch": "T1: 赏金猎人装备"
-      },
-      "show_in_editor": true
-    },
-    "Tier 3 Heist Equipment": {
-      "theme": {
-        "Tier": 3
-      },
-      "localization": {
-        "en": "T3: Heist Equipment",
-        "ch": "T3: 赏金猎人装备"
-      },
-      "show_in_editor": true
     }
   }
 }

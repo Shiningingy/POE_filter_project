@@ -11,6 +11,9 @@
         "Tier 1 Cluster Jewels",
         "Tier 2 Cluster Jewels",
         "Tier 3 Cluster Jewels",
+        "Tier 4 Cluster Jewels",
+        "Tier 5 Cluster Jewels",
+        "Tier 6 Cluster Jewels",
         "Tier Hide Cluster Jewels"
       ]
     },
@@ -18,83 +21,156 @@
       "hideable": false,
       "show_in_editor": false,
       "theme": {
-        "Tier": 0,
-        "FontSize": 45,
-        "TextColor": "#7f1a49ff",
-        "BorderColor": "#ba266bff",
-        "BackgroundColor": "#f8f8f2ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "0 White Star",
-        "PlayAlertSound": [
-          "Sharket掉落音效/高级星团珠宝.mp3",
-          200
-        ]
+        "Tier": 1
       },
       "sound": {
         "default_sound_id": 6,
         "sharket_sound_id": "顶级底材.mp3"
       },
       "localization": {
-        "en": "T0: 84+ 群集珠宝",
-        "ch": "T0: 84+ 群集珠宝"
+        "en": "T0: Large 84+ (12 passives)",
+        "ch": "T0: 大型星团珠宝 84+ (12)"
       },
       "conditions": {
         "Rarity": "<= Rare",
-        "ItemLevel": ">= 84"
+        "ItemLevel": ">= 84",
+        "EnchantmentPassiveNum": ">= 12"
       }
     },
     "Tier 1 Cluster Jewels": {
       "hideable": false,
       "theme": {
-        "Tier": 1,
-        "FontSize": 45,
-        "TextColor": "#fcf2f7ff",
-        "BorderColor": "#f4b8d4ff",
-        "BackgroundColor": "#cb2a75ff",
-        "PlayEffect": "White",
-        "MinimapIcon": "1 White Diamond",
-        "PlayAlertSound": [
-          "Sharket掉落音效/星团珠宝.mp3",
-          200
-        ]
+        "Tier": 2
       },
       "sound": {
         "default_sound_id": 1,
         "sharket_sound_id": "高级通货.mp3"
       },
       "localization": {
-        "en": "T1: 68+ 群集珠宝",
-        "ch": "T1: 68+ 群集珠宝"
+        "en": "T1: Large 84+ (<=8 passives)",
+        "ch": "T1: 大型星团珠宝 84+ (<=8)"
       },
       "conditions": {
         "Rarity": "<= Rare",
-        "ItemLevel": ">= 68"
+        "ItemLevel": ">= 84",
+        "EnchantmentPassiveNum": "<= 8"
       }
     },
     "Tier 2 Cluster Jewels": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 40,
-        "TextColor": "#f2c0d7ff",
-        "BorderColor": "#e88db7ff",
-        "BackgroundColor": "#a1215dff",
-        "PlayAlertSound": [
-          "Sharket掉落音效/星团珠宝.mp3",
-          100
-        ]
+        "Tier": 3
       },
       "sound": {
         "default_sound_id": 2,
         "sharket_sound_id": "通货.mp3"
       },
       "localization": {
-        "en": "T2: 50+ 群集珠宝",
-        "ch": "T2: 50+ 群集珠宝"
+        "en": "T2: Large (<=8 passives)",
+        "ch": "T2: 大型星团珠宝 (<=8)"
       },
       "conditions": {
         "Rarity": "<= Rare",
-        "ItemLevel": ">= 50"
+        "EnchantmentPassiveNum": "<= 8"
+      }
+    },
+    "Tier 3 Cluster Jewels": {
+      "hideable": false,
+      "theme": {
+        "Tier": 4,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/高级通货.mp3",
+          300
+        ],
+        "MinimapIcon": "2 Yellow Cross"
+      },
+      "sound": {
+        "default_sound_id": 1,
+        "sharket_sound_id": "高级通货.mp3"
+      },
+      "localization": {
+        "en": "T3: Medium 84+ (<=5 passives)",
+        "ch": "T3: 中型星团珠宝 84+ (<=5)"
+      },
+      "conditions": {
+        "Rarity": "<= Rare",
+        "ItemLevel": ">= 84",
+        "EnchantmentPassiveNum": "<= 5"
+      }
+    },
+    "Tier 4 Cluster Jewels": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 4,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ],
+        "MinimapIcon": "2 White Cross"
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T4: Medium (<=5 passives)",
+        "ch": "T4: 中型星团珠宝 (<=5)"
+      },
+      "conditions": {
+        "Rarity": "<= Rare",
+        "EnchantmentPassiveNum": "<= 5"
+      }
+    },
+    "Tier 5 Cluster Jewels": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 5,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ],
+        "MinimapIcon": "2 Red Cross"
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T5: Small 84+",
+        "ch": "T5: 小型星团珠宝 84+"
+      },
+      "conditions": {
+        "Rarity": "<= Rare",
+        "ItemLevel": ">= 84"
+      }
+    },
+    "Tier 6 Cluster Jewels": {
+      "hideable": false,
+      "show_in_editor": false,
+      "theme": {
+        "Tier": 5,
+        "FontSize": 40,
+        "PlayAlertSound": [
+          "Sharket掉落音效/顶级底材.mp3",
+          300
+        ],
+        "MinimapIcon": "2 White Cross"
+      },
+      "sound": {
+        "default_sound_id": 6,
+        "sharket_sound_id": "顶级底材.mp3"
+      },
+      "localization": {
+        "en": "T6: Other cluster jewels",
+        "ch": "T6: 其余星团珠宝"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
       }
     },
     "Tier Hide Cluster Jewels": {
@@ -110,30 +186,6 @@
       "localization": {
         "en": "Hide",
         "ch": "隐藏"
-      }
-    },
-    "Tier 3 Cluster Jewels": {
-      "hideable": false,
-      "theme": {
-        "Tier": 5,
-        "FontSize": 35,
-        "TextColor": "#e580afff",
-        "BorderColor": "#00000000",
-        "PlayAlertSound": [
-          "Sharket掉落音效/星团珠宝.mp3",
-          200
-        ]
-      },
-      "sound": {
-        "default_sound_id": 1,
-        "sharket_sound_id": "高级通货.mp3"
-      },
-      "localization": {
-        "en": "T3: 低阶群集珠宝",
-        "ch": "T3: 低阶群集珠宝"
-      },
-      "conditions": {
-        "Rarity": "<= Rare"
       }
     }
   }

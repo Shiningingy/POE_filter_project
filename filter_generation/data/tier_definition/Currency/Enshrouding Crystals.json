@@ -14,13 +14,14 @@
     "Enshrouding Crystals": {
       "hideable": false,
       "theme": {
-        "Tier": 2,
-        "FontSize": 38,
-        "TextColor": "#000000ff",
-        "BorderColor": "#c1dcb7ff",
-        "BackgroundColor": "#528240ff",
-        "PlayEffect": "Green",
-        "MinimapIcon": "1 Green Circle"
+        "Tier": 3,
+        "FontSize": 40,
+        "MinimapIcon": "1 White Circle",
+        "PlayAlertSound": [
+          "Sharket掉落音效/一定有好事发生.mp3",
+          300
+        ],
+        "PlayEffect": "White Temp"
       },
       "sound": {
         "default_sound_id": 2,

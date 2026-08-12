@@ -45,7 +45,7 @@ whatever it does is one `git checkout` away from being undone.**
 
 | script | why |
 |---|---|
-| `generate_category_json.py` | **regression.** It has drifted from the checked-in `category_structure.json`. A full recompile rewrites ~716 lines: `_default_target: Stackable Currency` gets stamped on every currency leaf, but `target_category` is the *theme resolution key* (`ThemePresetEditor.tsx:100/206`) and must match the tier file's `_meta.theme_category` — `Essences`, `Fossils`, `Delirium Orbs`. The theme has no `Stackable Currency` key, so recompiling silently points five categories at a key that does not exist and drops them to `Default`. **Edit `category_structure.yaml` AND `.json` by hand** — a nav add/remove is ~10 lines in each. See the comment at the top of the yaml |
+| `generate_category_json.py` | **RETIRED — moved to `filter_generation/archive/retired-code/`**, together with its input `category_structure.yaml`. The yaml had drifted to 27 groups / 111 leaves against the json's 30 / 96: nine groups existed only in the json (the whole Curse of the Allflame chapter, all seven campaign leaves) and six only in the yaml, long dead. Compiling it DELETED a league's content. **`filter_generation/data/category_structure.json` is now the one nav file — edit it directly.** |
 
 ## D. Spent one-shots — already applied, do not re-run
 
