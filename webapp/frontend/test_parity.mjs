@@ -165,7 +165,10 @@ for (const q of ['chaos', 'ring', '精华', 'orb']) {
 }
 
 console.log('mapping-info parity:');
-for (const f of ['Currency/General.json', 'Equipment/Weapons/Bows.json']) {
+// `Equipment/Weapons/Bows.json` used to be the second fixture. The equipment reshape
+// collapsed 23 per-class files into one, so the test was asking both sides about a file
+// neither has — and getting a matching "not found" would have been a false PASS anyway.
+for (const f of ['Currency/General.json', 'Equipment/Rare Equipment.json']) {
   try {
     const be = await backendGet(`/api/mapping-info/${f}`);
     const cl = await client.mappingInfo(f);

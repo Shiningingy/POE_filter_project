@@ -235,17 +235,36 @@ export const tierItems = async (tierKeys: string[], classFilter?: string | null)
         const baseTiers = Array.isArray(tval) ? tval : [tval];
         baseTiers.forEach(t => finalTierEntries.push([t, null]));
       }
+      // A live rule that names this item for a tier CONSUMES it: the generator deletes
+      // every matched target from pendingItems, so the tier's base block never emits it.
+      // The mapping entry and the rule entry are therefore the SAME emitted block, not two.
+      const absorbed = new Set<string>();
       rules.forEach((r, idx) => {
+        // applyToTier makes `targets` DEAD — the generator replaces ruleMatches with the
+        // tier's pending items and never reads them, so a target listed here is not one it
+        // honours and must not become a card of its own.
+        if (r?.applyToTier) return;
         const rt = r?.targets;
         if (Array.isArray(rt) && rt.length > 0 && rt.includes(itemName)) {
           const tOver = r?.overrides?.Tier;
-          if (tOver) finalTierEntries.push([tOver, idx]);
+          if (tOver) {
+            finalTierEntries.push([tOver, idx]);
+            if (!r?.disabled) absorbed.add(tOver);
+          }
         }
       });
 
-      for (const [tierKey, ruleIdx] of finalTierEntries) {
+      // Only the mapping (null) entry is absorbed — two RULES on one tier really do emit
+      // two blocks. Mirrors get_items_by_tier in main.py; without it the deployed site
+      // showed a phantom card for every item a rule already claimed (Tier 7 General read
+      // 14 occurrences against the filter's actual 10).
+      const entries = absorbed.size
+        ? finalTierEntries.filter(([t, r]) => r !== null || !absorbed.has(t))
+        : finalTierEntries;
+
+      for (const [tierKey, ruleIdx] of entries) {
         if (!tierKeySet.has(tierKey)) continue;
-        const currentTiersList = [...new Set(finalTierEntries.map(([t]) => t))];
+        const currentTiersList = [...new Set(entries.map(([t]) => t))];
         let itemMode = 'exact';
         if (ruleIdx !== null) {
           itemMode = rules[ruleIdx]?.targetMatchModes?.[itemName] ?? 'exact';
