@@ -84,8 +84,28 @@ interface SoundBulkEditorProps {
   onJumpToRule?: (filePath: string, ruleIndex?: number) => void;
 }
 
-// occurrence staging key = basetype name + its file
-const occId = (name: string, file: string) => `${name}::${file}`;
+// ★ A SLOT IS (file, TIER) — not (file). A base can sit in several tiers of one file (120 do;
+// Wild Crystallised Lifeforce is in four), and the generator's per-item unit, `item_overrides`,
+// is keyed per TIER. Keying the editor by file collapsed those into one row, so the UI could
+// only say one thing about what the filter emits as several blocks.
+//
+// The picker keys rows off `file`, so a slot travels through it as the composite id below and
+// is split apart on the way back out. That keeps OccurrencePicker unchanged.
+const SLOT_SEP = '@@';
+const slotId = (file: string, tier: string) => `${file}${SLOT_SEP}${tier}`;
+const splitSlot = (id: string): { file: string; tier: string } => {
+  const i = id.lastIndexOf(SLOT_SEP);
+  return i === -1 ? { file: id, tier: '' } : { file: id.slice(0, i), tier: id.slice(i + SLOT_SEP.length) };
+};
+// staging key = basetype name + the slot it is in
+const occId = (name: string, slot: string) => `${name}::${slot}`;
+
+/** Every (file, tier) this base occupies, flattened from its per-file occurrences. */
+const slotsOf = (it: Item): Array<{ id: string; file: string; tier: string; sound: string | null }> =>
+  (it.occurrences || []).flatMap(o =>
+    (o.tiers && o.tiers.length ? o.tiers : ['']).map(tier => ({
+      id: slotId(o.file, tier), file: o.file, tier, sound: o.sound ?? null,
+    })));
 
 const fileLabel = (file: string) => {
   const clean = file.replace(/\.json$/, '');
@@ -163,10 +183,12 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
 
   // Resolve the effective sound for a single occurrence:
   // staged change -> per-file rule sound -> global basetype_sounds.
-  const resolveOccSound = useCallback((name: string, occ: Occurrence): string | undefined => {
-      const st = stagedChanges[occId(name, occ.file)];
+  const resolveOccSound = useCallback((name: string, slot: { id: string; sound: string | null }): string | undefined => {
+      const st = stagedChanges[occId(name, slot.id)];
       if (st !== undefined) return st === '' ? undefined : st;
-      if (occ.sound) return occ.sound;
+      if (slot.sound) return slot.sound;
+      // basetype_sounds is the retired auto-sound store — the generator has never read it, so
+      // it is shown here as a HINT of what was once assigned, never as the live value.
       return soundMap?.basetype_sounds?.[name]?.file || undefined;
   }, [stagedChanges, soundMap]);
 
@@ -193,9 +215,9 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
 
   const usageCounts = useMemo(() => {
       const counts: Record<string, number> = {};
-      items.forEach(it => (it.occurrences || []).forEach(o => {
-          const s = resolveOccSound(it.name, o);
-          if (s) counts[s] = (counts[s] || 0) + 1;
+      items.forEach(it => slotsOf(it).forEach(s => {
+          const snd = resolveOccSound(it.name, s);
+          if (snd) counts[snd] = (counts[snd] || 0) + 1;
       }));
       return counts;
   }, [items, resolveOccSound]);
@@ -212,55 +234,65 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   };
 
   // ---- occurrence helpers ----
-  const stageOcc = (name: string, files: string[], sound: string) => {
-      if (!files.length) return;
+  const stageOcc = (name: string, slots: string[], sound: string) => {
+      if (!slots.length) return;
       setStagedChanges(prev => {
           const n = { ...prev };
-          files.forEach(f => { n[occId(name, f)] = sound; });
+          slots.forEach(s => { n[occId(name, s)] = sound; });
           return n;
       });
   };
 
-  const buildRows = (it: Item, files: string[]): OccurrenceRow[] =>
-      files.map(f => {
-          const o = (it.occurrences || []).find(x => x.file === f)!;
-          return { file: f, label: fileLabel(f), tiers: o?.tiers || [], currentSound: resolveOccSound(it.name, o) || null };
+  // `file` on an OccurrenceRow is the row KEY, and a row is now one slot — so the slot id
+  // travels there and the tier is named in the label, which is what makes two tiers of the
+  // same file tickable apart.
+  const buildRows = (it: Item, slotIds: string[]): OccurrenceRow[] => {
+      const all = slotsOf(it);
+      return slotIds.map(id => {
+          const s = all.find(x => x.id === id)!;
+          return {
+              file: id,
+              label: s.tier ? `${fileLabel(s.file)} · ${s.tier}` : fileLabel(s.file),
+              tiers: s.tier ? [s.tier] : [],
+              currentSound: resolveOccSound(it.name, s) || null,
+          };
       });
+  };
 
   const openAssign = (it: Item, path: string, label?: string) => {
-      const occs = it.occurrences || [];
-      if (occs.length <= 1) { if (occs.length === 1) stageOcc(it.name, [occs[0].file], path); return; }
+      const slots = slotsOf(it);
+      if (slots.length <= 1) { if (slots.length === 1) stageOcc(it.name, [slots[0].id], path); return; }
       setPicker({
           item: it, mode: 'assign', targetSound: path, targetLabel: label,
-          rows: buildRows(it, occs.map(o => o.file)),
-          preChecked: occs.filter(o => resolveOccSound(it.name, o) === path).map(o => o.file)
+          rows: buildRows(it, slots.map(s => s.id)),
+          preChecked: slots.filter(s => resolveOccSound(it.name, s) === path).map(s => s.id)
       });
   };
 
   const openRemove = (it: Item, sourcePath: string | null) => {
-      const occs = it.occurrences || [];
-      const candidates = occs.filter(o => sourcePath ? resolveOccSound(it.name, o) === sourcePath : !!resolveOccSound(it.name, o));
-      if (candidates.length <= 1) { if (candidates.length === 1) stageOcc(it.name, [candidates[0].file], ''); return; }
+      const slots = slotsOf(it);
+      const candidates = slots.filter(s => sourcePath ? resolveOccSound(it.name, s) === sourcePath : !!resolveOccSound(it.name, s));
+      if (candidates.length <= 1) { if (candidates.length === 1) stageOcc(it.name, [candidates[0].id], ''); return; }
       setPicker({
           item: it, mode: 'remove', targetSound: '',
-          rows: buildRows(it, candidates.map(o => o.file)),
-          preChecked: candidates.map(o => o.file)
+          rows: buildRows(it, candidates.map(s => s.id)),
+          preChecked: candidates.map(s => s.id)
       });
   };
 
-  const handlePickerConfirm = (selectedFiles: string[]) => {
+  const handlePickerConfirm = (selectedSlots: string[]) => {
       if (!picker) return;
       const { item, mode, targetSound } = picker;
       setStagedChanges(prev => {
           const n = { ...prev };
           if (mode === 'assign') {
-              (item.occurrences || []).forEach(o => {
-                  const id = occId(item.name, o.file);
-                  if (selectedFiles.includes(o.file)) n[id] = targetSound;
-                  else if (resolveOccSound(item.name, o) === targetSound) n[id] = ''; // unchecked but was on it -> clear
+              slotsOf(item).forEach(s => {
+                  const id = occId(item.name, s.id);
+                  if (selectedSlots.includes(s.id)) n[id] = targetSound;
+                  else if (resolveOccSound(item.name, s) === targetSound) n[id] = ''; // unchecked but was on it -> clear
               });
           } else {
-              selectedFiles.forEach(f => { n[occId(item.name, f)] = ''; });
+              selectedSlots.forEach(s => { n[occId(item.name, s)] = ''; });
           }
           return n;
       });
@@ -332,61 +364,60 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   // Collect committed changes that belong to one column's sound (assignments to it
   // + removals whose prior sound was it).
   const collectColumnChanges = useCallback((path: string) => {
-      const changes: { name: string; file: string; sound: string }[] = [];
+      const changes: { name: string; slot: string; sound: string }[] = [];
       Object.entries(stagedChanges).forEach(([oid, val]) => {
-          const sep = oid.lastIndexOf('::');
+          const sep = oid.indexOf('::');
           const name = oid.slice(0, sep);
-          const file = oid.slice(sep + 2);
+          const slot = oid.slice(sep + 2);
           if (val === path) {
-              changes.push({ name, file, sound: path });
+              changes.push({ name, slot, sound: path });
           } else if (val === '') {
               const it = items.find(i => i.name === name);
-              const o = it?.occurrences?.find(x => x.file === file);
-              const prior = o?.sound || soundMap?.basetype_sounds?.[name]?.file;
-              if (prior === path) changes.push({ name, file, sound: '' });
+              const s = it ? slotsOf(it).find(x => x.id === slot) : undefined;
+              const prior = s?.sound || soundMap?.basetype_sounds?.[name]?.file;
+              if (prior === path) changes.push({ name, slot, sound: '' });
           }
       });
       return changes;
   }, [stagedChanges, items, soundMap]);
 
+  // ★ WRITES AN ITEM CARD, NOT A RULE. This used to append
+  // `{targets:[base], overrides:{PlayAlertSound}, comment:"__SOUND__:base"}` to the file's
+  // rules — the shape auto-sound left behind. Two things were wrong with it: a rule is
+  // file-level, so it could not address one tier of a base that sits in several; and a rule
+  // CONSUMES its targets from pendingItems, so on a multi-tier base it lands in whichever tier
+  // resolves first and the others silently lose the item.
+  //
+  // `/api/update-item-override` writes `tier_definition[cat][tier].item_overrides[base]`, which
+  // is per-tier by construction and is what splitByOverride already splits blocks on.
   const saveColumn = async (sound: SoundDef) => {
       const changes = collectColumnChanges(sound.path);
       if (!changes.length) return;
-      const byFile = new Map<string, { name: string; sound: string }[]>();
-      changes.forEach(c => {
-          const arr = byFile.get(c.file) || [];
-          arr.push({ name: c.name, sound: c.sound });
-          byFile.set(c.file, arr);
-      });
       try {
-          for (const [file, list] of byFile) {
-              const res = await axios.get(`/api/config/base_mapping/${file}`);
-              const data = res.data.content || {};
-              if (!Array.isArray(data.rules)) data.rules = [];
-              list.forEach(({ name, sound: s }) => {
-                  const idx = data.rules.findIndex((r: any) => r && r.comment === `__SOUND__:${name}`);
-                  if (s === '') {
-                      if (idx !== -1) data.rules.splice(idx, 1);
-                  } else {
-                      const rule = { targets: [name], overrides: { PlayAlertSound: [s, 300] }, comment: `__SOUND__:${name}` };
-                      if (idx !== -1) data.rules[idx] = rule; else data.rules.push(rule);
-                  }
+          for (const c of changes) {
+              const { file, tier } = splitSlot(c.slot);
+              if (!tier) continue;   // no tier = nothing to attach a card to; skipped, not guessed
+              await axios.post(`/api/update-item-override`, {
+                  item_name: c.name,
+                  source_file: file,
+                  tier_key: tier,
+                  overrides: c.sound === '' ? {} : { PlayAlertSound: [c.sound, 300] },
+                  remove_keys: c.sound === '' ? ['PlayAlertSound'] : undefined,
               });
-              await axios.post(`/api/config/base_mapping/${file}`, data);
           }
           // optimistic occurrence update + clear committed staged entries
           setItems(prev => prev.map(it => {
               const rel = changes.filter(c => c.name === it.name);
               if (!rel.length) return it;
               const occs = (it.occurrences || []).map(o => {
-                  const c = rel.find(x => x.file === o.file);
+                  const c = rel.find(x => splitSlot(x.slot).file === o.file);
                   return c ? { ...o, sound: c.sound === '' ? null : c.sound } : o;
               });
               return { ...it, occurrences: occs };
           }));
           setStagedChanges(prev => {
               const n = { ...prev };
-              changes.forEach(c => delete n[occId(c.name, c.file)]);
+              changes.forEach(c => delete n[occId(c.name, c.slot)]);
               return n;
           });
           onSave();
@@ -397,7 +428,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
       const changes = collectColumnChanges(path);
       setStagedChanges(prev => {
           const n = { ...prev };
-          changes.forEach(c => delete n[occId(c.name, c.file)]);
+          changes.forEach(c => delete n[occId(c.name, c.slot)]);
           return n;
       });
   };
@@ -414,9 +445,9 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   const poolItemsList = useMemo(() => {
       const searchLower = searchTermPool.toLowerCase();
       return items.filter(it => {
-          const occs = it.occurrences || [];
+          const occs = slotsOf(it);
           if (!occs.length) return false;
-          // show while at least one occurrence is unassigned to an active column
+          // show while at least one slot is unassigned to an active column
           const hasFree = occs.some(o => {
               const s = resolveOccSound(it.name, o);
               return !s || !activeColumns.some(c => c.path === s);
@@ -429,13 +460,13 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   }, [items, resolveOccSound, selectedClass, searchTermPool, activeColumns]);
 
   const getColumnItems = useCallback((path: string) =>
-      items.filter(it => (it.occurrences || []).some(o => resolveOccSound(it.name, o) === path)),
+      items.filter(it => slotsOf(it).some(o => resolveOccSound(it.name, o) === path)),
   [items, resolveOccSound]);
 
-  // badge "k/n" = how many of a basetype's n occurrences resolve to `path`
-  // (shown whenever the basetype spans more than one occurrence, incl. n/n).
+  // badge "k/n" = how many of a basetype's n SLOTS resolve to `path`
+  // (shown whenever the basetype spans more than one slot, incl. n/n).
   const columnBadge = (it: Item, path: string): string | undefined => {
-      const occs = it.occurrences || [];
+      const occs = slotsOf(it);
       if (occs.length <= 1) return undefined;
       const k = occs.filter(o => resolveOccSound(it.name, o) === path).length;
       return `${k}/${occs.length}`;
@@ -443,7 +474,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
 
   // for a pool card: the shared sound (if all occurrences agree) + a multi marker
   const poolCardSound = (it: Item): { sound?: string; badge?: string } => {
-      const occs = it.occurrences || [];
+      const occs = slotsOf(it);
       const sset = new Set(occs.map(o => resolveOccSound(it.name, o) || ''));
       const sound = sset.size === 1 ? ([...sset][0] || undefined) : undefined;
       const badge = occs.length > 1 ? `×${occs.length}` : undefined;
@@ -455,13 +486,14 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
   //  - pool card: occurrences not yet on an active sound column (still assignable)
   //  - column card: only the occurrence(s) actually on that column's sound (selected)
   // Label = the tier block (the rule), falling back to the file label if untiered.
-  const occLabel = (o: Occurrence) => (o.tiers && o.tiers.length) ? o.tiers.join(', ') : fileLabel(o.file);
-  const chipsOf = (occs: Occurrence[]) => occs.map(o => ({ label: occLabel(o) }));
-  const freeOccs = (it: Item) => (it.occurrences || []).filter(o => {
+  type Slot = ReturnType<typeof slotsOf>[number];
+  const occLabel = (o: Slot) => o.tier || fileLabel(o.file);
+  const chipsOf = (occs: Slot[]) => occs.map(o => ({ label: occLabel(o) }));
+  const freeOccs = (it: Item) => slotsOf(it).filter(o => {
       const s = resolveOccSound(it.name, o);
       return !s || !activeColumns.some(c => c.path === s);
   });
-  const occsOnColumn = (it: Item, path: string) => (it.occurrences || []).filter(o => resolveOccSound(it.name, o) === path);
+  const occsOnColumn = (it: Item, path: string) => slotsOf(it).filter(o => resolveOccSound(it.name, o) === path);
 
   // Lazily build a FilterContext (mappings + tier defs + theme + overrides), same
   // shape/source the simulator uses, so we can reuse SimulatorRulePanel.
@@ -769,10 +801,12 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
               itemNameCh={rulesFor.name_ch}
               itemClass={rulesFor.item_class}
               language={language}
-              rows={(rulesFor.occurrences || []).map((o): OccurrenceRuleRow => ({
+              rows={slotsOf(rulesFor).map((o): OccurrenceRuleRow => ({
+                  // this list drills into a FILE's rules, so `file` stays the real path here;
+                  // the tier is what names the row.
                   file: o.file,
-                  label: fileLabel(o.file),
-                  tiers: o.tiers || [],
+                  label: o.tier ? `${fileLabel(o.file)} · ${o.tier}` : fileLabel(o.file),
+                  tiers: o.tier ? [o.tier] : [],
                   currentSound: resolveOccSound(rulesFor.name, o) || null,
               }))}
               onEditRules={(file) => setRulePanelFile(`base_mapping/${file}`)}
