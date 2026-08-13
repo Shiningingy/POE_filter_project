@@ -238,11 +238,24 @@ console.log('VFS edit behavior (client-side only):');
   const chaos2 = after2.items.find(i => i.name === 'Chaos Orb');
   report('updateItemTier applies', chaos2 && chaos2.current_tier.includes('Tier 1 General'), JSON.stringify(chaos2?.current_tier));
 
-  // updateItemOverride port
-  await client.updateItemOverride({ item_name: 'Chaos Orb', overrides: { PlayEffect: 'Red' }, source_file: 'Currency/General.json' });
-  const cfg = (await client.getConfig('base_mapping/Currency/General.json')).content;
-  const overrideRule = (cfg.rules || []).find(r => Array.isArray(r.targets) && r.targets.length === 1 && r.targets[0] === 'Chaos Orb' && (!r.conditions || !Object.keys(r.conditions).length));
-  report('updateItemOverride applies', overrideRule && overrideRule.overrides.PlayEffect === 'Red');
+  // updateItemOverride port. This used to assert a RULE appeared in base_mapping, which is the
+  // shape main.py retired — so the test was pinning the client to the old apparatus and would
+  // have failed the moment the client was fixed. A card override belongs to a TIER.
+  await client.updateItemOverride({
+    item_name: 'Chaos Orb', overrides: { PlayEffect: 'Red' },
+    source_file: 'Currency/General.json', tier_key: 'Tier 4 General',
+  });
+  const tierCfg = (await client.getConfig('tier_definition/Currency/General.json')).content;
+  const catKey = Object.keys(tierCfg).find(k => !k.startsWith('//'));
+  const card = tierCfg[catKey]?.['Tier 4 General']?.item_overrides?.['Chaos Orb'];
+  report('updateItemOverride writes the tier card', card && card.PlayEffect === 'Red', JSON.stringify(card));
+
+  // ...and refuses a write it cannot place. main.py 400s on a missing tier_key.
+  let rejected = false;
+  try {
+    await client.updateItemOverride({ item_name: 'Chaos Orb', overrides: { PlayEffect: 'Red' }, source_file: 'Currency/General.json' });
+  } catch { rejected = true; }
+  report('updateItemOverride requires a tier_key', rejected);
 }
 
 console.log(`\n${pass} passed, ${fail} failed`);

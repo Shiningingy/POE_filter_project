@@ -432,6 +432,15 @@ const getMappingFileForEdit = async (sourceFile: string): Promise<{ rel: string;
   return { rel, data: JSON.parse(JSON.stringify(current)) };
 };
 
+/** The TIER-definition twin of getMappingFileForEdit. A card override lives on the tier. */
+const getTierFileForEdit = async (sourceFile: string): Promise<{ rel: string; data: any }> => {
+  const rel = stripMappingPrefix(sourceFile);
+  const { tiers } = await getMergedState();
+  const current = tiers[rel];
+  if (!current) throw new Error(`Tier definition not found: ${rel}`);
+  return { rel, data: JSON.parse(JSON.stringify(current)) };
+};
+
 export interface UpdateItemTierRequest {
   item_name: string;
   new_tier?: string | null;
@@ -523,75 +532,47 @@ export interface UpdateItemOverrideRequest {
   suppress_auto?: boolean | null;
 }
 
-/** POST /api/update-item-override (main.py update_item_override) */
+/**
+ * POST /api/update-item-override (main.py update_item_override)
+ *
+ * ★ A CARD OVERRIDE LIVES ON THE TIER: `tier_definition[cat][tier].item_overrides[base]`.
+ * `(tier, base)` identifies one occurrence, because within a tier `pendingItems` guarantees a
+ * base is claimed by exactly one emitted block — whether that block came from a rule or from
+ * the tier's own base list. So one write reaches the right block either way, which is why no
+ * `rule_index` is needed to disambiguate.
+ *
+ * ⚠️ This replaces a port of the RULE-SYNTHESISING routine main.py had already retired, and
+ * which survived here because the parity test asserted it: the client wrote `sound_scope`
+ * rules, `suppress_auto_sound` rules whose only job was to make auto-sound skip an item, a
+ * first-match-wins insertion against older bare rules, and a `spent()` pruning pass. Auto-sound
+ * was DELETED in the rewrite, so the client was maintaining scaffolding for a mechanism that no
+ * longer exists — and writing a different shape than localhost for the same edit.
+ *
+ * Sound is the common case but nothing here is sound-specific: any channel the mini style
+ * editor exposes lands the same way.
+ */
 export const updateItemOverride = async (req: UpdateItemOverrideRequest) => {
-  const { rel, data } = await getMappingFileForEdit(req.source_file);
-  const rules: any[] = Array.isArray(data.rules) ? data.rules : [];
-  const bare = (r: any) =>
-    Array.isArray(r?.targets) && r.targets.length === 1 && r.targets[0] === req.item_name &&
-    (!r?.conditions || Object.keys(r.conditions).length === 0);
+  if (!req.tier_key) throw new Error('tier_key is required: an override belongs to one occurrence');
+  const { rel, data } = await getTierFileForEdit(req.source_file);
+  const categoryKey = Object.keys(data).find(k => !k.startsWith('//'));
+  if (!categoryKey) throw new Error(`no category in ${rel}`);
+  const entry = data[categoryKey]?.[req.tier_key];
+  if (!entry || typeof entry !== 'object') throw new Error(`no tier ${req.tier_key} in ${rel}`);
 
-  let target: any = null;
+  const overrides: Record<string, any> = { ...(entry.item_overrides || {}) };
+  const card: Record<string, any> = { ...(overrides[req.item_name] || {}) };
+  for (const k of (req.remove_keys || [])) delete card[k];
+  Object.assign(card, req.overrides || {});
 
-  if (req.rule_index != null && req.rule_index >= 0 && req.rule_index < rules.length) {
-    // (A) the card is a target of this rule; the rule's conditions are the block
-    target = rules[req.rule_index];
-  } else if (req.tier_key) {
-    // (B) plain tier card -> a rule pinned to this tier only
-    target = rules.find((r: any) => bare(r) && r?.overrides?.Tier === req.tier_key) || null;
-    if (!target && !Object.keys(req.overrides || {}).length && (req.remove_keys || []).length) {
-      // clearing, no tier-scoped rule: the sound lives on an older bare global rule
-      target = rules.find(bare) || null;
-    }
-    if (!target && req.suppress_auto && (req.remove_keys || []).length) {
-      // the sound is injected from basetype_sounds; a pinned empty rule is what
-      // "no auto-sound here" looks like (generate.py skips injection for targeted items)
-      target = {
-        targets: [req.item_name], conditions: {},
-        overrides: { Tier: req.tier_key },
-        comment: `No auto-sound for ${req.item_name} @ ${req.tier_key}`,
-        sound_scope: true, suppress_auto_sound: true,
-      };
-      rules.push(target);
-    }
-    if (!target && req.overrides && Object.keys(req.overrides).length) {
-      target = {
-        targets: [req.item_name],
-        conditions: {},
-        overrides: { Tier: req.tier_key },
-        comment: `Override for ${req.item_name} @ ${req.tier_key}`,
-        sound_scope: true,
-      };
-      // more specific than a bare global rule, so it must be matched first
-      const at = rules.findIndex((r: any) => bare(r) && !r?.overrides?.Tier);
-      rules.splice(at === -1 ? rules.length : at, 0, target);
-    }
-  } else {
-    // (C) legacy bare global rule, kept so already-tuned overrides still resolve
-    target = rules.find(bare) || null;
-    if (!target && req.overrides && Object.keys(req.overrides).length) {
-      target = { targets: [req.item_name], conditions: {}, overrides: { ...req.overrides },
-                 comment: `Override for ${req.item_name}` };
-      rules.push(target);
-    }
-  }
+  // An empty card says nothing, and a card that says nothing is just the block's own look — so
+  // it is removed rather than left as an override that would split a block for no reason.
+  if (Object.keys(card).length) overrides[req.item_name] = card;
+  else delete overrides[req.item_name];
 
-  if (target) {
-    target.overrides = { ...(target.overrides || {}) };
-    for (const k of (req.remove_keys || [])) delete target.overrides[k];
-    target.overrides = { ...target.overrides, ...req.overrides };
-  }
+  if (Object.keys(overrides).length) entry.item_overrides = overrides;
+  else delete entry.item_overrides;
 
-  const spent = (r: any) => {
-    const ov = r?.overrides || {};
-    if ((r?.conditions && Object.keys(r.conditions).length) || r?.raw || r?.applyToTier) return false;
-    // its whole job is to exist so the auto-sound injection skips this item
-    if (r?.suppress_auto_sound) return false;
-    if (r?.sound_scope) return Object.keys(ov).every(k => k === 'Tier');
-    return Object.keys(ov).length === 0;
-  };
-  data.rules = rules.filter((r: any) => !spent(r));
-  writeVfs(`base_mapping/${rel}`, data);
+  writeVfs(`tier_definition/${rel}`, data);
   return { message: 'Success' };
 };
 
