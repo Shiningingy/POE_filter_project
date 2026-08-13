@@ -69,7 +69,7 @@ except Exception:
     pass
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-PATCH = os.path.join(ROOT, "docs", "design", "handoff", "theme-patch-rev25.json")
+PATCH = os.path.join(ROOT, "docs", "design", "handoff", "theme-patch-rev25-2.json")
 THEME = os.path.join(ROOT, "filter_generation", "data", "theme", "sharket", "sharket_theme.json")
 APPLY = "--apply" in sys.argv
 

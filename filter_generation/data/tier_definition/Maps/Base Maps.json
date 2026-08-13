@@ -59,8 +59,7 @@
         "PlayAlertSound": [
           "Sharket掉落音效/超级地图.mp3",
           300
-        ],
-        "BorderColor": "#00000000"
+        ]
       },
       "sound": {
         "default_sound_id": 1,
@@ -82,8 +81,7 @@
         "PlayAlertSound": [
           "Sharket掉落音效/高级地图.mp3",
           300
-        ],
-        "BorderColor": "#00000000"
+        ]
       },
       "sound": {
         "default_sound_id": 2,
@@ -105,8 +103,7 @@
           "Sharket掉落音效/中级地图.mp3",
           300
         ],
-        "PlayEffect": "Yellow Temp",
-        "BorderColor": "#00000000"
+        "PlayEffect": "Yellow Temp"
       },
       "sound": {
         "default_sound_id": 2,
@@ -128,8 +125,7 @@
         "PlayAlertSound": [
           "Sharket掉落音效/地图.mp3",
           300
-        ],
-        "BorderColor": "#00000000"
+        ]
       },
       "sound": {
         "default_sound_id": -1,

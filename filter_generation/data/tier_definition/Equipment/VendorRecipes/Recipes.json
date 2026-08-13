@@ -83,8 +83,7 @@
         ],
         "FontSize": 40,
         "TextColor": "#000000ff",
-        "BackgroundColor": "#aa9e82ff",
-        "BorderColor": "#00000000"
+        "BackgroundColor": "#aa9e82ff"
       },
       "sound": {
         "default_sound_id": -1,

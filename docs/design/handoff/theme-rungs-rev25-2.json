@@ -1,0 +1,906 @@
+{
+  "_about": "Rung vocabulary + colour values for Sharket 3.29 Ruthless (CN). Every pairing carries its measured WCAG contrast and names the plate it speaks against (handbook §7). Prose twin: 'Theme Proposal 3.29.dc.html' — run the consistency check over both.",
+  "date": "2026-08-12",
+  "contrast_floors": {
+    "dark_plate_text": ">= 4.5:1 vs its own plate (R3/R4 dark tints and black)",
+    "bright_or_white_plate_text": ">= 3.0:1 at FontSize 45 — the measured band: house T0 4.00, FilterBlade vermilion 3.39, Sharket gems 3.14; the plate is the extreme and size carries the rest",
+    "text_R5_effective": ">= 3.5:1 vs 0 0 0",
+    "border": ">= 3.0:1 vs the plate it sits on",
+    "note": "If a pairing fails, one of the two values is in the wrong band. Contrast-raising is not a remedy (handbook §1)."
+  },
+  "rungs": [
+    {
+      "id": "R0",
+      "en": "Once a league",
+      "ch": "一季一遇",
+      "test_en": "You screenshot it and send it to a friend before you click.",
+      "test_ch": "点击之前你会先截图发给朋友。",
+      "recipe": "HOUSE, pinned: TextColor 255 0 0 / BackgroundColor 255 255 255 255 / BorderColor 255 0 0",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Circle",
+      "contrast": "4.00 vs 255 255 255 (accepted twice in game)"
+    },
+    {
+      "id": "R1",
+      "en": "Stop the fight",
+      "ch": "停手也捡",
+      "test_en": "You stop what you are doing immediately, even mid-fight.",
+      "test_ch": "无论在做什么都立刻停下，哪怕正在战斗。",
+      "recipe": "HOUSE, pinned: TextColor 255 255 255 / BackgroundColor 210 0 0 / BorderColor 255 255 255",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Circle",
+      "contrast": "5.61 vs 210 0 0"
+    },
+    {
+      "id": "R2",
+      "en": "Cross the screen",
+      "ch": "跨屏必捡",
+      "test_en": "You would stop moving and cross the screen to pick this up.",
+      "test_ch": "你会停下脚步，横穿屏幕去捡它。",
+      "recipe": "Hue families: WHITE text on the FAMILY plate, WHITE border, icon 1 Yellow (border + icon carry the rank over R3). Light-hue families: black on bright plate. House R0/R1 white plate stays the house’s alone.",
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Diamond",
+      "contrast": "per family; FS45 band floor 3.0 — white on gems cyan 3.14, white on allflame green 3.35, white on essence blue 4.49, corpses black-on-bright 5.00"
+    },
+    {
+      "id": "R3",
+      "en": "On your way",
+      "ch": "顺路必捡",
+      "test_en": "You pick it up if it is on your path. You never turn around for it.",
+      "test_ch": "顺路一定捡，但绝不回头。",
+      "recipe": "Hue families: family colour on the family's DARK TINT (tint = colour x 0.19). Currency: TextColor 0 0 0 on its bright plate 255 165 0 — the plate walks, the text stays black.",
+      "FontSize": 40,
+      "MinimapIcon": null,
+      "contrast": "currency 10.63 vs 255 165 0, gems white-on-cyan 3.14 FS45, allflame white-on-hue 3.35 FS45, corpses 5.24"
+    },
+    {
+      "id": "R4",
+      "en": "When you need it",
+      "ch": "按需捡取",
+      "test_en": "You read the label and decide by today's needs — craft, vendor, quest.",
+      "test_ch": "读一眼标签，按当天的需求决定捡不捡。",
+      "recipe": "Hue families: family colour on PURE BLACK 0 0 0 255. Currency: TextColor 0 0 0 on the classic tan plate 170 158 130.",
+      "FontSize": 40,
+      "MinimapIcon": null,
+      "contrast": "currency 7.91 vs 170 158 130, gems black-on-cyan 6.69 FS43, allflame black-on-hue 6.26 FS43, corpses 6.32"
+    },
+    {
+      "id": "R5",
+      "en": "Know it's there",
+      "ch": "知道就好",
+      "test_en": "You pick it up only on a dedicated collecting trip. Otherwise it is ambient information.",
+      "test_ch": "只在专门收集时才捡，平时只是背景信息。",
+      "recipe": "Hue families: same as R4 with TextColor alpha 204 (80%); plate stays SOLID 0 0 0 255. Currency: NO style lines at all — the game paints the label (absent-key rule, §6).",
+      "FontSize": 40,
+      "FontSize_exceptions": "scrolls & gold stay 35 (hand-set, kept)",
+      "MinimapIcon": null,
+      "contrast": "gems cyan on 27 51 52 = 4.26, corpses 4.27, currency game default. Allflame has NO R5 — league currency never goes ambient."
+    }
+  ],
+  "rung_rules": {
+    "assignment": "A rung is assigned by the test, never by rank within a category. Categories map their tiers onto the shared scale; gaps are normal (gems has no R0 — omit, never invent).",
+    "sharing": "Same rung = same look, in every category. Target: most (text, plate) pairs shared across categories, FilterBlade-style; a private pair needs a reason.",
+    "merge_trap": "Several tiers may share one rung ON PURPOSE, but a rung-keyed change silently merges them (§6). Re-tiering decides which tiers share; the theme never does.",
+    "first_task": "Visible clarity first, hue variant second (author). Value is carried by the luminance gap — one side of every pairing at an extreme; hue only names the family."
+  },
+  "new_families": {
+    "Corpses": {
+      "verdict": "YES — 102 bases, 5 real tiers, and a thing you walk to in the world.",
+      "family_colour": "235 90 130",
+      "hsv": "343°, sat 62%",
+      "R2": {
+        "TextColor": "0 0 0",
+        "BackgroundColor": "212 74 110",
+        "FontSize": 45,
+        "MinimapIcon": "1 Yellow Kite",
+        "contrast": 5
+      },
+      "R3": {
+        "TextColor": "235 90 130",
+        "BackgroundColor": "45 17 25",
+        "FontSize": 40,
+        "contrast": 5.24
+      },
+      "R4": {
+        "TextColor": "235 90 130",
+        "BackgroundColor": "0 0 0 255",
+        "FontSize": 40,
+        "contrast": 6.32
+      },
+      "R5": {
+        "TextColor": "235 90 130 204",
+        "BackgroundColor": "0 0 0 255",
+        "FontSize": 40,
+        "effective": "188 72 104",
+        "contrast": 4.27
+      },
+      "risk": "RESOLVED (rev 18): moved 355°→343° after the code-side checker failed the old value against vaal red (8.7°, 9 sat pts). Now Δ20° from vaal; ritual clears on the 30-sat-point half exactly."
+    },
+    "Curse of the Allflame": {
+      "verdict": "YES — the league's own cyan-green, plate-walk, NO R5 (league currency never goes ambient; lowest earned rung, then Hide). Retires with the league.",
+      "family_colour": "0 160 112",
+      "hsv": "162°, sat 100%",
+      "R2": {
+        "TextColor": "255 255 255",
+        "BackgroundColor": "0 160 112",
+        "BorderColor": "255 255 255",
+        "FontSize": 45,
+        "contrast": 3.35,
+        "band": "FS45 band",
+        "MinimapIcon": "1 Yellow Diamond"
+      },
+      "R3": {
+        "TextColor": "255 255 255",
+        "BackgroundColor": "0 160 112",
+        "FontSize": 45,
+        "contrast": 3.35,
+        "band": "bright-plate FS45"
+      },
+      "R4": {
+        "TextColor": "0 0 0",
+        "BackgroundColor": "0 160 112",
+        "FontSize": 43,
+        "contrast": 6.26
+      },
+      "clearance": "15° from gems (27 162 155, bluer); on top of old scarab jade 0 130 90 (161°) — fine if scarabs takes its planned move to the maps band, otherwise verify in game; quest green 49° away.",
+      "subcategories": {
+        "Message in a Bottle 瓶中信": {
+          "tier_key": "Notable",
+          "rung": "R2",
+          "note": "league chase"
+        },
+        "Premium ducats 高级达克特": {
+          "tier_key": "CustomTier 1",
+          "rung": "R3",
+          "note": "ducat tier 1 of 2"
+        },
+        "Common ducats 普通达克特": {
+          "tier_key": "Common",
+          "rung": "R4",
+          "note": "ducat tier 2 of 2 — ducats end here"
+        },
+        "Voyage charts 海图": {
+          "tier_key": "CustomTier 3",
+          "rung": "R3-style, own colour",
+          "TextColor": "255 255 255",
+          "BackgroundColor": "0 132 168",
+          "FontSize": 45,
+          "contrast": 4.32,
+          "note": "ONE tier; sea-chart blue 193°, leans toward the maps band on purpose — verify vs Map Fragments"
+        },
+        "Dead Man's Sulphur 死者硫磺": {
+          "tier_key": "CustomTier 4",
+          "rungs_by_stack": [
+            "R2",
+            "R3",
+            "R4"
+          ],
+          "note": "currency — 3 tiers by StackSize, amount promotes the rung (like gold); currency grammar in the league hue"
+        },
+        "Enshrouded Gear 笼罩装备": {
+          "rung": "KEEP",
+          "note": "enshrouded-fire STATE (black on 255 120 20, Orange Star) — not the league family"
+        },
+        "Scrying Orb 预知宝珠": {
+          "rung": "HOLE",
+          "note": "in localization but mapped to no tier — suggest R3"
+        }
+      },
+      "moved_out": {
+        "Incursion Vials 穿越魔瓶": {
+          "reason": "Vaal / Incursion content, not the league. Wants its own key; suggestion: white on incursion emerald 40 150 80 (3.77:1) — Δ20° from the league green, measure before adopting. Currently emits NO theme values, so it needs SOME answer either way."
+        },
+        "Enshrouding Crystals 笼罩水晶": {
+          "reason": "Legion content. Follows Legion steel: TextColor 0 0 0 on 145 155 170 (7.47:1), FontSize 40."
+        },
+        "Mercenary Warrant 佣兵委托令": {
+          "reason": "Introduced during the league but a mercenary duel mechanic (life-or-death), not a league drop. ONE tier. Suggestion: TextColor 255 255 255 on 150 20 40 (8.65:1), FontSize 45 — measure vs the corpses / ritual red band before adopting. NOTE: the suggested blood plate 150 20 40 is now taken by 玷污通货 T2 — warrant re-picks when themed."
+        }
+      }
+    },
+    "Tainted Currency 玷污通货": {
+      "verdict": "Standalone CORRUPTED family (not currency), vaal red — per author. 4 visible tiers + Hide; T1 uses the house R0 pair.",
+      "family_colour": "245 85 75 (4°, s69) text; blood plate 150 20 40",
+      "T1 顶级": {
+        "rung": "R0",
+        "TextColor": "255 0 0",
+        "BackgroundColor": "255 255 255 255",
+        "BorderColor": "255 0 0",
+        "FontSize": 45,
+        "MinimapIcon": "0 Red Star"
+      },
+      "T2 高价值": {
+        "TextColor": "255 255 255",
+        "BackgroundColor": "150 20 40",
+        "FontSize": 45,
+        "MinimapIcon": "1 Red Diamond",
+        "contrast": 8.65
+      },
+      "T3 中等": {
+        "TextColor": "245 85 75",
+        "BackgroundColor": "47 16 14",
+        "FontSize": 40,
+        "contrast": 5.23,
+        "hideable": true
+      },
+      "T4 低价值": {
+        "TextColor": "245 85 75",
+        "BackgroundColor": "0 0 0 255",
+        "FontSize": 40,
+        "contrast": 6.28,
+        "hideable": true
+      },
+      "clearance": "Resolved: corpses moved to 343° (Δ20° from the vaal red, measured). Blood plate supersedes the mercenary-warrant suggestion (warrant re-picks)."
+    }
+  },
+  "non_families": {
+    "Legacy": {
+      "verdict": "NO hue — 'no longer drops' is a STATUS. Border channel: 150 150 150 (7.10 vs black; >= 3.0 floor holds on every plate in the set). Items keep their family/rarity look. Never a grey rung; grey here is a border MARK.",
+      "border": "150 150 150"
+    }
+  },
+  "family_count": "Hold 12. Corpses joins (13), Tainted vaal-red joins (14). Allflame joins for the league and retires (15 during league only). Scarab lime / harvest emerald re-colour existing families, not new slots. Ceiling test for any future add: passes §1 at all four rungs AND sits >= 10° from band neighbours OR differs by >= 30 saturation points.",
+  "icon_floor": "Rung-keyed, not category-keyed: icons at R0-R2 only (R0 Red 0, R1 Red 0, R2 Yellow 1), plus safety-net catch-alls at White 2. R3-R5 carry none. The floor becomes 'share of blocks at R0-R2 + nets' — measure it; it lands well under FilterBlade's 70% and under today's 64%.",
+  "measurements_to_run": [
+    "In-game eyeball, remaining: white on gems cyan 3.14 and white on allflame green 3.35 (the two thinnest FS45-band pairs — code side reporting back)",
+    "R5 effective contrast across every family after the re-tiering (floor 3.5)",
+    "Icon density per category after rung-keying",
+    "Shared-pair ratio before/after re-tiering (target: majority shared, FilterBlade-style)"
+  ],
+  "currency_ladder": {
+    "resolution": "Sharket's bands from the 3.28 Ruthless filter, with ONE borrowed look: T2通货 differs from house R1 only by border colour, so R2 takes FilterBlade's 'very valuable' vermilion pair instead — deep red → vermilion → orange → tan → game default, every step a plate change. In 3.28 even Chaos AND Alchemy sit at T1通货; the re-tier de-inflates by the test. No coloured text below the house rungs.",
+    "R0": {
+      "band": "T1通货 verbatim",
+      "TextColor": "255 0 0",
+      "BackgroundColor": "255 255 255 255",
+      "BorderColor": "255 0 0",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Star",
+      "PlayEffect": "Red",
+      "examples": "Mirror, Divine, Exalted class"
+    },
+    "R1": {
+      "band": "house red plate",
+      "TextColor": "255 255 255",
+      "BackgroundColor": "210 0 0",
+      "BorderColor": "255 255 255",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Diamond",
+      "contrast": 5.61,
+      "examples": "Chaos stays here"
+    },
+    "R2": {
+      "band": "FilterBlade 'very valuable' verbatim",
+      "TextColor": "255 255 255",
+      "BackgroundColor": "240 90 35",
+      "BorderColor": "0 0 0 0",
+      "FontSize": 45,
+      "MinimapIcon": "1 Green Diamond",
+      "PlayEffect": "Green",
+      "contrast": 3.39,
+      "contrast_band": "FS45 bright-plate band, floor 3.0",
+      "examples": "Blessed-level"
+    },
+    "R3": {
+      "band": "T3通货 verbatim",
+      "TextColor": "0 0 0",
+      "BackgroundColor": "255 170 0",
+      "FontSize": 45,
+      "PlayEffect": "Orange Temp",
+      "contrast": 11,
+      "examples": "alch-level (Jeweller's in 3.28)"
+    },
+    "R4": {
+      "band": "T4通货 verbatim — the classic tan as PLATE",
+      "TextColor": "0 0 0",
+      "BackgroundColor": "170 158 130",
+      "FontSize": 45,
+      "contrast": 7.91,
+      "examples": "Armourer's Scrap level"
+    },
+    "R5": {
+      "band": "game default — EMIT NO STYLE LINES (§6 absent-key rule)",
+      "FontSize_exception": "scrolls & gold keep hand-set 35"
+    }
+  },
+  "filterblade_concordance": {
+    "_source": "Parsed from data/from_filter_blade/3.28/FilterBlade_1_Regular.filter — 644 styled Show blocks; pairs ranked by cross-section reuse.",
+    "R0": {
+      "fb_pair": "255 0 0 on 255 255 255",
+      "blocks": 18,
+      "sections": 7,
+      "contrast": 4,
+      "note": "identical to house T0"
+    },
+    "R1": {
+      "fb_pair": "255 255 255 on 240 90 35",
+      "blocks": 17,
+      "sections": 5,
+      "contrast": 3.39,
+      "note": "our 210 0 0 plate = 5.61"
+    },
+    "R2_R3_plate": {
+      "fb_pair": "0 0 0 on 249 150 25",
+      "blocks": 20,
+      "sections": 6,
+      "contrast": 9.4
+    },
+    "R3_hue_text": {
+      "fb_pair": "0 240 190 on 20 20 0",
+      "blocks": 63,
+      "sections": 16,
+      "contrast": 12.58,
+      "note": "their most-reused role pair"
+    },
+    "R4_tan_plate": {
+      "fb_pair": "0 0 0 on 210 178 135",
+      "blocks": 20,
+      "sections": 5,
+      "contrast": 10.46,
+      "note": "the 'classic' black-on-tan, shipped by FB as a top-5 shared pair; ours 170 158 130 = 7.91"
+    },
+    "R5_catch_all": {
+      "fb_pair": "255 0 255 on 100 0 100 (anyremaining)",
+      "blocks": 21,
+      "sections": 9,
+      "contrast": 3.88,
+      "note": "Ruthless goes quieter: game default"
+    },
+    "gear": {
+      "fb_pair": "inherit on 20 20 0",
+      "blocks": 37,
+      "sections": 11,
+      "note": "no TextColor — rarity-through, the §6 rule"
+    }
+  },
+  "gems_ladder": {
+    "rationale": "Raised per author. FilterBlade: every gem tier FS45, bright cyan, red borders on top. Sharket: the cyan in all four rungs, plate-walk. Support gems tiered low in category are not invaluable (author, earlier ruling).",
+    "R2": {
+      "TextColor": "255 255 255",
+      "BackgroundColor": "27 162 155",
+      "BorderColor": "255 255 255",
+      "FontSize": 45,
+      "contrast": 3.14,
+      "MinimapIcon": "1 Yellow Triangle",
+      "note": "white border + icon carry the rank; R3 is the same pair bare"
+    },
+    "R3": {
+      "TextColor": "255 255 255",
+      "BackgroundColor": "27 162 155",
+      "FontSize": 45,
+      "contrast": 3.14
+    },
+    "R4": {
+      "TextColor": "0 0 0",
+      "BackgroundColor": "27 162 155",
+      "FontSize": 43,
+      "contrast": 6.69,
+      "note": "Skill AND support gems — per author they hold the same value, so both sit at R4; the split between them was rank-by-category, not the test."
+    },
+    "R5": {
+      "TextColor": "27 162 155",
+      "BackgroundColor": "27 51 52",
+      "FontSize": 40,
+      "contrast": 4.26,
+      "note": "Less-valuable gems (drop-only / low-demand) — Sharket’s own lowest gem pair, cyan on 27 51 52; no 80% rung and no game-default rung for gems"
+    }
+  },
+  "league_currencies": {
+    "_rule": "Per author: league currencies have NO R5 and NO game default — they follow their own hue to the lowest earned rung, then Hide. Each category carries a hidden 'T0 顶级/核心' lock that maps to the house pair. Light hues start at black-on-plate; blues walk the full gem shape.",
+    "Oils 圣油": {
+      "family_colour": "255 230 80",
+      "R2": {
+        "tier": "T1 顶级圣油",
+        "TextColor": "0 0 0",
+        "BackgroundColor": "255 230 80",
+        "FontSize": 45,
+        "contrast": 16.69,
+        "MinimapIcon": "1 Yellow Diamond"
+      },
+      "R3": {
+        "tier": "T2 中级圣油",
+        "TextColor": "255 230 80",
+        "BackgroundColor": "48 44 15",
+        "FontSize": 40,
+        "contrast": 11.18
+      },
+      "R4": {
+        "tier": "T3 普通圣油",
+        "TextColor": "255 230 80",
+        "BackgroundColor": "0 0 0 255",
+        "FontSize": 40,
+        "contrast": 16.69
+      }
+    },
+    "Fossils & Resonators 化石&共鸣器": {
+      "family_colour": "NONE — currency-kin: fossils walk Sharket's own currency bands T1→T2→T3→T4, verbatim (4 tiers, fossils ↔ resonators in step)",
+      "R0": {
+        "band": "T1通货",
+        "tier": "12 premium fossils + prime resonators",
+        "TextColor": "255 0 0",
+        "BackgroundColor": "255 255 255 255",
+        "BorderColor": "255 0 0",
+        "FontSize": 45,
+        "MinimapIcon": "0 Red Star",
+        "PlayEffect": "Red"
+      },
+      "R1": {
+        "band": "T2通货",
+        "tier": "good fossils/resonators",
+        "TextColor": "255 255 255",
+        "BackgroundColor": "210 0 0",
+        "BorderColor": "0 255 0",
+        "FontSize": 45,
+        "MinimapIcon": "1 Green Diamond",
+        "PlayEffect": "Green",
+        "contrast": 5.61
+      },
+      "R2": {
+        "band": "T3通货",
+        "tier": "mid fossils",
+        "TextColor": "0 0 0",
+        "BackgroundColor": "255 170 0",
+        "FontSize": 45,
+        "MinimapIcon": "2 Orange Diamond",
+        "PlayEffect": "Orange Temp",
+        "contrast": 11,
+        "note": "= harvest's low look, shared on purpose"
+      },
+      "R3": {
+        "band": "T4通货",
+        "tier": "common fossils",
+        "TextColor": "0 0 0",
+        "BackgroundColor": "170 158 130",
+        "FontSize": 45,
+        "contrast": 7.91
+      }
+    },
+    "Essences 精华": {
+      "family_colour": "0 110 255 (placeholder at 100% sat — swap in the shipped essence blue if it differs)",
+      "R2": {
+        "tier": "T1 顶级精华",
+        "TextColor": "255 255 255",
+        "BackgroundColor": "0 110 255",
+        "BorderColor": "255 255 255",
+        "FontSize": 45,
+        "contrast": 4.49,
+        "band": "FS45 band",
+        "MinimapIcon": "1 Yellow Raindrop"
+      },
+      "R3": {
+        "tier": "T2 高级精华",
+        "TextColor": "255 255 255",
+        "BackgroundColor": "0 110 255",
+        "FontSize": 45,
+        "contrast": 4.49
+      },
+      "R4": {
+        "tier": "T3 普通精华",
+        "TextColor": "0 0 0",
+        "BackgroundColor": "0 110 255",
+        "FontSize": 43,
+        "contrast": 4.67
+      }
+    },
+    "Delirium Orbs 雾魇宝珠": {
+      "family_colour": "210 210 230",
+      "R2": {
+        "tier": "the whole category (single tier)",
+        "TextColor": "0 0 0",
+        "BackgroundColor": "210 210 230",
+        "FontSize": 45,
+        "contrast": 14.1,
+        "MinimapIcon": "1 Yellow Diamond",
+        "note": "single-rung family; anything above is a re-tier into the T0 house lock"
+      }
+    }
+  },
+  "audit_2026_08_08": {
+    "scope": "sharket_theme.json — 100 categories, 998 tiers",
+    "A_deep_tier_desaturation": {
+      "finding": "Tiers 6/7/8/12 in every themed category crush saturation to 13-26% at value ~57 — the same formula that produced the retired currency tan. Passes contrast, reads grey, in every hue.",
+      "affected": [
+        "Heist",
+        "Heist Currency",
+        "Heist Contracts",
+        "Heist Blueprints",
+        "Heist Equipment",
+        "Heist Targets",
+        "Chancing",
+        "Relics",
+        "Legacy",
+        "Crafting Bases",
+        "Vendor Recipes",
+        "Gold",
+        "Tinctures",
+        "Enshrouding Crystals",
+        "Scarabs",
+        "Stackable Currency",
+        "Corpses",
+        "Ritual"
+      ],
+      "fix": "One template edit: deep tiers take the R5 rule (family hue at 80% text alpha on solid black) or an explicit game-default entry."
+    },
+    "B_silent_categories": {
+      "intentional": "gear classes and base lists — §6 rarity-through, leave silent",
+      "accidental": [
+        "Wombgifts (missing from the theme file entirely — AUTHORED rev 24)",
+        "Heist Experimented",
+        "Trinkets",
+        "Talismans",
+        "Memory-Stranded",
+        "Influenced",
+        "Magic Net",
+        "Campaign",
+        "ID Mods: Bestiary/Delve/Essence/Incursion/Mercenaries/Warband"
+      ],
+      "fix": "each gets a rung or an explicit 'game default' entry so the silence is signed",
+      "note_rev24": "Re-ran the roll-call 2026-08-12: no category is fully mute; the grey deep tiers (finding A, 18 categories, tiers 6/7/8/12) remain the one template-level fix. Gear/base-list silents stay intentional (rarity-through)."
+    },
+    "C_template_defects": [
+      "Tier 0 white border 2.17:1 vs its own plate (< 3.0 border floor)",
+      "Tier 9: FS18 translucent text on transparent plate, 1.92:1 effective — below every Ruthless floor",
+      "Tiers 3/4/5 byte-identical — pre-merged in the template (§6 merge trap at the source)"
+    ],
+    "D_contradictions": [
+      "Legacy has a full text ladder but §5.5 rules it a border-mark status — retire the ladder",
+      "Corpses carries the template rose s32; the 3.29 family 235 90 130 s60 replaces it"
+    ]
+  },
+  "visibility_pass": {
+    "Maps 地图": {
+      "principle": "Border channel is RESERVED (corruption red, legacy grey, T2通货 green band mark, top-tier emphasis) — rank moves to the TEXT in the game's own map colour, on one shared dark family plate. T17 added as the above-T16 purple band.",
+      "T0 特殊地图": {
+        "TextColor": "29 64 124",
+        "BackgroundColor": "248 248 242",
+        "BorderColor": "43 94 182 (emphasis — a reserved use)",
+        "FontSize": 45,
+        "MinimapIcon": "0 White Star",
+        "contrast": 9.49
+      },
+      "T17": {
+        "TextColor": "255 255 255",
+        "BackgroundColor": "108 52 180",
+        "FontSize": 45,
+        "MinimapIcon": "1 Purple Square",
+        "contrast": 7.53
+      },
+      "T1 T16": {
+        "TextColor": "255 90 80",
+        "BackgroundColor": "48 17 15",
+        "FontSize": 45,
+        "MinimapIcon": "1 Red Square",
+        "contrast": 5.63,
+        "note": "T16 IS a red map: red text on its OWN red tint (colour × 0.19) — a different PLATE vs T11-15's blue family plate, not just icon + size"
+      },
+      "T2 红图 T11-15": {
+        "TextColor": "255 90 80",
+        "BackgroundColor": "15 32 62",
+        "BorderColor": "0 0 0 0",
+        "FontSize": 42,
+        "contrast": 5.27
+      },
+      "T3 黄图 T6-10": {
+        "TextColor": "255 255 119",
+        "BackgroundColor": "15 32 62",
+        "BorderColor": "0 0 0 0",
+        "FontSize": 40,
+        "contrast": 15.29
+      },
+      "T4 白图 T1-5": {
+        "TextColor": "200 200 200",
+        "BackgroundColor": "15 32 62",
+        "BorderColor": "0 0 0 0",
+        "FontSize": 40,
+        "contrast": 9.68
+      }
+    },
+    "Scarabs 圣甲虫": {
+      "principle": "Own hue: beetle lime 170 230 60 (86°, s74) — cyan yielded to div cards (kept clear for the softcore extension); muddy gold retired; FS45 everywhere.",
+      "T0": {
+        "TextColor": "88 116 20",
+        "BackgroundColor": "248 248 242",
+        "BorderColor": "88 116 20",
+        "FontSize": 45,
+        "MinimapIcon": "0 Yellow Star",
+        "contrast": 5.02,
+        "note": "category-top white-plate convention — clearly superior to T1's black-on-lime"
+      },
+      "T1 顶级": {
+        "TextColor": "0 0 0",
+        "BackgroundColor": "170 230 60",
+        "FontSize": 45,
+        "MinimapIcon": "1 Yellow Hexagon",
+        "contrast": 14.09
+      },
+      "T2 稀有": {
+        "TextColor": "170 230 60",
+        "BackgroundColor": "32 44 11",
+        "FontSize": 45,
+        "contrast": 9.88
+      },
+      "T3 少见": {
+        "TextColor": "170 230 60",
+        "BackgroundColor": "0 0 0 255",
+        "FontSize": 45,
+        "contrast": 14.09
+      },
+      "T4 普通": {
+        "TextColor": "170 230 60 204",
+        "BackgroundColor": "0 0 0 255",
+        "FontSize": 45,
+        "effective": "136 184 48",
+        "contrast": 8.95
+      },
+      "clearance": "oils Δ29.7° · quest green SETTLED by measurement (33.2° apart, off the pending list) · harvest emerald Δ59 · div-card cyan freed"
+    },
+    "Harvest Lifeforce 命能": {
+      "principle": "Three ranks on its own light emerald 46 204 113 (145°, s77), merged into Currency as a subcategory (like shards). Replaces green-on-green (103c21 on 33c167 — 5.3:1 legal, invisible). 少量+命能 merge; Hide below.",
+      "R2 大量命能": {
+        "TextColor": "0 0 0",
+        "BackgroundColor": "46 204 113",
+        "FontSize": 45,
+        "MinimapIcon": "1 Yellow Diamond",
+        "contrast": 9.99
+      },
+      "R3 中量命能": {
+        "TextColor": "46 204 113",
+        "BackgroundColor": "9 39 21",
+        "FontSize": 40,
+        "contrast": 7.61
+      },
+      "R4 少量+命能": {
+        "TextColor": "46 204 113",
+        "BackgroundColor": "0 0 0 255",
+        "FontSize": 40,
+        "contrast": 9.99
+      },
+      "clearance": "allflame 0 160 112 (162°, Δ17° — retires with the league) · gems (Δ30°) · quest green (Δ34°)"
+    }
+  },
+  "equipment_recipes": {
+    "_source": "Sharket 3.28 Ruthless filter, verbatim — checked and adopted; nothing invented",
+    "6-link": {
+      "TextColor": "255 0 0",
+      "BackgroundColor": "255 255 255 255",
+      "BorderColor": "255 0 0",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Star",
+      "note": "T1通货 pair; Star shape = gear"
+    },
+    "6-socket": {
+      "TextColor": "255 255 255",
+      "BackgroundColor": "210 0 0",
+      "BorderColor": "0 255 0",
+      "FontSize": 45,
+      "MinimapIcon": "0 Green Star",
+      "note": "T2通货 pair with the green band mark"
+    },
+    "RGB linked": {
+      "TextColor": "0 0 0",
+      "BackgroundColor": "170 158 130",
+      "FontSize": 40,
+      "MinimapIcon": "2 Yellow Circle",
+      "contrast": 7.91,
+      "note": "T4通货 tan plate; size gates 1×3 / 2×2 / 2×3 kept"
+    },
+    "jewels_rarity_plate_grammar": {
+      "rule": "plate = rarity, text = value (black = T2 normal/abyss; red text reserved for T1: Timeless/Prismatic/top clusters), cross icon = rarity, all FS45",
+      "normal_white": {
+        "TextColor": "0 0 0",
+        "BackgroundColor": "160 160 160",
+        "FontSize": 45,
+        "MinimapIcon": "0 White Cross",
+        "contrast": 8.03
+      },
+      "magic_blue": {
+        "TextColor": "0 0 0",
+        "BackgroundColor": "136 136 255",
+        "FontSize": 45,
+        "MinimapIcon": "0 Blue Cross",
+        "contrast": 7.01,
+        "gate": "Identified False (abyss)"
+      },
+      "rare_yellow": {
+        "TextColor": "0 0 0",
+        "BackgroundColor": "255 255 119",
+        "FontSize": 45,
+        "MinimapIcon": "0 Yellow Cross",
+        "contrast": 19.82,
+        "gate": "Identified False (abyss)"
+      },
+      "cluster_jewels": "untouched per author"
+    }
+  },
+  "net": {
+    "_resolution": "Request-02 Ask 2. Filter ignorance is a FAMILY; severity is its rung. Magenta = that family's emergency rung (class unknown); the net = same blood-line one rung down (class known, item uncurated). ONE fixed look, no ladder.",
+    "look": {
+      "TextColor": "255 90 200",
+      "BackgroundColor": "0 0 0 255",
+      "BorderColor": "0 0 0 0",
+      "FontSize": 40,
+      "MinimapIcon": null,
+      "contrast": 7.55,
+      "hsv": "320°, s65"
+    },
+    "clearance": "heist Δ18° (heist deep tiers pale s32 — sat gap 33) · corpses Δ23° · magenta Δ20° (kinship INTENDED; rank separation carried by the plate: magenta wears the bright plate, the net never does)",
+    "escalation": "if beside-content salience proves weak in game: tint plate 48 17 38 (6.12:1) — never a bright plate, that would equal the emergency"
+  },
+  "equipment_loudness": {
+    "_resolution": "rev 22 — loudness flipped from rev 21: the bright plate owns more area than text, so it IS the loud look. Jewellery keeps the game's bright rarity plates (black text, unchanged grammar). Weapons/armour step DOWN to a quiet neutral plate 32 32 32 with rarity in the text (FB precedent). Slot split stays withdrawn; borders stay reserved.",
+    "weapons_armour": {
+      "rare": {
+        "TextColor": "255 255 119",
+        "BackgroundColor": "32 32 32",
+        "FontSize": 45,
+        "contrast": 15.38
+      },
+      "magic": {
+        "TextColor": "136 136 255",
+        "BackgroundColor": "32 32 32",
+        "FontSize": 40,
+        "contrast": 5.44
+      },
+      "normal": {
+        "TextColor": "160 160 160",
+        "BackgroundColor": "32 32 32",
+        "FontSize": 40,
+        "contrast": 6.23
+      },
+      "note": "neutral dark plate is free — the old tainted grey plate retired in rev 16"
+    },
+    "jewellery": "the game's own bright rarity plates with black text — unchanged, and now the loudest gear look by plate area"
+  },
+  "version": "rev 25.2",
+  "wombgifts": {
+    "_resolution": "rev 24 — previously uncovered; all 4 bases (供养/丰裕/远古/神秘) sit at Tier 2, which inherited the template mute. Currency-kin, league item.",
+    "Tier 1 (reserved)": {
+      "note": "empty by design — the house chase pair, promote a base into it rather than restyling T2",
+      "TextColor": "255 0 0",
+      "BackgroundColor": "255 255 255 255",
+      "BorderColor": "255 0 0",
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Star"
+    },
+    "Tier 2 (all four bases)": {
+      "TextColor": "0 0 0",
+      "BackgroundColor": "235 175 190",
+      "FontSize": 45,
+      "MinimapIcon": "1 Pink Diamond",
+      "contrast": 11.41,
+      "note": "blush plate 345° s26 — pale plates are legal (delirium-mist precedent, warm vs its cool); black text; plate channel only so no text-hue clearance needed"
+    },
+    "Net": "the net look (255 90 200 on black, FS40, no icon)",
+    "below": "Hide"
+  },
+  "icon_system": {
+    "version": "rev 24 — supersedes the rev-23 semantic grammar per author",
+    "shapes_by_category": {
+      "Diamond": "currency & currency-kin (currency, fossils, oils, harvest, delirium, ducats/sulphur, wombgifts, tainted)",
+      "Square": "maps, fragments, div cards",
+      "Hexagon": "scarabs",
+      "Triangle": "gems",
+      "Raindrop": "essences",
+      "Kite": "corpses",
+      "Cross": "jewels + safety nets",
+      "Star": "SHARED: house-band chase rows only (Mirror-class, 6L/6S, white-plate category tops)",
+      "Moon": "league gear (heist experimented, trinkets, talismans — top tiers only)"
+    },
+    "floor": "Icons at R0-R2 only — and the floor reads the PROMISE (the curator test), not the paint. Jewels borrow the rarity-plate GRAMMAR (visually rung-4) but answer the R2 test in Ruthless (you cross the screen for any jewel) — they KEEP their Crosses. The net accent stays iconless (class known, below the promise); the footer [99999] emergency keeps 2 White Cross (filter failure must be seen). Scrolls/tan band/common fossils stay clean — they fail the test.",
+    "retired": "Circle (rev-23 band grammar → Diamond), UpsideDownHouse (pre-kit), Pentagon (pre-kit). Replace on sight — any shape not in shapes_by_category is invalid."
+  },
+  "authoring_pass_rev25": {
+    "_scope": "The audit's silent list re-checked against the restructured repo: Memory-Stranded and the six ID-Mods groups NO LONGER EXIST (dropped from the open list); Campaign and the _nets Class Nets layer are new; Magic Net grew a Rare Net sibling (code side's fix, already rung-mapped). Five categories authored below on existing kit grammars — no new hue bands invented; amethyst (freed in rev 22) is reused, Moon joins the shape table for league gear.",
+    "Heist Experimented 实验底材": {
+      "grammar": "heist family violet 213 144 211 (302°), standard walk — base-valued gear (Rarity <= Rare), so a themed ladder, not rarity-through",
+      "T0 chase": {
+        "TextColor": "0 0 0",
+        "BackgroundColor": "213 144 211",
+        "FontSize": 45,
+        "MinimapIcon": "1 Purple Moon",
+        "contrast": 8.76
+      },
+      "T1": {
+        "TextColor": "213 144 211",
+        "BackgroundColor": "40 27 40",
+        "FontSize": 40,
+        "contrast": 6.86
+      },
+      "T2": {
+        "TextColor": "213 144 211",
+        "BackgroundColor": "0 0 0 255",
+        "FontSize": 40,
+        "contrast": 8.76
+      }
+    },
+    "Trinkets 饰品": {
+      "grammar": "heist jewellery — same violet family; T0 lock takes the white-plate category-top convention",
+      "T0 lock": {
+        "TextColor": "111 58 110",
+        "BackgroundColor": "248 248 242",
+        "BorderColor": "111 58 110",
+        "FontSize": 45,
+        "MinimapIcon": "0 Purple Star",
+        "contrast": 7.86
+      },
+      "T1": {
+        "TextColor": "0 0 0",
+        "BackgroundColor": "213 144 211",
+        "FontSize": 45,
+        "MinimapIcon": "1 Purple Moon",
+        "contrast": 8.76
+      },
+      "T2": {
+        "TextColor": "213 144 211",
+        "BackgroundColor": "40 27 40",
+        "FontSize": 40,
+        "contrast": 6.86
+      },
+      "T3": {
+        "TextColor": "213 144 211",
+        "BackgroundColor": "0 0 0 255",
+        "FontSize": 40,
+        "contrast": 8.76
+      },
+      "T4": {
+        "TextColor": "213 144 211 204",
+        "BackgroundColor": "0 0 0 255",
+        "FontSize": 40,
+        "contrast": 5.73
+      }
+    },
+    "Talismans 护身符": {
+      "grammar": "league gear on the freed amethyst 200 120 230 (284° — freed in rev 22; Δ18° from heist violet but sat 48 vs 32, and talismans never drop beside heist bases — flag for in-game eyeball)",
+      "T0 chase": {
+        "TextColor": "0 0 0",
+        "BackgroundColor": "200 120 230",
+        "FontSize": 45,
+        "MinimapIcon": "1 Purple Moon",
+        "contrast": 7.29
+      },
+      "T1": {
+        "TextColor": "200 120 230",
+        "BackgroundColor": "38 23 44",
+        "FontSize": 40,
+        "contrast": 5.87
+      },
+      "T2": {
+        "TextColor": "200 120 230",
+        "BackgroundColor": "0 0 0 255",
+        "FontSize": 40,
+        "contrast": 7.29
+      },
+      "fallback": "CONFIRMED to ship as-is: distinguishing axes are saturation (48 vs 32 — heist violet is visibly washed) plus value, and the two never drop in the same content. If the in-game eyeball still fails, the designated fallback is the RETIRED allflame violet 170 120 255 (262°, Δ40° from heist; contrasts already measured rev 4: bright 6.84 / tint 32 23 48 = 5.58 / black 6.84) — free since allflame moved to cyan-green. No third option; do not nudge the amethyst by a few degrees."
+    },
+    "Influenced 势力装备": {
+      "grammar": "influence is a STATUS, like corruption/legacy — it rides the BORDER, the 5th reserved border use; rows keep the rev-22 gear look (rarity in text on quiet 32 32 32)",
+      "border": {
+        "BorderColor": "150 110 255",
+        "contrast_vs_quiet_plate": 4.63,
+        "note": "clears the 3.0 border floor on the quiet plate and black"
+      },
+      "T0 ilvl86+": {
+        "TextColor": "255 255 119",
+        "BackgroundColor": "32 32 32",
+        "BorderColor": "150 110 255",
+        "FontSize": 45,
+        "MinimapIcon": "1 Purple Star",
+        "note": "chase row — Star per the shared chase rule; sound already authored in the tier file"
+      },
+      "T1-T3": "T1 = rare row FS40. T2 was byte-identical by AUTHORING ERROR (request-05 Q3): T2 takes the dim step — rare text at alpha cc (#ffff77cc, eff ~13.2:1 vs 32 32 32, still over the 4.5 floor). T3 = magic text #8888ff. All keep the influence border (or yield to decorator per Q1 ruling).",
+      "hide": "Tier 9 as defined"
+    },
+    "Campaign 保底与清理": {
+      "grammar": "one visible row: Rare Safety Net (levelling, AreaLevel <= 67) = the rev-22 gear rare look, FS40, no icon; the three declutter tiers are Hides — nothing to theme",
+      "Rare Safety Net": {
+        "TextColor": "255 255 119",
+        "BackgroundColor": "32 32 32",
+        "FontSize": 40,
+        "contrast": 15.38
+      }
+    },
+    "Class Nets 兜底层": "the code side's placeholder steel-blue swaps for the net accent as designed: 255 90 200 on black, FS40, no icon (@theme:net) — their Tier 0 rows map 1:1",
+    "Magic Net / Rare Net": "code side's Rare Net (uncurated rares, area 68-72) maps to the rev-22 gear rare row; Magic Net Tier 5 = gear magic row; their rung choice (3-over-4 for louder-than-magic) is consistent with the kit"
+  },
+  "rung_collision_rule": "Request-05 Q4 ruling: when two authored looks land on one rung, the DIM look is the rung's exit step, not a separate rung — T3 bright + T4 dim on one rung is the authored pattern (scarabs, tainted, now trinkets): the porter keeps BOTH rows, ordering dim after bright within the rung (value thresholds separate them). A category's ladder is never silently shortened; nothing is droppable. If the engine genuinely cannot hold two looks in one rung, re-tier on your side (give T4 its own rung) and say so in the port report — never drop the dim row."
+}

@@ -17,7 +17,6 @@
         "Tier": 2,
         "TextColor": "#ffffffff",
         "BackgroundColor": "#00a070ff",
-        "BorderColor": "#00000000",
         "FontSize": 45
       },
       "hideable": false,
@@ -36,7 +35,6 @@
         "Tier": 4,
         "TextColor": "#000000ff",
         "BackgroundColor": "#00a070ff",
-        "BorderColor": "#00000000",
         "FontSize": 43
       },
       "sound": {

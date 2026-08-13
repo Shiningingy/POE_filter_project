@@ -73,7 +73,6 @@
         "FontSize": 45,
         "TextColor": "#000000ff",
         "BackgroundColor": "#ffff77ff",
-        "BorderColor": "#00000000",
         "PlayAlertSound": [
           "Sharket掉落音效/通货.mp3",
           300
@@ -99,7 +98,6 @@
         "FontSize": 45,
         "TextColor": "#000000ff",
         "BackgroundColor": "#8888ffff",
-        "BorderColor": "#00000000",
         "PlayAlertSound": [
           "Sharket掉落音效/通货.mp3",
           300
@@ -125,7 +123,6 @@
         "FontSize": 45,
         "TextColor": "#000000ff",
         "BackgroundColor": "#a0a0a0ff",
-        "BorderColor": "#00000000",
         "PlayAlertSound": [
           "Sharket掉落音效/通货.mp3",
           300

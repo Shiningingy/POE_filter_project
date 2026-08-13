@@ -24,7 +24,6 @@
         ],
         "TextColor": "#2ecc71ff",
         "BackgroundColor": "#092715ff",
-        "BorderColor": "#00000000",
         "FontSize": 40
       },
       "sound": {
@@ -46,7 +45,6 @@
         ],
         "TextColor": "#2ecc71ff",
         "BackgroundColor": "#000000ff",
-        "BorderColor": "#00000000",
         "FontSize": 40
       },
       "sound": {
@@ -68,7 +66,6 @@
         ],
         "TextColor": "#2ecc71ff",
         "BackgroundColor": "#000000ff",
-        "BorderColor": "#00000000",
         "FontSize": 40
       },
       "sound": {
@@ -106,7 +103,6 @@
         ],
         "TextColor": "#000000ff",
         "BackgroundColor": "#2ecc71ff",
-        "BorderColor": "#00000000",
         "FontSize": 45,
         "MinimapIcon": "1 Yellow Circle"
       },

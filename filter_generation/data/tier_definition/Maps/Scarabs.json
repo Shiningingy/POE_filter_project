@@ -31,8 +31,7 @@
         "BackgroundColor": "#aae63cff",
         "TextColor": "#000000ff",
         "MinimapIcon": "1 Yellow Diamond",
-        "PlayEffect": "Green",
-        "BorderColor": "#00000000"
+        "PlayEffect": "Green"
       },
       "sound": {
         "default_sound_id": 6,
@@ -55,8 +54,7 @@
         "MinimapIcon": "1 Yellow Hexagon",
         "PlayEffect": "Green Temp",
         "TextColor": "#aae63cff",
-        "BackgroundColor": "#202c0bff",
-        "BorderColor": "#00000000"
+        "BackgroundColor": "#202c0bff"
       },
       "sound": {
         "default_sound_id": 1,
@@ -79,8 +77,7 @@
         "MinimapIcon": "2 Yellow Hexagon",
         "PlayEffect": "Green Temp",
         "TextColor": "#aae63cff",
-        "BackgroundColor": "#000000ff",
-        "BorderColor": "#00000000"
+        "BackgroundColor": "#000000ff"
       },
       "sound": {
         "default_sound_id": 2,
@@ -94,7 +91,7 @@
     "Tier 4 Scarabs": {
       "hideable": false,
       "theme": {
-        "Tier": 3,
+        "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/圣甲虫.mp3",
           300
@@ -102,8 +99,7 @@
         "FontSize": 45,
         "MinimapIcon": "2 White Hexagon",
         "TextColor": "#aae63ccc",
-        "BackgroundColor": "#000000ff",
-        "BorderColor": "#00000000"
+        "BackgroundColor": "#000000ff"
       },
       "sound": {
         "default_sound_id": -1,

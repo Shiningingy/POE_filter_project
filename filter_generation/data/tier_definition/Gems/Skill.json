@@ -26,7 +26,6 @@
         ],
         "TextColor": "#ffffffff",
         "BackgroundColor": "#1ba29bff",
-        "BorderColor": "#00000000",
         "FontSize": 45
       },
       "sound": {
@@ -100,7 +99,6 @@
         ],
         "TextColor": "#000000ff",
         "BackgroundColor": "#1ba29bff",
-        "BorderColor": "#00000000",
         "FontSize": 43
       },
       "sound": {
@@ -130,7 +128,6 @@
         ],
         "TextColor": "#1ba29bff",
         "BackgroundColor": "#1b3334ff",
-        "BorderColor": "#00000000",
         "FontSize": 40
       },
       "sound": {
@@ -152,7 +149,6 @@
         ],
         "TextColor": "#1ba29bff",
         "BackgroundColor": "#1b3334ff",
-        "BorderColor": "#00000000",
         "FontSize": 40
       },
       "sound": {
@@ -174,7 +170,6 @@
         ],
         "TextColor": "#1ba29bff",
         "BackgroundColor": "#1b3334ff",
-        "BorderColor": "#00000000",
         "FontSize": 40
       },
       "sound": {

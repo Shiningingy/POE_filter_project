@@ -58,8 +58,7 @@
         "PlayEffect": "Orange Temp",
         "MinimapIcon": "2 Orange Circle",
         "TextColor": "#000000ff",
-        "BackgroundColor": "#ffaa00ff",
-        "BorderColor": "#00000000"
+        "BackgroundColor": "#ffaa00ff"
       },
       "sound": {
         "default_sound_id": 2,
@@ -137,8 +136,7 @@
         "PlayEffect": "Yellow Temp",
         "MinimapIcon": "2 Yellow Circle",
         "TextColor": "#000000ff",
-        "BackgroundColor": "#aa9e82ff",
-        "BorderColor": "#00000000"
+        "BackgroundColor": "#aa9e82ff"
       },
       "hideable": false,
       "sound": {

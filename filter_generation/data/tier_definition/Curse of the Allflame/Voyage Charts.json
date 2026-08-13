@@ -20,7 +20,6 @@
         ],
         "TextColor": "#ffffffff",
         "BackgroundColor": "#0084a8ff",
-        "BorderColor": "#00000000",
         "FontSize": 45
       },
       "hideable": false,

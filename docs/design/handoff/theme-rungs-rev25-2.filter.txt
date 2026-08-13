@@ -1,0 +1,408 @@
+# rev 25.2 (2026-08-12) · Sharket 3.29 Ruthless (CN) — rung ladder values (2026-08-07)
+# Role-keyed via @theme:<slug>. Twin of deliverables/theme_rungs_3.29.json — the consistency
+# check runs over both. Contrast numbers are WCAG ratios vs the plate named on the line.
+# R5 plates stay SOLID 0 0 0 255; only TextColor carries alpha 204.
+
+# ============ RUNG R0/R1 — HOUSE, PINNED (unchanged, recorded for completeness) ============
+    SetTextColor 255 0 0 # @theme:rung-r0 — 4.00:1 vs its white plate, accepted twice in game
+    SetBackgroundColor 255 255 255 255 # @theme:rung-r0
+    SetBorderColor 255 0 0 # @theme:rung-r0
+    SetFontSize 45 # @theme:rung-r0
+    MinimapIcon 0 Red Star # @theme:rung-r0
+    SetTextColor 255 255 255 # @theme:rung-r1 — 5.61:1 vs 210 0 0
+    SetBackgroundColor 210 0 0 # @theme:rung-r1
+    SetBorderColor 255 255 255 # @theme:rung-r1
+    SetFontSize 45 # @theme:rung-r1
+    MinimapIcon 0 Red Diamond # @theme:rung-r1
+
+# ============ CURRENCY — Sharket's five bands, VERBATIM from the 3.28 Ruthless filter (rev 11) ============
+# 3.28 puts Chaos AND Alchemy at T1通货; the re-tier de-inflates by the test. R2 borrows FB vermilion (T2通货 was border-only vs house R1).
+# No coloured text below the house rungs; rank = plate + border + minimap. Green border = T2 band mark (shared by currency-kin).
+# R2 · Cross the screen — FilterBlade "very valuable" verbatim (Blessed-level); replaces T2通货, which differed from house R1 only by border
+    SetTextColor 255 255 255 # @theme:currency-r2 — 3.39:1 vs 240 90 35; FS45 bright-plate band (floor 3.0)
+    SetBackgroundColor 240 90 35 # @theme:currency-r2
+    SetBorderColor 0 0 0 0 # @theme:currency-r2
+    SetFontSize 45 # @theme:currency-r2
+    MinimapIcon 1 Green Diamond # @theme:currency-r2
+# R3 · On your way — T3通货 verbatim (alch-level)
+    SetTextColor 0 0 0 # @theme:currency-r3 — 11:1 vs 255 170 0
+    SetBackgroundColor 255 170 0 # @theme:currency-r3
+    SetBorderColor 0 0 0 0 # @theme:currency-r3
+    SetFontSize 45 # @theme:currency-r3
+# R4 · When you need it — T4通货 verbatim: the classic tan as PLATE
+    SetTextColor 0 0 0 # @theme:currency-r4 — 7.91:1 vs 170 158 130
+    SetBackgroundColor 170 158 130 # @theme:currency-r4
+    SetBorderColor 0 0 0 0 # @theme:currency-r4
+    SetFontSize 45 # @theme:currency-r4
+# R5 · Know it's there — EMIT NO STYLE LINES: the game paints the label (§6 absent-key rule).
+#      Scrolls & gold keep the hand-set FontSize 35 as the only emitted line.
+    SetFontSize 35 # @theme:currency-r5
+
+# withdrawn: gold-text candidates 232 172 56 / 255 165 0-as-text / 206 148 52
+# icon note: Sharket keys icon SIZE to the band (Red 0 / Green 1 / Orange 2 / Yellow 2) — currency icons follow the bands, reaching zero at R5
+
+# ============ GEMS — raised (rev 3, per author): Sharket verbatim at every rung, cyan never drains ============
+# Assignment (rev 7): R4 = skill AND support gems (same value — the old split was rank-by-category, not the test);
+#                     R5 = less-valuable gems only (低价值宝石).
+    SetTextColor 255 255 255 # @theme:gems-r2 — 3.14:1 vs 27 162 155; FS45 band, white border + icon carry the rank
+    SetBackgroundColor 27 162 155 # @theme:gems-r2
+    SetBorderColor 255 255 255 # @theme:gems-r2
+    SetFontSize 45 # @theme:gems-r2
+    MinimapIcon 1 Yellow Triangle # @theme:gems-r2
+    SetTextColor 255 255 255 # @theme:gems-r3 — 3.14:1 vs 27 162 155; bright-plate FS45 band
+    SetBackgroundColor 27 162 155 # @theme:gems-r3
+    SetBorderColor 0 0 0 0 # @theme:gems-r3
+    SetFontSize 45 # @theme:gems-r3
+    SetTextColor 0 0 0 # @theme:gems-r4 — 6.69:1 vs 27 162 155
+    SetBackgroundColor 27 162 155 # @theme:gems-r4
+    SetBorderColor 0 0 0 0 # @theme:gems-r4
+    SetFontSize 43 # @theme:gems-r4
+    SetTextColor 27 162 155 # @theme:gems-r5 — 4.26:1 vs 27 51 52; Sharket's own lowest gem rung
+    SetBackgroundColor 27 51 52 # @theme:gems-r5
+    SetBorderColor 0 0 0 0 # @theme:gems-r5
+    SetFontSize 40 # @theme:gems-r5
+
+# ============ CORPSES — new family, 235 90 130 (343°, sat 62%) ============
+    SetTextColor 0 0 0 # @theme:corpses-r2 — 5.00:1 vs 212 74 110
+    SetBackgroundColor 212 74 110 # @theme:corpses-r2
+    SetBorderColor 0 0 0 0 # @theme:corpses-r2
+    SetFontSize 45 # @theme:corpses-r2
+    MinimapIcon 1 Yellow Kite # @theme:corpses-r2
+    SetTextColor 235 90 130 # @theme:corpses-r3 — 5.24:1 vs 45 17 25
+    SetBackgroundColor 45 17 25 # @theme:corpses-r3
+    SetBorderColor 0 0 0 0 # @theme:corpses-r3
+    SetFontSize 40 # @theme:corpses-r3
+    SetTextColor 235 90 130 # @theme:corpses-r4 — 6.32:1 vs 0 0 0
+    SetBackgroundColor 0 0 0 255 # @theme:corpses-r4
+    SetBorderColor 0 0 0 0 # @theme:corpses-r4
+    SetFontSize 40 # @theme:corpses-r4
+    SetTextColor 235 90 130 204 # @theme:corpses-r5 — effective 188 72 104 = 4.19:1 vs 0 0 0
+    SetBackgroundColor 0 0 0 255 # @theme:corpses-r5
+    SetBorderColor 0 0 0 0 # @theme:corpses-r5
+    SetFontSize 40 # @theme:corpses-r5
+
+# ============ CURSE OF THE ALLFLAME 众焰之咒 — league cyan-green 0 160 112 (162°, s100), NO R5 (rev 5) ============
+# Subcategory map: 瓶中信 R2 · 高级达克特 R3 · 普通达克特 R4 · 死者硫磺 R2/R3/R4 by STACK SIZE (currency grammar) · below R4 = Hide.
+# Ducats: exactly 2 tiers (R3/R4). 笼罩装备 keeps the enshrouded-fire state (black on 255 120 20, Orange Star) — not this family.
+# MOVED OUT: 穿越魔瓶 → Vaal/Incursion (suggest white on 40 150 80, 3.77:1); 笼罩水晶 → Legion (black on 145 155 170, 7.47:1);
+#            佣兵委托令 → its own duel key, ONE tier (suggest white on 150 20 40, 8.65:1, FS45 — measure vs corpses/ritual red band).
+# HOLE: 预知宝珠 (Scrying Orb) maps to no tier — suggest R3.
+# 海图 voyage charts — ONE tier, own sea blue:
+    SetTextColor 255 255 255 # @theme:allflame-charts — 4.32:1 vs 0 132 168; verify hue vs Map Fragments
+    SetBackgroundColor 0 132 168 # @theme:allflame-charts
+    SetBorderColor 0 0 0 0 # @theme:allflame-charts
+    SetFontSize 45 # @theme:allflame-charts
+    SetTextColor 255 255 255 # @theme:allflame-r2 — 3.35:1 vs 0 160 112; FS45 band, white border + icon carry the rank
+    SetBackgroundColor 0 160 112 # @theme:allflame-r2
+    SetBorderColor 255 255 255 # @theme:allflame-r2
+    SetFontSize 45 # @theme:allflame-r2
+    MinimapIcon 1 Yellow Diamond # @theme:allflame-r2
+    SetTextColor 255 255 255 # @theme:allflame-r3 — 3.35:1 vs 0 160 112; bright-plate FS45 band
+    SetBackgroundColor 0 160 112 # @theme:allflame-r3
+    SetBorderColor 0 0 0 0 # @theme:allflame-r3
+    SetFontSize 45 # @theme:allflame-r3
+    SetTextColor 0 0 0 # @theme:allflame-r4 — 6.26:1 vs 0 160 112
+    SetBackgroundColor 0 160 112 # @theme:allflame-r4
+    SetBorderColor 0 0 0 0 # @theme:allflame-r4
+    SetFontSize 43 # @theme:allflame-r4
+# clearance: 15° from gems (bluer teal); sits on old scarab jade 161° — fine once scarabs moves to the maps band.
+
+# ============ LEAGUE CURRENCIES (rev 6) — no R5, no game default; hue to the lowest earned rung, then Hide ============
+# Hidden 'T0 顶级/核心' locks map to the house pair. Light hues start at black-on-plate; blues walk the gem shape.
+# -- OILS 圣油 (255 230 80) --
+    SetTextColor 0 0 0 # @theme:oils-r2 — 16.69:1 vs 255 230 80
+    SetBackgroundColor 255 230 80 # @theme:oils-r2
+    SetBorderColor 0 0 0 0 # @theme:oils-r2
+    SetFontSize 45 # @theme:oils-r2
+    MinimapIcon 1 Yellow Diamond # @theme:oils-r2
+    SetTextColor 255 230 80 # @theme:oils-r3 — 11.18:1 vs 48 44 15
+    SetBackgroundColor 48 44 15 # @theme:oils-r3
+    SetBorderColor 0 0 0 0 # @theme:oils-r3
+    SetFontSize 40 # @theme:oils-r3
+    SetTextColor 255 230 80 # @theme:oils-r4 — 16.69:1 vs 0 0 0
+    SetBackgroundColor 0 0 0 255 # @theme:oils-r4
+    SetBorderColor 0 0 0 0 # @theme:oils-r4
+    SetFontSize 40 # @theme:oils-r4
+# -- FOSSILS & RESONATORS 化石&共鸣器 — NO family hue (rev 11); currency bands T1→T2→T3→T4 verbatim, fossils ↔ resonators in step --
+    SetTextColor 255 0 0 # @theme:fossils-r0 — T1通货; 12 premium fossils + prime resonators
+    SetBackgroundColor 255 255 255 255 # @theme:fossils-r0
+    SetBorderColor 255 0 0 # @theme:fossils-r0
+    SetFontSize 45 # @theme:fossils-r0
+    MinimapIcon 0 Red Star # @theme:fossils-r0
+    SetTextColor 255 255 255 # @theme:fossils-r1 — T2通货; good fossils/resonators; 5.61:1 vs 210 0 0
+    SetBackgroundColor 210 0 0 # @theme:fossils-r1
+    SetBorderColor 0 255 0 # @theme:fossils-r1 — 4.09:1; the T2 band mark
+    SetFontSize 45 # @theme:fossils-r1
+    MinimapIcon 1 Green Diamond # @theme:fossils-r1
+    SetTextColor 0 0 0 # @theme:fossils-r2 — T3通货; mid fossils; 11:1 vs 255 170 0 (= harvest's low look)
+    SetBackgroundColor 255 170 0 # @theme:fossils-r2
+    SetBorderColor 0 0 0 0 # @theme:fossils-r2
+    SetFontSize 45 # @theme:fossils-r2
+    MinimapIcon 2 Orange Diamond # @theme:fossils-r2
+    SetTextColor 0 0 0 # @theme:fossils-r3 — T4通货; common fossils; 7.91:1 vs 170 158 130
+    SetBackgroundColor 170 158 130 # @theme:fossils-r3
+    SetBorderColor 0 0 0 0 # @theme:fossils-r3
+    SetFontSize 45 # @theme:fossils-r3
+# -- ESSENCES 精华 (0 110 255 placeholder at s100 — swap in shipped blue if it differs) --
+    SetTextColor 255 255 255 # @theme:essences-r2 — 4.49:1 vs 0 110 255; FS45 band, white border + icon carry the rank
+    SetBackgroundColor 0 110 255 # @theme:essences-r2
+    SetBorderColor 255 255 255 # @theme:essences-r2
+    SetFontSize 45 # @theme:essences-r2
+    MinimapIcon 1 Yellow Raindrop # @theme:essences-r2
+    SetTextColor 255 255 255 # @theme:essences-r3 — 4.49:1 vs 0 110 255
+    SetBackgroundColor 0 110 255 # @theme:essences-r3
+    SetBorderColor 0 0 0 0 # @theme:essences-r3
+    SetFontSize 45 # @theme:essences-r3
+    SetTextColor 0 0 0 # @theme:essences-r4 — 4.67:1 vs 0 110 255
+    SetBackgroundColor 0 110 255 # @theme:essences-r4
+    SetBorderColor 0 0 0 0 # @theme:essences-r4
+    SetFontSize 43 # @theme:essences-r4
+# -- HARVEST LIFEFORCE 命能 — own emerald 46 204 113 (rev 15); 3 ranks, merged into Currency; 少量+命能 merge, Hide below --
+    SetTextColor 0 0 0 # @theme:harvest-r2 — 大量; 9.99:1 vs 46 204 113
+    SetBackgroundColor 46 204 113 # @theme:harvest-r2
+    SetBorderColor 0 0 0 0 # @theme:harvest-r2
+    SetFontSize 45 # @theme:harvest-r2
+    MinimapIcon 1 Yellow Diamond # @theme:harvest-r2
+    SetTextColor 46 204 113 # @theme:harvest-r3 — 中量; 7.61:1 vs 9 39 21
+    SetBackgroundColor 9 39 21 # @theme:harvest-r3
+    SetBorderColor 0 0 0 0 # @theme:harvest-r3
+    SetFontSize 40 # @theme:harvest-r3
+    SetTextColor 46 204 113 # @theme:harvest-r4 — 少量+命能 (merged); 9.99:1 vs 0 0 0
+    SetBackgroundColor 0 0 0 255 # @theme:harvest-r4
+    SetBorderColor 0 0 0 0 # @theme:harvest-r4
+    SetFontSize 40 # @theme:harvest-r4
+# clearance: allflame 162° Δ17 (retires) · gems Δ30 · quest green Δ34
+
+# -- MAPS 地图 (rev 14) — borders RESERVED (corruption/legacy/band-mark/emphasis): rank lives in the TEXT, one shared family plate --
+    SetTextColor 29 64 124 # @theme:maps-t0 — 特殊地图; 10.11:1 vs white; blue border = top-tier emphasis (a reserved use)
+    SetBackgroundColor 248 248 242 # @theme:maps-t0
+    SetBorderColor 43 94 182 # @theme:maps-t0
+    SetFontSize 45 # @theme:maps-t0
+    MinimapIcon 0 White Star # @theme:maps-t0
+    SetTextColor 255 255 255 # @theme:maps-t17 — NEW above-T16 band; 7.53:1 vs 108 52 180 (the game's T17 purple)
+    SetBackgroundColor 108 52 180 # @theme:maps-t17
+    SetBorderColor 0 0 0 0 # @theme:maps-t17
+    SetFontSize 45 # @theme:maps-t17
+    MinimapIcon 1 Purple Square # @theme:maps-t17
+    SetTextColor 255 90 80 # @theme:maps-t1 — T16 IS a red map: red text on its OWN red tint (colour × 0.19); 5.63:1 vs 48 17 15
+    SetBackgroundColor 48 17 15 # @theme:maps-t1
+    SetBorderColor 0 0 0 0 # @theme:maps-t1
+    SetFontSize 45 # @theme:maps-t1
+    MinimapIcon 1 Red Square # @theme:maps-t1 — a different PLATE vs T11-15, not just icon + size
+    SetTextColor 255 90 80 # @theme:maps-t2 — 红图 T11-15; 5.27:1 vs 15 32 62; text wears the map's own colour
+    SetBackgroundColor 15 32 62 # @theme:maps-t2
+    SetBorderColor 0 0 0 0 # @theme:maps-t2
+    SetFontSize 42 # @theme:maps-t2
+    SetTextColor 255 255 119 # @theme:maps-t3 — 黄图 T6-10; 15.29:1
+    SetBackgroundColor 15 32 62 # @theme:maps-t3
+    SetBorderColor 0 0 0 0 # @theme:maps-t3
+    SetFontSize 40 # @theme:maps-t3
+    SetTextColor 200 200 200 # @theme:maps-t4 — 白图 T1-5; 9.68:1
+    SetBackgroundColor 15 32 62 # @theme:maps-t4
+    SetBorderColor 0 0 0 0 # @theme:maps-t4
+    SetFontSize 40 # @theme:maps-t4
+
+# -- SCARABS 圣甲虫 — own hue: beetle LIME 170 230 60 (rev 16; cyan yielded to div cards); FS45 everywhere --
+    SetTextColor 88 116 20 # @theme:scarabs-t0 — 5.02:1 vs 248 248 242; category-top white-plate convention
+    SetBackgroundColor 248 248 242 # @theme:scarabs-t0
+    SetBorderColor 88 116 20 # @theme:scarabs-t0
+    SetFontSize 45 # @theme:scarabs-t0
+    MinimapIcon 0 Yellow Star # @theme:scarabs-t0
+    SetTextColor 0 0 0 # @theme:scarabs-t1 — 顶级; same plate bare
+    SetBackgroundColor 170 230 60 # @theme:scarabs-t1
+    SetBorderColor 0 0 0 0 # @theme:scarabs-t1
+    SetFontSize 45 # @theme:scarabs-t1
+    MinimapIcon 1 Yellow Hexagon # @theme:scarabs-t1
+    SetTextColor 170 230 60 # @theme:scarabs-t2 — 稀有; 9.88:1 vs 32 44 11
+    SetBackgroundColor 32 44 11 # @theme:scarabs-t2
+    SetBorderColor 0 0 0 0 # @theme:scarabs-t2
+    SetFontSize 45 # @theme:scarabs-t2
+    SetTextColor 170 230 60 # @theme:scarabs-t3 — 少见; 14.09:1 vs 0 0 0
+    SetBackgroundColor 0 0 0 255 # @theme:scarabs-t3
+    SetBorderColor 0 0 0 0 # @theme:scarabs-t3
+    SetFontSize 45 # @theme:scarabs-t3
+    SetTextColor 170 230 60 204 # @theme:scarabs-t4 — 普通; effective 136 184 48 = 8.95:1 vs 0 0 0
+    SetBackgroundColor 0 0 0 255 # @theme:scarabs-t4
+    SetBorderColor 0 0 0 0 # @theme:scarabs-t4
+    SetFontSize 45 # @theme:scarabs-t4
+# clearance: oils Δ29.7 · quest green Δ25 · harvest emerald Δ59 · div-card cyan freed
+
+# -- DELIRIUM ORBS 雾魇宝珠 (210 210 230) — one tier, one rung --
+    SetTextColor 0 0 0 # @theme:delirium-r2 — 14.1:1 vs 210 210 230
+    SetBackgroundColor 210 210 230 # @theme:delirium-r2
+    SetBorderColor 0 0 0 0 # @theme:delirium-r2
+    SetFontSize 45 # @theme:delirium-r2
+    MinimapIcon 1 Yellow Diamond # @theme:delirium-r2
+
+# ============ EQUIPMENT RECIPES — Sharket 3.28 verbatim (rev 17): sockets ride the currency bands, jewels use the rarity-plate grammar ============
+    SetTextColor 255 0 0 # @theme:sockets-6link — T1通货 pair; gear shape via Star icon
+    SetBackgroundColor 255 255 255 255 # @theme:sockets-6link
+    SetBorderColor 255 0 0 # @theme:sockets-6link
+    SetFontSize 45 # @theme:sockets-6link
+    MinimapIcon 0 Red Star # @theme:sockets-6link
+    SetTextColor 255 255 255 # @theme:sockets-6socket — T2通货 pair (green band mark)
+    SetBackgroundColor 210 0 0 # @theme:sockets-6socket
+    SetBorderColor 0 255 0 # @theme:sockets-6socket
+    SetFontSize 45 # @theme:sockets-6socket
+    MinimapIcon 0 Green Star # @theme:sockets-6socket
+    SetTextColor 0 0 0 # @theme:sockets-rgb — 7.91:1 vs 170 158 130 (T4通货 plate); size gates kept
+    SetBackgroundColor 170 158 130 # @theme:sockets-rgb
+    SetBorderColor 0 0 0 0 # @theme:sockets-rgb
+    SetFontSize 40 # @theme:sockets-rgb
+# Jewels — plate = rarity, text = value (black = T2 normal/abyss; red text reserved for T1 Timeless/Prismatic/top clusters), cross = rarity, FS45:
+    SetTextColor 0 0 0 # @theme:jewels-t2-white — 8.03:1 vs 160 160 160
+    SetBackgroundColor 160 160 160 # @theme:jewels-t2-white
+    SetBorderColor 0 0 0 0 # @theme:jewels-t2-white
+    SetFontSize 45 # @theme:jewels-t2-white
+    MinimapIcon 0 White Cross # @theme:jewels-t2-white
+    SetTextColor 0 0 0 # @theme:jewels-t2-magic — 7.01:1 vs 136 136 255; Identified False for abyss
+    SetBackgroundColor 136 136 255 # @theme:jewels-t2-magic
+    SetBorderColor 0 0 0 0 # @theme:jewels-t2-magic
+    SetFontSize 45 # @theme:jewels-t2-magic
+    MinimapIcon 0 Blue Cross # @theme:jewels-t2-magic
+    SetTextColor 0 0 0 # @theme:jewels-t2-rare — 19.82:1 vs 255 255 119; Identified False for abyss
+    SetBackgroundColor 255 255 119 # @theme:jewels-t2-rare
+    SetBorderColor 0 0 0 0 # @theme:jewels-t2-rare
+    SetFontSize 45 # @theme:jewels-t2-rare
+    MinimapIcon 0 Yellow Cross # @theme:jewels-t2-rare
+# cluster jewels: untouched per author
+
+# ============ EQUIPMENT LOUDNESS (rev 22 — flip: bright plate = loud = jewellery; weapons/armour quiet) ============
+# Jewellery: the game's own bright rarity plates, black text — UNCHANGED, no lines needed.
+# Weapons/armour: rarity in the TEXT on the quiet neutral plate (free since the tainted grey retired, rev 16).
+    SetTextColor 255 255 119 # @theme:gear-rare — 15.38:1 vs 32 32 32
+    SetBackgroundColor 32 32 32 # @theme:gear-rare
+    SetBorderColor 0 0 0 0 # @theme:gear-rare
+    SetFontSize 45 # @theme:gear-rare
+    SetTextColor 136 136 255 # @theme:gear-magic — 5.44:1 vs 32 32 32
+    SetBackgroundColor 32 32 32 # @theme:gear-magic
+    SetBorderColor 0 0 0 0 # @theme:gear-magic
+    SetFontSize 40 # @theme:gear-magic
+    SetTextColor 160 160 160 # @theme:gear-normal — 6.23:1 vs 32 32 32
+    SetBackgroundColor 32 32 32 # @theme:gear-normal
+    SetBorderColor 0 0 0 0 # @theme:gear-normal
+    SetFontSize 40 # @theme:gear-normal
+
+# ============ NET (rev 19, request-02 Ask 2) — one fixed look; class known, item uncurated; sits ONE rung below magenta ============
+    SetTextColor 255 90 200 # @theme:net — 7.55:1 vs black; kin to the magenta emergency, no plate = below it
+    SetBackgroundColor 0 0 0 255 # @theme:net
+    SetBorderColor 0 0 0 0 # @theme:net
+    SetFontSize 40 # @theme:net
+# escalation only if in-game salience fails: SetBackgroundColor 48 17 38 (6.12:1) — never a bright plate
+
+# ============ WOMBGIFTS 孕育赠礼 (rev 24 — previously uncovered; T2 inherited the template mute) ============
+# T1 reserved: the house chase pair — promote a base into it, never restyle T2. Net = net look. Hide below.
+    SetTextColor 255 0 0 # @theme:wombgifts-t1 — reserved house chase
+    SetBackgroundColor 255 255 255 255 # @theme:wombgifts-t1
+    SetBorderColor 255 0 0 # @theme:wombgifts-t1
+    SetFontSize 45 # @theme:wombgifts-t1
+    MinimapIcon 0 Red Star # @theme:wombgifts-t1
+    SetTextColor 0 0 0 # @theme:wombgifts-t2 — all 4 bases; 11.41:1 vs blush 235 175 190 (345° s26; pale plate legal — delirium precedent, warm vs cool)
+    SetBackgroundColor 235 175 190 # @theme:wombgifts-t2
+    SetBorderColor 0 0 0 0 # @theme:wombgifts-t2
+    SetFontSize 45 # @theme:wombgifts-t2
+    MinimapIcon 1 Pink Diamond # @theme:wombgifts-t2
+
+# ============ BORDER CONVENTION (rev 25.2) — ABSENT BorderColor = yields to state decorators; 0 0 0 0 = deliberate suppress ============
+# The kit's "SetBorderColor 0 0 0 0" lines below are historical; port them as OMITTED unless marked suppress.
+# Influenced rows: prefer the [11003] decorator owning the border — unify on one violet, drop it from the rows.
+
+# ============ ICON SYSTEM (rev 24) — shapes are CATEGORY-KEYED; icons only at R0-R2 (likely pickups) ============
+# Diamond=currency-kin · Square=maps/frags/div · Hexagon=scarabs · Triangle=gems · Raindrop=essences · Kite=corpses · Cross=jewels/nets
+# Star=SHARED chase shape (house-band rows: Mirror-class, 6L/6S, white-plate tops). R3+ carry NO icon (scrolls/tan band cleaned).
+# RETIRED shapes (25.2): Circle, UpsideDownHouse, Pentagon — replace on sight; only table shapes are valid.
+# Floor reads the PROMISE, not the paint: jewels look rung-4 (rarity plates) but pass the R2 test in Ruthless — Crosses KEPT.
+# Net accent = no icon; footer [99999] emergency keeps 2 White Cross.
+
+# ============ AUTHORING PASS (rev 25) — the five open silents; Memory-Stranded / ID-Mods dropped (gone from repo) ============
+# -- HEIST EXPERIMENTED 实验底材 — heist violet walk (base-valued gear) --
+    SetTextColor 0 0 0 # @theme:heistexp-t0 — chase; 8.76:1 vs 213 144 211
+    SetBackgroundColor 213 144 211 # @theme:heistexp-t0
+    SetBorderColor 0 0 0 0 # @theme:heistexp-t0
+    SetFontSize 45 # @theme:heistexp-t0
+    MinimapIcon 1 Purple Moon # @theme:heistexp-t0
+    SetTextColor 213 144 211 # @theme:heistexp-t1 — 6.86:1 vs 40 27 40
+    SetBackgroundColor 40 27 40 # @theme:heistexp-t1
+    SetBorderColor 0 0 0 0 # @theme:heistexp-t1
+    SetFontSize 40 # @theme:heistexp-t1
+    SetTextColor 213 144 211 # @theme:heistexp-t2 — 8.76:1 vs 0 0 0
+    SetBackgroundColor 0 0 0 255 # @theme:heistexp-t2
+    SetBorderColor 0 0 0 0 # @theme:heistexp-t2
+    SetFontSize 40 # @theme:heistexp-t2
+# -- TRINKETS 饰品 — heist jewellery; T0 lock = white-plate top --
+    SetTextColor 111 58 110 # @theme:trinkets-t0 — 7.86:1 vs 248 248 242
+    SetBackgroundColor 248 248 242 # @theme:trinkets-t0
+    SetBorderColor 111 58 110 # @theme:trinkets-t0
+    SetFontSize 45 # @theme:trinkets-t0
+    MinimapIcon 0 Purple Star # @theme:trinkets-t0
+    SetTextColor 0 0 0 # @theme:trinkets-t1 — 8.76:1 vs 213 144 211
+    SetBackgroundColor 213 144 211 # @theme:trinkets-t1
+    SetBorderColor 0 0 0 0 # @theme:trinkets-t1
+    SetFontSize 45 # @theme:trinkets-t1
+    MinimapIcon 1 Purple Moon # @theme:trinkets-t1
+    SetTextColor 213 144 211 # @theme:trinkets-t2 — 6.86:1 vs 40 27 40
+    SetBackgroundColor 40 27 40 # @theme:trinkets-t2
+    SetBorderColor 0 0 0 0 # @theme:trinkets-t2
+    SetFontSize 40 # @theme:trinkets-t2
+    SetTextColor 213 144 211 # @theme:trinkets-t3 — 8.76:1 vs 0 0 0
+    SetBackgroundColor 0 0 0 255 # @theme:trinkets-t3
+    SetBorderColor 0 0 0 0 # @theme:trinkets-t3
+    SetFontSize 40 # @theme:trinkets-t3
+    SetTextColor 213 144 211 204 # @theme:trinkets-t4 — dim; 5.73:1 effective vs 0 0 0
+    SetBackgroundColor 0 0 0 255 # @theme:trinkets-t4
+    SetBorderColor 0 0 0 0 # @theme:trinkets-t4
+    SetFontSize 40 # @theme:trinkets-t4
+# -- TALISMANS 护身符 — freed amethyst walk. CONFIRMED to ship (sat 48 vs 32, non-overlapping drop contexts).
+#    If the in-game eyeball fails: fallback = retired allflame violet 170 120 255 (262°, Δ40°; bright 6.84 / tint 32 23 48 = 5.58 / black 6.84). Never nudge by degrees. --
+    SetTextColor 0 0 0 # @theme:talismans-t0 — chase; 7.29:1 vs 200 120 230
+    SetBackgroundColor 200 120 230 # @theme:talismans-t0
+    SetBorderColor 0 0 0 0 # @theme:talismans-t0
+    SetFontSize 45 # @theme:talismans-t0
+    MinimapIcon 1 Purple Moon # @theme:talismans-t0
+    SetTextColor 200 120 230 # @theme:talismans-t1 — 5.87:1 vs 38 23 44
+    SetBackgroundColor 38 23 44 # @theme:talismans-t1
+    SetBorderColor 0 0 0 0 # @theme:talismans-t1
+    SetFontSize 40 # @theme:talismans-t1
+    SetTextColor 200 120 230 # @theme:talismans-t2 — 7.29:1 vs 0 0 0
+    SetBackgroundColor 0 0 0 255 # @theme:talismans-t2
+    SetBorderColor 0 0 0 0 # @theme:talismans-t2
+    SetFontSize 40 # @theme:talismans-t2
+# -- INFLUENCED 势力装备 — influence is a STATUS: border 150 110 255 (5th reserved use; 4.63:1 vs 32 32 32) on rev-22 gear rows --
+    SetTextColor 255 255 119 # @theme:influenced-t0 — ilvl86+ chase; gear-rare row + influence border
+    SetBackgroundColor 32 32 32 # @theme:influenced-t0
+    SetBorderColor 150 110 255 # @theme:influenced-t0
+    SetFontSize 45 # @theme:influenced-t0
+    MinimapIcon 1 Purple Star # @theme:influenced-t0
+# T1 = rare row FS40 · T2 = DIM step: rare text alpha cc (25.2 fix — was byte-identical to T1 in error) · T3 = gear-magic text · Hide as defined.
+# -- CAMPAIGN 保底与清理 — one visible row; declutters are Hides --
+    SetTextColor 255 255 119 # @theme:campaign-rare — Rare Safety Net; 15.38:1 vs 32 32 32
+    SetBackgroundColor 32 32 32 # @theme:campaign-rare
+    SetBorderColor 0 0 0 0 # @theme:campaign-rare
+    SetFontSize 40 # @theme:campaign-rare
+# -- CLASS NETS 兜底层 — swap the placeholder steel-blue for @theme:net (255 90 200 on black, FS40) 1:1 --
+
+# ============ LEGACY — a STATUS, not a family: border mark only ============
+# Items keep their family / rarity look. Gear stays rarity-through (no TextColor — §6).
+    SetBorderColor 150 150 150 # @theme:state-legacy — 7.10:1 vs 0 0 0; >= 3.0 on every plate in the set
+
+# ============ TAINTED CURRENCY 玷污通货 — standalone CORRUPTED family, vaal red (rev 16, per author) ============
+# Not currency. 4 visible tiers + Hide; T1 = house R0 pair. Tightest clearance: corpses at 343° clears Δ20° (resolved).
+    SetTextColor 255 0 0 # @theme:tainted-t1 — 顶级 → R0 house pair
+    SetBackgroundColor 255 255 255 255 # @theme:tainted-t1
+    SetBorderColor 255 0 0 # @theme:tainted-t1
+    SetFontSize 45 # @theme:tainted-t1
+    MinimapIcon 0 Red Star # @theme:tainted-t1
+    SetTextColor 255 255 255 # @theme:tainted-t2 — 高价值; 8.65:1 vs blood 150 20 40
+    SetBackgroundColor 150 20 40 # @theme:tainted-t2
+    SetBorderColor 0 0 0 0 # @theme:tainted-t2
+    SetFontSize 45 # @theme:tainted-t2
+    MinimapIcon 1 Red Diamond # @theme:tainted-t2
+    SetTextColor 245 85 75 # @theme:tainted-t3 — 中等; 5.23:1 vs 47 16 14 (hideable)
+    SetBackgroundColor 47 16 14 # @theme:tainted-t3
+    SetBorderColor 0 0 0 0 # @theme:tainted-t3
+    SetFontSize 40 # @theme:tainted-t3
+    SetTextColor 245 85 75 # @theme:tainted-t4 — 低价值; 6.28:1 vs 0 0 0 (hideable)
+    SetBackgroundColor 0 0 0 255 # @theme:tainted-t4
+    SetBorderColor 0 0 0 0 # @theme:tainted-t4
+    SetFontSize 40 # @theme:tainted-t4
+# NOTE: blood plate 150 20 40 supersedes the mercenary-warrant suggestion — warrant re-picks when themed.

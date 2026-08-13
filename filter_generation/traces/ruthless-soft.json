@@ -41,7 +41,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    HasInfluence Shaper Elder Crusader Hunter Redeemer Warlord\n    SetBorderColor 150 0 255 255\n    Continue\n"
+   "text": "Show\n    HasInfluence Shaper Elder Crusader Hunter Redeemer Warlord\n    SetBorderColor 150 110 255 255\n    Continue\n"
   },
   {
    "order": 11004,
@@ -101,7 +101,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    SocketGroup RGB\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 170 158 130 255\n    CustomAlertSound \"Sharket掉落音效\\幻色装.mp3\" 300\n"
+   "text": "Show\n    SocketGroup RGB\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 170 158 130 255\n    CustomAlertSound \"Sharket掉落音效\\幻色装.mp3\" 300\n"
   },
   {
    "order": 32001,
@@ -137,7 +137,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Boots\"\n    Rarity Magic Rare\n    Identified True\n    HasExplicitMod \"Stallion's\"\n    AreaLevel <= 33\n    ItemLevel <= 38\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 32 32 32 255\n    PlayAlertSound 2 300\n"
+   "text": "Show\n    Class == \"Boots\"\n    Rarity Magic Rare\n    Identified True\n    HasExplicitMod \"Stallion's\"\n    AreaLevel <= 33\n    ItemLevel <= 38\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBackgroundColor 32 32 32 255\n    PlayAlertSound 2 300\n"
   },
   {
    "order": 32004,
@@ -149,7 +149,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Boots\"\n    Rarity Magic Rare\n    Identified True\n    HasExplicitMod \"Sprinter's\"\n    AreaLevel <= 23\n    ItemLevel <= 28\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 32 32 32 255\n    PlayAlertSound 2 300\n"
+   "text": "Show\n    Class == \"Boots\"\n    Rarity Magic Rare\n    Identified True\n    HasExplicitMod \"Sprinter's\"\n    AreaLevel <= 23\n    ItemLevel <= 28\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBackgroundColor 32 32 32 255\n    PlayAlertSound 2 300\n"
   },
   {
    "order": 32005,
@@ -197,7 +197,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Ruby Ring\" \"Sapphire Ring\" \"Topaz Ring\" \"Two-Stone Ring\"\n    Rarity Normal Magic\n    AreaLevel <= 67\n    ItemLevel <= 72\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 32 32 32 255\n    PlayAlertSound 2 300\n"
+   "text": "Show\n    BaseType == \"Ruby Ring\" \"Sapphire Ring\" \"Topaz Ring\" \"Two-Stone Ring\"\n    Rarity Normal Magic\n    AreaLevel <= 67\n    ItemLevel <= 72\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBackgroundColor 32 32 32 255\n    PlayAlertSound 2 300\n"
   },
   {
    "order": 33003,
@@ -401,7 +401,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Quicksilver Flask\"\n    AreaLevel <= 67\n    ItemLevel <= 72\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 32 32 32 255\n    CustomAlertSound \"Sharket掉落音效\\水银药剂.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Quicksilver Flask\"\n    AreaLevel <= 67\n    ItemLevel <= 72\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBackgroundColor 32 32 32 255\n    CustomAlertSound \"Sharket掉落音效\\水银药剂.mp3\" 300\n"
   },
   {
    "order": 34014,
@@ -425,7 +425,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Bows\" \"Claws\" \"Daggers\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Quivers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Wands\" \"Warstaves\" \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\"\n    LinkedSockets >= 4\n    Rarity <= Rare\n    AreaLevel <= 45\n    ItemLevel <= 50\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 32 32 32 255\n"
+   "text": "Show\n    Class == \"Bows\" \"Claws\" \"Daggers\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Quivers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Wands\" \"Warstaves\" \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\"\n    LinkedSockets >= 4\n    Rarity <= Rare\n    AreaLevel <= 45\n    ItemLevel <= 50\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBackgroundColor 32 32 32 255\n"
   },
   {
    "order": 35002,
@@ -449,7 +449,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Rarity Normal\n    Sockets >= 3\n    AreaLevel <= 9\n    ItemLevel <= 14\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 32 32 32 255\n"
+   "text": "Show\n    Rarity Normal\n    Sockets >= 3\n    AreaLevel <= 9\n    ItemLevel <= 14\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBackgroundColor 32 32 32 255\n"
   },
   {
    "order": 36002,
@@ -473,7 +473,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Bows\" \"Claws\" \"Daggers\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Quivers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Wands\" \"Warstaves\" \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\"\n    Rarity Rare\n    AreaLevel <= 67\n    ItemLevel <= 72\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 32 32 32 255\n"
+   "text": "Show\n    Class == \"Bows\" \"Claws\" \"Daggers\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Quivers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Wands\" \"Warstaves\" \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\"\n    Rarity Rare\n    AreaLevel <= 67\n    ItemLevel <= 72\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBackgroundColor 32 32 32 255\n"
   },
   {
    "order": 37002,
@@ -711,7 +711,7 @@
     "Whalebone Rapier"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Ancient Mask\" \"Arcanist Slippers\" \"Assassin's Boots\" \"Astral Leather\" \"Battered Foil\" \"Chimerascale Boots\" \"Chimerascale Gauntlets\" \"Conqueror's Helmet\" \"Conquest Helmet\" \"Convoking Wand\" \"Copper Kris\" \"Crusader Boots\" \"Crusader Gloves\" \"Deicide Mask\" \"Despot Axe\" \"Dire Pelt\" \"Dragonscale Boots\" \"Dragonscale Gauntlets\" \"Eternal Burgonet\" \"Faithful Helmet\" \"Full Wyvernscale\" \"Gemini Claw\" \"General's Helmet\" \"Golden Kris\" \"Goliath Gauntlets\" \"Goliath Greaves\" \"Grand Ringmail\" \"Grizzly Pelt\" \"Harmonic Spirit Shield\" \"Harpyskin Boots\" \"Harpyskin Gloves\" \"Hubris Circlet\" \"Hydrascale Boots\" \"Hydrascale Gauntlets\" \"Imperial Claw\" \"Imperial Skean\" \"Infiltrator Boots\" \"Infiltrator Mitts\" \"Jester Mask\" \"Jewelled Foil\" \"Kinetic Wand\" \"Knight Helm\" \"Lathi\" \"Legion Boots\" \"Legion Gloves\" \"Legion Plate\" \"Lion Pelt\" \"Marshall's Brigandine\" \"Martyr Boots\" \"Martyr Gloves\" \"Mind Cage\" \"Mirrored Spiked Shield\" \"Moonlit Circlet\" \"Murder Boots\" \"Murder Mitts\" \"Nightmare Bascinet\" \"Nightweave Robe\" \"Opal Sceptre\" \"Opal Wand\" \"Pagan Wand\" \"Paladin Crown\" \"Paladin's Hauberk\" \"Platinum Kris\" \"Praetor Crown\" \"Precursor Gauntlets\" \"Precursor Greaves\" \"Profane Wand\" \"Prophecy Wand\" \"Prophet Crown\" \"Reaver Axe\" \"Reaver Sword\" \"Reflex Bow\" \"Royal Burgonet\" \"Sage Gloves\" \"Sage Slippers\" \"Sanguine Raiment\" \"Short Bow\" \"Siege Axe\" \"Slink Boots\" \"Slink Gloves\" \"Soldier Boots\" \"Sorcerer Boots\" \"Sorcerer Gloves\" \"Spine Bow\" \"Stealth Boots\" \"Sunfire Circlet\" \"Supreme Leather\" \"Thicket Bow\" \"Titan Gauntlets\" \"Titan Greaves\" \"Titan Plate\" \"Tornado Wand\" \"Torturer Garb\" \"Vaal Axe\" \"Vaal Gauntlets\" \"Vaal Greaves\" \"Vaal Mask\" \"Void Sceptre\" \"Whalebone Rapier\"\n    Class == \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"\n    HasInfluence Shaper Elder Crusader Hunter Redeemer Warlord\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBorderColor 150 110 255 255\n    SetBackgroundColor 32 32 32 255\n"
+   "text": "Show\n    BaseType == \"Ancient Mask\" \"Arcanist Slippers\" \"Assassin's Boots\" \"Astral Leather\" \"Battered Foil\" \"Chimerascale Boots\" \"Chimerascale Gauntlets\" \"Conqueror's Helmet\" \"Conquest Helmet\" \"Convoking Wand\" \"Copper Kris\" \"Crusader Boots\" \"Crusader Gloves\" \"Deicide Mask\" \"Despot Axe\" \"Dire Pelt\" \"Dragonscale Boots\" \"Dragonscale Gauntlets\" \"Eternal Burgonet\" \"Faithful Helmet\" \"Full Wyvernscale\" \"Gemini Claw\" \"General's Helmet\" \"Golden Kris\" \"Goliath Gauntlets\" \"Goliath Greaves\" \"Grand Ringmail\" \"Grizzly Pelt\" \"Harmonic Spirit Shield\" \"Harpyskin Boots\" \"Harpyskin Gloves\" \"Hubris Circlet\" \"Hydrascale Boots\" \"Hydrascale Gauntlets\" \"Imperial Claw\" \"Imperial Skean\" \"Infiltrator Boots\" \"Infiltrator Mitts\" \"Jester Mask\" \"Jewelled Foil\" \"Kinetic Wand\" \"Knight Helm\" \"Lathi\" \"Legion Boots\" \"Legion Gloves\" \"Legion Plate\" \"Lion Pelt\" \"Marshall's Brigandine\" \"Martyr Boots\" \"Martyr Gloves\" \"Mind Cage\" \"Mirrored Spiked Shield\" \"Moonlit Circlet\" \"Murder Boots\" \"Murder Mitts\" \"Nightmare Bascinet\" \"Nightweave Robe\" \"Opal Sceptre\" \"Opal Wand\" \"Pagan Wand\" \"Paladin Crown\" \"Paladin's Hauberk\" \"Platinum Kris\" \"Praetor Crown\" \"Precursor Gauntlets\" \"Precursor Greaves\" \"Profane Wand\" \"Prophecy Wand\" \"Prophet Crown\" \"Reaver Axe\" \"Reaver Sword\" \"Reflex Bow\" \"Royal Burgonet\" \"Sage Gloves\" \"Sage Slippers\" \"Sanguine Raiment\" \"Short Bow\" \"Siege Axe\" \"Slink Boots\" \"Slink Gloves\" \"Soldier Boots\" \"Sorcerer Boots\" \"Sorcerer Gloves\" \"Spine Bow\" \"Stealth Boots\" \"Sunfire Circlet\" \"Supreme Leather\" \"Thicket Bow\" \"Titan Gauntlets\" \"Titan Greaves\" \"Titan Plate\" \"Tornado Wand\" \"Torturer Garb\" \"Vaal Axe\" \"Vaal Gauntlets\" \"Vaal Greaves\" \"Vaal Mask\" \"Void Sceptre\" \"Whalebone Rapier\"\n    Class == \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Quivers\" \"Amulets\" \"Belts\" \"Rings\" \"Bows\" \"Claws\" \"Daggers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Warstaves\" \"Wands\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\"\n    HasInfluence Shaper Elder Crusader Hunter Redeemer Warlord\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 255 255 119 204\n    SetBorderColor 150 110 255 255\n    SetBackgroundColor 32 32 32 255\n"
   },
   {
    "order": 41004,
@@ -1747,7 +1747,7 @@
     "Perfect Spirit of Fortune"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Perfect Adherent of Zarokh\" \"Perfect Astral Lich\" \"Perfect Blasphemer\" \"Perfect Blood Demon\" \"Perfect Conjuror of Rot\" \"Perfect Dancing Sword\" \"Perfect Dark Marionette\" \"Perfect Dark Reaper\" \"Perfect Druidic Alchemist\" \"Perfect Eldritch Eye\" \"Perfect Fiery Cannibal\" \"Perfect Forest Warrior\" \"Perfect Frozen Cannibal\" \"Perfect Guardian Turtle\" \"Perfect Half-remembered Goliath\" \"Perfect Hulking Miscreation\" \"Perfect Hydra\" \"Perfect Judgemental Spirit\" \"Perfect Meatsack\" \"Perfect Naval Officer\" \"Perfect Needle Horror\" \"Perfect Pain Artist\" \"Perfect Primal Demiurge\" \"Perfect Primal Thunderbird\" \"Perfect Runic Skeleton\" \"Perfect Sanguimancer Demon\" \"Perfect Sawblade Horror\" \"Perfect Serpent Warrior\" \"Perfect Shadow Construct\" \"Perfect Slashing Horror\" \"Perfect Spider Matriarch\" \"Perfect Spirit of Fortune\"\n    SetFontSize 40\n    SetTextColor 235 90 130 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 45 17 25 255\n    PlayEffect Brown\n    MinimapIcon 0 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Perfect Adherent of Zarokh\" \"Perfect Astral Lich\" \"Perfect Blasphemer\" \"Perfect Blood Demon\" \"Perfect Conjuror of Rot\" \"Perfect Dancing Sword\" \"Perfect Dark Marionette\" \"Perfect Dark Reaper\" \"Perfect Druidic Alchemist\" \"Perfect Eldritch Eye\" \"Perfect Fiery Cannibal\" \"Perfect Forest Warrior\" \"Perfect Frozen Cannibal\" \"Perfect Guardian Turtle\" \"Perfect Half-remembered Goliath\" \"Perfect Hulking Miscreation\" \"Perfect Hydra\" \"Perfect Judgemental Spirit\" \"Perfect Meatsack\" \"Perfect Naval Officer\" \"Perfect Needle Horror\" \"Perfect Pain Artist\" \"Perfect Primal Demiurge\" \"Perfect Primal Thunderbird\" \"Perfect Runic Skeleton\" \"Perfect Sanguimancer Demon\" \"Perfect Sawblade Horror\" \"Perfect Serpent Warrior\" \"Perfect Shadow Construct\" \"Perfect Slashing Horror\" \"Perfect Spider Matriarch\" \"Perfect Spirit of Fortune\"\n    SetFontSize 40\n    SetTextColor 235 90 130 255\n    SetBackgroundColor 45 17 25 255\n    PlayEffect Brown\n    MinimapIcon 0 Yellow Circle\n"
   },
   {
    "order": 51003,
@@ -1797,7 +1797,7 @@
     "Warlord"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Adherent of Zarokh\" \"Astral Lich\" \"Blasphemer\" \"Blood Demon\" \"Conjuror of Rot\" \"Dancing Sword\" \"Dark Marionette\" \"Dark Reaper\" \"Druidic Alchemist\" \"Eldritch Eye\" \"Fiery Cannibal\" \"Forest Tiger\" \"Forest Warrior\" \"Frozen Cannibal\" \"Guardian Turtle\" \"Half-remembered Goliath\" \"Hulking Miscreation\" \"Hydra\" \"Imperfect Adherent of Zarokh\" \"Imperfect Astral Lich\" \"Imperfect Conjuror of Rot\" \"Judgemental Spirit\" \"Meatsack\" \"Naval Officer\" \"Needle Horror\" \"Pain Artist\" \"Primal Demiurge\" \"Primal Thunderbird\" \"Runic Skeleton\" \"Sanguimancer Demon\" \"Sawblade Horror\" \"Serpent Warrior\" \"Shadow Construct\" \"Slashing Horror\" \"Spider Matriarch\" \"Spirit of Fortune\" \"Warlord\"\n    SetFontSize 40\n    SetTextColor 235 90 130 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n"
+   "text": "Show\n    BaseType == \"Adherent of Zarokh\" \"Astral Lich\" \"Blasphemer\" \"Blood Demon\" \"Conjuror of Rot\" \"Dancing Sword\" \"Dark Marionette\" \"Dark Reaper\" \"Druidic Alchemist\" \"Eldritch Eye\" \"Fiery Cannibal\" \"Forest Tiger\" \"Forest Warrior\" \"Frozen Cannibal\" \"Guardian Turtle\" \"Half-remembered Goliath\" \"Hulking Miscreation\" \"Hydra\" \"Imperfect Adherent of Zarokh\" \"Imperfect Astral Lich\" \"Imperfect Conjuror of Rot\" \"Judgemental Spirit\" \"Meatsack\" \"Naval Officer\" \"Needle Horror\" \"Pain Artist\" \"Primal Demiurge\" \"Primal Thunderbird\" \"Runic Skeleton\" \"Sanguimancer Demon\" \"Sawblade Horror\" \"Serpent Warrior\" \"Shadow Construct\" \"Slashing Horror\" \"Spider Matriarch\" \"Spirit of Fortune\" \"Warlord\"\n    SetFontSize 40\n    SetTextColor 235 90 130 255\n    SetBackgroundColor 0 0 0 255\n"
   },
   {
    "order": 51004,
@@ -1841,7 +1841,7 @@
     "Imperfect Warlord"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Imperfect Blasphemer\" \"Imperfect Blood Demon\" \"Imperfect Dancing Sword\" \"Imperfect Dark Marionette\" \"Imperfect Dark Reaper\" \"Imperfect Druidic Alchemist\" \"Imperfect Eldritch Eye\" \"Imperfect Fiery Cannibal\" \"Imperfect Forest Tiger\" \"Imperfect Forest Warrior\" \"Imperfect Frozen Cannibal\" \"Imperfect Guardian Turtle\" \"Imperfect Half-remembered Goliath\" \"Imperfect Hulking Miscreation\" \"Imperfect Hydra\" \"Imperfect Judgemental Spirit\" \"Imperfect Meatsack\" \"Imperfect Naval Officer\" \"Imperfect Needle Horror\" \"Imperfect Pain Artist\" \"Imperfect Primal Demiurge\" \"Imperfect Primal Thunderbird\" \"Imperfect Runic Skeleton\" \"Imperfect Sanguimancer Demon\" \"Imperfect Sawblade Horror\" \"Imperfect Serpent Warrior\" \"Imperfect Shadow Construct\" \"Imperfect Slashing Horror\" \"Imperfect Spider Matriarch\" \"Imperfect Spirit of Fortune\" \"Imperfect Warlord\"\n    SetFontSize 40\n    SetTextColor 235 90 130 204\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n"
+   "text": "Show\n    BaseType == \"Imperfect Blasphemer\" \"Imperfect Blood Demon\" \"Imperfect Dancing Sword\" \"Imperfect Dark Marionette\" \"Imperfect Dark Reaper\" \"Imperfect Druidic Alchemist\" \"Imperfect Eldritch Eye\" \"Imperfect Fiery Cannibal\" \"Imperfect Forest Tiger\" \"Imperfect Forest Warrior\" \"Imperfect Frozen Cannibal\" \"Imperfect Guardian Turtle\" \"Imperfect Half-remembered Goliath\" \"Imperfect Hulking Miscreation\" \"Imperfect Hydra\" \"Imperfect Judgemental Spirit\" \"Imperfect Meatsack\" \"Imperfect Naval Officer\" \"Imperfect Needle Horror\" \"Imperfect Pain Artist\" \"Imperfect Primal Demiurge\" \"Imperfect Primal Thunderbird\" \"Imperfect Runic Skeleton\" \"Imperfect Sanguimancer Demon\" \"Imperfect Sawblade Horror\" \"Imperfect Serpent Warrior\" \"Imperfect Shadow Construct\" \"Imperfect Slashing Horror\" \"Imperfect Spider Matriarch\" \"Imperfect Spirit of Fortune\" \"Imperfect Warlord\"\n    SetFontSize 40\n    SetTextColor 235 90 130 204\n    SetBackgroundColor 0 0 0 255\n"
   },
   {
    "order": 51005,
@@ -1853,7 +1853,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Corpses\"\n    SetFontSize 40\n    SetTextColor 235 90 130 204\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n"
+   "text": "Show\n    Class == \"Corpses\"\n    SetFontSize 40\n    SetTextColor 235 90 130 204\n    SetBackgroundColor 0 0 0 255\n"
   },
   {
    "order": 52001,
@@ -1867,7 +1867,7 @@
     "Delirium Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Delirium Orb\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 210 210 230 255\n    CustomAlertSound \"Sharket掉落音效\\雾魇宝珠.mp3\" 300\n    MinimapIcon 1 Yellow Diamond\n"
+   "text": "Show\n    BaseType == \"Delirium Orb\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 210 210 230 255\n    CustomAlertSound \"Sharket掉落音效\\雾魇宝珠.mp3\" 300\n    MinimapIcon 1 Yellow Diamond\n"
   },
   {
    "order": 53001,
@@ -1915,7 +1915,7 @@
    "rule": "#1 T7",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    BaseType \"Deafening Essence of\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 110 255 255\n    CustomAlertSound \"Sharket掉落音效\\高级精华.mp3\" 300\n"
+   "text": "Show\n    BaseType \"Deafening Essence of\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 0 110 255 255\n    CustomAlertSound \"Sharket掉落音效\\高级精华.mp3\" 300\n"
   },
   {
    "order": 54003,
@@ -1927,7 +1927,7 @@
    "rule": "#1 T6和T5",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    BaseType \"Shrieking Essence of\" \"Screaming Essence of\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 110 255 255\n    CustomAlertSound \"Sharket掉落音效\\精华.mp3\" 300\n    PlayEffect Blue Temp\n    MinimapIcon 2 Yellow Circle\n"
+   "text": "Show\n    BaseType \"Shrieking Essence of\" \"Screaming Essence of\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 0 110 255 255\n    CustomAlertSound \"Sharket掉落音效\\精华.mp3\" 300\n    PlayEffect Blue Temp\n    MinimapIcon 2 Yellow Circle\n"
   },
   {
    "order": 54004,
@@ -1939,7 +1939,7 @@
    "rule": "#1 剩余",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class \"Currency\"\n    BaseType \"Essence of\"\n    SetFontSize 43\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 110 255 255\n    CustomAlertSound \"Sharket掉落音效\\是精华哎.mp3\" 300\n    MinimapIcon 2 Yellow Circle\n"
+   "text": "Show\n    Class \"Currency\"\n    BaseType \"Essence of\"\n    SetFontSize 43\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 0 110 255 255\n    CustomAlertSound \"Sharket掉落音效\\是精华哎.mp3\" 300\n    MinimapIcon 2 Yellow Circle\n"
   },
   {
    "order": 55001,
@@ -2014,7 +2014,7 @@
     "Potent Chaotic Resonator"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Potent Chaotic Resonator\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\共振器.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Orange Circle\n"
+   "text": "Show\n    BaseType == \"Potent Chaotic Resonator\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\共振器.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Orange Circle\n"
   },
   {
    "order": 55006,
@@ -2036,7 +2036,7 @@
     "Shuddering Fossil"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Aetheric Fossil\" \"Bound Fossil\" \"Corroded Fossil\" \"Deft Fossil\" \"Fundamental Fossil\" \"Gilded Fossil\" \"Opulent Fossil\" \"Serrated Fossil\" \"Shuddering Fossil\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\化石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Orange Circle\n"
+   "text": "Show\n    BaseType == \"Aetheric Fossil\" \"Bound Fossil\" \"Corroded Fossil\" \"Deft Fossil\" \"Fundamental Fossil\" \"Gilded Fossil\" \"Opulent Fossil\" \"Serrated Fossil\" \"Shuddering Fossil\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\化石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Orange Circle\n"
   },
   {
    "order": 55007,
@@ -2050,7 +2050,7 @@
     "Primitive Chaotic Resonator"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Primitive Chaotic Resonator\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 170 158 130 255\n    CustomAlertSound \"Sharket掉落音效\\共振器.mp3\" 300\n    PlayEffect Yellow Temp\n    MinimapIcon 2 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Primitive Chaotic Resonator\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 170 158 130 255\n    CustomAlertSound \"Sharket掉落音效\\共振器.mp3\" 300\n    PlayEffect Yellow Temp\n    MinimapIcon 2 Yellow Circle\n"
   },
   {
    "order": 55008,
@@ -2072,7 +2072,7 @@
     "Scorched Fossil"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Aberrant Fossil\" \"Dense Fossil\" \"Frigid Fossil\" \"Jagged Fossil\" \"Lucent Fossil\" \"Metallic Fossil\" \"Prismatic Fossil\" \"Pristine Fossil\" \"Scorched Fossil\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 170 158 130 255\n    CustomAlertSound \"Sharket掉落音效\\化石.mp3\" 300\n    PlayEffect Yellow Temp\n    MinimapIcon 2 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Aberrant Fossil\" \"Dense Fossil\" \"Frigid Fossil\" \"Jagged Fossil\" \"Lucent Fossil\" \"Metallic Fossil\" \"Prismatic Fossil\" \"Pristine Fossil\" \"Scorched Fossil\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 170 158 130 255\n    CustomAlertSound \"Sharket掉落音效\\化石.mp3\" 300\n    PlayEffect Yellow Temp\n    MinimapIcon 2 Yellow Circle\n"
   },
   {
    "order": 56001,
@@ -2373,7 +2373,7 @@
     "Orb of Annulment"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Annulment\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\剥离石.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 2 Orange Circle\n"
+   "text": "Show\n    BaseType == \"Orb of Annulment\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\剥离石.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 2 Orange Circle\n"
   },
   {
    "order": 56021,
@@ -2387,7 +2387,7 @@
     "Regal Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Regal Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\富豪石.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 2 Orange Circle\n"
+   "text": "Show\n    BaseType == \"Regal Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\富豪石.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 2 Orange Circle\n"
   },
   {
    "order": 56022,
@@ -2401,7 +2401,7 @@
     "Exalted Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Exalted Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\崇高石.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 2 Orange Circle\n"
+   "text": "Show\n    BaseType == \"Exalted Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\崇高石.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 2 Orange Circle\n"
   },
   {
    "order": 56023,
@@ -2415,7 +2415,7 @@
     "Exotic Coinage"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Exotic Coinage\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\异域铸币.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 2 Orange Circle\n"
+   "text": "Show\n    BaseType == \"Exotic Coinage\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\异域铸币.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 2 Orange Circle\n"
   },
   {
    "order": 56024,
@@ -2429,7 +2429,7 @@
     "Burial Medallion"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Burial Medallion\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\葬礼徽章.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 2 Orange Circle\n"
+   "text": "Show\n    BaseType == \"Burial Medallion\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\葬礼徽章.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 2 Orange Circle\n"
   },
   {
    "order": 56025,
@@ -2443,7 +2443,7 @@
     "Ancient Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Ancient Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\远古石.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 2 Orange Circle\n"
+   "text": "Show\n    BaseType == \"Ancient Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\远古石.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 2 Orange Circle\n"
   },
   {
    "order": 56026,
@@ -2465,7 +2465,7 @@
     "Unstable Catalyst"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Abrasive Catalyst\" \"Foulborn Orb of Augmentation\" \"Greater Eldritch Ember\" \"Greater Eldritch Ichor\" \"Imbued Catalyst\" \"Maven's Chisel of Avarice\" \"Maven's Chisel of Proliferation\" \"Turbulent Catalyst\" \"Unstable Catalyst\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 2 Orange Circle\n"
+   "text": "Show\n    BaseType == \"Abrasive Catalyst\" \"Foulborn Orb of Augmentation\" \"Greater Eldritch Ember\" \"Greater Eldritch Ichor\" \"Imbued Catalyst\" \"Maven's Chisel of Avarice\" \"Maven's Chisel of Proliferation\" \"Turbulent Catalyst\" \"Unstable Catalyst\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 2 Orange Circle\n"
   },
   {
    "order": 56027,
@@ -2479,7 +2479,7 @@
     "Chromatic Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Chromatic Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\幻色石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Chromatic Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\幻色石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Circle\n"
   },
   {
    "order": 56028,
@@ -2493,7 +2493,7 @@
     "Scrap Metal"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Scrap Metal\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\废金属.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Scrap Metal\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\废金属.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Circle\n"
   },
   {
    "order": 56029,
@@ -2507,7 +2507,7 @@
     "Chaos Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Chaos Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\混沌石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Chaos Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\混沌石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Circle\n"
   },
   {
    "order": 56030,
@@ -2521,7 +2521,7 @@
     "Vaal Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Vaal Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\瓦尔宝珠.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Vaal Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\瓦尔宝珠.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Circle\n"
   },
   {
    "order": 56031,
@@ -2535,7 +2535,7 @@
     "Blessed Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Blessed Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\祝福石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Blessed Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\祝福石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Circle\n"
   },
   {
    "order": 56032,
@@ -2549,7 +2549,7 @@
     "Orb of Scouring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Scouring\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\重铸石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Orb of Scouring\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\重铸石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Circle\n"
   },
   {
    "order": 56033,
@@ -2576,7 +2576,7 @@
     "Unstable Catalyst"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Abrasive Catalyst\" \"Accelerating Catalyst\" \"Annulment Shard\" \"Astragali\" \"Exalted Shard\" \"Gemcutter's Prism\" \"Imbued Catalyst\" \"Intrinsic Catalyst\" \"Lesser Eldritch Ember\" \"Lesser Eldritch Ichor\" \"Noxious Catalyst\" \"Orb of Intention\" \"Regal Shard\" \"Unstable Catalyst\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Abrasive Catalyst\" \"Accelerating Catalyst\" \"Annulment Shard\" \"Astragali\" \"Exalted Shard\" \"Gemcutter's Prism\" \"Imbued Catalyst\" \"Intrinsic Catalyst\" \"Lesser Eldritch Ember\" \"Lesser Eldritch Ichor\" \"Noxious Catalyst\" \"Orb of Intention\" \"Regal Shard\" \"Unstable Catalyst\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Circle\n"
   },
   {
    "order": 56034,
@@ -2590,7 +2590,7 @@
     "Orb of Regret"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Regret\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\后悔石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Diamond\n"
+   "text": "Show\n    BaseType == \"Orb of Regret\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\后悔石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Diamond\n"
   },
   {
    "order": 56035,
@@ -2604,7 +2604,7 @@
     "Orb of Alchemy"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Alchemy\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\点金石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Diamond\n"
+   "text": "Show\n    BaseType == \"Orb of Alchemy\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\点金石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Diamond\n"
   },
   {
    "order": 56036,
@@ -2618,7 +2618,7 @@
     "Glassblower's Bauble"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Glassblower's Bauble\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\玻璃弹珠.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Diamond\n"
+   "text": "Show\n    BaseType == \"Glassblower's Bauble\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\玻璃弹珠.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Diamond\n"
   },
   {
    "order": 56037,
@@ -2632,7 +2632,7 @@
     "Orb of Unmaking"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Unmaking\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\粉碎石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Diamond\n"
+   "text": "Show\n    BaseType == \"Orb of Unmaking\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\粉碎石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Diamond\n"
   },
   {
    "order": 56038,
@@ -2646,7 +2646,7 @@
     "Orb of Fusing"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Fusing\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\链结石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Diamond\n"
+   "text": "Show\n    BaseType == \"Orb of Fusing\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\链结石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Diamond\n"
   },
   {
    "order": 56039,
@@ -2660,7 +2660,7 @@
     "Chaos Shard"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Chaos Shard\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 170 0 255\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Diamond\n"
+   "text": "Show\n    BaseType == \"Chaos Shard\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 170 0 255\n    PlayEffect Orange Temp\n    MinimapIcon 2 Yellow Diamond\n"
   },
   {
    "order": 56040,
@@ -2674,7 +2674,7 @@
     "Jeweller's Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Jeweller's Orb\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\工匠石.mp3\" 300\n    MinimapIcon 2 White Diamond\n"
+   "text": "Show\n    BaseType == \"Jeweller's Orb\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\工匠石.mp3\" 300\n    MinimapIcon 2 White Diamond\n"
   },
   {
    "order": 56041,
@@ -2688,7 +2688,7 @@
     "Orb of Alteration"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Alteration\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\改造石.mp3\" 300\n    MinimapIcon 2 White Diamond\n"
+   "text": "Show\n    BaseType == \"Orb of Alteration\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\改造石.mp3\" 300\n    MinimapIcon 2 White Diamond\n"
   },
   {
    "order": 56042,
@@ -2702,7 +2702,7 @@
     "Orb of Chance"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Chance\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\机会石.mp3\" 300\n    MinimapIcon 2 White Diamond\n"
+   "text": "Show\n    BaseType == \"Orb of Chance\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\机会石.mp3\" 300\n    MinimapIcon 2 White Diamond\n"
   },
   {
    "order": 56043,
@@ -2716,7 +2716,7 @@
     "Alchemy Shard"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Alchemy Shard\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 170 0 255\n    MinimapIcon 2 White Diamond\n"
+   "text": "Show\n    BaseType == \"Alchemy Shard\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 170 0 255\n    MinimapIcon 2 White Diamond\n"
   },
   {
    "order": 56044,
@@ -2818,7 +2818,7 @@
     "Scroll of Wisdom"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Scroll of Wisdom\"\n    AreaLevel <= 67\n    SetFontSize 35\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\知识卷轴.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Scroll of Wisdom\"\n    AreaLevel <= 67\n    SetFontSize 35\n    CustomAlertSound \"Sharket掉落音效\\知识卷轴.mp3\" 300\n"
   },
   {
    "order": 56051,
@@ -2832,7 +2832,7 @@
     "Portal Scroll"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Portal Scroll\"\n    AreaLevel <= 67\n    SetFontSize 35\n    SetBorderColor 0 0 0 0\n    CustomAlertSound \"Sharket掉落音效\\传送卷轴.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Portal Scroll\"\n    AreaLevel <= 67\n    SetFontSize 35\n    CustomAlertSound \"Sharket掉落音效\\传送卷轴.mp3\" 300\n"
   },
   {
    "order": 56052,
@@ -2847,7 +2847,7 @@
     "Scroll of Wisdom"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Portal Scroll\" \"Scroll of Wisdom\"\n    AreaLevel >= 68\n    SetFontSize 35\n    SetBorderColor 0 0 0 0\n"
+   "text": "Show\n    BaseType == \"Portal Scroll\" \"Scroll of Wisdom\"\n    AreaLevel >= 68\n    SetFontSize 35\n"
   },
   {
    "order": 56053,
@@ -2861,7 +2861,7 @@
     "Scroll Fragment"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Scroll Fragment\"\n    SetFontSize 35\n    SetBorderColor 0 0 0 0\n"
+   "text": "Show\n    BaseType == \"Scroll Fragment\"\n    SetFontSize 35\n"
   },
   {
    "order": 57001,
@@ -2919,7 +2919,7 @@
     "Wild Crystallised Lifeforce"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Primal Crystallised Lifeforce\" \"Vivid Crystallised Lifeforce\" \"Wild Crystallised Lifeforce\"\n    StackSize >= 1000\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 46 204 113 255\n    CustomAlertSound \"Sharket掉落音效\\666.mp3\" 300\n    MinimapIcon 1 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Primal Crystallised Lifeforce\" \"Vivid Crystallised Lifeforce\" \"Wild Crystallised Lifeforce\"\n    StackSize >= 1000\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 46 204 113 255\n    CustomAlertSound \"Sharket掉落音效\\666.mp3\" 300\n    MinimapIcon 1 Yellow Circle\n"
   },
   {
    "order": 58002,
@@ -2935,7 +2935,7 @@
     "Wild Crystallised Lifeforce"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Primal Crystallised Lifeforce\" \"Vivid Crystallised Lifeforce\" \"Wild Crystallised Lifeforce\"\n    StackSize >= 300\n    SetFontSize 40\n    SetTextColor 46 204 113 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 9 39 21 255\n    CustomAlertSound \"Sharket掉落音效\\发财啦.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Primal Crystallised Lifeforce\" \"Vivid Crystallised Lifeforce\" \"Wild Crystallised Lifeforce\"\n    StackSize >= 300\n    SetFontSize 40\n    SetTextColor 46 204 113 255\n    SetBackgroundColor 9 39 21 255\n    CustomAlertSound \"Sharket掉落音效\\发财啦.mp3\" 300\n"
   },
   {
    "order": 58003,
@@ -2949,7 +2949,7 @@
     "Crystallised Rancour"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Crystallised Rancour\"\n    SetFontSize 40\n    SetTextColor 46 204 113 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 9 39 21 255\n    CustomAlertSound \"Sharket掉落音效\\发财啦.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Crystallised Rancour\"\n    SetFontSize 40\n    SetTextColor 46 204 113 255\n    SetBackgroundColor 9 39 21 255\n    CustomAlertSound \"Sharket掉落音效\\发财啦.mp3\" 300\n"
   },
   {
    "order": 58004,
@@ -2965,7 +2965,7 @@
     "Wild Crystallised Lifeforce"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Primal Crystallised Lifeforce\" \"Vivid Crystallised Lifeforce\" \"Wild Crystallised Lifeforce\"\n    StackSize >= 100\n    SetFontSize 40\n    SetTextColor 46 204 113 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\种子种子.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Primal Crystallised Lifeforce\" \"Vivid Crystallised Lifeforce\" \"Wild Crystallised Lifeforce\"\n    StackSize >= 100\n    SetFontSize 40\n    SetTextColor 46 204 113 255\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\种子种子.mp3\" 300\n"
   },
   {
    "order": 58005,
@@ -2981,7 +2981,7 @@
     "Wild Crystallised Lifeforce"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Primal Crystallised Lifeforce\" \"Vivid Crystallised Lifeforce\" \"Wild Crystallised Lifeforce\"\n    SetFontSize 40\n    SetTextColor 46 204 113 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\命能.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Primal Crystallised Lifeforce\" \"Vivid Crystallised Lifeforce\" \"Wild Crystallised Lifeforce\"\n    SetFontSize 40\n    SetTextColor 46 204 113 255\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\命能.mp3\" 300\n"
   },
   {
    "order": 59001,
@@ -3065,7 +3065,7 @@
     "Opalescent Oil"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Black Oil\" \"Crimson Oil\" \"Opalescent Oil\"\n    SetFontSize 40\n    SetTextColor 255 230 80 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 48 44 15 255\n    CustomAlertSound \"Sharket掉落音效\\高级圣油.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Black Oil\" \"Crimson Oil\" \"Opalescent Oil\"\n    SetFontSize 40\n    SetTextColor 255 230 80 255\n    SetBackgroundColor 48 44 15 255\n    CustomAlertSound \"Sharket掉落音效\\高级圣油.mp3\" 300\n"
   },
   {
    "order": 61003,
@@ -3081,7 +3081,7 @@
     "Violet Oil"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Azure Oil\" \"Indigo Oil\" \"Violet Oil\"\n    SetFontSize 40\n    SetTextColor 255 230 80 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\圣油.mp3\" 300\n    MinimapIcon 2 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Azure Oil\" \"Indigo Oil\" \"Violet Oil\"\n    SetFontSize 40\n    SetTextColor 255 230 80 255\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\圣油.mp3\" 300\n    MinimapIcon 2 Yellow Circle\n"
   },
   {
    "order": 61004,
@@ -3099,7 +3099,7 @@
     "Verdant Oil"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Amber Oil\" \"Clear Oil\" \"Sepia Oil\" \"Teal Oil\" \"Verdant Oil\"\n    SetFontSize 40\n    SetTextColor 255 230 80 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n    MinimapIcon 2 White Circle\n"
+   "text": "Show\n    BaseType == \"Amber Oil\" \"Clear Oil\" \"Sepia Oil\" \"Teal Oil\" \"Verdant Oil\"\n    SetFontSize 40\n    SetTextColor 255 230 80 255\n    SetBackgroundColor 0 0 0 255\n    MinimapIcon 2 White Circle\n"
   },
   {
    "order": 62001,
@@ -3226,7 +3226,7 @@
     "Volatile Vaal Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Volatile Vaal Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 150 20 40 255\n    CustomAlertSound \"Sharket掉落音效\\哇哦运气真好.mp3\" 300\n    MinimapIcon 1 Red Diamond\n"
+   "text": "Show\n    BaseType == \"Volatile Vaal Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 150 20 40 255\n    CustomAlertSound \"Sharket掉落音效\\哇哦运气真好.mp3\" 300\n    MinimapIcon 1 Red Diamond\n"
   },
   {
    "order": 64003,
@@ -3240,7 +3240,7 @@
     "Tainted Mythic Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Tainted Mythic Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 150 20 40 255\n    CustomAlertSound \"Sharket掉落音效\\污秽神秘石.mp3\" 300\n    MinimapIcon 1 Red Diamond\n"
+   "text": "Show\n    BaseType == \"Tainted Mythic Orb\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 150 20 40 255\n    CustomAlertSound \"Sharket掉落音效\\污秽神秘石.mp3\" 300\n    MinimapIcon 1 Red Diamond\n"
   },
   {
    "order": 64004,
@@ -3254,7 +3254,7 @@
     "Tainted Orb of Fusing"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Tainted Orb of Fusing\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 150 20 40 255\n    CustomAlertSound \"Sharket掉落音效\\污秽链结石.mp3\" 300\n    MinimapIcon 1 Red Diamond\n"
+   "text": "Show\n    BaseType == \"Tainted Orb of Fusing\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 150 20 40 255\n    CustomAlertSound \"Sharket掉落音效\\污秽链结石.mp3\" 300\n    MinimapIcon 1 Red Diamond\n"
   },
   {
    "order": 64005,
@@ -3268,7 +3268,7 @@
     "Tainted Exalted Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Tainted Exalted Orb\"\n    SetFontSize 40\n    SetTextColor 245 85 75 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 47 16 14 255\n    CustomAlertSound \"Sharket掉落音效\\污秽崇高石.mp3\" 300\n    PlayEffect Red Temp\n    MinimapIcon 2 Yellow Diamond\n"
+   "text": "Show\n    BaseType == \"Tainted Exalted Orb\"\n    SetFontSize 40\n    SetTextColor 245 85 75 255\n    SetBackgroundColor 47 16 14 255\n    CustomAlertSound \"Sharket掉落音效\\污秽崇高石.mp3\" 300\n    PlayEffect Red Temp\n    MinimapIcon 2 Yellow Diamond\n"
   },
   {
    "order": 64006,
@@ -3282,7 +3282,7 @@
     "Tainted Chromatic Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Tainted Chromatic Orb\"\n    SetFontSize 40\n    SetTextColor 245 85 75 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 47 16 14 255\n    CustomAlertSound \"Sharket掉落音效\\污秽幻色石.mp3\" 300\n    PlayEffect Red Temp\n    MinimapIcon 2 Yellow Diamond\n"
+   "text": "Show\n    BaseType == \"Tainted Chromatic Orb\"\n    SetFontSize 40\n    SetTextColor 245 85 75 255\n    SetBackgroundColor 47 16 14 255\n    CustomAlertSound \"Sharket掉落音效\\污秽幻色石.mp3\" 300\n    PlayEffect Red Temp\n    MinimapIcon 2 Yellow Diamond\n"
   },
   {
    "order": 64007,
@@ -3296,7 +3296,7 @@
     "Tainted Chaos Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Tainted Chaos Orb\"\n    SetFontSize 40\n    SetTextColor 245 85 75 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 47 16 14 255\n    CustomAlertSound \"Sharket掉落音效\\污秽混沌石.mp3\" 300\n    PlayEffect Red Temp\n    MinimapIcon 2 Yellow Diamond\n"
+   "text": "Show\n    BaseType == \"Tainted Chaos Orb\"\n    SetFontSize 40\n    SetTextColor 245 85 75 255\n    SetBackgroundColor 47 16 14 255\n    CustomAlertSound \"Sharket掉落音效\\污秽混沌石.mp3\" 300\n    PlayEffect Red Temp\n    MinimapIcon 2 Yellow Diamond\n"
   },
   {
    "order": 64008,
@@ -3310,13 +3310,13 @@
     "Tainted Catalyst"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Tainted Catalyst\"\n    SetFontSize 40\n    SetTextColor 245 85 75 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 47 16 14 255\n    CustomAlertSound \"Sharket掉落音效\\高级催化剂.mp3\" 300\n    PlayEffect Red Temp\n    MinimapIcon 2 Yellow Diamond\n"
+   "text": "Show\n    BaseType == \"Tainted Catalyst\"\n    SetFontSize 40\n    SetTextColor 245 85 75 255\n    SetBackgroundColor 47 16 14 255\n    CustomAlertSound \"Sharket掉落音效\\高级催化剂.mp3\" 300\n    PlayEffect Red Temp\n    MinimapIcon 2 Yellow Diamond\n"
   },
   {
    "order": 64009,
    "file": "Currency/Tainted Currency.json",
    "tier_key": "Tier 4 Tainted",
-   "tier_num": 3,
+   "tier_num": 4,
    "source": "card",
    "match": "Exact",
    "rule": null,
@@ -3324,13 +3324,13 @@
     "Tainted Jeweller's Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Tainted Jeweller's Orb\"\n    SetFontSize 40\n    SetTextColor 245 85 75 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\污秽工匠石.mp3\" 300\n    MinimapIcon 2 White Diamond\n"
+   "text": "Show\n    BaseType == \"Tainted Jeweller's Orb\"\n    SetFontSize 40\n    SetTextColor 245 85 75 255\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\污秽工匠石.mp3\" 300\n    MinimapIcon 2 White Diamond\n"
   },
   {
    "order": 64010,
    "file": "Currency/Tainted Currency.json",
    "tier_key": "Tier 4 Tainted",
-   "tier_num": 3,
+   "tier_num": 4,
    "source": "card",
    "match": "Exact",
    "rule": null,
@@ -3338,13 +3338,13 @@
     "Tainted Armourer's Scrap"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Tainted Armourer's Scrap\"\n    SetFontSize 40\n    SetTextColor 245 85 75 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\污秽护甲片.mp3\" 300\n    MinimapIcon 2 White Diamond\n"
+   "text": "Show\n    BaseType == \"Tainted Armourer's Scrap\"\n    SetFontSize 40\n    SetTextColor 245 85 75 255\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\污秽护甲片.mp3\" 300\n    MinimapIcon 2 White Diamond\n"
   },
   {
    "order": 64011,
    "file": "Currency/Tainted Currency.json",
    "tier_key": "Tier 4 Tainted",
-   "tier_num": 3,
+   "tier_num": 4,
    "source": "card",
    "match": "Exact",
    "rule": null,
@@ -3352,7 +3352,7 @@
     "Tainted Blacksmith's Whetstone"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Tainted Blacksmith's Whetstone\"\n    SetFontSize 40\n    SetTextColor 245 85 75 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\污秽磨刀石.mp3\" 300\n    MinimapIcon 2 White Diamond\n"
+   "text": "Show\n    BaseType == \"Tainted Blacksmith's Whetstone\"\n    SetFontSize 40\n    SetTextColor 245 85 75 255\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\污秽磨刀石.mp3\" 300\n    MinimapIcon 2 White Diamond\n"
   },
   {
    "order": 65001,
@@ -3382,7 +3382,7 @@
     "Provisioning Wombgift"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Lavish Wombgift\" \"Mysterious Wombgift\" \"Provisioning Wombgift\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 235 175 190 255\n    CustomAlertSound \"Sharket掉落音效\\孕育赠礼.mp3\" 300\n    MinimapIcon 1 Pink Diamond\n"
+   "text": "Show\n    BaseType == \"Lavish Wombgift\" \"Mysterious Wombgift\" \"Provisioning Wombgift\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 235 175 190 255\n    CustomAlertSound \"Sharket掉落音效\\孕育赠礼.mp3\" 300\n    MinimapIcon 1 Pink Diamond\n"
   },
   {
    "order": 65003,
@@ -3394,7 +3394,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Wombgifts\"\n    SetFontSize 40\n    SetTextColor 255 90 200 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\孕育赠礼.mp3\" 300\n    MinimapIcon 2 White Star\n"
+   "text": "Show\n    Class == \"Wombgifts\"\n    SetFontSize 40\n    SetTextColor 255 90 200 255\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\孕育赠礼.mp3\" 300\n    MinimapIcon 2 White Star\n"
   },
   {
    "order": 61001,
@@ -3424,7 +3424,7 @@
     "Tzamoto's Ducat"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Cyaxan's Ducat\" \"Katakohi's Ducat\" \"Tzamoto's Ducat\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 160 112 255\n    PlayEffect Orange Temp\n    MinimapIcon 1 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Cyaxan's Ducat\" \"Katakohi's Ducat\" \"Tzamoto's Ducat\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 0 160 112 255\n    PlayEffect Orange Temp\n    MinimapIcon 1 Yellow Circle\n"
   },
   {
    "order": 62002,
@@ -3444,7 +3444,7 @@
     "The Genteel's Ducat"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Brinehook's Ducat\" \"Kishara's Ducat\" \"Merrick's Ducat\" \"Rotmother's Ducat\" \"Telesia's Ducat\" \"The Changeling's Ducat\" \"The Genteel's Ducat\"\n    SetFontSize 43\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 160 112 255\n"
+   "text": "Show\n    BaseType == \"Brinehook's Ducat\" \"Kishara's Ducat\" \"Merrick's Ducat\" \"Rotmother's Ducat\" \"Telesia's Ducat\" \"The Changeling's Ducat\" \"The Genteel's Ducat\"\n    SetFontSize 43\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 0 160 112 255\n"
   },
   {
    "order": 63001,
@@ -3535,7 +3535,7 @@
     "Thermal Vents Chart"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Coral Forest Chart\" \"Coral Reef Chart\" \"Sandy Seabed Chart\" \"Thermal Vents Chart\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 132 168 255\n    CustomAlertSound \"Sharket掉落音效\\DOTA2_开船.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 1 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Coral Forest Chart\" \"Coral Reef Chart\" \"Sandy Seabed Chart\" \"Thermal Vents Chart\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 0 132 168 255\n    CustomAlertSound \"Sharket掉落音效\\DOTA2_开船.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 1 Yellow Circle\n"
   },
   {
    "order": 71001,
@@ -3597,7 +3597,7 @@
     "Geodesic Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Geodesic Ring\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 213 144 211 255\n    CustomAlertSound \"Sharket掉落音效\\地线戒指.mp3\" 300\n    MinimapIcon 1 Purple Moon\n"
+   "text": "Show\n    BaseType == \"Geodesic Ring\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 213 144 211 255\n    CustomAlertSound \"Sharket掉落音效\\地线戒指.mp3\" 300\n    MinimapIcon 1 Purple Moon\n"
   },
   {
    "order": 74002,
@@ -3611,7 +3611,7 @@
     "Astrolabe Amulet"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Astrolabe Amulet\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 213 144 211 255\n    CustomAlertSound \"Sharket掉落音效\\星盘项链.mp3\" 300\n    MinimapIcon 1 Purple Moon\n"
+   "text": "Show\n    BaseType == \"Astrolabe Amulet\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 213 144 211 255\n    CustomAlertSound \"Sharket掉落音效\\星盘项链.mp3\" 300\n    MinimapIcon 1 Purple Moon\n"
   },
   {
    "order": 74003,
@@ -3625,7 +3625,7 @@
     "Simplex Amulet"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Simplex Amulet\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 213 144 211 255\n    CustomAlertSound \"Sharket掉落音效\\朴实项链.mp3\" 300\n    MinimapIcon 1 Purple Moon\n"
+   "text": "Show\n    BaseType == \"Simplex Amulet\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 213 144 211 255\n    CustomAlertSound \"Sharket掉落音效\\朴实项链.mp3\" 300\n    MinimapIcon 1 Purple Moon\n"
   },
   {
    "order": 74004,
@@ -3639,7 +3639,7 @@
     "Cogwork Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Cogwork Ring\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 213 144 211 255\n    CustomAlertSound \"Sharket掉落音效\\齿轮戒指.mp3\" 300\n    MinimapIcon 1 Purple Moon\n"
+   "text": "Show\n    BaseType == \"Cogwork Ring\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 213 144 211 255\n    CustomAlertSound \"Sharket掉落音效\\齿轮戒指.mp3\" 300\n    MinimapIcon 1 Purple Moon\n"
   },
   {
    "order": 74005,
@@ -3657,7 +3657,7 @@
     "Ratcheting Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Composite Ring\" \"Focused Amulet\" \"Helical Ring\" \"Manifold Ring\" \"Ratcheting Ring\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 213 144 211 255\n    MinimapIcon 1 Purple Moon\n"
+   "text": "Show\n    BaseType == \"Composite Ring\" \"Focused Amulet\" \"Helical Ring\" \"Manifold Ring\" \"Ratcheting Ring\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 213 144 211 255\n    MinimapIcon 1 Purple Moon\n"
   },
   {
    "order": 74006,
@@ -3671,7 +3671,7 @@
     "Micro-Distillery Belt"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Micro-Distillery Belt\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 213 144 211 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\低酿腰带.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Micro-Distillery Belt\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 213 144 211 255\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\低酿腰带.mp3\" 300\n"
   },
   {
    "order": 74007,
@@ -3685,7 +3685,7 @@
     "Mechalarm Belt"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Mechalarm Belt\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 213 144 211 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\警戒腰带.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Mechalarm Belt\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 213 144 211 255\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\警戒腰带.mp3\" 300\n"
   },
   {
    "order": 74008,
@@ -3734,7 +3734,7 @@
     "Void Fangs"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Accumulator Wand\" \"Alternating Sceptre\" \"Anarchic Spiritblade\" \"Apex Cleaver\" \"Banishing Blade\" \"Battery Staff\" \"Blasting Blade\" \"Boom Mace\" \"Capricious Spiritblade\" \"Cold-attuned Buckler\" \"Congregator Wand\" \"Crack Mace\" \"Crushing Force Magnifier\" \"Disapprobation Axe\" \"Eventuality Rod\" \"Flashfire Blade\" \"Foundry Bow\" \"Heat-attuned Tower Shield\" \"Honed Cleaver\" \"Impact Force Propagator\" \"Infernal Blade\" \"Magmatic Tower Shield\" \"Malign Fangs\" \"Mechanical Belt\" \"Oscillating Sceptre\" \"Pneumatic Dagger\" \"Polar Buckler\" \"Potentiality Rod\" \"Pressurised Dagger\" \"Psychotic Axe\" \"Reciprocation Staff\" \"Solarine Bow\" \"Stabilising Sceptre\" \"Subsuming Spirit Shield\" \"Transfer-attuned Spirit Shield\" \"Void Fangs\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 213 144 211 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n"
+   "text": "Show\n    BaseType == \"Accumulator Wand\" \"Alternating Sceptre\" \"Anarchic Spiritblade\" \"Apex Cleaver\" \"Banishing Blade\" \"Battery Staff\" \"Blasting Blade\" \"Boom Mace\" \"Capricious Spiritblade\" \"Cold-attuned Buckler\" \"Congregator Wand\" \"Crack Mace\" \"Crushing Force Magnifier\" \"Disapprobation Axe\" \"Eventuality Rod\" \"Flashfire Blade\" \"Foundry Bow\" \"Heat-attuned Tower Shield\" \"Honed Cleaver\" \"Impact Force Propagator\" \"Infernal Blade\" \"Magmatic Tower Shield\" \"Malign Fangs\" \"Mechanical Belt\" \"Oscillating Sceptre\" \"Pneumatic Dagger\" \"Polar Buckler\" \"Potentiality Rod\" \"Pressurised Dagger\" \"Psychotic Axe\" \"Reciprocation Staff\" \"Solarine Bow\" \"Stabilising Sceptre\" \"Subsuming Spirit Shield\" \"Transfer-attuned Spirit Shield\" \"Void Fangs\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 213 144 211 255\n    SetBackgroundColor 0 0 0 255\n"
   },
   {
    "order": 75001,
@@ -3859,7 +3859,7 @@
     "Greatwolf Talisman"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Greatwolf Talisman\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 200 120 230 255\n    CustomAlertSound \"Sharket掉落音效\\魔符.mp3\" 300\n    MinimapIcon 1 Purple Moon\n"
+   "text": "Show\n    BaseType == \"Greatwolf Talisman\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 200 120 230 255\n    CustomAlertSound \"Sharket掉落音效\\魔符.mp3\" 300\n    MinimapIcon 1 Purple Moon\n"
   },
   {
    "order": 79002,
@@ -3914,7 +3914,7 @@
     "Wolf Alpha Talisman"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Ape Talisman\" \"Black Maw Talisman\" \"Black Widow Talisman\" \"Blood Viper Talisman\" \"Carrion Queen Talisman\" \"Chieftain Talisman\" \"Chimeral Talisman\" \"Cobra Talisman\" \"Craicic Talisman\" \"Croaker Talisman\" \"Devourer Talisman\" \"Farric Talisman\" \"Fenumal Talisman\" \"Flame Hellion Talisman\" \"Frost Hellion Talisman\" \"Gargantuan Talisman\" \"Goatman Talisman\" \"Goliath Talisman\" \"Great Maw Talisman\" \"Hybrid Arachnid Talisman\" \"Lynx Talisman\" \"Magma Hound Talisman\" \"Octopus Talisman\" \"Pitbull Talisman\" \"Plagued Arachnid Talisman\" \"Retch Talisman\" \"Rhex Talisman\" \"Rhoa Talisman\" \"Sand Spitter Talisman\" \"Saqawine Talisman\" \"Savage Crab Talisman\" \"Scorpion Talisman\" \"Scrabbler Talisman\" \"Shield Crab Talisman\" \"Spider Crab Talisman\" \"Squid Talisman\" \"Taurus Talisman\" \"Tiger Talisman\" \"Ursa Talisman\" \"Vulture Talisman\" \"Watcher Talisman\" \"Wolf Alpha Talisman\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 200 120 230 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n"
+   "text": "Show\n    BaseType == \"Ape Talisman\" \"Black Maw Talisman\" \"Black Widow Talisman\" \"Blood Viper Talisman\" \"Carrion Queen Talisman\" \"Chieftain Talisman\" \"Chimeral Talisman\" \"Cobra Talisman\" \"Craicic Talisman\" \"Croaker Talisman\" \"Devourer Talisman\" \"Farric Talisman\" \"Fenumal Talisman\" \"Flame Hellion Talisman\" \"Frost Hellion Talisman\" \"Gargantuan Talisman\" \"Goatman Talisman\" \"Goliath Talisman\" \"Great Maw Talisman\" \"Hybrid Arachnid Talisman\" \"Lynx Talisman\" \"Magma Hound Talisman\" \"Octopus Talisman\" \"Pitbull Talisman\" \"Plagued Arachnid Talisman\" \"Retch Talisman\" \"Rhex Talisman\" \"Rhoa Talisman\" \"Sand Spitter Talisman\" \"Saqawine Talisman\" \"Savage Crab Talisman\" \"Scorpion Talisman\" \"Scrabbler Talisman\" \"Shield Crab Talisman\" \"Spider Crab Talisman\" \"Squid Talisman\" \"Taurus Talisman\" \"Tiger Talisman\" \"Ursa Talisman\" \"Vulture Talisman\" \"Watcher Talisman\" \"Wolf Alpha Talisman\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 200 120 230 255\n    SetBackgroundColor 0 0 0 255\n"
   },
   {
    "order": 80001,
@@ -4833,7 +4833,7 @@
    "rule": "#1 改造技能石 Transfigured",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Skill Gems\"\n    TransfiguredGem True\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\改造技能石.mp3\" 300\n"
+   "text": "Show\n    Class == \"Skill Gems\"\n    TransfiguredGem True\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\改造技能石.mp3\" 300\n"
   },
   {
    "order": 91008,
@@ -4845,7 +4845,7 @@
    "rule": "#2 21 级",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class \"Gems\"\n    GemLevel >= 21\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\稀有技能石.mp3\" 300\n"
+   "text": "Show\n    Class \"Gems\"\n    GemLevel >= 21\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\稀有技能石.mp3\" 300\n"
   },
   {
    "order": 91009,
@@ -4857,7 +4857,7 @@
    "rule": "#3 23 品质",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class \"Gems\"\n    Quality >= 23\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\稀有技能石.mp3\" 300\n"
+   "text": "Show\n    Class \"Gems\"\n    Quality >= 23\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\稀有技能石.mp3\" 300\n"
   },
   {
    "order": 91010,
@@ -4869,7 +4869,7 @@
    "rule": "#4 瓦尔技能石",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    BaseType \"Vaal\"\n    Class == \"Skill Gems\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n"
+   "text": "Show\n    BaseType \"Vaal\"\n    Class == \"Skill Gems\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n"
   },
   {
    "order": 91011,
@@ -4889,7 +4889,7 @@
     "Purity of Lightning"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Anger\" \"Defiance Banner\" \"Dread Banner\" \"Grace\" \"Herald of Thunder\" \"Purity of Ice\" \"Purity of Lightning\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Anger\" \"Defiance Banner\" \"Dread Banner\" \"Grace\" \"Herald of Thunder\" \"Purity of Ice\" \"Purity of Lightning\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n"
   },
   {
    "order": 91012,
@@ -4903,7 +4903,7 @@
     "Temporal Rift"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Temporal Rift\"\n    SetFontSize 43\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\时空裂隙.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Temporal Rift\"\n    SetFontSize 43\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\时空裂隙.mp3\" 300\n"
   },
   {
    "order": 91013,
@@ -5093,7 +5093,7 @@
     "Wintertide Brand"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Absolution\" \"Alchemist's Mark\" \"Ambush\" \"Ancestral Cry\" \"Animate Guardian\" \"Arc\" \"Arcane Cloak\" \"Arcanist Brand\" \"Armageddon Brand\" \"Artillery Ballista\" \"Assassin's Mark\" \"Autoexertion\" \"Automation\" \"Ball Lightning\" \"Bane\" \"Barrage\" \"Battlemage's Cry\" \"Berserk\" \"Blade Blast\" \"Blade Flurry\" \"Blade Trap\" \"Blade Vortex\" \"Bladefall\" \"Bladestorm\" \"Blast Rain\" \"Blazing Salvo\" \"Blood Rage\" \"Bone Offering\" \"Boneshatter\" \"Brand Recall\" \"Chain Hook\" \"Charged Dash\" \"Cold Snap\" \"Conductivity\" \"Conflagration\" \"Consecrated Path\" \"Convocation\" \"Corrupting Fever\" \"Crackling Lance\" \"Creeping Frost\" \"Cremation\" \"Cyclone\" \"Dark Bargain\" \"Desecrate\" \"Despair\" \"Destructive Link\" \"Discharge\" \"Divine Ire\" \"Divine Retribution\" \"Dominating Blow\" \"Earthquake\" \"Earthshatter\" \"Elemental Hit\" \"Elemental Weakness\" \"Energy Blade\" \"Enfeeble\" \"Ensnaring Arrow\" \"Essence Drain\" \"Eviscerate\" \"Explosive Arrow\" \"Explosive Concoction\" \"Exsanguinate\" \"Eye of Winter\" \"Fire Trap\" \"Firestorm\" \"Flame Link\" \"Flame Surge\" \"Flameblast\" \"Flamethrower Trap\" \"Flammability\" \"Flesh Offering\" \"Forbidden Rite\" \"Frenzy\" \"Frost Shield\" \"Frostbite\" \"Frozen Legion\" \"Galvanic Field\" \"General's Cry\" \"Glacial Cascade\" \"Glacial Shield Swipe\" \"Hexblast\" \"Holy Sweep\" \"Hydrosphere\" \"Ice Crash\" \"Ice Nova\" \"Ice Spear\" \"Ice Trap\" \"Icicle Mine\" \"Immortal Call\" \"Incinerate\" \"Infernal Blow\" \"Infernal Cry\" \"Intuitive Link\" \"Kinetic Blast\" \"Kinetic Fusillade\" \"Kinetic Rain\" \"Lacerate\" \"Lancing Steel\" \"Lightning Arrow\" \"Lightning Conduit\" \"Lightning Spire Trap\" \"Lightning Strike\" \"Lightning Trap\" \"Manabond\" \"Molten Shell\" \"Penance Brand\" \"Pestilent Strike\" \"Phase Run\" \"Plague Bearer\" \"Poacher's Mark\" \"Poisonous Concoction\" \"Power Siphon\" \"Protective Link\" \"Punishment\" \"Pyroclast Mine\" \"Rage Vortex\" \"Rain of Arrows\" \"Raise Spectre\" \"Rallying Cry\" \"Reap\" \"Reave\" \"Righteous Fire\" \"Scorching Ray\" \"Scourge Arrow\" \"Searing Bond\" \"Seismic Cry\" \"Seismic Trap\" \"Shattering Steel\" \"Shock Nova\" \"Shockwave Totem\" \"Siege Ballista\" \"Sigil of Power\" \"Snipe\" \"Somatic Shell\" \"Soul Link\" \"Soulrend\" \"Spectral Helix\" \"Spectral Shield Throw\" \"Spellslinger\" \"Spirit Offering\" \"Static Strike\" \"Storm Brand\" \"Storm Burst\" \"Storm Call\" \"Storm Rain\" \"Stormbind\" \"Summon Carrion Golem\" \"Summon Chaos Golem\" \"Summon Flame Golem\" \"Summon Ice Golem\" \"Summon Lightning Golem\" \"Summon Reaper\" \"Summon Stone Golem\" \"Sunder\" \"Swordstorm\" \"Tectonic Slam\" \"Tempest Shield\" \"Temporal Chains\" \"Thunderstorm\" \"Tornado\" \"Tornado Shot\" \"Toxic Rain\" \"Vampiric Link\" \"Vengeful Cry\" \"Venom Gyre\" \"Void Sphere\" \"Volatile Dead\" \"Volcanic Fissure\" \"Voltaxic Burst\" \"Vortex\" \"Vulnerability\" \"Wall of Force\" \"Warlord's Mark\" \"Wave of Conviction\" \"Wild Strike\" \"Winter Orb\" \"Wintertide Brand\"\n    SetFontSize 43\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Absolution\" \"Alchemist's Mark\" \"Ambush\" \"Ancestral Cry\" \"Animate Guardian\" \"Arc\" \"Arcane Cloak\" \"Arcanist Brand\" \"Armageddon Brand\" \"Artillery Ballista\" \"Assassin's Mark\" \"Autoexertion\" \"Automation\" \"Ball Lightning\" \"Bane\" \"Barrage\" \"Battlemage's Cry\" \"Berserk\" \"Blade Blast\" \"Blade Flurry\" \"Blade Trap\" \"Blade Vortex\" \"Bladefall\" \"Bladestorm\" \"Blast Rain\" \"Blazing Salvo\" \"Blood Rage\" \"Bone Offering\" \"Boneshatter\" \"Brand Recall\" \"Chain Hook\" \"Charged Dash\" \"Cold Snap\" \"Conductivity\" \"Conflagration\" \"Consecrated Path\" \"Convocation\" \"Corrupting Fever\" \"Crackling Lance\" \"Creeping Frost\" \"Cremation\" \"Cyclone\" \"Dark Bargain\" \"Desecrate\" \"Despair\" \"Destructive Link\" \"Discharge\" \"Divine Ire\" \"Divine Retribution\" \"Dominating Blow\" \"Earthquake\" \"Earthshatter\" \"Elemental Hit\" \"Elemental Weakness\" \"Energy Blade\" \"Enfeeble\" \"Ensnaring Arrow\" \"Essence Drain\" \"Eviscerate\" \"Explosive Arrow\" \"Explosive Concoction\" \"Exsanguinate\" \"Eye of Winter\" \"Fire Trap\" \"Firestorm\" \"Flame Link\" \"Flame Surge\" \"Flameblast\" \"Flamethrower Trap\" \"Flammability\" \"Flesh Offering\" \"Forbidden Rite\" \"Frenzy\" \"Frost Shield\" \"Frostbite\" \"Frozen Legion\" \"Galvanic Field\" \"General's Cry\" \"Glacial Cascade\" \"Glacial Shield Swipe\" \"Hexblast\" \"Holy Sweep\" \"Hydrosphere\" \"Ice Crash\" \"Ice Nova\" \"Ice Spear\" \"Ice Trap\" \"Icicle Mine\" \"Immortal Call\" \"Incinerate\" \"Infernal Blow\" \"Infernal Cry\" \"Intuitive Link\" \"Kinetic Blast\" \"Kinetic Fusillade\" \"Kinetic Rain\" \"Lacerate\" \"Lancing Steel\" \"Lightning Arrow\" \"Lightning Conduit\" \"Lightning Spire Trap\" \"Lightning Strike\" \"Lightning Trap\" \"Manabond\" \"Molten Shell\" \"Penance Brand\" \"Pestilent Strike\" \"Phase Run\" \"Plague Bearer\" \"Poacher's Mark\" \"Poisonous Concoction\" \"Power Siphon\" \"Protective Link\" \"Punishment\" \"Pyroclast Mine\" \"Rage Vortex\" \"Rain of Arrows\" \"Raise Spectre\" \"Rallying Cry\" \"Reap\" \"Reave\" \"Righteous Fire\" \"Scorching Ray\" \"Scourge Arrow\" \"Searing Bond\" \"Seismic Cry\" \"Seismic Trap\" \"Shattering Steel\" \"Shock Nova\" \"Shockwave Totem\" \"Siege Ballista\" \"Sigil of Power\" \"Snipe\" \"Somatic Shell\" \"Soul Link\" \"Soulrend\" \"Spectral Helix\" \"Spectral Shield Throw\" \"Spellslinger\" \"Spirit Offering\" \"Static Strike\" \"Storm Brand\" \"Storm Burst\" \"Storm Call\" \"Storm Rain\" \"Stormbind\" \"Summon Carrion Golem\" \"Summon Chaos Golem\" \"Summon Flame Golem\" \"Summon Ice Golem\" \"Summon Lightning Golem\" \"Summon Reaper\" \"Summon Stone Golem\" \"Sunder\" \"Swordstorm\" \"Tectonic Slam\" \"Tempest Shield\" \"Temporal Chains\" \"Thunderstorm\" \"Tornado\" \"Tornado Shot\" \"Toxic Rain\" \"Vampiric Link\" \"Vengeful Cry\" \"Venom Gyre\" \"Void Sphere\" \"Volatile Dead\" \"Volcanic Fissure\" \"Voltaxic Burst\" \"Vortex\" \"Vulnerability\" \"Wall of Force\" \"Warlord's Mark\" \"Wave of Conviction\" \"Wild Strike\" \"Winter Orb\" \"Wintertide Brand\"\n    SetFontSize 43\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n"
   },
   {
    "order": 91014,
@@ -5127,7 +5127,7 @@
     "Withering Step"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Blink Arrow\" \"Blood and Sand\" \"Bodyswap\" \"Clarity\" \"Detonate Mines\" \"Enduring Cry\" \"Flame Dash\" \"Flicker Strike\" \"Intimidating Cry\" \"Leap Slam\" \"Lightning Warp\" \"Mirror Arrow\" \"Precision\" \"Siphoning Trap\" \"Smoke Mine\" \"Summon Skeletons\" \"Unearth\" \"Vitality\" \"Whirling Blades\" \"Wither\" \"Withering Step\"\n    SetFontSize 40\n    SetTextColor 27 162 155 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 27 51 52 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Blink Arrow\" \"Blood and Sand\" \"Bodyswap\" \"Clarity\" \"Detonate Mines\" \"Enduring Cry\" \"Flame Dash\" \"Flicker Strike\" \"Intimidating Cry\" \"Leap Slam\" \"Lightning Warp\" \"Mirror Arrow\" \"Precision\" \"Siphoning Trap\" \"Smoke Mine\" \"Summon Skeletons\" \"Unearth\" \"Vitality\" \"Whirling Blades\" \"Wither\" \"Withering Step\"\n    SetFontSize 40\n    SetTextColor 27 162 155 255\n    SetBackgroundColor 27 51 52 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n"
   },
   {
    "order": 91015,
@@ -5199,7 +5199,7 @@
     "War Banner"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Animate Weapon\" \"Bear Trap\" \"Blight\" \"Burning Arrow\" \"Caustic Arrow\" \"Cleave\" \"Cobra Lash\" \"Contagion\" \"Conversion Trap\" \"Crushing Fist\" \"Dash\" \"Decoy Totem\" \"Detonate Dead\" \"Devouring Totem\" \"Double Strike\" \"Dual Strike\" \"Ethereal Knives\" \"Explosive Trap\" \"Fireball\" \"Flame Wall\" \"Freezing Pulse\" \"Frost Blades\" \"Frost Bomb\" \"Frost Wall\" \"Frostblink\" \"Frostbolt\" \"Galvanic Arrow\" \"Glacial Hammer\" \"Ground Slam\" \"Heavy Strike\" \"Holy Flame Totem\" \"Holy Strike\" \"Ice Shot\" \"Kinetic Bolt\" \"Lightning Tendrils\" \"Molten Strike\" \"Orb of Storms\" \"Perforate\" \"Puncture\" \"Purifying Flame\" \"Raise Zombie\" \"Rejuvenation Totem\" \"Rolling Magma\" \"Shield Charge\" \"Shield Crush\" \"Shrapnel Ballista\" \"Smite\" \"Sniper's Mark\" \"Spark\" \"Spectral Throw\" \"Split Arrow\" \"Splitting Steel\" \"Steelskin\" \"Stormblast Mine\" \"Summon Holy Relic\" \"Summon Raging Spirit\" \"Vigilant Strike\" \"Viper Strike\" \"War Banner\"\n    SetFontSize 40\n    SetTextColor 27 162 155 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 27 51 52 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Animate Weapon\" \"Bear Trap\" \"Blight\" \"Burning Arrow\" \"Caustic Arrow\" \"Cleave\" \"Cobra Lash\" \"Contagion\" \"Conversion Trap\" \"Crushing Fist\" \"Dash\" \"Decoy Totem\" \"Detonate Dead\" \"Devouring Totem\" \"Double Strike\" \"Dual Strike\" \"Ethereal Knives\" \"Explosive Trap\" \"Fireball\" \"Flame Wall\" \"Freezing Pulse\" \"Frost Blades\" \"Frost Bomb\" \"Frost Wall\" \"Frostblink\" \"Frostbolt\" \"Galvanic Arrow\" \"Glacial Hammer\" \"Ground Slam\" \"Heavy Strike\" \"Holy Flame Totem\" \"Holy Strike\" \"Ice Shot\" \"Kinetic Bolt\" \"Lightning Tendrils\" \"Molten Strike\" \"Orb of Storms\" \"Perforate\" \"Puncture\" \"Purifying Flame\" \"Raise Zombie\" \"Rejuvenation Totem\" \"Rolling Magma\" \"Shield Charge\" \"Shield Crush\" \"Shrapnel Ballista\" \"Smite\" \"Sniper's Mark\" \"Spark\" \"Spectral Throw\" \"Split Arrow\" \"Splitting Steel\" \"Steelskin\" \"Stormblast Mine\" \"Summon Holy Relic\" \"Summon Raging Spirit\" \"Vigilant Strike\" \"Viper Strike\" \"War Banner\"\n    SetFontSize 40\n    SetTextColor 27 162 155 255\n    SetBackgroundColor 27 51 52 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n"
   },
   {
    "order": 91016,
@@ -5211,7 +5211,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Skill Gems\"\n    SetFontSize 40\n    SetTextColor 27 162 155 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 27 51 52 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n"
+   "text": "Show\n    Class == \"Skill Gems\"\n    SetFontSize 40\n    SetTextColor 27 162 155 255\n    SetBackgroundColor 27 51 52 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n"
   },
   {
    "order": 92001,
@@ -5290,7 +5290,7 @@
     "Voidstorm Support"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Annihilation Support\" \"Awakened Enhance Support\" \"Bloodsoaked Banner Support\" \"Bonespire Support\" \"Cast on Ward Break Support\" \"Communion Support\" \"Companionship Support\" \"Congregation Support\" \"Cooldown Recovery Support\" \"Coursing Current Support\" \"Crystalfall Support\" \"Cull the Weak Support\" \"Divine Sentinel Support\" \"Eldritch Blasphemy Support\" \"Empower Support\" \"Enhance Support\" \"Enlighten Support\" \"Fissure Support\" \"Foulgrasp Support\" \"Frostmage Support\" \"Gluttony Support\" \"Greater Ancestral Call Support\" \"Greater Devour Support\" \"Greater Fork Support\" \"Greater Kinetic Instability Support\" \"Greater Unleash Support\" \"Greater Volley Support\" \"Hexpass Support\" \"Hextoad Support\" \"Hiveborn Support\" \"Invention Support\" \"Invert the Rules Support\" \"Lethal Dose Support\" \"Machinations Support\" \"Overheat Support\" \"Overloaded Intensity Support\" \"Pacifism Support\" \"Pyre Support\" \"Scornful Herald Support\" \"Transfusion Support\" \"Unholy Trinity Support\" \"Vaal Sacrifice Support\" \"Vaal Temptation Support\" \"Void Shockwave Support\" \"Voidstorm Support\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\强辅技能石.mp3\" 300\n    PlayEffect Cyan Temp\n    MinimapIcon 1 Yellow Kite\n"
+   "text": "Show\n    BaseType == \"Annihilation Support\" \"Awakened Enhance Support\" \"Bloodsoaked Banner Support\" \"Bonespire Support\" \"Cast on Ward Break Support\" \"Communion Support\" \"Companionship Support\" \"Congregation Support\" \"Cooldown Recovery Support\" \"Coursing Current Support\" \"Crystalfall Support\" \"Cull the Weak Support\" \"Divine Sentinel Support\" \"Eldritch Blasphemy Support\" \"Empower Support\" \"Enhance Support\" \"Enlighten Support\" \"Fissure Support\" \"Foulgrasp Support\" \"Frostmage Support\" \"Gluttony Support\" \"Greater Ancestral Call Support\" \"Greater Devour Support\" \"Greater Fork Support\" \"Greater Kinetic Instability Support\" \"Greater Unleash Support\" \"Greater Volley Support\" \"Hexpass Support\" \"Hextoad Support\" \"Hiveborn Support\" \"Invention Support\" \"Invert the Rules Support\" \"Lethal Dose Support\" \"Machinations Support\" \"Overheat Support\" \"Overloaded Intensity Support\" \"Pacifism Support\" \"Pyre Support\" \"Scornful Herald Support\" \"Transfusion Support\" \"Unholy Trinity Support\" \"Vaal Sacrifice Support\" \"Vaal Temptation Support\" \"Void Shockwave Support\" \"Voidstorm Support\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\强辅技能石.mp3\" 300\n    PlayEffect Cyan Temp\n    MinimapIcon 1 Yellow Kite\n"
   },
   {
    "order": 92003,
@@ -5345,7 +5345,7 @@
     "Volley Support"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Added Chaos Damage Support\" \"Added Cold Damage Support\" \"Added Lightning Damage Support\" \"Arrogance Support\" \"Autoexertion\" \"Ballista Totem Support\" \"Burning Damage Support\" \"Cast On Critical Strike Support\" \"Cast when Damage Taken Support\" \"Cast while Channelling Support\" \"Chain Support\" \"Charged Mines Support\" \"Cruelty Support\" \"Elemental Damage with Attacks Support\" \"Elemental Focus Support\" \"Elemental Penetration Support\" \"Eternal Blessing Support\" \"Feeding Frenzy Support\" \"Fist of War Support\" \"Hallow Support\" \"Infused Channelling Support\" \"Inspiration Support\" \"Intensify Support\" \"Lifetap Support\" \"Manaforged Arrows Support\" \"Mark On Hit Support\" \"Meat Shield Support\" \"Minefield Support\" \"Minion Damage Support\" \"Minion Speed Support\" \"Multiple Projectiles Support\" \"Multiple Totems Support\" \"Multistrike Support\" \"Overexertion Support\" \"Physical to Lightning Support\" \"Returning Projectiles Support\" \"Spell Cascade Support\" \"Spell Echo Support\" \"Spell Totem Support\" \"Trap and Mine Damage Support\" \"Trinity Support\" \"Volley Support\"\n    SetFontSize 43\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\辅助技能石.mp3\" 300\n    MinimapIcon 2 Yellow Kite\n"
+   "text": "Show\n    BaseType == \"Added Chaos Damage Support\" \"Added Cold Damage Support\" \"Added Lightning Damage Support\" \"Arrogance Support\" \"Autoexertion\" \"Ballista Totem Support\" \"Burning Damage Support\" \"Cast On Critical Strike Support\" \"Cast when Damage Taken Support\" \"Cast while Channelling Support\" \"Chain Support\" \"Charged Mines Support\" \"Cruelty Support\" \"Elemental Damage with Attacks Support\" \"Elemental Focus Support\" \"Elemental Penetration Support\" \"Eternal Blessing Support\" \"Feeding Frenzy Support\" \"Fist of War Support\" \"Hallow Support\" \"Infused Channelling Support\" \"Inspiration Support\" \"Intensify Support\" \"Lifetap Support\" \"Manaforged Arrows Support\" \"Mark On Hit Support\" \"Meat Shield Support\" \"Minefield Support\" \"Minion Damage Support\" \"Minion Speed Support\" \"Multiple Projectiles Support\" \"Multiple Totems Support\" \"Multistrike Support\" \"Overexertion Support\" \"Physical to Lightning Support\" \"Returning Projectiles Support\" \"Spell Cascade Support\" \"Spell Echo Support\" \"Spell Totem Support\" \"Trap and Mine Damage Support\" \"Trinity Support\" \"Volley Support\"\n    SetFontSize 43\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\辅助技能石.mp3\" 300\n    MinimapIcon 2 Yellow Kite\n"
   },
   {
    "order": 92004,
@@ -5357,7 +5357,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Support Gems\"\n    SetFontSize 40\n    SetTextColor 27 162 155 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 27 51 52 255\n    CustomAlertSound \"Sharket掉落音效\\辅助技能石.mp3\" 300\n    MinimapIcon 2 White Kite\n"
+   "text": "Show\n    Class == \"Support Gems\"\n    SetFontSize 40\n    SetTextColor 27 162 155 255\n    SetBackgroundColor 27 51 52 255\n    CustomAlertSound \"Sharket掉落音效\\辅助技能石.mp3\" 300\n    MinimapIcon 2 White Kite\n"
   },
   {
    "order": 101001,
@@ -5529,7 +5529,7 @@
     "Searching Eye Jewel"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Assembled Eye Jewel\" \"Ghastly Eye Jewel\" \"Hypnotic Eye Jewel\" \"Murderous Eye Jewel\" \"Searching Eye Jewel\"\n    Rarity Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 255 119 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 300\n    MinimapIcon 0 Yellow Cross\n"
+   "text": "Show\n    BaseType == \"Assembled Eye Jewel\" \"Ghastly Eye Jewel\" \"Hypnotic Eye Jewel\" \"Murderous Eye Jewel\" \"Searching Eye Jewel\"\n    Rarity Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 255 119 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 300\n    MinimapIcon 0 Yellow Cross\n"
   },
   {
    "order": 111004,
@@ -5547,7 +5547,7 @@
     "Searching Eye Jewel"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Assembled Eye Jewel\" \"Ghastly Eye Jewel\" \"Hypnotic Eye Jewel\" \"Murderous Eye Jewel\" \"Searching Eye Jewel\"\n    Rarity Magic\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 136 136 255 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 300\n    MinimapIcon 0 Blue Cross\n"
+   "text": "Show\n    BaseType == \"Assembled Eye Jewel\" \"Ghastly Eye Jewel\" \"Hypnotic Eye Jewel\" \"Murderous Eye Jewel\" \"Searching Eye Jewel\"\n    Rarity Magic\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 136 136 255 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 300\n    MinimapIcon 0 Blue Cross\n"
   },
   {
    "order": 111005,
@@ -5565,7 +5565,7 @@
     "Searching Eye Jewel"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Assembled Eye Jewel\" \"Ghastly Eye Jewel\" \"Hypnotic Eye Jewel\" \"Murderous Eye Jewel\" \"Searching Eye Jewel\"\n    Rarity Normal\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 160 160 160 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 300\n    MinimapIcon 0 White Cross\n"
+   "text": "Show\n    BaseType == \"Assembled Eye Jewel\" \"Ghastly Eye Jewel\" \"Hypnotic Eye Jewel\" \"Murderous Eye Jewel\" \"Searching Eye Jewel\"\n    Rarity Normal\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 160 160 160 255\n    CustomAlertSound \"Sharket掉落音效\\通货.mp3\" 300\n    MinimapIcon 0 White Cross\n"
   },
   {
    "order": 112001,
@@ -5581,7 +5581,7 @@
     "Viridian Jewel"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Cobalt Jewel\" \"Crimson Jewel\" \"Viridian Jewel\"\n    Rarity Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 255 255 119 255\n    CustomAlertSound \"Sharket掉落音效\\常规珠宝.mp3\" 300\n    PlayEffect Blue Temp\n    MinimapIcon 0 Yellow Cross\n"
+   "text": "Show\n    BaseType == \"Cobalt Jewel\" \"Crimson Jewel\" \"Viridian Jewel\"\n    Rarity Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 255 119 255\n    CustomAlertSound \"Sharket掉落音效\\常规珠宝.mp3\" 300\n    PlayEffect Blue Temp\n    MinimapIcon 0 Yellow Cross\n"
   },
   {
    "order": 112002,
@@ -5597,7 +5597,7 @@
     "Viridian Jewel"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Cobalt Jewel\" \"Crimson Jewel\" \"Viridian Jewel\"\n    Rarity Magic\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 136 136 255 255\n    CustomAlertSound \"Sharket掉落音效\\常规珠宝.mp3\" 300\n    PlayEffect Blue Temp\n    MinimapIcon 0 Blue Cross\n"
+   "text": "Show\n    BaseType == \"Cobalt Jewel\" \"Crimson Jewel\" \"Viridian Jewel\"\n    Rarity Magic\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 136 136 255 255\n    CustomAlertSound \"Sharket掉落音效\\常规珠宝.mp3\" 300\n    PlayEffect Blue Temp\n    MinimapIcon 0 Blue Cross\n"
   },
   {
    "order": 112003,
@@ -5613,7 +5613,7 @@
     "Viridian Jewel"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Cobalt Jewel\" \"Crimson Jewel\" \"Viridian Jewel\"\n    Rarity Normal\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 160 160 160 255\n    CustomAlertSound \"Sharket掉落音效\\常规珠宝.mp3\" 300\n    PlayEffect Blue Temp\n    MinimapIcon 0 White Cross\n"
+   "text": "Show\n    BaseType == \"Cobalt Jewel\" \"Crimson Jewel\" \"Viridian Jewel\"\n    Rarity Normal\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 160 160 160 255\n    CustomAlertSound \"Sharket掉落音效\\常规珠宝.mp3\" 300\n    PlayEffect Blue Temp\n    MinimapIcon 0 White Cross\n"
   },
   {
    "order": 113001,
@@ -5869,7 +5869,7 @@
    "rule": "#1 T16",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Maps\"\n    MapTier == 16\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 255 90 80 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 48 17 15 255\n    CustomAlertSound \"Sharket掉落音效\\超级地图.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 1 Red Square\n"
+   "text": "Show\n    Class == \"Maps\"\n    MapTier == 16\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 255 90 80 255\n    SetBackgroundColor 48 17 15 255\n    CustomAlertSound \"Sharket掉落音效\\超级地图.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 1 Red Square\n"
   },
   {
    "order": 121013,
@@ -5881,7 +5881,7 @@
    "rule": "#1 11-15",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Maps\"\n    MapTier >= 11\n    MapTier <= 15\n    Rarity <= Rare\n    SetFontSize 42\n    SetTextColor 255 90 80 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 15 32 62 255\n    CustomAlertSound \"Sharket掉落音效\\高级地图.mp3\" 300\n    PlayEffect Red Temp\n    MinimapIcon 1 Yellow Square\n"
+   "text": "Show\n    Class == \"Maps\"\n    MapTier >= 11\n    MapTier <= 15\n    Rarity <= Rare\n    SetFontSize 42\n    SetTextColor 255 90 80 255\n    SetBackgroundColor 15 32 62 255\n    CustomAlertSound \"Sharket掉落音效\\高级地图.mp3\" 300\n    PlayEffect Red Temp\n    MinimapIcon 1 Yellow Square\n"
   },
   {
    "order": 121014,
@@ -5893,7 +5893,7 @@
    "rule": "#1 6-10",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Rarity <= Rare\n    MapTier >= 6\n    MapTier <= 10\n    AreaLevel <= 82\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 15 32 62 255\n    CustomAlertSound \"Sharket掉落音效\\中级地图.mp3\" 300\n    PlayEffect Yellow Temp\n"
+   "text": "Show\n    Rarity <= Rare\n    MapTier >= 6\n    MapTier <= 10\n    AreaLevel <= 82\n    SetFontSize 40\n    SetTextColor 255 255 119 255\n    SetBackgroundColor 15 32 62 255\n    CustomAlertSound \"Sharket掉落音效\\中级地图.mp3\" 300\n    PlayEffect Yellow Temp\n"
   },
   {
    "order": 121015,
@@ -5905,7 +5905,7 @@
    "rule": "#1 1-5",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Rarity <= Rare\n    MapTier >= 1\n    MapTier <= 5\n    AreaLevel <= 77\n    SetFontSize 40\n    SetTextColor 200 200 200 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 15 32 62 255\n    CustomAlertSound \"Sharket掉落音效\\地图.mp3\" 300\n    PlayEffect White Temp\n"
+   "text": "Show\n    Rarity <= Rare\n    MapTier >= 1\n    MapTier <= 5\n    AreaLevel <= 77\n    SetFontSize 40\n    SetTextColor 200 200 200 255\n    SetBackgroundColor 15 32 62 255\n    CustomAlertSound \"Sharket掉落音效\\地图.mp3\" 300\n    PlayEffect White Temp\n"
   },
   {
    "order": 121016,
@@ -6711,7 +6711,7 @@
     "Ultimatum Scarab of Dueling"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Abyss Scarab of the Consort\" \"Ambush Scarab of Containment\" \"Anarchy Scarab of the Exceptional\" \"Betrayal Scarab of Unbreaking\" \"Beyond Scarab of Resurgence\" \"Blight Scarab of Blooming\" \"Blight Scarab of Invigoration\" \"Breach Scarab of Resonant Cascade\" \"Breach Scarab of the Incensed Swarm\" \"Breach Scarab of the Marshal\" \"Essence Scarab of Adaptation\" \"Essence Scarab of Calcification\" \"Expedition Scarab of Infusion\" \"Harvest Scarab of Cornucopia\" \"Horned Scarab of Bloodlines\" \"Horned Scarab of Glittering\" \"Horned Scarab of Tradition\" \"Legion Scarab of Eternal Conflict\" \"Ritual Scarab of Abundance\" \"Scarab of Radiant Storms\" \"Trarthan Scarab of Renown\" \"Trarthan Scarab of Surprising Alliances\" \"Ultimatum Scarab of Catalysing\" \"Ultimatum Scarab of Dueling\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 170 230 60 255\n    CustomAlertSound \"Sharket掉落音效\\超级圣甲虫.mp3\" 300\n    PlayEffect Green\n    MinimapIcon 1 Yellow Diamond\n"
+   "text": "Show\n    BaseType == \"Abyss Scarab of the Consort\" \"Ambush Scarab of Containment\" \"Anarchy Scarab of the Exceptional\" \"Betrayal Scarab of Unbreaking\" \"Beyond Scarab of Resurgence\" \"Blight Scarab of Blooming\" \"Blight Scarab of Invigoration\" \"Breach Scarab of Resonant Cascade\" \"Breach Scarab of the Incensed Swarm\" \"Breach Scarab of the Marshal\" \"Essence Scarab of Adaptation\" \"Essence Scarab of Calcification\" \"Expedition Scarab of Infusion\" \"Harvest Scarab of Cornucopia\" \"Horned Scarab of Bloodlines\" \"Horned Scarab of Glittering\" \"Horned Scarab of Tradition\" \"Legion Scarab of Eternal Conflict\" \"Ritual Scarab of Abundance\" \"Scarab of Radiant Storms\" \"Trarthan Scarab of Renown\" \"Trarthan Scarab of Surprising Alliances\" \"Ultimatum Scarab of Catalysing\" \"Ultimatum Scarab of Dueling\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 170 230 60 255\n    CustomAlertSound \"Sharket掉落音效\\超级圣甲虫.mp3\" 300\n    PlayEffect Green\n    MinimapIcon 1 Yellow Diamond\n"
   },
   {
    "order": 124003,
@@ -6756,7 +6756,7 @@
     "Ultimatum Scarab of Inscription"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Abyss Scarab of Descending\" \"Allflame Ember of K'Tash\" \"Allflame Ember of the Gilded\" \"Ambush Scarab of Discernment\" \"Anarchy Scarab of Partnership\" \"Betrayal Scarab of Reinforcements\" \"Betrayal Scarab of the Allflame\" \"Beyond Scarab of Haemophilia\" \"Cartography Scarab of Corruption\" \"Cartography Scarab of Risk\" \"Delirium Scarab of Delusions\" \"Delirium Scarab of Neuroses\" \"Divination Scarab of Pilfering\" \"Domination Scarab of Evolution\" \"Essence Scarab of Ascent\" \"Expedition Scarab of Archaeology\" \"Harvest Scarab of Doubling\" \"Horned Scarab of Nemeses\" \"Incursion Scarab of Champions\" \"Incursion Scarab of Timelines\" \"Influencing Scarab of Interference\" \"Kalguuran Scarab of Enriching\" \"Legion Scarab of Officers\" \"Legion Scarab of Treasures\" \"Scarab of Stability\" \"Scarab of the Dextral\" \"Scarab of the Sinistral\" \"Titanic Scarab of Legend\" \"Titanic Scarab of Treasures\" \"Torment Scarab of Possession\" \"Trarthan Scarab of Infamy\" \"Ultimatum Scarab of Inscription\"\n    SetFontSize 45\n    SetTextColor 170 230 60 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 32 44 11 255\n    CustomAlertSound \"Sharket掉落音效\\高级圣甲虫.mp3\" 300\n    PlayEffect Green Temp\n    MinimapIcon 1 Yellow Hexagon\n"
+   "text": "Show\n    BaseType == \"Abyss Scarab of Descending\" \"Allflame Ember of K'Tash\" \"Allflame Ember of the Gilded\" \"Ambush Scarab of Discernment\" \"Anarchy Scarab of Partnership\" \"Betrayal Scarab of Reinforcements\" \"Betrayal Scarab of the Allflame\" \"Beyond Scarab of Haemophilia\" \"Cartography Scarab of Corruption\" \"Cartography Scarab of Risk\" \"Delirium Scarab of Delusions\" \"Delirium Scarab of Neuroses\" \"Divination Scarab of Pilfering\" \"Domination Scarab of Evolution\" \"Essence Scarab of Ascent\" \"Expedition Scarab of Archaeology\" \"Harvest Scarab of Doubling\" \"Horned Scarab of Nemeses\" \"Incursion Scarab of Champions\" \"Incursion Scarab of Timelines\" \"Influencing Scarab of Interference\" \"Kalguuran Scarab of Enriching\" \"Legion Scarab of Officers\" \"Legion Scarab of Treasures\" \"Scarab of Stability\" \"Scarab of the Dextral\" \"Scarab of the Sinistral\" \"Titanic Scarab of Legend\" \"Titanic Scarab of Treasures\" \"Torment Scarab of Possession\" \"Trarthan Scarab of Infamy\" \"Ultimatum Scarab of Inscription\"\n    SetFontSize 45\n    SetTextColor 170 230 60 255\n    SetBackgroundColor 32 44 11 255\n    CustomAlertSound \"Sharket掉落音效\\高级圣甲虫.mp3\" 300\n    PlayEffect Green Temp\n    MinimapIcon 1 Yellow Hexagon\n"
   },
   {
    "order": 124004,
@@ -6798,13 +6798,13 @@
     "Ultimatum Scarab of Bribing"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Abyss Scarab of Multitudes\" \"Allflame Ember of Propagation\" \"Allflame Ember of Resplendence\" \"Allflame Ember of the Wildwood\" \"Ambush Scarab of Hidden Compartments\" \"Ambush Scarab of Potency\" \"Anarchy Scarab of Gigantification\" \"Bestiary Scarab of the Herd\" \"Beyond Scarab of the Invasion\" \"Blight Scarab of the Blightheart\" \"Breach Scarab of Instability\" \"Cartography Scarab of the Multitude\" \"Delirium Scarab of Mania\" \"Delirium Scarab of Paranoia\" \"Divination Scarab of Plenty\" \"Domination Scarab of Apparitions\" \"Essence Scarab of Stability\" \"Expedition Scarab of Runefinding\" \"Expedition Scarab of Verisium Powder\" \"Influencing Scarab of Hordes\" \"Kalguuran Scarab of Guarded Riches\" \"Kalguuran Scarab of Refinement\" \"Ritual Scarab of Corpses\" \"Ritual Scarab of Selectiveness\" \"Ritual Scarab of Wisps\" \"Scarab of Divinity\" \"Torment Scarab of Peculiarity\" \"Trarthan Scarab\" \"Ultimatum Scarab of Bribing\"\n    SetFontSize 45\n    SetTextColor 170 230 60 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\高级圣甲虫.mp3\" 300\n    PlayEffect Green Temp\n    MinimapIcon 2 Yellow Hexagon\n"
+   "text": "Show\n    BaseType == \"Abyss Scarab of Multitudes\" \"Allflame Ember of Propagation\" \"Allflame Ember of Resplendence\" \"Allflame Ember of the Wildwood\" \"Ambush Scarab of Hidden Compartments\" \"Ambush Scarab of Potency\" \"Anarchy Scarab of Gigantification\" \"Bestiary Scarab of the Herd\" \"Beyond Scarab of the Invasion\" \"Blight Scarab of the Blightheart\" \"Breach Scarab of Instability\" \"Cartography Scarab of the Multitude\" \"Delirium Scarab of Mania\" \"Delirium Scarab of Paranoia\" \"Divination Scarab of Plenty\" \"Domination Scarab of Apparitions\" \"Essence Scarab of Stability\" \"Expedition Scarab of Runefinding\" \"Expedition Scarab of Verisium Powder\" \"Influencing Scarab of Hordes\" \"Kalguuran Scarab of Guarded Riches\" \"Kalguuran Scarab of Refinement\" \"Ritual Scarab of Corpses\" \"Ritual Scarab of Selectiveness\" \"Ritual Scarab of Wisps\" \"Scarab of Divinity\" \"Torment Scarab of Peculiarity\" \"Trarthan Scarab\" \"Ultimatum Scarab of Bribing\"\n    SetFontSize 45\n    SetTextColor 170 230 60 255\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\高级圣甲虫.mp3\" 300\n    PlayEffect Green Temp\n    MinimapIcon 2 Yellow Hexagon\n"
   },
   {
    "order": 124005,
    "file": "Maps/Scarabs.json",
    "tier_key": "Tier 4 Scarabs",
-   "tier_num": 3,
+   "tier_num": 4,
    "source": "tier_base",
    "match": "Exact",
    "rule": null,
@@ -6844,7 +6844,7 @@
     "Ultimatum Scarab"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Abyss Scarab\" \"Abyss Scarab of Crystals\" \"Allflame Ember of Flesh\" \"Allflame Ember of Toads\" \"Ambush Scarab\" \"Anarchy Scarab\" \"Bestiary Scarab\" \"Bestiary Scarab of Duplicating\" \"Betrayal Scarab\" \"Beyond Scarab\" \"Blight Scarab\" \"Breach Scarab of the Hive\" \"Cartography Scarab of Escalation\" \"Delirium Scarab\" \"Divination Scarab of The Cloister\" \"Domination Scarab\" \"Essence Scarab\" \"Expedition Scarab\" \"Harvest Scarab\" \"Incursion Scarab\" \"Incursion Scarab of Invasion\" \"Influencing Scarab of the Elder\" \"Influencing Scarab of the Shaper\" \"Kalguuran Scarab\" \"Legion Scarab\" \"Scarab of Adversaries\" \"Scarab of Monstrous Lineage\" \"Scarab of Wisps\" \"Sulphite Scarab\" \"Sulphite Scarab of Fumes\" \"Titanic Scarab\" \"Torment Scarab\" \"Ultimatum Scarab\"\n    SetFontSize 45\n    SetTextColor 170 230 60 204\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\圣甲虫.mp3\" 300\n    MinimapIcon 2 White Hexagon\n"
+   "text": "Show\n    BaseType == \"Abyss Scarab\" \"Abyss Scarab of Crystals\" \"Allflame Ember of Flesh\" \"Allflame Ember of Toads\" \"Ambush Scarab\" \"Anarchy Scarab\" \"Bestiary Scarab\" \"Bestiary Scarab of Duplicating\" \"Betrayal Scarab\" \"Beyond Scarab\" \"Blight Scarab\" \"Breach Scarab of the Hive\" \"Cartography Scarab of Escalation\" \"Delirium Scarab\" \"Divination Scarab of The Cloister\" \"Domination Scarab\" \"Essence Scarab\" \"Expedition Scarab\" \"Harvest Scarab\" \"Incursion Scarab\" \"Incursion Scarab of Invasion\" \"Influencing Scarab of the Elder\" \"Influencing Scarab of the Shaper\" \"Kalguuran Scarab\" \"Legion Scarab\" \"Scarab of Adversaries\" \"Scarab of Monstrous Lineage\" \"Scarab of Wisps\" \"Sulphite Scarab\" \"Sulphite Scarab of Fumes\" \"Titanic Scarab\" \"Torment Scarab\" \"Ultimatum Scarab\"\n    SetFontSize 45\n    SetTextColor 170 230 60 204\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\圣甲虫.mp3\" 300\n    MinimapIcon 2 White Hexagon\n"
   },
   {
    "order": 131001,
@@ -9774,7 +9774,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Stackable Currency\"\n    SetFontSize 40\n    SetTextColor 255 90 200 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n"
+   "text": "Show\n    Class == \"Stackable Currency\"\n    SetFontSize 40\n    SetTextColor 255 90 200 255\n    SetBackgroundColor 0 0 0 255\n"
   },
   {
    "order": 171002,
@@ -9786,7 +9786,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Map Fragments\"\n    SetFontSize 40\n    SetTextColor 255 90 200 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n"
+   "text": "Show\n    Class == \"Map Fragments\"\n    SetFontSize 40\n    SetTextColor 255 90 200 255\n    SetBackgroundColor 0 0 0 255\n"
   },
   {
    "order": 171003,
@@ -9798,7 +9798,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Breachstones\"\n    SetFontSize 40\n    SetTextColor 255 90 200 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n"
+   "text": "Show\n    Class == \"Breachstones\"\n    SetFontSize 40\n    SetTextColor 255 90 200 255\n    SetBackgroundColor 0 0 0 255\n"
   },
   {
    "order": 171004,
@@ -9810,7 +9810,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Vault Keys\"\n    SetFontSize 40\n    SetTextColor 255 90 200 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n"
+   "text": "Show\n    Class == \"Vault Keys\"\n    SetFontSize 40\n    SetTextColor 255 90 200 255\n    SetBackgroundColor 0 0 0 255\n"
   },
   {
    "order": 171005,
@@ -9822,7 +9822,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Idols\"\n    SetFontSize 40\n    SetTextColor 255 90 200 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n"
+   "text": "Show\n    Class == \"Idols\"\n    SetFontSize 40\n    SetTextColor 255 90 200 255\n    SetBackgroundColor 0 0 0 255\n"
   },
   {
    "order": 171006,
@@ -9834,7 +9834,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Sanctum Research\"\n    SetFontSize 40\n    SetTextColor 255 90 200 255\n    SetBorderColor 0 0 0 0\n    SetBackgroundColor 0 0 0 255\n"
+   "text": "Show\n    Class == \"Sanctum Research\"\n    SetFontSize 40\n    SetTextColor 255 90 200 255\n    SetBackgroundColor 0 0 0 255\n"
   }
  ]
 }

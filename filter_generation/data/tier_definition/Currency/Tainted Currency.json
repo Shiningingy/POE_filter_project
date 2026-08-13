@@ -50,7 +50,6 @@
         "PlayAlertSound": "disabled:",
         "TextColor": "#ffffffff",
         "BackgroundColor": "#961428ff",
-        "BorderColor": "#00000000",
         "FontSize": 45,
         "MinimapIcon": "1 Red Diamond"
       },
@@ -92,8 +91,7 @@
         "PlayEffect": "Red Temp",
         "MinimapIcon": "2 Yellow Diamond",
         "TextColor": "#f5554bff",
-        "BackgroundColor": "#2f100eff",
-        "BorderColor": "#00000000"
+        "BackgroundColor": "#2f100eff"
       },
       "sound": {
         "default_sound_id": 3,
@@ -133,12 +131,11 @@
     "Tier 4 Tainted": {
       "hideable": true,
       "theme": {
-        "Tier": 3,
+        "Tier": 4,
         "FontSize": 40,
         "MinimapIcon": "2 White Diamond",
         "TextColor": "#f5554bff",
-        "BackgroundColor": "#000000ff",
-        "BorderColor": "#00000000"
+        "BackgroundColor": "#000000ff"
       },
       "sound": {
         "default_sound_id": -1,

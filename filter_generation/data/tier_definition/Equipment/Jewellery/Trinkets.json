@@ -88,7 +88,7 @@
     "Tier 4 Trinkets": {
       "hideable": false,
       "theme": {
-        "Tier": 5
+        "Tier": 6
       },
       "sound": {
         "default_sound_id": -1,

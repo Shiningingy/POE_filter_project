@@ -10,19 +10,16 @@
     "Tier 1": {
       "TextColor": "#eb5a82ff",
       "BackgroundColor": "#2d1119ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     },
     "Tier 2": {
       "TextColor": "#eb5a82ff",
       "BackgroundColor": "#000000ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     },
     "Tier 3": {
       "TextColor": "#eb5a82cc",
       "BackgroundColor": "#000000ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     },
     "Tier 4": {
@@ -35,7 +32,6 @@
     "Tier 2": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#d2d2e6ff",
-      "BorderColor": "#00000000",
       "FontSize": 45,
       "MinimapIcon": "1 Yellow Diamond"
     }
@@ -65,13 +61,11 @@
     "Tier 2": {
       "TextColor": "#ffffffff",
       "BackgroundColor": "#006effff",
-      "BorderColor": "#00000000",
       "FontSize": 45
     },
     "Tier 3": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#006effff",
-      "BorderColor": "#00000000",
       "FontSize": 43
     },
     "Tier 4": {
@@ -98,14 +92,12 @@
     "Tier 3": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#ffaa00ff",
-      "BorderColor": "#00000000",
       "FontSize": 45,
       "MinimapIcon": "2 Orange Diamond"
     },
     "Tier 4": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#aa9e82ff",
-      "BorderColor": "#00000000",
       "FontSize": 45
     }
   },
@@ -127,20 +119,17 @@
     "Tier 2": {
       "TextColor": "#ffffffff",
       "BackgroundColor": "#f05a23ff",
-      "BorderColor": "#00000000",
       "FontSize": 45,
       "MinimapIcon": "1 Green Diamond"
     },
     "Tier 3": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#ffaa00ff",
-      "BorderColor": "#00000000",
       "FontSize": 45
     },
     "Tier 4": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#aa9e82ff",
-      "BorderColor": "#00000000",
       "FontSize": 45
     }
   },
@@ -156,26 +145,22 @@
     "Tier 1": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#2ecc71ff",
-      "BorderColor": "#00000000",
       "FontSize": 45,
       "MinimapIcon": "1 Yellow Diamond"
     },
     "Tier 2": {
       "TextColor": "#2ecc71ff",
       "BackgroundColor": "#092715ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     },
     "Tier 3": {
       "TextColor": "#2ecc71ff",
       "BackgroundColor": "#000000ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     },
     "Tier 4": {
       "TextColor": "#2ecc71ff",
       "BackgroundColor": "#000000ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     }
   },
@@ -225,13 +210,11 @@
     "Tier 2": {
       "TextColor": "#ffe650ff",
       "BackgroundColor": "#302c0fff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     },
     "Tier 3": {
       "TextColor": "#ffe650ff",
       "BackgroundColor": "#000000ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     },
     "Tier 4": {
@@ -313,20 +296,18 @@
     "Tier 2": {
       "TextColor": "#ffffffff",
       "BackgroundColor": "#961428ff",
-      "BorderColor": "#00000000",
       "FontSize": 45,
       "MinimapIcon": "1 Red Diamond"
     },
     "Tier 3": {
       "TextColor": "#f5554bff",
       "BackgroundColor": "#2f100eff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "TextColor": "#f5554bff",
+      "BackgroundColor": "#000000ff",
+      "FontSize": 40
     }
   },
   "Wombgifts": {
@@ -347,7 +328,6 @@
     "Tier 4": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#ebafbeff",
-      "BorderColor": "#00000000",
       "FontSize": 45,
       "MinimapIcon": "1 Pink Diamond"
     },
@@ -362,7 +342,6 @@
     "Tier 5": {
       "TextColor": "#ff5ac8ff",
       "BackgroundColor": "#000000ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     }
   },
@@ -483,20 +462,22 @@
     "Tier 3": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#d590d3ff",
-      "BorderColor": "#00000000",
       "FontSize": 45,
       "MinimapIcon": "1 Purple Moon"
     },
     "Tier 4": {
       "TextColor": "#d590d3ff",
       "BackgroundColor": "#281b28ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     },
     "Tier 5": {
       "TextColor": "#d590d3ff",
       "BackgroundColor": "#000000ff",
-      "BorderColor": "#00000000",
+      "FontSize": 40
+    },
+    "Tier 6": {
+      "TextColor": "#d590d3cc",
+      "BackgroundColor": "#000000ff",
       "FontSize": 40
     }
   },
@@ -528,20 +509,17 @@
     "Tier 3": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#d590d3ff",
-      "BorderColor": "#00000000",
       "FontSize": 45,
       "MinimapIcon": "1 Purple Moon"
     },
     "Tier 4": {
       "TextColor": "#d590d3ff",
       "BackgroundColor": "#281b28ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     },
     "Tier 5": {
       "TextColor": "#d590d3ff",
       "BackgroundColor": "#000000ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     }
   },
@@ -602,20 +580,17 @@
     "Tier 3": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#c878e6ff",
-      "BorderColor": "#00000000",
       "FontSize": 45,
       "MinimapIcon": "1 Purple Moon"
     },
     "Tier 4": {
       "TextColor": "#c878e6ff",
       "BackgroundColor": "#26172cff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     },
     "Tier 5": {
       "TextColor": "#c878e6ff",
       "BackgroundColor": "#000000ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     }
   },
@@ -634,7 +609,7 @@
       "FontSize": 40
     },
     "Tier 4": {
-      "TextColor": "#ffff77ff",
+      "TextColor": "#ffff77cc",
       "BackgroundColor": "#202020ff",
       "BorderColor": "#966effff",
       "FontSize": 40
@@ -803,19 +778,16 @@
     "Tier 1": {
       "TextColor": "#ffffffff",
       "BackgroundColor": "#1ba29bff",
-      "BorderColor": "#00000000",
       "FontSize": 45
     },
     "Tier 2": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#1ba29bff",
-      "BorderColor": "#00000000",
       "FontSize": 43
     },
     "Tier 3": {
       "TextColor": "#1ba29bff",
       "BackgroundColor": "#1b3334ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     },
     "Tier 4": {
@@ -1038,26 +1010,23 @@
     "Tier 1": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#aae63cff",
-      "BorderColor": "#00000000",
       "FontSize": 45,
       "MinimapIcon": "1 Yellow Hexagon"
     },
     "Tier 2": {
       "TextColor": "#aae63cff",
       "BackgroundColor": "#202c0bff",
-      "BorderColor": "#00000000",
       "FontSize": 45
     },
     "Tier 3": {
       "TextColor": "#aae63cff",
       "BackgroundColor": "#000000ff",
-      "BorderColor": "#00000000",
       "FontSize": 45
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#00ab76ff"
+      "TextColor": "#aae63ccc",
+      "BackgroundColor": "#000000ff",
+      "FontSize": 45
     }
   },
   "Quest Items": {
@@ -1121,7 +1090,6 @@
     "Tier 3": {
       "TextColor": "#ffff77ff",
       "BackgroundColor": "#202020ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     },
     "Tier 4": {
@@ -1144,7 +1112,6 @@
     "Tier 0": {
       "TextColor": "#ff5ac8ff",
       "BackgroundColor": "#000000ff",
-      "BorderColor": "#00000000",
       "FontSize": 40
     }
   }

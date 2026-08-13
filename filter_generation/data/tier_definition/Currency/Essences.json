@@ -24,7 +24,6 @@
         ],
         "TextColor": "#ffffffff",
         "BackgroundColor": "#006effff",
-        "BorderColor": "#00000000",
         "FontSize": 45
       },
       "sound": {
@@ -68,8 +67,7 @@
         ],
         "MinimapIcon": "2 Yellow Circle",
         "TextColor": "#000000ff",
-        "BackgroundColor": "#006effff",
-        "BorderColor": "#00000000"
+        "BackgroundColor": "#006effff"
       },
       "sound": {
         "default_sound_id": -1,
