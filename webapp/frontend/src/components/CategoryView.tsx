@@ -24,6 +24,7 @@ import SortableTierBlock from "./SortableTierBlock";
 import TierOutlineRail from "./TierOutlineRail";
 import TierContextMenu from "./TierContextMenu";
 import CategoryRenameModal from "./CategoryRenameModal";
+import RuleConditionEditor from "./RuleConditionEditor";
 import LoadingOverlay from "./LoadingOverlay";
 import { invalidateTierLabelMap, fetchDecorators } from "../utils/tierLabels";
 import type { DecoratorEntry } from "../utils/tierLabels";
@@ -218,6 +219,89 @@ const CategoryView: React.FC<CategoryViewProps> = ({
 
   const updateConfig = (newConfig: any) => {
     onConfigContentChange(JSON.stringify(newConfig, null, 2));
+  };
+
+  // ── tier conditions ────────────────────────────────────────────────────────
+  // A tier's `conditions` are the block's own matching lines — the ItemLevel /
+  // AreaLevel / Rarity gates that ADR-0006 says are the correct way to resolve a
+  // first-match-wins conflict ("precision beats ordering"). They shipped read-only,
+  // so making one meant hand-editing JSON, which is why the fix nobody could apply
+  // in-app was the one the architecture recommends.
+  //
+  // The editor is RuleManager's, reused verbatim: it is pure presentation plus two
+  // callbacks, so a tier only has to supply a rule-shaped object and the same
+  // update/add semantics. A second condition editor would be a second place for the
+  // condition vocabulary to drift, and it has drifted once already (the picker still
+  // offers IsReplica / IsFoulborn where the data says Replica / Foulborn).
+  const [condEditorTier, setCondEditorTier] = useState<string | null>(null);
+  const [ruleTemplates, setRuleTemplates] = useState<any[]>([]);
+
+  useEffect(() => {
+    axios.get("/api/rule-templates")
+      .then((res) => setRuleTemplates(res.data.categories || []))
+      .catch(() => { /* read-only chips still render; only editing needs the schema */ });
+  }, []);
+
+  const templateFor = (key: string) =>
+    ruleTemplates.flatMap((c: any) => c.templates).find((t: any) => t.condition === key);
+
+  // Same partition RuleManager uses: universal or this category's class first.
+  const condFactors = useMemo(() => {
+    if (ruleTemplates.length === 0) return { recommended: [], others: [] };
+    const seen = new Set<string>();
+    const recommended: any[] = [];
+    const others: any[] = [];
+    ruleTemplates.forEach((cat: any) => {
+      cat.templates.forEach((tmp: any) => {
+        if (seen.has(tmp.condition)) return;
+        seen.add(tmp.condition);
+        const isRec =
+          tmp.universal === true ||
+          (categoryClass && Array.isArray(tmp.classes) && tmp.classes.includes(categoryClass)) ||
+          (tmp.universal === undefined && tmp.classes === undefined);
+        (isRec ? recommended : others).push({
+          key: tmp.condition, label: tmp.label[language], template: tmp,
+        });
+      });
+    });
+    return { recommended, others };
+  }, [ruleTemplates, language, categoryClass]);
+
+  const setTierConditions = (tierKey: string, next: Record<string, any>) => {
+    if (!parsedConfig || !activeCategoryKey) return;
+    const newConfig = JSON.parse(JSON.stringify(parsedConfig));
+    const tier = newConfig[activeCategoryKey]?.[tierKey];
+    if (!tier) return;
+    if (Object.keys(next).length) tier.conditions = next;
+    else delete tier.conditions;      // an empty map is not a gate; drop the key
+    updateConfig(newConfig);
+  };
+
+  // Mirrors RuleManager.updateCondition, including the reason it does NOT delete on
+  // an empty string for text-ish fields: you would lose the row mid-typing.
+  const updateTierCondition = (tierKey: string, key: string, value: string) => {
+    const current = (activeCategoryData?.[tierKey]?.conditions || {}) as Record<string, any>;
+    const next = { ...current };
+    const tmp = templateFor(key);
+    const isTextField = tmp?.type === "text" || tmp?.type === "class_picker";
+    if (value === null || (value === "" && !isTextField)) delete next[key];
+    else next[key] = value;
+    setTierConditions(tierKey, next);
+  };
+
+  const addTierCondition = (tierKey: string, key: string) => {
+    const current = (activeCategoryData?.[tierKey]?.conditions || {}) as Record<string, any>;
+    if (current[key] !== undefined) return;      // already present; the chip is right there
+    const tmp = templateFor(key);
+    let val = ">= 0";
+    if (tmp) {
+      if (tmp.type === "bool") val = "True";
+      else if (tmp.type === "select") val = tmp.options[0];
+      else if (tmp.type === "class_picker") val = "Stackable Currency";
+      else if (tmp.type === "text") val = "";
+      else if (tmp.type === "gem_picker") val = "True";
+    }
+    updateTierCondition(tierKey, key, val);
   };
 
   const getTierOrderScore = (key: string) => {
@@ -990,34 +1074,80 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                     }
                     viewerBackground={viewerBackground}
                   />
-                  {tierData.conditions && Object.keys(tierData.conditions).length > 0 && (
-                    <div className="tier-cond-strip" title={t.tierConditionsHint}>
-                      <span className="tc-label">{t.tierConditions}</span>
-                      {Object.entries(tierData.conditions as Record<string, any>).map(([k, v]) => {
-                        const val = typeof v === 'string' && v.startsWith('RANGE ')
-                          ? v.slice(6).replace(/\s+/g, ' ')
-                          : Array.isArray(v) ? v.join(' & ') : String(v);
-                        // Long BaseType lists: show a count, full list on hover
-                        const isLong = val.length > 60;
-                        const shown = isLong ? `${(val.match(/"/g)?.length || 0) / 2} bases` : val;
-                        return (
-                          <span key={k} className="tc-chip" title={`${k} ${val}`}>
-                            {k} {shown}
-                          </span>
-                        );
-                      })}
-                      <style>{`
-                        .tier-cond-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin: 6px 0 2px; }
-                        .tc-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: #8a8a92; }
-                        .tc-chip {
-                          font-size: 0.72rem; font-family: Consolas, monospace;
-                          background: #f0f4f8; border: 1px solid #d1d9e0; border-radius: 4px;
-                          padding: 2px 8px; color: #445; white-space: nowrap;
-                          max-width: 340px; overflow: hidden; text-overflow: ellipsis;
-                        }
-                      `}</style>
-                    </div>
-                  )}
+                  {(() => {
+                    const conds = (tierData.conditions || {}) as Record<string, any>;
+                    const open = condEditorTier === tierKey;
+                    // The strip renders even with no conditions now — otherwise there is
+                    // nowhere to add the FIRST one, which is the case that matters: an
+                    // unconditioned tier is exactly the one swallowing something.
+                    return (
+                      <div className="tier-cond-strip" title={t.tierConditionsHint}>
+                        <span className="tc-label">{t.tierConditions}</span>
+                        {Object.entries(conds).map(([k, v]) => {
+                          const val = typeof v === 'string' && v.startsWith('RANGE ')
+                            ? v.slice(6).replace(/\s+/g, ' ')
+                            : Array.isArray(v) ? v.join(' & ') : String(v);
+                          // Long BaseType lists: show a count, full list on hover
+                          const isLong = val.length > 60;
+                          const shown = isLong ? `${(val.match(/"/g)?.length || 0) / 2} bases` : val;
+                          return (
+                            <span key={k} className="tc-chip" title={`${k} ${val}`}>
+                              {k} {shown}
+                            </span>
+                          );
+                        })}
+                        {!Object.keys(conds).length && (
+                          <span className="tc-chip tc-empty">{t.tierConditionsNone}</span>
+                        )}
+                        <button
+                          className="tc-edit"
+                          onClick={() => setCondEditorTier(open ? null : tierKey)}
+                          title={t.tierConditionsEdit}
+                        >
+                          {open ? '×' : '✎'}
+                        </button>
+                        {open && (
+                          <div className="tc-editor">
+                            {ruleTemplates.length === 0 ? (
+                              <span className="tc-empty">{t.tierConditionsNoSchema}</span>
+                            ) : (
+                              <RuleConditionEditor
+                                // A tier is not a rule, but the editor only reads
+                                // `.conditions`; the rest is shape. globalIndex is unused
+                                // here because the tier key identifies the target instead.
+                                rule={{ targets: [], conditions: conds, overrides: {} }}
+                                globalIndex={-1}
+                                language={language}
+                                t={t}
+                                ruleTemplates={ruleTemplates}
+                                relevantFactors={condFactors}
+                                localPing={null}
+                                updateCondition={(_i, key, value) => updateTierCondition(tierKey, key, value)}
+                                addCondition={(_i, key) => addTierCondition(tierKey, key)}
+                              />
+                            )}
+                          </div>
+                        )}
+                        <style>{`
+                          .tier-cond-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin: 6px 0 2px; }
+                          .tc-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: #8a8a92; }
+                          .tc-chip {
+                            font-size: 0.72rem; font-family: Consolas, monospace;
+                            background: #f0f4f8; border: 1px solid #d1d9e0; border-radius: 4px;
+                            padding: 2px 8px; color: #445; white-space: nowrap;
+                            max-width: 340px; overflow: hidden; text-overflow: ellipsis;
+                          }
+                          .tc-empty { color: #9aa; font-style: italic; background: transparent; border-style: dashed; }
+                          .tc-edit {
+                            font-size: 0.72rem; line-height: 1; padding: 3px 7px; cursor: pointer;
+                            background: #fff; border: 1px solid #d1d9e0; border-radius: 4px; color: #667;
+                          }
+                          .tc-edit:hover { background: #eef3f8; color: #223; }
+                          .tc-editor { flex: 1 1 100%; margin-top: 6px; }
+                        `}</style>
+                      </div>
+                    );
+                  })()}
                   {togglable && (
                     <div className="lv-boost-bar">
                       <button
