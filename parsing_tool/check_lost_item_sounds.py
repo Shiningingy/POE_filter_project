@@ -72,11 +72,19 @@ def main():
     # (41 of 49 carry it), and counting it as one made 63 perfectly normal bases look like they
     # reached nothing. Only `Rarity Unique` narrows to a state. Everything else here genuinely
     # describes a condition the item is IN rather than what it IS.
+    # ⚠️ `MemoryStrands` was missing and belongs here by this list's own criterion — it
+    # describes a condition the item is IN, not what it IS, exactly like Corrupted or
+    # FracturedItem. Without it the Crafting Strands tiers counted as ungated winners and 13
+    # equipment bases were reported as having lost their sound, when a stranded drop is
+    # supposed to announce the STRAND — the same reasoning that makes an influenced drop
+    # announce influence. Found because wire_overridden_sounds.py disagreed with this file,
+    # which is the whole reason the two share one vocabulary.
     GATES = ("ItemLevel", "AreaLevel", "StackSize", "Sockets", "LinkedSockets",
              "SocketGroup", "Quality", "GemLevel", "MapTier", "Corrupted", "Mirrored",
              "Identified", "FracturedItem", "SynthesisedItem", "AnyEnchantment", "HasInfluence",
              "EnchantmentPassiveNum", "BaseDefencePercentile", "TransfiguredGem", "Replica",
-             "Foulborn", "HasExplicitMod", "HasEaterOfWorldsImplicit", "HasSearingExarchImplicit")
+             "Foulborn", "HasExplicitMod", "HasEaterOfWorldsImplicit", "HasSearingExarchImplicit",
+             "MemoryStrands")
 
     def gated(text):
         if re.search(r"^\s*Rarity\s+.*\bUnique\b", text, re.M):

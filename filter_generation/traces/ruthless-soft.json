@@ -6582,24 +6582,24 @@
    "match": "Exact",
    "rule": null,
    "bases": [
-    "Crescent Splinter"
+    "Offering to the Goddess"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Crescent Splinter\"\n    SetFontSize 40\n    SetTextColor 216 122 255 255\n    SetBackgroundColor 37 7 49 240\n    CustomAlertSound \"Sharket掉落音效\\新月裂片.mp3\" 300\n    PlayEffect Purple Temp\n    MinimapIcon 2 Red Hexagon\n"
+   "text": "Show\n    BaseType == \"Offering to the Goddess\"\n    SetFontSize 40\n    SetTextColor 216 122 255 255\n    SetBackgroundColor 37 7 49 240\n    CustomAlertSound \"Sharket掉落音效\\女神祭品.mp3\" 300\n    PlayEffect Purple Temp\n    MinimapIcon 2 Red Hexagon\n"
   },
   {
    "order": 123040,
    "file": "Maps/Fragments.json",
    "tier_key": "Tier 3 Fragments",
    "tier_num": 3,
-   "source": "tier_base",
+   "source": "card",
    "match": "Exact",
    "rule": null,
    "bases": [
-    "Offering to the Goddess"
+    "Crescent Splinter"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Offering to the Goddess\"\n    SetFontSize 40\n    SetTextColor 216 122 255 255\n    SetBackgroundColor 37 7 49 240\n    CustomAlertSound \"Sharket掉落音效\\地图碎片.mp3\" 300\n    PlayEffect Purple Temp\n    MinimapIcon 2 Red Hexagon\n"
+   "text": "Show\n    BaseType == \"Crescent Splinter\"\n    SetFontSize 40\n    SetTextColor 216 122 255 255\n    SetBackgroundColor 37 7 49 240\n    CustomAlertSound \"Sharket掉落音效\\新月裂片.mp3\" 300\n    PlayEffect Purple Temp\n    MinimapIcon 2 Red Hexagon\n"
   },
   {
    "order": 123041,
