@@ -737,7 +737,7 @@
     "Fingerless Silk Gloves"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Fingerless Silk Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\丝绸手套.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Fingerless Silk Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\丝绸手套.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red Moon\n"
   },
   {
    "order": 42002,
@@ -751,7 +751,7 @@
     "Bone Helmet"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Bone Helmet\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\唤骨头盔.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Bone Helmet\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\唤骨头盔.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red Moon\n"
   },
   {
    "order": 42003,
@@ -765,7 +765,7 @@
     "Spiked Gloves"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Spiked Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\扣钉手套.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Spiked Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\扣钉手套.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red Moon\n"
   },
   {
    "order": 42004,
@@ -779,7 +779,7 @@
     "Gripped Gloves"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Gripped Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\擒拿手套.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Gripped Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\擒拿手套.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red Moon\n"
   },
   {
    "order": 42005,
@@ -793,7 +793,7 @@
     "Sacrificial Garb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Sacrificial Garb\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\祭礼束衣.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Sacrificial Garb\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\祭礼束衣.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red Moon\n"
   },
   {
    "order": 42006,
@@ -807,7 +807,7 @@
     "Apothecary's Gloves"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Apothecary's Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\药剂师手套.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Apothecary's Gloves\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\药剂师手套.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red Moon\n"
   },
   {
    "order": 42007,
@@ -821,7 +821,7 @@
     "Fugitive Boots"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Fugitive Boots\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\逃亡之靴.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Fugitive Boots\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\逃亡之靴.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red Moon\n"
   },
   {
    "order": 42008,
@@ -867,7 +867,7 @@
     "Wyvernscale Gauntlets"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Archon Kite Shield\" \"Cardinal Round Shield\" \"Colossal Tower Shield\" \"Conquest Lamellar\" \"Divine Crown\" \"Ezomyte Tower Shield\" \"Fossilised Spirit Shield\" \"Giantslayer Helmet\" \"Haunted Bascinet\" \"Lacquered Buckler\" \"Leviathan Gauntlets\" \"Leviathan Greaves\" \"Lich's Circlet\" \"Majestic Pelt\" \"Necrotic Armour\" \"Paladin Boots\" \"Paladin Gloves\" \"Phantom Boots\" \"Phantom Mitts\" \"Royal Plate\" \"Sacred Chainmail\" \"Supreme Spiked Shield\" \"Syndicate's Garb\" \"Titanium Spirit Shield\" \"Torturer's Mask\" \"Twilight Regalia\" \"Two-Toned Boots\" \"Velour Boots\" \"Velour Gloves\" \"Warlock Boots\" \"Warlock Gloves\" \"Wyvernscale Boots\" \"Wyvernscale Gauntlets\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Archon Kite Shield\" \"Cardinal Round Shield\" \"Colossal Tower Shield\" \"Conquest Lamellar\" \"Divine Crown\" \"Ezomyte Tower Shield\" \"Fossilised Spirit Shield\" \"Giantslayer Helmet\" \"Haunted Bascinet\" \"Lacquered Buckler\" \"Leviathan Gauntlets\" \"Leviathan Greaves\" \"Lich's Circlet\" \"Majestic Pelt\" \"Necrotic Armour\" \"Paladin Boots\" \"Paladin Gloves\" \"Phantom Boots\" \"Phantom Mitts\" \"Royal Plate\" \"Sacred Chainmail\" \"Supreme Spiked Shield\" \"Syndicate's Garb\" \"Titanium Spirit Shield\" \"Torturer's Mask\" \"Twilight Regalia\" \"Two-Toned Boots\" \"Velour Boots\" \"Velour Gloves\" \"Warlock Boots\" \"Warlock Gloves\" \"Wyvernscale Boots\" \"Wyvernscale Gauntlets\"\n    Rarity <= Rare\n    BaseDefencePercentile >= 99\n    Corrupted False\n    Mirrored False\n    ItemLevel >= 84\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect Red\n    MinimapIcon 0 Red Moon\n"
   },
   {
    "order": 42009,
@@ -881,7 +881,7 @@
     "Convoking Wand"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Convoking Wand\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\召集法杖.mp3\" 300\n    PlayEffect White Temp\n    MinimapIcon 1 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Convoking Wand\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\召集法杖.mp3\" 300\n    PlayEffect White Temp\n"
   },
   {
    "order": 42010,
@@ -895,7 +895,7 @@
     "Steel Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Steel Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\合金戒指.mp3\" 300\n    PlayEffect White Temp\n    MinimapIcon 1 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Steel Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\合金戒指.mp3\" 300\n    PlayEffect White Temp\n"
   },
   {
    "order": 42011,
@@ -909,7 +909,7 @@
     "Vermillion Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Vermillion Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\朱砂之戒.mp3\" 300\n    PlayEffect White Temp\n    MinimapIcon 1 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Vermillion Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\朱砂之戒.mp3\" 300\n    PlayEffect White Temp\n"
   },
   {
    "order": 42012,
@@ -923,7 +923,7 @@
     "Crystal Belt"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Crystal Belt\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\水晶腰带.mp3\" 300\n    PlayEffect White Temp\n    MinimapIcon 1 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Crystal Belt\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\水晶腰带.mp3\" 300\n    PlayEffect White Temp\n"
   },
   {
    "order": 42013,
@@ -937,7 +937,7 @@
     "Artillery Quiver"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Artillery Quiver\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\火炮箭袋.mp3\" 300\n    PlayEffect White Temp\n    MinimapIcon 1 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Artillery Quiver\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\火炮箭袋.mp3\" 300\n    PlayEffect White Temp\n"
   },
   {
    "order": 42014,
@@ -951,7 +951,7 @@
     "Sacrificial Garb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Sacrificial Garb\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\祭礼束衣.mp3\" 300\n    PlayEffect White Temp\n    MinimapIcon 1 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Sacrificial Garb\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\祭礼束衣.mp3\" 300\n    PlayEffect White Temp\n"
   },
   {
    "order": 42015,
@@ -965,7 +965,7 @@
     "Opal Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Opal Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\蛋白石戒指.mp3\" 300\n    PlayEffect White Temp\n    MinimapIcon 1 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Opal Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\蛋白石戒指.mp3\" 300\n    PlayEffect White Temp\n"
   },
   {
    "order": 42016,
@@ -979,7 +979,7 @@
     "Iolite Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Iolite Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\青石戒指.mp3\" 300\n    PlayEffect White Temp\n    MinimapIcon 1 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Iolite Ring\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\青石戒指.mp3\" 300\n    PlayEffect White Temp\n"
   },
   {
    "order": 42017,
@@ -1047,7 +1047,7 @@
     "Wyvernscale Gauntlets"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Battered Foil\" \"Broadhead Arrow Quiver\" \"Conquest Lamellar\" \"Copper Kris\" \"Despot Axe\" \"Divine Crown\" \"Feathered Arrow Quiver\" \"Gemini Claw\" \"Giantslayer Helmet\" \"Golden Kris\" \"Haunted Bascinet\" \"Imperial Claw\" \"Imperial Skean\" \"Jewelled Foil\" \"Kinetic Wand\" \"Leviathan Gauntlets\" \"Leviathan Greaves\" \"Lich's Circlet\" \"Majestic Pelt\" \"Necrotic Armour\" \"Opal Sceptre\" \"Opal Wand\" \"Pagan Wand\" \"Paladin Boots\" \"Paladin Gloves\" \"Phantom Boots\" \"Phantom Mitts\" \"Platinum Kris\" \"Primal Arrow Quiver\" \"Profane Wand\" \"Prophecy Wand\" \"Reaver Axe\" \"Reaver Sword\" \"Reflex Bow\" \"Royal Plate\" \"Runic Crown\" \"Runic Gauntlets\" \"Runic Sabatons\" \"Sacred Chainmail\" \"Short Bow\" \"Siege Axe\" \"Spine Bow\" \"Syndicate's Garb\" \"Thicket Bow\" \"Torturer's Mask\" \"Twilight Regalia\" \"Vaal Axe\" \"Velour Boots\" \"Velour Gloves\" \"Void Sceptre\" \"Warlock Boots\" \"Warlock Gloves\" \"Whalebone Rapier\" \"Wyvernscale Boots\" \"Wyvernscale Gauntlets\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect White Temp\n    MinimapIcon 1 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Battered Foil\" \"Broadhead Arrow Quiver\" \"Conquest Lamellar\" \"Copper Kris\" \"Despot Axe\" \"Divine Crown\" \"Feathered Arrow Quiver\" \"Gemini Claw\" \"Giantslayer Helmet\" \"Golden Kris\" \"Haunted Bascinet\" \"Imperial Claw\" \"Imperial Skean\" \"Jewelled Foil\" \"Kinetic Wand\" \"Leviathan Gauntlets\" \"Leviathan Greaves\" \"Lich's Circlet\" \"Majestic Pelt\" \"Necrotic Armour\" \"Opal Sceptre\" \"Opal Wand\" \"Pagan Wand\" \"Paladin Boots\" \"Paladin Gloves\" \"Phantom Boots\" \"Phantom Mitts\" \"Platinum Kris\" \"Primal Arrow Quiver\" \"Profane Wand\" \"Prophecy Wand\" \"Reaver Axe\" \"Reaver Sword\" \"Reflex Bow\" \"Royal Plate\" \"Runic Crown\" \"Runic Gauntlets\" \"Runic Sabatons\" \"Sacred Chainmail\" \"Short Bow\" \"Siege Axe\" \"Spine Bow\" \"Syndicate's Garb\" \"Thicket Bow\" \"Torturer's Mask\" \"Twilight Regalia\" \"Vaal Axe\" \"Velour Boots\" \"Velour Gloves\" \"Void Sceptre\" \"Warlock Boots\" \"Warlock Gloves\" \"Whalebone Rapier\" \"Wyvernscale Boots\" \"Wyvernscale Gauntlets\"\n    Rarity <= Rare\n    Quality > 20\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect White Temp\n"
   },
   {
    "order": 42018,
@@ -1059,7 +1059,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Rarity <= Rare\n    MemoryStrands >= 60\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect White Temp\n    MinimapIcon 2 Yellow UpsideDownHouse\n"
+   "text": "Show\n    Rarity <= Rare\n    MemoryStrands >= 60\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    PlayEffect White Temp\n"
   },
   {
    "order": 42019,
@@ -1073,7 +1073,7 @@
     "Steel Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Steel Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 30\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\合金戒指.mp3\" 300\n    MinimapIcon 2 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Steel Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 30\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\合金戒指.mp3\" 300\n"
   },
   {
    "order": 42020,
@@ -1087,7 +1087,7 @@
     "Vermillion Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Vermillion Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 30\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\朱砂之戒.mp3\" 300\n    MinimapIcon 2 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Vermillion Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 30\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\朱砂之戒.mp3\" 300\n"
   },
   {
    "order": 42021,
@@ -1101,7 +1101,7 @@
     "Crystal Belt"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Crystal Belt\"\n    Rarity <= Rare\n    MemoryStrands >= 30\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\水晶腰带.mp3\" 300\n    MinimapIcon 2 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Crystal Belt\"\n    Rarity <= Rare\n    MemoryStrands >= 30\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\水晶腰带.mp3\" 300\n"
   },
   {
    "order": 42022,
@@ -1115,7 +1115,7 @@
     "Sacrificial Garb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Sacrificial Garb\"\n    Rarity <= Rare\n    MemoryStrands >= 30\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\祭礼束衣.mp3\" 300\n    MinimapIcon 2 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Sacrificial Garb\"\n    Rarity <= Rare\n    MemoryStrands >= 30\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\祭礼束衣.mp3\" 300\n"
   },
   {
    "order": 42023,
@@ -1129,7 +1129,7 @@
     "Opal Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Opal Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 30\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\蛋白石戒指.mp3\" 300\n    MinimapIcon 2 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Opal Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 30\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\蛋白石戒指.mp3\" 300\n"
   },
   {
    "order": 42024,
@@ -1143,7 +1143,7 @@
     "Iolite Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Iolite Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 30\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\青石戒指.mp3\" 300\n    MinimapIcon 2 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Iolite Ring\"\n    Rarity <= Rare\n    MemoryStrands >= 30\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\青石戒指.mp3\" 300\n"
   },
   {
    "order": 42025,
@@ -1188,7 +1188,7 @@
     "Wyvernscale Gauntlets"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Agate Amulet\" \"Amethyst Ring\" \"Citrine Amulet\" \"Conquest Lamellar\" \"Divine Crown\" \"Giantslayer Helmet\" \"Haunted Bascinet\" \"Leviathan Gauntlets\" \"Leviathan Greaves\" \"Lich's Circlet\" \"Majestic Pelt\" \"Necrotic Armour\" \"Onyx Amulet\" \"Paladin Boots\" \"Paladin Gloves\" \"Phantom Boots\" \"Phantom Mitts\" \"Prismatic Ring\" \"Royal Plate\" \"Sacred Chainmail\" \"Stygian Vise\" \"Syndicate's Garb\" \"Torturer's Mask\" \"Turquoise Amulet\" \"Twilight Regalia\" \"Two-Stone Ring\" \"Velour Boots\" \"Velour Gloves\" \"Warlock Boots\" \"Warlock Gloves\" \"Wyvernscale Boots\" \"Wyvernscale Gauntlets\"\n    Rarity <= Rare\n    MemoryStrands >= 30\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n    MinimapIcon 2 Yellow UpsideDownHouse\n"
+   "text": "Show\n    BaseType == \"Agate Amulet\" \"Amethyst Ring\" \"Citrine Amulet\" \"Conquest Lamellar\" \"Divine Crown\" \"Giantslayer Helmet\" \"Haunted Bascinet\" \"Leviathan Gauntlets\" \"Leviathan Greaves\" \"Lich's Circlet\" \"Majestic Pelt\" \"Necrotic Armour\" \"Onyx Amulet\" \"Paladin Boots\" \"Paladin Gloves\" \"Phantom Boots\" \"Phantom Mitts\" \"Prismatic Ring\" \"Royal Plate\" \"Sacred Chainmail\" \"Stygian Vise\" \"Syndicate's Garb\" \"Torturer's Mask\" \"Turquoise Amulet\" \"Twilight Regalia\" \"Two-Stone Ring\" \"Velour Boots\" \"Velour Gloves\" \"Warlock Boots\" \"Warlock Gloves\" \"Wyvernscale Boots\" \"Wyvernscale Gauntlets\"\n    Rarity <= Rare\n    MemoryStrands >= 30\n    SetFontSize 40\n    SetTextColor 120 235 210 255\n    SetBackgroundColor 42 42 42 230\n    CustomAlertSound \"Sharket掉落音效\\顶级底材.mp3\" 300\n"
   },
   {
    "order": 42026,
@@ -1885,7 +1885,7 @@
     "Vaal Enshrouding Crystal"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Imperial Enshrouding Crystal\" \"Karui Enshrouding Crystal\" \"Maraketh Enshrouding Crystal\" \"Templar Enshrouding Crystal\" \"Vaal Enshrouding Crystal\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 165 0 240\n    CustomAlertSound \"Sharket掉落音效\\一定有好事发生.mp3\" 300\n    PlayEffect White Temp\n    MinimapIcon 1 White Circle\n"
+   "text": "Show\n    BaseType == \"Imperial Enshrouding Crystal\" \"Karui Enshrouding Crystal\" \"Maraketh Enshrouding Crystal\" \"Templar Enshrouding Crystal\" \"Vaal Enshrouding Crystal\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 165 0 240\n    CustomAlertSound \"Sharket掉落音效\\一定有好事发生.mp3\" 300\n    PlayEffect White Temp\n"
   },
   {
    "order": 54001,
@@ -3031,7 +3031,7 @@
     "Vial of the Ritual"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Vial of Awakening\" \"Vial of Consequence\" \"Vial of Dominance\" \"Vial of Fate\" \"Vial of Sacrifice\" \"Vial of Summoning\" \"Vial of Transcendence\" \"Vial of the Ghost\" \"Vial of the Ritual\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 110 220 130 255\n    SetBackgroundColor 255 165 0 240\n    CustomAlertSound \"Sharket掉落音效\\魔瓶.mp3\" 300\n    MinimapIcon 1 White Circle\n"
+   "text": "Show\n    BaseType == \"Vial of Awakening\" \"Vial of Consequence\" \"Vial of Dominance\" \"Vial of Fate\" \"Vial of Sacrifice\" \"Vial of Summoning\" \"Vial of Transcendence\" \"Vial of the Ghost\" \"Vial of the Ritual\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBorderColor 110 220 130 255\n    SetBackgroundColor 255 165 0 240\n    CustomAlertSound \"Sharket掉落音效\\魔瓶.mp3\" 300\n"
   },
   {
    "order": 61001,
@@ -3424,7 +3424,7 @@
     "Tzamoto's Ducat"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Cyaxan's Ducat\" \"Katakohi's Ducat\" \"Tzamoto's Ducat\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 0 160 112 255\n    PlayEffect Orange Temp\n    MinimapIcon 1 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Cyaxan's Ducat\" \"Katakohi's Ducat\" \"Tzamoto's Ducat\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 0 160 112 255\n    PlayEffect Orange Temp\n    MinimapIcon 1 Yellow Diamond\n"
   },
   {
    "order": 62002,
@@ -3476,7 +3476,7 @@
     "Mercenary Warrant"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Mercenary Warrant\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 165 0 240\n    CustomAlertSound \"Sharket掉落音效\\你是主人，还是奴隶.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 1 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Mercenary Warrant\"\n    SetFontSize 40\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 165 0 240\n    CustomAlertSound \"Sharket掉落音效\\你是主人，还是奴隶.mp3\" 300\n    PlayEffect Orange Temp\n"
   },
   {
    "order": 65001,
@@ -3535,7 +3535,7 @@
     "Thermal Vents Chart"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Coral Forest Chart\" \"Coral Reef Chart\" \"Sandy Seabed Chart\" \"Thermal Vents Chart\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 0 132 168 255\n    CustomAlertSound \"Sharket掉落音效\\DOTA2_开船.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 1 Yellow Circle\n"
+   "text": "Show\n    BaseType == \"Coral Forest Chart\" \"Coral Reef Chart\" \"Sandy Seabed Chart\" \"Thermal Vents Chart\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 0 132 168 255\n    CustomAlertSound \"Sharket掉落音效\\DOTA2_开船.mp3\" 300\n    PlayEffect Orange Temp\n"
   },
   {
    "order": 71001,
@@ -3561,7 +3561,7 @@
     "Grasping Mail"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Grasping Mail\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetBackgroundColor 255 165 0 240\n    CustomAlertSound \"Sharket掉落音效\\扼杀链甲.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Grasping Mail\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 110 190 125 255\n    CustomAlertSound \"Sharket掉落音效\\扼杀链甲.mp3\" 300\n    MinimapIcon 1 Green Moon\n"
   },
   {
    "order": 73001,
@@ -3583,7 +3583,7 @@
     "Runic Sollerets"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Runic Crest\" \"Runic Crown\" \"Runic Gages\" \"Runic Gauntlets\" \"Runic Gloves\" \"Runic Greaves\" \"Runic Helm\" \"Runic Sabatons\" \"Runic Sollerets\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetBackgroundColor 255 165 0 240\n"
+   "text": "Show\n    BaseType == \"Runic Crest\" \"Runic Crown\" \"Runic Gages\" \"Runic Gauntlets\" \"Runic Gloves\" \"Runic Greaves\" \"Runic Helm\" \"Runic Sabatons\" \"Runic Sollerets\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 110 190 125 255\n    SetBackgroundColor 21 36 24 255\n"
   },
   {
    "order": 74001,
@@ -3752,7 +3752,7 @@
     "Tenebrous Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Dusk Ring\" \"Gloam Ring\" \"Penumbra Ring\" \"Shadowed Ring\" \"Tenebrous Ring\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetBackgroundColor 36 32 20 255\n"
+   "text": "Show\n    BaseType == \"Dusk Ring\" \"Gloam Ring\" \"Penumbra Ring\" \"Shadowed Ring\" \"Tenebrous Ring\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 110 190 125 255\n    MinimapIcon 1 Green Moon\n"
   },
   {
    "order": 76001,
@@ -3767,7 +3767,7 @@
     "Blizzard Crown"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Archdemon Crown\" \"Blizzard Crown\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 170 158 130 255\n    SetBackgroundColor 0 0 0 240\n"
+   "text": "Show\n    BaseType == \"Archdemon Crown\" \"Blizzard Crown\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 110 190 125 255\n    SetBackgroundColor 21 36 24 255\n"
   },
   {
    "order": 76002,
@@ -3805,7 +3805,7 @@
     "Winter Crown"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Aetherwind Gloves\" \"Apprentice Gloves\" \"Atonement Mask\" \"Basemetal Treads\" \"Brimstone Treads\" \"Cloudwhisper Boots\" \"Darksteel Treads\" \"Demon Crown\" \"Dreamquest Slippers\" \"Duskwalk Slippers\" \"Gale Crown\" \"Guarding Gauntlets\" \"Imp Crown\" \"Leyline Gloves\" \"Nexus Gloves\" \"Nightwind Slippers\" \"Penitent Mask\" \"Preserving Gauntlets\" \"Sorrow Mask\" \"Stormrider Boots\" \"Thwarting Gauntlets\" \"Tinker Gloves\" \"Trapsetter Gloves\" \"Windbreak Boots\" \"Winter Crown\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 170 158 130 255\n    SetBackgroundColor 0 0 0 240\n"
+   "text": "Show\n    BaseType == \"Aetherwind Gloves\" \"Apprentice Gloves\" \"Atonement Mask\" \"Basemetal Treads\" \"Brimstone Treads\" \"Cloudwhisper Boots\" \"Darksteel Treads\" \"Demon Crown\" \"Dreamquest Slippers\" \"Duskwalk Slippers\" \"Gale Crown\" \"Guarding Gauntlets\" \"Imp Crown\" \"Leyline Gloves\" \"Nexus Gloves\" \"Nightwind Slippers\" \"Penitent Mask\" \"Preserving Gauntlets\" \"Sorrow Mask\" \"Stormrider Boots\" \"Thwarting Gauntlets\" \"Tinker Gloves\" \"Trapsetter Gloves\" \"Windbreak Boots\" \"Winter Crown\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 110 190 125 255\n    SetBackgroundColor 0 0 0 255\n"
   },
   {
    "order": 77001,
@@ -3819,7 +3819,7 @@
     "Sacrificial Garb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Sacrificial Garb\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetBackgroundColor 26 30 35 255\n    CustomAlertSound \"Sharket掉落音效\\祭礼束衣.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Sacrificial Garb\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 110 190 125 255\n    CustomAlertSound \"Sharket掉落音效\\祭礼束衣.mp3\" 300\n    MinimapIcon 1 Green Moon\n"
   },
   {
    "order": 78001,
@@ -3831,7 +3831,7 @@
    "rule": null,
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Stygian Vise\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 40\n    SetBackgroundColor 36 32 20 230\n"
+   "text": "Show\n    BaseType == \"Stygian Vise\"\n    ItemLevel >= 86\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 52 102 64 255\n    SetBorderColor 52 102 64 255\n    SetBackgroundColor 248 248 242 255\n    MinimapIcon 0 Green Moon\n"
   },
   {
    "order": 78002,
@@ -3845,7 +3845,7 @@
     "Stygian Vise"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Stygian Vise\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetBackgroundColor 36 32 20 210\n    CustomAlertSound \"Sharket掉落音效\\深渊腰带.mp3\" 300\n"
+   "text": "Show\n    BaseType == \"Stygian Vise\"\n    Rarity <= Rare\n    SetFontSize 40\n    SetTextColor 110 190 125 255\n    SetBackgroundColor 0 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\深渊腰带.mp3\" 300\n"
   },
   {
    "order": 79001,

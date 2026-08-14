@@ -32,7 +32,7 @@ except Exception:
     pass
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-PATCH = os.path.join(ROOT, "docs", "design", "handoff", "theme-patch-rev27.json")
+PATCH = os.path.join(ROOT, "docs", "design", "handoff", "theme-patch-rev27-1.json")
 TD = os.path.join(ROOT, "filter_generation", "data", "tier_definition")
 APPLY = "--apply" in sys.argv
 

@@ -69,7 +69,7 @@ except Exception:
     pass
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-PATCH = os.path.join(ROOT, "docs", "design", "handoff", "theme-patch-rev27.json")
+PATCH = os.path.join(ROOT, "docs", "design", "handoff", "theme-patch-rev27-1.json")
 THEME = os.path.join(ROOT, "filter_generation", "data", "theme", "sharket", "sharket_theme.json")
 APPLY = "--apply" in sys.argv
 
@@ -97,11 +97,34 @@ MAP = {
     "Class Nets": "Class Nets",
 }
 
-# Still no authored values. rev 25 cleared Wombgifts; rev 27's Prized Bases covers five of
-# these six as ONE family but per-category by ITEM LEVEL, which is a structural mapping and
-# not a row write — see the port report. Vendor Recipes and Incursion Vials remain blank.
-UNAUTHORED = {"Breach Grasping Mail", "Expedition Ward-Bases",
-              "Vendor Recipes", "Ritual BaseTypes", "Incursion Vials"}
+# Still no authored values: rev 25 cleared Wombgifts and rev 27's Prized Bases clears the six
+# league base categories (see PRIZED_BASES). These two remain deliberately blank.
+UNAUTHORED = {"Vendor Recipes", "Incursion Vials"}
+
+# ★ PRIZED BASES — six categories, ONE family. rev 27: the promise is identical across all six
+# ("this BASE outvalues its rarity"), the leagues differ only in lore, and "six hues would burn
+# six bands to say one thing". Verdigris 110 190 125, Moon icon.
+#
+# The kit tiers by ITEM LEVEL and says a category "uses the top N steps it earns and skips the
+# rest", which is a per-category judgement — so the rule below is DERIVED FROM THE KIT'S OWN
+# EXAMPLES, then checked against every one of them:
+#
+#     a tier gated ItemLevel >= 86   -> T0 perfect      kit: "Stygian Vise: 86+ -> T0"
+#     rung 3                         -> T1 chase        kit: "Grasping Mail/Sacrificial Garb:
+#                                                             single base -> T1"
+#     rung 4                         -> T2 good ilvl    kit: "Ward-Bases: 84+ -> T2"
+#     rung 5                         -> T3 fringe       kit: "below -> T3 (skips T1)"
+#
+# All four examples the kit gives reproduce exactly, including the skip. Rung is the right key
+# because it already encodes how loud a tier should be, so a category with no ItemLevel split
+# still lands on the step its depth earns rather than on a guess.
+PRIZED_BASES = {
+    "section": "Prized Bases",
+    "categories": {"Breach Grasping Mail", "Expedition Ward-Bases", "Sacrificial Garbs",
+                   "Mirror of Kalandra Ring Bases", "Ritual BaseTypes", "Stygian Vise"},
+    "by_rung": {3: "T1 chase", 4: "T2 good ilvl", 5: "T3 fringe"},
+    "ilvl86": "T0 perfect (86+)",
+}
 
 # ★ A FAMILY SECTION writes one ladder across SEVERAL categories, so it cannot go in MAP
 # (section -> one category). rev 27 re-hues the whole heist family to scarlet and names the
@@ -164,6 +187,37 @@ def load_live_tiers():
                     if not isinstance(tier, dict) or tier.get("is_hide_tier"):
                         continue
                     out[tcat].append((tkey, (tier.get("theme") or {}).get("Tier")))
+    return out
+
+
+def prized_tiers():
+    """theme_category -> [(tier_key, rung, is_ilvl86)] for the six prized-base categories.
+
+    `is_ilvl86` is read from the tier's own conditions rather than its name, because that is
+    what the kit keys the top step on ("Stygian Vise: 86+ -> T0") and a name can lie.
+    """
+    out = collections.defaultdict(list)
+    for dp, _, fn in os.walk(TD):
+        for f in sorted(fn):
+            if not f.endswith(".json"):
+                continue
+            try:
+                doc = json.load(io.open(os.path.join(dp, f), encoding="utf-8"))
+            except Exception:
+                continue
+            for cat, body in doc.items():
+                if not isinstance(body, dict):
+                    continue
+                tcat = (body.get("_meta") or {}).get("theme_category") or cat
+                if tcat not in PRIZED_BASES["categories"]:
+                    continue
+                for tkey, tier in body.items():
+                    if tkey == "_meta" or not isinstance(tier, dict) or tier.get("is_hide_tier"):
+                        continue
+                    cond = tier.get("conditions") or {}
+                    m = re.search(r"(\d+)", str(cond.get("ItemLevel") or ""))
+                    out[tcat].append((tkey, (tier.get("theme") or {}).get("Tier"),
+                                      bool(m and int(m.group(1)) >= 86)))
     return out
 
 
@@ -307,6 +361,28 @@ def main():
     for section, body in P.items():
         if section.startswith("_") or not isinstance(body, dict):
             continue
+        if section == PRIZED_BASES["section"]:
+            for pcat, tiers in prized_tiers().items():
+                for tkey, rung, ilvl86 in tiers:
+                    key = PRIZED_BASES["ilvl86"] if ilvl86 else PRIZED_BASES["by_rung"].get(rung)
+                    if not key:
+                        skipped.append(("%s / %s" % (pcat, tkey),
+                                        "rung %s earns no step in the prized walk" % rung))
+                        continue
+                    node = body.get(key)
+                    if not isinstance(node, dict):
+                        skipped.append(("%s / %s" % (pcat, key), "not in the patch"))
+                        continue
+                    vals = clean(node)
+                    row = "Tier %s" % rung
+                    before = (T.get(pcat) or {}).get(row)
+                    after = merge_row(before, vals, modelled)
+                    if before == after:
+                        continue
+                    T.setdefault(pcat, collections.OrderedDict())[row] = after
+                    wrote.append((pcat, row, "%s <- %s" % (tkey[:16], key), before, after))
+            continue
+
         fam = FAMILY_SECTIONS.get(section)
         if fam:
             for fcat, keymap in fam.items():

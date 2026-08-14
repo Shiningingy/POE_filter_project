@@ -16,7 +16,6 @@
       "theme": {
         "Tier": 3,
         "FontSize": 40,
-        "MinimapIcon": "1 White Circle",
         "PlayAlertSound": [
           "Sharket掉落音效/一定有好事发生.mp3",
           300

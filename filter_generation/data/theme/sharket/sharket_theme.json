@@ -40,14 +40,12 @@
     "Tier 2": {
       "FontSize": 40,
       "TextColor": "#000000ff",
-      "BackgroundColor": "#ffa500f0",
-      "MinimapIcon": "1 White Circle"
+      "BackgroundColor": "#ffa500f0"
     },
     "Tier 3": {
       "FontSize": 40,
       "TextColor": "#000000ff",
-      "BackgroundColor": "#ffa500f0",
-      "MinimapIcon": "1 White Circle"
+      "BackgroundColor": "#ffa500f0"
     }
   },
   "Essences": {
@@ -169,7 +167,6 @@
       "FontSize": 40,
       "BackgroundColor": "#f5be00f0",
       "TextColor": "#000000ff",
-      "MinimapIcon": "1 Yellow Pentagon",
       "PlayEffect": "Red Temp"
     },
     "Tier 4": {
@@ -188,15 +185,13 @@
       "FontSize": 40,
       "TextColor": "#000000ff",
       "BackgroundColor": "#ffa500f0",
-      "BorderColor": "#6edc82ff",
-      "MinimapIcon": "1 White Circle"
+      "BorderColor": "#6edc82ff"
     },
     "Tier 3": {
       "FontSize": 40,
       "TextColor": "#000000ff",
       "BackgroundColor": "#ffa500f0",
-      "BorderColor": "#6edc82ff",
-      "MinimapIcon": "1 White Circle"
+      "BorderColor": "#6edc82ff"
     }
   },
   "Oils": {
@@ -350,14 +345,12 @@
       "FontSize": 45,
       "BackgroundColor": "#ffffffff",
       "TextColor": "#a53c00ff",
-      "MinimapIcon": "0 White Circle",
       "PlayEffect": "Orange"
     },
     "Tier 2": {
       "FontSize": 40,
       "BackgroundColor": "#ffa500f0",
       "TextColor": "#000000ff",
-      "MinimapIcon": "1 Yellow Circle",
       "PlayEffect": "Orange Temp"
     },
     "Tier 4": {
@@ -369,7 +362,6 @@
       "FontSize": 45,
       "BackgroundColor": "#d20000ff",
       "TextColor": "#ffffffff",
-      "MinimapIcon": "0 Red Circle",
       "PlayEffect": "Orange"
     }
   },
@@ -487,8 +479,10 @@
       "BackgroundColor": "#ffa500f0"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#ffa500f0"
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#6ebe7dff",
+      "FontSize": 45,
+      "MinimapIcon": "1 Green Moon"
     }
   },
   "Expedition Ward-Bases": {
@@ -497,8 +491,9 @@
       "BackgroundColor": "#ffa500f0"
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#ffa500f0"
+      "TextColor": "#6ebe7dff",
+      "BackgroundColor": "#152418ff",
+      "FontSize": 40
     }
   },
   "Heist Experimented": {
@@ -529,8 +524,10 @@
       "BackgroundColor": "#242014ff"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#242014ff"
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#6ebe7dff",
+      "FontSize": 45,
+      "MinimapIcon": "1 Green Moon"
     }
   },
   "Ritual BaseTypes": {
@@ -542,14 +539,14 @@
       "PlayEffect": "Red Temp"
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "TextColor": "#6ebe7dff",
+      "BackgroundColor": "#152418ff",
+      "FontSize": 40
     },
     "Tier 5": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "TextColor": "#6ebe7dff",
+      "BackgroundColor": "#000000ff",
+      "FontSize": 40
     }
   },
   "Sacrificial Garbs": {
@@ -558,18 +555,24 @@
       "BackgroundColor": "#1a1e23ff"
     },
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#1a1e23ff"
+      "TextColor": "#000000ff",
+      "BackgroundColor": "#6ebe7dff",
+      "FontSize": 45,
+      "MinimapIcon": "1 Green Moon"
     }
   },
   "Stygian Vise": {
     "Tier 3": {
-      "FontSize": 40,
-      "BackgroundColor": "#242014e6"
+      "TextColor": "#346640ff",
+      "BackgroundColor": "#f8f8f2ff",
+      "BorderColor": "#346640ff",
+      "FontSize": 45,
+      "MinimapIcon": "0 Green Moon"
     },
     "Tier 5": {
-      "FontSize": 40,
-      "BackgroundColor": "#242014d2"
+      "TextColor": "#6ebe7dff",
+      "BackgroundColor": "#000000ff",
+      "FontSize": 40
     }
   },
   "Talismans": {
@@ -832,7 +835,6 @@
       "FontSize": 40,
       "BackgroundColor": "#f5be00f0",
       "TextColor": "#000000ff",
-      "MinimapIcon": "1 Yellow Pentagon",
       "PlayEffect": "Red Temp"
     },
     "Tier 4": {
@@ -858,7 +860,6 @@
       "FontSize": 40,
       "BackgroundColor": "#f5be00f0",
       "TextColor": "#000000ff",
-      "MinimapIcon": "1 Yellow Pentagon",
       "PlayEffect": "Red Temp"
     },
     "Tier 4": {
@@ -898,7 +899,6 @@
       "FontSize": 40,
       "BackgroundColor": "#f5be00f0",
       "TextColor": "#000000ff",
-      "MinimapIcon": "1 Yellow Pentagon",
       "PlayEffect": "Red Temp"
     },
     "Tier 3": {
