@@ -47,7 +47,7 @@
           "Default/AlertSound3.mp3",
           300
         ],
-        "MinimapIcon": "1 Yellow Circle",
+        "MinimapIcon": "1 Yellow Diamond",
         "PlayEffect": "Orange Temp"
       },
       "hideable": false,

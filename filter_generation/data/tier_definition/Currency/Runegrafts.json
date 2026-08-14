@@ -68,8 +68,7 @@
           300
         ],
         "FontSize": 40,
-        "PlayEffect": "Orange Temp",
-        "MinimapIcon": "2 Yellow Diamond"
+        "PlayEffect": "Orange Temp"
       },
       "localization": {
         "en": "T1:纹身",

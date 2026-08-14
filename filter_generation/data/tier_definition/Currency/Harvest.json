@@ -104,7 +104,7 @@
         "TextColor": "#000000ff",
         "BackgroundColor": "#2ecc71ff",
         "FontSize": 45,
-        "MinimapIcon": "1 Yellow Circle"
+        "MinimapIcon": "1 Yellow Diamond"
       },
       "sound": {
         "default_sound_id": 6,

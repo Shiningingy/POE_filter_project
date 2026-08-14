@@ -19,7 +19,7 @@
       "theme": {
         "Tier": 2,
         "FontSize": 45,
-        "MinimapIcon": "1 Green Circle",
+        "MinimapIcon": "1 Green Diamond",
         "PlayEffect": "Orange",
         "PlayAlertSound": [
           "Sharket掉落音效/高级化石.mp3",
@@ -56,7 +56,7 @@
           300
         ],
         "PlayEffect": "Orange Temp",
-        "MinimapIcon": "2 Orange Circle",
+        "MinimapIcon": "2 Orange Diamond",
         "TextColor": "#000000ff",
         "BackgroundColor": "#ffaa00ff"
       },
@@ -100,7 +100,7 @@
         "FontSize": 45,
         "BackgroundColor": "#ffffffff",
         "TextColor": "#ff0000ff",
-        "MinimapIcon": "0 Red Circle",
+        "MinimapIcon": "0 Red Diamond",
         "PlayEffect": "Orange",
         "PlayAlertSound": [
           "Sharket掉落音效/高级化石.mp3",
@@ -134,7 +134,7 @@
           300
         ],
         "PlayEffect": "Yellow Temp",
-        "MinimapIcon": "2 Yellow Circle",
+        "MinimapIcon": "2 Yellow Diamond",
         "TextColor": "#000000ff",
         "BackgroundColor": "#aa9e82ff"
       },

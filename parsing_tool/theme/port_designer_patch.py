@@ -69,7 +69,7 @@ except Exception:
     pass
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-PATCH = os.path.join(ROOT, "docs", "design", "handoff", "theme-patch-rev25-2.json")
+PATCH = os.path.join(ROOT, "docs", "design", "handoff", "theme-patch-rev27.json")
 THEME = os.path.join(ROOT, "filter_generation", "data", "theme", "sharket", "sharket_theme.json")
 APPLY = "--apply" in sys.argv
 
@@ -97,10 +97,25 @@ MAP = {
     "Class Nets": "Class Nets",
 }
 
-# Still no authored values. rev 25 cleared Wombgifts; these five remain deliberately blank
-# and the designer's bank values for them collide with shipped colours.
+# Still no authored values. rev 25 cleared Wombgifts; rev 27's Prized Bases covers five of
+# these six as ONE family but per-category by ITEM LEVEL, which is a structural mapping and
+# not a row write — see the port report. Vendor Recipes and Incursion Vials remain blank.
 UNAUTHORED = {"Breach Grasping Mail", "Expedition Ward-Bases",
               "Vendor Recipes", "Ritual BaseTypes", "Incursion Vials"}
+
+# ★ A FAMILY SECTION writes one ladder across SEVERAL categories, so it cannot go in MAP
+# (section -> one category). rev 27 re-hues the whole heist family to scarlet and names the
+# mapping in its own words — "chase (contracts/blueprints tops, experimented T0)" — so the
+# rung each key lands on is read from the kit, not inferred from our ladder's shape.
+#
+# Heist Experimented is absent here on purpose: it has its own section and is already mapped.
+FAMILY_SECTIONS = {
+    "Heist family (contracts/blueprints/targets/equipment)": {
+        "Heist Contracts":  {"chase": 3, "mid": 4},
+        "Heist Blueprints": {"chase": 3, "mid": 4},
+        "Heist Targets":    {"chase": 3},
+    },
+}
 
 STYLE = ("TextColor", "BackgroundColor", "BorderColor", "FontSize", "MinimapIcon", "PlayEffect")
 TD = os.path.join(ROOT, "filter_generation", "data", "tier_definition")
@@ -292,6 +307,26 @@ def main():
     for section, body in P.items():
         if section.startswith("_") or not isinstance(body, dict):
             continue
+        fam = FAMILY_SECTIONS.get(section)
+        if fam:
+            for fcat, keymap in fam.items():
+                for key, n in keymap.items():
+                    node = body.get(key)
+                    if not isinstance(node, dict):
+                        skipped.append(("%s / %s" % (fcat, key), "not in the patch"))
+                        continue
+                    vals = clean(node)
+                    if not vals:
+                        continue
+                    row = "Tier %d" % n
+                    before = (T.get(fcat) or {}).get(row)
+                    after = merge_row(before, vals, modelled)
+                    if before == after:
+                        continue
+                    T.setdefault(fcat, collections.OrderedDict())[row] = after
+                    wrote.append((fcat, row, key, before, after))
+            continue
+
         cat = MAP.get(section)
         if not cat:
             unmapped.append((section, sorted(k for k in body if not k.startswith("_"))))

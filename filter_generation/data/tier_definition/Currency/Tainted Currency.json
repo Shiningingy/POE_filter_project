@@ -21,7 +21,7 @@
         "FontSize": 45,
         "BackgroundColor": "#ffffffff",
         "TextColor": "#ff0000ff",
-        "MinimapIcon": "0 Red Circle",
+        "MinimapIcon": "0 Red Diamond",
         "PlayEffect": "Red",
         "PlayAlertSound": "disabled:",
         "BorderColor": "#ff0000ff"
