@@ -72,7 +72,7 @@
       "hide_at_strictness": 0
     },
     "Tier Hide Mana Flasks": {
-      "_note": "The Minimal net — nothing was mapped here at all, so every mana flask fell to the final show-all layer. AreaLevel >= 68 leaves the campaign to the _campaign module.",
+      "_note": "The Minimal net — nothing was mapped here at all, so every mana flask fell to the final show-all layer. ⚠️ See the twin in Life.json: `AreaLevel >= 68` assumed _campaign covered everything below, but _campaign only HIGHLIGHTS on-level bands, so an outgrown mana flask hit the green catch-all (10 of 12 bases at A67). `Rarity <= Rare` stops this class-wide hide swallowing UNIQUE mana flasks at 68+ — the reported bug.",
       "hideable": true,
       "is_hide_tier": true,
       "class_condition": true,
@@ -89,7 +89,7 @@
       },
       "conditions": {
         "Class": "== \"Mana Flasks\"",
-        "AreaLevel": ">= 68"
+        "Rarity": "<= Rare"
       }
     }
   }

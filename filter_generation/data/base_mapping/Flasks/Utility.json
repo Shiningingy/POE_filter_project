@@ -70,24 +70,7 @@
         ]
       },
       "comment": "i84 Top Utility Flasks"
-    },
-    {
-      "targets": [
-        "Gold Flask",
-        "Corundum Flask",
-        "Silver Flask",
-        "Amethyst Flask",
-        "Diamond Flask",
-        "Quicksilver Flask"
-      ],
-      "conditions": {
-        "ItemLevel": ">= 82",
-        "Rarity": "<= Rare"
-      },
-      "overrides": {
-        "Tier": "Tier 1 Utility Flasks"
-      },
-      "comment": "i82 Utility Flasks"
     }
-  ]
+  ],
+  "_rules_note": "⚠️ A second rule used to sit here — the same six bases at `ItemLevel >= 82`, overriding to `Tier 1 Utility Flasks`. It was deleted 2026-08-19 because it did nothing and cost everything. Nothing: its target tier IS the tier those six are already mapped to, so it emitted a block byte-identical in style to the base block. Everything: a rule CONSUMES its targets from the tier's pending list, so the ungated base block no longer listed them, and Gold/Corundum/Silver/Amethyst/Diamond/Quicksilver below ilvl 82 matched NOTHING in the whole tree and hit the green 'please update the filter' catch-all at every area level. The i84 rule above is safe by the same mechanism read the other way: it overrides to a DIFFERENT tier (Tier 0), so it is skipped while Tier 1 is being built and consumes nothing there."
 }

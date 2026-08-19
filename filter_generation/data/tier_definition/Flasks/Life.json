@@ -95,7 +95,7 @@
       "hide_at_strictness": 0
     },
     "Tier Hide Life Flasks": {
-      "_note": "The Minimal net. Without a class_condition this tier only caught bases explicitly mapped to it (one: Small Life Flask), so every other life flask fell through the whole tree to the final show-all layer and drew a full label in maps. AreaLevel >= 68 keeps the campaign untouched — the _campaign module owns everything below 68 and emits first.",
+      "_note": "The Minimal net. Without a class_condition this tier only caught bases explicitly mapped to it (one: Small Life Flask), so every other life flask fell through the whole tree to the final show-all layer and drew a full label in maps. ⚠️ It carried `AreaLevel >= 68` on the belief that '_campaign owns everything below 68 and emits first'. _campaign emits first but only HIGHLIGHTS — its 12 bands show a flask while it is on-level (`Small` to A9, `Greater` to A19 …) and nothing catches the base once outgrown, so 13 of 15 life flask bases hit the green catch-all at A67. The floor is gone; the bands still win below 68 because _campaign emits first. `Rarity <= Rare` is the other half: without it this class-wide hide swallowed UNIQUE life flasks at 68+ (reported in game), because Uniques emits later and first-match-wins. Precision beats ordering — ADR-0006.",
       "hideable": true,
       "is_hide_tier": true,
       "class_condition": true,
@@ -112,7 +112,7 @@
       },
       "conditions": {
         "Class": "== \"Life Flasks\"",
-        "AreaLevel": ">= 68"
+        "Rarity": "<= Rare"
       }
     }
   }

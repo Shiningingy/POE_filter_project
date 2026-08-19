@@ -12,6 +12,8 @@
       "theme_category": "Campaign",
       "tier_order": [
         "Rare Safety Net",
+        "Act1 Normal Net",
+        "Act1 Magic Net",
         "Normal Declutter",
         "Magic Declutter",
         "Aggressive Magic Hide"
@@ -41,6 +43,58 @@
       "localization": {
         "en": "Rare Safety Net",
         "ch": "显示所有稀有装备"
+      }
+    },
+    "Act1 Normal Net": {
+      "_note": "The missing half of the Declutter below. `Hide Normal after Act 1` starts at AreaLevel 10 on the assumption that Act 1 SHOWS everything — but the only Act-1 shows were two narrow highlights (3-socket gear, and body armours from A2), so ~2 of every 3 droppable Normal bases at A1-9 matched nothing in the whole tree and hit the green 'please update the filter' catch-all. In Ruthless, Act 1 is exactly when a white base IS the upgrade, so the fix is to show them, not to hide them earlier. Class list is the Declutter's, so what starts being hidden at A10 is what was shown before it.",
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Bows\" \"Claws\" \"Daggers\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Quivers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Wands\" \"Warstaves\" \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Amulets\" \"Belts\" \"Rings\"",
+        "Rarity": "Normal",
+        "AreaLevel": "<= 9"
+      },
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "campaign"
+      },
+      "localization": {
+        "en": "Show Normal in Act 1",
+        "ch": "显示普通装备（第一章）"
+      }
+    },
+    "Act1 Magic Net": {
+      "_note": "Twin of Act1 Normal Net — see its note. Magic was the worse half: with no `Sockets >= 3` or body-armour highlight covering it, EVERY magic base at A1-9 went to the catch-all.",
+      "_lv": true,
+      "hideable": true,
+      "class_condition": true,
+      "conditions": {
+        "Class": "== \"Bows\" \"Claws\" \"Daggers\" \"One Hand Axes\" \"One Hand Maces\" \"One Hand Swords\" \"Thrusting One Hand Swords\" \"Quivers\" \"Rune Daggers\" \"Sceptres\" \"Staves\" \"Two Hand Axes\" \"Two Hand Maces\" \"Two Hand Swords\" \"Wands\" \"Warstaves\" \"Body Armours\" \"Boots\" \"Gloves\" \"Helmets\" \"Shields\" \"Amulets\" \"Belts\" \"Rings\"",
+        "Rarity": "Magic",
+        "AreaLevel": "<= 9"
+      },
+      "theme": {
+        "Tier": 5
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "lv_group": {
+        "axis": "always",
+        "key": "campaign"
+      },
+      "localization": {
+        "en": "Show Magic in Act 1",
+        "ch": "显示魔法装备（第一章）"
       }
     },
     "Normal Declutter": {
