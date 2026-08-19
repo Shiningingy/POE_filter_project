@@ -201,17 +201,6 @@ We have **not** made this change — it is yours, and we would rather ask than p
 
 ---
 
-## Not defects, recorded so they are not re-reported
-
-- **Alchemical Resonators reading grey-on-dark is correct.** All four are in `_legacy` and wear
-  the legacy look. FilterBlade's Ruthless filter does not name them once, which corroborates
-  the placement. The player saw these alongside the Chaotic ones and reasonably lumped them
-  together.
-- **The green border on fossil `R1 good` is yours**, authored in the patch. We flagged it
-  internally as a deviation from the house R1 white border before finding it in your file.
-  Left exactly as authored.
-
-
 ## Three more instances of Finding 1, since they show the two ways it lands
 
 We scanned every theme row for "carries a recipe that belongs to a different global rung" and
@@ -235,3 +224,23 @@ fail in two distinct ways that are worth telling apart:
 
 The first and third need no action if the answer to Finding 2 is "the table is not binding".
 The Runegrafts one needs action either way.
+
+---
+
+## Not defects, recorded so they are not re-reported
+
+- **Alchemical Resonators reading grey-on-dark is correct.** All four are in `_legacy` and wear
+  the legacy look. FilterBlade's Ruthless filter does not name them once, which corroborates
+  the placement. The player saw these alongside the Chaotic ones and reasonably lumped them
+  together.
+- **The green border on fossil `R1 good` is yours**, authored in the patch. We flagged it
+  internally as a deviation from the house R1 white border before finding it in your file.
+  Left exactly as authored.
+- **The fossil rung *digits* are right.** `rung_by_depth.value["4"]` prescribes T1 T2 T3 T4 and
+  that is what our four fossil tiers declare. If the table is binding, Fossils is one of the 25
+  ladders that already conforms — only its painted recipes are off-family.
+
+---
+
+**We changed no theme values while investigating this.** The fossil re-rung and the Runegrafts
+repair are both waiting on your answer rather than being ported on a guess.
