@@ -59,6 +59,20 @@ KNOWN = {
     "Vaal Temple Map": "only exists at MapTier 16 and its block says so; the probe carries no map tier",
 }
 
+def show_path(path):
+    """A readable path that survives a DIFFERENT DRIVE.
+
+    ⚠️ `os.path.relpath` raises ValueError across Windows mounts, and the shipped filter always
+    lives under Documents on C: while this repo is on G:. `check_shadowed_blocks.py` carried
+    exactly this crash for months — it read as a clean pass to anything piping the output — and
+    this script reproduced it on its very first run against a real deliverable. Same fix.
+    """
+    try:
+        return os.path.relpath(path, ROOT)
+    except ValueError:
+        return path
+
+
 NUMERIC = {"ItemLevel", "AreaLevel", "DropLevel", "Quality", "Sockets", "LinkedSockets",
            "StackSize", "MapTier", "GemLevel", "BaseDefencePercentile", "Height", "Width",
            "EnchantmentPassiveNum", "CorruptedMods", "MemoryStrands"}
@@ -164,7 +178,7 @@ def main():
 
     blocks = parse(path)
     net = blocks[-1]
-    print("reading %s  (%d blocks)" % (os.path.relpath(path, ROOT), len(blocks)))
+    print("reading %s  (%d blocks)" % (show_path(path), len(blocks)))
 
     named = set()
     for b in blocks:
