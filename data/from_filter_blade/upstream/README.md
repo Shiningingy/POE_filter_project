@@ -1,8 +1,14 @@
 # FilterBlade public assets — upstream snapshot
 
 Fetched from [NeverSinkDev/FilterBlade-Public-Assets](https://github.com/NeverSinkDev/FilterBlade-Public-Assets),
-`FbPoe1Configs/`, pinned to commit **`277983c06bf47d90d063aab74065b29f27e872ac`**
-(2026-07-28, "sync from FB to GitHub 6369 - modData rework to json dic and improved displays").
+`FbPoe1Configs/`, pinned to commit **`766a5aa2c3ebddc08117521f4545e72c5af807bf`**
+(2026-07-31, "sync from FB to GitHub 6403 - csv updates talisman implicit").
+
+⚠️ **Upstream itself has not moved since 2026-07-31**, which is BEFORE 3.29 launched (Aug 1).
+So these assets are a **3.28 reference**, not a current one. That is a hard limit on the
+"we carry it and they do not" half of the FilterBlade cross-check — every 3.29 base looks
+like ours-only for a reason that is not a defect. `parsing_tool/check_filterblade_diff.py`
+prints the file date for this reason.
 
 ## Why this exists next to `../3.28/`
 
