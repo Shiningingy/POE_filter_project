@@ -267,21 +267,20 @@
       "PlayEffect": "Orange Temp"
     },
     "Tier 4": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "FontSize": 45,
+      "BackgroundColor": "#f05a23ff",
+      "TextColor": "#ffffffff",
+      "MinimapIcon": "1 Green Diamond",
+      "_rung": "R2"
     },
     "Tier 3": {
       "FontSize": 45,
       "BackgroundColor": "#d20000ff",
       "TextColor": "#ffffffff",
       "MinimapIcon": "0 Red Diamond",
-      "PlayEffect": "Orange"
-    },
-    "Tier 5": {
-      "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82ff"
+      "PlayEffect": "Orange",
+      "BorderColor": "#ffffffff",
+      "_rung": "R1"
     }
   },
   "Tainted Currency": {

@@ -62,12 +62,11 @@
     },
     "Tier 2 Runegrafts": {
       "theme": {
-        "Tier": 5,
+        "Tier": 4,
         "PlayAlertSound": [
           "Sharket掉落音效/文身.mp3",
           300
         ],
-        "FontSize": 40,
         "PlayEffect": "Orange Temp"
       },
       "localization": {
