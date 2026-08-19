@@ -70,6 +70,20 @@ as a TypeScript port that runs in the browser.
   `parsing_tool/ggpk/reconcile.py` models exactly this — it counts `Class`
   conditions as coverage, so it reports what would fall through to 3, not what
   merely lacks a name.
+- **drop-disabled vs removed, and why placement barely matters** — GGG's filter-info feed
+  knows three verbs (new / removed / returning). The game has more, and poewiki's
+  *Drop-restricted item* page grades them: **usable** (drop-disabled, existing copies still
+  work), **defunct** (drop-disabled and non-functional), **removed** (deleted entirely).
+  `parse_drop_restricted.py` extracts all three into `data/from_wiki/drop_restricted.json`.
+  ★ **Author's rule (2026-08-19): for anything not removed entirely, whether it sits in
+  `_legacy` or in the category it would belong to *if it dropped* is a cosmetic choice, not a
+  correctness one — neither breaks the filter, and keeping it in is the safer default because
+  GGG re-enables content.** So the legacy bucket is not a backlog to drain; the only outcome
+  that actually costs anything is a base reaching the `[99999]` catch-all, which
+  `check_catchall_coverage.py` guards at zero. Curation effort here buys tidiness and a better
+  look, never safety. ⚠️ The corollary bit once already: "the mechanic is live" does not imply
+  "its old rewards drop" — Sanctum exists in Ruthless and `Lycia's Invocation` is still listed
+  removed.
 - **the generation engine** — one, in TypeScript; see Invariant 1.
 - **demo / backend-free build** — the deployed site has no server; `clientData.ts` +
   `demoAdapter.ts` re-implement the FastAPI endpoints over a static bundle + localStorage.
