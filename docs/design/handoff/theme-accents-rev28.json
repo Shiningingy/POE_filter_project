@@ -1,0 +1,159 @@
+{
+  "_version": "rev 28",
+  "_date": "2026-08-19",
+  "_contract": "The ONE machine-readable home of accent RGBs (ask-01 F2). compile_theme.py imports THIS, not theme-presets.json (dead, rev 23). Carries NO painted looks — accents, walk selectors, polarity, and explicit overrides only. If an accent RGB appears anywhere else, it is stale by definition. Stamped like the other three files; every rev bumps.",
+  "house": {
+    "R0": {
+      "text": "255 0 0",
+      "plate": "255 255 255 255",
+      "border": "255 0 0"
+    },
+    "R1": {
+      "text": "255 255 255",
+      "plate": "210 0 0",
+      "border": "255 255 255"
+    }
+  },
+  "rung_recipes": {
+    "R2": "family plate: black or white text per polarity; white border only where authored; FS45; icon per category shape",
+    "R3": "family colour on tint = colour × 0.19 rounded; FS40; no icon",
+    "R4": "family colour on solid black; FS40",
+    "R4-dim": "R4 with text alpha 204 — a rung's exit step, never a lost rung",
+    "R5": "game default — emit nothing"
+  },
+  "walks": {
+    "hue": "R2→R4(+dim)",
+    "light-hue": "starts black-on-plate (hue too light for white-plate top)",
+    "bands": "the five currency band plates R0-R4",
+    "single": "one rung only",
+    "authored": "custom rows live in the patch; accent RGB still lives HERE"
+  },
+  "accents": {
+    "currency": {
+      "walk": "bands"
+    },
+    "fossils": {
+      "walk": "bands",
+      "note": "five steps, floor orange (rev 28); green border on R1 authored"
+    },
+    "runegrafts": {
+      "walk": "bands",
+      "note": "R1+R2 rows only, third tier hides (rev 27)"
+    },
+    "gems": {
+      "rgb": "27 162 155",
+      "walk": "authored",
+      "note": "Sharket-verbatim 4-step"
+    },
+    "allflame": {
+      "rgb": "0 160 112",
+      "walk": "hue",
+      "league": true,
+      "no_r5": true
+    },
+    "allflame_charts": {
+      "rgb": "0 132 168",
+      "walk": "single"
+    },
+    "corpses": {
+      "rgb": "235 90 130",
+      "walk": "hue",
+      "r2_polarity": "black",
+      "r2_plate_override": "212 74 110"
+    },
+    "tainted": {
+      "rgb": "245 85 75",
+      "walk": "authored",
+      "plate": "150 20 40"
+    },
+    "oils": {
+      "rgb": "255 230 80",
+      "walk": "light-hue"
+    },
+    "essences": {
+      "rgb": "0 110 255",
+      "walk": "hue",
+      "r2_polarity": "white"
+    },
+    "delirium": {
+      "rgb": "210 210 230",
+      "walk": "single"
+    },
+    "harvest": {
+      "rgb": "46 204 113",
+      "walk": "light-hue",
+      "steps": 3
+    },
+    "wombgifts": {
+      "rgb": "235 175 190",
+      "walk": "single",
+      "reserved_top": "house R0"
+    },
+    "maps": {
+      "rgb": "131 166 226",
+      "walk": "authored",
+      "plate": "15 32 62",
+      "t17_plate": "108 52 180",
+      "t16_plate": "48 17 15",
+      "t16_text": "255 90 80"
+    },
+    "scarabs": {
+      "rgb": "170 230 60",
+      "walk": "hue",
+      "fs45_everywhere": true,
+      "white_top_text": "88 116 20"
+    },
+    "heist": {
+      "rgb": "240 100 50",
+      "walk": "hue",
+      "fallback_plate": "205 60 40",
+      "white_top_text": "140 50 30"
+    },
+    "heist_markers": {
+      "accent_of": "heist",
+      "walk": "single"
+    },
+    "heist_experimented": {
+      "accent_of": "heist",
+      "walk": "hue",
+      "steps": 3
+    },
+    "trinkets": {
+      "accent_of": "heist",
+      "walk": "hue",
+      "white_top": true
+    },
+    "talismans": {
+      "rgb": "200 120 230",
+      "walk": "hue",
+      "steps": 3
+    },
+    "prized_bases": {
+      "rgb": "110 190 125",
+      "walk": "hue",
+      "white_top_text": "52 102 64",
+      "icon_shape": "Moon"
+    },
+    "gear_quiet": {
+      "plate": "32 32 32",
+      "walk": "authored",
+      "note": "rarity in text; jewellery keeps game bright plates"
+    },
+    "net": {
+      "rgb": "255 90 200",
+      "walk": "single",
+      "no_icon": true
+    },
+    "legacy": {
+      "border": "150 150 150",
+      "walk": "authored",
+      "note": "border mark only"
+    },
+    "influence": {
+      "border": "150 110 255",
+      "walk": "authored",
+      "note": "PENDING unification with decorator 150 0 255 — pick one, reply 05 still open"
+    }
+  },
+  "_invariants_note": "accent_by_category lives in accent-category-map.json (your repo): fix 'States' → 'Class Nets' there; a miss on either side stays an ERROR. The four invariants go to CI against THIS file + the patch's _rung stamps."
+}

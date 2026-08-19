@@ -65,7 +65,7 @@
     "Influenced": "equipment",
     "Campaign": "equipment",
     "Rare Equipment": "equipment",
-    "States": "__not_an_accent__"
+    "Class Nets": "__not_an_accent__"
   },
   "removed_in_v2": {
     "_about": "Kept as a record so nobody re-adds them. These are not categories any more; an accent for a category that does not exist is the Chancing bug wearing a different hat.",
@@ -319,5 +319,6 @@
       "_bottles_removed": "Bottles is off this list: it has an override now, so the warning cannot fire, and an allowlist entry that can never be reached is the drift we are policing."
     },
     "rarity_through_is_an_accent_property": "rarity_through is declared once, on the ACCENT, and never chosen per row. Only the equipment accent has it. A painted accent always sets TextColor; a rarity_through accent never does. There is no third case, so 'row X is missing a TextColor' is not a finding — see the reply's answer on Uniques and Jewels. ⚠️ MAPS NO LONGER CLAIM IT — _category_exceptions.maps used to say rarity_through while this invariant said only equipment has it. The maps plate ramp settles it: maps paint. The invariant was right; the exception was the stale one."
-  }
+  },
+  "_rev28_note": "ask-01 F2: renamed the dead key States to the live theme category Class Nets, at the designer instruction. no_silent_misses now holds in both directions."
 }

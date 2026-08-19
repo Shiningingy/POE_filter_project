@@ -57,8 +57,8 @@
         ],
         "PlayEffect": "Orange Temp",
         "MinimapIcon": "2 Orange Diamond",
-        "TextColor": "#000000ff",
-        "BackgroundColor": "#ffaa00ff"
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#f05a23ff"
       },
       "sound": {
         "default_sound_id": 2,
@@ -100,7 +100,7 @@
         "FontSize": 45,
         "BackgroundColor": "#ffffffff",
         "TextColor": "#ff0000ff",
-        "MinimapIcon": "0 Red Diamond",
+        "MinimapIcon": "0 Red Star",
         "PlayEffect": "Orange",
         "PlayAlertSound": [
           "Sharket掉落音效/高级化石.mp3",
@@ -134,9 +134,8 @@
           300
         ],
         "PlayEffect": "Yellow Temp",
-        "MinimapIcon": "2 Yellow Diamond",
         "TextColor": "#000000ff",
-        "BackgroundColor": "#aa9e82ff"
+        "BackgroundColor": "#ffaa00ff"
       },
       "hideable": false,
       "sound": {
@@ -144,8 +143,8 @@
         "sharket_sound_id": null
       },
       "localization": {
-        "en": "Custom Tier #1",
-        "ch": "自定义阶级 #1"
+        "en": "T4: 1-Socket / Common",
+        "ch": "T4: 单孔/普通化石"
       },
       "item_overrides": {
         "Primitive Chaotic Resonator": {

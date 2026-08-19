@@ -119,41 +119,75 @@ def _cmp(op, a, b):
     return {"<": a < b, "<=": a <= b, ">": a > b, ">=": a >= b, "=": a == b, "==": a == b}[op]
 
 
-def match_cond(cond, item):
+_PARSED = {}
+
+
+def _parse(cond):
+    """Split a condition line once and keep it.
+
+    The sweep evaluates this several million times (bases × rarities × levels × blocks), so
+    re-splitting and re-regexing every line turned a 20-second run into a multi-minute one
+    once substring matching was added. Parse is pure, so caching on the line text is exact.
+    """
+    hit = _PARSED.get(cond)
+    if hit is None:
+        hit = _PARSED[cond] = _parse_cond(cond)
+    return hit
+
+
+def _parse_cond(cond):
+    """-> (key, op, explicit, rest, vals, vals_lower, num)"""
     tok = cond.split(None, 1)
     key, rest = tok[0], (tok[1] if len(tok) > 1 else "")
-    op = "=="
+    # ⚠️ `explicit` is load-bearing, not bookkeeping. For BaseType and Class the game reads a
+    # BARE key as a SUBSTRING match and `==` as exact, so defaulting op to "==" and forgetting
+    # which one was written makes every partial-match block invisible to this probe. The tree
+    # uses partials for whole families — `BaseType "Runegraft of"` and `"Tattoo of"` each claim
+    # every base in their family in one line — and treating those as exact reported all of them
+    # lost when they are caught. It fails toward false ALARMS rather than false silence, which
+    # is the right direction for a guard, but a guard that cries wolf gets switched off.
+    op, explicit = "==", False
     m = re.match(r"^(<=|>=|==|<|>|=|!)\s*(.*)$", rest)
     if m:
-        op, rest = m.group(1), m.group(2)
+        op, rest, explicit = m.group(1), m.group(2), True
     rest = rest.strip()
+
+    vals = re.findall(r'"([^"]*)"', rest) if '"' in rest else rest.split()
+    lows = [v.lower() for v in vals]
+    rar = [RARITY[w] for w in rest.split() if w in RARITY]
+    try:
+        num = int(rest.split()[0])
+    except (ValueError, IndexError):
+        num = None
+    return key, op, explicit, vals, lows, rar, num
+
+
+def match_cond(cond, item):
+    key, op, explicit, vals, lows, rar, num = _parse(cond)
 
     if key == "Rarity":
         # `Rarity Normal Magic` is a set, not a comparison.
-        words = [w for w in rest.split() if w in RARITY]
-        if not words:
+        if not rar:
             return True
-        if op in ("==", "=") and len(words) > 1:
-            return item["rarity"] in [RARITY[w] for w in words]
-        return _cmp(op, item["rarity"], RARITY[words[0]])
+        if op in ("==", "=") and len(rar) > 1:
+            return item["rarity"] in rar
+        return _cmp(op, item["rarity"], rar[0])
     if key in NUMERIC:
-        try:
-            want = int(rest.split()[0])
-        except (ValueError, IndexError):
+        if num is None:
             return True
         have = item.get(key)
-        return False if have is None else _cmp(op, have, want)
+        return False if have is None else _cmp(op, have, num)
     if key in BOOL:
-        return bool(item.get(key, False)) == (rest.lower().startswith("true"))
+        return bool(item.get(key, False)) == bool(vals and vals[0].lower().startswith("true"))
     if key in LIST:
-        vals = re.findall(r'"([^"]*)"', rest) if '"' in rest else rest.split()
         have = item.get(key)
         if have is None:
             return False
-        # `Class ==` is exact; bare `Class` is a substring match. Getting this wrong is the
-        # documented plural trap ("Blueprints", never "Blueprint").
-        if key == "Class" and op not in ("==", "="):
-            return any(v.lower() in have.lower() for v in vals)
+        # Bare key = substring, `==` = exact. True for BaseType as well as Class; getting the
+        # Class half wrong is the documented plural trap ("Blueprints", never "Blueprint").
+        if not explicit and key in ("Class", "BaseType"):
+            hl = have.lower()
+            return any(v in hl for v in lows)
         return have in vals
     return True    # an unmodelled condition must not silently kill the block
 
