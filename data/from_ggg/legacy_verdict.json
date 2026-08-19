@@ -30,8 +30,8 @@
   "class": "Support Gems"
  },
  "Armour Recombinator": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.18.0",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Ashscale Talisman": {
@@ -51,7 +51,7 @@
  },
  "Awakener's Orb": {
   "verdict": "drop-disabled in RUTHLESS",
-  "source": "wiki",
+  "source": "wiki (live in the game since 3.9.0)",
   "class": "Stackable Currency"
  },
  "Betrayal Scarab of Unbreaking": {
@@ -216,7 +216,7 @@
  },
  "Crusader's Exalted Orb": {
   "verdict": "drop-disabled in RUTHLESS",
-  "source": "wiki",
+  "source": "wiki (live in the game since 3.9.0)",
   "class": "Stackable Currency"
  },
  "Crystallised Rancour": {
@@ -556,7 +556,7 @@
  },
  "Hunter's Exalted Orb": {
   "verdict": "drop-disabled in RUTHLESS",
-  "source": "wiki",
+  "source": "wiki (live in the game since 3.9.0)",
   "class": "Stackable Currency"
  },
  "Imperfect Adherent of Zarokh": {
@@ -600,8 +600,8 @@
   "class": "Support Gems"
  },
  "Jewellery Recombinator": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.18.0",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Journey Tattoo of the Body": {
@@ -946,7 +946,7 @@
  },
  "Orb of Dominance": {
   "verdict": "drop-disabled in RUTHLESS",
-  "source": "wiki",
+  "source": "wiki (live in the game since 3.17.0)",
   "class": "Stackable Currency"
  },
  "Ornate Incubator": {
@@ -1025,8 +1025,8 @@
   "class": "Delve Socketable Currency"
  },
  "Prime Regrading Lens": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "ADDED 3.12.0, removal era unpublished",
+  "source": "feed:new — pre-3.16, needs patch notes",
   "class": "Stackable Currency"
  },
  "Primeval Remnant": {
@@ -1056,7 +1056,7 @@
  },
  "Redeemer's Exalted Orb": {
   "verdict": "drop-disabled in RUTHLESS",
-  "source": "wiki",
+  "source": "wiki (live in the game since 3.9.0)",
   "class": "Stackable Currency"
  },
  "Refracting Fog": {
@@ -1170,8 +1170,8 @@
   "class": "Support Gems"
  },
  "Secondary Regrading Lens": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "ADDED 3.12.0, removal era unpublished",
+  "source": "feed:new — pre-3.16, needs patch notes",
   "class": "Stackable Currency"
  },
  "Shaper's Exalted Orb": {
@@ -1631,12 +1631,12 @@
  },
  "Warlord's Exalted Orb": {
   "verdict": "drop-disabled in RUTHLESS",
-  "source": "wiki",
+  "source": "wiki (live in the game since 3.9.0)",
   "class": "Stackable Currency"
  },
  "Weapon Recombinator": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "LIVE since 3.18.0",
+  "source": "feed:new",
   "class": "Stackable Currency"
  },
  "Wereclaw Talisman": {

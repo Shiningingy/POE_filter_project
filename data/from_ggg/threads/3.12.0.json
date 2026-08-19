@@ -1,6 +1,6 @@
 {
   "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/2935826 (3.12.0 Heist), 2026-08-19",
-  "_format_note": "This era of the post has NO Removed/Returning sections — GGG added them later. Absence is a FORMAT fact, never evidence that nothing was removed. Patch notes are the only removal source for this league.",
+  "_format_note": "This era of the post has NO Removed/Returning sections — GGG added them later. Absence is a FORMAT fact, never evidence that nothing was removed. Patch notes are the only removal source for this league. ⚠️ new_items is a FLOOR: the extractor named some items and collapsed the rest into counts. Never conclude 'not added' from this list.",
   "new_conditions": [
     "GemQualityType",
     "AlternateQuality",
@@ -25,6 +25,16 @@
     "Pernarch": "Pernach"
   },
   "_renamed_items_complete": true,
-  "new_items": [],
+  "new_items": [
+    "Blazing Salvo",
+    "Crackling Lance",
+    "Prime Regrading Lens",
+    "Rogue's Marker",
+    "Secondary Regrading Lens",
+    "Tailoring Orb",
+    "Tempering Orb",
+    "Thief's Trinket",
+    "Void Sphere"
+  ],
   "_new_items_complete": false
 }

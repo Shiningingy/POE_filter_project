@@ -1,6 +1,6 @@
 {
   "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/2687401 (3.9.0 Metamorph), 2026-08-19",
-  "_format_note": "No Removed/Returning sections in this era's post. ⚠️ new_items was SUMMARISED by the extractor into category counts rather than names — treat as incomplete and re-extract if a census of 3.9 additions is ever needed. The renames and conditions ARE verbatim.",
+  "_format_note": "No Removed/Returning sections in this era's post. ⚠️ new_items was SUMMARISED by the extractor into category counts rather than names — treat as incomplete and re-extract if a census of 3.9 additions is ever needed. The renames and conditions ARE verbatim. ⚠️ new_items is a FLOOR — the 30+ Awakened supports, the map fragments and the div cards were collapsed into counts. Confirmed ABSENT from this post: Elder's Orb and The Maven's Beacon, so neither entered in 3.9.",
   "new_conditions": [
     "HasInfluence"
   ],
@@ -18,6 +18,23 @@
     "Ranged Attack Totem Support": "Ballista Totem Support"
   },
   "_renamed_items_complete": true,
-  "new_items": [],
+  "new_items": [
+    "Abrasive Catalyst",
+    "Awakened Sextant",
+    "Awakener's Orb",
+    "Crusader's Exalted Orb",
+    "Fertile Catalyst",
+    "Hunter's Exalted Orb",
+    "Imbued Catalyst",
+    "Intrinsic Catalyst",
+    "Ivory Watchstone",
+    "Prime Sextant",
+    "Prismatic Catalyst",
+    "Redeemer's Exalted Orb",
+    "Simple Sextant",
+    "Tempering Catalyst",
+    "Turbulent Catalyst",
+    "Warlord's Exalted Orb"
+  ],
   "_new_items_complete": false
 }

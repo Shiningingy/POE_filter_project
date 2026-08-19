@@ -1,6 +1,6 @@
 {
   "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/3147480 (3.15.0 Expedition), 2026-08-19",
-  "_format_note": "No Removed/Returning sections. ⚠️ Carries a REJECTED extraction claim — see _disputed. This is the league that proves extractions must be reconciled against GGPK before they are believed.",
+  "_format_note": "No Removed/Returning sections. ⚠️ Carries a REJECTED extraction claim — see _disputed. This is the league that proves extractions must be reconciled against GGPK before they are believed. ⚠️ new_items is a FLOOR: the extractor named some items and collapsed the rest into counts. Never conclude 'not added' from this list.",
   "new_conditions": [],
   "_new_conditions_complete": true,
   "removed_conditions": [],
@@ -15,7 +15,27 @@
     "Poison Support": "Critical Strike Affliction Support"
   },
   "_renamed_items_complete": true,
-  "new_items": [],
+  "new_items": [
+    "Absolution",
+    "Ambush",
+    "Battlemage's Cry",
+    "Behead Support",
+    "Blade Trap",
+    "Boneshatter",
+    "Defiance Banner",
+    "Earthbreaker Support",
+    "Explosive Concoction",
+    "Eye of Winter",
+    "Focused Ballista Support",
+    "Forbidden Rite",
+    "Manabond",
+    "Rage Vortex",
+    "Shield Crush",
+    "Spectral Helix",
+    "Storm Rain",
+    "Summon Reaper",
+    "Voltaxic Burst"
+  ],
   "_new_items_complete": false,
   "_disputed": {
     "Thrusting One Hand Sword -> One Hand Sword": "REJECTED. The extractor reported this as a class rename; `Thrusting One Hand Swords` is still a live row in ItemClasses.json in the 3.29 GGPK dump, so the claim is false as stated. Left out of renamed_items. Re-read the post by hand before acting on anything in this area.",

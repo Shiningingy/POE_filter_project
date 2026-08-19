@@ -1,6 +1,6 @@
 {
   "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/3009221 (3.13.0 Ritual), 2026-08-19",
-  "_format_note": "First league in this sweep whose post carries a removal statement — and it removes ITEM CLASSES, not bases.",
+  "_format_note": "First league in this sweep whose post carries a removal statement — and it removes ITEM CLASSES, not bases. ⚠️ new_items is a FLOOR: the extractor named some items and collapsed the rest into counts. Never conclude 'not added' from this list.",
   "new_conditions": [
     "HasExplicitMod (operators)",
     "HasEnchantment (operators)",
@@ -22,6 +22,16 @@
     "Magma Orb": "Rolling Magma"
   },
   "_renamed_items_complete": true,
-  "new_items": [],
+  "new_items": [
+    "Blood-filled Vessel",
+    "Crescent Splinter",
+    "Hydrosphere",
+    "Maven's Orb",
+    "Maven's Writ",
+    "Orb of Unmaking",
+    "Ritual Splinter",
+    "Ritual Vessel",
+    "Trinity Support"
+  ],
   "_new_items_complete": false
 }
