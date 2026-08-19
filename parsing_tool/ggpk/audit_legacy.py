@@ -103,6 +103,26 @@ def ruthless_subtracts(n):
     return None
 
 
+# ── ★ THE PUBLICATION CLIFF ─────────────────────────────────────────────────────
+# GGG published no "Removed Items" section at all until 3.16 Scourge. Before that the post
+# lists ADDITIONS only, so in that window "no removal event" is a fact about the FORMAT and
+# not about the item.
+#
+# ⚠️ This is why a pre-3.16 `new` must not resolve to LIVE. Extracting the 2.3-3.5 threads
+# adds an "appeared in 2.5" event for bases like `Breach Ring` and `Vaal Breach`, and the
+# naive rule would then report them LIVE since 2.5 — turning honest UNKNOWNs into confident
+# wrong answers, which is strictly worse than not knowing. Breach is legacy; the feed simply
+# never published the day it stopped.
+#
+# So a pre-cliff addition yields its own verdict: we learned WHEN it appeared, and we still
+# do not know whether it drops. That is answerable only from the patch notes.
+CLIFF = (3, 16, 0)
+
+
+def _before_cliff(v):
+    return _vkey(v) < CLIFF
+
+
 verdict = collections.OrderedDict()
 for n in legacy:
     v, ev = latest_event(n)
@@ -111,6 +131,9 @@ for n in legacy:
         verdict[n] = ("RETIRED %s" % v, "feed")
     elif sub:
         verdict[n] = ("drop-disabled in RUTHLESS", sub + (" (live in the game since %s)" % v if ev in ("new", "returning") else ""))
+    elif ev in ("new", "returning") and _before_cliff(v):
+        verdict[n] = ("ADDED %s, removal era unpublished" % v,
+                      "feed:%s — pre-3.16, needs patch notes" % ev)
     elif ev in ("new", "returning"):
         verdict[n] = ("LIVE since %s" % v, "feed:" + ev)
     else:

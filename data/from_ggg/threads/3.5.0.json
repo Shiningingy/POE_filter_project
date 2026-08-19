@@ -1,0 +1,32 @@
+{
+  "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/2255461 (3.5.0 Betrayal), 2026-08-19",
+  "_format_note": "PRE-3.16 ERA. GGG published no Removed Items section until 3.16 Scourge, so this post can only say what was ADDED. ⚠️ A `new` event here is NOT evidence the base still drops — audit_legacy.py refuses to resolve a pre-3.16 `new` to LIVE for exactly this reason. Scarab names were given as a 3x18 grid rather than spelled out, so they are NOT recorded here.",
+  "new_conditions": [],
+  "_new_conditions_complete": false,
+  "removed_conditions": [],
+  "_removed_conditions_complete": false,
+  "removed_items": [],
+  "_removed_items_complete": false,
+  "returning_items": [],
+  "_returning_items_complete": false,
+  "renamed_items": {},
+  "_renamed_items_complete": false,
+  "new_items": [
+    "Winter Orb",
+    "Lancing Steel",
+    "Storm Brand",
+    "War Banner",
+    "Dread Banner",
+    "Shattering Steel",
+    "Armageddon Brand",
+    "Brand Recall",
+    "Multiple Totems Support",
+    "Bonechill Support",
+    "The Sacrifice",
+    "A Dab of Ink",
+    "The Nurse",
+    "The Master Artisan",
+    "The Life Thief"
+  ],
+  "_new_items_complete": true
+}

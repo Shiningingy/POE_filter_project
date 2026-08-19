@@ -1,0 +1,31 @@
+{
+  "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/1716826 (2.4.0 Essence / Atlas of Worlds), 2026-08-19",
+  "_format_note": "PRE-3.16 ERA. GGG published no Removed Items section until 3.16 Scourge, so this post can only say what was ADDED. ⚠️ A `new` event here is NOT evidence the base still drops — see audit_legacy.py, which refuses to resolve a pre-3.16 `new` to LIVE for exactly this reason. ⚠️ new_items was SUMMARISED into counts ('70+ essence variants', '84 maps'); only the names the extractor spelled out are recorded. Re-extract before treating this as a census.",
+  "new_conditions": [],
+  "_new_conditions_complete": false,
+  "removed_conditions": [],
+  "_removed_conditions_complete": false,
+  "removed_items": [],
+  "_removed_items_complete": false,
+  "returning_items": [],
+  "_returning_items_complete": false,
+  "renamed_items": {
+    "Mountain Ledge Map": "Atoll Map",
+    "Catacomb Map": "Catacombs Map",
+    "Tunnel Map": "Crystal Ore Map",
+    "Underground Sea Map": "Underground River Map",
+    "Dry Woods Map": "Ashen Wood Map",
+    "Abandoned Cavern Map": "Cavern Map",
+    "Dry Peninsula Map": "Peninsula Map",
+    "Village Ruin Map": "Castle Ruin Map",
+    "Orb of Elemental Essence": "Orb of Elemental Dispersion"
+  },
+  "_renamed_items_complete": true,
+  "new_items": [
+    "Unshaping Orb",
+    "Steel Ring",
+    "Opal Ring",
+    "Blue Pearl Amulet"
+  ],
+  "_new_items_complete": false
+}

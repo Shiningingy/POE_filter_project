@@ -20,8 +20,8 @@
   "class": "Map Fragments"
  },
  "Ancient Reliquary Key": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "ADDED 2.6.0, removal era unpublished",
+  "source": "feed:new — pre-3.16, needs patch notes",
   "class": "Vault Keys"
  },
  "Annihilation Support": {
@@ -100,8 +100,8 @@
   "class": "Amulets"
  },
  "Breach Ring": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "ADDED 2.5.0, removal era unpublished",
+  "source": "feed:new — pre-3.16, needs patch notes",
   "class": "Rings"
  },
  "Breakrib Talisman": {
@@ -256,7 +256,7 @@
  },
  "Divine Vessel": {
   "verdict": "drop-disabled in RUTHLESS",
-  "source": "wiki",
+  "source": "wiki (live in the game since 3.0.0)",
   "class": "Map Fragments"
  },
  "Diviner's Incubator": {
@@ -941,7 +941,7 @@
  },
  "Orb of Binding": {
   "verdict": "drop-disabled in RUTHLESS",
-  "source": "wiki",
+  "source": "wiki (live in the game since 3.0.0)",
   "class": "Stackable Currency"
  },
  "Orb of Dominance": {
@@ -1000,13 +1000,13 @@
   "class": "Corpses"
  },
  "Potent Alchemical Resonator": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "ADDED 3.4.0, removal era unpublished",
+  "source": "feed:new — pre-3.16, needs patch notes",
   "class": "Delve Socketable Currency"
  },
  "Powerful Alchemical Resonator": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "ADDED 3.4.0, removal era unpublished",
+  "source": "feed:new — pre-3.16, needs patch notes",
   "class": "Delve Socketable Currency"
  },
  "Primal Incubator": {
@@ -1020,8 +1020,8 @@
   "class": "Amulets"
  },
  "Prime Alchemical Resonator": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "ADDED 3.4.0, removal era unpublished",
+  "source": "feed:new — pre-3.16, needs patch notes",
   "class": "Delve Socketable Currency"
  },
  "Prime Regrading Lens": {
@@ -1035,8 +1035,8 @@
   "class": "Misc Map Items"
  },
  "Primitive Alchemical Resonator": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "ADDED 3.4.0, removal era unpublished",
+  "source": "feed:new — pre-3.16, needs patch notes",
   "class": "Delve Socketable Currency"
  },
  "Primordial Remnant": {
@@ -1525,8 +1525,8 @@
   "class": "Jewels"
  },
  "Timeworn Reliquary Key": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "ADDED 3.4.0, removal era unpublished",
+  "source": "feed:new — pre-3.16, needs patch notes",
   "class": "Vault Keys"
  },
  "Transfusion Support": {
@@ -1575,8 +1575,8 @@
   "class": "Amulets"
  },
  "Unshaping Orb": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "ADDED 2.4.0, removal era unpublished",
+  "source": "feed:new — pre-3.16, needs patch notes",
   "class": "Stackable Currency"
  },
  "Ursine Charm": {
@@ -1585,8 +1585,8 @@
   "class": "Charms"
  },
  "Vaal Breach": {
-  "verdict": "UNKNOWN",
-  "source": "needs an older thread",
+  "verdict": "ADDED 2.5.0, removal era unpublished",
+  "source": "feed:new — pre-3.16, needs patch notes",
   "class": "Skill Gems"
  },
  "Vaal Reliquary Key": {

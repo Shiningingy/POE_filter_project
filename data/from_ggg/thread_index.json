@@ -210,7 +210,7 @@
       "title": "Betrayal Patch Notes, Item Filter and Passive Tree Information",
       "id": 2255461,
       "posted": "2018-12-04",
-      "extracted": false
+      "extracted": true
     },
     {
       "version": "3.4.0",
@@ -218,7 +218,7 @@
       "title": "Delve Patch Notes, Passive Tree and Item Filter Information",
       "id": 2201188,
       "posted": "2018-08-28",
-      "extracted": false
+      "extracted": true
     },
     {
       "version": "3.3.0",
@@ -226,7 +226,7 @@
       "title": "Incursion Patch Notes, Passive Tree and Item Filter Information",
       "id": 2150238,
       "posted": "2018-05-29",
-      "extracted": false
+      "extracted": true
     },
     {
       "version": "3.1.0",
@@ -234,7 +234,7 @@
       "title": "3.1.0 Item Filter and Passive Tree Information",
       "id": 2036673,
       "posted": "2017-12-06",
-      "extracted": false
+      "extracted": true
     },
     {
       "version": "3.0.0",
@@ -242,7 +242,7 @@
       "title": "3.0.0 Item Filter and Passive Tree Information",
       "id": 1930848,
       "posted": "2017-08-03",
-      "extracted": false
+      "extracted": true
     },
     {
       "version": "2.6.0",
@@ -250,7 +250,7 @@
       "title": "Item Filter and Passive Tree Information for 2.6.0",
       "id": 1840246,
       "posted": "2017-03-01",
-      "extracted": false
+      "extracted": true
     },
     {
       "version": "2.5.0",
@@ -258,7 +258,7 @@
       "title": "Item Filter and Skill Tree Information for 2.5.0",
       "id": 1774440,
       "posted": "2016-11-30",
-      "extracted": false
+      "extracted": true
     },
     {
       "version": "2.4.0",
@@ -266,7 +266,7 @@
       "title": "Item Filter and Skill Tree Information for Atlas of Worlds",
       "id": 1716826,
       "posted": "2016-08-31",
-      "extracted": false
+      "extracted": true
     },
     {
       "version": "2.3.0",
@@ -274,7 +274,7 @@
       "title": "Item Filter and Skill Tree Information for Prophecy",
       "id": 1667538,
       "posted": "2016-06-01",
-      "extracted": false
+      "extracted": true
     }
   ],
   "_gaps": [
@@ -282,5 +282,5 @@
     "Pre-2.3.0 — the format did not exist yet; item filters shipped in 2.3.0."
   ],
   "_note_on_extracted": "true = its events are in timeline.json. 'partial' = captured as a summary, not verbatim, so its lists may be incomplete. false = indexed but not yet read. The recent window is what decides CURRENT status, and our base data comes from the 3.29 GGPK dump anyway, so anything retired long ago is already absent from BaseItemTypes — the older posts matter mainly for RENAMES and RETURNS.",
-  "_extraction_note": "Coverage is now CONTINUOUS 3.6.0 -> 3.29.0. The 2.3-3.5 block is still unextracted, and that is where the remaining unknowns live: every one of the 43 bases no source names is pre-3.6 content (Perandus Coin, the Reliquary Keys, the Bestiary Lures, the Alchemical Resonators, the Golden/Talisman set). ⚠️ GGG did not publish a Removed Items section at all until 3.16 — for 3.6-3.15 the post can only tell you what was ADDED, so removals in that window are answerable ONLY from patch notes."
+  "_extraction_note": "Coverage is now CONTINUOUS 2.3.0 -> 3.29.0 apart from 3.2.0 Bestiary, which has no Item Filter Information thread — it is absent from this index and a targeted search finds none, so the Bestiary Lures are answerable only from patch notes. ⚠️ GGG published no Removed Items section until 3.16 Scourge: for every league before that the post lists ADDITIONS ONLY, so a `new` event there proves when a base appeared and says NOTHING about whether it still drops. audit_legacy.py encodes this as the CLIFF rule and reports such bases as ADDED <ver>, removal era unpublished — never as LIVE."
 }

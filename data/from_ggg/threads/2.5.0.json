@@ -1,0 +1,37 @@
+{
+  "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/1774440 (2.5.0 Breach), 2026-08-19",
+  "_format_note": "PRE-3.16 ERA. GGG published no Removed Items section until 3.16 Scourge, so this post can only say what was ADDED. ⚠️ A `new` event here is NOT evidence the base still drops — see audit_legacy.py, which refuses to resolve a pre-3.16 `new` to LIVE for exactly this reason.",
+  "new_conditions": [
+    "Corrupted"
+  ],
+  "_new_conditions_complete": true,
+  "removed_conditions": [],
+  "_removed_conditions_complete": false,
+  "removed_items": [],
+  "_removed_items_complete": false,
+  "returning_items": [],
+  "_returning_items_complete": false,
+  "renamed_items": {},
+  "_renamed_items_complete": false,
+  "new_items": [
+    "Splinter of Xoph",
+    "Splinter of Tul",
+    "Splinter of Esh",
+    "Splinter of Uul-Netol",
+    "Splinter of Chayula",
+    "Blessing of Xoph",
+    "Blessing of Tul",
+    "Blessing of Esh",
+    "Blessing of Uul-Netol",
+    "Blessing of Chayula",
+    "Xoph's Breachstone",
+    "Tul's Breachstone",
+    "Esh's Breachstone",
+    "Uul-Netol's Breachstone",
+    "Chayula's Breachstone",
+    "Breach Ring",
+    "Vaal Breach",
+    "Cast while Channelling Support"
+  ],
+  "_new_items_complete": true
+}
