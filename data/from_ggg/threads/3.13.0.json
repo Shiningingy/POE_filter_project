@@ -1,0 +1,27 @@
+{
+  "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/3009221 (3.13.0 Ritual), 2026-08-19",
+  "_format_note": "First league in this sweep whose post carries a removal statement — and it removes ITEM CLASSES, not bases.",
+  "new_conditions": [
+    "HasExplicitMod (operators)",
+    "HasEnchantment (operators)",
+    "CustomAlertSound volume 0-300",
+    "EnchantmentPassiveNum"
+  ],
+  "_new_conditions_complete": true,
+  "removed_conditions": [],
+  "_removed_conditions_complete": false,
+  "removed_items": [
+    "Harvest Seed (item class removed)",
+    "Seed Enhancer (item class removed)"
+  ],
+  "_removed_items_complete": true,
+  "returning_items": [],
+  "_returning_items_complete": false,
+  "renamed_items": {
+    "Samite Helmet": "Samnite Helmet",
+    "Magma Orb": "Rolling Magma"
+  },
+  "_renamed_items_complete": true,
+  "new_items": [],
+  "_new_items_complete": false
+}

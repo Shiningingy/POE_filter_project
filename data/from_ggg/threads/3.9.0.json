@@ -1,0 +1,23 @@
+{
+  "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/2687401 (3.9.0 Metamorph), 2026-08-19",
+  "_format_note": "No Removed/Returning sections in this era's post. ⚠️ new_items was SUMMARISED by the extractor into category counts rather than names — treat as incomplete and re-extract if a census of 3.9 additions is ever needed. The renames and conditions ARE verbatim.",
+  "new_conditions": [
+    "HasInfluence"
+  ],
+  "_new_conditions_complete": true,
+  "removed_conditions": [],
+  "_removed_conditions_complete": false,
+  "removed_items": [],
+  "_removed_items_complete": false,
+  "returning_items": [],
+  "_returning_items_complete": false,
+  "renamed_items": {
+    "Apprentice Cartographer's Sextant": "Simple Sextant",
+    "Journeyman Cartographer's Sextant": "Prime Sextant",
+    "Master Cartographer's Sextant": "Awakened Sextant",
+    "Ranged Attack Totem Support": "Ballista Totem Support"
+  },
+  "_renamed_items_complete": true,
+  "new_items": [],
+  "_new_items_complete": false
+}

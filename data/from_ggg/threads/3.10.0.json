@@ -1,0 +1,31 @@
+{
+  "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/2784312 (3.10.0 Delirium), 2026-08-19",
+  "_format_note": "This era of the post has NO Removed/Returning sections — GGG added them later. Absence is a FORMAT fact, never evidence that nothing was removed. Patch notes are the only removal source for this league.",
+  "new_conditions": [
+    "MinimapIcon Cross",
+    "MinimapIcon Moon",
+    "MinimapIcon Raindrop",
+    "MinimapIcon Kite",
+    "MinimapIcon Pentagon",
+    "MinimapIcon UpsideDownHouse",
+    "PlayEffect Cyan",
+    "PlayEffect Grey",
+    "PlayEffect Orange",
+    "PlayEffect Pink",
+    "PlayEffect Purple"
+  ],
+  "_new_conditions_complete": true,
+  "removed_conditions": [],
+  "_removed_conditions_complete": false,
+  "removed_items": [],
+  "_removed_items_complete": false,
+  "returning_items": [],
+  "_returning_items_complete": false,
+  "renamed_items": {
+    "Awakened Elemental Damage With Attacks Support": "Awakened Elemental Damage with Attacks Support",
+    "Awakened Increased Area Of Effect Support": "Awakened Increased Area of Effect Support"
+  },
+  "_renamed_items_complete": false,
+  "new_items": [],
+  "_new_items_complete": false
+}

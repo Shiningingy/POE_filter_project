@@ -1,0 +1,22 @@
+{
+  "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/2873743 (3.11.0 Harvest), 2026-08-19",
+  "_format_note": "This era of the post has NO Removed/Returning sections — GGG added them later. Absence is a FORMAT fact, never evidence that nothing was removed. Patch notes are the only removal source for this league.",
+  "new_conditions": [
+    "HasInfluence None",
+    "EnchantmentPassiveNode"
+  ],
+  "_new_conditions_complete": true,
+  "removed_conditions": [],
+  "_removed_conditions_complete": false,
+  "removed_items": [],
+  "_removed_items_complete": false,
+  "returning_items": [],
+  "_returning_items_complete": false,
+  "renamed_items": {
+    "Arctic Breath": "Creeping Frost",
+    "Abyssal Cry": "Infernal Cry"
+  },
+  "_renamed_items_complete": true,
+  "new_items": [],
+  "_new_items_complete": false
+}

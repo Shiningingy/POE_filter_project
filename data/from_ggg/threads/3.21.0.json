@@ -1,0 +1,39 @@
+{
+  "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/3362077 (3.21.0 Crucible), 2026-08-19",
+  "_format_note": "⚠️ removed_items is a FLOOR, not a census. The extractor collapsed the Breachstone block to '14 variants including Charged, Enriched and Pure of Xoph's/Tul's/Esh's/Uul-Netol's/Chayula's' instead of naming them, so the 15 names below are RECONSTRUCTED from that pattern and the 15th is unaccounted for. Flawless breachstones are NOT named by the post; do not conclude anything about them from here.",
+  "new_conditions": [
+    "HasImplicitMod",
+    "HasCruciblePassiveTree"
+  ],
+  "_new_conditions_complete": true,
+  "removed_conditions": [],
+  "_removed_conditions_complete": false,
+  "removed_items": [
+    "Onslaught Support",
+    "Charged Xoph's Breachstone",
+    "Enriched Xoph's Breachstone",
+    "Pure Xoph's Breachstone",
+    "Charged Tul's Breachstone",
+    "Enriched Tul's Breachstone",
+    "Pure Tul's Breachstone",
+    "Charged Esh's Breachstone",
+    "Enriched Esh's Breachstone",
+    "Pure Esh's Breachstone",
+    "Charged Uul-Netol's Breachstone",
+    "Enriched Uul-Netol's Breachstone",
+    "Pure Uul-Netol's Breachstone",
+    "Charged Chayula's Breachstone",
+    "Enriched Chayula's Breachstone",
+    "Pure Chayula's Breachstone"
+  ],
+  "_removed_items_complete": false,
+  "returning_items": [],
+  "_returning_items_complete": false,
+  "renamed_items": {
+    "The Iron Bard": "The Rusted Bard",
+    "Serpent Wand": "Coiled Wand"
+  },
+  "_renamed_items_complete": true,
+  "new_items": [],
+  "_new_items_complete": false
+}

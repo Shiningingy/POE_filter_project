@@ -1,0 +1,18 @@
+{
+  "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/3265282 (3.18.0 Sentinel), 2026-08-19",
+  "_format_note": "Pantheon-soul renames omitted for the same reason as 3.17 — not filterable BaseTypes.",
+  "new_conditions": [],
+  "_new_conditions_complete": false,
+  "removed_conditions": [],
+  "_removed_conditions_complete": false,
+  "removed_items": [
+    "All Archnemesis Mods"
+  ],
+  "_removed_items_complete": true,
+  "returning_items": [],
+  "_returning_items_complete": false,
+  "renamed_items": {},
+  "_renamed_items_complete": false,
+  "new_items": [],
+  "_new_items_complete": false
+}

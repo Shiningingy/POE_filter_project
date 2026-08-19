@@ -1,0 +1,18 @@
+{
+  "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/3079980 (3.14.0 Ultimatum), 2026-08-19",
+  "_format_note": "No Removed/Returning sections. ⚠️ The Blood Magic entry is a SPLIT, not a rename: it became Arrogance Support + Lifetap Support, with existing gems converted to Arrogance. Recorded under renamed because that is how the post words it, but a split can strand the other half.",
+  "new_conditions": [],
+  "_new_conditions_complete": true,
+  "removed_conditions": [],
+  "_removed_conditions_complete": false,
+  "removed_items": [],
+  "_removed_items_complete": false,
+  "returning_items": [],
+  "_returning_items_complete": false,
+  "renamed_items": {
+    "Blood Magic Support": "Arrogance Support"
+  },
+  "_renamed_items_complete": false,
+  "new_items": [],
+  "_new_items_complete": false
+}

@@ -1,0 +1,24 @@
+{
+  "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/3147480 (3.15.0 Expedition), 2026-08-19",
+  "_format_note": "No Removed/Returning sections. ⚠️ Carries a REJECTED extraction claim — see _disputed. This is the league that proves extractions must be reconciled against GGPK before they are believed.",
+  "new_conditions": [],
+  "_new_conditions_complete": true,
+  "removed_conditions": [],
+  "_removed_conditions_complete": false,
+  "removed_items": [],
+  "_removed_items_complete": false,
+  "returning_items": [],
+  "_returning_items_complete": false,
+  "renamed_items": {
+    "Blessed Boots": "Fugitive Boots",
+    "Lesser Poison Support": "Chance to Poison Support",
+    "Poison Support": "Critical Strike Affliction Support"
+  },
+  "_renamed_items_complete": true,
+  "new_items": [],
+  "_new_items_complete": false,
+  "_disputed": {
+    "Thrusting One Hand Sword -> One Hand Sword": "REJECTED. The extractor reported this as a class rename; `Thrusting One Hand Swords` is still a live row in ItemClasses.json in the 3.29 GGPK dump, so the claim is false as stated. Left out of renamed_items. Re-read the post by hand before acting on anything in this area.",
+    "Diamond Flask reclassified Utility Flask Critical -> Utility Flasks": "UNVERIFIED. Plausible (Diamond Flask is class `Utility Flasks` today) but the source class name never existed as an ItemClasses row, so the post is likely describing an internal regrouping."
+  }
+}

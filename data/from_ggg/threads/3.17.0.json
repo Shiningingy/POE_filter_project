@@ -1,0 +1,41 @@
+{
+  "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/3230194 (3.17.0 Archnemesis / Siege of the Atlas), 2026-08-19",
+  "_format_note": "Pantheon-soul renames omitted deliberately — they are captured-soul flavour names, not filterable BaseTypes, and recording them would pollute the rename map with names no filter can match. The one rename kept is the ITEM CLASS.",
+  "new_conditions": [
+    "HasSearingExarchImplicit",
+    "HasEaterOfWorldsImplicit",
+    "SynthesisedMap",
+    "ArchnemesisMod"
+  ],
+  "_new_conditions_complete": true,
+  "removed_conditions": [
+    "Prophecy"
+  ],
+  "_removed_conditions_complete": true,
+  "removed_items": [
+    "Portentous Delirium Orb",
+    "Maven's Orb",
+    "Simple Sextant",
+    "Prime Sextant",
+    "All itemised Prophecies",
+    "Silver Coin",
+    "Watchstones",
+    "Maven's Invitation: Haewark Hamlet",
+    "Maven's Invitation: Glennach Cairns",
+    "Maven's Invitation: Valdo's Rest",
+    "Maven's Invitation: Lira Arthain",
+    "Eber's Key",
+    "Yriel's Key",
+    "Inya's Key",
+    "Volkuur's Key"
+  ],
+  "_removed_items_complete": true,
+  "returning_items": [],
+  "_returning_items_complete": false,
+  "renamed_items": {
+    "Atlas Region Upgrade Item": "Atlas Upgrade Item"
+  },
+  "_renamed_items_complete": true,
+  "new_items": [],
+  "_new_items_complete": false
+}

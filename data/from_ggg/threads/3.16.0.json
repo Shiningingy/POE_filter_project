@@ -1,0 +1,31 @@
+{
+  "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/3187476 (3.16.0 Scourge), 2026-08-19",
+  "_format_note": "★ FIRST league in this sweep whose post carries a real Removed Items list. Everything before 3.16 needs patch notes.",
+  "new_conditions": [
+    "Scourged",
+    "BlightRavagedMap",
+    "BaseDefencePercentile"
+  ],
+  "_new_conditions_complete": true,
+  "removed_conditions": [],
+  "_removed_conditions_complete": false,
+  "removed_items": [
+    "Perandus Leaguestone",
+    "Rusted Perandus Scarab",
+    "Polished Perandus Scarab",
+    "Gilded Perandus Scarab",
+    "Winged Perandus Scarab",
+    "Decadent Delirium Orb",
+    "Decadent Incubator",
+    "Enchanted Fossil",
+    "Encrusted Fossil",
+    "The Hollow Pledge"
+  ],
+  "_removed_items_complete": true,
+  "returning_items": [],
+  "_returning_items_complete": false,
+  "renamed_items": {},
+  "_renamed_items_complete": false,
+  "new_items": [],
+  "_new_items_complete": false
+}

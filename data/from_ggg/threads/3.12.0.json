@@ -1,0 +1,30 @@
+{
+  "_source": "WebFetch https://www.pathofexile.com/forum/view-thread/2935826 (3.12.0 Heist), 2026-08-19",
+  "_format_note": "This era of the post has NO Removed/Returning sections — GGG added them later. Absence is a FORMAT fact, never evidence that nothing was removed. Patch notes are the only removal source for this league.",
+  "new_conditions": [
+    "GemQualityType",
+    "AlternateQuality",
+    "Replica"
+  ],
+  "_new_conditions_complete": true,
+  "removed_conditions": [],
+  "_removed_conditions_complete": false,
+  "removed_items": [],
+  "_removed_items_complete": false,
+  "returning_items": [],
+  "_returning_items_complete": false,
+  "renamed_items": {
+    "Curse On Hit Support": "Hextouch Support",
+    "Master Keyring": "Skeleton Keyring",
+    "Projectile Weakness": "Sniper's Mark",
+    "Flare Hammer": "Flare Mace",
+    "Crack Hammer": "Crack Mace",
+    "Boom Hammer": "Boom Mace",
+    "Accumulator Staff": "Reciprocation Staff",
+    "Geodisic Ring": "Geodesic Ring",
+    "Pernarch": "Pernach"
+  },
+  "_renamed_items_complete": true,
+  "new_items": [],
+  "_new_items_complete": false
+}
