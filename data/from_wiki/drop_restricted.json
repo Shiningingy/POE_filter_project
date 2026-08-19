@@ -1,0 +1,279 @@
+{
+ "_source": "https://www.poewiki.net/wiki/Drop-restricted_item — saved by hand; the wiki 403s every fetch method (see parse_ruthless_wiki.py).",
+ "_grades": {
+  "usable": "drop-disabled but can be used",
+  "defunct": "drop-disabled but have no function",
+  "removed": "removed from the game entirely"
+ },
+ "_warning": "`phrases` is what the page literally says and is AUTHORITATIVE. `resolved` is a substring expansion against GGPK and is a SUGGESTION — review it. A phrase marked wide matched more bases than it plausibly means.",
+ "usable": {
+  "phrases": [
+   "Lure",
+   "Itemized Recombinators from Sentinel league",
+   "All weapons and shields with a Crucible Passive Skill Tree",
+   "Chaos Shard",
+   "Regal Shard",
+   "Exalted Shard",
+   "Annulment Shard",
+   "Harbinger item pieces",
+   "Harbinger scrolls",
+   "Incubators",
+   "Non-unique Synthesised items (except by corrupting Synthesis unique items to Rare)",
+   "Coin of Power",
+   "Coin of Knowledge",
+   "Coin of Skill",
+   "Coin of Restoration",
+   "Coin of Desecration",
+   "Cord Belt",
+   "Refracting Fog",
+   "Essence of Desolation",
+   "Honoured Incubator",
+   "Sacred Incubator",
+   "Miraged Incubator",
+   "Sinistral Catalyst",
+   "Dextral Catalyst"
+  ],
+  "resolved": {
+   "Lure": [
+    "Craicic Lure",
+    "Elixir of Allure",
+    "Farric Lure",
+    "Fenumal Lure",
+    "Saqawine Lure"
+   ],
+   "Itemized Recombinators from Sentinel league": [],
+   "All weapons and shields with a Crucible Passive Skill Tree": [],
+   "Chaos Shard": [
+    "Chaos Shard"
+   ],
+   "Regal Shard": [
+    "Regal Shard"
+   ],
+   "Exalted Shard": [
+    "Exalted Shard"
+   ],
+   "Annulment Shard": [
+    "Annulment Shard"
+   ],
+   "Harbinger item pieces": [],
+   "Harbinger scrolls": [],
+   "Incubators": [],
+   "Non-unique Synthesised items (except by corrupting Synthesis unique items to Rare)": [],
+   "Coin of Power": [
+    "Coin of Power"
+   ],
+   "Coin of Knowledge": [
+    "Coin of Knowledge"
+   ],
+   "Coin of Skill": [
+    "Coin of Skill"
+   ],
+   "Coin of Restoration": [
+    "Coin of Restoration"
+   ],
+   "Coin of Desecration": [
+    "Coin of Desecration"
+   ],
+   "Cord Belt": [
+    "Cord Belt"
+   ],
+   "Refracting Fog": [
+    "Refracting Fog"
+   ],
+   "Essence of Desolation": [
+    "Essence of Desolation"
+   ],
+   "Honoured Incubator": [
+    "Honoured Incubator"
+   ],
+   "Sacred Incubator": [
+    "Sacred Incubator"
+   ],
+   "Miraged Incubator": [
+    "Miraged Incubator"
+   ],
+   "Sinistral Catalyst": [
+    "Sinistral Catalyst"
+   ],
+   "Dextral Catalyst": [
+    "Dextral Catalyst"
+   ]
+  },
+  "wide_needs_review": {}
+ },
+ "defunct": {
+  "phrases": [
+   "Leaguestones",
+   "Nets",
+   "Perandus Coins",
+   "Breachstones",
+   "Breach blessings"
+  ],
+  "resolved": {
+   "Leaguestones": [],
+   "Nets": [],
+   "Perandus Coins": [],
+   "Breachstones": [],
+   "Breach blessings": []
+  },
+  "wide_needs_review": {}
+ },
+ "removed": {
+  "phrases": [
+   "Itemized Harvest Seeds and Harvest infrastructure",
+   "Sentinels (as items)",
+   "Power cores",
+   "Prophecys",
+   "Silver Coin ( Prophecy )",
+   "Silver Coin ( Trial of the Ancestors )",
+   "Sanctified relic",
+   "Lycia's Invocation",
+   "Igneous Geode",
+   "Primeval Remnant",
+   "Crystalline Geode",
+   "Primordial Remnant",
+   "Magmatic Ore",
+   "Prime Regrading Lens and Secondary Regrading Lens",
+   "Alternate quality gems",
+   "Metamorph organs",
+   "Tinctures ( Affliction league version)",
+   "Charms",
+   "Embers of the Allflame ( Necropolis league version)",
+   "Empty Coffin",
+   "Filled Coffin",
+   "Runes",
+   "Breach Ring",
+   "Breach Splinters",
+   "Blessings",
+   "Grafts",
+   "Implants",
+   "Bestiary Orb",
+   "Engineer's Orb",
+   "Infused Engineer's Orb",
+   "Harbinger's Orb",
+   "Ancient Shard",
+   "Binding Shard",
+   "Engineer's Shard",
+   "Harbinger's Shard",
+   "and Horizon Shard"
+  ],
+  "resolved": {
+   "Itemized Harvest Seeds and Harvest infrastructure": [],
+   "Sentinels (as items)": [],
+   "Power cores": [],
+   "Prophecys": [],
+   "Silver Coin ( Prophecy )": [],
+   "Silver Coin ( Trial of the Ancestors )": [],
+   "Sanctified relic": [
+    "Sanctified Relic"
+   ],
+   "Igneous Geode": [
+    "Igneous Geode"
+   ],
+   "Primeval Remnant": [
+    "Primeval Remnant"
+   ],
+   "Crystalline Geode": [
+    "Crystalline Geode"
+   ],
+   "Primordial Remnant": [
+    "Primordial Remnant"
+   ],
+   "Magmatic Ore": [
+    "Magmatic Ore"
+   ],
+   "Prime Regrading Lens and Secondary Regrading Lens": [],
+   "Alternate quality gems": [],
+   "Metamorph organs": [],
+   "Tinctures ( Affliction league version)": [],
+   "Charms": [],
+   "Embers of the Allflame ( Necropolis league version)": [],
+   "Empty Coffin": [
+    "Empty Coffin"
+   ],
+   "Filled Coffin": [
+    "Filled Coffin"
+   ],
+   "Runes": [],
+   "Breach Ring": [
+    "Breach Ring"
+   ],
+   "Breach Splinters": [],
+   "Blessings": [],
+   "Grafts": [],
+   "Implants": [],
+   "Bestiary Orb": [
+    "Bestiary Orb",
+    "Imprinted Bestiary Orb"
+   ],
+   "Engineer's Orb": [
+    "Engineer's Orb",
+    "Infused Engineer's Orb"
+   ],
+   "Infused Engineer's Orb": [
+    "Infused Engineer's Orb"
+   ],
+   "Harbinger's Orb": [
+    "Harbinger's Orb"
+   ],
+   "Ancient Shard": [
+    "Ancient Shard"
+   ],
+   "Binding Shard": [
+    "Binding Shard"
+   ],
+   "Engineer's Shard": [
+    "Engineer's Shard"
+   ],
+   "Harbinger's Shard": [
+    "Harbinger's Shard"
+   ],
+   "and Horizon Shard": []
+  },
+  "wide_needs_review": {
+   "Lycia's Invocation": [
+    "Lycia's Invocation of Acrobatics",
+    "Lycia's Invocation of Ancestral Bond",
+    "Lycia's Invocation of Arrow Dancing",
+    "Lycia's Invocation of Avatar of Fire",
+    "Lycia's Invocation of Blood Magic",
+    "Lycia's Invocation of Call to Arms",
+    "Lycia's Invocation of Conduit",
+    "Lycia's Invocation of Crimson Dance",
+    "Lycia's Invocation of Divine Shield",
+    "Lycia's Invocation of Eldritch Battery",
+    "Lycia's Invocation of Elemental Equilibrium",
+    "Lycia's Invocation of Elemental Overload",
+    "Lycia's Invocation of Eternal Youth",
+    "Lycia's Invocation of Ghost Dance",
+    "Lycia's Invocation of Ghost Reaver",
+    "Lycia's Invocation of Glancing Blows",
+    "Lycia's Invocation of Hex Master",
+    "Lycia's Invocation of Imbalanced Guard",
+    "Lycia's Invocation of Iron Grip",
+    "Lycia's Invocation of Iron Reflexes",
+    "Lycia's Invocation of Iron Will",
+    "Lycia's Invocation of Lethe Shade",
+    "Lycia's Invocation of Magebane",
+    "Lycia's Invocation of Mind over Matter",
+    "Lycia's Invocation of Minion Instability",
+    "Lycia's Invocation of Pain Attunement",
+    "Lycia's Invocation of Perfect Agony",
+    "Lycia's Invocation of Point Blank",
+    "Lycia's Invocation of Precise Technique",
+    "Lycia's Invocation of Resolute Technique",
+    "Lycia's Invocation of Runebinder",
+    "Lycia's Invocation of Solipsism",
+    "Lycia's Invocation of Supreme Ego",
+    "Lycia's Invocation of Unwavering Stance",
+    "Lycia's Invocation of Vaal Pact",
+    "Lycia's Invocation of Versatile Combatant",
+    "Lycia's Invocation of Wicked Ward",
+    "Lycia's Invocation of Wind Dancer",
+    "Lycia's Invocation of Zealot's Oath",
+    "Lycia's Invocation of the Agnostic",
+    "Lycia's Invocation of the Impaler"
+   ]
+  }
+ }
+}

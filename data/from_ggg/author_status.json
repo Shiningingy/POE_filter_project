@@ -64,6 +64,15 @@
         "Fenumal Lure",
         "Saqawine Lure"
       ]
+    },
+    "removed_by_wiki": {
+      "_source": "poewiki Drop-restricted item, 'removed from the game entirely at a later time'",
+      "_note": "★ MY ERROR, CAUGHT BY THE WIKI THE SAME DAY. I created Currency/Sanctum.json and put 41 Lycia's Invocations in it on a loud R2 vermilion rung, reasoning from the author's answer that Sanctum EXISTS in Ruthless. The mechanic does; these do not — they were deleted with the relic rework. 'The mechanic is live' does not imply 'its old rewards drop', and FilterBlade names zero of them either, which I had already measured and failed to weigh.",
+      "items": [
+        "Lycia's Invocation",
+        "Sanctified Relic"
+      ]
     }
-  }
+  },
+  "_wiki_supersedes": "★ 2026-08-19: data/from_wiki/drop_restricted.json now carries this state from a PUBLISHED source, in three grades (usable / defunct / removed). Prefer it. This file is for what the wiki does not cover or contradicts, and every entry below was CONFIRMED by it: the Lures, Perandus Coins and Breachstones are listed drop-disabled; the Coins are named as Mirage-exclusive; Recombinators are 'drop-disabled but can be used'; Charms are listed REMOVED."
 }
