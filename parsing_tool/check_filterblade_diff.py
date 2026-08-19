@@ -128,17 +128,36 @@ def main():
             if r.get("Name"):
                 cls_by_base.setdefault(r["Name"], names.get(r.get("ItemClassesKey"), "?"))
 
-    def uncovered(name):
-        """True only if our filter drops this base all the way to the catch-all."""
-        item = {"Class": cls_by_base.get(name, "?"), "BaseType": name, "rarity": 0,
+    def _item(name):
+        """A probe item. ⚠️ MapTier is 16 for maps: the map ladder is keyed entirely on tier,
+        so a map probed at 0 matches nothing and reports as lost by both filters."""
+        c = cls_by_base.get(name, "?")
+        return {"Class": c, "BaseType": name, "rarity": 0, "MapTier": 16 if "Map" in c else 0,
                 "AreaLevel": 75, "ItemLevel": 77, "Quality": 0, "Sockets": 0, "LinkedSockets": 0,
-                "StackSize": 1, "MapTier": 0, "GemLevel": 20, "BaseDefencePercentile": 50,
+                "StackSize": 1, "GemLevel": 20, "BaseDefencePercentile": 50,
                 "Identified": False, "Corrupted": False, "Mirrored": False, "MemoryStrands": 0}
-        return winner(blocks, item) is net
+
+    def uncovered(name):
+        """True only if OUR filter drops this base all the way to the catch-all."""
+        return winner(blocks, _item(name)) is net
+
+    # ★ SYMMETRY. The first version applied the "does the filter HANDLE it" test to one
+    # direction only and left the other comparing names, which manufactured two findings that
+    # both dissolved on inspection: three tinctures and the Voyage Charts looked like content
+    # FilterBlade had dropped, and in fact they cover both with a CLASS net —
+    # `Class == "Tinctures"` and `Class == "Chart"`. Asking "do they name it" of a filter that
+    # answers with classes is the same mistake in a mirror, so both directions run the real test.
+    fb_blocks = cparse(fb_path)
+    fb_net = fb_blocks[-1]
+
+    def they_lose(name):
+        w = winner(fb_blocks, _item(name))
+        return w is None or w is fb_net
 
     theirs_only = sorted(n for n in fb_e - ours_e
                          if not covered_by_partial(n, ours_p) and uncovered(n))
-    ours_only = sorted(n for n in ours_e - fb_e if not covered_by_partial(n, fb_p))
+    ours_only = sorted(n for n in ours_e - fb_e
+                       if not covered_by_partial(n, fb_p) and they_lose(n))
 
     print()
     print("=" * 78)
@@ -166,16 +185,20 @@ def main():
 
     print()
     print("=" * 78)
-    print("WE NAME IT, THEY DO NOT — %d" % len(ours_only))
-    print("  content we carry that they have dropped. ⚠️ Anything entering AFTER their file's")
-    print("  date is explained by staleness, not by a defect — read the 'entered' column first.")
+    print("WE NAME IT AND THEIR FILTER LOSES IT — %d" % len(ours_only))
+    print("  content we curate that a long-polished filter does not handle at all — which is")
+    print("  either us being ahead of them, or us carrying something dead.")
     print("=" * 78)
-    by2 = collections.Counter()
+    byc2 = collections.defaultdict(list)
     for n in ours_only:
-        by2[entered.get(n.casefold(), "—")] += 1
-    for v, c in sorted(by2.items()):
-        names = [n for n in ours_only if entered.get(n.casefold(), "—") == v]
-        print("  entered %-8s %3d   %s" % (v, c, ", ".join(names[:6]) + (" …" if len(names) > 6 else "")))
+        byc2[cls_by_base.get(n, "?")].append(n)
+    for k in sorted(byc2, key=lambda k: -len(byc2[k])):
+        names = sorted(byc2[k])
+        print("  %-24s %4d" % (k, len(names)))
+        for n in names[:14]:
+            print("       %-34s entered %s" % (n, entered.get(n.casefold(), "—")))
+        if len(names) > 14:
+            print("       … +%d more" % (len(names) - 14))
 
     print()
     print("agreed on %d exact base names." % len(ours_e & fb_e))

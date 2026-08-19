@@ -56,7 +56,6 @@ EQUIPMENT = {
 # Keep this list SHORT and evidenced — it is the place a real bug hides most comfortably.
 KNOWN = {
     "Fishing Rod": "not obtainable as a normal drop; named only inside a unique's BaseType list",
-    "Vaal Temple Map": "only exists at MapTier 16 and its block says so; the probe carries no map tier",
 }
 
 def show_path(path):
@@ -230,11 +229,16 @@ def main():
             items.append(it)
 
     def probe(it, rv, a):
+        # ⚠️ MapTier 0 matches no map block — the map ladder is keyed entirely on tier, so a
+        # map probed at 0 always looks lost. That artifact is what put Vaal Temple Map on the
+        # KNOWN list. A probe that cannot express the condition a category is built on is not
+        # evidence about that category.
+        mt = 16 if "Map" in (it["item_class"] or "") else 0
         return winner(blocks, {
             "Class": it["item_class"], "BaseType": it["name"], "rarity": rv,
             "AreaLevel": a, "ItemLevel": a + (2 if rv >= 2 else 1),
             "Quality": 0, "Sockets": 2, "LinkedSockets": 2, "StackSize": 1,
-            "MapTier": 0, "GemLevel": 1, "BaseDefencePercentile": 50,
+            "MapTier": mt, "GemLevel": 1, "BaseDefencePercentile": 50,
             "Identified": False, "Corrupted": False, "Mirrored": False, "MemoryStrands": 0,
         })
 

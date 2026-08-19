@@ -4,11 +4,16 @@ Fetched from [NeverSinkDev/FilterBlade-Public-Assets](https://github.com/NeverSi
 `FbPoe1Configs/`, pinned to commit **`766a5aa2c3ebddc08117521f4545e72c5af807bf`**
 (2026-07-31, "sync from FB to GitHub 6403 - csv updates talisman implicit").
 
-⚠️ **Upstream itself has not moved since 2026-07-31**, which is BEFORE 3.29 launched (Aug 1).
-So these assets are a **3.28 reference**, not a current one. That is a hard limit on the
-"we carry it and they do not" half of the FilterBlade cross-check — every 3.29 base looks
-like ours-only for a reason that is not a defect. `parsing_tool/check_filterblade_diff.py`
-prints the file date for this reason.
+★ **These assets ARE 3.29.** 3.29 launched on the **international** realm 2026-07-22; the
+**China** realm followed 2026-08-01. This pin is 2026-07-31 — nine days into the league, and
+after GGG's own 3.29 filter-info thread (posted 07-21). Corroborated by the contents: it
+carries Allflame Embers, Enshrouding Crystals, Mercenary Warrants, Ducats and the four
+Zorath's Eyes.
+
+⚠️ **Do not anchor league dates on the China launch.** This repo ships against the
+international realm, and using the CN date made a current snapshot look three weeks stale and
+nearly got the whole cross-check written off. Both halves of
+`parsing_tool/check_filterblade_diff.py` are trustworthy against this pin.
 
 ## Why this exists next to `../3.28/`
 
