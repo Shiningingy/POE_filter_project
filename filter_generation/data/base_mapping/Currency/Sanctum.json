@@ -2,11 +2,6 @@
   "_meta": {
     "localization": {
       "ch": {
-        "Coin of Desecration": "亵渎硬币",
-        "Coin of Knowledge": "知识硬币",
-        "Coin of Power": "力量硬币",
-        "Coin of Restoration": "回复硬币",
-        "Coin of Skill": "技能硬币",
         "Lycia's Invocation of Acrobatics": "莉西娅的恳求：移形换影",
         "Lycia's Invocation of Ancestral Bond": "莉西娅的恳求：先祖魂约",
         "Lycia's Invocation of Arrow Dancing": "莉西娅的恳求：箭矢闪跃",
@@ -47,8 +42,7 @@
         "Lycia's Invocation of Wind Dancer": "莉西娅的恳求：风舞者",
         "Lycia's Invocation of Zealot's Oath": "莉西娅的恳求：狂热誓言",
         "Lycia's Invocation of the Agnostic": "莉西娅的恳求：惘信者",
-        "Lycia's Invocation of the Impaler": "莉西娅的恳求：穿刺者",
-        "The Black Barya": "漆黑巴雅"
+        "Lycia's Invocation of the Impaler": "莉西娅的恳求：穿刺者"
       }
     },
     "item_class": {
@@ -56,14 +50,10 @@
       "ch": "可堆叠通货"
     },
     "theme_category": "Sanctum",
-    "_zh_source": "Official Simplified Chinese from data/source/cn-3.29, joined on Id (ADR-0004). 47/47 resolved, 0 ambiguous. Never hand-written."
+    "_zh_source": "Official Simplified Chinese from data/source/cn-3.29, joined on Id (ADR-0004). 47/47 resolved, 0 ambiguous. Never hand-written.",
+    "_note": "Sanctum keystones only. The 5 Coins and The Black Barya were moved here on 2026-08-19 and moved straight back out the same day: the author plays Ruthless and reports both are 3.28 introductions that are TEMPORARILY DROP DISABLED. Sanctum the mechanic exists; these particular drops do not, right now."
   },
   "mapping": {
-    "Coin of Desecration": "Sanctum",
-    "Coin of Knowledge": "Sanctum",
-    "Coin of Power": "Sanctum",
-    "Coin of Restoration": "Sanctum",
-    "Coin of Skill": "Sanctum",
     "Lycia's Invocation of Acrobatics": "Sanctum",
     "Lycia's Invocation of Ancestral Bond": "Sanctum",
     "Lycia's Invocation of Arrow Dancing": "Sanctum",
@@ -104,8 +94,7 @@
     "Lycia's Invocation of Wind Dancer": "Sanctum",
     "Lycia's Invocation of Zealot's Oath": "Sanctum",
     "Lycia's Invocation of the Agnostic": "Sanctum",
-    "Lycia's Invocation of the Impaler": "Sanctum",
-    "The Black Barya": "Sanctum"
+    "Lycia's Invocation of the Impaler": "Sanctum"
   },
   "rules": []
 }

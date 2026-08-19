@@ -30,8 +30,8 @@
   "class": "Support Gems"
  },
  "Armour Recombinator": {
-  "verdict": "LIVE since 3.18.0",
-  "source": "feed:new",
+  "verdict": "EVENT ONLY",
+  "source": "author_status.json — author, 2026-08-19",
   "class": "Stackable Currency"
  },
  "Ashscale Talisman": {
@@ -155,28 +155,28 @@
   "class": "Amulets"
  },
  "Coin of Desecration": {
-  "verdict": "LIVE since 3.28.0",
-  "source": "feed:new",
+  "verdict": "DROP DISABLED",
+  "source": "author_status.json — author, 2026-08-19, playing 3.29 Ruthless",
   "class": "Stackable Currency"
  },
  "Coin of Knowledge": {
-  "verdict": "LIVE since 3.28.0",
-  "source": "feed:new",
+  "verdict": "DROP DISABLED",
+  "source": "author_status.json — author, 2026-08-19, playing 3.29 Ruthless",
   "class": "Stackable Currency"
  },
  "Coin of Power": {
-  "verdict": "LIVE since 3.28.0",
-  "source": "feed:new",
+  "verdict": "DROP DISABLED",
+  "source": "author_status.json — author, 2026-08-19, playing 3.29 Ruthless",
   "class": "Stackable Currency"
  },
  "Coin of Restoration": {
-  "verdict": "LIVE since 3.28.0",
-  "source": "feed:new",
+  "verdict": "DROP DISABLED",
+  "source": "author_status.json — author, 2026-08-19, playing 3.29 Ruthless",
   "class": "Stackable Currency"
  },
  "Coin of Skill": {
-  "verdict": "LIVE since 3.28.0",
-  "source": "feed:new",
+  "verdict": "DROP DISABLED",
+  "source": "author_status.json — author, 2026-08-19, playing 3.29 Ruthless",
   "class": "Stackable Currency"
  },
  "Companionship Support": {
@@ -205,8 +205,8 @@
   "class": "Belts"
  },
  "Corvine Charm": {
-  "verdict": "LIVE since 3.23.0",
-  "source": "feed:new",
+  "verdict": "DROP DISABLED",
+  "source": "author_status.json — author, 2026-08-19; corroborated by FilterBlade (0 mentions) and by the 3.24 patch notes not naming Wildwood at all",
   "class": "Charms"
  },
  "Craicic Lure": {
@@ -288,11 +288,6 @@
   "verdict": "RETIRED 3.28.0",
   "source": "feed",
   "class": "Stackable Currency"
- },
- "Engraved Ultimatum": {
-  "verdict": "LIVE since 3.19.0",
-  "source": "feed:new",
-  "class": "Maps"
  },
  "Enkindling Orb": {
   "verdict": "drop-disabled in RUTHLESS",
@@ -600,8 +595,8 @@
   "class": "Support Gems"
  },
  "Jewellery Recombinator": {
-  "verdict": "LIVE since 3.18.0",
-  "source": "feed:new",
+  "verdict": "EVENT ONLY",
+  "source": "author_status.json — author, 2026-08-19",
   "class": "Stackable Currency"
  },
  "Journey Tattoo of the Body": {
@@ -650,214 +645,9 @@
   "class": "Amulets"
  },
  "Lupine Charm": {
-  "verdict": "LIVE since 3.23.0",
-  "source": "feed:new",
+  "verdict": "DROP DISABLED",
+  "source": "author_status.json — author, 2026-08-19; corroborated by FilterBlade (0 mentions) and by the 3.24 patch notes not naming Wildwood at all",
   "class": "Charms"
- },
- "Lycia's Invocation of Acrobatics": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Ancestral Bond": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Arrow Dancing": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Avatar of Fire": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Blood Magic": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Call to Arms": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Conduit": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Crimson Dance": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Divine Shield": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Eldritch Battery": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Elemental Equilibrium": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Elemental Overload": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Eternal Youth": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Ghost Dance": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Ghost Reaver": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Glancing Blows": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Hex Master": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Imbalanced Guard": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Iron Grip": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Iron Reflexes": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Iron Will": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Lethe Shade": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Magebane": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Mind over Matter": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Minion Instability": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Pain Attunement": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Perfect Agony": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Point Blank": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Precise Technique": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Resolute Technique": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Runebinder": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Solipsism": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Supreme Ego": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Unwavering Stance": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Vaal Pact": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Versatile Combatant": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Wicked Ward": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Wind Dancer": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of Zealot's Oath": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of the Agnostic": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Lycia's Invocation of the Impaler": {
-  "verdict": "LIVE since 3.20.1",
-  "source": "feed:new",
-  "class": "Stackable Currency"
  },
  "Machinations Support": {
   "verdict": "LIVE since 3.28.0",
@@ -916,26 +706,6 @@
  },
  "Nameless Astrolabe": {
   "verdict": "LIVE since 3.28.0",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Omen of Acceleration": {
-  "verdict": "LIVE since 3.22.0",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Omen of Bequeathal": {
-  "verdict": "LIVE since 3.22.0",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Omen of Resurgence": {
-  "verdict": "LIVE since 3.22.0",
-  "source": "feed:new",
-  "class": "Stackable Currency"
- },
- "Omen of Revenge": {
-  "verdict": "LIVE since 3.22.0",
   "source": "feed:new",
   "class": "Stackable Currency"
  },
@@ -1480,8 +1250,8 @@
   "class": "Incubators"
  },
  "The Black Barya": {
-  "verdict": "LIVE since 3.28.0",
-  "source": "feed:new",
+  "verdict": "DROP DISABLED",
+  "source": "author_status.json — author, 2026-08-19, playing 3.29 Ruthless",
   "class": "Map Fragments"
  },
  "The Master": {
@@ -1580,8 +1350,8 @@
   "class": "Stackable Currency"
  },
  "Ursine Charm": {
-  "verdict": "LIVE since 3.23.0",
-  "source": "feed:new",
+  "verdict": "DROP DISABLED",
+  "source": "author_status.json — author, 2026-08-19; corroborated by FilterBlade (0 mentions) and by the 3.24 patch notes not naming Wildwood at all",
   "class": "Charms"
  },
  "Vaal Breach": {
@@ -1635,8 +1405,8 @@
   "class": "Stackable Currency"
  },
  "Weapon Recombinator": {
-  "verdict": "LIVE since 3.18.0",
-  "source": "feed:new",
+  "verdict": "EVENT ONLY",
+  "source": "author_status.json — author, 2026-08-19",
   "class": "Stackable Currency"
  },
  "Wereclaw Talisman": {

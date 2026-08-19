@@ -1,0 +1,57 @@
+{
+  "_about": "Statuses NO published source carries. Author-supplied, from playing Ruthless.",
+  "_why": [
+    "GGG's Item Filter Information feed has exactly three verbs: new, removed, returning.",
+    "The game has at least two more, and both look like LIVE to the feed:",
+    "  drop_disabled  — the base still exists and is not in any Removed Items list, but nothing",
+    "                   drops it right now. GGG does this to last league's content routinely and",
+    "                   does not always announce it in a section a filter author can parse.",
+    "  event_only     — obtainable only inside a special event league, absent from the base game.",
+    "",
+    "This is a sharper limit than the 3.16 publication cliff. The cliff makes the feed INCOMPLETE",
+    "about old removals; this makes it WRONG about a current one. Wildwood's charms are the proof:",
+    "the feed still reads them LIVE since 3.23 because 3.24, 3.25 and 3.26 never name them, the",
+    "3.24 patch notes do not mention Wildwood at all, and FilterBlade's Ruthless filter has zero",
+    "mentions of them. Only the author knew, from playing.",
+    "",
+    "★ audit_legacy.py reads this FIRST, ahead of the feed and ahead of the Ruthless wiki. An entry",
+    "here is a report from someone standing in the game, which outranks a forum post about it."
+  ],
+  "_maintenance": "Add an entry when the author reports a status the feed cannot express. Always record WHO said it and WHEN, so a later league can retire the override instead of it becoming folklore.",
+  "statuses": {
+    "drop_disabled": {
+      "_source": "author, 2026-08-19, playing 3.29 Ruthless",
+      "_note": "3.28 Mirage introductions, switched off for 3.29. Not in any Removed Items list — the feed reports all six as LIVE since 3.28.",
+      "items": [
+        "Coin of Desecration",
+        "Coin of Knowledge",
+        "Coin of Power",
+        "Coin of Restoration",
+        "Coin of Skill",
+        "The Black Barya"
+      ]
+    },
+    "drop_disabled_wildwood": {
+      "_source": "author, 2026-08-19; corroborated by FilterBlade (0 mentions) and by the 3.24 patch notes not naming Wildwood at all",
+      "_note": "Affliction league content removed from the drop table when the league ended. The feed never retires them, so without this entry the audit reports them LIVE since 3.23 forever.",
+      "items": [
+        "Corvine Charm",
+        "Lupine Charm",
+        "Ursine Charm"
+      ]
+    },
+    "event_only": {
+      "_source": "author, 2026-08-19",
+      "_note": "Sentinel (3.18) content. Drop disabled in the base game, but re-enabled inside special event leagues — which has happened exactly once since Sentinel. So neither LIVE nor RETIRED: it can come back without a league launch, which is why it is its own status rather than a removal.",
+      "items": [
+        "Armour Recombinator",
+        "Weapon Recombinator",
+        "Jewellery Recombinator",
+        "Power Core",
+        "Transforming Power Core",
+        "Amplifying Power Core",
+        "Augmenting Power Core"
+      ]
+    }
+  }
+}

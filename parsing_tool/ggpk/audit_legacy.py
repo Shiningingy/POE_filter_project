@@ -123,11 +123,32 @@ def _before_cliff(v):
     return _vkey(v) < CLIFF
 
 
+# ── ★ AUTHOR STATUS — read FIRST, outranks every published source ───────────────
+# The feed has three verbs (new / removed / returning). The game has more, and the extra ones
+# look exactly like LIVE from here: a base that still exists, sits in no Removed Items list,
+# and simply does not drop this league. GGG does that to last league's content routinely.
+#
+# ⚠️ This is a SHARPER limit than the 3.16 cliff. The cliff makes the feed incomplete about old
+# removals; this makes it WRONG about a current one. Wildwood's charms are the proof — the feed
+# reads them LIVE since 3.23 because 3.24/3.25/3.26 never name them, the 3.24 patch notes do not
+# mention Wildwood at all, and FilterBlade has zero mentions. Only the author knew, from playing.
+_AS = json.load(io.open(os.path.join(ROOT, "data", "from_ggg", "author_status.json"),
+                        encoding="utf-8"))
+AUTHOR = {}
+for _k, _blk in _AS["statuses"].items():
+    _label = "drop_disabled" if _k.startswith("drop_disabled") else _k
+    for _i in _blk["items"]:
+        AUTHOR[_i.casefold()] = (_label, _blk["_source"])
+
 verdict = collections.OrderedDict()
 for n in legacy:
     v, ev = latest_event(n)
     sub = ruthless_subtracts(n)
-    if ev == "removed":
+    if n.casefold() in AUTHOR:
+        _label, _src = AUTHOR[n.casefold()]
+        verdict[n] = ("DROP DISABLED" if _label == "drop_disabled" else "EVENT ONLY",
+                      "author_status.json — %s" % _src)
+    elif ev == "removed":
         verdict[n] = ("RETIRED %s" % v, "feed")
     elif sub:
         verdict[n] = ("drop-disabled in RUTHLESS", sub + (" (live in the game since %s)" % v if ev in ("new", "returning") else ""))
