@@ -52,6 +52,18 @@
         "Amplifying Power Core",
         "Augmenting Power Core"
       ]
+    },
+    "retired_author_ruled": {
+      "_source": "author, 2026-08-19, from playing — no published source names these in either direction",
+      "_note": "The six that genuinely rendered as Legacy out of the 29 unknowns. No filter-info thread from 2.3 to 3.29 names them, 3.2 Bestiary has no thread at all, and the author ruled them all retired. ★ The Lures ARE scarabs (metadata Items/Scarabs/ScarabBeasts4a-d) but were retired long ago, so their scarab-ness is not a reason to rehome them.",
+      "items": [
+        "Perandus Coin",
+        "Chayula's Flawless Breachstone",
+        "Craicic Lure",
+        "Farric Lure",
+        "Fenumal Lure",
+        "Saqawine Lure"
+      ]
     }
   }
 }

@@ -136,9 +136,13 @@ _AS = json.load(io.open(os.path.join(ROOT, "data", "from_ggg", "author_status.js
                         encoding="utf-8"))
 AUTHOR = {}
 for _k, _blk in _AS["statuses"].items():
-    _label = "drop_disabled" if _k.startswith("drop_disabled") else _k
+    _label = ("drop_disabled" if _k.startswith("drop_disabled")
+              else "retired" if _k.startswith("retired") else _k)
     for _i in _blk["items"]:
         AUTHOR[_i.casefold()] = (_label, _blk["_source"])
+
+_AUTHOR_VERDICT = {"drop_disabled": "DROP DISABLED", "event_only": "EVENT ONLY",
+                   "retired": "RETIRED (author)"}
 
 verdict = collections.OrderedDict()
 for n in legacy:
@@ -146,8 +150,7 @@ for n in legacy:
     sub = ruthless_subtracts(n)
     if n.casefold() in AUTHOR:
         _label, _src = AUTHOR[n.casefold()]
-        verdict[n] = ("DROP DISABLED" if _label == "drop_disabled" else "EVENT ONLY",
-                      "author_status.json — %s" % _src)
+        verdict[n] = (_AUTHOR_VERDICT[_label], "author_status.json — %s" % _src)
     elif ev == "removed":
         verdict[n] = ("RETIRED %s" % v, "feed")
     elif sub:
