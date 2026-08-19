@@ -133,7 +133,8 @@
         "Offering to the Goddess": "女神祭品",
         "Dedication to the Goddess": "女神祭献",
         "Gift to the Goddess": "女神之礼",
-        "Tribute to the Goddess": "女神贡品"
+        "Tribute to the Goddess": "女神贡品",
+        "Engraved Ultimatum": "符文致命贪婪"
       }
     },
     "item_class": {
@@ -147,16 +148,17 @@
     "Bane of the Loyal": "Misc",
     "Cogs of Disruption": "Misc",
     "Cube Of Absorption": "Misc",
+    "Engraved Ultimatum": "Misc",
+    "Golden Key": "Misc",
+    "Heart of the Gargoyle": "Misc",
+    "Maligaro's Map": "Misc",
+    "Medicine Chest": "Misc",
+    "Orb of Elemental Dispersion": "Misc",
     "Portal Shredder": "Misc",
     "Rod of Detonation": "Misc",
     "Sand of Eternity": "Misc",
     "Silver Key": "Misc",
-    "Heart of the Gargoyle": "Misc",
-    "Orb of Elemental Dispersion": "Misc",
-    "Golden Key": "Misc",
-    "Treasure Key": "Misc",
-    "Medicine Chest": "Misc",
-    "Maligaro's Map": "Misc"
+    "Treasure Key": "Misc"
   },
   "rules": [
     {

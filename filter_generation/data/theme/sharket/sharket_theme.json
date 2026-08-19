@@ -1120,5 +1120,14 @@
       "BackgroundColor": "#000000ff",
       "FontSize": 40
     }
+  },
+  "Sanctum": {
+    "Tier 2": {
+      "TextColor": "#ffffffff",
+      "BackgroundColor": "#f05a23ff",
+      "FontSize": 45,
+      "MinimapIcon": "1 Green Diamond",
+      "_rung": "R2"
+    }
   }
 }

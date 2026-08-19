@@ -1,0 +1,50 @@
+{
+  "Sanctum": {
+    "_meta": {
+      "theme_category": "Sanctum",
+      "localization": {
+        "en": "Sanctum",
+        "ch": "圣域"
+      },
+      "item_class": {
+        "en": "Stackable Currency",
+        "ch": "可堆叠通货"
+      },
+      "tier_order": [
+        "Sanctum",
+        "Hide Sanctum"
+      ],
+      "_note": "Sanctum's 47 drops — 41 Lycia's Invocations, the 5 Coins and The Black Barya — were sitting in _legacy wearing the retired grey-on-dark look while GGG's feed says they are LIVE (3.20.1 / 3.28). Author confirmed 2026-08-19 that Sanctum EXISTS in Ruthless, which is the question the feed cannot answer: it reports what GGG says drops, not what drops in our mode. Shape follows Currency/Incursion Vials.json — one visible tier plus a hide — because there is no basis yet for a ladder. ★ TIERING IS THE AUTHOR'S: split this when the values are known."
+    },
+    "Sanctum": {
+      "hideable": true,
+      "theme": {
+        "Tier": 2
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Sanctum",
+        "ch": "圣域"
+      }
+    },
+    "Hide Sanctum": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "class_condition": false,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}
