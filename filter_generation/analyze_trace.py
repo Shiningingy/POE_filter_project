@@ -1,15 +1,24 @@
 """Read a generation trace and answer what `mapping` alone cannot.
 
-⚠️ BROKEN RIGHT NOW — raises `KeyError: 'tiers'`. Not this file's fault, and not a reason
-to delete it: `generate.mjs --trace` (the Node CLI that replaced `generate.py --trace` in
-ADR-0007) emits only the `blocks` half of the trace. The `tiers` half — every tier
-CONSIDERED, with `{file, emitted, reason, mapped_items}` — is no longer produced, and that
-is the half that answers "which tiers carried mapped items and emitted nothing?".
+★ WORKING AGAIN as of 2026-08-19. It spent the rewrite raising `KeyError: 'tiers'`: ADR-0007
+replaced `generate.py --trace` with the Node CLI, and only the `blocks` half of the trace was
+carried across. The `tiers` half — every tier CONSIDERED, not just those that spoke — is what
+answers *"which tiers carried mapped items and emitted nothing?"*, and losing it took the
+silent-tier and silent-rule reports with it.
 
-To revive: add an `onTier` observer to `GeneratorData` in filterGenerator.ts, symmetric
-with the existing `onBlock`, and have generate.mjs write `{blocks, tiers, meta}` again.
-Queued with workstream C, which is what needs it. See
-filter_generation/archive/retired-code/README.md.
+Revived by adding an `onTier` observer to `GeneratorData` in filterGenerator.ts, symmetric
+with `onBlock` (both inert when absent, so the browser pays nothing), plus `rule_authored` /
+`rule_index` on BlockRecord — the display string `rule` cannot answer "did rule #7 ever
+emit?" because several rules can share one. Regenerate with:
+
+    node filter_generation/generate.mjs --mode ruthless --strictness soft \
+        --out out/x.filter --trace filter_generation/traces/ruthless-soft.json
+
+⚠️ The trace is an ARTIFACT OF A BUILD, so it is only true of the data it was built from.
+The committed copy was found two commits stale (it predated the V6.95 Act-1 net fix), and
+`check_label_collisions.py` and `check_lost_item_sounds.py` both read it — so they were
+answering questions about a filter that no longer existed. Regenerate it in the same
+breath as any data change you intend to analyse.
 
 Usage:  python filter_generation/analyze_trace.py [traces/ruthless-soft.json ...]
 
@@ -199,14 +208,25 @@ def analyze(trace_path):
     # and it is the overwhelming majority, so folding it in would bury the few
     # cases that are actually unexplained.
     gated_by_campaign = defaultdict(set)
+    # Items covered by a CLASS gate rather than by name. A class_condition or decorator
+    # tier emits one condition-only block, so nothing it covers is ever "claimed" in the
+    # by-name sense this report measures — yet the items are perfectly caught.
+    #
+    # ⚠️ Do not drop this subtraction. Without it every such base reads as a gap: the four
+    # that showed up before it existed (Small Life Flask, Relics, Heist Target, RGB Linked)
+    # were all working tiers, and "fixing" them would have broken real coverage.
+    covered_by_class = defaultdict(set)
     for t in tiers:
         if not t["emitted"] and t["reason"].startswith("campaign:"):
             gated_by_campaign[t["file"]].update(t["mapped_items"])
+        if t.get("emits_by_class"):
+            covered_by_class[t["file"]].update(t["mapped_items"])
 
     for rel_file in {t["file"] for t in tiers}:
         mapping = load_mapping(rel_file)
         missing = set(mapping) - claimed_by_file.get(rel_file, set())
         missing -= gated_by_campaign.get(rel_file, set())
+        missing -= covered_by_class.get(rel_file, set())
         if missing:
             mapped_not_claimed[rel_file] = missing
 

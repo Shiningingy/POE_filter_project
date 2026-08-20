@@ -133,6 +133,11 @@ try {
 
   const footerFile = join(DATA, 'footer.filter');
   const blocks = tracePath ? [] : null;
+  // The trace has two halves and analyze_trace.py needs both: `blocks` is what came out,
+  // `tiers` is every tier CONSIDERED — including the ones that emitted nothing, which is
+  // the half that reports absence. Writing only `blocks` is what left analyze_trace.py
+  // raising KeyError: 'tiers'.
+  const tiers = tracePath ? [] : null;
 
   console.log(`Using Base Theme: ${baseThemeName}`);
   const text = generateFilter({
@@ -146,6 +151,7 @@ try {
     leveling_selection: levelingSelection,
     mode,
     ...(blocks ? { onBlock: (rec) => blocks.push(rec) } : {}),
+    ...(tiers ? { onTier: (rec) => tiers.push(rec) } : {}),
   });
 
   mkdirSync(dirname(outPath), { recursive: true });
@@ -156,10 +162,16 @@ try {
     const traceAbs = resolve(ROOT, tracePath);
     mkdirSync(dirname(traceAbs), { recursive: true });
     writeFileSync(traceAbs, JSON.stringify({
-      meta: { mode, strictness, language, leveling_selection: levelingSelection, blocks: blocks.length },
+      meta: {
+        mode, strictness, language, leveling_selection: levelingSelection,
+        blocks: blocks.length, tiers: tiers.length,
+      },
       blocks,
+      tiers,
     }, null, 1), 'utf8');
-    console.log(`[OK] Trace written to ${traceAbs} (${blocks.length} blocks)`);
+    const silent = tiers.filter((t) => !t.emitted).length;
+    console.log(`[OK] Trace written to ${traceAbs} (${blocks.length} blocks, `
+      + `${tiers.length} tiers considered, ${silent} of them silent)`);
   }
 } finally {
   rmSync(tmp, { recursive: true, force: true });

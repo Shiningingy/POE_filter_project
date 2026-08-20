@@ -62,6 +62,44 @@ export interface BlockRecord {
   bases: string[];
   is_hide: boolean;
   text: string;           // the block exactly as written to the filter
+  // Which AUTHORED rule produced this, indexed into the mapping file's `rules` array.
+  // `rule` above is a localized display string and several rules can share one, so it
+  // cannot answer "did rule #7 ever emit?" — which is the whole question behind the
+  // silent-rule report. null for blocks no rule authored (tier bases, decorators).
+  rule_authored: boolean;
+  rule_index: number | null;
+}
+
+/**
+ * One tier CONSIDERED, reported through GeneratorData.onTier — whether or not it
+ * emitted anything.
+ *
+ * ★ This is the half of the trace that reports ABSENCE, and absence is the failure mode
+ * nothing else here can see. A block that emits wrongly shows up in the filter, in the
+ * preview, in every guard we have. A tier that emits NOTHING leaves no trace at all: the
+ * items just quietly fall through to whatever catches them next, and the editor still
+ * shows the tier sitting there looking fine. That is the shape of the recurring
+ * "mapped but emits nothing" bug — 525 entries on undeclared tier keys, the 13 silent
+ * quivers, the Blueprints rules that matched nothing.
+ *
+ * `reason` is why it went quiet, and is NOT a defect label: `mode:ruthless` and
+ * `campaign:unpicked` are the system working. analyze_trace.py separates them.
+ */
+export interface TierRecord {
+  file: string;           // same relative path as BlockRecord.file, POSIX
+  tier_key: string;
+  emitted: boolean;       // did any block come out of this tier?
+  reason: string;         // 'emitted' when it did; otherwise why not
+  mapped_items: string[]; // what `mapping` assigned here — the items a silence costs
+  // True when this tier emits a CONDITION-ONLY block (class_condition / decorator), i.e.
+  // it covers its items by Class rather than by naming them.
+  //
+  // ⚠️ Without this, every base mapped to such a tier reads as "mapped but never claimed",
+  // because no block names it — while in fact the class gate catches it perfectly. That
+  // false positive is not hypothetical: it was the entire MAPPED-NOT-CLAIMED list on the
+  // first run (Small Life Flask, Relics, Heist Target, RGB Linked), and chasing it would
+  // have meant "fixing" four tiers that are working.
+  emits_by_class: boolean;
 }
 
 interface GeneratorData {
@@ -82,6 +120,11 @@ interface GeneratorData {
   // test needs "which block did this tier actually emit", which cannot be read back
   // out of the finished filter text (the headers are localized and lossy).
   onBlock?: (rec: BlockRecord) => void;
+  // Symmetric observer for tiers CONSIDERED — see TierRecord. Also inert when absent.
+  // Both halves existed under `generate.py --trace`; ADR-0007 retired that generator and
+  // only `onBlock` was carried across, which left analyze_trace.py raising KeyError on
+  // 'tiers' and the silent-tier report unavailable for the whole rewrite.
+  onTier?: (rec: TierRecord) => void;
 }
 
 // ===========================
@@ -313,13 +356,31 @@ export const generateFilter = (data: GeneratorData): string => {
     });
 
     for (const tLbl of tierOrder) {
-      if (!categoryData[tLbl]) continue;
-
       const items = itemsByTier[tLbl] || [];
+      // Every path out of this iteration reports, so the trace records tiers that went
+      // quiet as well as tiers that spoke. `emitted` is measured, not asserted: it asks
+      // whether blockIndex actually moved, so a tier that reaches the bottom and still
+      // emits nothing (all rules skipped, no pending bases) is caught too.
+      const blocksBefore = blockIndex;
+      let emitsByClass = false;
+      const noteTier = (reason: string) => data.onTier?.({
+        file: relPath, tier_key: tLbl,
+        emitted: blockIndex > blocksBefore,
+        reason: blockIndex > blocksBefore ? 'emitted' : reason,
+        mapped_items: [...items],
+        emits_by_class: emitsByClass,
+      });
+
+      // ★ The tier key exists in `mapping` but not in `tier_definition`. Nothing here is
+      // wrong enough to throw, so the items simply vanish — the single largest instance
+      // of the silent-tier bug (525 entries). It is reported FIRST because it is the one
+      // case where the tier has no definition to describe itself with.
+      if (!categoryData[tLbl]) { noteTier('undeclared: key not in tier_definition'); continue; }
+
       const tierEntry = categoryData[tLbl];
 
       // Skip tiers excluded for the current mode (mirrors generate.py).
-      if ((tierEntry.excluded_modes || []).includes(MODE)) continue;
+      if ((tierEntry.excluded_modes || []).includes(MODE)) { noteTier(`mode:${MODE}`); continue; }
 
       // Campaign module gate (selection-centric ladder, mirrors generate.py):
       // group tiers (axis weapon/armour — the T1 band layer + T2 class-wide
@@ -332,11 +393,11 @@ export const generateFilter = (data: GeneratorData): string => {
       let lvHide = false;
       if (lvAxis === 'aggressive') {
         if (LV_SEL.hide_unselected) lvHide = true;
-        else continue;
+        else { noteTier('campaign:aggressive-not-enabled'); continue; }
       } else if (lvAxis === 'weapon' || lvAxis === 'armour') {
         if (!lvPicked(tierEntry)) {
           if (lvAxis === 'weapon' && LV_SEL.hide_unselected) lvHide = true;
-          else continue;
+          else { noteTier('campaign:unpicked'); continue; }
         }
       }
 
@@ -372,11 +433,11 @@ export const generateFilter = (data: GeneratorData): string => {
         const decConditions = tierEntry.conditions || {};
         // Conditions are the whole point - a decorator with none would repaint every
         // item in the game.
-        if (Object.keys(decConditions).length === 0) continue;
+        if (Object.keys(decConditions).length === 0) { noteTier('decorator:no-conditions'); continue; }
         // A hide that continues is a contradiction: it suppresses the item and then
         // asks later blocks to keep styling it. Ruthless makes this worse, since hide
         // is `Minimal` and still draws a label.
-        if (isHide) continue;
+        if (isHide) { noteTier('decorator:is-hide'); continue; }
         blockIndex++;
         const decDisplay = tierEntry.localization?.[language] || tierEntry.localization?.en || tLbl;
         outLines.push(`\n#==[${blockIndex.toString().padStart(5, '0')}]- ${itemClassHeader} -${decDisplay} ${locCat} - Decorator==`);
@@ -393,7 +454,10 @@ export const generateFilter = (data: GeneratorData): string => {
           order: blockIndex, file: relPath, tier_key: tLbl, tier_num: tnum,
           source: 'decorator', match: null, rule: null, bases: [],
           is_hide: false, text: outLines[outLines.length - 1],
+          rule_authored: false, rule_index: null,
         });
+        emitsByClass = true;
+        noteTier('emitted');
         continue;
       }
 
@@ -402,7 +466,7 @@ export const generateFilter = (data: GeneratorData): string => {
       // BaseType processing. Mirrors generate.py.
       if (tierEntry.class_condition) {
         const tierConditions = tierEntry.conditions || {};
-        if (Object.keys(tierConditions).length === 0) continue;
+        if (Object.keys(tierConditions).length === 0) { noteTier('class_condition:no-conditions'); continue; }
         const themeTnum = tierEntry.theme?.Tier ?? tnum;
         const ccRow = resolveTierTheme(themeData, themeCatKey, tierEntry, `Tier ${themeTnum}`);
         ttheme = Object.keys(ccRow).length > 0 ? ccRow : ttheme;
@@ -431,7 +495,10 @@ export const generateFilter = (data: GeneratorData): string => {
           order: blockIndex, file: relPath, tier_key: tLbl, tier_num: tnum,
           source: 'class_condition', match: null, rule: null, bases: [],
           is_hide: isHide, text: outLines[outLines.length - 1],
+          rule_authored: false, rule_index: null,
         });
+        emitsByClass = true;
+        noteTier('emitted');
         continue;
       }
 
@@ -453,7 +520,11 @@ export const generateFilter = (data: GeneratorData): string => {
       const pendingItems = new Set(items);
       let ruleCounter = 0;
 
-      for (const rule of allRules) {
+      // `ruleIdx` is the AUTHORED position in the mapping file's `rules` array, which is
+      // what the silent-rule report indexes on. It is deliberately not `ruleCounter`
+      // below — that one counts EMITTED blocks for the display header and skips every
+      // rule that produced nothing, i.e. exactly the rules we are trying to find.
+      for (const [ruleIdx, rule] of (allRules as any[]).entries()) {
         if (rule.disabled) continue;
 
         const ruleTargets = rule.targets || [];
@@ -578,6 +649,7 @@ export const generateFilter = (data: GeneratorData): string => {
             source: cardOver ? 'card' : 'rule', match: modeLabel as string | null,
             rule: rulePart, bases: [...(subgroup as string[])], is_hide: isHide,
             text: outLines[outLines.length - 1],
+            rule_authored: true, rule_index: ruleIdx,
           });
         }
 
@@ -648,9 +720,16 @@ export const generateFilter = (data: GeneratorData): string => {
             source: cardOver ? 'card' : 'tier_base', match: modeLabel as string | null,
             rule: null, bases: [...(subgroup as string[])], is_hide: isHide,
             text: outLines[outLines.length - 1],
+            rule_authored: false, rule_index: null,
           });
         }
       }
+
+      // Reached the bottom. If nothing came out, the tier is silent for the residual
+      // reason: every rule was skipped and no base survived pending_items. This is the
+      // case a reason-per-`continue` scheme cannot name in advance, which is why
+      // `emitted` is measured from blockIndex rather than inferred from the path taken.
+      noteTier(items.length === 0 ? 'no-items-mapped' : 'no-rule-or-base-matched');
     }
   }
 
