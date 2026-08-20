@@ -393,15 +393,27 @@ export const NON_SIMULATABLE = new Set<string>([
     'BaseDefencePercentile', 'BaseArmour', 'BaseEvasion', 'BaseEnergyShield', 'BaseWard',
     'EnchantmentPassiveNum', 'EnchantmentPassiveNode', 'Foulborn',
     'DisableDropSound', 'EnableDropSound',
+    // `simulatable: false` in the schema — the item model carries no attribute for it,
+    // so evaluating it would test `undefined` and reject every item. It was missing here.
+    'Vestigial',
 ]);
 
-// Schema boolean condition keys → the item attribute they test.
+// ALIASES ONLY: boolean conditions whose item attribute is NOT the camelCase of the
+// condition name. Everything else resolves generically below, so a bool condition added
+// to filter_conditions.yaml works without being named here.
+//
+// ⚠️ This map used to be the ONLY place bools were handled, and a hand-maintained list
+// drifts from the schema it mirrors. Four conditions it never named — ZanaMemory,
+// UberBlightedMap, MirageMap, Vestigial — fell through to the numeric comparison at the
+// bottom of checkRuleMatch, where `String(true) !== "True"` made the rule silently NEVER
+// match. ZanaMemory is live in the tree. Two entries here were dead spellings
+// (BlightRavagedMap, ZanasMemory) that filter_conditions.yaml had already corrected to
+// UberBlightedMap / ZanaMemory — the same wrong-spelling pair that also sat in main.py's
+// SIM_FIELD. Guarded two ways now: parsing_tool/check_condition_schema.py fails on any
+// drift from the schema, and test_simulator_conditions.mjs pins the behaviour.
 const BOOL_FIELD: Record<string, string> = {
     FracturedItem: 'fractured', SynthesisedItem: 'synthesised',
-    ShaperItem: 'shaper', ElderItem: 'elder',
-    Scourged: 'scourged', Replica: 'replica', Imbued: 'imbued', TransfiguredGem: 'transfigured',
-    BlightedMap: 'blightedMap', BlightRavagedMap: 'blightRavagedMap',
-    ShapedMap: 'shapedMap', ElderMap: 'elderMap', ZanasMemory: 'zanasMemory',
+    ShaperItem: 'shaper', ElderItem: 'elder', TransfiguredGem: 'transfigured',
 };
 
 // True if a rule contains any condition the simulator can't fully evaluate.
@@ -475,42 +487,16 @@ export const checkRuleMatch = (item: ItemProps, rule: any, globalAreaLevel?: num
             continue;
         }
 
-        // Generic boolean conditions (schema keys → item attribute)
-        if (BOOL_FIELD[key]) {
-            const expected = (value as string).trim() === 'True';
-            if (!!item[BOOL_FIELD[key]] !== expected) return false;
-            continue;
-        }
-
-        // Boolean conditions
-        if (key === 'Corrupted') {
-            const expected = (value as string).trim() === 'True';
-            if (!!item.corrupted !== expected) return false;
-            continue;
-        }
-        if (key === 'Identified') {
-            const expected = (value as string).trim() === 'True';
-            if (!!item.identified !== expected) return false;
-            continue;
-        }
-        if (key === 'Mirrored') {
-            const expected = (value as string).trim() === 'True';
-            if (!!item.mirrored !== expected) return false;
-            continue;
-        }
-        if (key === 'Fractured') {
-            const expected = (value as string).trim() === 'True';
-            if (!!item.fractured !== expected) return false;
-            continue;
-        }
-        if (key === 'Synthesised') {
-            const expected = (value as string).trim() === 'True';
-            if (!!item.synthesised !== expected) return false;
-            continue;
-        }
-        if (key === 'HasImplicit') {
-            const expected = (value as string).trim() === 'True';
-            if (!!item.hasImplicit !== expected) return false;
+        // Generic boolean conditions. `True` / `False` is the only spelling the game
+        // accepts, so the VALUE identifies a boolean test and no per-key list is needed;
+        // BOOL_FIELD above only renames the few whose item attribute differs from the
+        // camelCase of the key. This replaced six hand-written blocks — three for keys
+        // that were correct (Corrupted / Identified / Mirrored) and three for spellings
+        // no condition has ever used (Fractured, Synthesised, HasImplicit), which read
+        // like coverage while testing nothing.
+        if (typeof value === 'string' && (value.trim() === 'True' || value.trim() === 'False')) {
+            const field = BOOL_FIELD[key] || key.charAt(0).toLowerCase() + key.slice(1);
+            if (!!item[field] !== (value.trim() === 'True')) return false;
             continue;
         }
 
