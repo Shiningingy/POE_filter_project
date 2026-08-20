@@ -231,8 +231,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   // The editor is RuleManager's, reused verbatim: it is pure presentation plus two
   // callbacks, so a tier only has to supply a rule-shaped object and the same
   // update/add semantics. A second condition editor would be a second place for the
-  // condition vocabulary to drift, and it has drifted once already (the picker still
-  // offers IsReplica / IsFoulborn where the data says Replica / Foulborn).
+  // condition vocabulary to drift, and drift is not hypothetical here — every copy of
+  // that vocabulary made so far has rotted. filter_conditions.yaml is now the single
+  // source (backend builds /api/rule-templates from it, with NO fallback), and
+  // parsing_tool/check_condition_schema.py fails the build when a copy disagrees.
   const [condEditorTier, setCondEditorTier] = useState<string | null>(null);
   const [ruleTemplates, setRuleTemplates] = useState<any[]>([]);
 

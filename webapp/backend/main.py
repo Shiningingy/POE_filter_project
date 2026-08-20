@@ -467,8 +467,15 @@ def load_filter_conditions():
             "FracturedItem": "fractured", "SynthesisedItem": "synthesised",
             "ShaperItem": "shaper", "ElderItem": "elder", "Scourged": "scourged",
             "Replica": "replica", "Imbued": "imbued", "TransfiguredGem": "transfigured",
-            "BlightedMap": "blightedMap", "BlightRavagedMap": "blightRavagedMap",
-            "ShapedMap": "shapedMap", "ElderMap": "elderMap", "ZanasMemory": "zanasMemory",
+            "BlightedMap": "blightedMap",
+            "ShapedMap": "shapedMap", "ElderMap": "elderMap",
+            # `BlightRavagedMap` and `ZanasMemory` sat here for months and could never
+            # fire: no condition carries those names. filter_conditions.yaml:119 records
+            # the correction (the game knows UberBlightedMap / ZanaMemory), and both fall
+            # through to the camelCase default below, which already yields the right
+            # field — so this is a rename of dead weight, not a behaviour change. The
+            # same two spellings were live in simulatorEngine.ts's BOOL_FIELD, where
+            # they DID cost something.
         }
         INFLUENCE_FLAGS = ["shaper", "elder", "crusader", "hunter", "redeemer", "warlord"]
         SKIP = {"AreaLevel", "Class"}  # global / implicit — not per-item form fields
@@ -820,13 +827,30 @@ def get_themes_list():
 
 @app.get("/api/rule-templates")
 def get_rule_templates():
-    # Served from the unified filter_conditions.yaml (with classes/universal/simulatable).
-    if RULE_TEMPLATE_CATEGORIES:
-        return {"categories": RULE_TEMPLATE_CATEGORIES}
-    # Fallback to the legacy static file if the schema failed to load.
-    path = CONFIG_DATA_DIR / "rule_templates.json"
-    if not path.exists(): return {"categories": []}
-    with open(path, "r", encoding="utf-8") as f: return json.load(f)
+    """The condition picker's vocabulary, from the unified filter_conditions.yaml.
+
+    ⚠️ THERE IS NO FALLBACK, DELIBERATELY. This used to drop to a legacy static
+    `rule_templates.json` whenever the schema failed to load, and that file was two
+    leagues stale: it spelled the unique flags `IsReplica` / `IsFoulborn` (the game
+    knows `Replica` / `Foulborn`) and offered five PoE2-only keywords — WaystoneTier,
+    UnidentifiedItemTier, TwiceCorrupted, IsVaalUnique, AlwaysShow — which
+    filter_conditions.yaml lists under "EXCLUDED on purpose". Picking any of them
+    wrote a line PoE1 rejects. The fallback never fired, so nothing ever reported it.
+
+    A silent drop to stale data is the bug class that has cost this project the most
+    (create_demo_bundle.py no-opping under a green parity suite; clientData drifting
+    from main.py). The rule the rewrite plan states for the index cache applies here
+    too: a miss that cannot be satisfied is an error, not a fallback. Both legacy
+    files now live in filter_generation/archive/retired-data/.
+    """
+    if not RULE_TEMPLATE_CATEGORIES:
+        raise HTTPException(
+            status_code=503,
+            detail="filter_conditions.yaml did not load — the condition vocabulary is "
+                   "unavailable. Check the backend log for the parse error; do not "
+                   "author conditions until it loads.",
+        )
+    return {"categories": RULE_TEMPLATE_CATEGORIES}
 
 @app.get("/api/filter-conditions")
 def get_filter_conditions():

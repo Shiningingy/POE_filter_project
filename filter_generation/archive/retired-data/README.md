@@ -17,6 +17,30 @@ wrong rule.
 |---|---|
 | `*-Currency-Breach.json` | Breach splinters and blessings. Retired with the Breach rework — confirmed by the author 2026-08-03. The designer's `breach` accent is now "foulborn uniques and wombgifts only, since splinters are drop-disabled". |
 | `*-Equipment-Synthesised.json` | Synthesised bases. Was already emitting nothing. |
+| `rule_templates.json`, `rule_templates_v3.yaml` | The editor's OLD condition vocabulary, superseded by `data/filter_conditions.yaml` (which says in its own header that it is the single source for both the rule editor and the simulator). See below — these are the one entry here that must **not** be revived. |
+
+## ⚠️ `rule_templates.*` — retired because it was a trap, not because it went quiet
+
+Unlike the retirements above, this pair was still **wired in**. `/api/rule-templates` served
+`filter_conditions.yaml` normally but fell back to `rule_templates.json` whenever the schema
+failed to load, and that file was two leagues stale:
+
+- it spelled the unique flags **`IsReplica` / `IsFoulborn`**; the game knows `Replica` /
+  `Foulborn`, so either pick wrote a line PoE1 rejects;
+- it offered five **PoE2-only** keywords — `WaystoneTier`, `UnidentifiedItemTier`,
+  `TwiceCorrupted`, `IsVaalUnique`, `AlwaysShow` — which `filter_conditions.yaml` lists under
+  *"EXCLUDED on purpose (do not re-add without checking)"*;
+- it was missing 20+ conditions the schema offers, including `BaseType`, every base-defence
+  stat, and `MemoryStrands`.
+
+The fallback never fired, so nothing ever reported it. A silent drop to stale data is the
+bug class that has cost this project the most (`create_demo_bundle.py` no-opping under a green
+parity suite; `clientData.ts` drifting from `main.py`), so the fallback is now a **503**, and
+`parsing_tool/check_condition_schema.py` fails if either file reappears under `data/`.
+
+**No delete-by date, and no revive path.** The other rows here are retired *content* that GGG
+may bring back; this is a superseded *mechanism*. It is kept only so the next person who finds
+`IsReplica` in git history can see what it was and why it went.
 
 ## Delete-by
 

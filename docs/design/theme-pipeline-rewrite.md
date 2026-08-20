@@ -156,9 +156,25 @@ Four hazards for the migration:
 
 Also worth fixing in passing: **`rule.localization` is uneditable** (110 rules carry it;
 renaming writes `comment` while `localization.ch` wins the output — the "no invisible
-filter logic" invariant, violated), and the condition picker offers the **wrong spelling**
-of conditions in use (`IsReplica`/`IsFoulborn` vs the data's `Replica`/`Foulborn`), omits 6
-the data uses, and offers 23 nobody does.
+filter logic" invariant, violated).
+
+> **DONE 2026-08-19 — the condition-vocabulary half of this paragraph.** It used to read
+> *"the condition picker offers the wrong spelling of conditions in use (`IsReplica`/
+> `IsFoulborn`), omits 6 the data uses, and offers 23 nobody does."* That stopped being
+> true when `filter_conditions.yaml` was written: the picker is built from it, all 29
+> conditions the tree uses are offered, and **the gap is 0**. The wrong spellings survived
+> only in a legacy fallback file, now in `archive/retired-data/`.
+>
+> Acting on the stale note found the real defect underneath. Four **bool** conditions —
+> `ZanaMemory` (live in the tree), `UberBlightedMap`, `MirageMap`, `Vestigial` — could
+> never match in the simulator, because a bool the hand-written `BOOL_FIELD` map did not
+> name fell through to the numeric comparison where `String(true) !== "True"`. Bools now
+> resolve generically; `parsing_tool/check_condition_schema.py` fails on any drift between
+> the schema and its four copies, and `test_simulator_conditions.mjs` pins the behaviour.
+> Both were verified to fail on the pre-fix code.
+>
+> ⚠️ The lesson generalises to the rest of this document: it was written before workstreams
+> H/A/B/C/D/F/G landed, so **re-measure before acting on any claim here.**
 
 ## Workstreams
 

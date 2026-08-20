@@ -29,6 +29,26 @@ whatever it does is one `git checkout` away from being undone.**
 | `build_unique_base_db.py` | builds the base→uniques map the backend serves |
 | `extract_zh_currency_descriptions.py` | builds the zh description DB |
 
+### A2. Standing guards — read-only, exit non-zero on a real problem
+
+Run these against a **built** filter (`out/*.filter`) unless noted. They were each written
+after a defect reached the game, so the docstring of every one names the bug it exists to
+catch — read it before deciding a finding is noise. Note the **input** column: the two that
+need a `--trace` cannot be run from a filter alone, because they compare what was authored
+against what was emitted.
+
+| script | input | the failure it catches |
+|---|---|---|
+| `check_catchall_coverage.py` | filter | a **curated** base falling all the way to the `[99999]` catch-all. Held at 0; found 232 on V6.94 |
+| `check_shadowed_blocks.py` | filter | an emitted block nothing can ever reach, and the sounds it takes down with it. A property of the *emitted order*, which is why `validate_curation.py` cannot see it |
+| `check_cross_category_claims.py` | filter | the opposite failure: a reachable block that gets there first and quietly claims bases curated in a **different** category |
+| `check_condition_schema.py` | *none* | any of the four copies of the condition vocabulary drifting from `filter_generation/data/filter_conditions.yaml` — the drift that silently made 4 bool conditions never match in the simulator |
+| `check_label_collisions.py` | trace | the look on the ground not matching the look that was authored |
+| `check_lost_item_sounds.py` | trace | a curated per-item sound that never reaches the filter |
+| `normalize_sound_volume.py` | filter | sound lines off the mandated volume 300 (`--check` fails; no args rewrites) |
+| `check_filterblade_diff.py` | filter | **review only, never fails.** Bidirectional coverage diff against a FilterBlade filter |
+| `parse_drop_restricted.py` | saved HTML | not a guard — parses the hand-saved wiki page into the 3 drop-restriction grades |
+
 ## B. Careful — rerunnable, but they overwrite hand-tuned data
 
 | script | why |

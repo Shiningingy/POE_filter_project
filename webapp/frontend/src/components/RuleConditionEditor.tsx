@@ -539,9 +539,15 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
             {t.addItemTarget}
           </option>
           {(() => {
+            // Schema label first, hardcoded map only as the fallback — the SAME
+            // precedence the condition chips use above (line ~141). It was inverted
+            // here, so the map won in the dropdown and lost in the chip, and a
+            // condition whose two labels differ (HasInfluence: schema "势力影响" vs
+            // map "势力") was named one thing when you picked it and another once
+            // it landed on the rule.
             const opt = (f: any) => (
               <option key={f.key} value={f.key}>
-                {RULE_FACTOR_LOCALIZATION[f.key]?.[language] || f.label}
+                {f.label || RULE_FACTOR_LOCALIZATION[f.key]?.[language] || f.key}
               </option>
             );
             const rec = relevantFactors.recommended.filter((f) => rule.conditions[f.key] === undefined);
