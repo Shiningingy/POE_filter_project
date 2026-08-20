@@ -2,7 +2,7 @@
  {
   "silent_rules": [],
   "trace": "filter_generation/traces/ruthless-soft.json",
-  "index_size": 2229,
+  "index_size": 2232,
   "claimed_not_mapped": {
    "_campaign/40 Flask Progression.json": [
     "Colossal Life Flask",
@@ -511,7 +511,7 @@
       "rule": null
      },
      "behind": {
-      "order": 56012,
+      "order": 56014,
       "file": "Currency/General.json",
       "tier_key": "Tier 1 General",
       "source": "tier_base",
@@ -529,7 +529,7 @@
       "rule": null
      },
      "behind": {
-      "order": 56014,
+      "order": 56016,
       "file": "Currency/General.json",
       "tier_key": "Tier 2 General",
       "source": "rule",
@@ -547,7 +547,7 @@
       "rule": null
      },
      "behind": {
-      "order": 56014,
+      "order": 56016,
       "file": "Currency/General.json",
       "tier_key": "Tier 2 General",
       "source": "rule",
@@ -565,7 +565,7 @@
       "rule": null
      },
      "behind": {
-      "order": 56014,
+      "order": 56016,
       "file": "Currency/General.json",
       "tier_key": "Tier 2 General",
       "source": "rule",
@@ -576,14 +576,14 @@
    "Accelerating Catalyst": [
     {
      "dead": {
-      "order": 56033,
+      "order": 56035,
       "file": "Currency/General.json",
       "tier_key": "Tier 4 General",
       "source": "tier_base",
       "rule": null
      },
      "behind": {
-      "order": 56019,
+      "order": 56021,
       "file": "Currency/General.json",
       "tier_key": "Tier 2 General",
       "source": "tier_base",
@@ -601,7 +601,7 @@
       "rule": null
      },
      "behind": {
-      "order": 56019,
+      "order": 56021,
       "file": "Currency/General.json",
       "tier_key": "Tier 2 General",
       "source": "tier_base",
@@ -619,7 +619,7 @@
       "rule": null
      },
      "behind": {
-      "order": 56019,
+      "order": 56021,
       "file": "Currency/General.json",
       "tier_key": "Tier 2 General",
       "source": "tier_base",
@@ -630,14 +630,14 @@
    "Abrasive Catalyst": [
     {
      "dead": {
-      "order": 56033,
+      "order": 56035,
       "file": "Currency/General.json",
       "tier_key": "Tier 4 General",
       "source": "tier_base",
       "rule": null
      },
      "behind": {
-      "order": 56026,
+      "order": 56028,
       "file": "Currency/General.json",
       "tier_key": "Tier 3 General",
       "source": "tier_base",
@@ -648,14 +648,14 @@
    "Imbued Catalyst": [
     {
      "dead": {
-      "order": 56033,
+      "order": 56035,
       "file": "Currency/General.json",
       "tier_key": "Tier 4 General",
       "source": "tier_base",
       "rule": null
      },
      "behind": {
-      "order": 56026,
+      "order": 56028,
       "file": "Currency/General.json",
       "tier_key": "Tier 3 General",
       "source": "tier_base",
@@ -666,14 +666,14 @@
    "Unstable Catalyst": [
     {
      "dead": {
-      "order": 56033,
+      "order": 56035,
       "file": "Currency/General.json",
       "tier_key": "Tier 4 General",
       "source": "tier_base",
       "rule": null
      },
      "behind": {
-      "order": 56026,
+      "order": 56028,
       "file": "Currency/General.json",
       "tier_key": "Tier 3 General",
       "source": "tier_base",
@@ -1794,6 +1794,42 @@
       "tier_key": "Tier 3 Scarabs",
       "source": "tier_base",
       "rule": null
+     }
+    }
+   ],
+   "Mirrored Tablet": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 131007,
+      "file": "Misc/General.json",
+      "tier_key": "Misc",
+      "source": "rule",
+      "rule": "#7 镜像桌台"
+     }
+    }
+   ],
+   "The Maven's Beacon": [
+    {
+     "dead": {
+      "order": 161017,
+      "file": "_legacy/Legacy.json",
+      "tier_key": "Legacy",
+      "source": "tier_base",
+      "rule": null
+     },
+     "behind": {
+      "order": 131008,
+      "file": "Misc/General.json",
+      "tier_key": "Misc",
+      "source": "rule",
+      "rule": "#8 贤主信标"
      }
     }
    ],
