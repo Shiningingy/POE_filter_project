@@ -14,23 +14,11 @@
     "theme_category": "Heist",
     "match_modes": {}
   },
+  "_rules_note": "The `StackSize >= 200` split (Tier 0) was RETIRED 2026-08-19 on the author's call: *\"marker used to drop everywhere which needed a stack split, but now it only drops from a heist stash, so no need to split by amount — people always pick them up.\"* The split was also invisible: Tier 0 and Tier 1 emitted byte-identical style AND sound, so rung 4 vs 5 bought nothing on the ground. One base, one tier.",
   "mapping": {
     "Rogue's Marker": [
-      "Tier 1 Heist Currency",
-      "Tier 0 Heist Currency"
+      "Tier 1 Heist Currency"
     ]
   },
-  "rules": [
-    {
-      "targets": [],
-      "conditions": {
-        "StackSize": ">= 200"
-      },
-      "overrides": {
-        "Tier": "Tier 0 Heist Currency"
-      },
-      "comment": ">=200",
-      "applyToTier": true
-    }
-  ]
+  "rules": []
 }

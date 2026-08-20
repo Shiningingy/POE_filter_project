@@ -134,7 +134,8 @@
         "Dedication to the Goddess": "女神祭献",
         "Gift to the Goddess": "女神之礼",
         "Tribute to the Goddess": "女神贡品",
-        "Engraved Ultimatum": "符文致命贪婪"
+        "Engraved Ultimatum": "符文致命贪婪",
+        "The Maven's Beacon": "贤主信标"
       }
     },
     "item_class": {
@@ -158,7 +159,10 @@
     "Rod of Detonation": "Misc",
     "Sand of Eternity": "Misc",
     "Silver Key": "Misc",
-    "Treasure Key": "Misc"
+    "Treasure Key": "Misc",
+    "Allflame": "Misc",
+    "Mirrored Tablet": "Misc",
+    "The Maven's Beacon": "Misc"
   },
   "rules": [
     {
@@ -241,6 +245,60 @@
         ]
       },
       "comment": "虚空石"
+    },
+    {
+      "targets": [
+        "Allflame"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Misc",
+        "PlayAlertSound": [
+          "Sharket掉落音效/不灭之火.mp3",
+          300
+        ]
+      },
+      "comment": "不灭之火",
+      "localization": {
+        "en": "Allflame",
+        "ch": "不灭之火"
+      }
+    },
+    {
+      "targets": [
+        "Mirrored Tablet"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Misc",
+        "PlayAlertSound": [
+          "Sharket掉落音效/镜像桌台.mp3",
+          300
+        ]
+      },
+      "comment": "镜像桌台",
+      "localization": {
+        "en": "Mirrored Tablet",
+        "ch": "镜像桌台"
+      }
+    },
+    {
+      "targets": [
+        "The Maven's Beacon"
+      ],
+      "conditions": {},
+      "overrides": {
+        "Tier": "Misc",
+        "PlayAlertSound": [
+          "Sharket掉落音效/贤主信标.mp3",
+          300
+        ]
+      },
+      "comment": "贤主信标",
+      "localization": {
+        "en": "The Maven's Beacon",
+        "ch": "贤主信标"
+      }
     },
     {
       "targets": [],

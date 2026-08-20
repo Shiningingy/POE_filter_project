@@ -125,6 +125,18 @@
             "Default/AlertSound10.mp3",
             300
           ]
+        },
+        "Tailoring Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/裁剪石.mp3",
+            300
+          ]
+        },
+        "Tempering Orb": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/回火石.mp3",
+            300
+          ]
         }
       }
     },

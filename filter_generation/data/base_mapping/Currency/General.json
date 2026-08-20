@@ -96,7 +96,9 @@
         "Facetor's Lens": "费斯特的透镜",
         "Refracting Fog": "折射之雾",
         "Flesh of Xesht": "薛斯的血肉",
-        "Imprint": "印记"
+        "Imprint": "印记",
+        "Tailoring Orb": "裁剪石",
+        "Tempering Orb": "回火石"
       }
     },
     "item_class": {
@@ -323,7 +325,9 @@
     ],
     "Imprint": [
       "Tier 1 General"
-    ]
+    ],
+    "Tailoring Orb": "Tier 1 General",
+    "Tempering Orb": "Tier 1 General"
   },
   "rules": [
     {

@@ -7,30 +7,11 @@
         "ch": "赏金猎人通货"
       },
       "tier_order": [
-        "Tier 0 Heist Currency",
         "Tier 1 Heist Currency",
         "Tier Hide Heist Currency"
       ]
     },
-    "Tier 0 Heist Currency": {
-      "hideable": false,
-      "show_in_editor": false,
-      "theme": {
-        "Tier": 4,
-        "PlayAlertSound": [
-          "Sharket掉落音效/赏金印记.mp3",
-          300
-        ]
-      },
-      "sound": {
-        "default_sound_id": 6,
-        "sharket_sound_id": "顶级底材.mp3"
-      },
-      "localization": {
-        "en": "T0: 大量印记",
-        "ch": "T0: 大量印记"
-      }
-    },
+    "_note": "`Tier 0 Heist Currency` (the StackSize >= 200 band) was removed 2026-08-19 — see the `_rules_note` in the matching base_mapping file. Rogue's Marker no longer drops in the open world, so a big-stack tier has nothing to distinguish; and the tier was emitting a block byte-identical to Tier 1 anyway.",
     "Tier 1 Heist Currency": {
       "hideable": false,
       "theme": {

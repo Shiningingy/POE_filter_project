@@ -14,7 +14,11 @@
     "Relics": {
       "hideable": false,
       "theme": {
-        "Tier": 4
+        "Tier": 4,
+        "PlayAlertSound": [
+          "Sharket掉落音效/圣洁遗物.mp3",
+          300
+        ]
       },
       "sound": {
         "default_sound_id": -1,
@@ -28,7 +32,8 @@
       "conditions": {
         "Class": "\"Relics\" \"Small Relics\" \"Medium Relics\" \"Large Relics\" \"Sanctified Relics\"",
         "Rarity": "<= Rare"
-      }
+      },
+      "_note": "Sound added 2026-08-20 on the author's review (\"relic might need a promo\"). It goes on the TIER, not a rule: this tier is `class_condition: true`, and a class_condition tier bypasses the rules loop entirely, so a rule here would emit nothing. The .mp3 is the one curated under `basetype_sounds['Sanctified Relic']` — the only relic sound in the store. NOTE it now announces the whole live Relics class (the 7 SanctumRelic bases: Censer/Processional/Candlestick/Urn/Coffer/Tome/Papyrus), not just Sanctified Relics. That is deliberate: poewiki grades `Sanctified relic` as REMOVED FROM THE GAME, and FilterBlade names it zero times, so wiring the sound to that base alone would have wired it to something that cannot drop."
     },
     "Relics Hide": {
       "hideable": true,
