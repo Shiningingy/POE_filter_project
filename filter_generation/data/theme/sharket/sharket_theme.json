@@ -59,7 +59,8 @@
     "Tier 2": {
       "TextColor": "#ffffffff",
       "BackgroundColor": "#006effff",
-      "FontSize": 45
+      "FontSize": 45,
+      "MinimapIcon": "1 Yellow Raindrop"
     },
     "Tier 3": {
       "TextColor": "#000000ff",
@@ -153,7 +154,8 @@
     "Tier 2": {
       "TextColor": "#2ecc71ff",
       "BackgroundColor": "#092715ff",
-      "FontSize": 40
+      "FontSize": 40,
+      "MinimapIcon": "1 Yellow Diamond"
     },
     "Tier 3": {
       "TextColor": "#2ecc71ff",
@@ -209,7 +211,8 @@
     "Tier 2": {
       "TextColor": "#ffe650ff",
       "BackgroundColor": "#302c0fff",
-      "FontSize": 40
+      "FontSize": 40,
+      "MinimapIcon": "1 Yellow Diamond"
     },
     "Tier 3": {
       "TextColor": "#ffe650ff",
@@ -787,12 +790,14 @@
     "Tier 1": {
       "TextColor": "#ffffffff",
       "BackgroundColor": "#1ba29bff",
-      "FontSize": 45
+      "FontSize": 45,
+      "MinimapIcon": "0 Red Triangle"
     },
     "Tier 2": {
       "TextColor": "#000000ff",
       "BackgroundColor": "#1ba29bff",
-      "FontSize": 43
+      "FontSize": 43,
+      "MinimapIcon": "1 Yellow Triangle"
     },
     "Tier 3": {
       "TextColor": "#1ba29bff",

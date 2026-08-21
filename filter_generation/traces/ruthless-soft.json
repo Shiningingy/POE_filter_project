@@ -2122,7 +2122,7 @@
    "rule": "#1 T7",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    BaseType \"Deafening Essence of\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 0 110 255 255\n    CustomAlertSound \"Sharket掉落音效\\高级精华.mp3\" 300\n",
+   "text": "Show\n    BaseType \"Deafening Essence of\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 0 110 255 255\n    CustomAlertSound \"Sharket掉落音效\\高级精华.mp3\" 300\n    MinimapIcon 1 Yellow Raindrop\n",
    "rule_authored": true,
    "rule_index": 0
   },
@@ -3314,7 +3314,7 @@
     "Wild Crystallised Lifeforce"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Primal Crystallised Lifeforce\" \"Vivid Crystallised Lifeforce\" \"Wild Crystallised Lifeforce\"\n    StackSize >= 300\n    SetFontSize 40\n    SetTextColor 46 204 113 255\n    SetBackgroundColor 9 39 21 255\n    CustomAlertSound \"Sharket掉落音效\\发财啦.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Primal Crystallised Lifeforce\" \"Vivid Crystallised Lifeforce\" \"Wild Crystallised Lifeforce\"\n    StackSize >= 300\n    SetFontSize 40\n    SetTextColor 46 204 113 255\n    SetBackgroundColor 9 39 21 255\n    CustomAlertSound \"Sharket掉落音效\\发财啦.mp3\" 300\n    MinimapIcon 1 Yellow Diamond\n",
    "rule_authored": true,
    "rule_index": 1
   },
@@ -3330,7 +3330,7 @@
     "Crystallised Rancour"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Crystallised Rancour\"\n    SetFontSize 40\n    SetTextColor 46 204 113 255\n    SetBackgroundColor 9 39 21 255\n    CustomAlertSound \"Sharket掉落音效\\发财啦.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Crystallised Rancour\"\n    SetFontSize 40\n    SetTextColor 46 204 113 255\n    SetBackgroundColor 9 39 21 255\n    CustomAlertSound \"Sharket掉落音效\\发财啦.mp3\" 300\n    MinimapIcon 1 Yellow Diamond\n",
    "rule_authored": true,
    "rule_index": 3
   },
@@ -3444,7 +3444,7 @@
     "Opalescent Oil"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Black Oil\" \"Crimson Oil\" \"Opalescent Oil\"\n    SetFontSize 40\n    SetTextColor 255 230 80 255\n    SetBackgroundColor 48 44 15 255\n    CustomAlertSound \"Sharket掉落音效\\高级圣油.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Black Oil\" \"Crimson Oil\" \"Opalescent Oil\"\n    SetFontSize 40\n    SetTextColor 255 230 80 255\n    SetBackgroundColor 48 44 15 255\n    CustomAlertSound \"Sharket掉落音效\\高级圣油.mp3\" 300\n    MinimapIcon 1 Yellow Diamond\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -5386,7 +5386,7 @@
    "rule": "#1 改造技能石 Transfigured",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class == \"Skill Gems\"\n    TransfiguredGem True\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\改造技能石.mp3\" 300\n",
+   "text": "Show\n    Class == \"Skill Gems\"\n    TransfiguredGem True\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\改造技能石.mp3\" 300\n    MinimapIcon 0 Red Triangle\n",
    "rule_authored": true,
    "rule_index": 1
   },
@@ -5400,7 +5400,7 @@
    "rule": "#2 21 级",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class \"Gems\"\n    GemLevel >= 21\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\稀有技能石.mp3\" 300\n",
+   "text": "Show\n    Class \"Gems\"\n    GemLevel >= 21\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\稀有技能石.mp3\" 300\n    MinimapIcon 0 Red Triangle\n",
    "rule_authored": true,
    "rule_index": 2
   },
@@ -5414,7 +5414,7 @@
    "rule": "#3 23 品质",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    Class \"Gems\"\n    Quality >= 23\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\稀有技能石.mp3\" 300\n",
+   "text": "Show\n    Class \"Gems\"\n    Quality >= 23\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\稀有技能石.mp3\" 300\n    MinimapIcon 0 Red Triangle\n",
    "rule_authored": true,
    "rule_index": 3
   },
@@ -5428,7 +5428,7 @@
    "rule": "#4 瓦尔技能石",
    "bases": [],
    "is_hide": false,
-   "text": "Show\n    BaseType \"Vaal\"\n    Class == \"Skill Gems\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n",
+   "text": "Show\n    BaseType \"Vaal\"\n    Class == \"Skill Gems\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n    MinimapIcon 0 Red Triangle\n",
    "rule_authored": true,
    "rule_index": 4
   },
@@ -5450,7 +5450,7 @@
     "Purity of Lightning"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Anger\" \"Defiance Banner\" \"Dread Banner\" \"Grace\" \"Herald of Thunder\" \"Purity of Ice\" \"Purity of Lightning\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Anger\" \"Defiance Banner\" \"Dread Banner\" \"Grace\" \"Herald of Thunder\" \"Purity of Ice\" \"Purity of Lightning\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n    MinimapIcon 0 Red Triangle\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -5466,7 +5466,7 @@
     "Temporal Rift"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Temporal Rift\"\n    SetFontSize 43\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\时空裂隙.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Temporal Rift\"\n    SetFontSize 43\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\时空裂隙.mp3\" 300\n    MinimapIcon 1 Yellow Triangle\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -5658,7 +5658,7 @@
     "Wintertide Brand"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Absolution\" \"Alchemist's Mark\" \"Ambush\" \"Ancestral Cry\" \"Animate Guardian\" \"Arc\" \"Arcane Cloak\" \"Arcanist Brand\" \"Armageddon Brand\" \"Artillery Ballista\" \"Assassin's Mark\" \"Autoexertion\" \"Automation\" \"Ball Lightning\" \"Bane\" \"Barrage\" \"Battlemage's Cry\" \"Berserk\" \"Blade Blast\" \"Blade Flurry\" \"Blade Trap\" \"Blade Vortex\" \"Bladefall\" \"Bladestorm\" \"Blast Rain\" \"Blazing Salvo\" \"Blood Rage\" \"Bone Offering\" \"Boneshatter\" \"Brand Recall\" \"Chain Hook\" \"Charged Dash\" \"Cold Snap\" \"Conductivity\" \"Conflagration\" \"Consecrated Path\" \"Convocation\" \"Corrupting Fever\" \"Crackling Lance\" \"Creeping Frost\" \"Cremation\" \"Cyclone\" \"Dark Bargain\" \"Desecrate\" \"Despair\" \"Destructive Link\" \"Discharge\" \"Divine Ire\" \"Divine Retribution\" \"Dominating Blow\" \"Earthquake\" \"Earthshatter\" \"Elemental Hit\" \"Elemental Weakness\" \"Energy Blade\" \"Enfeeble\" \"Ensnaring Arrow\" \"Essence Drain\" \"Eviscerate\" \"Explosive Arrow\" \"Explosive Concoction\" \"Exsanguinate\" \"Eye of Winter\" \"Fire Trap\" \"Firestorm\" \"Flame Link\" \"Flame Surge\" \"Flameblast\" \"Flamethrower Trap\" \"Flammability\" \"Flesh Offering\" \"Forbidden Rite\" \"Frenzy\" \"Frost Shield\" \"Frostbite\" \"Frozen Legion\" \"Galvanic Field\" \"General's Cry\" \"Glacial Cascade\" \"Glacial Shield Swipe\" \"Hexblast\" \"Holy Sweep\" \"Hydrosphere\" \"Ice Crash\" \"Ice Nova\" \"Ice Spear\" \"Ice Trap\" \"Icicle Mine\" \"Immortal Call\" \"Incinerate\" \"Infernal Blow\" \"Infernal Cry\" \"Intuitive Link\" \"Kinetic Blast\" \"Kinetic Fusillade\" \"Kinetic Rain\" \"Lacerate\" \"Lancing Steel\" \"Lightning Arrow\" \"Lightning Conduit\" \"Lightning Spire Trap\" \"Lightning Strike\" \"Lightning Trap\" \"Manabond\" \"Molten Shell\" \"Penance Brand\" \"Pestilent Strike\" \"Phase Run\" \"Plague Bearer\" \"Poacher's Mark\" \"Poisonous Concoction\" \"Power Siphon\" \"Protective Link\" \"Punishment\" \"Pyroclast Mine\" \"Rage Vortex\" \"Rain of Arrows\" \"Raise Spectre\" \"Rallying Cry\" \"Reap\" \"Reave\" \"Righteous Fire\" \"Scorching Ray\" \"Scourge Arrow\" \"Searing Bond\" \"Seismic Cry\" \"Seismic Trap\" \"Shattering Steel\" \"Shock Nova\" \"Shockwave Totem\" \"Siege Ballista\" \"Sigil of Power\" \"Snipe\" \"Somatic Shell\" \"Soul Link\" \"Soulrend\" \"Spectral Helix\" \"Spectral Shield Throw\" \"Spellslinger\" \"Spirit Offering\" \"Static Strike\" \"Storm Brand\" \"Storm Burst\" \"Storm Call\" \"Storm Rain\" \"Stormbind\" \"Summon Carrion Golem\" \"Summon Chaos Golem\" \"Summon Flame Golem\" \"Summon Ice Golem\" \"Summon Lightning Golem\" \"Summon Reaper\" \"Summon Stone Golem\" \"Sunder\" \"Swordstorm\" \"Tectonic Slam\" \"Tempest Shield\" \"Temporal Chains\" \"Thunderstorm\" \"Tornado\" \"Tornado Shot\" \"Toxic Rain\" \"Vampiric Link\" \"Vengeful Cry\" \"Venom Gyre\" \"Void Sphere\" \"Volatile Dead\" \"Volcanic Fissure\" \"Voltaxic Burst\" \"Vortex\" \"Vulnerability\" \"Wall of Force\" \"Warlord's Mark\" \"Wave of Conviction\" \"Wild Strike\" \"Winter Orb\" \"Wintertide Brand\"\n    SetFontSize 43\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Absolution\" \"Alchemist's Mark\" \"Ambush\" \"Ancestral Cry\" \"Animate Guardian\" \"Arc\" \"Arcane Cloak\" \"Arcanist Brand\" \"Armageddon Brand\" \"Artillery Ballista\" \"Assassin's Mark\" \"Autoexertion\" \"Automation\" \"Ball Lightning\" \"Bane\" \"Barrage\" \"Battlemage's Cry\" \"Berserk\" \"Blade Blast\" \"Blade Flurry\" \"Blade Trap\" \"Blade Vortex\" \"Bladefall\" \"Bladestorm\" \"Blast Rain\" \"Blazing Salvo\" \"Blood Rage\" \"Bone Offering\" \"Boneshatter\" \"Brand Recall\" \"Chain Hook\" \"Charged Dash\" \"Cold Snap\" \"Conductivity\" \"Conflagration\" \"Consecrated Path\" \"Convocation\" \"Corrupting Fever\" \"Crackling Lance\" \"Creeping Frost\" \"Cremation\" \"Cyclone\" \"Dark Bargain\" \"Desecrate\" \"Despair\" \"Destructive Link\" \"Discharge\" \"Divine Ire\" \"Divine Retribution\" \"Dominating Blow\" \"Earthquake\" \"Earthshatter\" \"Elemental Hit\" \"Elemental Weakness\" \"Energy Blade\" \"Enfeeble\" \"Ensnaring Arrow\" \"Essence Drain\" \"Eviscerate\" \"Explosive Arrow\" \"Explosive Concoction\" \"Exsanguinate\" \"Eye of Winter\" \"Fire Trap\" \"Firestorm\" \"Flame Link\" \"Flame Surge\" \"Flameblast\" \"Flamethrower Trap\" \"Flammability\" \"Flesh Offering\" \"Forbidden Rite\" \"Frenzy\" \"Frost Shield\" \"Frostbite\" \"Frozen Legion\" \"Galvanic Field\" \"General's Cry\" \"Glacial Cascade\" \"Glacial Shield Swipe\" \"Hexblast\" \"Holy Sweep\" \"Hydrosphere\" \"Ice Crash\" \"Ice Nova\" \"Ice Spear\" \"Ice Trap\" \"Icicle Mine\" \"Immortal Call\" \"Incinerate\" \"Infernal Blow\" \"Infernal Cry\" \"Intuitive Link\" \"Kinetic Blast\" \"Kinetic Fusillade\" \"Kinetic Rain\" \"Lacerate\" \"Lancing Steel\" \"Lightning Arrow\" \"Lightning Conduit\" \"Lightning Spire Trap\" \"Lightning Strike\" \"Lightning Trap\" \"Manabond\" \"Molten Shell\" \"Penance Brand\" \"Pestilent Strike\" \"Phase Run\" \"Plague Bearer\" \"Poacher's Mark\" \"Poisonous Concoction\" \"Power Siphon\" \"Protective Link\" \"Punishment\" \"Pyroclast Mine\" \"Rage Vortex\" \"Rain of Arrows\" \"Raise Spectre\" \"Rallying Cry\" \"Reap\" \"Reave\" \"Righteous Fire\" \"Scorching Ray\" \"Scourge Arrow\" \"Searing Bond\" \"Seismic Cry\" \"Seismic Trap\" \"Shattering Steel\" \"Shock Nova\" \"Shockwave Totem\" \"Siege Ballista\" \"Sigil of Power\" \"Snipe\" \"Somatic Shell\" \"Soul Link\" \"Soulrend\" \"Spectral Helix\" \"Spectral Shield Throw\" \"Spellslinger\" \"Spirit Offering\" \"Static Strike\" \"Storm Brand\" \"Storm Burst\" \"Storm Call\" \"Storm Rain\" \"Stormbind\" \"Summon Carrion Golem\" \"Summon Chaos Golem\" \"Summon Flame Golem\" \"Summon Ice Golem\" \"Summon Lightning Golem\" \"Summon Reaper\" \"Summon Stone Golem\" \"Sunder\" \"Swordstorm\" \"Tectonic Slam\" \"Tempest Shield\" \"Temporal Chains\" \"Thunderstorm\" \"Tornado\" \"Tornado Shot\" \"Toxic Rain\" \"Vampiric Link\" \"Vengeful Cry\" \"Venom Gyre\" \"Void Sphere\" \"Volatile Dead\" \"Volcanic Fissure\" \"Voltaxic Burst\" \"Vortex\" \"Vulnerability\" \"Wall of Force\" \"Warlord's Mark\" \"Wave of Conviction\" \"Wild Strike\" \"Winter Orb\" \"Wintertide Brand\"\n    SetFontSize 43\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 27 162 155 255\n    CustomAlertSound \"Sharket掉落音效\\技能宝石.mp3\" 300\n    MinimapIcon 1 Yellow Triangle\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -6922,10 +6922,11 @@
     "Echo of Loneliness",
     "Echo of Reverence",
     "Echo of Trauma",
+    "Forbidden Tome",
     "Timeless Maraketh Emblem"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Echo of Loneliness\" \"Echo of Reverence\" \"Echo of Trauma\" \"Timeless Maraketh Emblem\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 210 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\地图碎片.mp3\" 300\n    PlayEffect Purple\n    MinimapIcon 0 Red Hexagon\n",
+   "text": "Show\n    BaseType == \"Echo of Loneliness\" \"Echo of Reverence\" \"Echo of Trauma\" \"Forbidden Tome\" \"Timeless Maraketh Emblem\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 210 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\地图碎片.mp3\" 300\n    PlayEffect Purple\n    MinimapIcon 0 Red Hexagon\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -15893,7 +15894,8 @@
     "Writhing Invitation",
     "Screaming Invitation",
     "Polaric Invitation",
-    "Incandescent Invitation"
+    "Incandescent Invitation",
+    "Forbidden Tome"
    ],
    "emits_by_class": false
   },

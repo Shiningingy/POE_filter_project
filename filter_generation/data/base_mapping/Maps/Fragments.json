@@ -74,7 +74,8 @@
         "Writhing Invitation": "蠕动的邀请",
         "Screaming Invitation": "咆哮的邀请",
         "Polaric Invitation": "极星的邀请",
-        "Incandescent Invitation": "炽焰的邀请"
+        "Incandescent Invitation": "炽焰的邀请",
+        "Forbidden Tome": "禁域典籍"
       }
     },
     "item_class": {
@@ -222,7 +223,8 @@
     ],
     "Incandescent Invitation": [
       "Tier 1 Fragments"
-    ]
+    ],
+    "Forbidden Tome": "Tier 1 Fragments"
   },
   "rules": [
     {
