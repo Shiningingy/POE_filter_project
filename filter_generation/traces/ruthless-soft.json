@@ -10223,7 +10223,7 @@
     "Prismatic Jewel"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Prismatic Jewel\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\三相珠宝.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Prismatic Jewel\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\三相珠宝.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10239,7 +10239,7 @@
     "Ornate Quiver"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Ornate Quiver\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\华美箭袋.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Ornate Quiver\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\华美箭袋.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10255,7 +10255,7 @@
     "Sanctified Relic"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Sanctified Relic\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\圣洁遗物.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Sanctified Relic\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\圣洁遗物.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10271,7 +10271,7 @@
     "Grasping Mail"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Grasping Mail\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\扼杀链甲.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Grasping Mail\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\扼杀链甲.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10287,7 +10287,7 @@
     "Armour Recombinator"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Armour Recombinator\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\护甲重组器.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Armour Recombinator\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\护甲重组器.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10303,7 +10303,7 @@
     "Perandus Coin"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Perandus Coin\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\普兰德斯金币.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Perandus Coin\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\普兰德斯金币.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10319,7 +10319,7 @@
     "Weapon Recombinator"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Weapon Recombinator\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\武器重组器.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Weapon Recombinator\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\武器重组器.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10335,7 +10335,7 @@
     "Timeless Jewel"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Timeless Jewel\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\永恒珠宝.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Timeless Jewel\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\永恒珠宝.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10351,7 +10351,7 @@
     "Unset Amulet"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Unset Amulet\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\潜能项链.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Unset Amulet\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\潜能项链.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10367,7 +10367,7 @@
     "Jewellery Recombinator"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Jewellery Recombinator\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\珠宝重组器.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Jewellery Recombinator\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\珠宝重组器.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10383,7 +10383,7 @@
     "Divine Vessel"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Divine Vessel\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\禁灵之瓶.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Divine Vessel\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\禁灵之瓶.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10399,7 +10399,7 @@
     "Orb of Dominance"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Dominance\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\统御宝珠.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Orb of Dominance\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\统御宝珠.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10415,7 +10415,7 @@
     "Ruby Amulet"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Ruby Amulet\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\血色护身符.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Ruby Amulet\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\血色护身符.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10431,7 +10431,7 @@
     "Breach Ring"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Breach Ring\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\裂隙戒指.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Breach Ring\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\裂隙戒指.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10447,7 +10447,7 @@
     "Awakener's Orb"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Awakener's Orb\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\觉醒者之石.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Awakener's Orb\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\觉醒者之石.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10463,7 +10463,7 @@
     "Orb of Binding"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Orb of Binding\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    CustomAlertSound \"Sharket掉落音效\\高阶点金石.mp3\" 300\n",
+   "text": "Show\n    BaseType == \"Orb of Binding\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    CustomAlertSound \"Sharket掉落音效\\高阶点金石.mp3\" 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -10781,7 +10781,7 @@
     "Writhing Talisman"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Abyss Scarab of Descending\" \"Abyssal Incubator\" \"Adherent of Zarokh\" \"Anarchy Scarab of the Exceptional\" \"Ancient Reliquary Key\" \"Annihilation Support\" \"Ashscale Talisman\" \"Astral Lich\" \"Avian Twins Talisman\" \"Betrayal Scarab of Unbreaking\" \"Binding Shard\" \"Birth of the Three\" \"Blessed Call Support\" \"Blessing of God\" \"Blighted Incubator\" \"Bloodsoaked Banner Support\" \"Bonespire Support\" \"Bonespire Talisman\" \"Breakrib Talisman\" \"Cartographer's Incubator\" \"Cast on Ward Break Support\" \"Celestial Armoursmith's Incubator\" \"Celestial Blacksmith's Incubator\" \"Chaotic Astrolabe\" \"Charan's Sword\" \"Chayula's Flawless Breachstone\" \"Chrysalis Talisman\" \"Clutching Talisman\" \"Coin of Desecration\" \"Coin of Knowledge\" \"Coin of Power\" \"Coin of Restoration\" \"Coin of Skill\" \"Companionship Support\" \"Congregation Support\" \"Conjuror of Rot\" \"Cooldown Recovery Support\" \"Cord Belt\" \"Corvine Charm\" \"Craicic Lure\" \"Crusader's Exalted Orb\" \"Crystallised Rancour\" \"Cull the Weak Support\" \"Deadhand Talisman\" \"Deep One Talisman\" \"Dextral Catalyst\" \"Divine Blast\" \"Divine Sentinel Support\" \"Diviner's Incubator\" \"Eclipse Support\" \"Elder's Exalted Orb\" \"Elder's Orb\" \"Eldritch Blasphemy Support\" \"Engineer's Shard\" \"Enkindling Orb\" \"Essence of Desolation\" \"Excommunicate Support\" \"Exemplar Support\" \"Expedition Scarab of Infusion\" \"Fangjaw Talisman\" \"Farric Lure\" \"Fenumal Lure\" \"Fine Incubator\" \"Fissure Support\" \"Flesh of Xesht\" \"Foreboding Incubator\" \"Fossilised Incubator\" \"Foulgrasp Support\" \"Fragmented Incubator\" \"Frostmage Support\" \"Fruiting Astrolabe\" \"Fungal Astrolabe\" \"Geomancer's Incubator\" \"Gluttony Support\" \"Golden Blade\" \"Golden Bracers\" \"Golden Caligae\" \"Golden Flame\" \"Golden Hoop\" \"Golden Mantle\" \"Golden Obi\" \"Golden Visage\" \"Golden Wreath\" \"Grasping Astrolabe\" \"Greater Ancestral Call Support\" \"Greater Chain Support\" \"Greater Devour Support\" \"Greater Fork Support\" \"Greater Kinetic Instability Support\" \"Greater Multistrike Support\" \"Greater Spell Cascade Support\" \"Greater Spell Echo Support\" \"Greater Unleash Support\" \"Hallow Support\" \"Hexclaw Talisman\" \"Hexpass Support\" \"Hextoad Support\" \"Hiveborn Support\" \"Holy Hammers\" \"Holy Strike\" \"Honoured Incubator\" \"Horned Talisman\" \"Hunter's Exalted Orb\" \"Imperfect Adherent of Zarokh\" \"Imperfect Astral Lich\" \"Imperfect Conjuror of Rot\" \"Imprint\" \"Infused Incubator\" \"Instilling Orb\" \"Invention Support\" \"Invert the Rules Support\" \"Journey Tattoo of the Body\" \"Journey Tattoo of the Mind\" \"Journey Tattoo of the Soul\" \"Kalguuran Incubator\" \"Kalguuran Scarab of Enriching\" \"Lethal Dose Support\" \"Lightless Astrolabe\" \"Lone Antler Talisman\" \"Longtooth Talisman\" \"Lupine Charm\" \"Lycia's Invocation of Acrobatics\" \"Lycia's Invocation of Ancestral Bond\" \"Lycia's Invocation of Arrow Dancing\" \"Lycia's Invocation of Avatar of Fire\" \"Lycia's Invocation of Blood Magic\" \"Lycia's Invocation of Call to Arms\" \"Lycia's Invocation of Conduit\" \"Lycia's Invocation of Crimson Dance\" \"Lycia's Invocation of Divine Shield\" \"Lycia's Invocation of Eldritch Battery\" \"Lycia's Invocation of Elemental Equilibrium\" \"Lycia's Invocation of Elemental Overload\" \"Lycia's Invocation of Eternal Youth\" \"Lycia's Invocation of Ghost Dance\" \"Lycia's Invocation of Ghost Reaver\" \"Lycia's Invocation of Glancing Blows\" \"Lycia's Invocation of Hex Master\" \"Lycia's Invocation of Imbalanced Guard\" \"Lycia's Invocation of Iron Grip\" \"Lycia's Invocation of Iron Reflexes\" \"Lycia's Invocation of Iron Will\" \"Lycia's Invocation of Lethe Shade\" \"Lycia's Invocation of Magebane\" \"Lycia's Invocation of Mind over Matter\" \"Lycia's Invocation of Minion Instability\" \"Lycia's Invocation of Pain Attunement\" \"Lycia's Invocation of Perfect Agony\" \"Lycia's Invocation of Point Blank\" \"Lycia's Invocation of Precise Technique\" \"Lycia's Invocation of Resolute Technique\" \"Lycia's Invocation of Runebinder\" \"Lycia's Invocation of Solipsism\" \"Lycia's Invocation of Supreme Ego\" \"Lycia's Invocation of Unwavering Stance\" \"Lycia's Invocation of Vaal Pact\" \"Lycia's Invocation of Versatile Combatant\" \"Lycia's Invocation of Wicked Ward\" \"Lycia's Invocation of Wind Dancer\" \"Lycia's Invocation of Zealot's Oath\" \"Lycia's Invocation of the Agnostic\" \"Lycia's Invocation of the Impaler\" \"Machinations Support\" \"Maddening Incubator\" \"Mandible Talisman\" \"Memory of Loneliness\" \"Memory of Reverence\" \"Memory of Trauma\" \"Miraged Incubator\" \"Mirrored Tablet\" \"Monkey Paw Talisman\" \"Monkey Twins Talisman\" \"Mysterious Incubator\" \"Nameless Astrolabe\" \"Ornate Incubator\" \"Otherworldly Incubator\" \"Overheat Support\" \"Overloaded Intensity Support\" \"Pacifism Support\" \"Perfect Adherent of Zarokh\" \"Perfect Astral Lich\" \"Perfect Conjuror of Rot\" \"Primal Incubator\" \"Primal Skull Talisman\" \"Prime Regrading Lens\" \"Primeval Remnant\" \"Primordial Remnant\" \"Pyre Support\" \"Redeemer's Exalted Orb\" \"Refracting Fog\" \"Ring\" \"Ritual Scarab of Corpses\" \"Rot Head Talisman\" \"Rotfeather Talisman\" \"Runegraft of Connection\" \"Runegraft of Consecration\" \"Runegraft of Fury\" \"Runegraft of Rallying\" \"Runegraft of Resurgence\" \"Runegraft of Rotblood\" \"Runegraft of Suffering\" \"Runegraft of the Agile\" \"Runegraft of the Imbued\" \"Runegraft of the Spellbound\" \"Runic Astrolabe\" \"Sacred Incubator\" \"Saqawine Lure\" \"Scarab of the Dextral\" \"Scornful Herald Support\" \"Secondary Regrading Lens\" \"Shaper's Exalted Orb\" \"Shield of Light\" \"Singular Incubator\" \"Sinistral Catalyst\" \"Skittering Incubator\" \"Soul Quenched\" \"Spinefuse Talisman\" \"Splitnewt Talisman\" \"Stacked Deck\" \"Tattoo of the Arohongui Moonwarden\" \"Tattoo of the Arohongui Scout\" \"Tattoo of the Arohongui Shaman\" \"Tattoo of the Arohongui Warmonger\" \"Tattoo of the Arohongui Warrior\" \"Tattoo of the Hinekora Deathwarden\" \"Tattoo of the Hinekora Shaman\" \"Tattoo of the Hinekora Storyteller\" \"Tattoo of the Hinekora Warmonger\" \"Tattoo of the Hinekora Warrior\" \"Tattoo of the Kitava Blood Drinker\" \"Tattoo of the Kitava Heart Eater\" \"Tattoo of the Kitava Rebel\" \"Tattoo of the Kitava Shaman\" \"Tattoo of the Kitava Warrior\" \"Tattoo of the Ngamahu Firewalker\" \"Tattoo of the Ngamahu Shaman\" \"Tattoo of the Ngamahu Warmonger\" \"Tattoo of the Ngamahu Warrior\" \"Tattoo of the Ngamahu Woodcarver\" \"Tattoo of the Ramako Archer\" \"Tattoo of the Ramako Fleetfoot\" \"Tattoo of the Ramako Scout\" \"Tattoo of the Ramako Shaman\" \"Tattoo of the Ramako Sniper\" \"Tattoo of the Rongokurai Brute\" \"Tattoo of the Rongokurai Goliath\" \"Tattoo of the Rongokurai Guard\" \"Tattoo of the Rongokurai Turtle\" \"Tattoo of the Rongokurai Warrior\" \"Tattoo of the Tasalio Bladedancer\" \"Tattoo of the Tasalio Scout\" \"Tattoo of the Tasalio Shaman\" \"Tattoo of the Tasalio Tideshifter\" \"Tattoo of the Tasalio Warrior\" \"Tattoo of the Tawhoa Herbalist\" \"Tattoo of the Tawhoa Naturalist\" \"Tattoo of the Tawhoa Scout\" \"Tattoo of the Tawhoa Shaman\" \"Tattoo of the Tawhoa Warrior\" \"Tattoo of the Tukohama Brawler\" \"Tattoo of the Tukohama Shaman\" \"Tattoo of the Tukohama Warcaller\" \"Tattoo of the Tukohama Warmonger\" \"Tattoo of the Tukohama Warrior\" \"Tattoo of the Valako Scout\" \"Tattoo of the Valako Shaman\" \"Tattoo of the Valako Shieldbearer\" \"Tattoo of the Valako Stormrider\" \"Tattoo of the Valako Warrior\" \"Templar Astrolabe\" \"Thaumaturge's Incubator\" \"The Black Barya\" \"The Master\" \"The Maven's Beacon\" \"The Shaper's Key\" \"The Sustenance\" \"Three Hands Talisman\" \"Three Rat Talisman\" \"Timeless Astrolabe\" \"Timeworn Reliquary Key\" \"Transfusion Support\" \"Undying Flesh Talisman\" \"Unholy Trinity Support\" \"Unrelenting Timeless Eternal Emblem\" \"Unrelenting Timeless Karui Emblem\" \"Unrelenting Timeless Maraketh Emblem\" \"Unrelenting Timeless Templar Emblem\" \"Unrelenting Timeless Vaal Emblem\" \"Unshaping Orb\" \"Ursine Charm\" \"Vaal Breach\" \"Vaal Reliquary Key\" \"Vaal Sacrifice Support\" \"Vaal Temptation Support\" \"Veiled Chaos Orb\" \"Veiled Exalted Orb\" \"Void Shockwave Support\" \"Voidstorm Support\" \"Volatile Vaal Orb\" \"Warlord's Exalted Orb\" \"Wereclaw Talisman\" \"Whispering Incubator\" \"Writhing Talisman\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    PlayAlertSound 2 300\n",
+   "text": "Show\n    BaseType == \"Abyss Scarab of Descending\" \"Abyssal Incubator\" \"Adherent of Zarokh\" \"Anarchy Scarab of the Exceptional\" \"Ancient Reliquary Key\" \"Annihilation Support\" \"Ashscale Talisman\" \"Astral Lich\" \"Avian Twins Talisman\" \"Betrayal Scarab of Unbreaking\" \"Binding Shard\" \"Birth of the Three\" \"Blessed Call Support\" \"Blessing of God\" \"Blighted Incubator\" \"Bloodsoaked Banner Support\" \"Bonespire Support\" \"Bonespire Talisman\" \"Breakrib Talisman\" \"Cartographer's Incubator\" \"Cast on Ward Break Support\" \"Celestial Armoursmith's Incubator\" \"Celestial Blacksmith's Incubator\" \"Chaotic Astrolabe\" \"Charan's Sword\" \"Chayula's Flawless Breachstone\" \"Chrysalis Talisman\" \"Clutching Talisman\" \"Coin of Desecration\" \"Coin of Knowledge\" \"Coin of Power\" \"Coin of Restoration\" \"Coin of Skill\" \"Companionship Support\" \"Congregation Support\" \"Conjuror of Rot\" \"Cooldown Recovery Support\" \"Cord Belt\" \"Corvine Charm\" \"Craicic Lure\" \"Crusader's Exalted Orb\" \"Crystallised Rancour\" \"Cull the Weak Support\" \"Deadhand Talisman\" \"Deep One Talisman\" \"Dextral Catalyst\" \"Divine Blast\" \"Divine Sentinel Support\" \"Diviner's Incubator\" \"Eclipse Support\" \"Elder's Exalted Orb\" \"Elder's Orb\" \"Eldritch Blasphemy Support\" \"Engineer's Shard\" \"Enkindling Orb\" \"Essence of Desolation\" \"Excommunicate Support\" \"Exemplar Support\" \"Expedition Scarab of Infusion\" \"Fangjaw Talisman\" \"Farric Lure\" \"Fenumal Lure\" \"Fine Incubator\" \"Fissure Support\" \"Flesh of Xesht\" \"Foreboding Incubator\" \"Fossilised Incubator\" \"Foulgrasp Support\" \"Fragmented Incubator\" \"Frostmage Support\" \"Fruiting Astrolabe\" \"Fungal Astrolabe\" \"Geomancer's Incubator\" \"Gluttony Support\" \"Golden Blade\" \"Golden Bracers\" \"Golden Caligae\" \"Golden Flame\" \"Golden Hoop\" \"Golden Mantle\" \"Golden Obi\" \"Golden Visage\" \"Golden Wreath\" \"Grasping Astrolabe\" \"Greater Ancestral Call Support\" \"Greater Chain Support\" \"Greater Devour Support\" \"Greater Fork Support\" \"Greater Kinetic Instability Support\" \"Greater Multistrike Support\" \"Greater Spell Cascade Support\" \"Greater Spell Echo Support\" \"Greater Unleash Support\" \"Hallow Support\" \"Hexclaw Talisman\" \"Hexpass Support\" \"Hextoad Support\" \"Hiveborn Support\" \"Holy Hammers\" \"Holy Strike\" \"Honoured Incubator\" \"Horned Talisman\" \"Hunter's Exalted Orb\" \"Imperfect Adherent of Zarokh\" \"Imperfect Astral Lich\" \"Imperfect Conjuror of Rot\" \"Imprint\" \"Infused Incubator\" \"Instilling Orb\" \"Invention Support\" \"Invert the Rules Support\" \"Journey Tattoo of the Body\" \"Journey Tattoo of the Mind\" \"Journey Tattoo of the Soul\" \"Kalguuran Incubator\" \"Kalguuran Scarab of Enriching\" \"Lethal Dose Support\" \"Lightless Astrolabe\" \"Lone Antler Talisman\" \"Longtooth Talisman\" \"Lupine Charm\" \"Lycia's Invocation of Acrobatics\" \"Lycia's Invocation of Ancestral Bond\" \"Lycia's Invocation of Arrow Dancing\" \"Lycia's Invocation of Avatar of Fire\" \"Lycia's Invocation of Blood Magic\" \"Lycia's Invocation of Call to Arms\" \"Lycia's Invocation of Conduit\" \"Lycia's Invocation of Crimson Dance\" \"Lycia's Invocation of Divine Shield\" \"Lycia's Invocation of Eldritch Battery\" \"Lycia's Invocation of Elemental Equilibrium\" \"Lycia's Invocation of Elemental Overload\" \"Lycia's Invocation of Eternal Youth\" \"Lycia's Invocation of Ghost Dance\" \"Lycia's Invocation of Ghost Reaver\" \"Lycia's Invocation of Glancing Blows\" \"Lycia's Invocation of Hex Master\" \"Lycia's Invocation of Imbalanced Guard\" \"Lycia's Invocation of Iron Grip\" \"Lycia's Invocation of Iron Reflexes\" \"Lycia's Invocation of Iron Will\" \"Lycia's Invocation of Lethe Shade\" \"Lycia's Invocation of Magebane\" \"Lycia's Invocation of Mind over Matter\" \"Lycia's Invocation of Minion Instability\" \"Lycia's Invocation of Pain Attunement\" \"Lycia's Invocation of Perfect Agony\" \"Lycia's Invocation of Point Blank\" \"Lycia's Invocation of Precise Technique\" \"Lycia's Invocation of Resolute Technique\" \"Lycia's Invocation of Runebinder\" \"Lycia's Invocation of Solipsism\" \"Lycia's Invocation of Supreme Ego\" \"Lycia's Invocation of Unwavering Stance\" \"Lycia's Invocation of Vaal Pact\" \"Lycia's Invocation of Versatile Combatant\" \"Lycia's Invocation of Wicked Ward\" \"Lycia's Invocation of Wind Dancer\" \"Lycia's Invocation of Zealot's Oath\" \"Lycia's Invocation of the Agnostic\" \"Lycia's Invocation of the Impaler\" \"Machinations Support\" \"Maddening Incubator\" \"Mandible Talisman\" \"Memory of Loneliness\" \"Memory of Reverence\" \"Memory of Trauma\" \"Miraged Incubator\" \"Mirrored Tablet\" \"Monkey Paw Talisman\" \"Monkey Twins Talisman\" \"Mysterious Incubator\" \"Nameless Astrolabe\" \"Ornate Incubator\" \"Otherworldly Incubator\" \"Overheat Support\" \"Overloaded Intensity Support\" \"Pacifism Support\" \"Perfect Adherent of Zarokh\" \"Perfect Astral Lich\" \"Perfect Conjuror of Rot\" \"Primal Incubator\" \"Primal Skull Talisman\" \"Prime Regrading Lens\" \"Primeval Remnant\" \"Primordial Remnant\" \"Pyre Support\" \"Redeemer's Exalted Orb\" \"Refracting Fog\" \"Ring\" \"Ritual Scarab of Corpses\" \"Rot Head Talisman\" \"Rotfeather Talisman\" \"Runegraft of Connection\" \"Runegraft of Consecration\" \"Runegraft of Fury\" \"Runegraft of Rallying\" \"Runegraft of Resurgence\" \"Runegraft of Rotblood\" \"Runegraft of Suffering\" \"Runegraft of the Agile\" \"Runegraft of the Imbued\" \"Runegraft of the Spellbound\" \"Runic Astrolabe\" \"Sacred Incubator\" \"Saqawine Lure\" \"Scarab of the Dextral\" \"Scornful Herald Support\" \"Secondary Regrading Lens\" \"Shaper's Exalted Orb\" \"Shield of Light\" \"Singular Incubator\" \"Sinistral Catalyst\" \"Skittering Incubator\" \"Soul Quenched\" \"Spinefuse Talisman\" \"Splitnewt Talisman\" \"Stacked Deck\" \"Tattoo of the Arohongui Moonwarden\" \"Tattoo of the Arohongui Scout\" \"Tattoo of the Arohongui Shaman\" \"Tattoo of the Arohongui Warmonger\" \"Tattoo of the Arohongui Warrior\" \"Tattoo of the Hinekora Deathwarden\" \"Tattoo of the Hinekora Shaman\" \"Tattoo of the Hinekora Storyteller\" \"Tattoo of the Hinekora Warmonger\" \"Tattoo of the Hinekora Warrior\" \"Tattoo of the Kitava Blood Drinker\" \"Tattoo of the Kitava Heart Eater\" \"Tattoo of the Kitava Rebel\" \"Tattoo of the Kitava Shaman\" \"Tattoo of the Kitava Warrior\" \"Tattoo of the Ngamahu Firewalker\" \"Tattoo of the Ngamahu Shaman\" \"Tattoo of the Ngamahu Warmonger\" \"Tattoo of the Ngamahu Warrior\" \"Tattoo of the Ngamahu Woodcarver\" \"Tattoo of the Ramako Archer\" \"Tattoo of the Ramako Fleetfoot\" \"Tattoo of the Ramako Scout\" \"Tattoo of the Ramako Shaman\" \"Tattoo of the Ramako Sniper\" \"Tattoo of the Rongokurai Brute\" \"Tattoo of the Rongokurai Goliath\" \"Tattoo of the Rongokurai Guard\" \"Tattoo of the Rongokurai Turtle\" \"Tattoo of the Rongokurai Warrior\" \"Tattoo of the Tasalio Bladedancer\" \"Tattoo of the Tasalio Scout\" \"Tattoo of the Tasalio Shaman\" \"Tattoo of the Tasalio Tideshifter\" \"Tattoo of the Tasalio Warrior\" \"Tattoo of the Tawhoa Herbalist\" \"Tattoo of the Tawhoa Naturalist\" \"Tattoo of the Tawhoa Scout\" \"Tattoo of the Tawhoa Shaman\" \"Tattoo of the Tawhoa Warrior\" \"Tattoo of the Tukohama Brawler\" \"Tattoo of the Tukohama Shaman\" \"Tattoo of the Tukohama Warcaller\" \"Tattoo of the Tukohama Warmonger\" \"Tattoo of the Tukohama Warrior\" \"Tattoo of the Valako Scout\" \"Tattoo of the Valako Shaman\" \"Tattoo of the Valako Shieldbearer\" \"Tattoo of the Valako Stormrider\" \"Tattoo of the Valako Warrior\" \"Templar Astrolabe\" \"Thaumaturge's Incubator\" \"The Black Barya\" \"The Master\" \"The Maven's Beacon\" \"The Shaper's Key\" \"The Sustenance\" \"Three Hands Talisman\" \"Three Rat Talisman\" \"Timeless Astrolabe\" \"Timeworn Reliquary Key\" \"Transfusion Support\" \"Undying Flesh Talisman\" \"Unholy Trinity Support\" \"Unrelenting Timeless Eternal Emblem\" \"Unrelenting Timeless Karui Emblem\" \"Unrelenting Timeless Maraketh Emblem\" \"Unrelenting Timeless Templar Emblem\" \"Unrelenting Timeless Vaal Emblem\" \"Unshaping Orb\" \"Ursine Charm\" \"Vaal Breach\" \"Vaal Reliquary Key\" \"Vaal Sacrifice Support\" \"Vaal Temptation Support\" \"Veiled Chaos Orb\" \"Veiled Exalted Orb\" \"Void Shockwave Support\" \"Voidstorm Support\" \"Volatile Vaal Orb\" \"Warlord's Exalted Orb\" \"Wereclaw Talisman\" \"Whispering Incubator\" \"Writhing Talisman\"\n    SetFontSize 40\n    SetBorderColor 150 150 150 255\n    PlayAlertSound 2 300\n",
    "rule_authored": false,
    "rule_index": null
   },

@@ -1115,8 +1115,7 @@
   "Legacy": {
     "Tier 5": {
       "FontSize": 40,
-      "BackgroundColor": "#000000f0",
-      "TextColor": "#aa9e82cc"
+      "BorderColor": "#969696ff"
     }
   },
   "Class Nets": {
