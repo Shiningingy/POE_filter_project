@@ -615,6 +615,15 @@
           }
         },
         {
+          "path": "Equipment/League/Breach Rings.json",
+          "tier_path": "tier_definition/Equipment/League/Breach Rings.json",
+          "mapping_path": "base_mapping/Equipment/League/Breach Rings.json",
+          "localization": {
+            "en": "Breach Rings",
+            "ch": "裂隙戒指"
+          }
+        },
+        {
           "path": "Equipment/League/Expedition Ward-Bases.json",
           "tier_path": "tier_definition/Equipment/League/Expedition Ward-Bases.json",
           "mapping_path": "base_mapping/Equipment/League/Expedition Ward-Bases.json",

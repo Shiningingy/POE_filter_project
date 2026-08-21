@@ -30,7 +30,11 @@
         "Primitive Chaotic Resonator": "原始混乱共振器",
         "Potent Chaotic Resonator": "强能混乱共振器",
         "Powerful Chaotic Resonator": "巨能混乱共振器",
-        "Prime Chaotic Resonator": "威能混乱共振器"
+        "Prime Chaotic Resonator": "威能混乱共振器",
+        "Prime Alchemical Resonator": "威能炼金共振器",
+        "Powerful Alchemical Resonator": "巨能炼金共振器",
+        "Potent Alchemical Resonator": "强能炼金共振器",
+        "Primitive Alchemical Resonator": "原始炼金共振器"
       }
     },
     "item_class": {
@@ -117,6 +121,18 @@
     "Powerful Chaotic Resonator": "Tier 1 Fossils",
     "Prime Chaotic Resonator": [
       "Tier 0 Fossils"
+    ],
+    "Prime Alchemical Resonator": [
+      "Tier 0 Fossils"
+    ],
+    "Powerful Alchemical Resonator": [
+      "Tier 1 Fossils"
+    ],
+    "Potent Alchemical Resonator": [
+      "Tier 2 Fossils"
+    ],
+    "Primitive Alchemical Resonator": [
+      "Tier 3 Fossils"
     ]
   },
   "rules": []

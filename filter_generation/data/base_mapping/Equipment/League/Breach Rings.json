@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "localization": {
+      "ch": {
+        "Cryonic Ring": "冰凝戒指",
+        "Enthalpic Ring": "炽能戒指",
+        "Synaptic Ring": "突触戒指",
+        "Organic Ring": "有机戒指",
+        "Fugitive Ring": "逃亡戒指",
+        "Formless Ring": "无形戒指"
+      }
+    },
+    "item_class": {
+      "en": "Rings",
+      "ch": "戒指"
+    },
+    "theme_category": "Breach Rings",
+    "match_modes": {}
+  },
+  "mapping": {
+    "Cryonic Ring": "Breach Rings",
+    "Enthalpic Ring": "Breach Rings",
+    "Synaptic Ring": "Breach Rings",
+    "Organic Ring": "Breach Rings",
+    "Fugitive Ring": "Breach Rings",
+    "Formless Ring": "Breach Rings"
+  },
+  "rules": []
+}

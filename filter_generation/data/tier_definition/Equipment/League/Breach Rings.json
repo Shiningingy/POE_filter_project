@@ -1,0 +1,86 @@
+{
+  "Breach Rings": {
+    "_meta": {
+      "theme_category": "Breach Rings",
+      "localization": {
+        "en": "Breach Rings",
+        "ch": "裂隙戒指"
+      },
+      "tier_order": [
+        "Breach Rings",
+        "Breach Rings Hide"
+      ],
+      "_note": "The six 3.29 breach ring bases (RingB1..RingB6). They were curated only as Rare Equipment T4 and as unique bases, so a NORMAL or MAGIC one fell through to the Magic Net — shown, but silent and unstyled. Author, in game: they should read as a good league base. Shape copied from Breach Grasping Mail: same verdigris League Bases hue, `Rarity <= Rare` so uniques are left to Uniques/General (ADR-0006 — precision, not ordering), and the sound as item_override cards."
+    },
+    "Breach Rings": {
+      "hideable": true,
+      "theme": {
+        "Tier": 3
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Breach Rings",
+        "ch": "裂隙戒指"
+      },
+      "conditions": {
+        "Rarity": "<= Rare"
+      },
+      "item_overrides": {
+        "Cryonic Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/裂隙戒指.mp3",
+            300
+          ]
+        },
+        "Enthalpic Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/裂隙戒指.mp3",
+            300
+          ]
+        },
+        "Synaptic Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/裂隙戒指.mp3",
+            300
+          ]
+        },
+        "Organic Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/裂隙戒指.mp3",
+            300
+          ]
+        },
+        "Fugitive Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/裂隙戒指.mp3",
+            300
+          ]
+        },
+        "Formless Ring": {
+          "PlayAlertSound": [
+            "Sharket掉落音效/裂隙戒指.mp3",
+            300
+          ]
+        }
+      }
+    },
+    "Breach Rings Hide": {
+      "hideable": true,
+      "is_hide_tier": true,
+      "theme": {
+        "Tier": 9
+      },
+      "sound": {
+        "default_sound_id": -1,
+        "sharket_sound_id": null
+      },
+      "localization": {
+        "en": "Hide",
+        "ch": "隐藏"
+      }
+    }
+  }
+}

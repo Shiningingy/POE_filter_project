@@ -4,8 +4,8 @@
   "strictness": "soft",
   "language": "ch",
   "leveling_selection": {},
-  "blocks": 465,
-  "tiers": 311
+  "blocks": 466,
+  "tiers": 313
  },
  "blocks": [
   {
@@ -2180,10 +2180,11 @@
    "rule": null,
    "bases": [
     "Faceted Fossil",
-    "Fractured Fossil"
+    "Fractured Fossil",
+    "Prime Alchemical Resonator"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Faceted Fossil\" \"Fractured Fossil\"\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBorderColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\高级化石.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 0 Red Star\n",
+   "text": "Show\n    BaseType == \"Faceted Fossil\" \"Fractured Fossil\" \"Prime Alchemical Resonator\"\n    SetFontSize 45\n    SetTextColor 255 0 0 255\n    SetBorderColor 255 0 0 255\n    SetBackgroundColor 255 255 255 255\n    CustomAlertSound \"Sharket掉落音效\\高级化石.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 0 Red Star\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -2215,11 +2216,12 @@
     "Bloodstained Fossil",
     "Glyphic Fossil",
     "Hollow Fossil",
+    "Powerful Alchemical Resonator",
     "Sanctified Fossil",
     "Tangled Fossil"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Bloodstained Fossil\" \"Glyphic Fossil\" \"Hollow Fossil\" \"Sanctified Fossil\" \"Tangled Fossil\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 255 0 255\n    SetBackgroundColor 210 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\高级化石.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 1 Green Diamond\n",
+   "text": "Show\n    BaseType == \"Bloodstained Fossil\" \"Glyphic Fossil\" \"Hollow Fossil\" \"Powerful Alchemical Resonator\" \"Sanctified Fossil\" \"Tangled Fossil\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBorderColor 0 255 0 255\n    SetBackgroundColor 210 0 0 255\n    CustomAlertSound \"Sharket掉落音效\\高级化石.mp3\" 300\n    PlayEffect Orange\n    MinimapIcon 1 Green Diamond\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -2255,11 +2257,12 @@
     "Fundamental Fossil",
     "Gilded Fossil",
     "Opulent Fossil",
+    "Potent Alchemical Resonator",
     "Serrated Fossil",
     "Shuddering Fossil"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Aetheric Fossil\" \"Bound Fossil\" \"Corroded Fossil\" \"Deft Fossil\" \"Fundamental Fossil\" \"Gilded Fossil\" \"Opulent Fossil\" \"Serrated Fossil\" \"Shuddering Fossil\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\化石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Orange Diamond\n",
+   "text": "Show\n    BaseType == \"Aetheric Fossil\" \"Bound Fossil\" \"Corroded Fossil\" \"Deft Fossil\" \"Fundamental Fossil\" \"Gilded Fossil\" \"Opulent Fossil\" \"Potent Alchemical Resonator\" \"Serrated Fossil\" \"Shuddering Fossil\"\n    SetFontSize 45\n    SetTextColor 255 255 255 255\n    SetBackgroundColor 240 90 35 255\n    CustomAlertSound \"Sharket掉落音效\\化石.mp3\" 300\n    PlayEffect Orange Temp\n    MinimapIcon 2 Orange Diamond\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -2294,12 +2297,13 @@
     "Jagged Fossil",
     "Lucent Fossil",
     "Metallic Fossil",
+    "Primitive Alchemical Resonator",
     "Prismatic Fossil",
     "Pristine Fossil",
     "Scorched Fossil"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Aberrant Fossil\" \"Dense Fossil\" \"Frigid Fossil\" \"Jagged Fossil\" \"Lucent Fossil\" \"Metallic Fossil\" \"Prismatic Fossil\" \"Pristine Fossil\" \"Scorched Fossil\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\化石.mp3\" 300\n    PlayEffect Yellow Temp\n",
+   "text": "Show\n    BaseType == \"Aberrant Fossil\" \"Dense Fossil\" \"Frigid Fossil\" \"Jagged Fossil\" \"Lucent Fossil\" \"Metallic Fossil\" \"Primitive Alchemical Resonator\" \"Prismatic Fossil\" \"Pristine Fossil\" \"Scorched Fossil\"\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 255 170 0 255\n    CustomAlertSound \"Sharket掉落音效\\化石.mp3\" 300\n    PlayEffect Yellow Temp\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -4012,6 +4016,27 @@
   },
   {
    "order": 73001,
+   "file": "Equipment/League/Breach Rings.json",
+   "tier_key": "Breach Rings",
+   "tier_num": 3,
+   "source": "card",
+   "match": "Exact",
+   "rule": null,
+   "bases": [
+    "Cryonic Ring",
+    "Enthalpic Ring",
+    "Formless Ring",
+    "Fugitive Ring",
+    "Organic Ring",
+    "Synaptic Ring"
+   ],
+   "is_hide": false,
+   "text": "Show\n    BaseType == \"Cryonic Ring\" \"Enthalpic Ring\" \"Formless Ring\" \"Fugitive Ring\" \"Organic Ring\" \"Synaptic Ring\"\n    Rarity <= Rare\n    SetFontSize 45\n    SetTextColor 0 0 0 255\n    SetBackgroundColor 110 190 125 255\n    CustomAlertSound \"Sharket掉落音效\\裂隙戒指.mp3\" 300\n    MinimapIcon 1 Green Moon\n",
+   "rule_authored": false,
+   "rule_index": null
+  },
+  {
+   "order": 74001,
    "file": "Equipment/League/Expedition Ward-Bases.json",
    "tier_key": "Expedition Ward-Bases",
    "tier_num": 4,
@@ -4035,7 +4060,7 @@
    "rule_index": null
   },
   {
-   "order": 74001,
+   "order": 75001,
    "file": "Equipment/League/Heist Experimented.json",
    "tier_key": "Heist Experimented T0",
    "tier_num": 3,
@@ -4051,7 +4076,7 @@
    "rule_index": null
   },
   {
-   "order": 74002,
+   "order": 75002,
    "file": "Equipment/League/Heist Experimented.json",
    "tier_key": "Heist Experimented T0",
    "tier_num": 3,
@@ -4067,7 +4092,7 @@
    "rule_index": null
   },
   {
-   "order": 74003,
+   "order": 75003,
    "file": "Equipment/League/Heist Experimented.json",
    "tier_key": "Heist Experimented T0",
    "tier_num": 3,
@@ -4083,7 +4108,7 @@
    "rule_index": null
   },
   {
-   "order": 74004,
+   "order": 75004,
    "file": "Equipment/League/Heist Experimented.json",
    "tier_key": "Heist Experimented T0",
    "tier_num": 3,
@@ -4099,7 +4124,7 @@
    "rule_index": null
   },
   {
-   "order": 74005,
+   "order": 75005,
    "file": "Equipment/League/Heist Experimented.json",
    "tier_key": "Heist Experimented T0",
    "tier_num": 3,
@@ -4119,7 +4144,7 @@
    "rule_index": null
   },
   {
-   "order": 74006,
+   "order": 75006,
    "file": "Equipment/League/Heist Experimented.json",
    "tier_key": "Heist Experimented T2",
    "tier_num": 5,
@@ -4135,7 +4160,7 @@
    "rule_index": null
   },
   {
-   "order": 74007,
+   "order": 75007,
    "file": "Equipment/League/Heist Experimented.json",
    "tier_key": "Heist Experimented T2",
    "tier_num": 5,
@@ -4151,7 +4176,7 @@
    "rule_index": null
   },
   {
-   "order": 74008,
+   "order": 75008,
    "file": "Equipment/League/Heist Experimented.json",
    "tier_key": "Heist Experimented T2",
    "tier_num": 5,
@@ -4202,7 +4227,7 @@
    "rule_index": null
   },
   {
-   "order": 75001,
+   "order": 76001,
    "file": "Equipment/League/Mirror Ring Bases.json",
    "tier_key": "Mirror of Kalandra Ring Bases",
    "tier_num": 3,
@@ -4222,7 +4247,7 @@
    "rule_index": null
   },
   {
-   "order": 76001,
+   "order": 77001,
    "file": "Equipment/League/Ritual BaseTypes.json",
    "tier_key": "Ritual BaseTypes T0",
    "tier_num": 4,
@@ -4239,7 +4264,7 @@
    "rule_index": null
   },
   {
-   "order": 76002,
+   "order": 77002,
    "file": "Equipment/League/Ritual BaseTypes.json",
    "tier_key": "Ritual BaseTypes T1",
    "tier_num": 5,
@@ -4279,7 +4304,7 @@
    "rule_index": null
   },
   {
-   "order": 77001,
+   "order": 78001,
    "file": "Equipment/League/Sacrificial Garbs.json",
    "tier_key": "Sacrificial Garbs",
    "tier_num": 3,
@@ -4295,7 +4320,7 @@
    "rule_index": null
   },
   {
-   "order": 78001,
+   "order": 79001,
    "file": "Equipment/League/Stygian Vise.json",
    "tier_key": "Stygian Vise T0",
    "tier_num": 3,
@@ -4309,7 +4334,7 @@
    "rule_index": null
   },
   {
-   "order": 78002,
+   "order": 79002,
    "file": "Equipment/League/Stygian Vise.json",
    "tier_key": "Stygian Vise T1",
    "tier_num": 5,
@@ -4325,7 +4350,7 @@
    "rule_index": null
   },
   {
-   "order": 79001,
+   "order": 80001,
    "file": "Equipment/League/Talismans.json",
    "tier_key": "Talismans T0",
    "tier_num": 3,
@@ -4341,7 +4366,7 @@
    "rule_index": null
   },
   {
-   "order": 79002,
+   "order": 80002,
    "file": "Equipment/League/Talismans.json",
    "tier_key": "Talismans T2",
    "tier_num": 5,
@@ -4398,7 +4423,7 @@
    "rule_index": null
   },
   {
-   "order": 80001,
+   "order": 81001,
    "file": "Equipment/Relics.json",
    "tier_key": "Relics",
    "tier_num": 4,
@@ -4412,7 +4437,7 @@
    "rule_index": null
   },
   {
-   "order": 81001,
+   "order": 82001,
    "file": "Equipment/Special/Fractured.json",
    "tier_key": "Tier 0 Fractured",
    "tier_num": 3,
@@ -4541,7 +4566,7 @@
    "rule_index": null
   },
   {
-   "order": 81002,
+   "order": 82002,
    "file": "Equipment/Special/Fractured.json",
    "tier_key": "Tier 1 Fractured",
    "tier_num": 4,
@@ -4704,7 +4729,7 @@
    "rule_index": null
   },
   {
-   "order": 81003,
+   "order": 82003,
    "file": "Equipment/Special/Fractured.json",
    "tier_key": "Tier 2 Fractured",
    "tier_num": 5,
@@ -4893,7 +4918,7 @@
    "rule_index": null
   },
   {
-   "order": 81004,
+   "order": 82004,
    "file": "Equipment/Special/Fractured.json",
    "tier_key": "Tier 3 Fractured",
    "tier_num": 5,
@@ -10632,14 +10657,10 @@
     "Perfect Adherent of Zarokh",
     "Perfect Astral Lich",
     "Perfect Conjuror of Rot",
-    "Potent Alchemical Resonator",
-    "Powerful Alchemical Resonator",
     "Primal Incubator",
     "Primal Skull Talisman",
-    "Prime Alchemical Resonator",
     "Prime Regrading Lens",
     "Primeval Remnant",
-    "Primitive Alchemical Resonator",
     "Primordial Remnant",
     "Pyre Support",
     "Redeemer's Exalted Orb",
@@ -10759,7 +10780,7 @@
     "Writhing Talisman"
    ],
    "is_hide": false,
-   "text": "Show\n    BaseType == \"Abyss Scarab of Descending\" \"Abyssal Incubator\" \"Adherent of Zarokh\" \"Anarchy Scarab of the Exceptional\" \"Ancient Reliquary Key\" \"Annihilation Support\" \"Ashscale Talisman\" \"Astral Lich\" \"Avian Twins Talisman\" \"Betrayal Scarab of Unbreaking\" \"Binding Shard\" \"Birth of the Three\" \"Blessed Call Support\" \"Blessing of God\" \"Blighted Incubator\" \"Bloodsoaked Banner Support\" \"Bonespire Support\" \"Bonespire Talisman\" \"Breakrib Talisman\" \"Cartographer's Incubator\" \"Cast on Ward Break Support\" \"Celestial Armoursmith's Incubator\" \"Celestial Blacksmith's Incubator\" \"Chaotic Astrolabe\" \"Charan's Sword\" \"Chayula's Flawless Breachstone\" \"Chrysalis Talisman\" \"Clutching Talisman\" \"Coin of Desecration\" \"Coin of Knowledge\" \"Coin of Power\" \"Coin of Restoration\" \"Coin of Skill\" \"Companionship Support\" \"Congregation Support\" \"Conjuror of Rot\" \"Cooldown Recovery Support\" \"Cord Belt\" \"Corvine Charm\" \"Craicic Lure\" \"Crusader's Exalted Orb\" \"Crystallised Rancour\" \"Cull the Weak Support\" \"Deadhand Talisman\" \"Deep One Talisman\" \"Dextral Catalyst\" \"Divine Blast\" \"Divine Sentinel Support\" \"Diviner's Incubator\" \"Eclipse Support\" \"Elder's Exalted Orb\" \"Elder's Orb\" \"Eldritch Blasphemy Support\" \"Engineer's Shard\" \"Enkindling Orb\" \"Essence of Desolation\" \"Excommunicate Support\" \"Exemplar Support\" \"Expedition Scarab of Infusion\" \"Fangjaw Talisman\" \"Farric Lure\" \"Fenumal Lure\" \"Fine Incubator\" \"Fissure Support\" \"Flesh of Xesht\" \"Foreboding Incubator\" \"Fossilised Incubator\" \"Foulgrasp Support\" \"Fragmented Incubator\" \"Frostmage Support\" \"Fruiting Astrolabe\" \"Fungal Astrolabe\" \"Geomancer's Incubator\" \"Gluttony Support\" \"Golden Blade\" \"Golden Bracers\" \"Golden Caligae\" \"Golden Flame\" \"Golden Hoop\" \"Golden Mantle\" \"Golden Obi\" \"Golden Visage\" \"Golden Wreath\" \"Grasping Astrolabe\" \"Greater Ancestral Call Support\" \"Greater Chain Support\" \"Greater Devour Support\" \"Greater Fork Support\" \"Greater Kinetic Instability Support\" \"Greater Multistrike Support\" \"Greater Spell Cascade Support\" \"Greater Spell Echo Support\" \"Greater Unleash Support\" \"Hallow Support\" \"Hexclaw Talisman\" \"Hexpass Support\" \"Hextoad Support\" \"Hiveborn Support\" \"Holy Hammers\" \"Holy Strike\" \"Honoured Incubator\" \"Horned Talisman\" \"Hunter's Exalted Orb\" \"Imperfect Adherent of Zarokh\" \"Imperfect Astral Lich\" \"Imperfect Conjuror of Rot\" \"Imprint\" \"Infused Incubator\" \"Instilling Orb\" \"Invention Support\" \"Invert the Rules Support\" \"Journey Tattoo of the Body\" \"Journey Tattoo of the Mind\" \"Journey Tattoo of the Soul\" \"Kalguuran Incubator\" \"Kalguuran Scarab of Enriching\" \"Lethal Dose Support\" \"Lightless Astrolabe\" \"Lone Antler Talisman\" \"Longtooth Talisman\" \"Lupine Charm\" \"Lycia's Invocation of Acrobatics\" \"Lycia's Invocation of Ancestral Bond\" \"Lycia's Invocation of Arrow Dancing\" \"Lycia's Invocation of Avatar of Fire\" \"Lycia's Invocation of Blood Magic\" \"Lycia's Invocation of Call to Arms\" \"Lycia's Invocation of Conduit\" \"Lycia's Invocation of Crimson Dance\" \"Lycia's Invocation of Divine Shield\" \"Lycia's Invocation of Eldritch Battery\" \"Lycia's Invocation of Elemental Equilibrium\" \"Lycia's Invocation of Elemental Overload\" \"Lycia's Invocation of Eternal Youth\" \"Lycia's Invocation of Ghost Dance\" \"Lycia's Invocation of Ghost Reaver\" \"Lycia's Invocation of Glancing Blows\" \"Lycia's Invocation of Hex Master\" \"Lycia's Invocation of Imbalanced Guard\" \"Lycia's Invocation of Iron Grip\" \"Lycia's Invocation of Iron Reflexes\" \"Lycia's Invocation of Iron Will\" \"Lycia's Invocation of Lethe Shade\" \"Lycia's Invocation of Magebane\" \"Lycia's Invocation of Mind over Matter\" \"Lycia's Invocation of Minion Instability\" \"Lycia's Invocation of Pain Attunement\" \"Lycia's Invocation of Perfect Agony\" \"Lycia's Invocation of Point Blank\" \"Lycia's Invocation of Precise Technique\" \"Lycia's Invocation of Resolute Technique\" \"Lycia's Invocation of Runebinder\" \"Lycia's Invocation of Solipsism\" \"Lycia's Invocation of Supreme Ego\" \"Lycia's Invocation of Unwavering Stance\" \"Lycia's Invocation of Vaal Pact\" \"Lycia's Invocation of Versatile Combatant\" \"Lycia's Invocation of Wicked Ward\" \"Lycia's Invocation of Wind Dancer\" \"Lycia's Invocation of Zealot's Oath\" \"Lycia's Invocation of the Agnostic\" \"Lycia's Invocation of the Impaler\" \"Machinations Support\" \"Maddening Incubator\" \"Mandible Talisman\" \"Memory of Loneliness\" \"Memory of Reverence\" \"Memory of Trauma\" \"Miraged Incubator\" \"Mirrored Tablet\" \"Monkey Paw Talisman\" \"Monkey Twins Talisman\" \"Mysterious Incubator\" \"Nameless Astrolabe\" \"Ornate Incubator\" \"Otherworldly Incubator\" \"Overheat Support\" \"Overloaded Intensity Support\" \"Pacifism Support\" \"Perfect Adherent of Zarokh\" \"Perfect Astral Lich\" \"Perfect Conjuror of Rot\" \"Potent Alchemical Resonator\" \"Powerful Alchemical Resonator\" \"Primal Incubator\" \"Primal Skull Talisman\" \"Prime Alchemical Resonator\" \"Prime Regrading Lens\" \"Primeval Remnant\" \"Primitive Alchemical Resonator\" \"Primordial Remnant\" \"Pyre Support\" \"Redeemer's Exalted Orb\" \"Refracting Fog\" \"Ring\" \"Ritual Scarab of Corpses\" \"Rot Head Talisman\" \"Rotfeather Talisman\" \"Runegraft of Connection\" \"Runegraft of Consecration\" \"Runegraft of Fury\" \"Runegraft of Rallying\" \"Runegraft of Resurgence\" \"Runegraft of Rotblood\" \"Runegraft of Suffering\" \"Runegraft of the Agile\" \"Runegraft of the Imbued\" \"Runegraft of the Spellbound\" \"Runic Astrolabe\" \"Sacred Incubator\" \"Saqawine Lure\" \"Scarab of the Dextral\" \"Scornful Herald Support\" \"Secondary Regrading Lens\" \"Shaper's Exalted Orb\" \"Shield of Light\" \"Singular Incubator\" \"Sinistral Catalyst\" \"Skittering Incubator\" \"Soul Quenched\" \"Spinefuse Talisman\" \"Splitnewt Talisman\" \"Stacked Deck\" \"Tattoo of the Arohongui Moonwarden\" \"Tattoo of the Arohongui Scout\" \"Tattoo of the Arohongui Shaman\" \"Tattoo of the Arohongui Warmonger\" \"Tattoo of the Arohongui Warrior\" \"Tattoo of the Hinekora Deathwarden\" \"Tattoo of the Hinekora Shaman\" \"Tattoo of the Hinekora Storyteller\" \"Tattoo of the Hinekora Warmonger\" \"Tattoo of the Hinekora Warrior\" \"Tattoo of the Kitava Blood Drinker\" \"Tattoo of the Kitava Heart Eater\" \"Tattoo of the Kitava Rebel\" \"Tattoo of the Kitava Shaman\" \"Tattoo of the Kitava Warrior\" \"Tattoo of the Ngamahu Firewalker\" \"Tattoo of the Ngamahu Shaman\" \"Tattoo of the Ngamahu Warmonger\" \"Tattoo of the Ngamahu Warrior\" \"Tattoo of the Ngamahu Woodcarver\" \"Tattoo of the Ramako Archer\" \"Tattoo of the Ramako Fleetfoot\" \"Tattoo of the Ramako Scout\" \"Tattoo of the Ramako Shaman\" \"Tattoo of the Ramako Sniper\" \"Tattoo of the Rongokurai Brute\" \"Tattoo of the Rongokurai Goliath\" \"Tattoo of the Rongokurai Guard\" \"Tattoo of the Rongokurai Turtle\" \"Tattoo of the Rongokurai Warrior\" \"Tattoo of the Tasalio Bladedancer\" \"Tattoo of the Tasalio Scout\" \"Tattoo of the Tasalio Shaman\" \"Tattoo of the Tasalio Tideshifter\" \"Tattoo of the Tasalio Warrior\" \"Tattoo of the Tawhoa Herbalist\" \"Tattoo of the Tawhoa Naturalist\" \"Tattoo of the Tawhoa Scout\" \"Tattoo of the Tawhoa Shaman\" \"Tattoo of the Tawhoa Warrior\" \"Tattoo of the Tukohama Brawler\" \"Tattoo of the Tukohama Shaman\" \"Tattoo of the Tukohama Warcaller\" \"Tattoo of the Tukohama Warmonger\" \"Tattoo of the Tukohama Warrior\" \"Tattoo of the Valako Scout\" \"Tattoo of the Valako Shaman\" \"Tattoo of the Valako Shieldbearer\" \"Tattoo of the Valako Stormrider\" \"Tattoo of the Valako Warrior\" \"Templar Astrolabe\" \"Thaumaturge's Incubator\" \"The Black Barya\" \"The Master\" \"The Maven's Beacon\" \"The Shaper's Key\" \"The Sustenance\" \"Three Hands Talisman\" \"Three Rat Talisman\" \"Timeless Astrolabe\" \"Timeworn Reliquary Key\" \"Transfusion Support\" \"Undying Flesh Talisman\" \"Unholy Trinity Support\" \"Unrelenting Timeless Eternal Emblem\" \"Unrelenting Timeless Karui Emblem\" \"Unrelenting Timeless Maraketh Emblem\" \"Unrelenting Timeless Templar Emblem\" \"Unrelenting Timeless Vaal Emblem\" \"Unshaping Orb\" \"Ursine Charm\" \"Vaal Breach\" \"Vaal Reliquary Key\" \"Vaal Sacrifice Support\" \"Vaal Temptation Support\" \"Veiled Chaos Orb\" \"Veiled Exalted Orb\" \"Void Shockwave Support\" \"Voidstorm Support\" \"Volatile Vaal Orb\" \"Warlord's Exalted Orb\" \"Wereclaw Talisman\" \"Whispering Incubator\" \"Writhing Talisman\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    PlayAlertSound 2 300\n",
+   "text": "Show\n    BaseType == \"Abyss Scarab of Descending\" \"Abyssal Incubator\" \"Adherent of Zarokh\" \"Anarchy Scarab of the Exceptional\" \"Ancient Reliquary Key\" \"Annihilation Support\" \"Ashscale Talisman\" \"Astral Lich\" \"Avian Twins Talisman\" \"Betrayal Scarab of Unbreaking\" \"Binding Shard\" \"Birth of the Three\" \"Blessed Call Support\" \"Blessing of God\" \"Blighted Incubator\" \"Bloodsoaked Banner Support\" \"Bonespire Support\" \"Bonespire Talisman\" \"Breakrib Talisman\" \"Cartographer's Incubator\" \"Cast on Ward Break Support\" \"Celestial Armoursmith's Incubator\" \"Celestial Blacksmith's Incubator\" \"Chaotic Astrolabe\" \"Charan's Sword\" \"Chayula's Flawless Breachstone\" \"Chrysalis Talisman\" \"Clutching Talisman\" \"Coin of Desecration\" \"Coin of Knowledge\" \"Coin of Power\" \"Coin of Restoration\" \"Coin of Skill\" \"Companionship Support\" \"Congregation Support\" \"Conjuror of Rot\" \"Cooldown Recovery Support\" \"Cord Belt\" \"Corvine Charm\" \"Craicic Lure\" \"Crusader's Exalted Orb\" \"Crystallised Rancour\" \"Cull the Weak Support\" \"Deadhand Talisman\" \"Deep One Talisman\" \"Dextral Catalyst\" \"Divine Blast\" \"Divine Sentinel Support\" \"Diviner's Incubator\" \"Eclipse Support\" \"Elder's Exalted Orb\" \"Elder's Orb\" \"Eldritch Blasphemy Support\" \"Engineer's Shard\" \"Enkindling Orb\" \"Essence of Desolation\" \"Excommunicate Support\" \"Exemplar Support\" \"Expedition Scarab of Infusion\" \"Fangjaw Talisman\" \"Farric Lure\" \"Fenumal Lure\" \"Fine Incubator\" \"Fissure Support\" \"Flesh of Xesht\" \"Foreboding Incubator\" \"Fossilised Incubator\" \"Foulgrasp Support\" \"Fragmented Incubator\" \"Frostmage Support\" \"Fruiting Astrolabe\" \"Fungal Astrolabe\" \"Geomancer's Incubator\" \"Gluttony Support\" \"Golden Blade\" \"Golden Bracers\" \"Golden Caligae\" \"Golden Flame\" \"Golden Hoop\" \"Golden Mantle\" \"Golden Obi\" \"Golden Visage\" \"Golden Wreath\" \"Grasping Astrolabe\" \"Greater Ancestral Call Support\" \"Greater Chain Support\" \"Greater Devour Support\" \"Greater Fork Support\" \"Greater Kinetic Instability Support\" \"Greater Multistrike Support\" \"Greater Spell Cascade Support\" \"Greater Spell Echo Support\" \"Greater Unleash Support\" \"Hallow Support\" \"Hexclaw Talisman\" \"Hexpass Support\" \"Hextoad Support\" \"Hiveborn Support\" \"Holy Hammers\" \"Holy Strike\" \"Honoured Incubator\" \"Horned Talisman\" \"Hunter's Exalted Orb\" \"Imperfect Adherent of Zarokh\" \"Imperfect Astral Lich\" \"Imperfect Conjuror of Rot\" \"Imprint\" \"Infused Incubator\" \"Instilling Orb\" \"Invention Support\" \"Invert the Rules Support\" \"Journey Tattoo of the Body\" \"Journey Tattoo of the Mind\" \"Journey Tattoo of the Soul\" \"Kalguuran Incubator\" \"Kalguuran Scarab of Enriching\" \"Lethal Dose Support\" \"Lightless Astrolabe\" \"Lone Antler Talisman\" \"Longtooth Talisman\" \"Lupine Charm\" \"Lycia's Invocation of Acrobatics\" \"Lycia's Invocation of Ancestral Bond\" \"Lycia's Invocation of Arrow Dancing\" \"Lycia's Invocation of Avatar of Fire\" \"Lycia's Invocation of Blood Magic\" \"Lycia's Invocation of Call to Arms\" \"Lycia's Invocation of Conduit\" \"Lycia's Invocation of Crimson Dance\" \"Lycia's Invocation of Divine Shield\" \"Lycia's Invocation of Eldritch Battery\" \"Lycia's Invocation of Elemental Equilibrium\" \"Lycia's Invocation of Elemental Overload\" \"Lycia's Invocation of Eternal Youth\" \"Lycia's Invocation of Ghost Dance\" \"Lycia's Invocation of Ghost Reaver\" \"Lycia's Invocation of Glancing Blows\" \"Lycia's Invocation of Hex Master\" \"Lycia's Invocation of Imbalanced Guard\" \"Lycia's Invocation of Iron Grip\" \"Lycia's Invocation of Iron Reflexes\" \"Lycia's Invocation of Iron Will\" \"Lycia's Invocation of Lethe Shade\" \"Lycia's Invocation of Magebane\" \"Lycia's Invocation of Mind over Matter\" \"Lycia's Invocation of Minion Instability\" \"Lycia's Invocation of Pain Attunement\" \"Lycia's Invocation of Perfect Agony\" \"Lycia's Invocation of Point Blank\" \"Lycia's Invocation of Precise Technique\" \"Lycia's Invocation of Resolute Technique\" \"Lycia's Invocation of Runebinder\" \"Lycia's Invocation of Solipsism\" \"Lycia's Invocation of Supreme Ego\" \"Lycia's Invocation of Unwavering Stance\" \"Lycia's Invocation of Vaal Pact\" \"Lycia's Invocation of Versatile Combatant\" \"Lycia's Invocation of Wicked Ward\" \"Lycia's Invocation of Wind Dancer\" \"Lycia's Invocation of Zealot's Oath\" \"Lycia's Invocation of the Agnostic\" \"Lycia's Invocation of the Impaler\" \"Machinations Support\" \"Maddening Incubator\" \"Mandible Talisman\" \"Memory of Loneliness\" \"Memory of Reverence\" \"Memory of Trauma\" \"Miraged Incubator\" \"Mirrored Tablet\" \"Monkey Paw Talisman\" \"Monkey Twins Talisman\" \"Mysterious Incubator\" \"Nameless Astrolabe\" \"Ornate Incubator\" \"Otherworldly Incubator\" \"Overheat Support\" \"Overloaded Intensity Support\" \"Pacifism Support\" \"Perfect Adherent of Zarokh\" \"Perfect Astral Lich\" \"Perfect Conjuror of Rot\" \"Primal Incubator\" \"Primal Skull Talisman\" \"Prime Regrading Lens\" \"Primeval Remnant\" \"Primordial Remnant\" \"Pyre Support\" \"Redeemer's Exalted Orb\" \"Refracting Fog\" \"Ring\" \"Ritual Scarab of Corpses\" \"Rot Head Talisman\" \"Rotfeather Talisman\" \"Runegraft of Connection\" \"Runegraft of Consecration\" \"Runegraft of Fury\" \"Runegraft of Rallying\" \"Runegraft of Resurgence\" \"Runegraft of Rotblood\" \"Runegraft of Suffering\" \"Runegraft of the Agile\" \"Runegraft of the Imbued\" \"Runegraft of the Spellbound\" \"Runic Astrolabe\" \"Sacred Incubator\" \"Saqawine Lure\" \"Scarab of the Dextral\" \"Scornful Herald Support\" \"Secondary Regrading Lens\" \"Shaper's Exalted Orb\" \"Shield of Light\" \"Singular Incubator\" \"Sinistral Catalyst\" \"Skittering Incubator\" \"Soul Quenched\" \"Spinefuse Talisman\" \"Splitnewt Talisman\" \"Stacked Deck\" \"Tattoo of the Arohongui Moonwarden\" \"Tattoo of the Arohongui Scout\" \"Tattoo of the Arohongui Shaman\" \"Tattoo of the Arohongui Warmonger\" \"Tattoo of the Arohongui Warrior\" \"Tattoo of the Hinekora Deathwarden\" \"Tattoo of the Hinekora Shaman\" \"Tattoo of the Hinekora Storyteller\" \"Tattoo of the Hinekora Warmonger\" \"Tattoo of the Hinekora Warrior\" \"Tattoo of the Kitava Blood Drinker\" \"Tattoo of the Kitava Heart Eater\" \"Tattoo of the Kitava Rebel\" \"Tattoo of the Kitava Shaman\" \"Tattoo of the Kitava Warrior\" \"Tattoo of the Ngamahu Firewalker\" \"Tattoo of the Ngamahu Shaman\" \"Tattoo of the Ngamahu Warmonger\" \"Tattoo of the Ngamahu Warrior\" \"Tattoo of the Ngamahu Woodcarver\" \"Tattoo of the Ramako Archer\" \"Tattoo of the Ramako Fleetfoot\" \"Tattoo of the Ramako Scout\" \"Tattoo of the Ramako Shaman\" \"Tattoo of the Ramako Sniper\" \"Tattoo of the Rongokurai Brute\" \"Tattoo of the Rongokurai Goliath\" \"Tattoo of the Rongokurai Guard\" \"Tattoo of the Rongokurai Turtle\" \"Tattoo of the Rongokurai Warrior\" \"Tattoo of the Tasalio Bladedancer\" \"Tattoo of the Tasalio Scout\" \"Tattoo of the Tasalio Shaman\" \"Tattoo of the Tasalio Tideshifter\" \"Tattoo of the Tasalio Warrior\" \"Tattoo of the Tawhoa Herbalist\" \"Tattoo of the Tawhoa Naturalist\" \"Tattoo of the Tawhoa Scout\" \"Tattoo of the Tawhoa Shaman\" \"Tattoo of the Tawhoa Warrior\" \"Tattoo of the Tukohama Brawler\" \"Tattoo of the Tukohama Shaman\" \"Tattoo of the Tukohama Warcaller\" \"Tattoo of the Tukohama Warmonger\" \"Tattoo of the Tukohama Warrior\" \"Tattoo of the Valako Scout\" \"Tattoo of the Valako Shaman\" \"Tattoo of the Valako Shieldbearer\" \"Tattoo of the Valako Stormrider\" \"Tattoo of the Valako Warrior\" \"Templar Astrolabe\" \"Thaumaturge's Incubator\" \"The Black Barya\" \"The Master\" \"The Maven's Beacon\" \"The Shaper's Key\" \"The Sustenance\" \"Three Hands Talisman\" \"Three Rat Talisman\" \"Timeless Astrolabe\" \"Timeworn Reliquary Key\" \"Transfusion Support\" \"Undying Flesh Talisman\" \"Unholy Trinity Support\" \"Unrelenting Timeless Eternal Emblem\" \"Unrelenting Timeless Karui Emblem\" \"Unrelenting Timeless Maraketh Emblem\" \"Unrelenting Timeless Templar Emblem\" \"Unrelenting Timeless Vaal Emblem\" \"Unshaping Orb\" \"Ursine Charm\" \"Vaal Breach\" \"Vaal Reliquary Key\" \"Vaal Sacrifice Support\" \"Vaal Temptation Support\" \"Veiled Chaos Orb\" \"Veiled Exalted Orb\" \"Void Shockwave Support\" \"Voidstorm Support\" \"Volatile Vaal Orb\" \"Warlord's Exalted Orb\" \"Wereclaw Talisman\" \"Whispering Incubator\" \"Writhing Talisman\"\n    SetFontSize 40\n    SetTextColor 170 158 130 204\n    SetBackgroundColor 0 0 0 240\n    PlayAlertSound 2 300\n",
    "rule_authored": false,
    "rule_index": null
   },
@@ -13083,7 +13104,8 @@
    "mapped_items": [
     "Faceted Fossil",
     "Fractured Fossil",
-    "Prime Chaotic Resonator"
+    "Prime Chaotic Resonator",
+    "Prime Alchemical Resonator"
    ],
    "emits_by_class": false
   },
@@ -13098,7 +13120,8 @@
     "Glyphic Fossil",
     "Tangled Fossil",
     "Sanctified Fossil",
-    "Powerful Chaotic Resonator"
+    "Powerful Chaotic Resonator",
+    "Powerful Alchemical Resonator"
    ],
    "emits_by_class": false
   },
@@ -13117,7 +13140,8 @@
     "Gilded Fossil",
     "Deft Fossil",
     "Fundamental Fossil",
-    "Potent Chaotic Resonator"
+    "Potent Chaotic Resonator",
+    "Potent Alchemical Resonator"
    ],
    "emits_by_class": false
   },
@@ -13136,7 +13160,8 @@
     "Dense Fossil",
     "Prismatic Fossil",
     "Lucent Fossil",
-    "Primitive Chaotic Resonator"
+    "Primitive Chaotic Resonator",
+    "Primitive Alchemical Resonator"
    ],
    "emits_by_class": false
   },
@@ -13931,6 +13956,29 @@
   {
    "file": "Equipment/League/Breach Grasping Mail.json",
    "tier_key": "Breach Grasping Mail Hide",
+   "emitted": false,
+   "reason": "no-items-mapped",
+   "mapped_items": [],
+   "emits_by_class": false
+  },
+  {
+   "file": "Equipment/League/Breach Rings.json",
+   "tier_key": "Breach Rings",
+   "emitted": true,
+   "reason": "emitted",
+   "mapped_items": [
+    "Cryonic Ring",
+    "Enthalpic Ring",
+    "Synaptic Ring",
+    "Organic Ring",
+    "Fugitive Ring",
+    "Formless Ring"
+   ],
+   "emits_by_class": false
+  },
+  {
+   "file": "Equipment/League/Breach Rings.json",
+   "tier_key": "Breach Rings Hide",
    "emitted": false,
    "reason": "no-items-mapped",
    "mapped_items": [],
@@ -17718,14 +17766,10 @@
     "Perfect Adherent of Zarokh",
     "Perfect Astral Lich",
     "Perfect Conjuror of Rot",
-    "Potent Alchemical Resonator",
-    "Powerful Alchemical Resonator",
     "Primal Incubator",
     "Primal Skull Talisman",
-    "Prime Alchemical Resonator",
     "Prime Regrading Lens",
     "Primeval Remnant",
-    "Primitive Alchemical Resonator",
     "Primordial Remnant",
     "Prismatic Jewel",
     "Pyre Support",
