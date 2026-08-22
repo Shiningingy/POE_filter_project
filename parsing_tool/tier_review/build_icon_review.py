@@ -1,4 +1,4 @@
-"""Build the ICON review artifact — one pass, one question: does this tier need an icon?
+"""Build the ICON + BEAM review artifact — per tier: should it draw an icon, and a beam?
 
     python parsing_tool/tier_review/extract_tiers.py out/tr/ruthless.json out/tr/standard.json
     python parsing_tool/tier_review/build_icon_review.py
@@ -6,7 +6,8 @@
 Sibling of build_artifact.py and deliberately NOT a fork of it: that page asks what a tier
 should BE (keep / merge / split / drop), this one asks a single yes-no. Reusing its tokens
 verbatim so the two read as one toolkit; reusing its localStorage key would strand a review,
-so this one is `sharket-icon-review-v1`.
+so this one is `sharket-icon-review-v1`. That key is kept across the beam addition: the
+record grew from {i,c} to {i,b,c}, which is additive, so an in-progress review survives.
 
 ★ Why the icon is read from the TRACE, not the theme row. An inline tier `theme` beats the
 row and an `item_overrides` card can add a sound the row never mentions, so "what does this
@@ -23,7 +24,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, 'tier_review_data.json')
 OUT = os.path.join(HERE, 'icon_review.html')
 
-HTML = r"""<title>Icon Pass</title>
+HTML = r"""<title>Icon &amp; Beam Pass</title>
 <style>
   /* Tokens lifted verbatim from build_artifact.py so the two review pages are one
      toolkit: warm dark ground + PoE gold, because the subject is gilded plates on
@@ -113,7 +114,7 @@ HTML = r"""<title>Icon Pass</title>
   .cat h2 { font-size:16px; font-weight:650; }
   .cat .files { color:var(--muted); font-size:12px; font-family:var(--mono); margin:2px 0 12px; }
 
-  .tier { display:grid; grid-template-columns:minmax(180px,300px) 92px 1fr auto;
+  .tier { display:grid; grid-template-columns:minmax(170px,270px) 86px 86px 1fr auto;
           gap:14px; align-items:center; padding:11px 12px; border:1px solid var(--line);
           border-radius:9px; background:var(--panel); margin-bottom:9px; }
   .tier.decided { border-color:var(--accent); }
@@ -129,6 +130,13 @@ HTML = r"""<title>Icon Pass</title>
   .iconcell .lbl { font-family:var(--mono); font-size:10.5px; color:var(--muted);
                    line-height:1.25; }
 
+  /* A beam is a column of light in game, so it reads as a vertical bar rather than a
+     chip. `Temp` fades out after a few seconds — shown as a bar that fades to nothing. */
+  .beamcell { display:flex; align-items:center; gap:7px; }
+  .beam { width:9px; height:26px; border-radius:2px; flex:none; }
+  .beamcell .none { color:var(--muted); font-size:11.5px; font-style:italic; }
+  .beamcell .lbl { font-family:var(--mono); font-size:10.5px; color:var(--muted); line-height:1.25; }
+
   .meta { display:flex; flex-direction:column; gap:5px; min-width:0; }
   .meta .nm { font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .chips { display:flex; gap:5px; flex-wrap:wrap; }
@@ -139,6 +147,9 @@ HTML = r"""<title>Icon Pass</title>
   .chip.r { color:var(--accent); border-color:color-mix(in srgb, var(--accent) 45%, var(--line)); }
 
   .call { display:flex; flex-direction:column; gap:6px; align-items:flex-end; }
+  .callrow { display:flex; align-items:center; gap:7px; }
+  .callrow > span { font-family:var(--mono); font-size:10.5px; color:var(--muted);
+                    text-transform:uppercase; letter-spacing:.07em; }
   .seg { display:flex; border:1px solid var(--line); border-radius:var(--radius);
          overflow:hidden; }
   .seg button { background:var(--panel-2); border:0; border-right:1px solid var(--line);
@@ -174,7 +185,7 @@ HTML = r"""<title>Icon Pass</title>
 
 <div class="app">
   <div class="bar">
-    <h1>Icon Pass</h1>
+    <h1>Icon &amp; Beam Pass</h1>
     <span class="sub" id="sub"></span>
     <div class="filters" id="filters"></div>
     <div class="spacer"></div>
@@ -195,7 +206,7 @@ HTML = r"""<title>Icon Pass</title>
 <div class="export-overlay" id="ov">
   <div class="export-box">
     <div class="export-head">
-      <strong>Icon decisions</strong>
+      <strong>Icon &amp; beam decisions</strong>
       <span class="spacer"></span>
       <button class="btn" id="copy">Copy</button>
       <button class="btn" id="close">Close</button>
@@ -260,20 +271,36 @@ function glyph(v) {
     style="fill:${col};flex:none"><rect width="24" height="24" fill="none"/>${draw(r)}</svg>`;
 }
 
+/* A beam is "<Colour>" or "<Colour> Temp". Temp fades after a few seconds, so it is drawn
+   as a bar fading out rather than a second colour — the difference is duration, not hue. */
+const BEAM_HEX = { ...ICON_HEX };
+function beamBar(v) {
+  const p = String(v).trim().split(/\s+/);
+  const col = BEAM_HEX[p[0]] || '#f2f2f2';
+  const temp = p.includes('Temp');
+  const bg = temp ? `linear-gradient(to bottom, ${col}, transparent)` : col;
+  return `<span class="beam" style="background:${bg}" aria-hidden="true"></span>`;
+}
+
 /* ---- rendering ------------------------------------------------------------ */
 const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g,
   m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
 
 let filter = 'todo', active = null, query = '';
 
+/* "Undecided" means BOTH calls are still open — a tier answered for icons but not beams
+   is still work, and dropping it from the list once the icon is set loses half the pass. */
+const isDone = r => !!r && r.i !== undefined && r.b !== undefined;
 const FILTERS = [
-  ['todo',   'Undecided',      t => !rec(t._ck, t.tier)],
+  ['todo',   'Undecided',      t => !isDone(rec(t._ck, t.tier))],
   ['gap',    'Sound, no icon', t => t.hasSound && !t.drawnIcons.length],
   ['noicon', 'No icon',        t => !t.drawnIcons.length],
   ['icon',   'Has icon',       t => t.drawnIcons.length > 0],
+  ['beam',   'Has beam',       t => t.drawnBeams.length > 0],
+  ['nobeam', 'No beam',        t => !t.drawnBeams.length],
   ['all',    'All',            () => true],
 ];
-const passes = t => (FILTERS.find(f => f[0] === filter) || FILTERS[4])[2](t);
+const passes = t => (FILTERS.find(f => f[0] === filter) || FILTERS[FILTERS.length - 1])[2](t);
 
 function plateStyle(s) {
   const hex = v => {
@@ -306,18 +333,30 @@ function tierRow(c, t) {
   const icons = t.drawnIcons.length
     ? t.drawnIcons.map(v => `${glyph(v)}<span class="lbl">${esc(v)}</span>`).join('')
     : '<span class="none">no icon</span>';
+  const beams = t.drawnBeams.length
+    ? t.drawnBeams.map(v => `${beamBar(v)}<span class="lbl">${esc(v)}</span>`).join('')
+    : '<span class="none">no beam</span>';
 
-  return `<div class="tier ${r.i !== undefined ? 'decided' : ''}" data-c="${esc(c.key)}" data-t="${esc(t.tier)}">
+  return `<div class="tier ${isDone(r) ? 'decided' : ''}" data-c="${esc(c.key)}" data-t="${esc(t.tier)}">
     <div class="plate" style="${plateStyle(t.style || {})}">${esc(label)}</div>
     <div class="iconcell">${icons}</div>
+    <div class="beamcell">${beams}</div>
     <div class="meta">
       <span class="nm">${esc(t.tier)}</span>
       <span class="chips">${chips.join('')}</span>
     </div>
     <div class="call">
-      <div class="seg">
-        <button data-v="1" aria-pressed="${r.i === 1}">Icon</button>
-        <button class="no" data-v="0" aria-pressed="${r.i === 0}">No icon</button>
+      <div class="callrow"><span>icon</span>
+        <div class="seg" data-k="i">
+          <button data-v="1" aria-pressed="${r.i === 1}">Yes</button>
+          <button class="no" data-v="0" aria-pressed="${r.i === 0}">No</button>
+        </div>
+      </div>
+      <div class="callrow"><span>beam</span>
+        <div class="seg" data-k="b">
+          <button data-v="1" aria-pressed="${r.b === 1}">Yes</button>
+          <button class="no" data-v="0" aria-pressed="${r.b === 0}">No</button>
+        </div>
       </div>
       <input class="cmt" placeholder="Comment (optional)" value="${esc(r.c || '')}">
     </div>
@@ -341,17 +380,17 @@ function render() {
 }
 
 function paint() {
-  let done = 0;
-  for (const c of CATS) for (const t of c.rows) if (rec(c.key, t.tier)) done++;
-  document.getElementById('pct').textContent = `${done} / ${TOTAL}`;
-  document.getElementById('meter').style.width = TOTAL ? (done / TOTAL * 100) + '%' : '0';
+  let nDone = 0;
+  for (const c of CATS) for (const t of c.rows) if (isDone(rec(c.key, t.tier))) nDone++;
+  document.getElementById('pct').textContent = `${nDone} / ${TOTAL}`;
+  document.getElementById('meter').style.width = TOTAL ? (nDone / TOTAL * 100) + '%' : '0';
   document.getElementById('sub').textContent =
-    `${TOTAL} tiers that draw something, in ${CATS.length} categories`;
+    `${TOTAL} tiers that draw something, in ${CATS.length} categories · both calls needed`;
   // rail counts
   document.querySelectorAll('.catbtn').forEach(b => {
     const c = CATS.find(x => x.key === b.dataset.k);
     if (!c) return;
-    const n = c.rows.filter(t => rec(c.key, t.tier)).length;
+    const n = c.rows.filter(t => isDone(rec(c.key, t.tier))).length;
     const el = b.querySelector('.n');
     el.textContent = `${n}/${c.rows.length}`;
     el.classList.toggle('done', n === c.rows.length);
@@ -387,18 +426,21 @@ document.getElementById('q').oninput = e => { query = e.target.value; renderRail
 
 document.getElementById('list').addEventListener('click', e => {
   const btn = e.target.closest('.seg button'); if (!btn) return;
+  const seg = btn.closest('.seg'), k = seg.dataset.k;        // 'i' = icon, 'b' = beam
   const row = btn.closest('.tier');
   const ck = row.dataset.c, tk = row.dataset.t, v = Number(btn.dataset.v);
-  const cur = rec(ck, tk);
+  const cur = { ...(rec(ck, tk) || {}) };
+  if (cur[k] === v) delete cur[k];                           // click again to clear
+  else cur[k] = v;
   store[ck] = store[ck] || {};
-  if (cur && cur.i === v) delete store[ck][tk];              // click again to clear
-  else store[ck][tk] = { ...(cur || {}), i: v };
+  if (cur.i === undefined && cur.b === undefined && !cur.c) delete store[ck][tk];
+  else store[ck][tk] = cur;
   if (!Object.keys(store[ck]).length) delete store[ck];
   save();
   const now = rec(ck, tk);
-  row.classList.toggle('decided', !!now);
-  row.querySelectorAll('.seg button')
-     .forEach(x => x.setAttribute('aria-pressed', String(!!now && now.i === Number(x.dataset.v))));
+  row.classList.toggle('decided', isDone(now));
+  seg.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed',
+    String(!!now && now[k] === Number(x.dataset.v))));
   paint();
 });
 
@@ -408,7 +450,7 @@ document.getElementById('list').addEventListener('input', e => {
   const ck = row.dataset.c, tk = row.dataset.t, v = e.target.value;
   const cur = rec(ck, tk) || {};
   store[ck] = store[ck] || {};
-  if (!v && cur.i === undefined) delete store[ck][tk];
+  if (!v && cur.i === undefined && cur.b === undefined) delete store[ck][tk];
   else store[ck][tk] = { ...cur, c: v };
   if (store[ck] && !Object.keys(store[ck]).length) delete store[ck];
   save(); paint();
@@ -421,16 +463,17 @@ document.getElementById('theme').onclick = () => {
 };
 
 document.getElementById('export').onclick = () => {
-  const out = { format: 'sharket-icon-review', version: 1, icons: {} };
+  const out = { format: 'sharket-icon-beam-review', version: 2, tiers: {} };
   for (const [ck, tiers] of Object.entries(store)) {
     const e = {};
     for (const [tk, r] of Object.entries(tiers)) {
       const o = {};
       if (r.i !== undefined) o.icon = r.i ? 'yes' : 'no';
+      if (r.b !== undefined) o.beam = r.b ? 'yes' : 'no';
       if (r.c) o.note = r.c;
       if (Object.keys(o).length) e[tk] = o;
     }
-    if (Object.keys(e).length) out.icons[ck] = e;
+    if (Object.keys(e).length) out.tiers[ck] = e;
   }
   const txt = JSON.stringify(out, null, 1);
   document.getElementById('out').value = txt;
@@ -438,7 +481,7 @@ document.getElementById('export').onclick = () => {
   try {                                    // bonus only; the textarea is the contract
     const a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([txt], { type: 'application/json' }));
-    a.download = 'icon-review.json'; a.click();
+    a.download = 'icon-beam-review.json'; a.click();
   } catch (err) {}
 };
 document.getElementById('copy').onclick = async () => {
@@ -460,7 +503,7 @@ slim = {'categories': [
     {'key': c['key'], 'files': c['files'],
      'tiers': [{k: t.get(k) for k in ('tier', 'num', 'en', 'ch', 'hide', 'items', 'rules',
                                       'conds', 'classCond', 'emits', 'style',
-                                      'drawnIcons', 'hasSound', 'orphanRow')}
+                                      'drawnIcons', 'drawnBeams', 'hasSound', 'orphanRow')}
                for t in c['tiers']]}
     for c in data['categories']]}
 
@@ -479,5 +522,8 @@ n_gap = sum(1 for c in slim['categories'] for t in c['tiers']
             and t['hasSound'] and not t['drawnIcons'])
 print('reviewable: %d tiers in %d categories' % (n_tier, n_cat))
 print('  draw an icon today : %d' % n_icon)
+n_beam = sum(1 for c in slim['categories'] for t in c['tiers']
+             if not t['orphanRow'] and not t['hide'] and t['emits'] and t['drawnBeams'])
 print('  sound but no icon  : %d' % n_gap)
+print('  draw a beam today  : %d' % n_beam)
 print('wrote %s (%.0f KB)' % (OUT, os.path.getsize(OUT) / 1024))

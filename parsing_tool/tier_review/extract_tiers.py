@@ -21,6 +21,7 @@ emitted = collections.Counter()
 # distinction is the whole point — the question "does this tier draw an icon?" has to be
 # answered from what came out, not from what was authored.
 emit_icons = collections.defaultdict(set)   # (file, tier key) -> {"1 Yellow Diamond", ...}
+emit_beams = collections.defaultdict(set)   # (file, tier key) -> {"Purple Temp", ...}
 emit_sound = collections.defaultdict(bool)  # (file, tier key) -> any block plays something
 emit_hide = collections.defaultdict(bool)   # (file, tier key) -> emitted as Hide/Minimal
 trace_modes = []
@@ -36,6 +37,8 @@ for tp in sys.argv[1:]:
             s = ln.strip()
             if s.startswith('MinimapIcon'):
                 emit_icons[k].add(s[len('MinimapIcon'):].strip())
+            elif s.startswith('PlayEffect'):
+                emit_beams[k].add(s[len('PlayEffect'):].strip())
             elif 'AlertSound' in s:
                 emit_sound[k] = True
     m = tr.get('meta') or {}
@@ -95,7 +98,7 @@ for tf in sorted(glob.glob(os.path.join(DATA, 'tier_definition', '**', '*.json')
             'tier': tk, 'num': num, 'en': '', 'ch': '',
             'hide': bool(tv.get('is_hide_tier')), 'files': [],
             'conds': 0, 'classCond': False, 'emits': 0, 'rules': 0,
-            'drawnIcons': [], 'hasSound': False,
+            'drawnIcons': [], 'drawnBeams': [], 'hasSound': False,
         })
         # How this tier can match, beyond its mapped bases.
         row['conds'] = max(row['conds'], len(tv.get('conditions') or {}))
@@ -105,6 +108,9 @@ for tf in sorted(glob.glob(os.path.join(DATA, 'tier_definition', '**', '*.json')
         for ic in emit_icons.get((rel, tk), ()):
             if ic not in row['drawnIcons']:
                 row['drawnIcons'].append(ic)
+        for bm in emit_beams.get((rel, tk), ()):
+            if bm not in row['drawnBeams']:
+                row['drawnBeams'].append(bm)
         if emit_sound.get((rel, tk)):
             row['hasSound'] = True
         if emit_hide.get((rel, tk)):
@@ -164,7 +170,7 @@ for key in all_keys:
         rows.append({'tier': tk, 'num': n, 'en': '', 'ch': '',
                      'hide': False, 'files': [], 'items': 0, 'rules': 0,
                      'conds': 0, 'classCond': False, 'emits': 0,
-                     'drawnIcons': [], 'hasSound': False,
+                     'drawnIcons': [], 'drawnBeams': [], 'hasSound': False,
                      'inTheme': True, 'row': tk,
                      'style': {k: v for k, v in tv.items() if k in STYLE_KEYS},
                      'orphanRow': True})
