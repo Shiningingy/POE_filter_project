@@ -15,12 +15,29 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'tier_review_data
 
 # (file, tier key) -> blocks emitted, from any traces passed on the command line
 emitted = collections.Counter()
+# ★ What each tier ACTUALLY draws, read from the emitted block text rather than the theme
+# row. The row is not the answer: an inline tier `theme` beats it, and a per-item
+# `item_overrides` card can add a sound the row never mentions. For an icon review that
+# distinction is the whole point — the question "does this tier draw an icon?" has to be
+# answered from what came out, not from what was authored.
+emit_icons = collections.defaultdict(set)   # (file, tier key) -> {"1 Yellow Diamond", ...}
+emit_sound = collections.defaultdict(bool)  # (file, tier key) -> any block plays something
+emit_hide = collections.defaultdict(bool)   # (file, tier key) -> emitted as Hide/Minimal
 trace_modes = []
 for tp in sys.argv[1:]:
     with open(tp, encoding='utf-8') as fh:
         tr = json.load(fh)
     for b in tr.get('blocks', []):
-        emitted[(b.get('file'), b.get('tier_key'))] += 1
+        k = (b.get('file'), b.get('tier_key'))
+        emitted[k] += 1
+        if b.get('is_hide'):
+            emit_hide[k] = True
+        for ln in (b.get('text') or '').split('\n'):
+            s = ln.strip()
+            if s.startswith('MinimapIcon'):
+                emit_icons[k].add(s[len('MinimapIcon'):].strip())
+            elif 'AlertSound' in s:
+                emit_sound[k] = True
     m = tr.get('meta') or {}
     trace_modes.append(m.get('mode') or os.path.basename(tp))
 
@@ -78,12 +95,20 @@ for tf in sorted(glob.glob(os.path.join(DATA, 'tier_definition', '**', '*.json')
             'tier': tk, 'num': num, 'en': '', 'ch': '',
             'hide': bool(tv.get('is_hide_tier')), 'files': [],
             'conds': 0, 'classCond': False, 'emits': 0, 'rules': 0,
+            'drawnIcons': [], 'hasSound': False,
         })
         # How this tier can match, beyond its mapped bases.
         row['conds'] = max(row['conds'], len(tv.get('conditions') or {}))
         if tv.get('class_condition'):
             row['classCond'] = True
         row['emits'] += emitted.get((rel, tk), 0)
+        for ic in emit_icons.get((rel, tk), ()):
+            if ic not in row['drawnIcons']:
+                row['drawnIcons'].append(ic)
+        if emit_sound.get((rel, tk)):
+            row['hasSound'] = True
+        if emit_hide.get((rel, tk)):
+            row['hide'] = True
         if loc.get('en') and not row['en']:
             row['en'] = loc['en']
         if loc.get('ch') and not row['ch']:
@@ -139,6 +164,7 @@ for key in all_keys:
         rows.append({'tier': tk, 'num': n, 'en': '', 'ch': '',
                      'hide': False, 'files': [], 'items': 0, 'rules': 0,
                      'conds': 0, 'classCond': False, 'emits': 0,
+                     'drawnIcons': [], 'hasSound': False,
                      'inTheme': True, 'row': tk,
                      'style': {k: v for k, v in tv.items() if k in STYLE_KEYS},
                      'orphanRow': True})
