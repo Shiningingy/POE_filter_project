@@ -44,7 +44,8 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
-      }
+      },
+      "hide_at_strictness": 5
     },
     "Ritual BaseTypes Hide": {
       "hideable": true,
