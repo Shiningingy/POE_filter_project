@@ -102,8 +102,7 @@
             300
           ]
         }
-      },
-      "hide_at_strictness": 5
+      }
     },
     "Heist Experimented Hide": {
       "hideable": true,

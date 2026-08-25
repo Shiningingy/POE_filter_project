@@ -31,7 +31,6 @@
         "en": "T1: Top rare bases",
         "ch": "T1: 顶级黄装"
       },
-      "hide_at_strictness": 6,
       "item_overrides": {
         "Stygian Vise": {
           "PlayAlertSound": [

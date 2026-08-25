@@ -66,8 +66,7 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
-      },
-      "hide_at_strictness": 5
+      }
     },
     "Talismans Hide": {
       "hideable": true,

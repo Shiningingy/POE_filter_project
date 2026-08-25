@@ -26,8 +26,7 @@
       },
       "conditions": {
         "Rarity": "<= Rare"
-      },
-      "hide_at_strictness": 5
+      }
     },
     "Expedition Ward-Bases Hide": {
       "hideable": true,
