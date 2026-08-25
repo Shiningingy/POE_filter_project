@@ -1,0 +1,106 @@
+#===============================================================================
+# MINIMAL VISIBILITY TEST — Sharket 3.29 Ruthless
+#
+# QUESTION: Ruthless forbids `Hide`. We emit `Minimal`, which still draws a
+# label. Can style lines make a Minimal block effectively INVISIBLE?
+#
+# HOW TO RUN
+#   1. Select this filter instead of your normal one.
+#   2. Play anywhere that drops common currency (any zone, a few minutes).
+#   3. Each variant below is bound to ONE very common base and has its OWN
+#      SOUND. When you hear a sound, look at the ground and note whether you
+#      can see a label, and how loud it is.
+#   4. Everything not listed keeps a normal label, so the game stays playable.
+#
+# WHAT EACH SOUND MEANS
+#   sound 1  A control      — Minimal, no style. This is what V7.0 ships now.
+#   sound 2  B fontsize 1   — does the game clamp it, or honour it?
+#   sound 3  C transparent  — text + plate + border all at alpha 0
+#   sound 4  D Sharket full — fontsize 1 AND all three transparent
+#   sound 6  E fontsize 18  — the documented minimum, for comparison
+#   sound 7  F Show + full  — the 3.15 form, on a Show block instead of Minimal
+#
+# WHAT WE ARE TRYING TO LEARN
+#   * Does `Minimal` honour style lines at all? (A vs B/C/D)
+#   * Is `SetFontSize 1` clamped up to 18? (B vs E — if B and E look the
+#     SAME, it clamped; if B is smaller, it did not.)
+#   * Is alpha 0 enough on its own? (C)
+#   * Does `Show` behave differently from `Minimal` for the same style? (D vs F)
+#
+# ⚠️ F is a `Show` block on purpose. If F is invisible but D is not, then the
+#    quiet layer should be built from styled Shows, not from Minimal — which
+#    would be a real change to how this filter hides things.
+#
+# ⚠️ Our generator currently STRIPS every style line from a hide block
+#    (filterStyle.blockText), so none of B–E can be produced by the generator
+#    today. This file is hand-written for the test. If a variant wins, that
+#    strip rule is what has to change.
+#===============================================================================
+
+
+#--- A · CONTROL — Minimal with no style (exactly what V7.0 emits) -------------
+Minimal
+    BaseType == "Scroll of Wisdom"
+    PlayAlertSound 1 300
+
+
+#--- B · Minimal + SetFontSize 1 ----------------------------------------------
+Minimal
+    BaseType == "Portal Scroll"
+    SetFontSize 1
+    PlayAlertSound 2 300
+
+
+#--- C · Minimal + fully transparent text / plate / border --------------------
+Minimal
+    BaseType == "Armourer's Scrap"
+    SetTextColor 0 0 0 0
+    SetBackgroundColor 0 0 0 0
+    SetBorderColor 0 0 0 0
+    PlayAlertSound 3 300
+
+
+#--- D · Minimal + the full Sharket 3.15 recipe -------------------------------
+#     fontsize 1 AND all three channels transparent
+Minimal
+    BaseType == "Blacksmith's Whetstone"
+    SetFontSize 1
+    SetTextColor 0 0 0 0
+    SetBackgroundColor 0 0 0 0
+    SetBorderColor 0 0 0 0
+    PlayAlertSound 4 300
+
+
+#--- E · Minimal + SetFontSize 18 (documented minimum) ------------------------
+#     If B looks identical to E, the game clamped 1 up to 18.
+Minimal
+    BaseType == "Orb of Transmutation"
+    SetFontSize 18
+    PlayAlertSound 6 300
+
+
+#--- F · SHOW + the full recipe (the actual 3.15 form) ------------------------
+#     A Show block certainly honours style. If this is invisible and D is not,
+#     the quiet layer belongs on Show, not Minimal.
+Show
+    BaseType == "Orb of Augmentation"
+    SetFontSize 1
+    SetTextColor 0 0 0 0
+    SetBackgroundColor 0 0 0 0
+    SetBorderColor 0 0 0 0
+    PlayAlertSound 7 300
+
+
+#--- reference · a normal loud label, so you can calibrate --------------------
+Show
+    BaseType == "Orb of Alteration"
+    SetFontSize 45
+    SetTextColor 0 0 0 255
+    SetBackgroundColor 255 207 132 255
+    SetBorderColor 255 255 255 255
+    PlayAlertSound 10 300
+    MinimapIcon 1 Yellow Diamond
+
+
+#--- everything else keeps a normal label so the game stays playable ----------
+Show
