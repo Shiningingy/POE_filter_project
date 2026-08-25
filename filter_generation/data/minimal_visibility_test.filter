@@ -1,46 +1,48 @@
 #===============================================================================
-# MINIMAL VISIBILITY TEST  -  Ruthless only (Minimal is not legal outside a
-# .ruthlessfilter, so load this on a Ruthless character).
+# QUIET-LAYER TEST — Sharket 3.29 Ruthless
 #
-# HOW TO RUN IT
-#   1. Select this filter in game.
-#   2. Go to your hideout. Take the ten currency items below out of your stash.
-#   3. Drop them on the ground in a row, in the order listed (A..J).
-#   4. Walk back, stand still, and read the labels.
-#   5. Then HOLD ALT and read them again.
-#   6. Screenshot both.
+# The previous version of this file FAILED TO LOAD. Cause found: an agent wrote
+# `SetTextColor 0 0 0 0`, and the game rejects an alpha channel on TEXT.
+# Nothing in any shipped filter uses it — not FilterBlade, not our V7.0, not
+# Sharket 3.27. Only Sharket 3.15 did, and that predates the Show/Hide option.
 #
-# THE QUESTION: can a Ruthless `Minimal` block be made effectively INVISIBLE?
+# ★ THE RECIPE BELOW IS NOT INVENTED. It is copied verbatim from the author's
+#   own `Sharket3.27[0]无情异界私货.ruthlessfilter`, which uses it 5 times under
+#   the comment `全局设置 - 显示全部垃圾物品` ("global setting — show all trash"):
 #
-#   Q1  Does Minimal honour SetFontSize at all?      -> compare B / C / D
-#   Q2  Is FontSize clamped at the bottom?           -> compare D vs C.
-#                                                       SAME SIZE = clamped at 18.
-#                                                       D SMALLER  = no clamp, 1 works.
-#   Q3  Does alpha 0 alone erase a label?            -> E and J
-#   Q4  Is Show+FS1+alpha0 quieter than bare Minimal? -> A vs G
-#   Q5  Does an invisible label still take an Alt highlight? -> step 5
+#       Show
+#           <conditions>
+#           SetBackgroundColor 0 0 0 0
+#           SetBorderColor 0 0 0 0
+#           SetFontSize 1
+#           DisableDropSound
 #
-# HOW TO READ THE RESULT
-#   A is EXACTLY what the filter ships today (Minimal, zero style lines).
-#   A is the baseline. Anything quieter than A is a win. Anything that looks
-#   the same as A means the game ignored that style line on a Minimal block.
+#   No SetTextColor. Alpha 0 on BACKGROUND and BORDER only — both of which are
+#   shipped today by FilterBlade 3.29 and by our own V7.0. And `SetFontSize 1`
+#   is proven legal, because that filter loaded and shipped.
 #
-# IF THE FILTER REFUSES TO LOAD: the suspect lines are the `SetFontSize 1`
-# in blocks D, F and G. Comment those three lines out (add a leading #) and
-# reload - if it then loads, the game rejects FontSize 1 outright and the
-# whole idea is dead. That is itself an answer, so report it.
+# SO THIS IS A CONFIRMATION, NOT AN EXPLORATION. Two questions remain:
+#   Q1  Does the 3.27 recipe still work in 3.29?          -> C vs the canary
+#   Q2  Is it actually quieter than what we ship now?     -> C vs B
+#       B is a bare `Minimal`, exactly what V7.0 emits for a hidden item.
+#       If C is invisible and B is not, we should stop emitting Minimal for the
+#       quiet layer and emit an invisible Show instead.
 #
-# Substituting bases is free: any of these ten can be swapped for another item
-# you actually have. Keep one block per base and keep the CANARY first.
+# HOW TO RUN
+#   1. Select this filter.
+#   2. Hideout. Drop the three items below in a row, in order A, B, C.
+#   3. Read the labels. Your item highlight is always on, so no Alt needed.
+#   4. Note whether C has a label at all, and whether it is still clickable.
+#
+# ⚠️ If this STILL refuses to load, the remaining suspect is `SetFontSize 1`.
+#    Comment out that one line in block C (add a leading #) and reload. If it
+#    then loads, 3.29 tightened the font-size range since 3.27 — report that,
+#    it is the answer and it kills the idea.
 #===============================================================================
 
 
-#-------------------------------------------------------------------------------
-# CANARY - proves the filter actually loaded. Must be huge and red.
-# If a Scroll of Wisdom on the ground is NOT a big red label, stop:
-# the filter did not load and nothing below means anything.
-#-------------------------------------------------------------------------------
-
+#--- CANARY — must render HUGE and RED. If you cannot see this, the filter did
+#    not load, and nothing else on this page means anything.
 Show
     BaseType == "Scroll of Wisdom"
     SetFontSize 45
@@ -49,125 +51,32 @@ Show
     SetBorderColor 255 255 255 255
 
 
-#-------------------------------------------------------------------------------
-# A - BASELINE. This is what every hidden item in V6.991 looks like today:
-#     Minimal, conditions only, not one style line.
-#-------------------------------------------------------------------------------
-
+#--- B · BARE MINIMAL — exactly what V7.0 emits for every hidden item.
+#    This is the thing we are trying to beat.
 Minimal
     BaseType == "Portal Scroll"
 
 
-#-------------------------------------------------------------------------------
-# B - Minimal + FontSize 45.  Control for Q1.
-#     If B is visibly BIGGER than A, Minimal honours SetFontSize and the whole
-#     approach is live. If B looks identical to A, Minimal ignores style and
-#     nothing below can help - stop reading, the answer is no.
-#-------------------------------------------------------------------------------
-
-Minimal
+#--- C · THE SHARKET 3.27 RECIPE, copied verbatim. A Show block, no SetTextColor.
+Show
     BaseType == "Armourer's Scrap"
-    SetFontSize 45
+    SetBackgroundColor 0 0 0 0
+    SetBorderColor 0 0 0 0
+    SetFontSize 1
+    DisableDropSound
 
 
-#-------------------------------------------------------------------------------
-# C - Minimal + FontSize 18.  This is FilterBlade's own floor: every one of
-#     their hide-layer blocks in the standard files is exactly FS18.
-#-------------------------------------------------------------------------------
-
+#--- D · the same recipe as a MINIMAL block rather than a Show.
+#    If C is invisible and D is not, Minimal ignores style and the quiet layer
+#    has to be built from Shows. If both are invisible, either will do and
+#    Minimal is preferable — it keeps the "this is hidden" meaning in the file.
 Minimal
     BaseType == "Blacksmith's Whetstone"
-    SetFontSize 18
-
-
-#-------------------------------------------------------------------------------
-# D - Minimal + FontSize 1.  THE QUESTION.
-#     D vs C is the clamp test. If D and C are the same size, the game clamped
-#     1 up to 18 and font size alone can never hide anything.
-#-------------------------------------------------------------------------------
-
-Minimal
-    BaseType == "Orb of Transmutation"
-    SetFontSize 1
-
-
-#-------------------------------------------------------------------------------
-# E - Minimal + everything at alpha 0, size left to the game.
-#     Isolates the alpha channel: is transparency alone enough?
-#-------------------------------------------------------------------------------
-
-Minimal
-    BaseType == "Orb of Augmentation"
-    SetTextColor 0 0 0 0
-    SetBackgroundColor 0 0 0 0
-    SetBorderColor 0 0 0 0
-
-
-#-------------------------------------------------------------------------------
-# F - Minimal + FontSize 1 + everything at alpha 0. The full combination.
-#     This is the quietest thing that is still a Minimal block.
-#-------------------------------------------------------------------------------
-
-Minimal
-    BaseType == "Orb of Alteration"
-    SetTextColor 0 0 0 0
-    SetBackgroundColor 0 0 0 0
-    SetBorderColor 0 0 0 0
-    SetFontSize 1
-
-
-#-------------------------------------------------------------------------------
-# G - Show + FontSize 1 + alpha 0 + DisableDropSound.
-#     NOT a Minimal block at all. This is the idiom in your own shipped
-#     3.27 ruthless filter (13 blocks, labelled "全局设置 - 显示全部垃圾物品").
-#     If G is quieter than A, the answer is to stop emitting Minimal and emit
-#     an invisible Show instead.
-#-------------------------------------------------------------------------------
-
-Show
-    BaseType == "Jeweller's Orb"
-    SetTextColor 0 0 0 0
     SetBackgroundColor 0 0 0 0
     SetBorderColor 0 0 0 0
     SetFontSize 1
     DisableDropSound
 
 
-#-------------------------------------------------------------------------------
-# H - Show + FontSize 18 + alpha 0 + DisableDropSound.
-#     G vs H is the SECOND clamp test, on a Show block this time. If G and H
-#     are the same size, the clamp is global and not a Minimal quirk.
-#-------------------------------------------------------------------------------
-
+#--- everything else keeps a normal label so the game stays playable
 Show
-    BaseType == "Orb of Chance"
-    SetTextColor 0 0 0 0
-    SetBackgroundColor 0 0 0 0
-    SetBorderColor 0 0 0 0
-    SetFontSize 18
-    DisableDropSound
-
-
-#-------------------------------------------------------------------------------
-# J - Show + FontSize 45 + alpha 0 + DisableDropSound.
-#     Alpha doing ALL the work, at maximum size. If J is invisible, size is
-#     irrelevant and alpha 0 is the whole mechanism - which would be the
-#     cleanest possible answer.
-#-------------------------------------------------------------------------------
-
-Show
-    BaseType == "Glassblower's Bauble"
-    SetTextColor 0 0 0 0
-    SetBackgroundColor 0 0 0 0
-    SetBorderColor 0 0 0 0
-    SetFontSize 45
-    DisableDropSound
-
-
-#-------------------------------------------------------------------------------
-# Everything else stays loudly visible so the filter is safe to walk around in
-# and so you can tell "invisible on purpose" from "the filter is broken".
-#-------------------------------------------------------------------------------
-
-Show
-    SetFontSize 32
