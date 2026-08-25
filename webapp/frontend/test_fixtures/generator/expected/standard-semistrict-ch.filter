@@ -40,16 +40,25 @@ Show
 #==[11002]- 核心物品 -T2: 中等 核心物品 - #1 corrupted - 自选==
 Hide
     Corrupted True
+    SetTextColor 0 0 0 80
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 0 0 0 0
 
 
 #==[11003]- 核心物品 -T2: 中等 核心物品 - 基础 - 物品卡：乙基 - 精确==
 Hide
     BaseType == "Beta Base"
+    SetTextColor 0 0 0 80
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 0 0 0 0
 
 
 #==[11004]- 核心物品 -T2: 中等 核心物品 - 基础 - 模糊==
 Hide
     BaseType "Gamma Base"
+    SetTextColor 0 0 0 80
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 0 0 0 0
 
 
 #==[11005]- 核心物品 -T3: 低级 核心物品 - #1 raw - 自选==
@@ -77,6 +86,9 @@ Show
 #==[11008]- 核心物品 -隐藏 核心物品 - 基础 - 精确==
 Hide
     BaseType == "Epsilon Base"
+    SetTextColor 0 0 0 80
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 0 0 0 0
 
 
 #===================================================================================================================

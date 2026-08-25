@@ -92,6 +92,9 @@ Show
 #==[11008]- Core Items -Hide Core Items - Base - Exact==
 Hide
     BaseType == "Epsilon Base"
+    SetTextColor 0 0 0 80
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 0 0 0 0
 
 
 #===================================================================================================================

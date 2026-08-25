@@ -19,6 +19,11 @@ OP = re.compile(r"^\s*(\w+)\s+([=!<>]+)(.*)$", re.M)
 ICON = re.compile(r"^\s*MinimapIcon\s+(.*)$", re.M)
 COLOUR = re.compile(r"^\s*Set\w*Color\s+(.*)$", re.M)
 STYLE = re.compile(r"^\s*(Set\w+|PlayEffect|MinimapIcon|PlayAlertSound|CustomAlertSound)", re.M)
+# The only style a hide block may carry — see the rule below. Kept beside the other
+# patterns so the guard and filterStyle.QUIET_HIDE_STYLE stay visibly paired.
+QUIET_HIDE = ["SetTextColor 0 0 0 80", "SetBorderColor 0 0 0 0",
+              "SetBackgroundColor 0 0 0 0"]
+
 SIZE = re.compile(r"^\s*SetFontSize\s+(\d+)", re.M)
 
 
@@ -47,10 +52,25 @@ def check(path, label):
         for m in OP.finditer(b):
             if m.group(3) and not m.group(3).startswith(" "):
                 prob["operator with no space: %s%s%s" % m.groups()] += 1
-        # Ruthless cannot Hide — HIDE_CMD is Minimal, which still DRAWS a label, so a hide
-        # block must emit no style lines at all
-        if head.startswith(("Minimal", "Hide")) and STYLE.search(b):
-            prob["Hide/Minimal block with style lines"] += 1
+        # ★ CORRECTED 2026-08-25 by an in-game test. This rule used to be "a hide block must
+        # emit NO style lines", on the reasoning that Minimal still draws a label so any
+        # style makes it louder. The author tested it: Minimal DOES honour style, it already
+        # renders at size 1, and painting the plate and border transparent is what actually
+        # quietens it. A bare Minimal draws the GAME'S default plate — the very clutter the
+        # hide was for.
+        #
+        # So the invariant is no longer "no style" but "EXACTLY the quiet recipe": text at
+        # alpha 80 (the game rejects alpha 0 on text), plate and border at alpha 0, and NO
+        # SetFontSize — Minimal's own size is 1 and emitting one would make it bigger.
+        if head.startswith(("Minimal", "Hide")):
+            style_lines = sorted(l.strip() for l in b.split("\n") if STYLE.match(l.strip())
+                                 or STYLE.search(l))
+            extra = [l for l in style_lines if l not in QUIET_HIDE]
+            missing = [l for l in QUIET_HIDE if l not in style_lines]
+            if extra:
+                prob["hide block carries style beyond the quiet recipe"] += 1
+            if missing:
+                prob["hide block missing part of the quiet recipe"] += 1
         s = SIZE.search(b)
         if s:
             sizes[int(s.group(1))] += 1

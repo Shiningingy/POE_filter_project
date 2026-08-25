@@ -125,20 +125,48 @@ const STYLE_PREFIXES = ["    Set", "    PlayEffect", "    MinimapIcon",
                        "    CustomAlertSound", "    PlayAlertSound"];
 
 /**
- * Join a block, dropping style lines when it is a hide block.
+ * Join a block. A hide block drops its authored style and takes the QUIET RECIPE.
  *
- * A `Hide` block renders nothing, so its styling was always dead weight. Under
- * RUTHLESS it is worse than dead: GGG does not permit `Hide` there, so HIDE_CMD
- * is `Minimal` — which still DRAWS a label. Emitting a font size and a plate on
- * it makes the very thing we are trying to quieten more visible, not less.
- * NeverSink's Ruthless filter emits conditions only on its Minimal blocks
- * ("Hide-Section replaced with minimal"). Mirrors block_text() in generate.py.
+ * ★ CORRECTED 2026-08-25 BY AN IN-GAME TEST. This used to strip style and emit
+ * conditions only, reasoning that `Minimal` still draws a label so any style
+ * would make it louder. The author tested it and the reverse is true:
+ *
+ *     "minimal do use stylelines and it defaults to the fontsize 1, but those
+ *      text/bg/bd style works, so we should emit those three for minimal block
+ *      to make it nearly invisible"
+ *
+ * So a bare `Minimal` draws the GAME'S default plate — which is exactly the
+ * clutter we were trying to remove. Painting the plate and border transparent
+ * removes it. Ruthless cannot reach "nothing on the ground", but this is much
+ * closer to it than conditions-only was.
+ *
+ * The recipe is not invented: it is copied from the author's own
+ * `Sharket3.27[0]无情异界私货.ruthlessfilter`, which uses it five times under
+ * `全局设置 - 显示全部垃圾物品`.
+ *
+ * ⚠️ TEXT ALPHA IS 80, NOT 0. The game REJECTS alpha 0 on text — a test filter
+ * using `SetTextColor 0 0 0 0` failed to load outright, which is how we learned
+ * the channel is special. 80/255 is the author's chosen value: legal, and dim
+ * enough to read as absent. Plate and border DO accept alpha 0, and both ship
+ * that way today in FilterBlade 3.29 and in our own V7.0.
+ *
+ * ⚠️ NO `SetFontSize`. Minimal already renders at size 1; emitting a size would
+ * make it BIGGER. This is why the old "strip everything" rule half-worked — it
+ * accidentally preserved the tiny default.
+ *
+ * Order matches the normal emit path (text, border, background) so a hide block
+ * diffs cleanly against a shown one.
  */
+const QUIET_HIDE_STYLE = [
+  "    SetTextColor 0 0 0 80",
+  "    SetBorderColor 0 0 0 0",
+  "    SetBackgroundColor 0 0 0 0",
+];
+
 export const blockText = (blockLines: string[], isHide: boolean): string => {
-  const kept = isHide
-    ? blockLines.filter((l) => !STYLE_PREFIXES.some((p) => l.startsWith(p)))
-    : blockLines;
-  return kept.join('\n') + '\n';
+  if (!isHide) return blockLines.join('\n') + '\n';
+  const kept = blockLines.filter((l) => !STYLE_PREFIXES.some((p) => l.startsWith(p)));
+  return kept.concat(QUIET_HIDE_STYLE).join('\n') + '\n';
 };
 
 /**
