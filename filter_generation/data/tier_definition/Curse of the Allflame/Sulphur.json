@@ -23,7 +23,8 @@
         "BackgroundColor": "#00a070ff",
         "BorderColor": "#ffffffff",
         "FontSize": 45,
-        "MinimapIcon": "1 Yellow Diamond"
+        "MinimapIcon": "1 Yellow Diamond",
+        "PlayEffect": "Yellow Temp"
       },
       "hideable": false,
       "sound": {
@@ -41,13 +42,15 @@
     "Sulphur T1": {
       "theme": {
         "Tier": 2,
-        "FontSize": 40,
+        "FontSize": 45,
         "PlayAlertSound": [
           "Default/AlertSound3.mp3",
           300
         ],
-        "MinimapIcon": "1 Yellow Diamond",
-        "PlayEffect": "Orange Temp"
+        "MinimapIcon": "2 Yellow Diamond",
+        "PlayEffect": "Yellow Temp",
+        "TextColor": "#ffffffff",
+        "BackgroundColor": "#00a070ff"
       },
       "hideable": false,
       "sound": {

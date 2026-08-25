@@ -20,7 +20,9 @@
         ],
         "TextColor": "#ffffffff",
         "BackgroundColor": "#0084a8ff",
-        "FontSize": 45
+        "FontSize": 45,
+        "MinimapIcon": "2 Blue Square",
+        "PlayEffect": "Blue Temp"
       },
       "hideable": false,
       "sound": {

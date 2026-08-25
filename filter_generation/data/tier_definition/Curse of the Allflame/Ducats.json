@@ -18,7 +18,8 @@
         "TextColor": "#ffffffff",
         "BackgroundColor": "#00a070ff",
         "FontSize": 45,
-        "MinimapIcon": "1 Yellow Diamond"
+        "MinimapIcon": "2 Yellow Diamond",
+        "PlayEffect": "Yellow Temp"
       },
       "hideable": false,
       "sound": {
