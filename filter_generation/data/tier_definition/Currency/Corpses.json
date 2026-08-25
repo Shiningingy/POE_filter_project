@@ -21,10 +21,7 @@
       "theme": {
         "Tier": 0,
         "FontSize": 45,
-        "BackgroundColor": "#d44a6eff",
-        "TextColor": "#000000ff",
-        "PlayEffect": "Brown",
-        "BorderColor": "#00000000"
+        "PlayEffect": "Brown"
       },
       "sound": {
         "default_sound_id": -1,
@@ -41,8 +38,6 @@
       "theme": {
         "Tier": 1,
         "FontSize": 40,
-        "BackgroundColor": "#2d1119ff",
-        "TextColor": "#eb5a82ff",
         "MinimapIcon": "0 Yellow Kite",
         "PlayEffect": "Brown"
       },
@@ -60,8 +55,6 @@
       "conditions": {},
       "theme": {
         "Tier": 2,
-        "TextColor": "#eb5a82ff",
-        "BackgroundColor": "#000000ff",
         "FontSize": 40
       },
       "sound": {
@@ -78,8 +71,6 @@
       "conditions": {},
       "theme": {
         "Tier": 3,
-        "TextColor": "#eb5a82cc",
-        "BackgroundColor": "#000000ff",
         "FontSize": 40
       },
       "sound": {

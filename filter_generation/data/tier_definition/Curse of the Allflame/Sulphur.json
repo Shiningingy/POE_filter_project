@@ -20,7 +20,6 @@
           "Default/AlertSound10.mp3",
           300
         ],
-        "TextColor": "#ffffffff",
         "BackgroundColor": "#00a070ff",
         "BorderColor": "#ffffffff",
         "FontSize": 45,

@@ -24,8 +24,6 @@
           "Sharket掉落音效/技能宝石.mp3",
           300
         ],
-        "TextColor": "#ffffffff",
-        "BackgroundColor": "#1ba29bff",
         "FontSize": 45
       },
       "sound": {
@@ -46,9 +44,6 @@
           "Sharket掉落音效/DOTA2_嘿真棒.mp3",
           300
         ],
-        "TextColor": "#ffffffff",
-        "BackgroundColor": "#1ba29bff",
-        "BorderColor": "#ffffffff",
         "FontSize": 45
       },
       "sound": {
@@ -97,8 +92,6 @@
           "Sharket掉落音效/技能宝石.mp3",
           300
         ],
-        "TextColor": "#000000ff",
-        "BackgroundColor": "#1ba29bff",
         "FontSize": 43
       },
       "sound": {
@@ -126,8 +119,6 @@
           "Sharket掉落音效/技能宝石.mp3",
           300
         ],
-        "TextColor": "#1ba29bff",
-        "BackgroundColor": "#1b3334ff",
         "FontSize": 40
       },
       "sound": {

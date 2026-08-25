@@ -25,7 +25,6 @@
         ],
         "FontSize": 45,
         "BackgroundColor": "#d20000ff",
-        "TextColor": "#ffffffff",
         "MinimapIcon": "0 Red Hexagon",
         "PlayEffect": "Purple"
       },

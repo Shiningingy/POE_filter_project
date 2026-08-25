@@ -24,10 +24,7 @@
         "PlayAlertSound": [
           "Sharket掉落音效/高级化石.mp3",
           300
-        ],
-        "TextColor": "#ffffffff",
-        "BackgroundColor": "#d20000ff",
-        "BorderColor": "#00ff00ff"
+        ]
       },
       "sound": {
         "default_sound_id": 1,
@@ -56,9 +53,7 @@
           300
         ],
         "PlayEffect": "Orange Temp",
-        "MinimapIcon": "2 Orange Diamond",
-        "TextColor": "#ffffffff",
-        "BackgroundColor": "#f05a23ff"
+        "MinimapIcon": "2 Orange Diamond"
       },
       "sound": {
         "default_sound_id": 2,
@@ -98,15 +93,12 @@
       "theme": {
         "Tier": 1,
         "FontSize": 45,
-        "BackgroundColor": "#ffffffff",
-        "TextColor": "#ff0000ff",
         "MinimapIcon": "0 Red Star",
         "PlayEffect": "Orange",
         "PlayAlertSound": [
           "Sharket掉落音效/高级化石.mp3",
           300
-        ],
-        "BorderColor": "#ff0000ff"
+        ]
       },
       "sound": {
         "default_sound_id": 6,
@@ -133,9 +125,7 @@
           "Sharket掉落音效/化石.mp3",
           300
         ],
-        "PlayEffect": "Yellow Temp",
-        "TextColor": "#000000ff",
-        "BackgroundColor": "#ffaa00ff"
+        "PlayEffect": "Yellow Temp"
       },
       "hideable": false,
       "sound": {

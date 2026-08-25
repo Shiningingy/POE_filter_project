@@ -22,8 +22,6 @@
           "Sharket掉落音效/高级精华.mp3",
           300
         ],
-        "TextColor": "#ffffffff",
-        "BackgroundColor": "#006effff",
         "FontSize": 45
       },
       "sound": {
@@ -65,9 +63,7 @@
           "Sharket掉落音效/是精华哎.mp3",
           300
         ],
-        "MinimapIcon": "2 Yellow Raindrop",
-        "TextColor": "#000000ff",
-        "BackgroundColor": "#006effff"
+        "MinimapIcon": "2 Yellow Raindrop"
       },
       "sound": {
         "default_sound_id": -1,
@@ -99,14 +95,11 @@
       "theme": {
         "Tier": 1,
         "FontSize": 45,
-        "BackgroundColor": "#006effff",
-        "TextColor": "#ffffffff",
         "PlayEffect": "Blue",
         "PlayAlertSound": [
           "Sharket掉落音效/高级精华.mp3",
           300
-        ],
-        "BorderColor": "#ffffffff"
+        ]
       },
       "sound": {
         "default_sound_id": 6,

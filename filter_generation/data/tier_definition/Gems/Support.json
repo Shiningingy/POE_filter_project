@@ -48,7 +48,6 @@
         ],
         "FontSize": 45,
         "BackgroundColor": "#1ba29bff",
-        "TextColor": "#ffffffff",
         "MinimapIcon": "1 Yellow Kite",
         "PlayEffect": "Cyan",
         "BorderColor": "#ffffffff"

@@ -35,8 +35,6 @@
           "Sharket掉落音效/雾魇宝珠.mp3",
           300
         ],
-        "TextColor": "#000000ff",
-        "BackgroundColor": "#d2d2e6ff",
         "FontSize": 45
       },
       "sound": {

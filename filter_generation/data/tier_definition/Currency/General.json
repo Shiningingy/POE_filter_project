@@ -30,8 +30,7 @@
         "PlayAlertSound": [
           "Sharket掉落音效/超级通货.mp3",
           300
-        ],
-        "BorderColor": "#ff0000ff"
+        ]
       },
       "sound": {
         "default_sound_id": 6,
@@ -84,8 +83,7 @@
         "PlayAlertSound": [
           "Sharket掉落音效/高级通货.mp3",
           300
-        ],
-        "BorderColor": "#ffffffff"
+        ]
       },
       "sound": {
         "default_sound_id": 1,

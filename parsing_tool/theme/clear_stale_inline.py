@@ -63,6 +63,7 @@ def sentinel(v):
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     apply_ = "--apply" in sys.argv
+    identical_only = "--identical-only" in sys.argv
     channels = COLOURS + (EXTRAS if "--all-channels" in sys.argv else [])
     if not args:
         print(__doc__.strip().split("\n")[2].strip())
@@ -115,7 +116,21 @@ def main():
                     blocked.append((tier, ch, "rung %s supplies no %s — clearing would DROP "
                                     "the channel, not re-derive it" % (th.get("Tier"), ch)))
                     continue
-                cleared.append((tier, ch, v, row[ch], v == row[ch]))
+                same = (v == row[ch])
+                # `--identical-only` splits this tool's two jobs, which are NOT equally safe:
+                #   identical  the inline is a redundant COPY of its rung. Deleting it cannot
+                #              change a pixel — provable by building before and after.
+                #   differing  the inline is a STALE SNAPSHOT of a rung the tier has since
+                #              left. Deleting it hands the tier back to its real rung, which
+                #              is the whole point of this tool AND a real visual change.
+                # Mixing them means a "safe cleanup" silently restyles blocks. Run the safe
+                # half first, port the theme, then re-measure — a row port turns many of the
+                # differing ones identical, so they clear safely on the second pass.
+                if identical_only and not same:
+                    kept.append((tier, ch, "differs from rung %s — needs review, not a no-op"
+                                 % th.get("Tier")))
+                    continue
+                cleared.append((tier, ch, v, row[ch], same))
                 if apply_:
                     del th[ch]
 

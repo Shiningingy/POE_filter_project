@@ -99,8 +99,6 @@
           300
         ],
         "FontSize": 45,
-        "BackgroundColor": "#ffffffff",
-        "TextColor": "#af6025ff",
         "MinimapIcon": "0 Brown Star",
         "PlayEffect": "Brown"
       },
@@ -152,8 +150,6 @@
           300
         ],
         "FontSize": 45,
-        "BackgroundColor": "#af6025f0",
-        "TextColor": "#000000ff",
         "MinimapIcon": "1 Brown Star",
         "PlayEffect": "Brown"
       },
@@ -179,7 +175,6 @@
         ],
         "FontSize": 45,
         "BackgroundColor": "#1f1010f0",
-        "TextColor": "#af6025ff",
         "MinimapIcon": "2 Brown Star",
         "PlayEffect": "Brown Temp"
       },
@@ -206,7 +201,6 @@
         ],
         "FontSize": 40,
         "BackgroundColor": "#1f1010f0",
-        "TextColor": "#af6025ff",
         "MinimapIcon": "2 Brown Star",
         "PlayEffect": "Brown Temp"
       },
