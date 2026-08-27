@@ -9,7 +9,10 @@
 import { type Language } from './localization';
 
 // Strictness ladder (loosest -> strictest). A tier with `hide_at_strictness: N`
-// flips to Hide once the selected level's index >= N. Orthogonal to MODE. Single
+// flips to Hide once the selected level's index >= N — unless its category declares
+// `_meta.highlight_layer`, in which case the gate DROPS the block so the item falls
+// through to the category that owns it (see the gate itself for why, and what it cost
+// to find). Orthogonal to MODE. Single
 // source of truth for the UI too — import from here so the ordered list (its index
 // = the threshold) can't drift. The threshold is pinned from both sides by the
 // standard-regular-ch / standard-semistrict-ch fixtures.
@@ -406,7 +409,32 @@ export const generateFilter = (data: GeneratorData): string => {
       // (Mirrors generate.py.) MODE still drives HIDE_CMD (Hide vs Minimal).
       let isHide = isHideTier;
       const hideAt = tierEntry.hide_at_strictness;
-      if (typeof hideAt === 'number' && STRICTNESS_IDX >= hideAt) isHide = true;
+      const gateFires = typeof hideAt === 'number' && STRICTNESS_IDX >= hideAt;
+
+      // ★ A HIGHLIGHT LAYER DROPS ITS BLOCK INSTEAD OF HIDING IT.
+      //
+      // Found in game 2026-08-26: at uber the top ward base of each slot was the ONLY
+      // one invisible, its five siblings shown. Cause: `Crafting Gear 84` gates at uber
+      // and sits ~120 blocks ahead of the League category, so first-match-wins handed it
+      // a base whose own category never hides. Same steal took 25 `Tier 1 Rare Equipment`
+      // bases — including Twilight Regalia, the author's own acceptance test.
+      //
+      // The gate values came from FilterBlade's `%Dn`, but `%Dn` COMMENTS THE BLOCK OUT;
+      // we translated it as "becomes Hide". Those differ exactly here: a removed block
+      // lets the item fall through to the category that owns it, a hide block swallows it.
+      // A highlight layer decorates items that live in a coverage category, so removing
+      // it is the whole intent — the item keeps its home look. Verified against
+      // FilterBlade 3.29: all nine Runic bases are Show at every level, from one block.
+      //
+      // Category-level because that is the grain the fact lives at (ADR-0006 puts
+      // priority at category level too) — Crafting Priority is a highlight layer for
+      // every one of its tiers, not tier by tier. Its bases all hold a second home; the
+      // catch-all guard is what proves that stays true.
+      if (gateFires && meta.highlight_layer) {
+        noteTier('strictness:highlight-layer-dropped');
+        continue;
+      }
+      if (gateFires) isHide = true;
       if (lvHide) isHide = true;
       let tnum = tierNumFromLabel(tLbl);
       // Honor an explicit theme.Tier for tiers with non-standard label names.

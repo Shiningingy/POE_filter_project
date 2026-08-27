@@ -111,6 +111,9 @@ const CategoryView: React.FC<CategoryViewProps> = ({
   // Effective hidden state for the preview: a permanent hide bucket, a strictness gate
   // the current level reaches, or a campaign tier the declutter turns to Hide
   // (additive model: un-boosted band tiers still SHOW — they are not dimmed).
+  // ⚠️ In a `_meta.highlight_layer` category the gate DROPS the block rather than hiding
+  // it, so "hidden" here reads as "emits no Show at this level" — true for this category,
+  // but the item itself still shows from the category that owns it. Same for EditorView.
   const tierHidden = (td: any): boolean =>
     !!td?.is_hide_tier ||
     (typeof td?.hide_at_strictness === 'number' && strictnessIdx >= td.hide_at_strictness) ||

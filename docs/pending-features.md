@@ -461,6 +461,44 @@ relationships between correct pieces** — a stale override against a new plate,
 purpose against a map, a positional split against a typo, a band against a rarity. Four were
 invisible to every guard. That is what the in-game read buys and what no test replaces.
 
+## 6e. ★ V7.3 — identified-mod conditions on the equipment categories (author, 2026-08-26)
+
+Author's note when accepting V7.2: *"for 7.3 we will introduce id mod on equipments
+categories."* Not started; recorded so it is not rediscovered.
+
+Two things to settle before building, both learned the hard way already:
+
+- **Which condition.** `HasExplicitMod` / `HasImplicitMod` are not in
+  `filter_conditions.yaml` as usable everywhere — `check_condition_schema.py` holds all
+  copies of the vocabulary in step, so the condition has to be added there first or the
+  rule emits nothing (see §Rule gotchas: a rule with conditions but no tier is skipped
+  outright, and `Class ==` is exact).
+- **Where it sits in the ladder.** An identified-mod rule is a *highlight*, not coverage —
+  so it belongs in a `_meta.highlight_layer` category (see §6f), or it will swallow bases
+  at high strictness exactly the way `Crafting Gear 84` did.
+
+## 6f. ★ Highlight layers drop their block; coverage layers hide it — 2026-08-26
+
+Found in game by the author: at uber the **top ward base of each slot** was the only one
+invisible while its siblings showed. `Crafting Gear 84` gates at uber and sits ~120 blocks
+ahead of the League category, so first-match-wins gave it a base whose own category never
+hides. The same steal took **25 `Tier 1 Rare Equipment` bases**, Twilight Regalia among
+them — the author's own V7.0 acceptance test, which passed only because it was run at
+`uber`, where the ilvl-86 gate does not yet fire.
+
+Root cause: the gate values were ported from FilterBlade's `%Dn`, but **`%Dn` comments the
+block out**; we translated it as "becomes Hide". Those differ exactly here — a removed
+block lets the item fall through to the category that owns it, a hide block swallows it.
+
+Fix: `_meta.highlight_layer` on the category. When a gate fires there the block is
+**dropped**, not hidden. Applied to `Crafting Priority` (every one of its tiers decorates
+an item that also lives in a class ladder). Measured: **no change at all** at
+soft…verystrict; at uber/uberplus only the stolen bases return.
+
+⚠️ The editor's `tierHidden` still renders a dropped tier as "hidden". True for that
+category's own output, but the item does still show from its owner — worth folding into
+the one-resolver work rather than patching twice.
+
 ## 7. Open — not yet decided
 
 - **`AreaLevel >= 68` vs `ItemLevel >= 68`.** Ours gates the ladder on `AreaLevel`, theirs

@@ -52,6 +52,9 @@ const EditorView: React.FC<EditorViewProps> = ({
   const strictnessIdx = Math.max(0, (STRICTNESS_LEVELS as readonly string[]).indexOf(strictness ?? 'soft'));
   // Effective-hidden for the live preview: a permanent hide bucket, a strictness gate
   // the current level reaches, OR a leveling tier deselected by the Campaign picker.
+  // ⚠️ A `_meta.highlight_layer` category DROPS its block at the gate instead of hiding
+  // it, so read "hidden" as "emits no Show here" — the item still shows from its owning
+  // category. See the gate in filterGenerator.ts.
   const tierHidden = (td: any): boolean =>
     !!td?.is_hide_tier ||
     (typeof td?.hide_at_strictness === 'number' && strictnessIdx >= td.hide_at_strictness) ||

@@ -2,6 +2,7 @@
   "Crafting Priority": {
     "_meta": {
       "theme_category": "Crafting Bases",
+      "highlight_layer": true,
       "localization": {
         "en": "Crafting Priority",
         "ch": "优先精品底材"
