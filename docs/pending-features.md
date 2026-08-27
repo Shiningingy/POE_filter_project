@@ -495,6 +495,23 @@ Fix: `_meta.highlight_layer` on the category. When a gate fires there the block 
 an item that also lives in a class ladder). Measured: **no change at all** at
 soft…verystrict; at uber/uberplus only the stolen bases return.
 
+**Every guard we had passed on this.** The catch-all guard never saw it (the base was
+hidden long before it could fall through), cross-category only asks who *claims*, and
+shadowed-blocks only finds blocks nothing can reach — both blocks here were reachable and
+one simply won. So `parsing_tool/check_gated_steals.py` now walks the real first-match-wins
+order and reports every pair where a hide takes a base a later Show would have taken:
+
+    node filter_generation/generate.mjs --mode ruthless --strictness uberplus \
+         --out out/x.filter --trace out/x.trace.json
+    python parsing_tool/check_gated_steals.py out/x.trace.json --check
+
+Run it on the strictest levels — a gate that never fires cannot steal. Intent is not
+derivable from the file, so it does not guess: `parsing_tool/gated_steals_baseline.json`
+holds the accepted pairs with a written reason each, and only a NEW pair fails. Proved to
+fire by removing the flag: **9 pairs before the fix, 2 after** — and it caught 7 bases the
+manual sweep had missed (`Crafting Strands T1` was taking Agate/Onyx Amulet, Prismatic and
+Two-Stone Ring and three more from `Tier 1 Rare Equipment`).
+
 ⚠️ The editor's `tierHidden` still renders a dropped tier as "hidden". True for that
 category's own output, but the item does still show from its owner — worth folding into
 the one-resolver work rather than patching twice.

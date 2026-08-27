@@ -1,0 +1,14 @@
+{
+  "_comment": "Accepted hide-beats-show pairs for check_gated_steals.py. A NEW pair fails --check; add one here ONLY with a reason it is intended. Measured on ruthless/uberplus, the level where every gate has fired.",
+  "_history": "Before the highlight_layer fix (2026-08-26) this list would have needed 9 pairs, 7 of them defects: Crafting Gear 84/85/86 and Crafting Strands T1 were taking 45 bases from Tier 1 Rare Equipment and the League ward bases. That is the bug this guard exists for -- do not baseline a Crafting Priority pair without reading docs/pending-features.md 6f first.",
+  "accepted": [
+    {
+      "pair": ["Equipment/Magic Net.json", "Rare Hide Endgame", "_legacy/Legacy.json", "Legacy"],
+      "why": "The 16 bases are legacy ones no longer obtainable as a normal drop, so the endgame net hiding them costs nothing on the ground; Legacy styles what a player already owns. Re-check if any is ever made droppable again -- `Breach Ring` is the live question there, knowingly parked in _legacy pending an author call."
+    },
+    {
+      "pair": ["Currency/General.json", "Tier 8 General", "_nets/Class Nets.json", "Net Stackable Currency"],
+      "why": "Portal Scroll / Scroll of Wisdom / Scroll Fragment are deliberately hidden at high strictness. The class net behind them is coverage, not a decision -- a category hiding its own lowest tier while a generic net would have shown it is the strictness ladder working, which is the opposite of the ward-base defect."
+    }
+  ]
+}
