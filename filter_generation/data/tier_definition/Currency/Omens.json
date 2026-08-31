@@ -20,7 +20,8 @@
         "PlayAlertSound": [
           "Sharket掉落音效/预兆.mp3",
           300
-        ]
+        ],
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": 2,
@@ -38,7 +39,8 @@
         "PlayAlertSound": [
           "Sharket掉落音效/预兆.mp3",
           300
-        ]
+        ],
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": -1,

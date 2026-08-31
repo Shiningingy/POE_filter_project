@@ -126,7 +126,7 @@
       "theme": {
         "Tier": 4,
         "FontSize": 40,
-        "MinimapIcon": "2 White Diamond"
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": -1,

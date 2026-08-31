@@ -357,7 +357,7 @@
       "theme": {
         "Tier": 3,
         "FontSize": 40,
-        "MinimapIcon": "2 White Diamond"
+        "MinimapIcon": null
       },
       "hideable": false,
       "sound": {
@@ -394,7 +394,7 @@
         "Tier": 3,
         "FontSize": 40,
         "PlayEffect": "Orange Temp",
-        "MinimapIcon": "2 Yellow Diamond"
+        "MinimapIcon": null
       },
       "hideable": false,
       "sound": {

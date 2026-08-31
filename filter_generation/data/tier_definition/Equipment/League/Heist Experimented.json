@@ -76,7 +76,8 @@
     "Heist Experimented T2": {
       "hideable": true,
       "theme": {
-        "Tier": 5
+        "Tier": 5,
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": -1,

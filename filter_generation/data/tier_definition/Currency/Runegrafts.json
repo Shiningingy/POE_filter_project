@@ -20,7 +20,8 @@
         "PlayAlertSound": [
           "Sharket掉落音效/符文.mp3",
           300
-        ]
+        ],
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": 2,
@@ -67,7 +68,8 @@
           "Sharket掉落音效/文身.mp3",
           300
         ],
-        "PlayEffect": "Orange Temp"
+        "PlayEffect": "Orange Temp",
+        "MinimapIcon": null
       },
       "localization": {
         "en": "T1:纹身",

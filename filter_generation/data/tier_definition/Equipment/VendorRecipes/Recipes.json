@@ -57,7 +57,7 @@
         "BackgroundColor": "#d20000ff",
         "BorderColor": "#00ff00ff",
         "FontSize": 45,
-        "MinimapIcon": "0 Green Star"
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": 2,

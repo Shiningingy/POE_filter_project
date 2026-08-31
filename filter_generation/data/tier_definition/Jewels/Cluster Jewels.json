@@ -83,7 +83,7 @@
           "Sharket掉落音效/高级通货.mp3",
           300
         ],
-        "MinimapIcon": "2 Yellow Cross"
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": 1,
@@ -109,7 +109,7 @@
           "Sharket掉落音效/顶级底材.mp3",
           300
         ],
-        "MinimapIcon": "2 White Cross"
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": 6,
@@ -134,7 +134,7 @@
           "Sharket掉落音效/顶级底材.mp3",
           300
         ],
-        "MinimapIcon": "2 Red Cross"
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": 6,
@@ -159,7 +159,7 @@
           "Sharket掉落音效/顶级底材.mp3",
           300
         ],
-        "MinimapIcon": "2 White Cross"
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": 6,

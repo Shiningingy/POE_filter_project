@@ -175,7 +175,7 @@
         ],
         "FontSize": 45,
         "BackgroundColor": "#1f1010f0",
-        "MinimapIcon": "2 Brown Star",
+        "MinimapIcon": null,
         "PlayEffect": "Brown Temp"
       },
       "conditions": {
@@ -201,7 +201,7 @@
         ],
         "FontSize": 40,
         "BackgroundColor": "#1f1010f0",
-        "MinimapIcon": "2 Brown Star",
+        "MinimapIcon": null,
         "PlayEffect": "Brown Temp"
       },
       "conditions": {

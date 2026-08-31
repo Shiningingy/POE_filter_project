@@ -25,7 +25,7 @@
           "Sharket掉落音效/常规珠宝.mp3",
           300
         ],
-        "MinimapIcon": "0 Yellow Cross",
+        "MinimapIcon": null,
         "PlayEffect": "Blue Temp"
       },
       "sound": {
@@ -51,7 +51,7 @@
           "Sharket掉落音效/常规珠宝.mp3",
           300
         ],
-        "MinimapIcon": "0 Blue Cross",
+        "MinimapIcon": null,
         "PlayEffect": "Blue Temp"
       },
       "sound": {
@@ -77,7 +77,7 @@
           "Sharket掉落音效/常规珠宝.mp3",
           300
         ],
-        "MinimapIcon": "0 White Cross",
+        "MinimapIcon": null,
         "PlayEffect": "Blue Temp"
       },
       "sound": {

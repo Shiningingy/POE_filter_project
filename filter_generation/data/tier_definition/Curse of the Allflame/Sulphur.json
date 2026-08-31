@@ -71,7 +71,8 @@
         "PlayAlertSound": [
           "Default/AlertSound2.mp3",
           300
-        ]
+        ],
+        "MinimapIcon": null
       },
       "hideable": false,
       "sound": {

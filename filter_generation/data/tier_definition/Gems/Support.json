@@ -85,7 +85,7 @@
           300
         ],
         "FontSize": 43,
-        "MinimapIcon": "2 Yellow Kite",
+        "MinimapIcon": null,
         "TextColor": "#000000ff",
         "BackgroundColor": "#1ba29bff"
       },
@@ -107,7 +107,7 @@
           300
         ],
         "FontSize": 40,
-        "MinimapIcon": "2 White Kite",
+        "MinimapIcon": null,
         "TextColor": "#1ba29bff",
         "BackgroundColor": "#1b3334ff"
       },

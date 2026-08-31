@@ -17,7 +17,8 @@
       "hideable": false,
       "theme": {
         "Tier": 3,
-        "PlayAlertSound": "disabled:"
+        "PlayAlertSound": "disabled:",
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": 1,

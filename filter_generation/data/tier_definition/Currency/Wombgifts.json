@@ -45,7 +45,8 @@
         "PlayAlertSound": [
           "Sharket掉落音效/孕育赠礼.mp3",
           300
-        ]
+        ],
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": -1,
@@ -69,7 +70,7 @@
           "Sharket掉落音效/孕育赠礼.mp3",
           300
         ],
-        "MinimapIcon": "2 White Star"
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": -1,

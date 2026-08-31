@@ -53,7 +53,7 @@
           300
         ],
         "PlayEffect": "Orange Temp",
-        "MinimapIcon": "2 Orange Diamond"
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": 2,

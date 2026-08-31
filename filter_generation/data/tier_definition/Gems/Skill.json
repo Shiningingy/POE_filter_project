@@ -140,7 +140,8 @@
         ],
         "TextColor": "#1ba29bff",
         "BackgroundColor": "#1b3334ff",
-        "FontSize": 40
+        "FontSize": 40,
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": -1,
@@ -161,7 +162,8 @@
         ],
         "TextColor": "#1ba29bff",
         "BackgroundColor": "#1b3334ff",
-        "FontSize": 40
+        "FontSize": 40,
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": -1,

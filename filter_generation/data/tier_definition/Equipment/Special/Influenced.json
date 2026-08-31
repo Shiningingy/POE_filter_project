@@ -41,7 +41,8 @@
         "Rarity": "<= Rare"
       },
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": 1,

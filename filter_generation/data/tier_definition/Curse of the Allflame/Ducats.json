@@ -37,7 +37,8 @@
         "Tier": 4,
         "TextColor": "#000000ff",
         "BackgroundColor": "#00a070ff",
-        "FontSize": 43
+        "FontSize": 43,
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": -1,

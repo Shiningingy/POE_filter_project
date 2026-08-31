@@ -42,7 +42,7 @@
           "Sharket掉落音效/精华.mp3",
           300
         ],
-        "MinimapIcon": "2 Yellow Raindrop",
+        "MinimapIcon": null,
         "PlayEffect": "Blue Temp"
       },
       "sound": {
@@ -63,7 +63,7 @@
           "Sharket掉落音效/是精华哎.mp3",
           300
         ],
-        "MinimapIcon": "2 Yellow Raindrop"
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": -1,

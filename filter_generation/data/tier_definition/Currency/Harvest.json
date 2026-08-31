@@ -41,7 +41,8 @@
           "Sharket掉落音效/种子种子.mp3",
           300
         ],
-        "FontSize": 40
+        "FontSize": 40,
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": 2,

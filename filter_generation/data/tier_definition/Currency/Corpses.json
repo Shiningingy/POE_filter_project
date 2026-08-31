@@ -71,7 +71,8 @@
       "conditions": {},
       "theme": {
         "Tier": 3,
-        "FontSize": 40
+        "FontSize": 40,
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": -1,
@@ -89,7 +90,8 @@
         "Class": "== \"Corpses\""
       },
       "theme": {
-        "Tier": 3
+        "Tier": 3,
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": -1,

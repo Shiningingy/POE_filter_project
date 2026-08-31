@@ -91,7 +91,7 @@
           300
         ],
         "FontSize": 45,
-        "MinimapIcon": "2 White Hexagon"
+        "MinimapIcon": null
       },
       "sound": {
         "default_sound_id": -1,
