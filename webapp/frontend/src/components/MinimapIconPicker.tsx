@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useTranslation } from "../utils/localization";
+import { useTranslation, translate } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import { getAssetUrl } from "../utils/assetUtils";
 
@@ -55,7 +55,9 @@ export const formatMinimapIcon = (value: string, t: any): string => {
   // "0 at T0/T1, 1 at T2, 2 at T3 ... a white map gets the smallest icon", white maps
   // being T3. Their font-35 blocks use size 2 and size 0 appears only at font 45.
   const sizeKey = size === "0" ? "large" : size === "1" ? "medium" : "small";
-  return [t[sizeKey], t[color] || color, t[shape] || shape]
+  // `t` yields the key itself when a colour/shape has no entry, which IS the wanted
+  // English fallback — so no `|| color` here; that guard could never fire anyway.
+  return [t[sizeKey], t[color], t[shape]]
     .filter(Boolean)
     .join(" ");
 };
@@ -153,7 +155,7 @@ const MinimapIconPicker: React.FC<MinimapIconPickerProps> = ({
                   style={{ borderColor: c.toLowerCase() }}
                   onClick={() => setTempIcon({ ...tempIcon, color: c })}
                 >
-                  {(t as any)[c] || c}
+                  {translate(c, language) ?? c}
                 </button>
               ))}
             </div>
@@ -180,7 +182,7 @@ const MinimapIconPicker: React.FC<MinimapIconPickerProps> = ({
               <div style={getIconStyle(tempIcon.color, tempIcon.shape, 1)}></div>
               <span>
                 {sizeLabel(tempIcon.size)} {(t as any)[tempIcon.color]}{" "}
-                {(t as any)[tempIcon.shape] || tempIcon.shape}
+                {translate(tempIcon.shape, language) ?? tempIcon.shape}
               </span>
             </div>
           </div>

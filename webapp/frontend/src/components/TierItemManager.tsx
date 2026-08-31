@@ -527,7 +527,7 @@ const TierItemManager: React.FC<TierItemManagerProps> = ({
           <div className="item-grid-container">
             {ruleItems.length > 0 && (
                 <div className="rule-items-section">
-                    <div className="section-label">{language === 'ch' ? "条件物品 (规则)" : "Conditional Items"}</div>
+                    <div className="section-label">{t.conditionalItems}</div>
                     <div className="item-grid">
                         {ruleItems.map(renderItem)}
                     </div>

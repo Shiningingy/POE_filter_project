@@ -13,7 +13,42 @@
 import axios from 'axios';
 import { resolveThemeKey, topCategoryKey } from './filterStyle';
 
-export type TierLabelMap = Record<string, Record<number, { en?: string; ch?: string }>>;
+/**
+ * Every tier that resolves to one theme row.
+ *
+ * ⚠️ `theme.Tier` is a STYLE row, not an identity: it is deliberately many-to-one, so
+ * several tier keys can share one look. This map used to keep only the first tier it saw
+ * per number ("first file wins") and hand that single name back as THE label for the row —
+ * so 42 rows across 20 categories were labelled after an arbitrary one of their members.
+ * `Curse of the Allflame` row 2 read "T0: 金币" while also covering Mercenary Warrants,
+ * Sulphur and Voyage Charts; Campaign row 5 is shared by 29 tiers.
+ *
+ * Keeping the whole list lets a label say what the style actually paints.
+ */
+export interface TierRowLabel {
+  tiers: { key: string; en?: string; ch?: string }[];
+}
+
+export type TierLabelMap = Record<string, Record<number, TierRowLabel>>;
+
+/**
+ * Display text for a theme row, plus a `title` listing every tier it covers.
+ * Names beyond the second are collapsed to a count — some rows have 29 members.
+ */
+export const formatTierRow = (
+  row: TierRowLabel | undefined,
+  lang: 'en' | 'ch',
+  fallback: string,
+): { text: string; title?: string } => {
+  const names = (row?.tiers || [])
+    .map((entry) => entry[lang] || entry.en || entry.ch || entry.key)
+    .filter(Boolean) as string[];
+  if (!names.length) return { text: fallback };
+  const title = names.length > 1 ? names.join('\n') : undefined;
+  if (names.length === 1) return { text: names[0], title };
+  if (names.length === 2) return { text: `${names[0]} / ${names[1]}`, title };
+  return { text: `${names[0]} +${names.length - 1}`, title };
+};
 /** tier-definition path (e.g. "tier_definition/Currency/General.json") -> theme key. */
 export type ThemeKeyByPath = Record<string, string>;
 
@@ -62,10 +97,13 @@ const loadIndex = async (): Promise<TierIndex> => {
         Object.entries<any>(cat).forEach(([key, val]) => {
           if (key === '_meta' || !val || typeof val !== 'object') return;
           const num = val.theme?.Tier;
-          if (typeof num !== 'number' || labels[themeCategory][num]) return; // first file wins
-          if (val.localization?.en || val.localization?.ch) {
-            labels[themeCategory][num] = { en: val.localization.en, ch: val.localization.ch };
-          }
+          if (typeof num !== 'number') return;
+          if (!val.localization?.en && !val.localization?.ch) return;
+          // APPEND rather than "first wins" — a theme row is shared by design, and the
+          // tiers that share it are exactly what its style paints.
+          (labels[themeCategory][num] ||= { tiers: [] }).tiers.push({
+            key, en: val.localization.en, ch: val.localization.ch,
+          });
         });
       });
       cached = { labels, themeKeys, decorators };

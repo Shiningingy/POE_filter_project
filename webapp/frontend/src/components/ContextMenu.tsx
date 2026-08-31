@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { translations, type Language } from '../utils/localization';
+import { useTranslation, type Language } from '../utils/localization';
 
 interface ContextMenuProps {
   x: number;
@@ -28,7 +28,7 @@ const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, options, onClose, langu
 
   const displayOptions = options.length > 0 ? options : [
       { 
-          label: (translations[language] as any).noOptions || "No available options", 
+          label: useTranslation(language).noOptions,
           onClick: () => {}, 
           disabled: true, 
           className: "no-options",

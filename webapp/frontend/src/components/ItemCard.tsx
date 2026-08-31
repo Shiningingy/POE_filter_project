@@ -1,6 +1,6 @@
 import React from "react";
 import ItemTooltip from "./ItemTooltip";
-import { translations, CLASS_KEY_MAP } from "../utils/localization";
+import { useTranslation, itemClassLabel } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import { getSubTypeBackground } from "../utils/itemUtils";
 
@@ -57,6 +57,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
   rules,
   onRulesClick,
 }) => {
+  const t = useTranslation(language);
   const dotBg = getSubTypeBackground(item.sub_type);
   const showChineseFirst = language === "ch";
 
@@ -128,7 +129,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
               <>
                 {(item.item_class || (!rules && (item.instance_tier || item.current_tier))) && (
                     <div className="item-class-label">
-                        {item.item_class && (language === 'ch' ? ((translations[language] as any)[CLASS_KEY_MAP[item.item_class] || item.item_class] || item.item_class) : item.item_class)}
+                        {item.item_class && itemClassLabel(item.item_class, language)}
                         {!rules && item.instance_tier && <span className="tier-pill"> | {item.instance_tier.match(/Tier (\d+)/)?.[1] ? `T${item.instance_tier.match(/Tier (\d+)/)?.[1]}` : item.instance_tier}</span>}
                         {!rules && !item.instance_tier && item.current_tier && item.current_tier.length > 0 && (
                             <span className="tier-pill"> | {item.current_tier.map((t: string) => t.match(/Tier (\d+)/)?.[1] ? `T${t.match(/Tier (\d+)/)?.[1]}` : t).join(', ')}</span>
@@ -139,7 +140,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
                 <div className="item-sound-info">
                     <span className="sound-label">🎵 </span>
                     <span className={`sound-path ${!currentSound ? 'none' : ''}`}>
-                        {currentSound ? currentSound.split('/').pop() : (translations[language] as any).noSoundApplied}
+                        {currentSound ? currentSound.split('/').pop() : t.noSoundApplied}
                     </span>
                 </div>
 
@@ -158,7 +159,7 @@ const ItemCard: React.FC<ItemCardProps> = ({
                         ))}
                         {overflowRules > 0 && (
                             <span style={{ fontSize: '0.6rem', background: '#2196F3', color: '#fff', borderRadius: '4px', padding: '1px 6px', fontWeight: 'bold' }}>
-                                +{overflowRules} {language === 'ch' ? '更多' : 'more'}
+                                +{overflowRules} {t.bonusAndMore}
                             </span>
                         )}
                     </div>

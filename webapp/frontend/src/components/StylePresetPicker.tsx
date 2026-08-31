@@ -2,9 +2,9 @@
 // category's Tier N bucket) and land it on the tier block / rule being edited.
 // Lives entirely inside the Editor — the theme is only the style SOURCE.
 import React, { useEffect, useMemo, useState } from 'react';
-import { useTranslation, CLASS_CH } from '../utils/localization';
+import { useTranslation, themeCategoryLabel } from '../utils/localization';
 import type { Language } from '../utils/localization';
-import { fetchTierLabelMap } from '../utils/tierLabels';
+import { fetchTierLabelMap, formatTierRow } from '../utils/tierLabels';
 import type { TierLabelMap } from '../utils/tierLabels';
 
 // Style keys copied by the picker. Sounds are intentionally excluded —
@@ -37,7 +37,10 @@ const StylePresetPicker: React.FC<StylePresetPickerProps> = ({
 
   useEffect(() => { fetchTierLabelMap().then(setLabelMap); }, []);
 
-  const catLabel = (cat: string) => (language === 'ch' && CLASS_CH[cat]) || cat;
+  // Was `CLASS_CH[cat] || cat`, which consulted the ITEM-CLASS map only — so 35 of 51
+  // theme categories fell through to the raw English key here while the theme editor,
+  // consulting a longer chain, showed Chinese for the same category.
+  const catLabel = (cat: string) => themeCategoryLabel(cat, language);
 
   const tierRows = useMemo(() => {
     const cat = themeData?.[category] || {};
@@ -48,10 +51,10 @@ const StylePresetPicker: React.FC<StylePresetPickerProps> = ({
       .sort((a, b) => a.num - b.num);
   }, [themeData, category]);
 
-  const rowLabel = (num: number) => {
-    const loc = labelMap[category]?.[num];
-    return loc?.[language] || loc?.en || `Tier ${num}`;
-  };
+  // A theme row can be shared by several tiers, so the label names them all (collapsed
+  // past the second) instead of picking whichever the walk happened to reach first.
+  const rowLabel = (num: number) =>
+    formatTierRow(labelMap[category]?.[num], language, `Tier ${num}`);
 
   const pickStyle = (style: any) => {
     const out: Record<string, any> = {};
@@ -91,9 +94,12 @@ const StylePresetPicker: React.FC<StylePresetPickerProps> = ({
                   fontSize: `${fontPx}px`,
                 }}
                 onClick={() => pickStyle(s)}
-                title={`FontSize ${s.FontSize ?? '-'}${s.PlayEffect ? ` · ${s.PlayEffect}` : ''}${s.MinimapIcon ? ` · ${s.MinimapIcon}` : ''}`}
+                title={[
+                  `FontSize ${s.FontSize ?? '-'}${s.PlayEffect ? ` · ${s.PlayEffect}` : ''}${s.MinimapIcon ? ` · ${s.MinimapIcon}` : ''}`,
+                  rowLabel(row.num).title,
+                ].filter(Boolean).join('\n')}
               >
-                {rowLabel(row.num)}
+                {rowLabel(row.num).text}
               </button>
             );
           })}

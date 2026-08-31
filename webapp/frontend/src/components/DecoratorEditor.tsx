@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
-import type { Language } from '../utils/localization';
+import { resolve, useTranslation, type Language } from '../utils/localization';
 import LoadingOverlay from './LoadingOverlay';
 
 /**
@@ -71,6 +71,7 @@ const rgba = (hex: string): string => {
 
 const DecoratorEditor: React.FC<{ language: Language; onClose: () => void }> = ({ language, onClose }) => {
   const ch = language === 'ch';
+  const t = useTranslation(language);
   const [loading, setLoading] = useState(true);
   const [decos, setDecos] = useState<Deco[]>([]);
   const [dirty, setDirty] = useState(false);
@@ -120,7 +121,7 @@ const DecoratorEditor: React.FC<{ language: Language; onClose: () => void }> = (
 
   const add = (p: StatePreset) => {
     setAdding(false);
-    if (decos.some(d => d.key === p.key)) { setMsg(ch ? '该状态已存在' : 'That state already exists'); return; }
+    if (decos.some(d => d.key === p.key)) { setMsg(t.thatStateAlreadyExists); return; }
     setDecos(ds => [...ds, {
       key: p.key, conditions: p.conditions, channel: 'BorderColor',
       colour: '#ff4d4dff', en: p.en, ch: p.ch,
@@ -166,9 +167,9 @@ const DecoratorEditor: React.FC<{ language: Language; onClose: () => void }> = (
         mapping: {}, rules: [],
       });
       setDirty(false);
-      setMsg(ch ? '已保存' : 'Saved');
+      setMsg(t.saved);
     } catch (e: any) {
-      setMsg((ch ? '保存失败: ' : 'Save failed: ') + (e?.message || 'error'));
+      setMsg((t.saveFailed2) + (e?.message || 'error'));
     } finally {
       setSaving(false);
     }
@@ -186,27 +187,25 @@ const DecoratorEditor: React.FC<{ language: Language; onClose: () => void }> = (
     <div className="deco-modal modal-overlay" onClick={e => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="deco-box">
         <div className="deco-head">
-          <h3>{ch ? '状态叠加' : 'State Decorators'}</h3>
+          <h3>{t.stateDecorators}</h3>
           <span className="deco-count">{owned.length}</span>
           <span className="spacer" />
-          <button className="btn" onClick={() => setAdding(a => !a)}>{ch ? '+ 添加状态' : '+ Add state'}</button>
+          <button className="btn" onClick={() => setAdding(a => !a)}>{t.addState}</button>
           <button className="btn primary" disabled={!dirty || saving} onClick={save}>
-            {saving ? (ch ? '保存中…' : 'Saving…') : (ch ? '保存' : 'Save')}
+            {saving ? (t.saving) : (t.save)}
           </button>
-          <button className="btn" onClick={onClose}>{ch ? '关闭' : 'Close'}</button>
+          <button className="btn" onClick={onClose}>{t.close}</button>
         </div>
 
         <p className="deco-hint">
-          {ch
-            ? '一个状态只设置一个通道，然后 Continue，因此它会叠加在任何外观之上——只要那个外观没有设置同一个通道。'
-            : 'A state sets one channel and then Continues, so it layers over any look — as long as that look leaves the same channel unset.'}
+          {t.aStateSetsOneChannel}
         </p>
 
         {adding && (
           <div className="deco-add">
             {STATE_PRESETS.map(p => (
               <button key={p.key} className="btn sm" onClick={() => add(p)}>
-                {ch ? p.ch : p.en}
+                {resolve(p, language)}
               </button>
             ))}
           </div>
@@ -216,7 +215,7 @@ const DecoratorEditor: React.FC<{ language: Language; onClose: () => void }> = (
 
         {owned.length === 0 && !adding && (
           <div className="deco-empty">
-            {ch ? '还没有状态叠加。点击“添加状态”开始。' : 'No state decorators yet. "Add state" to begin.'}
+            {t.noStateDecoratorsYetAdd}
           </div>
         )}
 
@@ -224,7 +223,7 @@ const DecoratorEditor: React.FC<{ language: Language; onClose: () => void }> = (
           {owned.map(d => (
             <div className="deco-row" key={d.key}>
               <div className="deco-name">
-                <strong>{ch ? d.ch : d.en}</strong>
+                <strong>{resolve(d, language)}</strong>
                 <code>{Object.entries(d.conditions).map(([k, v]) => `${k} ${v}`).join(' · ')}</code>
               </div>
 
@@ -242,17 +241,17 @@ const DecoratorEditor: React.FC<{ language: Language; onClose: () => void }> = (
                 color: d.channel === 'TextColor' ? rgba(d.colour) : '#c8c8c8',
                 background: d.channel === 'BackgroundColor' ? rgba(d.colour) : '#000000bb',
               }}>
-                {ch ? '示例物品' : 'Sample Item'}
+                {t.sampleItem}
               </div>
 
-              <button className="btn sm danger" onClick={() => remove(d.key)}>{ch ? '删除' : 'Remove'}</button>
+              <button className="btn sm danger" onClick={() => remove(d.key)}>{t.remove}</button>
             </div>
           ))}
         </div>
 
         {foreign.length > 0 && (
           <div className="deco-foreign">
-            {ch ? '其他文件中的叠加（只读）：' : 'Decorators defined elsewhere (read-only):'}
+            {t.decoratorsDefinedElsewhereReadOnly}
             {foreign.map(d => <code key={d.foreign! + d.key}>{d.key} — {d.foreign}</code>)}
           </div>
         )}

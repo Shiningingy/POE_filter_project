@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import axios from 'axios';
-import { useTranslation } from '../utils/localization';
+import { useTranslation, translate } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import { evaluateItem, parseClipboardItem, getMatchingRules } from '../utils/simulatorEngine';
 import type { ItemProps, FilterContext, RuleMatch } from '../utils/simulatorEngine';
@@ -103,11 +103,11 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
   const fetchDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const BACKGROUNDS_ARRAY = [
-    { id: "Item_bg_coast.jpg", label: language === 'ch' ? "海滩" : "Coast" },
-    { id: "Item_bg_forest.jpg", label: language === 'ch' ? "丛林" : "Forest" },
-    { id: "Item_bg_sand.jpg", label: language === 'ch' ? "沙漠" : "Sand" },
-    { id: "color_black", label: language === 'ch' ? "黑" : "Black" },
-    { id: "color_grey", label: language === 'ch' ? "灰" : "Grey" }
+    { id: "Item_bg_coast.jpg", label: t.coast },
+    { id: "Item_bg_forest.jpg", label: t.forest },
+    { id: "Item_bg_sand.jpg", label: t.sand },
+    { id: "color_black", label: t.black },
+    { id: "color_grey", label: t.grey }
   ];
 
   useEffect(() => {
@@ -452,14 +452,14 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
               <label>{label}</label>
               {type === 'select' ? (
                   <select value={itemRecord[key] as string} onChange={e => setNewItem({...newItem, [key]: e.target.value})}>
-                      {options?.map(o => <option key={o} value={o}>{(t as any)[o] || o}</option>)}
+                      {options?.map(o => <option key={o} value={o}>{translate(o, language) ?? o}</option>)}
                   </select>
               ) : key === 'name' ? (
                   <div style={{ position: 'relative' }}>
                       <input
                           type="text"
                           value={baseTypeQuery !== '' ? baseTypeQuery : newItem.name}
-                          placeholder={language === 'ch' ? "点击选择底材" : "Click to select base type"}
+                          placeholder={t.clickToSelectBaseType}
                           autoComplete="off"
                           onChange={e => { setBaseTypeQuery(e.target.value); setShowBaseTypeDrop(true); }}
                           onFocus={() => setShowBaseTypeDrop(true)}
@@ -644,7 +644,7 @@ const DropSimulator: React.FC<DropSimulatorProps> = ({ language, onJumpToRule })
                             .map(flag => (
                                 <label key={flag}>
                                     <input type="checkbox" checked={!!newItem[flag as keyof ItemProps]} onChange={e => setNewItem({...newItem, [flag]: e.target.checked})} />
-                                    {(t as any)[flag] || flag.charAt(0).toUpperCase() + flag.slice(1)}
+                                    {translate(flag, language) ?? (flag.charAt(0).toUpperCase() + flag.slice(1))}
                                 </label>
                           ))}
                       </div>

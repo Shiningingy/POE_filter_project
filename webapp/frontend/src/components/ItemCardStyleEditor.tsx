@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useTranslation, type Language } from '../utils/localization';
+import { useTranslation, translate, type Language } from '../utils/localization';
 import MinimapIconPicker from './MinimapIconPicker';
 import PlayEffectPicker from './PlayEffectPicker';
 import SoundPicker from './SoundPicker';
@@ -24,6 +24,22 @@ import { DEFAULT_SOUND_VOLUME } from '../utils/filterStyle';
 
 const CHANNELS = ['FontSize', 'TextColor', 'BorderColor', 'BackgroundColor', 'PlayEffect', 'MinimapIcon'] as const;
 const COLOR_CHANNELS = ['TextColor', 'BorderColor', 'BackgroundColor'] as const;
+
+// A channel's filter-format name is NOT its translation key. This used to be
+// `t['style' + channel]`, and no `styleFontSize` / `styleTextColor` / … key has ever
+// existed — so every row label in this editor rendered the raw camelCase identifier,
+// in BOTH languages, and the `|| k` fallback could not save it because the string
+// lookup returns the key itself on a miss. The labels were there all along, under
+// these names.
+const LABEL_KEY: Record<string, string> = {
+  FontSize: 'fontSize',
+  TextColor: 'TextColor',
+  BorderColor: 'BorderColor',
+  BackgroundColor: 'BackgroundColor',
+  PlayEffect: 'dropEffect',
+  MinimapIcon: 'minimapIcon',
+  PlayAlertSound: 'sound',
+};
 
 interface Props {
   itemName: string;
@@ -66,7 +82,7 @@ const ItemCardStyleEditor: React.FC<Props> = ({ itemName, value, blockStyle, lan
 
   const row = (k: string, control: React.ReactNode) => (
     <div className="card-style-row" key={k}>
-      <label className="card-style-label">{t[`style${k}`] || k}</label>
+      <label className="card-style-label">{translate(LABEL_KEY[k] ?? k, language) ?? k}</label>
       <div className="card-style-control">{control}</div>
       {isSet(k) ? (
         <button className="card-style-clear" onClick={() => clearChannel(k)} title={t.cardClearChannel || 'Back to the block'}>✕</button>

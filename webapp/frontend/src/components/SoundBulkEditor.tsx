@@ -20,7 +20,7 @@ import {
   horizontalListSortingStrategy,
   arrayMove
 } from '@dnd-kit/sortable';
-import { useTranslation, CLASS_CH } from '../utils/localization';
+import { useTranslation, itemClassLabel } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ItemCard from './ItemCard';
 import { CatalogSoundCard, PoolItem, WorkspaceColumn } from './SoundWorkspaceCards';
@@ -649,11 +649,11 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
       <div className="modal-content">
         <div className="modal-header">
           <div className="header-left">
-            <h2>🎵 {language === 'ch' ? "音效批量编辑器" : "Sound Bulk Editor"}</h2>
+            <h2>🎵 {t.soundBulkEditor}</h2>
             <div className="class-nav">
                 <span className="label">{(t as any).itemClass}:</span>
                 <select value={selectedClass} onChange={e => setSelectedClass(e.target.value)} className="class-select">
-                    {itemClasses.map(c => <option key={c} value={c}>{language === 'ch' ? (CLASS_CH[c] || c) : c}</option>)}
+                    {itemClasses.map(c => <option key={c} value={c}>{itemClassLabel(c, language)}</option>)}
                 </select>
             </div>
             <div className="file-io-btns">
@@ -679,7 +679,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
           <div className="main-layout">
             <div ref={setPoolRef} className="item-pool-sidebar">
                 <div className="sidebar-header">
-                    <h3>{language === 'ch' ? "物品池" : "Item Pool"}</h3>
+                    <h3>{t.itemPool}</h3>
                     <input type="text" placeholder={t.search} className="pool-search" value={searchTermPool} onChange={e => setSearchTermPool(e.target.value)} />
                 </div>
                 <div className="pool-content">
@@ -704,7 +704,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                 <SortableContext items={activeColumns.map(c => c.path)} strategy={horizontalListSortingStrategy}>
                     {activeColumns.length === 0 ? (
                         <div className="empty-workspace">
-                            {language === 'ch' ? "从右侧点击或拖入音效卡片以开始" : "Click or drag sound cards from the right to start"}
+                            {t.clickOrDragSoundCards}
                         </div>
                     ) : (
                         activeColumns.map(sound => (
@@ -742,7 +742,7 @@ const SoundBulkEditor: React.FC<SoundBulkEditorProps> = ({ language, onClose, on
                 <div className="catalog-content">
                     {catalogTab === 'custom' ? (
                         <div className="custom-add">
-                            <input type="text" placeholder={language === 'ch' ? "输入路径..." : "Enter path..."} value={customPathInput} onChange={e => setCustomPathInput(e.target.value)} />
+                            <input type="text" placeholder={t.enterPath2} value={customPathInput} onChange={e => setCustomPathInput(e.target.value)} />
                             <button onClick={() => { if(customPathInput) { addColumn({ path: customPathInput, label: customPathInput.split('/').pop() || customPathInput, type: 'custom' }); setCustomPathInput(''); } }}>Confirm</button>
                         </div>
                     ) : (

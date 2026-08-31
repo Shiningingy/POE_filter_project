@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import axios from 'axios';
-import { useTranslation, DATA_FOLDER_CH } from '../utils/localization';
+import { useTranslation, dataFolderLabel } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import { SNAPSHOT_VERSION, parseSnapshotInput, groupSnapshotFiles } from '../utils/snapshot';
 import type { Snapshot, SnapshotGroup } from '../utils/snapshot';
@@ -30,11 +30,10 @@ const ImportPanel: React.FC<ImportPanelProps> = ({ language }) => {
     if (g.kind === 'theme') return t.importThemeGroup;
     if (g.kind === 'sounds') return t.importSoundsGroup;
     if (g.kind === 'settings') return t.importSettingsGroup;
-    if (language === 'ch') {
-      const ch = DATA_FOLDER_CH[g.label];
-      return ch ? `${ch} ${g.label}` : g.label;
-    }
-    return g.label;
+    // Show the localized name alongside the folder's real name, which is what the
+    // author navigates by. When the two are the same (English), show it once.
+    const folder = dataFolderLabel(g.label, language);
+    return folder === g.label ? g.label : `${folder} ${g.label}`;
   };
 
   const handleFile = async (file: File) => {

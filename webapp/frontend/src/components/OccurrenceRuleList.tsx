@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Language } from '../utils/localization';
+import { getItemName, useTranslation, type Language } from '../utils/localization';
 
 export interface OccurrenceRuleRow {
   file: string;            // relative base_mapping path
@@ -27,19 +27,17 @@ const tierShort = (t: string) => {
 const OccurrenceRuleList: React.FC<OccurrenceRuleListProps> = ({
   itemName, itemNameCh, itemClass, rows, language, onEditRules, onJumpToEditor, onClose,
 }) => {
-  const ch = language === 'ch';
-  const displayName = ch && itemNameCh ? itemNameCh : itemName;
+  const t = useTranslation(language);
+  const displayName = getItemName({ name: itemName, name_ch: itemNameCh }, language);
 
   return (
     <div className="orl-overlay" onClick={onClose}>
       <div className="orl-panel" onClick={(e) => e.stopPropagation()}>
         <div className="orl-header">
           <div>
-            <h3>{ch ? '适用的规则 / 分类' : 'Applicable Rules / Categories'}</h3>
+            <h3>{t.applicableRulesCategories}</h3>
             <div className="orl-sub">
-              <b>{displayName}</b>{itemClass ? ` · ${itemClass}` : ''} — {ch
-                ? '该底材出现在以下分类文件中，选择一个查看或编辑其规则与样式：'
-                : 'This basetype appears in the files below. Pick one to view or edit its rules & styles:'}
+              <b>{displayName}</b>{itemClass ? ` · ${itemClass}` : ''} — {t.thisBasetypeAppearsInThe}
             </div>
           </div>
           <button className="orl-close" onClick={onClose}>×</button>
@@ -55,29 +53,29 @@ const OccurrenceRuleList: React.FC<OccurrenceRuleListProps> = ({
                     <span className="orl-tiers">{r.tiers.map(tierShort).join(', ')}</span>
                   )}
                   <span className={`orl-cur ${r.currentSound ? '' : 'none'}`}>
-                    🎵 {r.currentSound ? r.currentSound.split('/').pop() : (ch ? '无' : 'none')}
+                    🎵 {r.currentSound ? r.currentSound.split('/').pop() : (t.none2)}
                   </span>
                 </div>
               </div>
               <div className="orl-actions">
                 {onJumpToEditor && (
                   <button className="orl-jump" onClick={() => onJumpToEditor(r.file)}>
-                    {ch ? '编辑器' : 'Editor'}
+                    {t.editor}
                   </button>
                 )}
                 <button className="orl-edit" onClick={() => onEditRules(r.file)}>
-                  {ch ? '编辑规则与样式' : 'Edit rules & styles'}
+                  {t.editRulesStyles}
                 </button>
               </div>
             </div>
           ))}
           {rows.length === 0 && (
-            <div className="orl-empty">{ch ? '没有可显示的分类' : 'No categories to show'}</div>
+            <div className="orl-empty">{t.noCategoriesToShow}</div>
           )}
         </div>
 
         <div className="orl-footer">
-          <button className="orl-cancel" onClick={onClose}>{ch ? '关闭' : 'Close'}</button>
+          <button className="orl-cancel" onClick={onClose}>{t.close}</button>
         </div>
       </div>
 

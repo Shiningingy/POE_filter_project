@@ -18,7 +18,7 @@ import {
   useSortable
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { useTranslation, CLASS_KEY_MAP, CLASS_CH } from '../utils/localization';
+import { useTranslation, itemClassLabel, translate } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import ContextMenu from './ContextMenu';
 import ItemCard from './ItemCard';
@@ -699,7 +699,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
   };
 
   const classLabel = (c: string) =>
-    language === 'ch' ? (CLASS_CH[c] || (t as any)[CLASS_KEY_MAP[c]] || c) : c;
+    itemClassLabel(c, language);
 
   const stagedCount = Object.keys(stagedChanges).length;
   const activeItem = activeId ? items.find(i => i.name === activeId.split('::')[0]) : null;
@@ -734,7 +734,7 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                         style={{ marginLeft: '10px', minWidth: '100px' }}
                     >
                         {availableSubTypes.map(st => (
-                            <option key={st} value={st}>{(t as any)[SUBTYPE_KEY_MAP[st] || st] || st}</option>
+                            <option key={st} value={st}>{translate(SUBTYPE_KEY_MAP[st] || st, language) ?? st}</option>
                         ))}
                     </select>
                 )}
@@ -749,13 +749,13 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
         {/* Rank brush: pick a tier, then click bases. Drag-and-drop is fine for moving one
             item; ranking a whole class is dozens of moves, and that is what this is for. */}
         <div className="bulk-toolbar brush-bar">
-          <span className="label">{language === 'ch' ? "笔刷：" : "Brush:"}</span>
+          <span className="label">{t.brush}</span>
           <button
             className={`brush-swatch ${brushTier === null ? 'active' : ''}`}
             onClick={() => setBrushTier(null)}
-            title={language === 'ch' ? "关闭笔刷，恢复拖拽" : "Brush off — drag and drop"}
+            title={t.brushOffDragAndDrop}
           >
-            {language === 'ch' ? "关闭" : "Off"}
+            {t.off}
           </button>
           {availableTiers
             .filter(o => o.show_in_editor !== false && !o.is_hide_tier)
@@ -773,15 +773,13 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
           <button
             className={`brush-swatch ${brushTier === 'untiered' ? 'active' : ''}`}
             onClick={() => setBrushTier(brushTier === 'untiered' ? null : 'untiered')}
-            title={language === 'ch' ? "移出本类阶级" : "Remove from this ladder"}
+            title={t.removeFromThisLadder}
           >
-            {language === 'ch' ? "未分类" : "Untiered"}
+            {t.untiered}
           </button>
           {brushTier && (
             <span className="brush-hint">
-              {language === 'ch'
-                ? "点击物品即可刷入该阶级（其他文件的归属会保留）"
-                : "Click items to paint. Memberships in other files are kept."}
+              {t.clickItemsToPaintMemberships}
             </span>
           )}
         </div>
@@ -794,12 +792,12 @@ const BulkTierEditor: React.FC<BulkTierEditorProps> = ({
                     checked={showAllClasses}
                     onChange={e => setShowAllClasses(e.target.checked)}
                   />
-                  {language === 'ch' ? "显示全物品类" : "Show All Classes"}
+                  {t.showAllClasses}
               </label>
           </div>
           <input 
             type="text" 
-            placeholder={language === 'ch' ? "筛选已分类项..." : "Filter Tiered..."} 
+            placeholder={t.filterTiered} 
             value={searchTermTiered} 
             onChange={e => setSearchTermTiered(e.target.value)}
             className="search-box"

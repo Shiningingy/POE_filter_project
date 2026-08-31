@@ -7,7 +7,7 @@
 // preset (a .strictness.json bundle of gates) to reuse a curve, then fine-tune.
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
-import { useTranslation, DATA_FOLDER_CH } from '../utils/localization';
+import { useTranslation, dataFolderLabel } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import { STRICTNESS_LEVELS } from '../utils/filterGenerator';
 import LoadingOverlay from './LoadingOverlay';
@@ -124,8 +124,8 @@ const VisibilityOverview: React.FC<VisibilityOverviewProps> = ({ language, onClo
   }, [files]);
 
   const folderLabel = (folder: string) => {
-    if (!folder) return language === 'ch' ? '其他' : 'Other';
-    return language === 'ch' ? (DATA_FOLDER_CH[folder] || folder) : folder.replace(/^_/, '');
+    if (!folder) return t.other;
+    return dataFolderLabel(folder, language);
   };
 
   const gateLabel = (g: Gate) => (g === null ? t.gateAlways : `≥ ${t.strictnessLevels[STRICTNESS_LEVELS[g]]}`);

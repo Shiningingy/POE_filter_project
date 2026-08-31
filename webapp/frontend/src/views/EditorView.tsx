@@ -7,7 +7,7 @@ import ContextMenu from '../components/ContextMenu';
 import SoundBulkEditor from '../components/SoundBulkEditor';
 import VisibilityOverview from '../components/VisibilityOverview';
 import axios from 'axios';
-import { useTranslation, translations, RULE_FACTOR_LOCALIZATION } from '../utils/localization';
+import { useTranslation, ruleFactorLabel } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import { resolveStyle } from '../utils/styleResolver';
 import { resolveThemeKey } from '../utils/filterStyle';
@@ -115,9 +115,9 @@ const EditorView: React.FC<EditorViewProps> = ({
 
   useEffect(() => {
       if (pingedCondition) {
-          const locName = RULE_FACTOR_LOCALIZATION[pingedCondition.conditionKey]?.[language] || pingedCondition.conditionKey;
+          const locName = ruleFactorLabel(pingedCondition.conditionKey, language);
           setToast({ 
-              message: `${translations[language].conditionAlreadyAdded}: ${locName}`,
+              message: `${t.conditionAlreadyAdded}: ${locName}`,
               timestamp: pingedCondition.timestamp 
           });
           const timer = setTimeout(() => setToast(null), 1500);
@@ -285,12 +285,12 @@ const EditorView: React.FC<EditorViewProps> = ({
                   selectedFile.mapping_path ? axios.post(`${API_BASE_URL}/api/config/${selectedFile.mapping_path}`, mappingToSave) : Promise.resolve()
               ]);
               
-              if (!silent) alert("Saved successfully!");
+              if (!silent) alert(t.saveSuccess);
               markClean();
           }
       } catch (e) {
           console.error("Save failed", e);
-          if (!silent) alert("Save failed");
+          if (!silent) alert(t.saveFailed);
           throw e;
       }
   };
@@ -313,13 +313,13 @@ const EditorView: React.FC<EditorViewProps> = ({
       if (!isDirtyRef.current) return;
       persistConfig(undefined, true)
         .then(() => {
-          setToast({ message: translations[language].autoSaved, timestamp: Date.now() });
+          setToast({ message: t.autoSaved, timestamp: Date.now() });
           setTimeout(() => setToast(null), 1200);
         })
         .catch(() => {
           // markClean() never ran, so the beforeunload guard still protects the
           // edit and the Save button remains the manual fallback.
-          setToast({ message: translations[language].autoSaveFailed, timestamp: Date.now() });
+          setToast({ message: t.autoSaveFailed, timestamp: Date.now() });
           setTimeout(() => setToast(null), 2500);
         });
     }, 1000);
@@ -370,8 +370,8 @@ const EditorView: React.FC<EditorViewProps> = ({
                     if (preset.raw) targetRule.raw = (targetRule.raw || "") + "\n" + preset.raw;
                     
                     const condKey = addedKey || Object.keys(preset.conditions || {})[0];
-                    const locName = RULE_FACTOR_LOCALIZATION[condKey]?.[language] || condKey;
-                    setToast({ message: `${translations[language].conditionAdded}: ${locName}`, timestamp: Date.now() });
+                    const locName = ruleFactorLabel(condKey, language);
+                    setToast({ message: `${t.conditionAdded}: ${locName}`, timestamp: Date.now() });
                     setTimeout(() => setToast(null), 1500);
                 }
             } else {
@@ -382,7 +382,7 @@ const EditorView: React.FC<EditorViewProps> = ({
                     comment: preset.comment || "",
                     raw: preset.raw || ""
                 });
-                setToast({ message: translations[language].ruleAdded, timestamp: Date.now() });
+                setToast({ message: t.ruleAdded, timestamp: Date.now() });
                 setTimeout(() => setToast(null), 1500);
             }
             setConfigContent(JSON.stringify(parsed, null, 2));
@@ -480,7 +480,7 @@ const EditorView: React.FC<EditorViewProps> = ({
         <div className="workspace">
           <div className="editor-pane">
             {!selectedFile ? (
-              <div className="placeholder">Select a category from the sidebar to edit</div>
+              <div className="placeholder">{t.selectCategory}</div>
             ) : (
                 <CategoryView
                   configContent={configContent}

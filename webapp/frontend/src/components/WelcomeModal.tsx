@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Language } from '../utils/localization';
+import { resolve, useTranslation, type Language } from '../utils/localization';
 
 // First-visit greeting: shown once (until "sharket_welcome_seen" is set),
 // lets the user pick a language and jump straight into the manual.
@@ -13,6 +13,7 @@ interface WelcomeModalProps {
 
 const WelcomeModal: React.FC<WelcomeModalProps> = ({ language, setLanguage, onClose, onOpenManual }) => {
   const ch = language === 'ch';
+  const t = useTranslation(language);
 
   const features: { icon: string; en: string; ch: string }[] = [
     { icon: '🧱', en: 'Editor — drag & drop items between tiers, style every tier', ch: '编辑器 —— 拖放物品调整分级，自定义每个阶级的外观' },
@@ -29,32 +30,30 @@ const WelcomeModal: React.FC<WelcomeModalProps> = ({ language, setLanguage, onCl
           <button className={!ch ? 'active' : ''} onClick={() => setLanguage('en')}>English</button>
         </div>
 
-        <h2>{ch ? '欢迎使用 Sharket POE 过滤编辑器！' : 'Welcome to Sharket POE Filter!'}</h2>
+        <h2>{t.welcomeToSharketPoeFilter}</h2>
         <p className="welcome-sub">
-          {ch
-            ? '一款免费的浏览器端《流放之路》掉落过滤器编辑工具 —— 无需注册，所有修改自动保存在你的浏览器中。'
-            : 'A free, browser-based loot-filter editor for Path of Exile — no account needed, everything you change is saved in your browser automatically.'}
+          {t.aFreeBrowserBasedLoot}
         </p>
 
         <ul className="welcome-features">
           {features.map((f) => (
             <li key={f.icon}>
               <span className="feat-icon">{f.icon}</span>
-              {ch ? f.ch : f.en}
+              {resolve(f, language)}
             </li>
           ))}
         </ul>
 
         <div className="welcome-actions">
           <button className="welcome-manual-btn" onClick={onOpenManual}>
-            📖 {ch ? '查看用户手册' : 'Open the User Manual'}
+            📖 {t.openTheUserManual}
           </button>
           <button className="welcome-start-btn" onClick={onClose}>
-            {ch ? '直接开始 →' : 'Jump right in →'}
+            {t.jumpRightIn}
           </button>
         </div>
         <div className="welcome-hint">
-          {ch ? '之后可随时通过右上角的 📖 按钮打开手册。' : 'You can reopen the manual anytime via the 📖 button in the top bar.'}
+          {t.youCanReopenTheManual}
         </div>
       </div>
 

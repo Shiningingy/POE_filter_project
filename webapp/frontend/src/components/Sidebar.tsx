@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import type { Language } from '../utils/localization';
+import { useTranslation, type Language } from '../utils/localization';
 
 export interface CategoryFile {
   path: string;
@@ -48,6 +48,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   onSelect,
   language
 }) => {
+  const t = useTranslation(language);
   const [structure, setStructure] = useState<CategoryStructure | null>(null);
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
   const [error, setError] = useState<string | null>(null);
@@ -179,9 +180,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       <div className="sidebar-footer">
           {import.meta.env.VITE_DEMO_MODE === 'true' && (
               <button className="reset-demo-btn" onClick={() => {
-                  if (confirm(language === 'ch'
-                      ? "将所有更改重置为默认？此操作无法撤销。"
-                      : "Reset all changes to default? This cannot be undone.")) {
+                  if (confirm(t.resetAllChangesToDefault)) {
                       Object.keys(localStorage).forEach(k => {
                           if (k.startsWith('demo_vfs_') || k.startsWith('demo_theme_')
                               // demo_custom_overrides: the retired override layer. Still
@@ -193,7 +192,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                       window.location.reload();
                   }
               }}>
-                  ⚠ {language === 'ch' ? "重置所有更改" : "Reset All Changes"}
+                  ⚠ {t.resetAllChanges}
               </button>
           )}
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ItemProps, FilterContext, RuleMatch } from '../utils/simulatorEngine';
-import type { Language } from '../utils/localization';
+import { getItemName, useTranslation, type Language } from '../utils/localization';
 
 interface SimulatorMatchPickerProps {
   item: ItemProps;
@@ -18,7 +18,8 @@ const SimulatorMatchPicker: React.FC<SimulatorMatchPickerProps> = ({
   item, matches, context, language, onPick, onClose, onJumpToRule,
 }) => {
   const ch = language === 'ch';
-  const displayName = ch && item.name_ch ? item.name_ch : item.name;
+  const t = useTranslation(language);
+  const displayName = getItemName(item, language);
 
   const categoryLabel = (file: string) => {
     const def = context.tierDefinitions?.[tierDefKey(file)];
@@ -32,11 +33,9 @@ const SimulatorMatchPicker: React.FC<SimulatorMatchPickerProps> = ({
       <div className="smp-panel" onClick={(e) => e.stopPropagation()}>
         <div className="smp-header">
           <div>
-            <h3>{ch ? '多条规则生效' : 'Multiple Rules Apply'}</h3>
+            <h3>{t.multipleRulesApply}</h3>
             <div className="smp-sub">
-              {displayName} · {item.class} — {ch
-                ? '该掉落物受多个分类文件的规则影响，选择要编辑的一个：'
-                : 'This drop is affected by rules in more than one file. Pick one to edit:'}
+              {displayName} · {item.class} — {t.thisDropIsAffectedBy}
             </div>
           </div>
           <button className="smp-close" onClick={onClose}>×</button>
@@ -50,10 +49,10 @@ const SimulatorMatchPicker: React.FC<SimulatorMatchPickerProps> = ({
                 <div className="smp-card-main">
                   <div className="smp-card-head">
                     <span className="smp-rank">
-                      {ch ? `优先级 ${idx + 1}` : `Priority ${idx + 1}`}
-                      {isWinner && <span className="smp-badge">{ch ? '当前生效' : 'ACTIVE'}</span>}
+                      {t.priority} {idx + 1}
+                      {isWinner && <span className="smp-badge">{t.active2}</span>}
                     </span>
-                    <span className="smp-source">{m.isBaseMapping ? (ch ? '底材映射' : 'Base Mapping') : (m.ruleComment || (ch ? '自定义规则' : 'Custom Rule'))}</span>
+                    <span className="smp-source">{m.isBaseMapping ? (t.baseMapping) : (m.ruleComment || (t.customRule))}</span>
                   </div>
                   <div className="smp-meta">
                     <span className="smp-cat">{categoryLabel(m.file)}</span>
@@ -63,10 +62,10 @@ const SimulatorMatchPicker: React.FC<SimulatorMatchPickerProps> = ({
                 </div>
                 <div className="smp-card-actions">
                   <button className="smp-jump" onClick={() => onJumpToRule?.(m.file, m.ruleIndex ?? undefined)}>
-                    {ch ? '编辑器' : 'Editor'}
+                    {t.editor}
                   </button>
                   <button className="smp-edit" onClick={() => onPick(m)}>
-                    {ch ? '编辑规则与样式' : 'Edit rules & styles'}
+                    {t.editRulesStyles}
                   </button>
                 </div>
               </div>
@@ -75,7 +74,7 @@ const SimulatorMatchPicker: React.FC<SimulatorMatchPickerProps> = ({
         </div>
 
         <div className="smp-footer">
-          <button className="smp-cancel" onClick={onClose}>{ch ? '关闭' : 'Close'}</button>
+          <button className="smp-cancel" onClick={onClose}>{t.close}</button>
         </div>
       </div>
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useTranslation } from '../utils/localization';
+import { useTranslation, translate } from '../utils/localization';
 import type { Language } from '../utils/localization';
 
 interface GeneratorSettings {
@@ -207,7 +207,7 @@ const SimulatorSettingsPanel: React.FC<SimulatorSettingsPanelProps> = ({
         <div className="ssp-rarity-grid">
           {(['Normal', 'Magic', 'Rare', 'Unique'] as const).map(key => (
             <div key={key} className="ssp-rarity-item">
-              <label className="ssp-rarity-label">{(t as any)[key] || key}</label>
+              <label className="ssp-rarity-label">{translate(key, language) ?? key}</label>
               <input
                 type="number"
                 min={0}

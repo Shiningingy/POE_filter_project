@@ -516,6 +516,62 @@ Two-Stone Ring and three more from `Tier 1 Rare Equipment`).
 category's own output, but the item does still show from its owner — worth folding into
 the one-resolver work rather than patching twice.
 
+## 6g. ★ Localization is key-first behind a locale engine — 2026-08-30 (ADR-0008)
+
+The webapp's UI localization was reworked so a third language is a data change, not a code
+change. Full rationale in `docs/adr/0008-...`. What is left for the AUTHOR:
+
+### The 22 strings that still need Chinese
+
+They render English today via the fallback chain — which is exactly what the hardcoded
+literals they replaced did — so nothing regressed. They are listed in
+`webapp/frontend/locale_coverage_baseline.json` and `test_locale_coverage.mjs` reports them.
+**Do not let an agent invent these.** UI chrome may be proposed, but the author decides;
+item/class/base names come from the GGPK dump joined on `Id` (ADR-0004).
+
+**10 UI strings** (en shown; all are app chrome, none are game terms):
+
+| key | English |
+|---|---|
+| `cardStyleTitle` | Card style |
+| `cardInherit` | from block |
+| `cardInheritHint` | Unset — inherits the block |
+| `cardClearChannel` | Back to the block |
+| `fromCard` | From Card Override |
+| `rarityAnyOf` | is one of |
+| `rarityCompare` | compare |
+| `saveFailed` | Save failed |
+| `selectCategory` | Select a category from the sidebar to edit |
+| `rawTextPlaceholder` | Generated filter content will appear here... |
+
+**12 theme categories with no Chinese name.** These are the ones whose `_meta.item_class`
+value is *shared* by several categories (eleven report 可堆叠通货), so it names the CLASS
+and cannot be used as the category's name:
+
+`Curse of the Allflame` · `Enshrouding Crystals` · `General` · `Heist Blueprints` ·
+`Heist Contracts` · `Heist Currency` · `Heist Equipment` · `Incursion Vials` ·
+`Mirror of Kalandra Ring Bases` · `Omens` · `Runegrafts` · `Tainted Currency`
+
+Several have an official game term the author should confirm rather than us guess — e.g.
+`Heist Contracts` / `Heist Blueprints` beside the existing 契约 / 蓝图 class labels.
+
+### Two data issues the new labels exposed
+
+- **`Equipment/Special/Influenced.json:72`** — the `ch` string is
+  `"T1: 势力装备 T2HIGH"`. `T2HIGH` looks like a leftover token inside the translation.
+- **`Equipment/Jewellery/Trinkets.json` :: `Tier 1 Trinkets`** — the only tier in the tree
+  with no `localization` at all, so the theme board shows its raw tier key.
+
+### Two inconsistencies worth an author ruling
+
+- **`Maps`** is 异界地图 in the item-class table but 地图 in the string table and the theme
+  categories. The official GGPK term is 地图. One of the two should win.
+- **Strictness level names differ between the app and the shipped files**: the app shows
+  宽松/常规/半严格/严格/非常严格/极严/极严+, V7.2 shipped as 宽松/标准/半严/严格/超严/极严/极严+.
+- **`Damage_while_you_have_a_Herald` = "捷技能影响时伤害"** looks like a dropped leading
+  character (`先驱` in this repo means Precursor/Harbinger, not Herald). Not fixed — no zh
+  is written without the author.
+
 ## 7. Open — not yet decided
 
 - **`AreaLevel >= 68` vs `ItemLevel >= 68`.** Ours gates the ladder on `AreaLevel`, theirs

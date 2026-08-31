@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 import type { ItemProps, FilterContext } from '../utils/simulatorEngine';
-import type { Language } from '../utils/localization';
+import { resolve, getItemName, useTranslation, type Language } from '../utils/localization';
 import CategoryView from './CategoryView';
 
 interface SimulatorRulePanelProps {
@@ -28,7 +28,7 @@ const SimulatorRulePanel: React.FC<SimulatorRulePanelProps> = ({
   item, context, language, viewerBackground, file, matchedTier, matchedRuleIndex,
   onClose, onJumpToRule, onSaved,
 }) => {
-  const ch = language === 'ch';
+  const t = useTranslation(language);
 
   const [configContent, setConfigContent] = useState<string>('');
   const [tierItems, setTierItems] = useState<Record<string, any[]>>({});
@@ -36,7 +36,7 @@ const SimulatorRulePanel: React.FC<SimulatorRulePanelProps> = ({
   const [dirty, setDirty] = useState(false);
   const [saving, setSaving] = useState(false);
 
-  const displayName = ch && item.name_ch ? item.name_ch : item.name;
+  const displayName = getItemName(item, language);
 
   const fetchTierItems = async (keys: string[]) => {
     if (!keys.length) return;
@@ -95,7 +95,7 @@ const SimulatorRulePanel: React.FC<SimulatorRulePanelProps> = ({
       setDirty(false);
     } catch (e) {
       console.error('Failed to save tier block', e);
-      alert(ch ? '保存失败' : 'Failed to save');
+      alert(t.failedToSave);
     } finally {
       setSaving(false);
     }
@@ -106,15 +106,15 @@ const SimulatorRulePanel: React.FC<SimulatorRulePanelProps> = ({
     const tierData = context.tierDefinitions?.[tierDefKey(file)];
     const catKey = tierData && Object.keys(tierData).find((k) => !k.startsWith('//'));
     const loc = catKey && tierData[catKey]?._meta?.localization;
-    return (ch ? loc?.ch : loc?.en) || relOf(file).replace(/\.json$/, '');
-  }, [file, context, ch]);
+    return resolve(loc, language) || relOf(file).replace(/\.json$/, '');
+  }, [file, context, language]);
 
   return (
     <div className="sim-tierblock-overlay" onClick={onClose}>
       <div className="sim-tierblock-panel" onClick={(e) => e.stopPropagation()}>
         <div className="stb-header">
           <div className="stb-title">
-            <h3>{ch ? '规则与样式' : 'Rules & Styles'}</h3>
+            <h3>{t.rulesStyles}</h3>
             <div className="stb-sub">
               {displayName} · {item.class}
               {matchedTier && <span className="stb-matched"> → {categoryLabel} · {matchedTier}</span>}
@@ -125,7 +125,7 @@ const SimulatorRulePanel: React.FC<SimulatorRulePanelProps> = ({
 
         <div className="stb-body">
           {!configContent ? (
-            <div className="stb-empty">{ch ? '加载中…' : 'Loading…'}</div>
+            <div className="stb-empty">{t.loading2}</div>
           ) : (
             <CategoryView
               configContent={configContent}
@@ -146,12 +146,12 @@ const SimulatorRulePanel: React.FC<SimulatorRulePanelProps> = ({
 
         <div className="stb-footer">
           <button className="stb-jump" onClick={() => onJumpToRule?.(file, matchedRuleIndex ?? undefined)}>
-            {ch ? '在完整编辑器中打开' : 'Open in full Editor'}
+            {t.openInFullEditor}
           </button>
           <div className="stb-spacer" />
-          <button className="stb-cancel" onClick={onClose}>{ch ? '关闭' : 'Close'}</button>
+          <button className="stb-cancel" onClick={onClose}>{t.close}</button>
           <button className="stb-save" disabled={!dirty || saving} onClick={handleSave}>
-            {saving ? (ch ? '保存中…' : 'Saving…') : (ch ? '保存' : 'Save')}
+            {saving ? (t.saving) : (t.save)}
           </button>
         </div>
       </div>

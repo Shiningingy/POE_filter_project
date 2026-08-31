@@ -483,9 +483,7 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                       />
                       <span className="checkmark"></span>
                       <span className="toggle-label">
-                        {language === "ch"
-                          ? "应用至此阶级的所有物品"
-                          : "Apply to all items in this Tier"}
+                        {t.applyToAllItemsIn}
                       </span>
                     </label>
                   </div>
@@ -885,12 +883,8 @@ const RuleManager: React.FC<RuleManagerProps> = ({
                 (allRules[itemContextMenu.ruleIndex].targetMatchModes?.[
                   itemContextMenu.itemName
                 ] || "exact") === "exact"
-                  ? language === "ch"
-                    ? "切换为模糊匹配"
-                    : "Switch to Partial Match"
-                  : language === "ch"
-                    ? "切换为精确匹配"
-                    : "Switch to Exact Match",
+                  ? t.switchToPartial
+                  : t.switchToExact,
               onClick: () =>
                 toggleItemMatchMode(
                   itemContextMenu.ruleIndex,

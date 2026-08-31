@@ -199,7 +199,7 @@ export const WorkspaceColumn = ({
                             onRulesClick={() => onRulesClick(item)}
                         />
                     ))}
-                    {items.length === 0 && <div className="column-placeholder">{language === 'ch' ? '将物品拖放到此处' : 'Drop items here'}</div>}
+                    {items.length === 0 && <div className="column-placeholder">{t.dropItemsHere}</div>}
                 </div>
             </SortableContext>
 

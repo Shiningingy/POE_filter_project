@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import type { ItemProps, SimulationResult } from '../utils/simulatorEngine';
 import ContextMenu from './ContextMenu';
-import type { Language } from '../utils/localization';
+import { useTranslation, type Language } from '../utils/localization';
 import { getSoundUrl } from '../utils/soundUtils';
 import { DEFAULT_SOUND_VOLUME } from '../utils/filterStyle';
 
@@ -16,6 +16,7 @@ interface SimulatorItemProps {
 }
 
 const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, onJumpToRule, onEdit, onShowRules, language }) => {
+    const t = useTranslation(language);
     const [contextMenu, setContextMenu] = useState<{ x: number, y: number } | null>(null);
     const [hover, setHover] = useState(false);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -163,7 +164,7 @@ const SimulatorItem: React.FC<SimulatorItemProps> = ({ item, result, onDelete, o
                         <div>Rule: <span className="val">{result.matchedRule || 'Base Mapping'}</span></div>
                         {result.partial && (
                             <div style={{ color: '#ffb74d', fontStyle: 'italic', marginTop: 2 }}>
-                                ⚠ {language === 'ch' ? '含未模拟条件 (词缀/附魔)' : 'partial — mod/enchant conditions not simulated'}
+                                ⚠ {t.partialModEnchantConditionsNot}
                             </div>
                         )}
                     </div>

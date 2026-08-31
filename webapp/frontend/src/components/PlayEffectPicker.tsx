@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useTranslation } from "../utils/localization";
+import { useTranslation, translate } from "../utils/localization";
 import type { Language } from "../utils/localization";
 
 interface PlayEffectPickerProps {
@@ -30,7 +30,8 @@ export const BEAM_COLORS = [
 /** Localize a stored "color [Temp]" PlayEffect string for display. */
 export const formatPlayEffect = (value: string, t: any): string => {
   const [color, temp] = value.split(" ");
-  const colorLabel = t[color] || color;
+  // A missing colour resolves to the key, which is the English name we want.
+  const colorLabel = t[color];
   return temp === "Temp" ? `${colorLabel} (${t.temporary})` : colorLabel;
 };
 
@@ -74,7 +75,7 @@ const PlayEffectPicker: React.FC<PlayEffectPickerProps> = ({
                   style={{ borderColor: c.toLowerCase() }}
                   onClick={() => setTempBeam({ ...tempBeam, color: c })}
                 >
-                  {(t as any)[c] || c}
+                  {translate(c, language) ?? c}
                 </button>
               ))}
             </div>
@@ -99,7 +100,7 @@ const PlayEffectPicker: React.FC<PlayEffectPickerProps> = ({
         </div>
         <div className="popup-footer">
           <div className="preview-indicator">
-            {(t as any)[tempBeam.color] || tempBeam.color}{" "}
+            {translate(tempBeam.color, language) ?? tempBeam.color}{" "}
             {tempBeam.isTemp ? `(${t.temporary})` : `(${t.permanent})`}
           </div>
           <div className="main-actions">

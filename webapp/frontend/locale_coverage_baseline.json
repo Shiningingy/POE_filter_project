@@ -1,0 +1,58 @@
+{
+  "gaps": {
+    "strings": {
+      "en": [],
+      "ch": [
+        "cardClearChannel",
+        "cardInherit",
+        "cardInheritHint",
+        "cardStyleTitle",
+        "fromCard",
+        "rarityAnyOf",
+        "rarityCompare",
+        "rawTextPlaceholder",
+        "saveFailed",
+        "selectCategory"
+      ]
+    },
+    "ITEM_CLASS_LABELS": {
+      "en": [],
+      "ch": []
+    },
+    "BONUS_TAG_LABELS": {
+      "en": [],
+      "ch": []
+    },
+    "BONUS_HINT_LABELS": {
+      "en": [],
+      "ch": []
+    },
+    "DATA_FOLDER_LABELS": {
+      "en": [],
+      "ch": []
+    },
+    "RULE_FACTOR_LABELS": {
+      "en": [],
+      "ch": []
+    },
+    "THEME_CATEGORY_LABELS": {
+      "en": [],
+      "ch": [
+        "Curse of the Allflame",
+        "Enshrouding Crystals",
+        "General",
+        "Heist Blueprints",
+        "Heist Contracts",
+        "Heist Currency",
+        "Heist Equipment",
+        "Incursion Vials",
+        "Mirror of Kalandra Ring Bases",
+        "Omens",
+        "Runegrafts",
+        "Tainted Currency"
+      ]
+    }
+  },
+  "deadFallback": [],
+  "inlinePairs": []
+}

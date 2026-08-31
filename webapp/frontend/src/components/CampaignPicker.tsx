@@ -7,7 +7,7 @@
 // (the 'aggressive' tiers) emit as Hide. Apply persists the selection to
 // /api/settings; shape mirrors LevelingSelection in filterGenerator.ts.
 import React, { useMemo, useRef, useState } from 'react';
-import { useTranslation, CLASS_CH } from '../utils/localization';
+import { useTranslation, itemClassLabel } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import type { LevelingSelection } from '../utils/filterGenerator';
 
@@ -105,8 +105,8 @@ const CampaignPicker: React.FC<CampaignPickerProps> = ({ language, initialSelect
   const chip = (label: string, active: boolean, onClick: () => void, key: string, title?: string) => (
     <button key={key} className={`cp-chip ${active ? 'on' : 'off'}`} onClick={onClick} title={title}>{label}</button>
   );
-  const weaponLabel = (c: string) => (language === 'ch' ? (CLASS_CH[c] || c) : c);
-  const defenseLabel = (d: string) => (language === 'ch' ? (t.lvDefense[d] || d) : d);
+  const weaponLabel = (c: string) => itemClassLabel(c, language);
+  const defenseLabel = (d: string) => (t.lvDefense as Record<string, string>)[d] || d;
 
   return (
     <div className="cp-overlay" onClick={onClose}>

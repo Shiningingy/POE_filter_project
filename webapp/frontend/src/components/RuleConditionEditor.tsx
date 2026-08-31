@@ -1,8 +1,8 @@
 import React from "react";
 import {
-  RULE_FACTOR_LOCALIZATION,
-  translations,
-  CLASS_KEY_MAP,
+  itemClassLabel,
+  ruleFactorLabel,
+  translate,
 } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import { StableInput } from "./StableField";
@@ -69,11 +69,16 @@ const ITEM_CLASSES = [
   "Mana Flasks",
   "Utility Flasks",
   "Map Fragments",
-  "Scarabs",
   "Expedition Logbooks",
-  "Contract",
-  "Blueprint",
-  "Relic",
+  // Plural, because a class name is matched EXACTLY and the real rows are plural.
+  // These three were singular, so `Class == "Contract"` matched nothing and failed
+  // silently — the same trap recorded in the rule-gotchas notes.
+  // "Scarabs" was here too and is NOT an item class at all: there is no such row in
+  // any of the three GGPK dumps (scarabs are matched by BaseType). Verified against
+  // data/source/cn-3.29/tables/English/ItemClasses.json — 101 rows, joined on `Id`.
+  "Contracts",
+  "Blueprints",
+  "Relics",
 ];
 
 interface RuleConditionEditorProps {
@@ -138,9 +143,7 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
               ].includes(key.toLowerCase()));
 
           const label =
-            tmp?.label[language] ||
-            RULE_FACTOR_LOCALIZATION[key]?.[language] ||
-            key;
+            tmp?.label[language] || ruleFactorLabel(key, language);
           const isSelect = tmp?.type === "select";
           const isRarity = tmp?.type === "rarity";
           const isMulti = tmp?.type === "multiselect";
@@ -195,14 +198,14 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                             className={`multi-chip ${!cmp ? "on" : ""}`}
                             onClick={() => !cmp || setList([opts[2]])}
                           >
-                            {(translations[language] as any).rarityAnyOf || "is one of"}
+                            {t.rarityAnyOf}
                           </button>
                           <button
                             type="button"
                             className={`multi-chip ${cmp ? "on" : ""}`}
                             onClick={() => cmp || updateCondition(globalIndex, key, "<= Rare")}
                           >
-                            {(translations[language] as any).rarityCompare || "compare"}
+                            {t.rarityCompare}
                           </button>
                         </div>
                         {cmp ? (
@@ -225,7 +228,7 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                             >
                               {opts.map((o) => (
                                 <option key={o} value={o}>
-                                  {(translations[language] as any)[o] || o}
+                                  {translate(o, language) ?? o}
                                 </option>
                               ))}
                             </select>
@@ -245,7 +248,7 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                                   )
                                 }
                               >
-                                {(translations[language] as any)[opt] || opt}
+                                {translate(opt, language) ?? opt}
                               </button>
                             ))}
                           </div>
@@ -266,10 +269,10 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                     style={{ width: "100%" }}
                   >
                     <option value="True">
-                      {(translations[language] as any).true}
+                      {t.true}
                     </option>
                     <option value="False">
-                      {(translations[language] as any).false}
+                      {t.false}
                     </option>
                   </select>
                 ) : isSelect ? (
@@ -287,9 +290,7 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                     {tmp.options.map((opt: string) => {
                       const locKey = opt.replace(/ /g, "_");
                       const locName =
-                        (translations[language] as any)[opt] ||
-                        (translations[language] as any)[locKey] ||
-                        opt;
+                        translate(opt, language) ?? translate(locKey, language) ?? opt;
                       return (
                         <option key={opt} value={opt}>
                           {locName}
@@ -319,7 +320,7 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                             updateCondition(globalIndex, key, allOn ? "" : opts.join(" "))
                           }
                         >
-                          {(translations[language] as any).selectAll || "All"}
+                          {t.selectAll}
                         </button>
                         {opts.map((opt) => {
                           const locKey = opt.replace(/ /g, "_");
@@ -327,9 +328,9 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                           // lowercase (shaper/elder/...) - reuse those rather
                           // than adding a second set of Chinese strings.
                           const locName =
-                            (translations[language] as any)[opt] ||
-                            (translations[language] as any)[locKey] ||
-                            (translations[language] as any)[opt.toLowerCase()] ||
+                            translate(opt, language) ??
+                            translate(locKey, language) ??
+                            translate(opt.toLowerCase(), language) ??
                             opt;
                           return (
                             <button
@@ -372,13 +373,7 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                       }
                     >
                       {ITEM_CLASSES.map((cls) => {
-                        const locKey =
-                          CLASS_KEY_MAP[cls] ||
-                          cls.replace(/ /g, "_");
-                        const locName =
-                          (translations[language] as any)[
-                            locKey
-                          ] || cls;
+                        const locName = itemClassLabel(cls, language);
                         return (
                           <option key={cls} value={cls}>
                             {locName}
@@ -387,7 +382,7 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                       })}
                       <option value="custom">
                         --{" "}
-                        {(translations[language] as any).custom}{" "}
+                        {t.custom}{" "}
                         --
                       </option>
                     </select>
@@ -397,7 +392,7 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
                           currentVal === "custom" ? "" : currentVal
                         }
                         placeholder={
-                          (translations[language] as any).search
+                          t.search
                         }
                         onChange={(v) =>
                           updateCondition(globalIndex, key, v)
@@ -547,7 +542,7 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
             // it landed on the rule.
             const opt = (f: any) => (
               <option key={f.key} value={f.key}>
-                {f.label || RULE_FACTOR_LOCALIZATION[f.key]?.[language] || f.key}
+                {f.label || ruleFactorLabel(f.key, language)}
               </option>
             );
             const rec = relevantFactors.recommended.filter((f) => rule.conditions[f.key] === undefined);
@@ -555,12 +550,12 @@ const RuleConditionEditor: React.FC<RuleConditionEditorProps> = ({
             return (
               <>
                 {rec.length > 0 && (
-                  <optgroup label={language === 'ch' ? '推荐 (本类别)' : 'Recommended'}>
+                  <optgroup label={t.recommendedForCategory}>
                     {rec.map(opt)}
                   </optgroup>
                 )}
                 {oth.length > 0 && (
-                  <optgroup label={language === 'ch' ? '其他全部' : 'All others'}>
+                  <optgroup label={t.allOthers}>
                     {oth.map(opt)}
                   </optgroup>
                 )}

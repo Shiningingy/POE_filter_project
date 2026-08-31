@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useTranslation, CLASS_KEY_MAP, BONUS_TAG_CH, BONUS_HINT_CH } from "../utils/localization";
+import { useTranslation, itemClassLabel, bonusTagLabel, bonusHintLabel } from "../utils/localization";
 import { useBonusInfo, deriveDropSource } from "../utils/bonusInfo";
 import type { UniqueCandidate } from "../utils/bonusInfo";
 
@@ -114,17 +114,15 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
     const zhLines = flatBonus.description_ch.split(/\r?\n/).map((s) => s.trim()).filter(Boolean);
     flatLines = [...extras, ...zhLines];
   }
-  // Translate the surviving EN hint sentences via BONUS_HINT_CH (applies to
-  // items without an official zh description too — anything not in the map
-  // just stays English).
-  if (language === "ch") {
-    flatLines = flatLines.map((line) =>
-      line
-        .split(/(?<=[.!?])\s+/)
-        .map((s) => BONUS_HINT_CH[s.trim()] || s)
-        .join(" ")
-    );
-  }
+  // Translate the surviving EN hint sentences (applies to items without an official
+  // zh description too — a sentence with no entry resolves back to itself). No
+  // language branch: the registry answers for whichever locale is active.
+  flatLines = flatLines.map((line) =>
+    line
+      .split(/(?<=[.!?])\s+/)
+      .map((s) => bonusHintLabel(s.trim(), language))
+      .join(" ")
+  );
   const flatTags = flatBonus?.tags || [];
   const hasBonus = flatLines.length > 0 || flatTags.length > 0 || candidates.length > 0;
 
@@ -213,8 +211,7 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
 
   const displayClass = (() => {
     if (!item.item_class) return "";
-    const key = (CLASS_KEY_MAP as Record<string, string>)[item.item_class] || item.item_class;
-    return language === "ch" ? (t as any)[key] || item.item_class : item.item_class;
+    return itemClassLabel(item.item_class, language);
   })();
 
   return (
@@ -365,7 +362,7 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
                   <div className="bonus-tags">
                     {flatTags.map((tag) => (
                       <span key={tag} className="bonus-tag">
-                        {language === "ch" ? BONUS_TAG_CH[tag] || tag : tag}
+                        {bonusTagLabel(tag, language)}
                       </span>
                     ))}
                   </div>
@@ -387,7 +384,7 @@ const ItemTooltip: React.FC<ItemTooltipProps> = ({
                         }}
                       >
                         {expanded
-                          ? `▲ ${language === "ch" ? "收起" : "less"}`
+                          ? `▲ ${t.less}`
                           : `+${candidates.length - MAX_CANDIDATES} ${t.bonusAndMore} ▼`}
                       </div>
                     )}

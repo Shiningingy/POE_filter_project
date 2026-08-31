@@ -214,7 +214,7 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
           </div>
         ) : (
           <div className="empty-state mini">
-            {language === "ch" ? "剪贴板为空" : "Clipboard Empty"}
+            {t.clipboardEmpty}
           </div>
         )}
 
@@ -255,26 +255,26 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
           <div className="header-actions">
             {editingRuleIndex !== null && (
               <button className={`toggle-full-btn ${showFullBlock ? "active" : ""}`} onClick={() => setShowFullBlock(!showFullBlock)}>
-                {!showFullBlock ? (language === "ch" ? "显示完整" : "Show Full") : (language === "ch" ? "聚焦规则" : "Focus Rule")}
+                {!showFullBlock ? (t.showFull) : (t.focusRule)}
               </button>
             )}
             <button onClick={() => { navigator.clipboard.writeText(filterText); alert("Copied!"); }} className="copy-link">{t.copyText}</button>
           </div>
         </div>
-        <pre className="code-block-modern">{filterText || (language === "ch" ? "# 暂无数据" : "# No data")}</pre>
+        <pre className="code-block-modern">{filterText || (t.noDataComment)}</pre>
       </div>
 
       {/* 4. Rule Library */}
       <div className="inspector-section rules-lib-section">
         <div className="section-header">
-          <h3>{editingRuleIndex !== null ? (language === 'ch' ? '规则预设' : 'Rule Presets') : t.rules}</h3>
+          <h3>{editingRuleIndex !== null ? (t.rulePresets) : t.rules}</h3>
         </div>
 
         <div className="rule-inspector-content">
           <div className="library-section">
             {presets.length > 0 && (
                 <div className="suggestions-box">
-                    <span className="sub-label">{language === "ch" ? "常用建议" : "Suggestions"}</span>
+                    <span className="sub-label">{t.suggestions}</span>
                     <div className="preset-grid">
                         {presets.map((p) => (
                             <button key={p.id} className="template-btn preset" disabled={!inspectedTier} onClick={() => {
@@ -289,7 +289,7 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
 
           <div className="library-section full-lib">
             <div className="library-header-row">
-              <span className="sub-label">{language === "ch" ? "全量规则库" : "Library"}</span>
+              <span className="sub-label">{t.library}</span>
               <input type="text" className="lib-search" placeholder={t.search} value={templateSearch} onChange={(e) => setTemplateSearch(e.target.value)} />
             </div>
             <div className="library-scroll-area">
@@ -315,12 +315,12 @@ const InspectorPanel: React.FC<InspectorPanelProps> = ({
                   <>
                     <div className="lib-cat">
                       <span className="lib-cat-title">
-                        {language === 'ch' ? '推荐 (本类别)' : 'Recommended'}
+                        {t.recommendedForCategory}
                       </span>
                       <div className="template-grid">
                         {recommended.length > 0
                           ? recommended.map(btn)
-                          : <span className="lib-empty">{language === 'ch' ? '无' : '—'}</span>}
+                          : <span className="lib-empty">{t.noneDash}</span>}
                       </div>
                     </div>
                     {others.length > 0 && (

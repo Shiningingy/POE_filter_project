@@ -219,7 +219,7 @@ function App() {
         <div className="nav-links">
           <button className={currentView === 'overview' ? 'active' : ''} onClick={() => setCurrentView('overview')}>{t.overview}</button>
           <button className={currentView === 'editor' ? 'active' : ''} onClick={() => setCurrentView('editor')}>{t.editor}</button>
-          <button className={currentView === 'theme' ? 'active' : ''} onClick={() => setCurrentView('theme')}>{language === 'ch' ? "外观与音效" : "Theme & Sound"}</button>
+          <button className={currentView === 'theme' ? 'active' : ''} onClick={() => setCurrentView('theme')}>{t.cardThemes}</button>
           <button className={currentView === 'simulator' ? 'active' : ''} onClick={() => setCurrentView('simulator')}>{t.simulator}</button>
           <button className={currentView === 'export' ? 'active' : ''} onClick={() => setCurrentView('export')}>{t.saveExport}</button>
           <button className={currentView === 'import-foreign' ? 'active' : ''} onClick={() => setCurrentView('import-foreign')}>{t.importForeign}</button>
@@ -229,7 +229,7 @@ function App() {
 
         <button
           className="manual-btn"
-          title={language === 'ch' ? '用户手册' : 'User Manual'}
+          title={t.userManual}
           onClick={() => setShowManual(true)}
         >
           📖

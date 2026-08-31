@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { Language } from '../utils/localization';
+import { useTranslation, type Language } from '../utils/localization';
 import SoundBulkEditor from '../components/SoundBulkEditor';
 import ThemePresetEditor from '../components/ThemePresetEditor';
 import DecoratorEditor from '../components/DecoratorEditor';
@@ -10,6 +10,7 @@ interface ThemeViewProps {
 }
 
 const ThemeView: React.FC<ThemeViewProps> = ({ language, onJumpToRule }) => {
+  const t = useTranslation(language);
   const [showSoundBulkEditor, setShowSoundBulkEditor] = useState(false);
   const [showThemePresetEditor, setShowThemePresetEditor] = useState(false);
   const [showDecoratorEditor, setShowDecoratorEditor] = useState(false);
@@ -17,11 +18,9 @@ const ThemeView: React.FC<ThemeViewProps> = ({ language, onJumpToRule }) => {
   return (
     <div className="theme-view">
       <div className="theme-view-header">
-        <h2>{language === 'ch' ? "外观与音效管理" : "Theme & Sound Management"}</h2>
+        <h2>{t.themeSoundManagement}</h2>
         <p className="subtitle">
-          {language === 'ch' 
-            ? "在此管理全局外观预设、音效映射以及自动音效逻辑。" 
-            : "Manage global theme presets, sound mappings, and auto-sound logic here."}
+          {t.manageGlobalThemePresetsSound}
         </p>
       </div>
 
@@ -30,10 +29,10 @@ const ThemeView: React.FC<ThemeViewProps> = ({ language, onJumpToRule }) => {
         <div className="management-card">
           <div className="card-icon">🎵</div>
           <div className="card-content">
-            <h3>{language === 'ch' ? "音效管理" : "Sound Management"}</h3>
-            <p>{language === 'ch' ? "使用看板方式批量编辑物品的音效映射。" : "Bulk edit item sound mappings using a Kanban-style interface."}</p>
+            <h3>{t.soundManagement}</h3>
+            <p>{t.bulkEditItemSoundMappings}</p>
             <button className="manage-btn" onClick={() => setShowSoundBulkEditor(true)}>
-              {language === 'ch' ? "打开音效批量编辑器" : "Open Sound Bulk Editor"}
+              {t.openSoundBulkEditor}
             </button>
           </div>
         </div>
@@ -42,10 +41,10 @@ const ThemeView: React.FC<ThemeViewProps> = ({ language, onJumpToRule }) => {
         <div className="management-card">
           <div className="card-icon">🎨</div>
           <div className="card-content">
-            <h3>{language === 'ch' ? "外观预设" : "Theme Presets"}</h3>
-            <p>{language === 'ch' ? "查看和切换全局外观模板 (如: Sharket, Tytykiller)。" : "View and switch global theme templates (e.g. Sharket, Tytykiller)."}</p>
+            <h3>{t.themePresets}</h3>
+            <p>{t.viewAndSwitchGlobalTheme}</p>
             <button className="manage-btn" onClick={() => setShowThemePresetEditor(true)}>
-              {language === 'ch' ? "打开外观预设编辑器" : "Open Theme Editor"}
+              {t.openThemeEditor}
             </button>
           </div>
         </div>
@@ -55,12 +54,10 @@ const ThemeView: React.FC<ThemeViewProps> = ({ language, onJumpToRule }) => {
         <div className="management-card">
           <div className="card-icon">🩹</div>
           <div className="card-content">
-            <h3>{language === 'ch' ? "状态叠加" : "State Decorators"}</h3>
-            <p>{language === 'ch'
-              ? "腐化、破碎等状态各写一次，叠加在所有外观之上。"
-              : "Corrupted, fractured and friends — authored once, layered over every look."}</p>
+            <h3>{t.stateDecorators}</h3>
+            <p>{t.corruptedFracturedAndFriendsAuthored}</p>
             <button className="manage-btn" onClick={() => setShowDecoratorEditor(true)}>
-              {language === 'ch' ? "打开状态叠加编辑器" : "Open Decorator Editor"}
+              {t.openDecoratorEditor}
             </button>
           </div>
         </div>

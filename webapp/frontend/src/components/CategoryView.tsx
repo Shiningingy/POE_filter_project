@@ -30,7 +30,7 @@ import { invalidateTierLabelMap, fetchDecorators } from "../utils/tierLabels";
 import type { DecoratorEntry } from "../utils/tierLabels";
 import { resolveStyle } from "../utils/styleResolver";
 import { resolveThemeKey } from "../utils/filterStyle";
-import { useTranslation, translations } from "../utils/localization";
+import { useTranslation, strings } from "../utils/localization";
 import type { Language } from "../utils/localization";
 import tierTemplate from "../config/tierTemplate.json";
 import { STRICTNESS_LEVELS, type StrictnessLevel, type LevelingSelection, isLevelingSelected } from "../utils/filterGenerator";
@@ -636,8 +636,10 @@ const CategoryView: React.FC<CategoryViewProps> = ({
 
       const originalName = templateData.localization?.[language] || "Tier";
       tierData.localization = {
-        en: `${originalName} ${translations.en.copyLabel}`,
-        ch: `${templateData.localization?.ch || originalName} ${translations.ch.copyLabel}`,
+        // Writes BOTH locales at once (it is authoring data, not rendering), so it reads
+        // the table directly rather than through a single-language view.
+        en: `${originalName} ${strings.copyLabel.en}`,
+        ch: `${templateData.localization?.ch || originalName} ${strings.copyLabel.ch}`,
       };
       tierData.show_in_editor = true;
     } else {
@@ -925,9 +927,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
               recomposes every plate below exactly as the game would: the state paints
               its channel only where this tier leaves that channel unset. */}
           {decorators.length > 0 && (
-            <div className="state-toggles" title={language === 'ch'
-              ? '预览状态叠加效果'
-              : 'Preview how state decorators compose over this tier'}>
+            <div className="state-toggles" title={t.previewHowStateDecoratorsCompose}>
               {decorators.map(d => (
                 <button
                   key={d.key}
@@ -1205,7 +1205,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                                                       setShowBulkEditor(true);
                                                                   }}
                                                               >
-                                                                  🖌 {language === 'ch' ? '刷入底材' : 'Rank bases'}
+                                                                  🖌 {t.rankBases}
                                                               </button>
                                                               <button
                                                                   className="tbc-btn"
@@ -1214,7 +1214,7 @@ const CategoryView: React.FC<CategoryViewProps> = ({
                                                                       setExpandedTiers(s => new Set(s).add(tierKey));
                                                                   }}
                                                               >
-                                                                  ▾ {language === 'ch' ? '展开列表' : 'Show all'}
+                                                                  ▾ {t.showAll2}
                                                               </button>
                                                           </div>
                                                           <style>{`

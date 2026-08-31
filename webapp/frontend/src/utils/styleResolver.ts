@@ -1,4 +1,4 @@
-import { translations, type Language } from './localization';
+import { useTranslation, type Language } from './localization';
 import {
   resolveTierTheme, resolveSoundPair, soundLineFromPair, styleLines, conditionLines, blockText,
   styleOff,
@@ -107,7 +107,7 @@ export const generateIconUrl = (itemName: string, itemClass?: string): string =>
 
 export const generateFilterText = (style: StyleProps, baseTypes: string[] = ["Item Name"], hideable: boolean = false, rules: any[] = [], includeBase: boolean = true, summarizeRules: boolean = false, language: Language = 'en'): string => {
   const allBlocks: string[] = [];
-  const t = translations[language];
+  const t = useTranslation(language);
   // Filter empty strings from baseTypes to prevent empty BaseType lines
   const cleanBaseTypes = baseTypes.filter(b => b && b.trim() !== "");
   const pendingBaseItems = new Set(cleanBaseTypes);

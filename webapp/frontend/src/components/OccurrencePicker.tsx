@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { Language } from '../utils/localization';
+import { getItemName, useTranslation, type Language } from '../utils/localization';
 
 export interface OccurrenceRow {
   file: string;            // relative base_mapping path (the per-file occurrence key)
@@ -30,7 +30,7 @@ const tierShort = (t: string) => {
 const OccurrencePicker: React.FC<OccurrencePickerProps> = ({
   itemName, itemNameCh, rows, preChecked, language, mode, targetSoundLabel, onConfirm, onClose,
 }) => {
-  const ch = language === 'ch';
+  const t = useTranslation(language);
   const [checked, setChecked] = useState<Set<string>>(new Set(preChecked));
 
   const toggle = (file: string) =>
@@ -44,7 +44,7 @@ const OccurrencePicker: React.FC<OccurrencePickerProps> = ({
   const toggleAll = () =>
     setChecked(allOn ? new Set() : new Set(rows.map(r => r.file)));
 
-  const displayName = ch && itemNameCh ? itemNameCh : itemName;
+  const displayName = getItemName({ name: itemName, name_ch: itemNameCh }, language);
 
   return (
     <div className="occ-overlay" onClick={onClose}>
@@ -52,17 +52,15 @@ const OccurrencePicker: React.FC<OccurrencePickerProps> = ({
         <div className="occ-header">
           <div>
             <h3>{mode === 'assign'
-              ? (ch ? '选择要应用音效的位置' : 'Apply sound to which occurrences')
-              : (ch ? '选择要移除音效的位置' : 'Remove sound from which occurrences')}</h3>
+              ? (t.applySoundToWhichOccurrences)
+              : (t.removeSoundFromWhichOccurrences)}</h3>
             <div className="occ-sub">
               <b>{displayName}</b>
               {mode === 'assign' && targetSoundLabel && (
-                <> — {ch ? '音效' : 'sound'}: <span className="occ-snd">{targetSoundLabel}</span></>
+                <> — {t.sound2}: <span className="occ-snd">{targetSoundLabel}</span></>
               )}
               <div className="occ-hint">
-                {ch
-                  ? '该底材存在于多个分类文件中，请勾选要单独处理的文件。'
-                  : 'This basetype exists in several category files. Tick the ones to change independently.'}
+                {t.thisBasetypeExistsInSeveral}
               </div>
             </div>
           </div>
@@ -71,7 +69,7 @@ const OccurrencePicker: React.FC<OccurrencePickerProps> = ({
 
         <div className="occ-toolbar">
           <button className="occ-all" onClick={toggleAll}>
-            {allOn ? (ch ? '全不选' : 'Deselect all') : (ch ? '全选' : 'Select all')}
+            {allOn ? (t.deselectAll) : (t.lvSelectAll)}
           </button>
           <span className="occ-count">{checked.size}/{rows.length}</span>
         </div>
@@ -89,7 +87,7 @@ const OccurrencePicker: React.FC<OccurrencePickerProps> = ({
                       <span className="occ-tiers">{r.tiers.map(tierShort).join(', ')}</span>
                     )}
                     <span className={`occ-cur ${r.currentSound ? '' : 'none'}`}>
-                      🎵 {r.currentSound ? r.currentSound.split('/').pop() : (ch ? '无' : 'none')}
+                      🎵 {r.currentSound ? r.currentSound.split('/').pop() : (t.none2)}
                     </span>
                   </div>
                 </div>
@@ -97,14 +95,14 @@ const OccurrencePicker: React.FC<OccurrencePickerProps> = ({
             );
           })}
           {rows.length === 0 && (
-            <div className="occ-empty">{ch ? '没有可处理的位置' : 'No occurrences to change'}</div>
+            <div className="occ-empty">{t.noOccurrencesToChange}</div>
           )}
         </div>
 
         <div className="occ-footer">
-          <button className="occ-cancel" onClick={onClose}>{ch ? '取消' : 'Cancel'}</button>
+          <button className="occ-cancel" onClick={onClose}>{t.cancel}</button>
           <button className="occ-confirm" disabled={checked.size === 0} onClick={() => onConfirm([...checked])}>
-            {ch ? '确认' : 'Confirm'} ({checked.size})
+            {t.confirm} ({checked.size})
           </button>
         </div>
       </div>

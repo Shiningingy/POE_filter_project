@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import axios from 'axios';
-import { useTranslation, CLASS_KEY_MAP, CLASS_CH } from '../utils/localization';
+import { useTranslation, themeCategoryLabel, translate } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import SoundPicker from './SoundPicker';
 import LoadingOverlay from './LoadingOverlay';
-import { fetchTierLabelMap, fetchThemeKeyByPath } from '../utils/tierLabels';
+import { fetchTierLabelMap, fetchThemeKeyByPath, formatTierRow } from '../utils/tierLabels';
+import type { TierLabelMap } from '../utils/tierLabels';
 import MinimapIconPicker, { getIconStyle, formatMinimapIcon } from './MinimapIconPicker';
 import PlayEffectPicker, { formatPlayEffect } from './PlayEffectPicker';
 import { getAssetUrl } from '../utils/assetUtils';
@@ -162,7 +163,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
   // theme-category -> tier number -> {en, ch} display names from the tier
   // definitions, so this editor mirrors the editor's (renameable) tier names.
-  const [tierLabelMap, setTierLabelMap] = useState<Record<string, Record<number, { en?: string; ch?: string }>>>({});
+  const [tierLabelMap, setTierLabelMap] = useState<TierLabelMap>({});
 
   const backgrounds = [
     { id: "Item_bg_coast.jpg", name: t.coast },
@@ -228,7 +229,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
 
   // Helpers
   const getLocalizedCategory = (cat: string) =>
-    (language === 'ch' && CLASS_CH[cat]) || (t as any)[CLASS_KEY_MAP[cat] || cat] || cat;
+    themeCategoryLabel(cat, language);
 
   const sortTierKeys = (obj: any) =>
       Object.keys(obj || {}).filter(k => k.startsWith('Tier')).sort((a, b) => {
@@ -280,7 +281,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   }, [allLeaves, language, themeKeyByPath]);
 
   const catLabel = (cat: string) => {
-      if (cat === 'Default') return language === 'ch' ? '默认 (后备样式)' : 'Default (fallback)';
+      if (cat === 'Default') return t.defaultFallback;
       const leaf = navLeaves.find(l => l.key === cat);
       return leaf?.label || getLocalizedCategory(cat);
   };
@@ -352,11 +353,12 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
   const visibleTierKeys = (obj: any) =>
       sortTierKeys(obj).filter(k => k !== 'Tier 9');
 
+  // A theme row is a STYLE row and several tiers can share it, so name them all rather
+  // than whichever the index walk reached first. See tierLabels.formatTierRow.
   const tierDisplayName = (tier: string) => {
       const num = parseInt(tier.match(/Tier (\d+)/)?.[1] || '');
-      const loc = Number.isNaN(num) ? undefined : tierLabelMap[selectedCategory]?.[num];
-      const label = loc?.[language] || loc?.en;
-      return label || `${catLabel(selectedCategory)} ${tier}`;
+      const row = Number.isNaN(num) ? undefined : tierLabelMap[selectedCategory]?.[num];
+      return formatTierRow(row, language, `${catLabel(selectedCategory)} ${tier}`).text;
   };
 
   const previewItems = useMemo(() => {
@@ -606,8 +608,8 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                 type="search"
                 value={navQuery}
                 onChange={(e) => setNavQuery(e.target.value)}
-                placeholder={language === 'ch' ? '搜索分类…' : 'Search categories…'}
-                aria-label={language === 'ch' ? '搜索分类' : 'Search categories'}
+                placeholder={t.searchCategories}
+                aria-label={t.searchCategories2}
               />
               {navFilter && (
                 <span className="nav-count">
@@ -620,7 +622,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
               {navFilter ? (
                 searchHits.length === 0 ? (
                   <div className="nav-empty">
-                    {language === 'ch' ? '没有匹配的分类' : 'No categories match'}
+                    {t.noCategoriesMatch}
                   </div>
                 ) : (
                   searchHits.map(({ f, crumb }) => {
@@ -716,7 +718,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
               className="resize-handle"
               onMouseDown={startResize}
               onDoubleClick={() => { setSidebarWidth(220); localStorage.setItem('themeEditor.sidebarWidth', '220'); }}
-              title={language === 'ch' ? '拖动调整宽度（双击重置）' : 'Drag to resize (double-click to reset)'}
+              title={t.dragToResizeDoubleClick}
               role="separator"
               aria-orientation="vertical"
             />
@@ -800,7 +802,7 @@ const ThemePresetEditor: React.FC<ThemePresetEditorProps> = ({ language, onClose
                     </div>
                     {['TextColor', 'BackgroundColor', 'BorderColor'].map(k => (
                         <div className="control-group" key={k}>
-                            <label>{(t as any)[k] || k}</label>
+                            <label>{translate(k, language) ?? k}</label>
                             <div className="color-input-wrapper">
                                 <input type="color" value={(activeStyle[k] || '#000000').slice(0, 7)} onChange={e => handleUpdateStyle(k, e.target.value + (activeStyle[k]?.slice(7) || 'ff'))} />
                                 <input type="text" value={activeStyle[k] || ''} onChange={e => handleUpdateStyle(k, e.target.value)} />

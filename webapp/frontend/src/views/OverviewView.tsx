@@ -45,7 +45,7 @@ const OverviewView: React.FC<OverviewViewProps> = ({
         + (levelingSelection?.armour_defense?.length || 0);
       return picked === 0 ? t.lvBaseline : t.lvCustom;
     }
-    return t.lvPresetNames[p] || p;
+    return (t.lvPresetNames as Record<string, string>)[p] || p;
   };
 
   return (

@@ -397,12 +397,10 @@ const TierStyleEditor: React.FC<TierStyleEditorProps> = ({
                     setShowSoundPopup(false);
                   }}
                   title={
-                    language === "ch"
-                      ? "移除音效：该阶级将完全静音，不会回退到默认音效"
-                      : "Remove sound: silences this tier outright — it will not fall back to its default"
+                    t.removeSoundSilencesThisTier
                   }
                 >
-                  {language === "ch" ? "移除音效" : "Remove sound"}
+                  {t.removeSound}
                 </button>
                 <button
                   className="cancel-btn"

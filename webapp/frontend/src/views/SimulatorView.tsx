@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DropSimulator from '../components/DropSimulator';
-import type { Language } from '../utils/localization';
+import { useTranslation, type Language } from '../utils/localization';
 
 interface SimulatorViewProps {
   filterContent: string;
@@ -9,24 +9,25 @@ interface SimulatorViewProps {
 }
 
 const SimulatorView: React.FC<SimulatorViewProps> = ({ filterContent, language, onJumpToRule }) => {
+  const t = useTranslation(language);
   const [mode, setMode] = useState<'visual' | 'text'>('visual');
 
   return (
     <div className="simulator-view">
       <div className="top-bar">
-        <h2>Drop Simulator</h2>
+        <h2>{t.dropSimulator}</h2>
         <div className="toggle-group">
           <button 
             className={mode === 'visual' ? 'active' : ''} 
             onClick={() => setMode('visual')}
           >
-            Visual
+            {t.visual}
           </button>
           <button 
             className={mode === 'text' ? 'active' : ''} 
             onClick={() => setMode('text')}
           >
-            Raw Text
+            {t.rawText}
           </button>
         </div>
       </div>
@@ -39,7 +40,7 @@ const SimulatorView: React.FC<SimulatorViewProps> = ({ filterContent, language, 
             className="filter-output"
             value={filterContent}
             readOnly
-            placeholder="Generated filter content will appear here..."
+            placeholder={t.rawTextPlaceholder}
           ></textarea>
         )}
       </div>
