@@ -54,6 +54,13 @@ jobs:
         working-directory: webapp/frontend
         run: node test_decorator_composition.mjs
 
+      # The editor saves a category as two whole files (tier + mapping), so a load that
+      # drops the mapping's rules makes the next auto-save write `rules: []` over them.
+      # Round-trips every real tier/mapping pair through the editor's merge and split.
+      - name: Category document (a load-then-save keeps the rules)
+        working-directory: webapp/frontend
+        run: node test_category_doc.mjs
+
       # The editor preview must emit what the filter exports. Bakes the demo bundle and
       # verifies the bake is fresh first — a stale bundle once turned a whole session's
       # PASSes into comparisons against frozen data.
