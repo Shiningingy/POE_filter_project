@@ -6,6 +6,9 @@
 filter_generation/data/**  (git = single source of truth)
         │  push to main
         ▼
+GitHub Action "Filter checks" (.github/workflows/parity.yml)
+        │  only if it passes, on that same commit
+        ▼
 GitHub Action (.github/workflows/deploy-pages.yml)
   1. create_demo_bundle.py  → bakes data into webapp/frontend/public/demo_data/
      (imports webapp/backend/main.py — same loaders/endpoints as local dev)
@@ -20,7 +23,8 @@ GitHub Action (.github/workflows/deploy-pages.yml)
   `webapp/backend/main.py` — local dev runs the Python versions).
 - **Admins** sign in via the ⚙ Admin button (Supabase auth, invited accounts
   only) and submit their snapshot for review. The owner downloads it, reviews
-  locally (ImportPanel + `git diff`), commits → the site redeploys itself.
+  locally (ImportPanel + `git diff`), commits and pushes to `main` → once
+  Filter checks passes on that push, the site redeploys itself.
 - FastAPI (`webapp/backend/`) is **local development only** — never deployed.
 
 ## One-time setup
@@ -72,10 +76,19 @@ already exist, with this exact name: **`sharketfilter`**.
   - Name `CLOUDFLARE_ACCOUNT_ID`, value = the account ID.
   (The Supabase values go under the **Variables** tab instead — see below.)
 
-**Step 6 — first deploy.** Merge the deployment branch into `main` and push —
-or trigger manually: repo → **Actions** tab → "Deploy to Cloudflare Pages
-(sharketfilter.xyz)" → **Run workflow**. Watch the run go green, then open
-https://sharketfilter.xyz.
+**Step 6 — first deploy.** The automatic deploy starts only once
+`deploy-pages.yml` is on `main`: GitHub runs a `workflow_run` trigger from
+the default branch's copy of the file, so a copy on any other branch does
+nothing. From then on, every push to `main` runs Filter checks, and when
+they pass the deploy runs on that commit. There is no path filter, so a
+docs-only push redeploys too. A red push does not deploy; the site stays on
+the last green build.
+Or trigger manually: repo → **Actions** tab → "Deploy to Cloudflare Pages
+(sharketfilter.xyz)" → **Run workflow** → pick `main`. A manual run does
+**not** wait for the checks, and it deploys under the branch you pick; only
+the Pages project's production branch is what sharketfilter.xyz serves
+(`main`, unless it was set otherwise when the project was created).
+Watch the run go green, then open https://sharketfilter.xyz.
 
 Troubleshooting:
 - `Project not found` in the deploy step → the Pages project name isn't
@@ -149,8 +162,9 @@ and add the snippet to `webapp/frontend/index.html` instead:
    load the downloaded `.snapshot.json`, select categories → import → `git diff`
    shows exactly what changed (the import backs up overwritten files to
    `filter_generation/data/_import_backup/`).
-5. Keep what's good, commit, push to `main` → the deploy workflow rebakes the
-   bundle and redeploys → mark the submission **Approved**.
+5. Keep what's good, commit, push to `main` → Filter checks runs, and when it
+   passes the deploy workflow rebakes the bundle and redeploys (a red push
+   deploys nothing) → mark the submission **Approved**.
 
 ## Free-tier notes
 
