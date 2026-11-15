@@ -22,7 +22,7 @@
 import { spawnSync } from 'node:child_process';
 import { mkdtempSync, rmSync, cpSync, mkdirSync, writeFileSync, readFileSync, existsSync, appendFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, dirname } from 'node:path';
+import { join, dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -31,7 +31,8 @@ const PY = process.env.PYTHON || 'python';
 const SOUND_SUBDIRS = ['Default', 'Sharket掉落音效'];
 
 // What the bake reads outside filter_generation/data. If the bake starts reading another
-// input, the control bake below fails and names it — so this list cannot drift silently.
+// REQUIRED input (or one whose loader prints Warning/Error when absent), the control bake
+// below fails and names it. A new optional input read behind exists() would not be caught.
 const DATA_FILES = [
   'data/from_filter_blade/BaseTypes.csv',
   'data/from_filter_blade/3.28/bonusItemInfo.json',
@@ -85,7 +86,8 @@ try {
   }
   // _import_backup is the backend's own scratch (gitignored); the bake never reads it.
   cpSync(join(ROOT, 'filter_generation', 'data'), at('filter_generation/data'), {
-    recursive: true, filter: (src) => !src.includes('_import_backup'),
+    recursive: true,
+    filter: (src) => !relative(join(ROOT, 'filter_generation', 'data'), src).split(sep).includes('_import_backup'),
   });
   SOUND_SUBDIRS.forEach(writeFakeSounds);
 
