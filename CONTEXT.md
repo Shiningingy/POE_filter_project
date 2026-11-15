@@ -52,8 +52,9 @@ as a TypeScript port that runs in the browser.
   item a Minimal block matches, so do not "simplify" it back into a size-1 Show. A
   hide block keeps only the quiet recipe (`QUIET_HIDE_STYLE`, see
   `reference_poe_filter_format.md` §1) so the label is invisible (owner, 2026-11-14).
-  `HIDE_CMD` resolves to `Minimal` under ruthless in the generator. It is mode-aware via `GeneratorData.mode` (fed from `game_mode`), and
-  the ruthless case is pinned by the `ruthless-soft-ch` fixture golden.
+  `HIDE_CMD` resolves to `Minimal` under ruthless in the generator. It is mode-aware
+  via `GeneratorData.mode` (fed from `game_mode`), and the ruthless case is pinned
+  by the `ruthless-soft-ch` fixture golden.
 - **coverage: cherry-pick + safety net + catch-all** — a category does **not**
   have to name every base it covers, so "this base type is in no `base_mapping`"
   is *not* by itself a defect. Three layers, in emission order:
