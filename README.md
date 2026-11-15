@@ -25,13 +25,14 @@ filter_generation/data/   ← the filter database (git = single source of truth)
         │
         ├── local dev:  FastAPI backend (webapp/backend) reads/writes these files
         │
-        └── deploy:     GitHub Action bakes them into static JSON
+        └── deploy:     push to main → Filter checks pass → GitHub Action
+                        bakes them into static JSON
                         → Vite build → Cloudflare Pages (sharketfilter.xyz)
 ```
 
 The deployed site is fully backend-free: a client-side data layer (`webapp/frontend/src/services/clientData.ts`) re-implements every backend endpoint over the baked data bundle plus your localStorage edits, and the filter itself is generated in the browser (`filterGenerator.ts`). A parity test suite (`webapp/frontend/test_parity.mjs`) keeps the two implementations in lockstep.
 
-Filter tuning by invited maintainers happens through an in-app admin flow (Supabase-backed): submit your tuned snapshot → owner reviews the diff locally → approval lands as a git commit → the site redeploys itself. See [DEPLOYMENT.md](DEPLOYMENT.md) for the full architecture and setup.
+Filter tuning by invited maintainers happens through an in-app admin flow (Supabase-backed): submit your tuned snapshot → owner reviews the diff locally → approval lands as a git commit on `main` → once the checks pass, the site redeploys itself. See [DEPLOYMENT.md](DEPLOYMENT.md) for the full architecture and setup.
 
 ## Local development
 

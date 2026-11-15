@@ -1,0 +1,87 @@
+name: Deploy to Cloudflare Pages (sharketfilter.xyz)
+
+# Deploys only a commit that "Filter checks" (parity.yml) has already passed. The June
+# file deployed on every push to main, so a red main shipped; this one waits for the
+# checks to finish on the push and deploys exactly the commit they checked.
+#
+# ⚠️ workflow_run fires only from the DEFAULT branch's copy of this file. A copy on any
+# other branch is inert, so this deploys nothing until it is merged into main.
+# ⚠️ Path filters do not apply to workflow_run. Every push to main whose checks pass
+# deploys, including a docs-only push. (The June file deployed only when webapp/,
+# filter_generation/data/, data/, sound_files/ or the bake script changed.)
+on:
+  workflow_run:
+    workflows: ["Filter checks"]
+    types: [completed]
+    # Only check runs on main start a deploy run at all, so feature-branch and PR runs
+    # do not fill the Actions tab with skipped deploys. The job `if` below is still the
+    # real gate: a PR whose head branch is named main passes this filter.
+    branches: [main]
+  workflow_dispatch:   # manual deploy of the ref you pick; it does NOT wait for the checks
+
+jobs:
+  build-and-deploy:
+    # Deploy only a green "Filter checks" run for a push to main.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main' &&
+       github.event.workflow_run.event == 'push')
+    # One deploy at a time. No cancel-in-progress: a deploy that has started finishes, and
+    # the next one waits for it. GitHub keeps only the newest waiting run in the group and
+    # CANCELS the older waiting one, so the group sits on the JOB, after the `if`: a job
+    # the `if` skips never joins the group and cannot cancel a waiting main deploy.
+    concurrency:
+      group: deploy-pages-sharketfilter
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      # A workflow_run's own github.sha is main's tip when the checks FINISHED, which may
+      # be a later commit than the one they checked. Build the checked commit.
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      # Same versions as parity.yml, so the bundle is baked by what the checks ran.
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Export static web data from canonical filter data
+        run: |
+          pip install -r webapp/backend/requirements.txt
+          python filter_generation/create_demo_bundle.py
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: webapp/frontend/package-lock.json
+
+      # Empty VITE_SUPABASE_* (variables unset) builds fine: isSupabaseConfigured() is
+      # false and the Admin button is not rendered.
+      - name: Build (backend-free mode)
+        env:
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
+        run: |
+          cd webapp/frontend
+          npm ci
+          npm run build:demo
+
+      # --branch is explicit because checking out a SHA leaves a detached HEAD, so the
+      # deployment is never named after a detached HEAD and always carries the branch the
+      # checks ran on. A manual run keeps the June behaviour: it deploys under the branch
+      # it was started from.
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy webapp/frontend/dist --project-name=sharketfilter --branch=${{ github.event.workflow_run.head_branch || github.ref_name }}

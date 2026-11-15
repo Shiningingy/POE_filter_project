@@ -76,3 +76,9 @@ jobs:
       # rather than falling back to a stale catalogue and reporting valid bases as typos.
       - name: Curation validation (no silently-dropped items)
         run: python parsing_tool/validate_curation.py
+
+      # The deploy docs once named a workflow that had been deleted for five months, and
+      # nothing noticed. Every .github/workflows/*.yml path in DEPLOYMENT.md / README.md
+      # must exist.
+      - name: Docs name only workflows that exist
+        run: python parsing_tool/check_doc_workflows.py
