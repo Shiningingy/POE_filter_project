@@ -17,9 +17,25 @@ shipped filter has 0 of both.
 So "nothing on the ground" is unreachable in this mode; the ceiling is "as quiet as the
 game permits". Hence `HIDE_CMD = "Minimal"` when the mode is ruthless.
 
-**Emit no style lines on a hide block.** Minimal honours styling exactly like Hide, so a
-styled hide block is visible clutter. `blockText()` strips `Set*`, `PlayEffect`,
-`MinimapIcon` and sound lines whenever the block is a hide. NeverSink emits conditions only.
+**A hide block carries no THEME style, only the quiet recipe.** `blockText()` strips the
+theme's `Set*`, `PlayEffect`, `MinimapIcon` and sound lines whenever the block is a hide
+(so no font size, sound, icon or effect), then adds `QUIET_HIDE_STYLE` (`filterStyle.ts`):
+
+```
+    SetTextColor 0 0 0 80
+    SetBorderColor 0 0 0 0
+    SetBackgroundColor 0 0 0 0
+```
+
+and **no `SetFontSize`**. Minimal draws like a Show at font size 1, but it is not a Show:
+in some league mechanics the game really hides an item that a Minimal block matches. The
+recipe makes the label invisible, so the screen is clean instead of showing small text
+(owner, in-game test 2026-08-25, 45e0f8c; refined 2026-11-14). Text alpha is 80, not 0,
+because the game refuses to load a filter with `SetTextColor 0 0 0 0`.
+
+*(This section used to say "emit no style lines on a hide block ... NeverSink emits
+conditions only". The in-game test reversed it: a bare `Minimal` draws the game's own
+default plate, which is the clutter the hide exists to remove.)*
 
 ---
 
