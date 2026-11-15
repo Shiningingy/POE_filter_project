@@ -47,8 +47,12 @@ as a TypeScript port that runs in the browser.
   = separate trees. Core generator code is identical across modes. **Ruthless
   forbids the `Hide` keyword in-game** — hidden tiers MUST emit `Minimal` (GGG's
   Ruthless-only Hide-equivalent; before it existed the workaround was FontSize 1 +
-  transparent border/background). `HIDE_CMD` resolves to `Minimal` under ruthless in
-  the generator. It is mode-aware via `GeneratorData.mode` (fed from `game_mode`), and
+  transparent border/background). **Minimal is not that workaround renamed**: it draws
+  like a Show at font size 1, but in some league mechanics the game really hides an
+  item a Minimal block matches, so do not "simplify" it back into a size-1 Show. A
+  hide block keeps only the quiet recipe (`QUIET_HIDE_STYLE`, see
+  `reference_poe_filter_format.md` §1) so the label is invisible (owner, 2026-11-14).
+  `HIDE_CMD` resolves to `Minimal` under ruthless in the generator. It is mode-aware via `GeneratorData.mode` (fed from `game_mode`), and
   the ruthless case is pinned by the `ruthless-soft-ch` fixture golden.
 - **coverage: cherry-pick + safety net + catch-all** — a category does **not**
   have to name every base it covers, so "this base type is in no `base_mapping`"
