@@ -11,6 +11,7 @@ import { useTranslation, ruleFactorLabel } from '../utils/localization';
 import type { Language } from '../utils/localization';
 import { resolveStyle } from '../utils/styleResolver';
 import { resolveThemeKey } from '../utils/filterStyle';
+import { categoryKeyOf, mergeCategoryDoc, splitCategoryDoc } from '../utils/categoryDoc';
 import { STRICTNESS_LEVELS, type StrictnessLevel, type LevelingSelection, isLevelingSelected } from '../utils/filterGenerator';
 
 interface EditorViewProps {
@@ -224,27 +225,30 @@ const EditorView: React.FC<EditorViewProps> = ({
       }));
   };
 
+  // Every path that (re)loads the open category goes through here, so the editor
+  // document is always the tier file WITH the mapping's rules (mergeCategoryDoc).
+  // A reload that skipped the mapping once handed the editor a rules-less document,
+  // and the next auto-save wiped the category's rules on disk.
+  const fetchCategoryFiles = (file: CategoryFile) => {
+      const ts = new Date().getTime();
+      return Promise.all([
+          axios.get(`${API_BASE_URL}/api/config/${file.tier_path}?t=${ts}`),
+          file.mapping_path ? axios.get(`${API_BASE_URL}/api/config/${file.mapping_path}?t=${ts}`) : Promise.resolve({ data: { content: {} } })
+      ]).then(([tierRes, mapRes]) => ({ tierData: tierRes.data.content, mapData: mapRes.data.content }));
+  };
+
   useEffect(() => {
     if (selectedFile?.tier_path) {
-      const ts = new Date().getTime();
-      Promise.all([
-          axios.get(`${API_BASE_URL}/api/config/${selectedFile.tier_path}?t=${ts}`),
-          selectedFile.mapping_path ? axios.get(`${API_BASE_URL}/api/config/${selectedFile.mapping_path}?t=${ts}`) : Promise.resolve({ data: { content: {} } })
-      ])
-      .then(([tierRes, mapRes]) => {
-            const tierData = tierRes.data.content;
-            const mapData = mapRes.data.content;
-            const catKey = Object.keys(tierData).find(k => !k.startsWith('//'));
-            const mergedData = JSON.parse(JSON.stringify(tierData));
+      fetchCategoryFiles(selectedFile)
+      .then(({ tierData, mapData }) => {
+            const mergedData = mergeCategoryDoc(tierData, mapData);
+            const catKey = categoryKeyOf(mergedData);
 
             const mic = mapData?._meta?.item_class;
             setMappingItemClass(typeof mic === 'string' ? mic : (mic?.en ?? null));
             setSuppressBasetypeSounds(!!mapData?._meta?.suppress_basetype_sounds);
 
             if (catKey) {
-                if (mapData.rules) {
-                    mergedData[catKey].rules = mapData.rules;
-                }
                 const keys = Object.keys(mergedData[catKey]).filter(k => !k.startsWith('//') && k !== '_meta' && k !== 'rules');
                 fetchTierItems(keys);
             }
@@ -261,28 +265,19 @@ const EditorView: React.FC<EditorViewProps> = ({
       if (!selectedFile) return;
       try {
           const currentViewData = JSON.parse(raw ?? configContent);
-          const catKey = Object.keys(currentViewData).find(k => !k.startsWith('//'));
-          
-          if (catKey) {
-              const viewCategory = currentViewData[catKey];
-              const rules = viewCategory.rules || [];
-              const tierToSave = JSON.parse(JSON.stringify(currentViewData));
-              const saveCategory = tierToSave[catKey];
-              
-              delete saveCategory.rules;
-              if (saveCategory._meta?.rules) delete saveCategory._meta.rules;
 
-              let mappingToSave: any = null;
+          if (categoryKeyOf(currentViewData)) {
+              let mapData: any = null;
               if (selectedFile.mapping_path) {
                   const ts = new Date().getTime();
                   const mapRes = await axios.get(`${API_BASE_URL}/api/config/${selectedFile.mapping_path}?t=${ts}`);
-                  mappingToSave = mapRes.data.content;
-                  mappingToSave.rules = rules;
+                  mapData = mapRes.data.content;
               }
+              const { tier: tierToSave, mapping: mappingToSave } = splitCategoryDoc(currentViewData, mapData)!;
 
               await Promise.all([
                   axios.post(`${API_BASE_URL}/api/config/${selectedFile.tier_path}`, tierToSave),
-                  selectedFile.mapping_path ? axios.post(`${API_BASE_URL}/api/config/${selectedFile.mapping_path}`, mappingToSave) : Promise.resolve()
+                  selectedFile.mapping_path && mappingToSave ? axios.post(`${API_BASE_URL}/api/config/${selectedFile.mapping_path}`, mappingToSave) : Promise.resolve()
               ]);
               
               if (!silent) alert(t.saveSuccess);
@@ -544,8 +539,8 @@ const EditorView: React.FC<EditorViewProps> = ({
                 // Refresh the open file if its visibility was changed
                 const currentRel = selectedFile?.tier_path?.replace(/^tier_definition\//, '');
                 if (currentRel && touchedFiles.includes(currentRel)) {
-                    axios.get(`/api/config/${selectedFile!.tier_path}`)
-                        .then(res => setConfigContent(JSON.stringify(res.data.content, null, 2)))
+                    fetchCategoryFiles(selectedFile!)
+                        .then(({ tierData, mapData }) => setConfigContent(JSON.stringify(mergeCategoryDoc(tierData, mapData), null, 2)))
                         .catch(err => console.error(err));
                 }
             }}
