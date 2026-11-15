@@ -54,6 +54,12 @@ jobs:
         working-directory: webapp/frontend
         run: node test_decorator_composition.mjs
 
+      # The deploy ships what create_demo_bundle.py writes, so a lost input must fail the
+      # bake instead of baking an empty catalogue. Runs on a temp copy of the tree.
+      - name: Demo-bundle bake (fails on a missing input)
+        working-directory: webapp/frontend
+        run: node test_demo_bundle_bake.mjs
+
       # The editor preview must emit what the filter exports. Bakes the demo bundle and
       # verifies the bake is fresh first — a stale bundle once turned a whole session's
       # PASSes into comparisons against frozen data.

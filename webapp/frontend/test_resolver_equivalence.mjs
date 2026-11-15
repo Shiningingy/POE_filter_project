@@ -38,7 +38,7 @@
 import { build } from 'esbuild';
 import { execSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { mkdtempSync, writeFileSync, rmSync, readFileSync, existsSync, readdirSync } from 'node:fs';
+import { mkdtempSync, writeFileSync, rmSync, readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname, posix } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -47,7 +47,23 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..', '..');
 const PY = process.env.PYTHON || 'python';
 const DEMO_DIR = join(HERE, 'public', 'demo_data');
-const INPUT_DIR = join(ROOT, 'filter_generation', 'data');
+// Every input the bundle is built from, relative to ROOT: INPUT_ROOTS in the baker,
+// typed again here on purpose (see below). The stamp records the baker's list, and a
+// mismatch is reported as drift rather than as a stale bundle.
+const INPUT_ROOTS = [
+  'filter_generation/data',
+  'data/from_filter_blade/BaseTypes.csv',
+  'data/from_filter_blade/3.28/bonusItemInfo.json',
+  'data/from_ggpk/baseitemtypes.json',
+  'data/from_ggpk/currencyitems.json',
+  'data/from_ggpk/ch_simplified/baseitemtypes.json',
+  'data/from_ggpk/ch_simplified/currency_descriptions.json',
+  'data/from_ggpk/ch_simplified/words.json',
+  'data/unique_base_db.json',
+  'data/unique_name_zh_extra.json',
+  'sound_files/Default',
+  'sound_files/Sharket掉落音效',
+];
 const SHOW = 10;
 
 // ── Bake the demo bundle, and refuse to trust it ─────────────────────────────
@@ -60,17 +76,22 @@ const SHOW = 10;
 //
 // The fingerprint is recomputed HERE, independently, because a verifier that asks the
 // suspect to verify itself is not a verifier. Canonical line per file, sorted by POSIX
-// relpath:  relpath \0 sha256(bytes) \n  — mirroring source_fingerprint() in the baker.
-const fingerprintInputs = (dir) => {
+// path from ROOT:  relpath \0 sha256(bytes) \n  — mirroring source_fingerprint() in the baker.
+const fingerprintInputs = (roots) => {
   const files = [];
   const walk = (abs, rel) => {
     for (const e of readdirSync(abs, { withFileTypes: true })) {
-      const childRel = rel ? posix.join(rel, e.name) : e.name;
+      const childRel = posix.join(rel, e.name);
       if (e.isDirectory()) walk(join(abs, e.name), childRel);
       else if (e.isFile()) files.push([childRel, join(abs, e.name)]);
     }
   };
-  walk(dir, '');
+  for (const rel of roots) {
+    const abs = join(ROOT, ...rel.split('/'));
+    if (!existsSync(abs)) continue;
+    if (statSync(abs).isDirectory()) walk(abs, rel);
+    else files.push([rel, abs]);
+  }
   files.sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
   const h = createHash('sha256');
   for (const [rel, abs] of files) {
@@ -99,9 +120,16 @@ if (!existsSync(stampFile)) {
                 'verified stamp, so the bundle is of unknown age. A pass here would be meaningless.');
   process.exit(1);
 }
-const liveFingerprint = fingerprintInputs(INPUT_DIR);
-if (JSON.parse(readFileSync(stampFile, 'utf8')).source_fingerprint !== liveFingerprint) {
-  console.error('\nSTALE BUNDLE — demo_data was not rebuilt from the current filter_generation/data.');
+const stamp = JSON.parse(readFileSync(stampFile, 'utf8'));
+if (JSON.stringify(stamp.inputs) !== JSON.stringify(INPUT_ROOTS)) {
+  console.error('\nFINGERPRINT SCOPE DRIFT — the baker fingerprints a different input list than this test.' +
+                `\n  baker: ${JSON.stringify(stamp.inputs)}\n  here:  ${JSON.stringify(INPUT_ROOTS)}` +
+                '\nUpdate INPUT_ROOTS here to match create_demo_bundle.py.');
+  process.exit(1);
+}
+const liveFingerprint = fingerprintInputs(INPUT_ROOTS);
+if (stamp.source_fingerprint !== liveFingerprint) {
+  console.error('\nSTALE BUNDLE — demo_data was not rebuilt from the current inputs.');
   process.exit(1);
 }
 console.log(`  bundle verified fresh (inputs ${liveFingerprint.slice(0, 16)}…)`);
