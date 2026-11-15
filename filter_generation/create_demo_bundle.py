@@ -44,10 +44,11 @@ OUT_DIR = PROJECT_ROOT / "webapp" / "frontend" / "public" / "demo_data"
 SOUND_DIR = PROJECT_ROOT / "sound_files"
 SOUND_SUBDIRS = ("Default", "Sharket掉落音效")
 # Inputs the bundle cannot ship without, relative to PROJECT_ROOT. A missing or
-# empty one fails the bake before anything is written. The rule: an input that
-# is TRACKED in git is required, because a CI runner has exactly the tracked
-# tree, so a missing one means the tree is damaged, not that a dev box lacks
-# optional data. Two inputs are optional and stay off this list:
+# empty one fails the bake before anything is written. The rule: an input is
+# required when it is TRACKED in git AND the bundle is degraded without it,
+# because a CI runner has exactly the tracked tree, so a missing one means the
+# tree is damaged, not that a dev box lacks optional data. Two inputs are
+# optional and stay off this list:
 #   * filter_generation/data/settings.json: gitignored per-user state;
 #     main.get_settings() falls back to a default when it is absent;
 #   * filter_generation/data/class_properties.yaml: leaf overrides that
@@ -137,7 +138,9 @@ def check_inputs() -> None:
     """Refuse to start on a required input that is missing or empty.
 
     Runs before anything is loaded or deleted, so a failed bake leaves the
-    previous bundle in place; its stamp no longer matches, so it reads stale.
+    previous bundle in place. Here the input changed, so its stamp no longer
+    matches and it reads stale. (A later check_loaded failure on an unchanged
+    input also leaves it in place, but its stamp may still match.)
     """
     problems = []
     for rel in REQUIRED_INPUTS:
@@ -161,15 +164,18 @@ def load_backend() -> list:
     the loaders, so local dev behaves exactly as before.
     """
     log = io.StringIO()
-    with contextlib.redirect_stdout(log):
-        backend.load_base_types()
-        backend.load_translations()
-        backend.load_stack_sizes()
-        backend.load_category_map()
-        backend.load_class_hierarchy()
-        backend.load_filter_conditions()
-        backend.load_bonus_item_info()
-    sys.stdout.write(log.getvalue())
+    try:
+        with contextlib.redirect_stdout(log):
+            backend.load_base_types()
+            backend.load_translations()
+            backend.load_stack_sizes()
+            backend.load_category_map()
+            backend.load_class_hierarchy()
+            backend.load_filter_conditions()
+            backend.load_bonus_item_info()
+    finally:
+        # Also when a loader raises past its own try: keep the lines before the traceback.
+        sys.stdout.write(log.getvalue())
     return [f"a loader reported: {line.strip()}" for line in log.getvalue().splitlines()
             if line.lstrip().startswith(("Error", "Warning"))]
 
@@ -192,7 +198,8 @@ def check_loaded(bundle: dict, reported: list) -> None:
         (backend.CLASS_HIERARCHY_TREE, "no class hierarchy loaded from filter_generation/data/class_hierarchy.yaml"),
         (backend.FILTER_CONDITIONS, "no conditions loaded from filter_generation/data/filter_conditions.yaml"),
         (backend.ITEM_BONUS_INFO, "no hover info loaded from data/from_filter_blade/3.28/bonusItemInfo.json"),
-        (backend.UNIQUE_BASE_INFO, "no unique bases loaded from data/from_filter_blade/3.28/bonusItemInfo.json"),
+        (backend.UNIQUE_BASE_INFO, "no unique bases loaded from data/from_filter_blade/3.28/bonusItemInfo.json"
+                                  " + data/unique_base_db.json"),
         (bundle["mappings"], "no mappings loaded from filter_generation/data/base_mapping"),
         (bundle["tiers"], "no tiers loaded from filter_generation/data/tier_definition"),
         (bundle["theme"], "no theme loaded from filter_generation/data/theme/sharket/sharket_theme.json"),
