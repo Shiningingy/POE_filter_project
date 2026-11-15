@@ -1,0 +1,58 @@
+name: Deploy to Cloudflare Pages (sharketfilter.xyz)
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'webapp/frontend/**'
+      - 'webapp/backend/**'
+      - 'filter_generation/data/**'
+      - 'filter_generation/create_demo_bundle.py'
+      - 'data/**'
+      - 'sound_files/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Export static web data from canonical filter data
+        run: |
+          pip install -r webapp/backend/requirements.txt
+          python filter_generation/create_demo_bundle.py
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: webapp/frontend/package-lock.json
+
+      - name: Build (backend-free mode)
+        env:
+          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
+        run: |
+          cd webapp/frontend
+          npm ci
+          npm run build:demo
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy webapp/frontend/dist --project-name=sharketfilter
